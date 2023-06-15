@@ -1,0 +1,80 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33513.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwilightImperiumUltimate.Core", "TwilightImperiumUltimate.Core\TwilightImperiumUltimate.Core.csproj", "{5102DA04-D9F2-494F-8F4A-14EB3C6D961E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwilightImperiumUltimate.API", "TwilightImperiumUltimate.API\TwilightImperiumUltimate.API.csproj", "{80B5812E-0085-4854-BF86-A71C5A4731F0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwilightImperiumUltimate.Tests", "TwilightImperiumUltimate.Tests\TwilightImperiumUltimate.Tests.csproj", "{203737E6-5DFE-48CF-B93C-6D0FEB3156FD}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TwilightImperiumUltimate.Database", "TwilightImperiumUltimate.Database\TwilightImperiumUltimate.Database.sqlproj", "{5CAF6100-06E4-46C8-B60F-14595D56490C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwilightImperiumUltimate.Mobile", "TwilightImperium.Mobile\TwilightImperiumUltimate.Mobile.csproj", "{AFEDC2FA-65DD-4A5E-8F45-A03E10958C60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwilightImperiumUltimate.DataAccess", "TwilightImperiumUltimate.DataAccess\TwilightImperiumUltimate.DataAccess.csproj", "{D7099654-04C9-4AC0-9566-14A0B0E7B068}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwilightImperiumUltimate.Business", "TwilightImperiumUltimate.Business\TwilightImperiumUltimate.Business.csproj", "{7A63D0BB-DEEB-4E46-80DA-D6147BDB02A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwilightImperiumUltimate.Web", "TwilightImperiumUltimate.Web\TwilightImperiumUltimate.Web.csproj", "{07DBB1CC-046B-40C5-BE66-6D86A7CB317A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2ECE60E2-E6EA-43B1-A95E-A60870EEADEA}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5102DA04-D9F2-494F-8F4A-14EB3C6D961E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5102DA04-D9F2-494F-8F4A-14EB3C6D961E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5102DA04-D9F2-494F-8F4A-14EB3C6D961E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5102DA04-D9F2-494F-8F4A-14EB3C6D961E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80B5812E-0085-4854-BF86-A71C5A4731F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80B5812E-0085-4854-BF86-A71C5A4731F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80B5812E-0085-4854-BF86-A71C5A4731F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80B5812E-0085-4854-BF86-A71C5A4731F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{203737E6-5DFE-48CF-B93C-6D0FEB3156FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{203737E6-5DFE-48CF-B93C-6D0FEB3156FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{203737E6-5DFE-48CF-B93C-6D0FEB3156FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{203737E6-5DFE-48CF-B93C-6D0FEB3156FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CAF6100-06E4-46C8-B60F-14595D56490C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CAF6100-06E4-46C8-B60F-14595D56490C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CAF6100-06E4-46C8-B60F-14595D56490C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{5CAF6100-06E4-46C8-B60F-14595D56490C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CAF6100-06E4-46C8-B60F-14595D56490C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CAF6100-06E4-46C8-B60F-14595D56490C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{AFEDC2FA-65DD-4A5E-8F45-A03E10958C60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFEDC2FA-65DD-4A5E-8F45-A03E10958C60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFEDC2FA-65DD-4A5E-8F45-A03E10958C60}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{AFEDC2FA-65DD-4A5E-8F45-A03E10958C60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFEDC2FA-65DD-4A5E-8F45-A03E10958C60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFEDC2FA-65DD-4A5E-8F45-A03E10958C60}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{D7099654-04C9-4AC0-9566-14A0B0E7B068}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7099654-04C9-4AC0-9566-14A0B0E7B068}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7099654-04C9-4AC0-9566-14A0B0E7B068}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7099654-04C9-4AC0-9566-14A0B0E7B068}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A63D0BB-DEEB-4E46-80DA-D6147BDB02A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A63D0BB-DEEB-4E46-80DA-D6147BDB02A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A63D0BB-DEEB-4E46-80DA-D6147BDB02A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A63D0BB-DEEB-4E46-80DA-D6147BDB02A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07DBB1CC-046B-40C5-BE66-6D86A7CB317A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07DBB1CC-046B-40C5-BE66-6D86A7CB317A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07DBB1CC-046B-40C5-BE66-6D86A7CB317A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07DBB1CC-046B-40C5-BE66-6D86A7CB317A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3EAD6904-CD29-42C1-80C7-B437904C2A6D}
+	EndGlobalSection
+EndGlobal
