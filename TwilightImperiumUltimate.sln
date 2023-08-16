@@ -3,21 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33513.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwilightImperiumUltimate.Core", "TwilightImperiumUltimate.Core\TwilightImperiumUltimate.Core.csproj", "{5102DA04-D9F2-494F-8F4A-14EB3C6D961E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwilightImperiumUltimate.Core", "src\TwilightImperiumUltimate.Core\TwilightImperiumUltimate.Core.csproj", "{5102DA04-D9F2-494F-8F4A-14EB3C6D961E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwilightImperiumUltimate.API", "TwilightImperiumUltimate.API\TwilightImperiumUltimate.API.csproj", "{80B5812E-0085-4854-BF86-A71C5A4731F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwilightImperiumUltimate.API", "src\TwilightImperiumUltimate.API\TwilightImperiumUltimate.API.csproj", "{80B5812E-0085-4854-BF86-A71C5A4731F0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwilightImperiumUltimate.Tests", "TwilightImperiumUltimate.Tests\TwilightImperiumUltimate.Tests.csproj", "{203737E6-5DFE-48CF-B93C-6D0FEB3156FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwilightImperiumUltimate.Tests", "tests\TwilightImperiumUltimate.Tests\TwilightImperiumUltimate.Tests.csproj", "{203737E6-5DFE-48CF-B93C-6D0FEB3156FD}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TwilightImperiumUltimate.Database", "TwilightImperiumUltimate.Database\TwilightImperiumUltimate.Database.sqlproj", "{5CAF6100-06E4-46C8-B60F-14595D56490C}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TwilightImperiumUltimate.Database", "src\TwilightImperiumUltimate.Database\TwilightImperiumUltimate.Database.sqlproj", "{5CAF6100-06E4-46C8-B60F-14595D56490C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwilightImperiumUltimate.DataAccess", "TwilightImperiumUltimate.DataAccess\TwilightImperiumUltimate.DataAccess.csproj", "{D7099654-04C9-4AC0-9566-14A0B0E7B068}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwilightImperiumUltimate.DataAccess", "src\TwilightImperiumUltimate.DataAccess\TwilightImperiumUltimate.DataAccess.csproj", "{D7099654-04C9-4AC0-9566-14A0B0E7B068}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwilightImperiumUltimate.Business", "TwilightImperiumUltimate.Business\TwilightImperiumUltimate.Business.csproj", "{7A63D0BB-DEEB-4E46-80DA-D6147BDB02A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwilightImperiumUltimate.Business", "src\TwilightImperiumUltimate.Business\TwilightImperiumUltimate.Business.csproj", "{7A63D0BB-DEEB-4E46-80DA-D6147BDB02A5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwilightImperiumUltimate.Web", "TwilightImperiumUltimate.Web\TwilightImperiumUltimate.Web.csproj", "{07DBB1CC-046B-40C5-BE66-6D86A7CB317A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwilightImperiumUltimate.Web", "src\TwilightImperiumUltimate.Web\TwilightImperiumUltimate.Web.csproj", "{07DBB1CC-046B-40C5-BE66-6D86A7CB317A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwilightImperiumUltimate.Mobile", "TwilightImperiumUltimate.Mobile\TwilightImperiumUltimate.Mobile.csproj", "{9FC84B0B-8DBD-4FB3-8A6E-D390104D7316}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwilightImperiumUltimate.Mobile", "src\TwilightImperiumUltimate.Mobile\TwilightImperiumUltimate.Mobile.csproj", "{9FC84B0B-8DBD-4FB3-8A6E-D390104D7316}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2ECE60E2-E6EA-43B1-A95E-A60870EEADEA}"
 	ProjectSection(SolutionItems) = preProject
