@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0-preview.5.23280.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0-preview.5.23280.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0-preview.5.23280.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="8.0.0-preview.5.23280.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="SonarAnalyzer.CSharp" Version="9.4.0.72892" />
+    <PackageReference Update="StyleCop.Analyzers" Version="1.2.0-beta.507" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Configurations\Game\" />
+    <Folder Include="Configurations\Settings\" />
+    <Folder Include="Configurations\Units\" />
+    <Folder Include="Tables\Logs\" />
+    <Folder Include="Tables\Setting\" />
+    <Folder Include="Tables\Units\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TwilightImperiumUltimate.Core\TwilightImperiumUltimate.Core.csproj" />
+  </ItemGroup>
+
+</Project>
