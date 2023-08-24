@@ -1,6 +1,6 @@
 ﻿namespace TwilightImperiumUltimate.Core.Enums.Races;
 
-public enum RaceName
+public enum FactionName
 {
     None,
 

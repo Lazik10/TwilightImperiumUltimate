@@ -13,7 +13,7 @@ public class SystemTile : IEntity, IGameVersion
 
     public SystemTileCategory TileCategory { get; set; }
 
-    public RaceName RaceName { get; set; }
+    public FactionName RaceName { get; set; }
 
     public IReadOnlyCollection<Planet> Planets { get; set; } = new List<Planet>();
 
@@ -25,7 +25,7 @@ public class SystemTile : IEntity, IGameVersion
 
     public bool HasLegendaryPlanet => Planets.Any(x => x.IsLegendary);
 
-    public bool IsHomeSystem => RaceName != RaceName.None;
+    public bool IsHomeSystem => RaceName != FactionName.None;
 
     public GameVersion GameVersion { get; set; }
 }

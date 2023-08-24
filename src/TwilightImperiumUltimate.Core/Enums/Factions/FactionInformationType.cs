@@ -1,6 +1,6 @@
 ﻿namespace TwilightImperiumUltimate.Core.Enums.Races;
 
-public enum RaceInformationType
+public enum FactionInformationType
 {
     Action,
     PromissaryNote,

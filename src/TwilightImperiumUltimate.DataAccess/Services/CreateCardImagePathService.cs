@@ -1,4 +1,6 @@
-﻿namespace TwilightImperiumUltimate.DataAccess.Services;
+﻿using System.Globalization;
+
+namespace TwilightImperiumUltimate.DataAccess.Services;
 
 public class CreateCardImagePathService : ICreateCardImagePathService
 {
@@ -12,6 +14,6 @@ public class CreateCardImagePathService : ICreateCardImagePathService
         if (string.IsNullOrEmpty(enumName.ToString()))
             throw new ArgumentException("Enum name is a required parameter.");
 
-        return Path.Combine(_basePath, _language, cardType.ToString(), $"{enumName}.webp");
+        return Path.Combine(_basePath, _language, "cards", cardType.ToString().ToLowerInvariant(), $"{enumName}.png");
     }
 }

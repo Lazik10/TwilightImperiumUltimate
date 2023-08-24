@@ -4,16 +4,16 @@ using TwilightImperiumUltimate.Core.Enums.Races;
 using TwilightImperiumUltimate.Core.Interfaces;
 using TwilightImperiumUltimate.DataAccess.RelationshipEntities;
 
-namespace TwilightImperiumUltimate.Core.Entities.Races;
+namespace TwilightImperiumUltimate.Core.Entities.Factions;
 
-public class Race : IEntity, IGameVersion
+public class Faction : IEntity, IGameVersion
 {
     public int Id { get; set; }
 
     /// <summary>
     /// Gets or sets race Name.
     /// </summary>
-    public RaceName RaceName { get; set; }
+    public FactionName FactionName { get; set; }
 
     /// <summary>
     /// Gets or sets race home system tile.

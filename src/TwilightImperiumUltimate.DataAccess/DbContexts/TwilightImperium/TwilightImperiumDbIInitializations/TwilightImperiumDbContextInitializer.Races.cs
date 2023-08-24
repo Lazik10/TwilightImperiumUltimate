@@ -9,140 +9,140 @@ public partial class TwilightImperiumDbContextInitializer
     {
         using var dbContext = _dbContextFactory.CreateDbContext();
 
-        var races = new List<Race>()
+        var races = new List<Faction>()
         {
             // Base Game
-            new Race()
+            new Faction()
             {
-                RaceName = RaceName.TheArborec,
+                FactionName = FactionName.TheArborec,
                 HomeSystem = SystemTileName.Tile05,
                 Commodities = 3,
                 ComplexityRating = ComplexityRating.High,
                 GameVersion = GameVersion.BaseGame,
             },
-            new Race()
+            new Faction()
             {
-                RaceName = RaceName.TheBaronyOfLetnev,
+                FactionName = FactionName.TheBaronyOfLetnev,
                 HomeSystem = SystemTileName.Tile10,
                 Commodities = 2,
                 ComplexityRating = ComplexityRating.Low,
                 GameVersion = GameVersion.BaseGame,
             },
-            new Race()
+            new Faction()
             {
-                RaceName = RaceName.TheClanOfSaar,
+                FactionName = FactionName.TheClanOfSaar,
                 HomeSystem = SystemTileName.Tile11,
                 Commodities = 3,
                 ComplexityRating = ComplexityRating.Medium,
                 GameVersion = GameVersion.BaseGame,
             },
-            new Race()
+            new Faction()
             {
-                RaceName = RaceName.TheEmbersOfMuaat,
+                FactionName = FactionName.TheEmbersOfMuaat,
                 HomeSystem = SystemTileName.Tile04,
                 Commodities = 4,
                 ComplexityRating = ComplexityRating.High,
                 GameVersion = GameVersion.BaseGame,
             },
-            new Race()
+            new Faction()
             {
-                RaceName = RaceName.TheEmiratesOfHacan,
+                FactionName = FactionName.TheEmiratesOfHacan,
                 HomeSystem = SystemTileName.Tile16,
                 Commodities = 6,
                 ComplexityRating = ComplexityRating.Low,
                 GameVersion = GameVersion.BaseGame,
             },
-            new Race()
+            new Faction()
             {
-                RaceName = RaceName.TheFederationOfSol,
+                FactionName = FactionName.TheFederationOfSol,
                 HomeSystem = SystemTileName.Tile01,
                 Commodities = 4,
                 ComplexityRating = ComplexityRating.Low,
                 GameVersion = GameVersion.BaseGame,
             },
-            new Race()
+            new Faction()
             {
-                RaceName = RaceName.TheGhostsOfCreuss,
+                FactionName = FactionName.TheGhostsOfCreuss,
                 HomeSystem = SystemTileName.Tile17,
                 Commodities = 4,
                 ComplexityRating = ComplexityRating.Medium,
                 GameVersion = GameVersion.BaseGame,
             },
-            new Race()
+            new Faction()
             {
-                RaceName = RaceName.TheL1z1xMindnet,
+                FactionName = FactionName.TheL1z1xMindnet,
                 HomeSystem = SystemTileName.Tile06,
                 Commodities = 2,
                 ComplexityRating = ComplexityRating.Low,
                 GameVersion = GameVersion.BaseGame,
             },
-            new Race()
+            new Faction()
             {
-                RaceName = RaceName.TheMentacCoalition,
+                FactionName = FactionName.TheMentacCoalition,
                 HomeSystem = SystemTileName.Tile02,
                 Commodities = 2,
                 ComplexityRating = ComplexityRating.High,
                 GameVersion = GameVersion.BaseGame,
             },
-            new Race()
+            new Faction()
             {
-                RaceName = RaceName.TheNaaluCollective,
+                FactionName = FactionName.TheNaaluCollective,
                 HomeSystem = SystemTileName.Tile09,
                 Commodities = 3,
                 ComplexityRating = ComplexityRating.Medium,
                 GameVersion = GameVersion.BaseGame,
             },
-            new Race()
+            new Faction()
             {
-                RaceName = RaceName.TheNecroVirus,
+                FactionName = FactionName.TheNecroVirus,
                 HomeSystem = SystemTileName.Tile08,
                 Commodities = 3,
                 ComplexityRating = ComplexityRating.High,
                 GameVersion = GameVersion.BaseGame,
             },
-            new Race()
+            new Faction()
             {
-                RaceName = RaceName.SardakkNorr,
+                FactionName = FactionName.SardakkNorr,
                 HomeSystem = SystemTileName.Tile13,
                 Commodities = 3,
                 ComplexityRating = ComplexityRating.Medium,
                 GameVersion = GameVersion.BaseGame,
             },
-            new Race()
+            new Faction()
             {
-                RaceName = RaceName.TheUniversitiesOfJolNar,
+                FactionName = FactionName.TheUniversitiesOfJolNar,
                 HomeSystem = SystemTileName.Tile12,
                 Commodities = 4,
                 ComplexityRating = ComplexityRating.Low,
                 GameVersion = GameVersion.BaseGame,
             },
-            new Race()
+            new Faction()
             {
-                RaceName = RaceName.TheWinnu,
+                FactionName = FactionName.TheWinnu,
                 HomeSystem = SystemTileName.Tile07,
                 Commodities = 3,
                 ComplexityRating = ComplexityRating.Medium,
                 GameVersion = GameVersion.BaseGame,
             },
-            new Race()
+            new Faction()
             {
-                RaceName = RaceName.TheXxchaKingdom,
+                FactionName = FactionName.TheXxchaKingdom,
                 HomeSystem = SystemTileName.Tile14,
                 Commodities = 4,
                 ComplexityRating = ComplexityRating.Low,
                 GameVersion = GameVersion.BaseGame,
             },
-            new Race()
+            new Faction()
             {
-                RaceName = RaceName.TheYinBrotherhood,
+                FactionName = FactionName.TheYinBrotherhood,
                 HomeSystem = SystemTileName.Tile03,
                 Commodities = 2,
                 ComplexityRating = ComplexityRating.Low,
                 GameVersion = GameVersion.BaseGame,
             },
-            new Race()
+            new Faction()
             {
-                RaceName = RaceName.TheYssarilTribes,
+                FactionName = FactionName.TheYssarilTribes,
                 HomeSystem = SystemTileName.Tile15,
                 Commodities = 3,
                 ComplexityRating = ComplexityRating.Low,
@@ -150,65 +150,65 @@ public partial class TwilightImperiumDbContextInitializer
             },
 
             // Prophecy of Kings
-            new Race()
+            new Faction()
             {
-                RaceName = RaceName.TheArgentFlight,
+                FactionName = FactionName.TheArgentFlight,
                 HomeSystem = SystemTileName.Tile58,
                 Commodities = 3,
                 ComplexityRating = ComplexityRating.Low,
                 GameVersion = GameVersion.ProphecyOfKing,
             },
-            new Race()
+            new Faction()
             {
-                RaceName = RaceName.TheEmpyrean,
+                FactionName = FactionName.TheEmpyrean,
                 HomeSystem = SystemTileName.Tile56,
                 Commodities = 4,
                 ComplexityRating = ComplexityRating.Low,
                 GameVersion = GameVersion.ProphecyOfKing,
             },
-            new Race()
+            new Faction()
             {
-                RaceName = RaceName.TheMahactGeneSorcerers,
+                FactionName = FactionName.TheMahactGeneSorcerers,
                 HomeSystem = SystemTileName.Tile52,
                 Commodities = 3,
                 ComplexityRating = ComplexityRating.High,
                 GameVersion = GameVersion.ProphecyOfKing,
             },
-            new Race()
+            new Faction()
             {
-                RaceName = RaceName.TheNaazRokhaAlliance,
+                FactionName = FactionName.TheNaazRokhaAlliance,
                 HomeSystem = SystemTileName.Tile57,
                 Commodities = 3,
                 ComplexityRating = ComplexityRating.Low,
                 GameVersion = GameVersion.ProphecyOfKing,
             },
-            new Race()
+            new Faction()
             {
-                RaceName = RaceName.TheNomad,
+                FactionName = FactionName.TheNomad,
                 HomeSystem = SystemTileName.Tile53,
                 Commodities = 4,
                 ComplexityRating = ComplexityRating.Low,
                 GameVersion = GameVersion.ProphecyOfKing,
             },
-            new Race()
+            new Faction()
             {
-                RaceName = RaceName.TheTitansOfUl,
+                FactionName = FactionName.TheTitansOfUl,
                 HomeSystem = SystemTileName.Tile55,
                 Commodities = 2,
                 ComplexityRating = ComplexityRating.Medium,
                 GameVersion = GameVersion.ProphecyOfKing,
             },
-            new Race()
+            new Faction()
             {
-                RaceName = RaceName.TheVuilRaithCabal,
+                FactionName = FactionName.TheVuilRaithCabal,
                 HomeSystem = SystemTileName.Tile54,
                 Commodities = 2,
                 ComplexityRating = ComplexityRating.High,
                 GameVersion = GameVersion.ProphecyOfKing,
             },
-            new Race()
+            new Faction()
             {
-                RaceName = RaceName.CouncilOfKeleres,
+                FactionName = FactionName.CouncilOfKeleres,
                 HomeSystem = SystemTileName.TileKeleres1,
                 Commodities = 2,
                 ComplexityRating = ComplexityRating.Medium,
@@ -218,12 +218,12 @@ public partial class TwilightImperiumDbContextInitializer
 
         var updatedRaces = races.Select(race =>
         {
-            race.Action = $"{race.RaceName}_{nameof(Race.Action)}";
-            race.PromissaryNote = $"{race.RaceName}_{nameof(Race.PromissaryNote)}";
-            race.History = $"{race.RaceName}_{nameof(Race.History)}";
-            race.Quote = $"{race.RaceName}_{nameof(Race.Quote)}";
-            race.SystemStats = $"{race.RaceName}_{nameof(Race.SystemStats)}";
-            race.SystemInfo = $"{race.RaceName}_{nameof(Race.SystemInfo)}";
+            race.Action = $"{race.FactionName}_{nameof(Faction.Action)}";
+            race.PromissaryNote = $"{race.FactionName}_{nameof(Faction.PromissaryNote)}";
+            race.History = $"{race.FactionName}_{nameof(Faction.History)}";
+            race.Quote = $"{race.FactionName}_{nameof(Faction.Quote)}";
+            race.SystemStats = $"{race.FactionName}_{nameof(Faction.SystemStats)}";
+            race.SystemInfo = $"{race.FactionName}_{nameof(Faction.SystemInfo)}";
             return race;
         });
 
