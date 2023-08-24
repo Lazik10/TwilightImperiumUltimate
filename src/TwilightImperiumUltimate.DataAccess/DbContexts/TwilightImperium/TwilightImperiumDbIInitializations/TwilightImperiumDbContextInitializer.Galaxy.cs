@@ -12,7 +12,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile01,
-                RaceName = RaceName.TheFederationOfSol,
+                RaceName = FactionName.TheFederationOfSol,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>()
@@ -35,7 +35,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile02,
-                RaceName = RaceName.TheMentacCoalition,
+                RaceName = FactionName.TheMentacCoalition,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>()
@@ -58,7 +58,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile03,
-                RaceName = RaceName.TheYinBrotherhood,
+                RaceName = FactionName.TheYinBrotherhood,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>()
@@ -81,7 +81,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile04,
-                RaceName = RaceName.TheEmbersOfMuaat,
+                RaceName = FactionName.TheEmbersOfMuaat,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>()
@@ -104,7 +104,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile05,
-                RaceName = RaceName.TheArborec,
+                RaceName = FactionName.TheArborec,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>()
@@ -127,7 +127,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile06,
-                RaceName = RaceName.TheL1z1xMindnet,
+                RaceName = FactionName.TheL1z1xMindnet,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>()
@@ -150,7 +150,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile07,
-                RaceName = RaceName.TheWinnu,
+                RaceName = FactionName.TheWinnu,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>()
@@ -173,7 +173,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile08,
-                RaceName = RaceName.TheNecroVirus,
+                RaceName = FactionName.TheNecroVirus,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>()
@@ -196,7 +196,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile09,
-                RaceName = RaceName.TheNaaluCollective,
+                RaceName = FactionName.TheNaaluCollective,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>()
@@ -230,7 +230,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile10,
-                RaceName = RaceName.TheBaronyOfLetnev,
+                RaceName = FactionName.TheBaronyOfLetnev,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>()
@@ -264,7 +264,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile11,
-                RaceName = RaceName.TheClanOfSaar,
+                RaceName = FactionName.TheClanOfSaar,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>()
@@ -298,7 +298,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile12,
-                RaceName = RaceName.TheUniversitiesOfJolNar,
+                RaceName = FactionName.TheUniversitiesOfJolNar,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>()
@@ -332,7 +332,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile13,
-                RaceName = RaceName.SardakkNorr,
+                RaceName = FactionName.SardakkNorr,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>()
@@ -366,7 +366,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile14,
-                RaceName = RaceName.TheXxchaKingdom,
+                RaceName = FactionName.TheXxchaKingdom,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>()
@@ -400,7 +400,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile15,
-                RaceName = RaceName.TheYssarilTribes,
+                RaceName = FactionName.TheYssarilTribes,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>()
@@ -434,7 +434,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile16,
-                RaceName = RaceName.TheEmiratesOfHacan,
+                RaceName = FactionName.TheEmiratesOfHacan,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>()
@@ -479,7 +479,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile17,
-                RaceName = RaceName.TheGhostsOfCreuss,
+                RaceName = FactionName.TheGhostsOfCreuss,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>(),
@@ -497,7 +497,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile18,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.MecatolRex,
                 Planets = new List<Planet>()
@@ -520,7 +520,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile19,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
@@ -543,7 +543,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile20,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
@@ -566,7 +566,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile21,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
@@ -589,7 +589,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile22,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
@@ -612,7 +612,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile23,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
@@ -635,7 +635,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile24,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
@@ -658,7 +658,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile25,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
@@ -688,7 +688,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile26,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
@@ -719,7 +719,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile27,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
@@ -753,7 +753,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile28,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
@@ -787,7 +787,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile29,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
@@ -821,7 +821,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile30,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
@@ -855,7 +855,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile31,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
@@ -889,7 +889,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile32,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>()
@@ -923,7 +923,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile33,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
@@ -957,7 +957,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile34,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
@@ -991,7 +991,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile35,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
@@ -1025,7 +1025,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile36,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
@@ -1059,7 +1059,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile37,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
@@ -1093,7 +1093,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile38,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
@@ -1127,7 +1127,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile39,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>(),
@@ -1145,7 +1145,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile40,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>(),
@@ -1163,7 +1163,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile41,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.GravityRift,
                 TileCategory = SystemTileCategory.Red,
                 Planets = new List<Planet>(),
@@ -1173,7 +1173,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile42,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.Nebula,
                 TileCategory = SystemTileCategory.Red,
                 Planets = new List<Planet>(),
@@ -1183,7 +1183,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile43,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Red,
                 Planets = new List<Planet>(),
@@ -1193,7 +1193,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile44,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.AsteroidField,
                 TileCategory = SystemTileCategory.Red,
                 Planets = new List<Planet>(),
@@ -1203,7 +1203,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile45,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.AsteroidField,
                 TileCategory = SystemTileCategory.Red,
                 Planets = new List<Planet>(),
@@ -1213,7 +1213,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile46,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>(),
@@ -1223,7 +1223,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile47,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>(),
@@ -1233,7 +1233,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile48,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>(),
@@ -1243,7 +1243,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile49,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>(),
@@ -1253,7 +1253,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile50,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>(),
@@ -1263,7 +1263,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile51,
-                RaceName = RaceName.TheGhostsOfCreuss,
+                RaceName = FactionName.TheGhostsOfCreuss,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.ExternalMapTile,
                 Planets = new List<Planet>()
@@ -1296,7 +1296,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile52,
-                RaceName = RaceName.TheMahactGeneSorcerers,
+                RaceName = FactionName.TheMahactGeneSorcerers,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>()
@@ -1319,7 +1319,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile53,
-                RaceName = RaceName.TheNomad,
+                RaceName = FactionName.TheNomad,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>()
@@ -1342,7 +1342,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile54,
-                RaceName = RaceName.TheVuilRaithCabal,
+                RaceName = FactionName.TheVuilRaithCabal,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>()
@@ -1365,7 +1365,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile55,
-                RaceName = RaceName.TheTitansOfUl,
+                RaceName = FactionName.TheTitansOfUl,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>()
@@ -1388,7 +1388,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile56,
-                RaceName = RaceName.TheEmpyrean,
+                RaceName = FactionName.TheEmpyrean,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>()
@@ -1411,7 +1411,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile57,
-                RaceName = RaceName.TheNaazRokhaAlliance,
+                RaceName = FactionName.TheNaazRokhaAlliance,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>()
@@ -1445,7 +1445,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile58,
-                RaceName = RaceName.TheArgentFlight,
+                RaceName = FactionName.TheArgentFlight,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>()
@@ -1490,7 +1490,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile59,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
@@ -1513,7 +1513,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile60,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
@@ -1536,7 +1536,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile61,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
@@ -1559,7 +1559,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile62,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>()
@@ -1582,7 +1582,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile63,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
@@ -1605,7 +1605,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile64,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
@@ -1635,7 +1635,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile65,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
@@ -1658,7 +1658,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile66,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
@@ -1681,7 +1681,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile67,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.GravityRift,
                 TileCategory = SystemTileCategory.Red,
                 Planets = new List<Planet>()
@@ -1704,7 +1704,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile68,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.Nebula,
                 TileCategory = SystemTileCategory.Red,
                 Planets = new List<Planet>()
@@ -1727,7 +1727,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile69,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
@@ -1761,7 +1761,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile70,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
@@ -1795,7 +1795,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile71,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
@@ -1829,7 +1829,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile72,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
@@ -1863,7 +1863,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile73,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
@@ -1897,7 +1897,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile74,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
@@ -1931,7 +1931,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile75,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
@@ -1976,7 +1976,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile76,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>()
@@ -2021,7 +2021,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile77,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>(),
@@ -2031,7 +2031,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile78,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>(),
@@ -2041,7 +2041,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile79,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.AsteroidField,
                 TileCategory = SystemTileCategory.Red,
                 Planets = new List<Planet>(),
@@ -2058,7 +2058,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile80,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.Supernova,
                 TileCategory = SystemTileCategory.Red,
                 Planets = new List<Planet>(),
@@ -2068,7 +2068,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile81,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.Supernova,
                 TileCategory = SystemTileCategory.Red,
                 Planets = new List<Planet>(),
@@ -2078,7 +2078,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile82Front,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.ExternalMapTile,
                 Planets = new List<Planet>()
@@ -2108,7 +2108,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile82Back,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.ExternalMapTile,
                 Planets = new List<Planet>()
@@ -2148,7 +2148,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile83Front,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Hyperlance,
                 Planets = new List<Planet>(),
@@ -2158,7 +2158,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile83Back,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Hyperlance,
                 Planets = new List<Planet>(),
@@ -2168,7 +2168,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile84Front,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Hyperlance,
                 Planets = new List<Planet>(),
@@ -2178,7 +2178,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile84Back,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Hyperlance,
                 Planets = new List<Planet>(),
@@ -2188,7 +2188,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile85Front,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Hyperlance,
                 Planets = new List<Planet>(),
@@ -2198,7 +2198,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile85Back,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Hyperlance,
                 Planets = new List<Planet>(),
@@ -2208,7 +2208,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile86Front,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Hyperlance,
                 Planets = new List<Planet>(),
@@ -2218,7 +2218,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile87Back,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Hyperlance,
                 Planets = new List<Planet>(),
@@ -2228,7 +2228,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile88Front,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Hyperlance,
                 Planets = new List<Planet>(),
@@ -2238,7 +2238,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile88Back,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Hyperlance,
                 Planets = new List<Planet>(),
@@ -2248,7 +2248,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile89Front,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Hyperlance,
                 Planets = new List<Planet>(),
@@ -2258,7 +2258,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile89Back,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Hyperlance,
                 Planets = new List<Planet>(),
@@ -2268,7 +2268,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile90Front,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Hyperlance,
                 Planets = new List<Planet>(),
@@ -2278,7 +2278,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile90Back,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Hyperlance,
                 Planets = new List<Planet>(),
@@ -2288,7 +2288,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile91Front,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Hyperlance,
                 Planets = new List<Planet>(),
@@ -2298,7 +2298,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile91Back,
-                RaceName = RaceName.None,
+                RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Hyperlance,
                 Planets = new List<Planet>(),
@@ -2310,7 +2310,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.TileKeleres1,
-                RaceName = RaceName.CouncilOfKeleres,
+                RaceName = FactionName.CouncilOfKeleres,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>(),
@@ -2320,7 +2320,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.TileKeleres2,
-                RaceName = RaceName.CouncilOfKeleres,
+                RaceName = FactionName.CouncilOfKeleres,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>(),
@@ -2330,7 +2330,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.TileKeleres3,
-                RaceName = RaceName.CouncilOfKeleres,
+                RaceName = FactionName.CouncilOfKeleres,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>(),

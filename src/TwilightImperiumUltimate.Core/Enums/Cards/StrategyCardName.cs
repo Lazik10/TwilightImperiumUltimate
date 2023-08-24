@@ -10,6 +10,6 @@ public enum StrategyCardName
     Warfare,
     Technology,
     Imperial,
-    DiplomacyProhpecyOfKings,
+    DiplomacyCodexOrdinian,
     ConstructionProhpecyOfKings,
 }

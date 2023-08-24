@@ -63,9 +63,9 @@ public partial class TwilightImperiumDbContextInitializer
             // Updated in Prophecy of Kings
             new StrategyCard()
             {
-                StrategyCardName = StrategyCardName.DiplomacyProhpecyOfKings,
+                StrategyCardName = StrategyCardName.DiplomacyCodexOrdinian,
                 InitiativeOrder = InitiativeOrder.Two,
-                GameVersion = GameVersion.ProphecyOfKing,
+                GameVersion = GameVersion.CodexOrdinian,
             },
             new StrategyCard()
             {

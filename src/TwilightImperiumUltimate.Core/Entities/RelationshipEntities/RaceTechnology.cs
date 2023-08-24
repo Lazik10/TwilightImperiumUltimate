@@ -1,4 +1,4 @@
-﻿using TwilightImperiumUltimate.Core.Entities.Races;
+﻿using TwilightImperiumUltimate.Core.Entities.Factions;
 using TwilightImperiumUltimate.Core.Entities.Technologies;
 using TwilightImperiumUltimate.Core.Enums.Races;
 using TwilightImperiumUltimate.Core.Enums.Technologies;
@@ -7,9 +7,9 @@ namespace TwilightImperiumUltimate.DataAccess.RelationshipEntities;
 
 public sealed class RaceTechnology
 {
-    public RaceName RaceName { get; set; }
+    public FactionName RaceName { get; set; }
 
-    public Race Race { get; set; } = new Race();
+    public Faction Race { get; set; } = new Faction();
 
     public TechnologyName TechnologyName { get; set; }
 

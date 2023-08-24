@@ -1,8 +1,8 @@
 ﻿global using Microsoft.EntityFrameworkCore;
 global using Microsoft.EntityFrameworkCore.Metadata.Builders;
+global using TwilightImperiumUltimate.Core.Entities.Factions;
 global using TwilightImperiumUltimate.Core.Entities.Galaxy;
 global using TwilightImperiumUltimate.Core.Entities.Player;
-global using TwilightImperiumUltimate.Core.Entities.Races;
 global using TwilightImperiumUltimate.Core.Entities.Technologies;
 global using TwilightImperiumUltimate.Core.Enums.Galaxy;
 global using TwilightImperiumUltimate.Core.Enums.Game;

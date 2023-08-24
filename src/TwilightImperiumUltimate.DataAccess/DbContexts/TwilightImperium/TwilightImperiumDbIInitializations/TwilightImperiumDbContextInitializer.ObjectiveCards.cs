@@ -487,7 +487,7 @@ public partial class TwilightImperiumDbContextInitializer
             },
             new ObjectiveCard()
             {
-                ObjectiveCardName = ObjectiveCardName.MasterOfTheLawsOfPhysics,
+                ObjectiveCardName = ObjectiveCardName.MasterTheLawsOfPhysics,
                 GameVersion = GameVersion.BaseGame,
                 ObjectiveCardType = ObjectiveCardType.Secret,
                 Type = CardType.Objective,

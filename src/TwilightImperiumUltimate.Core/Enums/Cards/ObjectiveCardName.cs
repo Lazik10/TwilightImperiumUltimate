@@ -75,7 +75,7 @@ public enum ObjectiveCardName
     LearnTheSecretsOfTheCosmos,
     MakeAnExampleOfTheirWorld,
     MakeAnExampleOfTheirWorldOmega,
-    MasterOfTheLawsOfPhysics,
+    MasterTheLawsOfPhysics,
     MechanizeTheMilitary,
     MineRareMinerals,
     MonopolizeProduction,

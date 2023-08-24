@@ -14,6 +14,8 @@ public partial class TwilightImperiumDbContext : DbContext
 
     public virtual DbSet<FrontierCard> FrontierCards { get; set; }
 
+    public virtual DbSet<ObjectiveCard> ObjectivesCards { get; set; }
+
     public virtual DbSet<RelicCard> RelicCards { get; set; }
 
     public virtual DbSet<StrategyCard> StrategyCards { get; set; }
@@ -29,7 +31,7 @@ public partial class TwilightImperiumDbContext : DbContext
     public virtual DbSet<Player> Players { get; set; }
 
     // Races
-    public virtual DbSet<Race> Races { get; set; }
+    public virtual DbSet<Faction> Factions { get; set; }
 
     // Relationships
     public virtual DbSet<RaceTechnology> RaceTechnology { get; set; }
