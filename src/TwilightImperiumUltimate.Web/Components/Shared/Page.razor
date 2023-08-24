@@ -1,0 +1,10 @@
+﻿<div class="page">
+    <div class="page-padding">
+        @ChildContent
+    </div>
+</div>
+
+@code{
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+}

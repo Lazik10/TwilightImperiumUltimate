@@ -1,0 +1,25 @@
+﻿.page {
+    width: 100%;
+}
+
+.page-padding {
+    padding: 0% 15% 1.5% 15%;
+}
+
+@media (max-width: 1024px) {
+    .page {
+        padding: 0% 10% 1.5% 10%;
+    }
+}
+
+@media (max-width: 768px) {
+    .page {
+        padding: 0% 5% 1% 5%;
+    }
+}
+
+@media (max-width: 576px) {
+    .page {
+        padding: 0% 2% 1% 2%;
+    }
+}

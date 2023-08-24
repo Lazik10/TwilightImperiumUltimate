@@ -1,0 +1,40 @@
+﻿p {
+    color: white;
+    font-family: 'Handel', fallback, sans-serif;
+    font-display: block;
+    font-size: 24px;
+    text-indent: 2em;
+    text-align: justify;
+}
+
+.text-handel {
+    font-family: 'Handel', fallback, sans-serif;
+    font-display: block;
+    font-size: 24px;
+    text-indent: 2em;
+    text-align: justify;
+}
+
+.text-bodoni {
+    font-family: 'Bodoni', fallback, sans-serif;
+    font-display: block;
+    font-size: 24px;
+    text-indent: 2em;
+    text-align: justify;
+}
+
+.text-miryad {
+    font-family: 'Myriad', fallback, sans-serif;
+    font-display: block;
+    font-size: 24px;
+    text-indent: 2em;
+    text-align: justify;
+}
+
+.text-slider {
+    font-family: 'Slider', fallback, sans-serif;
+    font-display: block;
+    font-size: 24px;
+    text-indent: 2em;
+    text-align: justify;
+}

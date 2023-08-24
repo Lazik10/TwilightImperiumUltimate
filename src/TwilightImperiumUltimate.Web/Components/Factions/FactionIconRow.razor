@@ -1,0 +1,55 @@
+﻿@using TwilightImperiumUltimate.Web.Models.Factions;
+@inject HttpClient Http
+
+@if (_factions == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="icon-row">
+        @if (_factions.Count > 0)
+        {
+            @foreach (var faction in _factions)
+            {
+                <div class="link" @onclick="() => FactionClicked(faction)">
+                    <img 
+                        class="icon link" 
+                        src="@string.Concat("resources/images/shared/factionicons/", $"{faction.FactionName}.png")" 
+                        alt="icon for @faction.FactionName"
+                        title="@faction.FactionName"
+                    >
+                </div>
+            }
+        }
+        else
+        {
+            <p>No factions found.</p>
+        }
+    </div>
+}
+
+@code {
+    private List<Faction>? _factions = new List<Faction>();
+
+    [Parameter]
+    public EventCallback<Faction> OnFactionSelected { get; set; }
+
+    private void FactionClicked(Faction selectedFaction)
+    {
+        OnFactionSelected.InvokeAsync(selectedFaction);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            _factions = await Http.GetFromJsonAsync<List<Faction>>("https://localhost:44307/api/factions");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"An error occurred: {ex.Message}");
+            _factions = new List<Faction>();
+        }
+    }
+}

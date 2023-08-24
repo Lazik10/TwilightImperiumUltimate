@@ -3,25 +3,33 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>TwilightImperiumUltimate.Web</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TI: Ultimate</title>
+    <link rel="icon" type="image/x-icon" href="resources/images/shared/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="resources/images/shared/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="resources/images/shared/favicon-16x16.png" />
     <base href="/" />
     <link href="css/app.css" rel="stylesheet" />
     <link href="manifest.webmanifest" rel="manifest" />
-    
-    <!-- If you add any scoped CSS files, uncomment the following to load them
-    <link href="TwilightImperiumUltimate.Web.styles.css" rel="stylesheet" /> -->
+
+    <!-- If you add any scoped CSS files, uncomment the following to load them -->
+    <link href="TwilightImperiumUltimate.Web.styles.css" rel="stylesheet" />
 </head>
 
 <body>
-    <div id="app">Loading...</div>
+    <div id="app">
+        <div class="loading-text">...LOADING...</div>
+    </div>
 
     <div id="blazor-error-ui">
         An unhandled error has occurred.
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
     </div>
+
     <script src="_framework/blazor.webassembly.js"></script>
     <script>navigator.serviceWorker.register('service-worker.js');</script>
+    <script src="custom.js"></script>
 </body>
 
 </html>

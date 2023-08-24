@@ -1,7 +1,85 @@
-h1:focus {
-    outline: none;
+/* ==================== FONTS ====================== */
+@font-face {
+    font-family: 'Slider';
+    src: url('/resources/fonts/Slider Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
+@font-face {
+    font-family: 'Handel';
+    src: url('/resources/fonts/Handel Gothic D Bold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bodoni';
+    src: url('/resources/fonts/Bodoni Poster Compressed.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Myriad';
+    src: url('/resources/fonts/Myriad Bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* ==================== GENERAL LAYOUT ====================== */
+html::-webkit-scrollbar {
+    width: 12px;
+}
+
+html {
+    overflow-y: scroll;
+}
+
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url('/resources/images/shared/Twilight_imperium_ultimate_background.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+#app {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-text {
+    font-family: Handel, fallback, sans-serif !important;
+    font-size: 48px !important;
+    font-weight: bold !important;
+    color: white !important;
+    padding-top: 400px;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    text-shadow: 0px 2px 6px rgba(0, 0, 0, 1), 2px 0px 6px rgba(0, 0, 0, 1), 0px -2px 6px rgba(0, 0, 0, 1), -2px 0px 6px rgba(0, 0, 0, 1), 1px 1px 6px rgba(0, 0, 0, 1), 1px -1px 6px rgba(0, 0, 0, 1), -1px 1px 6px rgba(0, 0, 0, 1), -1px -1px 6px rgba(0, 0, 0, 1) !important;
+}
+
+main {
+    height: 100%;
+    width: 100vw;
+/*    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;*/
+}
+
+h1 {
+    text-align: center; 
+    color: white;
+}
+
+/* ========== BLAZOR CSS ========== */
 #blazor-error-ui {
     background: lightyellow;
     bottom: 0;
