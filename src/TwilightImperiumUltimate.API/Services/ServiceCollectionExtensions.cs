@@ -13,6 +13,8 @@ public static class ServiceCollectionExtensions
 
         services.AddSwaggerGen();
 
+        services.AddCors();
+
         services.RegisterBusinessLayer(configuration);
 
         return services;

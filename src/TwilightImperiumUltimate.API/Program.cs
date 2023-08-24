@@ -16,6 +16,13 @@ if (app.Environment.IsDevelopment())
     app.Services.GetService<DatabaseService>()?.InitializeDatabase();
 }
 
+app.UseCors(builder => builder
+    .AllowAnyOrigin()
+       .AllowAnyMethod()
+          .AllowAnyHeader());
+
+app.UseRouting();
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
