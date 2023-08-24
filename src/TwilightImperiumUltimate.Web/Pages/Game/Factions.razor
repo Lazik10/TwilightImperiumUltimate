@@ -1,0 +1,21 @@
+﻿@page "/game/factions"
+@using TwilightImperiumUltimate.Web.Components.Factions
+@using TwilightImperiumUltimate.Web.Components.Shared
+@using TwilightImperiumUltimate.Web.Models.Factions;
+
+<PageTitle>Factions</PageTitle>
+
+<Page>
+    <FactionIconRow OnFactionSelected="UpdateSelectedFaction" />
+    <h1>Factions</h1>
+    <FactionInfo @ref="factionInfoRef" />
+</Page>
+
+@code {
+    private FactionInfo? factionInfoRef;
+
+    private void UpdateSelectedFaction(Faction selectedFaction)
+    {
+        factionInfoRef?.UpdateSelectedFaction(selectedFaction);
+    }
+}

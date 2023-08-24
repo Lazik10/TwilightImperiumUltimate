@@ -1,0 +1,9 @@
+﻿p {
+    color: white;
+    font-family: 'Handel', fallback, sans-serif;
+    font-display: block;
+    font-size: 24px;
+    text-indent: 2em;
+    text-align: justify;
+    margin-top: 50px;
+}

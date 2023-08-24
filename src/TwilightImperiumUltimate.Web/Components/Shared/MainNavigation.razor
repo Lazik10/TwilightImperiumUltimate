@@ -1,0 +1,76 @@
+﻿@using Pages;
+
+@* 
+    TODO: Make UI text resources and use them instead of hard-coded strings
+ *@
+
+<div id="main-navbar" class="@(_isNavbarActive ? "active" : "")">
+    @if (_isNavbarActive || _mediaWidth > 700)
+    {
+        <div class="menu-item">
+            <div class="menu-container">
+                <a href="@Pages.Index">Home</a>
+            </div>
+        </div>
+        <div class="menu-item">
+            <div class="menu-container">
+            <a href="#">Game</a>
+                <div class="dropdown">
+                    <a href="@Pages.Factions">Factions</a>
+                    <a href="@Pages.Technologies">Technologies</a>
+                    <a href="@Pages.Cards">Cards</a>
+                </div>
+            </div>
+        </div>
+        <div class="menu-item">
+            <div class="menu-container">
+            <a href="#">Tools</a>
+                <div class="dropdown">
+                    <a href="@Pages.ColorDraft">Color Draft</a>
+                    <a href="@Pages.RaceDraft">Race Draft</a>
+                    <a href="@Pages.BattleCalculator">Battle Calculator</a>
+                    <a href="@Pages.Draft">Draft</a>
+                </div>
+            </div>
+        </div>
+        <div class="menu-item">
+            <div class="menu-container">
+            <a href="#">FAQ</a>
+                <div class="dropdown">
+                    <a href="@Pages.Faq">FAQ</a>
+                    <a href="@Pages.Rules">Rules</a>
+                </div>
+            </div>
+        </div>
+        <div class="menu-item">
+            <div class="menu-container">
+                <a href="@Pages.About">About</a>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="icon" @onmouseover="() => _isNavbarActive = true">
+            <img src="path_to_icon.jpg" alt="Menu Icon">
+        </div>
+    }
+</div>
+
+@code {
+    [Inject]
+    private IJSRuntime JSRuntime { get; set; } = null!;
+
+    private bool _isNavbarActive = false;
+
+    private double _mediaWidth { get; set; }
+
+    private async Task<double> GetMediaWidthAsync()
+    {
+        return await JSRuntime.InvokeAsync<double>("getMediaWidth");
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        _mediaWidth = await GetMediaWidthAsync();
+    }
+}

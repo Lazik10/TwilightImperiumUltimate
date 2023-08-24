@@ -1,0 +1,23 @@
+﻿.header-space {
+    align-self: center;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+img {
+    object-fit: contain;
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    align-self: center;
+}
+
+a {
+    align-self: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
