@@ -27,15 +27,29 @@
     font-style: normal;
 }
 
-/* ==================== GENERAL LAYOUT ====================== */
+/* ====================== SCROLLBAR ========================= */
 html::-webkit-scrollbar {
     width: 12px;
+}
+
+html::-webkit-scrollbar-track {
+    background: #333;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #0024ff;
+}
+
+html::-webkit-scrollbar-button {
+    background-color: #333;
+    color: #0024ff;
 }
 
 html {
     overflow-y: scroll;
 }
 
+/* ==================== GENERAL LAYOUT ====================== */
 body {
     width: 100%;
     margin: 0;
@@ -68,10 +82,6 @@ body {
 main {
     height: 100%;
     width: 100vw;
-/*    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;*/
 }
 
 h1 {
