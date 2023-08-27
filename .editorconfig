@@ -259,3 +259,7 @@ dotnet_style_prefer_is_null_check_over_reference_equality_method = true:suggesti
 dotnet_style_prefer_auto_properties = true:silent
 dotnet_diagnostic.CA1062.severity = suggestion
 dotnet_diagnostic.CA1822.severity = suggestion
+dotnet_style_object_initializer = true:suggestion
+dotnet_diagnostic.CA2007.severity = silent
+dotnet_diagnostic.CA1308.severity = silent
+dotnet_diagnostic.CA1307.severity = silent
