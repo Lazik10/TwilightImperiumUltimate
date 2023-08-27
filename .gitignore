@@ -398,4 +398,6 @@ FodyWeavers.xsd
 *.sln.iml
 
 # Resources
-resources/
+resources/fonts/
+resources/images/
+/src/TwilightImperiumUltimate.Web/wwwroot/resources/
