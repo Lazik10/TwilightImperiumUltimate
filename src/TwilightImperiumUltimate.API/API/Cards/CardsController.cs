@@ -29,4 +29,30 @@ public class CardsController : ControllerBase
             .ToListAsync()
             .ConfigureAwait(false);
     }
+
+    // GET: api/cards/stageoneobjective
+    [Route("stageoneobjective")]
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<ObjectiveCard>>> GetAllStageOneObjectiveCards()
+    {
+        using var context = _context.CreateDbContext();
+
+        return await context.ObjectivesCards
+            .Where(x => x.ObjectiveCardType == ObjectiveCardType.StageOne)
+            .ToListAsync()
+            .ConfigureAwait(false);
+    }
+
+    // GET: api/cards/stagetwoobjective
+    [Route("stagetwoobjective")]
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<ObjectiveCard>>> GetAllStageTwoObjectiveCards()
+    {
+        using var context = _context.CreateDbContext();
+
+        return await context.ObjectivesCards
+            .Where(x => x.ObjectiveCardType == ObjectiveCardType.StageTwo)
+            .ToListAsync()
+            .ConfigureAwait(false);
+    }
 }

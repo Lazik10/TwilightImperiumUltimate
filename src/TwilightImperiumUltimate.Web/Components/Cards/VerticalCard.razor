@@ -1,0 +1,18 @@
+﻿@using TwilightImperiumUltimate.Web.Resources;
+@using TwilightImperiumUltimate.Web.Services.Language;
+@inject ICultureProvider CultureProvider
+
+<div class="image-item">
+    <img src="@ImagePath" alt="@ImagePath">
+</div>
+
+@code {
+    [Parameter]
+    public string ImagePath { get; set; } = string.Empty;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        var _culture = await CultureProvider.GetUserStoredCultureStringAsync();
+        ImagePath = ImagePath.Replace(Strings.LanguagePlaceholder, _culture);
+    }
+}

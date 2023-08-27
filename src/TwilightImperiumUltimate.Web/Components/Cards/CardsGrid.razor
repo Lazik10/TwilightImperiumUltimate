@@ -1,0 +1,38 @@
+﻿@using TwilightImperiumUltimate.Web.Models.Cards;
+@using TwilightImperiumUltimate.Web.Resources;
+@inject HttpClient Http
+
+@if (_listOfCards == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="image-grid">
+
+        @foreach (var card in _listOfCards)
+        {
+            <VerticalCard ImagePath="@card.ImagePath" />
+        }
+    </div>
+}
+
+@code {
+    private List<BaseCard>? _listOfCards;
+
+    [Parameter]
+    public string TypeOfCard { get; set; } = string.Empty;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        try
+        {
+            Uri uri = new (string.Concat(Paths.ApiPath_Cards, TypeOfCard));
+            _listOfCards = await Http.GetFromJsonAsync<List<BaseCard>>(uri);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"An error occurred: {ex.Message}");
+        }
+    }
+}
