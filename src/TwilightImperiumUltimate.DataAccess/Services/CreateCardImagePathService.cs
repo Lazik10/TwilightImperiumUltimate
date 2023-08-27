@@ -14,6 +14,6 @@ public class CreateCardImagePathService : ICreateCardImagePathService
         if (string.IsNullOrEmpty(enumName.ToString()))
             throw new ArgumentException("Enum name is a required parameter.");
 
-        return Path.Combine(_basePath, _language, "cards", cardType.ToString().ToLowerInvariant(), $"{enumName}.png");
+        return Path.Combine(_basePath, _language, "cards", cardType.ToString().ToLowerInvariant(), $"{enumName}.jpg");
     }
 }

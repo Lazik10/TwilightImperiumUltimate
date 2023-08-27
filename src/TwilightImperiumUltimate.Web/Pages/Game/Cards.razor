@@ -1,10 +1,30 @@
 ﻿@page "/game/cards"
 @using TwilightImperiumUltimate.Web.Components.Cards.Secrets
 @using TwilightImperiumUltimate.Web.Components.Shared
+@using TwilightImperiumUltimate.Web.Components.Cards;
+@using TwilightImperiumUltimate.Web.Models.Cards;
+@using TwilightImperiumUltimate.Web.Resources;
 
 <PageTitle>Cards</PageTitle>
 
 <Page>
-    <h1>Cards</h1>
-    <Secrets />
+    <div id="main-navbar">
+        <div class="menu-item" @onclick="() => SetCurrentTypeOfCard(Strings.ObjectiveCardSecret)">Secrets</div>
+        <div class="menu-item" @onclick="() => SetCurrentTypeOfCard(Strings.ObjectiveCardStageOne)">Stage One</div>
+        <div class="menu-item" @onclick="() => SetCurrentTypeOfCard(Strings.ObjectiveCardStageTwo)">Stage Two</div>
+    </div>
+
+    @if (_currentTypeOfCard != null)
+    {
+        <CardsGrid TypeOfCard="@_currentTypeOfCard" />
+    }
 </Page>
+
+@code {
+    private string _currentTypeOfCard = Strings.ObjectiveCardSecret;
+
+    private void SetCurrentTypeOfCard(string typeOfCard)
+    {
+        _currentTypeOfCard = typeOfCard;
+    }
+}
