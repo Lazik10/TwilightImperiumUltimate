@@ -1,0 +1,18 @@
+﻿#country-selector {
+    position: absolute;
+    top: 0;
+    right: 1%;
+    cursor: pointer;
+}
+
+#country-menu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    width: 50px;
+    height: 45px;
+    margin: 0 5px;
+}

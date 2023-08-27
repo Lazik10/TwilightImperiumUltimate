@@ -1,0 +1,50 @@
+﻿@using TwilightImperiumUltimate.Web.Resources;
+@using TwilightImperiumUltimate.Web.Services.Language;
+@using TwilightImperiumUltimate.Web.Services.Path;
+@inject NavigationManager NavigationManager
+@inject ICultureProvider CultureProvider
+@inject IPathProvider PathProvider
+
+<div id="country-selector" @onclick="ToggleMenu">
+    <img src="@(GetCultureIconPath(SelectedCulture))" alt="Selected Country">
+    <div id="country-menu" style="@(isMenuVisible ? "" : "display:none")">
+        <img src="@(GetCultureIconPath(@Strings.EnglishCulture))"
+             alt="English"
+             @onclick="@(() =>SetCulture(Strings.EnglishCulture))" />
+        <img src="@(GetCultureIconPath(@Strings.CzechCulture))"
+             alt="Czech" 
+             @onclick="@(() => SetCulture(Strings.CzechCulture))" />
+    </div>
+</div>
+
+@code {
+    private bool isMenuVisible = false;
+
+    private string SelectedCulture { get; set; } = string.Empty;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        SelectedCulture = await CultureProvider.GetUserStoredCultureStringAsync();
+    }
+
+    private void ToggleMenu()
+    {
+        isMenuVisible = !isMenuVisible;
+    }
+
+    private async Task SetCulture(string culture)
+    {
+        await CultureProvider.SetCultureAsync(culture);
+        SelectedCulture = culture;
+        isMenuVisible = false;
+
+        // Little hack to force reload of the page
+        NavigationManager.NavigateTo(NavigationManager.BaseUri);
+        NavigationManager.NavigateTo(NavigationManager.Uri, forceLoad: false);
+    }
+
+    private string GetCultureIconPath(string culture)
+    {
+        return PathProvider.GetLaguageIconPath(culture);
+    }
+}
