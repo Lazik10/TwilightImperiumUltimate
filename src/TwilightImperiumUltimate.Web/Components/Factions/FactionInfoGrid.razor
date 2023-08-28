@@ -1,0 +1,52 @@
+﻿@using TwilightImperiumUltimate.Web.Helpers.Resources;
+@using TwilightImperiumUltimate.Web.Models.Factions;
+@inject HttpClient Http
+
+@if (_selectedFaction is not null)
+{
+    <div class="grid-container">
+        <div class="grid-item-title grid-item">
+            <FactionNameLabel FactionName="@(_selectedFaction.FactionName)" />
+        </div>
+
+        <div class="grid-item-history grid-item">
+            <FactionHistory FactionName="@(_selectedFaction.FactionName)" />
+        </div>
+
+        <div class="grid-item-ability grid-item">
+            <FactionAbilities FactionName="@(_selectedFaction.FactionName)" />
+        </div>
+
+        <h3>Comodities: @_selectedFaction.Commodities</h3>
+        <h3>Complexity Rating: @_selectedFaction.ComplexityRating</h3>
+        <h3>Game Version: @_selectedFaction.GameVersion.ToString()</h3>
+    </div>
+}
+else
+{
+    <p>No faction selected.</p>
+}
+
+@code {
+    private Faction? _selectedFaction;
+
+    protected async override Task OnInitializedAsync()
+    {
+        try
+        {
+            _selectedFaction = await Http.GetFromJsonAsync<Faction>("https://localhost:44307/api/factions/1");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"An error occurred: {ex.Message}");
+            _selectedFaction = new Faction();
+        }
+        StateHasChanged();
+    }
+
+    public void UpdateSelectedFaction(Faction faction)
+    {
+        _selectedFaction = faction;
+        StateHasChanged();
+    }
+}

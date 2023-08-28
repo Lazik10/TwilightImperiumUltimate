@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TwilightImperiumUltimate.API.DTOs.Factions;
+using TwilightImperiumUltimate.Core.Enums.Races;
 using TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium;
 
 namespace TwilightImperiumUltimate.API.API.Factions;
@@ -34,6 +35,30 @@ public class FactionsController : ControllerBase
                 GameVersion = x.GameVersion,
             })
             .ToList();
+
+        return factionDtos;
+    }
+
+    [HttpGet("{id}")]
+    public async Task<ActionResult<FactionDto>> GetFactionByFactionId(int id)
+    {
+        using var context = _context.CreateDbContext();
+
+        var factions = await context.Factions
+            .Where(x => x.FactionName == (FactionName)id)
+            .ToListAsync()
+            .ConfigureAwait(false);
+
+        var factionDtos = factions
+            .Select(x => new FactionDto
+            {
+                FactionName = x.FactionName,
+                Commodities = x.Commodities,
+                ComplexityRating = (int)++x.ComplexityRating,
+                GameVersion = x.GameVersion,
+            })
+            .AsEnumerable()
+            .First();
 
         return factionDtos;
     }

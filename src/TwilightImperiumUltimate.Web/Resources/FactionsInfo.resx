@@ -117,95 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Arborec_Ability" xml:space="preserve">
-    <value>MITOSIS: Your space docks cannot produce infantry.  At the start of the status phase , place 1 infantry from your reinforcements on any planet you control.</value>
-  </data>
-  <data name="Arborec_History" xml:space="preserve">
-    <value>On first approach to Nestphar, a first-time visitor may
-be surprised by the soupy haze that bleeds from the planet’s
-atmosphere like a dusty cloud. This cloud consists of
-quadrillions of tiny living spores emitted by Nestphar’s many
-Flaah, city-sized floating forests in its stratosphere. The shortlived (and therefore continually resupplied) orbital presence
-of the Flaah spores allows the Arborec denizens in Nestphar’s
-space-stations and shipyards to remain in continuous
-symbiotic contact with their planet. The Arborec term for this
-vital connection, shared among all living things on Nestphar, is
-best translated as “the Symphony.”
-When traveling beyond the reach of Nestphar’s Flaah spores,
-and therefore outside connection to the prime Symphony, the
-Arborec employ the massive Letani. Physically, the Letani are
-the largest sentient beings yet discovered in the galaxy (each
-slightly larger than a Sol Elephantus), their bodies resembling
-a kraken-shaped mushroom crossed with a monstrous
-carnivorous flower. The Letani are each uniquely capable of
-embodying a powerful instance of the Symphony (and are
-therefore closest to an “individual” within Arborec society)
-which may act as a harmonic nexus for Arborec organisms
-in near proximity. All ships in the Arborec fleet are based
-around the presence of at least one (with some ships as many
-as five) Letani orchestrating the unity of Arborec lifeforms
-crewing the vessel. Once a Letani returns to the embrace of
-Nestphar’s prime Symphony, its experiences are reconnected
-and absorbed into the Arborec, as a data-capsule would be
-reconnected to its mainframe.
-While surely intelligent and demonstrably capable
-of crafting impressive technologies, structures, and a
-sophisticated fleet of interstellar craft, the Arborec’s method
-of communication remains a source of great controversy.
-Being a race of vegetative and fungal matter, handling its own
-data transmission and emotive projection through the prime
-Symphony, the Arborec have never developed any form of
-visual or auditory communication (concepts which, to this
-day, remain foreign to them).
-Arborec scientists found the solution to this dilemma in the
-Sol merchant vessel Dies Opulen. The crew of the Dies Opulen
-had tragically become infected by Yborin Plague on Maaluk
-and had later died in deep space. When the derelict ship was
-found by an Arborec scout, it was determined the cool bodies
-of the human crew were in perfect condition for an ambitious
-experiment. The bodies were sent to the great laboratories in
-Kushin, near the Arborec capital Phara.
-Here, fungal Arzuga cells were attached to the brainstems
-of the dead humans. It was hoped, when grown under proper
-conditions, the complex acidic properties of Arzuga would
-successfully merge the cells with the innate brain-tissue of the
-deceased subjects, slowly re-stimulating the neural pathways
-back to life. Then, by injecting photo-voltaic stims into the
-soft tissues of the dead body, the neurally active Arzuga
-would spur the soft tissue cells to heal and regrow, effectively
-reanimating the dead body. Symbiotically attached to the
-host body, the Arzuga
-fungi evolved into a new
-being, one which the Arborec
-call the Dirzuga.
-The Dirzuga were the missing
-link between the Symphony and the
-manifestation of physical communication that the Arborec
-lacked. Over the following few decades, the Arborec eagerly
-acquired additional subjects (human bodies seem to work best
-and are the most frequently used, but Letnev, Winnu, and Xxcha
-bodies are also commonly used as Dirzuga hosts), establishing a
-sizable diplomatic and trading corps that have become the basis
-for the Arborec’s interaction with the rest of the galaxy.
-The Arborec insist the host bodies of the Dirzuga are
-devoid of the expired individuals’ consciousness. With a
-cultural relationship to death rooted in the natural cycle
-of decomposition and regrowth, the Arborec have little
-understanding or sympathy for those who vigorously protest
-against the bodies of their citizens being reused (some use the
-term “enslaved”) in such a manner.
-Ultimately, despite the objections of the dissident races, the
-Arborec were admitted as a member of the galactic council. The
-potential wealth of foodstuffs, medicines, and other treasures
-of Nestphar proved effective in overcoming any objections.
-While the Arborec insist that the past knowledge and
-experiences of Dirzuga bodies do not persist beyond this
-reanimation, there are some who suspect the Arborec do not
-tell the entire truth. Such theorists can provide many examples
-in which the Arborec seem to have come upon information,
-or intimate understanding of other cultures, that seem
-inexplicable otherwise.</value>
-  </data>
   <data name="Arborec_PromissaryNote" xml:space="preserve">
     <value>Stymie
 
@@ -222,129 +133,6 @@ After another player moves ships into a system that contains 1 or more of your u
 You may place 1 command token from that player's reinforcements in any non-home system.
 
 Then, return this card to the Arborec player.</value>
-  </data>
-  <data name="Arborec_Quote" xml:space="preserve">
-    <value>“Do you hear, flesh-thing? The harmonies of
-the Arborec? Your golems of metal and noise
-and fire have deafened you to the symphony.”
-—Dirzuga Rophal</value>
-  </data>
-  <data name="Arborec_SystemInfo" xml:space="preserve">
-    <value>Not the least of the mysteries
-surrounding the Arborec is the
-question “Why?” What does
-such a lifeform seek? What is it
-searching for, out there amidst
-the stars?</value>
-  </data>
-  <data name="Arborec_SystemStats" xml:space="preserve">
-    <value>FARRUBAN SYSTEM
-✧ Population 1
-✧ Government Hivemind
-✧ Leadership The Arborec
-✧ Disposition Mysterious
-✧ Tendencies Expansionist</value>
-  </data>
-  <data name="FederationOfSol_Ability" xml:space="preserve">
-    <value>ORBITAL DROP: ACTION: Spend 1 token from your strategy pool to place 2 infantry from your reinforcements on 1 planet you control.
-VERSATILE: When you gain command tokens during the status phase, gain 1 additional command token.</value>
-  </data>
-  <data name="FederationOfSol_History" xml:space="preserve">
-    <value>Nestled in the third orbit of the Sol system lies
-Jord, the ancestral home of the human race. Few
-planets can rival Jord’s diversity of climates, seasons,
-and ecology. Much of this wealth is attributed to its
-enormous moon, which causes dramatic tidal motions
-in Jord’s oceans, which is thought to be the impetus of
-its diverse life and weather patterns. Much of Jord’s
-orbit, as well as its moon, is crowded with stellar traffic
-from the orbital and lunar space stations. Military
-ships of the line, bearing the distinctive Sol symbol,
-are often moored to the bulky military platforms in
-Jord’s orbit, or to the fleet base Churchill Prima that
-orbits the reddish fourth planet of the system.
-The humans themselves represent the most
-numerous and most diverse species of the galaxy. Since
-the discovery of the mass-drive, humans have left Jord
-to explore, and they continue to explore, the distant
-corners of space. Humans can be found in all corners
-of the galaxy and seem to demonstrate the greatest
-variation in intellect and application of skills. Human
-colonies and settlements can be found everywhere,
-as can human servants, traders, cartographers,
-explorers, mercenaries, scholars, construction crews,
-smugglers, scientists, diplomats, etc. It is commonly
-recognized among galactic historians that it has been
-the diversified skills of the human race that has been
-the determining factor in avoiding annihilation or
-extinction.
-Of the untold billions of humans that dwell across
-the galaxy, all of whose ancestors once migrated from
-the Sol system, most feel no allegiance or kinship to
-the Sol Federation or the humans of Jord. Some feel
-a traditional friendship, while a few remain loyal to
-Sol and its policies. Being the last civilization to be
-admitted into the imperial council, it is ironic that Sol
-was the first to openly declare war against the failing
-empire. It was a Sol fleet that fired the first shot at the
-Letnev blockade of the Quann wormhole, escalating
-the minor conflict into the full scale galactic war that
-was the Twilight Wars.
-The Sol Federation of
-Nations is governed by the biannually elected High Minister,
-who has the executive control of the
-economy, budget, and Sol military. The executive
-powers of the High Minister are held in check by
-three distinct governing houses: The House of Law,
-The House of the People, and The House of Industry.
-The four governing bodies of the Federation are all
-centrally located in the massive metropolis of New
-Moscow, a bustling center of politics, trade, and
-high culture.
-The current High Minister, Juan Salvador Tao,
-is preparing for a new age that he knows is rapidly
-evolving before him. He is eager to expand the
-official colonization of the Sol Federation once more,
-especially to the old colonies of Centauri, Gral,
-and Quann. He knows that the balance of power is
-shifting and that the universe will soon once again be
-governed under one empire. The High Minister will
-make sure that his Federation will prevail during the
-coming power struggle and inevitable war. Already
-the Sol fleet awaits his orders to strike nearby
-systems. Soon the human destiny will be fulfilled,
-and the distant suns theirs to command.</value>
-  </data>
-  <data name="FederationOfSol_PromissaryNote" xml:space="preserve">
-    <value>Military Support
-
-At the start of the Sol player's turn:
-
-Remove 1 token from the Sol player's strategy pool, if able, and return it to their reinforcements.  Then, you may place 2 infantry from your reinforcements on any planet you control.
-
-Then return this card to the Sol player.</value>
-  </data>
-  <data name="FederationOfSol_Quote" xml:space="preserve">
-    <value>“Our enemies consider us children. They think
-us weak. Show them. Show them what the
-children of Jord can do!”
-—Supreme Admiral DeLouis</value>
-  </data>
-  <data name="FederationOfSol_SystemInfo" xml:space="preserve">
-    <value>Humanity was not the first
-species to travel the stars, but
-the voracity with which they
-spread throughout the galaxy
-surprised even the eldest of the
-spacefaring races.</value>
-  </data>
-  <data name="FederationOfSol_SystemStats" xml:space="preserve">
-    <value>SOL SYSTEM
-✧ Population 16.44 billion
-✧ Government Federation
-✧ Leadership Juan Salvador Tao
-✧ Disposition Determined
-✧ Tendencies Expansionist</value>
   </data>
   <data name="SardakkNorr_Ability" xml:space="preserve">
     <value>UNRELENTING: Apply +1 to the result of each of your unit's combat rolls.</value>
@@ -447,6 +235,123 @@ galaxy with blood in her name</value>
 ✧ Disposition Aggressive
 ✧ Tendencies Military</value>
   </data>
+  <data name="SardakkNorr_Title" xml:space="preserve">
+    <value>The Sardakk N'orr</value>
+  </data>
+  <data name="TheArborec_Ability" xml:space="preserve">
+    <value>MITOSIS: Your space docks cannot produce infantry.  At the start of the status phase , place 1 infantry from your reinforcements on any planet you control.</value>
+  </data>
+  <data name="TheArborec_History" xml:space="preserve">
+    <value>On first approach to Nestphar, a first-time visitor may
+be surprised by the soupy haze that bleeds from the planet’s
+atmosphere like a dusty cloud. This cloud consists of
+quadrillions of tiny living spores emitted by Nestphar’s many
+Flaah, city-sized floating forests in its stratosphere. The shortlived (and therefore continually resupplied) orbital presence
+of the Flaah spores allows the Arborec denizens in Nestphar’s
+space-stations and shipyards to remain in continuous
+symbiotic contact with their planet. The Arborec term for this
+vital connection, shared among all living things on Nestphar, is
+best translated as “the Symphony.”
+When traveling beyond the reach of Nestphar’s Flaah spores,
+and therefore outside connection to the prime Symphony, the
+Arborec employ the massive Letani. Physically, the Letani are
+the largest sentient beings yet discovered in the galaxy (each
+slightly larger than a Sol Elephantus), their bodies resembling
+a kraken-shaped mushroom crossed with a monstrous
+carnivorous flower. The Letani are each uniquely capable of
+embodying a powerful instance of the Symphony (and are
+therefore closest to an “individual” within Arborec society)
+which may act as a harmonic nexus for Arborec organisms
+in near proximity. All ships in the Arborec fleet are based
+around the presence of at least one (with some ships as many
+as five) Letani orchestrating the unity of Arborec lifeforms
+crewing the vessel. Once a Letani returns to the embrace of
+Nestphar’s prime Symphony, its experiences are reconnected
+and absorbed into the Arborec, as a data-capsule would be
+reconnected to its mainframe.
+While surely intelligent and demonstrably capable
+of crafting impressive technologies, structures, and a
+sophisticated fleet of interstellar craft, the Arborec’s method
+of communication remains a source of great controversy.
+Being a race of vegetative and fungal matter, handling its own
+data transmission and emotive projection through the prime
+Symphony, the Arborec have never developed any form of
+visual or auditory communication (concepts which, to this
+day, remain foreign to them).
+Arborec scientists found the solution to this dilemma in the
+Sol merchant vessel Dies Opulen. The crew of the Dies Opulen
+had tragically become infected by Yborin Plague on Maaluk
+and had later died in deep space. When the derelict ship was
+found by an Arborec scout, it was determined the cool bodies
+of the human crew were in perfect condition for an ambitious
+experiment. The bodies were sent to the great laboratories in
+Kushin, near the Arborec capital Phara.
+Here, fungal Arzuga cells were attached to the brainstems
+of the dead humans. It was hoped, when grown under proper
+conditions, the complex acidic properties of Arzuga would
+successfully merge the cells with the innate brain-tissue of the
+deceased subjects, slowly re-stimulating the neural pathways
+back to life. Then, by injecting photo-voltaic stims into the
+soft tissues of the dead body, the neurally active Arzuga
+would spur the soft tissue cells to heal and regrow, effectively
+reanimating the dead body. Symbiotically attached to the
+host body, the Arzuga
+fungi evolved into a new
+being, one which the Arborec
+call the Dirzuga.
+The Dirzuga were the missing
+link between the Symphony and the
+manifestation of physical communication that the Arborec
+lacked. Over the following few decades, the Arborec eagerly
+acquired additional subjects (human bodies seem to work best
+and are the most frequently used, but Letnev, Winnu, and Xxcha
+bodies are also commonly used as Dirzuga hosts), establishing a
+sizable diplomatic and trading corps that have become the basis
+for the Arborec’s interaction with the rest of the galaxy.
+The Arborec insist the host bodies of the Dirzuga are
+devoid of the expired individuals’ consciousness. With a
+cultural relationship to death rooted in the natural cycle
+of decomposition and regrowth, the Arborec have little
+understanding or sympathy for those who vigorously protest
+against the bodies of their citizens being reused (some use the
+term “enslaved”) in such a manner.
+Ultimately, despite the objections of the dissident races, the
+Arborec were admitted as a member of the galactic council. The
+potential wealth of foodstuffs, medicines, and other treasures
+of Nestphar proved effective in overcoming any objections.
+While the Arborec insist that the past knowledge and
+experiences of Dirzuga bodies do not persist beyond this
+reanimation, there are some who suspect the Arborec do not
+tell the entire truth. Such theorists can provide many examples
+in which the Arborec seem to have come upon information,
+or intimate understanding of other cultures, that seem
+inexplicable otherwise.</value>
+  </data>
+  <data name="TheArborec_Quote" xml:space="preserve">
+    <value>“Do you hear, flesh-thing? The harmonies of
+the Arborec? Your golems of metal and noise
+and fire have deafened you to the symphony.”
+—Dirzuga Rophal</value>
+  </data>
+  <data name="TheArborec_SystemInfo" xml:space="preserve">
+    <value>Not the least of the mysteries
+surrounding the Arborec is the
+question “Why?” What does
+such a lifeform seek? What is it
+searching for, out there amidst
+the stars?</value>
+  </data>
+  <data name="TheArborec_SystemStats" xml:space="preserve">
+    <value>FARRUBAN SYSTEM
+✧ Population 1
+✧ Government Hivemind
+✧ Leadership The Arborec
+✧ Disposition Mysterious
+✧ Tendencies Expansionist</value>
+  </data>
+  <data name="TheArborec_Title" xml:space="preserve">
+    <value>The Arborec</value>
+  </data>
   <data name="TheArgentFlight_Ability" xml:space="preserve">
     <value>ZEAL - You always vote first during the agenda phase. When you cast at least 1 vote, cast 1 additional vote for each player in the game including you.
 RAID FORMATION - When 1 or more of your units uses ANTI-FIGHTER BARRAGE, for each hit produced in excess of your opponent's Fighters, choose 1 of your opponent's ships that has SUSTAIN DAMAGE to become damaged.
@@ -486,6 +391,9 @@ the gas ring.</value>
 ✧ Leadership The Murmeration
 ✧ Disposition Dedicated
 ✧ Tendencies Military</value>
+  </data>
+  <data name="TheArgentFlight_Title" xml:space="preserve">
+    <value>The Argent Flight</value>
   </data>
   <data name="TheBaronyOfLetnev_Ability" xml:space="preserve">
     <value>MUNITIONS RESERVES: At the start of each round of space combat, you may spend 2 trade goods;  you may re-roll any number of your dice during that combat round.
@@ -611,6 +519,9 @@ and the same.</value>
 ✧ Disposition Disdainful
 ✧ Tendencies Military</value>
   </data>
+  <data name="TheBaronyOfLetnev_Title" xml:space="preserve">
+    <value>The Barony of Letnev</value>
+  </data>
   <data name="TheClanOfSaar_Ability" xml:space="preserve">
     <value>SCAVENGE: After you gain control of a planet, gain 1 trade good.
 NOMADIC: You can score objectives even if you do not control the planets in your home system.</value>
@@ -733,6 +644,106 @@ ferocity unlike any other.</value>
 ✧ Disposition Melancholy
 ✧ Tendencies Objective</value>
   </data>
+  <data name="TheClanOfSaar_Title" xml:space="preserve">
+    <value>The Clan of Saar</value>
+  </data>
+  <data name="TheCouncilKeleres_Ability" xml:space="preserve">
+    <value>THE TRIBUNII: During setup, choose an unplayed faction from among the Mentak, the Xxcha and The Argent Flight; take that faction's home system, command tokens and control markers. Additionally, take the Keleres Hero that corresponds to that faction.
+COUNCIL PATRONAGE: Replenish your commodities at the start of the strategy phase, then gain 1 trade good.
+LAW'S ORDER: You may spend 1 influence at the start of your turn to treat all laws as blank until the end of your turn.</value>
+  </data>
+  <data name="TheCouncilKeleres_History" xml:space="preserve">
+    <value>Across the galaxy, planetary governors compete for trade opportunities, the Great Civilizations joust for superiority on the battlefront,
+and still other, more insidious factions play at shaping galactic history
+for their own ends. In a galaxy fraught with so many agendas, it’s no
+surprise that the Galactic Council took it upon itself to assemble a
+force of its own to manage its affairs. The Keleres of the Council are
+that force, but they are also something more. They are a ragtag army of
+bureaucrats, soldiers, and spies, often at odds with themselves and not
+always appreciated by the galaxy they serve.
+Though the Keleres are born of the Galactic Council, they are often
+left to their own devices, traveling the galaxy brokering peace, intervening in conflicts, and tackling threats to galactic civilization as a
+whole. They even act without the consent of the Tribunii or the Galactic Council when timeliness is a factor, only to be censured by the
+Galactic Council after the fact.
+The member states of the Council send recruits, who are selected
+according to the traditions of each individual planet or system, to
+serve in the Keleres. The Great Powers have learned, since the Keleres’s
+founding, that the Keleres are a useful tool for furthering their own
+designs. Rather than sending their best operatives away to the Keleres,
+many send political opponents, incompetents, dangerous prisoners,
+and other individuals who are difficult to do away with and undesirable to have around. On the other hand, a few Great Powers find it
+prudent to send highly competent personnel, sometimes out of respect
+for the Galactic Council but more often than not to clandestinely advance their own goals. The Keleres, then, are a strange and difficult
+order to manage.
+The Galactic Council elects three of its own to be the Tribunii of the
+Keleres. Members of the Council treat the responsibility with mixed
+sentiment: as both an honor and a burden. The Tribunii have the
+power to command the Keleres and to implement the designs of the
+Galactic Council in a concrete way. However, the mixed quality of the
+Keleres means having to accept no small number of failures, which, in
+turn, can hurt the Tribunii when members of the Galactic Council seek
+accountability. Canny Tribunii, such as Tribunii Kuuasi Aun Jalatai,
+learn when best to use the Keleres, when to set them aside, and who
+among the ranks are right for the job.
+The fraught political environment means that most Councilors
+don’t serve as Tribunii long. In the five years since the Keleres’ founding, there have been seven Tribunii, including the current holders of
+the office. Two were forced to resign in disgrace, one was killed on a
+mission, and one was assassinated in an intra-agency power struggle.
+For those Tribunii who meet and overcome the challenge of utilizing
+the force of the Keleres, however, the fruits are significant indeed. It
+requires much talent for this to happen, but when it does, it can tip the
+balance of the Galactic Council itself.
+The three Tribunii who currently serve are in delicate balance, and
+therefore the future of the Keleres and the Imperium itself may be at
+a tipping point. Kuuasi is oldest and wisest among them. Harka Leeds
+is as ambitious and cunning as she is ruthless in her schemes. Odlynn
+Myrr, though new to the role, brings a fresh perspective and hope for
+unity and stability in the Imperium.
+Despite the delicate balance of power between the Tribunii, the
+Keleres represent the Galactic Council and, as such, must embody the
+unity of the galaxy, not just the whims of its leaders. The Great Civilizations, however, frequently compete with one another in trade, war,
+and politics. Though some conflict can cement the bonds of a society,
+too much can just as easily rip it apart. Thus, the diverse skills of the
+Keleres are brought to bear on missions of peace and negotiation.
+At times, the Keleres act as a neutral party or temporary ally among
+factions at war. Negotiation, knowledge of history, and familiarity with
+alien species pave the way to peace and prosperity for the galaxy. They
+broker peace on the one hand, but join battles on the other, especially
+when violence seems to be the only means to stability</value>
+  </data>
+  <data name="TheCouncilKeleres_PromissaryNote" xml:space="preserve">
+    <value>After an agenda is revealed:
+
+You cannot vote on this agenda. Predict aloud an outcome of this agenda. If your prediction is correct, draw 1 action card and gain 2 trade goods.
+
+Then, return this card to the Keleres player.</value>
+  </data>
+  <data name="TheCouncilKeleres_Quote" xml:space="preserve">
+    <value>“Our duty is to protect the billions
+of people in our galaxy, not the
+few hundred in these Council
+Chambers.” –Tribunii Harka Leeds</value>
+  </data>
+  <data name="TheCouncilKeleres_SystemInfo" xml:space="preserve">
+    <value>The old Imperial Intelligence HQ
+in Mecatol City serves as both a
+temporary base for the Keleres as
+well as the site of its future home—
+the Custodia Vigilia—which is
+currently undergoing a lengthy and
+expensive construction process.</value>
+  </data>
+  <data name="TheCouncilKeleres_SystemStats" xml:space="preserve">
+    <value>IMPERIAL INTELLIGENCE HQ
+✧ Location Mecatol City
+✧ Leadership The Tribunii
+✧ Agents Classified
+✧ Support Staff ~5000
+✧ Ongoing Ops Classified</value>
+  </data>
+  <data name="TheCouncilKeleres_Title" xml:space="preserve">
+    <value>The Council Keleres</value>
+  </data>
   <data name="TheEmbersOfMuaat_Ability" xml:space="preserve">
     <value>STAR FORGE: ACTION: Spend 1 token from your strategy pool to place either 2 fighters or 1 destroyer from your reinforcements in a system that contains 1 or more of your war suns.
 GASHLAI PHYSIOLOGY: Your ships can move through supernovas.
@@ -845,6 +856,9 @@ and dreams of his people.</value>
 ✧ Disposition Grim
 ✧ Tendencies Military</value>
   </data>
+  <data name="TheEmbersOfMuaat_Title" xml:space="preserve">
+    <value>The Embers of Muaat</value>
+  </data>
   <data name="TheEmiratesOfHacan_Ability" xml:space="preserve">
     <value>MASTERS OF TRADE: You do not have to spend a command token to resolve the secondary ability of the "Trade" strategy card.
 GUILD SHIPS: You can negotiate transactions with players who are not your neighbor.
@@ -947,6 +961,9 @@ worlds, their ancestral homes.</value>
 ✧ Disposition Nomadic
 ✧ Tendencies Economic</value>
   </data>
+  <data name="TheEmiratesOfHacan_Title" xml:space="preserve">
+    <value>The Emirates of Hacan</value>
+  </data>
   <data name="TheEmpyrean_Ability" xml:space="preserve">
     <value>VOIDBORN - Nebulae do not affect your ships' movement.
 AETHERPASSAGE - After a player activates a system, you may allow that player to move their ships through systems that contain your ships.
@@ -992,6 +1009,113 @@ history of the galaxy</value>
 ✧ Leadership None
 ✧ Disposition Contemplative
 ✧ Tendencies Political</value>
+  </data>
+  <data name="TheEmpyrean_Title" xml:space="preserve">
+    <value>The Empyrean</value>
+  </data>
+  <data name="TheFederationOfSol_Ability" xml:space="preserve">
+    <value>ORBITAL DROP: ACTION: Spend 1 token from your strategy pool to place 2 infantry from your reinforcements on 1 planet you control.
+VERSATILE: When you gain command tokens during the status phase, gain 1 additional command token.</value>
+  </data>
+  <data name="TheFederationOfSol_History" xml:space="preserve">
+    <value>Nestled in the third orbit of the Sol system lies
+Jord, the ancestral home of the human race. Few
+planets can rival Jord’s diversity of climates, seasons,
+and ecology. Much of this wealth is attributed to its
+enormous moon, which causes dramatic tidal motions
+in Jord’s oceans, which is thought to be the impetus of
+its diverse life and weather patterns. Much of Jord’s
+orbit, as well as its moon, is crowded with stellar traffic
+from the orbital and lunar space stations. Military
+ships of the line, bearing the distinctive Sol symbol,
+are often moored to the bulky military platforms in
+Jord’s orbit, or to the fleet base Churchill Prima that
+orbits the reddish fourth planet of the system.
+The humans themselves represent the most
+numerous and most diverse species of the galaxy. Since
+the discovery of the mass-drive, humans have left Jord
+to explore, and they continue to explore, the distant
+corners of space. Humans can be found in all corners
+of the galaxy and seem to demonstrate the greatest
+variation in intellect and application of skills. Human
+colonies and settlements can be found everywhere,
+as can human servants, traders, cartographers,
+explorers, mercenaries, scholars, construction crews,
+smugglers, scientists, diplomats, etc. It is commonly
+recognized among galactic historians that it has been
+the diversified skills of the human race that has been
+the determining factor in avoiding annihilation or
+extinction.
+Of the untold billions of humans that dwell across
+the galaxy, all of whose ancestors once migrated from
+the Sol system, most feel no allegiance or kinship to
+the Sol Federation or the humans of Jord. Some feel
+a traditional friendship, while a few remain loyal to
+Sol and its policies. Being the last civilization to be
+admitted into the imperial council, it is ironic that Sol
+was the first to openly declare war against the failing
+empire. It was a Sol fleet that fired the first shot at the
+Letnev blockade of the Quann wormhole, escalating
+the minor conflict into the full scale galactic war that
+was the Twilight Wars.
+The Sol Federation of
+Nations is governed by the biannually elected High Minister,
+who has the executive control of the
+economy, budget, and Sol military. The executive
+powers of the High Minister are held in check by
+three distinct governing houses: The House of Law,
+The House of the People, and The House of Industry.
+The four governing bodies of the Federation are all
+centrally located in the massive metropolis of New
+Moscow, a bustling center of politics, trade, and
+high culture.
+The current High Minister, Juan Salvador Tao,
+is preparing for a new age that he knows is rapidly
+evolving before him. He is eager to expand the
+official colonization of the Sol Federation once more,
+especially to the old colonies of Centauri, Gral,
+and Quann. He knows that the balance of power is
+shifting and that the universe will soon once again be
+governed under one empire. The High Minister will
+make sure that his Federation will prevail during the
+coming power struggle and inevitable war. Already
+the Sol fleet awaits his orders to strike nearby
+systems. Soon the human destiny will be fulfilled,
+and the distant suns theirs to command.</value>
+  </data>
+  <data name="TheFederationOfSol_PromissaryNote" xml:space="preserve">
+    <value>Military Support
+
+At the start of the Sol player's turn:
+
+Remove 1 token from the Sol player's strategy pool, if able, and return it to their reinforcements.  Then, you may place 2 infantry from your reinforcements on any planet you control.
+
+Then return this card to the Sol player.</value>
+  </data>
+  <data name="TheFederationOfSol_Quote" xml:space="preserve">
+    <value>“Our enemies consider us children. They think
+us weak. Show them. Show them what the
+children of Jord can do!”
+—Supreme Admiral DeLouis</value>
+  </data>
+  <data name="TheFederationOfSol_SystemInfo" xml:space="preserve">
+    <value>Humanity was not the first
+species to travel the stars, but
+the voracity with which they
+spread throughout the galaxy
+surprised even the eldest of the
+spacefaring races.</value>
+  </data>
+  <data name="TheFederationOfSol_SystemStats" xml:space="preserve">
+    <value>SOL SYSTEM
+✧ Population 16.44 billion
+✧ Government Federation
+✧ Leadership Juan Salvador Tao
+✧ Disposition Determined
+✧ Tendencies Expansionist</value>
+  </data>
+  <data name="TheFederationOfSol_Title" xml:space="preserve">
+    <value>The Federation of Sol</value>
   </data>
   <data name="TheGhostsOfCreuss_Ability" xml:space="preserve">
     <value>QUANTUM ENTANGLEMENT : You treat all systems that contain either an alpha or beta wormhole as adjacent to each other. Game effects cannot prevent you from using this ability.
@@ -1118,6 +1242,9 @@ questionable circumstances.</value>
 ✧ Disposition Enigmatic
 ✧ Tendencies Expansionist</value>
   </data>
+  <data name="TheGhostsOfCreuss_Title" xml:space="preserve">
+    <value>The Ghosts of Creuss</value>
+  </data>
   <data name="TheL1z1xMindnet_Ability" xml:space="preserve">
     <value>ASSIMILATE: When you gain control of a planet, replace each PDS and space dock that is on that planet with a matching unit from your reinforcements.
 HARROW: At the end of each round of ground combat, your ships in the active system may use their Bombardment abilities against your opponent's ground forces on the planet.</value>
@@ -1238,6 +1365,9 @@ bombardments, however, is not.</value>
 ✧ Disposition Calculating
 ✧ Tendencies Scientific</value>
   </data>
+  <data name="TheL1z1xMindnet_Title" xml:space="preserve">
+    <value>The L1Z1X Mindnet</value>
+  </data>
   <data name="TheMahactGeneSorcerers_Ability" xml:space="preserve">
     <value>EDICT - When you win a combat, place 1 command token from your opponent's reinforcements in your fleet pool if it does not already contain 1 of that player's tokens; other player's tokens in your fleet pool increase your fleet limit but cannot be redistributed.
 IMPERIA - While another player's command token is in your fleet pool, you can use the ability of that player's commander, if it is unlocked.
@@ -1275,6 +1405,9 @@ own advantage.</value>
 ✧ Leadership Vertar Auran Oblis
 ✧ Disposition Imperious
 ✧ Tendencies Objective</value>
+  </data>
+  <data name="TheMahactGeneSorcerers_Title" xml:space="preserve">
+    <value>The Mahact Gene-Sorcerers</value>
   </data>
   <data name="TheMentakCoalition_Ability" xml:space="preserve">
     <value>AMBUSH: At the start of a space combat, you may roll 1 die for each of up to 2 of your cruisers or destroyers in the system.  For each result equal to or greater than that ship's combat value, produce 1 hit; your opponent must assign it to 1 of their ships.
@@ -1386,11 +1519,23 @@ vague, code of honor.</value>
 ✧ Disposition Rebellious
 ✧ Tendencies Economic</value>
   </data>
-  <data name="TheNaaluCollectiove_Ability" xml:space="preserve">
+  <data name="TheMentakCoalition_Title" xml:space="preserve">
+    <value>The Mentak Coalition</value>
+  </data>
+  <data name="TheNaaluCollectiove_PromissaryNote" xml:space="preserve">
+    <value>Gift of Prescience
+
+At the end of the strategy phase:
+
+Place this card face-up in your play area and place the Naalu "0" token on your strategy card;  you are first in the initiative order.  The Naalu player cannot use their TELEPATHIC faction ability during this game round.
+
+Return this card to the Naalu player at the end of the status phase.</value>
+  </data>
+  <data name="TheNaaluCollective_Ability" xml:space="preserve">
     <value>TELEPATHIC: At the end of the strategy phase, place the Naalu "0" token on your strategy card; you are first in initiative order.
 FORESIGHT: After another player moves ships into a system that contains 1 or more of your ships, you may place 1 token from your strategy pool in an adjacent system that does not contain another player's ships;  move your ships from the active system into that system.</value>
   </data>
-  <data name="TheNaaluCollectiove_History" xml:space="preserve">
+  <data name="TheNaaluCollective_History" xml:space="preserve">
     <value>It was not until the middle of the Twilight Wars that
 the Naalu civilization made itself known to the rest of the
 galaxy. Their system, dominated by the white star Mallac,
@@ -1471,23 +1616,14 @@ of Mallac. The time now nears when the rest of the galaxy will
 know the tranquility, order, and the true beauty of the Naalu.
 They will submit to that beauty... or be destroyed.</value>
   </data>
-  <data name="TheNaaluCollectiove_PromissaryNote" xml:space="preserve">
-    <value>Gift of Prescience
-
-At the end of the strategy phase:
-
-Place this card face-up in your play area and place the Naalu "0" token on your strategy card;  you are first in the initiative order.  The Naalu player cannot use their TELEPATHIC faction ability during this game round.
-
-Return this card to the Naalu player at the end of the status phase.</value>
-  </data>
-  <data name="TheNaaluCollectiove_Quote" xml:space="preserve">
+  <data name="TheNaaluCollective_Quote" xml:space="preserve">
     <value>“You insult me, ssskinling. Ze monstrosity you
 suggest–ze Druaa, we are not capable of such
 cruelty. Purge zis madness from your mind
 and leave zis world.”
 —Q’uesh Sish</value>
   </data>
-  <data name="TheNaaluCollectiove_SystemInfo" xml:space="preserve">
+  <data name="TheNaaluCollective_SystemInfo" xml:space="preserve">
     <value>Deadly grace, perilous beauty.
 The crystalline radiance of the
 Neffish reflects the very aspects
@@ -1495,13 +1631,16 @@ of the Druaa, digging its claws
 deep into the minds of the
 “lesser” beings of the galaxy.</value>
   </data>
-  <data name="TheNaaluCollectiove_SystemStats" xml:space="preserve">
+  <data name="TheNaaluCollective_SystemStats" xml:space="preserve">
     <value>MALLAC SYSTEM
 ✧ Population 4.72 billion
 ✧ Government Collective
 ✧ Leadership Q’uesh Sish
 ✧ Disposition Seductive
 ✧ Tendencies Military</value>
+  </data>
+  <data name="TheNaaluCollective_Title" xml:space="preserve">
+    <value>The Naalu Collective</value>
   </data>
   <data name="TheNaazRokhaAlliance_Ability" xml:space="preserve">
     <value>DISTANT SUNS - When you explore a planet that contains 1 of your mechs, you may draw 1 additional card; choose 1 to resolve and discard the rest.
@@ -1540,12 +1679,15 @@ about it so much.</value>
 ✧ Disposition Optimistic
 ✧ Tendencies Scientific</value>
   </data>
-  <data name="TheNecroVirus_Ability" xml:space="preserve">
+  <data name="TheNaazRokhaAlliance_Title" xml:space="preserve">
+    <value>The Naaz-Rokha Alliance</value>
+  </data>
+  <data name="TheNekroVirus_Ability" xml:space="preserve">
     <value>GALACTIC THREAT : You cannot vote on agendas.  Once per agenda phase, after an agenda is revealed, you may predict aloud the outcome of that agenda.  If your prediction is correct, gain 1 technology that is owned by a player who voted how you predicted.
 TECHNOLOGICAL SINGULARITY: Once per combat, after 1 of your opponent's units is destroyed, you may gain 1 technology that is owned by that player.
 PROPAGATION: You cannot research technology.  When you would research a technology, gain 3 command tokens instead.</value>
   </data>
-  <data name="TheNecroVirus_History" xml:space="preserve">
+  <data name="TheNekroVirus_History" xml:space="preserve">
     <value>On the eve of the Lazax empire’s fall, the legendary
 councilor Ibna Vel Syd led a small contingent of his people on
 a secret exodus into unknown space and, in doing so, escaped
@@ -1635,7 +1777,7 @@ Nekro know that while angels remain a fantasy of the hopeful,
 out of the darkness have come demons. And in their wake
 follows blackness and death.</value>
   </data>
-  <data name="TheNecroVirus_PromissaryNote" xml:space="preserve">
+  <data name="TheNekroVirus_PromissaryNote" xml:space="preserve">
     <value>Antivirus
 
 At the start of a combat:
@@ -1646,13 +1788,13 @@ While this card is in your play area, the Nekro player cannot use their TECHNOLO
 
 If you activate a system that contains 1 or more of the Nekro player's units, return this card to the Nekro player.</value>
   </data>
-  <data name="TheNecroVirus_Quote" xml:space="preserve">
+  <data name="TheNekroVirus_Quote" xml:space="preserve">
     <value>“The final step of all craft. The gate to eternity.
 A transcendency to a state of being that can
 only be described as godhood.”
 —Mordai, The First</value>
   </data>
-  <data name="TheNecroVirus_SystemInfo" xml:space="preserve">
+  <data name="TheNekroVirus_SystemInfo" xml:space="preserve">
     <value>01110011011110010111001101110
 10001100101011011010101111101
 10010101110010010001000100100
@@ -1661,13 +1803,16 @@ only be described as godhood.”
 10001000100100101000101010001
 000100100101000101</value>
   </data>
-  <data name="TheNecroVirus_SystemStats" xml:space="preserve">
+  <data name="TheNekroVirus_SystemStats" xml:space="preserve">
     <value>ERROR
 ✧ Population _error
 ✧ Government _error
 ✧ Surface _error
 ✧ Surface Temp _error
 ✧ Surface Area _error</value>
+  </data>
+  <data name="TheNekroVirus_Title" xml:space="preserve">
+    <value>The Nekro Virus</value>
   </data>
   <data name="TheNomad_Ability" xml:space="preserve">
     <value>THE COMPANY - During setup, take the 2 additional Nomad faction agents and place them next to your faction sheet; you have 3 agents.
@@ -1706,6 +1851,9 @@ seen sudden leadership changes.</value>
 ✧ Disposition Altruistic
 ✧ Tendencies Economic</value>
   </data>
+  <data name="TheNomad_Title" xml:space="preserve">
+    <value>The Nomad</value>
+  </data>
   <data name="TheTitansOfUl_Ability" xml:space="preserve">
     <value>TERRAGENESIS: After you explore a planet that does not have a sleeper token, you may place or move 1 sleeper token onto that planet.
 AWAKEN: After you activate a system that contains 1 or more of your sleeper tokens, you may replace each of those tokens with 1 PDS from your reinforcements.
@@ -1742,6 +1890,9 @@ be more than it appears.</value>
 ✧ Leadership The Ul
 ✧ Disposition Patient
 ✧ Tendencies Expansionist</value>
+  </data>
+  <data name="TheTitansOfUl_Title" xml:space="preserve">
+    <value>The Titans of Ul</value>
   </data>
   <data name="TheUniversitiesOfJolNar_Ability" xml:space="preserve">
     <value>BRILLIANT : When you spend a command token to resolve the secondary ability of the "Technology" strategy card, you may resolve the primary ability instead.
@@ -1855,6 +2006,9 @@ advanced capabilities.</value>
 ✧ Disposition Aloof
 ✧ Tendencies Scientific</value>
   </data>
+  <data name="TheUniversitiesOfJolNar_Title" xml:space="preserve">
+    <value>The Universities of Jol-Nar</value>
+  </data>
   <data name="TheVuilRaithCabal_Ability" xml:space="preserve">
     <value>DEVOUR - Capture your opponent's non-structure units that are destroyed during combat.
 AMALGAMATION - When you produce a unit, you may return 1 captured unit of that type to produce that unit without spending resources.
@@ -1891,6 +2045,9 @@ nightmares made flesh.</value>
 ✧ Leadership None
 ✧ Disposition Voracious
 ✧ Tendencies Military</value>
+  </data>
+  <data name="TheVuilRaithCabal_Title" xml:space="preserve">
+    <value>The Vuil'Raith Cabal</value>
   </data>
   <data name="TheWinnu_Ability" xml:space="preserve">
     <value>BLOOD TIES: You do not have to spend influence to remove the custodians token from Mecatol Rex.
@@ -2025,6 +2182,9 @@ galaxy—by force, if necessary.</value>
 ✧ Disposition Righteous
 ✧ Tendencies Objective</value>
   </data>
+  <data name="TheWinnu_Title" xml:space="preserve">
+    <value>The Winnu</value>
+  </data>
   <data name="TheXxchaKingdom_Ability" xml:space="preserve">
     <value>PEACE ACCORDS: After you resolve the primary or secondary ability of the "Diplomacy" strategy card, you may gain control of 1 planet other than Mecatol Rex that does not contain any units and is in a system that is adjacent to a planet you control.
 QUASH: When an agenda is revealed, you may spend 1 token from your strategy pool to discard that agenda and reveal 1 agenda from the top of the deck.  Players vote on this agenda instead.</value>
@@ -2145,6 +2305,9 @@ tranquil veneer.</value>
 ✧ Leadership Ccrysus
 ✧ Disposition Diplomatic
 ✧ Tendencies Political</value>
+  </data>
+  <data name="TheXxchaKingdom_Title" xml:space="preserve">
+    <value>The Xxcha Kingdom</value>
   </data>
   <data name="TheYinBrotherhood_Ability" xml:space="preserve">
     <value>INDOCTRINATION: At the start of a ground combat, you may spend 2 influence to replace 1 of your opponent's participating infantry with 1 infantry from your reinforcements.
@@ -2273,6 +2436,9 @@ loyalty to their brothers.</value>
 ✧ Disposition Zealous
 ✧ Tendencies Military</value>
   </data>
+  <data name="TheYinBrotherhood_Title" xml:space="preserve">
+    <value>The Yin Brotherhood</value>
+  </data>
   <data name="TheYssarilTribes_Ability" xml:space="preserve">
     <value>STALL TACTICS: ACTION: Discard 1 action card from your hand.
 SCHEMING: When you draw 1 or more action cards, draw 1 additional action card.  Then, choose and discard 1 action card from your hand.
@@ -2362,7 +2528,7 @@ the rest of the galaxy may shudder at the Yssaril’s unseen eyes
 and ears, it would be terrified if it knew the ruthless imperial
 ambitions of the small green people.</value>
   </data>
-  <data name="TheYssarilTribes_PromissoryNote" xml:space="preserve">
+  <data name="TheYssarilTribes_PromissaryNote" xml:space="preserve">
     <value>Spy Net
 
 At the start of your turn:
@@ -2391,5 +2557,8 @@ there and left.</value>
 ✧ Leadership The Cqaark
 ✧ Disposition Secretive
 ✧ Tendencies Political</value>
+  </data>
+  <data name="TheYssarilTribes_Title" xml:space="preserve">
+    <value>The Yssaril Tribes</value>
   </data>
 </root>

@@ -35,7 +35,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile02,
-                RaceName = FactionName.TheMentacCoalition,
+                RaceName = FactionName.TheMentakCoalition,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>()
@@ -173,7 +173,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.Tile08,
-                RaceName = FactionName.TheNecroVirus,
+                RaceName = FactionName.TheNekroVirus,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>()
@@ -2310,7 +2310,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.TileKeleres1,
-                RaceName = FactionName.CouncilOfKeleres,
+                RaceName = FactionName.TheCouncilKeleres,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>(),
@@ -2320,7 +2320,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.TileKeleres2,
-                RaceName = FactionName.CouncilOfKeleres,
+                RaceName = FactionName.TheCouncilKeleres,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>(),
@@ -2330,7 +2330,7 @@ public partial class TwilightImperiumDbContextInitializer
             new SystemTile
             {
                 SystemTileName = SystemTileName.TileKeleres3,
-                RaceName = FactionName.CouncilOfKeleres,
+                RaceName = FactionName.TheCouncilKeleres,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>(),

@@ -13,9 +13,9 @@ public enum FactionName
     TheFederationOfSol,
     TheGhostsOfCreuss,
     TheL1z1xMindnet,
-    TheMentacCoalition,
+    TheMentakCoalition,
     TheNaaluCollective,
-    TheNecroVirus,
+    TheNekroVirus,
     SardakkNorr,
     TheUniversitiesOfJolNar,
     TheWinnu,
@@ -33,5 +33,5 @@ public enum FactionName
     TheVuilRaithCabal,
 
     // Codex Vigil - 1 faction
-    CouncilOfKeleres,
+    TheCouncilKeleres,
 }

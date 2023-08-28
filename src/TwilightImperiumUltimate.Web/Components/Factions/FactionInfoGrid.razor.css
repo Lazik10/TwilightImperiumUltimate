@@ -1,0 +1,34 @@
+﻿.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 10px;
+    font-size: 22px;
+    font-family: Myriad, fallback, sans-serif;
+    font-style: italic;
+}
+
+.grid-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid-item-title {
+    margin-top: 30px;
+    grid-column: span 3;
+
+}
+
+.grid-item-history {
+    grid-column: span 3;
+}
+
+.grid-item-ability {
+    grid-column: span 3;
+}
+
+h3 {
+    font-size: 24px;
+    color: white;
+}
