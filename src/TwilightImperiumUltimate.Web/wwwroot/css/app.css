@@ -7,14 +7,14 @@
 }
 
 @font-face {
-    font-family: 'Handel';
+    font-family: 'Handel'; /* Ultimate font */
     src: url('/resources/fonts/Handel Gothic D Bold.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Bodoni';
+    font-family: 'Bodoni'; /* Twilight Imperium logo font */
     src: url('/resources/fonts/Bodoni Poster Compressed.otf') format('opentype');
     font-weight: normal;
     font-style: normal;

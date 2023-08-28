@@ -61,31 +61,6 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MITOSIS: Your space docks cannot produce infantry.  At the start of the status phase , place 1 infantry from your reinforcements on any planet you control..
-        /// </summary>
-        internal static string Arborec_Ability {
-            get {
-                return ResourceManager.GetString("Arborec_Ability", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to On first approach to Nestphar, a first-time visitor may
-        ///be surprised by the soupy haze that bleeds from the planet’s
-        ///atmosphere like a dusty cloud. This cloud consists of
-        ///quadrillions of tiny living spores emitted by Nestphar’s many
-        ///Flaah, city-sized floating forests in its stratosphere. The shortlived (and therefore continually resupplied) orbital presence
-        ///of the Flaah spores allows the Arborec denizens in Nestphar’s
-        ///space-stations and shipyards to remain in continuous
-        ///symbiotic contact with their p [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string Arborec_History {
-            get {
-                return ResourceManager.GetString("Arborec_History", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Stymie
         ///
         ///ACTION: Place this card face up in your play area.
@@ -103,129 +78,6 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string Arborec_PromissaryNote {
             get {
                 return ResourceManager.GetString("Arborec_PromissaryNote", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to “Do you hear, flesh-thing? The harmonies of
-        ///the Arborec? Your golems of metal and noise
-        ///and fire have deafened you to the symphony.”
-        ///—Dirzuga Rophal.
-        /// </summary>
-        internal static string Arborec_Quote {
-            get {
-                return ResourceManager.GetString("Arborec_Quote", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Not the least of the mysteries
-        ///surrounding the Arborec is the
-        ///question “Why?” What does
-        ///such a lifeform seek? What is it
-        ///searching for, out there amidst
-        ///the stars?.
-        /// </summary>
-        internal static string Arborec_SystemInfo {
-            get {
-                return ResourceManager.GetString("Arborec_SystemInfo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to FARRUBAN SYSTEM
-        ///✧ Population 1
-        ///✧ Government Hivemind
-        ///✧ Leadership The Arborec
-        ///✧ Disposition Mysterious
-        ///✧ Tendencies Expansionist.
-        /// </summary>
-        internal static string Arborec_SystemStats {
-            get {
-                return ResourceManager.GetString("Arborec_SystemStats", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ORBITAL DROP: ACTION: Spend 1 token from your strategy pool to place 2 infantry from your reinforcements on 1 planet you control.
-        ///VERSATILE: When you gain command tokens during the status phase, gain 1 additional command token..
-        /// </summary>
-        internal static string FederationOfSol_Ability {
-            get {
-                return ResourceManager.GetString("FederationOfSol_Ability", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Nestled in the third orbit of the Sol system lies
-        ///Jord, the ancestral home of the human race. Few
-        ///planets can rival Jord’s diversity of climates, seasons,
-        ///and ecology. Much of this wealth is attributed to its
-        ///enormous moon, which causes dramatic tidal motions
-        ///in Jord’s oceans, which is thought to be the impetus of
-        ///its diverse life and weather patterns. Much of Jord’s
-        ///orbit, as well as its moon, is crowded with stellar traffic
-        ///from the orbital and lunar space stations. Military
-        ///ships of the line, be [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string FederationOfSol_History {
-            get {
-                return ResourceManager.GetString("FederationOfSol_History", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Military Support
-        ///
-        ///At the start of the Sol player&apos;s turn:
-        ///
-        ///Remove 1 token from the Sol player&apos;s strategy pool, if able, and return it to their reinforcements.  Then, you may place 2 infantry from your reinforcements on any planet you control.
-        ///
-        ///Then return this card to the Sol player..
-        /// </summary>
-        internal static string FederationOfSol_PromissaryNote {
-            get {
-                return ResourceManager.GetString("FederationOfSol_PromissaryNote", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to “Our enemies consider us children. They think
-        ///us weak. Show them. Show them what the
-        ///children of Jord can do!”
-        ///—Supreme Admiral DeLouis.
-        /// </summary>
-        internal static string FederationOfSol_Quote {
-            get {
-                return ResourceManager.GetString("FederationOfSol_Quote", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Humanity was not the first
-        ///species to travel the stars, but
-        ///the voracity with which they
-        ///spread throughout the galaxy
-        ///surprised even the eldest of the
-        ///spacefaring races..
-        /// </summary>
-        internal static string FederationOfSol_SystemInfo {
-            get {
-                return ResourceManager.GetString("FederationOfSol_SystemInfo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to SOL SYSTEM
-        ///✧ Population 16.44 billion
-        ///✧ Government Federation
-        ///✧ Leadership Juan Salvador Tao
-        ///✧ Disposition Determined
-        ///✧ Tendencies Expansionist.
-        /// </summary>
-        internal static string FederationOfSol_SystemStats {
-            get {
-                return ResourceManager.GetString("FederationOfSol_SystemStats", resourceCulture);
             }
         }
         
@@ -310,6 +162,89 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Sardakk N&apos;orr.
+        /// </summary>
+        internal static string SardakkNorr_Title {
+            get {
+                return ResourceManager.GetString("SardakkNorr_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MITOSIS: Your space docks cannot produce infantry.  At the start of the status phase , place 1 infantry from your reinforcements on any planet you control..
+        /// </summary>
+        internal static string TheArborec_Ability {
+            get {
+                return ResourceManager.GetString("TheArborec_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to On first approach to Nestphar, a first-time visitor may
+        ///be surprised by the soupy haze that bleeds from the planet’s
+        ///atmosphere like a dusty cloud. This cloud consists of
+        ///quadrillions of tiny living spores emitted by Nestphar’s many
+        ///Flaah, city-sized floating forests in its stratosphere. The shortlived (and therefore continually resupplied) orbital presence
+        ///of the Flaah spores allows the Arborec denizens in Nestphar’s
+        ///space-stations and shipyards to remain in continuous
+        ///symbiotic contact with their p [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheArborec_History {
+            get {
+                return ResourceManager.GetString("TheArborec_History", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to “Do you hear, flesh-thing? The harmonies of
+        ///the Arborec? Your golems of metal and noise
+        ///and fire have deafened you to the symphony.”
+        ///—Dirzuga Rophal.
+        /// </summary>
+        internal static string TheArborec_Quote {
+            get {
+                return ResourceManager.GetString("TheArborec_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not the least of the mysteries
+        ///surrounding the Arborec is the
+        ///question “Why?” What does
+        ///such a lifeform seek? What is it
+        ///searching for, out there amidst
+        ///the stars?.
+        /// </summary>
+        internal static string TheArborec_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheArborec_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FARRUBAN SYSTEM
+        ///✧ Population 1
+        ///✧ Government Hivemind
+        ///✧ Leadership The Arborec
+        ///✧ Disposition Mysterious
+        ///✧ Tendencies Expansionist.
+        /// </summary>
+        internal static string TheArborec_SystemStats {
+            get {
+                return ResourceManager.GetString("TheArborec_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Arborec.
+        /// </summary>
+        internal static string TheArborec_Title {
+            get {
+                return ResourceManager.GetString("TheArborec_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ZEAL - You always vote first during the agenda phase. When you cast at least 1 vote, cast 1 additional vote for each player in the game including you.
         ///RAID FORMATION - When 1 or more of your units uses ANTI-FIGHTER BARRAGE, for each hit produced in excess of your opponent&apos;s Fighters, choose 1 of your opponent&apos;s ships that has SUSTAIN DAMAGE to become damaged.
         ///Note: The “Anti-Fighter Barrage” step can occur even if a player’s opponent has no fighters in the combat (in this case all hits produced from Anti- [rest of string was truncated]&quot;;.
@@ -382,6 +317,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string TheArgentFlight_SystemStats {
             get {
                 return ResourceManager.GetString("TheArgentFlight_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Argent Flight.
+        /// </summary>
+        internal static string TheArgentFlight_Title {
+            get {
+                return ResourceManager.GetString("TheArgentFlight_Title", resourceCulture);
             }
         }
         
@@ -481,6 +425,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Barony of Letnev.
+        /// </summary>
+        internal static string TheBaronyOfLetnev_Title {
+            get {
+                return ResourceManager.GetString("TheBaronyOfLetnev_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SCAVENGE: After you gain control of a planet, gain 1 trade good.
         ///NOMADIC: You can score objectives even if you do not control the planets in your home system..
         /// </summary>
@@ -565,6 +518,104 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Clan of Saar.
+        /// </summary>
+        internal static string TheClanOfSaar_Title {
+            get {
+                return ResourceManager.GetString("TheClanOfSaar_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to THE TRIBUNII: During setup, choose an unplayed faction from among the Mentak, the Xxcha and The Argent Flight; take that faction&apos;s home system, command tokens and control markers. Additionally, take the Keleres Hero that corresponds to that faction.
+        ///COUNCIL PATRONAGE: Replenish your commodities at the start of the strategy phase, then gain 1 trade good.
+        ///LAW&apos;S ORDER: You may spend 1 influence at the start of your turn to treat all laws as blank until the end of your turn..
+        /// </summary>
+        internal static string TheCouncilKeleres_Ability {
+            get {
+                return ResourceManager.GetString("TheCouncilKeleres_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Across the galaxy, planetary governors compete for trade opportunities, the Great Civilizations joust for superiority on the battlefront,
+        ///and still other, more insidious factions play at shaping galactic history
+        ///for their own ends. In a galaxy fraught with so many agendas, it’s no
+        ///surprise that the Galactic Council took it upon itself to assemble a
+        ///force of its own to manage its affairs. The Keleres of the Council are
+        ///that force, but they are also something more. They are a ragtag army of
+        ///bureaucrats, [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheCouncilKeleres_History {
+            get {
+                return ResourceManager.GetString("TheCouncilKeleres_History", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to After an agenda is revealed:
+        ///
+        ///You cannot vote on this agenda. Predict aloud an outcome of this agenda. If your prediction is correct, draw 1 action card and gain 2 trade goods.
+        ///
+        ///Then, return this card to the Keleres player..
+        /// </summary>
+        internal static string TheCouncilKeleres_PromissaryNote {
+            get {
+                return ResourceManager.GetString("TheCouncilKeleres_PromissaryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to “Our duty is to protect the billions
+        ///of people in our galaxy, not the
+        ///few hundred in these Council
+        ///Chambers.” –Tribunii Harka Leeds.
+        /// </summary>
+        internal static string TheCouncilKeleres_Quote {
+            get {
+                return ResourceManager.GetString("TheCouncilKeleres_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The old Imperial Intelligence HQ
+        ///in Mecatol City serves as both a
+        ///temporary base for the Keleres as
+        ///well as the site of its future home—
+        ///the Custodia Vigilia—which is
+        ///currently undergoing a lengthy and
+        ///expensive construction process..
+        /// </summary>
+        internal static string TheCouncilKeleres_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheCouncilKeleres_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IMPERIAL INTELLIGENCE HQ
+        ///✧ Location Mecatol City
+        ///✧ Leadership The Tribunii
+        ///✧ Agents Classified
+        ///✧ Support Staff ~5000
+        ///✧ Ongoing Ops Classified.
+        /// </summary>
+        internal static string TheCouncilKeleres_SystemStats {
+            get {
+                return ResourceManager.GetString("TheCouncilKeleres_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Council Keleres.
+        /// </summary>
+        internal static string TheCouncilKeleres_Title {
+            get {
+                return ResourceManager.GetString("TheCouncilKeleres_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to STAR FORGE: ACTION: Spend 1 token from your strategy pool to place either 2 fighters or 1 destroyer from your reinforcements in a system that contains 1 or more of your war suns.
         ///GASHLAI PHYSIOLOGY: Your ships can move through supernovas.
         ///Note: Moving through a system is distinct from moving into a system. See Movement rules for details..
@@ -641,6 +692,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string TheEmbersOfMuaat_SystemStats {
             get {
                 return ResourceManager.GetString("TheEmbersOfMuaat_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Embers of Muaat.
+        /// </summary>
+        internal static string TheEmbersOfMuaat_Title {
+            get {
+                return ResourceManager.GetString("TheEmbersOfMuaat_Title", resourceCulture);
             }
         }
         
@@ -731,6 +791,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Emirates of Hacan.
+        /// </summary>
+        internal static string TheEmiratesOfHacan_Title {
+            get {
+                return ResourceManager.GetString("TheEmiratesOfHacan_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to VOIDBORN - Nebulae do not affect your ships&apos; movement.
         ///AETHERPASSAGE - After a player activates a system, you may allow that player to move their ships through systems that contain your ships.
         ///DARK WHISPERS - During setup, take the additional Empyrean faction promissory note; you have 2 faction promissory notes..
@@ -809,6 +878,107 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string TheEmpyrean_SystemStats {
             get {
                 return ResourceManager.GetString("TheEmpyrean_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Empyrean.
+        /// </summary>
+        internal static string TheEmpyrean_Title {
+            get {
+                return ResourceManager.GetString("TheEmpyrean_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ORBITAL DROP: ACTION: Spend 1 token from your strategy pool to place 2 infantry from your reinforcements on 1 planet you control.
+        ///VERSATILE: When you gain command tokens during the status phase, gain 1 additional command token..
+        /// </summary>
+        internal static string TheFederationOfSol_Ability {
+            get {
+                return ResourceManager.GetString("TheFederationOfSol_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nestled in the third orbit of the Sol system lies
+        ///Jord, the ancestral home of the human race. Few
+        ///planets can rival Jord’s diversity of climates, seasons,
+        ///and ecology. Much of this wealth is attributed to its
+        ///enormous moon, which causes dramatic tidal motions
+        ///in Jord’s oceans, which is thought to be the impetus of
+        ///its diverse life and weather patterns. Much of Jord’s
+        ///orbit, as well as its moon, is crowded with stellar traffic
+        ///from the orbital and lunar space stations. Military
+        ///ships of the line, be [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheFederationOfSol_History {
+            get {
+                return ResourceManager.GetString("TheFederationOfSol_History", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Military Support
+        ///
+        ///At the start of the Sol player&apos;s turn:
+        ///
+        ///Remove 1 token from the Sol player&apos;s strategy pool, if able, and return it to their reinforcements.  Then, you may place 2 infantry from your reinforcements on any planet you control.
+        ///
+        ///Then return this card to the Sol player..
+        /// </summary>
+        internal static string TheFederationOfSol_PromissaryNote {
+            get {
+                return ResourceManager.GetString("TheFederationOfSol_PromissaryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to “Our enemies consider us children. They think
+        ///us weak. Show them. Show them what the
+        ///children of Jord can do!”
+        ///—Supreme Admiral DeLouis.
+        /// </summary>
+        internal static string TheFederationOfSol_Quote {
+            get {
+                return ResourceManager.GetString("TheFederationOfSol_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Humanity was not the first
+        ///species to travel the stars, but
+        ///the voracity with which they
+        ///spread throughout the galaxy
+        ///surprised even the eldest of the
+        ///spacefaring races..
+        /// </summary>
+        internal static string TheFederationOfSol_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheFederationOfSol_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SOL SYSTEM
+        ///✧ Population 16.44 billion
+        ///✧ Government Federation
+        ///✧ Leadership Juan Salvador Tao
+        ///✧ Disposition Determined
+        ///✧ Tendencies Expansionist.
+        /// </summary>
+        internal static string TheFederationOfSol_SystemStats {
+            get {
+                return ResourceManager.GetString("TheFederationOfSol_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Federation of Sol.
+        /// </summary>
+        internal static string TheFederationOfSol_Title {
+            get {
+                return ResourceManager.GetString("TheFederationOfSol_Title", resourceCulture);
             }
         }
         
@@ -894,6 +1064,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string TheGhostsOfCreuss_SystemStats {
             get {
                 return ResourceManager.GetString("TheGhostsOfCreuss_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Ghosts of Creuss.
+        /// </summary>
+        internal static string TheGhostsOfCreuss_Title {
+            get {
+                return ResourceManager.GetString("TheGhostsOfCreuss_Title", resourceCulture);
             }
         }
         
@@ -988,6 +1167,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The L1Z1X Mindnet.
+        /// </summary>
+        internal static string TheL1z1xMindnet_Title {
+            get {
+                return ResourceManager.GetString("TheL1z1xMindnet_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to EDICT - When you win a combat, place 1 command token from your opponent&apos;s reinforcements in your fleet pool if it does not already contain 1 of that player&apos;s tokens; other player&apos;s tokens in your fleet pool increase your fleet limit but cannot be redistributed.
         ///IMPERIA - While another player&apos;s command token is in your fleet pool, you can use the ability of that player&apos;s commander, if it is unlocked.
         ///HUBRIS - During setup, purge your &quot;Alliance&quot; promissory note. Other players cannot give you their &apos;Alliance [rest of string was truncated]&quot;;.
@@ -1058,6 +1246,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string TheMahactGeneSorcerers_SystemStats {
             get {
                 return ResourceManager.GetString("TheMahactGeneSorcerers_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Mahact Gene-Sorcerers.
+        /// </summary>
+        internal static string TheMahactGeneSorcerers_Title {
+            get {
+                return ResourceManager.GetString("TheMahactGeneSorcerers_Title", resourceCulture);
             }
         }
         
@@ -1145,29 +1342,11 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TELEPATHIC: At the end of the strategy phase, place the Naalu &quot;0&quot; token on your strategy card; you are first in initiative order.
-        ///FORESIGHT: After another player moves ships into a system that contains 1 or more of your ships, you may place 1 token from your strategy pool in an adjacent system that does not contain another player&apos;s ships;  move your ships from the active system into that system..
+        ///   Looks up a localized string similar to The Mentak Coalition.
         /// </summary>
-        internal static string TheNaaluCollectiove_Ability {
+        internal static string TheMentakCoalition_Title {
             get {
-                return ResourceManager.GetString("TheNaaluCollectiove_Ability", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to It was not until the middle of the Twilight Wars that
-        ///the Naalu civilization made itself known to the rest of the
-        ///galaxy. Their system, dominated by the white star Mallac,
-        ///had remained suspiciously undetected by the empire, despite
-        ///being surrounded by wealthy systems whose recorded history
-        ///predates even the Lazax. After a period of sheer astonishment,
-        ///stellar cartographers and historians began suspecting
-        ///manipulation by the Naalu themselves. After researching
-        ///old records, investigators found a remar [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string TheNaaluCollectiove_History {
-            get {
-                return ResourceManager.GetString("TheNaaluCollectiove_History", resourceCulture);
+                return ResourceManager.GetString("TheMentakCoalition_Title", resourceCulture);
             }
         }
         
@@ -1187,15 +1366,42 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TELEPATHIC: At the end of the strategy phase, place the Naalu &quot;0&quot; token on your strategy card; you are first in initiative order.
+        ///FORESIGHT: After another player moves ships into a system that contains 1 or more of your ships, you may place 1 token from your strategy pool in an adjacent system that does not contain another player&apos;s ships;  move your ships from the active system into that system..
+        /// </summary>
+        internal static string TheNaaluCollective_Ability {
+            get {
+                return ResourceManager.GetString("TheNaaluCollective_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It was not until the middle of the Twilight Wars that
+        ///the Naalu civilization made itself known to the rest of the
+        ///galaxy. Their system, dominated by the white star Mallac,
+        ///had remained suspiciously undetected by the empire, despite
+        ///being surrounded by wealthy systems whose recorded history
+        ///predates even the Lazax. After a period of sheer astonishment,
+        ///stellar cartographers and historians began suspecting
+        ///manipulation by the Naalu themselves. After researching
+        ///old records, investigators found a remar [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheNaaluCollective_History {
+            get {
+                return ResourceManager.GetString("TheNaaluCollective_History", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to “You insult me, ssskinling. Ze monstrosity you
         ///suggest–ze Druaa, we are not capable of such
         ///cruelty. Purge zis madness from your mind
         ///and leave zis world.”
         ///—Q’uesh Sish.
         /// </summary>
-        internal static string TheNaaluCollectiove_Quote {
+        internal static string TheNaaluCollective_Quote {
             get {
-                return ResourceManager.GetString("TheNaaluCollectiove_Quote", resourceCulture);
+                return ResourceManager.GetString("TheNaaluCollective_Quote", resourceCulture);
             }
         }
         
@@ -1207,9 +1413,9 @@ namespace TwilightImperiumUltimate.Web.Resources {
         ///deep into the minds of the
         ///“lesser” beings of the galaxy..
         /// </summary>
-        internal static string TheNaaluCollectiove_SystemInfo {
+        internal static string TheNaaluCollective_SystemInfo {
             get {
-                return ResourceManager.GetString("TheNaaluCollectiove_SystemInfo", resourceCulture);
+                return ResourceManager.GetString("TheNaaluCollective_SystemInfo", resourceCulture);
             }
         }
         
@@ -1221,9 +1427,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
         ///✧ Disposition Seductive
         ///✧ Tendencies Military.
         /// </summary>
-        internal static string TheNaaluCollectiove_SystemStats {
+        internal static string TheNaaluCollective_SystemStats {
             get {
-                return ResourceManager.GetString("TheNaaluCollectiove_SystemStats", resourceCulture);
+                return ResourceManager.GetString("TheNaaluCollective_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Naalu Collective.
+        /// </summary>
+        internal static string TheNaaluCollective_Title {
+            get {
+                return ResourceManager.GetString("TheNaaluCollective_Title", resourceCulture);
             }
         }
         
@@ -1301,13 +1516,22 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Naaz-Rokha Alliance.
+        /// </summary>
+        internal static string TheNaazRokhaAlliance_Title {
+            get {
+                return ResourceManager.GetString("TheNaazRokhaAlliance_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to GALACTIC THREAT : You cannot vote on agendas.  Once per agenda phase, after an agenda is revealed, you may predict aloud the outcome of that agenda.  If your prediction is correct, gain 1 technology that is owned by a player who voted how you predicted.
         ///TECHNOLOGICAL SINGULARITY: Once per combat, after 1 of your opponent&apos;s units is destroyed, you may gain 1 technology that is owned by that player.
         ///PROPAGATION: You cannot research technology.  When you would research a technology, gain 3 command tokens ins [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string TheNecroVirus_Ability {
+        internal static string TheNekroVirus_Ability {
             get {
-                return ResourceManager.GetString("TheNecroVirus_Ability", resourceCulture);
+                return ResourceManager.GetString("TheNekroVirus_Ability", resourceCulture);
             }
         }
         
@@ -1322,9 +1546,9 @@ namespace TwilightImperiumUltimate.Web.Resources {
         ///the vast cybernetic civilization of the L1Z1X.
         ///While the narrative of Ibna’s early st [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string TheNecroVirus_History {
+        internal static string TheNekroVirus_History {
             get {
-                return ResourceManager.GetString("TheNecroVirus_History", resourceCulture);
+                return ResourceManager.GetString("TheNekroVirus_History", resourceCulture);
             }
         }
         
@@ -1339,9 +1563,9 @@ namespace TwilightImperiumUltimate.Web.Resources {
         ///
         ///If you activate a system that contains 1 or more of the Nekro player&apos;s units, return this card to the Nekro player..
         /// </summary>
-        internal static string TheNecroVirus_PromissaryNote {
+        internal static string TheNekroVirus_PromissaryNote {
             get {
-                return ResourceManager.GetString("TheNecroVirus_PromissaryNote", resourceCulture);
+                return ResourceManager.GetString("TheNekroVirus_PromissaryNote", resourceCulture);
             }
         }
         
@@ -1351,9 +1575,9 @@ namespace TwilightImperiumUltimate.Web.Resources {
         ///only be described as godhood.”
         ///—Mordai, The First.
         /// </summary>
-        internal static string TheNecroVirus_Quote {
+        internal static string TheNekroVirus_Quote {
             get {
-                return ResourceManager.GetString("TheNecroVirus_Quote", resourceCulture);
+                return ResourceManager.GetString("TheNekroVirus_Quote", resourceCulture);
             }
         }
         
@@ -1366,9 +1590,9 @@ namespace TwilightImperiumUltimate.Web.Resources {
         ///10001000100100101000101010001
         ///000100100101000101.
         /// </summary>
-        internal static string TheNecroVirus_SystemInfo {
+        internal static string TheNekroVirus_SystemInfo {
             get {
-                return ResourceManager.GetString("TheNecroVirus_SystemInfo", resourceCulture);
+                return ResourceManager.GetString("TheNekroVirus_SystemInfo", resourceCulture);
             }
         }
         
@@ -1380,9 +1604,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
         ///✧ Surface Temp _error
         ///✧ Surface Area _error.
         /// </summary>
-        internal static string TheNecroVirus_SystemStats {
+        internal static string TheNekroVirus_SystemStats {
             get {
-                return ResourceManager.GetString("TheNecroVirus_SystemStats", resourceCulture);
+                return ResourceManager.GetString("TheNekroVirus_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Nekro Virus.
+        /// </summary>
+        internal static string TheNekroVirus_Title {
+            get {
+                return ResourceManager.GetString("TheNekroVirus_Title", resourceCulture);
             }
         }
         
@@ -1460,6 +1693,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Nomad.
+        /// </summary>
+        internal static string TheNomad_Title {
+            get {
+                return ResourceManager.GetString("TheNomad_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TERRAGENESIS: After you explore a planet that does not have a sleeper token, you may place or move 1 sleeper token onto that planet.
         ///AWAKEN: After you activate a system that contains 1 or more of your sleeper tokens, you may replace each of those tokens with 1 PDS from your reinforcements.
         ///COALESCENCE: If your flagship or your AWAKEN faction ability places your units into the same space area or onto the same planet as another player&apos;s units, your units must participate in combat during &quot;Space Combat&quot; or &quot; [rest of string was truncated]&quot;;.
@@ -1529,6 +1771,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string TheTitansOfUl_SystemStats {
             get {
                 return ResourceManager.GetString("TheTitansOfUl_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Titans of Ul.
+        /// </summary>
+        internal static string TheTitansOfUl_Title {
+            get {
+                return ResourceManager.GetString("TheTitansOfUl_Title", resourceCulture);
             }
         }
         
@@ -1616,6 +1867,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Universities of Jol-Nar.
+        /// </summary>
+        internal static string TheUniversitiesOfJolNar_Title {
+            get {
+                return ResourceManager.GetString("TheUniversitiesOfJolNar_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to DEVOUR - Capture your opponent&apos;s non-structure units that are destroyed during combat.
         ///AMALGAMATION - When you produce a unit, you may return 1 captured unit of that type to produce that unit without spending resources.
         ///RIFTMELD - When you research a unit upgrade technology, you may return 1 captured unit of that type to ignore all of the technology&apos;s prerequisites..
@@ -1685,6 +1945,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string TheVuilRaithCabal_SystemStats {
             get {
                 return ResourceManager.GetString("TheVuilRaithCabal_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Vuil&apos;Raith Cabal.
+        /// </summary>
+        internal static string TheVuilRaithCabal_Title {
+            get {
+                return ResourceManager.GetString("TheVuilRaithCabal_Title", resourceCulture);
             }
         }
         
@@ -1781,6 +2050,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Winnu.
+        /// </summary>
+        internal static string TheWinnu_Title {
+            get {
+                return ResourceManager.GetString("TheWinnu_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PEACE ACCORDS: After you resolve the primary or secondary ability of the &quot;Diplomacy&quot; strategy card, you may gain control of 1 planet other than Mecatol Rex that does not contain any units and is in a system that is adjacent to a planet you control.
         ///QUASH: When an agenda is revealed, you may spend 1 token from your strategy pool to discard that agenda and reveal 1 agenda from the top of the deck.  Players vote on this agenda instead..
         /// </summary>
@@ -1859,6 +2137,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string TheXxchaKingdom_SystemStats {
             get {
                 return ResourceManager.GetString("TheXxchaKingdom_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Xxcha Kingdom.
+        /// </summary>
+        internal static string TheXxchaKingdom_Title {
+            get {
+                return ResourceManager.GetString("TheXxchaKingdom_Title", resourceCulture);
             }
         }
         
@@ -1952,6 +2239,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Yin Brotherhood.
+        /// </summary>
+        internal static string TheYinBrotherhood_Title {
+            get {
+                return ResourceManager.GetString("TheYinBrotherhood_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to STALL TACTICS: ACTION: Discard 1 action card from your hand.
         ///SCHEMING: When you draw 1 or more action cards, draw 1 additional action card.  Then, choose and discard 1 action card from your hand.
         ///CRAFTY: You can have any number of action cards in your hand.  Game effects cannot prevent you from using this ability..
@@ -1988,9 +2284,9 @@ namespace TwilightImperiumUltimate.Web.Resources {
         ///
         ///Then, return this card to the Yssaril player..
         /// </summary>
-        internal static string TheYssarilTribes_PromissoryNote {
+        internal static string TheYssarilTribes_PromissaryNote {
             get {
-                return ResourceManager.GetString("TheYssarilTribes_PromissoryNote", resourceCulture);
+                return ResourceManager.GetString("TheYssarilTribes_PromissaryNote", resourceCulture);
             }
         }
         
@@ -2030,6 +2326,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string TheYssarilTribes_SystemStats {
             get {
                 return ResourceManager.GetString("TheYssarilTribes_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Yssaril Tribes.
+        /// </summary>
+        internal static string TheYssarilTribes_Title {
+            get {
+                return ResourceManager.GetString("TheYssarilTribes_Title", resourceCulture);
             }
         }
     }

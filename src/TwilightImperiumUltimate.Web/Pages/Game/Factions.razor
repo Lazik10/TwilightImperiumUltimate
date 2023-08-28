@@ -7,12 +7,11 @@
 
 <Page>
     <FactionIconRow OnFactionSelected="UpdateSelectedFaction" />
-    <h1>Factions</h1>
-    <FactionInfo @ref="factionInfoRef" />
+    <FactionInfoGrid @ref="factionInfoRef" />
 </Page>
 
 @code {
-    private FactionInfo? factionInfoRef;
+    private FactionInfoGrid? factionInfoRef;
 
     private void UpdateSelectedFaction(Faction selectedFaction)
     {

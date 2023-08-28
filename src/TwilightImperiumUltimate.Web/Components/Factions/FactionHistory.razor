@@ -1,0 +1,10 @@
+﻿@using TwilightImperiumUltimate.Web.Helpers.Resources;
+
+<p class="history">
+    @FactionName.GetFactionUIResource(FactionResourceType.History)
+</p>
+
+@code {
+    [Parameter]
+    public FactionName FactionName { get; set; } = default!;
+}

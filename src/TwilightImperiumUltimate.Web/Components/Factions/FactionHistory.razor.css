@@ -1,0 +1,10 @@
+﻿.history {
+    color: white;
+    text-align: justify;
+}
+
+.history::after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+}

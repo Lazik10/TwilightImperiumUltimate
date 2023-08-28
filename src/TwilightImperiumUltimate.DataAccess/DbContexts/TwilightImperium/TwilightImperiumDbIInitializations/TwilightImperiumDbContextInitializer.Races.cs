@@ -78,7 +78,7 @@ public partial class TwilightImperiumDbContextInitializer
             },
             new Faction()
             {
-                FactionName = FactionName.TheMentacCoalition,
+                FactionName = FactionName.TheMentakCoalition,
                 HomeSystem = SystemTileName.Tile02,
                 Commodities = 2,
                 ComplexityRating = ComplexityRating.High,
@@ -94,7 +94,7 @@ public partial class TwilightImperiumDbContextInitializer
             },
             new Faction()
             {
-                FactionName = FactionName.TheNecroVirus,
+                FactionName = FactionName.TheNekroVirus,
                 HomeSystem = SystemTileName.Tile08,
                 Commodities = 3,
                 ComplexityRating = ComplexityRating.High,
@@ -208,7 +208,7 @@ public partial class TwilightImperiumDbContextInitializer
             },
             new Faction()
             {
-                FactionName = FactionName.CouncilOfKeleres,
+                FactionName = FactionName.TheCouncilKeleres,
                 HomeSystem = SystemTileName.TileKeleres1,
                 Commodities = 2,
                 ComplexityRating = ComplexityRating.Medium,
