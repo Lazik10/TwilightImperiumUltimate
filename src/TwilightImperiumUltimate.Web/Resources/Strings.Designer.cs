@@ -70,7 +70,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to culture.
+        ///   Looks up a localized string similar to BlazorCulture.
         /// </summary>
         public static string CultureKey {
             get {

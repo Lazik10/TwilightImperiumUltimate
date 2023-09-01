@@ -7,19 +7,19 @@
 }
 
 @media (max-width: 1024px) {
-    .page {
+    .page-padding {
         padding: 0% 10% 1.5% 10%;
     }
 }
 
 @media (max-width: 768px) {
-    .page {
+    .page-padding {
         padding: 0% 5% 1% 5%;
     }
 }
 
 @media (max-width: 576px) {
-    .page {
+    .page-padding {
         padding: 0% 2% 1% 2%;
     }
 }

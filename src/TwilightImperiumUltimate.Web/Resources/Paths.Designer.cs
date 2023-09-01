@@ -70,11 +70,20 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to \resources\images\shared\languages.
+        ///   Looks up a localized string similar to TwilightImperiumUltimate.Web.Resources.FactionsInfo.
         /// </summary>
-        public static string ResourcePath_Languages {
+        public static string ResourceNamespace_FactionInfo {
             get {
-                return ResourceManager.GetString("ResourcePath_Languages", resourceCulture);
+                return ResourceManager.GetString("ResourceNamespace_FactionInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to \resources\images\shared\cultures.
+        /// </summary>
+        public static string ResourcePath_CulturePath {
+            get {
+                return ResourceManager.GetString("ResourcePath_CulturePath", resourceCulture);
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿@using TwilightImperiumUltimate.Web.Resources;
+﻿@using System.Globalization;
+@using TwilightImperiumUltimate.Web.Resources;
 @using TwilightImperiumUltimate.Web.Services.Language;
 @using TwilightImperiumUltimate.Web.Services.Path;
 @inject NavigationManager NavigationManager
@@ -6,37 +7,30 @@
 @inject IPathProvider PathProvider
 
 <div id="country-selector" @onclick="ToggleMenu">
-    <img src="@(GetCultureIconPath(SelectedCulture))" alt="Selected Country">
-    <div id="country-menu" style="@(isMenuVisible ? "" : "display:none")">
-        <img src="@(GetCultureIconPath(@Strings.EnglishCulture))"
+    <img src="@(GetCultureIconPath(CultureInfo.CurrentCulture.Name))"
+         alt="Selected Country">
+    <div id="country-menu" style="@(_isMenuVisible ? "" : "display:none")">
+        <img src="@(GetCultureIconPath(Strings.EnglishCulture))"
              alt="English"
-             @onclick="@(() =>SetCulture(Strings.EnglishCulture))" />
-        <img src="@(GetCultureIconPath(@Strings.CzechCulture))"
-             alt="Czech" 
-             @onclick="@(() => SetCulture(Strings.CzechCulture))" />
+        @onclick="@(() =>SetCulture(Strings.EnglishCulture))" />
+        <img src="@(GetCultureIconPath(Strings.CzechCulture))"
+             alt="Czech"
+        @onclick="@(() => SetCulture(Strings.CzechCulture))" />
     </div>
 </div>
 
 @code {
-    private bool isMenuVisible = false;
-
-    private string SelectedCulture { get; set; } = string.Empty;
-
-    protected override async Task OnParametersSetAsync()
-    {
-        SelectedCulture = await CultureProvider.GetUserStoredCultureStringAsync();
-    }
+    private bool _isMenuVisible = false;
 
     private void ToggleMenu()
     {
-        isMenuVisible = !isMenuVisible;
+        _isMenuVisible = !_isMenuVisible;
     }
 
     private async Task SetCulture(string culture)
     {
         await CultureProvider.SetCultureAsync(culture);
-        SelectedCulture = culture;
-        isMenuVisible = false;
+        _isMenuVisible = false;
 
         // Little hack to force reload of the page
         NavigationManager.NavigateTo(NavigationManager.BaseUri);
@@ -45,6 +39,6 @@
 
     private string GetCultureIconPath(string culture)
     {
-        return PathProvider.GetLaguageIconPath(culture);
+        return PathProvider.GetCultureIconPath(culture);
     }
 }
