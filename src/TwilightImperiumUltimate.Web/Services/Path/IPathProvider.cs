@@ -2,5 +2,5 @@
 
 public interface IPathProvider
 {
-    string GetLaguageIconPath(string fileName);
+    string GetCultureIconPath(string fileName);
 }

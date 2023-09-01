@@ -1,7 +1,7 @@
 /* ==================== FONTS ====================== */
 @font-face {
     font-family: 'Slider';
-    src: url('/resources/fonts/Slider Regular.ttf') format('truetype');
+    src: url('/resources/fonts/Slider Regular.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }

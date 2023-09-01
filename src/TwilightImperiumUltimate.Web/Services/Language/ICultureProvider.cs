@@ -2,9 +2,5 @@
 
 public interface ICultureProvider
 {
-    Task<string> GetUserStoredCultureStringAsync();
-
     Task SetCultureAsync(string culture);
-
-    Task SetUserStoredCultureOrDefaultAsync();
 }

@@ -1,73 +1,45 @@
-﻿@using Pages;
-@using TwilightImperiumUltimate.Web.Resources;
+﻿@using TwilightImperiumUltimate.Web.Resources;
+@using TwilightImperiumUltimate.Web.Pages;
 
-<div id="main-navbar" class="@(_isNavbarActive ? "active" : "")">
-    @if (_isNavbarActive || _mediaWidth > 700)
-    {
-        <div class="menu-item">
-            <div class="menu-container">
-                <a href="@Pages.Index">@Strings.Page_Home</a>
+<div id="main-navbar">
+    <div class="menu-item">
+        <div class="menu-container">
+            <a href="@Pages.Index">@Strings.Page_Home</a>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="menu-container">
+        <a href="#">@Strings.Page_Game</a>
+            <div class="dropdown">
+                <a href="@Pages.Factions">@Strings.Page_Factions</a>
+                <a href="@Pages.Technologies">@Strings.Page_Technologies</a>
+                <a href="@Pages.Cards">@Strings.Page_Cards</a>
             </div>
         </div>
-        <div class="menu-item">
-            <div class="menu-container">
-            <a href="#">@Strings.Page_Game</a>
-                <div class="dropdown">
-                    <a href="@Pages.Factions">@Strings.Page_Factions</a>
-                    <a href="@Pages.Technologies">@Strings.Page_Technologies</a>
-                    <a href="@Pages.Cards">@Strings.Page_Cards</a>
-                </div>
+    </div>
+    <div class="menu-item">
+        <div class="menu-container">
+        <a href="#">@Strings.Page_Tools</a>
+            <div class="dropdown">
+                <a href="@Pages.ColorDraft">@Strings.Page_ColorDraft</a>
+                <a href="@Pages.RaceDraft">@Strings.Page_FactionDraft</a>
+                <a href="@Pages.BattleCalculator">@Strings.Page_BattleCalculator</a>
+                <a href="@Pages.Draft">@Strings.Page_Draft</a>
             </div>
         </div>
-        <div class="menu-item">
-            <div class="menu-container">
-            <a href="#">@Strings.Page_Tools</a>
-                <div class="dropdown">
-                    <a href="@Pages.ColorDraft">@Strings.Page_ColorDraft</a>
-                    <a href="@Pages.RaceDraft">@Strings.Page_FactionDraft</a>
-                    <a href="@Pages.BattleCalculator">@Strings.Page_BattleCalculator</a>
-                    <a href="@Pages.Draft">@Strings.Page_Draft</a>
-                </div>
+    </div>
+    <div class="menu-item">
+        <div class="menu-container">
+        <a href="#">@Strings.Page_Faq</a>
+            <div class="dropdown">
+                <a href="@Pages.Faq">@Strings.Page_Faq</a>
+                <a href="@Pages.Rules">@Strings.Page_Rules</a>
             </div>
         </div>
-        <div class="menu-item">
-            <div class="menu-container">
-            <a href="#">@Strings.Page_Faq</a>
-                <div class="dropdown">
-                    <a href="@Pages.Faq">@Strings.Page_Faq</a>
-                    <a href="@Pages.Rules">@Strings.Page_Rules</a>
-                </div>
-            </div>
+    </div>
+    <div class="menu-item">
+        <div class="menu-container">
+            <a href="@Pages.About">@Strings.Page_About</a>
         </div>
-        <div class="menu-item">
-            <div class="menu-container">
-                <a href="@Pages.About">@Strings.Page_About</a>
-            </div>
-        </div>
-    }
-    else
-    {
-        <div class="icon" @onmouseover="() => _isNavbarActive = true">
-            <img src="path_to_icon.jpg" alt="Menu Icon">
-        </div>
-    }
+    </div>
 </div>
-
-@code {
-    [Inject]
-    private IJSRuntime JSRuntime { get; set; } = null!;
-
-    private bool _isNavbarActive = false;
-
-    private double _mediaWidth { get; set; }
-
-    private async Task<double> GetMediaWidthAsync()
-    {
-        return await JSRuntime.InvokeAsync<double>("getMediaWidth");
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        _mediaWidth = await GetMediaWidthAsync();
-    }
-}

@@ -121,7 +121,7 @@
     <value>\</value>
   </data>
   <data name="CultureKey" xml:space="preserve">
-    <value>culture</value>
+    <value>BlazorCulture</value>
   </data>
   <data name="CzechCulture" xml:space="preserve">
     <value>cs-CZ</value>

@@ -32,7 +32,7 @@ else
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"An error occurred: {ex.Message}");
+            Log.Error(ex, "Error while loading {TypeOfCard} cards", TypeOfCard);
         }
     }
 }

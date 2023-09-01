@@ -1,12 +1,11 @@
 ﻿using TwilightImperiumUltimate.Web.Resources;
-using SystemPath = System.IO;
 
 namespace TwilightImperiumUltimate.Web.Services.Path;
 
 public class PathProvider : IPathProvider
 {
-    public string GetLaguageIconPath(string fileName)
+    public string GetCultureIconPath(string fileName)
     {
-        return $"{Paths.ResourcePath_Languages}{Strings.BackSlash}{fileName}{Strings.FileExtensionPng}";
+        return $"{Paths.ResourcePath_CulturePath}{Strings.BackSlash}{fileName}{Strings.FileExtensionPng}";
     }
 }

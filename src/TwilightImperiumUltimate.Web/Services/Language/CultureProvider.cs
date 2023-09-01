@@ -1,33 +1,22 @@
-﻿using Blazored.LocalStorage;
+﻿using Microsoft.JSInterop;
+using Serilog;
 using System.Globalization;
-using TwilightImperiumUltimate.Web.Resources;
 
 namespace TwilightImperiumUltimate.Web.Services.Language;
 
 public class CultureProvider : ICultureProvider
 {
-    private readonly ILocalStorageService _localStorage;
+    private readonly IJSRuntime _js;
 
-    public CultureProvider(ILocalStorageService localStorage)
+    public CultureProvider(IJSRuntime js)
     {
-        _localStorage = localStorage;
-    }
-
-    public async Task<string> GetUserStoredCultureStringAsync()
-    {
-        var culture = await _localStorage.GetItemAsync<string>(Strings.CultureKey);
-        return string.IsNullOrEmpty(culture) ? Strings.EnglishCulture : culture;
+        _js = js;
     }
 
     public async Task SetCultureAsync(string culture)
     {
-        await _localStorage.SetItemAsync(Strings.CultureKey, culture);
-        SetApplicationCulture(culture);
-    }
-
-    public async Task SetUserStoredCultureOrDefaultAsync()
-    {
-        var culture = await GetUserStoredCultureStringAsync();
+        Log.Verbose($"Setting application culture to: '{culture}'");
+        await _js.InvokeVoidAsync("blazorCulture.set", culture);
         SetApplicationCulture(culture);
     }
 

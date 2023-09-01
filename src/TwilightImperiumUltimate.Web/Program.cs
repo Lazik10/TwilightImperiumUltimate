@@ -11,14 +11,15 @@ builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
 Log.Logger = new LoggerConfiguration()
-    .MinimumLevel.Verbose()
+    .MinimumLevel.Information()
     .WriteTo.BrowserConsole(formatProvider: CultureInfo.InvariantCulture)
     .CreateLogger();
 builder.Services.AddLogging(loggingBuilder => loggingBuilder.AddSerilog(dispose: true));
 
 builder.Services.RegisterServices(builder);
+builder.Services.AddLocalization();
 var host = builder.Build();
 
-await CultureSetup.SetApplicationCultureAsync(host);
+await CultureSetup.SetCultureAsync(host);
 
 await host.RunAsync();

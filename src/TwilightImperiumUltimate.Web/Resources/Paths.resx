@@ -120,7 +120,10 @@
   <data name="ApiPath_Cards" xml:space="preserve">
     <value>https://localhost:44307/api/cards/</value>
   </data>
-  <data name="ResourcePath_Languages" xml:space="preserve">
-    <value>\resources\images\shared\languages</value>
+  <data name="ResourceNamespace_FactionInfo" xml:space="preserve">
+    <value>TwilightImperiumUltimate.Web.Resources.FactionsInfo</value>
+  </data>
+  <data name="ResourcePath_CulturePath" xml:space="preserve">
+    <value>\resources\images\shared\cultures</value>
   </data>
 </root>
