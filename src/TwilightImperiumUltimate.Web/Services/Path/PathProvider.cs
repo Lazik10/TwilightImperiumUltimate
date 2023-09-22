@@ -18,4 +18,28 @@ public class PathProvider : IPathProvider
     {
         return $"{Paths.ResourcePath_CardTypeIconPath}{Strings.BackSlash}{fileName}{Strings.FileExtensionWebp}";
     }
+
+    public string GetComplexityIconPath(int complexity)
+    {
+        var complexityName = complexity switch
+        {
+            1 => Strings.Low,
+            2 => Strings.Medium,
+            3 => Strings.High,
+            _ => string.Empty,
+        };
+
+        return $"{Paths.ResourcePath_ComplexityPath}{Strings.BackSlash}{complexityName}{Strings.FileExtensionWebp}";
+    }
+
+    public string GetFactionSheetPath(string fileName, bool front = true)
+    {
+        var factionSheet = front ? Strings.FactionSheet : Strings.FactionSheetBack;
+        return $"{Paths.ResourcePath_FactionSheetPath}{Strings.BackSlash}{fileName}_{factionSheet}{Strings.FileExtensionWebp}";
+    }
+
+    public string GetFactionImagePath(string fileName)
+    {
+        return $"{Paths.ResourcePath_FactionImagePath}{Strings.BackSlash}{fileName}{Strings.FileExtensionWebp}";
+    }
 }

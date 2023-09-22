@@ -1,13 +1,47 @@
 ﻿@using TwilightImperiumUltimate.Web.Models.Factions;
+@using TwilightImperiumUltimate.Web.Services.Path;
 @inject HttpClient Http
+@inject IPathProvider PathProvider
 
 @if (_selectedFaction is not null)
 {
-    <div class="grid-container">
-        <div class="grid-item-title grid-item">
-            <FactionNameLabel FactionName="@(_selectedFaction.FactionName)" />
+    <div class="grid-header">
+        <div class="race-info-grid">
+            <div class="grid-item-title grid-item">
+                <img src="@(PathProvider.GetFactionIconPath(_selectedFaction.FactionName.ToString()))" />
+                <FactionNameLabel FactionName="@(_selectedFaction.FactionName)" />
+            </div>
+            <div class="grid-item faction-info-text">
+                <FactionQuote FactionName="@(_selectedFaction.FactionName)" />
+            </div>
+            <div class="grid-item faction-info-text">
+                <FactionSystemStats FactionName="@(_selectedFaction.FactionName)" />
+            </div>
+            <div class="grid-item faction-info-text">
+                <FactionSystemInfo FactionName="@(_selectedFaction.FactionName)" />
+            </div>
+            <div class="grid-item faction-info-text faction-sheet-container">
+                <div class="faction-sheet-button clickable"
+                    @onclick="() => ShowBigImage(true)">
+                    Faction Sheet Front
+                </div>
+                <div class="faction-sheet-button clickable"
+                    @onclick="() => ShowBigImage(false)">
+                    Faction Sheet Back
+                </div>
+            </div>
         </div>
-
+        <div class="grid-item race-rightside-container">
+            <div class="race-image-container">
+                <img src="@PathProvider.GetFactionImagePath(_selectedFaction.FactionName.ToString())" />
+            </div>
+            <div class="complexity-rating-container complexity-text">
+                <p>Complexity Rating: </p>
+                <img src="@(PathProvider.GetComplexityIconPath(_selectedFaction.ComplexityRating))" />
+            </div>
+        </div>
+    </div>
+    <div class="grid-container">
         <div class="grid-item-history grid-item">
             <FactionHistory FactionName="@(_selectedFaction.FactionName)" />
         </div>
@@ -17,9 +51,17 @@
         </div>
 
         <h3>Comodities: @_selectedFaction.Commodities</h3>
-        <h3>Complexity Rating: @_selectedFaction.ComplexityRating</h3>
         <h3>Game Version: @_selectedFaction.GameVersion.ToString()</h3>
     </div>
+
+    @if (showBigImage)
+    {
+        <div class="big-image-overlay" @onclick="HideBigImage">
+            <div class="image-container">
+                <img src="@currentBigImageSrc" @onclick="HideBigImage" />
+            </div>
+        </div>
+    }
 }
 else
 {
@@ -28,6 +70,10 @@ else
 
 @code {
     private Faction? _selectedFaction;
+
+    private bool showBigImage = false;
+
+    private string currentBigImageSrc = string.Empty;
 
     protected async override Task OnInitializedAsync()
     {
@@ -47,5 +93,19 @@ else
     {
         _selectedFaction = faction;
         StateHasChanged();
+    }
+
+    private void ShowBigImage(bool front)
+    {
+        if (_selectedFaction is not null)
+        {
+            currentBigImageSrc = PathProvider.GetFactionSheetPath(_selectedFaction.FactionName.ToString(), front);
+            showBigImage = true;
+        }
+    }
+
+    private void HideBigImage()
+    {
+        showBigImage = false;
     }
 }

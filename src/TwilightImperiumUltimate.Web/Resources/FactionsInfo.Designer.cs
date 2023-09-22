@@ -61,27 +61,6 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stymie
-        ///
-        ///ACTION: Place this card face up in your play area.
-        ///
-        ///While this card is in your play area, the Arborec player cannot produce units in or adjacent to non-home systems that contain 1 or more of your units.
-        ///
-        ///If you activate a system that contains 1 or more of the Arborec player&apos;s units, return this card to the Arborec player.
-        ///
-        ///Stymie Ω
-        ///
-        ///After another player moves ships into a system that contains 1 or more of your units:
-        ///
-        ///You may place 1 command token from that player&apos;s reinforcements in any [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string Arborec_PromissaryNote {
-            get {
-                return ResourceManager.GetString("Arborec_PromissaryNote", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to UNRELENTING: Apply +1 to the result of each of your unit&apos;s combat rolls..
         /// </summary>
         internal static string SardakkNorr_Ability {
@@ -148,12 +127,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SARDAKK SYSTEM
-        ///✧ Population 28.71 billion
-        ///✧ Government Veiled Brood
-        ///✧ Leadership The Envoy
-        ///✧ Disposition Aggressive
-        ///✧ Tendencies Military.
+        ///   Looks up a localized string similar to SARDAKK SYSTEM:;
+        ///✧ Population.28,71 billion;
+        ///✧ Government.Veiled Brood;
+        ///✧ Leadership.The Envoy;
+        ///✧ Disposition.Aggressive;
+        ///✧ Tendencies.Military.
         /// </summary>
         internal static string SardakkNorr_SystemStats {
             get {
@@ -196,6 +175,27 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Stymie
+        ///
+        ///ACTION: Place this card face up in your play area.
+        ///
+        ///While this card is in your play area, the Arborec player cannot produce units in or adjacent to non-home systems that contain 1 or more of your units.
+        ///
+        ///If you activate a system that contains 1 or more of the Arborec player&apos;s units, return this card to the Arborec player.
+        ///
+        ///Stymie Ω
+        ///
+        ///After another player moves ships into a system that contains 1 or more of your units:
+        ///
+        ///You may place 1 command token from that player&apos;s reinforcements in any [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheArborec_PromissaryNote {
+            get {
+                return ResourceManager.GetString("TheArborec_PromissaryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to “Do you hear, flesh-thing? The harmonies of
         ///the Arborec? Your golems of metal and noise
         ///and fire have deafened you to the symphony.”
@@ -222,12 +222,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to FARRUBAN SYSTEM
-        ///✧ Population 1
-        ///✧ Government Hivemind
-        ///✧ Leadership The Arborec
-        ///✧ Disposition Mysterious
-        ///✧ Tendencies Expansionist.
+        ///   Looks up a localized string similar to FARRUBAN SYSTEM:;
+        ///✧ Population.1;
+        ///✧ Government.Hivemind;
+        ///✧ Leadership.The Arborec;
+        ///✧ Disposition.Mysterious;
+        ///✧ Tendencies.Expansionist.
         /// </summary>
         internal static string TheArborec_SystemStats {
             get {
@@ -307,12 +307,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ATHARAL GAS TORUS
-        ///✧ Population 1.84 billion
-        ///✧ Government Confederation
-        ///✧ Leadership The Murmeration
-        ///✧ Disposition Dedicated
-        ///✧ Tendencies Military.
+        ///   Looks up a localized string similar to ATHARAL GAS TORUS:;
+        ///✧ Population.1,84 billion;
+        ///✧ Government.Confederation;
+        ///✧ Leadership.The Murmeration;
+        ///✧ Disposition.Dedicated;
+        ///✧ Tendencies.Military.
         /// </summary>
         internal static string TheArgentFlight_SystemStats {
             get {
@@ -411,12 +411,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to BARONY SPACE
-        ///✧ Population 10.47 billion
-        ///✧ Government Barony
-        ///✧ Leadership Daz Emmiciel Werqan III
-        ///✧ Disposition Disdainful
-        ///✧ Tendencies Military.
+        ///   Looks up a localized string similar to BARONY SPACE:;
+        ///✧ Population.10,47 billion;
+        ///✧ Government.Barony;
+        ///✧ Leadership.Daz Emmiciel Werqan III;
+        ///✧ Disposition.Disdainful;
+        ///✧ Tendencies.Military.
         /// </summary>
         internal static string TheBaronyOfLetnev_SystemStats {
             get {
@@ -504,12 +504,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to JORUN ASTEROID FIELD
-        ///✧ Population 1.01 billion
-        ///✧ Government Admiralty
-        ///✧ Leadership Council of Captains
-        ///✧ Disposition Melancholy
-        ///✧ Tendencies Objective.
+        ///   Looks up a localized string similar to JORUN ASTEROID FIELD:;
+        ///✧ Population.1,01 billion;
+        ///✧ Government.Admiralty;
+        ///✧ Leadership.Council of Captains;
+        ///✧ Disposition.Melancholy;
+        ///✧ Tendencies.Objective.
         /// </summary>
         internal static string TheClanOfSaar_SystemStats {
             get {
@@ -593,12 +593,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to IMPERIAL INTELLIGENCE HQ
-        ///✧ Location Mecatol City
-        ///✧ Leadership The Tribunii
-        ///✧ Agents Classified
-        ///✧ Support Staff ~5000
-        ///✧ Ongoing Ops Classified.
+        ///   Looks up a localized string similar to IMPERIAL INTELLIGENCE HQ:;
+        ///✧ Location.Mecatol City;
+        ///✧ Leadership.The Tribunii;
+        ///✧ Agents.Classified;
+        ///✧ Support Staff.~5000;
+        ///✧ Ongoing Ops.Classified.
         /// </summary>
         internal static string TheCouncilKeleres_SystemStats {
             get {
@@ -682,12 +682,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MUAAT SYSTEM
-        ///✧ Population 7.39 billion
-        ///✧ Government Tribunal
-        ///✧ Leadership Sushon Azh
-        ///✧ Disposition Grim
-        ///✧ Tendencies Military.
+        ///   Looks up a localized string similar to MUAAT SYSTEM:;
+        ///✧ Population.7,39 billion;
+        ///✧ Government.Tribunal;
+        ///✧ Leadership.Sushon Azh;
+        ///✧ Disposition.Grim;
+        ///✧ Tendencies.Military.
         /// </summary>
         internal static string TheEmbersOfMuaat_SystemStats {
             get {
@@ -777,12 +777,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to KENARA SYSTEM
-        ///✧ Population 8.82 billion
-        ///✧ Government United Emirates
-        ///✧ Leadership Quieron
-        ///✧ Disposition Nomadic
-        ///✧ Tendencies Economic.
+        ///   Looks up a localized string similar to KENARA SYSTEM:;
+        ///✧ Population.8,82 billion;
+        ///✧ Government.United Emirates;
+        ///✧ Leadership.Quieron;
+        ///✧ Disposition.Nomadic;
+        ///✧ Tendencies.Economic.
         /// </summary>
         internal static string TheEmiratesOfHacan_SystemStats {
             get {
@@ -868,12 +868,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to THE DARK
-        ///✧ Population Fluctuates
-        ///✧ Government Collective
-        ///✧ Leadership None
-        ///✧ Disposition Contemplative
-        ///✧ Tendencies Political.
+        ///   Looks up a localized string similar to THE DARK:;
+        ///✧ Population.Fluctuates;
+        ///✧ Government.Collective;
+        ///✧ Leadership.None;
+        ///✧ Disposition.Contemplative;
+        ///✧ Tendencies.Political.
         /// </summary>
         internal static string TheEmpyrean_SystemStats {
             get {
@@ -960,12 +960,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SOL SYSTEM
-        ///✧ Population 16.44 billion
-        ///✧ Government Federation
-        ///✧ Leadership Juan Salvador Tao
-        ///✧ Disposition Determined
-        ///✧ Tendencies Expansionist.
+        ///   Looks up a localized string similar to SOL SYSTEM:;
+        ///✧ Population.16,44 billion;
+        ///✧ Government.Federation;
+        ///✧ Leadership.Juan Salvador Tao;
+        ///✧ Disposition.Determined;
+        ///✧ Tendencies.Expansionist.
         /// </summary>
         internal static string TheFederationOfSol_SystemStats {
             get {
@@ -1054,12 +1054,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SHALERI PASSAGE
-        ///✧ Population Unknown
-        ///✧ Government Unknown
-        ///✧ Leadership Unknown
-        ///✧ Disposition Enigmatic
-        ///✧ Tendencies Expansionist.
+        ///   Looks up a localized string similar to SHALERI PASSAGE:;
+        ///✧ Population.Unknown;
+        ///✧ Government.Unknown;
+        ///✧ Leadership.Unknown;
+        ///✧ Disposition.Enigmatic;
+        ///✧ Tendencies.Expansionist.
         /// </summary>
         internal static string TheGhostsOfCreuss_SystemStats {
             get {
@@ -1153,12 +1153,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to UNKNOWN SYSTEM
-        ///✧ Population Unknown
-        ///✧ Government Unknown
-        ///✧ Leadership Ibna Vel Syd
-        ///✧ Disposition Calculating
-        ///✧ Tendencies Scientific.
+        ///   Looks up a localized string similar to UNKNOWN SYSTEM:;
+        ///✧ Population.Unknown;
+        ///✧ Government.Unknown;
+        ///✧ Leadership.Ibna Vel Syd;
+        ///✧ Disposition.Calculating;
+        ///✧ Tendencies.Scientific.
         /// </summary>
         internal static string TheL1z1xMindnet_SystemStats {
             get {
@@ -1236,12 +1236,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to IXTH
-        ///✧ Population Unknown
-        ///✧ Government Coalition
-        ///✧ Leadership Vertar Auran Oblis
-        ///✧ Disposition Imperious
-        ///✧ Tendencies Objective.
+        ///   Looks up a localized string similar to IXTH:;
+        ///✧ Population.Unknown;
+        ///✧ Government.Coalition;
+        ///✧ Leadership.Vertar Auran Oblis;
+        ///✧ Disposition.Imperious;
+        ///✧ Tendencies.Objective.
         /// </summary>
         internal static string TheMahactGeneSorcerers_SystemStats {
             get {
@@ -1328,12 +1328,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MOLL SYSTEM
-        ///✧ Population 2.55 billion
-        ///✧ Government Table of Captains
-        ///✧ Leadership Erwan’s Hand
-        ///✧ Disposition Rebellious
-        ///✧ Tendencies Economic.
+        ///   Looks up a localized string similar to MOLL SYSTEM:;
+        ///✧ Population.2,55 billion;
+        ///✧ Government.Table of Captains;
+        ///✧ Leadership.Erwan’s Hand;
+        ///✧ Disposition.Rebellious;
+        ///✧ Tendencies.Economic.
         /// </summary>
         internal static string TheMentakCoalition_SystemStats {
             get {
@@ -1420,12 +1420,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MALLAC SYSTEM
-        ///✧ Population 4.72 billion
-        ///✧ Government Collective
-        ///✧ Leadership Q’uesh Sish
-        ///✧ Disposition Seductive
-        ///✧ Tendencies Military.
+        ///   Looks up a localized string similar to MALLAC SYSTEM:;
+        ///✧ Population.4,72 billion;
+        ///✧ Government.Collective;
+        ///✧ Leadership.Q’uesh Sish;
+        ///✧ Disposition.Seductive;
+        ///✧ Tendencies.Military.
         /// </summary>
         internal static string TheNaaluCollective_SystemStats {
             get {
@@ -1502,12 +1502,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to NAAZIR-ROKHA DUAL SYSTEM
-        ///✧ Population 12.7 billion
-        ///✧ Government Alliance
-        ///✧ Leadership The Tetrarchy
-        ///✧ Disposition Optimistic
-        ///✧ Tendencies Scientific.
+        ///   Looks up a localized string similar to NAAZIR-ROKHA DUAL SYSTEM:;
+        ///✧ Population.12,7 billion;
+        ///✧ Government.Alliance;
+        ///✧ Leadership.The Tetrarchy;
+        ///✧ Disposition.Optimistic;
+        ///✧ Tendencies.Scientific.
         /// </summary>
         internal static string TheNaazRokhaAlliance_SystemStats {
             get {
@@ -1597,12 +1597,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ERROR
-        ///✧ Population _error
-        ///✧ Government _error
-        ///✧ Surface _error
-        ///✧ Surface Temp _error
-        ///✧ Surface Area _error.
+        ///   Looks up a localized string similar to ERROR:;
+        ///✧ Population._error;
+        ///✧ Government._error;
+        ///✧ Surface._error;
+        ///✧ Surface Temp._error;
+        ///✧ Surface Area._error.
         /// </summary>
         internal static string TheNekroVirus_SystemStats {
             get {
@@ -1679,12 +1679,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SPACE STATION SUMERIAN
-        ///✧ Population 167 million
-        ///✧ Government Station Master
-        ///✧ Leadership The Nomad
-        ///✧ Disposition Altruistic
-        ///✧ Tendencies Economic.
+        ///   Looks up a localized string similar to SPACE STATION SUMERIAN:;
+        ///✧ Population.167 million;
+        ///✧ Government.Station Master;
+        ///✧ Leadership.The Nomad;
+        ///✧ Disposition.Altruistic;
+        ///✧ Tendencies.Economic.
         /// </summary>
         internal static string TheNomad_SystemStats {
             get {
@@ -1761,12 +1761,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ELYSIUM
-        ///✧ Population 750 million
-        ///✧ Government Total Hierarchy
-        ///✧ Leadership The Ul
-        ///✧ Disposition Patient
-        ///✧ Tendencies Expansionist.
+        ///   Looks up a localized string similar to ELYSIUM:;
+        ///✧ Population.750 million;
+        ///✧ Government.Total Hierarchy;
+        ///✧ Leadership.The Ul;
+        ///✧ Disposition.Patient;
+        ///✧ Tendencies.Expansionist;.
         /// </summary>
         internal static string TheTitansOfUl_SystemStats {
             get {
@@ -1853,12 +1853,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to GARIAN SYSTEM
-        ///✧ Population 3.22 billion
-        ///✧ Government Circle of Regents
-        ///✧ Leadership Headmaster
-        ///✧ Disposition Aloof
-        ///✧ Tendencies Scientific.
+        ///   Looks up a localized string similar to GARIAN SYSTEM:;
+        ///✧ Population.3,22 billion;
+        ///✧ Government.Circle of Regents;
+        ///✧ Leadership.Headmaster;
+        ///✧ Disposition.Aloof;
+        ///✧ Tendencies.Scientific.
         /// </summary>
         internal static string TheUniversitiesOfJolNar_SystemStats {
             get {
@@ -1935,12 +1935,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ACHERON VORTEX
-        ///✧ Population Unknown
-        ///✧ Government Cabal
-        ///✧ Leadership None
-        ///✧ Disposition Voracious
-        ///✧ Tendencies Military.
+        ///   Looks up a localized string similar to ACHERON VORTEX:;
+        ///✧ Population.Unknown;
+        ///✧ Government.Cabal;
+        ///✧ Leadership.None;
+        ///✧ Disposition.Voracious;
+        ///✧ Tendencies.Military.
         /// </summary>
         internal static string TheVuilRaithCabal_SystemStats {
             get {
@@ -2036,12 +2036,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to WINNU SYSTEM
-        ///✧ Population 13.77 billion
-        ///✧ Government Imperial
-        ///✧ Leadership Muad Di Faruuq
-        ///✧ Disposition Righteous
-        ///✧ Tendencies Objective.
+        ///   Looks up a localized string similar to WINNU SYSTEM:;
+        ///✧ Population.13,77 billion;
+        ///✧ Government.Imperial;
+        ///✧ Leadership.Muad Di Faruuq;
+        ///✧ Disposition.Righteous;
+        ///✧ Tendencies.Objective.
         /// </summary>
         internal static string TheWinnu_SystemStats {
             get {
@@ -2127,12 +2127,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to XXLAK SYSTEM
-        ///✧ Population 8.16 billion
-        ///✧ Government Monarchy
-        ///✧ Leadership Ccrysus
-        ///✧ Disposition Diplomatic
-        ///✧ Tendencies Political.
+        ///   Looks up a localized string similar to XXLAK SYSTEM:;
+        ///✧ Population.8,16 billion;
+        ///✧ Government.Monarchy;
+        ///✧ Leadership.Ccrysus;
+        ///✧ Disposition.Diplomatic;
+        ///✧ Tendencies.Political.
         /// </summary>
         internal static string TheXxchaKingdom_SystemStats {
             get {
@@ -2225,12 +2225,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LAEL SYSTEM
-        ///✧ Population 1.81 billion
-        ///✧ Government The Blessed
-        ///✧ Leadership The Elder Brother
-        ///✧ Disposition Zealous
-        ///✧ Tendencies Military.
+        ///   Looks up a localized string similar to LAEL SYSTEM:;
+        ///✧ Population.1,81 billion;
+        ///✧ Government.The Blessed;
+        ///✧ Leadership.The Elder Brother;
+        ///✧ Disposition.Zealous;
+        ///✧ Tendencies.Military.
         /// </summary>
         internal static string TheYinBrotherhood_SystemStats {
             get {
@@ -2316,12 +2316,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MYOCK SYSTEM
-        ///✧ Population Unknown
-        ///✧ Government Guild of Spies
-        ///✧ Leadership The Cqaark
-        ///✧ Disposition Secretive
-        ///✧ Tendencies Political.
+        ///   Looks up a localized string similar to MYOCK SYSTEM:;
+        ///✧ Population.Unknown;
+        ///✧ Government.Guild of Spies;
+        ///✧ Leadership.The Cqaark;
+        ///✧ Disposition.Secretive;
+        ///✧ Tendencies.Political.
         /// </summary>
         internal static string TheYssarilTribes_SystemStats {
             get {

@@ -15,9 +15,14 @@
 }
 
 .grid-item-title {
-    margin-top: 30px;
-    grid-column: span 3;
+    padding-top: 67px;
+    display: flex;
+    flex-direction: row;
+}
 
+.grid-item-title img {
+    height: 40px;
+    margin-right: 15px;
 }
 
 .grid-item-history {
@@ -32,3 +37,168 @@ h3 {
     font-size: 24px;
     color: white;
 }
+
+.race-info-grid {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url('/resources/images/shared/ContainerBorder.png');
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: contain;
+}
+
+.grid-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    margin-top: 20px;
+}
+
+.race-rightside-container {
+    padding: 10% 10%;
+    display: flex;
+    flex-direction: column;
+}
+
+    .race-rightside-container img {
+        border-radius: 20px;
+        width: 100%;
+        height: 100%;
+    }
+
+.complexity-rating-container {
+    padding: 3% 3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.complexity-rating-container img {
+    padding-left: 15px;
+    width: 50%;
+    height: 50%;
+}
+
+.complexity-text {
+    color: white;
+    font-family: Handel, fallback, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 0px 2px 6px rgba(0, 0, 0, 1), 2px 0px 6px rgba(0, 0, 0, 1), 0px -2px 6px rgba(0, 0, 0, 1), -2px 0px 6px rgba(0, 0, 0, 1), 1px 1px 6px rgba(0, 0, 0, 1), 1px -1px 6px rgba(0, 0, 0, 1), -1px 1px 6px rgba(0, 0, 0, 1), -1px -1px 6px rgba(0, 0, 0, 1);
+}
+
+.faction-info-text {
+    padding: 5% 0% 0% 20%;
+    color: white;
+    align-content: start;
+    justify-content: left;
+}
+
+.faction-sheet-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.faction-sheet-button {
+    width: 50%;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    color: white;
+    font-family: Handel, fallback, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 0px 2px 6px rgba(0, 0, 0, 1), 2px 0px 6px rgba(0, 0, 0, 1), 0px -2px 6px rgba(0, 0, 0, 1), -2px 0px 6px rgba(0, 0, 0, 1), 1px 1px 6px rgba(0, 0, 0, 1), 1px -1px 6px rgba(0, 0, 0, 1), -1px 1px 6px rgba(0, 0, 0, 1), -1px -1px 6px rgba(0, 0, 0, 1);
+}
+
+.big-image-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+    .big-image-overlay img {
+        position: relative;
+        max-width: 90%;
+        max-height: 90%;
+        cursor: pointer;
+        border-radius: 20px;
+    }
+
+        .big-image-overlay img::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            box-shadow: inset 0 0 0 5px #000;
+            pointer-events: none;
+            border-radius: 20px;
+            z-index: 2;
+        }
+
+.image-container {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+    .image-container img {
+        display: block;
+        max-width: 100%;
+        max-height: 100%;
+        cursor: pointer;
+        border-radius: 20px;
+    }
+
+    .image-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        box-shadow: inset 0 0 0 5px #000;
+        pointer-events: none;
+        border-radius: 20px;
+    }
+
+.clickable {
+    cursor: pointer;
+}
+
+.race-image-container {
+    position: relative;
+    display: inline-block;
+}
+
+    .race-image-container img {
+        display: block;
+        border-radius: 20px;
+    }
+
+    .race-image-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        box-shadow: inset 0 0 0 3px #000;
+        border-radius: 20px;
+        pointer-events: none;
+    }

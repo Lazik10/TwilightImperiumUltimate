@@ -1,0 +1,41 @@
+﻿@using TwilightImperiumUltimate.Web.Helpers.Resources;
+
+<div class="system-stats">
+@foreach(var line in FactionUIText())
+{
+    if (line.Contains("."))
+    {
+        string[] parts = @line.Split(".");
+
+        <div class="system-stats-line">
+            <div class="system-stats-text">
+                @parts[0]
+            </div>
+            <div class="system-stats-value">
+                @parts[1]
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="system-stats-line-title">
+            <div class="system-stats-text">
+                @line
+            </div>
+        </div>
+        continue;
+    }
+}
+</div>
+
+@code {
+    [Parameter]
+    public FactionName FactionName { get; set; } = default!;
+
+    private string[] FactionUIText()
+    {
+        string text = FactionName.GetFactionUIText(FactionResourceType.SystemStats);
+        string[] lines = text.Split(';');
+        return lines;
+    }
+}
