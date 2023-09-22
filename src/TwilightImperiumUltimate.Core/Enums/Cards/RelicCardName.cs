@@ -4,8 +4,7 @@ public enum RelicCardName
 {
     DynamisCore, // Codex Volume 2: Affinity
     DominusOrb,
-    JRXS455OLostTitanPrototype,
-    Agent, // Codex Volume 2: Affinity
+    JRXS455OLostTitanPrototypeAgent, // Codex Volume 2: Affinity
     MawOfWorlds,
     NanoForge, // Codex Volume 2: Affinity
     ScepterOfEmelpar,

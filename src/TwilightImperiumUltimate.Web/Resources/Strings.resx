@@ -117,8 +117,41 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ActionCard" xml:space="preserve">
+    <value>action</value>
+  </data>
+  <data name="AgendaCard" xml:space="preserve">
+    <value>agenda</value>
+  </data>
   <data name="BackSlash" xml:space="preserve">
     <value>\</value>
+  </data>
+  <data name="CardTitle_Action" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="CardTitle_Agenda" xml:space="preserve">
+    <value>Agenda</value>
+  </data>
+  <data name="CardTitle_Exploration" xml:space="preserve">
+    <value>Exploration</value>
+  </data>
+  <data name="CardTitle_Frontier" xml:space="preserve">
+    <value>Frontier</value>
+  </data>
+  <data name="CardTitle_ObjectiveOne" xml:space="preserve">
+    <value>Objective One</value>
+  </data>
+  <data name="CardTitle_ObjectiveTwo" xml:space="preserve">
+    <value>Onjective Two</value>
+  </data>
+  <data name="CardTitle_Relic" xml:space="preserve">
+    <value>Relic</value>
+  </data>
+  <data name="CardTitle_Secret" xml:space="preserve">
+    <value>Secret</value>
+  </data>
+  <data name="CardTitle_Strategy" xml:space="preserve">
+    <value>Strategy</value>
   </data>
   <data name="CultureKey" xml:space="preserve">
     <value>BlazorCulture</value>
@@ -132,11 +165,20 @@
   <data name="EnglishCulture" xml:space="preserve">
     <value>en-US</value>
   </data>
+  <data name="ExplorationCard" xml:space="preserve">
+    <value>exploration</value>
+  </data>
   <data name="FileExtensionPng" xml:space="preserve">
     <value>.png</value>
   </data>
+  <data name="FileExtensionWebp" xml:space="preserve">
+    <value>.webp</value>
+  </data>
   <data name="ForwardSlash" xml:space="preserve">
     <value>/</value>
+  </data>
+  <data name="FrontierCard" xml:space="preserve">
+    <value>frontier</value>
   </data>
   <data name="LanguagePlaceholder" xml:space="preserve">
     <value>{language}</value>
@@ -188,5 +230,11 @@
   </data>
   <data name="Page_Tools" xml:space="preserve">
     <value>Tools</value>
+  </data>
+  <data name="RelicCard" xml:space="preserve">
+    <value>relic</value>
+  </data>
+  <data name="StrategyCard" xml:space="preserve">
+    <value>strategy</value>
   </data>
 </root>

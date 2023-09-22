@@ -1,4 +1,37 @@
-﻿.image-item img {
+﻿.image-item {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.image-item img {
+    display: block;
+    height: 500px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.image-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: inset 0 0 0 5px #000;
+    pointer-events: none;
+    margin-bottom: 20px;
+    border-radius: 20px;
+}
+
+.strategy-image-item {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.strategy-image-item img {
+    display: block;
     height: 500px;
     border-radius: 20px;
     margin-bottom: 20px;

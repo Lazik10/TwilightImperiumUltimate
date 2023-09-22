@@ -55,7 +55,6 @@ public enum AgendaCardName
     WormholeResearch,
 
     // Prophecy of Kings
-    ProphecyOfKings,
     ArmedForcesStandardization,
     ArticlesOfWar,
     ChecksAndBalances,

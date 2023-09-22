@@ -3,7 +3,7 @@
 @using TwilightImperiumUltimate.Web.Services.Language;
 @inject ICultureProvider CultureProvider
 
-<div class="image-item">
+<div class="@(TypeOfCard == Strings.StrategyCard ? "strategy-image-item" : "image-item")">
     <img src="@ImagePath" alt="@ImagePath">
 </div>
 
@@ -11,8 +11,6 @@
     [Parameter]
     public string ImagePath { get; set; } = string.Empty;
 
-    protected override async Task OnInitializedAsync()
-    {
-        await Task.Run(() => ImagePath = ImagePath.Replace(Strings.LanguagePlaceholder, CultureInfo.CurrentCulture.Name));
-    }
+    [Parameter]
+    public string TypeOfCard { get; set; } = string.Empty;
 }

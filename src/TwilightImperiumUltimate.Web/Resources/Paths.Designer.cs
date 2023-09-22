@@ -79,11 +79,29 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to \resources\images\shared\cardicons.
+        /// </summary>
+        public static string ResourcePath_CardTypeIconPath {
+            get {
+                return ResourceManager.GetString("ResourcePath_CardTypeIconPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to \resources\images\shared\cultures.
         /// </summary>
         public static string ResourcePath_CulturePath {
             get {
                 return ResourceManager.GetString("ResourcePath_CulturePath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to \resources\images\shared\factionicons.
+        /// </summary>
+        public static string ResourcePath_FactionIconPath {
+            get {
+                return ResourceManager.GetString("ResourcePath_FactionIconPath", resourceCulture);
             }
         }
     }
