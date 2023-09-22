@@ -61,11 +61,110 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to action.
+        /// </summary>
+        public static string ActionCard {
+            get {
+                return ResourceManager.GetString("ActionCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to agenda.
+        /// </summary>
+        public static string AgendaCard {
+            get {
+                return ResourceManager.GetString("AgendaCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to \.
         /// </summary>
         public static string BackSlash {
             get {
                 return ResourceManager.GetString("BackSlash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Action.
+        /// </summary>
+        public static string CardTitle_Action {
+            get {
+                return ResourceManager.GetString("CardTitle_Action", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Agenda.
+        /// </summary>
+        public static string CardTitle_Agenda {
+            get {
+                return ResourceManager.GetString("CardTitle_Agenda", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exploration.
+        /// </summary>
+        public static string CardTitle_Exploration {
+            get {
+                return ResourceManager.GetString("CardTitle_Exploration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Frontier.
+        /// </summary>
+        public static string CardTitle_Frontier {
+            get {
+                return ResourceManager.GetString("CardTitle_Frontier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Objective One.
+        /// </summary>
+        public static string CardTitle_ObjectiveOne {
+            get {
+                return ResourceManager.GetString("CardTitle_ObjectiveOne", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Onjective Two.
+        /// </summary>
+        public static string CardTitle_ObjectiveTwo {
+            get {
+                return ResourceManager.GetString("CardTitle_ObjectiveTwo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Relic.
+        /// </summary>
+        public static string CardTitle_Relic {
+            get {
+                return ResourceManager.GetString("CardTitle_Relic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Secret.
+        /// </summary>
+        public static string CardTitle_Secret {
+            get {
+                return ResourceManager.GetString("CardTitle_Secret", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Strategy.
+        /// </summary>
+        public static string CardTitle_Strategy {
+            get {
+                return ResourceManager.GetString("CardTitle_Strategy", resourceCulture);
             }
         }
         
@@ -106,6 +205,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to exploration.
+        /// </summary>
+        public static string ExplorationCard {
+            get {
+                return ResourceManager.GetString("ExplorationCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to .png.
         /// </summary>
         public static string FileExtensionPng {
@@ -115,11 +223,29 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .webp.
+        /// </summary>
+        public static string FileExtensionWebp {
+            get {
+                return ResourceManager.GetString("FileExtensionWebp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to /.
         /// </summary>
         public static string ForwardSlash {
             get {
                 return ResourceManager.GetString("ForwardSlash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to frontier.
+        /// </summary>
+        public static string FrontierCard {
+            get {
+                return ResourceManager.GetString("FrontierCard", resourceCulture);
             }
         }
         
@@ -273,6 +399,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string Page_Tools {
             get {
                 return ResourceManager.GetString("Page_Tools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to relic.
+        /// </summary>
+        public static string RelicCard {
+            get {
+                return ResourceManager.GetString("RelicCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to strategy.
+        /// </summary>
+        public static string StrategyCard {
+            get {
+                return ResourceManager.GetString("StrategyCard", resourceCulture);
             }
         }
     }

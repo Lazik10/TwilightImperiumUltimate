@@ -1,5 +1,7 @@
 ﻿@using TwilightImperiumUltimate.Web.Models.Factions;
+@using TwilightImperiumUltimate.Web.Services.Path;
 @inject HttpClient Http
+@inject IPathProvider PathProvider
 
 @if (_factions == null)
 {
@@ -15,7 +17,7 @@ else
                 <div class="link" @onclick="() => FactionClicked(faction)">
                     <img 
                         class="icon link" 
-                        src="@string.Concat("resources/images/shared/factionicons/", $"{faction.FactionName}.png")" 
+                        src="@(PathProvider.GetFactionIconPath(faction.FactionName.ToString()))" 
                         alt="icon for @faction.FactionName"
                         title="@faction.FactionName"
                     >

@@ -23,7 +23,7 @@ public partial class TwilightImperiumDbContextInitializer
             },
             new RelicCard
             {
-                RelicCardName = RelicCardName.JRXS455OLostTitanPrototype,
+                RelicCardName = RelicCardName.JRXS455OLostTitanPrototypeAgent,
                 GameVersion = GameVersion.CodexAffinity,
             },
             new RelicCard

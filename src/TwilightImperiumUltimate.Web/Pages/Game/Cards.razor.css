@@ -1,7 +1,7 @@
 ﻿#main-navbar {
     background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.5) 10%, rgba(0,0,0,0.5) 90%, rgba(0,0,0,0));
     display: flex;
-    align-items: center;
+/*    align-items: center;*/
     justify-content: space-evenly;
     flex-wrap: nowrap;
     width: 100%;
@@ -26,6 +26,9 @@
     font-size: 24px;
     font-weight: bold;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .menu-container {
@@ -36,6 +39,30 @@
         opacity: 1;
         visibility: visible;
     }
+
+img {
+    width: 30px;
+    height: 43px;
+    border: 2px solid black;
+}
+
+img:not(:nth-child(1)):not(:nth-child(8)) {
+    width: 30px;
+    height: 43px;
+    border: 2px solid black;
+}
+
+    img:nth-child(1),
+    img:nth-child(8) {
+        width: auto;
+        height: 43px;
+        border: none;
+    }
+
+img-exploration {
+    width: 40px;
+    height: 43px;
+}
 
 @media (max-width: 768px) {
     #main-navbar {

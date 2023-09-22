@@ -69,7 +69,7 @@ public partial class TwilightImperiumDbContextInitializer
             },
             new StrategyCard()
             {
-                StrategyCardName = StrategyCardName.ConstructionProhpecyOfKings,
+                StrategyCardName = StrategyCardName.ConstructionProphecyOfKings,
                 InitiativeOrder = InitiativeOrder.Four,
                 GameVersion = GameVersion.ProphecyOfKing,
             },

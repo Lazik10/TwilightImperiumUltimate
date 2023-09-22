@@ -1,17 +1,69 @@
 ﻿@page "/game/cards"
-@using TwilightImperiumUltimate.Web.Components.Cards.Secrets
 @using TwilightImperiumUltimate.Web.Components.Shared
 @using TwilightImperiumUltimate.Web.Components.Cards;
 @using TwilightImperiumUltimate.Web.Models.Cards;
 @using TwilightImperiumUltimate.Web.Resources;
+@using TwilightImperiumUltimate.Web.Services.Path;
+@inject IPathProvider PathProvider
 
 <PageTitle>Cards</PageTitle>
 
 <Page>
     <div id="main-navbar">
-        <div class="menu-item" @onclick="() => SetCurrentTypeOfCard(Strings.ObjectiveCardSecret)">Secrets</div>
-        <div class="menu-item" @onclick="() => SetCurrentTypeOfCard(Strings.ObjectiveCardStageOne)">Stage One</div>
-        <div class="menu-item" @onclick="() => SetCurrentTypeOfCard(Strings.ObjectiveCardStageTwo)">Stage Two</div>
+        <div class="menu-item" @onclick="() => SetCurrentTypeOfCard(Strings.StrategyCard)">
+            <img class="icon link"
+                 src="@PathProvider.GetCardTypeIconPath(nameof(Strings.StrategyCard))"
+                 alt="icon for @Strings.CardTitle_Strategy"
+                 title="@Strings.CardTitle_Strategy" />
+        </div>
+        <div class="menu-item" @onclick="() => SetCurrentTypeOfCard(Strings.ActionCard)">
+            <img class="icon link"
+                 src="@PathProvider.GetCardTypeIconPath(nameof(Strings.ActionCard))"
+                 alt="icon for @Strings.CardTitle_Action"
+                 title="@Strings.CardTitle_Action" />
+        </div>
+        <div class="menu-item" @onclick="() => SetCurrentTypeOfCard(Strings.AgendaCard)">
+            <img class="icon link"
+                 src="@PathProvider.GetCardTypeIconPath(nameof(Strings.AgendaCard))"
+                 alt="icon for @Strings.CardTitle_Agenda"
+                 title="@Strings.CardTitle_Agenda" />
+        </div>
+        <div class="menu-item" @onclick="() => SetCurrentTypeOfCard(Strings.ObjectiveCardSecret)">
+            <img class="icon link"
+                 src="@PathProvider.GetCardTypeIconPath(nameof(Strings.ObjectiveCardSecret))"
+                 alt="icon for @Strings.CardTitle_Secret"
+                 title="@Strings.CardTitle_Secret" />
+        </div>
+        <div class="menu-item" @onclick="() => SetCurrentTypeOfCard(Strings.ObjectiveCardStageOne)">
+            <img class="icon link"
+                 src="@PathProvider.GetCardTypeIconPath(nameof(Strings.ObjectiveCardStageOne))"
+                 alt="icon for @Strings.CardTitle_ObjectiveOne"
+                 title="@Strings.CardTitle_ObjectiveOne" />
+        </div>
+        <div class="menu-item" @onclick="() => SetCurrentTypeOfCard(Strings.ObjectiveCardStageTwo)">
+            <img class="icon link"
+                 src="@PathProvider.GetCardTypeIconPath(nameof(Strings.ObjectiveCardStageTwo))"
+                 alt="icon for @Strings.CardTitle_ObjectiveTwo"
+                 title="@Strings.CardTitle_ObjectiveTwo" />
+        </div>
+        <div class="menu-item" @onclick="() => SetCurrentTypeOfCard(Strings.ExplorationCard)">
+            <img class="icon link"
+                 src="@PathProvider.GetCardTypeIconPath(nameof(Strings.ExplorationCard))"
+                 alt="icon for @Strings.CardTitle_Exploration"
+                 title="@Strings.CardTitle_Exploration" />
+        </div>
+        <div class="menu-item img-border" @onclick="() => SetCurrentTypeOfCard(Strings.RelicCard)">
+            <img class="icon link"
+                 src="@PathProvider.GetCardTypeIconPath(nameof(Strings.RelicCard))"
+                 alt="icon for @Strings.CardTitle_Relic"
+                 title="@Strings.CardTitle_Relic" />
+        </div>
+        <div class="menu-item" @onclick="() => SetCurrentTypeOfCard(Strings.FrontierCard)">
+            <img class="icon link"
+                 src="@PathProvider.GetCardTypeIconPath(nameof(Strings.FrontierCard))"
+                 alt="icon for @Strings.CardTitle_Frontier"
+                 title="@Strings.CardTitle_Frontier" />
+        </div>
     </div>
 
     @if (_currentTypeOfCard != null)
@@ -21,10 +73,11 @@
 </Page>
 
 @code {
-    private string _currentTypeOfCard = Strings.ObjectiveCardSecret;
+    private string _currentTypeOfCard = Strings.StrategyCard;
 
     private void SetCurrentTypeOfCard(string typeOfCard)
     {
         _currentTypeOfCard = typeOfCard;
+        StateHasChanged();
     }
 }

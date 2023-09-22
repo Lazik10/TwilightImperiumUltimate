@@ -123,7 +123,13 @@
   <data name="ResourceNamespace_FactionInfo" xml:space="preserve">
     <value>TwilightImperiumUltimate.Web.Resources.FactionsInfo</value>
   </data>
+  <data name="ResourcePath_CardTypeIconPath" xml:space="preserve">
+    <value>\resources\images\shared\cardicons</value>
+  </data>
   <data name="ResourcePath_CulturePath" xml:space="preserve">
     <value>\resources\images\shared\cultures</value>
+  </data>
+  <data name="ResourcePath_FactionIconPath" xml:space="preserve">
+    <value>\resources\images\shared\factionicons</value>
   </data>
 </root>

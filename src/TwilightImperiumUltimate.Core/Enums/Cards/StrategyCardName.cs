@@ -3,13 +3,14 @@
 public enum StrategyCardName
 {
     Leadership,
-    Diplomacy,
+    DiplomacyCodexOrdinian,
     Politics,
-    Construction,
+    ConstructionProphecyOfKings,
     Trade,
     Warfare,
     Technology,
     Imperial,
-    DiplomacyCodexOrdinian,
-    ConstructionProhpecyOfKings,
+
+    Diplomacy,
+    Construction,
 }
