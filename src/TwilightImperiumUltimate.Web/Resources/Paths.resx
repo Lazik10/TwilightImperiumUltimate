@@ -126,10 +126,19 @@
   <data name="ResourcePath_CardTypeIconPath" xml:space="preserve">
     <value>\resources\images\shared\cardicons</value>
   </data>
+  <data name="ResourcePath_ComplexityPath" xml:space="preserve">
+    <value>\resources\images\shared\complexity</value>
+  </data>
   <data name="ResourcePath_CulturePath" xml:space="preserve">
     <value>\resources\images\shared\cultures</value>
   </data>
   <data name="ResourcePath_FactionIconPath" xml:space="preserve">
     <value>\resources\images\shared\factionicons</value>
+  </data>
+  <data name="ResourcePath_FactionImagePath" xml:space="preserve">
+    <value>\resources\images\shared\factionimages</value>
+  </data>
+  <data name="ResourcePath_FactionSheetPath" xml:space="preserve">
+    <value>\resources\images\shared\factionimages</value>
   </data>
 </root>

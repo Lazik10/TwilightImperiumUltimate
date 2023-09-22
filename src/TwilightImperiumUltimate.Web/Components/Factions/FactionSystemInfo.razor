@@ -1,0 +1,10 @@
+﻿@using TwilightImperiumUltimate.Web.Helpers.Resources;
+
+<p class="system-info">
+    @FactionName.GetFactionUIText(FactionResourceType.SystemInfo)
+</p>
+
+@code {
+    [Parameter]
+    public FactionName FactionName { get; set; } = default!;
+}

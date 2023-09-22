@@ -7,4 +7,10 @@ public interface IPathProvider
     string GetFactionIconPath(string fileName);
 
     string GetCardTypeIconPath(string fileName);
+
+    string GetComplexityIconPath(int complexity);
+
+    string GetFactionSheetPath(string fileName, bool front = true);
+
+    string GetFactionImagePath(string fileName);
 }

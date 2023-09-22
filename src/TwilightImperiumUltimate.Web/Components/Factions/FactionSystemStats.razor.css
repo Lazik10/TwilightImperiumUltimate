@@ -1,0 +1,44 @@
+﻿.system-stats {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-self: self-start;
+    width: 100%;
+}
+
+.system-stats-text {
+    color: white;
+    font-size: 18px;
+}
+
+.system-stats-line:first-child {
+    font-size: 24px;
+    font-family: 'Myriad';
+    color: white;
+    margin-bottom: 10px;
+}
+
+.system-stats-line {
+    display: flex;
+    flex-direction: row;
+}
+
+.system-stats-line-title {
+    color: white;
+    font-family: Handel, fallback, sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-shadow: 0px 2px 6px rgba(0, 0, 0, 1), 2px 0px 6px rgba(0, 0, 0, 1), 0px -2px 6px rgba(0, 0, 0, 1), -2px 0px 6px rgba(0, 0, 0, 1), 1px 1px 6px rgba(0, 0, 0, 1), 1px -1px 6px rgba(0, 0, 0, 1), -1px 1px 6px rgba(0, 0, 0, 1), -1px -1px 6px rgba(0, 0, 0, 1);
+    margin-bottom: 10px;
+}
+
+.system-stats-text {
+    align-self: center;
+    width: 50%;
+}
+
+.system-stats-value {
+    align-self: center;
+}

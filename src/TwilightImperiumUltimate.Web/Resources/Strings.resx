@@ -168,6 +168,12 @@
   <data name="ExplorationCard" xml:space="preserve">
     <value>exploration</value>
   </data>
+  <data name="FactionSheet" xml:space="preserve">
+    <value>FactionSheet</value>
+  </data>
+  <data name="FactionSheetBack" xml:space="preserve">
+    <value>FactionSheetBack</value>
+  </data>
   <data name="FileExtensionPng" xml:space="preserve">
     <value>.png</value>
   </data>
@@ -180,8 +186,17 @@
   <data name="FrontierCard" xml:space="preserve">
     <value>frontier</value>
   </data>
+  <data name="High" xml:space="preserve">
+    <value>High</value>
+  </data>
   <data name="LanguagePlaceholder" xml:space="preserve">
     <value>{language}</value>
+  </data>
+  <data name="Low" xml:space="preserve">
+    <value>Low</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Medium</value>
   </data>
   <data name="ObjectiveCardSecret" xml:space="preserve">
     <value>secret</value>

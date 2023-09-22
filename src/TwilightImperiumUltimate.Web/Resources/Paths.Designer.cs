@@ -88,6 +88,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to \resources\images\shared\complexity.
+        /// </summary>
+        public static string ResourcePath_ComplexityPath {
+            get {
+                return ResourceManager.GetString("ResourcePath_ComplexityPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to \resources\images\shared\cultures.
         /// </summary>
         public static string ResourcePath_CulturePath {
@@ -102,6 +111,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string ResourcePath_FactionIconPath {
             get {
                 return ResourceManager.GetString("ResourcePath_FactionIconPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to \resources\images\shared\factionimages.
+        /// </summary>
+        public static string ResourcePath_FactionImagePath {
+            get {
+                return ResourceManager.GetString("ResourcePath_FactionImagePath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to \resources\images\shared\factionimages.
+        /// </summary>
+        public static string ResourcePath_FactionSheetPath {
+            get {
+                return ResourceManager.GetString("ResourcePath_FactionSheetPath", resourceCulture);
             }
         }
     }

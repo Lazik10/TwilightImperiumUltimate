@@ -117,23 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Arborec_PromissaryNote" xml:space="preserve">
-    <value>Stymie
-
-ACTION: Place this card face up in your play area.
-
-While this card is in your play area, the Arborec player cannot produce units in or adjacent to non-home systems that contain 1 or more of your units.
-
-If you activate a system that contains 1 or more of the Arborec player's units, return this card to the Arborec player.
-
-Stymie Ω
-
-After another player moves ships into a system that contains 1 or more of your units:
-
-You may place 1 command token from that player's reinforcements in any non-home system.
-
-Then, return this card to the Arborec player.</value>
-  </data>
   <data name="SardakkNorr_Ability" xml:space="preserve">
     <value>UNRELENTING: Apply +1 to the result of each of your unit's combat rolls.</value>
   </data>
@@ -228,12 +211,12 @@ charging them to drown the
 galaxy with blood in her name</value>
   </data>
   <data name="SardakkNorr_SystemStats" xml:space="preserve">
-    <value>SARDAKK SYSTEM
-✧ Population 28.71 billion
-✧ Government Veiled Brood
-✧ Leadership The Envoy
-✧ Disposition Aggressive
-✧ Tendencies Military</value>
+    <value>SARDAKK SYSTEM:;
+✧ Population.28,71 billion;
+✧ Government.Veiled Brood;
+✧ Leadership.The Envoy;
+✧ Disposition.Aggressive;
+✧ Tendencies.Military</value>
   </data>
   <data name="SardakkNorr_Title" xml:space="preserve">
     <value>The Sardakk N'orr</value>
@@ -327,6 +310,23 @@ in which the Arborec seem to have come upon information,
 or intimate understanding of other cultures, that seem
 inexplicable otherwise.</value>
   </data>
+  <data name="TheArborec_PromissaryNote" xml:space="preserve">
+    <value>Stymie
+
+ACTION: Place this card face up in your play area.
+
+While this card is in your play area, the Arborec player cannot produce units in or adjacent to non-home systems that contain 1 or more of your units.
+
+If you activate a system that contains 1 or more of the Arborec player's units, return this card to the Arborec player.
+
+Stymie Ω
+
+After another player moves ships into a system that contains 1 or more of your units:
+
+You may place 1 command token from that player's reinforcements in any non-home system.
+
+Then, return this card to the Arborec player.</value>
+  </data>
   <data name="TheArborec_Quote" xml:space="preserve">
     <value>“Do you hear, flesh-thing? The harmonies of
 the Arborec? Your golems of metal and noise
@@ -342,12 +342,12 @@ searching for, out there amidst
 the stars?</value>
   </data>
   <data name="TheArborec_SystemStats" xml:space="preserve">
-    <value>FARRUBAN SYSTEM
-✧ Population 1
-✧ Government Hivemind
-✧ Leadership The Arborec
-✧ Disposition Mysterious
-✧ Tendencies Expansionist</value>
+    <value>FARRUBAN SYSTEM:;
+✧ Population.1;
+✧ Government.Hivemind;
+✧ Leadership.The Arborec;
+✧ Disposition.Mysterious;
+✧ Tendencies.Expansionist</value>
   </data>
   <data name="TheArborec_Title" xml:space="preserve">
     <value>The Arborec</value>
@@ -385,12 +385,12 @@ spend their entire lives soaring in
 the gas ring.</value>
   </data>
   <data name="TheArgentFlight_SystemStats" xml:space="preserve">
-    <value>ATHARAL GAS TORUS
-✧ Population 1.84 billion
-✧ Government Confederation
-✧ Leadership The Murmeration
-✧ Disposition Dedicated
-✧ Tendencies Military</value>
+    <value>ATHARAL GAS TORUS:;
+✧ Population.1,84 billion;
+✧ Government.Confederation;
+✧ Leadership.The Murmeration;
+✧ Disposition.Dedicated;
+✧ Tendencies.Military</value>
   </data>
   <data name="TheArgentFlight_Title" xml:space="preserve">
     <value>The Argent Flight</value>
@@ -512,12 +512,12 @@ unclear, for they are one
 and the same.</value>
   </data>
   <data name="TheBaronyOfLetnev_SystemStats" xml:space="preserve">
-    <value>BARONY SPACE
-✧ Population 10.47 billion
-✧ Government Barony
-✧ Leadership Daz Emmiciel Werqan III
-✧ Disposition Disdainful
-✧ Tendencies Military</value>
+    <value>BARONY SPACE:;
+✧ Population.10,47 billion;
+✧ Government.Barony;
+✧ Leadership.Daz Emmiciel Werqan III;
+✧ Disposition.Disdainful;
+✧ Tendencies.Military</value>
   </data>
   <data name="TheBaronyOfLetnev_Title" xml:space="preserve">
     <value>The Barony of Letnev</value>
@@ -637,12 +637,12 @@ the Saar cling to life with a
 ferocity unlike any other.</value>
   </data>
   <data name="TheClanOfSaar_SystemStats" xml:space="preserve">
-    <value>JORUN ASTEROID FIELD
-✧ Population 1.01 billion
-✧ Government Admiralty
-✧ Leadership Council of Captains
-✧ Disposition Melancholy
-✧ Tendencies Objective</value>
+    <value>JORUN ASTEROID FIELD:;
+✧ Population.1,01 billion;
+✧ Government.Admiralty;
+✧ Leadership.Council of Captains;
+✧ Disposition.Melancholy;
+✧ Tendencies.Objective</value>
   </data>
   <data name="TheClanOfSaar_Title" xml:space="preserve">
     <value>The Clan of Saar</value>
@@ -734,12 +734,12 @@ currently undergoing a lengthy and
 expensive construction process.</value>
   </data>
   <data name="TheCouncilKeleres_SystemStats" xml:space="preserve">
-    <value>IMPERIAL INTELLIGENCE HQ
-✧ Location Mecatol City
-✧ Leadership The Tribunii
-✧ Agents Classified
-✧ Support Staff ~5000
-✧ Ongoing Ops Classified</value>
+    <value>IMPERIAL INTELLIGENCE HQ:;
+✧ Location.Mecatol City;
+✧ Leadership.The Tribunii;
+✧ Agents.Classified;
+✧ Support Staff.~5000;
+✧ Ongoing Ops.Classified</value>
   </data>
   <data name="TheCouncilKeleres_Title" xml:space="preserve">
     <value>The Council Keleres</value>
@@ -849,12 +849,12 @@ Warden carries with him the hopes
 and dreams of his people.</value>
   </data>
   <data name="TheEmbersOfMuaat_SystemStats" xml:space="preserve">
-    <value>MUAAT SYSTEM
-✧ Population 7.39 billion
-✧ Government Tribunal
-✧ Leadership Sushon Azh
-✧ Disposition Grim
-✧ Tendencies Military</value>
+    <value>MUAAT SYSTEM:;
+✧ Population.7,39 billion;
+✧ Government.Tribunal;
+✧ Leadership.Sushon Azh;
+✧ Disposition.Grim;
+✧ Tendencies.Military</value>
   </data>
   <data name="TheEmbersOfMuaat_Title" xml:space="preserve">
     <value>The Embers of Muaat</value>
@@ -954,12 +954,12 @@ in the dry deserts of Kenara’s
 worlds, their ancestral homes.</value>
   </data>
   <data name="TheEmiratesOfHacan_SystemStats" xml:space="preserve">
-    <value>KENARA SYSTEM
-✧ Population 8.82 billion
-✧ Government United Emirates
-✧ Leadership Quieron
-✧ Disposition Nomadic
-✧ Tendencies Economic</value>
+    <value>KENARA SYSTEM:;
+✧ Population.8,82 billion;
+✧ Government.United Emirates;
+✧ Leadership.Quieron;
+✧ Disposition.Nomadic;
+✧ Tendencies.Economic</value>
   </data>
   <data name="TheEmiratesOfHacan_Title" xml:space="preserve">
     <value>The Emirates of Hacan</value>
@@ -1003,12 +1003,12 @@ their ships and preserve the true
 history of the galaxy</value>
   </data>
   <data name="TheEmpyrean_SystemStats" xml:space="preserve">
-    <value>THE DARK
-✧ Population Fluctuates
-✧ Government Collective
-✧ Leadership None
-✧ Disposition Contemplative
-✧ Tendencies Political</value>
+    <value>THE DARK:;
+✧ Population.Fluctuates;
+✧ Government.Collective;
+✧ Leadership.None;
+✧ Disposition.Contemplative;
+✧ Tendencies.Political</value>
   </data>
   <data name="TheEmpyrean_Title" xml:space="preserve">
     <value>The Empyrean</value>
@@ -1107,12 +1107,12 @@ surprised even the eldest of the
 spacefaring races.</value>
   </data>
   <data name="TheFederationOfSol_SystemStats" xml:space="preserve">
-    <value>SOL SYSTEM
-✧ Population 16.44 billion
-✧ Government Federation
-✧ Leadership Juan Salvador Tao
-✧ Disposition Determined
-✧ Tendencies Expansionist</value>
+    <value>SOL SYSTEM:;
+✧ Population.16,44 billion;
+✧ Government.Federation;
+✧ Leadership.Juan Salvador Tao;
+✧ Disposition.Determined;
+✧ Tendencies.Expansionist</value>
   </data>
   <data name="TheFederationOfSol_Title" xml:space="preserve">
     <value>The Federation of Sol</value>
@@ -1235,12 +1235,12 @@ died shortly thereafter under
 questionable circumstances.</value>
   </data>
   <data name="TheGhostsOfCreuss_SystemStats" xml:space="preserve">
-    <value>SHALERI PASSAGE
-✧ Population Unknown
-✧ Government Unknown
-✧ Leadership Unknown
-✧ Disposition Enigmatic
-✧ Tendencies Expansionist</value>
+    <value>SHALERI PASSAGE:;
+✧ Population.Unknown;
+✧ Government.Unknown;
+✧ Leadership.Unknown;
+✧ Disposition.Enigmatic;
+✧ Tendencies.Expansionist</value>
   </data>
   <data name="TheGhostsOfCreuss_Title" xml:space="preserve">
     <value>The Ghosts of Creuss</value>
@@ -1358,12 +1358,12 @@ effectiveness of their orbital
 bombardments, however, is not.</value>
   </data>
   <data name="TheL1z1xMindnet_SystemStats" xml:space="preserve">
-    <value>UNKNOWN SYSTEM
-✧ Population Unknown
-✧ Government Unknown
-✧ Leadership Ibna Vel Syd
-✧ Disposition Calculating
-✧ Tendencies Scientific</value>
+    <value>UNKNOWN SYSTEM:;
+✧ Population.Unknown;
+✧ Government.Unknown;
+✧ Leadership.Ibna Vel Syd;
+✧ Disposition.Calculating;
+✧ Tendencies.Scientific</value>
   </data>
   <data name="TheL1z1xMindnet_Title" xml:space="preserve">
     <value>The L1Z1X Mindnet</value>
@@ -1399,12 +1399,12 @@ they can use the Mahact to their
 own advantage.</value>
   </data>
   <data name="TheMahactGeneSorcerers_SystemStats" xml:space="preserve">
-    <value>IXTH
-✧ Population Unknown
-✧ Government Coalition
-✧ Leadership Vertar Auran Oblis
-✧ Disposition Imperious
-✧ Tendencies Objective</value>
+    <value>IXTH:;
+✧ Population.Unknown;
+✧ Government.Coalition;
+✧ Leadership.Vertar Auran Oblis;
+✧ Disposition.Imperious;
+✧ Tendencies.Objective</value>
   </data>
   <data name="TheMahactGeneSorcerers_Title" xml:space="preserve">
     <value>The Mahact Gene-Sorcerers</value>
@@ -1512,12 +1512,12 @@ developed a rich, if somewhat
 vague, code of honor.</value>
   </data>
   <data name="TheMentakCoalition_SystemStats" xml:space="preserve">
-    <value>MOLL SYSTEM
-✧ Population 2.55 billion
-✧ Government Table of Captains
-✧ Leadership Erwan’s Hand
-✧ Disposition Rebellious
-✧ Tendencies Economic</value>
+    <value>MOLL SYSTEM:;
+✧ Population.2,55 billion;
+✧ Government.Table of Captains;
+✧ Leadership.Erwan’s Hand;
+✧ Disposition.Rebellious;
+✧ Tendencies.Economic</value>
   </data>
   <data name="TheMentakCoalition_Title" xml:space="preserve">
     <value>The Mentak Coalition</value>
@@ -1632,12 +1632,12 @@ deep into the minds of the
 “lesser” beings of the galaxy.</value>
   </data>
   <data name="TheNaaluCollective_SystemStats" xml:space="preserve">
-    <value>MALLAC SYSTEM
-✧ Population 4.72 billion
-✧ Government Collective
-✧ Leadership Q’uesh Sish
-✧ Disposition Seductive
-✧ Tendencies Military</value>
+    <value>MALLAC SYSTEM:;
+✧ Population.4,72 billion;
+✧ Government.Collective;
+✧ Leadership.Q’uesh Sish;
+✧ Disposition.Seductive;
+✧ Tendencies.Military</value>
   </data>
   <data name="TheNaaluCollective_Title" xml:space="preserve">
     <value>The Naalu Collective</value>
@@ -1672,12 +1672,12 @@ Naaz and Rokha wouldn’t brag
 about it so much.</value>
   </data>
   <data name="TheNaazRokhaAlliance_SystemStats" xml:space="preserve">
-    <value>NAAZIR-ROKHA DUAL SYSTEM
-✧ Population 12.7 billion
-✧ Government Alliance
-✧ Leadership The Tetrarchy
-✧ Disposition Optimistic
-✧ Tendencies Scientific</value>
+    <value>NAAZIR-ROKHA DUAL SYSTEM:;
+✧ Population.12,7 billion;
+✧ Government.Alliance;
+✧ Leadership.The Tetrarchy;
+✧ Disposition.Optimistic;
+✧ Tendencies.Scientific</value>
   </data>
   <data name="TheNaazRokhaAlliance_Title" xml:space="preserve">
     <value>The Naaz-Rokha Alliance</value>
@@ -1804,12 +1804,12 @@ only be described as godhood.”
 000100100101000101</value>
   </data>
   <data name="TheNekroVirus_SystemStats" xml:space="preserve">
-    <value>ERROR
-✧ Population _error
-✧ Government _error
-✧ Surface _error
-✧ Surface Temp _error
-✧ Surface Area _error</value>
+    <value>ERROR:;
+✧ Population._error;
+✧ Government._error;
+✧ Surface._error;
+✧ Surface Temp._error;
+✧ Surface Area._error</value>
   </data>
   <data name="TheNekroVirus_Title" xml:space="preserve">
     <value>The Nekro Virus</value>
@@ -1844,12 +1844,12 @@ of the merchant guilds have also
 seen sudden leadership changes.</value>
   </data>
   <data name="TheNomad_SystemStats" xml:space="preserve">
-    <value>SPACE STATION SUMERIAN
-✧ Population 167 million
-✧ Government Station Master
-✧ Leadership The Nomad
-✧ Disposition Altruistic
-✧ Tendencies Economic</value>
+    <value>SPACE STATION SUMERIAN:;
+✧ Population.167 million;
+✧ Government.Station Master;
+✧ Leadership.The Nomad;
+✧ Disposition.Altruistic;
+✧ Tendencies.Economic</value>
   </data>
   <data name="TheNomad_Title" xml:space="preserve">
     <value>The Nomad</value>
@@ -1884,12 +1884,12 @@ beings, perhaps their world may
 be more than it appears.</value>
   </data>
   <data name="TheTitansOfUl_SystemStats" xml:space="preserve">
-    <value>ELYSIUM
-✧ Population 750 million
-✧ Government Total Hierarchy
-✧ Leadership The Ul
-✧ Disposition Patient
-✧ Tendencies Expansionist</value>
+    <value>ELYSIUM:;
+✧ Population.750 million;
+✧ Government.Total Hierarchy;
+✧ Leadership.The Ul;
+✧ Disposition.Patient;
+✧ Tendencies.Expansionist;</value>
   </data>
   <data name="TheTitansOfUl_Title" xml:space="preserve">
     <value>The Titans of Ul</value>
@@ -1999,12 +1999,12 @@ mere fraction of the Universities’
 advanced capabilities.</value>
   </data>
   <data name="TheUniversitiesOfJolNar_SystemStats" xml:space="preserve">
-    <value>GARIAN SYSTEM
-✧ Population 3.22 billion
-✧ Government Circle of Regents
-✧ Leadership Headmaster
-✧ Disposition Aloof
-✧ Tendencies Scientific</value>
+    <value>GARIAN SYSTEM:;
+✧ Population.3,22 billion;
+✧ Government.Circle of Regents;
+✧ Leadership.Headmaster;
+✧ Disposition.Aloof;
+✧ Tendencies.Scientific</value>
   </data>
   <data name="TheUniversitiesOfJolNar_Title" xml:space="preserve">
     <value>The Universities of Jol-Nar</value>
@@ -2039,12 +2039,12 @@ for those who must face these
 nightmares made flesh.</value>
   </data>
   <data name="TheVuilRaithCabal_SystemStats" xml:space="preserve">
-    <value>ACHERON VORTEX
-✧ Population Unknown
-✧ Government Cabal
-✧ Leadership None
-✧ Disposition Voracious
-✧ Tendencies Military</value>
+    <value>ACHERON VORTEX:;
+✧ Population.Unknown;
+✧ Government.Cabal;
+✧ Leadership.None;
+✧ Disposition.Voracious;
+✧ Tendencies.Military</value>
   </data>
   <data name="TheVuilRaithCabal_Title" xml:space="preserve">
     <value>The Vuil'Raith Cabal</value>
@@ -2175,12 +2175,12 @@ Winnu are prepared to unite the
 galaxy—by force, if necessary.</value>
   </data>
   <data name="TheWinnu_SystemStats" xml:space="preserve">
-    <value>WINNU SYSTEM
-✧ Population 13.77 billion
-✧ Government Imperial
-✧ Leadership Muad Di Faruuq
-✧ Disposition Righteous
-✧ Tendencies Objective</value>
+    <value>WINNU SYSTEM:;
+✧ Population.13,77 billion;
+✧ Government.Imperial;
+✧ Leadership.Muad Di Faruuq;
+✧ Disposition.Righteous;
+✧ Tendencies.Objective</value>
   </data>
   <data name="TheWinnu_Title" xml:space="preserve">
     <value>The Winnu</value>
@@ -2299,12 +2299,12 @@ warriors beneath the Xxcha’s
 tranquil veneer.</value>
   </data>
   <data name="TheXxchaKingdom_SystemStats" xml:space="preserve">
-    <value>XXLAK SYSTEM
-✧ Population 8.16 billion
-✧ Government Monarchy
-✧ Leadership Ccrysus
-✧ Disposition Diplomatic
-✧ Tendencies Political</value>
+    <value>XXLAK SYSTEM:;
+✧ Population.8,16 billion;
+✧ Government.Monarchy;
+✧ Leadership.Ccrysus;
+✧ Disposition.Diplomatic;
+✧ Tendencies.Political</value>
   </data>
   <data name="TheXxchaKingdom_Title" xml:space="preserve">
     <value>The Xxcha Kingdom</value>
@@ -2429,12 +2429,12 @@ is overshadowed only by their
 loyalty to their brothers.</value>
   </data>
   <data name="TheYinBrotherhood_SystemStats" xml:space="preserve">
-    <value>LAEL SYSTEM
-✧ Population 1.81 billion
-✧ Government The Blessed
-✧ Leadership The Elder Brother
-✧ Disposition Zealous
-✧ Tendencies Military</value>
+    <value>LAEL SYSTEM:;
+✧ Population.1,81 billion;
+✧ Government.The Blessed;
+✧ Leadership.The Elder Brother;
+✧ Disposition.Zealous;
+✧ Tendencies.Military</value>
   </data>
   <data name="TheYinBrotherhood_Title" xml:space="preserve">
     <value>The Yin Brotherhood</value>
@@ -2551,12 +2551,12 @@ that the Guild has already been
 there and left.</value>
   </data>
   <data name="TheYssarilTribes_SystemStats" xml:space="preserve">
-    <value>MYOCK SYSTEM
-✧ Population Unknown
-✧ Government Guild of Spies
-✧ Leadership The Cqaark
-✧ Disposition Secretive
-✧ Tendencies Political</value>
+    <value>MYOCK SYSTEM:;
+✧ Population.Unknown;
+✧ Government.Guild of Spies;
+✧ Leadership.The Cqaark;
+✧ Disposition.Secretive;
+✧ Tendencies.Political</value>
   </data>
   <data name="TheYssarilTribes_Title" xml:space="preserve">
     <value>The Yssaril Tribes</value>
