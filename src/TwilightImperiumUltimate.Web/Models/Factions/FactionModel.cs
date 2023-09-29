@@ -2,7 +2,7 @@
 
 namespace TwilightImperiumUltimate.Web.Models.Factions;
 
-public class Faction
+public class FactionModel
 {
     public FactionName FactionName { get; set; }
 
@@ -11,4 +11,6 @@ public class Faction
     public int ComplexityRating { get; set; }
 
     public GameVersion GameVersion { get; set; }
+
+    public bool Banned { get; set; }
 }

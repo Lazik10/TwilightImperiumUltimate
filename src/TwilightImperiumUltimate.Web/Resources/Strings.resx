@@ -126,6 +126,12 @@
   <data name="BackSlash" xml:space="preserve">
     <value>\</value>
   </data>
+  <data name="ButtonLeftArrow" xml:space="preserve">
+    <value>&amp;#8249;</value>
+  </data>
+  <data name="ButtonRightArrow" xml:space="preserve">
+    <value>&amp;#8250;</value>
+  </data>
   <data name="CardTitle_Action" xml:space="preserve">
     <value>Action</value>
   </data>
@@ -162,11 +168,44 @@
   <data name="DoubleBackslash" xml:space="preserve">
     <value>\\</value>
   </data>
+  <data name="DraftButton_BanToMany" xml:space="preserve">
+    <value>Not enough factions</value>
+  </data>
+  <data name="DraftButton_DraftInProgress" xml:space="preserve">
+    <value>...Drafting...</value>
+  </data>
+  <data name="DraftButton_DraftReady" xml:space="preserve">
+    <value>Draft</value>
+  </data>
+  <data name="DraftButton_Reset" xml:space="preserve">
+    <value>Reset Draft</value>
+  </data>
+  <data name="DraftButton_ResetBans" xml:space="preserve">
+    <value>Reset bans</value>
+  </data>
+  <data name="DraftText_DraftNotPossible" xml:space="preserve">
+    <value>To many bans for a draft to be possible. Please reduce the number of bans or decrease the number of factions drafted per player or number of players.</value>
+  </data>
+  <data name="DraftText_NumberOfFactions" xml:space="preserve">
+    <value>Number of factions per player:</value>
+  </data>
+  <data name="DraftText_NumberOfPlayers" xml:space="preserve">
+    <value>Number of players:</value>
+  </data>
   <data name="EnglishCulture" xml:space="preserve">
     <value>en-US</value>
   </data>
   <data name="ExplorationCard" xml:space="preserve">
     <value>exploration</value>
+  </data>
+  <data name="FactionDraft_BanHelp" xml:space="preserve">
+    <value>(To ban a faction, click on the faction icon above)</value>
+  </data>
+  <data name="FactionDraft_Title" xml:space="preserve">
+    <value>Faction Draft</value>
+  </data>
+  <data name="Factions" xml:space="preserve">
+    <value>Factions:</value>
   </data>
   <data name="FactionSheet" xml:space="preserve">
     <value>FactionSheet</value>
@@ -245,6 +284,12 @@
   </data>
   <data name="Page_Tools" xml:space="preserve">
     <value>Tools</value>
+  </data>
+  <data name="Player" xml:space="preserve">
+    <value>Player</value>
+  </data>
+  <data name="PlayerNamePlaceholder" xml:space="preserve">
+    <value>Player {0}</value>
   </data>
   <data name="RelicCard" xml:space="preserve">
     <value>relic</value>

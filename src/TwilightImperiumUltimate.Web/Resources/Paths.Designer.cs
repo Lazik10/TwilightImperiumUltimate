@@ -70,6 +70,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://localhost:44307/api/drafts/factions.
+        /// </summary>
+        public static string ApiPath_FactionDraft {
+            get {
+                return ResourceManager.GetString("ApiPath_FactionDraft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://localhost:44307/api/factions/.
+        /// </summary>
+        public static string ApiPath_Factions {
+            get {
+                return ResourceManager.GetString("ApiPath_Factions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TwilightImperiumUltimate.Web.Resources.FactionsInfo.
         /// </summary>
         public static string ResourceNamespace_FactionInfo {

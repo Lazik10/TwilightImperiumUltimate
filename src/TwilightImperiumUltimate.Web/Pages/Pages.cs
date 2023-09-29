@@ -22,7 +22,7 @@ public static class Pages
 
     public const string ColorDraft = "/tools/colordraft";
 
-    public const string RaceDraft = "/tools/racedraft";
+    public const string FactionDraft = "/tools/factiondraft";
 
     public const string BattleCalculator = "/tools/battlecalculator";
 

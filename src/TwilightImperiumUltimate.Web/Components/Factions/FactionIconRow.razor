@@ -1,4 +1,5 @@
 ﻿@using TwilightImperiumUltimate.Web.Models.Factions;
+@using TwilightImperiumUltimate.Web.Resources;
 @using TwilightImperiumUltimate.Web.Services.Path;
 @inject HttpClient Http
 @inject IPathProvider PathProvider
@@ -15,8 +16,12 @@ else
             @foreach (var faction in _factions)
             {
                 <div class="link" @onclick="() => FactionClicked(faction)">
+
+                    @{
+                        var banned = faction.Banned && BanMode ? "colorless" : string.Empty;
+                    }
                     <img 
-                        class="icon link" 
+                        class="icon link @banned" 
                         src="@(PathProvider.GetFactionIconPath(faction.FactionName.ToString()))" 
                         alt="icon for @faction.FactionName"
                         title="@faction.FactionName"
@@ -32,26 +37,44 @@ else
 }
 
 @code {
-    private List<Faction>? _factions = new List<Faction>();
+    private List<FactionModel>? _factions = new List<FactionModel>();
 
     [Parameter]
-    public EventCallback<Faction> OnFactionSelected { get; set; }
+    public EventCallback<FactionModel> OnFactionSelected { get; set; }
 
-    private void FactionClicked(Faction selectedFaction)
-    {
-        OnFactionSelected.InvokeAsync(selectedFaction);
-    }
+    [Parameter]
+    public EventCallback<List<FactionModel>> OnFactionClicked { get; set; }
+
+    [Parameter]
+    public bool BanMode { get; set; } = false;
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
-            _factions = await Http.GetFromJsonAsync<List<Faction>>("https://localhost:44307/api/factions");
+            _factions = await Http.GetFromJsonAsync<List<FactionModel>>(Paths.ApiPath_Factions);
+            await OnFactionClicked.InvokeAsync(_factions);
         }
         catch (Exception ex)
         {
             Console.WriteLine($"An error occurred: {ex.Message}");
-            _factions = new List<Faction>();
+            _factions = new List<FactionModel>();
         }
+    }
+
+    private void FactionClicked(FactionModel selectedFaction)
+    {
+        OnFactionSelected.InvokeAsync(selectedFaction);
+
+        if (BanMode)
+            selectedFaction.Banned = !selectedFaction.Banned;
+
+        OnFactionClicked.InvokeAsync(_factions);
+    }
+
+    public void ResetBans()
+    {
+        if (_factions is not null)
+            _factions.ForEach(x => x.Banned = false);
     }
 }

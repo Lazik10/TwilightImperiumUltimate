@@ -1,0 +1,19 @@
+﻿.player-number {
+    max-width: 20%;
+}
+
+.factions-text {
+    justify-self: end;
+    min-width: 25%;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.factionicon {
+    width: 75px;
+    height: 75px;
+    margin: 0px 5px;
+    border-radius: 20%;
+}

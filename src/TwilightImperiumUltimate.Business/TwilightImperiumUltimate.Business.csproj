@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TwilightImperiumUltimate.DataAccess\TwilightImperiumUltimate.DataAccess.csproj" />
+    <ProjectReference Include="..\TwilightImperiumUltimate.Draft\TwilightImperiumUltimate.Draft.csproj" />
   </ItemGroup>
 
   <ItemGroup>

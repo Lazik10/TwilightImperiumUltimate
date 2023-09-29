@@ -2,7 +2,7 @@
 
 namespace TwilightImperiumUltimate.Web.Models.Cards;
 
-public class BaseCard : ICard
+public class BaseCardModel : ICard
 {
     public int Id { get; set; }
 

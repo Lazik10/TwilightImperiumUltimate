@@ -1,0 +1,47 @@
+﻿@using TwilightImperiumUltimate.Web.Models.Drafts;
+@using TwilightImperiumUltimate.Web.Resources;
+@using TwilightImperiumUltimate.Web.Services.Path;
+@inject IPathProvider PathProvider
+
+<div class="flex-row margin-top-50">
+    <div class="title white handel shadow player-number flex-row">
+        <div>@Strings.Player @Index :</div>
+    </div>
+
+    @if (DraftStage != DraftStage.Draft)
+    {
+        <div class="title white handel shadow flex-row">
+            @Player.Name
+        </div>
+    }
+    else
+    {
+        <RadzenTextBox Placeholder="@Player.Name"
+                        @bind-Value="Player.Name"
+                        class="w-100 flex-row" />
+    }
+
+    <div class="title white handel shadow factions-text">
+        <div class="flex-row factions-text">
+            @Strings.Factions
+        </div>
+    </div>
+
+    <div class="flex-row wrap">
+        @foreach (var faction in Player.DraftedFactions)
+        {
+            <img class="factionicon" src="@PathProvider.GetFactionIconPath(faction.ToString())" />
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public FactionDraftPlayerModel Player { get; set; } = new FactionDraftPlayerModel();
+
+    [Parameter]
+    public DraftStage DraftStage { get; set; } = DraftStage.Draft;
+
+    [Parameter]
+    public int Index { get; set; } = 0;
+}
