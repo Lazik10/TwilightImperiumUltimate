@@ -22,3 +22,7 @@
 .link {
     cursor: pointer;
 }
+
+img.colorless {
+    filter: grayscale(100%);
+}

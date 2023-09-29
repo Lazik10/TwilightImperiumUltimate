@@ -69,7 +69,7 @@ else
 }
 
 @code {
-    private Faction? _selectedFaction;
+    private FactionModel? _selectedFaction;
 
     private bool showBigImage = false;
 
@@ -79,17 +79,17 @@ else
     {
         try
         {
-            _selectedFaction = await Http.GetFromJsonAsync<Faction>("https://localhost:44307/api/factions/1");
+            _selectedFaction = await Http.GetFromJsonAsync<FactionModel>("https://localhost:44307/api/factions/1");
         }
         catch (Exception ex)
         {
             Console.WriteLine($"An error occurred: {ex.Message}");
-            _selectedFaction = new Faction();
+            _selectedFaction = new FactionModel();
         }
         StateHasChanged();
     }
 
-    public void UpdateSelectedFaction(Faction faction)
+    public void UpdateSelectedFaction(FactionModel faction)
     {
         _selectedFaction = faction;
         StateHasChanged();

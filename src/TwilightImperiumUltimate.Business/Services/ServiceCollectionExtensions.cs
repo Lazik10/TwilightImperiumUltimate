@@ -13,6 +13,7 @@ public static class ServiceCollectionExtensions
         IConfiguration configuration)
     {
         services.RegisterDataAccessLayer(configuration);
+        services.RegisterDraftServices();
 
         services.AddMediatR(configuration =>
             configuration.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));

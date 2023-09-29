@@ -88,6 +88,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &amp;#8249;.
+        /// </summary>
+        public static string ButtonLeftArrow {
+            get {
+                return ResourceManager.GetString("ButtonLeftArrow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;#8250;.
+        /// </summary>
+        public static string ButtonRightArrow {
+            get {
+                return ResourceManager.GetString("ButtonRightArrow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Action.
         /// </summary>
         public static string CardTitle_Action {
@@ -196,6 +214,78 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Not enough factions.
+        /// </summary>
+        public static string DraftButton_BanToMany {
+            get {
+                return ResourceManager.GetString("DraftButton_BanToMany", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ...Drafting....
+        /// </summary>
+        public static string DraftButton_DraftInProgress {
+            get {
+                return ResourceManager.GetString("DraftButton_DraftInProgress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Draft.
+        /// </summary>
+        public static string DraftButton_DraftReady {
+            get {
+                return ResourceManager.GetString("DraftButton_DraftReady", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset Draft.
+        /// </summary>
+        public static string DraftButton_Reset {
+            get {
+                return ResourceManager.GetString("DraftButton_Reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset bans.
+        /// </summary>
+        public static string DraftButton_ResetBans {
+            get {
+                return ResourceManager.GetString("DraftButton_ResetBans", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To many bans for a draft to be possible. Please reduce the number of bans or decrease the number of factions drafted per player or number of players..
+        /// </summary>
+        public static string DraftText_DraftNotPossible {
+            get {
+                return ResourceManager.GetString("DraftText_DraftNotPossible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of factions per player:.
+        /// </summary>
+        public static string DraftText_NumberOfFactions {
+            get {
+                return ResourceManager.GetString("DraftText_NumberOfFactions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of players:.
+        /// </summary>
+        public static string DraftText_NumberOfPlayers {
+            get {
+                return ResourceManager.GetString("DraftText_NumberOfPlayers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to en-US.
         /// </summary>
         public static string EnglishCulture {
@@ -210,6 +300,33 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string ExplorationCard {
             get {
                 return ResourceManager.GetString("ExplorationCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (To ban a faction, click on the faction icon above).
+        /// </summary>
+        public static string FactionDraft_BanHelp {
+            get {
+                return ResourceManager.GetString("FactionDraft_BanHelp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Faction Draft.
+        /// </summary>
+        public static string FactionDraft_Title {
+            get {
+                return ResourceManager.GetString("FactionDraft_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Factions:.
+        /// </summary>
+        public static string Factions {
+            get {
+                return ResourceManager.GetString("Factions", resourceCulture);
             }
         }
         
@@ -444,6 +561,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string Page_Tools {
             get {
                 return ResourceManager.GetString("Page_Tools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Player.
+        /// </summary>
+        public static string Player {
+            get {
+                return ResourceManager.GetString("Player", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Player {0}.
+        /// </summary>
+        public static string PlayerNamePlaceholder {
+            get {
+                return ResourceManager.GetString("PlayerNamePlaceholder", resourceCulture);
             }
         }
         

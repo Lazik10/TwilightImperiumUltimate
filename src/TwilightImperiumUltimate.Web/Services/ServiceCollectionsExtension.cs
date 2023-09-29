@@ -1,5 +1,7 @@
 ﻿using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using Radzen;
+using TwilightImperiumUltimate.Web.Services.Draft;
 using TwilightImperiumUltimate.Web.Services.Language;
 using TwilightImperiumUltimate.Web.Services.Path;
 
@@ -12,6 +14,8 @@ public static class ServiceCollectionsExtension
         WebAssemblyHostBuilder builder)
     {
         services.AddBlazoredLocalStorage();
+        services.AddScoped<ContextMenuService>();
+        services.AddRadzenComponents();
         services.AddScoped<ICultureProvider, CultureProvider>();
         services.AddScoped<IPathProvider, PathProvider>();
 
@@ -19,6 +23,8 @@ public static class ServiceCollectionsExtension
         {
             BaseAddress = new Uri(builder.HostEnvironment.BaseAddress),
         });
+
+        services.AddScoped<IFactionDraftService, FactionDraftService>();
 
         return services;
     }

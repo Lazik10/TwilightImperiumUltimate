@@ -1,0 +1,64 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Buttons
+@using TwilightImperiumUltimate.Web.Resources;
+@using TwilightImperiumUltimate.Web.Components.Factions;
+
+<FactionIconRow BanMode="true" OnFactionClicked="UpdateBanFactions" @ref="_childComponentRef" />
+
+<div class="flex-column-center">
+    <div class="title white handel shadow faction-draft-title">
+        @Strings.FactionDraft_Title
+    </div>
+    <div class="white handel-bold shadow margin-top-10">
+        @Strings.FactionDraft_BanHelp
+    </div>
+</div>
+
+<div class="setting-row">
+    <div class="title white handel shadow flex-row">
+        <div>@Strings.DraftText_NumberOfPlayers</div>
+        <ArrowButton ArrowSymbol="@((MarkupString)Strings.ButtonLeftArrow)" OnArrowClick="DecreasePlayerCount" />
+        <div>@FactionDraftService.NumberOfPlayers</div>
+        <ArrowButton ArrowSymbol="@((MarkupString)Strings.ButtonRightArrow)" OnArrowClick="IncreasePlayerCount" />
+    </div>
+    <div class="title white handel shadow flex-row">
+        <div>@Strings.DraftText_NumberOfFactions</div>
+        <ArrowButton ArrowSymbol="@((MarkupString)Strings.ButtonLeftArrow)" OnArrowClick="DecreaseFactionCount" />
+        <div>@FactionDraftService.NumberOfDraftFactions</div>
+        <ArrowButton ArrowSymbol="@((MarkupString)Strings.ButtonRightArrow)" OnArrowClick="IncreaseFactionCount" />
+    </div>
+</div>
+
+<div class="flex-row margin-top-50">
+    <div class="draft-button button title white handel shadow clickable 
+        @(IsDraftButtonDisabled() ? "button-disabled": "button")" 
+        @onclick="DraftFactions">
+        <div class="flex-row">
+            @GetButtonStateText()
+        </div>
+    </div>
+
+    <div class="ban-reset-button button title white handel shadow clickable" @onclick="ResetBans">
+        <div class="flex-row">
+             @Strings.DraftButton_ResetBans
+        </div>
+    </div>
+</div>
+
+@if (FactionDraftService.ToManyBans)
+{
+    <div class="flex-column-center margin-top-10">
+        <div class="flex-container-center text-small white handel shadow">
+            @Strings.DraftText_DraftNotPossible
+        </div>
+    </div>
+}
+
+<div class="faction-draft-players-container">
+    @{ int index = 0; }
+
+    @foreach (var factionDraftPlayer in FactionDraftService.Players)
+    {
+        index++;
+        <FactionDraftPlayerRow Player="@factionDraftPlayer" Index="@index" DraftStage="_draftStage" />
+    }
+</div>

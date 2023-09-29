@@ -46,7 +46,7 @@ else
 }
 
 @code {
-    private List<BaseCard>? _listOfCards;
+    private List<BaseCardModel>? _listOfCards;
 
     private bool showBigImage = false;
 
@@ -62,7 +62,7 @@ else
         try
         {
             Uri uri = new (string.Concat(Paths.ApiPath_Cards, TypeOfCard));
-            _listOfCards = await Http.GetFromJsonAsync<List<BaseCard>>(uri);
+            _listOfCards = await Http.GetFromJsonAsync<List<BaseCardModel>>(uri);
         }
         catch (Exception ex)
         {
@@ -72,7 +72,7 @@ else
         StateHasChanged();
     }
 
-    private void ShowBigImage(BaseCard card, string culture)
+    private void ShowBigImage(BaseCardModel card, string culture)
     {
         currentBigImageSrc = card.ImagePath;
         currentBigImageCulture = culture;

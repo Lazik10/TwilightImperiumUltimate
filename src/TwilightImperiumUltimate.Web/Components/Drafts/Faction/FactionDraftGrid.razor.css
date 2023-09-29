@@ -1,0 +1,30 @@
+﻿.faction-draft-title {
+    font-size: 42px;
+    margin-top: 50px;
+}
+
+.setting-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.draft-button {
+    min-width: 20%;
+    margin-right: 50px;
+}
+
+.ban-reset-button {
+    min-width: 20%;
+}
+
+.faction-draft-players-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+}
