@@ -1,4 +1,5 @@
 ﻿using TwilightImperiumUltimate.Business.Services;
+using Unchase.Swashbuckle.AspNetCore.Extensions.Extensions;
 
 namespace TwilightImperiumUltimate.API.Services;
 
@@ -9,9 +10,10 @@ public static class ServiceCollectionExtensions
         IConfiguration configuration)
     {
         services.AddControllers();
+
         services.AddEndpointsApiExplorer();
 
-        services.AddSwaggerGen();
+        services.AddSwaggerGen(options => options.AddEnumsWithValuesFixFilters());
 
         services.AddCors();
 

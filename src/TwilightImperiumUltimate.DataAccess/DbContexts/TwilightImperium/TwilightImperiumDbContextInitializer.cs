@@ -27,5 +27,6 @@ public partial class TwilightImperiumDbContextInitializer
         InitializeRaces();
         InitializeEightTestPlayers();
         InitializeAllCards();
+        InitializeFactionColorImportance();
     }
 }

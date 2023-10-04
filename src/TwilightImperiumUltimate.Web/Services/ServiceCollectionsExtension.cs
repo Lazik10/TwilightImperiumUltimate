@@ -25,6 +25,7 @@ public static class ServiceCollectionsExtension
         });
 
         services.AddScoped<IFactionDraftService, FactionDraftService>();
+        services.AddScoped<IColorPickerService, ColorPickerService>();
 
         return services;
     }

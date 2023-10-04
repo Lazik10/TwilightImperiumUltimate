@@ -15,7 +15,7 @@ public class FactionDraftService : IFactionDraftService
         _logger = logger;
     }
 
-    public async Task<List<DraftResult>> DraftFactionsAsync(FactionDraftRequest draftRequest)
+    public async Task<List<FactionDraftResult>> DraftFactionsAsync(FactionDraftRequest draftRequest)
     {
         _logger.LogInformation("Drafting {NumberOfFactions} factions for {NumberOfPlayers} players", draftRequest.NumberOfFactionsPerPlayer, draftRequest.NumberOfPlayers);
 
@@ -27,7 +27,7 @@ public class FactionDraftService : IFactionDraftService
             .ToList();
 
         var result = Enumerable.Range(0, draftRequest.NumberOfPlayers)
-            .Select(i => new DraftResult
+            .Select(i => new FactionDraftResult
             {
                 PlayerId = i + 1,
                 Factions = PickFactions(availableFactions, draftRequest.NumberOfFactionsPerPlayer),

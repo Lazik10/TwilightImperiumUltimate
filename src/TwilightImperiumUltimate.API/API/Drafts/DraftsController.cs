@@ -1,9 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Serilog;
 using TwilightImperiumUltimate.API.Models.Factions;
+using TwilightImperiumUltimate.Business.Draft.FactionColorDraft;
 using TwilightImperiumUltimate.Business.Draft.FactionDraft;
 using TwilightImperiumUltimate.Core.Models.Factions;
+using TwilightImperiumUltimate.Draft.Draft.ColorDraft;
 using TwilightImperiumUltimate.Draft.Draft.FactionDraft;
 
 namespace TwilightImperiumUltimate.API.API.Drafts;
@@ -24,10 +25,21 @@ public class DraftsController : ControllerBase
     // POST: api/drafts/factions
     [Route("factions")]
     [HttpPost]
-    public async Task<ActionResult<List<DraftResult>>> GetPlayersWithDraftedFactions(FactionDraftRequest request)
+    public async Task<ActionResult<List<FactionDraftResult>>> GetPlayersWithDraftedFactions(FactionDraftRequest request)
     {
         _logger.LogInformation("Registered faction draft process at {Time}", DateTime.Now.ToShortTimeString());
         var result = await _mediator.Send(new DraftFactionsCommand(request));
+
+        return Ok(result);
+    }
+
+    // POST: api/drafts/colors
+    [Route("colors")]
+    [HttpPost]
+    public async Task<ActionResult<IReadOnlyCollection<FactionColorDraftResult>>> GetDraftedFactionColors(ColorDraftRequest request)
+    {
+        _logger.LogInformation("Registered color draft process at {Time}", DateTime.Now.ToShortTimeString());
+        var result = await _mediator.Send(new DraftColorsCommand(request));
 
         return Ok(result);
     }

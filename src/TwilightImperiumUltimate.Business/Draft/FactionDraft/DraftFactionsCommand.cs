@@ -4,7 +4,7 @@ using TwilightImperiumUltimate.Draft.Draft.FactionDraft;
 
 namespace TwilightImperiumUltimate.Business.Draft.FactionDraft;
 
-public class DraftFactionsCommand : IRequest<List<DraftResult>>
+public class DraftFactionsCommand : IRequest<List<FactionDraftResult>>
 {
     public DraftFactionsCommand(FactionDraftRequest draftRequest)
     {

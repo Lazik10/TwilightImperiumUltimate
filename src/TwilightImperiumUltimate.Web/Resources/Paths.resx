@@ -120,6 +120,9 @@
   <data name="ApiPath_Cards" xml:space="preserve">
     <value>https://localhost:44307/api/cards/</value>
   </data>
+  <data name="ApiPath_ColorDraft" xml:space="preserve">
+    <value>https://localhost:44307/api/drafts/colors</value>
+  </data>
   <data name="ApiPath_FactionDraft" xml:space="preserve">
     <value>https://localhost:44307/api/drafts/factions</value>
   </data>

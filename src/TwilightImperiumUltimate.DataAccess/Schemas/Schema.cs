@@ -12,7 +12,7 @@ internal static class Schema
 
     internal const string Player = "Player";
 
-    internal const string Race = "Race";
+    internal const string Faction = "Faction";
 
     internal const string Realationships = "Relationships";
 

@@ -31,7 +31,7 @@ public interface IFactionDraftService
 
     void ResetPlayerFactions();
 
-    void UpdateBanFactions(IReadOnlyCollection<FactionModel> factionsWithBanStatus);
+    void UpdateBanFactions(IReadOnlyCollection<FactionModel>? factionsWithBanStatus);
 
     Task PerformDraft();
 }

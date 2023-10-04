@@ -159,6 +159,21 @@
   <data name="CardTitle_Strategy" xml:space="preserve">
     <value>Strategy</value>
   </data>
+  <data name="ColorPcikerButton_Drafting" xml:space="preserve">
+    <value>...Picking colors...</value>
+  </data>
+  <data name="ColorPickerButton_DraftReady" xml:space="preserve">
+    <value>Pick colors</value>
+  </data>
+  <data name="ColorPickerButton_NotEnoughColors" xml:space="preserve">
+    <value>Not enough colors</value>
+  </data>
+  <data name="ColorPicker_HelpText" xml:space="preserve">
+    <value>(Select factions from the row above)</value>
+  </data>
+  <data name="ColorPicker_Title" xml:space="preserve">
+    <value>Color Picker</value>
+  </data>
   <data name="CultureKey" xml:space="preserve">
     <value>BlazorCulture</value>
   </data>
@@ -171,6 +186,9 @@
   <data name="DraftButton_BanToMany" xml:space="preserve">
     <value>Not enough factions</value>
   </data>
+  <data name="DraftButton_DraftColors" xml:space="preserve">
+    <value>Draft colors</value>
+  </data>
   <data name="DraftButton_DraftInProgress" xml:space="preserve">
     <value>...Drafting...</value>
   </data>
@@ -180,8 +198,14 @@
   <data name="DraftButton_Reset" xml:space="preserve">
     <value>Reset Draft</value>
   </data>
+  <data name="DraftButton_ResetBannedColors" xml:space="preserve">
+    <value>Reset colors</value>
+  </data>
   <data name="DraftButton_ResetBans" xml:space="preserve">
     <value>Reset bans</value>
+  </data>
+  <data name="DraftButton_ResetSelectedFactions" xml:space="preserve">
+    <value>Reset factions</value>
   </data>
   <data name="DraftText_DraftNotPossible" xml:space="preserve">
     <value>To many bans for a draft to be possible. Please reduce the number of bans or decrease the number of factions drafted per player or number of players.</value>
@@ -255,8 +279,8 @@
   <data name="Page_Cards" xml:space="preserve">
     <value>Cards</value>
   </data>
-  <data name="Page_ColorDraft" xml:space="preserve">
-    <value>Color Draft</value>
+  <data name="Page_ColorPicker" xml:space="preserve">
+    <value>Color Picker</value>
   </data>
   <data name="Page_Draft" xml:space="preserve">
     <value>Draft</value>
@@ -275,6 +299,9 @@
   </data>
   <data name="Page_Home" xml:space="preserve">
     <value>Home</value>
+  </data>
+  <data name="Page_MapGenerator" xml:space="preserve">
+    <value>Map Generator</value>
   </data>
   <data name="Page_Rules" xml:space="preserve">
     <value>Rules</value>

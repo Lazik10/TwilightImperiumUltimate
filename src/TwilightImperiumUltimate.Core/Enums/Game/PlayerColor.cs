@@ -2,12 +2,13 @@
 
 public enum PlayerColor
 {
+    // Do not touch this order, it is used for the color draft
     Red,
-    Blue,
-    Green,
-    Yellow,
-    Black,
-    Pink,
-    Purple,
     Orange,
+    Yellow,
+    Green,
+    Blue,
+    Purple,
+    Pink,
+    Black,
 }

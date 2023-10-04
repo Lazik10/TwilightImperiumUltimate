@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using TwilightImperiumUltimate.Draft.Draft.ColorDraft;
 using TwilightImperiumUltimate.Draft.Draft.FactionDraft;
 
 namespace TwilightImperiumUltimate.Business.Services;
@@ -9,6 +10,7 @@ public static class ServiceCollectionExtensions
         this IServiceCollection services)
     {
         services.AddSingleton<IFactionDraftService, FactionDraftService>();
+        services.AddSingleton<IColorDraftService, ColorDraftService>();
 
         return services;
     }

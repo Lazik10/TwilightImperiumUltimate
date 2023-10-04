@@ -1,5 +1,4 @@
-﻿using TwilightImperiumUltimate.Core.Entities.Factions;
-using TwilightImperiumUltimate.DataAccess.Tables.Factions;
+﻿using TwilightImperiumUltimate.DataAccess.Tables.Factions;
 
 namespace TwilightImperiumUltimate.DataAccess.Configurations.Factions;
 
@@ -9,7 +8,7 @@ public class FactionConfiguration : IEntityTypeConfiguration<Faction>
     {
         ArgumentNullException.ThrowIfNull(builder);
 
-        builder.ToTable(TableName.Factions, Schema.Race);
+        builder.ToTable(TableName.Factions, Schema.Faction);
 
         builder.HasKey(e => e.FactionName);
 

@@ -2,7 +2,7 @@
 
 namespace TwilightImperiumUltimate.Draft.Draft.FactionDraft;
 
-public class DraftResult
+public class FactionDraftResult
 {
     public int PlayerId { get; set; }
 
