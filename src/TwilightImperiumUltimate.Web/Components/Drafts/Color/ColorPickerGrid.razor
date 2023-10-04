@@ -1,0 +1,70 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Controls
+@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Components.Shared.Text
+@using TwilightImperiumUltimate.Web.Helpers.Resources;
+@using TwilightImperiumUltimate.Web.Resources;
+@using TwilightImperiumUltimate.Web.Components.Factions;
+
+<FactionIconRow 
+    EnableBanMode="true"
+    OnFactionClickGetFaction="UpdateSelectedFactions" 
+    BanAllFactions="true"
+    @ref="_factionIconRow"/>
+
+<FlexColumnCenter CssClass="margin-top-10">
+    <Title Text="@Strings.ColorPicker_Title"></Title>
+    <HelpText Text="@Strings.ColorPicker_HelpText" CssClass="margin-top-10" />
+</FlexColumnCenter>
+
+<FlexRow CssClass="center">
+    @foreach (var color in ColorPickerService.Colors)
+    {
+        <ColorCheckBox 
+            Color="@(color.Key)" 
+            IsChecked="@(color.Value)"
+            OnClick="HandleColorClick" />
+    }
+</FlexRow>
+
+<FlexRow CssClass="margin-top-50">
+    <Button ButtonText="@GetButtonStateText()"
+            OnClick="DraftColors" />
+    <Button ButtonText="@Strings.DraftButton_ResetSelectedFactions"
+            OnClick="ResetSelectedFactions" />
+    <Button ButtonText="@Strings.DraftButton_ResetBannedColors"
+        OnClick="ResetBannedColors" />
+</FlexRow>
+
+<StretchHeightContainer>
+    <FlexColumnCenter CssClass="margin-top-50">
+        @if (ColorPickerService.Results is not null && ColorPickerService.Results.Any())
+        {
+            @foreach (var result in ColorPickerService.Results)
+            {
+                <ColorPickerBackground 
+                    BackgroundColor="result.Color"
+                    CssClass="margin-top-10">
+
+                    <Title Text="@(result.FactionName.GetFactionUIText(FactionResourceType.Title))"
+                           MarginTop="0" 
+                           FontSize="24" />
+                </ColorPickerBackground>
+            }
+        }
+        else
+        {
+            @foreach (var faction in ColorPickerService.SelectedFactions)
+            {
+                <ColorPickerBackground BackgroundColor="@(PlayerColor.Black)" CssClass="margin-top-10">
+
+                    <Title Text="@(faction.FactionName.GetFactionUIText(FactionResourceType.Title))"
+                           CssClass="faction hendel white shadow"
+                           MarginTop="0"
+                           FontSize="24" />
+                </ColorPickerBackground>
+
+            }
+        }
+    </FlexColumnCenter>
+</StretchHeightContainer>
+

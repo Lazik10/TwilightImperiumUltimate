@@ -1,0 +1,7 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+
+<div class="colorcheckbox clickable white handel shadow 
+    @GetLowerColorName() @(IsChecked ? "grey" : string.Empty)"
+    @onclick="HandleClick">
+    @GetUpperColorName()
+</div>

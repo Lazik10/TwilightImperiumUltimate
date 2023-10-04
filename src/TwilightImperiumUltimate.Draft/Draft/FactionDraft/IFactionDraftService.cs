@@ -4,5 +4,5 @@ namespace TwilightImperiumUltimate.Draft.Draft.FactionDraft;
 
 public interface IFactionDraftService
 {
-    Task<List<DraftResult>> DraftFactionsAsync(FactionDraftRequest draftRequest);
+    Task<List<FactionDraftResult>> DraftFactionsAsync(FactionDraftRequest draftRequest);
 }

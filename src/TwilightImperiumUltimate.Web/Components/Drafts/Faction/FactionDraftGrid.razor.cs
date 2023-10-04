@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using TwilightImperiumUltimate.Web.Components.Factions;
 using TwilightImperiumUltimate.Web.Enums;
-using TwilightImperiumUltimate.Web.Models.Factions;
 using TwilightImperiumUltimate.Web.Resources;
 using TwilightImperiumUltimate.Web.Services.Draft;
 
@@ -11,7 +10,7 @@ public partial class FactionDraftGrid
 {
     private DraftStage _draftStage = DraftStage.Draft;
 
-    private FactionIconRow? _childComponentRef;
+    private FactionIconRow? _factionIconRow = null!;
 
     [Inject]
     private ILogger<FactionDraftGrid> Logger { get; set; } = null!;
@@ -26,9 +25,9 @@ public partial class FactionDraftGrid
         FactionDraftService.OnFactionUpdate += HandleOnDataUpdated;
     }
 
-    private void UpdateBanFactions(List<FactionModel> factionsWithBanStatus)
+    private void UpdateBanFactions()
     {
-        FactionDraftService.UpdateBanFactions(factionsWithBanStatus);
+        FactionDraftService.UpdateBanFactions(_factionIconRow?.Factions);
     }
 
     private void IncreasePlayerCount()
@@ -98,7 +97,7 @@ public partial class FactionDraftGrid
 
     private void ResetBans()
     {
-        _childComponentRef?.ResetBans();
+        _factionIconRow?.SetAllFactionsBanStatus(false);
         FactionDraftService.ResetBans();
     }
 

@@ -18,7 +18,7 @@ else
                 <div class="link" @onclick="() => FactionClicked(faction)">
 
                     @{
-                        var banned = faction.Banned && BanMode ? "colorless" : string.Empty;
+                        var banned = faction.Banned && EnableBanMode ? "colorless" : string.Empty;
                     }
                     <img 
                         class="icon link @banned" 
@@ -40,41 +40,43 @@ else
     private List<FactionModel>? _factions = new List<FactionModel>();
 
     [Parameter]
-    public EventCallback<FactionModel> OnFactionSelected { get; set; }
+    public EventCallback<FactionModel> OnFactionClickGetFaction { get; set; }
 
     [Parameter]
-    public EventCallback<List<FactionModel>> OnFactionClicked { get; set; }
+    public bool EnableBanMode { get; set; } = false;
 
     [Parameter]
-    public bool BanMode { get; set; } = false;
+    public bool BanAllFactions { get; set; } = false;
+
+    public IReadOnlyCollection<FactionModel>? Factions => _factions;
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
             _factions = await Http.GetFromJsonAsync<List<FactionModel>>(Paths.ApiPath_Factions);
-            await OnFactionClicked.InvokeAsync(_factions);
         }
         catch (Exception ex)
         {
             Console.WriteLine($"An error occurred: {ex.Message}");
             _factions = new List<FactionModel>();
         }
+
+        if (BanAllFactions)
+            SetAllFactionsBanStatus(true);
     }
 
     private void FactionClicked(FactionModel selectedFaction)
     {
-        OnFactionSelected.InvokeAsync(selectedFaction);
-
-        if (BanMode)
+        if (EnableBanMode)
             selectedFaction.Banned = !selectedFaction.Banned;
 
-        OnFactionClicked.InvokeAsync(_factions);
+        OnFactionClickGetFaction.InvokeAsync(selectedFaction);
     }
 
-    public void ResetBans()
+    public void SetAllFactionsBanStatus(bool banStatus)
     {
         if (_factions is not null)
-            _factions.ForEach(x => x.Banned = false);
+            _factions.ForEach(x => x.Banned = banStatus);
     }
 }

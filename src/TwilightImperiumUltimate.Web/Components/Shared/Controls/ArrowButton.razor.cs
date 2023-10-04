@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 
-namespace TwilightImperiumUltimate.Web.Components.Buttons;
+namespace TwilightImperiumUltimate.Web.Components.Shared.Controls;
 
 public partial class ArrowButton
 {

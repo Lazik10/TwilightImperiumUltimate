@@ -1,17 +1,15 @@
-﻿@using TwilightImperiumUltimate.Web.Components.Buttons
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Controls
+@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @using TwilightImperiumUltimate.Web.Resources;
 @using TwilightImperiumUltimate.Web.Components.Factions;
+@using TwilightImperiumUltimate.Web.Components.Shared.Text;
 
-<FactionIconRow BanMode="true" OnFactionClicked="UpdateBanFactions" @ref="_childComponentRef" />
+<FactionIconRow EnableBanMode="true" OnFactionClickGetFaction="UpdateBanFactions" @ref="_factionIconRow" />
 
-<div class="flex-column-center">
-    <div class="title white handel shadow faction-draft-title">
-        @Strings.FactionDraft_Title
-    </div>
-    <div class="white handel-bold shadow margin-top-10">
-        @Strings.FactionDraft_BanHelp
-    </div>
-</div>
+<FlexColumnCenter>
+    <Title Text="@Strings.FactionDraft_Title"></Title>
+    <HelpText Text="@Strings.FactionDraft_BanHelp" CssClass="margin-top-10" />
+</FlexColumnCenter>
 
 <div class="setting-row">
     <div class="title white handel shadow flex-row">
@@ -28,21 +26,14 @@
     </div>
 </div>
 
-<div class="flex-row margin-top-50">
-    <div class="draft-button button title white handel shadow clickable 
-        @(IsDraftButtonDisabled() ? "button-disabled": "button")" 
-        @onclick="DraftFactions">
-        <div class="flex-row">
-            @GetButtonStateText()
-        </div>
-    </div>
+<FlexRow CssClass="margin-top-50">
+    <Button ButtonText="@(GetButtonStateText())"
+            IsDisabled=@(IsDraftButtonDisabled())
+            OnClick="DraftFactions" />
 
-    <div class="ban-reset-button button title white handel shadow clickable" @onclick="ResetBans">
-        <div class="flex-row">
-             @Strings.DraftButton_ResetBans
-        </div>
-    </div>
-</div>
+    <Button ButtonText="@Strings.DraftButton_ResetBans" 
+            OnClick="ResetBans" />
+</FlexRow>
 
 @if (FactionDraftService.ToManyBans)
 {

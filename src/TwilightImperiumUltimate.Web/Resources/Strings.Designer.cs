@@ -187,6 +187,51 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ...Picking colors....
+        /// </summary>
+        public static string ColorPcikerButton_Drafting {
+            get {
+                return ResourceManager.GetString("ColorPcikerButton_Drafting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (Select factions from the row above).
+        /// </summary>
+        public static string ColorPicker_HelpText {
+            get {
+                return ResourceManager.GetString("ColorPicker_HelpText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Color Picker.
+        /// </summary>
+        public static string ColorPicker_Title {
+            get {
+                return ResourceManager.GetString("ColorPicker_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pick colors.
+        /// </summary>
+        public static string ColorPickerButton_DraftReady {
+            get {
+                return ResourceManager.GetString("ColorPickerButton_DraftReady", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not enough colors.
+        /// </summary>
+        public static string ColorPickerButton_NotEnoughColors {
+            get {
+                return ResourceManager.GetString("ColorPickerButton_NotEnoughColors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to BlazorCulture.
         /// </summary>
         public static string CultureKey {
@@ -223,6 +268,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Draft colors.
+        /// </summary>
+        public static string DraftButton_DraftColors {
+            get {
+                return ResourceManager.GetString("DraftButton_DraftColors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ...Drafting....
         /// </summary>
         public static string DraftButton_DraftInProgress {
@@ -250,11 +304,29 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reset colors.
+        /// </summary>
+        public static string DraftButton_ResetBannedColors {
+            get {
+                return ResourceManager.GetString("DraftButton_ResetBannedColors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reset bans.
         /// </summary>
         public static string DraftButton_ResetBans {
             get {
                 return ResourceManager.GetString("DraftButton_ResetBans", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset factions.
+        /// </summary>
+        public static string DraftButton_ResetSelectedFactions {
+            get {
+                return ResourceManager.GetString("DraftButton_ResetSelectedFactions", resourceCulture);
             }
         }
         
@@ -475,11 +547,11 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Color Draft.
+        ///   Looks up a localized string similar to Color Picker.
         /// </summary>
-        public static string Page_ColorDraft {
+        public static string Page_ColorPicker {
             get {
-                return ResourceManager.GetString("Page_ColorDraft", resourceCulture);
+                return ResourceManager.GetString("Page_ColorPicker", resourceCulture);
             }
         }
         
@@ -534,6 +606,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string Page_Home {
             get {
                 return ResourceManager.GetString("Page_Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map Generator.
+        /// </summary>
+        public static string Page_MapGenerator {
+            get {
+                return ResourceManager.GetString("Page_MapGenerator", resourceCulture);
             }
         }
         

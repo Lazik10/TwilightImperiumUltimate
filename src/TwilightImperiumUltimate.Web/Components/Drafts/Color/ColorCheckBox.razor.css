@@ -1,0 +1,49 @@
+﻿.colorcheckbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+    min-height: 30px;
+    width: 9%;
+    padding: 0px 15px 0px 15px;
+    margin-top: 50px;
+    border-radius: 10px;
+    border: 2px solid black;
+    opacity: 0.8;
+}
+
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.green {
+    background-color: green;
+}
+
+.orange {
+    background-color: darkorange;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.purple {
+    background-color: rebeccapurple;
+}
+
+.pink {
+    background-color: hotpink;
+}
+
+.black {
+    background-color: black;
+}
+
+.grey {
+    background-color: grey;
+}

@@ -20,7 +20,7 @@ public static class Pages
     // Tools
     public const string MapGenerator = "/tools/mapgenerator";
 
-    public const string ColorDraft = "/tools/colordraft";
+    public const string ColorPicker = "/tools/colorpicker";
 
     public const string FactionDraft = "/tools/factiondraft";
 

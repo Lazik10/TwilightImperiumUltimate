@@ -1,0 +1,9 @@
+﻿.center {
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+
+.faction {
+    font-size: 1.5rem;
+}

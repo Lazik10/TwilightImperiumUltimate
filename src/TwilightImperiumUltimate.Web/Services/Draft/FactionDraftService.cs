@@ -123,9 +123,9 @@ public class FactionDraftService : IFactionDraftService
         AssignDraftResultsToPlayers(draftResult);
     }
 
-    public void UpdateBanFactions(IReadOnlyCollection<FactionModel> factionsWithBanStatus)
+    public void UpdateBanFactions(IReadOnlyCollection<FactionModel>? factionsWithBanStatus)
     {
-        _factionsWithBanStatus = factionsWithBanStatus;
+        _factionsWithBanStatus = factionsWithBanStatus ?? new List<FactionModel>();
     }
 
     private async Task StartRandomFactionAssignmentAsync()

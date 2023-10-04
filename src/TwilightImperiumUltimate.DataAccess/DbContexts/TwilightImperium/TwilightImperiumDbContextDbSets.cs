@@ -30,8 +30,10 @@ public partial class TwilightImperiumDbContext : DbContext
     // Player
     public virtual DbSet<Player> Players { get; set; }
 
-    // Races
+    // Factions
     public virtual DbSet<Faction> Factions { get; set; }
+
+    public virtual DbSet<FactionColorImportance> FactionColorImportances { get; set; }
 
     // Relationships
     public virtual DbSet<RaceTechnology> RaceTechnology { get; set; }

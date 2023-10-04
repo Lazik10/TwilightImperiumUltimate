@@ -1,0 +1,8 @@
+﻿.flex-column-center {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*main-axis*/
+    justify-items: center; /*main-axis*/
+    align-items: center; /*cross-axis*/
+}

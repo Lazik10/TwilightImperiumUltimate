@@ -2,11 +2,12 @@
 @using TwilightImperiumUltimate.Web.Components.Factions
 @using TwilightImperiumUltimate.Web.Components.Shared
 @using TwilightImperiumUltimate.Web.Models.Factions;
+@using TwilightImperiumUltimate.Web.Resources;
 
-<PageTitle>Factions</PageTitle>
+<PageTitle>@Strings.Page_Factions</PageTitle>
 
 <Page>
-    <FactionIconRow OnFactionSelected="UpdateSelectedFaction" />
+    <FactionIconRow OnFactionClickGetFaction="UpdateSelectedFaction" />
     <FactionInfoGrid @ref="factionInfoRef" />
 </Page>
 

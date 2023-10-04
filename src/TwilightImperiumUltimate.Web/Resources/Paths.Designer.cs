@@ -70,6 +70,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://localhost:44307/api/drafts/colors.
+        /// </summary>
+        public static string ApiPath_ColorDraft {
+            get {
+                return ResourceManager.GetString("ApiPath_ColorDraft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to https://localhost:44307/api/drafts/factions.
         /// </summary>
         public static string ApiPath_FactionDraft {
