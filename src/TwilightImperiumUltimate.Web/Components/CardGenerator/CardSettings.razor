@@ -1,0 +1,63 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Controls
+@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Components.Shared.Text
+
+<div style="width: 100%; display: flex; flex-direction: column; align-items: self-start;">
+    <VerticalSpace Height="25" />
+    <Title Text="Title" MarginTop="10" FontSize="24" MarginBottom="15" />
+    <FlexRowContainer 
+        JustifyContent="Enums.JustifyContent.FlexStart"
+        AlignItems="Enums.AlignItems.Center">
+
+        <RadzenTextBox @bind-Value="CardTitle"
+        @oninput="@(args => OnTitleInput(args.Value?.ToString()))"
+                        Style="width: 70%; height: 25px;" />
+
+        <HorizontalSpace Width="50"/>
+        <NumericPicker Value="CardTitleFontSize"
+            OnDecrease="() => OnTitleFontSizeDecrease()"
+            OnIncrease="() => OnTitleFontSizeIncrease()"
+            Width="5" />
+    </FlexRowContainer>
+
+    <VerticalSpace Height="25" />
+    <Title Text="Text" MarginTop="10" FontSize="24" MarginBottom="15"/>
+    <FlexRowContainer
+        JustifyContent="Enums.JustifyContent.FlexStart"
+        AlignItems="Enums.AlignItems.Center">
+        <RadzenTextArea 
+            @bind-Value="CardText" 
+            @oninput="@(args => OnTextInput(args.Value?.ToString()))"
+            Style="height: 100px; width: 70%;" />
+        <HorizontalSpace Width="50" />
+        <NumericPicker Value="CardTextFontSize" 
+            OnDecrease="() => OnTextFontSizeDecrease()"
+            OnIncrease="() => OnTextFontSizeIncrease()"
+            Width="5" />
+    </FlexRowContainer>
+
+    <VerticalSpace Height="25" />
+    <Title Text="Flavored Text" MarginTop="10" FontSize="24" MarginBottom="15"/>
+    <FlexRowContainer
+        JustifyContent="Enums.JustifyContent.FlexStart"
+        AlignItems="Enums.AlignItems.Center">
+        <RadzenTextArea 
+            @bind-Value="CardFlavoredText" 
+            @oninput="@(args => OnFlavoredTextInput(args.Value?.ToString()))"
+            Style="height: 100px; width: 70%;" />
+        <HorizontalSpace Width="50" />
+        <NumericPicker Value="CardFlavoredTextFontSize"
+            OnDecrease="() => OnFlavoredTextFontSizeDecrease()"
+            OnIncrease="() => OnFlavoredTextFontSizeIncrease()"
+            Width="5" />
+    </FlexRowContainer>
+
+    <VerticalSpace Height="25" />
+    <Title Text="Keywords" MarginTop="10" FontSize="24" MarginBottom="15"/>
+    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+        <RadzenTextArea @bind-Value="KeywordsText"
+                        @oninput="@(args => OnKeywordsTextInput(args.Value?.ToString()))"
+                        Style="height: 50px; width: 70%;" />
+    </FlexRowContainer>
+
+</div>

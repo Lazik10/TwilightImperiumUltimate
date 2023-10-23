@@ -1,0 +1,10 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+
+<FlexRowContainer Width="@Width"
+    JustifyContent="Enums.JustifyContent.SpaceEvenly"
+    CssClass="title handel white shadow">
+    <div>@Title</div>
+    <ArrowButton ArrowSymbol="@LeftArrowSymbol" OnArrowClick="() => OnDecrease.InvokeAsync(null)" />
+    <div>@Value</div>
+    <ArrowButton ArrowSymbol="@RightArrowSymbol" OnArrowClick="() => OnIncrease.InvokeAsync(null)" />
+</FlexRowContainer>

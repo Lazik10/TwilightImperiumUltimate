@@ -43,6 +43,9 @@ else
     public EventCallback<FactionModel> OnFactionClickGetFaction { get; set; }
 
     [Parameter]
+    public EventCallback<IReadOnlyCollection<FactionModel>> OnInitializeGetFactions { get; set; }
+
+    [Parameter]
     public bool EnableBanMode { get; set; } = false;
 
     [Parameter]
@@ -55,6 +58,7 @@ else
         try
         {
             _factions = await Http.GetFromJsonAsync<List<FactionModel>>(Paths.ApiPath_Factions);
+            await OnInitializeGetFactions.InvokeAsync(Factions);
         }
         catch (Exception ex)
         {

@@ -4,36 +4,38 @@
 @using TwilightImperiumUltimate.Web.Components.Factions;
 @using TwilightImperiumUltimate.Web.Components.Shared.Text;
 
-<FactionIconRow EnableBanMode="true" OnFactionClickGetFaction="UpdateBanFactions" @ref="_factionIconRow" />
+<FactionIconRow EnableBanMode="true"
+                OnFactionClickGetFaction="UpdateBanFactions"
+                OnInitializeGetFactions="InitializeBanFactions"
+                @ref="_factionIconRow" />
 
-<FlexColumnCenter>
+<FlexColumnCenteredContainer>
     <Title Text="@Strings.FactionDraft_Title"></Title>
     <HelpText Text="@Strings.FactionDraft_BanHelp" CssClass="margin-top-10" />
-</FlexColumnCenter>
+</FlexColumnCenteredContainer>
 
 <div class="setting-row">
-    <div class="title white handel shadow flex-row">
-        <div>@Strings.DraftText_NumberOfPlayers</div>
-        <ArrowButton ArrowSymbol="@((MarkupString)Strings.ButtonLeftArrow)" OnArrowClick="DecreasePlayerCount" />
-        <div>@FactionDraftService.NumberOfPlayers</div>
-        <ArrowButton ArrowSymbol="@((MarkupString)Strings.ButtonRightArrow)" OnArrowClick="IncreasePlayerCount" />
-    </div>
-    <div class="title white handel shadow flex-row">
-        <div>@Strings.DraftText_NumberOfFactions</div>
-        <ArrowButton ArrowSymbol="@((MarkupString)Strings.ButtonLeftArrow)" OnArrowClick="DecreaseFactionCount" />
-        <div>@FactionDraftService.NumberOfDraftFactions</div>
-        <ArrowButton ArrowSymbol="@((MarkupString)Strings.ButtonRightArrow)" OnArrowClick="IncreaseFactionCount" />
-    </div>
+    <NumericPicker Title="@Strings.DraftText_NumberOfPlayers"
+                    Value="@FactionDraftService.NumberOfPlayers"
+                    OnDecrease="DecreasePlayerCount"
+                    OnIncrease="IncreasePlayerCount"
+                    Width="30"/>
+
+    <NumericPicker Title="@Strings.DraftText_NumberOfFactions"
+                    Value="@FactionDraftService.NumberOfDraftFactions"
+                    OnDecrease="DecreaseFactionCount"
+                    OnIncrease="IncreaseFactionCount"
+                    Width="40"/>
 </div>
 
-<FlexRow CssClass="margin-top-50">
+<FlexRowContainer CssClass="margin-top-50">
     <Button ButtonText="@(GetButtonStateText())"
             IsDisabled=@(IsDraftButtonDisabled())
             OnClick="DraftFactions" />
 
     <Button ButtonText="@Strings.DraftButton_ResetBans" 
             OnClick="ResetBans" />
-</FlexRow>
+</FlexRowContainer>
 
 @if (FactionDraftService.ToManyBans)
 {

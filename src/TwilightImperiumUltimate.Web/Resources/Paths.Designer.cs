@@ -106,6 +106,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TwilightImperiumUltimate.Web.Resources.Strings.
+        /// </summary>
+        public static string ResourceNamespace_Strings {
+            get {
+                return ResourceManager.GetString("ResourceNamespace_Strings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /resources/images/shared/cardgenerator.
+        /// </summary>
+        public static string ResourcePath_CardGeneratorPath {
+            get {
+                return ResourceManager.GetString("ResourcePath_CardGeneratorPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to \resources\images\shared\cardicons.
         /// </summary>
         public static string ResourcePath_CardTypeIconPath {

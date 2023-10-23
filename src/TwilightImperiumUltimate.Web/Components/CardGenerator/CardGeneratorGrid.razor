@@ -1,0 +1,77 @@
+﻿@using TwilightImperiumUltimate.Web.Components.CardGenerator.CardTypeGrids
+@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+
+<StretchHeightContainer>
+
+    <VerticalSpace Height="50" />
+
+    <FlexColumnCenteredContainer>
+        <CardTypeSelector OnSelectedCardChange="SetCardType"/>
+    </FlexColumnCenteredContainer>
+
+    <VerticalSpace Height="50" />
+
+    <div style="display: flex; flex-direction: row;">
+        <CardSettings @ref="CardSettings" OnSettingsChangeRefreshComponent="Refresh"/>
+
+        @if (CardSettings is not null)
+        {
+            if (CardSettings.SelectedCardType == CardGenerationType.Action)
+            {
+                <ActionCardGeneratorGrid 
+                    CardType="@(CardSettings.SelectedCardType)"
+                    CardTitle="@(CardSettings.CardTitle)"
+                    CardText="@(CardSettings.CardText)"
+                    FlavoredText="@(CardSettings.CardFlavoredText)"
+                    KeywordsText="@(CardSettings.KeywordsText)"
+                    TitleFontSize="@(CardSettings.CardTitleFontSize)"
+                    TextFontSize="@(CardSettings.CardTextFontSize)"
+                    FlavoredFontSize="@(CardSettings.CardFlavoredTextFontSize)"/>
+            }
+            if (CardSettings.SelectedCardType == CardGenerationType.SecretObjectiveActionPhase
+                || CardSettings.SelectedCardType == CardGenerationType.SecretObjectiveStatusPhase
+                || CardSettings.SelectedCardType == CardGenerationType.SecretObjectiveAgendaPhase)
+            {
+                <SecretCardGeneratorGrid
+                    CardType="@(CardSettings.SelectedCardType)"
+                    CardTitle="@(CardSettings.CardTitle)"
+                    CardText="@(CardSettings.CardText)"
+                    KeywordsText="@(CardSettings.KeywordsText)"
+                    TitleFontSize="@(CardSettings.CardTitleFontSize)"
+                    TextFontSize="@(CardSettings.CardTextFontSize)"/>
+            }
+            if (CardSettings.SelectedCardType == CardGenerationType.PublicObjectiveStageOne)
+            {
+                <ObjectiveCardStageOneGeneratorGrid
+                    CardTitle="@(CardSettings.CardTitle)"
+                    CardText="@(CardSettings.CardText)"
+                    KeywordsText="@(CardSettings.KeywordsText)"
+                    TitleFontSize="@(CardSettings.CardTitleFontSize)"
+                    TextFontSize="@(CardSettings.CardTextFontSize)"
+                    CardType="@(CardSettings.SelectedCardType)" />
+            }
+            if (CardSettings.SelectedCardType == CardGenerationType.PublicObjectiveStageTwo)
+            {
+                <ObjectiveCardStageTwoGeneratorGrid
+                    CardTitle="@(CardSettings.CardTitle)"
+                    CardText="@(CardSettings.CardText)"
+                    KeywordsText="@(CardSettings.KeywordsText)"
+                    TitleFontSize="@(CardSettings.CardTitleFontSize)"
+                    TextFontSize="@(CardSettings.CardTextFontSize)"
+                    CardType="@(CardSettings.SelectedCardType)" />
+            }
+            if (CardSettings.SelectedCardType == CardGenerationType.AgendaLaw
+                || CardSettings.SelectedCardType == CardGenerationType.AgendaDirective)
+            {
+                <AgendaCardGeneratorGrid
+                    CardTitle="@(CardSettings.CardTitle)"
+                    CardText="@(CardSettings.CardText)"
+                    KeywordsText="@(CardSettings.KeywordsText)"
+                    TitleFontSize="@(CardSettings.CardTitleFontSize)"
+                    TextFontSize="@(CardSettings.CardTextFontSize)"
+                    CardType="@(CardSettings.SelectedCardType)" />
+            }
+        }
+    </div>
+
+</StretchHeightContainer>

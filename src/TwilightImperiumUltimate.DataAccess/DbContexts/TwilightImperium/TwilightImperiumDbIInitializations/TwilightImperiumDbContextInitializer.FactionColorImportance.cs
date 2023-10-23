@@ -52,7 +52,7 @@ public partial class TwilightImperiumDbContextInitializer
             { FactionName.TheWinnu, CreateColorMapping(6, 8, 8, 2, 0, 9, 1, 1) },
             { FactionName.TheXxchaKingdom, CreateColorMapping(0, 1, 4, 10, 6, 1, 0, 2) },
             { FactionName.TheYinBrotherhood, CreateColorMapping(0, 1, 9, 1, 2, 0, 7, 1) },
-            { FactionName.TheYssarilTribes, CreateColorMapping(1, 0, 0, 0, 0, 10, 8, 2) },
+            { FactionName.TheYssarilTribes, CreateColorMapping(1, 0, 0, 9, 0, 3, 1, 2) },
             { FactionName.TheCouncilKeleres, CreateColorMapping(0, 6, 6, 0, 5, 8, 7, 0) },
         };
     }

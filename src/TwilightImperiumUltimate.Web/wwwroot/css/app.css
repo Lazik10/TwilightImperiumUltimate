@@ -1,7 +1,7 @@
 /* ==================== FONTS ====================== */
 @font-face {
-    font-family: 'Slider';
-    src: url('/resources/fonts/Slider Regular.otf') format('opentype');
+    font-family: 'Bodoni'; /* Twilight Imperium logo font */
+    src: url('/resources/fonts/Bodoni Poster Compressed.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
@@ -14,16 +14,51 @@
 }
 
 @font-face {
-    font-family: 'Bodoni'; /* Twilight Imperium logo font */
-    src: url('/resources/fonts/Bodoni Poster Compressed.otf') format('opentype');
+    font-family: 'Handel CZ'; /* Ultimate font with czech letters */
+    src: url('/resources/fonts/Handel Gothic Regular.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Myriad';
-    src: url('/resources/fonts/Myriad Bold.otf') format('opentype');
-    font-weight: bold;
+    font-family: 'Myriad Pro Regular';
+    src: url('/resources/fonts/Myriad Pro Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Myriad Pro Italic';
+    src: url('/resources/fonts/Myriad Pro Italic.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Myriad Pro Bold';
+    src: url('/resources/fonts/Myriad Pro Bold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Myriad Title';
+    src: url('/resources/fonts/Myriad Title.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Proda Sans';
+    src: url('/resources/fonts/Proda Sans Italic.otf') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Slider';
+    src: url('/resources/fonts/Slider Regular.otf') format('opentype');
+    font-weight: normal;
     font-style: normal;
 }
 
@@ -50,14 +85,36 @@ html {
 }
 
 /* ========================= TEXT =========================== */
-.handel-bold {
-    font-family: Handel, fallback, sans-serif;
-    font-weight: bold;
-}
-
 .handel {
     font-family: Handel, fallback, sans-serif;
-    font-weight: normal;
+}
+
+.handel-cz {
+    font-family: Handel CZ, fallback, sans-serif;
+}
+
+.myriad-pro-regular {
+    font-family: Myriad Pro Regular, fallback, sans-serif;
+}
+
+.myriad-pro-italic {
+    font-family: Myriad Pro Italic, fallback, sans-serif;
+}
+
+.myriad-pro-bold {
+    font-family: Myriad Pro Bold, fallback, sans-serif;
+}
+
+.myriad-title {
+    font-family: Myriad Title, fallback, sans-serif;
+}
+
+.proda-sans-italic {
+    font-family: Proda Sans, fallback, sans-serif;
+}
+
+.slider {
+    font-family: Slider, fallback, sans-serif;
 }
 
 .shadow {
@@ -81,6 +138,10 @@ html {
 
 .text-small {
     font-size: 12px;
+}
+
+.text-break {
+    overflow-wrap: break-word;
 }
 
 .white {

@@ -106,6 +106,78 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Action Card.
+        /// </summary>
+        public static string CardGenerationType_Action {
+            get {
+                return ResourceManager.GetString("CardGenerationType_Action", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Agenda Card (Directive).
+        /// </summary>
+        public static string CardGenerationType_AgendaDirective {
+            get {
+                return ResourceManager.GetString("CardGenerationType_AgendaDirective", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Agenda Card (Law).
+        /// </summary>
+        public static string CardGenerationType_AgendaLaw {
+            get {
+                return ResourceManager.GetString("CardGenerationType_AgendaLaw", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Objective Card (Stage One).
+        /// </summary>
+        public static string CardGenerationType_PublicObjectiveStageOne {
+            get {
+                return ResourceManager.GetString("CardGenerationType_PublicObjectiveStageOne", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Objective Card (Stage Two).
+        /// </summary>
+        public static string CardGenerationType_PublicObjectiveStageTwo {
+            get {
+                return ResourceManager.GetString("CardGenerationType_PublicObjectiveStageTwo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Secret Card (Action).
+        /// </summary>
+        public static string CardGenerationType_SecretObjectiveActionPhase {
+            get {
+                return ResourceManager.GetString("CardGenerationType_SecretObjectiveActionPhase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Secret Card (Agenda).
+        /// </summary>
+        public static string CardGenerationType_SecretObjectiveAgendaPhase {
+            get {
+                return ResourceManager.GetString("CardGenerationType_SecretObjectiveAgendaPhase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Secret Card (Status).
+        /// </summary>
+        public static string CardGenerationType_SecretObjectiveStatusPhase {
+            get {
+                return ResourceManager.GetString("CardGenerationType_SecretObjectiveStatusPhase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Action.
         /// </summary>
         public static string CardTitle_Action {
@@ -534,6 +606,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string Page_BattleCalculator {
             get {
                 return ResourceManager.GetString("Page_BattleCalculator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Card Generator.
+        /// </summary>
+        public static string Page_CardGenerator {
+            get {
+                return ResourceManager.GetString("Page_CardGenerator", resourceCulture);
             }
         }
         

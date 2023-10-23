@@ -1,0 +1,7 @@
+﻿.image-item {
+    position: relative;
+    display: inline-block;
+    height: 750px;
+    width: 500px;
+    border-radius: 50px;
+}

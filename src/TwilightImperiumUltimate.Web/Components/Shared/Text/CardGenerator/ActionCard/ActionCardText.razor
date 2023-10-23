@@ -1,0 +1,46 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+
+<FlexColumnContainer>
+    @{
+        @if (HasActionWindow)
+        {
+            <div class="myriad-pro-bold white action-card-text text-box @CssClass"
+                 style="margin-top: @($"{MarginTop}px"); font-size: @($"{FontSize}px");
+                     overflow-wrap:break-word;">
+            @foreach (var text in ActionWindowStrings)
+            {
+                if (Keywords is not null && Keywords.Contains(text))
+                {
+                    <span class="handel-cz" style="text-transform: uppercase">@(text)</span>
+                }
+                else
+                {
+                    <span>@text</span>
+                }
+            }:
+            </div>
+            <br />
+            <br />
+        }
+    }
+
+    <div class="myriad-pro-regular white action-card-text text-box @CssClass"
+            style="margin-top: @($"{MarginTop}px"); font-size: @($"{FontSize}px");
+            height: 100%; overflow-wrap:break-word;">
+        @foreach (var text in RemainingTextStrings)
+        {
+            if (text == RemainingTextStrings.First() && RemainingTextStrings.First().Contains("action:", StringComparison.InvariantCultureIgnoreCase))
+            {
+                <span class="myriad-title" style="font-size: 28px; text-transform: uppercase; font-style: italic;">@(text)</span>
+            }
+            else if (Keywords is not null && Keywords.Contains(text))
+            {
+                <span class="handel-cz" style="font-size: 22px; text-transform: uppercase;">@(text)</span>
+            }
+            else
+            {
+                <span>@text</span>
+            }
+        }
+    </div>
+</FlexColumnContainer>

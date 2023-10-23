@@ -28,6 +28,8 @@ public static class Pages
 
     public const string Draft = "/tools/draft";
 
+    public const string CardGenerator = "/tools/cardgenerator";
+
     // About
     public const string About = "/about";
 }

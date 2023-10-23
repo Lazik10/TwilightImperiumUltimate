@@ -1,0 +1,7 @@
+﻿<RadzenDropDown 
+    @bind-Value=@SelectedCardType
+    Change="() => SetCardType(SelectedCardType)"
+    ValueProperty="Key"
+    TextProperty="Value"
+    Data=@CardTypes
+    Style="width: 100%; max-width: 400px;" />

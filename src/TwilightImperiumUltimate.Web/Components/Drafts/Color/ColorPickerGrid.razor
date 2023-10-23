@@ -11,12 +11,14 @@
     BanAllFactions="true"
     @ref="_factionIconRow"/>
 
-<FlexColumnCenter CssClass="margin-top-10">
+<FlexColumnCenteredContainer CssClass="margin-top-10">
     <Title Text="@Strings.ColorPicker_Title"></Title>
     <HelpText Text="@Strings.ColorPicker_HelpText" CssClass="margin-top-10" />
-</FlexColumnCenter>
+</FlexColumnCenteredContainer>
 
-<FlexRow CssClass="center">
+<FlexRowContainer CssClass="center" 
+    JustifyContent="Enums.JustifyContent.SpaceEvenly"
+    AlignItems="Enums.AlignItems.Center">
     @foreach (var color in ColorPickerService.Colors)
     {
         <ColorCheckBox 
@@ -24,19 +26,19 @@
             IsChecked="@(color.Value)"
             OnClick="HandleColorClick" />
     }
-</FlexRow>
+</FlexRowContainer>
 
-<FlexRow CssClass="margin-top-50">
+<FlexRowContainer CssClass="margin-top-50">
     <Button ButtonText="@GetButtonStateText()"
             OnClick="DraftColors" />
     <Button ButtonText="@Strings.DraftButton_ResetSelectedFactions"
             OnClick="ResetSelectedFactions" />
     <Button ButtonText="@Strings.DraftButton_ResetBannedColors"
         OnClick="ResetBannedColors" />
-</FlexRow>
+</FlexRowContainer>
 
 <StretchHeightContainer>
-    <FlexColumnCenter CssClass="margin-top-50">
+    <FlexColumnCenteredContainer CssClass="margin-top-50">
         @if (ColorPickerService.Results is not null && ColorPickerService.Results.Any())
         {
             @foreach (var result in ColorPickerService.Results)
@@ -65,6 +67,6 @@
 
             }
         }
-    </FlexColumnCenter>
+    </FlexColumnCenteredContainer>
 </StretchHeightContainer>
 

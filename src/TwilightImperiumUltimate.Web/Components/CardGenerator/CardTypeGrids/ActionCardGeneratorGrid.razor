@@ -1,0 +1,22 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Cards;
+@using TwilightImperiumUltimate.Web.Components.Shared.Layouts;
+@using TwilightImperiumUltimate.Web.Components.Shared.Text.CardGenerator.ActionCard
+@using TwilightImperiumUltimate.Web.Services.Path;
+@using TwilightImperiumUltimate.Web.Components.CardGenerator;
+@inherits BaseCardPreview
+
+<CardExportArea CardTitle="@CardTitle">
+    <ImageBackgroundContainer ImagePath="@BackgroundImagePath">
+        <div style="display: flex; flex-direction: column; height: 750px; width: 500px;">
+            <div style="padding-top: 65px; height: 120px; align-self: center;">
+                <ActionCardTitle Text="@CardTitle" FontSize="@TitleFontSize" />
+            </div>
+            <div style="padding: 10px 30px 20px 70px; flex-grow: 1;">
+                <ActionCardText Text="@CardText" KeywordText="@KeywordsText" FontSize="@TextFontSize" />
+            </div>
+            <div style="justify-self: flex-end; align-self: center; margin-top: auto; margin-bottom: 30px; width: 375px;">
+                <ActionCardFlavoredText Text="@FlavoredText" FontSize="@FlavoredFontSize"/>
+            </div>
+        </div>
+    </ImageBackgroundContainer>
+</CardExportArea>

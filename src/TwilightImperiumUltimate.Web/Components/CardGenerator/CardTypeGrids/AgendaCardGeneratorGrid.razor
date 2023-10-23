@@ -1,0 +1,18 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Components.Shared.Text
+@using TwilightImperiumUltimate.Web.Components.Shared.Text.CardGenerator.AgendaCard
+@using TwilightImperiumUltimate.Web.Components.Shared.Text.CardGenerator.SecretCard
+@inherits BaseCardPreview
+
+<CardExportArea CardTitle="@CardTitle">
+    <ImageBackgroundContainer ImagePath="@BackgroundImagePath">
+        <div style="display: flex; flex-direction: column; height: 750px; width: 500px;">
+            <div class="agenda-card-title-area">
+                <AgendaCardTitle Text="@CardTitle" FontSize="@TitleFontSize" />
+            </div>
+            <div class="agenda-card-text-area">
+                <SecretCardText Text="@CardText" KeywordText="@KeywordsText" FontSize="@TextFontSize" />
+            </div>
+        </div>
+    </ImageBackgroundContainer>
+</CardExportArea>

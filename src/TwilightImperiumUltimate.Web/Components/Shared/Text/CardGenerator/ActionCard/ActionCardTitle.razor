@@ -1,0 +1,13 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+
+<FlexColumnCenteredContainer>
+    <div class="handel-cz white action-card-title @CssClass"
+         style="margin-top: @(string.Concat(MarginTop, "px;"))
+            overflow-wrap:break-word;
+            font-size: @(string.Concat(FontSize, "px;"))
+            @(Text?.Length <= 14 ? "display: flex; align-items: center;" : "")">
+        <div class="background">
+            @Text?.ToUpperInvariant()
+        </div>
+    </div>
+</FlexColumnCenteredContainer>
