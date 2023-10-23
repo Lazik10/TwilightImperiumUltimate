@@ -43,6 +43,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="wwwroot\css\app.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Update="Resources\Paths.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Paths.Designer.cs</LastGenOutput>

@@ -35,13 +35,16 @@ public class FactionDraftService : IFactionDraftService
 
     public void InitializePlayers()
     {
-        _players.AddRange(Enumerable
-            .Range(1, FactionDraftSettings.InitialNumberOfPlayers)
-            .Select(x => new FactionDraftPlayerModel()
-            {
-                Name = Strings.PlayerNamePlaceholder.FormatWith(x),
-                DraftedFactions = new List<FactionName>() { FactionName.None },
-            }));
+        if (_players.Count == 0)
+        {
+            _players.AddRange(Enumerable
+                .Range(1, FactionDraftSettings.InitialNumberOfPlayers)
+                .Select(x => new FactionDraftPlayerModel()
+                {
+                    Name = Strings.PlayerNamePlaceholder.FormatWith(x),
+                    DraftedFactions = new List<FactionName>() { FactionName.None },
+                }));
+        }
     }
 
     public void IncreasePlayerCount()
@@ -157,7 +160,7 @@ public class FactionDraftService : IFactionDraftService
         {
             NumberOfPlayers = NumberOfPlayers,
             NumberOfFactionsPerPlayer = NumberOfDraftFactions,
-            Factions = FactionsWithUpdatedBanStatus,
+            Factions = _factionsWithBanStatus,
         };
 
         var response = await _http.PostAsJsonAsync(uri, request);

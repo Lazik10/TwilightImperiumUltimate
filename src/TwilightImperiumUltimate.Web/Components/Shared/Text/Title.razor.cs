@@ -15,4 +15,7 @@ public partial class Title
 
     [Parameter]
     public int MarginTop { get; set; } = 50;
+
+    [Parameter]
+    public int MarginBottom { get; set; } = 0;
 }

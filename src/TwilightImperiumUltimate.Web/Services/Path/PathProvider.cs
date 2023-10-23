@@ -42,4 +42,9 @@ public class PathProvider : IPathProvider
     {
         return $"{Paths.ResourcePath_FactionImagePath}{Strings.BackSlash}{fileName}{Strings.FileExtensionWebp}";
     }
+
+    public string GetCardGeneratorImageBackground(string fileName)
+    {
+        return $"{Paths.ResourcePath_CardGeneratorPath}{Strings.ForwardSlash}{fileName}{Strings.FileExtensionWebp}";
+    }
 }

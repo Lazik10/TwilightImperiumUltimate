@@ -2,7 +2,7 @@
 
 namespace TwilightImperiumUltimate.Web.Components.Shared.Layouts;
 
-public partial class FlexRow
+public partial class FlexColumnCenteredContainer
 {
     [Parameter]
     public RenderFragment? ChildContent { get; set; }

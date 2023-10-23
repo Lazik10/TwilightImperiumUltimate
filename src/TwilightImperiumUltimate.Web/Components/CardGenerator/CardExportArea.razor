@@ -1,0 +1,11 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Controls;
+@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@inject IJSRuntime JSRuntime
+
+<FlexColumnCenteredContainer>
+    <div id="cardArea">
+        @ChildContent
+    </div>
+    <VerticalSpace Height="50" />
+    <Button @onclick="ExportCard" ButtonText="Download Image" />
+</FlexColumnCenteredContainer>

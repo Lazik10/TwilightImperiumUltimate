@@ -132,6 +132,30 @@
   <data name="ButtonRightArrow" xml:space="preserve">
     <value>&amp;#8250;</value>
   </data>
+  <data name="CardGenerationType_Action" xml:space="preserve">
+    <value>Action Card</value>
+  </data>
+  <data name="CardGenerationType_AgendaDirective" xml:space="preserve">
+    <value>Agenda Card (Directive)</value>
+  </data>
+  <data name="CardGenerationType_AgendaLaw" xml:space="preserve">
+    <value>Agenda Card (Law)</value>
+  </data>
+  <data name="CardGenerationType_PublicObjectiveStageOne" xml:space="preserve">
+    <value>Objective Card (Stage One)</value>
+  </data>
+  <data name="CardGenerationType_PublicObjectiveStageTwo" xml:space="preserve">
+    <value>Objective Card (Stage Two)</value>
+  </data>
+  <data name="CardGenerationType_SecretObjectiveActionPhase" xml:space="preserve">
+    <value>Secret Card (Action)</value>
+  </data>
+  <data name="CardGenerationType_SecretObjectiveAgendaPhase" xml:space="preserve">
+    <value>Secret Card (Agenda)</value>
+  </data>
+  <data name="CardGenerationType_SecretObjectiveStatusPhase" xml:space="preserve">
+    <value>Secret Card (Status)</value>
+  </data>
   <data name="CardTitle_Action" xml:space="preserve">
     <value>Action</value>
   </data>
@@ -275,6 +299,9 @@
   </data>
   <data name="Page_BattleCalculator" xml:space="preserve">
     <value>Battle Calculator</value>
+  </data>
+  <data name="Page_CardGenerator" xml:space="preserve">
+    <value>Card Generator</value>
   </data>
   <data name="Page_Cards" xml:space="preserve">
     <value>Cards</value>

@@ -13,4 +13,6 @@ public interface IPathProvider
     string GetFactionSheetPath(string fileName, bool front = true);
 
     string GetFactionImagePath(string fileName);
+
+    string GetCardGeneratorImageBackground(string fileName);
 }
