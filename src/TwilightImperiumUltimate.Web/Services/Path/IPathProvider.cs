@@ -15,4 +15,6 @@ public interface IPathProvider
     string GetFactionImagePath(string fileName);
 
     string GetCardGeneratorImageBackground(string fileName);
+
+    string GetLargeTileImagePath(string fileName);
 }

@@ -156,4 +156,7 @@
   <data name="ResourcePath_FactionSheetPath" xml:space="preserve">
     <value>\resources\images\shared\factionimages</value>
   </data>
+  <data name="ResourcePath_LargeTilePath" xml:space="preserve">
+    <value>\resources\images\shared\tiles\large</value>
+  </data>
 </root>

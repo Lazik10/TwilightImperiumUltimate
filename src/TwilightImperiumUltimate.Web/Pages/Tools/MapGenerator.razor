@@ -1,10 +1,14 @@
 ﻿@page "/tools/mapgenerator"
+@using TwilightImperiumUltimate.Web.Components.MapGenerator
+@using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids
 @using TwilightImperiumUltimate.Web.Components.Shared
 @using TwilightImperiumUltimate.Web.Components.Shared.Text
 @using TwilightImperiumUltimate.Web.Resources;
+@using TwilightImperiumUltimate.Web.Services.Path;
 
 <PageTitle>@Strings.Page_MapGenerator</PageTitle>
 
 <Page>
     <Title Text="@Strings.Page_MapGenerator" />
+    <EightPlayerGrid />
 </Page>

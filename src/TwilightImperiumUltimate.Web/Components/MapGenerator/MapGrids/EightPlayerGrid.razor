@@ -1,0 +1,17 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Services.Path;
+@inject IPathProvider PathProvider
+
+<VerticalSpace Height="50" />
+<div class="container">
+
+    @for(int i = 0; i < 9; i++)
+    {
+        for (int j = 0; j < 9; j++)
+        {
+            <div class="hex">
+                <MapHexTile ImagePath="@(PathProvider.GetLargeTileImagePath("Tile64"))"/>
+            </div>
+        }
+    }
+</div>

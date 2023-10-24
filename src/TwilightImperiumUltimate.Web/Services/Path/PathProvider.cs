@@ -47,4 +47,9 @@ public class PathProvider : IPathProvider
     {
         return $"{Paths.ResourcePath_CardGeneratorPath}{Strings.ForwardSlash}{fileName}{Strings.FileExtensionWebp}";
     }
+
+    public string GetLargeTileImagePath(string fileName)
+    {
+        return $"{Paths.ResourcePath_LargeTilePath}{Strings.BackSlash}{fileName}{Strings.FileExtensionWebp}";
+    }
 }
