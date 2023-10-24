@@ -176,5 +176,14 @@ namespace TwilightImperiumUltimate.Web.Resources {
                 return ResourceManager.GetString("ResourcePath_FactionSheetPath", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to \resources\images\shared\tiles\large.
+        /// </summary>
+        public static string ResourcePath_LargeTilePath {
+            get {
+                return ResourceManager.GetString("ResourcePath_LargeTilePath", resourceCulture);
+            }
+        }
     }
 }
