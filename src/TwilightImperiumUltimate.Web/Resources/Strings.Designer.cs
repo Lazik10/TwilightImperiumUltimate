@@ -556,6 +556,114 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Custom.
+        /// </summary>
+        public static string MapTemplate_CustomMap {
+            get {
+                return ResourceManager.GetString("MapTemplate_CustomMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 8P Large Map.
+        /// </summary>
+        public static string MapTemplate_LargeMapEightPlayers {
+            get {
+                return ResourceManager.GetString("MapTemplate_LargeMapEightPlayers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 6P Large Map.
+        /// </summary>
+        public static string MapTemplate_LargeMapSixPlayers {
+            get {
+                return ResourceManager.GetString("MapTemplate_LargeMapSixPlayers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3P Manta Ray.
+        /// </summary>
+        public static string MapTemplate_MantaRayMapThreePlayers {
+            get {
+                return ResourceManager.GetString("MapTemplate_MantaRayMapThreePlayers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 4P Medium Map.
+        /// </summary>
+        public static string MapTemplate_MediumMapFourPlayers {
+            get {
+                return ResourceManager.GetString("MapTemplate_MediumMapFourPlayers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 6P Medium Map.
+        /// </summary>
+        public static string MapTemplate_MediumMapSixPlayers {
+            get {
+                return ResourceManager.GetString("MapTemplate_MediumMapSixPlayers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3P Small Map Alternate.
+        /// </summary>
+        public static string MapTemplate_SmallMapAlternateThreePlayers {
+            get {
+                return ResourceManager.GetString("MapTemplate_SmallMapAlternateThreePlayers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3P Small Map.
+        /// </summary>
+        public static string MapTemplate_SmallMapThreePlayers {
+            get {
+                return ResourceManager.GetString("MapTemplate_SmallMapThreePlayers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3P Snowflake.
+        /// </summary>
+        public static string MapTemplate_SnowflakeMapThreePlayers {
+            get {
+                return ResourceManager.GetString("MapTemplate_SnowflakeMapThreePlayers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3P Triangle.
+        /// </summary>
+        public static string MapTemplate_TriangleMapThreePlayers {
+            get {
+                return ResourceManager.GetString("MapTemplate_TriangleMapThreePlayers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3P Triangle Narrow.
+        /// </summary>
+        public static string MapTemplate_TriangleNarrowMapThreePlayers {
+            get {
+                return ResourceManager.GetString("MapTemplate_TriangleNarrowMapThreePlayers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3P Trident.
+        /// </summary>
+        public static string MapTemplate_TridentMapThreePlayers {
+            get {
+                return ResourceManager.GetString("MapTemplate_TridentMapThreePlayers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Medium.
         /// </summary>
         public static string Medium {
@@ -727,6 +835,42 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Home.
+        /// </summary>
+        public static string PlacementStyle_Home {
+            get {
+                return ResourceManager.GetString("PlacementStyle_Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Initial.
+        /// </summary>
+        public static string PlacementStyle_Initial {
+            get {
+                return ResourceManager.GetString("PlacementStyle_Initial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Random.
+        /// </summary>
+        public static string PlacementStyle_Random {
+            get {
+                return ResourceManager.GetString("PlacementStyle_Random", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Slice.
+        /// </summary>
+        public static string PlacementStyle_Slice {
+            get {
+                return ResourceManager.GetString("PlacementStyle_Slice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Player.
         /// </summary>
         public static string Player {
@@ -759,6 +903,42 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string StrategyCard {
             get {
                 return ResourceManager.GetString("StrategyCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Balanced.
+        /// </summary>
+        public static string SystemWeight_Balanced {
+            get {
+                return ResourceManager.GetString("SystemWeight_Balanced", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Influence.
+        /// </summary>
+        public static string SystemWeight_Influence {
+            get {
+                return ResourceManager.GetString("SystemWeight_Influence", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Random.
+        /// </summary>
+        public static string SystemWeight_Random {
+            get {
+                return ResourceManager.GetString("SystemWeight_Random", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resources.
+        /// </summary>
+        public static string SystemWeight_Resources {
+            get {
+                return ResourceManager.GetString("SystemWeight_Resources", resourceCulture);
             }
         }
     }

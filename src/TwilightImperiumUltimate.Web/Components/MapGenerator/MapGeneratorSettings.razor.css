@@ -1,0 +1,35 @@
+﻿.settings-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/*    .settings-overlay img {
+        position: relative;
+        max-width: 90%;
+        max-height: 90%;
+        cursor: pointer;
+        border-radius: 20px;
+    }
+
+        .big-image-overlay img::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            box-shadow: inset 0 0 0 5px #000;
+            pointer-events: none;
+            border-radius: 20px;
+            z-index: 2;
+        }*/

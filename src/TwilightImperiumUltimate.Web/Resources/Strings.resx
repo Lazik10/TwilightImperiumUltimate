@@ -282,6 +282,42 @@
   <data name="Low" xml:space="preserve">
     <value>Low</value>
   </data>
+  <data name="MapTemplate_CustomMap" xml:space="preserve">
+    <value>Custom</value>
+  </data>
+  <data name="MapTemplate_LargeMapEightPlayers" xml:space="preserve">
+    <value>8P Large Map</value>
+  </data>
+  <data name="MapTemplate_LargeMapSixPlayers" xml:space="preserve">
+    <value>6P Large Map</value>
+  </data>
+  <data name="MapTemplate_MantaRayMapThreePlayers" xml:space="preserve">
+    <value>3P Manta Ray</value>
+  </data>
+  <data name="MapTemplate_MediumMapFourPlayers" xml:space="preserve">
+    <value>4P Medium Map</value>
+  </data>
+  <data name="MapTemplate_MediumMapSixPlayers" xml:space="preserve">
+    <value>6P Medium Map</value>
+  </data>
+  <data name="MapTemplate_SmallMapAlternateThreePlayers" xml:space="preserve">
+    <value>3P Small Map Alternate</value>
+  </data>
+  <data name="MapTemplate_SmallMapThreePlayers" xml:space="preserve">
+    <value>3P Small Map</value>
+  </data>
+  <data name="MapTemplate_SnowflakeMapThreePlayers" xml:space="preserve">
+    <value>3P Snowflake</value>
+  </data>
+  <data name="MapTemplate_TriangleMapThreePlayers" xml:space="preserve">
+    <value>3P Triangle</value>
+  </data>
+  <data name="MapTemplate_TriangleNarrowMapThreePlayers" xml:space="preserve">
+    <value>3P Triangle Narrow</value>
+  </data>
+  <data name="MapTemplate_TridentMapThreePlayers" xml:space="preserve">
+    <value>3P Trident</value>
+  </data>
   <data name="Medium" xml:space="preserve">
     <value>Medium</value>
   </data>
@@ -339,6 +375,18 @@
   <data name="Page_Tools" xml:space="preserve">
     <value>Tools</value>
   </data>
+  <data name="PlacementStyle_Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="PlacementStyle_Initial" xml:space="preserve">
+    <value>Initial</value>
+  </data>
+  <data name="PlacementStyle_Random" xml:space="preserve">
+    <value>Random</value>
+  </data>
+  <data name="PlacementStyle_Slice" xml:space="preserve">
+    <value>Slice</value>
+  </data>
   <data name="Player" xml:space="preserve">
     <value>Player</value>
   </data>
@@ -350,5 +398,17 @@
   </data>
   <data name="StrategyCard" xml:space="preserve">
     <value>strategy</value>
+  </data>
+  <data name="SystemWeight_Balanced" xml:space="preserve">
+    <value>Balanced</value>
+  </data>
+  <data name="SystemWeight_Influence" xml:space="preserve">
+    <value>Influence</value>
+  </data>
+  <data name="SystemWeight_Random" xml:space="preserve">
+    <value>Random</value>
+  </data>
+  <data name="SystemWeight_Resources" xml:space="preserve">
+    <value>Resources</value>
   </data>
 </root>
