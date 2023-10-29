@@ -11,4 +11,8 @@
     <ProjectReference Include="..\TwilightImperiumUltimate.DataAccess\TwilightImperiumUltimate.DataAccess.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Update="SonarAnalyzer.CSharp" Version="9.12.0.78982" />
+  </ItemGroup>
+
 </Project>

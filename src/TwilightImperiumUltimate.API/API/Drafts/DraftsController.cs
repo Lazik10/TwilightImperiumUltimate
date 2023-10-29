@@ -28,7 +28,7 @@ public class DraftsController : ControllerBase
     public async Task<ActionResult<List<FactionDraftResult>>> GetPlayersWithDraftedFactions(FactionDraftRequest request)
     {
         _logger.LogInformation("Registered faction draft process at {Time}", DateTime.Now.ToShortTimeString());
-        var result = await _mediator.Send(new DraftFactionsCommand(request));
+        var result = await _mediator.Send(new FactionsDraftCommand(request));
 
         return Ok(result);
     }
@@ -39,7 +39,7 @@ public class DraftsController : ControllerBase
     public async Task<ActionResult<IReadOnlyCollection<FactionColorDraftResult>>> GetDraftedFactionColors(ColorDraftRequest request)
     {
         _logger.LogInformation("Registered color draft process at {Time}", DateTime.Now.ToShortTimeString());
-        var result = await _mediator.Send(new DraftColorsCommand(request));
+        var result = await _mediator.Send(new ColorsDraftCommand(request));
 
         return Ok(result);
     }

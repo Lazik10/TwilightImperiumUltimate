@@ -97,6 +97,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://localhost:44307/api/mapgenerators.
+        /// </summary>
+        public static string ApiPath_MapDraft {
+            get {
+                return ResourceManager.GetString("ApiPath_MapDraft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TwilightImperiumUltimate.Web.Resources.FactionsInfo.
         /// </summary>
         public static string ResourceNamespace_FactionInfo {

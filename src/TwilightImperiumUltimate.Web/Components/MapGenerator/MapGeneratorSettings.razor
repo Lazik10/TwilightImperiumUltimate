@@ -1,0 +1,42 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Controls
+@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Components.Shared.Text
+@using TwilightImperiumUltimate.Web.Resources
+
+<FlexColumnContainer>
+
+    <div class="settings-overlay" @onclick="HideSettings">
+
+        <NumericPicker Title="@Strings.DraftText_NumberOfPlayers"
+                       Value="@MapGeneratorSettingsService.NumberOfPlayers"
+                       OnDecrease="DecreasePlayerCount"
+                       OnIncrease="IncreasePlayerCount"
+                       Width="30" />
+
+        <Title Text="Map Template:" />
+        <RadzenDropDown @bind-Value="SelectedMapTemplate"
+                        Data="@_mapTemplates"
+                        Change="() => SetMapTemplate(SelectedMapTemplate)"
+                        ValueProperty="Key"
+                        TextProperty="Value"
+                        Style="width: 100%; max-width: 400px;" />
+
+        <Title Text="Placement Style:" />
+        <RadzenDropDown @bind-Value="SelectedPlacementStyle"
+                        Data=@_placementStyles
+                        Change="() => SetPlacementStyle(SelectedPlacementStyle)"
+                        ValueProperty="Key"
+                        TextProperty="Value"
+                        Style="width: 100%; max-width: 400px;" />
+
+        <Title Text="System Weight:" />
+        <RadzenDropDown @bind-Value="SelectedSystemWeight"
+                        Data="@_systemWeights"
+                        Change="() => SetSystemWeight(SelectedSystemWeight)"
+                        ValueProperty="Key"
+                        TextProperty="Value"
+                        Style="width: 100%; max-width: 400px;" />
+
+    </div>
+
+</FlexColumnContainer>

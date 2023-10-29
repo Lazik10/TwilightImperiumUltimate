@@ -1,0 +1,84 @@
+﻿using Microsoft.AspNetCore.Components;
+using TwilightImperiumUltimate.Web.Enums;
+using TwilightImperiumUltimate.Web.Helpers.Enums;
+using TwilightImperiumUltimate.Web.Services.MapGenerators;
+
+namespace TwilightImperiumUltimate.Web.Components.MapGenerator;
+
+public partial class MapGeneratorSettings
+{
+    private IReadOnlyCollection<KeyValuePair<MapTemplate, string>> _mapTemplates = default!;
+
+    private IReadOnlyCollection<KeyValuePair<SystemWeight, string>> _systemWeights = default!;
+
+    private IReadOnlyCollection<KeyValuePair<PlacementStyle, string>> _placementStyles = default!;
+
+    [Parameter]
+    public EventCallback<MapTemplate> OnSelectedTemplateChange { get; set; } = default!;
+
+    [Parameter]
+    public EventCallback OnHideSettings { get; set; } = default!;
+
+    private MapTemplate SelectedMapTemplate { get; set; }
+
+    private SystemWeight SelectedSystemWeight { get; set; }
+
+    private PlacementStyle SelectedPlacementStyle { get; set; }
+
+    [Inject]
+    private IMapGeneratorSettingsService MapGeneratorSettingsService { get; set; } = default!;
+
+    protected override void OnInitialized()
+    {
+        CreateEnumsWithDisplayNames();
+        InitializeSettings();
+    }
+
+    private void CreateEnumsWithDisplayNames()
+    {
+        _mapTemplates = EnumExtensions.GetEnumValuesWithDisplayNames<MapTemplate>();
+        _systemWeights = EnumExtensions.GetEnumValuesWithDisplayNames<SystemWeight>();
+        _placementStyles = EnumExtensions.GetEnumValuesWithDisplayNames<PlacementStyle>();
+    }
+
+    private void InitializeSettings()
+    {
+        SelectedMapTemplate = MapGeneratorSettingsService.MapTemplate;
+        SelectedPlacementStyle = MapGeneratorSettingsService.PlacementStyle;
+        SelectedSystemWeight = MapGeneratorSettingsService.SystemWeight;
+    }
+
+    private void IncreasePlayerCount()
+    {
+        MapGeneratorSettingsService.IncreasePlayerCount();
+    }
+
+    private void DecreasePlayerCount()
+    {
+        MapGeneratorSettingsService.DecreasePlayerCount();
+    }
+
+    private void SetMapTemplate(MapTemplate mapTemplate)
+    {
+        SelectedMapTemplate = mapTemplate;
+        MapGeneratorSettingsService.MapTemplate = mapTemplate;
+    }
+
+    private void SetPlacementStyle(PlacementStyle placementStyle)
+    {
+        SelectedPlacementStyle = placementStyle;
+        MapGeneratorSettingsService.PlacementStyle = placementStyle;
+    }
+
+    private void SetSystemWeight(SystemWeight systemWeight)
+    {
+        SelectedSystemWeight = systemWeight;
+        MapGeneratorSettingsService.SystemWeight = systemWeight;
+    }
+
+    private void HideSettings()
+    {
+        OnHideSettings.InvokeAsync(true);
+        StateHasChanged();
+    }
+}

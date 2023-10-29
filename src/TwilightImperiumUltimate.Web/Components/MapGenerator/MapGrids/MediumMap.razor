@@ -1,0 +1,52 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Services.Path;
+@inherits BaseMap
+@inject IPathProvider PathProvider
+
+<VerticalSpace Height="50" />
+
+<div class="container">
+    @foreach (var mapPosition in MapPositions)
+    {
+        if (MapTilePositions is not null && MapTilePositions.Keys.Any())
+        {
+            if (mapPosition == 51)
+                MapTileId = 52;
+            else
+                MapTileId = MapTilePositions[mapPosition];
+
+            if (MapGeneratorSettingsService.MapTemplate == MapTemplate.MediumMapSixPlayers)
+            {
+                MapTileId = mapPosition switch
+                {
+                    3 => -1,
+                    7 => -1,
+                    13 => -1,
+                    28 => -1,
+                    34 => -1,
+                    45 => -1,
+                    24 => 18,
+                    _ => 0,
+                };
+            }
+
+            if (MapGeneratorSettingsService.MapTemplate == MapTemplate.MediumMapFourPlayers)
+            {
+                MapTileId = mapPosition switch
+                {
+                    8 => -1,
+                    12 => -1,
+                    36 => -1,
+                    40 => -1,
+                    24 => 18,
+                    _ => 0,
+                };
+            }
+        }
+        <div class="hex">
+            <MapHexTile ImagePath="@(PathProvider.GetLargeTileImagePath($"Tile{MapTileId}"))"
+                        MapTileId="@(MapTileId.ToString())"
+                        ShowTileId="true" />
+        </div>
+    }
+</div>

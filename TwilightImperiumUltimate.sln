@@ -15,8 +15,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwilightImperiumUltimate.Bu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwilightImperiumUltimate.Web", "src\TwilightImperiumUltimate.Web\TwilightImperiumUltimate.Web.csproj", "{07DBB1CC-046B-40C5-BE66-6D86A7CB317A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwilightImperiumUltimate.Mobile", "src\TwilightImperiumUltimate.Mobile\TwilightImperiumUltimate.Mobile.csproj", "{9FC84B0B-8DBD-4FB3-8A6E-D390104D7316}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2ECE60E2-E6EA-43B1-A95E-A60870EEADEA}"
 	ProjectSection(SolutionItems) = preProject
 		.dockerignore = .dockerignore
@@ -59,12 +57,6 @@ Global
 		{07DBB1CC-046B-40C5-BE66-6D86A7CB317A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07DBB1CC-046B-40C5-BE66-6D86A7CB317A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07DBB1CC-046B-40C5-BE66-6D86A7CB317A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9FC84B0B-8DBD-4FB3-8A6E-D390104D7316}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9FC84B0B-8DBD-4FB3-8A6E-D390104D7316}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9FC84B0B-8DBD-4FB3-8A6E-D390104D7316}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{9FC84B0B-8DBD-4FB3-8A6E-D390104D7316}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9FC84B0B-8DBD-4FB3-8A6E-D390104D7316}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9FC84B0B-8DBD-4FB3-8A6E-D390104D7316}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{5D161136-730C-469C-934C-F6C4499C025C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5D161136-730C-469C-934C-F6C4499C025C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D161136-730C-469C-934C-F6C4499C025C}.Release|Any CPU.ActiveCfg = Release|Any CPU
