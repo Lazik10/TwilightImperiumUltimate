@@ -5,7 +5,7 @@ namespace TwilightImperiumUltimate.Web.Services.MapGenerators;
 
 public class MapGeneratorSettingsService : IMapGeneratorSettingsService
 {
-    public int NumberOfPlayers { get; set; } = MapGeneratorSettings.NumberOfPlayers;
+    public int MapScale { get; set; } = MapGeneratorSettings.MaxScale;
 
     public MapTemplate MapTemplate { get; set; } = MapGeneratorSettings.MapTemplate;
 
@@ -15,19 +15,15 @@ public class MapGeneratorSettingsService : IMapGeneratorSettingsService
 
     public GameVersion GameVersion { get; set; } = MapGeneratorSettings.GameVersion;
 
-    public void IncreasePlayerCount()
+    public void IncreaseMapScale()
     {
-        if (NumberOfPlayers < MapGeneratorSettings.MaximumNumberOfPlayers)
-        {
-            NumberOfPlayers++;
-        }
+        if (MapScale <= MapGeneratorSettings.MaxScale - MapGeneratorSettings.ScaleIncrement)
+            MapScale += MapGeneratorSettings.ScaleIncrement;
     }
 
-    public void DecreasePlayerCount()
+    public void DecreaseMapScale()
     {
-        if (NumberOfPlayers > MapGeneratorSettings.MinimumNumberOfPlayers)
-        {
-            NumberOfPlayers--;
-        }
+        if (MapScale >= MapGeneratorSettings.MinScale + MapGeneratorSettings.ScaleIncrement)
+            MapScale -= MapGeneratorSettings.ScaleIncrement;
     }
 }

@@ -1,0 +1,19 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Text
+@using TwilightImperiumUltimate.Web.Resources
+@using TwilightImperiumUltimate.Web.Services.Path
+@inject IPathProvider PathProvider
+
+<div class="hex-menu">
+
+    <div @onclick="UnusedOnly">
+        <Title Text="@(_showUnusedOnly ? Strings.MapGenerator_AllTiles : Strings.MapGenerator_UnusedTiles)" FontSize="24" />
+    </div>
+
+    @foreach (var hex in HexTiles)
+    {
+        <MapHexTile ImagePath="@(PathProvider.GetLargeTileImagePath($"Tile{hex}"))"
+                    ShowTileId="true"
+                    MapTileId="@(hex.ToString())" />
+    }
+
+</div>

@@ -4,7 +4,7 @@ namespace TwilightImperiumUltimate.Web.Services.MapGenerators;
 
 public interface IMapGeneratorSettingsService
 {
-    public int NumberOfPlayers { get; set; }
+    public int MapScale { get; set; }
 
     public MapTemplate MapTemplate { get; set; }
 
@@ -14,7 +14,7 @@ public interface IMapGeneratorSettingsService
 
     public GameVersion GameVersion { get; set; }
 
-    public void IncreasePlayerCount();
+    public void IncreaseMapScale();
 
-    public void DecreasePlayerCount();
+    public void DecreaseMapScale();
 }

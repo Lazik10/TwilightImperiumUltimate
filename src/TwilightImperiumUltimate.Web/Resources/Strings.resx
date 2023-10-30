@@ -282,6 +282,15 @@
   <data name="Low" xml:space="preserve">
     <value>Low</value>
   </data>
+  <data name="MapGenerator_AllTiles" xml:space="preserve">
+    <value>All Tiles</value>
+  </data>
+  <data name="MapGenerator_MapScale" xml:space="preserve">
+    <value>Map Scale</value>
+  </data>
+  <data name="MapGenerator_UnusedTiles" xml:space="preserve">
+    <value>Unused Tiles</value>
+  </data>
   <data name="MapTemplate_CustomMap" xml:space="preserve">
     <value>Custom</value>
   </data>
