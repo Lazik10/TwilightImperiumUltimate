@@ -1,0 +1,31 @@
+﻿.hex-menu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: -10%;
+    top: 55%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    width: 15%;
+    max-height: 80%;
+    overflow-y: auto;
+}
+
+.hex-menu::-webkit-scrollbar {
+    width: 12px;
+}
+
+.hex-menu::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.hex-menu::-webkit-scrollbar-thumb {
+    background: #0024ff;
+}
+
+    .hex-menu::-webkit-scrollbar-button {
+        /*    background-color: #333;
+    color: #0024ff;*/
+        background-color: transparent;
+        color: transparent;
+    }

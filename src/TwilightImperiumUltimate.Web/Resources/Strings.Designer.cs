@@ -556,6 +556,33 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All Tiles.
+        /// </summary>
+        public static string MapGenerator_AllTiles {
+            get {
+                return ResourceManager.GetString("MapGenerator_AllTiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map Scale.
+        /// </summary>
+        public static string MapGenerator_MapScale {
+            get {
+                return ResourceManager.GetString("MapGenerator_MapScale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unused Tiles.
+        /// </summary>
+        public static string MapGenerator_UnusedTiles {
+            get {
+                return ResourceManager.GetString("MapGenerator_UnusedTiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Custom.
         /// </summary>
         public static string MapTemplate_CustomMap {

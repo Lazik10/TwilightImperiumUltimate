@@ -23,7 +23,7 @@ public class MapGeneratorService : IMapGeneratorService
         {
             Factions = new List<FactionName>(),
             MapTemplate = _mapGeneratorSettingsService.MapTemplate,
-            NumberOfPlayers = _mapGeneratorSettingsService.NumberOfPlayers,
+            NumberOfPlayers = _mapGeneratorSettingsService.MapScale,
             PlacementStyle = _mapGeneratorSettingsService.PlacementStyle,
             SystemWeight = _mapGeneratorSettingsService.SystemWeight,
         };

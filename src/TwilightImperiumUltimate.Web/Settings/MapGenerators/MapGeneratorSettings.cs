@@ -4,11 +4,13 @@ namespace TwilightImperiumUltimate.Web.Settings.MapGenerators;
 
 public static class MapGeneratorSettings
 {
-    public static readonly int MinimumNumberOfPlayers = 3;
+    public static readonly int MinScale = 30;
 
-    public static readonly int MaximumNumberOfPlayers = 8;
+    public static readonly int MaxScale = 100;
 
-    public static readonly int NumberOfPlayers = 6;
+    public static readonly int DefaultScale = 100;
+
+    public static readonly int ScaleIncrement = 5;
 
     public static readonly int DefaultTileId = 18;
 

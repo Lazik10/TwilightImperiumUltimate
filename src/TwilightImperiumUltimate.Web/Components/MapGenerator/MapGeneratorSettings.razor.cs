@@ -48,20 +48,23 @@ public partial class MapGeneratorSettings
         SelectedSystemWeight = MapGeneratorSettingsService.SystemWeight;
     }
 
-    private void IncreasePlayerCount()
+    private void IncreaseMapScale()
     {
-        MapGeneratorSettingsService.IncreasePlayerCount();
+        MapGeneratorSettingsService.IncreaseMapScale();
+        OnSelectedTemplateChange.InvokeAsync(SelectedMapTemplate);
     }
 
-    private void DecreasePlayerCount()
+    private void DecreaseMapScale()
     {
-        MapGeneratorSettingsService.DecreasePlayerCount();
+        MapGeneratorSettingsService.DecreaseMapScale();
+        OnSelectedTemplateChange.InvokeAsync(SelectedMapTemplate);
     }
 
     private void SetMapTemplate(MapTemplate mapTemplate)
     {
         SelectedMapTemplate = mapTemplate;
         MapGeneratorSettingsService.MapTemplate = mapTemplate;
+        OnSelectedTemplateChange.InvokeAsync(mapTemplate);
     }
 
     private void SetPlacementStyle(PlacementStyle placementStyle)

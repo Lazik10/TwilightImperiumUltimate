@@ -7,35 +7,42 @@
 
     <div class="settings-overlay" @onclick="HideSettings">
 
-        <NumericPicker Title="@Strings.DraftText_NumberOfPlayers"
-                       Value="@MapGeneratorSettingsService.NumberOfPlayers"
-                       OnDecrease="DecreasePlayerCount"
-                       OnIncrease="IncreasePlayerCount"
-                       Width="30" />
+        <div class="settings-menu" @onclick:stopPropagation="true">
 
-        <Title Text="Map Template:" />
-        <RadzenDropDown @bind-Value="SelectedMapTemplate"
-                        Data="@_mapTemplates"
-                        Change="() => SetMapTemplate(SelectedMapTemplate)"
-                        ValueProperty="Key"
-                        TextProperty="Value"
-                        Style="width: 100%; max-width: 400px;" />
+            <FlexColumnCenteredContainer>
 
-        <Title Text="Placement Style:" />
-        <RadzenDropDown @bind-Value="SelectedPlacementStyle"
-                        Data=@_placementStyles
-                        Change="() => SetPlacementStyle(SelectedPlacementStyle)"
-                        ValueProperty="Key"
-                        TextProperty="Value"
-                        Style="width: 100%; max-width: 400px;" />
+                <NumericPicker Title="@Strings.MapGenerator_MapScale"
+                               Value="@MapGeneratorSettingsService.MapScale"
+                               OnDecrease="DecreaseMapScale"
+                               OnIncrease="IncreaseMapScale"
+                               Width="100" />
 
-        <Title Text="System Weight:" />
-        <RadzenDropDown @bind-Value="SelectedSystemWeight"
-                        Data="@_systemWeights"
-                        Change="() => SetSystemWeight(SelectedSystemWeight)"
-                        ValueProperty="Key"
-                        TextProperty="Value"
-                        Style="width: 100%; max-width: 400px;" />
+                <Title Text="Map Template:" />
+                <RadzenDropDown @bind-Value="SelectedMapTemplate"
+                                Data="@_mapTemplates"
+                                Change="() => SetMapTemplate(SelectedMapTemplate)"
+                                ValueProperty="Key"
+                                TextProperty="Value"
+                                Style="width: 100%; max-width: 400px;" />
+
+                <Title Text="Placement Style:" />
+                <RadzenDropDown @bind-Value="SelectedPlacementStyle"
+                                Data=@_placementStyles
+                                Change="() => SetPlacementStyle(SelectedPlacementStyle)"
+                                ValueProperty="Key"
+                                TextProperty="Value"
+                                Style="width: 100%; max-width: 400px;" />
+
+                <Title Text="System Weight:" />
+                <RadzenDropDown @bind-Value="SelectedSystemWeight"
+                                Data="@_systemWeights"
+                                Change="() => SetSystemWeight(SelectedSystemWeight)"
+                                ValueProperty="Key"
+                                TextProperty="Value"
+                                Style="width: 100%; max-width: 400px;" />
+            </FlexColumnCenteredContainer>
+        
+        </div>
 
     </div>
 

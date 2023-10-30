@@ -5,13 +5,6 @@ namespace TwilightImperiumUltimate.Draft.Draft.MapDraft;
 
 public class MapDraftService : IMapDraftService
 {
-    private readonly ILogger<MapDraftService> _logger;
-
-    public MapDraftService(ILogger<MapDraftService> logger)
-    {
-        _logger = logger;
-    }
-
     public Task<MapDraftResult> GenerateMapLayout(MapDraftRequest request)
     {
         var result = new MapDraftResult
