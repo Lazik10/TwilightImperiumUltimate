@@ -1,6 +1,16 @@
-﻿namespace TwilightImperiumUltimate.Web.Services.MapGenerators;
+﻿using TwilightImperiumUltimate.Web.Enums;
+using TwilightImperiumUltimate.Web.Models.Galaxy;
+using TwilightImperiumUltimate.Web.Models.MapGenerators;
+
+namespace TwilightImperiumUltimate.Web.Services.MapGenerators;
 
 public interface IMapGeneratorService
 {
-    Task<IReadOnlyDictionary<int, int>> GenerateMapAsync();
+    IReadOnlyCollection<SystemTile> SystemTiles { get; }
+
+    Task<MapDraftResult> GenerateMapAsync();
+
+    Task InitializeSystemTilesAsync();
+
+    IReadOnlyCollection<SystemTile> GetSystemTilesToShow(SystemTileTypeFilter systemTileType);
 }

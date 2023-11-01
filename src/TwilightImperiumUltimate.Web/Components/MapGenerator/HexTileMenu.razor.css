@@ -8,6 +8,7 @@
     z-index: 1000;
     width: 15%;
     max-height: 80%;
+    min-height: 80%;
     overflow-y: auto;
 }
 

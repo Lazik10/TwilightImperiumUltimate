@@ -23,8 +23,7 @@ public class FactionsController : ControllerBase
         using var context = _context.CreateDbContext();
 
         var factions = await context.Factions
-            .ToListAsync()
-            .ConfigureAwait(false);
+            .ToListAsync();
 
         var factionDtos = factions
             .Select(x => new FactionDto

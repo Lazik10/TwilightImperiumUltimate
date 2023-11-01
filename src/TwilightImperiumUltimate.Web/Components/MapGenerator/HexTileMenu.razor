@@ -5,15 +5,19 @@
 
 <div class="hex-menu">
 
-    <div @onclick="UnusedOnly">
-        <Title Text="@(_showUnusedOnly ? Strings.MapGenerator_AllTiles : Strings.MapGenerator_UnusedTiles)" FontSize="24" />
-    </div>
+    <Title Text="Filter:" FontSize="20"/>
+    <RadzenDropDown @bind-Value="_selectedSystemTileType"
+        Data="@_systemTileTypes"
+        Change="() => GetSystemTilesToShow()"
+        TextProperty="Value"
+        ValueProperty="Key"
+        Style="width: 100%; min-height: 40px;" />
 
-    @foreach (var hex in HexTiles)
+    @foreach (var hex in SystemTiles)
     {
-        <MapHexTile ImagePath="@(PathProvider.GetLargeTileImagePath($"Tile{hex}"))"
+        <MapHexTile ImagePath="@(PathProvider.GetLargeTileImagePath(hex.Name.ToString()))"
                     ShowTileId="true"
-                    MapTileId="@(hex.ToString())" />
+                    MapTileId="@(hex.Name.ToString().Substring(4))" />
     }
 
 </div>

@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Components;
-using TwilightImperiumUltimate.Web.Enums;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
 
 namespace TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids;
@@ -20,6 +19,8 @@ public abstract class BaseMap : ComponentBase
 
     protected override async Task OnInitializedAsync()
     {
-        MapTilePositions = await MapGeneratorService.GenerateMapAsync();
+        await MapGeneratorService.InitializeSystemTilesAsync();
+        var result = await MapGeneratorService.GenerateMapAsync();
+        MapTilePositions = result.MapTilePositions;
     }
 }

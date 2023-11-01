@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using TwilightImperiumUltimate.DataAccess.Repositories;
 
 namespace TwilightImperiumUltimate.DataAccess.Services;
 
@@ -23,6 +24,8 @@ public static class ServiceCollectionExtensions
         services.AddDbContextFactory<TwilightImperiumDbContext>(
             options =>
             options.UseSqlServer(configuration.GetConnectionString(DbConnectionStringName)));
+
+        services.AddScoped<ISystemTileRepository, SystemTileRepository>();
 
         services.AddSingleton<TwilightImperiumDbContextInitializer>();
         services.AddSingleton<ICreateCardImagePathService, CreateCardImagePathService>();

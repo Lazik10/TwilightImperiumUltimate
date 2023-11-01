@@ -5,8 +5,6 @@ namespace TwilightImperiumUltimate.Core.Models.Factions;
 
 public class MapDraftRequest
 {
-    public int NumberOfPlayers { get; set; }
-
     public IReadOnlyCollection<FactionName> Factions { get; set; } = new List<FactionName>();
 
     public MapTemplate MapTemplate { get; set; }

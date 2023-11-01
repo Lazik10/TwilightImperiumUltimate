@@ -2,7 +2,16 @@
 
 public enum MapTemplate
 {
-    EightPlayerMap,
-    SixPlayerMap,
-    ThreePlayerMap,
+    CustomMap,
+    SmallMapThreePlayers,
+    SmallMapAlternateThreePlayers,
+    TriangleMapThreePlayers,
+    TriangleNarrowMapThreePlayers,
+    SnowflakeMapThreePlayers,
+    TridentMapThreePlayers,
+    MantaRayMapThreePlayers,
+    MediumMapFourPlayers,
+    MediumMapSixPlayers,
+    LargeMapSixPlayers,
+    LargeMapEightPlayers,
 }

@@ -408,6 +408,27 @@
   <data name="StrategyCard" xml:space="preserve">
     <value>strategy</value>
   </data>
+  <data name="SystemTileTypeFilter_All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="SystemTileTypeFilter_BlueTiles" xml:space="preserve">
+    <value>Blue Tiles</value>
+  </data>
+  <data name="SystemTileTypeFilter_HomeSystems" xml:space="preserve">
+    <value>Home Systems</value>
+  </data>
+  <data name="SystemTileTypeFilter_Hyperlanes" xml:space="preserve">
+    <value>Hyperlanes</value>
+  </data>
+  <data name="SystemTileTypeFilter_MecatolRex" xml:space="preserve">
+    <value>Mecatol Rex</value>
+  </data>
+  <data name="SystemTileTypeFilter_RedTiles" xml:space="preserve">
+    <value>Red Tiles</value>
+  </data>
+  <data name="SystemTileTypeFilter_Unused" xml:space="preserve">
+    <value>Unused</value>
+  </data>
   <data name="SystemWeight_Balanced" xml:space="preserve">
     <value>Balanced</value>
   </data>

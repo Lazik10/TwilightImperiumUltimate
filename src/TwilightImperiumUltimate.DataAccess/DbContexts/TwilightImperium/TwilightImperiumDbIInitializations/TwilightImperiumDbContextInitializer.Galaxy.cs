@@ -891,7 +891,7 @@ public partial class TwilightImperiumDbContextInitializer
                 SystemTileName = SystemTileName.Tile32,
                 RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
-                TileCategory = SystemTileCategory.Green,
+                TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
                 {
                     new Planet()
@@ -1561,7 +1561,7 @@ public partial class TwilightImperiumDbContextInitializer
                 SystemTileName = SystemTileName.Tile62,
                 RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
-                TileCategory = SystemTileCategory.Green,
+                TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
                 {
                     new Planet()
@@ -1978,7 +1978,7 @@ public partial class TwilightImperiumDbContextInitializer
                 SystemTileName = SystemTileName.Tile76,
                 RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
-                TileCategory = SystemTileCategory.Green,
+                TileCategory = SystemTileCategory.Blue,
                 Planets = new List<Planet>()
                 {
                     new Planet()
@@ -2077,7 +2077,7 @@ public partial class TwilightImperiumDbContextInitializer
             },
             new SystemTile
             {
-                SystemTileName = SystemTileName.Tile82Front,
+                SystemTileName = SystemTileName.Tile82A,
                 RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.ExternalMapTile,
@@ -2087,7 +2087,7 @@ public partial class TwilightImperiumDbContextInitializer
                     {
                         PlanetName = PlanetName.MaliceFront,
                         PlanetTrait = PlanetTrait.Cultural,
-                        SystemTileName = SystemTileName.Tile82Front,
+                        SystemTileName = SystemTileName.Tile82A,
                         Resources = 0,
                         Influence = 3,
                         IsLegendary = true,
@@ -2099,7 +2099,7 @@ public partial class TwilightImperiumDbContextInitializer
                 {
                     new Wormhole()
                     {
-                        SystemTileName = SystemTileName.Tile82Front,
+                        SystemTileName = SystemTileName.Tile82A,
                         WormholeName = WormholeName.Gama,
                     },
                 },
@@ -2107,7 +2107,7 @@ public partial class TwilightImperiumDbContextInitializer
             },
             new SystemTile
             {
-                SystemTileName = SystemTileName.Tile82Back,
+                SystemTileName = SystemTileName.Tile82B,
                 RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.ExternalMapTile,
@@ -2117,7 +2117,7 @@ public partial class TwilightImperiumDbContextInitializer
                     {
                         PlanetName = PlanetName.MaliceBack,
                         PlanetTrait = PlanetTrait.Cultural,
-                        SystemTileName = SystemTileName.Tile82Back,
+                        SystemTileName = SystemTileName.Tile82B,
                         Resources = 0,
                         Influence = 3,
                         IsLegendary = true,
@@ -2129,17 +2129,17 @@ public partial class TwilightImperiumDbContextInitializer
                 {
                     new Wormhole()
                     {
-                        SystemTileName = SystemTileName.Tile82Back,
+                        SystemTileName = SystemTileName.Tile82B,
                         WormholeName = WormholeName.Alpha,
                     },
                     new Wormhole()
                     {
-                        SystemTileName = SystemTileName.Tile82Back,
+                        SystemTileName = SystemTileName.Tile82B,
                         WormholeName = WormholeName.Beta,
                     },
                     new Wormhole()
                     {
-                        SystemTileName = SystemTileName.Tile82Back,
+                        SystemTileName = SystemTileName.Tile82B,
                         WormholeName = WormholeName.Gama,
                     },
                 },
@@ -2147,7 +2147,7 @@ public partial class TwilightImperiumDbContextInitializer
             },
             new SystemTile
             {
-                SystemTileName = SystemTileName.Tile83Front,
+                SystemTileName = SystemTileName.Tile83A,
                 RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Hyperlance,
@@ -2157,7 +2157,7 @@ public partial class TwilightImperiumDbContextInitializer
             },
             new SystemTile
             {
-                SystemTileName = SystemTileName.Tile83Back,
+                SystemTileName = SystemTileName.Tile83B,
                 RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Hyperlance,
@@ -2167,7 +2167,7 @@ public partial class TwilightImperiumDbContextInitializer
             },
             new SystemTile
             {
-                SystemTileName = SystemTileName.Tile84Front,
+                SystemTileName = SystemTileName.Tile84A,
                 RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Hyperlance,
@@ -2177,7 +2177,7 @@ public partial class TwilightImperiumDbContextInitializer
             },
             new SystemTile
             {
-                SystemTileName = SystemTileName.Tile84Back,
+                SystemTileName = SystemTileName.Tile84B,
                 RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Hyperlance,
@@ -2187,7 +2187,7 @@ public partial class TwilightImperiumDbContextInitializer
             },
             new SystemTile
             {
-                SystemTileName = SystemTileName.Tile85Front,
+                SystemTileName = SystemTileName.Tile85A,
                 RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Hyperlance,
@@ -2197,7 +2197,7 @@ public partial class TwilightImperiumDbContextInitializer
             },
             new SystemTile
             {
-                SystemTileName = SystemTileName.Tile85Back,
+                SystemTileName = SystemTileName.Tile85B,
                 RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Hyperlance,
@@ -2207,7 +2207,7 @@ public partial class TwilightImperiumDbContextInitializer
             },
             new SystemTile
             {
-                SystemTileName = SystemTileName.Tile86Front,
+                SystemTileName = SystemTileName.Tile86A,
                 RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Hyperlance,
@@ -2217,7 +2217,7 @@ public partial class TwilightImperiumDbContextInitializer
             },
             new SystemTile
             {
-                SystemTileName = SystemTileName.Tile87Back,
+                SystemTileName = SystemTileName.Tile87B,
                 RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Hyperlance,
@@ -2227,7 +2227,7 @@ public partial class TwilightImperiumDbContextInitializer
             },
             new SystemTile
             {
-                SystemTileName = SystemTileName.Tile88Front,
+                SystemTileName = SystemTileName.Tile88A,
                 RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Hyperlance,
@@ -2237,7 +2237,7 @@ public partial class TwilightImperiumDbContextInitializer
             },
             new SystemTile
             {
-                SystemTileName = SystemTileName.Tile88Back,
+                SystemTileName = SystemTileName.Tile88B,
                 RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Hyperlance,
@@ -2247,7 +2247,7 @@ public partial class TwilightImperiumDbContextInitializer
             },
             new SystemTile
             {
-                SystemTileName = SystemTileName.Tile89Front,
+                SystemTileName = SystemTileName.Tile89A,
                 RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Hyperlance,
@@ -2257,7 +2257,7 @@ public partial class TwilightImperiumDbContextInitializer
             },
             new SystemTile
             {
-                SystemTileName = SystemTileName.Tile89Back,
+                SystemTileName = SystemTileName.Tile89B,
                 RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Hyperlance,
@@ -2267,7 +2267,7 @@ public partial class TwilightImperiumDbContextInitializer
             },
             new SystemTile
             {
-                SystemTileName = SystemTileName.Tile90Front,
+                SystemTileName = SystemTileName.Tile90A,
                 RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Hyperlance,
@@ -2277,7 +2277,7 @@ public partial class TwilightImperiumDbContextInitializer
             },
             new SystemTile
             {
-                SystemTileName = SystemTileName.Tile90Back,
+                SystemTileName = SystemTileName.Tile90B,
                 RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Hyperlance,
@@ -2287,7 +2287,7 @@ public partial class TwilightImperiumDbContextInitializer
             },
             new SystemTile
             {
-                SystemTileName = SystemTileName.Tile91Front,
+                SystemTileName = SystemTileName.Tile91A,
                 RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Hyperlance,
@@ -2297,7 +2297,7 @@ public partial class TwilightImperiumDbContextInitializer
             },
             new SystemTile
             {
-                SystemTileName = SystemTileName.Tile91Back,
+                SystemTileName = SystemTileName.Tile91B,
                 RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Hyperlance,
@@ -2315,7 +2315,7 @@ public partial class TwilightImperiumDbContextInitializer
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>(),
                 Wormholes = default!,
-                GameVersion = GameVersion.ProphecyOfKing,
+                GameVersion = GameVersion.CodexVigil,
             },
             new SystemTile
             {
@@ -2325,7 +2325,7 @@ public partial class TwilightImperiumDbContextInitializer
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>(),
                 Wormholes = default!,
-                GameVersion = GameVersion.ProphecyOfKing,
+                GameVersion = GameVersion.CodexVigil,
             },
             new SystemTile
             {
@@ -2335,7 +2335,7 @@ public partial class TwilightImperiumDbContextInitializer
                 TileCategory = SystemTileCategory.Green,
                 Planets = new List<Planet>(),
                 Wormholes = default!,
-                GameVersion = GameVersion.ProphecyOfKing,
+                GameVersion = GameVersion.CodexVigil,
             },
         };
 

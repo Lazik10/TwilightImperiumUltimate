@@ -27,5 +27,11 @@ public class SystemTile : IEntity, IGameVersion
 
     public bool IsHomeSystem => RaceName != FactionName.None;
 
+    public int Resources => Planets.Sum(x => x.Resources);
+
+    public int Influence => Planets.Sum(x => x.Influence);
+
+    public bool HasPlanets => Planets.Count != 0;
+
     public GameVersion GameVersion { get; set; }
 }

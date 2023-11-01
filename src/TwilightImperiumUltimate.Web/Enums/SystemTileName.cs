@@ -1,4 +1,4 @@
-﻿namespace TwilightImperiumUltimate.Core.Enums.Galaxy;
+﻿namespace TwilightImperiumUltimate.Web.Enums;
 
 public enum SystemTileName
 {
@@ -107,3 +107,4 @@ public enum SystemTileName
     TileKeleres2,
     TileKeleres3,
 }
+

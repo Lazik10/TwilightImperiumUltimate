@@ -1,6 +1,6 @@
-﻿using TwilightImperiumUltimate.Core.Entities.Galaxy;
+﻿using TwilightImperiumUltimate.Web.Models.Galaxy;
 
-namespace TwilightImperiumUltimate.Draft.Draft.MapDraft;
+namespace TwilightImperiumUltimate.Web.Models.MapGenerators;
 
 public class MapDraftResult
 {

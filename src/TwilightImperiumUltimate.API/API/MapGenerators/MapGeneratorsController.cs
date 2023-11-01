@@ -21,11 +21,9 @@ public class MapGeneratorsController : ControllerBase
 
     // POST: api/mapgenerators/
     [HttpPost]
-    public async Task<ActionResult<Dictionary<int, int>>> GetPlayersWithDraftedFactions(MapDraftRequest request)
+    public async Task<MapDraftResult> GetGeneratedMap(MapDraftRequest request)
     {
         _logger.LogInformation("Registered faction draft process at {Time}", DateTime.Now.ToShortTimeString());
-        var result = await _mediator.Send(new MapDraftCommand(request));
-
-        return Ok(result.MapTilePositions);
+        return await _mediator.Send(new MapDraftCommand(request));
     }
 }
