@@ -934,6 +934,69 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All.
+        /// </summary>
+        public static string SystemTileTypeFilter_All {
+            get {
+                return ResourceManager.GetString("SystemTileTypeFilter_All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blue Tiles.
+        /// </summary>
+        public static string SystemTileTypeFilter_BlueTiles {
+            get {
+                return ResourceManager.GetString("SystemTileTypeFilter_BlueTiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home Systems.
+        /// </summary>
+        public static string SystemTileTypeFilter_HomeSystems {
+            get {
+                return ResourceManager.GetString("SystemTileTypeFilter_HomeSystems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hyperlanes.
+        /// </summary>
+        public static string SystemTileTypeFilter_Hyperlanes {
+            get {
+                return ResourceManager.GetString("SystemTileTypeFilter_Hyperlanes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mecatol Rex.
+        /// </summary>
+        public static string SystemTileTypeFilter_MecatolRex {
+            get {
+                return ResourceManager.GetString("SystemTileTypeFilter_MecatolRex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Red Tiles.
+        /// </summary>
+        public static string SystemTileTypeFilter_RedTiles {
+            get {
+                return ResourceManager.GetString("SystemTileTypeFilter_RedTiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unused.
+        /// </summary>
+        public static string SystemTileTypeFilter_Unused {
+            get {
+                return ResourceManager.GetString("SystemTileTypeFilter_Unused", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Balanced.
         /// </summary>
         public static string SystemWeight_Balanced {

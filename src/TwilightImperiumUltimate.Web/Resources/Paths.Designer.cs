@@ -106,6 +106,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://localhost:44307/api/galaxy/tiles/.
+        /// </summary>
+        public static string ApiPath_SystemTiles {
+            get {
+                return ResourceManager.GetString("ApiPath_SystemTiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TwilightImperiumUltimate.Web.Resources.FactionsInfo.
         /// </summary>
         public static string ResourceNamespace_FactionInfo {

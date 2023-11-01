@@ -10,9 +10,11 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection RegisterDraftServices(
         this IServiceCollection services)
     {
-        services.AddSingleton<IFactionDraftService, FactionDraftService>();
-        services.AddSingleton<IColorDraftService, ColorDraftService>();
-        services.AddSingleton<IMapDraftService, MapDraftService>();
+        services.AddScoped<IFactionDraftService, FactionDraftService>();
+        services.AddScoped<IColorDraftService, ColorDraftService>();
+        services.AddScoped<IMapDraftService, MapDraftService>();
+
+        services.AddScoped<IMapBuilderProvider, MapBuilderProvider>();
 
         return services;
     }

@@ -132,6 +132,9 @@
   <data name="ApiPath_MapDraft" xml:space="preserve">
     <value>https://localhost:44307/api/mapgenerators</value>
   </data>
+  <data name="ApiPath_SystemTiles" xml:space="preserve">
+    <value>https://localhost:44307/api/galaxy/tiles/</value>
+  </data>
   <data name="ResourceNamespace_FactionInfo" xml:space="preserve">
     <value>TwilightImperiumUltimate.Web.Resources.FactionsInfo</value>
   </data>

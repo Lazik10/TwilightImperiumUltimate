@@ -1,18 +1,29 @@
-﻿namespace TwilightImperiumUltimate.Web.Components.MapGenerator;
+﻿using Microsoft.AspNetCore.Components;
+using TwilightImperiumUltimate.Web.Enums;
+using TwilightImperiumUltimate.Web.Helpers.Enums;
+using TwilightImperiumUltimate.Web.Models.Galaxy;
+using TwilightImperiumUltimate.Web.Services.MapGenerators;
+
+namespace TwilightImperiumUltimate.Web.Components.MapGenerator;
 
 public partial class HexTileMenu
 {
-    private bool _showUnusedOnly;
+    private SystemTileTypeFilter _selectedSystemTileType = SystemTileTypeFilter.Unused;
 
-    private IEnumerable<int> HexTiles { get; set; } = Enumerable.Range(1, 81);
+    private IReadOnlyCollection<KeyValuePair<SystemTileTypeFilter, string>> _systemTileTypes = default!;
 
-    private void UnusedOnly()
+    public IReadOnlyCollection<SystemTile> SystemTiles { get; set; } = new List<SystemTile>();
+
+    [Inject]
+    private IMapGeneratorService MapGeneratorService { get; set; } = default!;
+
+    protected override void OnInitialized()
     {
-        if (_showUnusedOnly)
-            HexTiles = Enumerable.Range(1, 81);
-        else
-            HexTiles = Enumerable.Range(1, 81).Where(x => x % 15 == 0);
+        _systemTileTypes = EnumExtensions.GetEnumValuesWithDisplayNames<SystemTileTypeFilter>();
+    }
 
-        _showUnusedOnly = !_showUnusedOnly;
+    private void GetSystemTilesToShow()
+    {
+        SystemTiles = MapGeneratorService.GetSystemTilesToShow(_selectedSystemTileType);
     }
 }
