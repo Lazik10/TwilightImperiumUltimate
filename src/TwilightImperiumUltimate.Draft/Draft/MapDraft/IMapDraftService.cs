@@ -4,5 +4,5 @@ namespace TwilightImperiumUltimate.Draft.Draft.MapDraft;
 
 public interface IMapDraftService
 {
-    Task<MapDraftResult> GenerateMapLayout(MapDraftRequest request);
+    Task<MapDraftResult> GenerateTilesMapLayout(MapDraftRequest request);
 }

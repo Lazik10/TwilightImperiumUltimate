@@ -12,7 +12,7 @@ public static class MapGeneratorSettings
 
     public static readonly int ScaleIncrement = 5;
 
-    public static readonly int DefaultTileId = 18;
+    public static readonly SystemTileName DefaultTileName = SystemTileName.Tile18;
 
     public static readonly int MaxTilePositions = 81;
 

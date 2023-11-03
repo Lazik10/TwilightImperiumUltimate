@@ -15,4 +15,8 @@ public static class MapTemplateSettings
     public static readonly int MaxTilePositionsSnowflakeMap = 42;
 
     public static readonly int MaxTilePositionsMantaRayMap = 35;
+
+    public static readonly int MaxTilePositionsLargeMap = 81;
+
+    public static readonly int MaxTilePositionsTridentMap = 49;
 }

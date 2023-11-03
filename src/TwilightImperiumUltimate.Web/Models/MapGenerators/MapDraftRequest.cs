@@ -11,4 +11,6 @@ public class MapDraftRequest
     public PlacementStyle PlacementStyle { get; set; }
 
     public SystemWeight SystemWeight { get; set; }
+
+    public bool PreviewMap { get; set; }
 }

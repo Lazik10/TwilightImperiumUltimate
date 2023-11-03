@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using TwilightImperiumUltimate.API.DTOs.Galaxy;
 using TwilightImperiumUltimate.Business.Draft.MapDraft;
 using TwilightImperiumUltimate.Core.Models.Factions;
 using TwilightImperiumUltimate.Draft.Draft.MapDraft;
@@ -21,9 +22,26 @@ public class MapGeneratorsController : ControllerBase
 
     // POST: api/mapgenerators/
     [HttpPost]
-    public async Task<MapDraftResult> GetGeneratedMap(MapDraftRequest request)
+    public async Task<MapDraftResultDto> GetGeneratedMap(MapDraftRequest request)
     {
         _logger.LogInformation("Registered faction draft process at {Time}", DateTime.Now.ToShortTimeString());
-        return await _mediator.Send(new MapDraftCommand(request));
+        var mapDraftresult = await _mediator.Send(new MapDraftCommand(request));
+
+        var result = new MapDraftResultDto();
+
+        foreach (var mapTile in mapDraftresult.MapTiles)
+        {
+            result.MapTiles.Add(mapTile.Key, new SystemTileDto
+            {
+                Id = mapTile.Value.Id,
+                Name = mapTile.Value.SystemTileName,
+                TileCategory = mapTile.Value.TileCategory,
+                HasPlanets = mapTile.Value.HasPlanets,
+                Influence = mapTile.Value.Influence,
+                Resources = mapTile.Value.Resources,
+            });
+        }
+
+        return result;
     }
 }

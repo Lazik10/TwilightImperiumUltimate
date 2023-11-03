@@ -1,16 +1,18 @@
-﻿using TwilightImperiumUltimate.Web.Enums;
+﻿using TwilightImperiumUltimate.Web.Components.MapGenerator;
+using TwilightImperiumUltimate.Web.Enums;
 using TwilightImperiumUltimate.Web.Models.Galaxy;
-using TwilightImperiumUltimate.Web.Models.MapGenerators;
 
 namespace TwilightImperiumUltimate.Web.Services.MapGenerators;
 
 public interface IMapGeneratorService
 {
-    IReadOnlyCollection<SystemTile> SystemTiles { get; }
+    IReadOnlyDictionary<int, SystemTile> GeneratedPositionsWithSystemTiles { get; }
 
-    Task<MapDraftResult> GenerateMapAsync();
+    Task<IReadOnlyDictionary<int, SystemTile>> GenerateMapAsync(bool previewMap);
 
     Task InitializeSystemTilesAsync();
 
-    IReadOnlyCollection<SystemTile> GetSystemTilesToShow(SystemTileTypeFilter systemTileType);
+    IEnumerable<SystemTile> GetSystemTilesToShow(SystemTileTypeFilter systemTileType);
+
+    void SetDraggingSystemTile(MapHexTile mapHexTile);
 }

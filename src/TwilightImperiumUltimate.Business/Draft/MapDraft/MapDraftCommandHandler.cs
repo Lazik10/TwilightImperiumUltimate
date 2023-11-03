@@ -14,6 +14,6 @@ public class MapDraftCommandHandler : IRequestHandler<MapDraftCommand, MapDraftR
 
     public Task<MapDraftResult> Handle(MapDraftCommand request, CancellationToken cancellationToken)
     {
-        return _mapDraftService.GenerateMapLayout(request.DraftRequest);
+        return _mapDraftService.GenerateTilesMapLayout(request.DraftRequest);
     }
 }

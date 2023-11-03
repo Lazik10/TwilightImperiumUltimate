@@ -18,13 +18,28 @@ public class SystemTileRepository : ISystemTileRepository
 
     public IReadOnlyList<SystemTile> GetBaseGameTiles() => _systemTiles.Where(x => x.GameVersion == GameVersion.BaseGame).ToList();
 
-    public IReadOnlyList<SystemTile> GetHomeSystemTiles() => _systemTiles.Where(x => x.IsHomeSystem).ToList();
+    public IReadOnlyList<SystemTile> GetHomeSystemTiles() => _systemTiles
+        .Where(x => x.IsHomeSystem && x.SystemTileName != SystemTileName.Tile51)
+        .ToList();
 
     public SystemTile GetMecatolRex() => _systemTiles.Single(x => x.SystemTileName == SystemTileName.Tile18);
 
     public SystemTile GetSystemTileByName(SystemTileName name) => _systemTiles.First(x => x.SystemTileName == name);
 
     public IReadOnlyList<SystemTile> GetWormholeTiles() => _systemTiles.Where(x => x.Wormholes.Count != 0).ToList();
+
+    public IReadOnlyList<SystemTile> GetSystemTilesForBuildingGalaxy() => _systemTiles
+        .Where(x => !x.IsHomeSystem
+            && x.TileCategory != SystemTileCategory.None // Dummy tiles
+            && x.SystemTileName != SystemTileName.Tile81 // Muaat supernova
+            && x.SystemTileName != SystemTileName.Tile18 // Mecatol rex
+            && x.TileCategory != SystemTileCategory.ExternalMapTile
+            && x.TileCategory != SystemTileCategory.Hyperlance)
+        .ToList();
+
+    public SystemTile GetHomeSystemTilePlaceholderTile() => _systemTiles.First(x => x.SystemTileName == SystemTileName.TileHome);
+
+    public SystemTile GetEmptySystemTilePlaceholderTile() => _systemTiles.First(x => x.SystemTileName == SystemTileName.TileEmpty);
 
     private async Task InitializeSystemTiles()
     {

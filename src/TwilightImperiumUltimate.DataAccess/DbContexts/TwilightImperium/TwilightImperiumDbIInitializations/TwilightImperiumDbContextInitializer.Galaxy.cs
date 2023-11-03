@@ -8,6 +8,27 @@ public partial class TwilightImperiumDbContextInitializer
 
         var systemTiles = new List<SystemTile>()
         {
+            new SystemTile()
+            {
+                SystemTileName = SystemTileName.TileHome,
+                RaceName = FactionName.None,
+                Anomaly = AnomalyName.None,
+                TileCategory = SystemTileCategory.None,
+                Planets = new List<Planet>(),
+                Wormholes = new List<Wormhole>(),
+                GameVersion = GameVersion.BaseGame,
+            },
+            new SystemTile()
+            {
+                SystemTileName = SystemTileName.TileEmpty,
+                RaceName = FactionName.None,
+                Anomaly = AnomalyName.None,
+                TileCategory = SystemTileCategory.None,
+                Planets = new List<Planet>(),
+                Wormholes = new List<Wormhole>(),
+                GameVersion = GameVersion.BaseGame,
+            },
+
             // Twilight Imperium 4th edition tiles
             new SystemTile
             {
@@ -2217,6 +2238,26 @@ public partial class TwilightImperiumDbContextInitializer
             },
             new SystemTile
             {
+                SystemTileName = SystemTileName.Tile86B,
+                RaceName = FactionName.None,
+                Anomaly = AnomalyName.None,
+                TileCategory = SystemTileCategory.Hyperlance,
+                Planets = new List<Planet>(),
+                Wormholes = default!,
+                GameVersion = GameVersion.ProphecyOfKing,
+            },
+            new SystemTile
+            {
+                SystemTileName = SystemTileName.Tile87A,
+                RaceName = FactionName.None,
+                Anomaly = AnomalyName.None,
+                TileCategory = SystemTileCategory.Hyperlance,
+                Planets = new List<Planet>(),
+                Wormholes = default!,
+                GameVersion = GameVersion.ProphecyOfKing,
+            },
+            new SystemTile
+            {
                 SystemTileName = SystemTileName.Tile87B,
                 RaceName = FactionName.None,
                 Anomaly = AnomalyName.None,
@@ -2306,10 +2347,9 @@ public partial class TwilightImperiumDbContextInitializer
                 GameVersion = GameVersion.ProphecyOfKing,
             },
 
-            // TODO: Add and create Planets for Council of Keleres race
             new SystemTile
             {
-                SystemTileName = SystemTileName.TileKeleres1,
+                SystemTileName = SystemTileName.Tile92,
                 RaceName = FactionName.TheCouncilKeleres,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
@@ -2319,7 +2359,7 @@ public partial class TwilightImperiumDbContextInitializer
             },
             new SystemTile
             {
-                SystemTileName = SystemTileName.TileKeleres2,
+                SystemTileName = SystemTileName.Tile93,
                 RaceName = FactionName.TheCouncilKeleres,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
@@ -2329,7 +2369,7 @@ public partial class TwilightImperiumDbContextInitializer
             },
             new SystemTile
             {
-                SystemTileName = SystemTileName.TileKeleres3,
+                SystemTileName = SystemTileName.Tile94,
                 RaceName = FactionName.TheCouncilKeleres,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,

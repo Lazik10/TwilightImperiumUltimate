@@ -209,7 +209,7 @@ public partial class TwilightImperiumDbContextInitializer
             new Faction()
             {
                 FactionName = FactionName.TheCouncilKeleres,
-                HomeSystem = SystemTileName.TileKeleres1,
+                HomeSystem = SystemTileName.Tile92,
                 Commodities = 2,
                 ComplexityRating = ComplexityRating.Medium,
                 GameVersion = GameVersion.CodexVigil,

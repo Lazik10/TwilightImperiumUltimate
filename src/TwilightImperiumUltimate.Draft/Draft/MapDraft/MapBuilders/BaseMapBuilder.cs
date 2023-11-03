@@ -14,5 +14,5 @@ internal abstract class BaseMapBuilder : IMapBuilder
 
     protected abstract IEnumerable<int> MapPositions { get; set; }
 
-    public abstract Task<Dictionary<int, SystemTile>> GenerateGalaxy();
+    public abstract Task<Dictionary<int, SystemTile>> GenerateGalaxy(bool previewMap);
 }
