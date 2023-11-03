@@ -15,4 +15,10 @@ public interface ISystemTileRepository
     IReadOnlyList<SystemTile> GetAnomalies();
 
     IReadOnlyList<SystemTile> GetWormholeTiles();
+
+    IReadOnlyList<SystemTile> GetSystemTilesForBuildingGalaxy();
+
+    SystemTile GetHomeSystemTilePlaceholderTile();
+
+    SystemTile GetEmptySystemTilePlaceholderTile();
 }

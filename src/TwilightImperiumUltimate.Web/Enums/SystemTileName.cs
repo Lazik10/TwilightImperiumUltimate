@@ -2,6 +2,8 @@
 
 public enum SystemTileName
 {
+    TileHome,
+    TileEmpty,
     Tile01,
     Tile02,
     Tile03,
@@ -103,8 +105,8 @@ public enum SystemTileName
     Tile90B,
     Tile91A,
     Tile91B,
-    TileKeleres1,
-    TileKeleres2,
-    TileKeleres3,
+    Tile92,
+    Tile93,
+    Tile94,
 }
 

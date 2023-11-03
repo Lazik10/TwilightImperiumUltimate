@@ -8,4 +8,5 @@ public enum SystemTileCategory
     MecatolRex,
     ExternalMapTile,
     Hyperlance,
+    None,
 }

@@ -1,4 +1,5 @@
 ﻿using System.Net.Http.Json;
+using TwilightImperiumUltimate.Web.Components.MapGenerator;
 using TwilightImperiumUltimate.Web.Enums;
 using TwilightImperiumUltimate.Web.Models.Galaxy;
 using TwilightImperiumUltimate.Web.Models.MapGenerators;
@@ -10,16 +11,20 @@ public class MapGeneratorService : IMapGeneratorService
 {
     private readonly IMapGeneratorSettingsService _mapGeneratorSettingsService;
     private readonly HttpClient _http = new();
-    private IReadOnlyCollection<SystemTile> _systemTiles = new List<SystemTile>();
+    private IReadOnlyDictionary<int, SystemTile> _systemTiles = new Dictionary<int, SystemTile>();
 
     public MapGeneratorService(IMapGeneratorSettingsService mapGeneratorSettingsService)
     {
         _mapGeneratorSettingsService = mapGeneratorSettingsService;
     }
 
-    public IReadOnlyCollection<SystemTile> SystemTiles => _systemTiles;
+    public MapHexTile DraggedSystemTile { get; set; } = new();
 
-    public async Task<MapDraftResult> GenerateMapAsync()
+    public IReadOnlyDictionary<int, SystemTile> GeneratedPositionsWithSystemTiles => _systemTiles;
+
+    public IEnumerable<SystemTile> AllSystemTiles { get; set; } = new List<SystemTile>();
+
+    public async Task<IReadOnlyDictionary<int, SystemTile>> GenerateMapAsync(bool previewMap)
     {
         Uri uri = new(Paths.ApiPath_MapDraft);
 
@@ -29,32 +34,45 @@ public class MapGeneratorService : IMapGeneratorService
             MapTemplate = _mapGeneratorSettingsService.MapTemplate,
             PlacementStyle = _mapGeneratorSettingsService.PlacementStyle,
             SystemWeight = _mapGeneratorSettingsService.SystemWeight,
+            PreviewMap = previewMap,
         };
 
         var response = await _http.PostAsJsonAsync(uri, request);
 
-        return await response.Content.ReadFromJsonAsync<MapDraftResult>() ?? new MapDraftResult();
+        var result = await response.Content.ReadFromJsonAsync<MapDraftResult>() ?? new MapDraftResult();
+        _systemTiles = result.MapTiles;
+        return result.MapTiles;
     }
 
     public async Task InitializeSystemTilesAsync()
     {
-        Uri uri = new(Paths.ApiPath_SystemTiles);
-
-        _systemTiles = await _http.GetFromJsonAsync<IReadOnlyCollection<SystemTile>>(uri) ?? new List<SystemTile>();
+        _systemTiles = await GenerateMapAsync(true);
+        AllSystemTiles = await InitializeSystemTilesForMenu();
     }
 
-    public IReadOnlyCollection<SystemTile> GetSystemTilesToShow(SystemTileTypeFilter systemTileType)
+    public IEnumerable<SystemTile> GetSystemTilesToShow(SystemTileTypeFilter systemTileType)
     {
         return systemTileType switch
         {
-            SystemTileTypeFilter.Unused => _systemTiles.ToList(),
-            SystemTileTypeFilter.All => _systemTiles.ToList(),
-            SystemTileTypeFilter.MecatolRex => _systemTiles.Where(x => x.Name == SystemTileName.Tile18).ToList(),
-            SystemTileTypeFilter.HomeSystems => _systemTiles.Where(x => x.TileCategory == SystemTileCategory.Green).ToList(),
-            SystemTileTypeFilter.BlueTiles => _systemTiles.Where(x => x.TileCategory == SystemTileCategory.Blue).ToList(),
-            SystemTileTypeFilter.RedTiles => _systemTiles.Where(x => x.TileCategory == SystemTileCategory.Red).ToList(),
-            SystemTileTypeFilter.Hyperlanes => _systemTiles.Where(x => x.TileCategory == SystemTileCategory.Hyperlance).ToList(),
+            SystemTileTypeFilter.Unused => AllSystemTiles.Where(x => !_systemTiles.Values.Any(y => y.Name == x.Name)),
+            SystemTileTypeFilter.All => AllSystemTiles,
+            SystemTileTypeFilter.MecatolRex => AllSystemTiles.Where(x => x.Name == SystemTileName.Tile18),
+            SystemTileTypeFilter.HomeSystems => AllSystemTiles.Where(x => x.TileCategory == SystemTileCategory.Green),
+            SystemTileTypeFilter.BlueTiles => AllSystemTiles.Where(x => x.TileCategory == SystemTileCategory.Blue),
+            SystemTileTypeFilter.RedTiles => AllSystemTiles.Where(x => x.TileCategory == SystemTileCategory.Red),
+            SystemTileTypeFilter.Hyperlanes => AllSystemTiles.Where(x => x.TileCategory == SystemTileCategory.Hyperlance),
             _ => throw new ArgumentOutOfRangeException(nameof(systemTileType), systemTileType, null),
         };
+    }
+
+    public void SetDraggingSystemTile(MapHexTile mapHexTile)
+    {
+        DraggedSystemTile = mapHexTile;
+    }
+
+    private async Task<List<SystemTile>> InitializeSystemTilesForMenu()
+    {
+        Uri uri = new(Paths.ApiPath_SystemTiles);
+        return await _http.GetFromJsonAsync<List<SystemTile>>(uri) ?? new List<SystemTile>();
     }
 }

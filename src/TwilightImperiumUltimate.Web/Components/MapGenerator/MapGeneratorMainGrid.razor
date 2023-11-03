@@ -1,5 +1,9 @@
-﻿@using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids
-@using TwilightImperiumUltimate.Web.Components.MapGenerator
+﻿@using TwilightImperiumUltimate.Web.Components.MapGenerator
+@using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids
+@using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.Custom
+@using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.EightPlayers
+@using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.SixPlayers
+@using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.ThreePlayers
 @using TwilightImperiumUltimate.Web.Components.Shared.Controls
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 
@@ -26,43 +30,12 @@
     }
 
     <FlexColumnCenteredContainer>
+
         <div style="width: @(MapGeneratorSettingsService.MapScale)%">
-            @if(MapGeneratorSettingsService.MapTemplate == MapTemplate.SmallMapThreePlayers
-                || MapGeneratorSettingsService.MapTemplate == MapTemplate.SmallMapAlternateThreePlayers)
-            {
-                <SmallMap />
-            }
-            else if (MapGeneratorSettingsService.MapTemplate == MapTemplate.MediumMapFourPlayers
-                || MapGeneratorSettingsService.MapTemplate == MapTemplate.MediumMapSixPlayers)
-            {
-                <MediumMap />
-            }
-            else if (MapGeneratorSettingsService.MapTemplate == MapTemplate.LargeMapSixPlayers
-                || MapGeneratorSettingsService.MapTemplate == MapTemplate.LargeMapEightPlayers)
-            {
-                <LargeMap />
-            }
-            else if (MapGeneratorSettingsService.MapTemplate == MapTemplate.CustomMap)
-            {
-                <CustomMap />
-            }
-            else if (MapGeneratorSettingsService.MapTemplate == MapTemplate.TriangleMapThreePlayers)
-            {
-                <TriangleMap />
-            }
-            else if (MapGeneratorSettingsService.MapTemplate == MapTemplate.TriangleNarrowMapThreePlayers)
-            {
-                <TriangleNarrowMap />
-            }
-            else if(MapGeneratorSettingsService.MapTemplate == MapTemplate.SnowflakeMapThreePlayers)
-            {
-                <SnowflakeMap />
-            }
-            else if (MapGeneratorSettingsService.MapTemplate == MapTemplate.MantaRayMapThreePlayers)
-            {
-                <MantaRayMap />
-            }
+            @DynamicComponent
         </div>
+
     </FlexColumnCenteredContainer>
+
 </div>
 

@@ -1,7 +1,17 @@
 ﻿<div class="hex-container">
+
     <img src="@ImagePath" alt="Hexagon">
+
     @if (ShowTileId)
     {
-        <div class="hex-text white handel shadow">@MapTileId</div>
+        <div class="hex-text white handel shadow">
+            @MapTileId
+        </div>
     }
 </div>
+
+@* @ondragstart="HandleDragStart"
+@ondragend="HandleDragEnd"
+@ondragover="HandleDragOver"
+@ondrop="HandleDrop"
+     draggable="true" *@

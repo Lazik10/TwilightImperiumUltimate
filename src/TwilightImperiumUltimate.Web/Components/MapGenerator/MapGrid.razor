@@ -1,0 +1,19 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Services.Path;
+@inject IPathProvider PathProvider
+
+@foreach (var mapPosition in MapPositions)
+{
+    if (GeneratedPositionsWithSystemTiles is not null && GeneratedPositionsWithSystemTiles.Keys.Any())
+    {
+        CurrentSystemTile = GeneratedPositionsWithSystemTiles[mapPosition];
+
+        <div class="hex">
+
+            <MapHexTile SystemTile="@(CurrentSystemTile)"
+                        ShowTileId="true"
+                        MapTileId="@(CurrentSystemTile.Name.ToString().Substring(4))"
+                        ImagePath="@(PathProvider.GetLargeTileImagePath(CurrentSystemTile.Name.ToString()))" />
+        </div>
+    }
+}

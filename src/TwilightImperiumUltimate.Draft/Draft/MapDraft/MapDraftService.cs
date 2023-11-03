@@ -12,20 +12,11 @@ public class MapDraftService : IMapDraftService
         _mapBuilderProvider = mapBuilderProvider;
     }
 
-    public Task<MapDraftResult> GenerateMapLayout(MapDraftRequest request)
+    public async Task<MapDraftResult> GenerateTilesMapLayout(MapDraftRequest request)
     {
-        var result = new MapDraftResult
-        {
-            MapTilePositions = Enumerable.Range(0, 81).ToDictionary(x => x, x => x),
-        };
-
-        return Task.FromResult(result);
-    }
-
-    public async Task<Dictionary<int, SystemTile>> GenerateTilesMapLayout(MapDraftRequest request)
-    {
+        var result = new MapDraftResult();
         var mapBuilder = await _mapBuilderProvider.GetMapBuilder(request.MapTemplate);
-        var galaxy = await mapBuilder.GenerateGalaxy();
-        return galaxy;
+        result.MapTiles = await mapBuilder.GenerateGalaxy(request.PreviewMap);
+        return result;
     }
 }

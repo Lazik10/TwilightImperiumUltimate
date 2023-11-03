@@ -12,7 +12,7 @@ public partial class HexTileMenu
 
     private IReadOnlyCollection<KeyValuePair<SystemTileTypeFilter, string>> _systemTileTypes = default!;
 
-    public IReadOnlyCollection<SystemTile> SystemTiles { get; set; } = new List<SystemTile>();
+    public IEnumerable<SystemTile> SystemTiles { get; set; } = new List<SystemTile>();
 
     [Inject]
     private IMapGeneratorService MapGeneratorService { get; set; } = default!;
@@ -20,6 +20,7 @@ public partial class HexTileMenu
     protected override void OnInitialized()
     {
         _systemTileTypes = EnumExtensions.GetEnumValuesWithDisplayNames<SystemTileTypeFilter>();
+        GetSystemTilesToShow();
     }
 
     private void GetSystemTilesToShow()

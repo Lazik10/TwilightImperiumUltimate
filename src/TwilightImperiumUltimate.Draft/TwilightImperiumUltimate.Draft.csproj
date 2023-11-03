@@ -15,4 +15,9 @@
     <PackageReference Update="SonarAnalyzer.CSharp" Version="9.12.0.78982" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Draft\MapDraft\MapBuilders\FivePlayers\" />
+    <Folder Include="Draft\MapDraft\MapBuilders\SevenPlayers\" />
+  </ItemGroup>
+
 </Project>
