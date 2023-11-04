@@ -19,7 +19,9 @@
                 <MapHexTile SystemTile="@(CurrentSystemTile)"
                             ShowTileId="true"
                             MapTileId="@(CurrentSystemTile.Name.ToString().Substring(4))"
-                            ImagePath="@(PathProvider.GetLargeTileImagePath(CurrentSystemTile.Name.ToString()))"/>
+                            ImagePath="@(PathProvider.GetLargeTileImagePath(CurrentSystemTile.Name.ToString()))"
+                            MapPosition="mapPosition"
+                            SwappedTwoSystemTiles="RefreshAfterSwap" />
             </div>
         }
     }

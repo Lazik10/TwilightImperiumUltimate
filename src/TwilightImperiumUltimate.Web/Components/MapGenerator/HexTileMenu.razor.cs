@@ -14,8 +14,18 @@ public partial class HexTileMenu
 
     public IEnumerable<SystemTile> SystemTiles { get; set; } = new List<SystemTile>();
 
+    [Parameter]
+    public EventCallback SwappedSystemTileFromMenu { get; set; }
+
     [Inject]
     private IMapGeneratorService MapGeneratorService { get; set; } = default!;
+
+    public void RefreshSystemTilesMenu()
+    {
+        GetSystemTilesToShow();
+        SwappedSystemTileFromMenu.InvokeAsync();
+        StateHasChanged();
+    }
 
     protected override void OnInitialized()
     {

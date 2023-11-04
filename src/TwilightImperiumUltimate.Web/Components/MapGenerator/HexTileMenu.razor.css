@@ -9,24 +9,27 @@
     width: 15%;
     max-height: 80%;
     min-height: 80%;
-    overflow-y: auto;
 }
 
-.hex-menu::-webkit-scrollbar {
+.scrollbar-area {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+.scrollbar-area::-webkit-scrollbar {
     width: 12px;
 }
 
-.hex-menu::-webkit-scrollbar-track {
+.scrollbar-area::-webkit-scrollbar-track {
     background: transparent;
 }
 
-.hex-menu::-webkit-scrollbar-thumb {
+.scrollbar-area::-webkit-scrollbar-thumb {
     background: #0024ff;
 }
 
-    .hex-menu::-webkit-scrollbar-button {
-        /*    background-color: #333;
-    color: #0024ff;*/
-        background-color: transparent;
-        color: transparent;
-    }
+.scrollbar-area::-webkit-scrollbar-button {
+    background-color: transparent;
+    color: transparent;
+}

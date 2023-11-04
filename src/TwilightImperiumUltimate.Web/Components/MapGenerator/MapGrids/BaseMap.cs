@@ -22,6 +22,12 @@ public abstract class BaseMap : ComponentBase
     [Inject]
     protected virtual IMapGeneratorSettingsService MapGeneratorSettingsService { get; set; } = default!;
 
+    protected virtual void RefreshAfterSwap()
+    {
+        GeneratedPositionsWithSystemTiles = MapGeneratorService.GeneratedPositionsWithSystemTiles;
+        StateHasChanged();
+    }
+
     protected override async Task OnInitializedAsync()
     {
         await MapGeneratorService.InitializeSystemTilesAsync();

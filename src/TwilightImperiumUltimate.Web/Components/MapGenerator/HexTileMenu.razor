@@ -4,20 +4,24 @@
 @inject IPathProvider PathProvider
 
 <div class="hex-menu">
-
-    <Title Text="Filter:" FontSize="20"/>
+    <Title Text="Filter:" FontSize="20" />
     <RadzenDropDown @bind-Value="_selectedSystemTileType"
-        Data="@_systemTileTypes"
-        Change="() => GetSystemTilesToShow()"
-        TextProperty="Value"
-        ValueProperty="Key"
-        Style="width: 100%; min-height: 40px;" />
+                    Data="@_systemTileTypes"
+                    Change="() => GetSystemTilesToShow()"
+                    TextProperty="Value"
+                    ValueProperty="Key"
+                    Style="width: 100%; min-height: 40px;" />
 
-    @foreach (var hex in SystemTiles)
-    {
-        <MapHexTile ImagePath="@(PathProvider.GetLargeTileImagePath(hex.Name.ToString()))"
-                    ShowTileId="true"
-                    MapTileId="@(hex.Name.ToString().Substring(4))" />
-    }
+    <div class="scrollbar-area">
+        @foreach (var systemTile in SystemTiles)
+        {
+            <MapHexTile ImagePath="@(PathProvider.GetLargeTileImagePath(systemTile.Name.ToString()))"
+                        ShowTileId="true"
+                        MapTileId="@(systemTile.Name.ToString().Substring(4))"
+                        MapPosition="-1"
+                        SystemTile="systemTile"
+                        SwappedSystemTileFromMenu="RefreshSystemTilesMenu" />
+        }
+    </div>
 
 </div>
