@@ -89,4 +89,9 @@ public partial class MapGeneratorMainGrid
         GeneratedPositionsWithSystemTiles = await MapGeneratorService.GenerateMapAsync(false);
         StateHasChanged();
     }
+
+    private void Refresh()
+    {
+        StateHasChanged();
+    }
 }

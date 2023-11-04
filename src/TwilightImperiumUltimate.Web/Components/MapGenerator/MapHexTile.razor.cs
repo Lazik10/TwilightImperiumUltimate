@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
+using Serilog;
 using TwilightImperiumUltimate.Web.Models.Galaxy;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
-using TwilightImperiumUltimate.Web.Services.Path;
 
 namespace TwilightImperiumUltimate.Web.Components.MapGenerator;
 
@@ -21,32 +20,47 @@ public partial class MapHexTile
     public bool ShowTileId { get; set; } = false;
 
     [Parameter]
-    public EventCallback<string> OnDropTile { get; set; }
+    public int MapPosition { get; set; }
 
     [Parameter]
-    public EventCallback<string> OnDragTile { get; set; }
+    public EventCallback SwappedTwoSystemTiles { get; set; }
+
+    [Parameter]
+    public EventCallback SwappedSystemTileFromMenu { get; set; }
 
     [Inject]
     private IMapGeneratorService MapGeneratorService { get; set; } = null!;
 
-    private void HandleDragStart()
+    private void StartDragSystemTile(SystemTile systemTile)
     {
-        OnDragTile.InvokeAsync(MapTileId);
-        MapGeneratorService.SetDraggingSystemTile(this);
+        MapGeneratorService.SetDraggingSystemTile(systemTile);
+        MapGeneratorService.SetDraggingSystemTilePosition(MapPosition);
+        Log.Information("Drag started for system tile: {TileName}", systemTile.Name.ToString());
     }
 
-    private void HandleDragEnd()
+    private void DropSystemTile(SystemTile systemTile)
     {
-        OnDragTile.InvokeAsync(MapTileId);
+        if (systemTile != null)
+        {
+            var draggedSystemTile = MapGeneratorService.GetCurrentDraggingSystemTile();
+            Log.Information("Dragged system tile was: {TileName}", draggedSystemTile.Name.ToString());
+            Log.Information("Dropped on system tile: {TileName}", systemTile.Name.ToString());
+            MapGeneratorService.SwapSystemTiles(systemTile, MapPosition);
+            SwappedTwoSystemTiles.InvokeAsync();
+            SwappedSystemTileFromMenu.InvokeAsync();
+            StateHasChanged();
+            MapGeneratorService.ResetDraggingSystemTile(systemTile);
+        }
     }
 
-    private async Task HandleDrop()
+    private void DragOverSystemTile(SystemTile systemTile)
     {
-        await OnDropTile.InvokeAsync(MapTileId);
+        Log.Information("Draging over system tile: {TileName}", systemTile.Name.ToString());
     }
 
-    private void HandleDragOver(DragEventArgs e)
+    private void EndDragSystemTile(SystemTile systemTile)
     {
-        // e.Handled = true; // This prevents the default action
+        Log.Information("Drag ended for system tile: {TileName}", systemTile.Name.ToString());
+        SwappedSystemTileFromMenu.InvokeAsync();
     }
 }

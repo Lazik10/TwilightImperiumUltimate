@@ -1,5 +1,4 @@
 ﻿using System.Net.Http.Json;
-using TwilightImperiumUltimate.Web.Components.MapGenerator;
 using TwilightImperiumUltimate.Web.Enums;
 using TwilightImperiumUltimate.Web.Models.Galaxy;
 using TwilightImperiumUltimate.Web.Models.MapGenerators;
@@ -11,20 +10,22 @@ public class MapGeneratorService : IMapGeneratorService
 {
     private readonly IMapGeneratorSettingsService _mapGeneratorSettingsService;
     private readonly HttpClient _http = new();
-    private IReadOnlyDictionary<int, SystemTile> _systemTiles = new Dictionary<int, SystemTile>();
+    private Dictionary<int, SystemTile> _systemTiles = new Dictionary<int, SystemTile>();
 
     public MapGeneratorService(IMapGeneratorSettingsService mapGeneratorSettingsService)
     {
         _mapGeneratorSettingsService = mapGeneratorSettingsService;
     }
 
-    public MapHexTile DraggedSystemTile { get; set; } = new();
+    public SystemTile DraggedSystemTile { get; set; } = new();
+
+    public int DraggedSystemTileStartMapPosition { get; set; }
 
     public IReadOnlyDictionary<int, SystemTile> GeneratedPositionsWithSystemTiles => _systemTiles;
 
     public IEnumerable<SystemTile> AllSystemTiles { get; set; } = new List<SystemTile>();
 
-    public async Task<IReadOnlyDictionary<int, SystemTile>> GenerateMapAsync(bool previewMap)
+    public async Task<Dictionary<int, SystemTile>> GenerateMapAsync(bool previewMap)
     {
         Uri uri = new(Paths.ApiPath_MapDraft);
 
@@ -40,8 +41,9 @@ public class MapGeneratorService : IMapGeneratorService
         var response = await _http.PostAsJsonAsync(uri, request);
 
         var result = await response.Content.ReadFromJsonAsync<MapDraftResult>() ?? new MapDraftResult();
-        _systemTiles = result.MapTiles;
-        return result.MapTiles;
+        var systemTiles = result.MapTiles.ToDictionary();
+        _systemTiles = systemTiles;
+        return systemTiles;
     }
 
     public async Task InitializeSystemTilesAsync()
@@ -65,9 +67,38 @@ public class MapGeneratorService : IMapGeneratorService
         };
     }
 
-    public void SetDraggingSystemTile(MapHexTile mapHexTile)
+    public void SetDraggingSystemTile(SystemTile systemTile)
     {
-        DraggedSystemTile = mapHexTile;
+        DraggedSystemTile = systemTile;
+    }
+
+    public void SetDraggingSystemTilePosition(int draggedSystemTileStartMapPosition)
+    {
+        DraggedSystemTileStartMapPosition = draggedSystemTileStartMapPosition;
+    }
+
+    public void ResetDraggingSystemTile(SystemTile systemTile)
+    {
+        DraggedSystemTile = new();
+    }
+
+    public SystemTile GetCurrentDraggingSystemTile()
+    {
+        return DraggedSystemTile;
+    }
+
+    public void SwapSystemTiles(SystemTile systemTile, int mapPosition)
+    {
+        if (systemTile is not null && DraggedSystemTileStartMapPosition != -1)
+        {
+            var draggedSystemTileToSwap = _systemTiles[DraggedSystemTileStartMapPosition];
+            _systemTiles[DraggedSystemTileStartMapPosition] = systemTile;
+            _systemTiles[mapPosition] = draggedSystemTileToSwap;
+        }
+        else
+        {
+            _systemTiles[mapPosition] = DraggedSystemTile;
+        }
     }
 
     private async Task<List<SystemTile>> InitializeSystemTilesForMenu()

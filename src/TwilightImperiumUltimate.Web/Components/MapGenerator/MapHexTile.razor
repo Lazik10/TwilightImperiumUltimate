@@ -1,4 +1,12 @@
-﻿<div class="hex-container">
+﻿<div class="hex-container"
+     draggable="true" 
+     @ondragstart="@(() => StartDragSystemTile(SystemTile))"
+     @ondrop="@(() => DropSystemTile(SystemTile))"
+     @ondrop:preventDefault="true"
+     @ondragover="@(() => DragOverSystemTile(SystemTile))"
+     @ondragover:preventDefault="true"
+     @ondragend="@(() => EndDragSystemTile(SystemTile))"
+     title="@(SystemTile.Name.ToString())">
 
     <img src="@ImagePath" alt="Hexagon">
 
@@ -9,9 +17,3 @@
         </div>
     }
 </div>
-
-@* @ondragstart="HandleDragStart"
-@ondragend="HandleDragEnd"
-@ondragover="HandleDragOver"
-@ondrop="HandleDrop"
-     draggable="true" *@
