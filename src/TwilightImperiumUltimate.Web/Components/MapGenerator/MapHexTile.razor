@@ -1,4 +1,5 @@
-﻿<div class="hex-container"
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+<div class="hex-container"
      draggable="true" 
      @ondragstart="@(() => StartDragSystemTile(SystemTile))"
      @ondrop="@(() => DropSystemTile(SystemTile))"
@@ -10,10 +11,30 @@
 
     <img src="@ImagePath" alt="Hexagon">
 
-    @if (ShowTileId)
+    @if (SystemTileOverlay == SystemTileOverlay.Id)
     {
         <div class="hex-text white handel shadow">
             @MapTileId
+        </div>
+    }
+    else if (SystemTileOverlay == SystemTileOverlay.Resources)
+    {
+        <div class="hex-text yellow handel shadow">
+            @SystemTile.Resources
+        </div>
+    }
+    else if(SystemTileOverlay == SystemTileOverlay.Influence)
+    {
+        <div class="hex-text blue handel shadow">
+            @SystemTile.Influence
+        </div>
+    }
+    else if (SystemTileOverlay == SystemTileOverlay.ResourcesAndInfluence)
+    {
+        <div class="hex-text white handel shadow">
+            <FlexRowContainer>
+                <div class="yellow">@SystemTile.Resources</div><HorizontalSpace Width="10" />/<HorizontalSpace Width="10" /><div class="blue">@SystemTile.Influence</div>
+            </FlexRowContainer>
         </div>
     }
 </div>

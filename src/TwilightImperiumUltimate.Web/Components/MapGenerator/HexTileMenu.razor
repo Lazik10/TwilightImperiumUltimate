@@ -1,7 +1,9 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Shared.Text
 @using TwilightImperiumUltimate.Web.Resources
+@using TwilightImperiumUltimate.Web.Services.MapGenerators
 @using TwilightImperiumUltimate.Web.Services.Path
 @inject IPathProvider PathProvider
+@inject IMapGeneratorSettingsService MapGeneratorSettingsService
 
 <div class="hex-menu">
     <Title Text="Filter:" FontSize="20" />
@@ -16,7 +18,7 @@
         @foreach (var systemTile in SystemTiles)
         {
             <MapHexTile ImagePath="@(PathProvider.GetLargeTileImagePath(systemTile.Name.ToString()))"
-                        ShowTileId="true"
+                        SystemTileOverlay="@(MapGeneratorSettingsService.SystemTileOverlay)"
                         MapTileId="@(systemTile.Name.ToString().Substring(4))"
                         MapPosition="-1"
                         SystemTile="systemTile"

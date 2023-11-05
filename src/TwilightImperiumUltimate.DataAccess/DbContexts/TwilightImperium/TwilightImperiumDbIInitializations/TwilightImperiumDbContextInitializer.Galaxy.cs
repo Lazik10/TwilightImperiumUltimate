@@ -2353,7 +2353,20 @@ public partial class TwilightImperiumDbContextInitializer
                 RaceName = FactionName.TheCouncilKeleres,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
-                Planets = new List<Planet>(),
+                Planets = new List<Planet>()
+                {
+                    new Planet()
+                    {
+                        PlanetName = PlanetName.MolPrimusCouncilOfKeleres,
+                        PlanetTrait = PlanetTrait.None,
+                        SystemTileName = SystemTileName.Tile92,
+                        Resources = 4,
+                        Influence = 1,
+                        IsLegendary = false,
+                        TechnologySkip = TechnologyType.None,
+                        GameVersion = GameVersion.CodexVigil,
+                    },
+                },
                 Wormholes = default!,
                 GameVersion = GameVersion.CodexVigil,
             },
@@ -2363,7 +2376,31 @@ public partial class TwilightImperiumDbContextInitializer
                 RaceName = FactionName.TheCouncilKeleres,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
-                Planets = new List<Planet>(),
+                Planets = new List<Planet>()
+                {
+                    new Planet()
+                    {
+                        PlanetName = PlanetName.ArchonRenCouncilOfKeleres,
+                        PlanetTrait = PlanetTrait.None,
+                        SystemTileName = SystemTileName.Tile93,
+                        Resources = 2,
+                        Influence = 3,
+                        IsLegendary = false,
+                        TechnologySkip = TechnologyType.None,
+                        GameVersion = GameVersion.CodexVigil,
+                    },
+                    new Planet()
+                    {
+                        PlanetName = PlanetName.ArchonTauCouncilOfKeleres,
+                        PlanetTrait = PlanetTrait.None,
+                        SystemTileName = SystemTileName.Tile93,
+                        Resources = 1,
+                        Influence = 1,
+                        IsLegendary = false,
+                        TechnologySkip = TechnologyType.None,
+                        GameVersion = GameVersion.CodexVigil,
+                    },
+                },
                 Wormholes = default!,
                 GameVersion = GameVersion.CodexVigil,
             },
@@ -2373,7 +2410,42 @@ public partial class TwilightImperiumDbContextInitializer
                 RaceName = FactionName.TheCouncilKeleres,
                 Anomaly = AnomalyName.None,
                 TileCategory = SystemTileCategory.Green,
-                Planets = new List<Planet>(),
+                Planets = new List<Planet>()
+                {
+                    new Planet()
+                    {
+                        PlanetName = PlanetName.YlirCouncilOfKeleres,
+                        PlanetTrait = PlanetTrait.None,
+                        SystemTileName = SystemTileName.Tile94,
+                        Resources = 0,
+                        Influence = 2,
+                        IsLegendary = false,
+                        TechnologySkip = TechnologyType.None,
+                        GameVersion = GameVersion.CodexVigil,
+                    },
+                    new Planet()
+                    {
+                        PlanetName = PlanetName.ValkCouncilOfKeleres,
+                        PlanetTrait = PlanetTrait.None,
+                        SystemTileName = SystemTileName.Tile94,
+                        Resources = 2,
+                        Influence = 0,
+                        IsLegendary = false,
+                        TechnologySkip = TechnologyType.None,
+                        GameVersion = GameVersion.CodexVigil,
+                    },
+                    new Planet()
+                    {
+                        PlanetName = PlanetName.AvarCouncilOfKeleres,
+                        PlanetTrait = PlanetTrait.None,
+                        SystemTileName = SystemTileName.Tile94,
+                        Resources = 1,
+                        Influence = 1,
+                        IsLegendary = false,
+                        TechnologySkip = TechnologyType.None,
+                        GameVersion = GameVersion.CodexVigil,
+                    },
+                },
                 Wormholes = default!,
                 GameVersion = GameVersion.CodexVigil,
             },

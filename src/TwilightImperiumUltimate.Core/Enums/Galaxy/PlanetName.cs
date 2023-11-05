@@ -101,4 +101,10 @@ public enum PlanetName
     RigelThree,
     MaliceFront,
     MaliceBack,
+    MolPrimusCouncilOfKeleres,
+    ArchonRenCouncilOfKeleres,
+    ArchonTauCouncilOfKeleres,
+    YlirCouncilOfKeleres,
+    ValkCouncilOfKeleres,
+    AvarCouncilOfKeleres,
 }

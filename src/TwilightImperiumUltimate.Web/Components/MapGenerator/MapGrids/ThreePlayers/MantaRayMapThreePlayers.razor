@@ -17,7 +17,7 @@
             <div class="hex">
 
                 <MapHexTile SystemTile="@(CurrentSystemTile)"
-                            ShowTileId="true"
+                            SystemTileOverlay="@(MapGeneratorSettingsService.SystemTileOverlay)"
                             MapTileId="@(CurrentSystemTile.Name.ToString().Substring(4))"
                             ImagePath="@(PathProvider.GetLargeTileImagePath(CurrentSystemTile.Name.ToString()))"
                             MapPosition="mapPosition"

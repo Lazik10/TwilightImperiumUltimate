@@ -934,6 +934,51 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Id.
+        /// </summary>
+        public static string SystemTileOverlay_Id {
+            get {
+                return ResourceManager.GetString("SystemTileOverlay_Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Influence.
+        /// </summary>
+        public static string SystemTileOverlay_Influence {
+            get {
+                return ResourceManager.GetString("SystemTileOverlay_Influence", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to None.
+        /// </summary>
+        public static string SystemTileOverlay_None {
+            get {
+                return ResourceManager.GetString("SystemTileOverlay_None", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resources.
+        /// </summary>
+        public static string SystemTileOverlay_Resources {
+            get {
+                return ResourceManager.GetString("SystemTileOverlay_Resources", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resource and Influence.
+        /// </summary>
+        public static string SystemTileOverlay_ResourcesAndInfluence {
+            get {
+                return ResourceManager.GetString("SystemTileOverlay_ResourcesAndInfluence", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All.
         /// </summary>
         public static string SystemTileTypeFilter_All {

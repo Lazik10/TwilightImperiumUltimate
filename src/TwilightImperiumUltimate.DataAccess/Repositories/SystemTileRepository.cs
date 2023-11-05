@@ -45,6 +45,6 @@ public class SystemTileRepository : ISystemTileRepository
     {
         using var context = _context.CreateDbContext();
 
-        _systemTiles = await context.SystemTiles.ToListAsync();
+        _systemTiles = await context.SystemTiles.Include(x => x.Planets).ToListAsync();
     }
 }

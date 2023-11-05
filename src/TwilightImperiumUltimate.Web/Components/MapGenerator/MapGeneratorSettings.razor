@@ -40,6 +40,14 @@
                                 ValueProperty="Key"
                                 TextProperty="Value"
                                 Style="width: 100%; max-width: 400px;" />
+
+                <Title Text="Tiles overlay:" />
+                <RadzenDropDown @bind-Value="SelectedSystemTileOverlay"
+                                Data="@_systemTileOverlays"
+                                Change="() => SetSystemTileOverlay(SelectedSystemTileOverlay)"
+                                ValueProperty="Key"
+                                TextProperty="Value"
+                                Style="width: 100%; max-width: 400px;" />
             </FlexColumnCenteredContainer>
         
         </div>
