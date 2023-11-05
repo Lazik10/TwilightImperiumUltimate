@@ -3,6 +3,7 @@
 public class SystemTileRepository : ISystemTileRepository
 {
     private readonly IDbContextFactory<TwilightImperiumDbContext> _context;
+    private readonly Random _random = new();
 
     private IReadOnlyList<SystemTile> _systemTiles = default!;
 
@@ -18,9 +19,27 @@ public class SystemTileRepository : ISystemTileRepository
 
     public IReadOnlyList<SystemTile> GetBaseGameTiles() => _systemTiles.Where(x => x.GameVersion == GameVersion.BaseGame).ToList();
 
-    public IReadOnlyList<SystemTile> GetHomeSystemTiles() => _systemTiles
-        .Where(x => x.IsHomeSystem && x.SystemTileName != SystemTileName.Tile51)
+    public IReadOnlyList<SystemTile> GetHomeSystemTiles()
+    {
+        var homeSystemTiles = _systemTiles
+        .Where(x => x.IsHomeSystem
+            && x.SystemTileName != SystemTileName.Tile51
+            && x.SystemTileName != SystemTileName.Tile92
+            && x.SystemTileName != SystemTileName.Tile93
+            && x.SystemTileName != SystemTileName.Tile94)
         .ToList();
+
+        var keleresSystemTiles = _systemTiles
+            .Where(x => x.SystemTileName == SystemTileName.Tile92
+                        || x.SystemTileName == SystemTileName.Tile93
+                        || x.SystemTileName == SystemTileName.Tile94)
+            .OrderBy(x => _random.Next())
+            .First();
+
+        homeSystemTiles.Add(keleresSystemTiles);
+
+        return homeSystemTiles;
+    }
 
     public SystemTile GetMecatolRex() => _systemTiles.Single(x => x.SystemTileName == SystemTileName.Tile18);
 
