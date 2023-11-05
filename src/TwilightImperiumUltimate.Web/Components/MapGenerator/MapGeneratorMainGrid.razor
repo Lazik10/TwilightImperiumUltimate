@@ -14,13 +14,14 @@
     <FlexRowContainer >
         <Button @onclick="GenerateMap" ButtonText="GenerateMap" />
         <Button @onclick="ToggleSettings" ButtonText="Settings" />
-        <Button @onclick="ToggleTilesMenu" ButtonText="Show Tiles" />
+        <Button @onclick="ToggleTilesMenu" ButtonText="Tiles Menu" />
     </FlexRowContainer>
 
     @if(_showSettings)
     {
         <MapGeneratorSettings 
             OnSelectedTemplateChange="UpdateMapTemplate"
+            OnSelectedSystemTileOverlayChange="UpdateMapOverlay"
             OnHideSettings="HideSettings" />
     }
 

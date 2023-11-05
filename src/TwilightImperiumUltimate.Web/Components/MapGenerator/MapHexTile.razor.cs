@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Serilog;
+using TwilightImperiumUltimate.Web.Enums;
 using TwilightImperiumUltimate.Web.Models.Galaxy;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
 
@@ -17,7 +18,7 @@ public partial class MapHexTile
     public string MapTileId { get; set; } = string.Empty;
 
     [Parameter]
-    public bool ShowTileId { get; set; } = false;
+    public SystemTileOverlay SystemTileOverlay { get; set; } = SystemTileOverlay.None;
 
     [Parameter]
     public int MapPosition { get; set; }

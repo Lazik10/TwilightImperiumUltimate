@@ -13,8 +13,13 @@ public partial class MapGeneratorSettings
 
     private IReadOnlyCollection<KeyValuePair<PlacementStyle, string>> _placementStyles = default!;
 
+    private IReadOnlyCollection<KeyValuePair<SystemTileOverlay, string>> _systemTileOverlays = default!;
+
     [Parameter]
     public EventCallback<MapTemplate> OnSelectedTemplateChange { get; set; } = default!;
+
+    [Parameter]
+    public EventCallback OnSelectedSystemTileOverlayChange { get; set; } = default!;
 
     [Parameter]
     public EventCallback OnHideSettings { get; set; } = default!;
@@ -24,6 +29,8 @@ public partial class MapGeneratorSettings
     private SystemWeight SelectedSystemWeight { get; set; }
 
     private PlacementStyle SelectedPlacementStyle { get; set; }
+
+    private SystemTileOverlay SelectedSystemTileOverlay { get; set; }
 
     [Inject]
     private IMapGeneratorSettingsService MapGeneratorSettingsService { get; set; } = default!;
@@ -39,6 +46,7 @@ public partial class MapGeneratorSettings
         _mapTemplates = EnumExtensions.GetEnumValuesWithDisplayNames<MapTemplate>();
         _systemWeights = EnumExtensions.GetEnumValuesWithDisplayNames<SystemWeight>();
         _placementStyles = EnumExtensions.GetEnumValuesWithDisplayNames<PlacementStyle>();
+        _systemTileOverlays = EnumExtensions.GetEnumValuesWithDisplayNames<SystemTileOverlay>();
     }
 
     private void InitializeSettings()
@@ -46,6 +54,7 @@ public partial class MapGeneratorSettings
         SelectedMapTemplate = MapGeneratorSettingsService.MapTemplate;
         SelectedPlacementStyle = MapGeneratorSettingsService.PlacementStyle;
         SelectedSystemWeight = MapGeneratorSettingsService.SystemWeight;
+        SelectedSystemTileOverlay = MapGeneratorSettingsService.SystemTileOverlay;
     }
 
     private void IncreaseMapScale()
@@ -77,6 +86,13 @@ public partial class MapGeneratorSettings
     {
         SelectedSystemWeight = systemWeight;
         MapGeneratorSettingsService.SystemWeight = systemWeight;
+    }
+
+    private void SetSystemTileOverlay(SystemTileOverlay systemTileOverlay)
+    {
+        SelectedSystemTileOverlay = systemTileOverlay;
+        MapGeneratorSettingsService.SystemTileOverlay = systemTileOverlay;
+        OnSelectedSystemTileOverlayChange.InvokeAsync();
     }
 
     private void HideSettings()

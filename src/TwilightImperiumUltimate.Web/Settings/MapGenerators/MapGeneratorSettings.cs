@@ -22,5 +22,7 @@ public static class MapGeneratorSettings
 
     public static readonly SystemWeight SystemWeight = SystemWeight.Balanced;
 
+    public static readonly SystemTileOverlay SystemTileOverlay = SystemTileOverlay.None;
+
     public static readonly GameVersion GameVersion = GameVersion.ProphecyOfKing;
 }

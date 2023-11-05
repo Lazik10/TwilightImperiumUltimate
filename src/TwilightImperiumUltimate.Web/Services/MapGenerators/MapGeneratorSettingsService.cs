@@ -15,6 +15,8 @@ public class MapGeneratorSettingsService : IMapGeneratorSettingsService
 
     public GameVersion GameVersion { get; set; } = MapGeneratorSettings.GameVersion;
 
+    public SystemTileOverlay SystemTileOverlay { get; set; } = MapGeneratorSettings.SystemTileOverlay;
+
     public void IncreaseMapScale()
     {
         if (MapScale <= MapGeneratorSettings.MaxScale - MapGeneratorSettings.ScaleIncrement)

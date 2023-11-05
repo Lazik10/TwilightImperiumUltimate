@@ -408,6 +408,21 @@
   <data name="StrategyCard" xml:space="preserve">
     <value>strategy</value>
   </data>
+  <data name="SystemTileOverlay_Id" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="SystemTileOverlay_Influence" xml:space="preserve">
+    <value>Influence</value>
+  </data>
+  <data name="SystemTileOverlay_None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="SystemTileOverlay_Resources" xml:space="preserve">
+    <value>Resources</value>
+  </data>
+  <data name="SystemTileOverlay_ResourcesAndInfluence" xml:space="preserve">
+    <value>Resource and Influence</value>
+  </data>
   <data name="SystemTileTypeFilter_All" xml:space="preserve">
     <value>All</value>
   </data>

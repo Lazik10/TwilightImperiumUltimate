@@ -1,8 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using TwilightImperiumUltimate.API.DTOs.Galaxy;
+using TwilightImperiumUltimate.Business.Draft.FactionDraft;
 using TwilightImperiumUltimate.Business.Draft.MapDraft;
 using TwilightImperiumUltimate.Core.Models.Factions;
+using TwilightImperiumUltimate.Draft.Draft.FactionDraft;
 using TwilightImperiumUltimate.Draft.Draft.MapDraft;
 
 namespace TwilightImperiumUltimate.API.API.MapGenerators;

@@ -14,6 +14,8 @@ public interface IMapGeneratorSettingsService
 
     public GameVersion GameVersion { get; set; }
 
+    public SystemTileOverlay SystemTileOverlay { get; set; }
+
     public void IncreaseMapScale();
 
     public void DecreaseMapScale();

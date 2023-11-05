@@ -73,6 +73,11 @@ public partial class MapGeneratorMainGrid
         StateHasChanged();
     }
 
+    private void UpdateMapOverlay()
+    {
+        StateHasChanged();
+    }
+
     private void HideSettings()
     {
         _showSettings = false;
