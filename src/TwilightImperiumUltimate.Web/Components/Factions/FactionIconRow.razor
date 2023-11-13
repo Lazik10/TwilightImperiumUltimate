@@ -1,14 +1,11 @@
 ﻿@using TwilightImperiumUltimate.Web.Models.Factions;
 @using TwilightImperiumUltimate.Web.Resources;
+@using TwilightImperiumUltimate.Web.Services.HttpClients
 @using TwilightImperiumUltimate.Web.Services.Path;
-@inject HttpClient Http
+@inject ITwilightImperiumApiHttpClient HttpClient
 @inject IPathProvider PathProvider
 
-@if (_factions == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
+@if (_factions is not null)
 {
     <div class="icon-row">
         @if (_factions.Count > 0)
@@ -28,10 +25,6 @@ else
                     >
                 </div>
             }
-        }
-        else
-        {
-            <p>No factions found.</p>
         }
     </div>
 }
@@ -55,16 +48,8 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        try
-        {
-            _factions = await Http.GetFromJsonAsync<List<FactionModel>>(Paths.ApiPath_Factions);
-            await OnInitializeGetFactions.InvokeAsync(Factions);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"An error occurred: {ex.Message}");
-            _factions = new List<FactionModel>();
-        }
+        _factions = await HttpClient.GetAsync<List<FactionModel>>(Paths.ApiPath_Factions);
+        await OnInitializeGetFactions.InvokeAsync(Factions);
 
         if (BanAllFactions)
             SetAllFactionsBanStatus(true);

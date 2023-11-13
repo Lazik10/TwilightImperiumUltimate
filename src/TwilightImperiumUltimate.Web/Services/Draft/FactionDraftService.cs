@@ -4,6 +4,7 @@ using TwilightImperiumUltimate.Web.Helpers.Text;
 using TwilightImperiumUltimate.Web.Models.Drafts;
 using TwilightImperiumUltimate.Web.Models.Factions;
 using TwilightImperiumUltimate.Web.Resources;
+using TwilightImperiumUltimate.Web.Services.HttpClients;
 using TwilightImperiumUltimate.Web.Settings.Drafts;
 
 namespace TwilightImperiumUltimate.Web.Services.Draft;
@@ -11,13 +12,13 @@ namespace TwilightImperiumUltimate.Web.Services.Draft;
 public class FactionDraftService : IFactionDraftService
 {
     private static readonly Random Random = new();
-    private readonly HttpClient _http;
+    private readonly ITwilightImperiumApiHttpClient _httpClient;
     private readonly List<FactionDraftPlayerModel> _players = new();
     private IReadOnlyCollection<FactionModel> _factionsWithBanStatus = new List<FactionModel>();
 
-    public FactionDraftService(HttpClient http)
+    public FactionDraftService(ITwilightImperiumApiHttpClient httpClient)
     {
-        _http = http;
+        _httpClient = httpClient;
     }
 
     public event EventHandler? OnFactionUpdate;
@@ -154,8 +155,6 @@ public class FactionDraftService : IFactionDraftService
 
     private async Task<IReadOnlyCollection<DraftResult>?> GetDraftResults()
     {
-        Uri uri = new(Paths.ApiPath_FactionDraft);
-
         FactionDraftRequest request = new()
         {
             NumberOfPlayers = NumberOfPlayers,
@@ -163,11 +162,9 @@ public class FactionDraftService : IFactionDraftService
             Factions = _factionsWithBanStatus,
         };
 
-        var response = await _http.PostAsJsonAsync(uri, request);
+        var result = await _httpClient.PostAsync<FactionDraftRequest, List<DraftResult>>(Paths.ApiPath_FactionDraft, request);
 
-        IReadOnlyCollection<DraftResult>? draftResult = await response.Content.ReadFromJsonAsync<IReadOnlyCollection<DraftResult>>();
-
-        return draftResult;
+        return result;
     }
 
     private FactionName GetRandomFaction()

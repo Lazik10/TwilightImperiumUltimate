@@ -18,6 +18,8 @@ builder.Services.AddLogging(loggingBuilder => loggingBuilder.AddSerilog(dispose:
 
 builder.Services.RegisterServices(builder);
 builder.Services.AddLocalization();
+builder.Configuration.RegisterConfigurations();
+
 var host = builder.Build();
 
 await CultureSetup.SetCultureAsync(host);

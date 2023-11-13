@@ -3,14 +3,11 @@
 @using TwilightImperiumUltimate.Web.Resources;
 @using TwilightImperiumUltimate.Web.Services.Language;
 @using TwilightImperiumUltimate.Web.Services.Path;
-@inject HttpClient Http
+@using TwilightImperiumUltimate.Web.Services.HttpClients;
+@inject ITwilightImperiumApiHttpClient HttpCLient
 @inject IPathProvider PathProvider
 
-@if (_listOfCards == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
+@if (_listOfCards is not null)
 {
     <div class="image-grid">
 
@@ -59,15 +56,7 @@ else
 
     protected override async Task OnParametersSetAsync()
     {
-        try
-        {
-            Uri uri = new (string.Concat(Paths.ApiPath_Cards, TypeOfCard));
-            _listOfCards = await Http.GetFromJsonAsync<List<BaseCardModel>>(uri);
-        }
-        catch (Exception ex)
-        {
-            Log.Error(ex, "Error while loading {TypeOfCard} cards", TypeOfCard);
-        }
+        _listOfCards = await HttpCLient.GetAsync<List<BaseCardModel>>(string.Concat(Paths.ApiPath_Cards, TypeOfCard));
 
         StateHasChanged();
     }

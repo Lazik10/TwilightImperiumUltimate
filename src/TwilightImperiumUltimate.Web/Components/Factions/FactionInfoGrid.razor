@@ -1,6 +1,8 @@
 ﻿@using TwilightImperiumUltimate.Web.Models.Factions;
+@using TwilightImperiumUltimate.Web.Resources
+@using TwilightImperiumUltimate.Web.Services.HttpClients
 @using TwilightImperiumUltimate.Web.Services.Path;
-@inject HttpClient Http
+@inject ITwilightImperiumApiHttpClient HttpClient
 @inject IPathProvider PathProvider
 
 @if (_selectedFaction is not null)
@@ -63,13 +65,9 @@
         </div>
     }
 }
-else
-{
-    <p>No faction selected.</p>
-}
 
 @code {
-    private FactionModel? _selectedFaction;
+    private FactionModel _selectedFaction = default!;
 
     private bool showBigImage = false;
 
@@ -77,15 +75,7 @@ else
 
     protected async override Task OnInitializedAsync()
     {
-        try
-        {
-            _selectedFaction = await Http.GetFromJsonAsync<FactionModel>("https://localhost:44307/api/factions/1");
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"An error occurred: {ex.Message}");
-            _selectedFaction = new FactionModel();
-        }
+        _selectedFaction = await HttpClient.GetAsync<FactionModel>(Paths.ApiPath_FirstFaction);
         StateHasChanged();
     }
 

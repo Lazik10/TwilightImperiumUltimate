@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Radzen;
 using TwilightImperiumUltimate.Web.Services.Draft;
+using TwilightImperiumUltimate.Web.Services.HttpClients;
 using TwilightImperiumUltimate.Web.Services.Language;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
 using TwilightImperiumUltimate.Web.Services.Path;
@@ -29,6 +30,8 @@ public static class ServiceCollectionsExtension
         services.AddScoped<IColorPickerService, ColorPickerService>();
         services.AddScoped<IMapGeneratorService, MapGeneratorService>();
         services.AddSingleton<IMapGeneratorSettingsService, MapGeneratorSettingsService>();
+
+        services.AddScoped<ITwilightImperiumApiHttpClient, TwilightImperiumApiHttpClient>();
 
         return services;
     }

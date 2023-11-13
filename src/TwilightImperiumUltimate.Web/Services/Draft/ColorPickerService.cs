@@ -3,6 +3,7 @@ using TwilightImperiumUltimate.Web.Enums;
 using TwilightImperiumUltimate.Web.Models.Drafts;
 using TwilightImperiumUltimate.Web.Models.Factions;
 using TwilightImperiumUltimate.Web.Resources;
+using TwilightImperiumUltimate.Web.Services.HttpClients;
 using TwilightImperiumUltimate.Web.Settings.Drafts;
 
 namespace TwilightImperiumUltimate.Web.Services.Draft;
@@ -10,14 +11,14 @@ namespace TwilightImperiumUltimate.Web.Services.Draft;
 public class ColorPickerService : IColorPickerService
 {
     private static readonly Random _random = new();
-    private readonly HttpClient _http;
+    private readonly ITwilightImperiumApiHttpClient _httpClient;
     private IReadOnlyCollection<FactionModel> _selectedFactions = new List<FactionModel>();
     private Dictionary<PlayerColor, bool> _colors = new Dictionary<PlayerColor, bool>();
-    private IReadOnlyCollection<FactionColorDraftResult>? _results = new List<FactionColorDraftResult>();
+    private IReadOnlyCollection<FactionColorDraftResult>? _factionColorDraftResults = new List<FactionColorDraftResult>();
 
-    public ColorPickerService(HttpClient http)
+    public ColorPickerService(ITwilightImperiumApiHttpClient httpClient)
     {
-        _http = http;
+        _httpClient = httpClient;
         InitializeColors();
         ResetSelectedFactions();
     }
@@ -28,7 +29,7 @@ public class ColorPickerService : IColorPickerService
 
     public IReadOnlyCollection<FactionModel> SelectedFactions => _selectedFactions;
 
-    public IReadOnlyCollection<FactionColorDraftResult>? Results => _results;
+    public IReadOnlyCollection<FactionColorDraftResult>? FactionColorDraftResults => _factionColorDraftResults;
 
     public bool IsDraftPossible() => Colors.Count(x => !x.Value) >= SelectedFactions.Count;
 
@@ -37,7 +38,7 @@ public class ColorPickerService : IColorPickerService
     public void ResetSelectedFactions()
     {
         _selectedFactions = new List<FactionModel>();
-        _results = new List<FactionColorDraftResult>();
+        _factionColorDraftResults = new List<FactionColorDraftResult>();
     }
 
     public void ResetBannedColors() => InitializeColors();
@@ -71,7 +72,7 @@ public class ColorPickerService : IColorPickerService
     {
         for (int i = 0; i < FactionDraftSettings.DefaultNumberOfAssignments; i++)
         {
-            _results = GenerateFakeColorDraftResult();
+            _factionColorDraftResults = GenerateFakeColorDraftResult();
             OnFactionUpdate?.Invoke(this, EventArgs.Empty);
             await Task.Delay(FactionDraftSettings.DefaultDelayInMilliseconds);
         }
@@ -100,17 +101,14 @@ public class ColorPickerService : IColorPickerService
 
     private async Task GetColorDraftResults()
     {
-        Uri uri = new(Paths.ApiPath_ColorDraft);
-
         ColorDraftRequest request = new()
         {
             Factions = _selectedFactions.Select(x => x.FactionName).ToList(),
             Colors = _colors.Where(x => !x.Value).Select(x => x.Key).ToList(),
         };
 
-        var response = await _http.PostAsJsonAsync(uri, request);
+        var result = await _httpClient.PostAsync<ColorDraftRequest, List<FactionColorDraftResult>>(Paths.ApiPath_ColorDraft, request);
 
-        var results = await response.Content.ReadFromJsonAsync<IReadOnlyCollection<FactionColorDraftResult>>();
-        _results = results!.OrderBy(results => results.FactionName).ToList();
+        _factionColorDraftResults = result.OrderBy(results => results.FactionName).ToList();
     }
 }
