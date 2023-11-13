@@ -61,7 +61,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://localhost:44307/api/cards/.
+        ///   Looks up a localized string similar to api/cards/.
         /// </summary>
         public static string ApiPath_Cards {
             get {
@@ -70,7 +70,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://localhost:44307/api/drafts/colors.
+        ///   Looks up a localized string similar to api/drafts/colors.
         /// </summary>
         public static string ApiPath_ColorDraft {
             get {
@@ -79,7 +79,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://localhost:44307/api/drafts/factions.
+        ///   Looks up a localized string similar to api/drafts/factions.
         /// </summary>
         public static string ApiPath_FactionDraft {
             get {
@@ -88,7 +88,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://localhost:44307/api/factions/.
+        ///   Looks up a localized string similar to api/factions/.
         /// </summary>
         public static string ApiPath_Factions {
             get {
@@ -97,7 +97,16 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://localhost:44307/api/mapgenerators.
+        ///   Looks up a localized string similar to api/factions/1.
+        /// </summary>
+        public static string ApiPath_FirstFaction {
+            get {
+                return ResourceManager.GetString("ApiPath_FirstFaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/mapgenerators.
         /// </summary>
         public static string ApiPath_MapDraft {
             get {
@@ -106,7 +115,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://localhost:44307/api/galaxy/tiles/.
+        ///   Looks up a localized string similar to api/galaxy/tiles/.
         /// </summary>
         public static string ApiPath_SystemTiles {
             get {

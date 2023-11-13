@@ -1,20 +1,21 @@
-﻿using System.Net.Http.Json;
-using TwilightImperiumUltimate.Web.Enums;
+﻿using TwilightImperiumUltimate.Web.Enums;
 using TwilightImperiumUltimate.Web.Models.Galaxy;
 using TwilightImperiumUltimate.Web.Models.MapGenerators;
 using TwilightImperiumUltimate.Web.Resources;
+using TwilightImperiumUltimate.Web.Services.HttpClients;
 
 namespace TwilightImperiumUltimate.Web.Services.MapGenerators;
 
 public class MapGeneratorService : IMapGeneratorService
 {
     private readonly IMapGeneratorSettingsService _mapGeneratorSettingsService;
-    private readonly HttpClient _http = new();
+    private readonly ITwilightImperiumApiHttpClient _twilightImperiumApiHttpClient;
     private Dictionary<int, SystemTile> _systemTiles = new Dictionary<int, SystemTile>();
 
-    public MapGeneratorService(IMapGeneratorSettingsService mapGeneratorSettingsService)
+    public MapGeneratorService(IMapGeneratorSettingsService mapGeneratorSettingsService, ITwilightImperiumApiHttpClient twilightImperiumApiHttpClient)
     {
         _mapGeneratorSettingsService = mapGeneratorSettingsService;
+        _twilightImperiumApiHttpClient = twilightImperiumApiHttpClient;
     }
 
     public SystemTile DraggedSystemTile { get; set; } = new();
@@ -27,8 +28,6 @@ public class MapGeneratorService : IMapGeneratorService
 
     public async Task<Dictionary<int, SystemTile>> GenerateMapAsync(bool previewMap)
     {
-        Uri uri = new(Paths.ApiPath_MapDraft);
-
         MapDraftRequest request = new()
         {
             Factions = new List<FactionName>(),
@@ -38,11 +37,10 @@ public class MapGeneratorService : IMapGeneratorService
             PreviewMap = previewMap,
         };
 
-        var response = await _http.PostAsJsonAsync(uri, request);
-
-        var result = await response.Content.ReadFromJsonAsync<MapDraftResult>() ?? new MapDraftResult();
+        var result = await _twilightImperiumApiHttpClient.PostAsync<MapDraftRequest, MapDraftResult>(Paths.ApiPath_MapDraft, request);
         var systemTiles = result.MapTiles.ToDictionary();
         _systemTiles = systemTiles;
+
         return systemTiles;
     }
 
@@ -103,7 +101,6 @@ public class MapGeneratorService : IMapGeneratorService
 
     private async Task<List<SystemTile>> InitializeSystemTilesForMenu()
     {
-        Uri uri = new(Paths.ApiPath_SystemTiles);
-        return await _http.GetFromJsonAsync<List<SystemTile>>(uri) ?? new List<SystemTile>();
+        return await _twilightImperiumApiHttpClient.GetAsync<List<SystemTile>>(Paths.ApiPath_SystemTiles) ?? new List<SystemTile>();
     }
 }

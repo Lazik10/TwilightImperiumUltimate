@@ -401,3 +401,6 @@ FodyWeavers.xsd
 resources/fonts/
 resources/images/
 /src/TwilightImperiumUltimate.Web/wwwroot/resources/
+.env
+/src/TwilightImperiumUltimate.API/Properties/ServiceDependencies/TwilightImperiumUltimateAPI - Zip Deploy/apis1.arm.json
+/src/TwilightImperiumUltimate.API/Properties/ServiceDependencies/TwilightImperiumUltimateAPI - Zip Deploy/profile.arm.json

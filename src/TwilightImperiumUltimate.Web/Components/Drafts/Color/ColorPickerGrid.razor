@@ -39,9 +39,9 @@
 
 <StretchHeightContainer>
     <FlexColumnCenteredContainer CssClass="margin-top-50">
-        @if (ColorPickerService.Results is not null && ColorPickerService.Results.Any())
+        @if (ColorPickerService.FactionColorDraftResults is not null && ColorPickerService.FactionColorDraftResults.Any())
         {
-            @foreach (var result in ColorPickerService.Results)
+            @foreach (var result in ColorPickerService.FactionColorDraftResults)
             {
                 <ColorPickerBackground 
                     BackgroundColor="result.Color"

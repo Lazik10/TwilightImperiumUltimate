@@ -12,7 +12,7 @@ public interface IColorPickerService
 
     IReadOnlyCollection<FactionModel> SelectedFactions { get; }
 
-    IReadOnlyCollection<FactionColorDraftResult>? Results { get; }
+    IReadOnlyCollection<FactionColorDraftResult>? FactionColorDraftResults { get; }
 
     void ResetBannedColors();
 

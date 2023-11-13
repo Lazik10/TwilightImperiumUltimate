@@ -118,22 +118,25 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ApiPath_Cards" xml:space="preserve">
-    <value>https://localhost:44307/api/cards/</value>
+    <value>api/cards/</value>
   </data>
   <data name="ApiPath_ColorDraft" xml:space="preserve">
-    <value>https://localhost:44307/api/drafts/colors</value>
+    <value>api/drafts/colors</value>
   </data>
   <data name="ApiPath_FactionDraft" xml:space="preserve">
-    <value>https://localhost:44307/api/drafts/factions</value>
+    <value>api/drafts/factions</value>
   </data>
   <data name="ApiPath_Factions" xml:space="preserve">
-    <value>https://localhost:44307/api/factions/</value>
+    <value>api/factions/</value>
+  </data>
+  <data name="ApiPath_FirstFaction" xml:space="preserve">
+    <value>api/factions/1</value>
   </data>
   <data name="ApiPath_MapDraft" xml:space="preserve">
-    <value>https://localhost:44307/api/mapgenerators</value>
+    <value>api/mapgenerators</value>
   </data>
   <data name="ApiPath_SystemTiles" xml:space="preserve">
-    <value>https://localhost:44307/api/galaxy/tiles/</value>
+    <value>api/galaxy/tiles/</value>
   </data>
   <data name="ResourceNamespace_FactionInfo" xml:space="preserve">
     <value>TwilightImperiumUltimate.Web.Resources.FactionsInfo</value>
