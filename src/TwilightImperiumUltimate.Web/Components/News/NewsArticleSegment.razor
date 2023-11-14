@@ -1,0 +1,24 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Components.Shared.Text
+
+<FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" Width="100" AlignItems="Enums.AlignItems.FlexStart">
+    <div class="article-title handel-cz white shadow">@(NewsArticle.Title)</div>
+</FlexRowContainer>
+
+<VerticalSpace Height="30" />
+
+<div class="white text-handel shadow handel markup-text">
+    @(_markupString)
+</div>
+
+<FlexRowContainer JustifyContent="Enums.JustifyContent.FlexEnd">
+    <Title FontSize="20"
+            Text="@("Author: " + NewsArticle.User?.Nickname)"
+            CssClass="width" />
+
+    <HorizontalSpace Width="50" />
+
+    <Title FontSize="20"
+           Text="@("Date: " + NewsArticle.CreatedAt.ToString("dd.  MMMM  yyyy"))"
+           CssClass="width" />
+</FlexRowContainer>

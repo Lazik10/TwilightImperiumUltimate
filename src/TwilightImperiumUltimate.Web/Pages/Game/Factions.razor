@@ -1,6 +1,8 @@
 ﻿@page "/game/factions"
 @using TwilightImperiumUltimate.Web.Components.Factions
 @using TwilightImperiumUltimate.Web.Components.Shared
+@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Components.Shared.Text
 @using TwilightImperiumUltimate.Web.Models.Factions;
 @using TwilightImperiumUltimate.Web.Resources;
 
@@ -8,7 +10,12 @@
 
 <Page>
     <FactionIconRow OnFactionClickGetFaction="UpdateSelectedFaction" />
-    <FactionInfoGrid @ref="factionInfoRef" />
+
+    <Title Text="@Strings.Page_Factions" MarginBottom="50"/>
+
+    <StretchHeightContainer>
+        <FactionInfoGrid @ref="factionInfoRef" />
+    </StretchHeightContainer>
 </Page>
 
 @code {

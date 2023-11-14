@@ -127,7 +127,7 @@
     <value>api/drafts/factions</value>
   </data>
   <data name="ApiPath_Factions" xml:space="preserve">
-    <value>api/factions/</value>
+    <value>api/factions</value>
   </data>
   <data name="ApiPath_FirstFaction" xml:space="preserve">
     <value>api/factions/1</value>
@@ -135,8 +135,11 @@
   <data name="ApiPath_MapDraft" xml:space="preserve">
     <value>api/mapgenerators</value>
   </data>
+  <data name="ApiPath_News" xml:space="preserve">
+    <value>api/news</value>
+  </data>
   <data name="ApiPath_SystemTiles" xml:space="preserve">
-    <value>api/galaxy/tiles/</value>
+    <value>api/galaxy/tiles</value>
   </data>
   <data name="ResourceNamespace_FactionInfo" xml:space="preserve">
     <value>TwilightImperiumUltimate.Web.Resources.FactionsInfo</value>

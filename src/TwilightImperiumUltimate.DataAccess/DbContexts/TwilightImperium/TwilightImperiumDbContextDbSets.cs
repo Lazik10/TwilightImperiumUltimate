@@ -1,4 +1,6 @@
 ﻿using TwilightImperiumUltimate.Core.Entities.Cards;
+using TwilightImperiumUltimate.Core.Entities.News;
+using TwilightImperiumUltimate.Core.Entities.Users;
 using TwilightImperiumUltimate.DataAccess.RelationshipEntities;
 
 namespace TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium;
@@ -40,4 +42,10 @@ public partial class TwilightImperiumDbContext : DbContext
 
     // Technologies
     public virtual DbSet<Technology> Technologies { get; set; }
+
+    // Users
+    public virtual DbSet<User> Users { get; set; }
+
+    // News
+    public virtual DbSet<NewsArticle> NewsArticles { get; set; }
 }

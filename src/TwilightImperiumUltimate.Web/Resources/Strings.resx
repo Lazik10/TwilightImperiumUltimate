@@ -267,6 +267,9 @@
   <data name="FileExtensionWebp" xml:space="preserve">
     <value>.webp</value>
   </data>
+  <data name="Footer_Text" xml:space="preserve">
+    <value>Developed by "Lázik" &amp;copy; 2024</value>
+  </data>
   <data name="ForwardSlash" xml:space="preserve">
     <value>/</value>
   </data>
@@ -351,14 +354,29 @@
   <data name="Page_Cards" xml:space="preserve">
     <value>Cards</value>
   </data>
+  <data name="Page_ChatGPT" xml:space="preserve">
+    <value>Game Time ChatGPT</value>
+  </data>
   <data name="Page_ColorPicker" xml:space="preserve">
     <value>Color Picker</value>
+  </data>
+  <data name="Page_Community" xml:space="preserve">
+    <value>Community</value>
+  </data>
+  <data name="Page_Diy" xml:space="preserve">
+    <value>DIY</value>
   </data>
   <data name="Page_Draft" xml:space="preserve">
     <value>Draft</value>
   </data>
+  <data name="Page_DraftRooms" xml:space="preserve">
+    <value>Draft Rooms</value>
+  </data>
   <data name="Page_FactionDraft" xml:space="preserve">
     <value>Faction Draft</value>
+  </data>
+  <data name="Page_FactionGuides" xml:space="preserve">
+    <value>Faction Guides</value>
   </data>
   <data name="Page_Factions" xml:space="preserve">
     <value>Factions</value>
@@ -369,14 +387,26 @@
   <data name="Page_Game" xml:space="preserve">
     <value>Game</value>
   </data>
-  <data name="Page_Home" xml:space="preserve">
-    <value>Home</value>
-  </data>
   <data name="Page_MapGenerator" xml:space="preserve">
     <value>Map Generator</value>
   </data>
+  <data name="Page_News" xml:space="preserve">
+    <value>News</value>
+  </data>
+  <data name="Page_OtherWebsites" xml:space="preserve">
+    <value>Other Websites</value>
+  </data>
+  <data name="Page_PlayOfTheMonth" xml:space="preserve">
+    <value>Play of the Month</value>
+  </data>
+  <data name="Page_Resources" xml:space="preserve">
+    <value>Resources</value>
+  </data>
   <data name="Page_Rules" xml:space="preserve">
     <value>Rules</value>
+  </data>
+  <data name="Page_Statistics" xml:space="preserve">
+    <value>Statistics</value>
   </data>
   <data name="Page_Technologies" xml:space="preserve">
     <value>Technologies</value>

@@ -1,0 +1,28 @@
+﻿@page "/"
+@using TwilightImperiumUltimate.Web.Components.Shared
+@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Components.Shared.Text
+@using TwilightImperiumUltimate.Web.Resources;
+@using TwilightImperiumUltimate.Web.Components.News;
+
+<PageTitle>@Strings.Page_News</PageTitle>
+
+<Page>
+    <Title Text="@Strings.Page_News" />
+    <VerticalSpace Height="100"/>
+
+    <StretchHeightContainer>
+        @if (_newsArticles.Count > 0)
+        {
+            foreach (var article in _newsArticles)
+            {
+                <NewsArticleSegment NewsArticle="@article"/>
+                <VerticalSpace Height="150" />
+            }
+        }
+        else
+        {
+            <div class="loading-text-section">...LOADING...</div>
+        }
+    </StretchHeightContainer>
+</Page>
