@@ -88,7 +88,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to api/factions/.
+        ///   Looks up a localized string similar to api/factions.
         /// </summary>
         public static string ApiPath_Factions {
             get {
@@ -115,7 +115,16 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to api/galaxy/tiles/.
+        ///   Looks up a localized string similar to api/news.
+        /// </summary>
+        public static string ApiPath_News {
+            get {
+                return ResourceManager.GetString("ApiPath_News", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/galaxy/tiles.
         /// </summary>
         public static string ApiPath_SystemTiles {
             get {

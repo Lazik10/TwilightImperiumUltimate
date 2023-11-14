@@ -1,6 +1,8 @@
 ﻿@page "/game/cards"
 @using TwilightImperiumUltimate.Web.Components.Shared
 @using TwilightImperiumUltimate.Web.Components.Cards;
+@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Components.Shared.Text
 @using TwilightImperiumUltimate.Web.Models.Cards;
 @using TwilightImperiumUltimate.Web.Resources;
 @using TwilightImperiumUltimate.Web.Services.Path;
@@ -66,10 +68,14 @@
         </div>
     </div>
 
-    @if (_currentTypeOfCard != null)
-    {
-        <CardsGrid TypeOfCard="@_currentTypeOfCard" />
-    }
+    <Title Text="@Strings.Page_Cards" MarginBottom="50"/>
+
+    <StretchHeightContainer>
+        @if (_currentTypeOfCard != null)
+        {
+            <CardsGrid TypeOfCard="@_currentTypeOfCard" />
+        }
+    </StretchHeightContainer>
 </Page>
 
 @code {

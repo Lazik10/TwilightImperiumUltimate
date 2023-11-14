@@ -1,12 +1,15 @@
-﻿@using TwilightImperiumUltimate.Web.Components.CardGenerator
+﻿@page "/tools/cardgenerator"
+@using TwilightImperiumUltimate.Web.Components.CardGenerator
 @using TwilightImperiumUltimate.Web.Components.Shared
+@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @using TwilightImperiumUltimate.Web.Components.Shared.Text
 @using TwilightImperiumUltimate.Web.Resources;
-@page "/tools/cardgenerator"
 
 <PageTitle>@Strings.Page_CardGenerator</PageTitle>
 
 <Page>
     <Title Text="@Strings.Page_CardGenerator" />
-    <CardGeneratorGrid />
+    <StretchHeightContainer>
+        <CardGeneratorGrid />
+    </StretchHeightContainer>
 </Page>

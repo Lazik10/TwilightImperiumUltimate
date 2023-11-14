@@ -85,6 +85,10 @@ html {
 }
 
 /* ========================= TEXT =========================== */
+.bodoni {
+    font-family: Bodoni, fallback, sans-serif;
+}
+
 .handel {
     font-family: Handel, fallback, sans-serif;
 }

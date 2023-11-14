@@ -38,3 +38,15 @@
     text-indent: 2em;
     text-align: justify;
 }
+
+.loading-text-section {
+    font-family: Handel, fallback, sans-serif !important;
+    color: white;
+    font-size: 36px !important;
+    font-weight: bold !important;
+    color: white !important;
+    padding-top: 100px;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    text-shadow: 0px 2px 6px rgba(0, 0, 0, 1), 2px 0px 6px rgba(0, 0, 0, 1), 0px -2px 6px rgba(0, 0, 0, 1), -2px 0px 6px rgba(0, 0, 0, 1), 1px 1px 6px rgba(0, 0, 0, 1), 1px -1px 6px rgba(0, 0, 0, 1), -1px 1px 6px rgba(0, 0, 0, 1), -1px -1px 6px rgba(0, 0, 0, 1) !important;
+}

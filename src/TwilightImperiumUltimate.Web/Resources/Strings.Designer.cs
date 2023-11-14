@@ -511,6 +511,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Developed by &quot;Lázik&quot; &amp;copy; 2024.
+        /// </summary>
+        public static string Footer_Text {
+            get {
+                return ResourceManager.GetString("Footer_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to /.
         /// </summary>
         public static string ForwardSlash {
@@ -763,11 +772,38 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Game Time ChatGPT.
+        /// </summary>
+        public static string Page_ChatGPT {
+            get {
+                return ResourceManager.GetString("Page_ChatGPT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Color Picker.
         /// </summary>
         public static string Page_ColorPicker {
             get {
                 return ResourceManager.GetString("Page_ColorPicker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Community.
+        /// </summary>
+        public static string Page_Community {
+            get {
+                return ResourceManager.GetString("Page_Community", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DIY.
+        /// </summary>
+        public static string Page_Diy {
+            get {
+                return ResourceManager.GetString("Page_Diy", resourceCulture);
             }
         }
         
@@ -781,11 +817,29 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Draft Rooms.
+        /// </summary>
+        public static string Page_DraftRooms {
+            get {
+                return ResourceManager.GetString("Page_DraftRooms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Faction Draft.
         /// </summary>
         public static string Page_FactionDraft {
             get {
                 return ResourceManager.GetString("Page_FactionDraft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Faction Guides.
+        /// </summary>
+        public static string Page_FactionGuides {
+            get {
+                return ResourceManager.GetString("Page_FactionGuides", resourceCulture);
             }
         }
         
@@ -817,15 +871,6 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Home.
-        /// </summary>
-        public static string Page_Home {
-            get {
-                return ResourceManager.GetString("Page_Home", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Map Generator.
         /// </summary>
         public static string Page_MapGenerator {
@@ -835,11 +880,56 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to News.
+        /// </summary>
+        public static string Page_News {
+            get {
+                return ResourceManager.GetString("Page_News", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Other Websites.
+        /// </summary>
+        public static string Page_OtherWebsites {
+            get {
+                return ResourceManager.GetString("Page_OtherWebsites", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Play of the Month.
+        /// </summary>
+        public static string Page_PlayOfTheMonth {
+            get {
+                return ResourceManager.GetString("Page_PlayOfTheMonth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resources.
+        /// </summary>
+        public static string Page_Resources {
+            get {
+                return ResourceManager.GetString("Page_Resources", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rules.
         /// </summary>
         public static string Page_Rules {
             get {
                 return ResourceManager.GetString("Page_Rules", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Statistics.
+        /// </summary>
+        public static string Page_Statistics {
+            get {
+                return ResourceManager.GetString("Page_Statistics", resourceCulture);
             }
         }
         

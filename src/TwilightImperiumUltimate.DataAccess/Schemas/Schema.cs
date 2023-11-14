@@ -21,4 +21,8 @@ internal static class Schema
     internal const string Technology = "Technology";
 
     internal const string Unit = "Unit";
+
+    internal const string News = "News";
+
+    internal const string User = "User";
 }

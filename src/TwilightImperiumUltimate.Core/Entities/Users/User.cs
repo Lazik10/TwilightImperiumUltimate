@@ -1,6 +1,6 @@
 ﻿using TwilightImperiumUltimate.Core.Interfaces;
 
-namespace TwilightImperiumUltimate.Core.Entities.User;
+namespace TwilightImperiumUltimate.Core.Entities.Users;
 
 public class User : IEntity
 {
