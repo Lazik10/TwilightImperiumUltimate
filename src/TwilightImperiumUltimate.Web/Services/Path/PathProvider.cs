@@ -1,4 +1,6 @@
-﻿using TwilightImperiumUltimate.Web.Resources;
+﻿using System.Globalization;
+using TwilightImperiumUltimate.Web.Resources;
+using TwilightImperiumUltimate.Web.Services.Language;
 
 namespace TwilightImperiumUltimate.Web.Services.Path;
 
@@ -45,7 +47,8 @@ public class PathProvider : IPathProvider
 
     public string GetCardGeneratorImageBackground(string fileName)
     {
-        return $"{Paths.ResourcePath_CardGeneratorPath}{Strings.ForwardSlash}{fileName}{Strings.FileExtensionWebp}";
+        var culture = CultureInfo.CurrentCulture.Name;
+        return $"{Paths.ResourcePath_CardGeneratorPath.Replace(Strings.LanguagePlaceholder, culture)}{Strings.ForwardSlash}{fileName}{Strings.FileExtensionWebp}";
     }
 
     public string GetLargeTileImagePath(string fileName)

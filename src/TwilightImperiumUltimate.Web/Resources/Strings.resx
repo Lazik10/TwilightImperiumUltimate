@@ -279,6 +279,18 @@
   <data name="High" xml:space="preserve">
     <value>High</value>
   </data>
+  <data name="Keyword_CzechAction" xml:space="preserve">
+    <value>Akce:</value>
+  </data>
+  <data name="Keyword_EnglishAction" xml:space="preserve">
+    <value>Action:</value>
+  </data>
+  <data name="Keyword_KeywordSplit" xml:space="preserve">
+    <value>:</value>
+  </data>
+  <data name="Keyword_Split" xml:space="preserve">
+    <value>,</value>
+  </data>
   <data name="LanguagePlaceholder" xml:space="preserve">
     <value>{language}</value>
   </data>
