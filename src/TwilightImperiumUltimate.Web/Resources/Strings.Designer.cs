@@ -547,6 +547,42 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Akce:.
+        /// </summary>
+        public static string Keyword_CzechAction {
+            get {
+                return ResourceManager.GetString("Keyword_CzechAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Action:.
+        /// </summary>
+        public static string Keyword_EnglishAction {
+            get {
+                return ResourceManager.GetString("Keyword_EnglishAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to :.
+        /// </summary>
+        public static string Keyword_KeywordSplit {
+            get {
+                return ResourceManager.GetString("Keyword_KeywordSplit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ,.
+        /// </summary>
+        public static string Keyword_Split {
+            get {
+                return ResourceManager.GetString("Keyword_Split", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {language}.
         /// </summary>
         public static string LanguagePlaceholder {

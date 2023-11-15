@@ -148,7 +148,7 @@
     <value>TwilightImperiumUltimate.Web.Resources.Strings</value>
   </data>
   <data name="ResourcePath_CardGeneratorPath" xml:space="preserve">
-    <value>/resources/images/shared/cardgenerator</value>
+    <value>/resources/images/{language}/cardgenerator</value>
   </data>
   <data name="ResourcePath_CardTypeIconPath" xml:space="preserve">
     <value>\resources\images\shared\cardicons</value>

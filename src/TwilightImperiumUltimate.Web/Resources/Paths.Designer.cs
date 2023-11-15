@@ -151,7 +151,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to /resources/images/shared/cardgenerator.
+        ///   Looks up a localized string similar to /resources/images/{language}/cardgenerator.
         /// </summary>
         public static string ResourcePath_CardGeneratorPath {
             get {

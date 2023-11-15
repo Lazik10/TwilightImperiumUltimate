@@ -9,7 +9,7 @@
                      overflow-wrap:break-word;">
             @foreach (var text in ActionWindowStrings)
             {
-                if (Keywords is not null && Keywords.Contains(text))
+                if (IsValidKeyword(text))
                 {
                     <span class="handel-cz" style="text-transform: uppercase">@(text)</span>
                 }
@@ -29,11 +29,11 @@
             height: 100%; overflow-wrap:break-word;">
         @foreach (var text in RemainingTextStrings)
         {
-            if (text == RemainingTextStrings.First() && RemainingTextStrings.First().Contains("action:", StringComparison.InvariantCultureIgnoreCase))
+            if (IsActionText(text))
             {
                 <span class="myriad-title" style="font-size: 28px; text-transform: uppercase; font-style: italic;">@(text)</span>
             }
-            else if (Keywords is not null && Keywords.Contains(text))
+            else if (IsValidKeyword(text))
             {
                 <span class="handel-cz" style="font-size: 22px; text-transform: uppercase;">@(text)</span>
             }

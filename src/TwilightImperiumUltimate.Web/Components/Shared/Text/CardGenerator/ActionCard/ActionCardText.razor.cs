@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using TwilightImperiumUltimate.Web.Helpers.Text;
+using TwilightImperiumUltimate.Web.Resources;
 
 namespace TwilightImperiumUltimate.Web.Components.Shared.Text.CardGenerator.ActionCard;
 
@@ -23,12 +24,13 @@ public partial class ActionCardText
     private string[]? Keywords => GetKeywords();
 
     private bool HasActionWindow => Text is not null
-        && Text.Contains(':')
-        && !Text.StartsWith("Action:", StringComparison.InvariantCultureIgnoreCase);
+        && Text.Contains(Strings.Keyword_KeywordSplit)
+        && !Text.StartsWith(Strings.Keyword_EnglishAction, StringComparison.InvariantCultureIgnoreCase)
+        && !Text.StartsWith(Strings.Keyword_CzechAction, StringComparison.InvariantCultureIgnoreCase);
 
-    private string WindowText => HasActionWindow ? FormattedText.Split(':')[0] : string.Empty;
+    private string WindowText => HasActionWindow ? FormattedText.Split(Strings.Keyword_KeywordSplit)[0] : string.Empty;
 
-    private string RemainingText => HasActionWindow ? FormattedText.Split(':')[1] : FormattedText;
+    private string RemainingText => HasActionWindow ? FormattedText.Split(Strings.Keyword_KeywordSplit)[1] : FormattedText;
 
     private string FormattedText => Text.FormatText().KeywordsToUpper(Keywords);
 
@@ -36,5 +38,20 @@ public partial class ActionCardText
 
     private IReadOnlyCollection<string> RemainingTextStrings => RemainingText.TextSplittedByKeywords(Keywords);
 
-    private string[]? GetKeywords() => KeywordText?.Split(',').ToArray();
+    private string[]? GetKeywords() => KeywordText?
+        .Split(Strings.Keyword_Split)
+        .Append(Strings.Keyword_CzechAction)
+        .Append(Strings.Keyword_EnglishAction)
+        .ToArray();
+
+    private bool IsActionText(string text)
+    {
+        return text.StartsWith(Strings.Keyword_CzechAction, StringComparison.InvariantCultureIgnoreCase)
+            || text.StartsWith(Strings.Keyword_EnglishAction, StringComparison.InvariantCultureIgnoreCase);
+    }
+
+    private bool IsValidKeyword(string text)
+    {
+        return Keywords is not null && Keywords.Contains(text) && !IsActionText(text);
+    }
 }
