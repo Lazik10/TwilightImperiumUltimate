@@ -141,6 +141,9 @@
   <data name="ApiPath_SystemTiles" xml:space="preserve">
     <value>api/galaxy/tiles</value>
   </data>
+  <data name="ApiPath_Technologies" xml:space="preserve">
+    <value>api/technologies</value>
+  </data>
   <data name="ResourceNamespace_FactionInfo" xml:space="preserve">
     <value>TwilightImperiumUltimate.Web.Resources.FactionsInfo</value>
   </data>
@@ -170,5 +173,8 @@
   </data>
   <data name="ResourcePath_LargeTilePath" xml:space="preserve">
     <value>\resources\images\shared\tiles\large</value>
+  </data>
+  <data name="ResourcePath_TechnologyImagePath" xml:space="preserve">
+    <value>\resources\images\{language}\technologies</value>
   </data>
 </root>

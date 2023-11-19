@@ -20,7 +20,7 @@ public class FactionsController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<FactionDto>>> GetAllFactionsInfo()
     {
-        using var context = _context.CreateDbContext();
+        using var context = await _context.CreateDbContextAsync();
 
         var factions = await context.Factions
             .ToListAsync();
@@ -41,7 +41,7 @@ public class FactionsController : ControllerBase
     [HttpGet("{id}")]
     public async Task<ActionResult<FactionDto>> GetFactionByFactionId(int id)
     {
-        using var context = _context.CreateDbContext();
+        using var context = await _context.CreateDbContextAsync();
 
         var factions = await context.Factions
             .Where(x => x.FactionName == (FactionName)id)

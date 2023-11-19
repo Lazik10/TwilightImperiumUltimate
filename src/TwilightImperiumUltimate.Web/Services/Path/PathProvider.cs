@@ -1,11 +1,12 @@
 ﻿using System.Globalization;
 using TwilightImperiumUltimate.Web.Resources;
-using TwilightImperiumUltimate.Web.Services.Language;
 
 namespace TwilightImperiumUltimate.Web.Services.Path;
 
 public class PathProvider : IPathProvider
 {
+    private readonly string _language = CultureInfo.CurrentCulture.Name;
+
     public string GetCultureIconPath(string fileName)
     {
         return $"{Paths.ResourcePath_CulturePath}{Strings.BackSlash}{fileName}{Strings.FileExtensionWebp}";
@@ -47,12 +48,21 @@ public class PathProvider : IPathProvider
 
     public string GetCardGeneratorImageBackground(string fileName)
     {
-        var culture = CultureInfo.CurrentCulture.Name;
-        return $"{Paths.ResourcePath_CardGeneratorPath.Replace(Strings.LanguagePlaceholder, culture)}{Strings.ForwardSlash}{fileName}{Strings.FileExtensionWebp}";
+        return $"{GetCorrectLanguagePath(Paths.ResourcePath_CardGeneratorPath)}{Strings.ForwardSlash}{fileName}{Strings.FileExtensionWebp}";
     }
 
     public string GetLargeTileImagePath(string fileName)
     {
         return $"{Paths.ResourcePath_LargeTilePath}{Strings.BackSlash}{fileName}{Strings.FileExtensionWebp}";
+    }
+
+    public string GetTechnologyImagePath(string fileName)
+    {
+        return $"{GetCorrectLanguagePath(Paths.ResourcePath_TechnologyImagePath)}{Strings.BackSlash}{fileName}{Strings.FileExtensionWebp}";
+    }
+
+    private string GetCorrectLanguagePath(string path)
+    {
+        return path.Replace(Strings.LanguagePlaceholder, _language);
     }
 }

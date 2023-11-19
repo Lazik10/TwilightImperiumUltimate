@@ -498,4 +498,22 @@
   <data name="SystemWeight_Resources" xml:space="preserve">
     <value>Resources</value>
   </data>
+  <data name="Technology_Biotic" xml:space="preserve">
+    <value>Biotic</value>
+  </data>
+  <data name="Technology_Cybernetic" xml:space="preserve">
+    <value>Cybernetic</value>
+  </data>
+  <data name="Technology_Faction" xml:space="preserve">
+    <value>Faction</value>
+  </data>
+  <data name="Technology_Propulsion" xml:space="preserve">
+    <value>Propulsion</value>
+  </data>
+  <data name="Technology_UnitUpgrade" xml:space="preserve">
+    <value>Unit Upgrade</value>
+  </data>
+  <data name="Technology_Warfare" xml:space="preserve">
+    <value>Warfare</value>
+  </data>
 </root>

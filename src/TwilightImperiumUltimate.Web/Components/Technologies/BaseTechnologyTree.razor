@@ -1,0 +1,20 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Cards
+@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Services.Path
+@inject IPathProvider PathProvider
+
+<FlexColumnCenteredContainer>
+
+    <div class="tech-tree-container">
+
+        @foreach (var technology in Technologies)
+        {
+            <div class="image-container">
+                <TechnologyCard ImagePath="@(PathProvider.GetTechnologyImagePath(technology.TechnologyName.ToString()))" />
+            </div>
+        }
+
+    </div>
+
+</FlexColumnCenteredContainer>
+

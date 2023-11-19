@@ -1,5 +1,4 @@
-﻿using TwilightImperiumUltimate.DataAccess.RelationshipEntities;
-using TwilightImperiumUltimate.DataAccess.Tables.Technologies;
+﻿using TwilightImperiumUltimate.DataAccess.Tables.Technologies;
 
 namespace TwilightImperiumUltimate.DataAccess.Configurations.Technologies;
 
@@ -30,6 +29,12 @@ public class TechnologyConfiguration : IEntityTypeConfiguration<Technology>
             .HasColumnName(nameof(Technology.Level))
             .HasConversion<int>()
             .HasColumnType("integer");
+
+        builder.Property(e => e.IsFactionTechnology)
+            .IsRequired()
+            .HasColumnName(nameof(Technology.IsFactionTechnology))
+            .HasConversion<bool>()
+            .HasColumnType("bit");
 
         builder.Property(e => e.Text)
             .IsRequired()

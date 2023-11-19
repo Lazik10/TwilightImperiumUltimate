@@ -1,4 +1,4 @@
-﻿namespace TwilightImperiumUltimate.Core.Enums.Technologies;
+﻿namespace TwilightImperiumUltimate.Web.Enums;
 
 public enum TechnologyType
 {
@@ -28,7 +28,12 @@ public enum TechnologyType
     Warfare,
 
     /// <summary>
-    /// UnitUpgrade.
+    /// Unit Upgrade.
     /// </summary>
     UnitUpgrade,
+
+    /// <summary>
+    /// Faction.
+    /// </summary>
+    Faction,
 }

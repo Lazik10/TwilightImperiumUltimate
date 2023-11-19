@@ -75,6 +75,26 @@ public partial class TwilightImperiumDbContextInitializer
                 UpdatedAt = new DateOnly(2023, 11, 14),
                 UserId = 1,
             },
+            new NewsArticle()
+            {
+                Title = "Tech Triumph - Launching the Technology Cards Compendium!",
+                Content = "Unveiling the Technology Cards Compendium<br/><br/>" +
+                          "<p>Dear Twilight Imperium Commanders, it's time to unveil our latest addition to the TI: Ultimate website - the comprehensive Technology Cards Compendium! This new section is a treasure trove for players seeking in-depth knowledge and strategies around the game’s technological advancements.</p>" +
+                          "<ul>" +
+                          "  <li><strong>Biotic:</strong> Explore the life-enhancing and ecosystem-related technologies that give your civilization a biological edge.</li>" +
+                          "  <li><strong>Propulsion:</strong> Boost your fleets with advanced propulsion technologies, ensuring faster and more efficient interstellar travel.</li>" +
+                          "  <li><strong>Cybernetic:</strong> Augment your capabilities with cybernetic enhancements, blending the best of technology and biology.</li>" +
+                          "  <li><strong>Warfare:</strong> Gain insights into warfare technologies that can turn the tide of any battle in your favor.</li>" +
+                          "  <li><strong>Unit Upgrades:</strong> Upgrade your units with cutting-edge advancements for superior performance in various aspects of the game.</li>" +
+                          "  <li><strong>Faction Technologies:</strong> Discover unique technologies specific to each faction, adding a layer of depth and strategy to your gameplay.</li>" +
+                          "</ul>" +
+                          "<p>Your experience and feedback are pivotal in this galactic journey. If you have any suggestions or encounter any glitches in the cosmic matrix of my website, your input is invaluable. Together, let's continue enhancing the TI: Ultimate experience for every commander in the galaxy!</p>" +
+                          "<p>Explore, experiment, and enjoy the new Technology Cards Compendium, and don't forget to share your thoughts and feedback with us.</p>" +
+                          "<p>Here's to many more technological breakthroughs!</p>",
+                CreatedAt = new DateOnly(2023, 11, 19),
+                UpdatedAt = new DateOnly(2023, 11, 19),
+                UserId = 1,
+            },
         };
 
         var user = new User()

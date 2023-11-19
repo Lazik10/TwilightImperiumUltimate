@@ -112,6 +112,7 @@ public class CardsController : ControllerBase
         using var context = _context.CreateDbContext();
 
         return await context.StrategyCards
+            .OrderBy(x => x.InitiativeOrder)
             .ToListAsync()
             .ConfigureAwait(false);
     }

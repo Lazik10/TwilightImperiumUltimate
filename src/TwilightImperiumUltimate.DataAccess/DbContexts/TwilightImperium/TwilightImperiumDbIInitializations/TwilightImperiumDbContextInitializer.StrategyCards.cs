@@ -19,20 +19,8 @@ public partial class TwilightImperiumDbContextInitializer
             },
             new StrategyCard()
             {
-                StrategyCardName = StrategyCardName.Diplomacy,
-                InitiativeOrder = InitiativeOrder.Two,
-                GameVersion = GameVersion.BaseGame,
-            },
-            new StrategyCard()
-            {
                 StrategyCardName = StrategyCardName.Politics,
                 InitiativeOrder = InitiativeOrder.Three,
-                GameVersion = GameVersion.BaseGame,
-            },
-            new StrategyCard()
-            {
-                StrategyCardName = StrategyCardName.Construction,
-                InitiativeOrder = InitiativeOrder.Four,
                 GameVersion = GameVersion.BaseGame,
             },
             new StrategyCard()

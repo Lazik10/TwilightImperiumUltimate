@@ -1,0 +1,16 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Components.Shared.Text
+@using TwilightImperiumUltimate.Web.Resources
+
+<TechnologyNavbar OnTechnologyTypeChange="TechnologyTypeChange"/>
+
+<VerticalSpace Height="50" />
+
+@* @if (_selectedTechnologyType != TechnologyType.Faction)
+{ *@
+    <BaseTechnologyTree Technologies="TechnologiesToShow()"/>
+@* }
+else
+{
+    <FactionTechnologyTree Technologies="TechnologiesToShow()"/>
+} *@
