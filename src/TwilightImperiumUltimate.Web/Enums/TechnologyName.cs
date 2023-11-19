@@ -1,4 +1,4 @@
-﻿namespace TwilightImperiumUltimate.Core.Enums.Technologies;
+﻿namespace TwilightImperiumUltimate.Web.Enums;
 
 public enum TechnologyName
 {

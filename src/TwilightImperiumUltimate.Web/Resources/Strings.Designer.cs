@@ -1202,5 +1202,59 @@ namespace TwilightImperiumUltimate.Web.Resources {
                 return ResourceManager.GetString("SystemWeight_Resources", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Biotic.
+        /// </summary>
+        public static string Technology_Biotic {
+            get {
+                return ResourceManager.GetString("Technology_Biotic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cybernetic.
+        /// </summary>
+        public static string Technology_Cybernetic {
+            get {
+                return ResourceManager.GetString("Technology_Cybernetic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Faction.
+        /// </summary>
+        public static string Technology_Faction {
+            get {
+                return ResourceManager.GetString("Technology_Faction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Propulsion.
+        /// </summary>
+        public static string Technology_Propulsion {
+            get {
+                return ResourceManager.GetString("Technology_Propulsion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unit Upgrade.
+        /// </summary>
+        public static string Technology_UnitUpgrade {
+            get {
+                return ResourceManager.GetString("Technology_UnitUpgrade", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warfare.
+        /// </summary>
+        public static string Technology_Warfare {
+            get {
+                return ResourceManager.GetString("Technology_Warfare", resourceCulture);
+            }
+        }
     }
 }

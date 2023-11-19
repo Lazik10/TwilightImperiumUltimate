@@ -1,0 +1,39 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Resources
+
+<FlexColumnCenteredContainer>
+    <div class="technology-navbar">
+        <FlexRowContainer Width="80" JustifyContent="Enums.JustifyContent.SpaceEvenly">
+            <div class="menu-item green clickable" @onclick="() => OnTechnologyTypeClick(TechnologyType.Biotic)">
+                <FlexRowContainer JustifyContent="Enums.JustifyContent.Center">
+                    <img src="\resources\images\shared\technologies\Biotic.webp" style="max-height: 40px" />
+                    @Strings.Technology_Biotic
+                </FlexRowContainer>
+            </div>
+            <div class="menu-item blue clickable" @onclick="() => OnTechnologyTypeClick(TechnologyType.Propulsion)">
+                <FlexRowContainer JustifyContent="Enums.JustifyContent.Center">
+                    <img src="\resources\images\shared\technologies\Propulsion.webp" style="max-height: 40px" />
+                    @Strings.Technology_Propulsion
+                </FlexRowContainer>
+            </div>
+            <div class="menu-item yellow clickable" @onclick="() => OnTechnologyTypeClick(TechnologyType.Cybernetic)">
+                <FlexRowContainer JustifyContent="Enums.JustifyContent.Center">
+                    <img src="\resources\images\shared\technologies\Cybernetic.webp" style="max-height: 40px" />
+                    @Strings.Technology_Cybernetic
+                </FlexRowContainer>
+            </div>
+            <div class="menu-item red clickable" @onclick="() => OnTechnologyTypeClick(TechnologyType.Warfare)">
+                <FlexRowContainer JustifyContent="Enums.JustifyContent.Center">
+                    <img src="\resources\images\shared\technologies\Warfare.webp" style="max-height: 40px" />
+                    @Strings.Technology_Warfare
+                </FlexRowContainer>
+            </div>
+            <div class="menu-item white clickable" @onclick="() => OnTechnologyTypeClick(TechnologyType.UnitUpgrade)">
+                @Strings.Technology_UnitUpgrade
+            </div>
+            <div class="menu-item purple clickable" @onclick="() => OnTechnologyTypeClick(TechnologyType.Faction)">
+                @Strings.Technology_Faction
+            </div>
+        </FlexRowContainer>
+    </div>
+</FlexColumnCenteredContainer>

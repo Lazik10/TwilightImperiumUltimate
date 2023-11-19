@@ -15,6 +15,8 @@ public class Technology : IEntity, IGameVersion
 
     public TechnologyLevel Level { get; set; }
 
+    public bool IsFactionTechnology { get; set; }
+
     public string Name { get; set; } = string.Empty;
 
     public string Text { get; set; } = string.Empty;

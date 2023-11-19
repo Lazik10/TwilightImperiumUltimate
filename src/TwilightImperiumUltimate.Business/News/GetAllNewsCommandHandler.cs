@@ -16,7 +16,7 @@ public class GetAllNewsCommandHandler : IRequestHandler<GetAllNewsCommand, List<
 
     public async Task<List<NewsArticle>> Handle(GetAllNewsCommand request, CancellationToken cancellationToken)
     {
-        using var context = _dbContextFactory.CreateDbContext();
+        using var context = await _dbContextFactory.CreateDbContextAsync(cancellationToken);
 
         return await context.NewsArticles
             .Include(x => x.User)

@@ -17,4 +17,6 @@ public interface IPathProvider
     string GetCardGeneratorImageBackground(string fileName);
 
     string GetLargeTileImagePath(string fileName);
+
+    string GetTechnologyImagePath(string fileName);
 }

@@ -133,6 +133,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to api/technologies.
+        /// </summary>
+        public static string ApiPath_Technologies {
+            get {
+                return ResourceManager.GetString("ApiPath_Technologies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TwilightImperiumUltimate.Web.Resources.FactionsInfo.
         /// </summary>
         public static string ResourceNamespace_FactionInfo {
@@ -219,6 +228,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string ResourcePath_LargeTilePath {
             get {
                 return ResourceManager.GetString("ResourcePath_LargeTilePath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to \resources\images\{language}\technologies.
+        /// </summary>
+        public static string ResourcePath_TechnologyImagePath {
+            get {
+                return ResourceManager.GetString("ResourcePath_TechnologyImagePath", resourceCulture);
             }
         }
     }
