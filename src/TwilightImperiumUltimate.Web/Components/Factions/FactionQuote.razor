@@ -1,10 +1,5 @@
 ﻿@using TwilightImperiumUltimate.Web.Helpers.Resources;
 
-<p class="system-quote">
+<p class="system-quote handel white shadow">
     @FactionName.GetFactionUIText(FactionResourceType.Quote)
 </p>
-
-@code {
-    [Parameter]
-    public FactionName FactionName { get; set; } = default!;
-}

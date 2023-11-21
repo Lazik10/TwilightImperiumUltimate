@@ -261,6 +261,54 @@
   <data name="FactionSheetBack" xml:space="preserve">
     <value>FactionSheetBack</value>
   </data>
+  <data name="Faction_Ability" xml:space="preserve">
+    <value>Abilities</value>
+  </data>
+  <data name="Faction_Agent" xml:space="preserve">
+    <value>Agent</value>
+  </data>
+  <data name="Faction_AgentRequirement" xml:space="preserve">
+    <value>At Game Start</value>
+  </data>
+  <data name="Faction_BackSheet" xml:space="preserve">
+    <value>Faction Sheet Back</value>
+  </data>
+  <data name="Faction_Commander" xml:space="preserve">
+    <value>Commander</value>
+  </data>
+  <data name="Faction_ComplexityRating" xml:space="preserve">
+    <value>Complexity Rating: </value>
+  </data>
+  <data name="Faction_FactionComponenets" xml:space="preserve">
+    <value>Faction Componenets</value>
+  </data>
+  <data name="Faction_Faq" xml:space="preserve">
+    <value>FAQ</value>
+  </data>
+  <data name="Faction_Flagship" xml:space="preserve">
+    <value>Flagship</value>
+  </data>
+  <data name="Faction_FrontSheet" xml:space="preserve">
+    <value>Faction Sheet Front</value>
+  </data>
+  <data name="Faction_Hero" xml:space="preserve">
+    <value>Hero</value>
+  </data>
+  <data name="Faction_HeroRequirement" xml:space="preserve">
+    <value>Have 3 Scored Objectives</value>
+  </data>
+  <data name="Faction_InfoPreview" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Faction_Leaders" xml:space="preserve">
+    <value>Leaders</value>
+  </data>
+  <data name="Faction_Mech" xml:space="preserve">
+    <value>Mech</value>
+  </data>
+  <data name="Faction_StartingUnits" xml:space="preserve">
+    <value>Starting Units</value>
+  </data>
   <data name="FileExtensionPng" xml:space="preserve">
     <value>.png</value>
   </data>
@@ -446,6 +494,72 @@
   </data>
   <data name="RelicCard" xml:space="preserve">
     <value>relic</value>
+  </data>
+  <data name="RulesResource_AgendaPhase" xml:space="preserve">
+    <value>Twilight Imperium 4th Edition - Agenda Phase</value>
+  </data>
+  <data name="RulesResource_AgendaPhaseLink" xml:space="preserve">
+    <value>https://1drv.ms/b/s!AifcqLzbdKjHhcMvoCfZA0sx1ZZk9A?e=LUnRGJ</value>
+  </data>
+  <data name="RulesResource_Cheatsheet" xml:space="preserve">
+    <value>Twilight Imperium I4th Edition - Cheat Sheets</value>
+  </data>
+  <data name="RulesResource_CheatSheetLink" xml:space="preserve">
+    <value>https://1drv.ms/b/s!AifcqLzbdKjHhcM0EZj2tRnwn65usg?e=UXT2xu</value>
+  </data>
+  <data name="RulesResource_CompleteReference" xml:space="preserve">
+    <value>Twilight Imperium 4th Edition - Complete Rules Reference</value>
+  </data>
+  <data name="RulesResource_CompleteReferenceLink" xml:space="preserve">
+    <value>https://1drv.ms/b/s!AifcqLzbdKjHhcM2w3lBzShjwZsw5Q?e=kAZrlE</value>
+  </data>
+  <data name="RulesResource_Faq" xml:space="preserve">
+    <value>Twilight Imperium 4th Edition PoK - FAQ</value>
+  </data>
+  <data name="RulesResource_FaqLink" xml:space="preserve">
+    <value>https://1drv.ms/b/s!AifcqLzbdKjHhcMxktkeXB3x_beYSA?e=Mrgv4p</value>
+  </data>
+  <data name="RulesResource_FaqTwo" xml:space="preserve">
+    <value>Twilight Imperium 4th Edition PoK - FAQ 2</value>
+  </data>
+  <data name="RulesResource_FaqTwoLink" xml:space="preserve">
+    <value>https://1drv.ms/b/s!AifcqLzbdKjHhcMwv8C9fmrhz_ldow?e=E7eK6l</value>
+  </data>
+  <data name="RulesResource_GuideToTheImperium" xml:space="preserve">
+    <value>Twilight Imperium 4th Edition - Guide to the Imperium</value>
+  </data>
+  <data name="RulesResource_GuideToTheImperiumLink" xml:space="preserve">
+    <value>https://1drv.ms/b/s!AifcqLzbdKjHhcM5F1CSt5pfncXYfQ?e=gBYFna</value>
+  </data>
+  <data name="RulesResource_LearnToPlay" xml:space="preserve">
+    <value>Twilight Imperium 4th Edition - Learn to play</value>
+  </data>
+  <data name="RulesResource_LearnToPlayLink" xml:space="preserve">
+    <value>https://1drv.ms/b/s!AifcqLzbdKjHhcM4IgWTmhgGuJCB9Q?e=kn7xHX</value>
+  </data>
+  <data name="RulesResource_LivingRulesReference" xml:space="preserve">
+    <value>Twilight Imperium 4th Edition - Living Rules Reference 1.3</value>
+  </data>
+  <data name="RulesResource_LivingRulesReferenceLink" xml:space="preserve">
+    <value>https://1drv.ms/b/s!AifcqLzbdKjHhcMz8mZNmCavgfJOYw?e=M75Yoq</value>
+  </data>
+  <data name="RulesResource_LivingRulesReferenceTwo" xml:space="preserve">
+    <value>Twilight Imperium 4th Edition - Living Rules Reference 2.0</value>
+  </data>
+  <data name="RulesResource_LivingRulesReferenceTwoLink" xml:space="preserve">
+    <value>https://1drv.ms/b/s!AifcqLzbdKjHhcM1KpGgzUJkFDyWkQ?e=6jjuDB</value>
+  </data>
+  <data name="RulesResource_ProphecyOfKingsRules" xml:space="preserve">
+    <value>Twilight Imperium 4th Edition PoK - Rules</value>
+  </data>
+  <data name="RulesResource_ProphecyOfKingsRulesLink" xml:space="preserve">
+    <value>https://1drv.ms/b/s!AifcqLzbdKjHhcM336s0LEVtIhSuOA?e=inBegI</value>
+  </data>
+  <data name="RulesResource_Summary" xml:space="preserve">
+    <value>Twilight Imperium 4th Edition - Summary Reference</value>
+  </data>
+  <data name="RulesResource_SummaryLink" xml:space="preserve">
+    <value>https://1drv.ms/b/s!AifcqLzbdKjHhcMyikY_5InEv44pPg?e=t59q2B</value>
   </data>
   <data name="StrategyCard" xml:space="preserve">
     <value>strategy</value>

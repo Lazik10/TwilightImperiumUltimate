@@ -8,10 +8,10 @@
         string[] parts = @line.Split(".");
 
         <div class="system-stats-line">
-            <div class="system-stats-text">
+            <div class="system-stats-text shadow handel">
                 @parts[0]
             </div>
-            <div class="system-stats-value">
+            <div class="system-stats-value shadow handel">
                 @parts[1]
             </div>
         </div>
@@ -19,7 +19,7 @@
     else
     {
         <div class="system-stats-line-title">
-            <div class="system-stats-text">
+            <div class="system-stats-text shadow handel">
                 @line
             </div>
         </div>
@@ -27,15 +27,3 @@
     }
 }
 </div>
-
-@code {
-    [Parameter]
-    public FactionName FactionName { get; set; } = default!;
-
-    private string[] FactionUIText()
-    {
-        string text = FactionName.GetFactionUIText(FactionResourceType.SystemStats);
-        string[] lines = text.Split(';');
-        return lines;
-    }
-}

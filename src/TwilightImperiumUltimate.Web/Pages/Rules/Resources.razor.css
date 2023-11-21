@@ -1,2 +1,11 @@
-﻿body {
+﻿.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+    margin-left: 20%;
+}
+
+a {
+    color: white;
+    text-decoration: none;
 }

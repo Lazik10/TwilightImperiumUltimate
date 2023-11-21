@@ -118,7 +118,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="SardakkNorr_Ability" xml:space="preserve">
-    <value>UNRELENTING: Apply +1 to the result of each of your unit's combat rolls.</value>
+    <value>&lt;p&gt;UNRELENTING:&lt;/p&gt;
+&lt;p&gt;Apply +1 to the result of each of your unit's combat rolls.&lt;/p&gt;</value>
+  </data>
+  <data name="SardakkNorr_CommanderRequirement" xml:space="preserve">
+    <value>Control 5 planets in non-home systems.</value>
   </data>
   <data name="SardakkNorr_History" xml:space="preserve">
     <value>Not far past the Unicorn Nebula, the golden
@@ -222,7 +226,11 @@ galaxy with blood in her name</value>
     <value>The Sardakk N'orr</value>
   </data>
   <data name="TheArborec_Ability" xml:space="preserve">
-    <value>MITOSIS: Your space docks cannot produce infantry.  At the start of the status phase , place 1 infantry from your reinforcements on any planet you control.</value>
+    <value>&lt;p&gt;MITOSIS:&lt;/p&gt;
+&lt;p&gt;Your space docks cannot produce infantry.  At the start of the status phase , place 1 infantry from your reinforcements on any planet you control.&lt;/p&gt;</value>
+  </data>
+  <data name="TheArborec_CommanderRequirement" xml:space="preserve">
+    <value>Have 12 Ground Forces on Planets you control.</value>
   </data>
   <data name="TheArborec_History" xml:space="preserve">
     <value>On first approach to Nestphar, a first-time visitor may
@@ -353,9 +361,16 @@ the stars?</value>
     <value>The Arborec</value>
   </data>
   <data name="TheArgentFlight_Ability" xml:space="preserve">
-    <value>ZEAL - You always vote first during the agenda phase. When you cast at least 1 vote, cast 1 additional vote for each player in the game including you.
-RAID FORMATION - When 1 or more of your units uses ANTI-FIGHTER BARRAGE, for each hit produced in excess of your opponent's Fighters, choose 1 of your opponent's ships that has SUSTAIN DAMAGE to become damaged.
-Note: The “Anti-Fighter Barrage” step can occur even if a player’s opponent has no fighters in the combat (in this case all hits produced from Anti-Fighter Barrage may cause opposing ships with Sustain Damage to become damaged)</value>
+    <value>&lt;p&gt;ZEAL:&lt;/p&gt;
+&lt;p&gt;You always vote first during the agenda phase. When you cast at least 1 vote, cast 1 additional vote for each player in the game including you.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;RAID FORMATION:&lt;/p&gt;
+&lt;p&gt;When 1 or more of your units uses ANTI-FIGHTER BARRAGE, for each hit produced in excess of your opponent's Fighters, choose 1 of your opponent's ships that has SUSTAIN DAMAGE to become damaged.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;Note: The “Anti-Fighter Barrage” step can occur even if a player’s opponent has no fighters in the combat (in this case all hits produced from Anti-Fighter Barrage may cause opposing ships with Sustain Damage to become damaged)&lt;/p&gt;</value>
+  </data>
+  <data name="TheArgentFlight_CommanderRequirement" xml:space="preserve">
+    <value>Have 6 units that have ANTI-FIGHTER BARRAGE, SPACE CANNON or BOMBARDMENT on the game board.</value>
   </data>
   <data name="TheArgentFlight_History" xml:space="preserve">
     <value>o. Few alive today have dealings with the Shikrai. This collection of related avian subspecies lives scattered across a stretch of the galactic rim. Their clutch of worlds are dry, windswept, and poor, lacking in valuable resources or useful minerals. Their small and technologically backward populations tend to stay out of galactic affairs. Most rightfully dismiss the Shikrai as just one more group of sentients in a galaxy full of life. But there is more to the Shikrai than the rest of the galaxy, or even themselves, realize. Long ago, Shikrai territory had the misfortune of being the disputed vassalage of two powerful Mahact. These genesorcerers fought a vicious internecine war for the avians’ planets, with the Shikrai forced to fight as proxies on both sides. Shikrai partisans fought back as best they could, but they had no hope of defeating the armies of two gene-sorcerers. There was no doubt the Shikrai would be consumed by the fight to claim them…until a Lazax battlegroup arrived. A Lazax warlord named Harkor Ilban Tal liberated the Shikrai and personally slew both gene-sorcerers in single combat. To pay their debt, the remaining Shikrai immediately allied with Tal. Eventually, when the Mahact were exiled beyond the Acheron Gate, the Shikrai made a pledge to their allies. They would contribute a tithe of their best warriors and scholars to found an organization that would watch Acheron and ensure the Mahact would never return. They would call it the Argent Flight. To do so, the Shikrai turned to their ancestral homeworlds of Valk, Avar, and Ylir, which they had abandoned long ago when they set out to colonize the stars. The Lazax erased all mention of the worlds from their newly constructed Hall of Cartography, and the newly founded Argent Flight retreated to their sanctuary to wait…and prepare. Valk, Avar, and Ylir are curiosities even in a galaxy full of wonders. The three worlds are barely larger than moons, and share a narrow orbit between the neutron star Phorus and the gas giant Hacid. The unique environment created the Atharal Gas Torus—a ring of breathable air in orbit around Phorus. The three worlds orbit in the center of the ring, and the Shikrai say their winged ancestors used to fly from world to world. In the millennia since their return, the Argent Flight has worked hard to colonize the three worlds and the smaller chunks of rock that drift between them. Numerous flocks of Shikrai live throughout the torus. Each flock focuses on a different trade or calling, and any member of the Argent Flight can join or leave a flock as they choose. Their actions are coordinated by the Murmeration, a council of representatives from each flock who direct the Argent Flight from their spindle tower sanctuary on Avar. The Murmeration continues to quietly recruit promising members from the various Shikrai worlds, though the population of the Atharal Torus is now large enough to be selfsustaining. It has also developed beyond simply a martial order into a fully functional society. Large-bellied cloud-scoops dive into the atmosphere of Hacid to gather rare gases that can be refined into industrial compounds, while the cometminers of the outer system keep the Atharal Torus well-supplied in fresh water. The Argent Flight has even genecrafted the massive, zero-gravity trees that live free-floating in the Torus so that they grow edible fruits, and has built mechanical grav-wings so that its members can soar from planet to planet once more. However, the Argent Flight still remembers its sworn oaths. Millennia of service have seen its duty evolve into something akin to a religion, and the Shikrai see themselves as sacred guardians appointed by the galaxy’s rightful rulers. The various flocks never revealed themselves to the wider galaxy during the Twilight Wars. Instead they fought their own battles in the shadows against the Mahact’s sleeper agents and greedy explorers who ventured too deeply into Shaleri Space. And they succeeded in their task until a new race, the Creuss, sent an expedition past the Tolari Pulsar too large to defeat in combat. In the aftermath of the Mahact’s awakening, the Argent Flight has begun to gather its forces. The Murmeration is in accord; the time for secrecy is past. Already, agents move amongst the Shikrai worlds, calling worthy fighters to take the vows of the Flight. In the open-air ship docks of the Atharal Torus, master shipwrights have laid down the keels of sleek, gull-winged destroyers. The Argent Flight knows, now that its ancient nemesis has returned, that it has no choice—it must lead the rest of the galaxy on a holy crusade to finish what the Lazax started so long ago.</value>
@@ -396,8 +411,14 @@ the gas ring.</value>
     <value>The Argent Flight</value>
   </data>
   <data name="TheBaronyOfLetnev_Ability" xml:space="preserve">
-    <value>MUNITIONS RESERVES: At the start of each round of space combat, you may spend 2 trade goods;  you may re-roll any number of your dice during that combat round.
-ARMADA: The maximum number of non-fighter ships you can have in each system is equal to 2 more than the number of tokens in your fleet pool.</value>
+    <value>&lt;p&gt;MUNITIONS RESERVES:&lt;/p&gt;
+&lt;p&gt;At the start of each round of space combat, you may spend 2 trade goods;  you may re-roll any number of your dice during that combat round.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;ARMADA:&lt;/p&gt;
+&lt;p&gt;The maximum number of non-fighter ships you can have in each system is equal to 2 more than the number of tokens in your fleet pool.&lt;/p&gt;</value>
+  </data>
+  <data name="TheBaronyOfLetnev_CommanderRequirement" xml:space="preserve">
+    <value>Have 5 non-fighter ships in 1 system.</value>
   </data>
   <data name="TheBaronyOfLetnev_History" xml:space="preserve">
     <value>In the very blackness of space lies cold, hard Arc
@@ -523,8 +544,14 @@ and the same.</value>
     <value>The Barony of Letnev</value>
   </data>
   <data name="TheClanOfSaar_Ability" xml:space="preserve">
-    <value>SCAVENGE: After you gain control of a planet, gain 1 trade good.
-NOMADIC: You can score objectives even if you do not control the planets in your home system.</value>
+    <value>&lt;p&gt;SCAVENGE:&lt;/p&gt;
+&lt;p&gt;After you gain control of a planet, gain 1 trade good.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;NOMADIC:&lt;/p&gt;
+&lt;p&gt;You can score objectives even if you do not control the planets in your home system.&lt;/p&gt;</value>
+  </data>
+  <data name="TheClanOfSaar_CommanderRequirement" xml:space="preserve">
+    <value>Have 3 space docks on the game board.</value>
   </data>
   <data name="TheClanOfSaar_History" xml:space="preserve">
     <value>Few historians dispute that the Saar were the first of the
@@ -648,9 +675,17 @@ ferocity unlike any other.</value>
     <value>The Clan of Saar</value>
   </data>
   <data name="TheCouncilKeleres_Ability" xml:space="preserve">
-    <value>THE TRIBUNII: During setup, choose an unplayed faction from among the Mentak, the Xxcha and The Argent Flight; take that faction's home system, command tokens and control markers. Additionally, take the Keleres Hero that corresponds to that faction.
-COUNCIL PATRONAGE: Replenish your commodities at the start of the strategy phase, then gain 1 trade good.
-LAW'S ORDER: You may spend 1 influence at the start of your turn to treat all laws as blank until the end of your turn.</value>
+    <value>&lt;p&gt;THE TRIBUNII:&lt;/p&gt;
+&lt;p&gt;During setup, choose an unplayed faction from among the Mentak, the Xxcha and The Argent Flight; take that faction's home system, command tokens and control markers. Additionally, take the Keleres Hero that corresponds to that faction.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;COUNCIL PATRONAGE:&lt;/p&gt;
+&lt;p&gt;Replenish your commodities at the start of the strategy phase, then gain 1 trade good.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;LAW'S ORDER:&lt;/p&gt;
+&lt;p&gt;You may spend 1 influence at the start of your turn to treat all laws as blank until the end of your turn.&lt;/p&gt;</value>
+  </data>
+  <data name="TheCouncilKeleres_CommanderRequirement" xml:space="preserve">
+    <value>Spend 1 trade good after you play an action card that has a component action.</value>
   </data>
   <data name="TheCouncilKeleres_History" xml:space="preserve">
     <value>Across the galaxy, planetary governors compete for trade opportunities, the Great Civilizations joust for superiority on the battlefront,
@@ -745,9 +780,16 @@ expensive construction process.</value>
     <value>The Council Keleres</value>
   </data>
   <data name="TheEmbersOfMuaat_Ability" xml:space="preserve">
-    <value>STAR FORGE: ACTION: Spend 1 token from your strategy pool to place either 2 fighters or 1 destroyer from your reinforcements in a system that contains 1 or more of your war suns.
-GASHLAI PHYSIOLOGY: Your ships can move through supernovas.
-Note: Moving through a system is distinct from moving into a system. See Movement rules for details.</value>
+    <value>&lt;p&gt;STAR FORGE:&lt;/p&gt;
+&lt;p&gt;ACTION: Spend 1 token from your strategy pool to place either 2 fighters or 1 destroyer from your reinforcements in a system that contains 1 or more of your war suns.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;GASHLAI PHYSIOLOGY:&lt;/p&gt;
+&lt;p&gt;Your ships can move through supernovas.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;Note: Moving through a system is distinct from moving into a system. See Movement rules for details.&lt;/p&gt;</value>
+  </data>
+  <data name="TheEmbersOfMuaat_CommanderRequirement" xml:space="preserve">
+    <value>Produce a War Sun.</value>
   </data>
   <data name="TheEmbersOfMuaat_History" xml:space="preserve">
     <value>It was during the early years of the Age of Dusk that Jol-Nar
@@ -860,9 +902,17 @@ and dreams of his people.</value>
     <value>The Embers of Muaat</value>
   </data>
   <data name="TheEmiratesOfHacan_Ability" xml:space="preserve">
-    <value>MASTERS OF TRADE: You do not have to spend a command token to resolve the secondary ability of the "Trade" strategy card.
-GUILD SHIPS: You can negotiate transactions with players who are not your neighbor.
-ARBITERS: When you are negotiating a transaction, action cards can be exchanged as part of that transaction.</value>
+    <value>&lt;p&gt;MASTERS OF TRADE:&lt;/p&gt;
+&lt;p&gt;You do not have to spend a command token to resolve the secondary ability of the "Trade" strategy card.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;GUILD SHIPS:&lt;/p&gt;
+&lt;p&gt;You can negotiate transactions with players who are not your neighbor.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;ARBITERS:&lt;/p&gt;
+&lt;p&gt;When you are negotiating a transaction, action cards can be exchanged as part of that transaction.&lt;/p&gt;</value>
+  </data>
+  <data name="TheEmiratesOfHacan_CommanderRequirement" xml:space="preserve">
+    <value>Have 10 Trade Goods.</value>
   </data>
   <data name="TheEmiratesOfHacan_History" xml:space="preserve">
     <value>Under the punishing rays of the massive star
@@ -965,9 +1015,17 @@ worlds, their ancestral homes.</value>
     <value>The Emirates of Hacan</value>
   </data>
   <data name="TheEmpyrean_Ability" xml:space="preserve">
-    <value>VOIDBORN - Nebulae do not affect your ships' movement.
-AETHERPASSAGE - After a player activates a system, you may allow that player to move their ships through systems that contain your ships.
-DARK WHISPERS - During setup, take the additional Empyrean faction promissory note; you have 2 faction promissory notes.</value>
+    <value>&lt;p&gt;VOIDBORN:&lt;/p&gt;
+&lt;p&gt;Nebulae do not affect your ships' movement.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;AETHERPASSAGE:&lt;/p&gt;
+&lt;p&gt;After a player activates a system, you may allow that player to move their ships through systems that contain your ships.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;DARK WHISPERS:&lt;/p&gt;
+&lt;p&gt;During setup, take the additional Empyrean faction promissory note; you have 2 faction promissory notes&lt;/p&gt;.</value>
+  </data>
+  <data name="TheEmpyrean_CommanderRequirement" xml:space="preserve">
+    <value>Be neighbors with all other players.</value>
   </data>
   <data name="TheEmpyrean_History" xml:space="preserve">
     <value>Since time immemorial, travelers have told tales of the Empyrean, enigmatic beings who live in the depths of space. The oldest Jol-Nar libraries have references to faceless creatures who sailed the void long before the Hylar left their watery cradle. Winnaran custodians still maintain fragmented historical documents that managed to survive the ancient Sol bombardment and suggest that the Empyrean predate the discovery of supraluminal travel, a technology so old that no race has presented credible evidence that they invented it first. If these records are to be believed, the Empyrean have been crossing the vast gulf of space in sublight vessels for tens of thousands of years before the first FTL drives made galactic civilization possible. Whether or not this is true, historians agree that whenever a species establishes colonies beyond their homeworld, the Empyrean arrive to observe their progress. They tend to lurk on the edges of star systems, making no effort to announce their presence. They can remain drifting in the outer cometary halos for centuries, occasionally sending unobtrusive probes orbiting through the inner system for closer observations. Though they do not actively avoid confrontations, anthropologists and diplomats who have attempted to establish contact with the Empyrean tend to find them frustratingly noncommunicative. Individual Empyrean tend to avoid answering questions about their purpose in observing the actions of other species, or about themselves or their civilization. Though they are sometimes referred to as the galaxy’s “historians,” nobody knows if the Empyrean keep a unified record of galactic events. If they do, they have not shared it with anyone else. Most of what is known of the Empyrean has been gleaned through direct observation. The most startling fact about them is that they are a species who survive in space. Their ships have no pressurized compartments, and beyond some radiation and debris protection, are completely exposed to vacuum. The Empyrean themselves have no visible sensory organs or orifices, and seem to spend much of their time absorbing starlight with the great leathery wings that protrude from their backs. Their body shape does suggest that they evolved on a planet’s surface, leading some scientists to suggest that their original home may have been largely airless. Others believe that at some point in the distant past, the Empyrean were a more traditional avian species who biocrafted themselves to thrive in the vacuum of space. Whatever their origins, most species find interacting with the Empyrean difficult. Communication isn’t a problem— individual Empyrean are able to broadcast radio waves that can be picked up by most standard comms devices—but patience is. The Empyrean act slowly and deliberately, perhaps a consequence of subsisting on the meager solar energy of stars, or possibly because of their extremely long lifespans. They can spend hours or even days contemplating an answer to a single question. In addition, Empyrean society seems to operate as a form of communal anarchy. They make decisions based on the consensus of all Empyrean currently present. They seem cooperative enough that this works, but it does mean governments have no way to negotiate with the “whole of the Empyrean people.” They do, however, make some effort to engage with other sentients, such as donning clothing to make guests feel at ease. They also engage in trade for rare metals and trace elements in exchange for new astronomical and scientific information. Most species tend to ignore the Empyrean unless they seek some esoteric knowledge, or the Empyrean approach them first. In recent years, more and more black-winged Empyrean ships have begun to gather near major trade lanes and on the outskirts of civilized systems. Some free traders have begun to refuse to follow the deep space commerce trails, repeating rumors that ships have begun to vanish in greater numbers, and Empyrean craft have been sighted following lone vessels. One Empyrean ship has even traveled to Mecatol Rex, and individuals who say they speak for the Empyrean have engaged in long meetings with the Winnarans in Mecatol City. These representatives say they believe the galaxy will soon be engulfed by a storm worse than the Twilight Wars of a millennia ago. They maintain that the struggle for the throne will tear the galaxy to shreds, and that none of the rising powers have the mandate or the moral authority to rule over their fellows. Instead, the Empyrean have come to believe that only a truly neutral arbitrator can hope to rule a galactic Empire; an arbitrator that already knows all other species better than they know themselves.</value>
@@ -1014,8 +1072,14 @@ history of the galaxy</value>
     <value>The Empyrean</value>
   </data>
   <data name="TheFederationOfSol_Ability" xml:space="preserve">
-    <value>ORBITAL DROP: ACTION: Spend 1 token from your strategy pool to place 2 infantry from your reinforcements on 1 planet you control.
-VERSATILE: When you gain command tokens during the status phase, gain 1 additional command token.</value>
+    <value>&lt;p&gt;ORBITAL DROP:&lt;/p&gt;
+&lt;p&gt;ACTION: Spend 1 token from your strategy pool to place 2 infantry from your reinforcements on 1 planet you control.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;VERSATILE:&lt;/p&gt;
+&lt;p&gt;When you gain command tokens during the status phase, gain 1 additional command token.&lt;/p&gt;</value>
+  </data>
+  <data name="TheFederationOfSol_CommanderRequirement" xml:space="preserve">
+    <value>Control planets that have a combined total of at least 12 resources.</value>
   </data>
   <data name="TheFederationOfSol_History" xml:space="preserve">
     <value>Nestled in the third orbit of the Sol system lies
@@ -1118,9 +1182,17 @@ spacefaring races.</value>
     <value>The Federation of Sol</value>
   </data>
   <data name="TheGhostsOfCreuss_Ability" xml:space="preserve">
-    <value>QUANTUM ENTANGLEMENT : You treat all systems that contain either an alpha or beta wormhole as adjacent to each other. Game effects cannot prevent you from using this ability.
-SLIPSTREAM: During your tactical actions, apply +1 to the move value of each of your ships that starts its movement in your home system  or in a system that contains either an alpha or beta wormhole.
-CREUSS GATE: When you create the game board, place the Creuss Gate (tile 17) where your home system would normally be placed. The Creuss Gate system is not a home system. Then, place your home system (tile 51) in your play area.</value>
+    <value>&lt;p&gt;QUANTUM ENTANGLEMENT:&lt;/p&gt;
+&lt;p&gt;You treat all systems that contain either an alpha or beta wormhole as adjacent to each other. Game effects cannot prevent you from using this ability.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;SLIPSTREAM:&lt;/p&gt;
+&lt;p&gt;During your tactical actions, apply +1 to the move value of each of your ships that starts its movement in your home system  or in a system that contains either an alpha or beta wormhole.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;CREUSS GATE:&lt;/p&gt;
+&lt;p&gt;When you create the game board, place the Creuss Gate (tile 17) where your home system would normally be placed. The Creuss Gate system is not a home system. Then, place your home system (tile 51) in your play area.&lt;/p&gt;</value>
+  </data>
+  <data name="TheGhostsOfCreuss_CommanderRequirement" xml:space="preserve">
+    <value>Have units in 3 systems that contain alpha or beta wormholes.</value>
   </data>
   <data name="TheGhostsOfCreuss_History" xml:space="preserve">
     <value>They’re ghost stories. Frightful tales whispered to children
@@ -1246,8 +1318,14 @@ questionable circumstances.</value>
     <value>The Ghosts of Creuss</value>
   </data>
   <data name="TheL1z1xMindnet_Ability" xml:space="preserve">
-    <value>ASSIMILATE: When you gain control of a planet, replace each PDS and space dock that is on that planet with a matching unit from your reinforcements.
-HARROW: At the end of each round of ground combat, your ships in the active system may use their Bombardment abilities against your opponent's ground forces on the planet.</value>
+    <value>&lt;p&gt;ASSIMILATE:&lt;/p&gt;
+&lt;p&gt;When you gain control of a planet, replace each PDS and space dock that is on that planet with a matching unit from your reinforcements.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;HARROW:&lt;/p&gt;
+&lt;p&gt;At the end of each round of ground combat, your ships in the active system may use their Bombardment abilities against your opponent's ground forces on the planet.&lt;/p&gt;</value>
+  </data>
+  <data name="TheL1Z1XMindnet_CommanderRequirement" xml:space="preserve">
+    <value>Have 4 dreadnoughts on the Board.</value>
   </data>
   <data name="TheL1z1xMindnet_History" xml:space="preserve">
     <value>It has been 13 years since the Hacan trader Zollar was lost,
@@ -1369,9 +1447,17 @@ bombardments, however, is not.</value>
     <value>The L1Z1X Mindnet</value>
   </data>
   <data name="TheMahactGeneSorcerers_Ability" xml:space="preserve">
-    <value>EDICT - When you win a combat, place 1 command token from your opponent's reinforcements in your fleet pool if it does not already contain 1 of that player's tokens; other player's tokens in your fleet pool increase your fleet limit but cannot be redistributed.
-IMPERIA - While another player's command token is in your fleet pool, you can use the ability of that player's commander, if it is unlocked.
-HUBRIS - During setup, purge your "Alliance" promissory note. Other players cannot give you their 'Alliance" promissory note.</value>
+    <value>&lt;p&gt;EDICT:&lt;/p&gt;
+&lt;p&gt;When you win a combat, place 1 command token from your opponent's reinforcements in your fleet pool if it does not already contain 1 of that player's tokens; other player's tokens in your fleet pool increase your fleet limit but cannot be redistributed.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;IMPERIA:&lt;/p&gt;
+&lt;p&gt;While another player's command token is in your fleet pool, you can use the ability of that player's commander, if it is unlocked.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;HUBRIS:&lt;/p&gt;
+&lt;p&gt;During setup, purge your "Alliance" promissory note. Other players cannot give you their 'Alliance" promissory note.&lt;/p&gt;</value>
+  </data>
+  <data name="TheMahactGeneSorcerers_CommanderRequirement" xml:space="preserve">
+    <value>Have 2 other factions' command tokens in your fleet pool.</value>
   </data>
   <data name="TheMahactGeneSorcerers_History" xml:space="preserve">
     <value>Gene-sorcerers. Mad tyrants. Kings. The Mahact are a primal tale from ancient history. In the distant past, the Mahact dynasties terrorized the galaxy with their infighting and genesorcery. They could warp the forms of living beings, compel eternal obedience with a gesture, and turn the biospheres of entire worlds into seething, caustic hells. They unleashed their most vile technologies in war or even in debauched sport, and it seemed, even as their houses crumbled, that their fall might bring down all of civilized space. But in the midst of their orgy of self-destruction, a new Empire rose to challenge them. The Lazax, a young and fiery race, led the effort to destroy the Mahact and restore peace. When the last Mahact King was slain, the Lazax claimed the fruits of their victory, establishing just dominion over the ashes of the Mahact’s kingdoms. However, the truth was somewhat more complicated than the Lazax wished anyone to remember. The new Empire did overthrow the Mahact Kings, slaying many of them and claiming the Mahact’s main fortress of Mecatol as their own. However, the Mahact were too powerful to defeat utterly. The last of them retreated from Mecatol, sowing anarchy and chaos in their wake, and leaving agents and sleepers to do their bidding. They fled the galaxy to their original home, the planet of Ixth. This world lay far beyond the furthest wisps of dust on the galactic arms, unreachable except through the great wormhole gate of Acheron. Here, in their ancient fastness, the remaining Mahact plotted their eventual return. The Lazax pursued their foes to the entrance of the gate on Acheron, but every attempt they made to invade Ixth failed. So the young Empire tried a different plan. They studied the gate’s arcane workings, and though they could not destroy it, they could shut it down. Thus, Lazax engineers deactivated the gate and buried its machinery beneath an entire ocean to guarantee that none would ever discover it again. They even purged all nearby worlds of life, turning surrounding space into a wilderness. Without control of the machinery on Acheron, the Mahact could not reopen their gate, or even rip it free and set its endpoint somewhere else in the galaxy. They were trapped on their dying world, overlooking a galaxy that was steadily forgetting their existence. Eventually, the remaining Mahact entered the stasis crypts beneath their dead city, to sleep until the stars burned out around them. And there they remained, until the Creuss expedition discovered the Acheron gate, opened it, and awoke them. In an instant, the first Mahact saw the Creuss explorers and used arcane techno-rituals to dominate them and summon their ships through the Acheron Gate. Then, having no desire to remain prisoners on Ixth, the Mahact used the gate machinery to rip Ixth free from its star and hurl it into the heart of the galaxy. Never again would they be trapped on their homeworld. Now Ixth sails untethered through the galactic core, and the Mahact survey their former domain. Though there are only a handful of them left, each has the power of eons of technosorcery at their fingertips. The remaining Mahact turn to their own holdings, awakening their Ixthian bio-factories and assemblers, and summoning their dormant agents and their genetic descendants. The corridors and halls of Ixth’s great city-machines fill with the gene-sorcerers’ thrall clones. Immense dreadnoughts have begun to rise from the underground assembler halls to hang in orbit over the planet. Legions of genecrafted warriors assemble in the mustering squares, ready to march to war. As the Mahact began to marshal their forces, a single golden ship appeared in orbit over Mecatol Rex. It descended to the Senate Possessional in the heart of Mecatol City, touching down on the perfectly manicured trille grass lawn. The hatches opened, and four emissaries stepped out. Each was one of the observers the Council had dispatched to the Creuss expedition to Ixth, reported lost by the few survivors who escaped. Now they wore robes of gold and steel, and were flanked by hulking Creuss legionaries, whose armor seethed with an ominous crimson glow. They walked into the chambers of the Galactic Senate without fanfare or invitation and stood in the middle of the hall. Before the stunned audience, they announced that they were the emissaries of Vertar Auran Oblis, first amongst the galaxy’s rightful race of rulers. They went on to say that, as Oblis was a magnanimous ruler, all those who surrendered immediately would be favored slaves. The emissaries returned to their ship and left the city behind. However, many fear that it is only a matter of time before a golden armada returns to the sky above Mecatol Rex. And when it does, the Mahact will return the world to the center of their kingdom.</value>
@@ -1410,8 +1496,14 @@ own advantage.</value>
     <value>The Mahact Gene-Sorcerers</value>
   </data>
   <data name="TheMentakCoalition_Ability" xml:space="preserve">
-    <value>AMBUSH: At the start of a space combat, you may roll 1 die for each of up to 2 of your cruisers or destroyers in the system.  For each result equal to or greater than that ship's combat value, produce 1 hit; your opponent must assign it to 1 of their ships.
-PILLAGE: After 1 of your neighbors gains trade goods or resolves a transaction, if they have 3 or more trade goods, you may take 1 of their trade goods or commodities.</value>
+    <value>&lt;p&gt;AMBUSH:&lt;/p&gt;
+&lt;p&gt;At the start of a space combat, you may roll 1 die for each of up to 2 of your cruisers or destroyers in the system.  For each result equal to or greater than that ship's combat value, produce 1 hit; your opponent must assign it to 1 of their ships.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;PILLAGE:&lt;/p&gt;
+&lt;p&gt;After 1 of your neighbors gains trade goods or resolves a transaction, if they have 3 or more trade goods, you may take 1 of their trade goods or commodities.&lt;/p&gt;</value>
+  </data>
+  <data name="TheMentakCoalition_CommanderRequirement" xml:space="preserve">
+    <value>Have 4 cruisers on the game board</value>
   </data>
   <data name="TheMentakCoalition_History" xml:space="preserve">
     <value>Beyond the Mahact Plateau, part of the borderlands
@@ -1532,8 +1624,14 @@ Place this card face-up in your play area and place the Naalu "0" token on your 
 Return this card to the Naalu player at the end of the status phase.</value>
   </data>
   <data name="TheNaaluCollective_Ability" xml:space="preserve">
-    <value>TELEPATHIC: At the end of the strategy phase, place the Naalu "0" token on your strategy card; you are first in initiative order.
-FORESIGHT: After another player moves ships into a system that contains 1 or more of your ships, you may place 1 token from your strategy pool in an adjacent system that does not contain another player's ships;  move your ships from the active system into that system.</value>
+    <value>&lt;p&gt;TELEPATHIC:&lt;/p&gt;
+&lt;p&gt;At the end of the strategy phase, place the Naalu "0" token on your strategy card; you are first in initiative order.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;FORESIGHT:&lt;/p&gt;
+&lt;p&gt;After another player moves ships into a system that contains 1 or more of your ships, you may place 1 token from your strategy pool in an adjacent system that does not contain another player's ships;  move your ships from the active system into that system.&lt;/p&gt;</value>
+  </data>
+  <data name="TheNaaluCollective_CommanderRequirement" xml:space="preserve">
+    <value>Have ground forces in or adjacent to the Mecatol Rex system.</value>
   </data>
   <data name="TheNaaluCollective_History" xml:space="preserve">
     <value>It was not until the middle of the Twilight Wars that
@@ -1643,8 +1741,14 @@ deep into the minds of the
     <value>The Naalu Collective</value>
   </data>
   <data name="TheNaazRokhaAlliance_Ability" xml:space="preserve">
-    <value>DISTANT SUNS - When you explore a planet that contains 1 of your mechs, you may draw 1 additional card; choose 1 to resolve and discard the rest.
-FABRICATION - ACTION: Either purge 2 of your relic fragments of the same type to gain 1 relic; or purge 1 of your relic fragments to gain 1 command token.</value>
+    <value>&lt;p&gt;DISTANT SUNS:&lt;/p&gt;
+&lt;p&gt;When you explore a planet that contains 1 of your mechs, you may draw 1 additional card; choose 1 to resolve and discard the rest.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;FABRICATION:&lt;/p&gt;
+&lt;p&gt;ACTION: Either purge 2 of your relic fragments of the same type to gain 1 relic; or purge 1 of your relic fragments to gain 1 command token.&lt;/p&gt;</value>
+  </data>
+  <data name="TheNaazRokhaAlliance_CommanderRequirement" xml:space="preserve">
+    <value>Have 3 mechs in 3 systems.</value>
   </data>
   <data name="TheNaazRokhaAlliance_History" xml:space="preserve">
     <value>The Naaz have had the distinct misfortune of being a species of technological savants who were discovered by other races before they could build their own civilization. In the chaotic aftermath of the Twilight Wars, their world of Naazir was happened upon by scouts for a Winnu corporate-collective. The collective promptly set up an industrial colony on Naazir and began exploiting the talents of the Naaz. This continued until the corporate leaders were charged and prosecuted for their crimes against sentients… at which point a small army of Sol deserters invaded and claimed Naazir as their own. The pattern continued for centuries, with the Naaz barely able to rid themselves of one conqueror before being invaded by the next. Eventually, a network of Naaz rebels gathered enough resources to try a new plan. To get rid of their current overlords (an alliance of Letnev merchant-princes), they would hire an equally downtrodden group of mercenaries— the Rokha. The Rokha are a race of felids, distant relatives of the Hacan who long ago split with their genetic cousins. Their story since the Twilight Wars had also been one of tragedy, forced to become a race of nomad warriors, employed as mercenaries but barred from settling in any civilized system in the galaxy. To the Rokha, the Naaz were just one more in a long line of employers. But that would change. The nascent alliance between the Naaz and the Rokha proved successful, driving the merchant princes from their world. However, in the aftermath of the victory, the Naaz did something the Rokha did not expect. They offered them the chance to settle on Naazir and join the Naaz in a unified society. Exhausted from centuries of a nomadic life, the Rokha accepted. Together, the Naaz-Rokha Alliance proved much greater than the sum of its parts. Not only did the two species complement one another, their shared history as the galaxy’s outcasts drove them to work all the harder together to ensure neither would be taken advantage of again. The two cultures didn’t just co-exist, they merged. Every level of NaazRokha society became an equal partnership, from families (a typical Naaz-Rokha family consists of two Naaz and two Rokha, plus any children from either couple) to government (the Alliance Chamber of Congress is overseen by an executive Tetrarchy of two Naaz and two Rokha who each oversee different portions of Alliance territory). When any elected official steps down, only an official from the other species is allowed to take their place. And when the Alliance terraformed and colonized one of Naazir’s neighboring worlds so that the Rokha could have a homeworld of their own, the population of the new world was equally divided between both species—the same as on Naazir. The Alliance would undoubtedly have been satisfied to build their own civilization and keep the other races from exploiting it. However, the Creuss expedition to Ixth changed their trajectory. Two of the few survivors from that illfated adventure were a pair of Naaz-Rokha scientists. They, along with a few lucky others, were able to escape aboard a Letnev corvette even as the rest of the expedition was captured by the Mahact. Then, as the other survivors reported to the Council, the scientists returned to Naazir with precious readings from the Acheron gateway, as well as the machinery that created it. Using this invaluable information as a starting point, the Alliance has discovered a means of creating momentary microwormholes into another dimension and tapping the energy released during that process. This “entropic field harvesting” has proven marvelously efficient. Alliance ships and factories now drink deeply from entropic field taps, and the other galactic powers have suddenly been confronted by the reality that two species they long ago dismissed and exploited are now very real players on the galactic stage. As chaos builds around the Mahact return, the Tetrarchy has stood before the Chamber of Congress and announced its intent. The Naaz-Rokha Alliance has already demonstrated that two species can live harmoniously as one. Who better to take control of the ancient seat of the Imperium and bring that harmonious cooperation to the stars?</value>
@@ -1683,9 +1787,17 @@ about it so much.</value>
     <value>The Naaz-Rokha Alliance</value>
   </data>
   <data name="TheNekroVirus_Ability" xml:space="preserve">
-    <value>GALACTIC THREAT : You cannot vote on agendas.  Once per agenda phase, after an agenda is revealed, you may predict aloud the outcome of that agenda.  If your prediction is correct, gain 1 technology that is owned by a player who voted how you predicted.
-TECHNOLOGICAL SINGULARITY: Once per combat, after 1 of your opponent's units is destroyed, you may gain 1 technology that is owned by that player.
-PROPAGATION: You cannot research technology.  When you would research a technology, gain 3 command tokens instead.</value>
+    <value>&lt;p&gt;GALACTIC THREAT:&lt;/p&gt;
+&lt;p&gt;You cannot vote on agendas.  Once per agenda phase, after an agenda is revealed, you may predict aloud the outcome of that agenda.  If your prediction is correct, gain 1 technology that is owned by a player who voted how you predicted.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;TECHNOLOGICAL SINGULARITY:&lt;/p&gt;
+&lt;p&gt;Once per combat, after 1 of your opponent's units is destroyed, you may gain 1 technology that is owned by that player.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;PROPAGATION:&lt;/p&gt;
+&lt;p&gt;You cannot research technology.  When you would research a technology, gain 3 command tokens instead.&lt;/p&gt;</value>
+  </data>
+  <data name="TheNekroVirus_CommanderRequirement" xml:space="preserve">
+    <value>Own 3 technologies. A "Valefar Assimilator" technology counts only if its X or Y token is on a technology.</value>
   </data>
   <data name="TheNekroVirus_History" xml:space="preserve">
     <value>On the eve of the Lazax empire’s fall, the legendary
@@ -1815,8 +1927,14 @@ only be described as godhood.”
     <value>The Nekro Virus</value>
   </data>
   <data name="TheNomad_Ability" xml:space="preserve">
-    <value>THE COMPANY - During setup, take the 2 additional Nomad faction agents and place them next to your faction sheet; you have 3 agents.
-FUTURE SIGHT - During the Agenda phase, after an outcome that you voted for or predicted is resolved, gain 1 trade good.</value>
+    <value>&lt;p&gt;THE COMPANY:&lt;/p&gt;
+&lt;p&gt;During setup, take the 2 additional Nomad faction agents and place them next to your faction sheet; you have 3 agents.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;FUTURE SIGHT:&lt;/p&gt;
+&lt;p&gt;During the Agenda phase, after an outcome that you voted for or predicted is resolved, gain 1 trade good.&lt;/p&gt;</value>
+  </data>
+  <data name="TheNomad_CommanderRequirement" xml:space="preserve">
+    <value>Have 1 scored secret objective.</value>
   </data>
   <data name="TheNomad_History" xml:space="preserve">
     <value>Shortly before the Creuss Expedition left to plumb the depths of Shaleri Space, a number of sensor nets and observatories began to receive messages broadcast from the very heart of the galaxy. These messages repeated in a multitude of languages, and warned of a dark future to come that must be prevented at all costs. What struck the various scientists as odd was the source—the galactic center being utterly devoid of life—and the means of transmission. The messages were not sent via supraluminal communications, but instead broadcast on ancient radio frequencies. That meant the message had been sent thousands of years before the Lazax first founded their empire on Mecatol Rex. In the confused wake of the Creuss disaster, the galaxy’s network of data brokers began sharing stories of a wealthy individual who was hungry for information. Brokers rarely met with their new client in person, but the few who did said they were a nondescript humanoid wearing an environmental suit and shrouded in merchant’s garb. They referred to themself only as “the Nomad,” and paid in valuable information as often as in coin. The Nomad seemed particularly interested in any information regarding the failed Creuss expedition, and about the scattered rumors of nightmare demons haunting Shaleri space. Some argued that the Nomad had to be a mask for members of a larger organization. Anyone could use an environmental suit to obscure their identity, after all. Others insisted that the Nomad was a single individual, even in the face of rumors that they had conducted business in several different star systems across the span of a few days. Still, most dismissed the Nomad as a harmless curiosity—until Sumerian. Space Station Sumerian encircles the frostbitten world of Arcturus. Though the ice-locked planet has few inhabitants save for the smugglers who hide caches of contraband on the surface, the massive station is one of the busiest independent trading ports in the galaxy. Laws are loose and enforcement lax, so one can buy nearly anything in one of Sumerian’s hundreds of markets and bazaars. Ships from every corner of the galaxy dock in its shipping bays, and the various galactic powers have traditionally left Sumerian alone while quietly skimming riches from the businesses conducted there. In the course of a few weeks, the Nomad took over Sumerian, seemingly by chance. A series of licenses, contracts, and deals ended and began at the perfect time to grant the Nomad control of the station’s operations and most of its major factions. The few magnates and mercenary leaders who attempted to resist the takeover simply vanished. The head of Sumerian, a trader by the name of Huro M’es, ended up being quietly arrested and imprisoned. With the Nomad in control of Sumerian, they began to expand their grasp over the surrounding systems. It quickly became apparent that the Nomad had access to nearly limitless sums of money, and they used their funds to buy influence in planetary governments and outright control of corporations. At the same time, mercenary groups began flocking to Sumerian, drawn by promises of lucrative contracts. Whole starships were purchased through shell corporations and eventually ended up in Sumerian docks, being refitted with military weapons and hardware. The Nomad also brought with them a small cadre of loyal agents that they seemed to trust to act in their name. The most feared of these was the Creuss warrior AhkSyl Siven, whose armor glowed with intermingled blue and crimson sparks. Many have since come to realize that the Nomad is the center of a creeping web of influence and blackmail that stretches across the galaxy, and at the same time has also amassed a formidable mercenary army. However, all attempts to covertly eliminate this nascent threat have thus far ended in failure. The Nomad seems to have an almost prescient ability to anticipate threats and defeat them. Whoever the Nomad is, they clearly are enacting a plan of mind-boggling scope and complexity. Now, as their agents infiltrate the Galactic Council and mercenary warships set out from Sumerian’s docks, many suspect that the ultimate goal of that plan is Mecatol Rex.</value>
@@ -1855,9 +1973,17 @@ seen sudden leadership changes.</value>
     <value>The Nomad</value>
   </data>
   <data name="TheTitansOfUl_Ability" xml:space="preserve">
-    <value>TERRAGENESIS: After you explore a planet that does not have a sleeper token, you may place or move 1 sleeper token onto that planet.
-AWAKEN: After you activate a system that contains 1 or more of your sleeper tokens, you may replace each of those tokens with 1 PDS from your reinforcements.
-COALESCENCE: If your flagship or your AWAKEN faction ability places your units into the same space area or onto the same planet as another player's units, your units must participate in combat during "Space Combat" or "Ground Combat" steps.</value>
+    <value>&lt;p&gt;TERRAGENESIS:&lt;/p&gt;
+&lt;p&gt;After you explore a planet that does not have a sleeper token, you may place or move 1 sleeper token onto that planet.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;AWAKEN:&lt;/p&gt;
+&lt;p&gt;After you activate a system that contains 1 or more of your sleeper tokens, you may replace each of those tokens with 1 PDS from your reinforcements.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;COALESCENCE:&lt;/p&gt;
+&lt;p&gt;If your flagship or your AWAKEN faction ability places your units into the same space area or onto the same planet as another player's units, your units must participate in combat during "Space Combat" or "Ground Combat" steps.&lt;/p&gt;</value>
+  </data>
+  <data name="TheTitansOfUl_CommanderRequirement" xml:space="preserve">
+    <value>Have 5 structures on the game board.</value>
   </data>
   <data name="TheTitansOfUl_History" xml:space="preserve">
     <value>Tens of thousands of years ago, Mahact gene-sorcerers crafted one of their most brilliant creations, the Titans. Though they looked like massive machines, beneath their metallic shells each Titan was a living creature of silicates and steel. They combined the best elements of the biological and the mechanical. They could work for days without tiring and were exceedingly durable. They could also heal injuries and, over time, expand their numbers. Most importantly, they were intelligent beings, not mindless automatons—though the Mahact programmed them so that the Titans would never disobey their masters. In all, the gene-sorcerers had created the perfect guardians and laborers for their kingdoms. When the Mahact were driven from the galaxy by the Lazax, they seeded sleepers in their wake to facilitate their eventual return. The greatest of these were to be the Titans. At the Mahact’s command, the Titans buried themselves in the wilds of their worlds and went into a deep dormancy. And they slept, as the Lazax Empire rose and fell, and the Twilight Wars raged and quieted. Occasionally, a Titan may be uncovered by explorers, but they appeared to be just one more relic of a forgotten past. Then the Mahact returned, and the gene-sorcerers sent out a call to awaken their servants. Many of the Titans heard the call and woke. However, the Mahact had gravely underestimated their creations. During their millennia of dormancy, the Titans had continued to develop, and their minds had continued to expand. When they woke, they found that they no longer felt any compulsion to obey their former masters. Instead, the Titans began to seek out others of their kind. The greatest population of Titans had gone dormant on one of the wonders they had constructed during the last days of the Mahact rule: a massive Dyson sphere. The Titans had constructed the shell around a singularity, using its harnessed energy for power, and its immense mass to create gravity on the outer surface. Now, they claimed their creation, calling it Elysium and summoning all other Titans to join them. In the years that followed, the Titans have worked hard to establish their new civilization. Elysium offers more space than ten thousand normal planets. This has proven invaluable, because though the Titans grow slowly, they never stop. The youngest Titans are easily ten meters tall, while an elder can be the size of a habitant tower. Titans also show a great preference for order and organization. They freely submit to a hierarchical society, where the oldest and most experienced Titan, called the “Ul,” rules. While the Titans are bio-mechanical creatures, they tend to show a great love of living things. Many Titans devote themselves to cultivating Elysium into a lush garden world, seeding myriad biomes across its formerly barren surface. Titan towns blend seamlessly with the surrounding landscape, even though Titan structures are massive by necessity. That said, since the Titans tend to spread out across Elysium’s surface, the only true city is their capital, Transcendence. Here one can find the Ul literally watching over their people. The eldest Titan is so massive that they eclipse even the largest buildings. Instead, the Ul stands in the center of Transcendence, unmoving while they speak with their fellows about the issues confronting their people. Though the Titans have been preoccupied with cultivating their new world and developing their society, they have not forgotten about the wider galaxy. Already trading vessels descend on Elysium with holds full of rare minerals and exotic plant and animal life. In exchange, the Titans construct wondrous devices from the ancient days, and travel to other worlds to build huge orbital stations and massive geoforming and terraforming projects. They continue to scour the galaxy, looking for any of their kin who may still slumber beneath the surfaces of countless worlds. As the ancient prophecies come to pass and war looms, the Ul looks into the skies of Elysium and sees a galaxy in chaos. They know that the only chance that teeming multitudes scattered across countless worlds have for survival is a steady hand guiding them to peace. They know that while some may not realize it, there is a place for everyone in the universe, and everyone must find their place—with the Titans to watch over them all.</value>
@@ -1895,8 +2021,14 @@ be more than it appears.</value>
     <value>The Titans of Ul</value>
   </data>
   <data name="TheUniversitiesOfJolNar_Ability" xml:space="preserve">
-    <value>BRILLIANT : When you spend a command token to resolve the secondary ability of the "Technology" strategy card, you may resolve the primary ability instead.
-ANALYTICAL: When you research a technology that is not a unit upgrade technology, you may ignore 1 prerequisite.</value>
+    <value>&lt;p&gt;BRILLIANT:&lt;/p&gt;
+&lt;p&gt;When you spend a command token to resolve the secondary ability of the "Technology" strategy card, you may resolve the primary ability instead.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;ANALYTICAL:&lt;/p&gt;
+&lt;p&gt;When you research a technology that is not a unit upgrade technology, you may ignore 1 prerequisite.&lt;/p&gt;</value>
+  </data>
+  <data name="TheUniversitiesOfJolNar_CommanderRequirement" xml:space="preserve">
+    <value>Own 8 technologies.</value>
   </data>
   <data name="TheUniversitiesOfJolNar_History" xml:space="preserve">
     <value>Most technological devices used in the galaxy today
@@ -2010,9 +2142,17 @@ advanced capabilities.</value>
     <value>The Universities of Jol-Nar</value>
   </data>
   <data name="TheVuilRaithCabal_Ability" xml:space="preserve">
-    <value>DEVOUR - Capture your opponent's non-structure units that are destroyed during combat.
-AMALGAMATION - When you produce a unit, you may return 1 captured unit of that type to produce that unit without spending resources.
-RIFTMELD - When you research a unit upgrade technology, you may return 1 captured unit of that type to ignore all of the technology's prerequisites.</value>
+    <value>&lt;p&gt;DEVOUR:&lt;/p&gt;
+&lt;p&gt;Capture your opponent's non-structure units that are destroyed during combat.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;AMALGAMATION:&lt;/p&gt;
+&lt;p&gt;When you produce a unit, you may return 1 captured unit of that type to produce that unit without spending resources.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;RIFTMELD:&lt;/p&gt;
+&lt;p&gt;When you research a unit upgrade technology, you may return 1 captured unit of that type to ignore all of the technology's prerequisites.&lt;/p&gt;</value>
+  </data>
+  <data name="TheVuilRaithCabal_CommanderRequirement" xml:space="preserve">
+    <value>Have units in 3 Gravity Rifts</value>
   </data>
   <data name="TheVuilRaithCabal_History" xml:space="preserve">
     <value>Philosophers and scientists have long theorized that the galaxy is only one of a host of realities. These other dimensions exist on a different plane, and the physical laws one takes for granted in this space—such as gravity and entropy—may be wildly different or nonexistent. The existence of fabled worlds like Mallice seems to support such conjectures, for the world may exist in one such alternate reality. Some researchers even attempt to predict the nature of these theoretical dimensions. However, even the most deranged scientist could not imagine a universe of seething, fleshy masses floating in a thick, cloying mist, or the ravenous creatures that could thrive in such a place. After the disaster on Acheron, a single Letnev corvette returned from the depths of Shaleri space with the horrifying tale of what had befallen the Creuss expedition to Ixth. As the various members of the Galactic Council began to gather their forces to deal with the Mahact, the Mentak Coalition dispatched one of its fastest void sloops to reconnoiter the Acheron system and see what the Mahact may be up to. After a week’s hard travel, the void sloop drifted quietly in past the Acheron system’s icy outer bodies and got its first good look at the gateway to Ixth. To the crew’s shock, the planet was no more. Acheron had shattered into shards of rock that now tumbled around an immense roiling vortex of gravitational instability that seethed with a baleful purple light. The vortex was in the midst of consuming the inner system. Even days out, the sloop’s commander could feel the strain on her vessel, and watched in horror as Acheron’s star twisted and writhed under the assault. But she pressed on, as close as she dared. There was no sign of the Mahact or the Creuss expeditionary armada. However, there were strange readings amongst the tumbling remnants of the planet. When one of the sensor returns suddenly accelerated toward her ship, the commander had her crew put about and fled for open space. That was the last successful expedition to the Acheron system. In the months following the event, researchers and intelligence operatives began to make conjectures about what new threat had fallen on the galaxy. Ixth, supposed paradise and ancient home of the Mahact, sat far outside the bounds of the galaxy. In order to construct a gateway that could reach across the gulf of intergalactic space, the Mahact had to sink it deep into the very fabric of spacetime. As part of their entropic field research, the Naaz-Rokha theorized that the wormhole may have crossed the threshold of this universe, into an entirely different dimension. When the Mahact awoke, they ripped their world from its orbit and flung it into the galaxy’s heart. In doing so, they destroyed the Acheron Gateway, leaving a great gaping wound in the planet’s heart and in the fabric of the universe. Through this rift came the Vuil’raith—a race of creatures from beyond the stars, resembling the demons that haunt many of the galaxy’s oldest myths. No two are alike, and they range in size from tiny monsters no larger than a finger to great fleshy beasts as large as dreadnoughts that swim through the void. They have infested the twisted space around the bones of Acheron. From there they gather their forces and cast their covetous eyes upon the galaxy. The Vuil’raith are not mindless monsters. They possess a malign intelligence and powerful ambitions. They are even led by a Cabal, though the council has no set size. If a Vuil’raith is vicious and powerful enough to slay all of its rivals, eventually it amasses enough power to join the Cabal’s ranks. It remains a part of the Cabal as long as it can dominate a significant horde of lesser Vuil’raith and keep its foes from slaying it to lay claim to its holdings. However, there are no true allies in the Cabal; only mutually distrusted rivals bound by shared interests. The Cabal has set out to sow dissension ahead of its invasion. Cults of the Vuil’raith fester in the shadows of the galaxy’s great cities. The weak-willed and disaffected are drawn to serve the Cabal, some with the hope of reaping grand rewards, while others simply want to watch the galaxy burn. The Vuil’raith send their agents to advance their interests and weaken their foes, and even the halls of the Galactic Council may not be free of their taint. Meanwhile, the worlds on the edges of Shaleri space have come under assault from the Vuil’raith. Looming flesh-ships smash system defense fleets from the void, and crackling portals open in the streets to disgorge hordes of ravenous demon-beasts. With the Acheron rift providing an anchor into this reality, the Vuil’raith work tirelessly to build additional gateways to their hellish domain, their only desire to rip open the heart of Mecatol Rex and set a gateway amongst its bones.</value>
@@ -2050,8 +2190,14 @@ nightmares made flesh.</value>
     <value>The Vuil'Raith Cabal</value>
   </data>
   <data name="TheWinnu_Ability" xml:space="preserve">
-    <value>BLOOD TIES: You do not have to spend influence to remove the custodians token from Mecatol Rex.
-RECLAMATION: After you resolve a tactical action during which you gained control of Mecatol Rex, you may place 1 PDS and 1 space dock from your reinforcements on Mecatol Rex.</value>
+    <value>&lt;p&gt;BLOOD TIES:&lt;/p&gt;
+&lt;p&gt;You do not have to spend influence to remove the custodians token from Mecatol Rex.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;RECLAMATION:&lt;/p&gt;
+&lt;p&gt;After you resolve a tactical action during which you gained control of Mecatol Rex, you may place 1 PDS and 1 space dock from your reinforcements on Mecatol Rex.&lt;/p&gt;</value>
+  </data>
+  <data name="TheWinnu_CommanderRequirement" xml:space="preserve">
+    <value>Control Mecatol Rex or enter into a combat in the Mecatol Rex system.</value>
   </data>
   <data name="TheWinnu_History" xml:space="preserve">
     <value>The Winnu system was the first system to seek annexation
@@ -2186,8 +2332,14 @@ galaxy—by force, if necessary.</value>
     <value>The Winnu</value>
   </data>
   <data name="TheXxchaKingdom_Ability" xml:space="preserve">
-    <value>PEACE ACCORDS: After you resolve the primary or secondary ability of the "Diplomacy" strategy card, you may gain control of 1 planet other than Mecatol Rex that does not contain any units and is in a system that is adjacent to a planet you control.
-QUASH: When an agenda is revealed, you may spend 1 token from your strategy pool to discard that agenda and reveal 1 agenda from the top of the deck.  Players vote on this agenda instead.</value>
+    <value>&lt;p&gt;PEACE ACCORDS:&lt;/p&gt;
+&lt;p&gt;After you resolve the primary or secondary ability of the "Diplomacy" strategy card, you may gain control of 1 planet other than Mecatol Rex that does not contain any units and is in a system that is adjacent to a planet you control.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;QUASH:&lt;/p&gt;
+&lt;p&gt;When an agenda is revealed, you may spend 1 token from your strategy pool to discard that agenda and reveal 1 agenda from the top of the deck.  Players vote on this agenda instead.&lt;/p&gt;</value>
+  </data>
+  <data name="TheXxchaKingdom_CommanderRequirement" xml:space="preserve">
+    <value>Control planets that have a combined value of at least 12 influence.</value>
   </data>
   <data name="TheXxchaKingdom_History" xml:space="preserve">
     <value>Even the oldest annals recognize the ancient kingdom
@@ -2310,8 +2462,14 @@ tranquil veneer.</value>
     <value>The Xxcha Kingdom</value>
   </data>
   <data name="TheYinBrotherhood_Ability" xml:space="preserve">
-    <value>INDOCTRINATION: At the start of a ground combat, you may spend 2 influence to replace 1 of your opponent's participating infantry with 1 infantry from your reinforcements.
-DEVOTION: After each space battle round, you may destroy 1 of your cruisers or destroyers in the active system to produce 1 hit and assign it to 1 of your opponent's ships in that system.</value>
+    <value>&lt;p&gt;INDOCTRINATION:&lt;/p&gt;
+&lt;p&gt;At the start of a ground combat, you may spend 2 influence to replace 1 of your opponent's participating infantry with 1 infantry from your reinforcements.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;DEVOTION:&lt;/p&gt;
+&lt;p&gt;After each space battle round, you may destroy 1 of your cruisers or destroyers in the active system to produce 1 hit and assign it to 1 of your opponent's ships in that system.&lt;/p&gt;</value>
+  </data>
+  <data name="TheYinBrotherhood_CommanderRequirement" xml:space="preserve">
+    <value>Use one of your faction abilities.</value>
   </data>
   <data name="TheYinBrotherhood_History" xml:space="preserve">
     <value>Lazax law strictly forbade the practice of cloning, the
@@ -2440,9 +2598,17 @@ loyalty to their brothers.</value>
     <value>The Yin Brotherhood</value>
   </data>
   <data name="TheYssarilTribes_Ability" xml:space="preserve">
-    <value>STALL TACTICS: ACTION: Discard 1 action card from your hand.
-SCHEMING: When you draw 1 or more action cards, draw 1 additional action card.  Then, choose and discard 1 action card from your hand.
-CRAFTY: You can have any number of action cards in your hand.  Game effects cannot prevent you from using this ability.</value>
+    <value>&lt;p&gt;STALL TACTICS:&lt;/p&gt;
+&lt;p&gt;ACTION: Discard 1 action card from your hand.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;SCHEMING:&lt;/p&gt;
+&lt;p&gt;When you draw 1 or more action cards, draw 1 additional action card.  Then, choose and discard 1 action card from your hand.&lt;/p&gt;
+&lt;br/&gt;
+&lt;p&gt;CRAFTY:&lt;/p&gt;
+&lt;p&gt;You can have any number of action cards in your hand.  Game effects cannot prevent you from using this ability.&lt;/p&gt;</value>
+  </data>
+  <data name="TheYssarilTribes_CommanderRequirement" xml:space="preserve">
+    <value>Have 7 action cards.</value>
   </data>
   <data name="TheYssarilTribes_History" xml:space="preserve">
     <value>Near the Mahact Plateau, diagonally opposite the Passage

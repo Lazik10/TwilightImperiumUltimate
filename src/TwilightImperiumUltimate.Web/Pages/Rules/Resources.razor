@@ -3,13 +3,182 @@
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @using TwilightImperiumUltimate.Web.Components.Shared.Text
 @using TwilightImperiumUltimate.Web.Resources
+@using TwilightImperiumUltimate.Web.Services.Path
+@inject IPathProvider PathProvider
 
 <PageTitle>@Strings.Page_Resources</PageTitle>
 
 <Page>
-    <Title Text="@Strings.Page_Resources" />
-
     <StretchHeightContainer>
+
+        <div class="resource-grid handel white shadow">
+
+            <FlexRowContainer>
+                <a href="@(Strings.RulesResource_CompleteReferenceLink)">@Strings.RulesResource_CompleteReference</a>
+            </FlexRowContainer>
+
+            <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+                <a href="@(Strings.RulesResource_CompleteReferenceLink)" download="@(Strings.RulesResource_CompleteReference)">
+                    <FlexRowContainer>
+                        <HorizontalSpace Width="100" />
+                        <img src="@(PathProvider.GetIconPath(IconType.PdfDownload))" />
+                        <HorizontalSpace Width="20" />
+                        <div>Download</div>
+                    </FlexRowContainer>
+                </a>
+            </FlexRowContainer>
+
+            <FlexRowContainer>
+                <a href="@(Strings.RulesResource_LearnToPlayLink)">@Strings.RulesResource_LearnToPlay</a>
+            </FlexRowContainer>
+
+            <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+                <a href="@(Strings.RulesResource_LearnToPlayLink)" download="@Strings.RulesResource_LearnToPlay">
+                    <FlexRowContainer>
+                        <HorizontalSpace Width="100" />
+                        <img src="@(PathProvider.GetIconPath(IconType.PdfDownload))" />
+                        <HorizontalSpace Width="20" />
+                        <div>Download</div>
+                    </FlexRowContainer>
+                </a>
+            </FlexRowContainer>
+
+            <FlexRowContainer>
+                <a href="@(Strings.RulesResource_SummaryLink)">@Strings.RulesResource_Summary</a>
+            </FlexRowContainer>
+
+            <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+                <a href="@(Strings.RulesResource_SummaryLink)" download="@Strings.RulesResource_Summary">
+                    <FlexRowContainer>
+                        <HorizontalSpace Width="100" />
+                        <img src="@(PathProvider.GetIconPath(IconType.PdfDownload))" />
+                        <HorizontalSpace Width="20" />
+                        <div>Download</div>
+                    </FlexRowContainer>
+                </a>
+            </FlexRowContainer>
+
+            <FlexRowContainer>
+                <a href="@(Strings.RulesResource_CheatSheetLink)">@Strings.RulesResource_Cheatsheet</a>
+            </FlexRowContainer>
+
+            <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+                <a href="@(Strings.RulesResource_CheatSheetLink)" download="@Strings.RulesResource_Cheatsheet">
+                    <FlexRowContainer>
+                        <HorizontalSpace Width="100" />
+                        <img src="@(PathProvider.GetIconPath(IconType.PdfDownload))" />
+                        <HorizontalSpace Width="20" />
+                        <div>Download</div>
+                    </FlexRowContainer>
+                </a>
+            </FlexRowContainer>
+
+            <FlexRowContainer>
+                <a href="@(Strings.RulesResource_GuideToTheImperiumLink)">@Strings.RulesResource_GuideToTheImperium</a>
+            </FlexRowContainer>
+
+            <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+                <a href="@(Strings.RulesResource_GuideToTheImperiumLink)" download="@Strings.RulesResource_GuideToTheImperium">
+                    <FlexRowContainer>
+                        <HorizontalSpace Width="100" />
+                        <img src="@(PathProvider.GetIconPath(IconType.PdfDownload))" />
+                        <HorizontalSpace Width="20" />
+                        <div>Download</div>
+                    </FlexRowContainer>
+                </a>
+            </FlexRowContainer>
+
+            <FlexRowContainer>
+                <a href="@(Strings.RulesResource_LivingRulesReferenceLink)">@Strings.RulesResource_LivingRulesReference</a>
+            </FlexRowContainer>
+
+            <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+                <a href="@(Strings.RulesResource_LivingRulesReferenceLink)" download="@Strings.RulesResource_LivingRulesReference">
+                    <FlexRowContainer>
+                        <HorizontalSpace Width="100" />
+                        <img src="@(PathProvider.GetIconPath(IconType.PdfDownload))" />
+                        <HorizontalSpace Width="20" />
+                        <div>Download</div>
+                    </FlexRowContainer>
+                </a>
+            </FlexRowContainer>
+
+            <FlexRowContainer>
+                <a href="@(Strings.RulesResource_ProphecyOfKingsRulesLink)">@Strings.RulesResource_ProphecyOfKingsRules</a>
+            </FlexRowContainer>
+
+            <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+                <a href="@(Strings.RulesResource_ProphecyOfKingsRulesLink)" download="@Strings.RulesResource_ProphecyOfKingsRules">
+                    <FlexRowContainer>
+                        <HorizontalSpace Width="100" />
+                        <img src="@(PathProvider.GetIconPath(IconType.PdfDownload))" />
+                        <HorizontalSpace Width="20" />
+                        <div>Download</div>
+                    </FlexRowContainer>
+                </a>
+            </FlexRowContainer>
+
+            <FlexRowContainer>
+                <a href="@(Strings.RulesResource_LivingRulesReferenceTwoLink)">@Strings.RulesResource_LivingRulesReferenceTwo</a>
+            </FlexRowContainer>
+
+            <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+                <a href="@(Strings.RulesResource_LivingRulesReferenceTwoLink)" download="@Strings.RulesResource_LivingRulesReferenceTwo">
+                    <FlexRowContainer>
+                        <HorizontalSpace Width="100" />
+                        <img src="@(PathProvider.GetIconPath(IconType.PdfDownload))" />
+                        <HorizontalSpace Width="20" />
+                        <div>Download</div>
+                    </FlexRowContainer>
+                </a>
+            </FlexRowContainer>
+
+            <FlexRowContainer>
+                <a href="@(Strings.RulesResource_FaqLink)">@Strings.RulesResource_Faq</a>
+            </FlexRowContainer>
+
+            <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+                <a href="@(Strings.RulesResource_FaqLink)" download="@Strings.RulesResource_Faq">
+                    <FlexRowContainer>
+                        <HorizontalSpace Width="100" />
+                        <img src="@(PathProvider.GetIconPath(IconType.PdfDownload))" />
+                        <HorizontalSpace Width="20" />
+                        <div>Download</div>
+                    </FlexRowContainer>
+                </a>
+            </FlexRowContainer>
+
+            <FlexRowContainer>
+                <a href="@(Strings.RulesResource_FaqTwoLink)">@Strings.RulesResource_FaqTwo</a>
+            </FlexRowContainer>
+
+            <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+                <a href="@(Strings.RulesResource_FaqTwoLink)" download="@Strings.RulesResource_FaqTwo">
+                    <FlexRowContainer>
+                        <HorizontalSpace Width="100" />
+                        <img src="@(PathProvider.GetIconPath(IconType.PdfDownload))" />
+                        <HorizontalSpace Width="20" />
+                        <div>Download</div>
+                    </FlexRowContainer>
+                </a>
+            </FlexRowContainer>
+
+            <FlexRowContainer>
+                <a href="@(Strings.RulesResource_AgendaPhaseLink)">@Strings.RulesResource_AgendaPhase</a>
+            </FlexRowContainer>
+
+            <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+                <a href="@(Strings.RulesResource_AgendaPhaseLink)" download="@Strings.RulesResource_AgendaPhase">
+                    <FlexRowContainer>
+                        <HorizontalSpace Width="100" />
+                        <img src="@(PathProvider.GetIconPath(IconType.PdfDownload))" />
+                        <HorizontalSpace Width="20" />
+                        <div>Download</div>
+                    </FlexRowContainer>
+                </a>
+            </FlexRowContainer>
+
+        </div>
 
     </StretchHeightContainer>
 </Page>

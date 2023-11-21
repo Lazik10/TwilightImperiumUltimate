@@ -1,0 +1,111 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Cards
+@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Resources
+@using TwilightImperiumUltimate.Web.Services.Path
+@using TwilightImperiumUltimate.Web.Helpers.Resources;
+@inherits FactionInfoComponentBase
+@inject IPathProvider PathProvider
+
+@if (Faction.FactionName != FactionName.TheNomad)
+{
+    <div class="handel white shadow leaders-grid">
+        <FlexColumnCenteredContainer>
+            <div>@Strings.Faction_Agent</div>
+            <VerticalSpace Height="10"/>
+            <div>@Strings.Faction_AgentRequirement</div>
+        </FlexColumnCenteredContainer>
+
+        <FlexColumnCenteredContainer>
+            <div>@Strings.Faction_Commander</div>
+            <VerticalSpace Height="10" />
+            <div>@(Faction.FactionName.GetFactionUIText(FactionResourceType.CommanderRequirement))</div>
+        </FlexColumnCenteredContainer>
+
+        <FlexColumnCenteredContainer>
+            <div>@Strings.Faction_Hero</div>
+            <VerticalSpace Height="10" />
+            <div>@Strings.Faction_HeroRequirement</div>
+        </FlexColumnCenteredContainer>
+
+        <FlexColumnCenteredContainer>
+            <div class="margin">
+                <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.Agent))" />
+            </div>
+        </FlexColumnCenteredContainer>
+
+        <FlexColumnCenteredContainer>
+            <div class="margin">
+                <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.Commander))" />
+            </div>
+        </FlexColumnCenteredContainer>
+
+        <FlexColumnCenteredContainer>
+            <div class="margin">
+                <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.Hero))" />
+            </div>
+        </FlexColumnCenteredContainer>
+
+    </div>
+}
+else
+{
+    <div class="handel white shadow leaders-grid">
+
+        <FlexColumnCenteredContainer>
+            <div>@Strings.Faction_Agent</div>
+            <div>@Strings.Faction_AgentRequirement</div>
+        </FlexColumnCenteredContainer>
+        <FlexColumnCenteredContainer>
+            <div>@Strings.Faction_Agent</div>
+            <div>@Strings.Faction_AgentRequirement</div>
+        </FlexColumnCenteredContainer>
+        <FlexColumnCenteredContainer>
+            <div>@Strings.Faction_Agent</div>
+            <div>@Strings.Faction_AgentRequirement</div>
+        </FlexColumnCenteredContainer>
+
+        <FlexColumnCenteredContainer>
+            <div class="margin">
+                <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.AgentOne))" />
+            </div>
+        </FlexColumnCenteredContainer>
+        <FlexColumnCenteredContainer>
+            <div class="margin">
+                <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.AgentTwo))" />
+            </div>
+        </FlexColumnCenteredContainer>
+        <FlexColumnCenteredContainer>
+            <div class="margin">
+                <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.AgentThree))" />
+            </div>
+        </FlexColumnCenteredContainer>
+
+        <FlexColumnCenteredContainer>
+            <div>@Strings.Faction_Commander</div>
+            <div>@(Faction.FactionName.GetFactionUIText(FactionResourceType.CommanderRequirement))</div>
+        </FlexColumnCenteredContainer>
+
+        <div></div>
+
+        <FlexColumnCenteredContainer>
+            <div>@Strings.Faction_Hero</div>
+            <div>@Strings.Faction_HeroRequirement</div>
+        </FlexColumnCenteredContainer>
+
+        <FlexColumnCenteredContainer>
+            <div class="margin">
+                <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.Commander))" />
+            </div>
+        </FlexColumnCenteredContainer>
+
+        <div></div>
+
+        <FlexColumnCenteredContainer>
+            <div class="margin">
+                <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.Hero))" />
+            </div>
+        </FlexColumnCenteredContainer>
+    </div>
+}
+
+

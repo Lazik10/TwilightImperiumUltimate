@@ -24,10 +24,8 @@
   <ItemGroup>
     <Folder Include="Configurations\Game\" />
     <Folder Include="Configurations\Settings\" />
-    <Folder Include="Configurations\Units\" />
     <Folder Include="Tables\Logs\" />
     <Folder Include="Tables\Setting\" />
-    <Folder Include="Tables\Units\" />
   </ItemGroup>
 
   <ItemGroup>

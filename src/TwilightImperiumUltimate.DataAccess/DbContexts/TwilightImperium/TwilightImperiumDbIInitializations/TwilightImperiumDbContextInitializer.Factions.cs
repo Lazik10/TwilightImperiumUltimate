@@ -1,11 +1,8 @@
-﻿using TwilightImperiumUltimate.Core.Entities.Cards;
-using TwilightImperiumUltimate.Core.Enums.Cards;
-
-namespace TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium;
+﻿namespace TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium;
 
 public partial class TwilightImperiumDbContextInitializer
 {
-    private void InitializeRaces()
+    private void InitializeFactions()
     {
         using var dbContext = _dbContextFactory.CreateDbContext();
 

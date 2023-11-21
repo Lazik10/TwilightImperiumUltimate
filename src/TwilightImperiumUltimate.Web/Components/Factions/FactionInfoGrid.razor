@@ -1,4 +1,5 @@
-﻿@using TwilightImperiumUltimate.Web.Models.Factions;
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Models.Factions;
 @using TwilightImperiumUltimate.Web.Resources
 @using TwilightImperiumUltimate.Web.Services.HttpClients
 @using TwilightImperiumUltimate.Web.Services.Path;
@@ -25,11 +26,11 @@
             <div class="grid-item faction-info-text faction-sheet-container">
                 <div class="faction-sheet-button clickable"
                     @onclick="() => ShowBigImage(true)">
-                    Faction Sheet Front
+                    @Strings.Faction_FrontSheet
                 </div>
                 <div class="faction-sheet-button clickable"
                     @onclick="() => ShowBigImage(false)">
-                    Faction Sheet Back
+                    @Strings.Faction_BackSheet
                 </div>
             </div>
         </div>
@@ -38,23 +39,19 @@
                 <img src="@PathProvider.GetFactionImagePath(_selectedFaction.FactionName.ToString())" />
             </div>
             <div class="complexity-rating-container complexity-text">
-                <p>Complexity Rating: </p>
+                <p>@Strings.Faction_ComplexityRating</p>
                 <img src="@(PathProvider.GetComplexityIconPath(_selectedFaction.ComplexityRating))" />
             </div>
         </div>
     </div>
-    <div class="grid-container">
-        <div class="grid-item-history grid-item">
-            <FactionHistory FactionName="@(_selectedFaction.FactionName)" />
-        </div>
 
-        <div class="grid-item-ability grid-item">
-            <FactionAbilities FactionName="@(_selectedFaction.FactionName)" />
-        </div>
+    <FactionInfoRow OnFactionInfoTypeChange="SetFactionInfoType"/>
 
-        <h3>Comodities: @_selectedFaction.Commodities</h3>
-        <h3>Game Version: @_selectedFaction.GameVersion.ToString()</h3>
-    </div>
+    <StretchHeightContainer>
+        <FlexRowContainer>
+            @DynamicComponent
+        </FlexRowContainer>
+    </StretchHeightContainer>
 
     @if (showBigImage)
     {
@@ -63,39 +60,5 @@
                 <img src="@currentBigImageSrc" @onclick="HideBigImage" />
             </div>
         </div>
-    }
-}
-
-@code {
-    private FactionModel _selectedFaction = default!;
-
-    private bool showBigImage = false;
-
-    private string currentBigImageSrc = string.Empty;
-
-    protected async override Task OnInitializedAsync()
-    {
-        _selectedFaction = await HttpClient.GetAsync<FactionModel>(Paths.ApiPath_FirstFaction);
-        StateHasChanged();
-    }
-
-    public void UpdateSelectedFaction(FactionModel faction)
-    {
-        _selectedFaction = faction;
-        StateHasChanged();
-    }
-
-    private void ShowBigImage(bool front)
-    {
-        if (_selectedFaction is not null)
-        {
-            currentBigImageSrc = PathProvider.GetFactionSheetPath(_selectedFaction.FactionName.ToString(), front);
-            showBigImage = true;
-        }
-    }
-
-    private void HideBigImage()
-    {
-        showBigImage = false;
     }
 }

@@ -1,4 +1,6 @@
-﻿using TwilightImperiumUltimate.Core.Enums.Galaxy;
+﻿using TwilightImperiumUltimate.Core.Entities.RelationshipEntities;
+using TwilightImperiumUltimate.Core.Entities.Units;
+using TwilightImperiumUltimate.Core.Enums.Galaxy;
 using TwilightImperiumUltimate.Core.Enums.Game;
 using TwilightImperiumUltimate.Core.Enums.Races;
 using TwilightImperiumUltimate.Core.Interfaces;
@@ -61,12 +63,17 @@ public class Faction : IEntity, IGameVersion
     public string SystemInfo { get; set; } = string.Empty;
 
     /// <summary>
-    /// Gets or sets all technologies that can be researched by the race.
-    /// </summary>
-    public IReadOnlyCollection<RaceTechnology> RaceTechnologies { get; set; } = new List<RaceTechnology>();
-
-    /// <summary>
     /// Gets or sets origin of this race.
     /// </summary>
     public GameVersion GameVersion { get; set; }
+
+    /// <summary>
+    /// Gets or sets all technologies that can be researched by the race.
+    /// </summary>
+    public IReadOnlyCollection<FactionTechnology> FactionTechnologies { get; set; } = new List<FactionTechnology>();
+
+    /// <summary>
+    /// Gets or sets all starting units.
+    /// </summary>
+    public IReadOnlyCollection<FactionUnit> FactionUnits { get; set; } = new List<FactionUnit>();
 }
