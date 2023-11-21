@@ -1,0 +1,27 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Resources
+
+<FlexColumnCenteredContainer>
+    <div class="factioninfo-navbar">
+        <FlexRowContainer Width="80" JustifyContent="Enums.JustifyContent.SpaceBetween">
+            <div class="menu-item clickable" @onclick="() => OnInfoTypeClick(FactionInfoType.Ability)">
+                @Strings.Faction_Ability
+            </div>
+            <div class="menu-item clickable" @onclick="() => OnInfoTypeClick(FactionInfoType.StartingUnits)">
+                @Strings.Faction_StartingUnits
+            </div>
+            <div class="menu-item clickable" @onclick="() => OnInfoTypeClick(FactionInfoType.Componenets)">
+                @Strings.Faction_FactionComponenets
+            </div>
+            <div class="menu-item clickable" @onclick="() => OnInfoTypeClick(FactionInfoType.Leaders)">
+                @Strings.Faction_Leaders
+            </div>
+            <div class="menu-item clickable" @onclick="() => OnInfoTypeClick(FactionInfoType.History)">
+                @Strings.Faction_InfoPreview
+            </div>
+            <div class="menu-item clickable" @onclick="() => OnInfoTypeClick(FactionInfoType.Faq)">
+                @Strings.Faction_Faq
+            </div>
+        </FlexRowContainer>
+    </div>
+</FlexColumnCenteredContainer>

@@ -162,6 +162,9 @@
   <data name="ResourcePath_CulturePath" xml:space="preserve">
     <value>\resources\images\shared\cultures</value>
   </data>
+  <data name="ResourcePath_FactionComponentsPath" xml:space="preserve">
+    <value>\resources\images\{language}\leaders</value>
+  </data>
   <data name="ResourcePath_FactionIconPath" xml:space="preserve">
     <value>\resources\images\shared\factionicons</value>
   </data>
@@ -171,10 +174,16 @@
   <data name="ResourcePath_FactionSheetPath" xml:space="preserve">
     <value>\resources\images\shared\factionimages</value>
   </data>
+  <data name="ResourcePath_IconPath" xml:space="preserve">
+    <value>\resources\images\shared\icons</value>
+  </data>
   <data name="ResourcePath_LargeTilePath" xml:space="preserve">
     <value>\resources\images\shared\tiles\large</value>
   </data>
   <data name="ResourcePath_TechnologyImagePath" xml:space="preserve">
     <value>\resources\images\{language}\technologies</value>
+  </data>
+  <data name="ResourcePath_UnitImagePath" xml:space="preserve">
+    <value>\resources\images\shared\units</value>
   </data>
 </root>

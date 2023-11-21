@@ -448,6 +448,150 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Abilities.
+        /// </summary>
+        public static string Faction_Ability {
+            get {
+                return ResourceManager.GetString("Faction_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Agent.
+        /// </summary>
+        public static string Faction_Agent {
+            get {
+                return ResourceManager.GetString("Faction_Agent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to At Game Start.
+        /// </summary>
+        public static string Faction_AgentRequirement {
+            get {
+                return ResourceManager.GetString("Faction_AgentRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Faction Sheet Back.
+        /// </summary>
+        public static string Faction_BackSheet {
+            get {
+                return ResourceManager.GetString("Faction_BackSheet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Commander.
+        /// </summary>
+        public static string Faction_Commander {
+            get {
+                return ResourceManager.GetString("Faction_Commander", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Complexity Rating: .
+        /// </summary>
+        public static string Faction_ComplexityRating {
+            get {
+                return ResourceManager.GetString("Faction_ComplexityRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Faction Componenets.
+        /// </summary>
+        public static string Faction_FactionComponenets {
+            get {
+                return ResourceManager.GetString("Faction_FactionComponenets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FAQ.
+        /// </summary>
+        public static string Faction_Faq {
+            get {
+                return ResourceManager.GetString("Faction_Faq", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flagship.
+        /// </summary>
+        public static string Faction_Flagship {
+            get {
+                return ResourceManager.GetString("Faction_Flagship", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Faction Sheet Front.
+        /// </summary>
+        public static string Faction_FrontSheet {
+            get {
+                return ResourceManager.GetString("Faction_FrontSheet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hero.
+        /// </summary>
+        public static string Faction_Hero {
+            get {
+                return ResourceManager.GetString("Faction_Hero", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have 3 Scored Objectives.
+        /// </summary>
+        public static string Faction_HeroRequirement {
+            get {
+                return ResourceManager.GetString("Faction_HeroRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Info.
+        /// </summary>
+        public static string Faction_InfoPreview {
+            get {
+                return ResourceManager.GetString("Faction_InfoPreview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Leaders.
+        /// </summary>
+        public static string Faction_Leaders {
+            get {
+                return ResourceManager.GetString("Faction_Leaders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mech.
+        /// </summary>
+        public static string Faction_Mech {
+            get {
+                return ResourceManager.GetString("Faction_Mech", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Starting Units.
+        /// </summary>
+        public static string Faction_StartingUnits {
+            get {
+                return ResourceManager.GetString("Faction_StartingUnits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to (To ban a faction, click on the faction icon above).
         /// </summary>
         public static string FactionDraft_BanHelp {
@@ -1047,6 +1191,204 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RelicCard {
             get {
                 return ResourceManager.GetString("RelicCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Twilight Imperium 4th Edition - Agenda Phase.
+        /// </summary>
+        public static string RulesResource_AgendaPhase {
+            get {
+                return ResourceManager.GetString("RulesResource_AgendaPhase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://1drv.ms/b/s!AifcqLzbdKjHhcMvoCfZA0sx1ZZk9A?e=LUnRGJ.
+        /// </summary>
+        public static string RulesResource_AgendaPhaseLink {
+            get {
+                return ResourceManager.GetString("RulesResource_AgendaPhaseLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Twilight Imperium I4th Edition - Cheat Sheets.
+        /// </summary>
+        public static string RulesResource_Cheatsheet {
+            get {
+                return ResourceManager.GetString("RulesResource_Cheatsheet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://1drv.ms/b/s!AifcqLzbdKjHhcM0EZj2tRnwn65usg?e=UXT2xu.
+        /// </summary>
+        public static string RulesResource_CheatSheetLink {
+            get {
+                return ResourceManager.GetString("RulesResource_CheatSheetLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Twilight Imperium 4th Edition - Complete Rules Reference.
+        /// </summary>
+        public static string RulesResource_CompleteReference {
+            get {
+                return ResourceManager.GetString("RulesResource_CompleteReference", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://1drv.ms/b/s!AifcqLzbdKjHhcM2w3lBzShjwZsw5Q?e=kAZrlE.
+        /// </summary>
+        public static string RulesResource_CompleteReferenceLink {
+            get {
+                return ResourceManager.GetString("RulesResource_CompleteReferenceLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Twilight Imperium 4th Edition PoK - FAQ.
+        /// </summary>
+        public static string RulesResource_Faq {
+            get {
+                return ResourceManager.GetString("RulesResource_Faq", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://1drv.ms/b/s!AifcqLzbdKjHhcMxktkeXB3x_beYSA?e=Mrgv4p.
+        /// </summary>
+        public static string RulesResource_FaqLink {
+            get {
+                return ResourceManager.GetString("RulesResource_FaqLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Twilight Imperium 4th Edition PoK - FAQ 2.
+        /// </summary>
+        public static string RulesResource_FaqTwo {
+            get {
+                return ResourceManager.GetString("RulesResource_FaqTwo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://1drv.ms/b/s!AifcqLzbdKjHhcMwv8C9fmrhz_ldow?e=E7eK6l.
+        /// </summary>
+        public static string RulesResource_FaqTwoLink {
+            get {
+                return ResourceManager.GetString("RulesResource_FaqTwoLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Twilight Imperium 4th Edition - Guide to the Imperium.
+        /// </summary>
+        public static string RulesResource_GuideToTheImperium {
+            get {
+                return ResourceManager.GetString("RulesResource_GuideToTheImperium", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://1drv.ms/b/s!AifcqLzbdKjHhcM5F1CSt5pfncXYfQ?e=gBYFna.
+        /// </summary>
+        public static string RulesResource_GuideToTheImperiumLink {
+            get {
+                return ResourceManager.GetString("RulesResource_GuideToTheImperiumLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Twilight Imperium 4th Edition - Learn to play.
+        /// </summary>
+        public static string RulesResource_LearnToPlay {
+            get {
+                return ResourceManager.GetString("RulesResource_LearnToPlay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://1drv.ms/b/s!AifcqLzbdKjHhcM4IgWTmhgGuJCB9Q?e=kn7xHX.
+        /// </summary>
+        public static string RulesResource_LearnToPlayLink {
+            get {
+                return ResourceManager.GetString("RulesResource_LearnToPlayLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Twilight Imperium 4th Edition - Living Rules Reference 1.3.
+        /// </summary>
+        public static string RulesResource_LivingRulesReference {
+            get {
+                return ResourceManager.GetString("RulesResource_LivingRulesReference", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://1drv.ms/b/s!AifcqLzbdKjHhcMz8mZNmCavgfJOYw?e=M75Yoq.
+        /// </summary>
+        public static string RulesResource_LivingRulesReferenceLink {
+            get {
+                return ResourceManager.GetString("RulesResource_LivingRulesReferenceLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Twilight Imperium 4th Edition - Living Rules Reference 2.0.
+        /// </summary>
+        public static string RulesResource_LivingRulesReferenceTwo {
+            get {
+                return ResourceManager.GetString("RulesResource_LivingRulesReferenceTwo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://1drv.ms/b/s!AifcqLzbdKjHhcM1KpGgzUJkFDyWkQ?e=6jjuDB.
+        /// </summary>
+        public static string RulesResource_LivingRulesReferenceTwoLink {
+            get {
+                return ResourceManager.GetString("RulesResource_LivingRulesReferenceTwoLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Twilight Imperium 4th Edition PoK - Rules.
+        /// </summary>
+        public static string RulesResource_ProphecyOfKingsRules {
+            get {
+                return ResourceManager.GetString("RulesResource_ProphecyOfKingsRules", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://1drv.ms/b/s!AifcqLzbdKjHhcM336s0LEVtIhSuOA?e=inBegI.
+        /// </summary>
+        public static string RulesResource_ProphecyOfKingsRulesLink {
+            get {
+                return ResourceManager.GetString("RulesResource_ProphecyOfKingsRulesLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Twilight Imperium 4th Edition - Summary Reference.
+        /// </summary>
+        public static string RulesResource_Summary {
+            get {
+                return ResourceManager.GetString("RulesResource_Summary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://1drv.ms/b/s!AifcqLzbdKjHhcMyikY_5InEv44pPg?e=t59q2B.
+        /// </summary>
+        public static string RulesResource_SummaryLink {
+            get {
+                return ResourceManager.GetString("RulesResource_SummaryLink", resourceCulture);
             }
         }
         

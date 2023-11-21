@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using TwilightImperiumUltimate.Web.Enums;
 using TwilightImperiumUltimate.Web.Resources;
 
 namespace TwilightImperiumUltimate.Web.Services.Path;
@@ -59,6 +60,21 @@ public class PathProvider : IPathProvider
     public string GetTechnologyImagePath(string fileName)
     {
         return $"{GetCorrectLanguagePath(Paths.ResourcePath_TechnologyImagePath)}{Strings.BackSlash}{fileName}{Strings.FileExtensionWebp}";
+    }
+
+    public string GetUnitImagePath(string fileName)
+    {
+        return $"{Paths.ResourcePath_UnitImagePath}{Strings.BackSlash}{fileName}{Strings.FileExtensionWebp}";
+    }
+
+    public string GetFactionComponenetTypeImagePath(string fileName, ComponentType componenetType)
+    {
+        return $"{GetCorrectLanguagePath(Paths.ResourcePath_FactionComponentsPath)}{Strings.BackSlash}{fileName}{componenetType}{Strings.FileExtensionWebp}";
+    }
+
+    public string GetIconPath(IconType iconType)
+    {
+        return $"{Paths.ResourcePath_IconPath}{Strings.BackSlash}{iconType}{Strings.FileExtensionWebp}";
     }
 
     private string GetCorrectLanguagePath(string path)

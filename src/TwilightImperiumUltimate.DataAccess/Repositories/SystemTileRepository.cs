@@ -62,7 +62,7 @@ public class SystemTileRepository : ISystemTileRepository
 
     private async Task InitializeSystemTiles()
     {
-        using var context = _context.CreateDbContext();
+        using var context = await _context.CreateDbContextAsync();
 
         _systemTiles = await context.SystemTiles.Include(x => x.Planets).ToListAsync();
     }

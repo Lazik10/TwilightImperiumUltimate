@@ -1,10 +1,6 @@
 ﻿@using TwilightImperiumUltimate.Web.Helpers.Resources;
+@inherits FactionInfoComponentBase
 
-<div class="abilities">
-    @FactionName.GetFactionUIText(FactionResourceType.Ability)
+<div class="abilities handel white shadow">
+    @Ability
 </div>
-
-@code {
-    [Parameter]
-    public FactionName FactionName { get; set; } = default!;
-}

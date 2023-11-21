@@ -1,4 +1,6 @@
-﻿namespace TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium;
+﻿using TwilightImperiumUltimate.DataAccess.RelationshipEntities;
+
+namespace TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium;
 
 public partial class TwilightImperiumDbContext : DbContext
 {
@@ -12,5 +14,8 @@ public partial class TwilightImperiumDbContext : DbContext
         ArgumentNullException.ThrowIfNull(modelBuilder);
 
         _ = modelBuilder.ApplyConfigurationsFromAssembly(System.Reflection.Assembly.GetExecutingAssembly());
+
+        modelBuilder.Entity<FactionTechnology>()
+            .HasKey(ft => new { ft.FactionName, ft.TechnologyName });
     }
 }

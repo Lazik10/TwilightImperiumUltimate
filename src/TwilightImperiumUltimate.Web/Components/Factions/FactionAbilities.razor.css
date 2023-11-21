@@ -1,4 +1,11 @@
 ﻿.abilities {
-    color: white;
+    font-size: 20px;
     text-align: justify;
+    width: 80%
 }
+
+    .abilities :nth-child(2),
+    .abilities :nth-child(4),
+    .abilities :nth-child(6) {
+        font-size: 12px;
+    }

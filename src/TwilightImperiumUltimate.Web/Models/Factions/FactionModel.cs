@@ -13,4 +13,6 @@ public class FactionModel
     public GameVersion GameVersion { get; set; }
 
     public bool Banned { get; set; }
+
+    public IReadOnlyDictionary<UnitName, int> Units { get; set; } = new Dictionary<UnitName, int>();
 }

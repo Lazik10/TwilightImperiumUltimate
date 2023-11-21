@@ -1,15 +1,16 @@
 ﻿namespace TwilightImperiumUltimate.Core.Enums.Units;
 
-public enum Unit
+public enum UnitName
 {
+    SpaceDock,
     Pds,
-    Dock,
-    GroundForce,
+    Infantry,
+    Mech,
     Fighter,
-    Carrier,
     Destroyer,
+    Carrier,
     Cruiser,
     Dreadnought,
-    Flaghsip,
+    Flagship,
     WarSun,
 }

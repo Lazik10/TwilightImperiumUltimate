@@ -23,6 +23,7 @@ public class FactionsController : ControllerBase
         using var context = await _context.CreateDbContextAsync();
 
         var factions = await context.Factions
+            .Include(x => x.FactionUnits)
             .ToListAsync();
 
         var factionDtos = factions
@@ -31,6 +32,8 @@ public class FactionsController : ControllerBase
                 FactionName = x.FactionName,
                 Commodities = x.Commodities,
                 ComplexityRating = (int)++x.ComplexityRating,
+                Units = x.FactionUnits
+                    .ToDictionary(fu => fu.UnitName, fu => fu.Count),
                 GameVersion = x.GameVersion,
             })
             .ToList();
@@ -45,8 +48,8 @@ public class FactionsController : ControllerBase
 
         var factions = await context.Factions
             .Where(x => x.FactionName == (FactionName)id)
-            .ToListAsync()
-            .ConfigureAwait(false);
+            .Include(x => x.FactionUnits)
+            .ToListAsync();
 
         var factionDtos = factions
             .Select(x => new FactionDto
@@ -54,9 +57,10 @@ public class FactionsController : ControllerBase
                 FactionName = x.FactionName,
                 Commodities = x.Commodities,
                 ComplexityRating = (int)++x.ComplexityRating,
+                Units = x.FactionUnits
+                    .ToDictionary(fu => fu.UnitName, fu => fu.Count),
                 GameVersion = x.GameVersion,
             })
-            .AsEnumerable()
             .First();
 
         return factionDtos;

@@ -1,0 +1,20 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Services.Path
+@inherits FactionInfoComponentBase
+@inject IPathProvider PathProvider
+
+<FlexRowContainer>
+
+    @foreach (var unit in Faction.Units)
+    {
+        for (var i = 0; i < unit.Value; i++)
+        {
+            <img src="@(PathProvider.GetUnitImagePath(unit.Key.ToString()))"
+                 alt="icon for @Faction.FactionName"
+                 title="@Faction.FactionName"
+                 width="100" />
+        }
+    }
+
+</FlexRowContainer>
+

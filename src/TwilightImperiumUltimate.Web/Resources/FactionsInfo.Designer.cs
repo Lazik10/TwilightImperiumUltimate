@@ -61,11 +61,21 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to UNRELENTING: Apply +1 to the result of each of your unit&apos;s combat rolls..
+        ///   Looks up a localized string similar to &lt;p&gt;UNRELENTING:&lt;/p&gt;
+        ///&lt;p&gt;Apply +1 to the result of each of your unit&apos;s combat rolls.&lt;/p&gt;.
         /// </summary>
         internal static string SardakkNorr_Ability {
             get {
                 return ResourceManager.GetString("SardakkNorr_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Control 5 planets in non-home systems..
+        /// </summary>
+        internal static string SardakkNorr_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("SardakkNorr_CommanderRequirement", resourceCulture);
             }
         }
         
@@ -150,11 +160,21 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MITOSIS: Your space docks cannot produce infantry.  At the start of the status phase , place 1 infantry from your reinforcements on any planet you control..
+        ///   Looks up a localized string similar to &lt;p&gt;MITOSIS:&lt;/p&gt;
+        ///&lt;p&gt;Your space docks cannot produce infantry.  At the start of the status phase , place 1 infantry from your reinforcements on any planet you control.&lt;/p&gt;.
         /// </summary>
         internal static string TheArborec_Ability {
             get {
                 return ResourceManager.GetString("TheArborec_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have 12 Ground Forces on Planets you control..
+        /// </summary>
+        internal static string TheArborec_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheArborec_CommanderRequirement", resourceCulture);
             }
         }
         
@@ -245,13 +265,26 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ZEAL - You always vote first during the agenda phase. When you cast at least 1 vote, cast 1 additional vote for each player in the game including you.
-        ///RAID FORMATION - When 1 or more of your units uses ANTI-FIGHTER BARRAGE, for each hit produced in excess of your opponent&apos;s Fighters, choose 1 of your opponent&apos;s ships that has SUSTAIN DAMAGE to become damaged.
-        ///Note: The “Anti-Fighter Barrage” step can occur even if a player’s opponent has no fighters in the combat (in this case all hits produced from Anti- [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;p&gt;ZEAL:&lt;/p&gt;
+        ///&lt;p&gt;You always vote first during the agenda phase. When you cast at least 1 vote, cast 1 additional vote for each player in the game including you.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;RAID FORMATION:&lt;/p&gt;
+        ///&lt;p&gt;When 1 or more of your units uses ANTI-FIGHTER BARRAGE, for each hit produced in excess of your opponent&apos;s Fighters, choose 1 of your opponent&apos;s ships that has SUSTAIN DAMAGE to become damaged.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;Note: The “Anti-Fighter Barrage” step can occur even if a player’s opponent has no fighters in the comb [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheArgentFlight_Ability {
             get {
                 return ResourceManager.GetString("TheArgentFlight_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have 6 units that have ANTI-FIGHTER BARRAGE, SPACE CANNON or BOMBARDMENT on the game board..
+        /// </summary>
+        internal static string TheArgentFlight_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheArgentFlight_CommanderRequirement", resourceCulture);
             }
         }
         
@@ -330,12 +363,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MUNITIONS RESERVES: At the start of each round of space combat, you may spend 2 trade goods;  you may re-roll any number of your dice during that combat round.
-        ///ARMADA: The maximum number of non-fighter ships you can have in each system is equal to 2 more than the number of tokens in your fleet pool..
+        ///   Looks up a localized string similar to &lt;p&gt;MUNITIONS RESERVES:&lt;/p&gt;
+        ///&lt;p&gt;At the start of each round of space combat, you may spend 2 trade goods;  you may re-roll any number of your dice during that combat round.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;ARMADA:&lt;/p&gt;
+        ///&lt;p&gt;The maximum number of non-fighter ships you can have in each system is equal to 2 more than the number of tokens in your fleet pool.&lt;/p&gt;.
         /// </summary>
         internal static string TheBaronyOfLetnev_Ability {
             get {
                 return ResourceManager.GetString("TheBaronyOfLetnev_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have 5 non-fighter ships in 1 system..
+        /// </summary>
+        internal static string TheBaronyOfLetnev_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheBaronyOfLetnev_CommanderRequirement", resourceCulture);
             }
         }
         
@@ -434,12 +479,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SCAVENGE: After you gain control of a planet, gain 1 trade good.
-        ///NOMADIC: You can score objectives even if you do not control the planets in your home system..
+        ///   Looks up a localized string similar to &lt;p&gt;SCAVENGE:&lt;/p&gt;
+        ///&lt;p&gt;After you gain control of a planet, gain 1 trade good.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;NOMADIC:&lt;/p&gt;
+        ///&lt;p&gt;You can score objectives even if you do not control the planets in your home system.&lt;/p&gt;.
         /// </summary>
         internal static string TheClanOfSaar_Ability {
             get {
                 return ResourceManager.GetString("TheClanOfSaar_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have 3 space docks on the game board..
+        /// </summary>
+        internal static string TheClanOfSaar_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheClanOfSaar_CommanderRequirement", resourceCulture);
             }
         }
         
@@ -527,13 +584,27 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to THE TRIBUNII: During setup, choose an unplayed faction from among the Mentak, the Xxcha and The Argent Flight; take that faction&apos;s home system, command tokens and control markers. Additionally, take the Keleres Hero that corresponds to that faction.
-        ///COUNCIL PATRONAGE: Replenish your commodities at the start of the strategy phase, then gain 1 trade good.
-        ///LAW&apos;S ORDER: You may spend 1 influence at the start of your turn to treat all laws as blank until the end of your turn..
+        ///   Looks up a localized string similar to &lt;p&gt;THE TRIBUNII:&lt;/p&gt;
+        ///&lt;p&gt;During setup, choose an unplayed faction from among the Mentak, the Xxcha and The Argent Flight; take that faction&apos;s home system, command tokens and control markers. Additionally, take the Keleres Hero that corresponds to that faction.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;COUNCIL PATRONAGE:&lt;/p&gt;
+        ///&lt;p&gt;Replenish your commodities at the start of the strategy phase, then gain 1 trade good.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;LAW&apos;S ORDER:&lt;/p&gt;
+        ///&lt;p&gt;You may spend 1 influence at the start of your turn to treat all laws as blank until t [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheCouncilKeleres_Ability {
             get {
                 return ResourceManager.GetString("TheCouncilKeleres_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Spend 1 trade good after you play an action card that has a component action..
+        /// </summary>
+        internal static string TheCouncilKeleres_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheCouncilKeleres_CommanderRequirement", resourceCulture);
             }
         }
         
@@ -616,13 +687,26 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to STAR FORGE: ACTION: Spend 1 token from your strategy pool to place either 2 fighters or 1 destroyer from your reinforcements in a system that contains 1 or more of your war suns.
-        ///GASHLAI PHYSIOLOGY: Your ships can move through supernovas.
-        ///Note: Moving through a system is distinct from moving into a system. See Movement rules for details..
+        ///   Looks up a localized string similar to &lt;p&gt;STAR FORGE:&lt;/p&gt;
+        ///&lt;p&gt;ACTION: Spend 1 token from your strategy pool to place either 2 fighters or 1 destroyer from your reinforcements in a system that contains 1 or more of your war suns.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;GASHLAI PHYSIOLOGY:&lt;/p&gt;
+        ///&lt;p&gt;Your ships can move through supernovas.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;Note: Moving through a system is distinct from moving into a system. See Movement rules for details.&lt;/p&gt;.
         /// </summary>
         internal static string TheEmbersOfMuaat_Ability {
             get {
                 return ResourceManager.GetString("TheEmbersOfMuaat_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Produce a War Sun..
+        /// </summary>
+        internal static string TheEmbersOfMuaat_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheEmbersOfMuaat_CommanderRequirement", resourceCulture);
             }
         }
         
@@ -705,13 +789,27 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MASTERS OF TRADE: You do not have to spend a command token to resolve the secondary ability of the &quot;Trade&quot; strategy card.
-        ///GUILD SHIPS: You can negotiate transactions with players who are not your neighbor.
-        ///ARBITERS: When you are negotiating a transaction, action cards can be exchanged as part of that transaction..
+        ///   Looks up a localized string similar to &lt;p&gt;MASTERS OF TRADE:&lt;/p&gt;
+        ///&lt;p&gt;You do not have to spend a command token to resolve the secondary ability of the &quot;Trade&quot; strategy card.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;GUILD SHIPS:&lt;/p&gt;
+        ///&lt;p&gt;You can negotiate transactions with players who are not your neighbor.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;ARBITERS:&lt;/p&gt;
+        ///&lt;p&gt;When you are negotiating a transaction, action cards can be exchanged as part of that transaction.&lt;/p&gt;.
         /// </summary>
         internal static string TheEmiratesOfHacan_Ability {
             get {
                 return ResourceManager.GetString("TheEmiratesOfHacan_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have 10 Trade Goods..
+        /// </summary>
+        internal static string TheEmiratesOfHacan_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheEmiratesOfHacan_CommanderRequirement", resourceCulture);
             }
         }
         
@@ -800,13 +898,27 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VOIDBORN - Nebulae do not affect your ships&apos; movement.
-        ///AETHERPASSAGE - After a player activates a system, you may allow that player to move their ships through systems that contain your ships.
-        ///DARK WHISPERS - During setup, take the additional Empyrean faction promissory note; you have 2 faction promissory notes..
+        ///   Looks up a localized string similar to &lt;p&gt;VOIDBORN:&lt;/p&gt;
+        ///&lt;p&gt;Nebulae do not affect your ships&apos; movement.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;AETHERPASSAGE:&lt;/p&gt;
+        ///&lt;p&gt;After a player activates a system, you may allow that player to move their ships through systems that contain your ships.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;DARK WHISPERS:&lt;/p&gt;
+        ///&lt;p&gt;During setup, take the additional Empyrean faction promissory note; you have 2 faction promissory notes&lt;/p&gt;..
         /// </summary>
         internal static string TheEmpyrean_Ability {
             get {
                 return ResourceManager.GetString("TheEmpyrean_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Be neighbors with all other players..
+        /// </summary>
+        internal static string TheEmpyrean_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheEmpyrean_CommanderRequirement", resourceCulture);
             }
         }
         
@@ -891,12 +1003,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ORBITAL DROP: ACTION: Spend 1 token from your strategy pool to place 2 infantry from your reinforcements on 1 planet you control.
-        ///VERSATILE: When you gain command tokens during the status phase, gain 1 additional command token..
+        ///   Looks up a localized string similar to &lt;p&gt;ORBITAL DROP:&lt;/p&gt;
+        ///&lt;p&gt;ACTION: Spend 1 token from your strategy pool to place 2 infantry from your reinforcements on 1 planet you control.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;VERSATILE:&lt;/p&gt;
+        ///&lt;p&gt;When you gain command tokens during the status phase, gain 1 additional command token.&lt;/p&gt;.
         /// </summary>
         internal static string TheFederationOfSol_Ability {
             get {
                 return ResourceManager.GetString("TheFederationOfSol_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Control planets that have a combined total of at least 12 resources..
+        /// </summary>
+        internal static string TheFederationOfSol_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheFederationOfSol_CommanderRequirement", resourceCulture);
             }
         }
         
@@ -983,13 +1107,27 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to QUANTUM ENTANGLEMENT : You treat all systems that contain either an alpha or beta wormhole as adjacent to each other. Game effects cannot prevent you from using this ability.
-        ///SLIPSTREAM: During your tactical actions, apply +1 to the move value of each of your ships that starts its movement in your home system  or in a system that contains either an alpha or beta wormhole.
-        ///CREUSS GATE: When you create the game board, place the Creuss Gate (tile 17) where your home system would normally be placed. The Creus [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;p&gt;QUANTUM ENTANGLEMENT:&lt;/p&gt;
+        ///&lt;p&gt;You treat all systems that contain either an alpha or beta wormhole as adjacent to each other. Game effects cannot prevent you from using this ability.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;SLIPSTREAM:&lt;/p&gt;
+        ///&lt;p&gt;During your tactical actions, apply +1 to the move value of each of your ships that starts its movement in your home system  or in a system that contains either an alpha or beta wormhole.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;CREUSS GATE:&lt;/p&gt;
+        ///&lt;p&gt;When you create the game board, place the Creuss Gate (tile 17) wher [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheGhostsOfCreuss_Ability {
             get {
                 return ResourceManager.GetString("TheGhostsOfCreuss_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have units in 3 systems that contain alpha or beta wormholes..
+        /// </summary>
+        internal static string TheGhostsOfCreuss_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheGhostsOfCreuss_CommanderRequirement", resourceCulture);
             }
         }
         
@@ -1077,12 +1215,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ASSIMILATE: When you gain control of a planet, replace each PDS and space dock that is on that planet with a matching unit from your reinforcements.
-        ///HARROW: At the end of each round of ground combat, your ships in the active system may use their Bombardment abilities against your opponent&apos;s ground forces on the planet..
+        ///   Looks up a localized string similar to &lt;p&gt;ASSIMILATE:&lt;/p&gt;
+        ///&lt;p&gt;When you gain control of a planet, replace each PDS and space dock that is on that planet with a matching unit from your reinforcements.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;HARROW:&lt;/p&gt;
+        ///&lt;p&gt;At the end of each round of ground combat, your ships in the active system may use their Bombardment abilities against your opponent&apos;s ground forces on the planet.&lt;/p&gt;.
         /// </summary>
         internal static string TheL1z1xMindnet_Ability {
             get {
                 return ResourceManager.GetString("TheL1z1xMindnet_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have 4 dreadnoughts on the Board..
+        /// </summary>
+        internal static string TheL1Z1XMindnet_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheL1Z1XMindnet_CommanderRequirement", resourceCulture);
             }
         }
         
@@ -1176,13 +1326,27 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to EDICT - When you win a combat, place 1 command token from your opponent&apos;s reinforcements in your fleet pool if it does not already contain 1 of that player&apos;s tokens; other player&apos;s tokens in your fleet pool increase your fleet limit but cannot be redistributed.
-        ///IMPERIA - While another player&apos;s command token is in your fleet pool, you can use the ability of that player&apos;s commander, if it is unlocked.
-        ///HUBRIS - During setup, purge your &quot;Alliance&quot; promissory note. Other players cannot give you their &apos;Alliance [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;p&gt;EDICT:&lt;/p&gt;
+        ///&lt;p&gt;When you win a combat, place 1 command token from your opponent&apos;s reinforcements in your fleet pool if it does not already contain 1 of that player&apos;s tokens; other player&apos;s tokens in your fleet pool increase your fleet limit but cannot be redistributed.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;IMPERIA:&lt;/p&gt;
+        ///&lt;p&gt;While another player&apos;s command token is in your fleet pool, you can use the ability of that player&apos;s commander, if it is unlocked.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;HUBRIS:&lt;/p&gt;
+        ///&lt;p&gt;During setup, purge your &quot;Alliance&quot; promissory [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheMahactGeneSorcerers_Ability {
             get {
                 return ResourceManager.GetString("TheMahactGeneSorcerers_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have 2 other factions&apos; command tokens in your fleet pool..
+        /// </summary>
+        internal static string TheMahactGeneSorcerers_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheMahactGeneSorcerers_CommanderRequirement", resourceCulture);
             }
         }
         
@@ -1259,12 +1423,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to AMBUSH: At the start of a space combat, you may roll 1 die for each of up to 2 of your cruisers or destroyers in the system.  For each result equal to or greater than that ship&apos;s combat value, produce 1 hit; your opponent must assign it to 1 of their ships.
-        ///PILLAGE: After 1 of your neighbors gains trade goods or resolves a transaction, if they have 3 or more trade goods, you may take 1 of their trade goods or commodities..
+        ///   Looks up a localized string similar to &lt;p&gt;AMBUSH:&lt;/p&gt;
+        ///&lt;p&gt;At the start of a space combat, you may roll 1 die for each of up to 2 of your cruisers or destroyers in the system.  For each result equal to or greater than that ship&apos;s combat value, produce 1 hit; your opponent must assign it to 1 of their ships.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;PILLAGE:&lt;/p&gt;
+        ///&lt;p&gt;After 1 of your neighbors gains trade goods or resolves a transaction, if they have 3 or more trade goods, you may take 1 of their trade goods or commodities.&lt;/p&gt;.
         /// </summary>
         internal static string TheMentakCoalition_Ability {
             get {
                 return ResourceManager.GetString("TheMentakCoalition_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have 4 cruisers on the game board.
+        /// </summary>
+        internal static string TheMentakCoalition_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheMentakCoalition_CommanderRequirement", resourceCulture);
             }
         }
         
@@ -1366,12 +1542,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TELEPATHIC: At the end of the strategy phase, place the Naalu &quot;0&quot; token on your strategy card; you are first in initiative order.
-        ///FORESIGHT: After another player moves ships into a system that contains 1 or more of your ships, you may place 1 token from your strategy pool in an adjacent system that does not contain another player&apos;s ships;  move your ships from the active system into that system..
+        ///   Looks up a localized string similar to &lt;p&gt;TELEPATHIC:&lt;/p&gt;
+        ///&lt;p&gt;At the end of the strategy phase, place the Naalu &quot;0&quot; token on your strategy card; you are first in initiative order.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;FORESIGHT:&lt;/p&gt;
+        ///&lt;p&gt;After another player moves ships into a system that contains 1 or more of your ships, you may place 1 token from your strategy pool in an adjacent system that does not contain another player&apos;s ships;  move your ships from the active system into that system.&lt;/p&gt;.
         /// </summary>
         internal static string TheNaaluCollective_Ability {
             get {
                 return ResourceManager.GetString("TheNaaluCollective_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have ground forces in or adjacent to the Mecatol Rex system..
+        /// </summary>
+        internal static string TheNaaluCollective_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheNaaluCollective_CommanderRequirement", resourceCulture);
             }
         }
         
@@ -1443,12 +1631,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DISTANT SUNS - When you explore a planet that contains 1 of your mechs, you may draw 1 additional card; choose 1 to resolve and discard the rest.
-        ///FABRICATION - ACTION: Either purge 2 of your relic fragments of the same type to gain 1 relic; or purge 1 of your relic fragments to gain 1 command token..
+        ///   Looks up a localized string similar to &lt;p&gt;DISTANT SUNS:&lt;/p&gt;
+        ///&lt;p&gt;When you explore a planet that contains 1 of your mechs, you may draw 1 additional card; choose 1 to resolve and discard the rest.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;FABRICATION:&lt;/p&gt;
+        ///&lt;p&gt;ACTION: Either purge 2 of your relic fragments of the same type to gain 1 relic; or purge 1 of your relic fragments to gain 1 command token.&lt;/p&gt;.
         /// </summary>
         internal static string TheNaazRokhaAlliance_Ability {
             get {
                 return ResourceManager.GetString("TheNaazRokhaAlliance_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have 3 mechs in 3 systems..
+        /// </summary>
+        internal static string TheNaazRokhaAlliance_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheNaazRokhaAlliance_CommanderRequirement", resourceCulture);
             }
         }
         
@@ -1525,13 +1725,27 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to GALACTIC THREAT : You cannot vote on agendas.  Once per agenda phase, after an agenda is revealed, you may predict aloud the outcome of that agenda.  If your prediction is correct, gain 1 technology that is owned by a player who voted how you predicted.
-        ///TECHNOLOGICAL SINGULARITY: Once per combat, after 1 of your opponent&apos;s units is destroyed, you may gain 1 technology that is owned by that player.
-        ///PROPAGATION: You cannot research technology.  When you would research a technology, gain 3 command tokens ins [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;p&gt;GALACTIC THREAT:&lt;/p&gt;
+        ///&lt;p&gt;You cannot vote on agendas.  Once per agenda phase, after an agenda is revealed, you may predict aloud the outcome of that agenda.  If your prediction is correct, gain 1 technology that is owned by a player who voted how you predicted.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;TECHNOLOGICAL SINGULARITY:&lt;/p&gt;
+        ///&lt;p&gt;Once per combat, after 1 of your opponent&apos;s units is destroyed, you may gain 1 technology that is owned by that player.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;PROPAGATION:&lt;/p&gt;
+        ///&lt;p&gt;You cannot research technology.  When you  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheNekroVirus_Ability {
             get {
                 return ResourceManager.GetString("TheNekroVirus_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Own 3 technologies. A &quot;Valefar Assimilator&quot; technology counts only if its X or Y token is on a technology..
+        /// </summary>
+        internal static string TheNekroVirus_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheNekroVirus_CommanderRequirement", resourceCulture);
             }
         }
         
@@ -1620,12 +1834,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to THE COMPANY - During setup, take the 2 additional Nomad faction agents and place them next to your faction sheet; you have 3 agents.
-        ///FUTURE SIGHT - During the Agenda phase, after an outcome that you voted for or predicted is resolved, gain 1 trade good..
+        ///   Looks up a localized string similar to &lt;p&gt;THE COMPANY:&lt;/p&gt;
+        ///&lt;p&gt;During setup, take the 2 additional Nomad faction agents and place them next to your faction sheet; you have 3 agents.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;FUTURE SIGHT:&lt;/p&gt;
+        ///&lt;p&gt;During the Agenda phase, after an outcome that you voted for or predicted is resolved, gain 1 trade good.&lt;/p&gt;.
         /// </summary>
         internal static string TheNomad_Ability {
             get {
                 return ResourceManager.GetString("TheNomad_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have 1 scored secret objective..
+        /// </summary>
+        internal static string TheNomad_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheNomad_CommanderRequirement", resourceCulture);
             }
         }
         
@@ -1702,13 +1928,27 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TERRAGENESIS: After you explore a planet that does not have a sleeper token, you may place or move 1 sleeper token onto that planet.
-        ///AWAKEN: After you activate a system that contains 1 or more of your sleeper tokens, you may replace each of those tokens with 1 PDS from your reinforcements.
-        ///COALESCENCE: If your flagship or your AWAKEN faction ability places your units into the same space area or onto the same planet as another player&apos;s units, your units must participate in combat during &quot;Space Combat&quot; or &quot; [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;p&gt;TERRAGENESIS:&lt;/p&gt;
+        ///&lt;p&gt;After you explore a planet that does not have a sleeper token, you may place or move 1 sleeper token onto that planet.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;AWAKEN:&lt;/p&gt;
+        ///&lt;p&gt;After you activate a system that contains 1 or more of your sleeper tokens, you may replace each of those tokens with 1 PDS from your reinforcements.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;COALESCENCE:&lt;/p&gt;
+        ///&lt;p&gt;If your flagship or your AWAKEN faction ability places your units into the same space area or onto the same planet as another player&apos;s units, your unit [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheTitansOfUl_Ability {
             get {
                 return ResourceManager.GetString("TheTitansOfUl_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have 5 structures on the game board..
+        /// </summary>
+        internal static string TheTitansOfUl_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheTitansOfUl_CommanderRequirement", resourceCulture);
             }
         }
         
@@ -1784,12 +2024,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to BRILLIANT : When you spend a command token to resolve the secondary ability of the &quot;Technology&quot; strategy card, you may resolve the primary ability instead.
-        ///ANALYTICAL: When you research a technology that is not a unit upgrade technology, you may ignore 1 prerequisite..
+        ///   Looks up a localized string similar to &lt;p&gt;BRILLIANT:&lt;/p&gt;
+        ///&lt;p&gt;When you spend a command token to resolve the secondary ability of the &quot;Technology&quot; strategy card, you may resolve the primary ability instead.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;ANALYTICAL:&lt;/p&gt;
+        ///&lt;p&gt;When you research a technology that is not a unit upgrade technology, you may ignore 1 prerequisite.&lt;/p&gt;.
         /// </summary>
         internal static string TheUniversitiesOfJolNar_Ability {
             get {
                 return ResourceManager.GetString("TheUniversitiesOfJolNar_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Own 8 technologies..
+        /// </summary>
+        internal static string TheUniversitiesOfJolNar_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheUniversitiesOfJolNar_CommanderRequirement", resourceCulture);
             }
         }
         
@@ -1876,13 +2128,27 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DEVOUR - Capture your opponent&apos;s non-structure units that are destroyed during combat.
-        ///AMALGAMATION - When you produce a unit, you may return 1 captured unit of that type to produce that unit without spending resources.
-        ///RIFTMELD - When you research a unit upgrade technology, you may return 1 captured unit of that type to ignore all of the technology&apos;s prerequisites..
+        ///   Looks up a localized string similar to &lt;p&gt;DEVOUR:&lt;/p&gt;
+        ///&lt;p&gt;Capture your opponent&apos;s non-structure units that are destroyed during combat.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;AMALGAMATION:&lt;/p&gt;
+        ///&lt;p&gt;When you produce a unit, you may return 1 captured unit of that type to produce that unit without spending resources.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;RIFTMELD:&lt;/p&gt;
+        ///&lt;p&gt;When you research a unit upgrade technology, you may return 1 captured unit of that type to ignore all of the technology&apos;s prerequisites.&lt;/p&gt;.
         /// </summary>
         internal static string TheVuilRaithCabal_Ability {
             get {
                 return ResourceManager.GetString("TheVuilRaithCabal_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have units in 3 Gravity Rifts.
+        /// </summary>
+        internal static string TheVuilRaithCabal_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheVuilRaithCabal_CommanderRequirement", resourceCulture);
             }
         }
         
@@ -1958,12 +2224,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to BLOOD TIES: You do not have to spend influence to remove the custodians token from Mecatol Rex.
-        ///RECLAMATION: After you resolve a tactical action during which you gained control of Mecatol Rex, you may place 1 PDS and 1 space dock from your reinforcements on Mecatol Rex..
+        ///   Looks up a localized string similar to &lt;p&gt;BLOOD TIES:&lt;/p&gt;
+        ///&lt;p&gt;You do not have to spend influence to remove the custodians token from Mecatol Rex.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;RECLAMATION:&lt;/p&gt;
+        ///&lt;p&gt;After you resolve a tactical action during which you gained control of Mecatol Rex, you may place 1 PDS and 1 space dock from your reinforcements on Mecatol Rex.&lt;/p&gt;.
         /// </summary>
         internal static string TheWinnu_Ability {
             get {
                 return ResourceManager.GetString("TheWinnu_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Control Mecatol Rex or enter into a combat in the Mecatol Rex system..
+        /// </summary>
+        internal static string TheWinnu_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheWinnu_CommanderRequirement", resourceCulture);
             }
         }
         
@@ -2059,12 +2337,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PEACE ACCORDS: After you resolve the primary or secondary ability of the &quot;Diplomacy&quot; strategy card, you may gain control of 1 planet other than Mecatol Rex that does not contain any units and is in a system that is adjacent to a planet you control.
-        ///QUASH: When an agenda is revealed, you may spend 1 token from your strategy pool to discard that agenda and reveal 1 agenda from the top of the deck.  Players vote on this agenda instead..
+        ///   Looks up a localized string similar to &lt;p&gt;PEACE ACCORDS:&lt;/p&gt;
+        ///&lt;p&gt;After you resolve the primary or secondary ability of the &quot;Diplomacy&quot; strategy card, you may gain control of 1 planet other than Mecatol Rex that does not contain any units and is in a system that is adjacent to a planet you control.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;QUASH:&lt;/p&gt;
+        ///&lt;p&gt;When an agenda is revealed, you may spend 1 token from your strategy pool to discard that agenda and reveal 1 agenda from the top of the deck.  Players vote on this agenda instead.&lt;/p&gt;.
         /// </summary>
         internal static string TheXxchaKingdom_Ability {
             get {
                 return ResourceManager.GetString("TheXxchaKingdom_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Control planets that have a combined value of at least 12 influence..
+        /// </summary>
+        internal static string TheXxchaKingdom_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheXxchaKingdom_CommanderRequirement", resourceCulture);
             }
         }
         
@@ -2150,12 +2440,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to INDOCTRINATION: At the start of a ground combat, you may spend 2 influence to replace 1 of your opponent&apos;s participating infantry with 1 infantry from your reinforcements.
-        ///DEVOTION: After each space battle round, you may destroy 1 of your cruisers or destroyers in the active system to produce 1 hit and assign it to 1 of your opponent&apos;s ships in that system..
+        ///   Looks up a localized string similar to &lt;p&gt;INDOCTRINATION:&lt;/p&gt;
+        ///&lt;p&gt;At the start of a ground combat, you may spend 2 influence to replace 1 of your opponent&apos;s participating infantry with 1 infantry from your reinforcements.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;DEVOTION:&lt;/p&gt;
+        ///&lt;p&gt;After each space battle round, you may destroy 1 of your cruisers or destroyers in the active system to produce 1 hit and assign it to 1 of your opponent&apos;s ships in that system.&lt;/p&gt;.
         /// </summary>
         internal static string TheYinBrotherhood_Ability {
             get {
                 return ResourceManager.GetString("TheYinBrotherhood_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use one of your faction abilities..
+        /// </summary>
+        internal static string TheYinBrotherhood_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheYinBrotherhood_CommanderRequirement", resourceCulture);
             }
         }
         
@@ -2248,13 +2550,27 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to STALL TACTICS: ACTION: Discard 1 action card from your hand.
-        ///SCHEMING: When you draw 1 or more action cards, draw 1 additional action card.  Then, choose and discard 1 action card from your hand.
-        ///CRAFTY: You can have any number of action cards in your hand.  Game effects cannot prevent you from using this ability..
+        ///   Looks up a localized string similar to &lt;p&gt;STALL TACTICS:&lt;/p&gt;
+        ///&lt;p&gt;ACTION: Discard 1 action card from your hand.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;SCHEMING:&lt;/p&gt;
+        ///&lt;p&gt;When you draw 1 or more action cards, draw 1 additional action card.  Then, choose and discard 1 action card from your hand.&lt;/p&gt;
+        ///&lt;br/&gt;
+        ///&lt;p&gt;CRAFTY:&lt;/p&gt;
+        ///&lt;p&gt;You can have any number of action cards in your hand.  Game effects cannot prevent you from using this ability.&lt;/p&gt;.
         /// </summary>
         internal static string TheYssarilTribes_Ability {
             get {
                 return ResourceManager.GetString("TheYssarilTribes_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have 7 action cards..
+        /// </summary>
+        internal static string TheYssarilTribes_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheYssarilTribes_CommanderRequirement", resourceCulture);
             }
         }
         

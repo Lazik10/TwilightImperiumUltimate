@@ -196,6 +196,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to \resources\images\{language}\leaders.
+        /// </summary>
+        public static string ResourcePath_FactionComponentsPath {
+            get {
+                return ResourceManager.GetString("ResourcePath_FactionComponentsPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to \resources\images\shared\factionicons.
         /// </summary>
         public static string ResourcePath_FactionIconPath {
@@ -223,6 +232,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to \resources\images\shared\icons.
+        /// </summary>
+        public static string ResourcePath_IconPath {
+            get {
+                return ResourceManager.GetString("ResourcePath_IconPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to \resources\images\shared\tiles\large.
         /// </summary>
         public static string ResourcePath_LargeTilePath {
@@ -237,6 +255,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string ResourcePath_TechnologyImagePath {
             get {
                 return ResourceManager.GetString("ResourcePath_TechnologyImagePath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to \resources\images\shared\units.
+        /// </summary>
+        public static string ResourcePath_UnitImagePath {
+            get {
+                return ResourceManager.GetString("ResourcePath_UnitImagePath", resourceCulture);
             }
         }
     }

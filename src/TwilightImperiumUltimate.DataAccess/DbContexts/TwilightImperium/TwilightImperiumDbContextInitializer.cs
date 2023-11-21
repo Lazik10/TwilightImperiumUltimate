@@ -24,11 +24,14 @@ public partial class TwilightImperiumDbContextInitializer
 
         InitializeTiles();
         InitializeTechnologies();
-        InitializeRaces();
+        InitializeFactions();
         InitializeEightTestPlayers();
         InitializeAllCards();
         InitializeFactionColorImportance();
 
         InitializeNewsArticles();
+
+        InitializeUnits();
+        InitializeFactionUnits();
     }
 }

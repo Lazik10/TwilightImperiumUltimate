@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using TwilightImperiumUltimate.API.DTOs.Galaxy;
 using TwilightImperiumUltimate.DataAccess.Repositories;
 

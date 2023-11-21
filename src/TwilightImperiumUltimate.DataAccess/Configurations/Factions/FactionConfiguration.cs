@@ -10,7 +10,7 @@ public class FactionConfiguration : IEntityTypeConfiguration<Faction>
 
         builder.ToTable(TableName.Factions, Schema.Faction);
 
-        builder.HasKey(e => e.FactionName);
+        builder.HasKey(x => x.FactionName);
 
         builder.Property(e => e.FactionName)
             .IsRequired()

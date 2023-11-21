@@ -1,4 +1,6 @@
-﻿namespace TwilightImperiumUltimate.Web.Services.Path;
+﻿using TwilightImperiumUltimate.Web.Enums;
+
+namespace TwilightImperiumUltimate.Web.Services.Path;
 
 public interface IPathProvider
 {
@@ -19,4 +21,10 @@ public interface IPathProvider
     string GetLargeTileImagePath(string fileName);
 
     string GetTechnologyImagePath(string fileName);
+
+    string GetUnitImagePath(string fileName);
+
+    string GetFactionComponenetTypeImagePath(string fileName, ComponentType componenetType);
+
+    string GetIconPath(IconType iconType);
 }

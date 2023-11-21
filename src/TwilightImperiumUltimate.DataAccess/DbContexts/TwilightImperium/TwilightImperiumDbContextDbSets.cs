@@ -1,5 +1,7 @@
 ﻿using TwilightImperiumUltimate.Core.Entities.Cards;
 using TwilightImperiumUltimate.Core.Entities.News;
+using TwilightImperiumUltimate.Core.Entities.RelationshipEntities;
+using TwilightImperiumUltimate.Core.Entities.Units;
 using TwilightImperiumUltimate.Core.Entities.Users;
 using TwilightImperiumUltimate.DataAccess.RelationshipEntities;
 
@@ -38,10 +40,15 @@ public partial class TwilightImperiumDbContext : DbContext
     public virtual DbSet<FactionColorImportance> FactionColorImportances { get; set; }
 
     // Relationships
-    public virtual DbSet<RaceTechnology> RaceTechnology { get; set; }
+    public virtual DbSet<FactionTechnology> RaceTechnologiy { get; set; }
+
+    public virtual DbSet<FactionUnit> FactionUnit { get; set; }
 
     // Technologies
     public virtual DbSet<Technology> Technologies { get; set; }
+
+    // Units
+    public virtual DbSet<Unit> Units { get; set; }
 
     // Users
     public virtual DbSet<User> Users { get; set; }

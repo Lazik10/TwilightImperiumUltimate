@@ -1,6 +1,8 @@
 ﻿.history {
     color: white;
     text-align: justify;
+    width: 80%;
+    line-height: 1.5;
 }
 
 .history::after {

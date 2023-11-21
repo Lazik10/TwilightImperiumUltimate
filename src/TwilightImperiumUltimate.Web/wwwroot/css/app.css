@@ -193,6 +193,10 @@ main {
     position: relative;
 }
 
+.p {
+    line-height: 15px;
+}
+
 .clickable {
     cursor: pointer;
 }

@@ -25,5 +25,5 @@ public class Technology : IEntity, IGameVersion
 
     public GameVersion GameVersion { get; set; }
 
-    public IReadOnlyCollection<RaceTechnology> RaceTechnologies { get; set; } = new List<RaceTechnology>();
+    public IReadOnlyCollection<FactionTechnology> FactionTechnologies { get; set; } = new List<FactionTechnology>();
 }
