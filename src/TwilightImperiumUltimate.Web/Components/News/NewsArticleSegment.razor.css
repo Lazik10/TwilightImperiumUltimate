@@ -1,12 +1,41 @@
 ﻿.article-title {
-    font-size: 46px;
+    font-size: 28px;
 }
 
 .width {
-    width: 20%;
+    width: 50%;
+}
+
+.width-100 {
+    width: 100%;
 }
 
 .markup-text {
-    font-size: 1.2rem;
+    font-size: 1rem;
     line-height: 1.5;
+    margin-right: 20%;
+}
+
+.news-image {
+    height: 20%;
+}
+
+.width-10 {
+    width: 20%;
+}
+
+.texture-top-left {
+    align-self: flex-start;
+    justify-self: flex-start;
+    height: 200%;
+}
+
+.offset {
+    transform: translate(-20%, 0%);
+}
+
+.margin-right-10 {
+    margin-right: 20%;
+/*    align-self: flex-start;
+    justify-self: flex-start;*/
 }

@@ -1,24 +1,43 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @using TwilightImperiumUltimate.Web.Components.Shared.Text
 
-<FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" Width="100" AlignItems="Enums.AlignItems.FlexStart">
-    <div class="article-title handel-cz white shadow">@(NewsArticle.Title)</div>
-</FlexRowContainer>
+<div class="news-container">
+    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" Width="100" AlignItems="Enums.AlignItems.FlexStart">
+        <img class="width-10 texture-top-left" src="@(PathProvider.GetTexturePath(Texture.TopLeft))" />
 
-<VerticalSpace Height="30" />
+        <div>
+            <VerticalSpace Height="50" />
+            <img class="offset" src="@(PathProvider.GetTexturePath(Texture.Line))" />
+            <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" Width="100" AlignItems="Enums.AlignItems.FlexStart">
+                <div class="article-title handel-cz white shadow">@(NewsArticle.Title)</div>
+            </FlexRowContainer>
+            <img class="offset" src="@(PathProvider.GetTexturePath(Texture.Line))" />
 
-<div class="white text-handel shadow handel markup-text">
-    @(_markupString)
+            <VerticalSpace Height="30" />
+
+            <FlexColumnCenteredContainer>
+                <div class="white text-handel shadow handel markup-text">
+                    @(_markupString)
+                </div>
+
+                <div class="margin-right-10 width-100">
+                    <FlexRowContainer JustifyContent="Enums.JustifyContent.SpaceBetween">
+                        <Title FontSize="20"
+                               Text="@("Author: " + NewsArticle.User?.Nickname)"
+                               CssClass="width" />
+
+                        <HorizontalSpace Width="50" />
+
+                        <Title FontSize="20"
+                               Text="@("Date: " + NewsArticle.CreatedAt.ToString("dd.  MMMM  yyyy"))"
+                               CssClass="width" />
+                    </FlexRowContainer>
+                </div>
+
+            </FlexColumnCenteredContainer>
+
+        </div>
+    </FlexRowContainer>
+
 </div>
 
-<FlexRowContainer JustifyContent="Enums.JustifyContent.FlexEnd">
-    <Title FontSize="20"
-            Text="@("Author: " + NewsArticle.User?.Nickname)"
-            CssClass="width" />
-
-    <HorizontalSpace Width="50" />
-
-    <Title FontSize="20"
-           Text="@("Date: " + NewsArticle.CreatedAt.ToString("dd.  MMMM  yyyy"))"
-           CssClass="width" />
-</FlexRowContainer>

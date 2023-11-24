@@ -12,6 +12,10 @@ public static class Pages
 
     public const string Cards = "/game/cards";
 
+    public const string SystemTiles = "/game/systemtiles";
+
+    public const string Planets = "/game/planets";
+
     public const string Statistics = "/game/statistics";
 
     // Tools

@@ -1,0 +1,35 @@
+﻿@page "/game/systemtiles"
+@using TwilightImperiumUltimate.Web.Components.Shared
+@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+
+<Page>
+
+    <StretchHeightContainer>
+
+        <FlexColumnCenteredContainer>
+
+            <div class="systemtile-container">
+
+                @foreach (var systemtile in _systemTiles)
+                {
+                    <div>
+                        <FlexColumnCenteredContainer>
+                            <div class="handel shadow white">
+                                @(systemtile.Name.ToString().Substring(4))
+                            </div>
+                        </FlexColumnCenteredContainer>
+                        <img class="systemtile" src="@(GetSystemTileImagePath(systemtile))" alt="@systemtile.Name">
+                        <VerticalSpace Height="50" />
+                    </div>
+                }
+
+            </div>
+
+        </FlexColumnCenteredContainer>
+
+    </StretchHeightContainer>
+
+</Page>
+
+
+

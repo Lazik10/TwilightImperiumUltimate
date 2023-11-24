@@ -8,20 +8,25 @@
 <PageTitle>@Strings.Page_News</PageTitle>
 
 <Page>
-    <VerticalSpace Height="50"/>
 
-    <StretchHeightContainer>
-        @if (_newsArticles.Count > 0)
-        {
-            foreach (var article in _newsArticles)
-            {
-                <NewsArticleSegment NewsArticle="@article"/>
-                <VerticalSpace Height="150" />
-            }
-        }
-        else
-        {
-            <div class="loading-text-section">...LOADING...</div>
-        }
-    </StretchHeightContainer>
+    <FlexColumnCenteredContainer>
+
+        <StretchHeightContainer>
+
+                @if (_newsArticles.Count > 0)
+                {
+                    foreach (var article in _newsArticles)
+                    {
+                        <NewsArticleSegment NewsArticle="@article" />
+                    }
+                }
+                else
+                {
+                    <div class="loading-text-section">...LOADING...</div>
+                }
+
+        </StretchHeightContainer>
+
+    </FlexColumnCenteredContainer>
+
 </Page>

@@ -1,4 +1,4 @@
-﻿namespace TwilightImperiumUltimate.Core.Enums.Galaxy;
+﻿namespace TwilightImperiumUltimate.Web.Enums;
 
 public enum PlanetName
 {

@@ -124,6 +124,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to api/galaxy/planets.
+        /// </summary>
+        public static string ApiPath_Planets {
+            get {
+                return ResourceManager.GetString("ApiPath_Planets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/rules.
+        /// </summary>
+        public static string ApiPath_Rules {
+            get {
+                return ResourceManager.GetString("ApiPath_Rules", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to api/galaxy/tiles.
         /// </summary>
         public static string ApiPath_SystemTiles {
@@ -250,11 +268,29 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to \resources\images\{language}\planets.
+        /// </summary>
+        public static string ResourcePath_PlanetImagePath {
+            get {
+                return ResourceManager.GetString("ResourcePath_PlanetImagePath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to \resources\images\{language}\technologies.
         /// </summary>
         public static string ResourcePath_TechnologyImagePath {
             get {
                 return ResourceManager.GetString("ResourcePath_TechnologyImagePath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to \resources\images\shared\textures.
+        /// </summary>
+        public static string ResourcePath_TexturePath {
+            get {
+                return ResourceManager.GetString("ResourcePath_TexturePath", resourceCulture);
             }
         }
         

@@ -1078,6 +1078,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Planets.
+        /// </summary>
+        public static string Page_Planets {
+            get {
+                return ResourceManager.GetString("Page_Planets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Play of the Month.
         /// </summary>
         public static string Page_PlayOfTheMonth {
@@ -1110,6 +1119,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string Page_Statistics {
             get {
                 return ResourceManager.GetString("Page_Statistics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to System Tiles.
+        /// </summary>
+        public static string Page_SystemTiles {
+            get {
+                return ResourceManager.GetString("Page_SystemTiles", resourceCulture);
             }
         }
         
