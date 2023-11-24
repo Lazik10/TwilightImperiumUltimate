@@ -456,6 +456,9 @@
   <data name="Page_OtherWebsites" xml:space="preserve">
     <value>Other Websites</value>
   </data>
+  <data name="Page_Planets" xml:space="preserve">
+    <value>Planets</value>
+  </data>
   <data name="Page_PlayOfTheMonth" xml:space="preserve">
     <value>Play of the Month</value>
   </data>
@@ -467,6 +470,9 @@
   </data>
   <data name="Page_Statistics" xml:space="preserve">
     <value>Statistics</value>
+  </data>
+  <data name="Page_SystemTiles" xml:space="preserve">
+    <value>System Tiles</value>
   </data>
   <data name="Page_Technologies" xml:space="preserve">
     <value>Technologies</value>

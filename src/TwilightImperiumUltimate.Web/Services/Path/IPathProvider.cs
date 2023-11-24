@@ -24,7 +24,11 @@ public interface IPathProvider
 
     string GetUnitImagePath(string fileName);
 
+    string GetPlanetImagePath(string fileName);
+
     string GetFactionComponenetTypeImagePath(string fileName, ComponentType componenetType);
 
     string GetIconPath(IconType iconType);
+
+    string GetTexturePath(Texture texture);
 }

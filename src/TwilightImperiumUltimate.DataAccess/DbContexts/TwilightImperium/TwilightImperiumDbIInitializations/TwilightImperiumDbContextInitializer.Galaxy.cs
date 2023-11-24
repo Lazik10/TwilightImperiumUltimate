@@ -439,7 +439,7 @@ public partial class TwilightImperiumDbContextInitializer
                     },
                     new Planet()
                     {
-                        PlanetName = PlanetName.Shalloo,
+                        PlanetName = PlanetName.Shalloq,
                         PlanetTrait = PlanetTrait.None,
                         SystemTileName = SystemTileName.Tile15,
                         Resources = 1,
@@ -2106,7 +2106,7 @@ public partial class TwilightImperiumDbContextInitializer
                 {
                     new Planet()
                     {
-                        PlanetName = PlanetName.MaliceFront,
+                        PlanetName = PlanetName.MalliceInactive,
                         PlanetTrait = PlanetTrait.Cultural,
                         SystemTileName = SystemTileName.Tile82A,
                         Resources = 0,
@@ -2136,7 +2136,7 @@ public partial class TwilightImperiumDbContextInitializer
                 {
                     new Planet()
                     {
-                        PlanetName = PlanetName.MaliceBack,
+                        PlanetName = PlanetName.Mallice,
                         PlanetTrait = PlanetTrait.Cultural,
                         SystemTileName = SystemTileName.Tile82B,
                         Resources = 0,

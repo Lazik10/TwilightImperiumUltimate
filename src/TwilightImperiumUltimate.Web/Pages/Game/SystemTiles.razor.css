@@ -1,0 +1,14 @@
+﻿.systemtile-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    place-items: center;
+    grid-column-gap: 20px;
+    width: 80%;
+}
+
+.systemtile {
+    flex-shrink: 1;
+    flex-grow: 1;
+    max-height: 200px;
+    max-width: 100%;
+}

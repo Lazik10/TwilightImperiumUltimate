@@ -1,4 +1,5 @@
 ﻿@page "/rules"
+@using TwilightImperiumUltimate.Web.Components.Rules
 @using TwilightImperiumUltimate.Web.Components.Shared
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @using TwilightImperiumUltimate.Web.Components.Shared.Text
@@ -7,9 +8,7 @@
 <PageTitle>@Strings.Page_Rules</PageTitle>
 
 <Page>
-    <Title Text="@Strings.Page_Rules" />
-
     <StretchHeightContainer>
-
+        <RuleGrid />
     </StretchHeightContainer>
 </Page>

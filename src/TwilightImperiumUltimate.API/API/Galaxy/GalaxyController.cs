@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using TwilightImperiumUltimate.API.DTOs.Galaxy;
+using TwilightImperiumUltimate.Business.Galaxy;
 using TwilightImperiumUltimate.DataAccess.Repositories;
 
 namespace TwilightImperiumUltimate.API.API.Galaxy;
@@ -9,10 +11,12 @@ namespace TwilightImperiumUltimate.API.API.Galaxy;
 public class GalaxyController : ControllerBase
 {
     private readonly ISystemTileRepository _systemTilesRepository;
+    private readonly IMediator _mediator;
 
-    public GalaxyController(ISystemTileRepository systemTilesRepository)
+    public GalaxyController(ISystemTileRepository systemTilesRepository, IMediator mediator)
     {
         _systemTilesRepository = systemTilesRepository;
+        _mediator = mediator;
     }
 
     [Route("tiles")]
@@ -34,5 +38,26 @@ public class GalaxyController : ControllerBase
             .ToList();
 
         return systemTilesDtos;
+    }
+
+    [Route("planets")]
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<PlanetDto>>> GetAllPlanets()
+    {
+        var planets = await _mediator.Send(new GetAllPlanetsCommand());
+
+        var planetDtos = planets.Select(x => new PlanetDto
+        {
+            PlanetName = x.PlanetName,
+            Resources = x.Resources,
+            Influence = x.Influence,
+            IsLegendary = x.IsLegendary,
+            TechnologySkip = x.TechnologySkip,
+            PlanetTrait = x.PlanetTrait,
+            GameVersion = x.GameVersion,
+        })
+        .ToList();
+
+        return planetDtos;
     }
 }

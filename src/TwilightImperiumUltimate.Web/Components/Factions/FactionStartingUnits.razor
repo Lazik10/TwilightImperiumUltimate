@@ -3,18 +3,26 @@
 @inherits FactionInfoComponentBase
 @inject IPathProvider PathProvider
 
-<FlexRowContainer>
+<div class="background">
+    <StretchHeightContainer>
+    </StretchHeightContainer>
 
-    @foreach (var unit in Faction.Units)
-    {
-        for (var i = 0; i < unit.Value; i++)
+    <FlexRowContainer>
+
+
+        @foreach (var unit in Faction.Units)
         {
-            <img src="@(PathProvider.GetUnitImagePath(unit.Key.ToString()))"
-                 alt="icon for @Faction.FactionName"
-                 title="@Faction.FactionName"
-                 width="100" />
+            for (var i = 0; i < unit.Value; i++)
+            {
+                <img src="@(PathProvider.GetUnitImagePath(unit.Key.ToString()))"
+                     alt="icon for @Faction.FactionName"
+                     title="@Faction.FactionName"
+                     width="100" />
+            }
         }
-    }
 
-</FlexRowContainer>
+        </FlexRowContainer>
+
+</div>
+
 

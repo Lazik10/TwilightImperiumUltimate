@@ -138,6 +138,12 @@
   <data name="ApiPath_News" xml:space="preserve">
     <value>api/news</value>
   </data>
+  <data name="ApiPath_Planets" xml:space="preserve">
+    <value>api/galaxy/planets</value>
+  </data>
+  <data name="ApiPath_Rules" xml:space="preserve">
+    <value>api/rules</value>
+  </data>
   <data name="ApiPath_SystemTiles" xml:space="preserve">
     <value>api/galaxy/tiles</value>
   </data>
@@ -180,8 +186,14 @@
   <data name="ResourcePath_LargeTilePath" xml:space="preserve">
     <value>\resources\images\shared\tiles\large</value>
   </data>
+  <data name="ResourcePath_PlanetImagePath" xml:space="preserve">
+    <value>\resources\images\{language}\planets</value>
+  </data>
   <data name="ResourcePath_TechnologyImagePath" xml:space="preserve">
     <value>\resources\images\{language}\technologies</value>
+  </data>
+  <data name="ResourcePath_TexturePath" xml:space="preserve">
+    <value>\resources\images\shared\textures</value>
   </data>
   <data name="ResourcePath_UnitImagePath" xml:space="preserve">
     <value>\resources\images\shared\units</value>

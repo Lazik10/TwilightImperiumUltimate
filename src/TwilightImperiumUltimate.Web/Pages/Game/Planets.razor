@@ -1,0 +1,32 @@
+﻿@page "/game/planets"
+@using TwilightImperiumUltimate.Web.Components.Shared
+@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+
+<Page>
+
+    <StretchHeightContainer>
+
+        <FlexColumnCenteredContainer>
+
+            <div class="planet-container">
+
+                @foreach (var planet in _planets)
+                {
+                    <div>
+                        <FlexColumnCenteredContainer>
+                            <div class="handel shadow white">
+                                @(planet.PlanetName.ToString())
+                            </div>
+                        </FlexColumnCenteredContainer>
+                        <img class="planet" src="@(GetPlanetImagePath(planet))" alt="@planet.PlanetName">
+                        <VerticalSpace Height="50" />
+                    </div>
+                }
+
+            </div>
+
+        </FlexColumnCenteredContainer>
+
+    </StretchHeightContainer>
+
+</Page>

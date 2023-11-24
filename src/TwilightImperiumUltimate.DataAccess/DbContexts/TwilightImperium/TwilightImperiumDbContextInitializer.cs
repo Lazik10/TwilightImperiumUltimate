@@ -33,5 +33,7 @@ public partial class TwilightImperiumDbContextInitializer
 
         InitializeUnits();
         InitializeFactionUnits();
+
+        InitializeRules();
     }
 }

@@ -67,6 +67,11 @@ public class PathProvider : IPathProvider
         return $"{Paths.ResourcePath_UnitImagePath}{Strings.BackSlash}{fileName}{Strings.FileExtensionWebp}";
     }
 
+    public string GetPlanetImagePath(string fileName)
+    {
+        return $"{GetCorrectLanguagePath(Paths.ResourcePath_PlanetImagePath)}{Strings.BackSlash}{fileName}{Strings.FileExtensionWebp}";
+    }
+
     public string GetFactionComponenetTypeImagePath(string fileName, ComponentType componenetType)
     {
         return $"{GetCorrectLanguagePath(Paths.ResourcePath_FactionComponentsPath)}{Strings.BackSlash}{fileName}{componenetType}{Strings.FileExtensionWebp}";
@@ -75,6 +80,11 @@ public class PathProvider : IPathProvider
     public string GetIconPath(IconType iconType)
     {
         return $"{Paths.ResourcePath_IconPath}{Strings.BackSlash}{iconType}{Strings.FileExtensionWebp}";
+    }
+
+    public string GetTexturePath(Texture texture)
+    {
+        return $"{Paths.ResourcePath_TexturePath}{Strings.BackSlash}{texture}{Strings.FileExtensionWebp}";
     }
 
     private string GetCorrectLanguagePath(string path)
