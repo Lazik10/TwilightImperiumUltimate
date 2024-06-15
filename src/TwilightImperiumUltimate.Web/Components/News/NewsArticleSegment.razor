@@ -1,43 +1,67 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @using TwilightImperiumUltimate.Web.Components.Shared.Text
 
-<div class="news-container">
-    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" Width="100" AlignItems="Enums.AlignItems.FlexStart">
-        <img class="width-10 texture-top-left" src="@(PathProvider.GetTexturePath(Texture.TopLeft))" />
+<FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" Width="100" AlignItems="Enums.AlignItems.FlexStart">
 
-        <div>
-            <VerticalSpace Height="50" />
-            <img class="offset" src="@(PathProvider.GetTexturePath(Texture.Line))" />
+    <TitleTexture Width="15" Texture="Enums.Texture.TopLeft" />
+
+    <div style="width: 70%;">
+
+        <VerticalSpace Height="50" />
+
+        <TitleLine TransformX="@(-20)"/>
+
             <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" Width="100" AlignItems="Enums.AlignItems.FlexStart">
-                <div class="article-title handel-cz white shadow">@(NewsArticle.Title)</div>
-            </FlexRowContainer>
-            <img class="offset" src="@(PathProvider.GetTexturePath(Texture.Line))" />
 
-            <VerticalSpace Height="30" />
-
-            <FlexColumnCenteredContainer>
-                <div class="white text-handel shadow handel markup-text">
-                    @(_markupString)
+                <div class="article-title handel-cz white shadow">
+                    @(NewsArticle.Title)
                 </div>
 
+            </FlexRowContainer>
+
+        <TitleLine TransformX="@(-20)" />
+
+        <VerticalSpace Height="50" />
+
+        <FlexColumnCenteredContainer>
+
+            <div class="white shadow handel markup-text">
+                @(_markupString)
+            </div>
+
+            <VerticalSpace Height="50" />
+
+            <FlexColumnCenteredContainer>
+
                 <div class="margin-right-10 width-100">
-                    <FlexRowContainer JustifyContent="Enums.JustifyContent.SpaceBetween">
-                        <Title FontSize="20"
-                               Text="@("Author: " + NewsArticle.User?.Nickname)"
-                               CssClass="width" />
 
-                        <HorizontalSpace Width="50" />
+                    <FlexRowContainer JustifyContent="Enums.JustifyContent.SpaceEvenly">
 
-                        <Title FontSize="20"
-                               Text="@("Date: " + NewsArticle.CreatedAt.ToString("dd.  MMMM  yyyy"))"
-                               CssClass="width" />
+                        <FlexColumnCenteredContainer>
+
+                            <div class="author width handel white shadow">
+                                @("Author: " + NewsArticle.User?.Nickname)
+                            </div>
+
+                        </FlexColumnCenteredContainer>
+
+                        <FlexColumnCenteredContainer>
+
+                            <div class="author width handel white shadow">
+                                @("Date: " + NewsArticle.CreatedAt.ToString("dd.  MMMM  yyyy"))
+                            </div>
+
+                        </FlexColumnCenteredContainer>
+
                     </FlexRowContainer>
                 </div>
 
             </FlexColumnCenteredContainer>
 
-        </div>
-    </FlexRowContainer>
+        </FlexColumnCenteredContainer>
 
-</div>
+    </div>
 
+    <div class="width-10"></div>
+
+</FlexRowContainer>

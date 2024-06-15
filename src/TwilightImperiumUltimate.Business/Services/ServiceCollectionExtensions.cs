@@ -1,7 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
-using TwilightImperiumUltimate.Business.Services.Database;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using TwilightImperiumUltimate.DataAccess.Services;
 
 namespace TwilightImperiumUltimate.Business.Services;
@@ -17,8 +16,6 @@ public static class ServiceCollectionExtensions
 
         services.AddMediatR(configuration =>
             configuration.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
-
-        services.AddSingleton<DatabaseService>();
 
         return services;
     }

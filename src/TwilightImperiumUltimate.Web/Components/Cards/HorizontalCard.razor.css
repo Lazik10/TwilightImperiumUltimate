@@ -2,28 +2,48 @@
     position: relative;
     display: inline-block;
     margin-bottom: 20px;
+    flex-grow: 1;
     flex-shrink: 1;
     width: 100%;
-    height: 100%;
+    max-width: 652px;
+    max-height: 435px;
 }
 
     .image-item img {
         display: block;
-        width: 100%;
         border-radius: 20px;
-        margin-bottom: 20px;
+        flex-grow: 1;
+        flex-shrink: 1;
+        width: 100%;
+        max-width: 652px;
+        max-height: 435px;
     }
 
-    .image-item::before {
+    .image-item img::before {
         content: "";
         position: absolute;
+        flex-grow: 1;
+        flex-shrink: 1;
+        width: 100%;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
         box-shadow: inset 0 0 0 5px #000;
         pointer-events: none;
-        margin-bottom: 20px;
         border-radius: 20px;
-        width: 100%;
+        max-width: 652px;
+        max-height: 435px;
     }
+
+@media (max-width: 1248px) {
+    .image-item::before {
+        border-radius: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .image-item::before {
+        border-radius: 5px;
+    }
+}

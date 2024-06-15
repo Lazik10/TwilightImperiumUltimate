@@ -1,4 +1,4 @@
-﻿namespace TwilightImperiumUltimate.Web.Enums;
+namespace TwilightImperiumUltimate.Web.Enums;
 
 public enum CardType
 {
@@ -9,4 +9,5 @@ public enum CardType
     Exploration,
     Frontier,
     Relic,
+    Promissary,
 }

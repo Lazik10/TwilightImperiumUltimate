@@ -1,6 +1,5 @@
 using Serilog;
 using TwilightImperiumUltimate.API.Services;
-using TwilightImperiumUltimate.Business.Services.Database;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,8 +16,6 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-
-    app.Services.GetService<DatabaseService>()?.InitializeDatabase();
 }
 
 app.UseSerilogRequestLogging();
@@ -26,22 +23,12 @@ app.UseCors(builder => builder
     .AllowAnyOrigin()
        .AllowAnyMethod()
           .AllowAnyHeader());
+
 app.UseRouting();
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 
-try
-{
-    Log.Information("Starting Twilight Imperium Ultimate API");
-    app.Run();
-}
-catch (InvalidOperationException ex)
-{
-    Log.Fatal(ex, "Application start-up failed");
-}
-finally
-{
-    Log.CloseAndFlush();
-}
+await app.CreateOrUpdateDbContextAsync();
 
+await app.RunAsync();

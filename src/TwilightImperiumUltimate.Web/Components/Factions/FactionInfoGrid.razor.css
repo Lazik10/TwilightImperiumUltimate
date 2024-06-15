@@ -38,47 +38,18 @@ h3 {
     color: white;
 }
 
-.race-info-grid {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    background-image: url('/resources/images/shared/ContainerBorder.png');
-    background-repeat: no-repeat;
-    background-position: top left;
-    background-size: contain;
-}
-
-.grid-header {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
-    margin-top: 20px;
-}
-
-.race-rightside-container {
-    padding: 10% 10% 0% 10%;
-    display: flex;
-    flex-direction: column;
-}
-
-    .race-rightside-container img {
-        border-radius: 20px;
-        width: 100%;
-        height: 100%;
-    }
-
 .complexity-rating-container {
-    padding: 3% 3%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-left: 10%;
 }
 
 .complexity-rating-container img {
     padding-left: 15px;
     width: 50%;
-    height: 50%;
+    height: 20%;
 }
 
 .complexity-text {
@@ -90,7 +61,6 @@ h3 {
 }
 
 .faction-info-text {
-    padding: 5% 0% 0% 20%;
     color: white;
     align-content: start;
     justify-content: left;
@@ -177,18 +147,17 @@ h3 {
         border-radius: 20px;
     }
 
-.clickable {
-    cursor: pointer;
-}
-
 .race-image-container {
     position: relative;
     display: inline-block;
+    max-width: 100%;
+    margin: 10% 0% 0% 10%;
 }
 
     .race-image-container img {
         display: block;
         border-radius: 20px;
+        max-width: 100%;
     }
 
     .race-image-container::before {
@@ -202,3 +171,15 @@ h3 {
         border-radius: 20px;
         pointer-events: none;
     }
+
+@media (max-width: 1248px) {
+    .faction-sheet-button, .complexity-rating-container {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .faction-sheet-button, .complexity-rating-container {
+        font-size: 10px;
+    }
+}

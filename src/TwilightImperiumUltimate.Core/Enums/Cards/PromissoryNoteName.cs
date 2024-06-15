@@ -1,0 +1,31 @@
+﻿namespace TwilightImperiumUltimate.Core.Enums.Cards;
+
+public enum PromissoryNoteName
+{
+    Stymie,
+    WarFunding,
+    RaghsCall,
+    FiresOfTheGashlai,
+    TradeConvoys,
+    MilitarySupport,
+    CreussIff,
+    CyberneticEnhancements,
+    PromiseOfProtection,
+    GiftOfPrescience,
+    Antivirus,
+    TekklarLegion,
+    ResearchAgreement,
+    Acquiescence,
+    PoliticalFavor,
+    GreyfireMutagen,
+    SpyNet,
+    StrikeWingAmbuscade,
+    DarkPact,
+    BloodPact,
+    ScepterOfDominion,
+    BlackMarketForgery,
+    TheCavalry,
+    Terraform,
+    Crucible,
+    KeleresRider,
+}

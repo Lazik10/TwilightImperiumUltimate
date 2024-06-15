@@ -11,7 +11,8 @@
 
         <RadzenTextBox @bind-Value="CardTitle"
         @oninput="@(args => OnTitleInput(args.Value?.ToString()))"
-                        Style="width: 70%; height: 25px;" />
+                        Style="width: 70%; height: 25px;"
+                        class="title white handel" />
 
         <HorizontalSpace Width="50"/>
         <NumericPicker Value="CardTitleFontSize"
@@ -28,7 +29,8 @@
         <RadzenTextArea 
             @bind-Value="CardText" 
             @oninput="@(args => OnTextInput(args.Value?.ToString()))"
-            Style="height: 100px; width: 70%;" />
+            Style="height: 100px; width: 70%;"
+            class="title white handel" />
         <HorizontalSpace Width="50" />
         <NumericPicker Value="CardTextFontSize" 
             OnDecrease="() => OnTextFontSizeDecrease()"
@@ -44,7 +46,8 @@
         <RadzenTextArea 
             @bind-Value="CardFlavoredText" 
             @oninput="@(args => OnFlavoredTextInput(args.Value?.ToString()))"
-            Style="height: 100px; width: 70%;" />
+            Style="height: 100px; width: 70%;"
+            class="title white handel" />
         <HorizontalSpace Width="50" />
         <NumericPicker Value="CardFlavoredTextFontSize"
             OnDecrease="() => OnFlavoredTextFontSizeDecrease()"
@@ -57,7 +60,8 @@
     <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
         <RadzenTextArea @bind-Value="KeywordsText"
                         @oninput="@(args => OnKeywordsTextInput(args.Value?.ToString()))"
-                        Style="height: 50px; width: 70%;" />
+                        Style="height: 50px; width: 70%;"
+                        class="title white handel" />
     </FlexRowContainer>
 
 </div>

@@ -1,4 +1,4 @@
-﻿using TwilightImperiumUltimate.DataAccess.RelationshipEntities;
+﻿using TwilightImperiumUltimate.Core.Entities.RelationshipEntities;
 
 namespace TwilightImperiumUltimate.DataAccess.Configurations.Relationships;
 
@@ -9,6 +9,9 @@ public class FactionTechnologyConfiguration : IEntityTypeConfiguration<FactionTe
         ArgumentNullException.ThrowIfNull(builder);
 
         builder.ToTable(nameof(FactionTechnology), Schema.Realationships);
+
+        // Configure the composite key for the intermediary table
+        builder.HasKey(ft => new { ft.FactionName, ft.TechnologyName });
 
         builder.Property(e => e.FactionName)
             .IsRequired()

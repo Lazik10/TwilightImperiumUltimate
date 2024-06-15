@@ -4,7 +4,6 @@ using TwilightImperiumUltimate.Core.Enums.Galaxy;
 using TwilightImperiumUltimate.Core.Enums.Game;
 using TwilightImperiumUltimate.Core.Enums.Races;
 using TwilightImperiumUltimate.Core.Interfaces;
-using TwilightImperiumUltimate.DataAccess.RelationshipEntities;
 
 namespace TwilightImperiumUltimate.Core.Entities.Factions;
 

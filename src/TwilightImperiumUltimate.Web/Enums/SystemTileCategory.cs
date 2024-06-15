@@ -1,4 +1,4 @@
-﻿namespace TwilightImperiumUltimate.Web.Enums;
+namespace TwilightImperiumUltimate.Web.Enums;
 
 public enum SystemTileCategory
 {
@@ -7,6 +7,6 @@ public enum SystemTileCategory
     Red,
     MecatolRex,
     ExternalMapTile,
-    Hyperlance,
+    Hyperlane,
     None,
 }

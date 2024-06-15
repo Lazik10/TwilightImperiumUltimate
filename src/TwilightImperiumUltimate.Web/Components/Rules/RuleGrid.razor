@@ -1,4 +1,8 @@
-﻿@foreach (var rule in _rules)
+﻿@using TwilightImperiumUltimate.Web.Helpers.Resources
+
+<RuleSearchBar OnSearchChange="GetFilteredRules" />
+
+@foreach (var transformedRule in FilteredAndTransformedRules)
 {
-    <RuleContent Rule="@rule" />
-})
+    <RuleContent TransformedRule="@transformedRule" />
+}

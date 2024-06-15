@@ -24,6 +24,10 @@ public class FactionsController : ControllerBase
 
         var factions = await context.Factions
             .Include(x => x.FactionUnits)
+            .Include(x => x.FactionTechnologies)
+            .ToListAsync();
+
+        var promissaryNotes = await context.PromissaryNoteCards
             .ToListAsync();
 
         var factionDtos = factions
@@ -34,6 +38,12 @@ public class FactionsController : ControllerBase
                 ComplexityRating = (int)++x.ComplexityRating,
                 Units = x.FactionUnits
                     .ToDictionary(fu => fu.UnitName, fu => fu.Count),
+                FactionTechnologies = x.FactionTechnologies
+                    .Select(ft => ft.TechnologyName)
+                    .ToList(),
+                PromissaryNotes = promissaryNotes.Where(pn => pn.Faction == x.FactionName)
+                    .Select(pn => pn.PromissaryNoteCardName)
+                    .ToList(),
                 GameVersion = x.GameVersion,
             })
             .ToList();
@@ -51,6 +61,9 @@ public class FactionsController : ControllerBase
             .Include(x => x.FactionUnits)
             .ToListAsync();
 
+        var promissaryNotes = await context.PromissaryNoteCards
+            .ToListAsync();
+
         var factionDtos = factions
             .Select(x => new FactionDto
             {
@@ -59,6 +72,9 @@ public class FactionsController : ControllerBase
                 ComplexityRating = (int)++x.ComplexityRating,
                 Units = x.FactionUnits
                     .ToDictionary(fu => fu.UnitName, fu => fu.Count),
+                PromissaryNotes = promissaryNotes.Where(pn => pn.Faction == x.FactionName)
+                    .Select(pn => pn.PromissaryNoteCardName)
+                    .ToList(),
                 GameVersion = x.GameVersion,
             })
             .First();

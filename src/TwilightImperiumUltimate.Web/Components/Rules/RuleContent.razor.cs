@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components;
 using TwilightImperiumUltimate.Web.Models.Rules;
 
 namespace TwilightImperiumUltimate.Web.Components.Rules;
@@ -6,12 +6,17 @@ namespace TwilightImperiumUltimate.Web.Components.Rules;
 public partial class RuleContent
 {
     [Parameter]
-    public Rule Rule { get; set; } = default!;
+    public TransformedRule TransformedRule { get; set; } = default!;
 
-    private MarkupString MarkupString { get; set; }
+    private MarkupString TransformedRuleContent { get; set; }
+
+    private MarkupString TransformedRuleTitle { get; set; }
 
     protected override void OnParametersSet()
     {
-        MarkupString = new MarkupString(Rule.Content);
+        TransformedRuleContent = new MarkupString(TransformedRule.Content);
+        TransformedRuleTitle = new MarkupString(TransformedRule.RuleTitle);
     }
+
+    private int GetTransformedRuleId() => (int)TransformedRule.RuleCategory;
 }

@@ -34,6 +34,17 @@ public class GalaxyController : ControllerBase
                 Resources = x.Resources,
                 Influence = x.Influence,
                 HasPlanets = x.HasPlanets,
+                FactionName = x.FactionName,
+                Planets = x.Planets.Select(p => new PlanetDto
+                {
+                    PlanetName = p.PlanetName,
+                    Resources = p.Resources,
+                    Influence = p.Influence,
+                    IsLegendary = p.IsLegendary,
+                    TechnologySkip = p.TechnologySkip,
+                    PlanetTrait = p.PlanetTrait,
+                    GameVersion = p.GameVersion,
+                }).ToList(),
             })
             .ToList();
 

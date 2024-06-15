@@ -1,31 +1,31 @@
 ﻿using TwilightImperiumUltimate.Web.Enums;
-using TwilightImperiumUltimate.Web.Settings.MapGenerators;
+using TwilightImperiumUltimate.Web.Options.MapGenerators;
 
 namespace TwilightImperiumUltimate.Web.Services.MapGenerators;
 
 public class MapGeneratorSettingsService : IMapGeneratorSettingsService
 {
-    public int MapScale { get; set; } = MapGeneratorSettings.MaxScale;
+    public int MapScale { get; set; } = MapGeneratorOptions.MaxScale;
 
-    public MapTemplate MapTemplate { get; set; } = MapGeneratorSettings.MapTemplate;
+    public MapTemplate MapTemplate { get; set; } = MapGeneratorOptions.MapTemplate;
 
-    public PlacementStyle PlacementStyle { get; set; } = MapGeneratorSettings.PlacementStyle;
+    public PlacementStyle PlacementStyle { get; set; } = MapGeneratorOptions.PlacementStyle;
 
-    public SystemWeight SystemWeight { get; set; } = MapGeneratorSettings.SystemWeight;
+    public SystemWeight SystemWeight { get; set; } = MapGeneratorOptions.SystemWeight;
 
-    public GameVersion GameVersion { get; set; } = MapGeneratorSettings.GameVersion;
+    public GameVersion GameVersion { get; set; } = MapGeneratorOptions.GameVersion;
 
-    public SystemTileOverlay SystemTileOverlay { get; set; } = MapGeneratorSettings.SystemTileOverlay;
+    public SystemTileOverlay SystemTileOverlay { get; set; } = MapGeneratorOptions.SystemTileOverlay;
 
     public void IncreaseMapScale()
     {
-        if (MapScale <= MapGeneratorSettings.MaxScale - MapGeneratorSettings.ScaleIncrement)
-            MapScale += MapGeneratorSettings.ScaleIncrement;
+        if (MapScale <= MapGeneratorOptions.MaxScale - MapGeneratorOptions.ScaleIncrement)
+            MapScale += MapGeneratorOptions.ScaleIncrement;
     }
 
     public void DecreaseMapScale()
     {
-        if (MapScale >= MapGeneratorSettings.MinScale + MapGeneratorSettings.ScaleIncrement)
-            MapScale -= MapGeneratorSettings.ScaleIncrement;
+        if (MapScale >= MapGeneratorOptions.MinScale + MapGeneratorOptions.ScaleIncrement)
+            MapScale -= MapGeneratorOptions.ScaleIncrement;
     }
 }

@@ -1,20 +1,42 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Cards
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Resources
 @using TwilightImperiumUltimate.Web.Services.Path
 @inject IPathProvider PathProvider
 
 <FlexColumnCenteredContainer>
 
-    <div class="tech-tree-container">
+    <div class="tech-tree-grid">
 
         @foreach (var technology in Technologies)
         {
-            <div class="image-container">
+            <div class="image-container clickable" @onclick="@(()=> ShowBigImage(technology))">
                 <TechnologyCard ImagePath="@(PathProvider.GetTechnologyImagePath(technology.TechnologyName.ToString()))" />
             </div>
         }
 
     </div>
+
+    @if (showBigImage)
+    {
+        <div class="big-image-overlay" @onclick="HideBigImage">
+            <div class="image-container">
+                <img src="@currentBigImageSrc" @onclick="HideBigImage" />
+            </div>
+            <div id="language-menu">
+                <img src="@(GetCultureIconPath(Strings.EnglishCulture))"
+                     alt="English"
+                     height="50"
+                     @onclick="@(() => SetBigImageAddress(Strings.EnglishCulture))"
+                     @onclick:stopPropagation="true" />
+                <img src="@(GetCultureIconPath(Strings.CzechCulture))"
+                     alt="Czech"
+                     height="50"
+                     @onclick="@(() => SetBigImageAddress(Strings.CzechCulture))"
+                     @onclick:stopPropagation="true" />
+            </div>
+        </div>
+    }
 
 </FlexColumnCenteredContainer>
 

@@ -11,7 +11,11 @@
     align-self: center;
 }
 
-.menu-item {
+.max-height {
+    max-height: 40px;
+}
+
+.tech-menu-item {
     font-family: Handel, fallback, sans-serif;
     font-size: 24px;
     font-weight: bold;
@@ -42,4 +46,35 @@
 
 .purple {
     color: purple;
+}
+
+@media (max-width: 1600px) {
+    .max-height {
+        max-height: 30px;
+    }
+
+    .tech-menu-item {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .max-height {
+        max-height: 16px;
+    }
+
+    .tech-menu-item {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .max-height {
+        max-height: 10px;
+    }
+
+    .tech-menu-item {
+        font-size: 8px;
+    }
 }

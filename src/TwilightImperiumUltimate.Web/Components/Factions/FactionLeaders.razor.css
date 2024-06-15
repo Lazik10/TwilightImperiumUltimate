@@ -7,3 +7,15 @@
     grid-template-columns: 1fr 1fr 1fr;
     place-items: center;
 }
+
+@media (max-width: 1248px) {
+    .leaders-grid {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .leaders-grid {
+        font-size: 10px;
+    }
+}

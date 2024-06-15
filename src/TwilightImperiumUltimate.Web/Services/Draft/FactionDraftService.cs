@@ -1,11 +1,10 @@
-﻿using System.Net.Http.Json;
-using TwilightImperiumUltimate.Web.Enums;
+﻿using TwilightImperiumUltimate.Web.Enums;
 using TwilightImperiumUltimate.Web.Helpers.Text;
 using TwilightImperiumUltimate.Web.Models.Drafts;
 using TwilightImperiumUltimate.Web.Models.Factions;
+using TwilightImperiumUltimate.Web.Options.Drafts;
 using TwilightImperiumUltimate.Web.Resources;
 using TwilightImperiumUltimate.Web.Services.HttpClients;
-using TwilightImperiumUltimate.Web.Settings.Drafts;
 
 namespace TwilightImperiumUltimate.Web.Services.Draft;
 
@@ -13,8 +12,8 @@ public class FactionDraftService : IFactionDraftService
 {
     private static readonly Random Random = new();
     private readonly ITwilightImperiumApiHttpClient _httpClient;
-    private readonly List<FactionDraftPlayerModel> _players = new();
-    private IReadOnlyCollection<FactionModel> _factionsWithBanStatus = new List<FactionModel>();
+    private readonly List<FactionDraftPlayerModel> _players = [];
+    private IReadOnlyCollection<FactionModel> _factionsWithBanStatus = [];
 
     public FactionDraftService(ITwilightImperiumApiHttpClient httpClient)
     {
@@ -27,35 +26,35 @@ public class FactionDraftService : IFactionDraftService
 
     public IReadOnlyCollection<FactionModel> FactionsWithUpdatedBanStatus => _factionsWithBanStatus;
 
-    public int NumberOfPlayers { get; set; } = FactionDraftSettings.InitialNumberOfPlayers;
+    public int NumberOfPlayers { get; set; } = FactionDraftOptions.InitialNumberOfPlayers;
 
-    public int NumberOfDraftFactions { get; set; } = FactionDraftSettings.MinNumberOfDraftFactions;
+    public int NumberOfDraftFactions { get; set; } = FactionDraftOptions.MinNumberOfDraftFactions;
 
     public bool ToManyBans => FactionsWithUpdatedBanStatus
-        .Count(x => x.Banned) > FactionDraftSettings.MumberOfFactions - (NumberOfPlayers * NumberOfDraftFactions);
+        .Count(x => x.Banned) > FactionDraftOptions.MumberOfFactions - (NumberOfPlayers * NumberOfDraftFactions);
 
     public void InitializePlayers()
     {
         if (_players.Count == 0)
         {
             _players.AddRange(Enumerable
-                .Range(1, FactionDraftSettings.InitialNumberOfPlayers)
+                .Range(1, FactionDraftOptions.InitialNumberOfPlayers)
                 .Select(x => new FactionDraftPlayerModel()
                 {
                     Name = Strings.PlayerNamePlaceholder.FormatWith(x),
-                    DraftedFactions = new List<FactionName>() { FactionName.None },
+                    DraftedFactions = [FactionName.None],
                 }));
         }
     }
 
     public void IncreasePlayerCount()
     {
-        if (NumberOfPlayers < FactionDraftSettings.MaxNumberOfPlayers)
+        if (NumberOfPlayers < FactionDraftOptions.MaxNumberOfPlayers)
         {
             NumberOfPlayers++;
 
             if (!PossibleDraftCombination())
-                NumberOfDraftFactions = FactionDraftSettings.MumberOfFactions / NumberOfPlayers;
+                NumberOfDraftFactions = FactionDraftOptions.MumberOfFactions / NumberOfPlayers;
 
             _players.Add(new FactionDraftPlayerModel()
             {
@@ -68,7 +67,7 @@ public class FactionDraftService : IFactionDraftService
 
     public void DecreasePlayerCount()
     {
-        if (NumberOfPlayers > FactionDraftSettings.MinNumberOfPlayers)
+        if (NumberOfPlayers > FactionDraftOptions.MinNumberOfPlayers)
         {
             NumberOfPlayers--;
             _players.RemoveAt(Players.Count - 1);
@@ -77,14 +76,14 @@ public class FactionDraftService : IFactionDraftService
 
     public void IncreaseFactionCount()
     {
-        if (NumberOfDraftFactions < FactionDraftSettings.MumberOfFactions)
+        if (NumberOfDraftFactions < FactionDraftOptions.MumberOfFactions)
         {
             NumberOfDraftFactions++;
             ResetPlayerFactions();
 
             if (!PossibleDraftCombination())
             {
-                var playerDifference = NumberOfPlayers - (FactionDraftSettings.MumberOfFactions / NumberOfDraftFactions);
+                var playerDifference = NumberOfPlayers - (FactionDraftOptions.MumberOfFactions / NumberOfDraftFactions);
 
                 for (int i = 0; i < playerDifference; i++)
                 {
@@ -96,7 +95,7 @@ public class FactionDraftService : IFactionDraftService
 
     public void DecreaseFactionCount()
     {
-        if (NumberOfDraftFactions > FactionDraftSettings.MinNumberOfDraftFactions)
+        if (NumberOfDraftFactions > FactionDraftOptions.MinNumberOfDraftFactions)
             NumberOfDraftFactions--;
 
         ResetPlayerFactions();
@@ -129,16 +128,29 @@ public class FactionDraftService : IFactionDraftService
 
     public void UpdateBanFactions(IReadOnlyCollection<FactionModel>? factionsWithBanStatus)
     {
-        _factionsWithBanStatus = factionsWithBanStatus ?? new List<FactionModel>();
+        _factionsWithBanStatus = factionsWithBanStatus ?? [];
+    }
+
+    private static FactionName GetRandomFaction()
+    {
+        var pickedRandomFactions = Enum.GetValues(typeof(FactionName))
+           .Cast<FactionName>()
+           .ToList();
+
+        pickedRandomFactions.RemoveAt(0);
+
+        var randomFaction = pickedRandomFactions.OrderBy(x => Random.Next()).Take(1).Single();
+
+        return randomFaction;
     }
 
     private async Task StartRandomFactionAssignmentAsync()
     {
-        for (int i = 0; i < FactionDraftSettings.DefaultNumberOfAssignments; i++)
+        for (int i = 0; i < FactionDraftOptions.DefaultNumberOfAssignments; i++)
         {
             RandomFactionAssignment();
             OnFactionUpdate?.Invoke(this, EventArgs.Empty);
-            await Task.Delay(FactionDraftSettings.DefaultDelayInMilliseconds);
+            await Task.Delay(FactionDraftOptions.DefaultDelayInMilliseconds);
         }
     }
 
@@ -167,19 +179,6 @@ public class FactionDraftService : IFactionDraftService
         return result;
     }
 
-    private FactionName GetRandomFaction()
-    {
-        var pickedRandomFactions = Enum.GetValues(typeof(FactionName))
-           .Cast<FactionName>()
-           .ToList();
-
-        pickedRandomFactions.RemoveAt(0);
-
-        var randomFaction = pickedRandomFactions.OrderBy(x => Random.Next()).Take(1).Single();
-
-        return randomFaction;
-    }
-
     private void RandomFactionAssignment()
     {
         foreach (var player in Players)
@@ -190,6 +189,6 @@ public class FactionDraftService : IFactionDraftService
 
     private bool PossibleDraftCombination()
     {
-        return NumberOfPlayers * NumberOfDraftFactions <= FactionDraftSettings.MumberOfFactions;
+        return NumberOfPlayers * NumberOfDraftFactions <= FactionDraftOptions.MumberOfFactions;
     }
 }

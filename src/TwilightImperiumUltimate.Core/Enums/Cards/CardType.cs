@@ -9,4 +9,5 @@ public enum CardType
     Exploration,
     Frontier,
     Relic,
+    Promissary,
 }

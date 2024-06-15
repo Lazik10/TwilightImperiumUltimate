@@ -1,10 +1,9 @@
-﻿using TwilightImperiumUltimate.Core.Entities.Cards;
+using TwilightImperiumUltimate.Core.Entities.Cards;
 using TwilightImperiumUltimate.Core.Entities.News;
 using TwilightImperiumUltimate.Core.Entities.RelationshipEntities;
 using TwilightImperiumUltimate.Core.Entities.Rules;
 using TwilightImperiumUltimate.Core.Entities.Units;
 using TwilightImperiumUltimate.Core.Entities.Users;
-using TwilightImperiumUltimate.DataAccess.RelationshipEntities;
 
 namespace TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium;
 
@@ -19,11 +18,13 @@ public partial class TwilightImperiumDbContext : DbContext
 
     public virtual DbSet<FrontierCard> FrontierCards { get; set; }
 
-    public virtual DbSet<ObjectiveCard> ObjectivesCards { get; set; }
+    public virtual DbSet<ObjectiveCard> ObjectiveCards { get; set; }
 
     public virtual DbSet<RelicCard> RelicCards { get; set; }
 
     public virtual DbSet<StrategyCard> StrategyCards { get; set; }
+
+    public virtual DbSet<PromissaryNoteCard> PromissaryNoteCards { get; set; }
 
     // Galaxy
     public virtual DbSet<Planet> Planets { get; set; }
@@ -41,7 +42,7 @@ public partial class TwilightImperiumDbContext : DbContext
     public virtual DbSet<FactionColorImportance> FactionColorImportances { get; set; }
 
     // Relationships
-    public virtual DbSet<FactionTechnology> RaceTechnology { get; set; }
+    public virtual DbSet<FactionTechnology> FactionTechnology { get; set; }
 
     public virtual DbSet<FactionUnit> FactionUnit { get; set; }
 

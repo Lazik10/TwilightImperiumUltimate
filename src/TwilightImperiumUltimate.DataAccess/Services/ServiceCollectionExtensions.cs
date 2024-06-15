@@ -27,7 +27,6 @@ public static class ServiceCollectionExtensions
 
         services.AddScoped<ISystemTileRepository, SystemTileRepository>();
 
-        services.AddSingleton<TwilightImperiumDbContextInitializer>();
         services.AddSingleton<ICreateCardImagePathService, CreateCardImagePathService>();
 
         return services;

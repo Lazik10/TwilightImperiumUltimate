@@ -1,10 +1,9 @@
-﻿using System.Net.Http.Json;
-using TwilightImperiumUltimate.Web.Enums;
+﻿using TwilightImperiumUltimate.Web.Enums;
 using TwilightImperiumUltimate.Web.Models.Drafts;
 using TwilightImperiumUltimate.Web.Models.Factions;
+using TwilightImperiumUltimate.Web.Options.Drafts;
 using TwilightImperiumUltimate.Web.Resources;
 using TwilightImperiumUltimate.Web.Services.HttpClients;
-using TwilightImperiumUltimate.Web.Settings.Drafts;
 
 namespace TwilightImperiumUltimate.Web.Services.Draft;
 
@@ -12,9 +11,9 @@ public class ColorPickerService : IColorPickerService
 {
     private static readonly Random _random = new();
     private readonly ITwilightImperiumApiHttpClient _httpClient;
-    private IReadOnlyCollection<FactionModel> _selectedFactions = new List<FactionModel>();
-    private Dictionary<PlayerColor, bool> _colors = new Dictionary<PlayerColor, bool>();
-    private IReadOnlyCollection<FactionColorDraftResult>? _factionColorDraftResults = new List<FactionColorDraftResult>();
+    private IReadOnlyCollection<FactionModel> _selectedFactions = [];
+    private Dictionary<PlayerColor, bool> _colors = [];
+    private IReadOnlyCollection<FactionColorDraftResult>? _factionColorDraftResults = [];
 
     public ColorPickerService(ITwilightImperiumApiHttpClient httpClient)
     {
@@ -37,8 +36,8 @@ public class ColorPickerService : IColorPickerService
 
     public void ResetSelectedFactions()
     {
-        _selectedFactions = new List<FactionModel>();
-        _factionColorDraftResults = new List<FactionColorDraftResult>();
+        _selectedFactions = [];
+        _factionColorDraftResults = [];
     }
 
     public void ResetBannedColors() => InitializeColors();
@@ -50,7 +49,7 @@ public class ColorPickerService : IColorPickerService
 
     public void UpdateSelectedFactions(IReadOnlyCollection<FactionModel>? factions, FactionModel faction)
     {
-        if (factions?.Count(x => !x.Banned) > ColorDraftSettings.MaxNumberOfFactions
+        if (factions?.Count(x => !x.Banned) > ColorDraftOptions.MaxNumberOfFactions
             && faction is not null)
         {
             faction.Banned = true;
@@ -70,11 +69,11 @@ public class ColorPickerService : IColorPickerService
 
     private async Task GetRandomResultsAsync()
     {
-        for (int i = 0; i < FactionDraftSettings.DefaultNumberOfAssignments; i++)
+        for (int i = 0; i < FactionDraftOptions.DefaultNumberOfAssignments; i++)
         {
             _factionColorDraftResults = GenerateFakeColorDraftResult();
             OnFactionUpdate?.Invoke(this, EventArgs.Empty);
-            await Task.Delay(FactionDraftSettings.DefaultDelayInMilliseconds);
+            await Task.Delay(FactionDraftOptions.DefaultDelayInMilliseconds);
         }
     }
 
@@ -109,6 +108,6 @@ public class ColorPickerService : IColorPickerService
 
         var result = await _httpClient.PostAsync<ColorDraftRequest, List<FactionColorDraftResult>>(Paths.ApiPath_ColorDraft, request);
 
-        _factionColorDraftResults = result.OrderBy(results => results.FactionName).ToList();
+        _factionColorDraftResults = [.. result.OrderBy(results => results.FactionName)];
     }
 }

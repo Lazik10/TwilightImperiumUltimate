@@ -1,10 +1,28 @@
-﻿@using TwilightImperiumUltimate.Web.Helpers.Resources;
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Helpers.Resources;
 
-<div class="title">
-    @FactionName.GetFactionUIText(FactionResourceType.Title)
-</div>
+<FlexColumnCenteredContainer>
 
-@code {
-    [Parameter]
-    public FactionName FactionName { get; set; } = default!;
-}
+    <VerticalSpace Height="50" />
+
+    <TitleLine TransformX="-15" Width="125" MaxWidth="125" />
+
+    <FlexColumnCenteredContainer CssClass="title handel white shadow">
+
+        <FlexRowContainer JustifyContent="Enums.JustifyContent.SpaceBetween">
+
+            <FactionIcon FactionName="@(FactionName)" Height="50" />
+
+            <div class="title">
+                @FactionName.GetFactionUIText(FactionResourceType.Title)
+            </div>
+
+            <FactionIcon FactionName="@(FactionName)" Height="50" />
+
+        </FlexRowContainer>
+
+    </FlexColumnCenteredContainer>
+
+    <TitleLine TransformX="-15" Width="125" MaxWidth="125"/>
+
+</FlexColumnCenteredContainer>

@@ -18,7 +18,7 @@
     {
         <RadzenTextBox Placeholder="@Player.Name"
                         @bind-Value="Player.Name"
-                        class="w-100 flex-row" />
+                        class="w-100 flex-row title white handel" />
     }
 
     <div class="title white handel shadow factions-text">
@@ -35,13 +35,4 @@
     </div>
 </div>
 
-@code {
-    [Parameter]
-    public FactionDraftPlayerModel Player { get; set; } = new FactionDraftPlayerModel();
 
-    [Parameter]
-    public DraftStage DraftStage { get; set; } = DraftStage.Draft;
-
-    [Parameter]
-    public int Index { get; set; } = 0;
-}

@@ -4,6 +4,7 @@
     justify-content: left;
     align-self: self-start;
     width: 100%;
+    color: white;
 }
 
 .system-stats-text {
@@ -41,4 +42,16 @@
 
 .system-stats-value {
     align-self: center;
+}
+
+@media (max-width: 1248px) {
+    .system-stats-text, .system-stats-value {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .system-stats-text, .system-stats-value {
+        font-size: 10px;
+    }
 }

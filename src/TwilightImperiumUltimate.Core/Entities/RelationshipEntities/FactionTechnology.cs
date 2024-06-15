@@ -4,7 +4,7 @@ using TwilightImperiumUltimate.Core.Enums.Races;
 using TwilightImperiumUltimate.Core.Enums.Technologies;
 using TwilightImperiumUltimate.Core.Interfaces;
 
-namespace TwilightImperiumUltimate.DataAccess.RelationshipEntities;
+namespace TwilightImperiumUltimate.Core.Entities.RelationshipEntities;
 
 public sealed class FactionTechnology
 {

@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Components;
 using TwilightImperiumUltimate.Web.Enums;
+using TwilightImperiumUltimate.Web.Models.Cards;
 using TwilightImperiumUltimate.Web.Models.Technologies;
 using TwilightImperiumUltimate.Web.Resources;
 using TwilightImperiumUltimate.Web.Services.HttpClients;
+using TwilightImperiumUltimate.Web.Services.Path;
 
 namespace TwilightImperiumUltimate.Web.Components.Technologies;
 

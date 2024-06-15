@@ -1,1 +1,14 @@
-﻿
+﻿.faction-tech-tree-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(1px, auto));
+    grid-template-rows: repeat(4, auto);
+    grid-row-gap: 5%;
+    width: 80%;
+    height: 100%;
+}
+
+.image-container {
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+}

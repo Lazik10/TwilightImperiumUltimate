@@ -4,8 +4,14 @@
     width: 80%
 }
 
-    .abilities :nth-child(2),
-    .abilities :nth-child(4),
-    .abilities :nth-child(6) {
-        font-size: 12px;
+@media (max-width: 1248px) {
+    .abilities {
+        font-size: 14px;
     }
+}
+
+@media (max-width: 768px) {
+    .abilities {
+        font-size: 10px;
+    }
+}

@@ -1,4 +1,4 @@
-﻿using TwilightImperiumUltimate.DataAccess.Tables.Galaxy;
+using TwilightImperiumUltimate.DataAccess.Tables.Galaxy;
 
 namespace TwilightImperiumUltimate.DataAccess.Configurations.Galaxy;
 

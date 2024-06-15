@@ -8,42 +8,62 @@
 
 @if (_selectedFaction is not null)
 {
-    <div class="grid-header">
-        <div class="race-info-grid">
-            <div class="grid-item-title grid-item">
-                <img src="@(PathProvider.GetFactionIconPath(_selectedFaction.FactionName.ToString()))" />
+    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" Width="100" AlignItems="Enums.AlignItems.FlexStart">
+
+        <TitleTexture Width="15" Texture="Enums.Texture.TopLeft" />
+
+        <FlexColumnContainer>
+            <FlexRowContainer>
                 <FactionNameLabel FactionName="@(_selectedFaction.FactionName)" />
-            </div>
-            <div class="grid-item faction-info-text">
+            </FlexRowContainer>
+
+            <VerticalSpace Height="50" />
+
+            <FlexRowContainer>
                 <FactionQuote FactionName="@(_selectedFaction.FactionName)" />
-            </div>
-            <div class="grid-item faction-info-text">
+            </FlexRowContainer>
+
+            <VerticalSpace Height="50" />
+
+            <FlexColumnContainer>
                 <FactionSystemStats FactionName="@(_selectedFaction.FactionName)" />
-            </div>
-            <div class="grid-item faction-info-text">
+            </FlexColumnContainer>
+
+            <VerticalSpace Height="50" />
+
+            <FlexRowContainer>
                 <FactionSystemInfo FactionName="@(_selectedFaction.FactionName)" />
-            </div>
-            <div class="grid-item faction-info-text faction-sheet-container">
-                <div class="faction-sheet-button clickable"
-                    @onclick="() => ShowBigImage(true)">
+            </FlexRowContainer>
+
+            <VerticalSpace Height="50" />
+
+            <FlexRowContainer>
+
+                <div class="faction-sheet-button clickable" @onclick="() => ShowBigImage(true)">
                     @Strings.Faction_FrontSheet
                 </div>
-                <div class="faction-sheet-button clickable"
-                    @onclick="() => ShowBigImage(false)">
+                <div class="faction-sheet-button clickable" @onclick="() => ShowBigImage(false)">
                     @Strings.Faction_BackSheet
                 </div>
-            </div>
-        </div>
-        <div class="grid-item race-rightside-container">
+
+            </FlexRowContainer>
+
+        </FlexColumnContainer>
+
+        <FlexColumnCenteredContainer>
             <div class="race-image-container">
                 <img src="@PathProvider.GetFactionImagePath(_selectedFaction.FactionName.ToString())" />
             </div>
+
             <div class="complexity-rating-container complexity-text">
                 <p>@Strings.Faction_ComplexityRating</p>
                 <img src="@(PathProvider.GetComplexityIconPath(_selectedFaction.ComplexityRating))" />
             </div>
-        </div>
-    </div>
+        </FlexColumnCenteredContainer>
+
+    </FlexRowContainer>
+
+    <VerticalSpace Height="50" />
 
     <FactionInfoRow OnFactionInfoTypeChange="SetFactionInfoType"/>
 
