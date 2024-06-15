@@ -1,6 +1,9 @@
 ﻿@page "/game/planets"
+@using System.Globalization
+@using TwilightImperiumUltimate.Web.Components.Cards
 @using TwilightImperiumUltimate.Web.Components.Shared
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Resources
 
 <Page>
 
@@ -12,18 +15,36 @@
 
                 @foreach (var planet in _planets)
                 {
-                    <div>
-                        <FlexColumnCenteredContainer>
-                            <div class="handel shadow white">
-                                @(planet.PlanetName.ToString())
-                            </div>
-                        </FlexColumnCenteredContainer>
-                        <img class="planet" src="@(GetPlanetImagePath(planet))" alt="@planet.PlanetName">
+                    <FlexColumnCenteredContainer>
+                        <div class="clickable" @onclick="@(() => ShowBigImage(planet, CultureInfo.CurrentCulture.Name))">
+                            <VerticalCard ImagePath="@(GetPlanetImagePath(planet))" />
+                        </div>
                         <VerticalSpace Height="50" />
-                    </div>
+                    </FlexColumnCenteredContainer>
                 }
 
             </div>
+
+            @if (showBigImage)
+            {
+                <div class="big-image-overlay" @onclick="HideBigImage">
+                    <div class="image-container">
+                        <img src="@currentBigImageSrc" @onclick="HideBigImage" />
+                    </div>
+                    <div id="language-menu">
+                        <img src="@(GetCultureIconPath(Strings.EnglishCulture))"
+                             alt="English"
+                             height="50"
+                             @onclick="@(() =>SetBigImageAddress(Strings.EnglishCulture))"
+                             @onclick:stopPropagation="true" />
+                        <img src="@(GetCultureIconPath(Strings.CzechCulture))"
+                             alt="Czech"
+                             height="50"
+                             @onclick="@(() =>SetBigImageAddress(Strings.CzechCulture))"
+                             @onclick:stopPropagation="true" />
+                    </div>
+                </div>
+            }
 
         </FlexColumnCenteredContainer>
 

@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TwilightImperiumUltimate.Core.Entities.Cards;
 using TwilightImperiumUltimate.Core.Enums.Cards;
@@ -22,12 +22,11 @@ public class CardsController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<ObjectiveCard>>> GetAllSecretCards()
     {
-        using var context = _context.CreateDbContext();
+        using var context = await _context.CreateDbContextAsync();
 
-        return await context.ObjectivesCards
+        return await context.ObjectiveCards
             .Where(x => x.ObjectiveCardType == ObjectiveCardType.Secret)
-            .ToListAsync()
-            .ConfigureAwait(false);
+            .ToListAsync();
     }
 
     // GET: api/cards/stageoneobjective
@@ -35,12 +34,11 @@ public class CardsController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<ObjectiveCard>>> GetAllStageOneObjectiveCards()
     {
-        using var context = _context.CreateDbContext();
+        using var context = await _context.CreateDbContextAsync();
 
-        return await context.ObjectivesCards
+        return await context.ObjectiveCards
             .Where(x => x.ObjectiveCardType == ObjectiveCardType.StageOne)
-            .ToListAsync()
-            .ConfigureAwait(false);
+            .ToListAsync();
     }
 
     // GET: api/cards/stagetwoobjective
@@ -48,12 +46,11 @@ public class CardsController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<ObjectiveCard>>> GetAllStageTwoObjectiveCards()
     {
-        using var context = _context.CreateDbContext();
+        using var context = await _context.CreateDbContextAsync();
 
-        return await context.ObjectivesCards
+        return await context.ObjectiveCards
             .Where(x => x.ObjectiveCardType == ObjectiveCardType.StageTwo)
-            .ToListAsync()
-            .ConfigureAwait(false);
+            .ToListAsync();
     }
 
     // GET: api/cards/action
@@ -61,11 +58,9 @@ public class CardsController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<ActionCard>>> GetAllActionCards()
     {
-        using var context = _context.CreateDbContext();
+        using var context = await _context.CreateDbContextAsync();
 
-        return await context.ActionCards
-            .ToListAsync()
-            .ConfigureAwait(false);
+        return await context.ActionCards.ToListAsync();
     }
 
     // GET: api/cards/agenda
@@ -73,11 +68,9 @@ public class CardsController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<AgendaCard>>> GetAllAgendaCards()
     {
-        using var context = _context.CreateDbContext();
+        using var context = await _context.CreateDbContextAsync();
 
-        return await context.AgendaCards
-            .ToListAsync()
-            .ConfigureAwait(false);
+        return await context.AgendaCards.ToListAsync();
     }
 
     // GET: api/cards/frontier
@@ -85,11 +78,9 @@ public class CardsController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<FrontierCard>>> GetAllFrontierCards()
     {
-        using var context = _context.CreateDbContext();
+        using var context = await _context.CreateDbContextAsync();
 
-        return await context.FrontierCards
-            .ToListAsync()
-            .ConfigureAwait(false);
+        return await context.FrontierCards.ToListAsync();
     }
 
     // GET: api/cards/relic
@@ -97,11 +88,9 @@ public class CardsController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<RelicCard>>> GetAllRelicCards()
     {
-        using var context = _context.CreateDbContext();
+        using var context = await _context.CreateDbContextAsync();
 
-        return await context.RelicCards
-            .ToListAsync()
-            .ConfigureAwait(false);
+        return await context.RelicCards.ToListAsync();
     }
 
     // GET: api/cards/strategy
@@ -109,12 +98,11 @@ public class CardsController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<StrategyCard>>> GetAllStrategyCards()
     {
-        using var context = _context.CreateDbContext();
+        using var context = await _context.CreateDbContextAsync();
 
         return await context.StrategyCards
             .OrderBy(x => x.InitiativeOrder)
-            .ToListAsync()
-            .ConfigureAwait(false);
+            .ToListAsync();
     }
 
     // GET: api/cards/exploration
@@ -122,10 +110,18 @@ public class CardsController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<ExplorationCard>>> GetAllExplorationCards()
     {
-        using var context = _context.CreateDbContext();
+        using var context = await _context.CreateDbContextAsync();
 
-        return await context.ExplorationCards
-            .ToListAsync()
-            .ConfigureAwait(false);
+        return await context.ExplorationCards.ToListAsync();
+    }
+
+    // GET: api/cards/promissorynote
+    [Route("promissorynote")]
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<PromissaryNoteCard>>> GetAllPromissaryCards()
+    {
+        using var context = await _context.CreateDbContextAsync();
+
+        return await context.PromissaryNoteCards.ToListAsync();
     }
 }

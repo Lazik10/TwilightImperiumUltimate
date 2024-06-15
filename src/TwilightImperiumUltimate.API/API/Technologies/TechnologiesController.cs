@@ -29,6 +29,7 @@ public class TechnologiesController : ControllerBase
             Level = x.Level,
             GameVersion = x.GameVersion,
             IsFactionTechnology = x.IsFactionTechnology,
+            FactionName = x.FactionName,
         })
         .ToList();
     }

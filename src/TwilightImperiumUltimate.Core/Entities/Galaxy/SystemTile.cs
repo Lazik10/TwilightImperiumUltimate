@@ -1,4 +1,4 @@
-﻿using TwilightImperiumUltimate.Core.Enums.Galaxy;
+using TwilightImperiumUltimate.Core.Enums.Galaxy;
 using TwilightImperiumUltimate.Core.Enums.Game;
 using TwilightImperiumUltimate.Core.Enums.Races;
 using TwilightImperiumUltimate.Core.Interfaces;
@@ -13,7 +13,7 @@ public class SystemTile : IEntity, IGameVersion
 
     public SystemTileCategory TileCategory { get; set; }
 
-    public FactionName RaceName { get; set; }
+    public FactionName FactionName { get; set; }
 
     public IReadOnlyCollection<Planet> Planets { get; set; } = new List<Planet>();
 
@@ -25,7 +25,7 @@ public class SystemTile : IEntity, IGameVersion
 
     public bool HasLegendaryPlanet => Planets.Any(x => x.IsLegendary);
 
-    public bool IsHomeSystem => RaceName != FactionName.None;
+    public bool IsHomeSystem => FactionName != FactionName.None;
 
     public int Resources => Planets.Sum(x => x.Resources);
 

@@ -1,25 +1,36 @@
-﻿using Serilog;
+using Serilog;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
-using System.Text;
-using TwilightImperiumUltimate.Web.Models.Drafts;
-using TwilightImperiumUltimate.Web.Resources;
-using TwilightImperiumUltimate.Web.Settings.AppSettings;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using TwilightImperiumUltimate.Web.Options.Api;
 
 namespace TwilightImperiumUltimate.Web.Services.HttpClients;
 
 public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
 {
     private readonly HttpClient _httpClient;
+    private readonly JsonSerializerOptions _options;
 
     public TwilightImperiumApiHttpClient(HttpClient httpClient, IConfiguration configuration)
     {
         ArgumentNullException.ThrowIfNull(configuration);
 
         _httpClient = httpClient;
-        var baseUrl = configuration.GetSection(nameof(TwilightImperiumApiSettings))[nameof(TwilightImperiumApiSettings.BaseUrl)];
+        var baseUrl = configuration.GetSection(nameof(TwilightImperiumApiOptions))[nameof(TwilightImperiumApiOptions.BaseUrl)];
         _httpClient.BaseAddress = new Uri(baseUrl!);
         _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+        _options = new JsonSerializerOptions
+        {
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+            WriteIndented = false,
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+            Converters =
+                {
+                    new JsonStringEnumConverter(JsonNamingPolicy.CamelCase),
+                },
+        };
     }
 
     public async Task<TResponse> GetAsync<TResponse>(string endpointPath)
@@ -29,7 +40,7 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
         {
             Uri uri = new(string.Concat(_httpClient.BaseAddress, endpointPath));
 
-            return await _httpClient.GetFromJsonAsync<TResponse>(uri) ?? new TResponse();
+            return await _httpClient.GetFromJsonAsync<TResponse>(uri, _options) ?? new TResponse();
         }
         catch (HttpRequestException ex)
         {
@@ -46,7 +57,7 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
         {
             var response = await _httpClient.PostAsJsonAsync(endpointPath, request);
 
-            return await response.Content.ReadFromJsonAsync<TResponse>() ?? new TResponse();
+            return await response.Content.ReadFromJsonAsync<TResponse>(_options) ?? new TResponse();
         }
         catch (HttpRequestException ex)
         {

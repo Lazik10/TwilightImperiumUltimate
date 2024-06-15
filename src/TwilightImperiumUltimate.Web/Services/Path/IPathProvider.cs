@@ -31,4 +31,6 @@ public interface IPathProvider
     string GetIconPath(IconType iconType);
 
     string GetTexturePath(Texture texture);
+
+    string GetPromissoryNotePath(string fileName);
 }

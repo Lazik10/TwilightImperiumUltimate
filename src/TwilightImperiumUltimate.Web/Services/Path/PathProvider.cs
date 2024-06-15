@@ -87,6 +87,11 @@ public class PathProvider : IPathProvider
         return $"{Paths.ResourcePath_TexturePath}{Strings.BackSlash}{texture}{Strings.FileExtensionWebp}";
     }
 
+    public string GetPromissoryNotePath(string fileName)
+    {
+        return $"{GetCorrectLanguagePath(Paths.ResourcePath_PromissoryNotePath)}{Strings.BackSlash}{fileName}{Strings.FileExtensionWebp}";
+    }
+
     private string GetCorrectLanguagePath(string path)
     {
         return path.Replace(Strings.LanguagePlaceholder, _language);

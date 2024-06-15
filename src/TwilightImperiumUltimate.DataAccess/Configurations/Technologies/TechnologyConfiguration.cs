@@ -36,6 +36,12 @@ public class TechnologyConfiguration : IEntityTypeConfiguration<Technology>
             .HasConversion<bool>()
             .HasColumnType("bit");
 
+        builder.Property(e => e.FactionName)
+            .IsRequired()
+            .HasColumnName(nameof(Technology.FactionName))
+            .HasConversion<int>()
+            .HasColumnType("integer");
+
         builder.Property(e => e.Text)
             .IsRequired()
             .HasColumnName(nameof(Technology.Text))

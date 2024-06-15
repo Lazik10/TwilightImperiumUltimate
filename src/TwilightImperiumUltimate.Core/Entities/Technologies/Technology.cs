@@ -1,7 +1,8 @@
-﻿using TwilightImperiumUltimate.Core.Enums.Game;
+﻿using TwilightImperiumUltimate.Core.Entities.RelationshipEntities;
+using TwilightImperiumUltimate.Core.Enums.Game;
+using TwilightImperiumUltimate.Core.Enums.Races;
 using TwilightImperiumUltimate.Core.Enums.Technologies;
 using TwilightImperiumUltimate.Core.Interfaces;
-using TwilightImperiumUltimate.DataAccess.RelationshipEntities;
 
 namespace TwilightImperiumUltimate.Core.Entities.Technologies;
 
@@ -16,6 +17,8 @@ public class Technology : IEntity, IGameVersion
     public TechnologyLevel Level { get; set; }
 
     public bool IsFactionTechnology { get; set; }
+
+    public FactionName FactionName { get; set; }
 
     public string Name { get; set; } = string.Empty;
 

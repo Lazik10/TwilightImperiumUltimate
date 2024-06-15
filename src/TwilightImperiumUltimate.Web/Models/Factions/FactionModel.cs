@@ -15,4 +15,6 @@ public class FactionModel
     public bool Banned { get; set; }
 
     public IReadOnlyDictionary<UnitName, int> Units { get; set; } = new Dictionary<UnitName, int>();
+
+    public IReadOnlyCollection<PromissaryNoteName> PromissaryNotes { get; set; } = new List<PromissaryNoteName>();
 }

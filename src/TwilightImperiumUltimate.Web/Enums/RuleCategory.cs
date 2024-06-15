@@ -1,4 +1,4 @@
-﻿namespace TwilightImperiumUltimate.Web.Enums;
+namespace TwilightImperiumUltimate.Web.Enums;
 
 public enum RuleCategory
 {
@@ -63,7 +63,7 @@ public enum RuleCategory
     Movement,
     Nebula,
     Neighbors,
-    ObjectiveCard,
+    ObjectiveCards,
     Opponent,
     Pds,
     Planets,
@@ -71,7 +71,7 @@ public enum RuleCategory
     Politics,
     ProducingUnits,
     Production,
-    PromissaryNotes,
+    PromissoryNotes,
     Purge,
     Readied,
     Reinforcements,
@@ -92,7 +92,7 @@ public enum RuleCategory
     SustainDamage,
     SystemTiles,
     TacticalAction,
-    TechnologyCards,
+    TechnologySystem,
     Technology,
     Trade,
     TradeGoods,

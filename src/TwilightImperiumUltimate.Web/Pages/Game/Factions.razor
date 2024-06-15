@@ -11,18 +11,7 @@
 <Page>
     <FactionIconRow OnFactionClickGetFaction="UpdateSelectedFaction" />
 
-    <VerticalSpace Height="50" />
-
     <StretchHeightContainer>
         <FactionInfoGrid @ref="factionInfoRef" />
     </StretchHeightContainer>
 </Page>
-
-@code {
-    private FactionInfoGrid? factionInfoRef;
-
-    private void UpdateSelectedFaction(FactionModel selectedFaction)
-    {
-        factionInfoRef?.UpdateSelectedFaction(selectedFaction);
-    }
-}

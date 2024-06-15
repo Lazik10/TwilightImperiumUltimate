@@ -1,39 +1,18 @@
-﻿.tech-tree-container {
+﻿.tech-tree-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(1px, auto));
-    grid-template-rows: repeat(4, auto);
-    grid-gap: 0px;
-    align-content: center;
-    justify-content: center;
+    grid-template-rows: repeat(auto, auto);
+    grid-column-gap: 5%;
     width: 80%;
-    height: 100%;
+    padding: 0% 10%;
 }
 
 .image-container {
     position: relative;
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 100%;
+    max-height: 100%;
+    padding: 2% 0%;
 }
-
-/*    .image-container img {
-        display: block;
-        max-width: 100%;
-        max-height: 100%;
-        cursor: pointer;
-        border-radius: 20px;
-    }
-
-    .image-container::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        box-shadow: inset 0 0 0 5px #000;
-        pointer-events: none;
-        border-radius: 20px;
-    }*/
 
 .container > :nth-child(5) {
 
@@ -43,3 +22,42 @@
     
 }
 
+.big-image-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+    .big-image-overlay img {
+        position: relative;
+        max-width: 100%;
+        max-height: 100%;
+        cursor: pointer;
+        border-radius: 20px;
+    }
+
+        .big-image-overlay img::before {
+            content: "";
+            position: absolute;
+            flex-grow: 1;
+            flex-shrink: 1;
+            width: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            box-shadow: inset 0 0 0 5px #000;
+            pointer-events: none;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            z-index: 999;
+        }

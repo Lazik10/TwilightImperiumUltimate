@@ -174,6 +174,9 @@
   <data name="CardTitle_ObjectiveTwo" xml:space="preserve">
     <value>Onjective Two</value>
   </data>
+  <data name="CardTitle_PromissoryNote" xml:space="preserve">
+    <value>Promissory Note</value>
+  </data>
   <data name="CardTitle_Relic" xml:space="preserve">
     <value>Relic</value>
   </data>
@@ -415,7 +418,7 @@
     <value>Cards</value>
   </data>
   <data name="Page_ChatGPT" xml:space="preserve">
-    <value>Game Time ChatGPT</value>
+    <value>TI4 ChatGPT</value>
   </data>
   <data name="Page_ColorPicker" xml:space="preserve">
     <value>Color Picker</value>
@@ -498,6 +501,9 @@
   <data name="PlayerNamePlaceholder" xml:space="preserve">
     <value>Player {0}</value>
   </data>
+  <data name="PromissoryNoteCard" xml:space="preserve">
+    <value>promissorynote</value>
+  </data>
   <data name="RelicCard" xml:space="preserve">
     <value>relic</value>
   </data>
@@ -566,6 +572,9 @@
   </data>
   <data name="RulesResource_SummaryLink" xml:space="preserve">
     <value>https://1drv.ms/b/s!AifcqLzbdKjHhcMyikY_5InEv44pPg?e=t59q2B</value>
+  </data>
+  <data name="SearchForKeyword" xml:space="preserve">
+    <value>Search: </value>
   </data>
   <data name="StrategyCard" xml:space="preserve">
     <value>strategy</value>

@@ -15,4 +15,6 @@ internal static partial class TableName
     internal const string RelicCards = "RelicCards";
 
     internal const string StrategyCards = "StrategyCards";
+
+    internal const string PromissaryNoteCards = "PromissaryNoteCards";
 }

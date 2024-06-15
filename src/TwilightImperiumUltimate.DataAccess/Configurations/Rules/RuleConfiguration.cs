@@ -1,4 +1,4 @@
-﻿using TwilightImperiumUltimate.Core.Entities.Rules;
+using TwilightImperiumUltimate.Core.Entities.Rules;
 using TwilightImperiumUltimate.DataAccess.Tables.Rules;
 
 namespace TwilightImperiumUltimate.DataAccess.Configurations.Rules;
@@ -11,7 +11,7 @@ internal class RuleConfiguration : IEntityTypeConfiguration<Rule>
 
         builder.ToTable(TableName.Rules, Schema.Rule);
 
-        builder.HasKey(e => e.Id);
+        builder.HasKey(e => e.RuleCategory);
 
         builder.Property(e => e.RuleCategory)
             .IsRequired()

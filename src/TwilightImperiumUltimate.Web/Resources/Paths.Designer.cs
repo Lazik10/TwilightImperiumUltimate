@@ -169,6 +169,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TwilightImperiumUltimate.Web.Resources.Rules.
+        /// </summary>
+        public static string ResourceNamespace_Rules {
+            get {
+                return ResourceManager.GetString("ResourceNamespace_Rules", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TwilightImperiumUltimate.Web.Resources.Strings.
         /// </summary>
         public static string ResourceNamespace_Strings {
@@ -273,6 +282,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string ResourcePath_PlanetImagePath {
             get {
                 return ResourceManager.GetString("ResourcePath_PlanetImagePath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to \resources\images\{language}\cards\promissary.
+        /// </summary>
+        public static string ResourcePath_PromissoryNotePath {
+            get {
+                return ResourceManager.GetString("ResourcePath_PromissoryNotePath", resourceCulture);
             }
         }
         

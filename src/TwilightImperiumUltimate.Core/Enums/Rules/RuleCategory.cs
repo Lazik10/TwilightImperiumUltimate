@@ -1,4 +1,4 @@
-﻿namespace TwilightImperiumUltimate.Core.Enums.Rules;
+namespace TwilightImperiumUltimate.Core.Enums.Rules;
 
 public enum RuleCategory
 {
@@ -71,7 +71,7 @@ public enum RuleCategory
     Politics,
     ProducingUnits,
     Production,
-    PromissaryNotes,
+    PromissoryNotes,
     Purge,
     Readied,
     Reinforcements,

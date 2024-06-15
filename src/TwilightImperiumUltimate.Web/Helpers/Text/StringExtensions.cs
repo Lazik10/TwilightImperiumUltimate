@@ -1,4 +1,4 @@
-﻿using System.Globalization;
+using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -103,5 +103,26 @@ public static class StringExtensions
         }
 
         return result;
+    }
+
+    public static string HighlightSearchWord(this string text, string search, string searchColor, bool toUpper)
+    {
+        if (string.IsNullOrEmpty(text) || string.IsNullOrEmpty(search))
+            return text;
+
+        if (toUpper)
+            search = search.ToUpper(CultureInfo.CurrentCulture);
+        else
+            search = search.CapitalizeFirstLetter(CultureInfo.CurrentCulture);
+
+        return text.Replace(search, $"<span style=\"color:{searchColor};\">{search}</span>", StringComparison.CurrentCultureIgnoreCase);
+    }
+
+    public static string CapitalizeFirstLetter(this string text, CultureInfo cultureInfo)
+    {
+        if (string.IsNullOrEmpty(text))
+            return text;
+
+        return char.ToUpper(text[0], cultureInfo) + text.Substring(1).ToLower(CultureInfo.CurrentCulture);
     }
 }

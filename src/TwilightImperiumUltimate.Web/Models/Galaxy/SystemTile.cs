@@ -15,4 +15,8 @@ public class SystemTile
     public int Influence { get; set; }
 
     public bool HasPlanets { get; set; }
+
+    public FactionName FactionName { get; set; }
+
+    public IReadOnlyList<Planet> Planets { get; set; } = new List<Planet>();
 }

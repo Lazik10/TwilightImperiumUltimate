@@ -7,9 +7,12 @@ root = true
 #### Core EditorConfig Options ####
 
 # Indentation and spacing
-indent_size = 4
+[*.cs]
 indent_style = space
+indent_size = 4
 tab_width = 4
+charset = utf-8
+trim_trailing_whitespace = true
 
 # New line preferences
 end_of_line = crlf
@@ -250,6 +253,7 @@ dotnet_diagnostic.S1135.severity = suggestion
 
 # CS1591: Missing XML comment for publicly visible type or member
 dotnet_diagnostic.CS1591.severity = silent
+dotnet_diagnostic.SA1010.severity = none
 
 [*.{cs,vb}]
 dotnet_style_operator_placement_when_wrapping = beginning_of_line

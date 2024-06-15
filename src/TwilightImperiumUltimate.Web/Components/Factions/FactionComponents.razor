@@ -1,6 +1,66 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Cards
+@using TwilightImperiumUltimate.Web.Components.MapGenerator
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Components.Technologies
 @using TwilightImperiumUltimate.Web.Services.Path
 @inherits FactionInfoComponentBase
 
-@* <LeaderInfo Faction="Faction"/> *@
+<div class="faction-components-grid">
+
+    <FlexRowContainer AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.SpaceAround">
+
+        @if(_systemTiles.Count > 0)
+        {
+            <img src="@(PathProvider.GetLargeTileImagePath(SystemTile.Name.ToString()))" style="width: 50%;"/>
+        }
+
+    </FlexRowContainer>
+
+    <FlexRowContainer AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.Center">
+        @foreach (var planet in Planets)
+        {
+            <FlexRowContainer AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.Center">
+
+                @{
+                    var percentage = 33 * Planets.Count;
+                }
+
+                <div style="width: @(percentage)%">
+                    <VerticalCard ImagePath="@(PathProvider.GetPlanetImagePath(planet.PlanetName.ToString()))" />
+                </div>
+
+            </FlexRowContainer>
+        }
+    </FlexRowContainer>
+
+    @if(Technologies.Count > 0)
+    {
+        @foreach (var technology in Technologies)
+        {
+            <div style="width: 50%">
+
+            <FlexRowContainer>
+                <TechnologyCard ImagePath="@(PathProvider.GetTechnologyImagePath(technology.TechnologyName.ToString()))" />
+            </FlexRowContainer>
+            </div>
+        }
+    }
+
+    <div style="width: 50%">
+        <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.Mech))" />
+    </div>
+
+    <FlexRowContainer>
+
+
+        @foreach (var promissoryNote in Faction.PromissaryNotes)
+        {
+            <div style="width: 35%; max-height: 100%">
+                <VerticalCard ImagePath="@(PathProvider.GetPromissoryNotePath(promissoryNote.ToString()))" />
+            </div>
+        }
+
+
+    </FlexRowContainer>
+
+</div>

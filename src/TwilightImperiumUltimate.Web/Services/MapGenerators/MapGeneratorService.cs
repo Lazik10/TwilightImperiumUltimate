@@ -1,4 +1,4 @@
-﻿using TwilightImperiumUltimate.Web.Enums;
+using TwilightImperiumUltimate.Web.Enums;
 using TwilightImperiumUltimate.Web.Models.Galaxy;
 using TwilightImperiumUltimate.Web.Models.MapGenerators;
 using TwilightImperiumUltimate.Web.Resources;
@@ -60,7 +60,7 @@ public class MapGeneratorService : IMapGeneratorService
             SystemTileTypeFilter.HomeSystems => AllSystemTiles.Where(x => x.TileCategory == SystemTileCategory.Green),
             SystemTileTypeFilter.BlueTiles => AllSystemTiles.Where(x => x.TileCategory == SystemTileCategory.Blue),
             SystemTileTypeFilter.RedTiles => AllSystemTiles.Where(x => x.TileCategory == SystemTileCategory.Red),
-            SystemTileTypeFilter.Hyperlanes => AllSystemTiles.Where(x => x.TileCategory == SystemTileCategory.Hyperlance),
+            SystemTileTypeFilter.Hyperlanes => AllSystemTiles.Where(x => x.TileCategory == SystemTileCategory.Hyperlane),
             _ => throw new ArgumentOutOfRangeException(nameof(systemTileType), systemTileType, null),
         };
     }

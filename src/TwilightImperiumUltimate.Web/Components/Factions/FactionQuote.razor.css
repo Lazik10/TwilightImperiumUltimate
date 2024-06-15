@@ -1,3 +1,11 @@
-﻿system-quote {
+﻿@media (max-width: 1248px) {
+    .faction-quote {
+        font-size: 16px;
+    }
+}
 
+@media (max-width: 768px) {
+    .faction-quote {
+        font-size: 10px;
+    }
 }

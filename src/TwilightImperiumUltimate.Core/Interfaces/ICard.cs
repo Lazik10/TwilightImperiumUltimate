@@ -9,4 +9,6 @@ public interface ICard
     string Text { get; }
 
     CardType Type { get; }
+
+    string ImagePath { get; }
 }

@@ -66,9 +66,13 @@
                  alt="icon for @Strings.CardTitle_Frontier"
                  title="@Strings.CardTitle_Frontier" />
         </div>
+        <div class="menu-item" @onclick="() => SetCurrentTypeOfCard(Strings.PromissoryNoteCard)">
+            <img class="icon link"
+                    src="@PathProvider.GetCardTypeIconPath(nameof(Strings.PromissoryNoteCard))"
+                    alt="icon for @Strings.CardTitle_PromissoryNote"
+                    title="@Strings.CardTitle_PromissoryNote" />
+        </div>
     </div>
-
-    <VerticalSpace Height="50" />
 
     <StretchHeightContainer>
         @if (_currentTypeOfCard != null)
@@ -78,12 +82,4 @@
     </StretchHeightContainer>
 </Page>
 
-@code {
-    private string _currentTypeOfCard = Strings.StrategyCard;
 
-    private void SetCurrentTypeOfCard(string typeOfCard)
-    {
-        _currentTypeOfCard = typeOfCard;
-        StateHasChanged();
-    }
-}

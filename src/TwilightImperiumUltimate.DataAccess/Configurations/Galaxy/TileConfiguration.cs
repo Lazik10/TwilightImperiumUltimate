@@ -1,4 +1,4 @@
-﻿using TwilightImperiumUltimate.DataAccess.Tables.Galaxy;
+using TwilightImperiumUltimate.DataAccess.Tables.Galaxy;
 
 namespace TwilightImperiumUltimate.DataAccess.Configurations.Galaxy;
 
@@ -30,15 +30,15 @@ public class TileConfiguration : IEntityTypeConfiguration<SystemTile>
             .HasConversion<int>()
             .HasColumnType("integer");
 
-        builder.Property(e => e.RaceName)
+        builder.Property(e => e.FactionName)
                 .IsRequired()
-                .HasColumnName(nameof(SystemTile.RaceName))
+                .HasColumnName(nameof(SystemTile.FactionName))
                 .HasConversion<int>()
                 .HasColumnType("integer");
 
         builder.HasMany(e => e.Planets)
             .WithOne(b => b.SystemTile)
-            .HasForeignKey(b => b.SystemTileName);
+            .HasForeignKey(p => p.SystemTileName);
 
         builder.HasMany(e => e.Wormholes)
             .WithOne(b => b.SystemTile)

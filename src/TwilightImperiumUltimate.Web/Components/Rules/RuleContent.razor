@@ -1,4 +1,9 @@
-﻿<div class="handel white shadow">
-    @MarkupString
+﻿@using TwilightImperiumUltimate.Web.Helpers.Resources
+
+<div class="handel white shadow">
+    <h1 class="centered">@GetTransformedRuleId() - @TransformedRuleTitle</h1>
+    <br />
+    <div class="markup-text">@TransformedRuleContent</div>
+    <br />
 </div>
 

@@ -53,7 +53,7 @@ public class SystemTileRepository : ISystemTileRepository
             && x.SystemTileName != SystemTileName.Tile81 // Muaat supernova
             && x.SystemTileName != SystemTileName.Tile18 // Mecatol rex
             && x.TileCategory != SystemTileCategory.ExternalMapTile
-            && x.TileCategory != SystemTileCategory.Hyperlance)
+            && x.TileCategory != SystemTileCategory.Hyperlane)
         .ToList();
 
     public SystemTile GetHomeSystemTilePlaceholderTile() => _systemTiles.First(x => x.SystemTileName == SystemTileName.TileHome);

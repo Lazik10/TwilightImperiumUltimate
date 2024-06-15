@@ -1,1 +1,12 @@
-﻿
+﻿.faction-components-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: fit-content() fit-content();
+    grid-gap: 10px;
+    height: 100%;
+    place-items: center;
+}
+
+.height {
+    height: 50%;
+}

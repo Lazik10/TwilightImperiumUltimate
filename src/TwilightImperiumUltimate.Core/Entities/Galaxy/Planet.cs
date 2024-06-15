@@ -1,4 +1,4 @@
-﻿using TwilightImperiumUltimate.Core.Enums.Galaxy;
+using TwilightImperiumUltimate.Core.Enums.Galaxy;
 using TwilightImperiumUltimate.Core.Enums.Game;
 using TwilightImperiumUltimate.Core.Enums.Technologies;
 using TwilightImperiumUltimate.Core.Interfaces;

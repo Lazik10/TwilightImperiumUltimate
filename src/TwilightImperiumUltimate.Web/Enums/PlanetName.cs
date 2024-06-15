@@ -59,7 +59,7 @@ public enum PlanetName
     MeharXull,
     Mellon,
     MollPrimus,
-    MolPrimusCouncilOfKeleres,
+    MollPrimusCouncilOfKeleres,
     MordaiTwo,
     Muaat,
     Naazir,

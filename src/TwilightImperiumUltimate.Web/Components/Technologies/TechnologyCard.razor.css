@@ -1,7 +1,6 @@
 ﻿.image-item {
     position: relative;
     display: inline-block;
-    margin-bottom: 20px;
     flex-shrink: 1;
     width: 100%;
     height: 100%;
@@ -9,9 +8,8 @@
 
     .image-item img {
         display: block;
-        max-width: 100%;
+        width: 100%;
         border-radius: 20px;
-        margin-bottom: 20px;
     }
 
     .image-item::before {
@@ -23,7 +21,6 @@
         bottom: 0;
         box-shadow: inset 0 0 0 5px #000;
         pointer-events: none;
-        margin-bottom: 20px;
-        border-radius: 20px;
-        max-width: 100%;
+        border-radius: 5%;
+        width: 100%;
     }

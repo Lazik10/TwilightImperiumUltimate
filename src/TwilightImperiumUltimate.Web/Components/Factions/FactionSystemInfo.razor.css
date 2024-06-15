@@ -1,3 +1,15 @@
 ﻿.system-info {
 
 }
+
+@media (max-width: 1248px) {
+    .system-info {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .system-info {
+        font-size: 10px;
+    }
+}

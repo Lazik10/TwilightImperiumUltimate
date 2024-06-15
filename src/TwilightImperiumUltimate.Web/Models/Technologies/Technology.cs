@@ -14,5 +14,7 @@ public class Technology
 
     public bool IsFactionTechnology { get; set; }
 
+    public FactionName FactionName { get; set; }
+
     public GameVersion GameVersion { get; set; }
 }

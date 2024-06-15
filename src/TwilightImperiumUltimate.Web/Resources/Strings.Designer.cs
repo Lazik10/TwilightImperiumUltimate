@@ -232,6 +232,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Promissory Note.
+        /// </summary>
+        public static string CardTitle_PromissoryNote {
+            get {
+                return ResourceManager.GetString("CardTitle_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Relic.
         /// </summary>
         public static string CardTitle_Relic {
@@ -952,7 +961,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Game Time ChatGPT.
+        ///   Looks up a localized string similar to TI4 ChatGPT.
         /// </summary>
         public static string Page_ChatGPT {
             get {
@@ -1204,6 +1213,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to promissorynote.
+        /// </summary>
+        public static string PromissoryNoteCard {
+            get {
+                return ResourceManager.GetString("PromissoryNoteCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to relic.
         /// </summary>
         public static string RelicCard {
@@ -1407,6 +1425,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RulesResource_SummaryLink {
             get {
                 return ResourceManager.GetString("RulesResource_SummaryLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search: .
+        /// </summary>
+        public static string SearchForKeyword {
+            get {
+                return ResourceManager.GetString("SearchForKeyword", resourceCulture);
             }
         }
         

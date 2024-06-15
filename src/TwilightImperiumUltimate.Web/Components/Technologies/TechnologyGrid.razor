@@ -4,13 +4,4 @@
 
 <TechnologyNavbar OnTechnologyTypeChange="TechnologyTypeChange"/>
 
-<VerticalSpace Height="50" />
-
-@* @if (_selectedTechnologyType != TechnologyType.Faction)
-{ *@
-    <BaseTechnologyTree Technologies="TechnologiesToShow()"/>
-@* }
-else
-{
-    <FactionTechnologyTree Technologies="TechnologiesToShow()"/>
-} *@
+<BaseTechnologyTree Technologies="TechnologiesToShow()"/>
