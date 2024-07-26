@@ -1,35 +1,25 @@
-﻿using Microsoft.AspNetCore.Components;
-using TwilightImperiumUltimate.Web.Enums;
-using TwilightImperiumUltimate.Web.Models.Cards;
-using TwilightImperiumUltimate.Web.Models.Technologies;
-using TwilightImperiumUltimate.Web.Resources;
-using TwilightImperiumUltimate.Web.Services.HttpClients;
-using TwilightImperiumUltimate.Web.Services.Path;
-
 namespace TwilightImperiumUltimate.Web.Components.Technologies;
 
-public partial class TechnologyGrid
+public partial class TechnologyGrid : TwilightImperiumBaseComponenet
 {
-    private IReadOnlyCollection<Technology> _technologies = Array.Empty<Technology>();
+    private IReadOnlyCollection<TechnologyModel> _technologies = new List<TechnologyModel>();
 
     private TechnologyType _selectedTechnologyType = TechnologyType.Biotic;
 
-    [Inject]
-    private ITwilightImperiumApiHttpClient HttpClient { get; set; } = null!;
-
     protected override async Task OnInitializedAsync()
     {
-        _technologies = await HttpClient.GetAsync<List<Technology>>(Paths.ApiPath_Technologies);
+        await InitializeTechnologies();
     }
 
     private void TechnologyTypeChange(TechnologyType technologyType) => _selectedTechnologyType = technologyType;
 
-    private List<Technology> TechnologiesToShow()
+    private List<TechnologyModel> TechnologiesToShow()
     {
         if (_selectedTechnologyType == TechnologyType.Faction)
         {
             return _technologies
                 .Where(x => x.IsFactionTechnology)
+                .OrderBy(x => x.FactionName)
                 .ToList();
         }
         else if (_selectedTechnologyType == TechnologyType.UnitUpgrade)
@@ -37,7 +27,8 @@ public partial class TechnologyGrid
             return _technologies
                 .Where(x => x.Type == TechnologyType.UnitUpgrade)
                 .Where(x => !x.IsFactionTechnology)
-                .OrderBy(x => x.TechnologyName)
+                .OrderBy(x => x.Level)
+                .ThenBy(x => x.TechnologyName)
                 .ToList();
         }
         else
@@ -45,7 +36,18 @@ public partial class TechnologyGrid
             return _technologies
                 .Where(x => x.Type == _selectedTechnologyType)
                 .Where(x => !x.IsFactionTechnology)
+                .OrderBy(x => x.Level)
                 .ToList();
+        }
+    }
+
+    private async Task InitializeTechnologies()
+    {
+        var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<TechnologyDto>>>(Paths.ApiPath_Technologies);
+        if (statusCode == HttpStatusCode.OK)
+        {
+            var technologies = Mapper.Map<List<TechnologyModel>>(response!.Data!.Items);
+            _technologies = technologies.Where(x => x.GameVersion != GameVersion.Deprecated).ToList();
         }
     }
 }

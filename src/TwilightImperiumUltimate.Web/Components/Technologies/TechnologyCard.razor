@@ -1,3 +1,5 @@
-﻿<div class="image-item">
-    <img src="@ImagePath" alt="@ImagePath">
+﻿@inherits TwilightImperiumBaseComponenet
+
+<div class="image-item" style="width: @(Width)%;">
+    <img src="@GetImagePath()" alt="@GetImagePath()">
 </div>

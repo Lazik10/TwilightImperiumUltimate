@@ -1,0 +1,8 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Factions
+<FlexRowContainer Width="@Width"
+                  JustifyContent="Enums.JustifyContent.SpaceEvenly"
+                  CssClass="title handel white shadow">
+    <ArrowButton ArrowSymbol="@LeftArrowSymbol" OnArrowClick="() => OnDecrease.InvokeAsync(null)" />
+    <FactionIcon FactionName="@(Value)" Height="50" />
+    <ArrowButton ArrowSymbol="@RightArrowSymbol" OnArrowClick="() => OnIncrease.InvokeAsync(null)" />
+</FlexRowContainer>

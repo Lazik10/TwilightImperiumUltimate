@@ -1,30 +1,46 @@
 ﻿@using TwilightImperiumUltimate.Web.Models.Factions;
 @using TwilightImperiumUltimate.Web.Resources;
-@using TwilightImperiumUltimate.Web.Services.HttpClients
+@using TwilightImperiumUltimate.Web.Services.HttpClients;
 @using TwilightImperiumUltimate.Web.Services.Path;
-@inject ITwilightImperiumApiHttpClient HttpClient
-@inject IPathProvider PathProvider
+@inherits TwilightImperiumBaseComponenet
 
 @if (_factions is not null)
 {
-    <div class="icon-row">
-        @if (_factions.Count > 0)
-        {
-            @foreach (var faction in _factions)
+    if (ShowBaseGame)
+    {
+        <div class="icon-row width-100">
+            @foreach (var faction in GetBaseGameFactions())
             {
-                <div class="link" @onclick="() => FactionClicked(faction)">
-
-                    @{
-                        var banned = faction.Banned && EnableBanMode ? "colorless" : string.Empty;
-                    }
-                    <img 
-                        class="icon link @banned" 
-                        src="@(PathProvider.GetFactionIconPath(faction.FactionName.ToString()))" 
-                        alt="icon for @faction.FactionName"
-                        title="@faction.FactionName"
-                    >
-                </div>
+                <FactionIcon Faction="faction" OnClick="() => FactionClicked(faction)" EnableBanMode="EnableBanMode" />
             }
+        </div>
+    }
+
+    if (ShowDiscordantStars && _factions.Count > 25)
+    {
+        <VerticalSpace Height="10" />
+
+        <div class="icon-row width-100">
+            @foreach (var faction in GetDiscordantStarsFactions().Take(24))
+            {
+                <FactionIcon Faction="faction" OnClick="() => FactionClicked(faction)" EnableBanMode="EnableBanMode" />
+            }
+        </div>
+
+        @if (_factions.Count > 49)
+        {
+            <HorizontalSpace Width="20" />
+            
+            <div class="icon-row width-50">
+
+                @foreach (var faction in GetDiscordantStarsFactions().Skip(24).Take(10))
+                {
+                    <FactionIcon Faction="faction" OnClick="() => FactionClicked(faction)" EnableBanMode="EnableBanMode" />
+                }
+                <HorizontalSpace Width="20" />
+            </div>
         }
-    </div>
+    }
 }
+
+<VerticalSpace Height="20" />

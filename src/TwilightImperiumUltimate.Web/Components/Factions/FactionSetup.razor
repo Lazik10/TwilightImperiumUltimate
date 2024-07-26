@@ -1,0 +1,60 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Components.Technologies
+@using TwilightImperiumUltimate.Web.Components.Units
+@using TwilightImperiumUltimate.Web.Services.Path
+@inherits FactionInfoComponentBase
+@inject IPathProvider PathProvider
+
+<StretchHeightContainer>
+
+    <FlexRowContainer>
+
+        @foreach (var unit in GetStartingUnits())
+        {
+            for (var i = 0; i < unit.Count; i++)
+            {
+                <UnitImage UnitName="unit.UnitName" MaxWidth="5"/>
+            }
+        }
+
+    </FlexRowContainer>
+
+    <VerticalSpace Height="50" />
+
+    @if(_showTechnologyPickMessage)
+    {
+        <Label Text="@(_technologyPickMessage)" CenterText="true" FontSize="24"/>
+    }
+
+    <FlexColumnCenteredContainer>
+
+        @if(NumberOfStartingTechnologies % 3 == 1 && NumberOfStartingTechnologies < 3)
+        {
+            <FlexColumnCenteredContainer>
+                <TechnologyCard TechnologyName="GetStartingTechnologies().First().TechnologyName" Width="25"/>
+            </FlexColumnCenteredContainer>
+        }
+        else if (NumberOfStartingTechnologies % 3 == 2 || NumberOfStartingTechnologies == 4)
+        {
+            <FlexColumnCenteredContainer>
+                <GridLayout Columns="2" Gap="10" Width="50">
+                    @foreach (var startingTechnology in GetStartingTechnologies())
+                    {
+                        <TechnologyCard TechnologyName="startingTechnology.TechnologyName" Width="90" />
+                    }
+                </GridLayout>
+            </FlexColumnCenteredContainer>
+        }
+        else if (NumberOfStartingTechnologies >= 3)
+        {
+            <GridLayout Columns="3" Gap="10" Width="80">
+                @foreach (var startingTechnology in GetStartingTechnologies())
+                {
+                    <TechnologyCard TechnologyName="startingTechnology.TechnologyName" Width="100"/>
+                }
+            </GridLayout>
+        }
+
+    </FlexColumnCenteredContainer>
+
+</StretchHeightContainer>

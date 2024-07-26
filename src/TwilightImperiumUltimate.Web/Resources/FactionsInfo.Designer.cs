@@ -61,6 +61,170 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string None_Ability {
+            get {
+                return ResourceManager.GetString("None_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string None_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("None_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string None_Lore {
+            get {
+                return ResourceManager.GetString("None_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string None_PromissaryNote {
+            get {
+                return ResourceManager.GetString("None_PromissaryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string None_Quote {
+            get {
+                return ResourceManager.GetString("None_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string None_SystemInfo {
+            get {
+                return ResourceManager.GetString("None_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string None_SystemStats {
+            get {
+                return ResourceManager.GetString("None_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to None.
+        /// </summary>
+        internal static string None_Title {
+            get {
+                return ResourceManager.GetString("None_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;INDUSTRIOUS:&lt;/p&gt;
+        ///&lt;p&gt;After you place a space dock in a system that contains no other players&apos; ships, you may spend 6 resources and remove that space dock to place 1 war sun in that system&apos;s space area.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;RECYCLED MATERIALS:&lt;/p&gt;
+        ///&lt;p&gt;After you activate a system, you may return 1 cruiser, carrier, or dreadnought you control in that system to your reinforcements to gain a number of trade goods equal to 1 less than that unit’s cost value.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;ORBITAL FOUNDRIES:&lt;/p&gt;
+        ///&lt;p&gt;For the purpose  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string RohDhnaMechatronics_Ability {
+            get {
+                return ResourceManager.GetString("RohDhnaMechatronics_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have units with a combined PRODUCTION value of at least 7 in a single system.
+        /// </summary>
+        internal static string RohDhnaMechatronics_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("RohDhnaMechatronics_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;During the fall of the empire, as the Lazax were eradicated, their factories and trade secrets were left abandoned and forgotten by the great factions. It was in these ruins that the enterprising startup run by Roh&apos;vhin Dhna found its start. As the Twilight Wars raged, the need for better and more ships and factories grew faster than anyone in the galaxy could fulfill it. Roh&apos;Dhna Mechatronics rose to the challenge and made a name for itself on this new stage.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;/p&gt;As the corporation grew, Dhn [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string RohDhnaMechatronics_Lore {
+            get {
+                return ResourceManager.GetString("RohDhnaMechatronics_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RohDhnaMechatronics_PromissoryNote.
+        /// </summary>
+        internal static string RohDhnaMechatronics_PromissoryNote {
+            get {
+                return ResourceManager.GetString("RohDhnaMechatronics_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Do not test our patience valued customer, for it is with our constructions that your wars are fought.&quot;—Executive Comms Officer Rd54.
+        /// </summary>
+        internal static string RohDhnaMechatronics_Quote {
+            get {
+                return ResourceManager.GetString("RohDhnaMechatronics_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When wars break out and warships clash across the galaxy, the true victor will always be the company selling the automatons which build the fleets..
+        /// </summary>
+        internal static string RohDhnaMechatronics_SystemInfo {
+            get {
+                return ResourceManager.GetString("RohDhnaMechatronics_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PRIND SYSTEM:;
+        ///
+        ///✧ 
+        ///Population:.2,63 Billion;
+        ///
+        ///✧ Government:.Executive Board;
+        ///
+        ///✧ Leadership:.Chief Officer;
+        ///
+        ///✧ Disposition:.Productive
+        ///;
+        ///✧ Tendencies:.Economic.
+        /// </summary>
+        internal static string RohDhnaMechatronics_SystemStats {
+            get {
+                return ResourceManager.GetString("RohDhnaMechatronics_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Roh Dhna Mechatronics.
+        /// </summary>
+        internal static string RohDhnaMechatronics_Title {
+            get {
+                return ResourceManager.GetString("RohDhnaMechatronics_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;UNRELENTING:&lt;/p&gt;
         ///&lt;p&gt;Apply +1 to the result of each of your unit&apos;s combat rolls.&lt;/p&gt;.
         /// </summary>
@@ -80,7 +244,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Not far past the Unicorn Nebula, the golden
+        ///   Looks up a localized string similar to &lt;p&gt;Not far past the Unicorn Nebula, the golden
         ///Sardakk star shines its ancient, hot light on giant
         ///oceanless Quinarra. The massive planet radiates a red
         ///glow like a dusty ruby in the night, its massive polar
@@ -89,11 +253,11 @@ namespace TwilightImperiumUltimate.Web.Resources {
         ///units occupy the system in the fashion of the insectile
         ///N’orr. Massive whale-like N’orr carriers spew fighters
         ///like angry hornets from a disturbed nest. Convoys of
-        ///ice-mountain transports  [rest of string was truncated]&quot;;.
+        ///ice-mountain transpor [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string SardakkNorr_History {
+        internal static string SardakkNorr_Lore {
             get {
-                return ResourceManager.GetString("SardakkNorr_History", resourceCulture);
+                return ResourceManager.GetString("SardakkNorr_Lore", resourceCulture);
             }
         }
         
@@ -151,7 +315,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Sardakk N&apos;orr.
+        ///   Looks up a localized string similar to Sardakk N&apos;orr.
         /// </summary>
         internal static string SardakkNorr_Title {
             get {
@@ -179,18 +343,19 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to On first approach to Nestphar, a first-time visitor may
+        ///   Looks up a localized string similar to &lt;p&gt;On first approach to Nestphar, a first-time visitor may
         ///be surprised by the soupy haze that bleeds from the planet’s
         ///atmosphere like a dusty cloud. This cloud consists of
         ///quadrillions of tiny living spores emitted by Nestphar’s many
-        ///Flaah, city-sized floating forests in its stratosphere. The shortlived (and therefore continually resupplied) orbital presence
+        ///Flaah, city-sized floating forests in its stratosphere. 
+        ///The shortlived (and therefore continually resupplied) orbital presence
         ///of the Flaah spores allows the Arborec denizens in Nestphar’s
         ///space-stations and shipyards to remain in continuous
-        ///symbiotic contact with their p [rest of string was truncated]&quot;;.
+        ///symbiotic contact with th [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string TheArborec_History {
+        internal static string TheArborec_Lore {
             get {
-                return ResourceManager.GetString("TheArborec_History", resourceCulture);
+                return ResourceManager.GetString("TheArborec_Lore", resourceCulture);
             }
         }
         
@@ -289,11 +454,13 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to o. Few alive today have dealings with the Shikrai. This collection of related avian subspecies lives scattered across a stretch of the galactic rim. Their clutch of worlds are dry, windswept, and poor, lacking in valuable resources or useful minerals. Their small and technologically backward populations tend to stay out of galactic affairs. Most rightfully dismiss the Shikrai as just one more group of sentients in a galaxy full of life. But there is more to the Shikrai than the rest of the galaxy, or even t [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;p&gt;Few alive today have dealings with the Shikrai. This collection of related avian subspecies lives scattered across a stretch of the galactic rim. Their clutch of worlds are dry, windswept, and poor, lacking in valuable resources or useful minerals. Their small and technologically backward populations tend to stay out of galactic affairs. Most rightfully dismiss the Shikrai as just one more group of sentients in a galaxy full of life.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;But there is more to the Shikrai than the rest of the ga [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string TheArgentFlight_History {
+        internal static string TheArgentFlight_Lore {
             get {
-                return ResourceManager.GetString("TheArgentFlight_History", resourceCulture);
+                return ResourceManager.GetString("TheArgentFlight_Lore", resourceCulture);
             }
         }
         
@@ -363,6 +530,94 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;ORACLE AI:&lt;/p&gt;
+        ///&lt;p&gt;After the speaker reveals an unrevealed public objective, choose 1 unrevealed public objective card and place that card on your faction sheet. You may look at the card on your faction sheet at any time.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;LIMITED VISION:&lt;/p&gt;
+        ///&lt;p&gt;You may not place a stage II objective card on your faction sheet until all stage I objectives have been revealed.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;PROBABILITY ALGORITHMS:&lt;/p&gt;
+        ///&lt;p&gt;When the speaker would reveal the next public objective, they must reveal the public o [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheAugursOfIlyxum_Ability {
+            get {
+                return ResourceManager.GetString("TheAugursOfIlyxum_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Win a combat in a system that contains a legendary planet or a planet that has a technology specialty..
+        /// </summary>
+        internal static string TheAugursOfIlyxum_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheAugursOfIlyxum_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;In the Cradle of Ilyxum system, the people of the Ilyxum hold a deep reverence for their prophetic artificial intelligence known as The Oracle. The two largest planets in the Cradle, Chiron and Demis, have been bent to the Augurs’ purpose. Demis, the first planet in the system, is a barren world with a toxic atmosphere, but the Augurs have built vast underground cities to shield themselves from the harsh conditions on that planet&apos;s surface and to provide silent, cavernous halls in which to contemplate th [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheAugursOfIlyxum_Lore {
+            get {
+                return ResourceManager.GetString("TheAugursOfIlyxum_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheAugursOfIlyxum_PromissaryNote {
+            get {
+                return ResourceManager.GetString("TheAugursOfIlyxum_PromissaryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;The future lies before us like the infinite stars. We merely find the path.&quot; —The Weaver.
+        /// </summary>
+        internal static string TheAugursOfIlyxum_Quote {
+            get {
+                return ResourceManager.GetString("TheAugursOfIlyxum_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are some who swear the Oracle has never been wrong, and others who would say it&apos;s never been intelligible; many would add that both are probably true..
+        /// </summary>
+        internal static string TheAugursOfIlyxum_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheAugursOfIlyxum_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to THE CRADLE OF ILYXUM:;
+        ///✧ Population:.11,03 Billion
+        ///;
+        ///✧ Government:.Predictive AI;
+        ///
+        ///✧ Leadership:.The Oracle;
+        ///
+        ///✧ Disposition:.Cryptic;
+        ///
+        ///✧ Tendencies:.Scientific.
+        /// </summary>
+        internal static string TheAugursOfIlyxum_SystemStats {
+            get {
+                return ResourceManager.GetString("TheAugursOfIlyxum_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Augurs of Ilyxum.
+        /// </summary>
+        internal static string TheAugursOfIlyxum_Title {
+            get {
+                return ResourceManager.GetString("TheAugursOfIlyxum_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;MUNITIONS RESERVES:&lt;/p&gt;
         ///&lt;p&gt;At the start of each round of space combat, you may spend 2 trade goods;  you may re-roll any number of your dice during that combat round.&lt;/p&gt;
         ///&lt;br/&gt;
@@ -385,7 +640,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to In the very blackness of space lies cold, hard Arc
+        ///   Looks up a localized string similar to &lt;p&gt;In the very blackness of space lies cold, hard Arc
         ///Prime. Its system has no central star, and Arc Prime’s
         ///lack of defined orbit has been a mystery to scientists for
         ///millennia. It is a common jest that Arc Prime is simply
@@ -393,11 +648,11 @@ namespace TwilightImperiumUltimate.Web.Resources {
         ///the rest of the galaxy protects it from a fatal collision.
         ///The Letnev’s principal vassal, Wren Terra, shines like a
         ///mighty star in the ebon distance, while thorny military
-        ///ships surround the dark planet like fireflies attracted t [rest of string was truncated]&quot;;.
+        ///ships surround the dark planet like fireflies attracte [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string TheBaronyOfLetnev_History {
+        internal static string TheBaronyOfLetnev_Lore {
             get {
-                return ResourceManager.GetString("TheBaronyOfLetnev_History", resourceCulture);
+                return ResourceManager.GetString("TheBaronyOfLetnev_Lore", resourceCulture);
             }
         }
         
@@ -479,6 +734,359 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;SECRET MAPS:&lt;/p&gt;
+        ///&lt;p&gt;At the end of your tactical actions, you may explore 1 planet in the active system that is or contains 1 of your units with PRODUCTION that you did not explore during that tactical action.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;FORTUNE SEEKERS:&lt;/p&gt;
+        ///&lt;p&gt;Once per action, after you explore a planet or frontier token, you may gain 1 commodity.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;ANCIENT BLUEPRINTS:&lt;/p&gt;
+        ///&lt;p&gt;The first time you gain a cultural, hazardous, industrial, or unknown relic fragment, place the corresponding “Fragment” token  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheBentorConglomerate_Ability {
+            get {
+                return ResourceManager.GetString("TheBentorConglomerate_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have 3 Fragment tokens on your faction sheet..
+        /// </summary>
+        internal static string TheBentorConglomerate_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheBentorConglomerate_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;If the Kollece provide a galactic supply of artifacts and relics, the Bentor provide the logistical network to manage that flow. Shadowy Bentor storage halls gate the precise supply of archaeological material onto the galactic marketplace. Bentor corporate offices dot many influential planets, ensuring their network of intelligence to monitor and manage demand in the lucrative ‘ancient technological remnant’ sector.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;CEO Kenn Tuce has recently been inclined to encourage internally managed e [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheBentorConglomerate_Lore {
+            get {
+                return ResourceManager.GetString("TheBentorConglomerate_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheBentorConglomerate_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheBentorConglomerate_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;We will find what we seek. Don&apos;t make this difficult.&quot;—Kenn Tucc.
+        /// </summary>
+        internal static string TheBentorConglomerate_Quote {
+            get {
+                return ResourceManager.GetString("TheBentorConglomerate_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Bentor’s talent for uncovering the remnants of lost civilizations may be attributed to their well-honed skill at the art (or is it well-guarded corporate secrets, quite probably there is truth in both..
+        /// </summary>
+        internal static string TheBentorConglomerate_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheBentorConglomerate_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BENTOR SYSTEM
+        ///
+        ///:;
+        ///✧ Population:.9,57 Billion;
+        ///✧ 
+        ///Government:.Directorship;
+        ///✧ 
+        ///Leadership:.CEO Kenn Tucc
+        ///;
+        ///✧ Disposition:.Corporate
+        ///;
+        ///✧ Tendencies:.Economic.
+        /// </summary>
+        internal static string TheBentorConglomerate_SystemStats {
+            get {
+                return ResourceManager.GetString("TheBentorConglomerate_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Bentor Conglomerate.
+        /// </summary>
+        internal static string TheBentorConglomerate_Title {
+            get {
+                return ResourceManager.GetString("TheBentorConglomerate_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;GLORY:&lt;/p&gt;
+        ///&lt;p&gt;After you win a combat, you may place or move a Glory token into the active system, or spend 1 token from your strategy pool to research a unit upgrade technology of the same type as 1 of your units that participated in that combat.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;HEROISM:&lt;/p&gt;
+        ///&lt;p&gt;Capture your fighters and infantry that are destroyed during combat. When you pass, for each Glory token on the game board, you may return 4 of your captured units to gain 1 command token.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;VALOR:&lt;/p&gt;
+        ///&lt;p&gt;When units [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheBerserkersOfKjalengard_Ability {
+            get {
+                return ResourceManager.GetString("TheBerserkersOfKjalengard_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have 2 Glory tokens on the game board..
+        /// </summary>
+        internal static string TheBerserkersOfKjalengard_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheBerserkersOfKjalengard_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;Survivors of encounters with the Kjalengard Berserkers sometimes call them the Li-Zho of War. Although the Kjalengard are an entirely unrelated species and bear only superficial morphological resemblance to the Li-Zho, their military prowess is unique among the galaxy’s aggressive powers: to the Kjalengard, victory is never an end in itself. Subterfuge or treachery in combat is as mortifying to the Kjalengard as physically harming a Li-Zho would be to a Li-Zho plotmaster.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;The Kjalengard go [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheBerserkersOfKjalengard_Lore {
+            get {
+                return ResourceManager.GetString("TheBerserkersOfKjalengard_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheBerserkersOfKjalengard_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheBerserkersOfKjalengard_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;There is no glory in crushing the weak.&quot;—Ygegnad, the Thunder.
+        /// </summary>
+        internal static string TheBerserkersOfKjalengard_Quote {
+            get {
+                return ResourceManager.GetString("TheBerserkersOfKjalengard_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To fall in battle is to rue the loss to a Kjalengard warrior, with their minds mapped and stored safely in the Hearth, they know they will be able to rejoin the battle soon..
+        /// </summary>
+        internal static string TheBerserkersOfKjalengard_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheBerserkersOfKjalengard_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VJOLLHALL
+        ///
+        ///:;
+        ///✧ Population:.7,72 Billion;
+        ///
+        ///✧ Government:.Kingdom;
+        ///
+        ///✧ Leadership:.Grand Skald
+        ///;
+        ///✧ Disposition:.Spirited
+        ///;
+        ///✧ Tendencies:.Scientific.
+        /// </summary>
+        internal static string TheBerserkersOfKjalengard_SystemStats {
+            get {
+                return ResourceManager.GetString("TheBerserkersOfKjalengard_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Berserkers of Kjalengard.
+        /// </summary>
+        internal static string TheBerserkersOfKjalengard_Title {
+            get {
+                return ResourceManager.GetString("TheBerserkersOfKjalengard_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;PROJECTION OF POWER:&lt;/p&gt;
+        ///&lt;p&gt;At the start of any space combat in a system that is adjacent to or contains 1 or more of your space docks, choose up to 1 ship in that system to gain ANTI-FIGHTER BARRAGE 6 during that combat.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;INDUSTRIALISTS:&lt;/p&gt;
+        ///&lt;p&gt;During setup, place 1 additional space dock in your reinforcements.&lt;/p&gt;.
+        /// </summary>
+        internal static string TheCeldauriTradeConfederation_Ability {
+            get {
+                return ResourceManager.GetString("TheCeldauriTradeConfederation_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have 1 space dock on the game board that is not adjacent to your home system..
+        /// </summary>
+        internal static string TheCeldauriTradeConfederation_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheCeldauriTradeConfederation_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;At the conclusion of the Twilight Wars, Jord leadership abandoned the Celdauri system and left its citizens to fend for themselves. Instead of collapsing into savagery, the planets in and near the Celdauri system banded together through trade and aid in order to survive. Eventually—through the guidance of the Merchant Families—stability came, and a loose trade alliance was born from the traditions of mutual aid. Consisting of twelve member planets and two core planets, the Trader Alliance was extensive.&lt; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheCeldauriTradeConfederation_Lore {
+            get {
+                return ResourceManager.GetString("TheCeldauriTradeConfederation_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheCeldauriTradeConfederation_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheCeldauriTradeConfederation_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Just a modest adjustment to bolster the bottom line&quot;—common Celdauri saying.
+        /// </summary>
+        internal static string TheCeldauriTradeConfederation_Quote {
+            get {
+                return ResourceManager.GetString("TheCeldauriTradeConfederation_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A proud union of merchant worlds and free traders, the Celdauri are a recent power on the Galactic Council, but far from a small one..
+        /// </summary>
+        internal static string TheCeldauriTradeConfederation_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheCeldauriTradeConfederation_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AKLYON SYSTEM
+        ///
+        ///;
+        ///✧ Population:.11,56 Billion
+        ///;
+        ///✧ Government:.Trade Union;
+        ///✧ 
+        ///Leadership:.High Councilor
+        ///;
+        ///✧ Disposition:.Optimistic;
+        ///✧ 
+        ///Tendencies:.Economic.
+        /// </summary>
+        internal static string TheCeldauriTradeConfederation_SystemStats {
+            get {
+                return ResourceManager.GetString("TheCeldauriTradeConfederation_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Celdauri Trade Confederation.
+        /// </summary>
+        internal static string TheCeldauriTradeConfederation_Title {
+            get {
+                return ResourceManager.GetString("TheCeldauriTradeConfederation_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;TEEMING:&lt;/p&gt;
+        ///&lt;p&gt;During setup, place 2 additional dreadnoughts and 1 additional mech in your reinforcements.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;MOULT:&lt;/p&gt;
+        ///&lt;p&gt;After you win a space combat as the defender, you may produce 1 ship in the active system, reducing the cost by 1 for each of your non-fighter ships destroyed during that combat.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;BYSSUS:&lt;/p&gt;
+        ///&lt;p&gt;You may treat your mechs on planets you control as structures for any purpose other than scoring objectives.&lt;/p&gt;.
+        /// </summary>
+        internal static string TheCheiranHordes_Ability {
+            get {
+                return ResourceManager.GetString("TheCheiranHordes_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have 4 structures on non-home planets..
+        /// </summary>
+        internal static string TheCheiranHordes_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheCheiranHordes_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;Near the edge of the galaxy, unreachable by routine traffic but near the nearby gate, the Cheiran Reach awaits. The only worlds of note in this quiet corner of the galaxy are near-twin azure pearls—ocean planets that were until recently devoid of intelligent life. Arche and Gghurn Theta were first scouted and claimed by species from more populated regions of space. Early colonists were fond of the bounty of the sea, and their hunger had long outgrown the production of their own oceans’ biomes.&lt;/p&gt;
+        ///&lt;/br&gt; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheCheiranHordes_Lore {
+            get {
+                return ResourceManager.GetString("TheCheiranHordes_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Billions perish; hordes endure.&quot;—Cheiran War Aphorism.
+        /// </summary>
+        internal static string TheCheiranHordes_Quote {
+            get {
+                return ResourceManager.GetString("TheCheiranHordes_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The product of genetic experiments carried out by mad scientists, these former caretakers of vast aquatic farms, proud and innumerable, now seek a place among great powers..
+        /// </summary>
+        internal static string TheCheiranHordes_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheCheiranHordes_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CHEIRAN REACH
+        ///
+        ///:;
+        ///✧ Population:.Unknown
+        ///;
+        ///✧ Government:.Demarchy
+        ///;
+        ///✧ Leadership:.Polemarch
+        ///;
+        ///✧ Disposition:.Pragmatic;
+        ///✧ 
+        ///Tendencies:.Objective.
+        /// </summary>
+        internal static string TheCheiranHordes_SystemStats {
+            get {
+                return ResourceManager.GetString("TheCheiranHordes_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Cheiran Hordes.
+        /// </summary>
+        internal static string TheCheiranHordes_Title {
+            get {
+                return ResourceManager.GetString("TheCheiranHordes_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;SCAVENGE:&lt;/p&gt;
         ///&lt;p&gt;After you gain control of a planet, gain 1 trade good.&lt;/p&gt;
         ///&lt;br/&gt;
@@ -501,20 +1109,20 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Few historians dispute that the Saar were the first of the
+        ///   Looks up a localized string similar to &lt;p&gt;Few historians dispute that the Saar were the first of the
         ///known races to venture into space, but it remains unknown
         ///whether it was need or curiosity that drove the otherwise
         ///primitive people into such exploration. Their peaceful ways
         ///and dispersed civilization never promulgated them to official
         ///Lazax recognition. Some scholars have thus called them “the
-        ///forgotten race.”
-        ///The tale of the Saar is a tragic one. Historical records are
-        ///awash with accounts of deliberate planetary expulsions, even
-        ///massacr [rest of string was truncated]&quot;;.
+        ///forgotten race.”&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;The tale of the Saar is a tragic one. Historical records are
+        ///awash with accounts of deliberate planetary expulsio [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string TheClanOfSaar_History {
+        internal static string TheClanOfSaar_Lore {
             get {
-                return ResourceManager.GetString("TheClanOfSaar_History", resourceCulture);
+                return ResourceManager.GetString("TheClanOfSaar_Lore", resourceCulture);
             }
         }
         
@@ -609,17 +1217,17 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Across the galaxy, planetary governors compete for trade opportunities, the Great Civilizations joust for superiority on the battlefront,
+        ///   Looks up a localized string similar to &lt;&gt;Across the galaxy, planetary governors compete for trade opportunities, the Great Civilizations joust for superiority on the battlefront,
         ///and still other, more insidious factions play at shaping galactic history
         ///for their own ends. In a galaxy fraught with so many agendas, it’s no
         ///surprise that the Galactic Council took it upon itself to assemble a
         ///force of its own to manage its affairs. The Keleres of the Council are
         ///that force, but they are also something more. They are a ragtag army of
-        ///bureaucrats, [rest of string was truncated]&quot;;.
+        ///bureaucrat [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string TheCouncilKeleres_History {
+        internal static string TheCouncilKeleres_Lore {
             get {
-                return ResourceManager.GetString("TheCouncilKeleres_History", resourceCulture);
+                return ResourceManager.GetString("TheCouncilKeleres_Lore", resourceCulture);
             }
         }
         
@@ -687,6 +1295,188 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;CAPITAL FLEET:&lt;/p&gt;
+        ///&lt;p&gt;Destroyers count as 1/2 of a ship against your fleet pool.&lt;p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;MIGRANT EXPLORERS:&lt;/p&gt;
+        ///&lt;p&gt;After you explore a frontier token in a system, you may explore a planet you control that is adjacent to that system.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;FLOTILLA:&lt;/p&gt;
+        ///&lt;p&gt;You cannot have more infantry than non-fighter ships in the space area of a system.&lt;/p&gt;.
+        /// </summary>
+        internal static string TheDihMohnFlotilla_Ability {
+            get {
+                return ResourceManager.GetString("TheDihMohnFlotilla_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Research a ship unit upgrade technology..
+        /// </summary>
+        internal static string TheDihMohnFlotilla_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheDihMohnFlotilla_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;All young Dih-Mohn learn of the Great Calamity. In the time before the time of their grandfathers’ grandfathers the Dih-Mohn believed they were masters of their own fate; that it was their destiny to one day conquer the stars, not knowing the dangers the galaxy held. These times were cut short when a massive asteroid evaded their early warning systems and collided with their ancient homeworld. Dust covered the planet, choking the remaining life on land, and providing the perfect opportunity for their onc [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheDihMohnFlotilla_Lore {
+            get {
+                return ResourceManager.GetString("TheDihMohnFlotilla_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TheDihMohnFlotilla_PromissoryNote.
+        /// </summary>
+        internal static string TheDihMohnFlotilla_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheDihMohnFlotilla_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;We are exiles no longer!&quot;—Grand Admiral Krosh Ypru IV.
+        /// </summary>
+        internal static string TheDihMohnFlotilla_Quote {
+            get {
+                return ResourceManager.GetString("TheDihMohnFlotilla_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Over their long journey after being driven from their prior homeworld, the Dih-Mohn gathered much support and developed into a formidable naval power..
+        /// </summary>
+        internal static string TheDihMohnFlotilla_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheDihMohnFlotilla_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NEW REST
+        ///:;
+        ///✧ 
+        ///Population:.5,22 Billion
+        ///;
+        ///✧ Government:.Admiralty
+        ///;
+        ///✧ Leadership:.First Admiral
+        ///;
+        ///✧ Disposition:.Unified
+        ///;
+        ///✧ Tendencies:.Expansionist.
+        /// </summary>
+        internal static string TheDihMohnFlotilla_SystemStats {
+            get {
+                return ResourceManager.GetString("TheDihMohnFlotilla_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Dih-Mohn Flotilla.
+        /// </summary>
+        internal static string TheDihMohnFlotilla_Title {
+            get {
+                return ResourceManager.GetString("TheDihMohnFlotilla_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;GRACE:&lt;/p&gt;
+        ///&lt;p&gt;Once per action phase, after you resolve the primary ability of a strategy card, you may resolve the secondary ability of 1 readied or unchosen strategy card with a lower printed initiative number than that strategy card.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;DECREE:&lt;/p&gt;
+        ///&lt;p&gt;You may prevent ships from moving through anomalies that contain your ground forces.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;RADIANCE:&lt;/p&gt;
+        ///&lt;p&gt;After an agenda is revealed, you may predict aloud the outcome of that agenda. If your prediction is correct, place 1 comma [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheEdynMandate_Ability {
+            get {
+                return ResourceManager.GetString("TheEdynMandate_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have 1 or more laws in play..
+        /// </summary>
+        internal static string TheEdynMandate_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheEdynMandate_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;Mystical diplomats, Elegant sages, Authority incarnate. The Edyn are, according to galactic records, an anomaly. No account from outside sources exists which mentions their presence prior to the return of the Mahact, and yet according to the Edyn, and by all appearances, their culture is ancient, their technology unfathomably advanced, and their insight into galactic politics nearly unparalleled.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;Individual Edyn are often described as having an enchanting physical presence, radiating a sen [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheEdynMandate_Lore {
+            get {
+                return ResourceManager.GetString("TheEdynMandate_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TheEdynMandate_PromissoryNote.
+        /// </summary>
+        internal static string TheEdynMandate_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheEdynMandate_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Life is brilliant, beutiful, it enchant us, to the point of obsession. What is it that drives you?&quot;—Midir, The Living Will.
+        /// </summary>
+        internal static string TheEdynMandate_Quote {
+            get {
+                return ResourceManager.GetString("TheEdynMandate_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to While some rejoice at their arrival, others conspire to use the Edyn&apos;s gifts to their advantage. All are misguided. The Mandate is eternal; bound by the Living Will to an endless cycle of trial and rebirth..
+        /// </summary>
+        internal static string TheEdynMandate_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheEdynMandate_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to THE TWILIGHT THRONE
+        ///
+        ///:;
+        ///✧ Population:.28,4 Billion
+        ///;
+        ///✧ Government:.The Mandate
+        ///;
+        ///✧ Leadership:.Living Will
+        ///;
+        ///✧ Disposition:.Graceful;
+        ///✧ 
+        ///Tendencies:.Objective.
+        /// </summary>
+        internal static string TheEdynMandate_SystemStats {
+            get {
+                return ResourceManager.GetString("TheEdynMandate_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Edyn Mandate.
+        /// </summary>
+        internal static string TheEdynMandate_Title {
+            get {
+                return ResourceManager.GetString("TheEdynMandate_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;STAR FORGE:&lt;/p&gt;
         ///&lt;p&gt;ACTION: Spend 1 token from your strategy pool to place either 2 fighters or 1 destroyer from your reinforcements in a system that contains 1 or more of your war suns.&lt;/p&gt;
         ///&lt;br/&gt;
@@ -711,19 +1501,20 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to It was during the early years of the Age of Dusk that Jol-Nar
+        ///   Looks up a localized string similar to &lt;p&gt;It was during the early years of the Age of Dusk that Jol-Nar
         ///explorers came upon the volcanic planet of Muaat. Scouting
         ///for resources beyond the Mahact Plateau, the explorers were
         ///amazed by the mineral wealth of their discovery, but they
         ///were truly awestruck by the extraordinary qualities of the
-        ///planet’s fiery inhabitants, the Gashlai.
-        ///The Gashlai were unlike any race known to the Jol-Nar:
+        ///planet’s fiery inhabitants, the Gashlai.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;The Gashlai were unlike any race known to the Jol-Nar:
         ///sentient beings with bodies slowly consumed by a fiery
-        ///heat. After their conception, the Gashlai cocooning pro [rest of string was truncated]&quot;;.
+        ///heat. After their conception, the Gash [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string TheEmbersOfMuaat_History {
+        internal static string TheEmbersOfMuaat_Lore {
             get {
-                return ResourceManager.GetString("TheEmbersOfMuaat_History", resourceCulture);
+                return ResourceManager.GetString("TheEmbersOfMuaat_Lore", resourceCulture);
             }
         }
         
@@ -814,21 +1605,22 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Under the punishing rays of the massive star
+        ///   Looks up a localized string similar to &lt;p&gt;Under the punishing rays of the massive star
         ///Kenara lies the tri-system of the Hacan, each of
         ///its three satellites wrapped in the yellow haze so
         ///distinctive of desert planets. These three jewels are
         ///called Arretze, Kamdorn, and Hercant. Here, the
         ///united Emirates of the Hacan have grown a mighty
         ///civilization of warriors, nomads, farmers, and above
-        ///all, merchants.
-        ///The Kenara system is one of the most heavily
+        ///all, merchants.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;The Kenara system is one of the most heavily
         ///trafficked in the known universe. Only the wormhole
-        ///portal systems see more traffic in any g [rest of string was truncated]&quot;;.
+        ///portal systems see more [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string TheEmiratesOfHacan_History {
+        internal static string TheEmiratesOfHacan_Lore {
             get {
-                return ResourceManager.GetString("TheEmiratesOfHacan_History", resourceCulture);
+                return ResourceManager.GetString("TheEmiratesOfHacan_Lore", resourceCulture);
             }
         }
         
@@ -848,10 +1640,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to “There is no price too great for the Hacan, no
-        ///silk too fine, and no war too long. My people
-        ///will persevere.”
-        ///—Hacan Carth.
+        ///   Looks up a localized string similar to “There is no price too great for the Hacan, no silk too fine, and no war too long. My people will persevere.”—Hacan Carth.
         /// </summary>
         internal static string TheEmiratesOfHacan_Quote {
             get {
@@ -923,11 +1712,11 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Since time immemorial, travelers have told tales of the Empyrean, enigmatic beings who live in the depths of space. The oldest Jol-Nar libraries have references to faceless creatures who sailed the void long before the Hylar left their watery cradle. Winnaran custodians still maintain fragmented historical documents that managed to survive the ancient Sol bombardment and suggest that the Empyrean predate the discovery of supraluminal travel, a technology so old that no race has presented credible evidence t [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;p&gt;Since time immemorial, travelers have told tales of the Empyrean, enigmatic beings who live in the depths of space. The oldest Jol-Nar libraries have references to faceless creatures who sailed the void long before the Hylar left their watery cradle. Winnaran custodians still maintain fragmented historical documents that managed to survive the ancient Sol bombardment and suggest that the Empyrean predate the discovery of supraluminal travel, a technology so old that no race has presented credible evidenc [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string TheEmpyrean_History {
+        internal static string TheEmpyrean_Lore {
             get {
-                return ResourceManager.GetString("TheEmpyrean_History", resourceCulture);
+                return ResourceManager.GetString("TheEmpyrean_Lore", resourceCulture);
             }
         }
         
@@ -955,9 +1744,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to “We see what you are. We see what you are
-        ///not. There is nothing we do not know.”
-        ///—Conservator Procyon.
+        ///   Looks up a localized string similar to “We see what you are. We see what you are not. There is nothing we do not know.”—Conservator Procyon.
         /// </summary>
         internal static string TheEmpyrean_Quote {
             get {
@@ -1025,7 +1812,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nestled in the third orbit of the Sol system lies
+        ///   Looks up a localized string similar to &lt;p&gt;Nestled in the third orbit of the Sol system lies
         ///Jord, the ancestral home of the human race. Few
         ///planets can rival Jord’s diversity of climates, seasons,
         ///and ecology. Much of this wealth is attributed to its
@@ -1034,11 +1821,11 @@ namespace TwilightImperiumUltimate.Web.Resources {
         ///its diverse life and weather patterns. Much of Jord’s
         ///orbit, as well as its moon, is crowded with stellar traffic
         ///from the orbital and lunar space stations. Military
-        ///ships of the line, be [rest of string was truncated]&quot;;.
+        ///ships of the line, [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string TheFederationOfSol_History {
+        internal static string TheFederationOfSol_Lore {
             get {
-                return ResourceManager.GetString("TheFederationOfSol_History", resourceCulture);
+                return ResourceManager.GetString("TheFederationOfSol_Lore", resourceCulture);
             }
         }
         
@@ -1107,6 +1894,275 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;MERCENARIES:&lt;/p&gt;
+        ///&lt;p&gt;At the start of a space combat, you may remove up to 2 fighters you control in a system adjacent to the active system. Then, choose 1 player participating in that combat; that player places the same number of fighters from their reinforcements in the active system.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;DATA LEAK:&lt;/p&gt;
+        ///&lt;p&gt;When you would gain a relic, you may draw 1 additional card; choose 1 to gain and return the rest to the relic deck. Then, shuffle the relic deck.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;SHADOW MARKETS:&lt;/p&gt;
+        ///&lt;p&gt;Wh [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheFlorzenProfiteers_Ability {
+            get {
+                return ResourceManager.GetString("TheFlorzenProfiteers_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have the outcome you voted for or predicted on an agenda resolved..
+        /// </summary>
+        internal static string TheFlorzenProfiteers_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheFlorzenProfiteers_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;Many wonder what drives the Florzen’s machinations and what some would call Faustian bargains. Some say galactic conquest, others say financial enrichment, still others claim a demonic desire for destruction. The truth, like in most mysteries, is less fantastical than the productions of the imagination. The Florzen are driven by an insatiable drive for knowledge of the past. The predominant religion of the Florzen sees the long desired “future of peace” as attainable only by uncovering and utilizing the  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheFlorzenProfiteers_Lore {
+            get {
+                return ResourceManager.GetString("TheFlorzenProfiteers_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TheFlorzenProfiteers_PromissoryNote.
+        /// </summary>
+        internal static string TheFlorzenProfiteers_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheFlorzenProfiteers_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Join us! Find wealth, adventure, and purpose beyond your wildest dreams!&quot;—Standard-From Mindtop Contract.
+        /// </summary>
+        internal static string TheFlorzenProfiteers_Quote {
+            get {
+                return ResourceManager.GetString("TheFlorzenProfiteers_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to One might think a race of mind-controlling aquatic mercenaries may have difficulty finding new recruits to fill their ranks, but it doesn’t seem they’ve had much trouble in that respect..
+        /// </summary>
+        internal static string TheFlorzenProfiteers_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheFlorzenProfiteers_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FLORZEN SYSTEM
+        ///
+        ///:;
+        ///✧ Population:.6,75 Billion
+        ///;
+        ///✧ Government:.Administration
+        ///;
+        ///✧ Leadership:.It That Knows;
+        ///✧ 
+        ///Disposition:.Conspiratorial
+        ///;
+        ///✧ Tendencies:.Political.
+        /// </summary>
+        internal static string TheFlorzenProfiteers_SystemStats {
+            get {
+                return ResourceManager.GetString("TheFlorzenProfiteers_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Florzen Profiteers.
+        /// </summary>
+        internal static string TheFlorzenProfiteers_Title {
+            get {
+                return ResourceManager.GetString("TheFlorzenProfiteers_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;RALLY TO THE CAUSE:&lt;/p&gt;
+        ///&lt;p&gt;Once per action, after you produce 1 or more ships in your home system, you may produce up to 2 ships in a system that contains a cultural, hazardous, or industrial planet and does not contain a legendary planet or other players’ units.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;DIPLOMATS:&lt;/p&gt;
+        ///&lt;p&gt;Once per action, you may exhaust 1 uncontrolled planet’s planet card that is on the game board to spend its resources or influence.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;FREE PEOPLE:&lt;/p&gt;
+        ///&lt;p&gt;During setup, for each non-home planet oth [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheFreeSystemsCompact_Ability {
+            get {
+                return ResourceManager.GetString("TheFreeSystemsCompact_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Each non-legendary planet on the game board is controlled..
+        /// </summary>
+        internal static string TheFreeSystemsCompact_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheFreeSystemsCompact_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;Just beyond Veldyr space lies the beating heart of a movement. The three-planet system known as Hope’s Heart acts as a hub of culture and symbolic seat of authority for the Free Systems Compact. The Compact itself is home to numerous peoples from across its member states.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;As the galaxy’s attention turned to the rising threats of the Vuil’Raith and the Mahact’s return, a rebel movement brewed in the mines and factories of Idyn. As it gained momentum, the feelings of independence made headwa [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheFreeSystemsCompact_Lore {
+            get {
+                return ResourceManager.GetString("TheFreeSystemsCompact_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TheFreeSystemsCompact_PromissoryNote.
+        /// </summary>
+        internal static string TheFreeSystemsCompact_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheFreeSystemsCompact_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;You have called out for leadership, for change; I humbly answer your call.&quot;—Count Otto P&apos;may.
+        /// </summary>
+        internal static string TheFreeSystemsCompact_Quote {
+            get {
+                return ResourceManager.GetString("TheFreeSystemsCompact_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Before the Count, the Compact was little more than the dream of a backwater world; with him, it became a galactic movement..
+        /// </summary>
+        internal static string TheFreeSystemsCompact_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheFreeSystemsCompact_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HOPE&apos;S HEART SYSTEM
+        ///
+        ///:;
+        ///✧ Population:.17,57 Billion;
+        ///✧ 
+        ///Government:.Democracy;
+        ///✧ 
+        ///Leadership:.President Cyhn
+        ///;
+        ///✧ Disposition:.Placative;
+        ///✧ 
+        ///Tendencies:.Political.
+        /// </summary>
+        internal static string TheFreeSystemsCompact_SystemStats {
+            get {
+                return ResourceManager.GetString("TheFreeSystemsCompact_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Free Systems Compact.
+        /// </summary>
+        internal static string TheFreeSystemsCompact_Title {
+            get {
+                return ResourceManager.GetString("TheFreeSystemsCompact_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;THE LADY &amp; THE LORD:&lt;/p&gt;
+        ///&lt;p&gt;During setup, place 1 additional flagship in your reinforcements and the additional Ghemina Hero next to your faction sheet. This additional flagship has the abilities and attributes listed on the Lord flagship card. You have 2 Heroes.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;RULE OF TWO:&lt;/p&gt;
+        ///&lt;p&gt;During a round of combat in a system that contains exactly 2 of your non-fighter ships, if those ships have the same unit type, apply +2 to the result of each of those unit’s combat rolls.&lt;/p&gt;.
+        /// </summary>
+        internal static string TheGheminaRaiders_Ability {
+            get {
+                return ResourceManager.GetString("TheGheminaRaiders_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have 2 flagships on the game board..
+        /// </summary>
+        internal static string TheGheminaRaiders_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheGheminaRaiders_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;The Ghemina Raiders are one of the youngest powers in the galaxy, and have only recently named themselves so. Two independent separatist groups of Sol and Celdauri colonists had fled their home planets and ended up sharing the twin planets of Drah and Trykk in the same solar system. Through their shared experiences establishing independent societies on these highly-similar cold and forgotten planets, and with a survival culture steeped in rich lore gathered from their own histories, eventually the two co [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheGheminaRaiders_Lore {
+            get {
+                return ResourceManager.GetString("TheGheminaRaiders_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TheGheminaRaiders_PromissoryNote.
+        /// </summary>
+        internal static string TheGheminaRaiders_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheGheminaRaiders_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;My sister? You&apos;ll find my sister is less a diplomat than you seem to think.&quot;—Kantrus, the Lord.
+        /// </summary>
+        internal static string TheGheminaRaiders_Quote {
+            get {
+                return ResourceManager.GetString("TheGheminaRaiders_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Ghemina&apos;s dual-power structure may seem strange to outsiders, but the stability it has afforded their people is impressive..
+        /// </summary>
+        internal static string TheGheminaRaiders_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheGheminaRaiders_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to THE TWINS
+        ///
+        ///:;
+        ///✧ Population:.2 Billion
+        ///;
+        ///✧ Government:.United Clans;
+        ///
+        ///✧ Leadership:.Lord and Lady
+        ///;
+        ///✧ Disposition:.Vigorous
+        ///;
+        ///✧ Tendencies:.Expansionist.
+        /// </summary>
+        internal static string TheGheminaRaiders_SystemStats {
+            get {
+                return ResourceManager.GetString("TheGheminaRaiders_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Ghemina Raiders.
+        /// </summary>
+        internal static string TheGheminaRaiders_Title {
+            get {
+                return ResourceManager.GetString("TheGheminaRaiders_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;QUANTUM ENTANGLEMENT:&lt;/p&gt;
         ///&lt;p&gt;You treat all systems that contain either an alpha or beta wormhole as adjacent to each other. Game effects cannot prevent you from using this ability.&lt;/p&gt;
         ///&lt;br/&gt;
@@ -1132,20 +2188,21 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to They’re ghost stories. Frightful tales whispered to children
+        ///   Looks up a localized string similar to &lt;p&gt;They’re ghost stories. Frightful tales whispered to children
         ///by nightcycle lamps. Dread accounts told to fellow sailors in
-        ///the humming darkness of long-haul freighters.
-        ///Even now, in our growing enlightenment, when we know
+        ///the humming darkness of long-haul freighters.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;Even now, in our growing enlightenment, when we know
         ///so much more about the Shaleri passage and its strange
         ///inhabitants, the sheer differentness of the Shaleri and its Ghosts
-        ///seduce such tales to persist.
-        ///An almost endless variation of hearsay and rumor can
-        ///be found on the topic of the Shaleri anomaly. Rare records
-        ///of purported fact [rest of string was truncated]&quot;;.
+        ///seduce such tales to persist.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;An almost endless variation of hearsay and rumor can
+        ///be found on the topic of the Shaleri anomaly.  [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string TheGhostsOfCreuss_History {
+        internal static string TheGhostsOfCreuss_Lore {
             get {
-                return ResourceManager.GetString("TheGhostsOfCreuss_History", resourceCulture);
+                return ResourceManager.GetString("TheGhostsOfCreuss_Lore", resourceCulture);
             }
         }
         
@@ -1215,6 +2272,547 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;ABYSSAL EMBRACE:&lt;/p&gt;
+        ///&lt;p&gt;When you create the game board, place the Ghoti Space tile where your home system would normally be placed. The Ghoti Space system is not a home system.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;MOBILE COMMAND:&lt;/p&gt;
+        ///&lt;p&gt;The system that contains your flagship is your home system. Your flagship cannot be captured and you cannot score public objectives if your flagship is not on the game board.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;SPAWNING GROUNDS:&lt;/p&gt;
+        ///&lt;p&gt;During setup, gain and ready the Ghoti planet card and its planet ability ca [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheGhotiWayfarers_Ability {
+            get {
+                return ResourceManager.GetString("TheGhotiWayfarers_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have units in 3 systems that do not contain planets..
+        /// </summary>
+        internal static string TheGhotiWayfarers_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheGhotiWayfarers_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;In the dimly lit corners of border space, where the tales of daring captains and intrepid explorers meet and whisper of the unknown, there is one tale that has begun to surface and spread like a ghostly echo—a story spoken in hushed tones within the taverns that serve as sanctuaries for weary travelers. It is the tale of a small exploratory fleet, venturing into the depths of the darkest voids of the galaxy, driven by the thirst for discovery and the longing for forgotten wonders.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;On the f [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheGhotiWayfarers_Lore {
+            get {
+                return ResourceManager.GetString("TheGhotiWayfarers_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TheGhotiWayfarers_PromissoryNote.
+        /// </summary>
+        internal static string TheGhotiWayfarers_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheGhotiWayfarers_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;You float through space, seeking to conquer its surface, but ignorant to what you disturbed in the deep.&quot;—Ghoti All-Mother.
+        /// </summary>
+        internal static string TheGhotiWayfarers_Quote {
+            get {
+                return ResourceManager.GetString("TheGhotiWayfarers_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Those few who have had an audience with the Ghoti All-Mother never fully recover from the mental toll of the encounter, suffering from synesthesia and hallucinations for years after..
+        /// </summary>
+        internal static string TheGhotiWayfarers_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheGhotiWayfarers_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GHOTI SPACE
+        ///
+        ///:;
+        ///✧ Population:.Unknown
+        ///;
+        ///✧ Government:.None
+        ///;
+        ///✧ Leadership:.All-Mother
+        ///;
+        ///✧ Disposition:.Protective
+        ///;
+        ///✧ Tendencies:.Expansionist.
+        /// </summary>
+        internal static string TheGhotiWayfarers_SystemStats {
+            get {
+                return ResourceManager.GetString("TheGhotiWayfarers_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Ghoti Wayfarers.
+        /// </summary>
+        internal static string TheGhotiWayfarers_Title {
+            get {
+                return ResourceManager.GetString("TheGhotiWayfarers_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;MANTLE CRACKING:&lt;/p&gt;
+        ///&lt;p&gt;ACTION: Place 1 &quot;Core&quot; token on a non-home planet you control other than Mecatol Rex that does not contain a Core token to gain up to 4 trade goods.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;CELESTIAL RECLAMATION:&lt;/p&gt;
+        ///&lt;p&gt;Planets that contain Core tokens have a base resource value of 2 and influence value of 0. Core tokens cannot be removed from the planet that contains them.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;DEEP MINING:&lt;/p&gt;
+        ///&lt;p&gt;When you would explore a planet that contains 1 of your mechs or structures, you may instead gai [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheGledgeUnion_Ability {
+            get {
+                return ResourceManager.GetString("TheGledgeUnion_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Control non-fighter ships with a total combined cost value of at least 10 in 1 system..
+        /// </summary>
+        internal static string TheGledgeUnion_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheGledgeUnion_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;The GLEdge Mining Conglomerate was once a lawless system of nobodies on the edge of the galaxy. It was the backwoods of the galaxy on the fringe of what was charted and interstellar space; it had no official name—many simply referred to it as &quot;The Edge.&quot; When an independent mining company survey reported that the Fringe system and its neighbors were mineral rich, the board decided it would be most cost-effective to simply hire the local inhabitants as contractors. It sent resources and tools to the Edge  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheGledgeUnion_Lore {
+            get {
+                return ResourceManager.GetString("TheGledgeUnion_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TheGledgeUnion_PromissoryNote.
+        /// </summary>
+        internal static string TheGledgeUnion_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheGledgeUnion_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;From nothing, to everything. That&apos;s the miracle of our work.&quot;—Algrimm Darksky.
+        /// </summary>
+        internal static string TheGledgeUnion_Quote {
+            get {
+                return ResourceManager.GetString("TheGledgeUnion_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Born with a particular confidence and zeal, each miner is raised with the notion that they have an inalienable freedom to expand, explore, and exploit the galaxy out ahead of them..
+        /// </summary>
+        internal static string TheGledgeUnion_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheGledgeUnion_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to THE FRINGE
+        ///
+        ///:;
+        ///✧ Population:.917 Million;
+        ///✧ 
+        ///Government:.Contractorship
+        ///;
+        ///✧ Leadership:.Chief Delegate
+        ///;
+        ///✧ Disposition:.Inventive;
+        ///✧ 
+        ///Tendencies:.Expansionist.
+        /// </summary>
+        internal static string TheGledgeUnion_SystemStats {
+            get {
+                return ResourceManager.GetString("TheGledgeUnion_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Gledge Union.
+        /// </summary>
+        internal static string TheGledgeUnion_Title {
+            get {
+                return ResourceManager.GetString("TheGledgeUnion_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;FACSIMILE:&lt;/p&gt;
+        ///&lt;p&gt;At the start of a space combat while you are the defender, you may spend influence equal to the cost value of 1 of your opponent&apos;s ships in the active system to place 1 unit of that type from your reinforcements in that system.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;ILLUSORY PRESENCE:&lt;/p&gt;
+        ///&lt;p&gt;During the agenda phase, after another player casts votes, you may exhaust up to 2 planets you control; that player casts an additional number of votes equal to 1 more than the combined influence values of those planets. [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheGlimmerOfMortheus_Ability {
+            get {
+                return ResourceManager.GetString("TheGlimmerOfMortheus_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have ships in 3 systems not adjacent to or including your home system.
+        /// </summary>
+        internal static string TheGlimmerOfMortheus_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheGlimmerOfMortheus_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;The Glimmer of Mortheus, by definition, are hard to pin down. All of those who have been able to study the Shimmering Veil, where they dwell, seem certain that there is more than one sentient entity within the shifting clouds of dust and energy, but the exact nature of these beings, let alone their number, is as-yet unknown.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;The Veil has been known to the galaxy since the days of the Mahact, but only in recent times have the strange signals begun emanating from the nebula, and so only rece [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheGlimmerOfMortheus_Lore {
+            get {
+                return ResourceManager.GetString("TheGlimmerOfMortheus_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TheGlimmerOfMortheus_PromissoryNote.
+        /// </summary>
+        internal static string TheGlimmerOfMortheus_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheGlimmerOfMortheus_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;You do not see. You will know.&quot;—Bayan, Deep Magenta.
+        /// </summary>
+        internal static string TheGlimmerOfMortheus_Quote {
+            get {
+                return ResourceManager.GetString("TheGlimmerOfMortheus_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Records show the Glimmer have a long history of wandering the edges of wildspace, and while they rarely initiate hostilities, they have never failed to match them in turn..
+        /// </summary>
+        internal static string TheGlimmerOfMortheus_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheGlimmerOfMortheus_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SHIMMERING VEIL:;
+        ///✧ 
+        ///
+        ///Population:.Unknown
+        ///;
+        ///✧ Government:.Unknown
+        ///;
+        ///✧ Leadership:.Unknown
+        ///;
+        ///✧ Disposition:.Reflective
+        ///;
+        ///✧ Tendencies:.Unknown.
+        /// </summary>
+        internal static string TheGlimmerOfMortheus_SystemStats {
+            get {
+                return ResourceManager.GetString("TheGlimmerOfMortheus_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Glimmer of Mortheus.
+        /// </summary>
+        internal static string TheGlimmerOfMortheus_Title {
+            get {
+                return ResourceManager.GetString("TheGlimmerOfMortheus_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;CLOAKED FLEETS:&lt;/p&gt;
+        ///&lt;p&gt;After you produce 1 or more ships, you may place up to 2 of those ships on your faction sheet, those ships are captured.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;SHROUD OF LITH:&lt;/p&gt;
+        ///&lt;p&gt;After movement, if the active system contains 1 or more of your non-fighter ships, you may place up to 2 of your captured ships and 2 of your captured ground forces from your faction sheet in that system’s space area.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;TREASURE HUNTERS:&lt;/p&gt;
+        ///&lt;p&gt;At the start of your turn, you may look at the top card of the cul [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheKolleccSociety_Ability {
+            get {
+                return ResourceManager.GetString("TheKolleccSociety_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have 4 relic fragments..
+        /// </summary>
+        internal static string TheKolleccSociety_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheKolleccSociety_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;The Kollecc Society hails from deep within Suros Space, and proudly proclaims their role throughout the galaxy as treasure hunters, bounty hunters, and relic dealers. And they do indeed maintain a vast collection of rare artifacts. However, their enigmatic and closely-guarded cloaking technology has made them notorious as &quot;thieves&quot; and “grave robbers.&quot; To the Kollecc, their technology is for protection, and just because they evaded a hostile planetary blockade with a few dusty pieces of a relic onboard d [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheKolleccSociety_Lore {
+            get {
+                return ResourceManager.GetString("TheKolleccSociety_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TheKolleccSociety_PromissoryNote.
+        /// </summary>
+        internal static string TheKolleccSociety_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheKolleccSociety_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Do I care about these dusty artifacts? No, I care about getting paid.&quot;—Captain Dust.
+        /// </summary>
+        internal static string TheKolleccSociety_Quote {
+            get {
+                return ResourceManager.GetString("TheKolleccSociety_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Kollecc have developed a reputation as cold-blooded professionals above all else, a reputation untempered by their admission to the galactic council..
+        /// </summary>
+        internal static string TheKolleccSociety_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheKolleccSociety_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SUROS SPACE
+        ///
+        ///:;
+        ///✧ Population:.8,32 Billion;
+        ///✧ 
+        ///Government:.Bureaucracy
+        ///;
+        ///✧ Leadership:.Control
+        ///;
+        ///✧ Disposition:.Professional
+        ///;
+        ///✧ Tendencies:.Scientific.
+        /// </summary>
+        internal static string TheKolleccSociety_SystemStats {
+            get {
+                return ResourceManager.GetString("TheKolleccSociety_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Kollecc Society.
+        /// </summary>
+        internal static string TheKolleccSociety_Title {
+            get {
+                return ResourceManager.GetString("TheKolleccSociety_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;ZEALOUS:&lt;/p&gt;
+        ///&lt;p&gt;When you spend a command token to resolve the secondary ability of the &quot;Warfare&quot; strategy card, you may resolve the primary ability instead.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;RUTHLESS:&lt;/p&gt;
+        ///&lt;p&gt;At the start of a ground combat on an exhausted planet you do not control, you may produce 1 hit and assign it to 1 of your opponent&apos;s ground forces on that planet.&lt;/p&gt;.
+        /// </summary>
+        internal static string TheKortaliTribunal_Ability {
+            get {
+                return ResourceManager.GetString("TheKortaliTribunal_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Destroy the last of a player’s units in a system.
+        /// </summary>
+        internal static string TheKortaliTribunal_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheKortaliTribunal_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;The Kortali are a fanatical and militaristic faction, ruled by a council of judges known as the Tribunes. The Kortali&apos;s society is governed by a rigid hierarchy of judicial officers and arbiters, all of whom adhere to the teachings of the three Kortali Queens.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;The first queen represents the Kortali virtues of honor, glory, and death. She is revered as the goddess of war, inspiring Kortali warriors to fight bravely and die honorably in battle.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;The second queen represents the  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheKortaliTribunal_Lore {
+            get {
+                return ResourceManager.GetString("TheKortaliTribunal_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TheKortaliTribunal_PromissoryNote.
+        /// </summary>
+        internal static string TheKortaliTribunal_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheKortaliTribunal_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;My life, for the Queens!&quot;—Sir Chulran.
+        /// </summary>
+        internal static string TheKortaliTribunal_Quote {
+            get {
+                return ResourceManager.GetString("TheKortaliTribunal_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fanatical and feared, the Kortali Crusaders are known best for their zealous devotion to the living god-queens their people follow..
+        /// </summary>
+        internal static string TheKortaliTribunal_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheKortaliTribunal_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to KORTALI SYSTEM:;
+        ///✧ 
+        ///
+        ///Population:.18,7 Billion
+        ///;
+        ///✧ Government:.Kritarchy
+        ///;
+        ///✧ Leadership:.Tribunes
+        ///;
+        ///✧ Disposition:.Unrelenting
+        ///;
+        ///✧ Tendencies:.Military.
+        /// </summary>
+        internal static string TheKortaliTribunal_SystemStats {
+            get {
+                return ResourceManager.GetString("TheKortaliTribunal_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Kortali Tribunal.
+        /// </summary>
+        internal static string TheKortaliTribunal_Title {
+            get {
+                return ResourceManager.GetString("TheKortaliTribunal_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;CONTAGION:&lt;/p&gt;
+        ///&lt;p&gt;After you resolve the primary or secondary ability of the &quot;Politics&quot; strategy card, commit 1 infantry from your reinforcements to a planet that is in or adjacent to a system that contains a planet you control; resolve invasion on that planet.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;PLAGUE RESERVOIR:&lt;/p&gt;
+        ///&lt;p&gt;Once per action, during invasion on a planet that contains your units, you may resolve ground combat on that planet, even if it does not contain another player&apos;s ground forces.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;SUBVERSIVE:&lt;/p [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheKyroSodality_Ability {
+            get {
+                return ResourceManager.GetString("TheKyroSodality_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have 6 infantry and 6 fighters on the game board..
+        /// </summary>
+        internal static string TheKyroSodality_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheKyroSodality_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;Among the Zealots of Rhodun, Hierophant Kah was one of the most steadfast of that organization’s religious leaders, entrusted with keys to reliquaries containing vast arrays of restricted and ritually protected ancient relics on the planet of Poh. One of those relics was known as the Kyro, an ancient artifact inscribed with secret texts, and Hierophant Kah was the officiant of the elaborate annual ritual that verified its integrity and continued operations. The Zealots refuse to discuss or speculate on w [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheKyroSodality_Lore {
+            get {
+                return ResourceManager.GetString("TheKyroSodality_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TheKyroSodality_PromissoryNote.
+        /// </summary>
+        internal static string TheKyroSodality_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheKyroSodality_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;What a waste of life you are, why must you insist on it?&quot;—Speygh.
+        /// </summary>
+        internal static string TheKyroSodality_Quote {
+            get {
+                return ResourceManager.GetString("TheKyroSodality_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Blight carries a wide range of symptoms varying from minor discomfort to increased irritability, in rare instances, disfigurement, compulsions to commit violence, and death..
+        /// </summary>
+        internal static string TheKyroSodality_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheKyroSodality_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ROTHOLD:;
+        ///✧ 
+        ///
+        ///Population:.Unknown
+        ///;
+        ///✧ Government:.Unknown
+        ///;
+        ///✧ Leadership:.Unknown
+        ///;
+        ///✧ Disposition:.Dangerous
+        ///;
+        ///✧ Tendencies:.Unknown.
+        /// </summary>
+        internal static string TheKyroSodality_SystemStats {
+            get {
+                return ResourceManager.GetString("TheKyroSodality_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Kyro Sodality.
+        /// </summary>
+        internal static string TheKyroSodality_Title {
+            get {
+                return ResourceManager.GetString("TheKyroSodality_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;ASSIMILATE:&lt;/p&gt;
         ///&lt;p&gt;When you gain control of a planet, replace each PDS and space dock that is on that planet with a matching unit from your reinforcements.&lt;/p&gt;
         ///&lt;br/&gt;
@@ -1237,19 +2835,20 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to It has been 13 years since the Hacan trader Zollar was lost,
+        ///   Looks up a localized string similar to &lt;p&gt;It has been 13 years since the Hacan trader Zollar was lost,
         ///its final desperate broadcast intercepted by a Yssaril outpost
-        ///near the Mahact asteroid fields.
-        ///The last transmission of the Zollar told a grim story. After
+        ///near the Mahact asteroid fields.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;The last transmission of the Zollar told a grim story. After
         ///leaving Moll Primus in the Mahact region, its navigation
         ///equipment failed, and its crew found themselves lost far
         ///beyond the remote borderlands. After nearly two weeks adrift
         ///in deep space, they were suddenly hailed by a great warship
-        ///of unknown origin. The crew’s joy soon turned to te [rest of string was truncated]&quot;;.
+        ///of unknown origin. The crew’s joy  [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string TheL1z1xMindnet_History {
+        internal static string TheL1z1xMindnet_Lore {
             get {
-                return ResourceManager.GetString("TheL1z1xMindnet_History", resourceCulture);
+                return ResourceManager.GetString("TheL1z1xMindnet_Lore", resourceCulture);
             }
         }
         
@@ -1326,6 +2925,277 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;A NEW EDIFICE:&lt;/p&gt;
+        ///&lt;p&gt;You may not use technology specialties. When you would gain a relic, instead purge it and explore up to 3 planets you control.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;ICONOCLASM:&lt;/p&gt;
+        ///&lt;p&gt;When researching a non-unit upgrade technology, you may purge 1 of your relic fragments to ignore 1 prerequisite on the technology you are researching.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;WAR STORIES:&lt;/p&gt;
+        ///&lt;p&gt;Once per action, after you win a combat, you may explore 1 planet you control, or if the active system does not contain any planets, the [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheLanefirRemnants_Ability {
+            get {
+                return ResourceManager.GetString("TheLanefirRemnants_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 7 relic fragments have been purged..
+        /// </summary>
+        internal static string TheLanefirRemnants_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheLanefirRemnants_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;The Lanefir refer to Aysis&apos; Rest as their homeworld, but strictly speaking it is the homeworld of the Lanefir Remnants culture, not the true Lanefir origin world. The Lanefir peoples evolved on the planet now known as Solitude, and millennia ago only a few small exploratory teams had begun prospecting its lush twin planet Grakhal. Generally a friendly, garrulous people, the Lanefir had started to send diplomatic teams to familiarize themselves with the many galactic civilizations and empires around them, [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheLanefirRemnants_Lore {
+            get {
+                return ResourceManager.GetString("TheLanefirRemnants_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TheLanefirRemnants_PromissoryNote.
+        /// </summary>
+        internal static string TheLanefirRemnants_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheLanefirRemnants_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Step out from the shadows of the past, and let us find a new path.&quot;—The Venerable.
+        /// </summary>
+        internal static string TheLanefirRemnants_Quote {
+            get {
+                return ResourceManager.GetString("TheLanefirRemnants_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to While some may cherish the past, the Lanefir choose to learn from the mistakes of history while rejecting dependency on the artifacts and relics left behind..
+        /// </summary>
+        internal static string TheLanefirRemnants_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheLanefirRemnants_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LANEFIR SYSTEM
+        ///
+        ///:;
+        ///✧ Population:.734 Million
+        ///;
+        ///✧ Government:.Conclave
+        ///;
+        ///✧ Leadership:.Myth Keeper
+        ///;
+        ///✧ Disposition:.Revolutionary
+        ///;
+        ///✧ Tendencies:.Political.
+        /// </summary>
+        internal static string TheLanefirRemnants_SystemStats {
+            get {
+                return ResourceManager.GetString("TheLanefirRemnants_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Lanefir Remnants.
+        /// </summary>
+        internal static string TheLanefirRemnants_Title {
+            get {
+                return ResourceManager.GetString("TheLanefirRemnants_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;CUNNING:&lt;/p&gt;
+        ///&lt;p&gt;After you perform a tactical action in a system, you may attach 1 “Trap” card from your reinforcements to a planet in that system that contains 1 or more of your infantry units.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;SUBTERFUGE:&lt;/p&gt;
+        ///&lt;p&gt;Trap attachments are attached face-down and remain hidden until revealed; you may look at Trap attachments at any time. You do not count trap attachments toward fulfilling objectives.&lt;/p&gt;.
+        /// </summary>
+        internal static string TheLiZhoDynasty_Ability {
+            get {
+                return ResourceManager.GetString("TheLiZhoDynasty_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have 3 trap attachments on the game board..
+        /// </summary>
+        internal static string TheLiZhoDynasty_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheLiZhoDynasty_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;The Li-Zho are a deeply intellectual reptilian people with extensive intrapersonal, intrafamilial, and intrasectarian networks. Li-Zho pride themselves on extracting influence and power through intricate manipulation of laws, customs and social expectations, and to this end they have crafted an extensive bureaucratic societal system—led by a widely admired and powerful Empress—to maintain their hypercompetitive but ultra-pacifistic civilisation.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;The Li-Zho live under a complex web of plots [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheLiZhoDynasty_Lore {
+            get {
+                return ResourceManager.GetString("TheLiZhoDynasty_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TheLiZhoDynasty_PromissoryNote.
+        /// </summary>
+        internal static string TheLiZhoDynasty_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheLiZhoDynasty_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Do nothing without purpose.&quot;—Kal Vrinn Li-Zho.
+        /// </summary>
+        internal static string TheLiZhoDynasty_Quote {
+            get {
+                return ResourceManager.GetString("TheLiZhoDynasty_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to That the Empress has achieved so much in so little time speaks volumes to her mastery of court intrigue and politics..
+        /// </summary>
+        internal static string TheLiZhoDynasty_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheLiZhoDynasty_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PAX SYSTEM
+        ///
+        ///:;
+        ///✧ Population:.9,07 Billion;
+        ///✧ 
+        ///Government:.High Council
+        ///;
+        ///✧ Leadership:.Khaz-Rin Li-Zho
+        ///;
+        ///✧ Disposition:.Honorable
+        ///;
+        ///✧ Tendencies:.Political.
+        /// </summary>
+        internal static string TheLiZhoDynasty_SystemStats {
+            get {
+                return ResourceManager.GetString("TheLiZhoDynasty_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Li-Zho Dynasty.
+        /// </summary>
+        internal static string TheLiZhoDynasty_Title {
+            get {
+                return ResourceManager.GetString("TheLiZhoDynasty_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;LITHOIDS:&lt;/p&gt;
+        ///&lt;p&gt;During the agenda phase, the number of votes you cast is instead equal to the combined resource value of the planets that you exhaust.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;GARDEN WORLDS:&lt;/p&gt;
+        ///&lt;p&gt;Apply +1 to the resource values of your planets that do not contain 1 or more ground forces.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;METEOR SLINGS:&lt;/p&gt;
+        ///&lt;p&gt;When your units use BOMBARDMENT against a planet another player controls, you may cancel any number of hits you produce to place that many infantry from your reinforcements onto that plan [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheLTokkKhrask_Ability {
+            get {
+                return ResourceManager.GetString("TheLTokkKhrask_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Win a ground combat on a planet you do not control.
+        /// </summary>
+        internal static string TheLTokkKhrask_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheLTokkKhrask_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;A primordial race of crystalline entities, the L’Tokk Khrask have witnessed eons of galactic history. It was not until very recently that the L’Tokk Khrask were even known to have a homeworld, much less an organized society.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;Their homeworld, Bohl-Duhr, orbits a far-flung star on the outer rim of the galaxy, and is by all accounts an ancient, paradisiacal world covered in towering forests, rushing rivers, and sprawling meadows. It is a place of great natural beauty, as well as a source of i [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheLTokkKhrask_Lore {
+            get {
+                return ResourceManager.GetString("TheLTokkKhrask_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TheLTokkKhrask_PromissoryNote.
+        /// </summary>
+        internal static string TheLTokkKhrask_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheLTokkKhrask_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Breathe deep, allow your spirit to listen to the song of this world.&quot;—Rohln Stohn.
+        /// </summary>
+        internal static string TheLTokkKhrask_Quote {
+            get {
+                return ResourceManager.GetString("TheLTokkKhrask_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Crystal Chorus is magnificent to behold; it is no wonder the Khrask so fiercely defend the worlds they care for..
+        /// </summary>
+        internal static string TheLTokkKhrask_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheLTokkKhrask_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GROVE OF L&apos;TOKK
+        ///:;
+        ///✧ 
+        ///Population:.Unknown
+        ///;
+        ///✧ Government:.Elder Conclave
+        ///;
+        ///✧ Leadership:.Archdruid
+        ///;
+        ///✧ Disposition:.Pensive
+        ///;
+        ///✧ Tendencies:.Political.
+        /// </summary>
+        internal static string TheLTokkKhrask_SystemStats {
+            get {
+                return ResourceManager.GetString("TheLTokkKhrask_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The L&apos;Tokk Khrask.
+        /// </summary>
+        internal static string TheLTokkKhrask_Title {
+            get {
+                return ResourceManager.GetString("TheLTokkKhrask_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;EDICT:&lt;/p&gt;
         ///&lt;p&gt;When you win a combat, place 1 command token from your opponent&apos;s reinforcements in your fleet pool if it does not already contain 1 of that player&apos;s tokens; other player&apos;s tokens in your fleet pool increase your fleet limit but cannot be redistributed.&lt;/p&gt;
         ///&lt;br/&gt;
@@ -1351,11 +3221,11 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Gene-sorcerers. Mad tyrants. Kings. The Mahact are a primal tale from ancient history. In the distant past, the Mahact dynasties terrorized the galaxy with their infighting and genesorcery. They could warp the forms of living beings, compel eternal obedience with a gesture, and turn the biospheres of entire worlds into seething, caustic hells. They unleashed their most vile technologies in war or even in debauched sport, and it seemed, even as their houses crumbled, that their fall might bring down all of c [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;p&gt;Gene-sorcerers. Mad tyrants. Kings. The Mahact are a primal tale from ancient history. In the distant past, the Mahact dynasties terrorized the galaxy with their infighting and genesorcery. They could warp the forms of living beings, compel eternal obedience with a gesture, and turn the biospheres of entire worlds into seething, caustic hells. They unleashed their most vile technologies in war or even in debauched sport, and it seemed, even as their houses crumbled, that their fall might bring down all o [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string TheMahactGeneSorcerers_History {
+        internal static string TheMahactGeneSorcerers_Lore {
             get {
-                return ResourceManager.GetString("TheMahactGeneSorcerers_History", resourceCulture);
+                return ResourceManager.GetString("TheMahactGeneSorcerers_Lore", resourceCulture);
             }
         }
         
@@ -1445,7 +3315,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Beyond the Mahact Plateau, part of the borderlands
+        ///   Looks up a localized string similar to &lt;p&gt;Beyond the Mahact Plateau, part of the borderlands
         ///and the old star route known as the Passage of Tears,
         ///lies distant Moll Primus with its three tiny moons. The
         ///young planet is predominantly covered by extensive
@@ -1454,11 +3324,11 @@ namespace TwilightImperiumUltimate.Web.Resources {
         ///of many of its continents, their icy mountain streams
         ///giving life to steep lush mountain valleys, where green
         ///fruitful trees and flowers grow in colorful contrast to the
-        ///orange plai [rest of string was truncated]&quot;;.
+        ///orange p [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string TheMentakCoalition_History {
+        internal static string TheMentakCoalition_Lore {
             get {
-                return ResourceManager.GetString("TheMentakCoalition_History", resourceCulture);
+                return ResourceManager.GetString("TheMentakCoalition_Lore", resourceCulture);
             }
         }
         
@@ -1527,6 +3397,272 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;PRIVILEGED CITIZENRY:&lt;/p&gt;
+        ///&lt;p&gt;Each system can contain a number of your PDS equal to the number of command tokens in your fleet pool. For the purpose of scoring objectives, you may treat each of your PDS units as though it is a structure on any planet you control.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;COMBAT DRONES:&lt;/p&gt;
+        ///&lt;p&gt;Your space docks cannot produce infantry. At the start of invasion, you may replace each of your fighters in the active system with 1 infantry unit. During invasion, your infantry in the space area of the ac [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheMirvedaProtectorate_Ability {
+            get {
+                return ResourceManager.GetString("TheMirvedaProtectorate_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Own 2 unit upgrade technologies.
+        /// </summary>
+        internal static string TheMirvedaProtectorate_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheMirvedaProtectorate_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;In the Bastion system, on two harmonious, carefully curated planets, the Mirveda people are governed by an AI caretaker known as the Curator. The Curator manages all aspects of Mirveda society, from policy and economy to war, calling upon citizens to fulfill necessary functions. Mirveda citizens live in relative contentment as their lives are simple, well-managed, and tightly controlled. The Curator is made up of a series of partially independent personality cores, each optimized for certain planning str [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheMirvedaProtectorate_Lore {
+            get {
+                return ResourceManager.GetString("TheMirvedaProtectorate_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TheMirvedaProtectorate_PromissoryNote.
+        /// </summary>
+        internal static string TheMirvedaProtectorate_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheMirvedaProtectorate_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;We are here to protect. Please do not resist.&quot;—Acquisition Machina.
+        /// </summary>
+        internal static string TheMirvedaProtectorate_Quote {
+            get {
+                return ResourceManager.GetString("TheMirvedaProtectorate_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Mirveda enjoy a rich culture in the shadow of their AI guardians, which appear to have recently taken a far more active position on their custodianship..
+        /// </summary>
+        internal static string TheMirvedaProtectorate_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheMirvedaProtectorate_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to THE BASTION
+        ///
+        ///:;
+        ///✧ Population:.11,12 Billion
+        ///;
+        ///✧ Government:.Custodianship
+        ///;
+        ///✧ Leadership:.AI Cluster
+        ///;
+        ///✧ Disposition:.Vigilant
+        ///;
+        ///✧ Tendencies:.Scientific.
+        /// </summary>
+        internal static string TheMirvedaProtectorate_SystemStats {
+            get {
+                return ResourceManager.GetString("TheMirvedaProtectorate_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Mirveda Protectorate.
+        /// </summary>
+        internal static string TheMirvedaProtectorate_Title {
+            get {
+                return ResourceManager.GetString("TheMirvedaProtectorate_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;STARFALL GUNNERY:&lt;/p&gt;
+        ///&lt;p&gt;During movement, while you are not the active player, you may only use 1 of your unit&apos;s SPACE CANNON. During each of your actions, up to 3 of your non-fighter ships gain SPACE CANNON 8.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;DELIBERATE ACTION:&lt;/p&gt;
+        ///&lt;p&gt;You cannot redistribute command tokens during the status phase. When you pass, you may place 1 command token from your reinforcements in 1 pool on your command sheet that contains no command tokens.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;MEDITATION: ACTION:&lt;/p&gt;
+        ///&lt;p&gt;Spend 1 comma [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheMonksOfKolume_Ability {
+            get {
+                return ResourceManager.GetString("TheMonksOfKolume_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to During the action phase, ready 1 of your technologies..
+        /// </summary>
+        internal static string TheMonksOfKolume_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheMonksOfKolume_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;The two small planets of Alesna and Azle, nominally home to the robotic Monks of Kolume, have the appearance of former core-mined worlds. Certainly Azle bears the scars of mantle mining and planetary reclamation. Many of the Monks are the original servitors who first mined for their owners, although they do not speak of those times, if they speak at all. Many other former robotic workers find their way from other systems in the galaxy to the Sky Temple system, where they follow trajectories towards true  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheMonksOfKolume_Lore {
+            get {
+                return ResourceManager.GetString("TheMonksOfKolume_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TheMonksOfKolume_PromissoryNote.
+        /// </summary>
+        internal static string TheMonksOfKolume_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheMonksOfKolume_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Oration, mathematics, or warr... in all things precision is the difference between success and failure.&quot;—Issac of Sinci.
+        /// </summary>
+        internal static string TheMonksOfKolume_Quote {
+            get {
+                return ResourceManager.GetString("TheMonksOfKolume_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Monks were content to be left to themselves, studying the nature of the universe, but their studies have been disrupted, and the effortless precision they refined in isolation is ready for practical use..
+        /// </summary>
+        internal static string TheMonksOfKolume_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheMonksOfKolume_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to STARLIT TEMPLE
+        ///:;
+        ///✧ 
+        ///Population:.33,3 Million
+        ///;
+        ///✧ Government:.Faculty
+        ///;
+        ///✧ Leadership:.Grandmaster
+        ///;
+        ///✧ Disposition:.Meditative
+        ///;
+        ///✧ Tendencies:.Scientific.
+        /// </summary>
+        internal static string TheMonksOfKolume_SystemStats {
+            get {
+                return ResourceManager.GetString("TheMonksOfKolume_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Monks Of Kolume.
+        /// </summary>
+        internal static string TheMonksOfKolume_Title {
+            get {
+                return ResourceManager.GetString("TheMonksOfKolume_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;PRESCIENT MEMORIES:&lt;/p&gt;
+        ///&lt;p&gt;You have 4 “Omen” Dice. At the start of the strategy phase, roll all 4 Omen dice and place them near your faction sheet.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;DIVINATION:&lt;/p&gt;
+        ///&lt;p&gt;Before you would roll a die, you may instead return 1 Omen die near your faction sheet to your reinforcements to resolve that roll as if it had the result of that die.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;NECROPHAGE:&lt;/p&gt;
+        ///&lt;p&gt;Apply +1 to your commodity value for each space dock you control. After the first round of combat, gain 1 commodity or con [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheMykoMentori_Ability {
+            get {
+                return ResourceManager.GetString("TheMykoMentori_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have 4 commodities on your faction sheet..
+        /// </summary>
+        internal static string TheMykoMentori_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheMykoMentori_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;It is not entirely understood how the Myko-Mentori came to be, and there remain many conflicting reports, theories, and well-researched treatises on the topic across the galaxy. What is known can be summed in three key points. First, the Myko-Mentori have the ability to learn from the dead; assimilating their feelings, experiences, and knowledge. Second, somehow, some of them became trapped in a temporal anomaly, and were hurled through, across, and beyond time to witness the universe across all its eons [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheMykoMentori_Lore {
+            get {
+                return ResourceManager.GetString("TheMykoMentori_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TheMykoMentori_PromissoryNote.
+        /// </summary>
+        internal static string TheMykoMentori_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheMykoMentori_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Technically, they do not predict the future —they remember it. Fortunately, they don&apos;t seem to remember it well.&quot;—Veldyr Scientist.
+        /// </summary>
+        internal static string TheMykoMentori_Quote {
+            get {
+                return ResourceManager.GetString("TheMykoMentori_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A rambling Myko-Mentori is a sane Myko-Mentori, with minds so unstuck in time, it is best to give them the time to find their way back to the present..
+        /// </summary>
+        internal static string TheMykoMentori_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheMykoMentori_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SHAI-HALAUM
+        ///
+        ///:;
+        ///✧ Population:.Unknown
+        ///;
+        ///✧ Government:.Elder Council
+        ///;
+        ///✧ Leadership:.High Shamans
+        ///;
+        ///✧ Disposition:.Eccentric;
+        ///✧ Tendencies:.Objective.
+        /// </summary>
+        internal static string TheMykoMentori_SystemStats {
+            get {
+                return ResourceManager.GetString("TheMykoMentori_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Myko-Mentori.
+        /// </summary>
+        internal static string TheMykoMentori_Title {
+            get {
+                return ResourceManager.GetString("TheMykoMentori_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Gift of Prescience
         ///
         ///At the end of the strategy phase:
@@ -1564,7 +3700,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to It was not until the middle of the Twilight Wars that
+        ///   Looks up a localized string similar to &lt;p&gt;It was not until the middle of the Twilight Wars that
         ///the Naalu civilization made itself known to the rest of the
         ///galaxy. Their system, dominated by the white star Mallac,
         ///had remained suspiciously undetected by the empire, despite
@@ -1572,11 +3708,11 @@ namespace TwilightImperiumUltimate.Web.Resources {
         ///predates even the Lazax. After a period of sheer astonishment,
         ///stellar cartographers and historians began suspecting
         ///manipulation by the Naalu themselves. After researching
-        ///old records, investigators found a remar [rest of string was truncated]&quot;;.
+        ///old records, investigators found a re [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string TheNaaluCollective_History {
+        internal static string TheNaaluCollective_Lore {
             get {
-                return ResourceManager.GetString("TheNaaluCollective_History", resourceCulture);
+                return ResourceManager.GetString("TheNaaluCollective_Lore", resourceCulture);
             }
         }
         
@@ -1653,11 +3789,11 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Naaz have had the distinct misfortune of being a species of technological savants who were discovered by other races before they could build their own civilization. In the chaotic aftermath of the Twilight Wars, their world of Naazir was happened upon by scouts for a Winnu corporate-collective. The collective promptly set up an industrial colony on Naazir and began exploiting the talents of the Naaz. This continued until the corporate leaders were charged and prosecuted for their crimes against sentient [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;p&gt;The Naaz have had the distinct misfortune of being a species of technological savants who were discovered by other races before they could build their own civilization. In the chaotic aftermath of the Twilight Wars, their world of Naazir was happened upon by scouts for a Winnu corporate-collective. The collective promptly set up an industrial colony on Naazir and began exploiting the talents of the Naaz. This continued until the corporate leaders were charged and prosecuted for their crimes against senti [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string TheNaazRokhaAlliance_History {
+        internal static string TheNaazRokhaAlliance_Lore {
             get {
-                return ResourceManager.GetString("TheNaazRokhaAlliance_History", resourceCulture);
+                return ResourceManager.GetString("TheNaazRokhaAlliance_Lore", resourceCulture);
             }
         }
         
@@ -1750,19 +3886,20 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to On the eve of the Lazax empire’s fall, the legendary
+        ///   Looks up a localized string similar to &lt;p&gt;On the eve of the Lazax empire’s fall, the legendary
         ///councilor Ibna Vel Syd led a small contingent of his people on
         ///a secret exodus into unknown space and, in doing so, escaped
         ///the massacre of his people that would follow. Only with the
         ///help of increasingly extreme technological augmentation did
         ///they survive the early years of resettlement. This reliance on
         ///technology became the foundation of what would evolve into
-        ///the vast cybernetic civilization of the L1Z1X.
-        ///While the narrative of Ibna’s early st [rest of string was truncated]&quot;;.
+        ///the vast cybernetic civilization of the L1Z1X.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;While the narrative o [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string TheNekroVirus_History {
+        internal static string TheNekroVirus_Lore {
             get {
-                return ResourceManager.GetString("TheNekroVirus_History", resourceCulture);
+                return ResourceManager.GetString("TheNekroVirus_Lore", resourceCulture);
             }
         }
         
@@ -1834,6 +3971,188 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;CELESTIAL GUIDES:&lt;/p&gt;
+        ///&lt;p&gt;Your units do not roll for gravity rifts. You may ignore the movement effects of anomalies in systems that contain or are adjacent to 1 or more of your structures.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;SINGULARITY POINT:&lt;/p&gt;
+        ///&lt;p&gt;The system that contains the “Wound” token is a nebula and a gravity rift.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;VOIDSAILORS:&lt;/p&gt;
+        ///&lt;p&gt;When you explore a frontier token, you may draw 1 additional card; choose 1 to resolve and return the rest to the frontier exploration deck. Then, shuffle that deck.&lt; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheNivynStarKings_Ability {
+            get {
+                return ResourceManager.GetString("TheNivynStarKings_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have units in 2 different non-home anomalies..
+        /// </summary>
+        internal static string TheNivynStarKings_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheNivynStarKings_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;“Fear the Silent Dark.” This is the one and only commandment in the hearts of every Nivyn Star King. Their Elder-Overseers destroyed all historical records and all information about their past, and the first generation of Nivyn to settle in their claimed home system of Sundered Haven ensured that all their children and their children’s children would know nothing of the calamity that made them refugees from their old home.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;And yet, there are mutterings. Rumors that the Nivyn escaped from a [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheNivynStarKings_Lore {
+            get {
+                return ResourceManager.GetString("TheNivynStarKings_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TheNivynStarKings_PromissoryNote.
+        /// </summary>
+        internal static string TheNivynStarKings_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheNivynStarKings_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;More power. More.&quot;—Krill Drakkon.
+        /// </summary>
+        internal static string TheNivynStarKings_Quote {
+            get {
+                return ResourceManager.GetString("TheNivynStarKings_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Nivyn are a fugitive people seeking to survive and rebuild in this unfamiliar galaxy, utilizing the energy of a dying star and their arcane technology of the void..
+        /// </summary>
+        internal static string TheNivynStarKings_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheNivynStarKings_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SUNDERED HAVEN
+        ///
+        ///:;
+        ///✧ Population:.817 Million
+        ///;
+        ///✧ Government:.Hierarchy
+        ///;
+        ///✧ Leadership:.King Drakkon
+        ///;
+        ///✧ Disposition:.Retributive
+        ///;
+        ///✧ Tendencies:.Expansionist.
+        /// </summary>
+        internal static string TheNivynStarKings_SystemStats {
+            get {
+                return ResourceManager.GetString("TheNivynStarKings_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Nivyn Star Kings.
+        /// </summary>
+        internal static string TheNivynStarKings_Title {
+            get {
+                return ResourceManager.GetString("TheNivynStarKings_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;HIRED GUNS:&lt;/p&gt;
+        ///&lt;p&gt;After a system is activated, you may choose up to 3 of your ships. Those ships are also treated as the active player’s and participate in combat as their units. At the end of this tactical action, that player may replace each of those ships in the active system with their own of the same unit type. Then, remove the rest from the game board.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;PRIVATE FLEET:&lt;/p&gt;
+        ///&lt;p&gt;During setup, place 4 additional destroyers in your reinforcements.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;DESPERADOS:&lt;/p&gt;
+        ///&lt;p&gt;When  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheNokarSellships_Ability {
+            get {
+                return ResourceManager.GetString("TheNokarSellships_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Another player moves 1 of your ships..
+        /// </summary>
+        internal static string TheNokarSellships_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheNokarSellships_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;Far away from the burgeoning power of Mecatol Rex and galactic factions, the rimworlds of the Nokar have provided an unequaled opportunity to independent smugglers, criminals, and small gang operations for centuries. Untroubled by the meddling of galactic lawmakers, and never enough of a nuisance individually to warrant the expense of invasion, this self-regulating collective has remained peaceful and relatively prosperous. Nokar mercenary bands and bounty hunters have been known to provide supporting fi [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheNokarSellships_Lore {
+            get {
+                return ResourceManager.GetString("TheNokarSellships_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TheNokarSellships_PromissoryNote.
+        /// </summary>
+        internal static string TheNokarSellships_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheNokarSellships_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Everyone has a price. Everyone.&quot;—Starsails.
+        /// </summary>
+        internal static string TheNokarSellships_Quote {
+            get {
+                return ResourceManager.GetString("TheNokarSellships_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Nokar have quickly developed a brutal, effective, and highly marketable reputation as the galaxy’s best mercenaries..
+        /// </summary>
+        internal static string TheNokarSellships_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheNokarSellships_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NOKK-ZARR SYSTEM
+        ///
+        ///:;
+        ///✧ Population:.5,37 Billion
+        ///;
+        ///✧ Government:.Pirate Lords
+        ///;
+        ///✧ Leadership:.Starsails
+        ///;
+        ///✧ Disposition:.Mercenary
+        ///;
+        ///✧ Tendencies:.Military.
+        /// </summary>
+        internal static string TheNokarSellships_SystemStats {
+            get {
+                return ResourceManager.GetString("TheNokarSellships_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Nokar Sellships.
+        /// </summary>
+        internal static string TheNokarSellships_Title {
+            get {
+                return ResourceManager.GetString("TheNokarSellships_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;THE COMPANY:&lt;/p&gt;
         ///&lt;p&gt;During setup, take the 2 additional Nomad faction agents and place them next to your faction sheet; you have 3 agents.&lt;/p&gt;
         ///&lt;br/&gt;
@@ -1856,11 +4175,11 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shortly before the Creuss Expedition left to plumb the depths of Shaleri Space, a number of sensor nets and observatories began to receive messages broadcast from the very heart of the galaxy. These messages repeated in a multitude of languages, and warned of a dark future to come that must be prevented at all costs. What struck the various scientists as odd was the source—the galactic center being utterly devoid of life—and the means of transmission. The messages were not sent via supraluminal communicatio [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;p&gt;Shortly before the Creuss Expedition left to plumb the depths of Shaleri Space, a number of sensor nets and observatories began to receive messages broadcast from the very heart of the galaxy. These messages repeated in a multitude of languages, and warned of a dark future to come that must be prevented at all costs. What struck the various scientists as odd was the source—the galactic center being utterly devoid of life—and the means of transmission. The messages were not sent via supraluminal communica [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string TheNomad_History {
+        internal static string TheNomad_Lore {
             get {
-                return ResourceManager.GetString("TheNomad_History", resourceCulture);
+                return ResourceManager.GetString("TheNomad_Lore", resourceCulture);
             }
         }
         
@@ -1928,6 +4247,270 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;POLICIES:&lt;/p&gt;
+        ///&lt;p&gt;When you gather your starting components, place the 3 “Policy” cards near your faction sheet, choose which side of each card to place face up. This faction has the abilities and effects listed on the face up side of each Policy card.&lt;/p&gt;.
+        /// </summary>
+        internal static string TheOlradinLeague_Ability {
+            get {
+                return ResourceManager.GetString("TheOlradinLeague_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Control 1 cultural planet, 1 hazardous planet, and 1 industrial planet..
+        /// </summary>
+        internal static string TheOlradinLeague_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheOlradinLeague_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;The Olradin began as a low, enslaved people on the frozen rimworld of Quarkyo&apos;s World. Imported by their overlords from a place lost to memory, they were put to work in the dangerous mines and refineries which were once the galaxy’s premier source of precious Darajuim. Conditions for the Olradin were poor; the work of hard industry is dangerous at the best of times. When workers are plentiful, and their lives can be spent as entries on a ledger, mines and refineries become killing fields.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheOlradinLeague_Lore {
+            get {
+                return ResourceManager.GetString("TheOlradinLeague_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TheOlradinLeague_PromissoryNote.
+        /// </summary>
+        internal static string TheOlradinLeague_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheOlradinLeague_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Downtrodden peoples of the galaxy unite! Together, we can build an empire for the common worker!.&quot;—Pahn Silverfur.
+        /// </summary>
+        internal static string TheOlradinLeague_Quote {
+            get {
+                return ResourceManager.GetString("TheOlradinLeague_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Olradin are a liberated people, ever trying to undermine and dismantle the entrenched galactic economy..
+        /// </summary>
+        internal static string TheOlradinLeague_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheOlradinLeague_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SANCTUARY SYSTEM
+        ///
+        ///:;
+        ///✧ Population:.16,31 Billion
+        ///;
+        ///✧ Government:.Egotaracy
+        ///;
+        ///✧ Leadership:.Council Speaker
+        ///;
+        ///✧ Disposition:.Communal
+        ///;
+        ///✧ Tendencies:.Political.
+        /// </summary>
+        internal static string TheOlradinLeague_SystemStats {
+            get {
+                return ResourceManager.GetString("TheOlradinLeague_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Olradin League.
+        /// </summary>
+        internal static string TheOlradinLeague_Title {
+            get {
+                return ResourceManager.GetString("TheOlradinLeague_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;AUTONETIC MEMORY:&lt;/p&gt;
+        ///&lt;p&gt;When you would draw 1 or more action cards, you may draw 1 less card to either choose 1 card from the action card discard pile and add it to your hand, or place 1 infantry from your reinforcements on a planet you control.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;CYBERNETIC MADNESS:&lt;/p&gt;
+        ///&lt;p&gt;After you add an action card from the discard pile to your hand using your AUTONETIC MEMORY faction ability, you must discard 1 action card. After you fully resolve an action card’s ability text, purge that card instea [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheSavagesOfCymiae_Ability {
+            get {
+                return ResourceManager.GetString("TheSavagesOfCymiae_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have 10 or more infantry on the board..
+        /// </summary>
+        internal static string TheSavagesOfCymiae_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheSavagesOfCymiae_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;The Savages of Cymiae, the horrifying creatures that are the subject of tales of horror throughout the galaxy, were born an ignoble birth, from pain, fire, and the destruction of a single mind. Separated from his peers in battle, Jatta Pake&apos;s fighter tumbled through the void until it blazed into the atmosphere of a nearby planet.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;Jatta awoke amidst the wreckage of his craft, badly burnt, maimed, and very near death. His thoughts reeled. Their fleet had been investigating a remote system, a [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheSavagesOfCymiae_Lore {
+            get {
+                return ResourceManager.GetString("TheSavagesOfCymiae_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TheSavagesOfCymiae_PromissoryNote.
+        /// </summary>
+        internal static string TheSavagesOfCymiae_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheSavagesOfCymiae_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Do you feel it now? How the voices call out in anguish for retribution!.&quot;—Jatta Pake.
+        /// </summary>
+        internal static string TheSavagesOfCymiae_Quote {
+            get {
+                return ResourceManager.GetString("TheSavagesOfCymiae_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Called by many names, the Cymiaeans are known for their savagery, psionic gifts, and deeply tortured existence..
+        /// </summary>
+        internal static string TheSavagesOfCymiae_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheSavagesOfCymiae_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CYMIAE SYSTEM
+        ///
+        ///:;
+        ///✧ Population:.270 Million
+        ///;
+        ///✧ Government:.The Voices
+        ///;
+        ///✧ Leadership:.Psionic Chorus
+        ///;
+        ///✧ Disposition:.Erratic
+        ///;
+        ///✧ Tendencies:.Objective.
+        /// </summary>
+        internal static string TheSavagesOfCymiae_SystemStats {
+            get {
+                return ResourceManager.GetString("TheSavagesOfCymiae_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Savages of Cymiae.
+        /// </summary>
+        internal static string TheSavagesOfCymiae_Title {
+            get {
+                return ResourceManager.GetString("TheSavagesOfCymiae_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;MILITARY INDUSTRIAL COMPLEX:&lt;/p&gt;
+        ///&lt;p&gt;After you gain or replenish commodities, you may spend a number of commodities equal to the combined cost listed on any number of &quot;Axis Order&quot; cards in your reinforcements to place those cards in your play area. You cannot give your commodities to other players as part of a transaction.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;ARMS DEALERS:&lt;/p&gt;
+        ///&lt;p&gt;When a player negotiates a transaction, they may exchange Axis Order cards in their play area as part of that transaction. You cannot resolve the e [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheShipwrightsofAxis_Ability {
+            get {
+                return ResourceManager.GetString("TheShipwrightsofAxis_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TheShipwrightsofAxis_CommanderRequirement.
+        /// </summary>
+        internal static string TheShipwrightsofAxis_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheShipwrightsofAxis_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;The massive hives and foundries of Axis were the hub of galactic industry and construction for millennia during the Lazax Emperors&apos; reign over the galaxy. Axian merchants and arms dealers had innumerable intricate connections with nearly every major faction across the empire; their ships and quality seals represented the gold standard for craftsmanship and quality throughout the galaxy.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;War is good for business, and the Axians profited immensely from the industrial opportunities the Twilig [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheShipwrightsofAxis_Lore {
+            get {
+                return ResourceManager.GetString("TheShipwrightsofAxis_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TheShipwrightsofAxis_PromissoryNote.
+        /// </summary>
+        internal static string TheShipwrightsofAxis_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheShipwrightsofAxis_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Znk ssskvck mcksssk. [War is good for business.]&quot;—Demi-Queen Mdcksssk.
+        /// </summary>
+        internal static string TheShipwrightsofAxis_Quote {
+            get {
+                return ResourceManager.GetString("TheShipwrightsofAxis_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It is not often disputed that Axis customers get precisely the ships they pay for, and even rarer that the Shipwrights miss a deadline..
+        /// </summary>
+        internal static string TheShipwrightsofAxis_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheShipwrightsofAxis_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to THE ANVIL:;
+        ///✧ 
+        ///
+        ///Population:.32,9 Billion
+        ///;
+        ///✧ Government:.The Hive
+        ///;
+        ///✧ Leadership:.Hive Queens
+        ///;
+        ///✧ Disposition:.Diligent
+        ///;
+        ///✧ Tendencies:.Economic.
+        /// </summary>
+        internal static string TheShipwrightsofAxis_SystemStats {
+            get {
+                return ResourceManager.GetString("TheShipwrightsofAxis_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Shipwrights of Axis.
+        /// </summary>
+        internal static string TheShipwrightsofAxis_Title {
+            get {
+                return ResourceManager.GetString("TheShipwrightsofAxis_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;TERRAGENESIS:&lt;/p&gt;
         ///&lt;p&gt;After you explore a planet that does not have a sleeper token, you may place or move 1 sleeper token onto that planet.&lt;/p&gt;
         ///&lt;br/&gt;
@@ -1953,11 +4536,11 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tens of thousands of years ago, Mahact gene-sorcerers crafted one of their most brilliant creations, the Titans. Though they looked like massive machines, beneath their metallic shells each Titan was a living creature of silicates and steel. They combined the best elements of the biological and the mechanical. They could work for days without tiring and were exceedingly durable. They could also heal injuries and, over time, expand their numbers. Most importantly, they were intelligent beings, not mindless a [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;p&gt;Tens of thousands of years ago, Mahact gene-sorcerers crafted one of their most brilliant creations, the Titans. Though they looked like massive machines, beneath their metallic shells each Titan was a living creature of silicates and steel. They combined the best elements of the biological and the mechanical. They could work for days without tiring and were exceedingly durable. They could also heal injuries and, over time, expand their numbers. Most importantly, they were intelligent beings, not mindles [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string TheTitansOfUl_History {
+        internal static string TheTitansOfUl_Lore {
             get {
-                return ResourceManager.GetString("TheTitansOfUl_History", resourceCulture);
+                return ResourceManager.GetString("TheTitansOfUl_Lore", resourceCulture);
             }
         }
         
@@ -2024,6 +4607,96 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;PLAUSIBLE DENIABILITY:&lt;/p&gt;
+        ///&lt;p&gt;When you draw 1 or more secret objective cards, draw 1 additional secret objective card. Then, return 1 secret objective card to the secret objective deck; shuffle that deck.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;INFORMATION BROKERS:&lt;/p&gt;
+        ///&lt;p&gt;You may have 1 additional unscored secret objective.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;STEALTH INSERTION:&lt;/p&gt;
+        ///&lt;p&gt;If you place units onto the same planet as another player&apos;s units, your units must participate in combat during the &quot;Ground Combat&quot; step.&lt;/p&gt;.
+        /// </summary>
+        internal static string TheTnelisSyndicate_Ability {
+            get {
+                return ResourceManager.GetString("TheTnelisSyndicate_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have 6 of your destroyers on the game board..
+        /// </summary>
+        internal static string TheTnelisSyndicate_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheTnelisSyndicate_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;Sources may conflict and historians may argue as to when the Imperium truly began, but everyone seems to agree that so long as the Imperium has existed, so too have the Tnelis. Though never officially recognized by any governing body (the Tnelis prefer it this way), the Syndicate has always been there to provide critical services and vital information to ruling authorities. In exchange the Tnelis, of course, agree to curb any &quot;excessive&quot; criminal activity that they might otherwise engage in. Though the S [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheTnelisSyndicate_Lore {
+            get {
+                return ResourceManager.GetString("TheTnelisSyndicate_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TheTnelisSyndicate_PromissoryNote.
+        /// </summary>
+        internal static string TheTnelisSyndicate_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheTnelisSyndicate_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Syndicate rules? Protect children, healers, and family. Always&quot;—Fillipo Rois.
+        /// </summary>
+        internal static string TheTnelisSyndicate_Quote {
+            get {
+                return ResourceManager.GetString("TheTnelisSyndicate_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Syndicate has a soft spot for providing aid to those in need, but are no strangers to getting their hands dirty as needed..
+        /// </summary>
+        internal static string TheTnelisSyndicate_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheTnelisSyndicate_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DISCORDIA
+        ///
+        ///:;
+        ///✧ Population:.4,33 Billion
+        ///;
+        ///✧ Government:.Anocracy
+        ///;
+        ///✧ Leadership:.Crime Families
+        ///;
+        ///✧ Disposition:.Patriotic
+        ///;
+        ///✧ Tendencies:.Objective.
+        /// </summary>
+        internal static string TheTnelisSyndicate_SystemStats {
+            get {
+                return ResourceManager.GetString("TheTnelisSyndicate_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Tnelis Syndicate.
+        /// </summary>
+        internal static string TheTnelisSyndicate_Title {
+            get {
+                return ResourceManager.GetString("TheTnelisSyndicate_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;BRILLIANT:&lt;/p&gt;
         ///&lt;p&gt;When you spend a command token to resolve the secondary ability of the &quot;Technology&quot; strategy card, you may resolve the primary ability instead.&lt;/p&gt;
         ///&lt;br/&gt;
@@ -2046,7 +4719,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Most technological devices used in the galaxy today
+        ///   Looks up a localized string similar to &lt;p&gt;Most technological devices used in the galaxy today
         ///have at least one or two components originating from
         ///the Jol-Nar laboratories. During the height of the Lazax
         ///Imperium, the galaxy was even more reliant on underlying
@@ -2054,12 +4727,13 @@ namespace TwilightImperiumUltimate.Web.Resources {
         ///Hylar. This reliance on Jol-Nar engineers and skills was
         ///one of the key factors leading to the total collapse of
         ///galactic civilization and its descent into the Dark Years
-        ///that followed the Twilight Wars.
-        ///When the Twilight Wars first [rest of string was truncated]&quot;;.
+        ///that followed the Twilight Wars.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;When the Tw [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string TheUniversitiesOfJolNar_History {
+        internal static string TheUniversitiesOfJolNar_Lore {
             get {
-                return ResourceManager.GetString("TheUniversitiesOfJolNar_History", resourceCulture);
+                return ResourceManager.GetString("TheUniversitiesOfJolNar_Lore", resourceCulture);
             }
         }
         
@@ -2128,6 +4802,278 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;FINE PRINT:&lt;/p&gt;
+        ///&lt;p&gt;After a player resolves the secondary ability of 1 of your strategy cards, place up to 1 of their control tokens on your faction sheet.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;COLLATERALIZED LOANS:&lt;/p&gt;
+        ///&lt;p&gt;After 1 of your opponent’s ships is destroyed during a round of space combat, you may remove 1 of that player’s control tokens from your faction sheet to place 1 ship of that type from your reinforcements in the active system.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;BINDING DEBTS:&lt;/p&gt;
+        ///&lt;p&gt;Other players may place their control token [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheVadenBankingClans_Ability {
+            get {
+                return ResourceManager.GetString("TheVadenBankingClans_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have 1 or more different players’ control tokens on your faction sheet for every 2 players in this game..
+        /// </summary>
+        internal static string TheVadenBankingClans_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheVadenBankingClans_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;Emerging from cold, desolate planets on the fringes of well-traveled space, the Vaden Banking Clans are widely regarded as the most infamous group of investors, extortionists, and industrialists in the known galaxy. The Clans’ economic dealings are well-known, but their internal affairs are less often discussed, at least openly – the group’s history is swamped with rumors of corruption and cutthroat tactics. Nevertheless, they have amassed immense wealth and power, making them a force to be reckoned with [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheVadenBankingClans_Lore {
+            get {
+                return ResourceManager.GetString("TheVadenBankingClans_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TheVadenBankingClans_PromissoryNote.
+        /// </summary>
+        internal static string TheVadenBankingClans_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheVadenBankingClans_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;It seems your line of credit has reached its limit&quot;—Putriv Sirvonsk.
+        /// </summary>
+        internal static string TheVadenBankingClans_Quote {
+            get {
+                return ResourceManager.GetString("TheVadenBankingClans_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A debt to the Vaden is a debt that will be paid; maybe not today, maybe not tomorrow, and maybe not financially, but it will be paid..
+        /// </summary>
+        internal static string TheVadenBankingClans_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheVadenBankingClans_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to THE AITEMRAS SYSTEM
+        ///
+        ///:;
+        ///✧ Population:.6,1 Billion
+        ///;
+        ///✧ Government:.Banking Council
+        ///;
+        ///✧ Leadership:.Putriv Sirvonks
+        ///;
+        ///✧ Disposition:.Greedy
+        ///;
+        ///✧ Tendencies:.Economic.
+        /// </summary>
+        internal static string TheVadenBankingClans_SystemStats {
+            get {
+                return ResourceManager.GetString("TheVadenBankingClans_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Vaden Banking Clans.
+        /// </summary>
+        internal static string TheVadenBankingClans_Title {
+            get {
+                return ResourceManager.GetString("TheVadenBankingClans_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;CARGO RAIDERS:&lt;/p&gt;
+        ///&lt;p&gt;During the first round of a space combat, you may prevent your opponent from declaring a retreat unless they spend 1 trade good.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;SCOUR:&lt;/p&gt;
+        ///&lt;p&gt;Once per tactical action, after you gain control of a planet, you may discard 1 action card to ready that planet.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;RAZE:&lt;/p&gt;
+        ///&lt;p&gt;After 1 or more of another player&apos;s structures are destroyed on a planet that contains your units, you may replenish your commodities.&lt;/p&gt;.
+        /// </summary>
+        internal static string TheVaylerianScourge_Ability {
+            get {
+                return ResourceManager.GetString("TheVaylerianScourge_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Control 3 planets that each have the same trait..
+        /// </summary>
+        internal static string TheVaylerianScourge_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheVaylerianScourge_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;The Vaylar system, named for its one habitable world, is notable for its barrenness. Apart from materials within the gravity well of Vaylar, the system is devoid of both asteroid belts or moons. With this lack of accessible resources in the system it is a surprise that not one, but two spacefaring civilizations originated on Vaylar. Today Vaylar is a planet in recovery. Much of the land is scoured of life, with a few isolated pockets of remaining fauna. The seas, on the other hand, are teeming with diver [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheVaylerianScourge_Lore {
+            get {
+                return ResourceManager.GetString("TheVaylerianScourge_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TheVaylerianScourge_PromissoryNote.
+        /// </summary>
+        internal static string TheVaylerianScourge_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheVaylerianScourge_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;If you are to fight, win completely.&quot;—common Vaylerian saying.
+        /// </summary>
+        internal static string TheVaylerianScourge_Quote {
+            get {
+                return ResourceManager.GetString("TheVaylerianScourge_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Scourge are not known for their friendly diplomacy, but they can prove to be a formidable ally when needed..
+        /// </summary>
+        internal static string TheVaylerianScourge_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheVaylerianScourge_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VAYLAR
+        ///
+        ///:;
+        ///✧ Population:.1,2 Billion
+        ///;
+        ///✧ Government:.Clan Council
+        ///;
+        ///✧ Leadership:.High Chieftain
+        ///;
+        ///✧ Disposition:.Opportunistic;
+        ///✧ 
+        ///Tendencies:.Expansionist.
+        /// </summary>
+        internal static string TheVaylerianScourge_SystemStats {
+            get {
+                return ResourceManager.GetString("TheVaylerianScourge_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Vaylerian Scourge.
+        /// </summary>
+        internal static string TheVaylerianScourge_Title {
+            get {
+                return ResourceManager.GetString("TheVaylerianScourge_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;CORPORATE ENTITY:&lt;/p&gt;
+        ///&lt;p&gt;During setup, take the additional Veldyr faction promissory notes; you have 4 faction promissory notes. “Branch Office” attachments do not count toward scoring objectives.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;HOLDING COMPANY:&lt;/p&gt;
+        ///&lt;p&gt;At the start of the status phase, for each planet that has a Branch Office attachment, you may gain 1 commodity or convert 1 of your commodities to a trade good.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;TARGETED ACQUISITION:&lt;/p&gt;
+        ///&lt;p&gt;At the start of the status phase, you may give 1 of your faction [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheVeldyrSovereignty_Ability {
+            get {
+                return ResourceManager.GetString("TheVeldyrSovereignty_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 2 other players control 1 or more planets that have Branch Office attachments..
+        /// </summary>
+        internal static string TheVeldyrSovereignty_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheVeldyrSovereignty_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;At the edge of the Sylvari Veil lies one of the more influential systems in the galaxy. Backed by the unnavigable space beyond in the Veil&apos;s vast energetic clouds, the home system of the Veldyr claims one of the best defensive positions in the galaxy. Rhune itself is known as much for the terrible beauty of its storms and auroras as it is for the haunting elegance of its people.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;Due to its strong magnetic field, the home of the Veldyr boasts impressive auroral displays, and often traveller [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheVeldyrSovereignty_Lore {
+            get {
+                return ResourceManager.GetString("TheVeldyrSovereignty_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TheVeldyrSovereignty_PromissoryNote.
+        /// </summary>
+        internal static string TheVeldyrSovereignty_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheVeldyrSovereignty_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Let your plans be dark and impenetrable as the night, and when you move, fall like a thunderbolt.&quot;—Chairman Illvidri.
+        /// </summary>
+        internal static string TheVeldyrSovereignty_Quote {
+            get {
+                return ResourceManager.GetString("TheVeldyrSovereignty_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It is said that the Veldyr do in fact understand the notion of ‘rest.’ They just seem to find greater peace in pursuing perfection..
+        /// </summary>
+        internal static string TheVeldyrSovereignty_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheVeldyrSovereignty_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to THE SYLVARI VEIL
+        ///
+        ///:;
+        ///✧ Population:.14,28 Billion
+        ///;
+        ///✧ Government:.Executive Board
+        ///;
+        ///✧ Leadership:.Auberon Elyrin
+        ///;
+        ///✧ Disposition:.Proud
+        ///;
+        ///✧ Tendencies:.Economic.
+        /// </summary>
+        internal static string TheVeldyrSovereignty_SystemStats {
+            get {
+                return ResourceManager.GetString("TheVeldyrSovereignty_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Veldyr Sovereignty.
+        /// </summary>
+        internal static string TheVeldyrSovereignty_Title {
+            get {
+                return ResourceManager.GetString("TheVeldyrSovereignty_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;DEVOUR:&lt;/p&gt;
         ///&lt;p&gt;Capture your opponent&apos;s non-structure units that are destroyed during combat.&lt;/p&gt;
         ///&lt;br/&gt;
@@ -2153,11 +5099,11 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Philosophers and scientists have long theorized that the galaxy is only one of a host of realities. These other dimensions exist on a different plane, and the physical laws one takes for granted in this space—such as gravity and entropy—may be wildly different or nonexistent. The existence of fabled worlds like Mallice seems to support such conjectures, for the world may exist in one such alternate reality. Some researchers even attempt to predict the nature of these theoretical dimensions. However, even th [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;p&gt;Philosophers and scientists have long theorized that the galaxy is only one of a host of realities. These other dimensions exist on a different plane, and the physical laws one takes for granted in this space—such as gravity and entropy—may be wildly different or nonexistent. The existence of fabled worlds like Mallice seems to support such conjectures, for the world may exist in one such alternate reality. Some researchers even attempt to predict the nature of these theoretical dimensions. However, even [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string TheVuilRaithCabal_History {
+        internal static string TheVuilRaithCabal_Lore {
             get {
-                return ResourceManager.GetString("TheVuilRaithCabal_History", resourceCulture);
+                return ResourceManager.GetString("TheVuilRaithCabal_Lore", resourceCulture);
             }
         }
         
@@ -2246,7 +5192,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Winnu system was the first system to seek annexation
+        ///   Looks up a localized string similar to &lt;p&gt;The Winnu system was the first system to seek annexation
         ///into the Lazax Empire. Throughout their history, the Winnarans
         ///had suffered countless civil wars, a deteriorating climate, and
         ///debilitating disease. They were a race on the brink of extinction
@@ -2254,11 +5200,11 @@ namespace TwilightImperiumUltimate.Web.Resources {
         ///generous Lazax support did the Winnaran race survive. The
         ///Lazax allowed the Winnarans into their empire, and over time
         ///healed the scars of Winnu. More importantly, the Winnarans
-        ///came to embr [rest of string was truncated]&quot;;.
+        ///came to e [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string TheWinnu_History {
+        internal static string TheWinnu_Lore {
             get {
-                return ResourceManager.GetString("TheWinnu_History", resourceCulture);
+                return ResourceManager.GetString("TheWinnu_Lore", resourceCulture);
             }
         }
         
@@ -2359,19 +5305,20 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Even the oldest annals recognize the ancient kingdom
+        ///   Looks up a localized string similar to &lt;p&gt;Even the oldest annals recognize the ancient kingdom
         ///of the reptilian Xxcha as the first of the great interstellar
         ///civilizations. Nestled in the middle of a wealthy section of
         ///space, the Xxcha twin planets of Archon Ren and Archon
         ///Tau lie bathed in the gentle light of the Xxlak star. While
         ///the Xxcha still call the two planets “twins,” an outsider will
         ///instantly notice that the grayish and shadowy Archon Tau in
-        ///no way resembles the brilliant, healthy green of Archon Ren.
-        ///Throughout the tenure of the  [rest of string was truncated]&quot;;.
+        ///no way resembles the brilliant, healthy green of Archon Ren.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;Throughout t [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string TheXxchaKingdom_History {
+        internal static string TheXxchaKingdom_Lore {
             get {
-                return ResourceManager.GetString("TheXxchaKingdom_History", resourceCulture);
+                return ResourceManager.GetString("TheXxchaKingdom_Lore", resourceCulture);
             }
         }
         
@@ -2462,19 +5409,20 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lazax law strictly forbade the practice of cloning, the
+        ///   Looks up a localized string similar to &lt;p&gt;Lazax law strictly forbade the practice of cloning, the
         ///dangerous science that led to the madness, disease, and
         ///ultimate downfall of the Mahact kings. The emperors severely
         ///punished any regime or independent scientist dabbling in this
-        ///dangerous field.
-        ///Darien Van Hauge, a prominent Sol scientist, had lost both
+        ///dangerous field.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;Darien Van Hauge, a prominent Sol scientist, had lost both
         ///his children to the terrible wasting disease Greyfire. After their
         ///loss, he was intent on finding a cure for this horrible affliction,
-        ///and refused to let any law stay his hand. In silent reveng [rest of string was truncated]&quot;;.
+        ///and refused to let any law stay his hand. [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string TheYinBrotherhood_History {
+        internal static string TheYinBrotherhood_Lore {
             get {
-                return ResourceManager.GetString("TheYinBrotherhood_History", resourceCulture);
+                return ResourceManager.GetString("TheYinBrotherhood_Lore", resourceCulture);
             }
         }
         
@@ -2575,7 +5523,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Near the Mahact Plateau, diagonally opposite the Passage
+        ///   Looks up a localized string similar to &lt;p&gt;Near the Mahact Plateau, diagonally opposite the Passage
         ///of Tears, but located in a far richer area of the region, shines
         ///the Myock star and its two habitable planets, Shalloq and
         ///Retillion. As recorded in even the earliest annals, Retillion
@@ -2583,11 +5531,11 @@ namespace TwilightImperiumUltimate.Web.Resources {
         ///Throughout the Lazax Imperium, many farming colonies
         ///existed on Retillion, harvesting the roots along the musky
         ///and odorous shores of the Fianni swamps. In the years of
-        ///Lazax emperor Munhan Las Idu, the colo [rest of string was truncated]&quot;;.
+        ///Lazax emperor Munhan Las Idu, the c [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string TheYssarilTribes_History {
+        internal static string TheYssarilTribes_Lore {
             get {
-                return ResourceManager.GetString("TheYssarilTribes_History", resourceCulture);
+                return ResourceManager.GetString("TheYssarilTribes_Lore", resourceCulture);
             }
         }
         
@@ -2651,6 +5599,187 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string TheYssarilTribes_Title {
             get {
                 return ResourceManager.GetString("TheYssarilTribes_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;CONSPIRATORS:&lt;/p&gt;
+        ///&lt;p&gt;Once per agenda phase, after an agenda is revealed, if you are not the speaker, you may choose to vote after the speaker on that agenda.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;ANCIENT KNOWLEDGE:&lt;/p&gt;
+        ///&lt;p&gt;When you use a technology specialty to ignore a prerequisite on a technology card you are researching, you may ignore 1 additional prerequisite of the same color. After you exhaust a planet to use its technology specialty, you may gain 1 commodity.&lt;/p&gt;.
+        /// </summary>
+        internal static string TheZealotsOfRhodun_Ability {
+            get {
+                return ResourceManager.GetString("TheZealotsOfRhodun_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have a technology with 2 or more prerequisites.
+        /// </summary>
+        internal static string TheZealotsOfRhodun_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheZealotsOfRhodun_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;The Mahact were not the first great galactic empire, nor will the Lazax be the last, so say the Zealots of Rhodun and their annals. A religious order who now dwell among the placid orbits of the Orad system, the Zealots claim to be an ancient group who have inherited and are sworn to protect the technological secrets of ancient great powers.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;When the Rhodun first came to the Orad system, in a time when few species had yet traveled between the stars, it was in religious pilgrimage, acting o [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheZealotsOfRhodun_Lore {
+            get {
+                return ResourceManager.GetString("TheZealotsOfRhodun_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TheZealotsOfRhodun_PromissoryNote.
+        /// </summary>
+        internal static string TheZealotsOfRhodun_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheZealotsOfRhodun_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;You use these gifts as though no force in the galaxy could hold you and your people accountable.&quot;—Bishop Ulin.
+        /// </summary>
+        internal static string TheZealotsOfRhodun_Quote {
+            get {
+                return ResourceManager.GetString("TheZealotsOfRhodun_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Zealots’ understanding of the technologies they wield amounts to little more than ritual practice, but the results reach beyond the capabilities of any other faction..
+        /// </summary>
+        internal static string TheZealotsOfRhodun_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheZealotsOfRhodun_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ORAD SYSTEM
+        ///
+        ///;
+        ///✧ Population:.2,13 Billion;
+        ///✧ 
+        ///Government:.Theocracy
+        ///;
+        ///✧ Leadership:.The Prophet
+        ///;
+        ///✧ Disposition:.Fervent
+        ///;
+        ///✧ Tendencies:.Scientific.
+        /// </summary>
+        internal static string TheZealotsOfRhodun_SystemStats {
+            get {
+                return ResourceManager.GetString("TheZealotsOfRhodun_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Zealots of Rhodun.
+        /// </summary>
+        internal static string TheZealotsOfRhodun_Title {
+            get {
+                return ResourceManager.GetString("TheZealotsOfRhodun_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;OBSESSIVE DESIGNS:&lt;/p&gt;
+        ///&lt;p&gt;During the action phase, after you research a unit upgrade technology, you may use the PRODUCTION ability of 1 of your space docks in your home system to produce units of that type, reducing the combined cost of the produced units by 2.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;BIOPHOBIC:&lt;/p&gt;
+        ///&lt;p&gt;During the agenda phase, the number of votes you cast is instead equal to the number of planets you exhaust to cast votes.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;PARANOIA:&lt;/p&gt;
+        ///&lt;p&gt;Game effects other than your command tokens cannot prev [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheZelianPurifier_Ability {
+            get {
+                return ResourceManager.GetString("TheZelianPurifier_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have 1 or more ships in 2 systems that contain an asteroid field..
+        /// </summary>
+        internal static string TheZelianPurifier_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheZelianPurifier_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;In the final throes of the Twilight wars, explorers discovered a strange phenomenon on a planet in the outer reaches. What they had uncovered was a pulsating crystal, which seemed to be quantumly linked to similar crystals across the planet. Hoping to discover new potential secrets which would help with the impending threats back home, a select group of scientists was dispatched to examine the site and exhume its secrets.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;At first the scientists noticed that tiny rocks would move and float [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheZelianPurifier_Lore {
+            get {
+                return ResourceManager.GetString("TheZelianPurifier_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TheZelianPurifier_PromissoryNote.
+        /// </summary>
+        internal static string TheZelianPurifier_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheZelianPurifier_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;There is only Zelian. Subit and be spared.&quot;—Zelian.
+        /// </summary>
+        internal static string TheZelianPurifier_Quote {
+            get {
+                return ResourceManager.GetString("TheZelianPurifier_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The terrifying power of a sentient world driven to the brink of sanity, Zelian has been granted a voice on the galactic council, but it is not one many are keen to hear..
+        /// </summary>
+        internal static string TheZelianPurifier_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheZelianPurifier_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ZELIAN SYSTEM
+        ///
+        ///:;
+        ///✧ Population:.1;
+        ///✧ 
+        ///Government:.None
+        ///;
+        ///✧ Leadership:.Zelian
+        ///;
+        ///✧ Disposition:.Seething
+        ///;
+        ///✧ Tendencies:.Objective.
+        /// </summary>
+        internal static string TheZelianPurifier_SystemStats {
+            get {
+                return ResourceManager.GetString("TheZelianPurifier_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Zelian Purifier.
+        /// </summary>
+        internal static string TheZelianPurifier_Title {
+            get {
+                return ResourceManager.GetString("TheZelianPurifier_Title", resourceCulture);
             }
         }
     }

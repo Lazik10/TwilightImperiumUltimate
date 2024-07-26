@@ -1,14 +1,10 @@
-﻿using Microsoft.AspNetCore.Components;
-using TwilightImperiumUltimate.Web.Models.Galaxy;
-using TwilightImperiumUltimate.Web.Resources;
-using TwilightImperiumUltimate.Web.Services.HttpClients;
-using TwilightImperiumUltimate.Web.Services.Path;
-
 namespace TwilightImperiumUltimate.Web.Pages.Game;
 
 public partial class SystemTiles
 {
-    private List<SystemTile> _systemTiles = new();
+    private List<SystemTileModel> _systemTiles = new();
+
+    private GameVersion? _currentGameVersion;
 
     [Inject]
     private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
@@ -16,13 +12,29 @@ public partial class SystemTiles
     [Inject]
     private IPathProvider PathProvider { get; set; } = default!;
 
+    [Inject]
+    private IMapper Mapper { get; set; } = default!;
+
     protected async override Task OnInitializedAsync()
     {
-        _systemTiles = await HttpClient.GetAsync<List<SystemTile>>(Paths.ApiPath_SystemTiles);
+        await InitializeSystemTiles();
     }
 
-    private string GetSystemTileImagePath(SystemTile systemTile)
+    private string GetSystemTileImagePath(SystemTileModel systemTile)
     {
-        return PathProvider.GetLargeTileImagePath(systemTile.Name.ToString());
+        return PathProvider.GetLargeTileImagePath(systemTile.SystemTileName.ToString());
+    }
+
+    private async Task InitializeSystemTiles()
+    {
+        var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<SystemTileDto>>>(Paths.ApiPath_SystemTiles);
+        if (statusCode == HttpStatusCode.OK)
+        {
+            var systemTiles = Mapper.Map<List<SystemTileModel>>(response!.Data!.Items);
+            _systemTiles = systemTiles
+                .OrderBy(x => x.GameVersion)
+                .ThenBy(x => x.SystemTileName)
+                .ToList();
+        }
     }
 }

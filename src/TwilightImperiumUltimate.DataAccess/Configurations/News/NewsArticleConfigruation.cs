@@ -1,9 +1,6 @@
-﻿using TwilightImperiumUltimate.Core.Entities.News;
-using TwilightImperiumUltimate.DataAccess.Tables.News;
-
 namespace TwilightImperiumUltimate.DataAccess.Configurations.News;
 
-internal class NewsArticleConfigruation : IEntityTypeConfiguration<NewsArticle>
+internal sealed class NewsArticleConfigruation : IEntityTypeConfiguration<NewsArticle>
 {
     public void Configure(EntityTypeBuilder<NewsArticle> builder)
     {
@@ -17,31 +14,43 @@ internal class NewsArticleConfigruation : IEntityTypeConfiguration<NewsArticle>
         builder.Property(e => e.Id)
             .IsRequired()
             .UseIdentityColumn()
-            .HasColumnType("integer");
+            .HasColumnType("integer")
+            .HasColumnOrder(0);
 
         builder.Property(e => e.Title)
             .IsRequired()
             .HasColumnName(nameof(NewsArticle.Title))
-            .HasColumnType("nvarchar(255)");
+            .HasColumnType("nvarchar(255)")
+            .HasColumnOrder(1);
 
         builder.Property(e => e.Content)
             .IsRequired()
             .HasColumnName(nameof(NewsArticle.Content))
-            .HasColumnType("nvarchar(MAX)");
+            .HasColumnType("nvarchar(MAX)")
+            .HasColumnOrder(2);
 
         builder.Property(e => e.CreatedAt)
             .IsRequired()
             .HasColumnName(nameof(NewsArticle.CreatedAt))
-            .HasColumnType("date");
+            .HasColumnType("date")
+            .HasColumnOrder(3);
 
         builder.Property(e => e.UpdatedAt)
             .IsRequired()
             .HasColumnName(nameof(NewsArticle.UpdatedAt))
-            .HasColumnType("date");
+            .HasColumnType("date")
+            .HasColumnOrder(4);
 
         builder.Property(e => e.UserId)
             .IsRequired()
             .HasColumnName(nameof(NewsArticle.UserId))
-            .HasColumnType("integer");
+            .HasColumnType("nvarchar(450)")
+            .HasColumnOrder(5);
+
+        builder.HasOne(n => n.User)
+            .WithMany()
+            .HasForeignKey(n => n.UserId)
+            .OnDelete(DeleteBehavior.Cascade)
+            .IsRequired();
     }
 }

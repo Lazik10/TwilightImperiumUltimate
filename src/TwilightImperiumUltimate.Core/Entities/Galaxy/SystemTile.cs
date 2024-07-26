@@ -1,6 +1,4 @@
-using TwilightImperiumUltimate.Core.Enums.Galaxy;
-using TwilightImperiumUltimate.Core.Enums.Game;
-using TwilightImperiumUltimate.Core.Enums.Races;
+using TwilightImperiumUltimate.Contracts.Enums;
 using TwilightImperiumUltimate.Core.Interfaces;
 
 namespace TwilightImperiumUltimate.Core.Entities.Galaxy;
@@ -10,6 +8,8 @@ public class SystemTile : IEntity, IGameVersion
     public int Id { get; set; }
 
     public SystemTileName SystemTileName { get; set; }
+
+    public string SystemTileCode { get; set; } = string.Empty;
 
     public SystemTileCategory TileCategory { get; set; }
 
@@ -32,6 +32,8 @@ public class SystemTile : IEntity, IGameVersion
     public int Influence => Planets.Sum(x => x.Influence);
 
     public bool HasPlanets => Planets.Count != 0;
+
+    public bool HasWormholes => Wormholes.Count != 0;
 
     public GameVersion GameVersion { get; set; }
 }

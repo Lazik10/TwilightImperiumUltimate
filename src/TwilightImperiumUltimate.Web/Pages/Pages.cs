@@ -1,4 +1,4 @@
-﻿namespace TwilightImperiumUltimate.Web.Pages;
+namespace TwilightImperiumUltimate.Web.Pages;
 
 public static class Pages
 {
@@ -7,6 +7,8 @@ public static class Pages
 
     // Game
     public const string Factions = "/game/factions";
+
+    public const string FactionsDS = "/game/factions-discordant-stars";
 
     public const string Technologies = "/game/technologies";
 
@@ -19,26 +21,32 @@ public static class Pages
     public const string Statistics = "/game/statistics";
 
     // Tools
-    public const string DraftRooms = "/tools/draftrooms";
+    public const string DraftRooms = "/tools/draft-rooms";
 
-    public const string ColorPicker = "/tools/colorpicker";
+    public const string ColorPicker = "/tools/color-picker";
 
-    public const string FactionDraft = "/tools/factiondraft";
+    public const string FactionDraft = "/tools/faction-draft";
 
-    public const string MapGenerator = "/tools/mapgenerator";
+    public const string MapGenerator = "/tools/map-generator";
 
-    public const string CardGenerator = "/tools/cardgenerator";
+    public const string CardGenerator = "/tools/card-generator";
 
-    public const string BattleCalculator = "/tools/battlecalculator";
+    public const string BattleCalculator = "/tools/battle-calculator";
 
     // Community
-    public const string FactionGuides = "/community/factionguides";
+    public const string FactionGuides = "/community/faction-guides";
 
-    public const string PlayOfTheMonth = "/community/playofthemonth";
+    public const string PlayOfTheMonth = "/community/play-of-the-month";
 
     public const string Diy = "/community/diy";
 
-    public const string OtherWebsites = "/community/otherwebsites";
+    public const string Websites = "/community/other-websites";
+
+    public const string Discord = "/community/discord";
+
+    public const string Events = "/community/events";
+
+    public const string Maps = "/community/maps";
 
     // Rules
     public const string Rules = "/rules";
@@ -51,4 +59,23 @@ public static class Pages
 
     // About
     public const string About = "/about";
+
+    // Account
+    public const string AccountInfo = "/account/info";
+
+    public const string Login = "/account/login";
+
+    public const string Register = "/account/register";
+
+    public const string AccountPasswordReset = "/account/password-reset";
+
+    public const string AccountClaims = "/account/claims";
+
+    public const string ResendConfirmationEmail = "/account/resend-confirmation-email";
+
+    public const string ResendPasswordRecoveryEmail = "/account/resend-password-recovery-email";
+
+    public const string Admin = "account/admin";
+
+    public const string Moderator = "account/moderator";
 }

@@ -1,10 +1,10 @@
-﻿using TwilightImperiumUltimate.Core.Enums.Cards;
+using TwilightImperiumUltimate.Contracts.Enums;
 
 namespace TwilightImperiumUltimate.Core.Entities.Cards;
 
-public class RelicCard : BaseCard
+public class RelicCard : BaseCard<RelicCardName>
 {
-    public static CardType CardType => CardType.Relic;
+    public override CardType Type { get; set; } = CardType.Relic;
 
-    public RelicCardName RelicCardName { get; set; }
+    public override RelicCardName EnumName { get; set; }
 }

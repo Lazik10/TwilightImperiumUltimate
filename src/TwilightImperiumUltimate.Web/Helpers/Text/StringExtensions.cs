@@ -105,7 +105,7 @@ public static class StringExtensions
         return result;
     }
 
-    public static string HighlightSearchWord(this string text, string search, string searchColor, bool toUpper)
+    public static string HighlightSearchWord(this string text, string search, string highlightColor, bool toUpper)
     {
         if (string.IsNullOrEmpty(text) || string.IsNullOrEmpty(search))
             return text;
@@ -115,7 +115,7 @@ public static class StringExtensions
         else
             search = search.CapitalizeFirstLetter(CultureInfo.CurrentCulture);
 
-        return text.Replace(search, $"<span style=\"color:{searchColor};\">{search}</span>", StringComparison.CurrentCultureIgnoreCase);
+        return text.Replace(search, $"<span style=\"color:{highlightColor};\">{search}</span>", StringComparison.CurrentCultureIgnoreCase);
     }
 
     public static string CapitalizeFirstLetter(this string text, CultureInfo cultureInfo)

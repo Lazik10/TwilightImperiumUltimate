@@ -1,4 +1,5 @@
-﻿using TwilightImperiumUltimate.Web.Enums;
+using TwilightImperiumUltimate.Contracts.Enums;
+using TwilightImperiumUltimate.Web.Enums;
 
 namespace TwilightImperiumUltimate.Web.Options.MapGenerators;
 
@@ -16,7 +17,7 @@ public static class MapGeneratorOptions
 
     public static readonly int MaxTilePositions = 81;
 
-    public static readonly MapTemplate MapTemplate = MapTemplate.MediumMapSixPlayers;
+    public static readonly MapTemplate MapTemplate = MapTemplate.SixPlayersMediumMap;
 
     public static readonly PlacementStyle PlacementStyle = PlacementStyle.Slice;
 
@@ -24,5 +25,5 @@ public static class MapGeneratorOptions
 
     public static readonly SystemTileOverlay SystemTileOverlay = SystemTileOverlay.None;
 
-    public static readonly GameVersion GameVersion = GameVersion.ProphecyOfKing;
+    public static readonly GameVersion GameVersion = GameVersion.ProphecyOfKings;
 }

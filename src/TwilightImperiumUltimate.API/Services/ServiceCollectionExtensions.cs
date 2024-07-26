@@ -1,7 +1,11 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using System.Text.Json.Serialization;
-using TwilightImperiumUltimate.Business.Services;
-using Unchase.Swashbuckle.AspNetCore.Extensions.Extensions;
+using TwilightImperiumUltimate.API.Email;
+using TwilightImperiumUltimate.Business;
+using TwilightImperiumUltimate.Core.Entities.Users;
+using TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium;
 
 namespace TwilightImperiumUltimate.API.Services;
 
@@ -11,10 +15,26 @@ public static class ServiceCollectionExtensions
         this IServiceCollection services,
         IConfiguration configuration)
     {
+        services.RegisterBusinessLayer(configuration);
+
+        services.AddAuthentication()
+            .AddBearerToken();
+        services.AddAuthorization();
+        services.AddEndpointsApiExplorer();
+        services.AddIdentityApiEndpoints<TwilightImperiumUser>(options =>
+            {
+                options.SignIn.RequireConfirmedEmail = true;
+            })
+            .AddEntityFrameworkStores<TwilightImperiumDbContext>();
+        services.AddScoped<IRoleStore<IdentityRole>, RoleStore<IdentityRole, TwilightImperiumDbContext>>();
+        services.AddScoped<IUserStore<TwilightImperiumUser>, UserStore<TwilightImperiumUser, IdentityRole, TwilightImperiumDbContext>>();
+        services.AddScoped<IUserClaimStore<TwilightImperiumUser>, UserStore<TwilightImperiumUser, IdentityRole, TwilightImperiumDbContext>>();
+        services.AddScoped<IUserRoleStore<TwilightImperiumUser>, UserStore<TwilightImperiumUser, IdentityRole, TwilightImperiumDbContext>>();
+        services.AddSingleton<IEmailSender<TwilightImperiumUser>, IdentityEmailSender>();
+        services.AddSingleton<SmtpMailer>();
+
         services.AddControllers()
             .AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
-
-        services.AddEndpointsApiExplorer();
 
         services.AddSwaggerGen(options =>
         {
@@ -24,11 +44,31 @@ public static class ServiceCollectionExtensions
                 Version = "v1",
             });
             options.UseInlineDefinitionsForEnums();
+            options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+            {
+                Description = "Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+                Name = "Authorization",
+                In = ParameterLocation.Header,
+                Type = SecuritySchemeType.Http,
+                Scheme = "Bearer",
+            });
+            options.AddSecurityRequirement(new OpenApiSecurityRequirement
+            {
+                {
+                    new OpenApiSecurityScheme
+                    {
+                        Reference = new OpenApiReference
+                        {
+                            Type = ReferenceType.SecurityScheme,
+                            Id = "Bearer",
+                        },
+                    },
+                    Array.Empty<string>()
+                },
+            });
         });
 
         services.AddCors();
-
-        services.RegisterBusinessLayer(configuration);
 
         return services;
     }

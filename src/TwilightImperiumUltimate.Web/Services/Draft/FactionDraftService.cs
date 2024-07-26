@@ -1,4 +1,5 @@
-﻿using TwilightImperiumUltimate.Web.Enums;
+using System.Net;
+using TwilightImperiumUltimate.Contracts.Enums;
 using TwilightImperiumUltimate.Web.Helpers.Text;
 using TwilightImperiumUltimate.Web.Models.Drafts;
 using TwilightImperiumUltimate.Web.Models.Factions;
@@ -8,17 +9,13 @@ using TwilightImperiumUltimate.Web.Services.HttpClients;
 
 namespace TwilightImperiumUltimate.Web.Services.Draft;
 
-public class FactionDraftService : IFactionDraftService
+public class FactionDraftService(ITwilightImperiumApiHttpClient httpClient)
+    : IFactionDraftService
 {
     private static readonly Random Random = new();
-    private readonly ITwilightImperiumApiHttpClient _httpClient;
+    private readonly ITwilightImperiumApiHttpClient _httpClient = httpClient;
     private readonly List<FactionDraftPlayerModel> _players = [];
     private IReadOnlyCollection<FactionModel> _factionsWithBanStatus = [];
-
-    public FactionDraftService(ITwilightImperiumApiHttpClient httpClient)
-    {
-        _httpClient = httpClient;
-    }
 
     public event EventHandler? OnFactionUpdate;
 
@@ -165,7 +162,7 @@ public class FactionDraftService : IFactionDraftService
         }
     }
 
-    private async Task<IReadOnlyCollection<DraftResult>?> GetDraftResults()
+    private async Task<IReadOnlyCollection<DraftResult>?> GetDraftResults(CancellationToken ct = default)
     {
         FactionDraftRequest request = new()
         {
@@ -174,9 +171,12 @@ public class FactionDraftService : IFactionDraftService
             Factions = _factionsWithBanStatus,
         };
 
-        var result = await _httpClient.PostAsync<FactionDraftRequest, List<DraftResult>>(Paths.ApiPath_FactionDraft, request);
+        var (response, statusCode) = await _httpClient.PostAsync<FactionDraftRequest, List<DraftResult>>(Paths.ApiPath_FactionDraft, request, ct);
 
-        return result;
+        if (statusCode == HttpStatusCode.OK)
+            return response;
+
+        return [];
     }
 
     private void RandomFactionAssignment()

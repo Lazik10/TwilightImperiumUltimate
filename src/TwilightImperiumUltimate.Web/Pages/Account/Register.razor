@@ -1,0 +1,106 @@
+﻿@page "/account/register"
+@using Blazored.FluentValidation
+@using Microsoft.AspNetCore.Components.Forms
+@using TwilightImperiumUltimate.Web.Components.Shared
+@using TwilightImperiumUltimate.Web.Components.Shared.Controls
+@using TwilightImperiumUltimate.Web.Components.Shared.Text
+@using TwilightImperiumUltimate.Web.Resources
+
+<PageTitle>@Strings.Page_AccountRegister</PageTitle>
+
+<Page>
+    <FlexColumnCenteredContainer>
+        <FlexRowContainer AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.Center" Width="40">
+            <Label Text="@Strings.Register_Title" FontSize="36" CenterText="true" />
+        </FlexRowContainer>
+    </FlexColumnCenteredContainer>
+
+    @if(_registrationSuceeded)
+    {
+        <VerticalSpace Height="100" />
+        <Label Text="@Strings.Register_RegistrationSucceeded" FontSize="24" CenterText="true" TextColor="TextColor.Green" />
+        <VerticalSpace Height="100" />
+        <Label Text="@Strings.Register_Redirect" FontSize="24" CenterText="true" />
+    }
+    else 
+    {
+        @if(_showRegistrationFailed)
+        {
+            <VerticalSpace Height="20" />
+
+            <Label Text="@_errorMessage" CenterText="true" FontSize="24" TextColor="TextColor.Red" />
+
+            <VerticalSpace Height="20" />
+        }
+        else
+        {
+            <VerticalSpace Height="50" />
+        }
+
+        <EditForm Model="@RegistrationUserModel" OnValidSubmit="RegisterUser" OnInvalidSubmit="RegisterUserFailed" style="width: 100%;">
+            <FluentValidationValidator />
+
+            <FlexColumnCenteredContainer>
+                <FlexRowContainer Width="40">
+                    <Label Text="@Strings.Register_Email" Width="50" CenterText="true"/>
+                </FlexRowContainer>
+
+                <VerticalSpace Height="20" />
+
+                <FlexRowContainer Width="40">
+                    <RadzenTextBox Placeholder="@Strings.Register_Email"
+                                    @bind-Value="RegistrationUserModel.Email"
+                                    class="w-20 flex-row title white handel" />
+                </FlexRowContainer>
+
+                <VerticalSpace Height="10" />
+
+                <ValidationMessage For="@(() => RegistrationUserModel.Email)" class="handel shadow white" style="color: red;" />
+
+                <VerticalSpace Height="50" />
+
+                <FlexRowContainer JustifyContent="Enums.JustifyContent.Center" Width="40">
+                    <Label Text="@Strings.Register_Password" Width="50" CenterText="true" />
+                </FlexRowContainer>
+
+                <VerticalSpace Height="20" />
+
+                <FlexRowContainer JustifyContent="Enums.JustifyContent.Center" Width="40">
+                    <RadzenPassword @bind-Value="RegistrationUserModel.Password"
+                                    type="password"
+                                    class="flex-row title white handel"
+                                    placeholder="@Strings.Register_Password" />
+                </FlexRowContainer>
+
+                <VerticalSpace Height="10" />
+
+                <ValidationMessage For="@(() => RegistrationUserModel.Password)" class="handel shadow white" style="color: red;" />
+
+                <VerticalSpace Height="50" />
+
+                <FlexRowContainer JustifyContent="Enums.JustifyContent.Center" Width="40">
+                    <Label Text="@Strings.Register_ConfirmPassword" Width="50" CenterText="true"/>
+                </FlexRowContainer>
+
+                <VerticalSpace Height="20" />
+
+                <FlexRowContainer JustifyContent="Enums.JustifyContent.Center" Width="40">
+                    <RadzenPassword @bind-Value="RegistrationUserModel.ConfirmPassword"
+                                    type="password"
+                                    class="flex-row title white handel"
+                                    placeholder="@Strings.Register_ConfirmPassword" />
+                </FlexRowContainer>
+
+                <VerticalSpace Height="10" />
+
+                <ValidationMessage For="@(() => RegistrationUserModel.ConfirmPassword)" class="handel shadow white"  style="color: red;"/>
+
+                <VerticalSpace Height="50" />
+
+                <FlexRowContainer JustifyContent="Enums.JustifyContent.Center" Width="50">
+                    <Button ButtonText="@Strings.Register_Register" ButtonType="ButtonType.Submit" CssClass="button" IsDisabled="GetDisabledState()"/>
+                </FlexRowContainer>
+            </FlexColumnCenteredContainer>
+        </EditForm>
+    }
+</Page>

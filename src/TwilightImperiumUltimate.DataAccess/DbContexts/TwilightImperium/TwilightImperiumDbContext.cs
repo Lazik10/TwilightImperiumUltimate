@@ -1,14 +1,16 @@
-using TwilightImperiumUltimate.Core.Entities.RelationshipEntities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium;
 
 public partial class TwilightImperiumDbContext(DbContextOptions<TwilightImperiumDbContext> options)
-    : DbContext(options)
+    : IdentityDbContext<TwilightImperiumUser>(options)
 {
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    protected override void OnModelCreating(ModelBuilder builder)
     {
-        ArgumentNullException.ThrowIfNull(modelBuilder);
+        ArgumentNullException.ThrowIfNull(builder);
 
-        _ = modelBuilder.ApplyConfigurationsFromAssembly(System.Reflection.Assembly.GetExecutingAssembly());
+        base.OnModelCreating(builder);
+
+        _ = builder.ApplyConfigurationsFromAssembly(System.Reflection.Assembly.GetExecutingAssembly());
     }
 }

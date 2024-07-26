@@ -1,12 +1,9 @@
-﻿using TwilightImperiumUltimate.Core.Entities.RelationshipEntities;
-using TwilightImperiumUltimate.Core.Enums.Units;
-
 namespace TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium.Data;
 
 internal static class FactionUnitsData
 {
-    internal static List<FactionUnit> FactionUnits =>
-    [
+    internal static List<FactionUnit> FactionUnits => new List<FactionUnit>
+    {
         new() { FactionName = FactionName.TheArborec, UnitName = UnitName.SpaceDock, Count = 1 },
         new() { FactionName = FactionName.TheArborec, UnitName = UnitName.Pds, Count = 1 },
         new() { FactionName = FactionName.TheArborec, UnitName = UnitName.Infantry, Count = 4 },
@@ -124,7 +121,7 @@ internal static class FactionUnitsData
         new() { FactionName = FactionName.TheArgentFlight, UnitName = UnitName.Infantry, Count = 5 },
         new() { FactionName = FactionName.TheArgentFlight, UnitName = UnitName.Fighter, Count = 2 },
         new() { FactionName = FactionName.TheArgentFlight, UnitName = UnitName.Destroyer, Count = 2 },
-        new() { FactionName = FactionName.TheArgentFlight, UnitName = UnitName.Cruiser, Count = 1 },
+        new() { FactionName = FactionName.TheArgentFlight, UnitName = UnitName.Carrier, Count = 1 },
 
         new() { FactionName = FactionName.TheEmpyrean, UnitName = UnitName.SpaceDock, Count = 1 },
         new() { FactionName = FactionName.TheEmpyrean, UnitName = UnitName.Infantry, Count = 4 },
@@ -140,7 +137,6 @@ internal static class FactionUnitsData
         new() { FactionName = FactionName.TheMahactGeneSorcerers, UnitName = UnitName.Dreadnought, Count = 1 },
 
         new() { FactionName = FactionName.TheNaazRokhaAlliance, UnitName = UnitName.SpaceDock, Count = 1 },
-        new() { FactionName = FactionName.TheNaazRokhaAlliance, UnitName = UnitName.Pds, Count = 1 },
         new() { FactionName = FactionName.TheNaazRokhaAlliance, UnitName = UnitName.Infantry, Count = 3 },
         new() { FactionName = FactionName.TheNaazRokhaAlliance, UnitName = UnitName.Mech, Count = 1 },
         new() { FactionName = FactionName.TheNaazRokhaAlliance, UnitName = UnitName.Fighter, Count = 2 },
@@ -172,5 +168,238 @@ internal static class FactionUnitsData
         new() { FactionName = FactionName.TheCouncilKeleres, UnitName = UnitName.Fighter, Count = 2 },
         new() { FactionName = FactionName.TheCouncilKeleres, UnitName = UnitName.Carrier, Count = 2 },
         new() { FactionName = FactionName.TheCouncilKeleres, UnitName = UnitName.Cruiser, Count = 1 },
-    ];
+
+        new() { FactionName = FactionName.TheShipwrightsofAxis, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheShipwrightsofAxis, UnitName = UnitName.Infantry, Count = 3 },
+        new() { FactionName = FactionName.TheShipwrightsofAxis, UnitName = UnitName.Fighter, Count = 2 },
+        new() { FactionName = FactionName.TheShipwrightsofAxis, UnitName = UnitName.Carrier, Count = 1 },
+        new() { FactionName = FactionName.TheShipwrightsofAxis, UnitName = UnitName.Destroyer, Count = 1 },
+        new() { FactionName = FactionName.TheShipwrightsofAxis, UnitName = UnitName.Dreadnought, Count = 1 },
+
+        new() { FactionName = FactionName.TheCeldauriTradeConfederation, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheCeldauriTradeConfederation, UnitName = UnitName.Pds, Count = 1 },
+        new() { FactionName = FactionName.TheCeldauriTradeConfederation, UnitName = UnitName.Infantry, Count = 3 },
+        new() { FactionName = FactionName.TheCeldauriTradeConfederation, UnitName = UnitName.Fighter, Count = 4 },
+        new() { FactionName = FactionName.TheCeldauriTradeConfederation, UnitName = UnitName.Carrier, Count = 2 },
+        new() { FactionName = FactionName.TheCeldauriTradeConfederation, UnitName = UnitName.Destroyer, Count = 1 },
+
+        new() { FactionName = FactionName.TheSavagesOfCymiae, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheSavagesOfCymiae, UnitName = UnitName.Infantry, Count = 3 },
+        new() { FactionName = FactionName.TheSavagesOfCymiae, UnitName = UnitName.Fighter, Count = 2 },
+        new() { FactionName = FactionName.TheSavagesOfCymiae, UnitName = UnitName.Carrier, Count = 1 },
+        new() { FactionName = FactionName.TheSavagesOfCymiae, UnitName = UnitName.Destroyer, Count = 1 },
+        new() { FactionName = FactionName.TheSavagesOfCymiae, UnitName = UnitName.Dreadnought, Count = 1 },
+
+        new() { FactionName = FactionName.TheDihMohnFlotilla, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheDihMohnFlotilla, UnitName = UnitName.Infantry, Count = 2 },
+        new() { FactionName = FactionName.TheDihMohnFlotilla, UnitName = UnitName.Mech, Count = 1 },
+        new() { FactionName = FactionName.TheDihMohnFlotilla, UnitName = UnitName.Fighter, Count = 2 },
+        new() { FactionName = FactionName.TheDihMohnFlotilla, UnitName = UnitName.Destroyer, Count = 2 },
+        new() { FactionName = FactionName.TheDihMohnFlotilla, UnitName = UnitName.Dreadnought, Count = 2 },
+
+        new() { FactionName = FactionName.TheFlorzenProfiteers, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheFlorzenProfiteers, UnitName = UnitName.Infantry, Count = 4 },
+        new() { FactionName = FactionName.TheFlorzenProfiteers, UnitName = UnitName.Fighter, Count = 4 },
+        new() { FactionName = FactionName.TheFlorzenProfiteers, UnitName = UnitName.Carrier, Count = 2 },
+
+        new() { FactionName = FactionName.TheFreeSystemsCompact, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheFreeSystemsCompact, UnitName = UnitName.Pds, Count = 1 },
+        new() { FactionName = FactionName.TheFreeSystemsCompact, UnitName = UnitName.Infantry, Count = 4 },
+        new() { FactionName = FactionName.TheFreeSystemsCompact, UnitName = UnitName.Fighter, Count = 2 },
+        new() { FactionName = FactionName.TheFreeSystemsCompact, UnitName = UnitName.Cruiser, Count = 2 },
+        new() { FactionName = FactionName.TheFreeSystemsCompact, UnitName = UnitName.Carrier, Count = 1 },
+
+        new() { FactionName = FactionName.TheGheminaRaiders, UnitName = UnitName.SpaceDock, Count = 2 },
+        new() { FactionName = FactionName.TheGheminaRaiders, UnitName = UnitName.Infantry, Count = 3 },
+        new() { FactionName = FactionName.TheGheminaRaiders, UnitName = UnitName.Fighter, Count = 3 },
+        new() { FactionName = FactionName.TheGheminaRaiders, UnitName = UnitName.Carrier, Count = 2 },
+        new() { FactionName = FactionName.TheGheminaRaiders, UnitName = UnitName.Destroyer, Count = 1 },
+
+        new() { FactionName = FactionName.TheAugursOfIlyxum, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheAugursOfIlyxum, UnitName = UnitName.Pds, Count = 1 },
+        new() { FactionName = FactionName.TheAugursOfIlyxum, UnitName = UnitName.Infantry, Count = 4 },
+        new() { FactionName = FactionName.TheAugursOfIlyxum, UnitName = UnitName.Fighter, Count = 2 },
+        new() { FactionName = FactionName.TheAugursOfIlyxum, UnitName = UnitName.Carrier, Count = 1 },
+        new() { FactionName = FactionName.TheAugursOfIlyxum, UnitName = UnitName.Destroyer, Count = 2 },
+
+        new() { FactionName = FactionName.TheKolleccSociety, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheKolleccSociety, UnitName = UnitName.Infantry, Count = 4 },
+        new() { FactionName = FactionName.TheKolleccSociety, UnitName = UnitName.Fighter, Count = 2 },
+        new() { FactionName = FactionName.TheKolleccSociety, UnitName = UnitName.Carrier, Count = 2 },
+        new() { FactionName = FactionName.TheKolleccSociety, UnitName = UnitName.Cruiser, Count = 1 },
+
+        new() { FactionName = FactionName.TheKortaliTribunal, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheKortaliTribunal, UnitName = UnitName.Pds, Count = 1 },
+        new() { FactionName = FactionName.TheKortaliTribunal, UnitName = UnitName.Infantry, Count = 4 },
+        new() { FactionName = FactionName.TheKortaliTribunal, UnitName = UnitName.Fighter, Count = 2 },
+        new() { FactionName = FactionName.TheKortaliTribunal, UnitName = UnitName.Carrier, Count = 2 },
+        new() { FactionName = FactionName.TheKortaliTribunal, UnitName = UnitName.Cruiser, Count = 1 },
+
+        new() { FactionName = FactionName.TheLiZhoDynasty, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheLiZhoDynasty, UnitName = UnitName.Pds, Count = 1 },
+        new() { FactionName = FactionName.TheLiZhoDynasty, UnitName = UnitName.Infantry, Count = 4 },
+        new() { FactionName = FactionName.TheLiZhoDynasty, UnitName = UnitName.Fighter, Count = 3 },
+        new() { FactionName = FactionName.TheLiZhoDynasty, UnitName = UnitName.Carrier, Count = 2 },
+        new() { FactionName = FactionName.TheLiZhoDynasty, UnitName = UnitName.Destroyer, Count = 1 },
+
+        new() { FactionName = FactionName.TheLTokkKhrask, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheLTokkKhrask, UnitName = UnitName.Pds, Count = 1 },
+        new() { FactionName = FactionName.TheLTokkKhrask, UnitName = UnitName.Infantry, Count = 3 },
+        new() { FactionName = FactionName.TheLTokkKhrask, UnitName = UnitName.Fighter, Count = 1 },
+        new() { FactionName = FactionName.TheLTokkKhrask, UnitName = UnitName.Cruiser, Count = 3 },
+
+        new() { FactionName = FactionName.TheMirvedaProtectorate, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheMirvedaProtectorate, UnitName = UnitName.Pds, Count = 1 },
+        new() { FactionName = FactionName.TheMirvedaProtectorate, UnitName = UnitName.Infantry, Count = 2 },
+        new() { FactionName = FactionName.TheMirvedaProtectorate, UnitName = UnitName.Fighter, Count = 5 },
+        new() { FactionName = FactionName.TheMirvedaProtectorate, UnitName = UnitName.Carrier, Count = 2 },
+        new() { FactionName = FactionName.TheMirvedaProtectorate, UnitName = UnitName.Cruiser, Count = 1 },
+
+        new() { FactionName = FactionName.TheGlimmerOfMortheus, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheGlimmerOfMortheus, UnitName = UnitName.Infantry, Count = 3 },
+        new() { FactionName = FactionName.TheGlimmerOfMortheus, UnitName = UnitName.Fighter, Count = 2 },
+        new() { FactionName = FactionName.TheGlimmerOfMortheus, UnitName = UnitName.Carrier, Count = 1 },
+        new() { FactionName = FactionName.TheGlimmerOfMortheus, UnitName = UnitName.Cruiser, Count = 1 },
+        new() { FactionName = FactionName.TheGlimmerOfMortheus, UnitName = UnitName.Dreadnought, Count = 1 },
+
+        new() { FactionName = FactionName.TheMykoMentori, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheMykoMentori, UnitName = UnitName.Infantry, Count = 6 },
+        new() { FactionName = FactionName.TheMykoMentori, UnitName = UnitName.Fighter, Count = 1 },
+        new() { FactionName = FactionName.TheMykoMentori, UnitName = UnitName.Carrier, Count = 2 },
+        new() { FactionName = FactionName.TheMykoMentori, UnitName = UnitName.Cruiser, Count = 1 },
+
+        new() { FactionName = FactionName.TheNivynStarKings, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheNivynStarKings, UnitName = UnitName.Infantry, Count = 3 },
+        new() { FactionName = FactionName.TheNivynStarKings, UnitName = UnitName.Mech, Count = 1 },
+        new() { FactionName = FactionName.TheNivynStarKings, UnitName = UnitName.Fighter, Count = 3 },
+        new() { FactionName = FactionName.TheNivynStarKings, UnitName = UnitName.Carrier, Count = 1 },
+        new() { FactionName = FactionName.TheNivynStarKings, UnitName = UnitName.Cruiser, Count = 1 },
+        new() { FactionName = FactionName.TheNivynStarKings, UnitName = UnitName.Dreadnought, Count = 1 },
+
+        new() { FactionName = FactionName.TheZealotsOfRhodun, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheZealotsOfRhodun, UnitName = UnitName.Infantry, Count = 4 },
+        new() { FactionName = FactionName.TheZealotsOfRhodun, UnitName = UnitName.Fighter, Count = 3 },
+        new() { FactionName = FactionName.TheZealotsOfRhodun, UnitName = UnitName.Carrier, Count = 1 },
+        new() { FactionName = FactionName.TheZealotsOfRhodun, UnitName = UnitName.Cruiser, Count = 1 },
+        new() { FactionName = FactionName.TheZealotsOfRhodun, UnitName = UnitName.Destroyer, Count = 1 },
+
+        new() { FactionName = FactionName.RohDhnaMechatronics, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.RohDhnaMechatronics, UnitName = UnitName.Infantry, Count = 3 },
+        new() { FactionName = FactionName.RohDhnaMechatronics, UnitName = UnitName.Fighter, Count = 3 },
+        new() { FactionName = FactionName.RohDhnaMechatronics, UnitName = UnitName.Carrier, Count = 2 },
+        new() { FactionName = FactionName.RohDhnaMechatronics, UnitName = UnitName.Destroyer, Count = 1 },
+
+        new() { FactionName = FactionName.TheTnelisSyndicate, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheTnelisSyndicate, UnitName = UnitName.Pds, Count = 1 },
+        new() { FactionName = FactionName.TheTnelisSyndicate, UnitName = UnitName.Infantry, Count = 4 },
+        new() { FactionName = FactionName.TheTnelisSyndicate, UnitName = UnitName.Fighter, Count = 2 },
+        new() { FactionName = FactionName.TheTnelisSyndicate, UnitName = UnitName.Carrier, Count = 1 },
+        new() { FactionName = FactionName.TheTnelisSyndicate, UnitName = UnitName.Destroyer, Count = 2 },
+
+        new() { FactionName = FactionName.TheVadenBankingClans, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheVadenBankingClans, UnitName = UnitName.Infantry, Count = 3 },
+        new() { FactionName = FactionName.TheVadenBankingClans, UnitName = UnitName.Fighter, Count = 2 },
+        new() { FactionName = FactionName.TheVadenBankingClans, UnitName = UnitName.Carrier, Count = 1 },
+        new() { FactionName = FactionName.TheVadenBankingClans, UnitName = UnitName.Cruiser, Count = 1 },
+        new() { FactionName = FactionName.TheVadenBankingClans, UnitName = UnitName.Dreadnought, Count = 1 },
+
+        new() { FactionName = FactionName.TheVeldyrSovereignty, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheVeldyrSovereignty, UnitName = UnitName.Pds, Count = 1 },
+        new() { FactionName = FactionName.TheVeldyrSovereignty, UnitName = UnitName.Infantry, Count = 4 },
+        new() { FactionName = FactionName.TheVeldyrSovereignty, UnitName = UnitName.Fighter, Count = 3 },
+        new() { FactionName = FactionName.TheVeldyrSovereignty, UnitName = UnitName.Carrier, Count = 1 },
+        new() { FactionName = FactionName.TheVeldyrSovereignty, UnitName = UnitName.Destroyer, Count = 1 },
+        new() { FactionName = FactionName.TheVeldyrSovereignty, UnitName = UnitName.Dreadnought, Count = 1 },
+
+        new() { FactionName = FactionName.TheZelianPurifier, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheZelianPurifier, UnitName = UnitName.Pds, Count = 1 },
+        new() { FactionName = FactionName.TheZelianPurifier, UnitName = UnitName.Infantry, Count = 5 },
+        new() { FactionName = FactionName.TheZelianPurifier, UnitName = UnitName.Fighter, Count = 1 },
+        new() { FactionName = FactionName.TheZelianPurifier, UnitName = UnitName.Carrier, Count = 1 },
+        new() { FactionName = FactionName.TheZelianPurifier, UnitName = UnitName.Destroyer, Count = 1 },
+        new() { FactionName = FactionName.TheZelianPurifier, UnitName = UnitName.Dreadnought, Count = 1 },
+
+        new() { FactionName = FactionName.TheBentorConglomerate, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheBentorConglomerate, UnitName = UnitName.Pds, Count = 1 },
+        new() { FactionName = FactionName.TheBentorConglomerate, UnitName = UnitName.Infantry, Count = 4 },
+        new() { FactionName = FactionName.TheBentorConglomerate, UnitName = UnitName.Fighter, Count = 3 },
+        new() { FactionName = FactionName.TheBentorConglomerate, UnitName = UnitName.Carrier, Count = 1 },
+        new() { FactionName = FactionName.TheBentorConglomerate, UnitName = UnitName.Cruiser, Count = 2 },
+
+        new() { FactionName = FactionName.TheCheiranHordes, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheCheiranHordes, UnitName = UnitName.Mech, Count = 1 },
+        new() { FactionName = FactionName.TheCheiranHordes, UnitName = UnitName.Infantry, Count = 2 },
+        new() { FactionName = FactionName.TheCheiranHordes, UnitName = UnitName.Fighter, Count = 2 },
+        new() { FactionName = FactionName.TheCheiranHordes, UnitName = UnitName.Carrier, Count = 1 },
+        new() { FactionName = FactionName.TheCheiranHordes, UnitName = UnitName.Destroyer, Count = 1 },
+        new() { FactionName = FactionName.TheCheiranHordes, UnitName = UnitName.Dreadnought, Count = 1 },
+
+        new() { FactionName = FactionName.TheEdynMandate, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheEdynMandate, UnitName = UnitName.Pds, Count = 1 },
+        new() { FactionName = FactionName.TheEdynMandate, UnitName = UnitName.Infantry, Count = 3 },
+        new() { FactionName = FactionName.TheEdynMandate, UnitName = UnitName.Fighter, Count = 4 },
+        new() { FactionName = FactionName.TheEdynMandate, UnitName = UnitName.Carrier, Count = 1 },
+        new() { FactionName = FactionName.TheEdynMandate, UnitName = UnitName.Destroyer, Count = 2 },
+
+        new() { FactionName = FactionName.TheGhotiWayfarers, UnitName = UnitName.Infantry, Count = 3 },
+        new() { FactionName = FactionName.TheGhotiWayfarers, UnitName = UnitName.Fighter, Count = 2 },
+        new() { FactionName = FactionName.TheGhotiWayfarers, UnitName = UnitName.Cruiser, Count = 1 },
+        new() { FactionName = FactionName.TheGhotiWayfarers, UnitName = UnitName.Flagship, Count = 1 },
+
+        new() { FactionName = FactionName.TheGledgeUnion, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheGledgeUnion, UnitName = UnitName.Mech, Count = 1 },
+        new() { FactionName = FactionName.TheGledgeUnion, UnitName = UnitName.Infantry, Count = 2 },
+        new() { FactionName = FactionName.TheGledgeUnion, UnitName = UnitName.Fighter, Count = 3 },
+        new() { FactionName = FactionName.TheGledgeUnion, UnitName = UnitName.Carrier, Count = 1 },
+        new() { FactionName = FactionName.TheGledgeUnion, UnitName = UnitName.Destroyer, Count = 1 },
+        new() { FactionName = FactionName.TheGledgeUnion, UnitName = UnitName.Dreadnought, Count = 1 },
+
+        new() { FactionName = FactionName.TheBerserkersOfKjalengard, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheBerserkersOfKjalengard, UnitName = UnitName.Pds, Count = 1 },
+        new() { FactionName = FactionName.TheBerserkersOfKjalengard, UnitName = UnitName.Infantry, Count = 4 },
+        new() { FactionName = FactionName.TheBerserkersOfKjalengard, UnitName = UnitName.Fighter, Count = 4 },
+        new() { FactionName = FactionName.TheBerserkersOfKjalengard, UnitName = UnitName.Carrier, Count = 2 },
+        new() { FactionName = FactionName.TheBerserkersOfKjalengard, UnitName = UnitName.Destroyer, Count = 1 },
+
+        new() { FactionName = FactionName.TheMonksOfKolume, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheMonksOfKolume, UnitName = UnitName.Infantry, Count = 4 },
+        new() { FactionName = FactionName.TheMonksOfKolume, UnitName = UnitName.Fighter, Count = 2 },
+        new() { FactionName = FactionName.TheMonksOfKolume, UnitName = UnitName.Carrier, Count = 2 },
+        new() { FactionName = FactionName.TheMonksOfKolume, UnitName = UnitName.Cruiser, Count = 1 },
+
+        new() { FactionName = FactionName.TheKyroSodality, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheKyroSodality, UnitName = UnitName.Infantry, Count = 3 },
+        new() { FactionName = FactionName.TheKyroSodality, UnitName = UnitName.Carrier, Count = 1 },
+        new() { FactionName = FactionName.TheKyroSodality, UnitName = UnitName.Destroyer, Count = 1 },
+        new() { FactionName = FactionName.TheKyroSodality, UnitName = UnitName.Dreadnought, Count = 1 },
+
+        new() { FactionName = FactionName.TheLanefirRemnants, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheLanefirRemnants, UnitName = UnitName.Pds, Count = 1 },
+        new() { FactionName = FactionName.TheLanefirRemnants, UnitName = UnitName.Infantry, Count = 3 },
+        new() { FactionName = FactionName.TheLanefirRemnants, UnitName = UnitName.Fighter, Count = 2 },
+        new() { FactionName = FactionName.TheLanefirRemnants, UnitName = UnitName.Carrier, Count = 2 },
+        new() { FactionName = FactionName.TheLanefirRemnants, UnitName = UnitName.Destroyer, Count = 1 },
+
+        new() { FactionName = FactionName.TheNokarSellships, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheNokarSellships, UnitName = UnitName.Pds, Count = 1 },
+        new() { FactionName = FactionName.TheNokarSellships, UnitName = UnitName.Infantry, Count = 4 },
+        new() { FactionName = FactionName.TheNokarSellships, UnitName = UnitName.Fighter, Count = 2 },
+        new() { FactionName = FactionName.TheNokarSellships, UnitName = UnitName.Carrier, Count = 1 },
+        new() { FactionName = FactionName.TheNokarSellships, UnitName = UnitName.Cruiser, Count = 1 },
+        new() { FactionName = FactionName.TheNokarSellships, UnitName = UnitName.Destroyer, Count = 1 },
+
+        new() { FactionName = FactionName.TheOlradinLeague, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheOlradinLeague, UnitName = UnitName.Infantry, Count = 4 },
+        new() { FactionName = FactionName.TheOlradinLeague, UnitName = UnitName.Fighter, Count = 3 },
+        new() { FactionName = FactionName.TheOlradinLeague, UnitName = UnitName.Carrier, Count = 2 },
+        new() { FactionName = FactionName.TheOlradinLeague, UnitName = UnitName.Cruiser, Count = 1 },
+
+        new() { FactionName = FactionName.TheVaylerianScourge, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheVaylerianScourge, UnitName = UnitName.Pds, Count = 1 },
+        new() { FactionName = FactionName.TheVaylerianScourge, UnitName = UnitName.Infantry, Count = 3 },
+        new() { FactionName = FactionName.TheVaylerianScourge, UnitName = UnitName.Fighter, Count = 3 },
+        new() { FactionName = FactionName.TheVaylerianScourge, UnitName = UnitName.Carrier, Count = 1 },
+        new() { FactionName = FactionName.TheVaylerianScourge, UnitName = UnitName.Cruiser, Count = 1 },
+        new() { FactionName = FactionName.TheVaylerianScourge, UnitName = UnitName.Destroyer, Count = 1 },
+    };
 }

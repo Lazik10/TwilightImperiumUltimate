@@ -30,7 +30,7 @@
     <div class="flex-row wrap">
         @foreach (var faction in Player.DraftedFactions)
         {
-            <img class="factionicon" src="@PathProvider.GetFactionIconPath(faction.ToString())" />
+            <img class="factionicon" src="@PathProvider.GetFactionIconPath(faction)" />
         }
     </div>
 </div>

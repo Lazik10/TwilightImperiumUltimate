@@ -1,6 +1,3 @@
-using TwilightImperiumUltimate.Web.Components.Factions;
-using TwilightImperiumUltimate.Web.Models.Factions;
-
 namespace TwilightImperiumUltimate.Web.Pages.Game;
 
 public partial class Factions

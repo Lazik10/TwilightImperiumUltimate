@@ -1,8 +1,3 @@
-﻿using Microsoft.AspNetCore.Components;
-using TwilightImperiumUltimate.Web.Enums;
-using TwilightImperiumUltimate.Web.Models.Factions;
-using TwilightImperiumUltimate.Web.Resources;
-
 namespace TwilightImperiumUltimate.Web.Components.Factions;
 
 public partial class FactionInfoGrid
@@ -14,6 +9,9 @@ public partial class FactionInfoGrid
     private bool showBigImage;
 
     private string currentBigImageSrc = string.Empty;
+
+    [Inject]
+    private IMapper Mapper { get; set; } = default!;
 
     private RenderFragment DynamicComponent => builder =>
     {
@@ -28,21 +26,20 @@ public partial class FactionInfoGrid
         StateHasChanged();
     }
 
-    protected async override Task OnInitializedAsync()
+/*    protected async override Task OnInitializedAsync()
     {
-        _selectedFaction = await HttpClient.GetAsync<FactionModel>(Paths.ApiPath_FirstFaction);
-        StateHasChanged();
-    }
+        await InitializeSelectedFaction();
+    }*/
 
     private Type CreateInfoType()
     {
         var infoType = _selectedFactionInfoType switch
         {
             FactionInfoType.Ability => typeof(FactionAbilities),
-            FactionInfoType.StartingUnits => typeof(FactionStartingUnits),
+            FactionInfoType.Setup => typeof(FactionSetup),
             FactionInfoType.Componenets => typeof(FactionComponents),
             FactionInfoType.Leaders => typeof(FactionLeaders),
-            FactionInfoType.History => typeof(FactionInfoPreview),
+            FactionInfoType.History => typeof(FactionLore),
             FactionInfoType.Faq => typeof(FactionFaq),
             _ => throw new NotImplementedException(),
         };
@@ -68,4 +65,13 @@ public partial class FactionInfoGrid
     {
         _selectedFactionInfoType = factionInfoType;
     }
+
+/*    private async Task InitializeSelectedFaction()
+    {
+        var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<FactionDto>>>(Paths.ApiPath_FirstFaction);
+        if (statusCode == HttpStatusCode.OK && response?.Data?.Items is not null)
+            _selectedFaction = Mapper.Map<FactionModel>(response.Data?.Items?.First());
+
+        StateHasChanged();
+    }*/
 }

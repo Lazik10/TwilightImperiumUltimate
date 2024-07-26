@@ -1,32 +1,27 @@
-using TwilightImperiumUltimate.Web.Enums;
-using TwilightImperiumUltimate.Web.Models.Galaxy;
-using TwilightImperiumUltimate.Web.Models.MapGenerators;
-using TwilightImperiumUltimate.Web.Resources;
-using TwilightImperiumUltimate.Web.Services.HttpClients;
+using TwilightImperiumUltimate.Contracts.DTOs.MapGeneration;
 
 namespace TwilightImperiumUltimate.Web.Services.MapGenerators;
 
-public class MapGeneratorService : IMapGeneratorService
+public class MapGeneratorService(
+    IMapGeneratorSettingsService mapGeneratorSettingsService,
+    ITwilightImperiumApiHttpClient twilightImperiumApiHttpClient,
+    IMapper mapper)
+    : IMapGeneratorService
 {
-    private readonly IMapGeneratorSettingsService _mapGeneratorSettingsService;
-    private readonly ITwilightImperiumApiHttpClient _twilightImperiumApiHttpClient;
-    private Dictionary<int, SystemTile> _systemTiles = new Dictionary<int, SystemTile>();
+    private readonly IMapGeneratorSettingsService _mapGeneratorSettingsService = mapGeneratorSettingsService;
+    private readonly ITwilightImperiumApiHttpClient _httpClient = twilightImperiumApiHttpClient;
+    private readonly IMapper _mapper = mapper;
+    private Dictionary<int, SystemTileModel> _systemTiles = new Dictionary<int, SystemTileModel>();
 
-    public MapGeneratorService(IMapGeneratorSettingsService mapGeneratorSettingsService, ITwilightImperiumApiHttpClient twilightImperiumApiHttpClient)
-    {
-        _mapGeneratorSettingsService = mapGeneratorSettingsService;
-        _twilightImperiumApiHttpClient = twilightImperiumApiHttpClient;
-    }
-
-    public SystemTile DraggedSystemTile { get; set; } = new();
+    public SystemTileModel DraggedSystemTile { get; set; } = new();
 
     public int DraggedSystemTileStartMapPosition { get; set; }
 
-    public IReadOnlyDictionary<int, SystemTile> GeneratedPositionsWithSystemTiles => _systemTiles;
+    public IReadOnlyDictionary<int, SystemTileModel> GeneratedPositionsWithSystemTiles => _systemTiles;
 
-    public IEnumerable<SystemTile> AllSystemTiles { get; set; } = new List<SystemTile>();
+    public IEnumerable<SystemTileModel> AllSystemTiles { get; set; } = new List<SystemTileModel>();
 
-    public async Task<Dictionary<int, SystemTile>> GenerateMapAsync(bool previewMap)
+    public async Task<Dictionary<int, SystemTileModel>> GenerateMapAsync(bool previewMap, CancellationToken ct)
     {
         MapDraftRequest request = new()
         {
@@ -37,35 +32,36 @@ public class MapGeneratorService : IMapGeneratorService
             PreviewMap = previewMap,
         };
 
-        var result = await _twilightImperiumApiHttpClient.PostAsync<MapDraftRequest, MapDraftResult>(Paths.ApiPath_MapDraft, request);
-        var systemTiles = result.MapTiles.ToDictionary();
-        _systemTiles = systemTiles;
+        var (response, statusCode) = await _httpClient.PostAsync<MapDraftRequest, ApiResponse<GeneratedMapLayoutDto>> (Paths.ApiPath_GenerateMap, request, ct);
 
-        return systemTiles;
+        if (statusCode != HttpStatusCode.OK)
+            _systemTiles = _mapper.Map<Dictionary<int, SystemTileModel>>(response!.Data!.MapLayout);
+
+        return _mapper.Map<Dictionary<int, SystemTileModel>>(response!.Data!.MapLayout);
     }
 
-    public async Task InitializeSystemTilesAsync()
+    public async Task InitializeSystemTilesAsync(CancellationToken ct)
     {
-        _systemTiles = await GenerateMapAsync(true);
-        AllSystemTiles = await InitializeSystemTilesForMenu();
+        _systemTiles = await GenerateMapAsync(true, ct);
+        await InitializeSystemTilesForMenu();
     }
 
-    public IEnumerable<SystemTile> GetSystemTilesToShow(SystemTileTypeFilter systemTileType)
+    public IEnumerable<SystemTileModel> GetSystemTilesToShow(SystemTileTypeFilter systemTileType)
     {
         return systemTileType switch
         {
-            SystemTileTypeFilter.Unused => AllSystemTiles.Where(x => !_systemTiles.Values.Any(y => y.Name == x.Name)),
+            SystemTileTypeFilter.Unused => AllSystemTiles.Where(x => !_systemTiles.Values.Any(y => y.SystemTileName == x.SystemTileName)),
             SystemTileTypeFilter.All => AllSystemTiles,
-            SystemTileTypeFilter.MecatolRex => AllSystemTiles.Where(x => x.Name == SystemTileName.Tile18),
-            SystemTileTypeFilter.HomeSystems => AllSystemTiles.Where(x => x.TileCategory == SystemTileCategory.Green),
-            SystemTileTypeFilter.BlueTiles => AllSystemTiles.Where(x => x.TileCategory == SystemTileCategory.Blue),
-            SystemTileTypeFilter.RedTiles => AllSystemTiles.Where(x => x.TileCategory == SystemTileCategory.Red),
-            SystemTileTypeFilter.Hyperlanes => AllSystemTiles.Where(x => x.TileCategory == SystemTileCategory.Hyperlane),
+            SystemTileTypeFilter.MecatolRex => AllSystemTiles.Where(x => x.SystemTileName == SystemTileName.Tile18),
+            SystemTileTypeFilter.HomeSystems => AllSystemTiles.Where(x => x.SystemTileCategory == SystemTileCategory.Green),
+            SystemTileTypeFilter.BlueTiles => AllSystemTiles.Where(x => x.SystemTileCategory == SystemTileCategory.Blue),
+            SystemTileTypeFilter.RedTiles => AllSystemTiles.Where(x => x.SystemTileCategory == SystemTileCategory.Red),
+            SystemTileTypeFilter.Hyperlanes => AllSystemTiles.Where(x => x.SystemTileCategory == SystemTileCategory.Hyperlane),
             _ => throw new ArgumentOutOfRangeException(nameof(systemTileType), systemTileType, null),
         };
     }
 
-    public void SetDraggingSystemTile(SystemTile systemTile)
+    public void SetDraggingSystemTile(SystemTileModel systemTile)
     {
         DraggedSystemTile = systemTile;
     }
@@ -75,17 +71,17 @@ public class MapGeneratorService : IMapGeneratorService
         DraggedSystemTileStartMapPosition = draggedSystemTileStartMapPosition;
     }
 
-    public void ResetDraggingSystemTile(SystemTile systemTile)
+    public void ResetDraggingSystemTile(SystemTileModel systemTile)
     {
         DraggedSystemTile = new();
     }
 
-    public SystemTile GetCurrentDraggingSystemTile()
+    public SystemTileModel GetCurrentDraggingSystemTile()
     {
         return DraggedSystemTile;
     }
 
-    public void SwapSystemTiles(SystemTile systemTile, int mapPosition)
+    public void SwapSystemTiles(SystemTileModel systemTile, int mapPosition)
     {
         if (systemTile is not null && DraggedSystemTileStartMapPosition != -1)
         {
@@ -99,8 +95,10 @@ public class MapGeneratorService : IMapGeneratorService
         }
     }
 
-    private async Task<List<SystemTile>> InitializeSystemTilesForMenu()
+    private async Task InitializeSystemTilesForMenu()
     {
-        return await _twilightImperiumApiHttpClient.GetAsync<List<SystemTile>>(Paths.ApiPath_SystemTiles) ?? new List<SystemTile>();
+        var (response, statusCode) = await _httpClient.GetAsync<ApiResponse<ItemListDto<SystemTileDto>>>(Paths.ApiPath_SystemTiles);
+        if (statusCode == HttpStatusCode.OK)
+            AllSystemTiles = _mapper.Map<List<SystemTileModel>>(response!.Data!.Items);
     }
 }

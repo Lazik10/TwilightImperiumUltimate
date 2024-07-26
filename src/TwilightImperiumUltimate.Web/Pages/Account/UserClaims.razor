@@ -1,0 +1,26 @@
+﻿@page "/account/claims"
+@using System.Security.Claims
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+
+<PageTitle>User Claims</PageTitle>
+
+<AuthorizeView>
+    <Authorized>
+        <h3>Welcome, @context?.User?.Identity?.Name</h3>
+    </Authorized>
+    <NotAuthorized>
+        <h3>You are not authorized to view this page.</h3>
+    </NotAuthorized>
+</AuthorizeView>
+
+<h1>User Claims</h1>
+
+**Name**: @AuthenticatedUser?.Identity?.Name
+
+<h2>Claims</h2>
+
+@foreach (var claim in AuthenticatedUser?.Claims ?? Array.Empty<Claim>())
+{
+    <p class="claim">@(claim.Type): @claim.Value</p>
+}

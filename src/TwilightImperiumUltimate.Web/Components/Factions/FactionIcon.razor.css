@@ -1,11 +1,32 @@
-﻿@media (max-width: 1248px) {
-    .faction-icon {
-        max-height: 25px;
-    }
+﻿.responsive-icon {
+    display: flex;
+    flex: 1 1 auto;
+    max-width: 90%;
+    height: auto;
+    padding: 0.25em;
+    align-self: center;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
 }
 
-@media (max-width: 768px) {
-    .faction-icon {
-        max-height: 15px;
-    }
+.link {
+    cursor: pointer;
 }
+
+.colorless {
+    filter: grayscale(100%);
+}
+
+img {
+    width: 100%;
+    max-width: 44px;
+    height: auto;
+    transition: transform 0.3s ease;
+    align-self: center;
+    justify-self: center;
+}
+
+    img:hover {
+        transform: scale(1.375);
+    }

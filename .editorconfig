@@ -95,17 +95,17 @@ csharp_style_expression_bodied_properties = true:silent
 
 # Pattern matching preferences
 csharp_style_pattern_matching_over_as_with_null_check = true
-csharp_style_pattern_matching_over_is_with_cast_check = true
+csharp_style_pattern_matching_over_is_with_cast_check = true:suggestion
 csharp_style_prefer_extended_property_pattern = true
 csharp_style_prefer_not_pattern = true
 csharp_style_prefer_pattern_matching = true
 csharp_style_prefer_switch_expression = true
 
 # Null-checking preferences
-csharp_style_conditional_delegate_call = true
+csharp_style_conditional_delegate_call = true:suggestion
 
 # Modifier preferences
-csharp_prefer_static_local_function = true
+csharp_prefer_static_local_function = true:suggestion
 csharp_preferred_modifier_order = public,private,protected,internal,file,static,extern,new,virtual,abstract,sealed,override,readonly,unsafe,required,volatile,async
 csharp_style_prefer_readonly_struct = true
 csharp_style_prefer_readonly_struct_member = true
@@ -124,7 +124,7 @@ csharp_style_deconstructed_variable_declaration = true
 csharp_style_implicit_object_creation_when_type_is_apparent = true
 csharp_style_inlined_variable_declaration = true
 csharp_style_prefer_index_operator = true
-csharp_style_prefer_local_over_anonymous_function = true
+csharp_style_prefer_local_over_anonymous_function = true:suggestion
 csharp_style_prefer_null_check_over_type_check = true
 csharp_style_prefer_range_operator = true
 csharp_style_prefer_tuple_swap = true
@@ -270,14 +270,18 @@ dotnet_style_object_initializer = true:suggestion
 dotnet_diagnostic.CA2007.severity = silent
 dotnet_diagnostic.CA1308.severity = silent
 dotnet_diagnostic.CA1307.severity = silent
-dotnet_style_collection_initializer = true:suggestion
-dotnet_diagnostic.CA5394.severity = suggestion
+dotnet_style_collection_initializer = false:suggestion
+dotnet_diagnostic.CA5394.severity = none
 dotnet_style_prefer_simplified_boolean_expressions = true:suggestion
 dotnet_style_prefer_conditional_expression_over_assignment = true:silent
 dotnet_style_prefer_conditional_expression_over_return = true:silent
 dotnet_diagnostic.CA1848.severity = silent
 dotnet_diagnostic.CA1031.severity = suggestion
+dotnet_diagnostic.IDE0090.severity = silent
+dotnet_diagnostic.IDE0028.severity = silent
 dotnet_style_explicit_tuple_names = true:suggestion
 dotnet_style_prefer_inferred_tuple_names = true:suggestion
 dotnet_style_prefer_inferred_anonymous_type_member_names = true:suggestion
 dotnet_style_prefer_compound_assignment = true:suggestion
+dotnet_style_prefer_collection_expression = when_types_loosely_match:suggestion
+dotnet_style_predefined_type_for_locals_parameters_members = true:silent

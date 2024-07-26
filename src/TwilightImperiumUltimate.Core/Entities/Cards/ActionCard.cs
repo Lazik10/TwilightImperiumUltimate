@@ -1,12 +1,12 @@
-﻿using TwilightImperiumUltimate.Core.Enums.Cards;
+using TwilightImperiumUltimate.Contracts.Enums;
 
 namespace TwilightImperiumUltimate.Core.Entities.Cards;
 
-public class ActionCard : BaseCard
+public class ActionCard : BaseCard<ActionCardName>
 {
-    public static CardType CardType => CardType.Action;
+    public override ActionCardName EnumName { get; set; }
 
-    public ActionCardName ActionCardName { get; set; }
+    public override CardType Type { get; set; } = CardType.Action;
 
-    public ActionCardWindow ActionCardWindow { get; set; }
+    public TimingWindow TimingWindow { get; set; }
 }

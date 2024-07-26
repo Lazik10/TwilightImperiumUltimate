@@ -17,9 +17,9 @@
     <div class="scrollbar-area">
         @foreach (var systemTile in SystemTiles)
         {
-            <MapHexTile ImagePath="@(PathProvider.GetLargeTileImagePath(systemTile.Name.ToString()))"
+            <MapHexTile ImagePath="@(PathProvider.GetLargeTileImagePath(systemTile.SystemTileName.ToString()))"
                         SystemTileOverlay="@(MapGeneratorSettingsService.SystemTileOverlay)"
-                        MapTileId="@(systemTile.Name.ToString().Substring(4))"
+                        MapTileId="@(systemTile.SystemTileName.ToString().Substring(4))"
                         MapPosition="-1"
                         SystemTile="systemTile"
                         SwappedSystemTileFromMenu="RefreshSystemTilesMenu" />

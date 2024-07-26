@@ -1,0 +1,14 @@
+﻿@using Microsoft.AspNetCore.Components.Forms
+@using TwilightImperiumUltimate.Web.Components.Shared.Text
+
+<FlexColumnCenteredContainer>
+     <EditForm>
+
+         <FlexRowContainer>
+             <RadzenDropDown Data="_users" TextProperty="UserName" ValueProperty="Id" @bind-Value="_selectedUser" Style="width: 100%" />
+
+             <RadzenDropDown Data="UserRoles" TextProperty="Name" ValueProperty="Id" @bind-Value="_selectedRole" Style="width: 100%" />
+         </FlexRowContainer>
+
+     </EditForm>
+</FlexColumnCenteredContainer>

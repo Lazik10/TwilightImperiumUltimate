@@ -1,9 +1,6 @@
-﻿using TwilightImperiumUltimate.Core.Entities.Cards;
-using TwilightImperiumUltimate.DataAccess.Tables.Cards;
-
 namespace TwilightImperiumUltimate.DataAccess.Configurations.Cards;
 
-public class ActionCardConfiguration : IEntityTypeConfiguration<ActionCard>
+internal sealed class ActionCardConfiguration : IEntityTypeConfiguration<ActionCard>
 {
     public void Configure(EntityTypeBuilder<ActionCard> builder)
     {
@@ -11,45 +8,46 @@ public class ActionCardConfiguration : IEntityTypeConfiguration<ActionCard>
 
         builder.ToTable(TableName.ActionCards, Schema.Card);
 
-        builder.HasKey(x => x.ActionCardName);
+        builder.HasKey(x => x.Id);
 
-        builder.Property(e => e.ActionCardName)
-            .IsRequired()
-            .HasColumnName(nameof(ActionCard.ActionCardName))
-            .HasConversion<int>()
-            .HasColumnType("integer");
+        builder.Property(x => x.Id)
+            .HasColumnOrder(0);
 
-        builder.Property(e => e.Name)
+        builder.Property(e => e.EnumName)
             .IsRequired()
-            .HasColumnName(nameof(ActionCard.Name))
-            .HasColumnType("text");
+            .HasColumnName(nameof(ActionCard.EnumName))
+            .HasConversion<string>()
+            .HasColumnType("varchar(50)")
+            .HasMaxLength(50)
+            .HasColumnOrder(1);
 
         builder.Property(e => e.Type)
             .IsRequired()
             .HasColumnName(nameof(ActionCard.Type))
-            .HasConversion<int>()
-            .HasColumnType("integer");
+            .HasConversion<string>()
+            .HasColumnType("varchar(20)")
+            .HasMaxLength(20)
+            .HasColumnOrder(2);
+
+        builder.Property(e => e.TimingWindow)
+            .IsRequired()
+            .HasColumnName(nameof(ActionCard.TimingWindow))
+            .HasConversion<string>()
+            .HasColumnType("varchar(20)")
+            .HasMaxLength(20)
+            .HasColumnOrder(3);
 
         builder.Property(e => e.Text)
             .IsRequired()
             .HasColumnName(nameof(ActionCard.Text))
-            .HasColumnType("text");
-
-        builder.Property(e => e.ActionCardWindow)
-            .IsRequired()
-            .HasColumnName(nameof(ActionCard.ActionCardWindow))
-            .HasConversion<int>()
-            .HasColumnType("integer");
-
-        builder.Property(e => e.ImagePath)
-            .IsRequired()
-            .HasColumnName(nameof(ActionCard.ImagePath))
-            .HasColumnType("text");
+            .HasColumnType("text")
+            .HasColumnOrder(4);
 
         builder.Property(e => e.GameVersion)
             .IsRequired()
             .HasColumnName(nameof(ActionCard.GameVersion))
-            .HasConversion<int>()
-            .HasColumnType("integer");
+            .HasConversion<string>()
+            .HasColumnType("varchar(20)")
+            .HasColumnOrder(5);
     }
 }

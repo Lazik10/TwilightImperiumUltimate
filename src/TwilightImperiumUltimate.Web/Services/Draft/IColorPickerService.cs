@@ -1,4 +1,4 @@
-﻿using TwilightImperiumUltimate.Web.Enums;
+using TwilightImperiumUltimate.Contracts.Enums;
 using TwilightImperiumUltimate.Web.Models.Drafts;
 using TwilightImperiumUltimate.Web.Models.Factions;
 

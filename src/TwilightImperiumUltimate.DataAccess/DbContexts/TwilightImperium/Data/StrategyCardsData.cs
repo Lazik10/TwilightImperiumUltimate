@@ -1,40 +1,20 @@
-﻿using TwilightImperiumUltimate.Core.Entities.Cards;
-using TwilightImperiumUltimate.Core.Enums.Cards;
-using TwilightImperiumUltimate.DataAccess.Services;
-
 namespace TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium.Data;
 
 internal static class StrategyCardsData
 {
-    internal static List<StrategyCard> StrategyCards => GetStrategyCards();
-
-    private static List<StrategyCard> GetStrategyCards()
+    internal static List<StrategyCard> StrategyCards => new List<StrategyCard>
     {
-        CreateCardImagePathService createCardImagePathService = new();
+        new() { EnumName = StrategyCardName.Leadership, InitiativeOrder = InitiativeOrder.One, GameVersion = GameVersion.BaseGame },
+        new() { EnumName = StrategyCardName.Diplomacy, InitiativeOrder = InitiativeOrder.Two, GameVersion = GameVersion.Deprecated },
+        new() { EnumName = StrategyCardName.Politics, InitiativeOrder = InitiativeOrder.Three, GameVersion = GameVersion.BaseGame },
+        new() { EnumName = StrategyCardName.Construction, InitiativeOrder = InitiativeOrder.Four, GameVersion = GameVersion.Deprecated },
+        new() { EnumName = StrategyCardName.Trade, InitiativeOrder = InitiativeOrder.Five, GameVersion = GameVersion.BaseGame },
+        new() { EnumName = StrategyCardName.Warfare, InitiativeOrder = InitiativeOrder.Six, GameVersion = GameVersion.BaseGame },
+        new() { EnumName = StrategyCardName.Technology, InitiativeOrder = InitiativeOrder.Seven, GameVersion = GameVersion.BaseGame },
+        new() { EnumName = StrategyCardName.Imperial, InitiativeOrder = InitiativeOrder.Eight, GameVersion = GameVersion.BaseGame },
 
-        var strategyCards = new List<StrategyCard>
-        {
-            new() { StrategyCardName = StrategyCardName.Leadership, InitiativeOrder = InitiativeOrder.One, GameVersion = GameVersion.BaseGame },
-            new() { StrategyCardName = StrategyCardName.Politics, InitiativeOrder = InitiativeOrder.Three, GameVersion = GameVersion.BaseGame },
-            new() { StrategyCardName = StrategyCardName.Trade, InitiativeOrder = InitiativeOrder.Five, GameVersion = GameVersion.BaseGame },
-            new() { StrategyCardName = StrategyCardName.Warfare, InitiativeOrder = InitiativeOrder.Six, GameVersion = GameVersion.BaseGame },
-            new() { StrategyCardName = StrategyCardName.Technology, InitiativeOrder = InitiativeOrder.Seven, GameVersion = GameVersion.BaseGame },
-            new() { StrategyCardName = StrategyCardName.Imperial, InitiativeOrder = InitiativeOrder.Eight, GameVersion = GameVersion.BaseGame },
-
-            // Updated in Prophecy of Kings
-            new() { StrategyCardName = StrategyCardName.DiplomacyCodexOrdinian, InitiativeOrder = InitiativeOrder.Two, GameVersion = GameVersion.CodexOrdinian },
-            new() { StrategyCardName = StrategyCardName.ConstructionProphecyOfKings, InitiativeOrder = InitiativeOrder.Four, GameVersion = GameVersion.ProphecyOfKing },
-        };
-
-        var updatedStrategyCards = strategyCards.Select(strategyCard =>
-        {
-            strategyCard.Name = $"{strategyCard.StrategyCardName}_{nameof(ObjectiveCard.Name)}";
-            strategyCard.Text = $"{strategyCard.StrategyCardName}_{nameof(ObjectiveCard.Text)}";
-            strategyCard.Type = CardType.Strategy;
-            strategyCard.ImagePath = createCardImagePathService.GetCardImagePath(strategyCard.StrategyCardName, strategyCard.Type);
-            return strategyCard;
-        }).ToList();
-
-        return updatedStrategyCards;
-    }
+        // Updated in Prophecy of Kings
+        new() { EnumName = StrategyCardName.DiplomacyCodexOrdinian, InitiativeOrder = InitiativeOrder.Two, GameVersion = GameVersion.CodexOrdinian },
+        new() { EnumName = StrategyCardName.ConstructionProphecyOfKings, InitiativeOrder = InitiativeOrder.Four, GameVersion = GameVersion.ProphecyOfKings },
+    };
 }

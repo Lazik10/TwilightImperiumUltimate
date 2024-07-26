@@ -59,6 +59,15 @@
                 <p>@Strings.Faction_ComplexityRating</p>
                 <img src="@(PathProvider.GetComplexityIconPath(_selectedFaction.ComplexityRating))" />
             </div>
+
+            <VerticalSpace Height="20" />
+
+            <FlexRowContainer Width="50" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.Center">
+                <div class="handel white shadow" style="font-size: 56px">@_selectedFaction.Commodities</div>
+                <HorizontalSpace Width="10"/>
+                <img src="@(PathProvider.GetIconPath(IconType.Commodities))" style="max-height: 100px;"/>
+            </FlexRowContainer>
+                
         </FlexColumnCenteredContainer>
 
     </FlexRowContainer>

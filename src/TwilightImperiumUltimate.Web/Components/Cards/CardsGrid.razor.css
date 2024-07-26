@@ -12,6 +12,11 @@
     padding: 0% 10%;
 }
 
+.image-container {
+    max-width: 500px;
+    max-height: 750px;
+}
+
 .big-image-overlay {
     position: fixed;
     top: 0;

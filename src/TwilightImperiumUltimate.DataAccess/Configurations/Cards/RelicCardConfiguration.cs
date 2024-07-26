@@ -1,9 +1,6 @@
-﻿using TwilightImperiumUltimate.Core.Entities.Cards;
-using TwilightImperiumUltimate.DataAccess.Tables.Cards;
-
 namespace TwilightImperiumUltimate.DataAccess.Configurations.Cards;
 
-public class RelicCardConfiguration : IEntityTypeConfiguration<RelicCard>
+internal sealed class RelicCardConfiguration : IEntityTypeConfiguration<RelicCard>
 {
     public void Configure(EntityTypeBuilder<RelicCard> builder)
     {
@@ -11,39 +8,39 @@ public class RelicCardConfiguration : IEntityTypeConfiguration<RelicCard>
 
         builder.ToTable(TableName.RelicCards, Schema.Card);
 
-        builder.HasKey(x => x.RelicCardName);
+        builder.HasKey(x => x.Id);
 
-        builder.Property(e => e.RelicCardName)
-            .IsRequired()
-            .HasColumnName(nameof(RelicCard.RelicCardName))
-            .HasConversion<int>()
-            .HasColumnType("integer");
+        builder.Property(x => x.Id)
+            .HasColumnOrder(0);
 
-        builder.Property(e => e.Name)
+        builder.Property(e => e.EnumName)
             .IsRequired()
-            .HasColumnName(nameof(RelicCard.Name))
-            .HasColumnType("text");
+            .HasColumnName(nameof(RelicCard.EnumName))
+            .HasConversion<string>()
+            .HasColumnType("varchar(50)")
+            .HasMaxLength(50)
+            .HasColumnOrder(1);
 
         builder.Property(e => e.Type)
             .IsRequired()
             .HasColumnName(nameof(RelicCard.Type))
-            .HasConversion<int>()
-            .HasColumnType("integer");
+            .HasConversion<string>()
+            .HasColumnType("varchar(20)")
+            .HasMaxLength(20)
+            .HasColumnOrder(2);
 
         builder.Property(e => e.Text)
             .IsRequired()
             .HasColumnName(nameof(RelicCard.Text))
-            .HasColumnType("text");
-
-        builder.Property(e => e.ImagePath)
-            .IsRequired()
-            .HasColumnName(nameof(ActionCard.ImagePath))
-            .HasColumnType("text");
+            .HasColumnType("text")
+            .HasColumnOrder(3);
 
         builder.Property(e => e.GameVersion)
             .IsRequired()
             .HasColumnName(nameof(RelicCard.GameVersion))
-            .HasConversion<int>()
-            .HasColumnType("integer");
+            .HasConversion<string>()
+            .HasColumnType("varchar(20)")
+            .HasMaxLength(20)
+            .HasColumnOrder(4);
     }
 }

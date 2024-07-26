@@ -1,43 +1,92 @@
 ﻿@using System.Globalization;
+@using TwilightImperiumUltimate.Web.Helpers.Enums
 @using TwilightImperiumUltimate.Web.Models.Cards;
 @using TwilightImperiumUltimate.Web.Resources;
 @using TwilightImperiumUltimate.Web.Services.Language;
 @using TwilightImperiumUltimate.Web.Services.Path;
 @using TwilightImperiumUltimate.Web.Services.HttpClients;
-@inject ITwilightImperiumApiHttpClient HttpCLient
-@inject IPathProvider PathProvider
 
 @if (_listOfCards is not null)
 {
-    <div class="image-grid">
+    <FlexColumnCenteredContainer>
 
-        @foreach (var card in _listOfCards)
+        @if (TypeOfCard == Paths.ResourcePath_StrategyCard)
         {
-            card.ImagePath = card.ImagePath.Replace(Strings.LanguagePlaceholder, CultureInfo.CurrentCulture.Name);
-            <div class="clickable align-center" @onclick="@(() => ShowBigImage(@card, CultureInfo.CurrentCulture.Name))">
-                <VerticalCard ImagePath="@card.ImagePath" TypeOfCard="@TypeOfCard"/>
-            </div>
+            <GridLayout Columns="GetNumberOfColumns()" Width="80" Gap="10">
+                @foreach(var card in _listOfCards)
+                {
+                <div class="clickable align-center" @onclick="@(() => ShowBigImage(@card, CultureInfo.CurrentCulture.Name))">
+                    <VerticalCard Name="@card.Name" TypeOfCard="@TypeOfCard" />
+                </div>
+                }
+            </GridLayout>
         }
-    </div>
+        else
+        {
+            _currentGameVersion = null;
 
-    @if (showBigImage)
+            @foreach (var gameVersion in GetSortedCards())
+            {
+                if (_currentGameVersion != gameVersion.Key)
+                {
+                    _currentGameVersion = gameVersion.Key;
+                    <Label Text="@_currentGameVersion.GetDisplayName()" FontSize="24" CenterText="true" />
+                }
+
+                <GridLayout Columns="GetNumberOfColumns()" Width="80" Gap="10">
+                    @foreach (var card in gameVersion)
+                    {
+                        <div class="clickable align-center" @onclick="@(() => ShowBigImage(@card, CultureInfo.CurrentCulture.Name))">
+                            <VerticalCard Name="@card.Name" TypeOfCard="@TypeOfCard" />
+                        </div>
+                    }
+                </GridLayout>
+
+                <VerticalSpace Height="50" />
+            }
+        }
+
+    </FlexColumnCenteredContainer>
+
+
+    <VerticalSpace Height="50" />
+
+    @if (_listOfDeprecatedCards is not null && _listOfDeprecatedCards.Count > 0)
     {
-        <div class="big-image-overlay" @onclick="HideBigImage">
-            <div class="image-container">
-                <img src="@currentBigImageSrc" @onclick="HideBigImage" />
-            </div>
-            <div id="language-menu">
-                <img src="@(GetCultureIconPath(Strings.EnglishCulture))"
-                     alt="English"
-                     height="50"
-                     @onclick="@(() =>SetBigImageAddress(Strings.EnglishCulture))"
-                     @onclick:stopPropagation="true" />
-                <img src="@(GetCultureIconPath(Strings.CzechCulture))"
-                     alt="Czech"
-                     height="50"
-                     @onclick="@(() =>SetBigImageAddress(Strings.CzechCulture))"
-                     @onclick:stopPropagation="true" />
-            </div>
-        </div>
+        <FlexColumnCenteredContainer>
+            <Label Text="@Strings.Card_DeprecatedCategory" FontSize="24" CenterText="true" />
+
+            <GridLayout Columns="GetNumberOfColumns()" Width="80" Gap="10">
+
+                @foreach (var card in _listOfDeprecatedCards)
+                {
+                    <div class="clickable align-center" @onclick="@(() => ShowBigImage(@card, CultureInfo.CurrentCulture.Name))">
+                        <VerticalCard Name="@card.Name" TypeOfCard="@TypeOfCard" />
+                    </div>
+                }
+
+            </GridLayout>
+        </FlexColumnCenteredContainer>
     }
+}
+
+@if (showBigImage)
+{
+    <div class="big-image-overlay" @onclick="HideBigImage">
+        <div class="image-container">
+            <img src="@currentBigImageSrc" @onclick="HideBigImage" />
+        </div>
+        <div id="language-menu">
+            <img src="@(GetCultureIconPath(Strings.EnglishCulture))"
+                 alt="English"
+                 height="50"
+                 @onclick="@(() =>SetBigImageAddress(Strings.EnglishCulture))"
+                 @onclick:stopPropagation="true" />
+            <img src="@(GetCultureIconPath(Strings.CzechCulture))"
+                 alt="Czech"
+                 height="50"
+                 @onclick="@(() =>SetBigImageAddress(Strings.CzechCulture))"
+                 @onclick:stopPropagation="true" />
+        </div>
+    </div>
 }

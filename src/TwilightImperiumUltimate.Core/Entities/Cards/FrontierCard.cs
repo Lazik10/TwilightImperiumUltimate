@@ -1,10 +1,10 @@
-﻿using TwilightImperiumUltimate.Core.Enums.Cards;
+using TwilightImperiumUltimate.Contracts.Enums;
 
 namespace TwilightImperiumUltimate.Core.Entities.Cards;
 
-public class FrontierCard : BaseCard
+public class FrontierCard : BaseCard<FrontierCardName>
 {
-    public static CardType CardType => CardType.Frontier;
+    public override CardType Type { get; set; } = CardType.Frontier;
 
-    public FrontierCardName FrontierCardName { get; set; }
+    public override FrontierCardName EnumName { get; set; }
 }

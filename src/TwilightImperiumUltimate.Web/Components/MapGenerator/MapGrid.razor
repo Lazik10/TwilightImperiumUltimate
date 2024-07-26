@@ -12,8 +12,8 @@
 
             <MapHexTile SystemTile="@(CurrentSystemTile)"
                         ShowTileId="true"
-                        MapTileId="@(CurrentSystemTile.Name.ToString().Substring(4))"
-                        ImagePath="@(PathProvider.GetLargeTileImagePath(CurrentSystemTile.Name.ToString()))" />
+                        MapTileId="@(CurrentSystemTile.SystemTileName.ToString().Substring(4))"
+                        ImagePath="@(PathProvider.GetLargeTileImagePath(CurrentSystemTile.SystemTileName.ToString()))" />
         </div>
     }
 }

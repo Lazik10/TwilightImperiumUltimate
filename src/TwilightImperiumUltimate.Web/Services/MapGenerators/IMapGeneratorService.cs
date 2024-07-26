@@ -1,25 +1,25 @@
-﻿using TwilightImperiumUltimate.Web.Enums;
+using TwilightImperiumUltimate.Web.Enums;
 using TwilightImperiumUltimate.Web.Models.Galaxy;
 
 namespace TwilightImperiumUltimate.Web.Services.MapGenerators;
 
 public interface IMapGeneratorService
 {
-    IReadOnlyDictionary<int, SystemTile> GeneratedPositionsWithSystemTiles { get; }
+    IReadOnlyDictionary<int, SystemTileModel> GeneratedPositionsWithSystemTiles { get; }
 
-    Task<Dictionary<int, SystemTile>> GenerateMapAsync(bool previewMap);
+    Task<Dictionary<int, SystemTileModel>> GenerateMapAsync(bool previewMap, CancellationToken ct);
 
-    Task InitializeSystemTilesAsync();
+    Task InitializeSystemTilesAsync(CancellationToken ct);
 
-    IEnumerable<SystemTile> GetSystemTilesToShow(SystemTileTypeFilter systemTileType);
+    IEnumerable<SystemTileModel> GetSystemTilesToShow(SystemTileTypeFilter systemTileType);
 
-    void SetDraggingSystemTile(SystemTile systemTile);
+    void SetDraggingSystemTile(SystemTileModel systemTile);
 
     void SetDraggingSystemTilePosition(int draggedSystemTileStartMapPosition);
 
-    void ResetDraggingSystemTile(SystemTile systemTile);
+    void ResetDraggingSystemTile(SystemTileModel systemTile);
 
-    void SwapSystemTiles(SystemTile systemTile, int mapPosition);
+    void SwapSystemTiles(SystemTileModel systemTile, int mapPosition);
 
-    SystemTile GetCurrentDraggingSystemTile();
+    SystemTileModel GetCurrentDraggingSystemTile();
 }

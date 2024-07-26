@@ -1,4 +1,4 @@
-﻿using TwilightImperiumUltimate.Web.Models.Users;
+using TwilightImperiumUltimate.Web.Models.Users;
 
 namespace TwilightImperiumUltimate.Web.Models.News;
 
@@ -12,7 +12,9 @@ public class NewsArticle
 
     public DateOnly CreatedAt { get; set; } = DateOnly.FromDateTime(DateTime.Now);
 
-    public int? UserId { get; set; }
+    public DateOnly UpdatedAt { get; set; } = DateOnly.FromDateTime(DateTime.Now);
 
-    public User? User { get; set; }
+    public string UserId { get; set; } = string.Empty;
+
+    public TwilightImperiumUser? User { get; set; }
 }

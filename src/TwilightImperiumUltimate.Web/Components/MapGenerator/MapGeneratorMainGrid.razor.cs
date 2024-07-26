@@ -1,11 +1,8 @@
-﻿using Microsoft.AspNetCore.Components;
 using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.Custom;
 using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.EightPlayers;
 using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.FourPlayers;
 using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.SixPlayers;
 using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.ThreePlayers;
-using TwilightImperiumUltimate.Web.Enums;
-using TwilightImperiumUltimate.Web.Models.Galaxy;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
 
 namespace TwilightImperiumUltimate.Web.Components.MapGenerator;
@@ -17,7 +14,7 @@ public partial class MapGeneratorMainGrid
     private bool _lastShowTilesMenuState;
 
     [Parameter]
-    public IReadOnlyDictionary<int, SystemTile> GeneratedPositionsWithSystemTiles { get; set; } = default!;
+    public IReadOnlyDictionary<int, SystemTileModel> GeneratedPositionsWithSystemTiles { get; set; } = default!;
 
     [Inject]
     private IMapGeneratorService MapGeneratorService { get; set; } = default!;
@@ -37,17 +34,17 @@ public partial class MapGeneratorMainGrid
         var mapTemplateType = MapGeneratorSettingsService.MapTemplate switch
         {
             MapTemplate.CustomMap => typeof(CustomMap),
-            MapTemplate.SmallMapThreePlayers => typeof(SmallMapThreePlayers),
-            MapTemplate.SmallMapAlternateThreePlayers => typeof(SmallMapAlternateThreePlayers),
-            MapTemplate.TriangleMapThreePlayers => typeof(TriangleMapThreePlayers),
-            MapTemplate.TriangleNarrowMapThreePlayers => typeof(TriangleNarrowMapThreePlayers),
-            MapTemplate.SnowflakeMapThreePlayers => typeof(SnowflakeMapThreePlayers),
-            MapTemplate.TridentMapThreePlayers => typeof(TridentMapThreePlayers),
-            MapTemplate.MantaRayMapThreePlayers => typeof(MantaRayMapThreePlayers),
-            MapTemplate.MediumMapFourPlayers => typeof(MediumMapFourPlayers),
-            MapTemplate.MediumMapSixPlayers => typeof(MediumMapSixPlayers),
-            MapTemplate.LargeMapSixPlayers => typeof(LargeMapSixPlayers),
-            MapTemplate.LargeMapEightPlayers => typeof(LargeMapEightPlayers),
+            MapTemplate.ThreePlayersSmallMap => typeof(SmallMapThreePlayers),
+            MapTemplate.ThreePlayersSmallAlternateMap => typeof(SmallMapAlternateThreePlayers),
+            MapTemplate.ThreePlayersTriangleMap => typeof(TriangleMapThreePlayers),
+            MapTemplate.ThreePlayersTriangleNarrowMap => typeof(TriangleNarrowMapThreePlayers),
+            MapTemplate.ThreePlayersSnowflakeMap => typeof(SnowflakeMapThreePlayers),
+            MapTemplate.ThreePlayersTridentMap => typeof(TridentMapThreePlayers),
+            MapTemplate.ThreePlayersMantaRayMap => typeof(MantaRayMapThreePlayers),
+            MapTemplate.FourPlayersMediumMap => typeof(MediumMapFourPlayers),
+            MapTemplate.SixPlayersMediumMap => typeof(MediumMapSixPlayers),
+            MapTemplate.SixPlayersLargeMap => typeof(LargeMapSixPlayers),
+            MapTemplate.EightPlayersLargeMap => typeof(LargeMapEightPlayers),
             _ => throw new NotImplementedException(),
         };
 
@@ -66,9 +63,9 @@ public partial class MapGeneratorMainGrid
         _showTilesMenu = !_showTilesMenu;
     }
 
-    private async Task UpdateMapTemplate(MapTemplate mapTemplate)
+    private async Task UpdateMapTemplate()
     {
-        await MapGeneratorService.GenerateMapAsync(true);
+        await MapGeneratorService.GenerateMapAsync(true, CancellationToken.None);
         GeneratedPositionsWithSystemTiles = MapGeneratorService.GeneratedPositionsWithSystemTiles;
         StateHasChanged();
     }
@@ -91,7 +88,7 @@ public partial class MapGeneratorMainGrid
 
     private async Task GenerateMap()
     {
-        GeneratedPositionsWithSystemTiles = await MapGeneratorService.GenerateMapAsync(false);
+        GeneratedPositionsWithSystemTiles = await MapGeneratorService.GenerateMapAsync(false, default);
         StateHasChanged();
     }
 

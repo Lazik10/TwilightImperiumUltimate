@@ -1,5 +1,4 @@
-﻿using TwilightImperiumUltimate.Core.Entities.Galaxy;
-using TwilightImperiumUltimate.Core.Enums.Game;
+using TwilightImperiumUltimate.Contracts.Enums;
 using TwilightImperiumUltimate.Core.Interfaces;
 
 namespace TwilightImperiumUltimate.Core.Entities.Player;

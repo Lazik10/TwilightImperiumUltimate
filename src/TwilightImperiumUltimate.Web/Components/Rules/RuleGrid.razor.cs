@@ -1,29 +1,22 @@
-using Microsoft.AspNetCore.Components;
-using TwilightImperiumUltimate.Web.Enums;
-using TwilightImperiumUltimate.Web.Helpers.Resources;
-using TwilightImperiumUltimate.Web.Helpers.Text;
-using TwilightImperiumUltimate.Web.Models.Rules;
-using TwilightImperiumUltimate.Web.Resources;
-using TwilightImperiumUltimate.Web.Services.HttpClients;
-
 namespace TwilightImperiumUltimate.Web.Components.Rules;
 
 public partial class RuleGrid
 {
-    private const string _searchColor = "yellow";
+    private const string _highlightColor = "yellow";
     private const int _minimumSearchLength = 3;
-    private List<Rule> _rules = [];
+    private IReadOnlyCollection<RuleModel> _rules = new List<RuleModel>();
 
-    private List<TransformedRule> FilteredAndTransformedRules { get; set; } = [];
+    private IReadOnlyCollection<TransformedRule> FilteredAndTransformedRules { get; set; } = [];
 
     [Inject]
     private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
 
+    [Inject]
+    private IMapper Mapper { get; set; } = default!;
+
     protected override async Task OnInitializedAsync()
     {
-        var result = await HttpClient.GetAsync<List<Rule>>(Paths.ApiPath_Rules);
-        _rules = [.. result.Where(x => x.RuleCategory != RuleCategory.None).OrderBy(x => x.RuleCategory)];
-        FilteredAndTransformedRules = GetTransformedRules();
+        await InitializeRules();
     }
 
     private void GetFilteredRules(string search)
@@ -51,8 +44,18 @@ public partial class RuleGrid
     {
         return _rules.Select(x => new TransformedRule(
             x.RuleCategory,
-            x.RuleCategory.GetRuleTitleUIText().HighlightSearchWord(search, _searchColor, false),
-            x.RuleCategory.GetRuleUIText().HighlightSearchWord(search, _searchColor, true),
+            x.RuleCategory.GetRuleTitleUIText().HighlightSearchWord(search, _highlightColor, false),
+            x.RuleCategory.GetRuleUIText().HighlightSearchWord(search, _highlightColor, true),
             x.Language)).ToList();
+    }
+
+    private async Task InitializeRules(CancellationToken ct = default)
+    {
+        var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<RuleDto>>>(Paths.ApiPath_Rules, ct);
+        if (statusCode == HttpStatusCode.OK)
+        {
+            _rules = Mapper.Map<List<RuleModel>>(response!.Data!.Items);
+            FilteredAndTransformedRules = GetTransformedRules();
+        }
     }
 }

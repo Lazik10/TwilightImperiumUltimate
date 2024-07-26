@@ -1,9 +1,6 @@
-﻿using TwilightImperiumUltimate.Core.Entities.Cards;
-using TwilightImperiumUltimate.DataAccess.Tables.Cards;
-
 namespace TwilightImperiumUltimate.DataAccess.Configurations.Cards;
 
-public class AgendaCardConfiguration : IEntityTypeConfiguration<AgendaCard>
+internal sealed class AgendaCardConfiguration : IEntityTypeConfiguration<AgendaCard>
 {
     public void Configure(EntityTypeBuilder<AgendaCard> builder)
     {
@@ -11,45 +8,47 @@ public class AgendaCardConfiguration : IEntityTypeConfiguration<AgendaCard>
 
         builder.ToTable(TableName.AgendaCards, Schema.Card);
 
-        builder.HasKey(x => x.AgendaCardName);
+        builder.HasKey(x => x.Id);
 
-        builder.Property(e => e.AgendaCardName)
-            .IsRequired()
-            .HasColumnName(nameof(AgendaCard.AgendaCardName))
-            .HasConversion<int>()
-            .HasColumnType("integer");
+        builder.Property(x => x.Id)
+            .HasColumnOrder(0);
 
-        builder.Property(e => e.Name)
+        builder.Property(e => e.EnumName)
             .IsRequired()
-            .HasColumnName(nameof(AgendaCard.Name))
-            .HasColumnType("text");
-
-        builder.Property(e => e.Text)
-            .IsRequired()
-            .HasColumnName(nameof(AgendaCard.Text))
-            .HasColumnType("text");
+            .HasColumnName(nameof(AgendaCard.EnumName))
+            .HasConversion<string>()
+            .HasColumnType("varchar(50)")
+            .HasMaxLength(50)
+            .HasColumnOrder(1);
 
         builder.Property(e => e.Type)
             .IsRequired()
             .HasColumnName(nameof(AgendaCard.Type))
-            .HasConversion<int>()
-            .HasColumnType("integer");
+            .HasConversion<string>()
+            .HasColumnType("varchar(20)")
+            .HasMaxLength(20)
+            .HasColumnOrder(2);
 
         builder.Property(e => e.AgendaCardType)
             .IsRequired()
             .HasColumnName(nameof(AgendaCard.AgendaCardType))
-            .HasConversion<int>()
-            .HasColumnType("integer");
+            .HasConversion<string>()
+            .HasColumnType("varchar(20)")
+            .HasMaxLength(20)
+            .HasColumnOrder(3);
 
-        builder.Property(e => e.ImagePath)
+        builder.Property(e => e.Text)
             .IsRequired()
-            .HasColumnName(nameof(ActionCard.ImagePath))
-            .HasColumnType("text");
+            .HasColumnName(nameof(AgendaCard.Text))
+            .HasColumnType("text")
+            .HasColumnOrder(4);
 
         builder.Property(e => e.GameVersion)
             .IsRequired()
             .HasColumnName(nameof(AgendaCard.GameVersion))
-            .HasConversion<int>()
-            .HasColumnType("integer");
+            .HasConversion<string>()
+            .HasColumnType("varchar(20)")
+            .HasMaxLength(20)
+            .HasColumnOrder(5);
     }
 }

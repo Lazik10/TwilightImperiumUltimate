@@ -7,7 +7,7 @@
      @ondragover="@(() => DragOverSystemTile(SystemTile))"
      @ondragover:preventDefault="true"
      @ondragend="@(() => EndDragSystemTile(SystemTile))"
-     title="@(SystemTile.Name.ToString())">
+     title="@(SystemTile.SystemTileName.ToString())">
 
     <img src="@ImagePath" alt="Hexagon">
 

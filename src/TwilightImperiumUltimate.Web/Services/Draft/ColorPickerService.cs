@@ -1,4 +1,4 @@
-﻿using TwilightImperiumUltimate.Web.Enums;
+using TwilightImperiumUltimate.Contracts.Enums;
 using TwilightImperiumUltimate.Web.Models.Drafts;
 using TwilightImperiumUltimate.Web.Models.Factions;
 using TwilightImperiumUltimate.Web.Options.Drafts;
@@ -98,7 +98,7 @@ public class ColorPickerService : IColorPickerService
             .ToDictionary(x => x, x => false);
     }
 
-    private async Task GetColorDraftResults()
+    private async Task GetColorDraftResults(CancellationToken ct = default)
     {
         ColorDraftRequest request = new()
         {
@@ -106,8 +106,9 @@ public class ColorPickerService : IColorPickerService
             Colors = _colors.Where(x => !x.Value).Select(x => x.Key).ToList(),
         };
 
-        var result = await _httpClient.PostAsync<ColorDraftRequest, List<FactionColorDraftResult>>(Paths.ApiPath_ColorDraft, request);
+        var (response, statusCode) = await _httpClient.PostAsync<ColorDraftRequest, List<FactionColorDraftResult>>(Paths.ApiPath_ColorDraft, request, ct);
 
-        _factionColorDraftResults = [.. result.OrderBy(results => results.FactionName)];
+        if (statusCode == System.Net.HttpStatusCode.OK)
+            _factionColorDraftResults = [.. response.OrderBy(results => results.FactionName)];
     }
 }

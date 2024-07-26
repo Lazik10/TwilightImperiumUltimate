@@ -1,8 +1,5 @@
-﻿using TwilightImperiumUltimate.Core.Entities.RelationshipEntities;
-using TwilightImperiumUltimate.Core.Entities.Units;
-using TwilightImperiumUltimate.Core.Enums.Galaxy;
-using TwilightImperiumUltimate.Core.Enums.Game;
-using TwilightImperiumUltimate.Core.Enums.Races;
+using TwilightImperiumUltimate.Contracts.Enums;
+using TwilightImperiumUltimate.Core.Entities.RelationshipEntities;
 using TwilightImperiumUltimate.Core.Interfaces;
 
 namespace TwilightImperiumUltimate.Core.Entities.Factions;
@@ -35,11 +32,6 @@ public class Faction : IEntity, IGameVersion
     /// Gets or sets actions overview.
     /// </summary>
     public string Action { get; set; } = string.Empty;
-
-    /// <summary>
-    /// Gets or sets promissary note text.
-    /// </summary>
-    public string PromissaryNote { get; set; } = string.Empty;
 
     /// <summary>
     /// Gets or sets history about the race from Guide to Twilight Imperium.

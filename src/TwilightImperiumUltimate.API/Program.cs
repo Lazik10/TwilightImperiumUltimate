@@ -1,9 +1,11 @@
 using Serilog;
 using TwilightImperiumUltimate.API.Services;
+using TwilightImperiumUltimate.Core.Entities.Users;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.RegisterServices(builder.Configuration);
+builder.Services.RegisterOptions(builder.Configuration);
 builder.Host.UseSerilog((context, configuration) =>
 {
     configuration.ReadFrom.Configuration(context.Configuration);
@@ -25,10 +27,11 @@ app.UseCors(builder => builder
           .AllowAnyHeader());
 
 app.UseRouting();
-app.UseHttpsRedirection();
+app.UseAuthentication();
 app.UseAuthorization();
+app.UseHttpsRedirection();
 app.MapControllers();
+app.MapIdentityApi<TwilightImperiumUser>();
 
 await app.CreateOrUpdateDbContextAsync();
-
-await app.RunAsync();
+await app.AppRunAsync();

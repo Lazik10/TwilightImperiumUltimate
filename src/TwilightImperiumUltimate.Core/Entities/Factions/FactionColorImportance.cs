@@ -1,5 +1,4 @@
-﻿using TwilightImperiumUltimate.Core.Enums.Game;
-using TwilightImperiumUltimate.Core.Enums.Races;
+using TwilightImperiumUltimate.Contracts.Enums;
 using TwilightImperiumUltimate.Core.Interfaces;
 
 namespace TwilightImperiumUltimate.Core.Entities.Factions;

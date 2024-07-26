@@ -1,13 +1,14 @@
-﻿using TwilightImperiumUltimate.Core.Enums.Cards;
-using TwilightImperiumUltimate.Core.Enums.Galaxy;
+using TwilightImperiumUltimate.Contracts.Enums;
 
 namespace TwilightImperiumUltimate.Core.Entities.Cards;
 
-public class ExplorationCard : BaseCard
+public class ExplorationCard : BaseCard<ExplorationCardName>
 {
-    public static CardType CardType => CardType.Exploration;
+    public override CardType Type { get; set; } = CardType.Exploration;
 
-    public ExplorationCardName ExplorationCardName { get; set; }
+    public override ExplorationCardName EnumName { get; set; }
 
     public PlanetTrait ExplorationPlanetTrait { get; set; }
+
+    public new GameVersion GameVersion { get; set; } = GameVersion.ProphecyOfKings;
 }

@@ -1,6 +1,3 @@
-﻿using Microsoft.AspNetCore.Components;
-using TwilightImperiumUltimate.Web.Enums;
-using TwilightImperiumUltimate.Web.Models.Galaxy;
 using TwilightImperiumUltimate.Web.Options.MapGenerators;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
 
@@ -9,13 +6,13 @@ namespace TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids;
 public abstract class BaseMap : ComponentBase
 {
     [Parameter]
-    public IReadOnlyDictionary<int, SystemTile> GeneratedPositionsWithSystemTiles { get; set; } = default!;
+    public IReadOnlyDictionary<int, SystemTileModel> GeneratedPositionsWithSystemTiles { get; set; } = default!;
 
     protected virtual IEnumerable<int> MapPositions { get; set; } = Enumerable.Range(0, MapGeneratorOptions.MaxTilePositions);
 
     protected SystemTileName SystemTileName { get; set; } = MapGeneratorOptions.DefaultTileName;
 
-    protected SystemTile CurrentSystemTile { get; set; } = default!;
+    protected SystemTileModel CurrentSystemTile { get; set; } = default!;
 
     [Inject]
     protected virtual IMapGeneratorService MapGeneratorService { get; set; } = default!;
@@ -31,8 +28,13 @@ public abstract class BaseMap : ComponentBase
 
     protected override async Task OnInitializedAsync()
     {
-        await MapGeneratorService.InitializeSystemTilesAsync();
-        await MapGeneratorService.GenerateMapAsync(true);
+        await InitializeBaseMap();
+    }
+
+    private async Task InitializeBaseMap(CancellationToken ct = default)
+    {
+        await MapGeneratorService.InitializeSystemTilesAsync(ct);
+        await MapGeneratorService.GenerateMapAsync(true, ct);
         GeneratedPositionsWithSystemTiles = MapGeneratorService.GeneratedPositionsWithSystemTiles;
     }
 }

@@ -1,21 +1,16 @@
-﻿using Microsoft.AspNetCore.Components;
-using TwilightImperiumUltimate.Web.Models.Cards;
-using TwilightImperiumUltimate.Web.Models.Galaxy;
-using TwilightImperiumUltimate.Web.Resources;
-using TwilightImperiumUltimate.Web.Services.HttpClients;
-using TwilightImperiumUltimate.Web.Services.Path;
-
 namespace TwilightImperiumUltimate.Web.Pages.Game;
 
 public partial class Planets
 {
-    private List<Planet> _planets = new();
+    private IReadOnlyCollection<PlanetModel> _planets = new List<PlanetModel>();
 
-    private bool showBigImage;
+    private bool _showBigImage;
 
-    private string currentBigImageSrc = string.Empty;
+    private string _currentBigImageSrc = string.Empty;
 
-    private string currentBigImageCulture = string.Empty;
+    private string _currentBigImageCulture = string.Empty;
+
+    private GameVersion? _currentGameVersion;
 
     [Inject]
     private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
@@ -23,26 +18,29 @@ public partial class Planets
     [Inject]
     private IPathProvider PathProvider { get; set; } = default!;
 
-    protected async override Task OnInitializedAsync()
+    [Inject]
+    private IMapper Mapper { get; set; } = default!;
+
+    protected override async Task OnInitializedAsync()
     {
-        _planets = await HttpClient.GetAsync<List<Planet>>(Paths.ApiPath_Planets);
+        await InititalizePlanets();
     }
 
-    private string GetPlanetImagePath(Planet planet)
+    private string GetPlanetImagePath(PlanetModel planet)
     {
         return PathProvider.GetPlanetImagePath(planet.PlanetName.ToString());
     }
 
-    private void ShowBigImage(Planet planet, string culture)
+    private void ShowBigImage(PlanetModel planet, string culture)
     {
-        currentBigImageSrc = GetPlanetImagePath(planet);
-        currentBigImageCulture = culture;
-        showBigImage = true;
+        _currentBigImageSrc = GetPlanetImagePath(planet);
+        _currentBigImageCulture = culture;
+        _showBigImage = true;
     }
 
     private void HideBigImage()
     {
-        showBigImage = false;
+        _showBigImage = false;
     }
 
     private string GetCultureIconPath(string culture)
@@ -52,8 +50,22 @@ public partial class Planets
 
     private void SetBigImageAddress(string culture)
     {
-        currentBigImageSrc = currentBigImageSrc.Replace(currentBigImageCulture, culture);
-        currentBigImageCulture = culture;
+        _currentBigImageSrc = _currentBigImageSrc.Replace(_currentBigImageCulture, culture);
+        _currentBigImageCulture = culture;
         StateHasChanged();
+    }
+
+    private async Task InititalizePlanets()
+    {
+        var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<PlanetDto>>>(Paths.ApiPath_Planets);
+        if (statusCode == HttpStatusCode.OK)
+        {
+            var planets = Mapper.Map<List<PlanetModel>>(response!.Data!.Items);
+            _planets = planets
+                .Where(x => x.PlanetName != PlanetName.MalliceInactive)
+                .OrderBy(x => x.GameVersion)
+                .ThenBy(x => x.PlanetName)
+                .ToList();
+        }
     }
 }

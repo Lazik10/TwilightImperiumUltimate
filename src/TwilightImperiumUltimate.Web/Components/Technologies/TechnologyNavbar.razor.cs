@@ -1,6 +1,3 @@
-﻿using Microsoft.AspNetCore.Components;
-using TwilightImperiumUltimate.Web.Enums;
-
 namespace TwilightImperiumUltimate.Web.Components.Technologies;
 
 public partial class TechnologyNavbar

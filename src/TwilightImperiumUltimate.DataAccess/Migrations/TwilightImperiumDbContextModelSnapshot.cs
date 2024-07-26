@@ -17,379 +17,599 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.5")
+                .HasAnnotation("ProductVersion", "8.0.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Cards.ActionCard", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
-                    b.Property<int>("ActionCardName")
-                        .HasColumnType("integer")
-                        .HasColumnName("ActionCardName");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("ActionCardWindow")
-                        .HasColumnType("integer")
-                        .HasColumnName("ActionCardWindow");
-
-                    b.Property<int>("GameVersion")
-                        .HasColumnType("integer")
-                        .HasColumnName("GameVersion");
-
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ImagePath")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("ImagePath");
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RoleId")
                         .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("Name");
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("RoleId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Cards.ActionCard", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("EnumName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("EnumName")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("GameVersion")
+                        .IsRequired()
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("GameVersion")
+                        .HasColumnOrder(5);
 
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("Text");
+                        .HasColumnName("Text")
+                        .HasColumnOrder(4);
 
-                    b.Property<int>("Type")
-                        .HasColumnType("integer")
-                        .HasColumnName("Type");
+                    b.Property<string>("TimingWindow")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("TimingWindow")
+                        .HasColumnOrder(3);
 
-                    b.HasKey("ActionCardName");
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("Type")
+                        .HasColumnOrder(2);
+
+                    b.HasKey("Id");
 
                     b.ToTable("ActionCards", "Card");
                 });
 
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Cards.AgendaCard", b =>
                 {
-                    b.Property<int>("AgendaCardName")
-                        .HasColumnType("integer")
-                        .HasColumnName("AgendaCardName");
-
-                    b.Property<int>("AgendaCardType")
-                        .HasColumnType("integer")
-                        .HasColumnName("AgendaCardType");
-
-                    b.Property<int>("GameVersion")
-                        .HasColumnType("integer")
-                        .HasColumnName("GameVersion");
-
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
 
-                    b.Property<string>("ImagePath")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("ImagePath");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Name")
+                    b.Property<string>("AgendaCardType")
                         .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("Name");
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("AgendaCardType")
+                        .HasColumnOrder(3);
+
+                    b.Property<string>("EnumName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("EnumName")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("GameVersion")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("GameVersion")
+                        .HasColumnOrder(5);
 
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("Text");
+                        .HasColumnName("Text")
+                        .HasColumnOrder(4);
 
-                    b.Property<int>("Type")
-                        .HasColumnType("integer")
-                        .HasColumnName("Type");
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("Type")
+                        .HasColumnOrder(2);
 
-                    b.HasKey("AgendaCardName");
+                    b.HasKey("Id");
 
                     b.ToTable("AgendaCards", "Card");
                 });
 
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Cards.ExplorationCard", b =>
                 {
-                    b.Property<int>("ExplorationCardName")
-                        .HasColumnType("integer")
-                        .HasColumnName("ExplorationCardName");
-
-                    b.Property<int>("ExplorationPlanetTrait")
-                        .HasColumnType("integer")
-                        .HasColumnName("ExplorationPlanetTrait");
-
-                    b.Property<int>("GameVersion")
-                        .HasColumnType("integer")
-                        .HasColumnName("GameVersion");
-
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
 
-                    b.Property<string>("ImagePath")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("ImagePath");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Name")
+                    b.Property<string>("EnumName")
                         .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("Name");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("EnumName")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("ExplorationPlanetTrait")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("ExplorationPlanetTrait")
+                        .HasColumnOrder(3);
+
+                    b.Property<string>("GameVersion")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("GameVersion")
+                        .HasColumnOrder(5);
 
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("Text");
+                        .HasColumnName("Text")
+                        .HasColumnOrder(4);
 
-                    b.Property<int>("Type")
-                        .HasColumnType("integer")
-                        .HasColumnName("Type");
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("Type")
+                        .HasColumnOrder(2);
 
-                    b.HasKey("ExplorationCardName");
+                    b.HasKey("Id");
 
                     b.ToTable("ExplorationCards", "Card");
                 });
 
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Cards.FrontierCard", b =>
                 {
-                    b.Property<int>("FrontierCardName")
-                        .HasColumnType("integer")
-                        .HasColumnName("FrontierCardName");
-
-                    b.Property<int>("GameVersion")
-                        .HasColumnType("integer")
-                        .HasColumnName("GameVersion");
-
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
 
-                    b.Property<string>("ImagePath")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("ImagePath");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Name")
+                    b.Property<string>("EnumName")
                         .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("Name");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("EnumName")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("GameVersion")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("GameVersion")
+                        .HasColumnOrder(4);
 
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("Text");
+                        .HasColumnName("Text")
+                        .HasColumnOrder(3);
 
-                    b.Property<int>("Type")
-                        .HasColumnType("integer")
-                        .HasColumnName("Type");
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("Type")
+                        .HasColumnOrder(2);
 
-                    b.HasKey("FrontierCardName");
+                    b.HasKey("Id");
 
                     b.ToTable("FrontierCards", "Card");
                 });
 
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Cards.ObjectiveCard", b =>
                 {
-                    b.Property<int>("ObjectiveCardName")
-                        .HasColumnType("integer")
-                        .HasColumnName("ObjectiveCardName");
-
-                    b.Property<int>("GameVersion")
-                        .HasColumnType("integer")
-                        .HasColumnName("GameVersion");
-
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
 
-                    b.Property<string>("ImagePath")
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("EnumName")
                         .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("ImagePath");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("EnumName")
+                        .HasColumnOrder(1);
 
-                    b.Property<string>("Name")
+                    b.Property<string>("GameVersion")
                         .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("Name");
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("GameVersion")
+                        .HasColumnOrder(6);
 
-                    b.Property<int>("ObjectiveCardType")
-                        .HasColumnType("integer")
-                        .HasColumnName("ObjectiveCardType");
+                    b.Property<string>("ObjectiveCardType")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("ObjectiveCardType")
+                        .HasColumnOrder(3);
 
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("Text");
+                        .HasColumnName("Text")
+                        .HasColumnOrder(5);
 
-                    b.Property<int>("Type")
-                        .HasColumnType("integer")
-                        .HasColumnName("Type");
+                    b.Property<string>("TimingWindow")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("TimingWindow")
+                        .HasColumnOrder(4);
 
-                    b.HasKey("ObjectiveCardName");
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("Type")
+                        .HasColumnOrder(2);
+
+                    b.HasKey("Id");
 
                     b.ToTable("ObjectiveCards", "Card");
                 });
 
-            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Cards.PromissaryNoteCard", b =>
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Cards.PromissoryNoteCard", b =>
                 {
-                    b.Property<int>("PromissaryNoteCardName")
-                        .HasColumnType("integer")
-                        .HasColumnName("PromissaryNoteCardName");
-
-                    b.Property<int>("Faction")
-                        .HasColumnType("int");
-
-                    b.Property<int>("GameVersion")
-                        .HasColumnType("int");
-
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
 
-                    b.Property<string>("ImagePath")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Name")
+                    b.Property<string>("EnumName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("EnumName")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("Faction")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("Faction")
+                        .HasColumnOrder(3);
+
+                    b.Property<string>("GameVersion")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("GameVersion")
+                        .HasColumnOrder(5);
 
                     b.Property<string>("Text")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(MAX)")
+                        .HasColumnName("Text")
+                        .HasColumnOrder(4);
 
-                    b.Property<int>("Type")
-                        .HasColumnType("int");
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("Type")
+                        .HasColumnOrder(2);
 
-                    b.HasKey("PromissaryNoteCardName");
+                    b.HasKey("Id");
 
                     b.ToTable("PromissaryNoteCards", "Card");
                 });
 
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Cards.RelicCard", b =>
                 {
-                    b.Property<int>("RelicCardName")
-                        .HasColumnType("integer")
-                        .HasColumnName("RelicCardName");
-
-                    b.Property<int>("GameVersion")
-                        .HasColumnType("integer")
-                        .HasColumnName("GameVersion");
-
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
 
-                    b.Property<string>("ImagePath")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("ImagePath");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Name")
+                    b.Property<string>("EnumName")
                         .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("Name");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("EnumName")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("GameVersion")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("GameVersion")
+                        .HasColumnOrder(4);
 
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("Text");
+                        .HasColumnName("Text")
+                        .HasColumnOrder(3);
 
-                    b.Property<int>("Type")
-                        .HasColumnType("integer")
-                        .HasColumnName("Type");
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("Type")
+                        .HasColumnOrder(2);
 
-                    b.HasKey("RelicCardName");
+                    b.HasKey("Id");
 
                     b.ToTable("RelicCards", "Card");
                 });
 
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Cards.StrategyCard", b =>
                 {
-                    b.Property<int>("StrategyCardName")
-                        .HasColumnType("integer")
-                        .HasColumnName("StrategyCardName");
-
-                    b.Property<int>("GameVersion")
-                        .HasColumnType("integer")
-                        .HasColumnName("GameVersion");
-
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
 
-                    b.Property<string>("ImagePath")
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("EnumName")
                         .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("ImagePath");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("EnumName")
+                        .HasColumnOrder(1);
 
-                    b.Property<int>("InitiativeOrder")
-                        .HasColumnType("integer")
-                        .HasColumnName("InitiativeOrder");
-
-                    b.Property<string>("Name")
+                    b.Property<string>("GameVersion")
                         .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("Name");
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("GameVersion")
+                        .HasColumnOrder(7);
+
+                    b.Property<string>("InitiativeOrder")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("InitiativeOrder")
+                        .HasColumnOrder(3);
 
                     b.Property<string>("PrimaryAbilityText")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("PrimaryAbilityText");
+                        .HasColumnName("PrimaryAbilityText")
+                        .HasColumnOrder(4);
 
                     b.Property<string>("SecondaryAbilityText")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("SecondaryAbilityText");
+                        .HasColumnName("SecondaryAbilityText")
+                        .HasColumnOrder(5);
 
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("Text");
+                        .HasColumnName("Text")
+                        .HasColumnOrder(6);
 
-                    b.Property<int>("Type")
-                        .HasColumnType("integer")
-                        .HasColumnName("Type");
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("Type")
+                        .HasColumnOrder(2);
 
-                    b.HasKey("StrategyCardName");
+                    b.HasKey("Id");
 
                     b.ToTable("StrategyCards", "Card");
                 });
 
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Factions.Faction", b =>
                 {
-                    b.Property<int>("FactionName")
-                        .HasColumnType("integer")
-                        .HasColumnName("FactionName");
+                    b.Property<string>("FactionName")
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("FactionName")
+                        .HasColumnOrder(1);
 
                     b.Property<string>("Action")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(MAX)")
+                        .HasColumnName("Action")
+                        .HasColumnOrder(5);
 
                     b.Property<int>("Commodities")
-                        .HasColumnType("int");
+                        .HasColumnType("integer")
+                        .HasColumnName("Commodities")
+                        .HasColumnOrder(4);
 
-                    b.Property<int>("ComplexityRating")
-                        .HasColumnType("int");
+                    b.Property<string>("ComplexityRating")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("ComplexityRating")
+                        .HasColumnOrder(2);
 
-                    b.Property<int>("GameVersion")
-                        .HasColumnType("int");
+                    b.Property<string>("GameVersion")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("GameVersion")
+                        .HasColumnOrder(10);
 
                     b.Property<string>("History")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(MAX)")
+                        .HasColumnName("History")
+                        .HasColumnOrder(6);
 
-                    b.Property<int>("HomeSystem")
-                        .HasColumnType("int");
+                    b.Property<string>("HomeSystem")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("HomeSystem")
+                        .HasColumnOrder(3);
 
                     b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<string>("PromissaryNote")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
 
                     b.Property<string>("Quote")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(MAX)")
+                        .HasColumnName("Quote")
+                        .HasColumnOrder(7);
 
                     b.Property<string>("SystemInfo")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(MAX)")
+                        .HasColumnName("SystemInfo")
+                        .HasColumnOrder(9);
 
                     b.Property<string>("SystemStats")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(MAX)")
+                        .HasColumnName("SystemStats")
+                        .HasColumnOrder(8);
 
                     b.HasKey("FactionName");
 
@@ -400,64 +620,91 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Color")
-                        .HasColumnType("integer")
-                        .HasColumnName("Color");
+                    b.Property<string>("Color")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("Color")
+                        .HasColumnOrder(2);
 
-                    b.Property<int>("FactionName")
-                        .HasColumnType("integer")
-                        .HasColumnName("FactionName");
+                    b.Property<string>("FactionName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("FactionName")
+                        .HasColumnOrder(1);
 
                     b.Property<int>("Importance")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("FactionColorImportance", "Faction");
+                    b.ToTable("FactionColorImportances", "Faction");
                 });
 
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Galaxy.Planet", b =>
                 {
-                    b.Property<int>("PlanetName")
-                        .HasColumnType("integer")
-                        .HasColumnName("PlanetName");
+                    b.Property<string>("PlanetName")
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("PlanetName")
+                        .HasColumnOrder(1);
 
-                    b.Property<int>("GameVersion")
-                        .HasColumnType("integer")
-                        .HasColumnName("GameVersion");
+                    b.Property<string>("GameVersion")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("GameVersion")
+                        .HasColumnOrder(8);
 
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnOrder(0);
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("Influence")
                         .HasColumnType("integer")
-                        .HasColumnName("Influence");
+                        .HasColumnName("Influence")
+                        .HasColumnOrder(3);
 
-                    b.Property<int>("IsLegendary")
-                        .HasColumnType("integer")
-                        .HasColumnName("IsLegendary");
+                    b.Property<string>("IsLegendary")
+                        .IsRequired()
+                        .HasColumnType("varchar(5)")
+                        .HasColumnName("IsLegendary")
+                        .HasColumnOrder(4);
 
-                    b.Property<int>("PlanetTrait")
-                        .HasColumnType("integer")
-                        .HasColumnName("PlanetTrait");
+                    b.Property<string>("PlanetTrait")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("PlanetTrait")
+                        .HasColumnOrder(6);
 
                     b.Property<int>("Resources")
                         .HasColumnType("integer")
-                        .HasColumnName("Resources");
+                        .HasColumnName("Resources")
+                        .HasColumnOrder(2);
 
-                    b.Property<int>("SystemTileName")
-                        .HasColumnType("integer");
+                    b.Property<string>("SystemTileName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("SystemTileName")
+                        .HasColumnOrder(7);
 
-                    b.Property<int>("TechnologySkip")
-                        .HasColumnType("integer")
-                        .HasColumnName("TechnologySkip");
+                    b.Property<string>("TechnologySkip")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("TechnologySkip")
+                        .HasColumnOrder(5);
 
                     b.HasKey("PlanetName");
 
@@ -470,31 +717,53 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
 
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Galaxy.SystemTile", b =>
                 {
-                    b.Property<int>("SystemTileName")
-                        .HasColumnType("integer")
-                        .HasColumnName("SystemTileName");
+                    b.Property<string>("SystemTileName")
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("SystemTileName")
+                        .HasColumnOrder(1);
 
-                    b.Property<int>("Anomaly")
-                        .HasColumnType("integer")
-                        .HasColumnName("Anomaly");
+                    b.Property<string>("Anomaly")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("Anomaly")
+                        .HasColumnOrder(5);
 
-                    b.Property<int>("FactionName")
-                        .HasColumnType("integer")
-                        .HasColumnName("FactionName");
+                    b.Property<string>("FactionName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("FactionName")
+                        .HasColumnOrder(4);
 
-                    b.Property<int>("GameVersion")
-                        .HasColumnType("integer")
-                        .HasColumnName("GameVersion");
+                    b.Property<string>("GameVersion")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("GameVersion")
+                        .HasColumnOrder(6);
 
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnOrder(0);
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("TileCategory")
-                        .HasColumnType("integer")
-                        .HasColumnName("TileCategory");
+                    b.Property<string>("SystemTileCode")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("SystemTileCode")
+                        .HasColumnOrder(2);
+
+                    b.Property<string>("TileCategory")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("TileCategory")
+                        .HasColumnOrder(3);
 
                     b.HasKey("SystemTileName");
 
@@ -507,21 +776,31 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("GameVersion")
-                        .HasColumnType("int")
-                        .HasColumnName("GameVersion");
+                    b.Property<string>("GameVersion")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("GameVersion")
+                        .HasColumnOrder(3);
 
-                    b.Property<int>("SystemTileName")
-                        .HasColumnType("int")
-                        .HasColumnName("SystemTileName");
+                    b.Property<string>("SystemTileName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("SystemTileName")
+                        .HasColumnOrder(2);
 
-                    b.Property<int>("WormholeName")
-                        .HasColumnType("int")
-                        .HasColumnName("WormholeName");
+                    b.Property<string>("WormholeName")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("WormholeName")
+                        .HasColumnOrder(1);
 
                     b.HasKey("Id");
 
@@ -534,32 +813,38 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("integer")
+                        .HasColumnOrder(0);
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasColumnType("nvarchar(MAX)")
-                        .HasColumnName("Content");
+                        .HasColumnName("Content")
+                        .HasColumnOrder(2);
 
                     b.Property<DateOnly>("CreatedAt")
                         .HasColumnType("date")
-                        .HasColumnName("CreatedAt");
+                        .HasColumnName("CreatedAt")
+                        .HasColumnOrder(3);
 
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(255)")
-                        .HasColumnName("Title");
+                        .HasColumnName("Title")
+                        .HasColumnOrder(1);
 
                     b.Property<DateOnly>("UpdatedAt")
                         .HasColumnType("date")
-                        .HasColumnName("UpdatedAt");
+                        .HasColumnName("UpdatedAt")
+                        .HasColumnOrder(4);
 
-                    b.Property<int?>("UserId")
+                    b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("integer")
-                        .HasColumnName("UserId");
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("UserId")
+                        .HasColumnOrder(5);
 
                     b.HasKey("Id");
 
@@ -575,14 +860,22 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.Property<string>("Name")
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar")
-                        .HasColumnName("Name");
+                        .HasColumnName("Name")
+                        .HasColumnOrder(1);
 
-                    b.Property<int>("Color")
-                        .HasColumnType("integer")
-                        .HasColumnName("Color");
+                    b.Property<string>("Color")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("Color")
+                        .HasColumnOrder(2);
 
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.HasKey("Name");
 
@@ -591,17 +884,23 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
 
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.RelationshipEntities.FactionTechnology", b =>
                 {
-                    b.Property<int>("FactionName")
-                        .HasColumnType("integer")
-                        .HasColumnName("FactionName");
+                    b.Property<string>("FactionName")
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("FactionName")
+                        .HasColumnOrder(1);
 
-                    b.Property<int>("TechnologyName")
-                        .HasColumnType("integer")
-                        .HasColumnName("TechnologyName");
+                    b.Property<string>("TechnologyName")
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("TechnologyName")
+                        .HasColumnOrder(2);
 
-                    b.Property<int>("StartingTechnology")
-                        .HasColumnType("integer")
-                        .HasColumnName("StartingTechnology");
+                    b.Property<string>("StartingTechnology")
+                        .IsRequired()
+                        .HasColumnType("varchar(5)")
+                        .HasColumnName("StartingTechnology")
+                        .HasColumnOrder(3);
 
                     b.HasKey("FactionName", "TechnologyName");
 
@@ -612,14 +911,19 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
 
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.RelationshipEntities.FactionUnit", b =>
                 {
-                    b.Property<int>("FactionName")
-                        .HasColumnType("integer");
+                    b.Property<string>("FactionName")
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnOrder(0);
 
-                    b.Property<int>("UnitName")
-                        .HasColumnType("integer");
+                    b.Property<string>("UnitName")
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnOrder(1);
 
                     b.Property<int>("Count")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnOrder(2);
 
                     b.HasKey("FactionName", "UnitName");
 
@@ -630,17 +934,24 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
 
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Rules.Rule", b =>
                 {
-                    b.Property<int>("RuleCategory")
-                        .HasColumnType("integer")
-                        .HasColumnName("RuleCategory");
+                    b.Property<string>("RuleCategory")
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("RuleCategory")
+                        .HasColumnOrder(1);
 
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasColumnType("nvarchar(MAX)")
-                        .HasColumnName("Content");
+                        .HasColumnName("Content")
+                        .HasColumnOrder(2);
 
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.HasKey("RuleCategory");
 
@@ -649,45 +960,58 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
 
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Technologies.Technology", b =>
                 {
-                    b.Property<int>("TechnologyName")
-                        .HasColumnType("integer")
-                        .HasColumnName("TechnologyName");
+                    b.Property<string>("TechnologyName")
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("TechnologyName")
+                        .HasColumnOrder(1);
 
-                    b.Property<int>("FactionName")
-                        .HasColumnType("integer")
-                        .HasColumnName("FactionName");
+                    b.Property<string>("FactionName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("FactionName")
+                        .HasColumnOrder(4);
 
-                    b.Property<int>("GameVersion")
-                        .HasColumnType("integer")
-                        .HasColumnName("GameVersion");
+                    b.Property<string>("GameVersion")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("GameVersion")
+                        .HasColumnOrder(7);
 
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
 
-                    b.Property<string>("ImagePath")
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("IsFactionTechnology")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(5)")
+                        .HasColumnName("IsFactionTechnology")
+                        .HasColumnOrder(5);
 
-                    b.Property<bool>("IsFactionTechnology")
-                        .HasColumnType("bit")
-                        .HasColumnName("IsFactionTechnology");
-
-                    b.Property<int>("Level")
-                        .HasColumnType("integer")
-                        .HasColumnName("Level");
-
-                    b.Property<string>("Name")
+                    b.Property<string>("Level")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("Level")
+                        .HasColumnOrder(3);
 
                     b.Property<string>("Text")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasColumnName("Text");
+                        .HasColumnType("nvarchar(MAX)")
+                        .HasColumnName("Text")
+                        .HasColumnOrder(6);
 
-                    b.Property<int>("Type")
-                        .HasColumnType("integer")
-                        .HasColumnName("Type");
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("Type")
+                        .HasColumnOrder(2);
 
                     b.HasKey("TechnologyName");
 
@@ -696,76 +1020,226 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
 
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Units.Unit", b =>
                 {
-                    b.Property<int>("UnitName")
-                        .HasColumnType("integer")
-                        .HasColumnName("UnitName");
+                    b.Property<string>("UnitName")
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("UnitName")
+                        .HasColumnOrder(1);
 
                     b.Property<int>("Capacity")
                         .HasColumnType("integer")
-                        .HasColumnName("Capacity");
+                        .HasColumnName("Capacity")
+                        .HasColumnOrder(6);
 
                     b.Property<int>("Combat")
                         .HasColumnType("integer")
-                        .HasColumnName("Combat");
+                        .HasColumnName("Combat")
+                        .HasColumnOrder(4);
 
                     b.Property<int>("Cost")
                         .HasColumnType("integer")
-                        .HasColumnName("Cost");
+                        .HasColumnName("Cost")
+                        .HasColumnOrder(3);
 
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("Move")
                         .HasColumnType("integer")
-                        .HasColumnName("Move");
+                        .HasColumnName("Move")
+                        .HasColumnOrder(5);
 
-                    b.Property<int>("UnitType")
-                        .HasColumnType("integer")
-                        .HasColumnName("UnitType");
+                    b.Property<string>("UnitType")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("UnitType")
+                        .HasColumnOrder(2);
 
                     b.HasKey("UnitName");
 
                     b.ToTable("Units", "Unit");
                 });
 
-            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Users.User", b =>
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Users.TwilightImperiumUser", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
 
                     b.Property<int?>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DiscordId")
                         .IsRequired()
-                        .HasColumnType("integer")
-                        .HasColumnName("Age");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(30)")
-                        .HasColumnName("Email");
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("FavoriteFaction")
+                        .HasColumnType("int");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasColumnName("FirstName");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasColumnName("LastName");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Nickname")
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SteamId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(30)")
-                        .HasColumnName("Nickname");
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserInfo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
 
-                    SqlServerKeyBuilderExtensions.IsClustered(b.HasKey("Id"));
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
 
-                    b.ToTable("Users", "User");
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Website.Website", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("varchar(500)")
+                        .HasColumnName("Description")
+                        .HasColumnOrder(2);
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("Title")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("WebsitePath")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)")
+                        .HasColumnName("WebsitePath")
+                        .HasColumnOrder(3);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Websites", "Website");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Users.TwilightImperiumUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Users.TwilightImperiumUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Users.TwilightImperiumUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Users.TwilightImperiumUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Galaxy.Planet", b =>
@@ -792,7 +1266,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
 
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.News.NewsArticle", b =>
                 {
-                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Users.User", "User")
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Users.TwilightImperiumUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

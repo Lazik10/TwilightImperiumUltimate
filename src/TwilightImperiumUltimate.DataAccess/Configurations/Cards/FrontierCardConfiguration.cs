@@ -1,10 +1,6 @@
-﻿using TwilightImperiumUltimate.Core.Entities.Cards;
-using TwilightImperiumUltimate.Core.Enums.Cards;
-using TwilightImperiumUltimate.DataAccess.Tables.Cards;
-
 namespace TwilightImperiumUltimate.DataAccess.Configurations.Cards;
 
-public class FrontierCardConfiguration : IEntityTypeConfiguration<FrontierCard>
+internal sealed class FrontierCardConfiguration : IEntityTypeConfiguration<FrontierCard>
 {
     public void Configure(EntityTypeBuilder<FrontierCard> builder)
     {
@@ -12,39 +8,39 @@ public class FrontierCardConfiguration : IEntityTypeConfiguration<FrontierCard>
 
         builder.ToTable(TableName.FrontierCards, Schema.Card);
 
-        builder.HasKey(x => x.FrontierCardName);
+        builder.HasKey(x => x.Id);
 
-        builder.Property(e => e.FrontierCardName)
-            .IsRequired()
-            .HasColumnName(nameof(FrontierCard.FrontierCardName))
-            .HasConversion<int>()
-            .HasColumnType("integer");
+        builder.Property(x => x.Id)
+            .HasColumnOrder(0);
 
-        builder.Property(e => e.Name)
+        builder.Property(e => e.EnumName)
             .IsRequired()
-            .HasColumnName(nameof(FrontierCard.Name))
-            .HasColumnType("text");
+            .HasColumnName(nameof(FrontierCard.EnumName))
+            .HasConversion<string>()
+            .HasColumnType("varchar(50)")
+            .HasMaxLength(50)
+            .HasColumnOrder(1);
 
         builder.Property(e => e.Type)
             .IsRequired()
             .HasColumnName(nameof(FrontierCard.Type))
-            .HasConversion<int>()
-            .HasColumnType("integer");
+            .HasConversion<string>()
+            .HasColumnType("varchar(20)")
+            .HasMaxLength(20)
+            .HasColumnOrder(2);
 
         builder.Property(e => e.Text)
             .IsRequired()
             .HasColumnName(nameof(FrontierCard.Text))
-            .HasColumnType("text");
-
-        builder.Property(e => e.ImagePath)
-            .IsRequired()
-            .HasColumnName(nameof(ActionCard.ImagePath))
-            .HasColumnType("text");
+            .HasColumnType("text")
+            .HasColumnOrder(3);
 
         builder.Property(e => e.GameVersion)
             .IsRequired()
             .HasColumnName(nameof(FrontierCard.GameVersion))
-            .HasConversion<int>()
-            .HasColumnType("integer");
+            .HasConversion<string>()
+            .HasColumnType("varchar(20)")
+            .HasMaxLength(20)
+            .HasColumnOrder(4);
     }
 }

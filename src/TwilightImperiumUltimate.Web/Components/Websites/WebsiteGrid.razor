@@ -1,0 +1,10 @@
+﻿@inherits TwilightImperiumBaseComponenet
+
+<GridLayout Columns="3" Gap="20">
+    @foreach (var website in _websites)
+    {
+        <WebsiteCard Title="@website.Title"
+                     Description="@website.Description"
+                     WebsitePath="@website.WebsitePath" />
+    }
+</GridLayout>

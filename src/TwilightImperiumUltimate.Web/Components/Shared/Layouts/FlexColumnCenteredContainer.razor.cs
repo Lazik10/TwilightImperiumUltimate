@@ -1,8 +1,6 @@
-﻿using Microsoft.AspNetCore.Components;
-
 namespace TwilightImperiumUltimate.Web.Components.Shared.Layouts;
 
-public partial class FlexColumnCenteredContainer
+public partial class FlexColumnCenteredContainer : TwilightImperiumBaseComponenet
 {
     [Parameter]
     public RenderFragment? ChildContent { get; set; }

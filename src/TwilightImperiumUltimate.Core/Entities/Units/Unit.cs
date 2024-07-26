@@ -1,6 +1,5 @@
-﻿using TwilightImperiumUltimate.Core.Entities.Factions;
+using TwilightImperiumUltimate.Contracts.Enums;
 using TwilightImperiumUltimate.Core.Entities.RelationshipEntities;
-using TwilightImperiumUltimate.Core.Enums.Units;
 using TwilightImperiumUltimate.Core.Interfaces;
 
 namespace TwilightImperiumUltimate.Core.Entities.Units;

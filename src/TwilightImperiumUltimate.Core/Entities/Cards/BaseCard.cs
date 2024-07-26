@@ -1,20 +1,20 @@
-﻿using TwilightImperiumUltimate.Core.Enums.Cards;
-using TwilightImperiumUltimate.Core.Enums.Game;
+using TwilightImperiumUltimate.Contracts.Enums;
 using TwilightImperiumUltimate.Core.Interfaces;
 
 namespace TwilightImperiumUltimate.Core.Entities.Cards;
 
-public class BaseCard : IEntity, ICard, IGameVersion
+public abstract class BaseCard<TCardNameEnum> : IEntity, ICard<TCardNameEnum>, IGameVersion
+    where TCardNameEnum : Enum
 {
     public int Id { get; set; }
 
-    public string Name { get; set; } = string.Empty;
+    public abstract TCardNameEnum EnumName { get; set; }
+
+    public string Name => EnumName.ToString();
 
     public string Text { get; set; } = string.Empty;
 
-    public CardType Type { get; set; }
-
-    public string ImagePath { get; set; } = string.Empty;
+    public abstract CardType Type { get; set; }
 
     public GameVersion GameVersion { get; set; }
 }

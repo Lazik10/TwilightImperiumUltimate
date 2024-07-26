@@ -9,7 +9,7 @@ namespace TwilightImperiumUltimate.Web.Components.MapGenerator;
 public partial class MapHexTile
 {
     [Parameter]
-    public SystemTile SystemTile { get; set; } = null!;
+    public SystemTileModel SystemTile { get; set; } = null!;
 
     [Parameter]
     public string ImagePath { get; set; } = string.Empty;
@@ -32,20 +32,20 @@ public partial class MapHexTile
     [Inject]
     private IMapGeneratorService MapGeneratorService { get; set; } = null!;
 
-    private void StartDragSystemTile(SystemTile systemTile)
+    private void StartDragSystemTile(SystemTileModel systemTile)
     {
         MapGeneratorService.SetDraggingSystemTile(systemTile);
         MapGeneratorService.SetDraggingSystemTilePosition(MapPosition);
-        Log.Information("Drag started for system tile: {TileName}", systemTile.Name.ToString());
+        Log.Information("Drag started for system tile: {TileName}", systemTile.SystemTileName.ToString());
     }
 
-    private void DropSystemTile(SystemTile systemTile)
+    private void DropSystemTile(SystemTileModel systemTile)
     {
         if (systemTile != null)
         {
             var draggedSystemTile = MapGeneratorService.GetCurrentDraggingSystemTile();
-            Log.Information("Dragged system tile was: {TileName}", draggedSystemTile.Name.ToString());
-            Log.Information("Dropped on system tile: {TileName}", systemTile.Name.ToString());
+            Log.Information("Dragged system tile was: {TileName}", draggedSystemTile.SystemTileName.ToString());
+            Log.Information("Dropped on system tile: {TileName}", systemTile.SystemTileName.ToString());
             MapGeneratorService.SwapSystemTiles(systemTile, MapPosition);
             SwappedTwoSystemTiles.InvokeAsync();
             SwappedSystemTileFromMenu.InvokeAsync();
@@ -54,14 +54,14 @@ public partial class MapHexTile
         }
     }
 
-    private void DragOverSystemTile(SystemTile systemTile)
+    private void DragOverSystemTile(SystemTileModel systemTile)
     {
-        Log.Information("Draging over system tile: {TileName}", systemTile.Name.ToString());
+        Log.Information("Draging over system tile: {TileName}", systemTile.SystemTileName.ToString());
     }
 
-    private void EndDragSystemTile(SystemTile systemTile)
+    private void EndDragSystemTile(SystemTileModel systemTile)
     {
-        Log.Information("Drag ended for system tile: {TileName}", systemTile.Name.ToString());
+        Log.Information("Drag ended for system tile: {TileName}", systemTile.SystemTileName.ToString());
         SwappedSystemTileFromMenu.InvokeAsync();
     }
 }

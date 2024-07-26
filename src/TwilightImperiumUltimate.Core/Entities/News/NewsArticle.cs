@@ -1,4 +1,4 @@
-﻿using TwilightImperiumUltimate.Core.Entities.Users;
+using TwilightImperiumUltimate.Core.Entities.Users;
 using TwilightImperiumUltimate.Core.Interfaces;
 
 namespace TwilightImperiumUltimate.Core.Entities.News;
@@ -15,7 +15,7 @@ public class NewsArticle : IEntity
 
     public DateOnly UpdatedAt { get; set; } = DateOnly.FromDateTime(DateTime.Now);
 
-    public int? UserId { get; set; }
+    public string UserId { get; set; } = string.Empty;
 
-    public User? User { get; set; }
+    public TwilightImperiumUser? User { get; set; }
 }

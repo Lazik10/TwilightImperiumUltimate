@@ -1,4 +1,4 @@
-﻿namespace TwilightImperiumUltimate.Web.Enums;
+namespace TwilightImperiumUltimate.Web.Enums;
 
 public enum ComponentType
 {
@@ -20,4 +20,9 @@ public enum ComponentType
     AgentOne,
     AgentTwo,
     AgentThree,
+
+    // Keleres and Ghemina Raiders
+    HeroOne,
+    HeroTwo,
+    HeroThree,
 }

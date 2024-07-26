@@ -1,10 +1,11 @@
 ﻿<div class="page">
     <div class="page-padding">
-        @ChildContent
+        <StretchHeightContainer>
+            <FlexColumnCenteredContainer>
+                @ChildContent
+            </FlexColumnCenteredContainer>
+        </StretchHeightContainer>
     </div>
 </div>
 
-@code{
-    [Parameter]
-    public RenderFragment? ChildContent { get; set; }
-}
+

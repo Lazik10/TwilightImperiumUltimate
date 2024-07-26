@@ -1,10 +1,6 @@
-﻿using Microsoft.AspNetCore.Components;
-using TwilightImperiumUltimate.Web.Models.Factions;
-using TwilightImperiumUltimate.Web.Resources;
-
 namespace TwilightImperiumUltimate.Web.Components.Factions;
 
-public partial class FactionIconRow
+public partial class FactionIconRow : TwilightImperiumBaseComponenet
 {
     private List<FactionModel>? _factions = new List<FactionModel>();
 
@@ -20,6 +16,12 @@ public partial class FactionIconRow
     [Parameter]
     public bool BanAllFactions { get; set; } = false;
 
+    [Parameter]
+    public bool ShowDiscordantStars { get; set; } = false;
+
+    [Parameter]
+    public bool ShowBaseGame { get; set; } = true;
+
     public IReadOnlyCollection<FactionModel>? Factions => _factions;
 
     public void SetAllFactionsBanStatus(bool banStatus)
@@ -30,11 +32,19 @@ public partial class FactionIconRow
 
     protected override async Task OnInitializedAsync()
     {
-        _factions = await HttpClient.GetAsync<List<FactionModel>>(Paths.ApiPath_Factions);
-        await OnInitializeGetFactions.InvokeAsync(Factions);
+        await InitializeFactions();
 
-        if (BanAllFactions)
-            SetAllFactionsBanStatus(true);
+        if (Factions is not null && Factions.Count != 0)
+        {
+            if (!ShowBaseGame && ShowDiscordantStars)
+            {
+                await OnFactionClickGetFaction.InvokeAsync(Factions.Single(x => x.FactionName == FactionName.TheAugursOfIlyxum));
+            }
+            else
+            {
+                await OnFactionClickGetFaction.InvokeAsync(Factions.Single(x => x.FactionName == FactionName.TheArborec));
+            }
+        }
     }
 
     private void FactionClicked(FactionModel selectedFaction)
@@ -43,5 +53,29 @@ public partial class FactionIconRow
             selectedFaction.Banned = !selectedFaction.Banned;
 
         OnFactionClickGetFaction.InvokeAsync(selectedFaction);
+    }
+
+    private async Task InitializeFactions()
+    {
+        var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<FactionDto>>>(Paths.ApiPath_Factions);
+        if (statusCode == HttpStatusCode.OK)
+        {
+            _factions = Mapper.Map<List<FactionModel>>(response!.Data!.Items);
+
+            await OnInitializeGetFactions.InvokeAsync(Factions);
+
+            if (BanAllFactions)
+                SetAllFactionsBanStatus(true);
+        }
+    }
+
+    private List<FactionModel> GetBaseGameFactions()
+    {
+        return _factions?.Where(x => x.GameVersion != GameVersion.DiscordantStars).ToList() ?? new List<FactionModel>();
+    }
+
+    private List<FactionModel> GetDiscordantStarsFactions()
+    {
+        return _factions?.Where(x => x.GameVersion == GameVersion.DiscordantStars).ToList() ?? new List<FactionModel>();
     }
 }

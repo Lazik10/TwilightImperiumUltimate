@@ -12,7 +12,7 @@ public partial class HexTileMenu
 
     private IReadOnlyCollection<KeyValuePair<SystemTileTypeFilter, string>> _systemTileTypes = default!;
 
-    public IEnumerable<SystemTile> SystemTiles { get; set; } = new List<SystemTile>();
+    public IEnumerable<SystemTileModel> SystemTiles { get; set; } = new List<SystemTileModel>();
 
     [Parameter]
     public EventCallback SwappedSystemTileFromMenu { get; set; }

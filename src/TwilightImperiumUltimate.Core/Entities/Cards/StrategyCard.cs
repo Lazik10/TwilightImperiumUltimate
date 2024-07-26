@@ -1,12 +1,12 @@
-﻿using TwilightImperiumUltimate.Core.Enums.Cards;
+using TwilightImperiumUltimate.Contracts.Enums;
 
 namespace TwilightImperiumUltimate.Core.Entities.Cards;
 
-public class StrategyCard : BaseCard
+public class StrategyCard : BaseCard<StrategyCardName>
 {
-    public static CardType CardType => CardType.Strategy;
+    public override CardType Type { get; set; } = CardType.Strategy;
 
-    public StrategyCardName StrategyCardName { get; set; }
+    public override StrategyCardName EnumName { get; set; }
 
     public InitiativeOrder InitiativeOrder { get; set; }
 
