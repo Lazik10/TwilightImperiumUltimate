@@ -16,7 +16,7 @@ public interface IPathProvider
 
     string GetCardGeneratorImageBackground(string fileName);
 
-    string GetLargeTileImagePath(string fileName);
+    string GetLargeTileImagePath(SystemTileName systemTileName);
 
     string GetTechnologyImagePath(TechnologyName technologyName);
 
@@ -37,4 +37,6 @@ public interface IPathProvider
     string GetCardImagePath(string fileName, string cardType);
 
     string GetWebsitePreviewImagePath(string fileName);
+
+    string GetGameVersionIconPath(GameVersion gameVersion);
 }

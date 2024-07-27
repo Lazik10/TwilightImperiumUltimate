@@ -411,6 +411,9 @@
   <data name="GameVersion_ProphecyOfKings" xml:space="preserve">
     <value>Prophecy of Kings</value>
   </data>
+  <data name="GameVersion_SelectVersion" xml:space="preserve">
+    <value>Game Versions:</value>
+  </data>
   <data name="GameVersion_UnchartedSpace" xml:space="preserve">
     <value>Uncharted Space</value>
   </data>
@@ -501,37 +504,37 @@
   <data name="MapTemplate_CustomMap" xml:space="preserve">
     <value>Custom</value>
   </data>
-  <data name="MapTemplate_LargeMapEightPlayers" xml:space="preserve">
+  <data name="MapTemplate_EightPlayersLargeMap" xml:space="preserve">
     <value>8P Large Map</value>
   </data>
-  <data name="MapTemplate_LargeMapSixPlayers" xml:space="preserve">
-    <value>6P Large Map</value>
-  </data>
-  <data name="MapTemplate_MantaRayMapThreePlayers" xml:space="preserve">
-    <value>3P Manta Ray</value>
-  </data>
-  <data name="MapTemplate_MediumMapFourPlayers" xml:space="preserve">
+  <data name="MapTemplate_FourPlayersMediumMap" xml:space="preserve">
     <value>4P Medium Map</value>
   </data>
-  <data name="MapTemplate_MediumMapSixPlayers" xml:space="preserve">
+  <data name="MapTemplate_SixPlayersLargeMap" xml:space="preserve">
+    <value>6P Large Map</value>
+  </data>
+  <data name="MapTemplate_SixPlayersMediumMap" xml:space="preserve">
     <value>6P Medium Map</value>
   </data>
-  <data name="MapTemplate_SmallMapAlternateThreePlayers" xml:space="preserve">
+  <data name="MapTemplate_ThreePlayersMantaRayMap" xml:space="preserve">
+    <value>3P Manta Ray</value>
+  </data>
+  <data name="MapTemplate_ThreePlayersSmallAlternateMap" xml:space="preserve">
     <value>3P Small Map Alternate</value>
   </data>
-  <data name="MapTemplate_SmallMapThreePlayers" xml:space="preserve">
+  <data name="MapTemplate_ThreePlayersSmallMap" xml:space="preserve">
     <value>3P Small Map</value>
   </data>
-  <data name="MapTemplate_SnowflakeMapThreePlayers" xml:space="preserve">
+  <data name="MapTemplate_ThreePlayersSnowflakeMap" xml:space="preserve">
     <value>3P Snowflake</value>
   </data>
-  <data name="MapTemplate_TriangleMapThreePlayers" xml:space="preserve">
+  <data name="MapTemplate_ThreePlayersTriangleMap" xml:space="preserve">
     <value>3P Triangle</value>
   </data>
-  <data name="MapTemplate_TriangleNarrowMapThreePlayers" xml:space="preserve">
+  <data name="MapTemplate_ThreePlayersTriangleNarrowMap" xml:space="preserve">
     <value>3P Triangle Narrow</value>
   </data>
-  <data name="MapTemplate_TridentMapThreePlayers" xml:space="preserve">
+  <data name="MapTemplate_ThreePlayersTridentMap" xml:space="preserve">
     <value>3P Trident</value>
   </data>
   <data name="Medium" xml:space="preserve">

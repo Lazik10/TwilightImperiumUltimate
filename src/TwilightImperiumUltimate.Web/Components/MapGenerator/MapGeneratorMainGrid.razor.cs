@@ -13,7 +13,6 @@ public partial class MapGeneratorMainGrid
     private bool _showTilesMenu;
     private bool _lastShowTilesMenuState;
 
-    [Parameter]
     public IReadOnlyDictionary<int, SystemTileModel> GeneratedPositionsWithSystemTiles { get; set; } = default!;
 
     [Inject]
@@ -28,6 +27,11 @@ public partial class MapGeneratorMainGrid
         builder.AddAttribute(1, "GeneratedPositionsWithSystemTiles", GeneratedPositionsWithSystemTiles);
         builder.CloseComponent();
     };
+
+    protected override async Task OnInitializedAsync()
+    {
+        GeneratedPositionsWithSystemTiles = await MapGeneratorService.GenerateMapAsync(true, default);
+    }
 
     private Type AssignMapType()
     {
@@ -63,14 +67,14 @@ public partial class MapGeneratorMainGrid
         _showTilesMenu = !_showTilesMenu;
     }
 
-    private async Task UpdateMapTemplate()
+    private async Task UpdateMapTemplate(MapTemplate mapTemplate)
     {
         await MapGeneratorService.GenerateMapAsync(true, CancellationToken.None);
         GeneratedPositionsWithSystemTiles = MapGeneratorService.GeneratedPositionsWithSystemTiles;
         StateHasChanged();
     }
 
-    private void UpdateMapOverlay()
+    private async Task UpdateMapOverlay()
     {
         StateHasChanged();
     }

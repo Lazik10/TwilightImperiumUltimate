@@ -1,4 +1,4 @@
-﻿namespace TwilightImperiumUltimate.Web.Options.Drafts;
+namespace TwilightImperiumUltimate.Web.Options.Drafts;
 
 public static class FactionDraftOptions
 {
@@ -8,7 +8,7 @@ public static class FactionDraftOptions
 
     public const int MaxNumberOfPlayers = 8;
 
-    public const int MumberOfFactions = 25;
+    public const int MumberOfFactions = 59;
 
     public const int MinNumberOfDraftFactions = 1;
 

@@ -1,7 +1,6 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @using TwilightImperiumUltimate.Web.Services.Path;
 @inherits BaseMap
-@inject IPathProvider PathProvider
 
 <VerticalSpace Height="50" />
 
@@ -15,11 +14,7 @@
             CurrentSystemTile = GeneratedPositionsWithSystemTiles[mapPosition];
 
             <div class="hex">
-
-                <MapHexTile SystemTile="@(CurrentSystemTile)"
-                            SystemTileOverlay="@(MapGeneratorSettingsService.SystemTileOverlay)"
-                            MapTileId="@(CurrentSystemTile.SystemTileName.ToString().Substring(4))"
-                            ImagePath="@(PathProvider.GetLargeTileImagePath(CurrentSystemTile.SystemTileName.ToString()))"
+                <MapHexTile SystemTile="CurrentSystemTile"
                             MapPosition="mapPosition"
                             SwappedTwoSystemTiles="RefreshAfterSwap" />
             </div>

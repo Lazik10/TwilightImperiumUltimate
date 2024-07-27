@@ -8,7 +8,7 @@ public abstract class BaseMap : ComponentBase
     [Parameter]
     public IReadOnlyDictionary<int, SystemTileModel> GeneratedPositionsWithSystemTiles { get; set; } = default!;
 
-    protected virtual IEnumerable<int> MapPositions { get; set; } = Enumerable.Range(0, MapGeneratorOptions.MaxTilePositions);
+    protected abstract IEnumerable<int> MapPositions { get; set; }
 
     protected SystemTileName SystemTileName { get; set; } = MapGeneratorOptions.DefaultTileName;
 

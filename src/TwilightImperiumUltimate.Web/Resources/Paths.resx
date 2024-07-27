@@ -139,13 +139,13 @@
     <value>api/cards/</value>
   </data>
   <data name="ApiPath_ColorDraft" xml:space="preserve">
-    <value>api/drafts/colors</value>
+    <value>api/drafts/color</value>
   </data>
   <data name="ApiPath_ExplorationCards" xml:space="preserve">
     <value>api/cards/exploration</value>
   </data>
   <data name="ApiPath_FactionDraft" xml:space="preserve">
-    <value>api/drafts/factions</value>
+    <value>api/drafts/faction</value>
   </data>
   <data name="ApiPath_Factions" xml:space="preserve">
     <value>api/factions</value>
@@ -263,6 +263,9 @@
   </data>
   <data name="ResourcePath_FrontierCard" xml:space="preserve">
     <value>frontier</value>
+  </data>
+  <data name="ResourcePath_GameVersionIconPath" xml:space="preserve">
+    <value>\resources\images\shared\icons</value>
   </data>
   <data name="ResourcePath_IconPath" xml:space="preserve">
     <value>\resources\images\shared\icons</value>

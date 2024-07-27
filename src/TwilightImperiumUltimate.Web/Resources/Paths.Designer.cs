@@ -124,7 +124,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to api/drafts/colors.
+        ///   Looks up a localized string similar to api/drafts/color.
         /// </summary>
         public static string ApiPath_ColorDraft {
             get {
@@ -142,7 +142,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to api/drafts/factions.
+        ///   Looks up a localized string similar to api/drafts/faction.
         /// </summary>
         public static string ApiPath_FactionDraft {
             get {
@@ -498,6 +498,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string ResourcePath_FrontierCard {
             get {
                 return ResourceManager.GetString("ResourcePath_FrontierCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to \resources\images\shared\icons.
+        /// </summary>
+        public static string ResourcePath_GameVersionIconPath {
+            get {
+                return ResourceManager.GetString("ResourcePath_GameVersionIconPath", resourceCulture);
             }
         }
         

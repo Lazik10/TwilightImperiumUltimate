@@ -34,7 +34,7 @@ public class MapGeneratorService(
 
         var (response, statusCode) = await _httpClient.PostAsync<MapDraftRequest, ApiResponse<GeneratedMapLayoutDto>> (Paths.ApiPath_GenerateMap, request, ct);
 
-        if (statusCode != HttpStatusCode.OK)
+        if (statusCode == HttpStatusCode.OK)
             _systemTiles = _mapper.Map<Dictionary<int, SystemTileModel>>(response!.Data!.MapLayout);
 
         return _mapper.Map<Dictionary<int, SystemTileModel>>(response!.Data!.MapLayout);

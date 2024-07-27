@@ -1,0 +1,10 @@
+﻿@inherits TwilightImperiumBaseComponenet
+
+<div class="version-row" style="width: @(Width)%;">
+    <Label CenterText="true" Text="@Strings.GameVersion_SelectVersion" FontSize="18" CssClass="margin-bottom" Width="20"/>
+
+    @foreach (var version in _versions)
+    {
+        <GameVersionIcon Version="version" OnClick="OnGameVersionClick"/>
+    }
+</div>

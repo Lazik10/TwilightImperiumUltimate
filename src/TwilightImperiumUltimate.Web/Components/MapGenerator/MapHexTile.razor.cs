@@ -1,24 +1,14 @@
-﻿using Microsoft.AspNetCore.Components;
 using Serilog;
-using TwilightImperiumUltimate.Web.Enums;
-using TwilightImperiumUltimate.Web.Models.Galaxy;
+using System.Globalization;
+using TwilightImperiumUltimate.Web.Services.Language;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
 
 namespace TwilightImperiumUltimate.Web.Components.MapGenerator;
 
-public partial class MapHexTile
+public partial class MapHexTile : TwilightImperiumBaseComponenet
 {
     [Parameter]
     public SystemTileModel SystemTile { get; set; } = null!;
-
-    [Parameter]
-    public string ImagePath { get; set; } = string.Empty;
-
-    [Parameter]
-    public string MapTileId { get; set; } = string.Empty;
-
-    [Parameter]
-    public SystemTileOverlay SystemTileOverlay { get; set; } = SystemTileOverlay.None;
 
     [Parameter]
     public int MapPosition { get; set; }
@@ -29,8 +19,34 @@ public partial class MapHexTile
     [Parameter]
     public EventCallback SwappedSystemTileFromMenu { get; set; }
 
+    private string MapTileId => SystemTile.SystemTileCode;
+
+    private string ImagePath => PathProvider.GetLargeTileImagePath(SystemTile.SystemTileName);
+
+    private SystemTileOverlay Overlay => MapGeneratorSettingsService.SystemTileOverlay;
+
+    private string SystemTileOverlayColor => MapGeneratorSettingsService.SystemTileOverlay switch
+    {
+
+        SystemTileOverlay.Id => "white",
+        SystemTileOverlay.Resources => "yellow",
+        SystemTileOverlay.Influence => "blue",
+        _ => string.Empty,
+    };
+
+    private string SystemTileOverlayText => MapGeneratorSettingsService.SystemTileOverlay switch
+    {
+        SystemTileOverlay.Id => SystemTile.SystemTileCode,
+        SystemTileOverlay.Resources => SystemTile.Resources.ToString(CultureInfo.InvariantCulture),
+        SystemTileOverlay.Influence => SystemTile.Influence.ToString(CultureInfo.InvariantCulture),
+        _ => string.Empty,
+    };
+
     [Inject]
     private IMapGeneratorService MapGeneratorService { get; set; } = null!;
+
+    [Inject]
+    private IMapGeneratorSettingsService MapGeneratorSettingsService { get; set; } = null!;
 
     private void StartDragSystemTile(SystemTileModel systemTile)
     {

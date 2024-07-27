@@ -51,9 +51,9 @@ public class PathProvider : IPathProvider
         return $"{GetCorrectLanguagePath(Paths.ResourcePath_CardGeneratorPath)}{Strings.ForwardSlash}{fileName}{Strings.FileExtensionWebp}";
     }
 
-    public string GetLargeTileImagePath(string fileName)
+    public string GetLargeTileImagePath(SystemTileName systemTileName)
     {
-        return $"{Paths.ResourcePath_LargeTilePath}{Strings.BackSlash}{fileName}{Strings.FileExtensionWebp}";
+        return $"{Paths.ResourcePath_LargeTilePath}{Strings.BackSlash}{systemTileName}{Strings.FileExtensionWebp}";
     }
 
     public string GetTechnologyImagePath(TechnologyName technologyName)
@@ -104,6 +104,11 @@ public class PathProvider : IPathProvider
             throw new ArgumentException("Enum name is a required parameter.");
 
         return $"{_basePath}\\{_language}\\cards\\{cardType.ToLowerInvariant()}\\{fileName}.webp";
+    }
+
+    public string GetGameVersionIconPath(GameVersion gameVersion)
+    {
+        return $"{Paths.ResourcePath_GameVersionIconPath}{Strings.BackSlash}{gameVersion}{Strings.FileExtensionWebp}";
     }
 
     public string GetWebsitePreviewImagePath(string fileName)

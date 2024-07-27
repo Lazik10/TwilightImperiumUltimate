@@ -20,6 +20,7 @@ global using TwilightImperiumUltimate.Web.Helpers.Resources;
 global using TwilightImperiumUltimate.Web.Helpers.Text;
 global using TwilightImperiumUltimate.Web.Models.Cards;
 global using TwilightImperiumUltimate.Web.Models.Discord;
+global using TwilightImperiumUltimate.Web.Models.Drafts;
 global using TwilightImperiumUltimate.Web.Models.Factions;
 global using TwilightImperiumUltimate.Web.Models.Galaxy;
 global using TwilightImperiumUltimate.Web.Models.MapGenerators;

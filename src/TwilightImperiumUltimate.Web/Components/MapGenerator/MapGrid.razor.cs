@@ -1,6 +1,3 @@
-﻿using Microsoft.AspNetCore.Components;
-using TwilightImperiumUltimate.Web.Models.Galaxy;
-
 namespace TwilightImperiumUltimate.Web.Components.MapGenerator;
 
 public partial class MapGrid

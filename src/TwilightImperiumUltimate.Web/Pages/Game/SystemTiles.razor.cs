@@ -22,7 +22,7 @@ public partial class SystemTiles
 
     private string GetSystemTileImagePath(SystemTileModel systemTile)
     {
-        return PathProvider.GetLargeTileImagePath(systemTile.SystemTileName.ToString());
+        return PathProvider.GetLargeTileImagePath(systemTile.SystemTileName);
     }
 
     private async Task InitializeSystemTiles()

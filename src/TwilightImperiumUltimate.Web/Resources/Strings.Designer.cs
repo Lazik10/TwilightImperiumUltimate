@@ -943,6 +943,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Game Versions:.
+        /// </summary>
+        public static string GameVersion_SelectVersion {
+            get {
+                return ResourceManager.GetString("GameVersion_SelectVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Uncharted Space.
         /// </summary>
         public static string GameVersion_UnchartedSpace {
@@ -1215,99 +1224,99 @@ namespace TwilightImperiumUltimate.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to 8P Large Map.
         /// </summary>
-        public static string MapTemplate_LargeMapEightPlayers {
+        public static string MapTemplate_EightPlayersLargeMap {
             get {
-                return ResourceManager.GetString("MapTemplate_LargeMapEightPlayers", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 6P Large Map.
-        /// </summary>
-        public static string MapTemplate_LargeMapSixPlayers {
-            get {
-                return ResourceManager.GetString("MapTemplate_LargeMapSixPlayers", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 3P Manta Ray.
-        /// </summary>
-        public static string MapTemplate_MantaRayMapThreePlayers {
-            get {
-                return ResourceManager.GetString("MapTemplate_MantaRayMapThreePlayers", resourceCulture);
+                return ResourceManager.GetString("MapTemplate_EightPlayersLargeMap", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 4P Medium Map.
         /// </summary>
-        public static string MapTemplate_MediumMapFourPlayers {
+        public static string MapTemplate_FourPlayersMediumMap {
             get {
-                return ResourceManager.GetString("MapTemplate_MediumMapFourPlayers", resourceCulture);
+                return ResourceManager.GetString("MapTemplate_FourPlayersMediumMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 6P Large Map.
+        /// </summary>
+        public static string MapTemplate_SixPlayersLargeMap {
+            get {
+                return ResourceManager.GetString("MapTemplate_SixPlayersLargeMap", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 6P Medium Map.
         /// </summary>
-        public static string MapTemplate_MediumMapSixPlayers {
+        public static string MapTemplate_SixPlayersMediumMap {
             get {
-                return ResourceManager.GetString("MapTemplate_MediumMapSixPlayers", resourceCulture);
+                return ResourceManager.GetString("MapTemplate_SixPlayersMediumMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3P Manta Ray.
+        /// </summary>
+        public static string MapTemplate_ThreePlayersMantaRayMap {
+            get {
+                return ResourceManager.GetString("MapTemplate_ThreePlayersMantaRayMap", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 3P Small Map Alternate.
         /// </summary>
-        public static string MapTemplate_SmallMapAlternateThreePlayers {
+        public static string MapTemplate_ThreePlayersSmallAlternateMap {
             get {
-                return ResourceManager.GetString("MapTemplate_SmallMapAlternateThreePlayers", resourceCulture);
+                return ResourceManager.GetString("MapTemplate_ThreePlayersSmallAlternateMap", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 3P Small Map.
         /// </summary>
-        public static string MapTemplate_SmallMapThreePlayers {
+        public static string MapTemplate_ThreePlayersSmallMap {
             get {
-                return ResourceManager.GetString("MapTemplate_SmallMapThreePlayers", resourceCulture);
+                return ResourceManager.GetString("MapTemplate_ThreePlayersSmallMap", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 3P Snowflake.
         /// </summary>
-        public static string MapTemplate_SnowflakeMapThreePlayers {
+        public static string MapTemplate_ThreePlayersSnowflakeMap {
             get {
-                return ResourceManager.GetString("MapTemplate_SnowflakeMapThreePlayers", resourceCulture);
+                return ResourceManager.GetString("MapTemplate_ThreePlayersSnowflakeMap", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 3P Triangle.
         /// </summary>
-        public static string MapTemplate_TriangleMapThreePlayers {
+        public static string MapTemplate_ThreePlayersTriangleMap {
             get {
-                return ResourceManager.GetString("MapTemplate_TriangleMapThreePlayers", resourceCulture);
+                return ResourceManager.GetString("MapTemplate_ThreePlayersTriangleMap", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 3P Triangle Narrow.
         /// </summary>
-        public static string MapTemplate_TriangleNarrowMapThreePlayers {
+        public static string MapTemplate_ThreePlayersTriangleNarrowMap {
             get {
-                return ResourceManager.GetString("MapTemplate_TriangleNarrowMapThreePlayers", resourceCulture);
+                return ResourceManager.GetString("MapTemplate_ThreePlayersTriangleNarrowMap", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 3P Trident.
         /// </summary>
-        public static string MapTemplate_TridentMapThreePlayers {
+        public static string MapTemplate_ThreePlayersTridentMap {
             get {
-                return ResourceManager.GetString("MapTemplate_TridentMapThreePlayers", resourceCulture);
+                return ResourceManager.GetString("MapTemplate_ThreePlayersTridentMap", resourceCulture);
             }
         }
         

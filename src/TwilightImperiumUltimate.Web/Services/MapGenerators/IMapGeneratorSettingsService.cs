@@ -1,6 +1,3 @@
-using TwilightImperiumUltimate.Contracts.Enums;
-using TwilightImperiumUltimate.Web.Enums;
-
 namespace TwilightImperiumUltimate.Web.Services.MapGenerators;
 
 public interface IMapGeneratorSettingsService

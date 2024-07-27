@@ -1,6 +1,5 @@
 using Blazored.LocalStorage;
 using Serilog;
-using System.Net;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text.Json;
@@ -84,24 +83,24 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
         }
     }
 
-    public async Task<bool> GetAsync(string query, string endpointPath, CancellationToken ct)
+    public async Task<bool> GetAsync(string query, string endpointPath, CancellationToken cancellationToken)
     {
         Uri uri = new(string.Concat(_httpClient.BaseAddress, endpointPath, query));
-        HttpResponseMessage response = await _httpClient.GetAsync(uri, ct);
+        HttpResponseMessage response = await _httpClient.GetAsync(uri, cancellationToken);
 
         return response.IsSuccessStatusCode;
     }
 
-    public async Task<(TResponse Response, HttpStatusCode StatusCode)> PostAsync<TRequest, TResponse>(string endpointPath, TRequest request, CancellationToken ct)
+    public async Task<(TResponse Response, HttpStatusCode StatusCode)> PostAsync<TRequest, TResponse>(string endpointPath, TRequest request, CancellationToken cancellationToken = default)
     where TRequest : class, new()
     where TResponse : class, new()
     {
         try
         {
             Uri uri = new(string.Concat(_httpClient.BaseAddress, endpointPath));
-            await SetAuthorizationHeaderAsync(ct);
+            await SetAuthorizationHeaderAsync(cancellationToken);
 
-            HttpResponseMessage response = await _httpClient.PostAsJsonAsync(uri, request, ct);
+            HttpResponseMessage response = await _httpClient.PostAsJsonAsync(uri, request, cancellationToken);
 
             if (response.IsSuccessStatusCode)
             {
@@ -110,12 +109,12 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
                     return (new TResponse(), response.StatusCode);
                 }
 
-                TResponse? result = await response.Content.ReadFromJsonAsync<TResponse>(_options, ct);
+                TResponse? result = await response.Content.ReadFromJsonAsync<TResponse>(_options, cancellationToken);
                 return (result ?? new TResponse(), response.StatusCode);
             }
             else
             {
-                var errorResponse = await response.Content.ReadAsStringAsync(ct);
+                var errorResponse = await response.Content.ReadAsStringAsync(cancellationToken);
                 Log.Error("Error while posting data to endpoint: {EndpointPath}. Status Code: {StatusCode}. Error: {Error}", endpointPath, response.StatusCode, errorResponse);
 
                 switch (response.StatusCode)
@@ -144,20 +143,20 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
         }
     }
 
-    public async Task<(TResponse Response, HttpStatusCode StatusCode)> PutAsync<TRequest, TResponse>(string endpointPath, TRequest request, CancellationToken ct)
+    public async Task<(TResponse Response, HttpStatusCode StatusCode)> PutAsync<TRequest, TResponse>(string endpointPath, TRequest request, CancellationToken cancellationToken)
         where TRequest : class, new()
         where TResponse : class, new()
     {
         try
         {
             Uri uri = new(string.Concat(_httpClient.BaseAddress, endpointPath));
-            await SetAuthorizationHeaderAsync(ct);
+            await SetAuthorizationHeaderAsync(cancellationToken);
 
-            HttpResponseMessage response = await _httpClient.PutAsJsonAsync(uri, request, ct);
+            HttpResponseMessage response = await _httpClient.PutAsJsonAsync(uri, request, cancellationToken);
 
             if (response.IsSuccessStatusCode)
             {
-                TResponse? result = await response.Content.ReadFromJsonAsync<TResponse>(_options, ct);
+                TResponse? result = await response.Content.ReadFromJsonAsync<TResponse>(_options, cancellationToken);
                 return (result ?? new TResponse(), response.StatusCode);
             }
             else
@@ -192,11 +191,11 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
         }
     }
 
-    public async Task SetAuthorizationHeaderAsync(CancellationToken ct, string? token = null)
+    public async Task SetAuthorizationHeaderAsync(CancellationToken cancellationToken, string? token = null)
     {
         if (token is null)
         {
-            var accessToken = await GetAccessTokenAsync(ct);
+            var accessToken = await GetAccessTokenAsync(cancellationToken);
             if (!string.IsNullOrEmpty(accessToken))
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
             else
@@ -208,9 +207,9 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
         }
     }
 
-    private async Task<string> GetAccessTokenAsync(CancellationToken ct)
+    private async Task<string> GetAccessTokenAsync(CancellationToken cancellationToken)
     {
-        var loginResponse = await _localStorageService.GetItemAsync<LoginResponse>("authentication", ct);
+        var loginResponse = await _localStorageService.GetItemAsync<LoginResponse>("authentication", cancellationToken);
 
         if (loginResponse is not null && loginResponse.AccessToken is not null)
         {

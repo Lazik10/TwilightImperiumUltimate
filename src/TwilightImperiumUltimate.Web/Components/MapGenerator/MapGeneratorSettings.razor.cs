@@ -1,6 +1,3 @@
-using Microsoft.AspNetCore.Components;
-using TwilightImperiumUltimate.Contracts.Enums;
-using TwilightImperiumUltimate.Web.Enums;
 using TwilightImperiumUltimate.Web.Helpers.Enums;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
 

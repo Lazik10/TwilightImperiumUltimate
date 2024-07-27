@@ -13,7 +13,7 @@
         <FlexRowContainer>
             @if (_systemTiles.Count > 0)
             {
-                <img src="@(PathProvider.GetLargeTileImagePath(_systemTile.SystemTileName.ToString()))" style="width: 50%;"/>
+                <img src="@(PathProvider.GetLargeTileImagePath(_systemTile.SystemTileName))" style="width: 50%;"/>
             }
         </FlexRowContainer>
 
@@ -69,7 +69,7 @@
                 {
                     var _tile = Faction.FactionName == FactionName.TheGhostsOfCreuss ? SystemTileName.Tile51 : SystemTileName.Tile81;
                     var _specialSystemTile = _systemTiles.Single(x => x.SystemTileName == _tile);
-                    <img src="@(PathProvider.GetLargeTileImagePath(_specialSystemTile.SystemTileName.ToString()))" style="width: 50%;" />
+                    <img src="@(PathProvider.GetLargeTileImagePath(_specialSystemTile.SystemTileName))" style="width: 50%;" />
                 }
             </FlexRowContainer>
         }

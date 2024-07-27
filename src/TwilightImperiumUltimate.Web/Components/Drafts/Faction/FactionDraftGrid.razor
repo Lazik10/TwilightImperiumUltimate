@@ -1,4 +1,5 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Shared.Controls
+@using TwilightImperiumUltimate.Web.Components.Shared.GameVersions
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @using TwilightImperiumUltimate.Web.Resources;
 @using TwilightImperiumUltimate.Web.Components.Factions;
@@ -7,7 +8,10 @@
 <FactionIconRow EnableBanMode="true"
                 OnFactionClickGetFaction="UpdateBanFactions"
                 OnInitializeGetFactions="InitializeBanFactions"
+                ShowDiscordantStars="true"
                 @ref="_factionIconRow" />
+
+<GameVersionPicker OnVersionSelected="HandleGameVersionClick" />
 
 <FlexColumnCenteredContainer>
     <HelpText Text="@Strings.FactionDraft_BanHelp" CssClass="margin-top-10 handel" />

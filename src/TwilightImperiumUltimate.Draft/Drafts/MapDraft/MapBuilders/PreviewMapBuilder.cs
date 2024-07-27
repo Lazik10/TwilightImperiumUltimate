@@ -13,6 +13,10 @@ internal class PreviewMapBuilder : IPreviewMapBuilder
 
         mapSettings.HomePositions.ToList().ForEach(x => mapLayout[x] = systemTilesForMapSetup.EmptyHomeSystemPlaceholder);
 
+        // If Mecatol Rex is in the map, set it to the Mecatol Rex position - this is because CustomMap has no Mecatol Rex
+        if (mapSettings.MecatolRexPosition != -1)
+            mapLayout[mapSettings.MecatolRexPosition] = systemTilesForMapSetup.MecatolRex;
+
         return Task.FromResult<IReadOnlyDictionary<int, SystemTile>>(new ReadOnlyDictionary<int, SystemTile>(mapLayout));
     }
 }
