@@ -10,11 +10,19 @@ public interface IMapGeneratorSettingsService
 
     public SystemWeight SystemWeight { get; set; }
 
-    public GameVersion GameVersion { get; set; }
+    public List<GameVersion> GameVersions { get; set; }
 
     public SystemTileOverlay SystemTileOverlay { get; set; }
+
+    public WormholeDensity WormholeDensity { get; set; }
+
+    public int NumberOfLegendaryPlanets { get; set; }
 
     public void IncreaseMapScale();
 
     public void DecreaseMapScale();
+
+    public void UpdateGameVersion(GameVersion gameVersion);
+
+    public void UpdateWormholeDensity(WormholeDensity wormholeDensity);
 }

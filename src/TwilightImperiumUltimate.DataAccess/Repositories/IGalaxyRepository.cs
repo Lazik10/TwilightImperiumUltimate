@@ -20,7 +20,9 @@ public interface IGalaxyRepository
 
     Task<IReadOnlyList<SystemTile>> GetSystemTilesWithWormholes(CancellationToken cancellationToken);
 
-    Task<IReadOnlyList<SystemTile>> GetSystemTilesForBuildingGalaxy(CancellationToken cancellationToken);
+    Task<IReadOnlyList<SystemTile>> GetBlueSystemTiles(CancellationToken cancellationToken);
+
+    Task<IReadOnlyList<SystemTile>> GetRedSystemTiles(CancellationToken cancellationToken);
 
     Task<IReadOnlyList<Planet>> GetAllPlanets(CancellationToken cancellationToken);
 }

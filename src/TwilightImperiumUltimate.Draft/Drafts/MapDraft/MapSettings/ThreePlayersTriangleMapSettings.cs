@@ -1,14 +1,29 @@
 namespace TwilightImperiumUltimate.Draft.Drafts.MapDraft.MapSettings;
 
-internal class ThreePlayersTriangleMapSettings : MapSettingsBase
+internal class ThreePlayersTriangleMapSettings : IMapSettings
 {
-    public override int NumberOfPlayers => 3;
+    public MapTemplate MapTemplate => MapTemplate.ThreePlayersTriangleMap;
 
-    public override int MaxMapPositions => 42;
+    public int DimensionX => 14;
 
-    public override int MecatolRexPosition => 24;
+    public int DimensionY => 7;
 
-    public override HashSet<int> HomePositions => [3, 28, 34];
+    public int NumberOfPlayers => 6;
 
-    public override HashSet<int> EmptyPositions => [0, 1, 5, 6, 7, 8, 12, 13, 14, 20, 35, 37, 39, 41];
+    public (int, int) MecatolRexPosition => (8, 4);
+
+    public HashSet<(int, int)> HomePositions => new HashSet<(int, int)>
+    {
+        (0, 4), (4, 0), (4, 8), (12, 0), (12, 8), (16, 4),
+    };
+
+    public HashSet<(int, int)> EmptyPositions => new HashSet<(int, int)>
+    {
+        (0, 0), (0, 2), (0, 6), (0, 8), (1, 1), (1, 7), (2, 0), (2, 8),
+        (14, 0), (14, 8), (15, 1), (15, 7), (16, 0), (16, 2), (16, 6), (16, 8),
+    };
+
+    public Dictionary<int, List<(int, int)>> Slices => new Dictionary<int, List<(int, int)>>();
+
+    public Dictionary<int, List<(int X, int Y)>> AdjacentHomePositions => throw new NotImplementedException();
 }

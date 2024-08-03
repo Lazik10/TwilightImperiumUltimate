@@ -8,7 +8,6 @@ using TwilightImperiumUltimate.Web.Services.Authentication;
 using TwilightImperiumUltimate.Web.Services.Draft;
 using TwilightImperiumUltimate.Web.Services.Language;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
-using TwilightImperiumUltimate.Web.Services.Path;
 using TwilightImperiumUltimate.Web.Services.User;
 
 namespace TwilightImperiumUltimate.Web.Services;

@@ -1,0 +1,9 @@
+﻿<FlexRowContainer Width="@Width"
+                  JustifyContent="Enums.JustifyContent.SpaceEvenly"
+                  CssClass="title handel white shadow">
+
+    <Label Text="@Title" FontSize="@FontSize"/>
+    <ArrowButton ArrowSymbol="@LeftArrowSymbol" OnArrowClick="() => ToggleValue()" />
+    <Label Text="@GetDisplayValue()" CenterText="true" FontSize="@FontSize" />
+    <ArrowButton ArrowSymbol="@RightArrowSymbol" OnArrowClick="() => ToggleValue()" />
+</FlexRowContainer>

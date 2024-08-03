@@ -1,6 +1,3 @@
-using TwilightImperiumUltimate.Contracts.Enums;
-using TwilightImperiumUltimate.Web.Enums;
-
 namespace TwilightImperiumUltimate.Web.Options.MapGenerators;
 
 public static class MapGeneratorOptions
@@ -12,6 +9,8 @@ public static class MapGeneratorOptions
     public static readonly int DefaultScale = 100;
 
     public static readonly int ScaleIncrement = 5;
+
+    public static readonly int NumberOfLegendaryPlanets = 2;
 
     public static readonly SystemTileName DefaultTileName = SystemTileName.Tile18;
 
@@ -26,4 +25,6 @@ public static class MapGeneratorOptions
     public static readonly SystemTileOverlay SystemTileOverlay = SystemTileOverlay.None;
 
     public static readonly GameVersion GameVersion = GameVersion.ProphecyOfKings;
+
+    public static readonly WormholeDensity WormholeDensity = WormholeDensity.AtLeastTwoPairs;
 }

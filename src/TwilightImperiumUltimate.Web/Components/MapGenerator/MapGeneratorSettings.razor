@@ -5,53 +5,85 @@
 
 <FlexColumnContainer>
 
-    <div class="settings-overlay" @onclick="HideSettings">
+    <GridLayout Columns="3" Gap="20" Width="100" >
 
-        <div class="settings-menu" @onclick:stopPropagation="true">
+        <FlexRowContainer AlignItems="Enums.AlignItems.Center">
+            <Label Text="@Strings.MapGeneratorSettings_MapTemplate" FontSize="18" />
+            <RadzenDropDown @bind-Value="SelectedMapTemplate"
+                            Data="@_mapTemplates"
+                            Change="() => SetMapTemplate(SelectedMapTemplate)"
+                            ValueProperty="Key"
+                            TextProperty="Value"
+                            Style="width: 100%; max-width: 400px;" />
+        </FlexRowContainer>
 
-            <FlexColumnCenteredContainer>
+        <FlexRowContainer>
+            <Label Text="@Strings.MapGeneratorSettings_TilesOverlay" FontSize="18"/>
+            <RadzenDropDown @bind-Value="SelectedSystemTileOverlay"
+                            Data="@_systemTileOverlays"
+                            Change="() => SetSystemTileOverlay(SelectedSystemTileOverlay)"
+                            ValueProperty="Key"
+                            TextProperty="Value"
+                            Style="width: 100%; max-width: 400px;" />
+        </FlexRowContainer>
 
-                <NumericPicker Title="@Strings.MapGenerator_MapScale"
-                               Value="@MapGeneratorSettingsService.MapScale"
-                               OnDecrease="DecreaseMapScale"
-                               OnIncrease="IncreaseMapScale"
-                               Width="100" />
+        <FlexRowContainer>
+            <NumericPicker Title="@Strings.MapGeneratorSettings_MapScale"
+                           Value="@MapGeneratorSettingsService.MapScale"
+                           OnDecrease="DecreaseMapScale"
+                           OnIncrease="IncreaseMapScale"
+                           Width="100"
+                           FontSize="18" />
+        </FlexRowContainer>
 
-                <Title Text="Map Template:" />
-                <RadzenDropDown @bind-Value="SelectedMapTemplate"
-                                Data="@_mapTemplates"
-                                Change="() => SetMapTemplate(SelectedMapTemplate)"
-                                ValueProperty="Key"
-                                TextProperty="Value"
-                                Style="width: 100%; max-width: 400px;" />
+        <FlexRowContainer>
+            <Label Text="@Strings.MapGeneratorSettings_PlacementStyle" FontSize="18" />
+            <RadzenDropDown @bind-Value="SelectedPlacementStyle"
+                            Data=@_placementStyles
+                            Change="() => SetPlacementStyle(SelectedPlacementStyle)"
+                            ValueProperty="Key"
+                            TextProperty="Value"
+                            Style="width: 100%; max-width: 400px;" />
+        </FlexRowContainer>
 
-                <Title Text="Placement Style:" />
-                <RadzenDropDown @bind-Value="SelectedPlacementStyle"
-                                Data=@_placementStyles
-                                Change="() => SetPlacementStyle(SelectedPlacementStyle)"
-                                ValueProperty="Key"
-                                TextProperty="Value"
-                                Style="width: 100%; max-width: 400px;" />
+        <FlexRowContainer>
+            <Label Text="@Strings.MapGeneratorSettings_SystemWeight" FontSize="18" />
+            <RadzenDropDown @bind-Value="SelectedSystemWeight"
+                            Data="@_systemWeights"
+                            Change="() => SetSystemWeight(SelectedSystemWeight)"
+                            ValueProperty="Key"
+                            TextProperty="Value"
+                            Style="width: 100%; max-width: 400px;" />
+        </FlexRowContainer>
 
-                <Title Text="System Weight:" />
-                <RadzenDropDown @bind-Value="SelectedSystemWeight"
-                                Data="@_systemWeights"
-                                Change="() => SetSystemWeight(SelectedSystemWeight)"
-                                ValueProperty="Key"
-                                TextProperty="Value"
-                                Style="width: 100%; max-width: 400px;" />
+        <div />
 
-                <Title Text="Tiles overlay:" />
-                <RadzenDropDown @bind-Value="SelectedSystemTileOverlay"
-                                Data="@_systemTileOverlays"
-                                Change="() => SetSystemTileOverlay(SelectedSystemTileOverlay)"
-                                ValueProperty="Key"
-                                TextProperty="Value"
-                                Style="width: 100%; max-width: 400px;" />
-            </FlexColumnCenteredContainer>
-        
-        </div>
+        <Label Text="@Strings.MapGeneratorSettings_EnabledTiles" FontSize="18"/>
 
-    </div>
+        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+            <YesNoPicker Title="@Strings.GameVersion_ProphecyOfKings" 
+                DefaultValue="true" 
+                OnValueChange="() => UpdateGameVersion(GameVersion.ProphecyOfKings)"
+                Width="100"/>
+        </FlexRowContainer>
+
+        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+            <YesNoPicker 
+                Title="@Strings.GameVersion_UnchartedSpace" 
+                DefaultValue="false" 
+                OnValueChange="() => UpdateGameVersion(GameVersion.UnchartedSpace)" 
+                Width="100"/>
+        </FlexRowContainer>
+
+        <WormholeDensityPicker Width="100" />
+
+        <NumericPicker Title="@Strings.MapGeneratorSettings_NumberOfLegendaryPlanets"
+                       Value="@MapGeneratorSettingsService.NumberOfLegendaryPlanets"
+                       OnDecrease="DecreaseNumberOfLegendaryPlanets"
+                       OnIncrease="IncreaseNumberOfLegendaryPlanets"
+                       Width="100"
+                       FontSize="18" />
+
+    </GridLayout>
 
 </FlexColumnContainer>

@@ -1,4 +1,5 @@
 using TwilightImperiumUltimate.Draft.Drafts.MapDraft.Interfaces;
+using System.Linq;
 
 namespace TwilightImperiumUltimate.Business.Logic.Drafts.Map;
 
@@ -16,8 +17,12 @@ public class GenerateMapCommandHandler(
 
         var generatedMapLayout = await _mapDraftService.GenerateMapLayout(request.DraftRequest, cancellationToken);
 
-        var generatedMapLayoutDto = _mapper.Map<GeneratedMapLayoutDto>(generatedMapLayout);
+        var newMapLayoutDto = new List<HexDto>();
 
-        return generatedMapLayoutDto;
+        newMapLayoutDto.AddRange(from kvp in generatedMapLayout.MapLayout
+                                 let hexDto = new HexDto() { Name = kvp.Value.Name, X = kvp.Value.X, Y = kvp.Value.Y, SystemTile = _mapper.Map<SystemTileDto>(kvp.Value.SystemTile) }
+                                 select hexDto);
+
+        return new GeneratedMapLayoutDto(newMapLayoutDto);
     }
 }

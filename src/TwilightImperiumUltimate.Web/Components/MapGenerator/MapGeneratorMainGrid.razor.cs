@@ -9,9 +9,7 @@ namespace TwilightImperiumUltimate.Web.Components.MapGenerator;
 
 public partial class MapGeneratorMainGrid
 {
-    private bool _showSettings;
-    private bool _showTilesMenu;
-    private bool _lastShowTilesMenuState;
+    private MapGeneratorMenuItem _selectedSegment;
 
     public IReadOnlyDictionary<int, SystemTileModel> GeneratedPositionsWithSystemTiles { get; set; } = default!;
 
@@ -38,33 +36,20 @@ public partial class MapGeneratorMainGrid
         var mapTemplateType = MapGeneratorSettingsService.MapTemplate switch
         {
             MapTemplate.CustomMap => typeof(CustomMap),
-            MapTemplate.ThreePlayersSmallMap => typeof(SmallMapThreePlayers),
-            MapTemplate.ThreePlayersSmallAlternateMap => typeof(SmallMapAlternateThreePlayers),
-            MapTemplate.ThreePlayersTriangleMap => typeof(TriangleMapThreePlayers),
-            MapTemplate.ThreePlayersTriangleNarrowMap => typeof(TriangleNarrowMapThreePlayers),
-            MapTemplate.ThreePlayersSnowflakeMap => typeof(SnowflakeMapThreePlayers),
-            MapTemplate.ThreePlayersTridentMap => typeof(TridentMapThreePlayers),
-            MapTemplate.ThreePlayersMantaRayMap => typeof(MantaRayMapThreePlayers),
-            MapTemplate.FourPlayersMediumMap => typeof(MediumMapFourPlayers),
-            MapTemplate.SixPlayersMediumMap => typeof(MediumMapSixPlayers),
-            MapTemplate.SixPlayersLargeMap => typeof(LargeMapSixPlayers),
-            MapTemplate.EightPlayersLargeMap => typeof(LargeMapEightPlayers),
+            MapTemplate.ThreePlayersSmallMap => typeof(ThreePlayersSmallMap),
+            MapTemplate.ThreePlayersSmallAlternateMap => typeof(ThreePlayersSmallAlternateMap),
+            MapTemplate.ThreePlayersTriangleMap => typeof(ThreePlayersTriangleMap),
+            MapTemplate.ThreePlayersTriangleNarrowMap => typeof(ThreePlayersTriangleNarrowMap),
+            MapTemplate.ThreePlayersSnowflakeMap => typeof(ThreePlayersSnowflakeMap),
+            MapTemplate.ThreePlayersMantaRayMap => typeof(ThreePlayersMantaRayMap),
+            MapTemplate.FourPlayersMediumMap => typeof(FourPlayersMediumMap),
+            MapTemplate.SixPlayersMediumMap => typeof(SixPlayersMediumMap),
+            MapTemplate.SixPlayersLargeMap => typeof(SixPlayersLargeMap),
+            MapTemplate.EightPlayersLargeMap => typeof(EightPlayersLargeMap),
             _ => throw new NotImplementedException(),
         };
 
         return mapTemplateType;
-    }
-
-    private void ToggleSettings()
-    {
-        _showSettings = !_showSettings;
-        _lastShowTilesMenuState = _showTilesMenu;
-        _showTilesMenu = false;
-    }
-
-    private void ToggleTilesMenu()
-    {
-        _showTilesMenu = !_showTilesMenu;
     }
 
     private async Task UpdateMapTemplate(MapTemplate mapTemplate)
@@ -79,17 +64,6 @@ public partial class MapGeneratorMainGrid
         StateHasChanged();
     }
 
-    private void HideSettings()
-    {
-        _showSettings = false;
-        RestoreMapTilesState();
-    }
-
-    private void RestoreMapTilesState()
-    {
-        _showTilesMenu = _lastShowTilesMenuState;
-    }
-
     private async Task GenerateMap()
     {
         GeneratedPositionsWithSystemTiles = await MapGeneratorService.GenerateMapAsync(false, default);
@@ -98,6 +72,12 @@ public partial class MapGeneratorMainGrid
 
     private void Refresh()
     {
+        StateHasChanged();
+    }
+
+    private void ChangeSegment(MapGeneratorMenuItem segment)
+    {
+        _selectedSegment = segment;
         StateHasChanged();
     }
 }

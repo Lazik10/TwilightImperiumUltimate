@@ -27,4 +27,11 @@
             </FlexRowContainer>
         </div>
     }
+
+    @if (Overlay == SystemTileOverlay.MapPosition)
+    {
+        <div class="hex-text @(SystemTileOverlayColor) handel shadow">
+            @MapPosition
+        </div>
+    }
 </div>

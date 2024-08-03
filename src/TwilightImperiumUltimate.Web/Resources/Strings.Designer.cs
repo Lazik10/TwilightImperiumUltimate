@@ -1195,11 +1195,29 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Map Scale.
+        ///   Looks up a localized string similar to Generate.
         /// </summary>
-        public static string MapGenerator_MapScale {
+        public static string MapGenerator_GenerateMap {
             get {
-                return ResourceManager.GetString("MapGenerator_MapScale", resourceCulture);
+                return ResourceManager.GetString("MapGenerator_GenerateMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide Tiles.
+        /// </summary>
+        public static string MapGenerator_ToggleTileMenuOff {
+            get {
+                return ResourceManager.GetString("MapGenerator_ToggleTileMenuOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show Tiles.
+        /// </summary>
+        public static string MapGenerator_ToggleTileMenuOn {
+            get {
+                return ResourceManager.GetString("MapGenerator_ToggleTileMenuOn", resourceCulture);
             }
         }
         
@@ -1209,6 +1227,96 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string MapGenerator_UnusedTiles {
             get {
                 return ResourceManager.GetString("MapGenerator_UnusedTiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GENERATOR.
+        /// </summary>
+        public static string MapGeneratorMenu_MapGenerator {
+            get {
+                return ResourceManager.GetString("MapGeneratorMenu_MapGenerator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SETTINGS.
+        /// </summary>
+        public static string MapGeneratorMenu_Settings {
+            get {
+                return ResourceManager.GetString("MapGeneratorMenu_Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EVALUATIONS.
+        /// </summary>
+        public static string MapGeneratorMenu_SliceEvaluation {
+            get {
+                return ResourceManager.GetString("MapGeneratorMenu_SliceEvaluation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enabled tiles:.
+        /// </summary>
+        public static string MapGeneratorSettings_EnabledTiles {
+            get {
+                return ResourceManager.GetString("MapGeneratorSettings_EnabledTiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map Scale.
+        /// </summary>
+        public static string MapGeneratorSettings_MapScale {
+            get {
+                return ResourceManager.GetString("MapGeneratorSettings_MapScale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map template:.
+        /// </summary>
+        public static string MapGeneratorSettings_MapTemplate {
+            get {
+                return ResourceManager.GetString("MapGeneratorSettings_MapTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Legendary planets:.
+        /// </summary>
+        public static string MapGeneratorSettings_NumberOfLegendaryPlanets {
+            get {
+                return ResourceManager.GetString("MapGeneratorSettings_NumberOfLegendaryPlanets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Placement style:.
+        /// </summary>
+        public static string MapGeneratorSettings_PlacementStyle {
+            get {
+                return ResourceManager.GetString("MapGeneratorSettings_PlacementStyle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to System weight:.
+        /// </summary>
+        public static string MapGeneratorSettings_SystemWeight {
+            get {
+                return ResourceManager.GetString("MapGeneratorSettings_SystemWeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tiles overlay:.
+        /// </summary>
+        public static string MapGeneratorSettings_TilesOverlay {
+            get {
+                return ResourceManager.GetString("MapGeneratorSettings_TilesOverlay", resourceCulture);
             }
         }
         
@@ -2221,11 +2329,56 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Anomalies.
+        /// </summary>
+        public static string SystemTileTypeFilter_Anomalies {
+            get {
+                return ResourceManager.GetString("SystemTileTypeFilter_Anomalies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Base Game.
+        /// </summary>
+        public static string SystemTileTypeFilter_BaseGame {
+            get {
+                return ResourceManager.GetString("SystemTileTypeFilter_BaseGame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Blue Tiles.
         /// </summary>
         public static string SystemTileTypeFilter_BlueTiles {
             get {
                 return ResourceManager.GetString("SystemTileTypeFilter_BlueTiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom.
+        /// </summary>
+        public static string SystemTileTypeFilter_Custom {
+            get {
+                return ResourceManager.GetString("SystemTileTypeFilter_Custom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Discordant Stars.
+        /// </summary>
+        public static string SystemTileTypeFilter_DiscordantStars {
+            get {
+                return ResourceManager.GetString("SystemTileTypeFilter_DiscordantStars", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Empty.
+        /// </summary>
+        public static string SystemTileTypeFilter_Empty {
+            get {
+                return ResourceManager.GetString("SystemTileTypeFilter_Empty", resourceCulture);
             }
         }
         
@@ -2257,11 +2410,29 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Prophecy of Kings.
+        /// </summary>
+        public static string SystemTileTypeFilter_ProphecyOfKings {
+            get {
+                return ResourceManager.GetString("SystemTileTypeFilter_ProphecyOfKings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Red Tiles.
         /// </summary>
         public static string SystemTileTypeFilter_RedTiles {
             get {
                 return ResourceManager.GetString("SystemTileTypeFilter_RedTiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uncharted Space.
+        /// </summary>
+        public static string SystemTileTypeFilter_UnchartedSpace {
+            get {
+                return ResourceManager.GetString("SystemTileTypeFilter_UnchartedSpace", resourceCulture);
             }
         }
         
@@ -2460,6 +2631,51 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string User_UserName {
             get {
                 return ResourceManager.GetString("User_UserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to At least one pair.
+        /// </summary>
+        public static string WormholeDensity_AtLeastOnePair {
+            get {
+                return ResourceManager.GetString("WormholeDensity_AtLeastOnePair", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to At least two pairs.
+        /// </summary>
+        public static string WormholeDensity_AtLeastTwoPairs {
+            get {
+                return ResourceManager.GetString("WormholeDensity_AtLeastTwoPairs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to None.
+        /// </summary>
+        public static string WormholeDensity_None {
+            get {
+                return ResourceManager.GetString("WormholeDensity_None", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Random.
+        /// </summary>
+        public static string WormholeDensity_Random {
+            get {
+                return ResourceManager.GetString("WormholeDensity_Random", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wormhole density:.
+        /// </summary>
+        public static string WormholeDensityPicker_WormholeDensity {
+            get {
+                return ResourceManager.GetString("WormholeDensityPicker_WormholeDensity", resourceCulture);
             }
         }
     }

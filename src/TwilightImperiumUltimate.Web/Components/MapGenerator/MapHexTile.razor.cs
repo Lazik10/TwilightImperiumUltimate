@@ -1,6 +1,5 @@
 using Serilog;
 using System.Globalization;
-using TwilightImperiumUltimate.Web.Services.Language;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
 
 namespace TwilightImperiumUltimate.Web.Components.MapGenerator;
@@ -8,7 +7,7 @@ namespace TwilightImperiumUltimate.Web.Components.MapGenerator;
 public partial class MapHexTile : TwilightImperiumBaseComponenet
 {
     [Parameter]
-    public SystemTileModel SystemTile { get; set; } = null!;
+    public SystemTileModel? SystemTile { get; set; } = null!;
 
     [Parameter]
     public int MapPosition { get; set; }
@@ -19,9 +18,7 @@ public partial class MapHexTile : TwilightImperiumBaseComponenet
     [Parameter]
     public EventCallback SwappedSystemTileFromMenu { get; set; }
 
-    private string MapTileId => SystemTile.SystemTileCode;
-
-    private string ImagePath => PathProvider.GetLargeTileImagePath(SystemTile.SystemTileName);
+    private string ImagePath => PathProvider.GetLargeTileImagePath(SystemTile?.SystemTileName ?? SystemTileName.TileEmpty);
 
     private SystemTileOverlay Overlay => MapGeneratorSettingsService.SystemTileOverlay;
 
@@ -31,14 +28,15 @@ public partial class MapHexTile : TwilightImperiumBaseComponenet
         SystemTileOverlay.Id => "white",
         SystemTileOverlay.Resources => "yellow",
         SystemTileOverlay.Influence => "blue",
+        SystemTileOverlay.MapPosition => "white",
         _ => string.Empty,
     };
 
     private string SystemTileOverlayText => MapGeneratorSettingsService.SystemTileOverlay switch
     {
-        SystemTileOverlay.Id => SystemTile.SystemTileCode,
-        SystemTileOverlay.Resources => SystemTile.Resources.ToString(CultureInfo.InvariantCulture),
-        SystemTileOverlay.Influence => SystemTile.Influence.ToString(CultureInfo.InvariantCulture),
+        SystemTileOverlay.Id => SystemTile?.SystemTileCode ?? string.Empty,
+        SystemTileOverlay.Resources => SystemTile?.Resources.ToString(CultureInfo.InvariantCulture) ?? string.Empty,
+        SystemTileOverlay.Influence => SystemTile?.Influence.ToString(CultureInfo.InvariantCulture) ?? string.Empty,
         _ => string.Empty,
     };
 

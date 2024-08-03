@@ -92,7 +92,7 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
     }
 
     public async Task<(TResponse Response, HttpStatusCode StatusCode)> PostAsync<TRequest, TResponse>(string endpointPath, TRequest request, CancellationToken cancellationToken = default)
-    where TRequest : class, new()
+    where TRequest : class
     where TResponse : class, new()
     {
         try
@@ -144,7 +144,7 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
     }
 
     public async Task<(TResponse Response, HttpStatusCode StatusCode)> PutAsync<TRequest, TResponse>(string endpointPath, TRequest request, CancellationToken cancellationToken)
-        where TRequest : class, new()
+        where TRequest : class
         where TResponse : class, new()
     {
         try

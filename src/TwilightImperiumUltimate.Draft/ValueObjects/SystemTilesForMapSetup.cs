@@ -7,4 +7,5 @@ public record SystemTilesForMapSetup(
     SystemTile EmptySystemPlaceholder,
     SystemTile EmptyHomeSystemPlaceholder,
     IReadOnlyCollection<SystemTile> HomeTiles,
-    IReadOnlyCollection<SystemTile> BuildTiles);
+    IReadOnlyCollection<SystemTile> BlueTiles,
+    IReadOnlyCollection<SystemTile> RedTiles);

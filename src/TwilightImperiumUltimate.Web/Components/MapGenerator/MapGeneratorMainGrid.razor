@@ -1,4 +1,5 @@
-﻿@using TwilightImperiumUltimate.Web.Components.MapGenerator
+﻿@using TwilightImperiumUltimate.Web.Components.Factions
+@using TwilightImperiumUltimate.Web.Components.MapGenerator
 @using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids
 @using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.Custom
 @using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.EightPlayers
@@ -9,34 +10,37 @@
 
 <div class="map-generator-grid">
 
-    <VerticalSpace Height="50" />
+    <MapGeneratorMenu OnMenuItemClick="ChangeSegment"/>
 
-    <FlexRowContainer >
-        <Button @onclick="GenerateMap" ButtonText="GenerateMap" />
-        <Button @onclick="ToggleSettings" ButtonText="Settings" />
-        <Button @onclick="ToggleTilesMenu" ButtonText="Tiles Menu" />
-    </FlexRowContainer>
-
-    @if(_showSettings)
-    {
-        <MapGeneratorSettings 
-            OnSelectedTemplateChange="UpdateMapTemplate"
-            OnSelectedSystemTileOverlayChange="UpdateMapOverlay"
-            OnHideSettings="HideSettings" />
-    }
-
-    @if(_showTilesMenu)
+    @if (_selectedSegment == MapGeneratorMenuItem.MapGenerator)
     {
         <HexTileMenu SwappedSystemTileFromMenu="Refresh" />
+
+        <FlexColumnCenteredContainer>
+
+            <VerticalSpace Height="20" />
+
+            <Button @onclick="GenerateMap" ButtonText="@Strings.MapGenerator_GenerateMap" />
+
+            <div style="width: @(MapGeneratorSettingsService.MapScale)%">
+                @DynamicComponent
+            </div>
+
+        </FlexColumnCenteredContainer>
     }
 
-    <FlexColumnCenteredContainer>
+    @if (_selectedSegment == MapGeneratorMenuItem.Settings)
+    {
+        <VerticalSpace Height="50" />
 
-        <div style="width: @(MapGeneratorSettingsService.MapScale)%">
-            @DynamicComponent
-        </div>
+        <FactionIconRow ShowDiscordantStars="true" EnableBanMode="true" BanAllFactions="true" />
 
-    </FlexColumnCenteredContainer>
+        <VerticalSpace Height="50" />
+
+        <MapGeneratorSettings 
+            OnSelectedTemplateChange="UpdateMapTemplate"
+            OnSelectedSystemTileOverlayChange="UpdateMapOverlay" />
+    }
 
 </div>
 

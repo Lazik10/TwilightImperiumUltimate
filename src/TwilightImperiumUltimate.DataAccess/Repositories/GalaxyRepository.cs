@@ -28,7 +28,7 @@ public class GalaxyRepository(
     public async Task<SystemTile> GetEmptyPlaceholderSystemTile(CancellationToken cancellationToken)
     {
         var systemTiles = await GetSystemTiles(cancellationToken);
-        return systemTiles.Single(x => x.SystemTileName == SystemTileName.TileEmpty);
+        return systemTiles.Single(x => x.SystemTileName == SystemTileName.TileTransparent);
     }
 
     public async Task<IReadOnlyList<SystemTile>> GetAllSystemTiles(CancellationToken cancellationToken)
@@ -78,7 +78,7 @@ public class GalaxyRepository(
         return systemTiles.Where(x => x.Wormholes.Count != 0).ToList();
     }
 
-    public async Task<IReadOnlyList<SystemTile>> GetSystemTilesForBuildingGalaxy(CancellationToken cancellationToken)
+    public async Task<IReadOnlyList<SystemTile>> GetBlueSystemTiles(CancellationToken cancellationToken)
     {
         var systemTiles = await GetSystemTiles(cancellationToken);
         return systemTiles
@@ -87,7 +87,18 @@ public class GalaxyRepository(
                 && x.SystemTileName != SystemTileName.Tile18 // Mecatol rex
                 && x.SystemTileName != SystemTileName.Tile81 // Muaat supernova
                 && x.TileCategory != SystemTileCategory.ExternalMapTile
-                && x.TileCategory != SystemTileCategory.Hyperlane)
+                && x.TileCategory != SystemTileCategory.Hyperlane
+                && x.TileCategory != SystemTileCategory.Red)
+            .ToList();
+    }
+
+    public async Task<IReadOnlyList<SystemTile>> GetRedSystemTiles(CancellationToken cancellationToken)
+    {
+        var systemTiles = await GetSystemTiles(cancellationToken);
+        return systemTiles
+            .Where(x => x.TileCategory == SystemTileCategory.Red
+                && !x.IsHomeSystem
+                && x.FactionName == FactionName.None)
             .ToList();
     }
 
@@ -102,6 +113,7 @@ public class GalaxyRepository(
         await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);
         return dbContext.SystemTiles
             .Include(x => x.Planets)
+            .Include(x => x.Wormholes)
             .AsEnumerable()
             .OrderBy(x => x.SystemTileName)
             .ToList();

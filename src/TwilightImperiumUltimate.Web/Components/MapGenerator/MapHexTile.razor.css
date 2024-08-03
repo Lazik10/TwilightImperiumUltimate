@@ -8,8 +8,6 @@
     .hex-container img {
         width: 100%;
         height: 100%;
-        /*max-width: 86.6px;
-        max-height: 100px;*/
     }
 
 [draggable=true] {

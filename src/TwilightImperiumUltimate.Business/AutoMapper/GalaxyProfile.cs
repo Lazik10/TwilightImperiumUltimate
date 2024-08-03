@@ -41,5 +41,13 @@ public class GalaxyProfile : Profile
                     w.GameVersion)).ToList(),
                 x.Anomaly,
                 x.GameVersion));
+
+        CreateMap<Wormhole, WormholeDto>()
+            .ConstructUsing(x => new WormholeDto(
+                x.Id,
+                x.WormholeName,
+                x.SystemTileName,
+                x.GameVersion)
+            );
     }
 }

@@ -5,9 +5,9 @@
     CssClass="title handel white shadow">
     @if(HideTitle == false)
     {
-        <div>@Title</div>
+        <Title Text="@Title" FontSize="@FontSize" MarginTop="0"/> 
     }
     <ArrowButton ArrowSymbol="@LeftArrowSymbol" OnArrowClick="() => OnDecrease.InvokeAsync(null)" />
-    <div>@Value</div>
+    <Label Text="@Value.ToString()" FontSize="@FontSize" CenterText="true"/>
     <ArrowButton ArrowSymbol="@RightArrowSymbol" OnArrowClick="() => OnIncrease.InvokeAsync(null)" />
 </FlexRowContainer>

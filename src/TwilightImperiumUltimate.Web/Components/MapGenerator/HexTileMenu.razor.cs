@@ -1,15 +1,12 @@
-﻿using Microsoft.AspNetCore.Components;
-using TwilightImperiumUltimate.Web.Enums;
 using TwilightImperiumUltimate.Web.Helpers.Enums;
-using TwilightImperiumUltimate.Web.Models.Galaxy;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
 
 namespace TwilightImperiumUltimate.Web.Components.MapGenerator;
 
 public partial class HexTileMenu
 {
+    private bool _showTileMenu;
     private SystemTileTypeFilter _selectedSystemTileType = SystemTileTypeFilter.Unused;
-
     private IReadOnlyCollection<KeyValuePair<SystemTileTypeFilter, string>> _systemTileTypes = default!;
 
     public IEnumerable<SystemTileModel> SystemTiles { get; set; } = new List<SystemTileModel>();
@@ -36,5 +33,15 @@ public partial class HexTileMenu
     private void GetSystemTilesToShow()
     {
         SystemTiles = MapGeneratorService.GetSystemTilesToShow(_selectedSystemTileType);
+    }
+
+    private void ToggleTileMenu()
+    {
+        _showTileMenu = !_showTileMenu;
+    }
+
+    private string GetButtonText()
+    {
+        return _showTileMenu ? Strings.MapGenerator_ToggleTileMenuOff : Strings.MapGenerator_ToggleTileMenuOn;
     }
 }

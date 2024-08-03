@@ -8,11 +8,11 @@ public interface ITwilightImperiumApiHttpClient
     Task<bool> GetAsync(string query, string endpointPath, CancellationToken cancellationToken);
 
     Task<(TResponse Response, HttpStatusCode StatusCode)> PostAsync<TRequest, TResponse>(string endpointPath, TRequest request, CancellationToken cancellationToken = default)
-        where TRequest : class, new()
+        where TRequest : class
         where TResponse : class, new();
 
     Task<(TResponse Response, HttpStatusCode StatusCode)> PutAsync<TRequest, TResponse>(string endpointPath, TRequest request, CancellationToken cancellationToken)
-        where TRequest : class, new()
+        where TRequest : class
         where TResponse : class, new();
 
     Task SetAuthorizationHeaderAsync(CancellationToken cancellationToken, string? token = null);

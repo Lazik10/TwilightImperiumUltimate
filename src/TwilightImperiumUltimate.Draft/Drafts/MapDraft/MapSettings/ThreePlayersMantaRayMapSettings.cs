@@ -1,14 +1,29 @@
 namespace TwilightImperiumUltimate.Draft.Drafts.MapDraft.MapSettings;
 
-internal class ThreePlayersMantaRayMapSettings : MapSettingsBase
+internal class ThreePlayersMantaRayMapSettings : IMapSettings
 {
-    public override int NumberOfPlayers => 3;
+    public MapTemplate MapTemplate => MapTemplate.ThreePlayersMantaRayMap;
 
-    public override int MaxMapPositions => 35;
+    public int DimensionX => 14;
 
-    public override int MecatolRexPosition => 10;
+    public int DimensionY => 7;
 
-    public override HashSet<int> HomePositions => [14, 20, 31];
+    public int NumberOfPlayers => 3;
 
-    public override HashSet<int> EmptyPositions => [0, 1, 5, 6, 21, 27, 28, 29, 30, 32, 33, 34];
+    public (int, int) MecatolRexPosition => (8, 4);
+
+    public HashSet<(int, int)> HomePositions => new HashSet<(int, int)>
+    {
+        (0, 4), (4, 0), (4, 8), (12, 0), (12, 8), (16, 4),
+    };
+
+    public HashSet<(int, int)> EmptyPositions => new HashSet<(int, int)>
+    {
+        (0, 0), (0, 2), (0, 6), (0, 8), (1, 1), (1, 7), (2, 0), (2, 8),
+        (14, 0), (14, 8), (15, 1), (15, 7), (16, 0), (16, 2), (16, 6), (16, 8),
+    };
+
+    public Dictionary<int, List<(int, int)>> Slices => new Dictionary<int, List<(int, int)>>();
+
+    public Dictionary<int, List<(int X, int Y)>> AdjacentHomePositions => throw new NotImplementedException();
 }

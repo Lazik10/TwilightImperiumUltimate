@@ -7,5 +7,8 @@ public record GenerateMapRequest(
     MapTemplate MapTemplate,
     HomeSystemDraftType HomeSystemDraftType,
     IReadOnlyCollection<FactionName> Factions,
+    AnomalyDensity AnomalyDensity,
     PlacementStyle PlacementStyle,
-    SystemWeight SystemWeight);
+    SystemWeight SystemWeight,
+    WormholeDensity WormholesDensity,
+    int NumberOfLegendaries);

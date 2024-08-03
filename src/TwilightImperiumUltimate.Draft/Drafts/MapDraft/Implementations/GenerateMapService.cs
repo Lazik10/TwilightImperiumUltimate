@@ -1,17 +1,16 @@
 using TwilightImperiumUltimate.Draft.Drafts.MapDraft.Interfaces;
-using TwilightImperiumUltimate.Draft.Drafts.MapDraft.MapBuilders;
 using TwilightImperiumUltimate.Draft.ValueObjects;
 
 namespace TwilightImperiumUltimate.Draft.Drafts.MapDraft.Implementations;
 
 public class GenerateMapService(
-    ISpecificMapBuilderProvider mapBuilderProvider,
+    IMapBuilder mapBuilder,
     IPreviewMapBuilder previewMapBuilder,
     ISpecificMapSettingProvider mapSettingProvider,
     ISystemTilesForMapSetupProvider systemTilesForMapSetupProvider)
     : IGenerateMapService
 {
-    private readonly ISpecificMapBuilderProvider _mapBuilderProvider = mapBuilderProvider;
+    private readonly IMapBuilder _mapBuilder = mapBuilder;
     private readonly IPreviewMapBuilder _previewMapBuilder = previewMapBuilder;
     private readonly ISpecificMapSettingProvider _mapSettingProvider = mapSettingProvider;
     private readonly ISystemTilesForMapSetupProvider _systemTilesForMapSetupProvider = systemTilesForMapSetupProvider;
@@ -20,13 +19,13 @@ public class GenerateMapService(
     {
         ArgumentNullException.ThrowIfNull(request);
 
-        var mapBuilder = await _mapBuilderProvider.GetMapBuilderForSpecificTemplate(request.MapTemplate);
         var mapSettings = await _mapSettingProvider.GetMapSettingsForSpecificTemplate(request.MapTemplate);
-        var systemTilesForMapSetup = await _systemTilesForMapSetupProvider.GetSystemTilesForMapSetup(cancellationToken);
+        var systemTilesForMapSetup = await _systemTilesForMapSetupProvider.GetSystemTilesForMapSetup(mapSettings, cancellationToken);
 
-        if (request.PreviewMap)
-            return new GeneratedMapLayout(await _previewMapBuilder.BuildPreviewMapLayout(mapSettings, systemTilesForMapSetup));
+        var generatedMapLayout = request.PreviewMap ?
+            await _previewMapBuilder.CreatePreviewMapLayout(mapSettings, systemTilesForMapSetup) :
+            await _mapBuilder.CreateMapLayout(mapSettings, request, systemTilesForMapSetup);
 
-        return new GeneratedMapLayout(await mapBuilder.BuildMapLayout(mapSettings, request, systemTilesForMapSetup));
+        return new GeneratedMapLayout(generatedMapLayout);
     }
 }

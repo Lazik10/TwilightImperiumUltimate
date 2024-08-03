@@ -7,7 +7,7 @@ internal static class GalaxyData
         new()
         {
             SystemTileName = SystemTileName.TileHome,
-            SystemTileCode = "Home",
+            SystemTileCode = string.Empty,
             FactionName = FactionName.None,
             Anomaly = AnomalyName.None,
             TileCategory = SystemTileCategory.None,
@@ -18,7 +18,40 @@ internal static class GalaxyData
         new()
         {
             SystemTileName = SystemTileName.TileEmpty,
-            SystemTileCode = "Empty",
+            SystemTileCode = string.Empty,
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.None,
+            Planets = [],
+            Wormholes = [],
+            GameVersion = GameVersion.Custom,
+        },
+        new()
+        {
+            SystemTileName = SystemTileName.TileBlackFrame,
+            SystemTileCode = string.Empty,
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.None,
+            Planets = [],
+            Wormholes = [],
+            GameVersion = GameVersion.Custom,
+        },
+        new()
+        {
+            SystemTileName = SystemTileName.TileBlueFrame,
+            SystemTileCode = string.Empty,
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.None,
+            Planets = [],
+            Wormholes = [],
+            GameVersion = GameVersion.Custom,
+        },
+        new()
+        {
+            SystemTileName = SystemTileName.TileTransparent,
+            SystemTileCode = string.Empty,
             FactionName = FactionName.None,
             Anomaly = AnomalyName.None,
             TileCategory = SystemTileCategory.None,
@@ -1187,7 +1220,7 @@ internal static class GalaxyData
             SystemTileCode = "39",
             FactionName = FactionName.None,
             Anomaly = AnomalyName.None,
-            TileCategory = SystemTileCategory.Blue,
+            TileCategory = SystemTileCategory.Red,
             Planets = [],
             Wormholes =
             [
@@ -1206,7 +1239,7 @@ internal static class GalaxyData
             SystemTileCode = "40",
             FactionName = FactionName.None,
             Anomaly = AnomalyName.None,
-            TileCategory = SystemTileCategory.Blue,
+            TileCategory = SystemTileCategory.Red,
             Planets = [],
             Wormholes =
             [
@@ -1246,7 +1279,7 @@ internal static class GalaxyData
             SystemTileName = SystemTileName.Tile43,
             SystemTileCode = "43",
             FactionName = FactionName.None,
-            Anomaly = AnomalyName.None,
+            Anomaly = AnomalyName.Supernova,
             TileCategory = SystemTileCategory.Red,
             Planets = [],
             Wormholes = default!,
@@ -1280,7 +1313,7 @@ internal static class GalaxyData
             SystemTileCode = "46",
             FactionName = FactionName.None,
             Anomaly = AnomalyName.None,
-            TileCategory = SystemTileCategory.Blue,
+            TileCategory = SystemTileCategory.Red,
             Planets = [],
             Wormholes = default!,
             GameVersion = GameVersion.BaseGame,
@@ -1291,7 +1324,7 @@ internal static class GalaxyData
             SystemTileCode = "47",
             FactionName = FactionName.None,
             Anomaly = AnomalyName.None,
-            TileCategory = SystemTileCategory.Blue,
+            TileCategory = SystemTileCategory.Red,
             Planets = [],
             Wormholes = default!,
             GameVersion = GameVersion.BaseGame,
@@ -1302,7 +1335,7 @@ internal static class GalaxyData
             SystemTileCode = "48",
             FactionName = FactionName.None,
             Anomaly = AnomalyName.None,
-            TileCategory = SystemTileCategory.Blue,
+            TileCategory = SystemTileCategory.Red,
             Planets = [],
             Wormholes = default!,
             GameVersion = GameVersion.BaseGame,
@@ -1313,7 +1346,7 @@ internal static class GalaxyData
             SystemTileCode = "49",
             FactionName = FactionName.None,
             Anomaly = AnomalyName.None,
-            TileCategory = SystemTileCategory.Blue,
+            TileCategory = SystemTileCategory.Red,
             Planets = [],
             Wormholes = default!,
             GameVersion = GameVersion.BaseGame,
@@ -1324,7 +1357,7 @@ internal static class GalaxyData
             SystemTileCode = "50",
             FactionName = FactionName.None,
             Anomaly = AnomalyName.None,
-            TileCategory = SystemTileCategory.Blue,
+            TileCategory = SystemTileCategory.Red,
             Planets = [],
             Wormholes = default!,
             GameVersion = GameVersion.BaseGame,
@@ -1711,6 +1744,7 @@ internal static class GalaxyData
                 {
                     SystemTileName = SystemTileName.Tile64,
                     WormholeName = WormholeName.Beta,
+                    GameVersion = GameVersion.ProphecyOfKings,
                 },
             ],
             GameVersion = GameVersion.ProphecyOfKings,
@@ -2119,7 +2153,7 @@ internal static class GalaxyData
             SystemTileCode = "77",
             FactionName = FactionName.None,
             Anomaly = AnomalyName.None,
-            TileCategory = SystemTileCategory.Blue,
+            TileCategory = SystemTileCategory.Red,
             Planets = [],
             Wormholes = default!,
             GameVersion = GameVersion.ProphecyOfKings,
@@ -2130,7 +2164,7 @@ internal static class GalaxyData
             SystemTileCode = "78",
             FactionName = FactionName.None,
             Anomaly = AnomalyName.None,
-            TileCategory = SystemTileCategory.Blue,
+            TileCategory = SystemTileCategory.Red,
             Planets = [],
             Wormholes = default!,
             GameVersion = GameVersion.ProphecyOfKings,
@@ -2149,6 +2183,7 @@ internal static class GalaxyData
                 {
                     SystemTileName = SystemTileName.Tile79,
                     WormholeName = WormholeName.Alpha,
+                    GameVersion = GameVersion.ProphecyOfKings,
                 },
             ],
             GameVersion = GameVersion.ProphecyOfKings,
@@ -2168,7 +2203,7 @@ internal static class GalaxyData
         {
             SystemTileName = SystemTileName.Tile81,
             SystemTileCode = "81",
-            FactionName = FactionName.None,
+            FactionName = FactionName.TheEmbersOfMuaat,
             Anomaly = AnomalyName.Supernova,
             TileCategory = SystemTileCategory.Red,
             Planets = [],
@@ -2202,6 +2237,7 @@ internal static class GalaxyData
                 {
                     SystemTileName = SystemTileName.Tile82A,
                     WormholeName = WormholeName.Gamma,
+                    GameVersion = GameVersion.ProphecyOfKings,
                 },
             ],
             GameVersion = GameVersion.ProphecyOfKings,
@@ -2233,16 +2269,19 @@ internal static class GalaxyData
                 {
                     SystemTileName = SystemTileName.Tile82B,
                     WormholeName = WormholeName.Alpha,
+                    GameVersion = GameVersion.ProphecyOfKings,
                 },
                 new Wormhole()
                 {
                     SystemTileName = SystemTileName.Tile82B,
                     WormholeName = WormholeName.Beta,
+                    GameVersion = GameVersion.ProphecyOfKings,
                 },
                 new Wormhole()
                 {
                     SystemTileName = SystemTileName.Tile82B,
                     WormholeName = WormholeName.Gamma,
+                    GameVersion = GameVersion.ProphecyOfKings,
                 },
             ],
             GameVersion = GameVersion.ProphecyOfKings,

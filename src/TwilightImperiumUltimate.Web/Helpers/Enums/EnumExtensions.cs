@@ -1,6 +1,5 @@
-﻿using System.Globalization;
+using System.Globalization;
 using System.Resources;
-using TwilightImperiumUltimate.Web.Resources;
 
 namespace TwilightImperiumUltimate.Web.Helpers.Enums;
 

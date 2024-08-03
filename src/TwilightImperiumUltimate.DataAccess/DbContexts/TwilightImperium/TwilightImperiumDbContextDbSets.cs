@@ -1,11 +1,4 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using TwilightImperiumUltimate.Core.Entities.Cards;
-using TwilightImperiumUltimate.Core.Entities.News;
-using TwilightImperiumUltimate.Core.Entities.RelationshipEntities;
-using TwilightImperiumUltimate.Core.Entities.Rules;
-using TwilightImperiumUltimate.Core.Entities.Units;
-using TwilightImperiumUltimate.Core.Entities.Users;
-using TwilightImperiumUltimate.Core.Entities.Website;
 
 namespace TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium;
 
@@ -34,6 +27,8 @@ public partial class TwilightImperiumDbContext : IdentityDbContext<TwilightImper
     public virtual DbSet<SystemTile> SystemTiles { get; set; }
 
     public virtual DbSet<Wormhole> Wormholes { get; set; }
+
+    public virtual DbSet<MapRedPosition> MapRedPositions { get; set; }
 
     // Player
     public virtual DbSet<Player> Players { get; set; }

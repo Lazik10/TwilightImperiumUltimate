@@ -647,6 +647,41 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.ToTable("FactionColorImportances", "Faction");
                 });
 
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Galaxy.MapRedPosition", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Count")
+                        .HasColumnType("integer")
+                        .HasColumnName("Count")
+                        .HasColumnOrder(2);
+
+                    b.Property<string>("MapTemplate")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("MapTemplate")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("Positions")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("Positions")
+                        .HasColumnOrder(3);
+
+                    b.HasKey("Id");
+
+                    SqlServerKeyBuilderExtensions.IsClustered(b.HasKey("Id"));
+
+                    b.ToTable("MapRedPositions", "Galaxy");
+                });
+
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Galaxy.Planet", b =>
                 {
                     b.Property<string>("PlanetName")

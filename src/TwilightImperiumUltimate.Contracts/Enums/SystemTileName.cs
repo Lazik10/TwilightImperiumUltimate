@@ -4,6 +4,9 @@ public enum SystemTileName
 {
     TileHome,
     TileEmpty,
+    TileBlueFrame,
+    TileBlackFrame,
+    TileTransparent,
     Tile01,
     Tile02,
     Tile03,

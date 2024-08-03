@@ -1,7 +1,3 @@
-using Microsoft.AspNetCore.Components;
-using TwilightImperiumUltimate.Contracts.Enums;
-using TwilightImperiumUltimate.Web.Resources;
-
 namespace TwilightImperiumUltimate.Web.Components.Shared.Controls;
 
 public partial class FactionPicker

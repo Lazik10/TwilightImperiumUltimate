@@ -98,4 +98,31 @@ public partial class MapGeneratorSettings
         OnHideSettings.InvokeAsync(true);
         StateHasChanged();
     }
+
+    private void UpdateGameVersion(GameVersion gameVersion)
+    {
+        MapGeneratorSettingsService.UpdateGameVersion(gameVersion);
+    }
+
+    private void IncreaseNumberOfLegendaryPlanets()
+    {
+        int maxNumberOfLegendaryPlanets = 0;
+        maxNumberOfLegendaryPlanets += MapGeneratorSettingsService.GameVersions.Contains(GameVersion.ProphecyOfKings) ? 2 : 0;
+        maxNumberOfLegendaryPlanets += MapGeneratorSettingsService.GameVersions.Contains(GameVersion.UnchartedSpace) ? 5 : 0;
+
+        if (MapGeneratorSettingsService.NumberOfLegendaryPlanets < maxNumberOfLegendaryPlanets)
+        {
+            MapGeneratorSettingsService.NumberOfLegendaryPlanets++;
+            StateHasChanged();
+        }
+    }
+
+    private void DecreaseNumberOfLegendaryPlanets()
+    {
+        if (MapGeneratorSettingsService.NumberOfLegendaryPlanets > 0)
+        {
+            MapGeneratorSettingsService.NumberOfLegendaryPlanets--;
+            StateHasChanged();
+        }
+    }
 }

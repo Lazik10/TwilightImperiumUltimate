@@ -26,6 +26,7 @@ public static class TwilightImperiumDbContextSeed
 
         // Galaxy
         await SeedIfEmpty(context.SystemTiles, GalaxyData.SystemTiles, context);
+        await SeedIfEmpty(context.MapRedPositions, MapRedPositionsData.MapRedPositions, context);
 
         // Users
         await SeedIfEmpty(context.Users, UserData.Users, context);

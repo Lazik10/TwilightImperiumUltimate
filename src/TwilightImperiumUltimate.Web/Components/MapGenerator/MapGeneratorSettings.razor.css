@@ -1,4 +1,4 @@
-﻿.settings-overlay {
+﻿/*.settings-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -11,10 +11,17 @@
     display: flex;
     flex-direction: column;
     background-color: rgba(0, 0, 0, 0.8);
-}
+}*/
 
 .settings-menu {
     background-color: rgb(0, 13, 255, 0.2);
-    width: 30%;
+    width: 100%;
     padding: 25px 15px;
+}
+
+.grid {
+        display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+
 }

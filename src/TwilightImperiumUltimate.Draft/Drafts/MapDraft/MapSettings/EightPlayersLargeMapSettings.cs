@@ -1,14 +1,30 @@
+
 namespace TwilightImperiumUltimate.Draft.Drafts.MapDraft.MapSettings;
 
-internal class EightPlayersLargeMapSettings : MapSettingsBase
+internal class EightPlayersLargeMapSettings : IMapSettings
 {
-    public override int NumberOfPlayers => 8;
+    public MapTemplate MapTemplate => MapTemplate.SixPlayersMediumMap;
 
-    public override int MaxMapPositions => 81;
+    public int DimensionX => 14;
 
-    public override int MecatolRexPosition => 40;
+    public int DimensionY => 7;
 
-    public override HashSet<int> HomePositions => [4, 10, 16, 36, 44, 55, 61, 76];
+    public int NumberOfPlayers => 8;
 
-    public override HashSet<int> EmptyPositions => [0, 1, 2, 6, 7, 8, 9, 17, 78, 77, 75, 74, 73, 72, 71, 70, 64, 63, 79, 80];
+    public (int X, int Y) MecatolRexPosition => (8, 4);
+
+    public HashSet<(int X, int Y)> HomePositions => new HashSet<(int X, int Y)>
+    {
+        (0, 4), (4, 0), (4, 8), (12, 0), (12, 8), (16, 4),
+    };
+
+    public HashSet<(int X, int Y)> EmptyPositions => new HashSet<(int X, int Y)>
+    {
+        (0, 0), (0, 2), (0, 6), (0, 8), (1, 1), (1, 7), (2, 0), (2, 8),
+        (14, 0), (14, 8), (15, 1), (15, 7), (16, 0), (16, 2), (16, 6), (16, 8),
+    };
+
+    public Dictionary<int, List<(int X, int Y)>> Slices => new Dictionary<int, List<(int X, int Y)>>();
+
+    public Dictionary<int, List<(int X, int Y)>> AdjacentHomePositions => new Dictionary<int, List<(int X, int Y)>>();
 }

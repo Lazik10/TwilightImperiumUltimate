@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components;
 using TwilightImperiumUltimate.Web.Enums;
 
 namespace TwilightImperiumUltimate.Web.Components.Shared.Layouts;
@@ -24,7 +24,7 @@ public partial class FlexRowContainer
 
     private string Align => GetAlignString(AlignItems);
 
-    private string GetAlignString(AlignItems alignItems)
+    private static string GetAlignString(AlignItems alignItems)
     {
         return alignItems switch
         {
@@ -37,7 +37,7 @@ public partial class FlexRowContainer
         };
     }
 
-    private string GetJustifyString(JustifyContent justifyContent)
+    private static string GetJustifyString(JustifyContent justifyContent)
     {
         return justifyContent switch
         {

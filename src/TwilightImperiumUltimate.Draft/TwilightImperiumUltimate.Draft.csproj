@@ -20,4 +20,8 @@
     <Folder Include="Drafts\MapDraft\MapToStringConverters\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Sandwych.QuickGraph.Core" Version="1.0.0" />
+  </ItemGroup>
+
 </Project>

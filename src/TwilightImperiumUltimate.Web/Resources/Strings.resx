@@ -492,11 +492,47 @@
   <data name="Low" xml:space="preserve">
     <value>Low</value>
   </data>
+  <data name="MapGeneratorMenu_MapGenerator" xml:space="preserve">
+    <value>GENERATOR</value>
+  </data>
+  <data name="MapGeneratorMenu_Settings" xml:space="preserve">
+    <value>SETTINGS</value>
+  </data>
+  <data name="MapGeneratorMenu_SliceEvaluation" xml:space="preserve">
+    <value>EVALUATIONS</value>
+  </data>
+  <data name="MapGeneratorSettings_EnabledTiles" xml:space="preserve">
+    <value>Enabled tiles:</value>
+  </data>
+  <data name="MapGeneratorSettings_MapScale" xml:space="preserve">
+    <value>Map Scale</value>
+  </data>
+  <data name="MapGeneratorSettings_MapTemplate" xml:space="preserve">
+    <value>Map template:</value>
+  </data>
+  <data name="MapGeneratorSettings_NumberOfLegendaryPlanets" xml:space="preserve">
+    <value>Legendary planets:</value>
+  </data>
+  <data name="MapGeneratorSettings_PlacementStyle" xml:space="preserve">
+    <value>Placement style:</value>
+  </data>
+  <data name="MapGeneratorSettings_SystemWeight" xml:space="preserve">
+    <value>System weight:</value>
+  </data>
+  <data name="MapGeneratorSettings_TilesOverlay" xml:space="preserve">
+    <value>Tiles overlay:</value>
+  </data>
   <data name="MapGenerator_AllTiles" xml:space="preserve">
     <value>All Tiles</value>
   </data>
-  <data name="MapGenerator_MapScale" xml:space="preserve">
-    <value>Map Scale</value>
+  <data name="MapGenerator_GenerateMap" xml:space="preserve">
+    <value>Generate</value>
+  </data>
+  <data name="MapGenerator_ToggleTileMenuOff" xml:space="preserve">
+    <value>Hide Tiles</value>
+  </data>
+  <data name="MapGenerator_ToggleTileMenuOn" xml:space="preserve">
+    <value>Show Tiles</value>
   </data>
   <data name="MapGenerator_UnusedTiles" xml:space="preserve">
     <value>Unused Tiles</value>
@@ -837,8 +873,23 @@
   <data name="SystemTileTypeFilter_All" xml:space="preserve">
     <value>All</value>
   </data>
+  <data name="SystemTileTypeFilter_Anomalies" xml:space="preserve">
+    <value>Anomalies</value>
+  </data>
+  <data name="SystemTileTypeFilter_BaseGame" xml:space="preserve">
+    <value>Base Game</value>
+  </data>
   <data name="SystemTileTypeFilter_BlueTiles" xml:space="preserve">
     <value>Blue Tiles</value>
+  </data>
+  <data name="SystemTileTypeFilter_Custom" xml:space="preserve">
+    <value>Custom</value>
+  </data>
+  <data name="SystemTileTypeFilter_DiscordantStars" xml:space="preserve">
+    <value>Discordant Stars</value>
+  </data>
+  <data name="SystemTileTypeFilter_Empty" xml:space="preserve">
+    <value>Empty</value>
   </data>
   <data name="SystemTileTypeFilter_HomeSystems" xml:space="preserve">
     <value>Home Systems</value>
@@ -849,8 +900,14 @@
   <data name="SystemTileTypeFilter_MecatolRex" xml:space="preserve">
     <value>Mecatol Rex</value>
   </data>
+  <data name="SystemTileTypeFilter_ProphecyOfKings" xml:space="preserve">
+    <value>Prophecy of Kings</value>
+  </data>
   <data name="SystemTileTypeFilter_RedTiles" xml:space="preserve">
     <value>Red Tiles</value>
+  </data>
+  <data name="SystemTileTypeFilter_UnchartedSpace" xml:space="preserve">
+    <value>Uncharted Space</value>
   </data>
   <data name="SystemTileTypeFilter_Unused" xml:space="preserve">
     <value>Unused</value>
@@ -917,5 +974,20 @@
   </data>
   <data name="User_UserName" xml:space="preserve">
     <value>Username:</value>
+  </data>
+  <data name="WormholeDensityPicker_WormholeDensity" xml:space="preserve">
+    <value>Wormhole density:</value>
+  </data>
+  <data name="WormholeDensity_AtLeastOnePair" xml:space="preserve">
+    <value>At least one pair</value>
+  </data>
+  <data name="WormholeDensity_AtLeastTwoPairs" xml:space="preserve">
+    <value>At least two pairs</value>
+  </data>
+  <data name="WormholeDensity_None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="WormholeDensity_Random" xml:space="preserve">
+    <value>Random</value>
   </data>
 </root>

@@ -1,10 +1,5 @@
-using Microsoft.AspNetCore.Components;
-using System.Net;
 using TwilightImperiumUltimate.Contracts.ApiContracts.User;
 using TwilightImperiumUltimate.Contracts.DTOs.User;
-using TwilightImperiumUltimate.Contracts.Enums;
-using TwilightImperiumUltimate.Web.Resources;
-using TwilightImperiumUltimate.Web.Services.HttpClients;
 
 namespace TwilightImperiumUltimate.Web.Components.Admin;
 
