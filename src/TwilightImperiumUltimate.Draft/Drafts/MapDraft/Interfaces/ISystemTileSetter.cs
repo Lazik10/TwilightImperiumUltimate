@@ -16,15 +16,28 @@ public interface ISystemTileSetter
         SystemTilesForMapSetup systemTilesForMapSetup,
         IMapSettings mapSettings,
         HomeSystemDraftType homeSystemDraftType,
-        IReadOnlyCollection<FactionName> factions);
+        IReadOnlyCollection<FactionName> factions,
+        IReadOnlyCollection<string> playerNames);
 
     void SetRedSystemTiles(
         Dictionary<(int X, int Y), Hex> galaxy,
-        IReadOnlyCollection<SystemTile> redTiles,
+        SystemTilesForMapSetup systemTilesForMapSetup,
         IMapSettings mapSettings,
         GenerateMapRequest request);
 
-    void SetRemainingSystemTilesRandomly(
+    void SetLegendarySystemTiles(
         Dictionary<(int X, int Y), Hex> galaxy,
-        SystemTilesForGalaxyDistribution systemTilesForGalaxyDistribution);
+        SystemTilesForGalaxyDistribution remainingSystemTiles,
+        IMapSettings mapSettings);
+
+    void SetRemainingSystemTiles(
+        Dictionary<(int X, int Y), Hex> galaxy,
+        IMapSettings mapSettings,
+        GenerateMapRequest request,
+        IReadOnlyCollection<Slice> balancedSlices);
+
+    void SetHyperlines(
+        Dictionary<(int X, int Y), Hex> galaxy,
+        IHyperlineSettings hyperlineSettings,
+        SystemTilesForMapSetup systemTilesForMapSetup);
 }

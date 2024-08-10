@@ -6,26 +6,23 @@ namespace TwilightImperiumUltimate.Draft.Drafts.MapDraft.Implementations;
 
 internal class PlacementStyleHandler(
     ISystemTilesForGalaxyDistributionProvider systemTilesForGalaxyDistributionProvider,
-    ISystemTileSetter systemTileSetter)
+    ISystemTileSetter systemTileSetter,
+    ISliceBalancer sliceBalancer)
     : IPlacementStyleHandler
 {
     private readonly ISystemTilesForGalaxyDistributionProvider _systemTilesForGalaxyDistributionProvider = systemTilesForGalaxyDistributionProvider;
     private readonly ISystemTileSetter _systemTileSetter = systemTileSetter;
+    private readonly ISliceBalancer _sliceBalancer = sliceBalancer;
 
-    public Task HandleRemainingPositions(Dictionary<(int X, int Y), Hex> galaxy, IMapSettings mapSettings, SystemTilesForMapSetup systemTilesForMapSetup, GenerateMapRequest request)
+    public async Task HandleRemainingPositions(Dictionary<(int X, int Y), Hex> galaxy, IMapSettings mapSettings, SystemTilesForMapSetup systemTilesForMapSetup, GenerateMapRequest request)
     {
         var remainingSystemTiles = _systemTilesForGalaxyDistributionProvider.GetRemainingSystemTilesForMapDistribution(galaxy, systemTilesForMapSetup, mapSettings, request);
 
-        if (request.PlacementStyle == PlacementStyle.Random)
-        {
-            HandleRandomPlacement(galaxy, remainingSystemTiles);
-        }
+        if (request.LegendaryPriorityInEquidistant)
+            _systemTileSetter.SetLegendarySystemTiles(galaxy, remainingSystemTiles, mapSettings);
 
-        return Task.CompletedTask;
-    }
+        var balancedSlices = await _sliceBalancer.BalanceSlices(galaxy, mapSettings, systemTilesForMapSetup, remainingSystemTiles, request);
 
-    private void HandleRandomPlacement(Dictionary<(int X, int Y), Hex> galaxy, SystemTilesForGalaxyDistribution systemTilesForGalaxyDistribution)
-    {
-        _systemTileSetter.SetRemainingSystemTilesRandomly(galaxy, systemTilesForGalaxyDistribution);
+        _systemTileSetter.SetRemainingSystemTiles(galaxy, mapSettings, request, balancedSlices);
     }
 }

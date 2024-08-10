@@ -285,6 +285,9 @@
   <data name="ResourcePath_PlanetImagePath" xml:space="preserve">
     <value>\resources\images\{language}\planets</value>
   </data>
+  <data name="ResourcePath_PlanetTraitIconPath" xml:space="preserve">
+    <value>\resources\images\shared\planettraits</value>
+  </data>
   <data name="ResourcePath_PromissoryCard" xml:space="preserve">
     <value>promissory</value>
   </data>

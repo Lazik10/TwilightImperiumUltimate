@@ -19,8 +19,11 @@ internal class PreviewMapBuilder(
     {
         var galaxy = await _galaxyBuilder.GenerateGalaxy(mapSettings);
 
-        _systemTileSetter.SetHomeSystemTiles(galaxy, systemTilesForMapSetup, mapSettings, HomeSystemDraftType.Placeholders, new List<FactionName>());
+        _systemTileSetter.SetHomeSystemTiles(galaxy, systemTilesForMapSetup, mapSettings, HomeSystemDraftType.Placeholders, new List<FactionName>(), new List<string>());
         _systemTileSetter.SetMecatolSystemTile(galaxy, mapSettings, systemTilesForMapSetup.MecatolRex);
+
+        if (mapSettings is IHyperlineSettings hyperlineSettings)
+            _systemTileSetter.SetHyperlines(galaxy, hyperlineSettings, systemTilesForMapSetup);
 
         _logger.LogInformation("{GeneratedMapLayout}", galaxy.GetMapLayoutLog(mapSettings.DimensionX, mapSettings.DimensionY));
 

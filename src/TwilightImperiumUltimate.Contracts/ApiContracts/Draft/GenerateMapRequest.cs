@@ -7,8 +7,10 @@ public record GenerateMapRequest(
     MapTemplate MapTemplate,
     HomeSystemDraftType HomeSystemDraftType,
     IReadOnlyCollection<FactionName> Factions,
-    AnomalyDensity AnomalyDensity,
+    IReadOnlyCollection<GameVersion> GameVersions,
     PlacementStyle PlacementStyle,
     SystemWeight SystemWeight,
     WormholeDensity WormholesDensity,
-    int NumberOfLegendaries);
+    int NumberOfLegendaries,
+    bool LegendaryPriorityInEquidistant,
+    IReadOnlyCollection<string> PlayerNames);

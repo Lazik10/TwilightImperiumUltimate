@@ -23,6 +23,12 @@ internal class SixPlayersLargeMapSettings : IMapSettings
         (14, 0), (14, 8), (15, 1), (15, 7), (16, 0), (16, 2), (16, 6), (16, 8),
     };
 
+    public HashSet<(int, int)> EquidistantPositions => new HashSet<(int, int)>
+    {
+        (0, 0), (0, 2), (0, 6), (0, 8), (1, 1), (1, 7), (2, 0), (2, 8),
+        (14, 0), (14, 8), (15, 1), (15, 7), (16, 0), (16, 2), (16, 6), (16, 8),
+    };
+
     public Dictionary<int, List<(int, int)>> Slices => new Dictionary<int, List<(int, int)>>();
 
     public Dictionary<int, List<(int X, int Y)>> AdjacentHomePositions => throw new NotImplementedException();

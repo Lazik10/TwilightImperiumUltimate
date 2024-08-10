@@ -22,6 +22,8 @@ public interface IPathProvider
 
     string GetTechnologyIconPath(TechnologyType technologyType);
 
+    string GetPlanetTraitPath(PlanetTrait planetTrait);
+
     string GetUnitImagePath(UnitName unitName);
 
     string GetPlanetImagePath(string fileName);

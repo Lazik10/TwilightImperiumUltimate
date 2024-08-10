@@ -492,17 +492,23 @@
   <data name="Low" xml:space="preserve">
     <value>Low</value>
   </data>
-  <data name="MapGeneratorMenu_MapGenerator" xml:space="preserve">
-    <value>GENERATOR</value>
+  <data name="MapGeneratorMenu_Map" xml:space="preserve">
+    <value>MAP</value>
   </data>
   <data name="MapGeneratorMenu_Settings" xml:space="preserve">
     <value>SETTINGS</value>
   </data>
-  <data name="MapGeneratorMenu_SliceEvaluation" xml:space="preserve">
-    <value>EVALUATIONS</value>
+  <data name="MapGeneratorMenu_Stats" xml:space="preserve">
+    <value>STATS</value>
   </data>
-  <data name="MapGeneratorSettings_EnabledTiles" xml:space="preserve">
-    <value>Enabled tiles:</value>
+  <data name="MapGeneratorSettings_EnableFactionPick" xml:space="preserve">
+    <value>Enable faction pick:</value>
+  </data>
+  <data name="MapGeneratorSettings_EnablePlaerNames" xml:space="preserve">
+    <value>Player names:</value>
+  </data>
+  <data name="MapGeneratorSettings_LegendariesInEquidistant" xml:space="preserve">
+    <value>Legendaries in equidistant:</value>
   </data>
   <data name="MapGeneratorSettings_MapScale" xml:space="preserve">
     <value>Map Scale</value>
@@ -516,11 +522,47 @@
   <data name="MapGeneratorSettings_PlacementStyle" xml:space="preserve">
     <value>Placement style:</value>
   </data>
+  <data name="MapGeneratorSettings_SystemTiles" xml:space="preserve">
+    <value>System tiles:</value>
+  </data>
   <data name="MapGeneratorSettings_SystemWeight" xml:space="preserve">
     <value>System weight:</value>
   </data>
   <data name="MapGeneratorSettings_TilesOverlay" xml:space="preserve">
     <value>Tiles overlay:</value>
+  </data>
+  <data name="MapGeneratorStats_CulturalPlanetsBarTitle" xml:space="preserve">
+    <value>Cultural:</value>
+  </data>
+  <data name="MapGeneratorStats_FrontiersBarTitle" xml:space="preserve">
+    <value>Frontiers:</value>
+  </data>
+  <data name="MapGeneratorStats_HazardousBarTitle" xml:space="preserve">
+    <value>Hazardous:</value>
+  </data>
+  <data name="MapGeneratorStats_IndustrialPlanetsBarTitle" xml:space="preserve">
+    <value>Industrial:</value>
+  </data>
+  <data name="MapGeneratorStats_InfluenceBarTitle" xml:space="preserve">
+    <value>Influence:</value>
+  </data>
+  <data name="MapGeneratorStats_LegendariesBarTitle" xml:space="preserve">
+    <value>Legendaries:</value>
+  </data>
+  <data name="MapGeneratorStats_MapStats" xml:space="preserve">
+    <value>Map statistics</value>
+  </data>
+  <data name="MapGeneratorStats_PlanetsBarTitle" xml:space="preserve">
+    <value>Planets:</value>
+  </data>
+  <data name="MapGeneratorStats_ResourcesBarTitle" xml:space="preserve">
+    <value>Resources:</value>
+  </data>
+  <data name="MapGeneratorStats_SliceStats" xml:space="preserve">
+    <value>Slice statistics</value>
+  </data>
+  <data name="MapGeneratorStats_WormholesBarTitle" xml:space="preserve">
+    <value>Wormholes:</value>
   </data>
   <data name="MapGenerator_AllTiles" xml:space="preserve">
     <value>All Tiles</value>
@@ -542,6 +584,9 @@
   </data>
   <data name="MapTemplate_EightPlayersLargeMap" xml:space="preserve">
     <value>8P Large Map</value>
+  </data>
+  <data name="MapTemplate_FivePlayersMediumWarpMap" xml:space="preserve">
+    <value>5P Warp</value>
   </data>
   <data name="MapTemplate_FourPlayersMediumMap" xml:space="preserve">
     <value>4P Medium Map</value>
@@ -848,6 +893,33 @@
   </data>
   <data name="SearchForKeyword" xml:space="preserve">
     <value>Search: </value>
+  </data>
+  <data name="SliceEvaluation_Id" xml:space="preserve">
+    <value># ID</value>
+  </data>
+  <data name="SliceEvaluation_LegendaryCount" xml:space="preserve">
+    <value># Legendaries</value>
+  </data>
+  <data name="SliceEvaluation_PlanetTraits" xml:space="preserve">
+    <value>Planet Traits</value>
+  </data>
+  <data name="SliceEvaluation_TechnologySkips" xml:space="preserve">
+    <value>Tech Skips</value>
+  </data>
+  <data name="SliceEvaluation_TotalInfluence" xml:space="preserve">
+    <value>Influence</value>
+  </data>
+  <data name="SliceEvaluation_TotalOptimalValue" xml:space="preserve">
+    <value>Opt Value</value>
+  </data>
+  <data name="SliceEvaluation_TotalOptimalValueInfluence" xml:space="preserve">
+    <value>Opt Influence</value>
+  </data>
+  <data name="SliceEvaluation_TotalOptimalValueResources" xml:space="preserve">
+    <value>Opt Resources</value>
+  </data>
+  <data name="SliceEvaluation_TotalResource" xml:space="preserve">
+    <value>Resources</value>
   </data>
   <data name="StrategyCard" xml:space="preserve">
     <value>strategy</value>

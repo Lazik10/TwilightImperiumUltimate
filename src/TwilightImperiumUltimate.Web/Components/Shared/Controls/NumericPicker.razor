@@ -1,13 +1,23 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 
 <FlexRowContainer Width="@Width"
-    JustifyContent="Enums.JustifyContent.SpaceEvenly"
+    JustifyContent="Enums.JustifyContent.FlexStart"
     CssClass="title handel white shadow">
     @if(HideTitle == false)
     {
-        <Title Text="@Title" FontSize="@FontSize" MarginTop="0"/> 
+        if(CenteredText)
+        {
+            <Title Text="@Title" FontSize="@FontSize" MarginTop="0" />
+        }
+        else
+        {
+            <Label Text="@Title" FontSize="@FontSize" />
+        }
+
     }
-    <ArrowButton ArrowSymbol="@LeftArrowSymbol" OnArrowClick="() => OnDecrease.InvokeAsync(null)" />
-    <Label Text="@Value.ToString()" FontSize="@FontSize" CenterText="true"/>
-    <ArrowButton ArrowSymbol="@RightArrowSymbol" OnArrowClick="() => OnIncrease.InvokeAsync(null)" />
+    <FlexRowContainer>
+        <ArrowButton ArrowSymbol="@LeftArrowSymbol" OnArrowClick="() => OnDecrease.InvokeAsync(null)" />
+        <Label Text="@Value.ToString()" FontSize="@FontSize" CenterText="true" />
+        <ArrowButton ArrowSymbol="@RightArrowSymbol" OnArrowClick="() => OnIncrease.InvokeAsync(null)" />
+    </FlexRowContainer>
 </FlexRowContainer>

@@ -6,11 +6,17 @@ public static class MapGeneratorOptions
 
     public static readonly int MaxScale = 100;
 
-    public static readonly int DefaultScale = 100;
+    public static readonly int DefaultScale = 80;
 
     public static readonly int ScaleIncrement = 5;
 
     public static readonly int NumberOfLegendaryPlanets = 2;
+
+    public static readonly bool LegendaryPriorityInEquidistant = false;
+
+    public static readonly bool EnableFactionPick;
+
+    public static readonly bool EnablePlayerNames;
 
     public static readonly SystemTileName DefaultTileName = SystemTileName.Tile18;
 

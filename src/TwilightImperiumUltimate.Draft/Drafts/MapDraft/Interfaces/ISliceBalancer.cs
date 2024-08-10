@@ -5,5 +5,10 @@ namespace TwilightImperiumUltimate.Draft.Drafts.MapDraft.Interfaces;
 
 internal interface ISliceBalancer
 {
-    Task BalanceSlices(Dictionary<(int X, int Y), Hex> galaxy, IMapSettings mapSettings, SystemTilesForMapSetup systemTilesForMapSetup, GenerateMapRequest request);
+    Task<List<Slice>> BalanceSlices(
+        Dictionary<(int X, int Y), Hex> galaxy,
+        IMapSettings mapSettings,
+        SystemTilesForMapSetup systemTilesForMapSetup,
+        SystemTilesForGalaxyDistribution systemTilesForGalaxyDistribution,
+        GenerateMapRequest request);
 }

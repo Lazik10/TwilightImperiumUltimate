@@ -23,6 +23,11 @@ internal class SixPlayersMediumMapSettings : IMapSettings
         (12, 0), (12, 6), (13, 1), (13, 5),
     };
 
+    public HashSet<(int X, int Y)> EquidistantPositions => new HashSet<(int X, int Y)>
+    {
+        (4, 4), (7, 5), (10, 4), (10, 2), (7, 1), (4, 2),
+    };
+
     public Dictionary<int, List<(int X, int Y)>> Slices => new Dictionary<int, List<(int X, int Y)>>()
     {
         { 1, new List<(int X , int Y)> { (2, 4), (3, 3), (2, 2), (4, 4), (5, 3) } },
@@ -30,7 +35,7 @@ internal class SixPlayersMediumMapSettings : IMapSettings
         { 3, new List<(int X , int Y)> { (11, 5), (9, 5), (8, 6), (10, 4), (8, 4) } },
         { 4, new List<(int X , int Y)> { (12, 2), (11, 3), (12, 4), (10, 2), (9, 3) } },
         { 5, new List<(int X , int Y)> { (8, 0), (9, 1), (11, 1), (7, 1), (8, 2) } },
-        { 6, new List<(int X , int Y)> { (3, 1), (5, 1), (6, 0), (6, 2), (4, 2) } },
+        { 6, new List<(int X , int Y)> { (3, 1), (5, 1), (6, 0), (4, 2), (6, 2) } },
     };
 
     public Dictionary<int, List<(int X, int Y)>> AdjacentHomePositions => new Dictionary<int, List<(int X, int Y)>>()

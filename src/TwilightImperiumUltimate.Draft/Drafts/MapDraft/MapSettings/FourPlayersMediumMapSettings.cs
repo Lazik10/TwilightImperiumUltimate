@@ -23,6 +23,11 @@ internal class FourPlayersMediumMapSettings : IMapSettings
         (12, 0), (12, 6), (13, 1), (13, 5),
     };
 
+    public HashSet<(int X, int Y)> EquidistantPositions => new HashSet<(int X, int Y)>()
+    {
+        (4, 4), (7, 5), (10, 4), (10, 2), (7, 1), (4, 2),
+    };
+
     public Dictionary<int, List<(int, int)>> Slices => new Dictionary<int, List<(int, int)>>()
     {
         { 1, new List<(int, int)> { (2, 4), (3, 3), (2, 2), (4, 4), (5, 3) } },

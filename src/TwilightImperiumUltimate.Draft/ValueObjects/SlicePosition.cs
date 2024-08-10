@@ -9,4 +9,6 @@ public class SlicePosition
     public int Y { get; set; }
 
     public SystemTile? SystemTile { get; set; }
+
+    public (int X, int Y) Position => (X, Y);
 }

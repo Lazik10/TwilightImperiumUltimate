@@ -1,4 +1,3 @@
-﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
 namespace TwilightImperiumUltimate.Web.Components.CardGenerator;

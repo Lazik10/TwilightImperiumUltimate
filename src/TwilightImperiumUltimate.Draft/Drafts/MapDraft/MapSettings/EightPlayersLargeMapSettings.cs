@@ -3,7 +3,7 @@ namespace TwilightImperiumUltimate.Draft.Drafts.MapDraft.MapSettings;
 
 internal class EightPlayersLargeMapSettings : IMapSettings
 {
-    public MapTemplate MapTemplate => MapTemplate.SixPlayersMediumMap;
+    public MapTemplate MapTemplate => MapTemplate.EightPlayersLargeMap;
 
     public int DimensionX => 14;
 
@@ -23,6 +23,8 @@ internal class EightPlayersLargeMapSettings : IMapSettings
         (0, 0), (0, 2), (0, 6), (0, 8), (1, 1), (1, 7), (2, 0), (2, 8),
         (14, 0), (14, 8), (15, 1), (15, 7), (16, 0), (16, 2), (16, 6), (16, 8),
     };
+
+    public HashSet<(int X, int Y)> EquidistantPositions => new HashSet<(int X, int Y)>();
 
     public Dictionary<int, List<(int X, int Y)>> Slices => new Dictionary<int, List<(int X, int Y)>>();
 

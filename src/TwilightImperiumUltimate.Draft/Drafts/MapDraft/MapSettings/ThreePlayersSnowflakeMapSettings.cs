@@ -23,6 +23,8 @@ internal class ThreePlayersSnowflakeMapSettings : IMapSettings
         (14, 0), (14, 8), (15, 1), (15, 7), (16, 0), (16, 2), (16, 6), (16, 8),
     };
 
+    public HashSet<(int X, int Y)> EquidistantPositions => new HashSet<(int X, int Y)>();
+
     public Dictionary<int, List<(int, int)>> Slices => new Dictionary<int, List<(int, int)>>();
 
     public Dictionary<int, List<(int X, int Y)>> AdjacentHomePositions => throw new NotImplementedException();

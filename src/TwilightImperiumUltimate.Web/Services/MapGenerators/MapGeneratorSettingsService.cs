@@ -2,9 +2,18 @@ using TwilightImperiumUltimate.Web.Options.MapGenerators;
 
 namespace TwilightImperiumUltimate.Web.Services.MapGenerators;
 
-public class MapGeneratorSettingsService : IMapGeneratorSettingsService
+public class MapGeneratorSettingsService(
+    ITwilightImperiumApiHttpClient httpClient,
+    IMapper mapper)
+    : IMapGeneratorSettingsService
 {
-    public int MapScale { get; set; } = MapGeneratorOptions.MaxScale;
+    private readonly ITwilightImperiumApiHttpClient _httpClient = httpClient;
+    private readonly IMapper _mapper = mapper;
+    private readonly Random random = new();
+
+    public List<FactionModel> FactionsForMapGenerator { get; set; } = new List<FactionModel>();
+
+    public int MapScale { get; set; } = MapGeneratorOptions.DefaultScale;
 
     public MapTemplate MapTemplate { get; set; } = MapGeneratorOptions.MapTemplate;
 
@@ -19,6 +28,14 @@ public class MapGeneratorSettingsService : IMapGeneratorSettingsService
     public WormholeDensity WormholeDensity { get; set; } = MapGeneratorOptions.WormholeDensity;
 
     public int NumberOfLegendaryPlanets { get; set; } = MapGeneratorOptions.NumberOfLegendaryPlanets;
+
+    public bool LegendaryPriorityInEquidistant { get; set; } = MapGeneratorOptions.LegendaryPriorityInEquidistant;
+
+    public bool EnableFactionPick { get; set; } = MapGeneratorOptions.EnableFactionPick;
+
+    public List<MapGeneratorPlayerModel> Players { get; set; } = new List<MapGeneratorPlayerModel>();
+
+    public bool EnablePlayerNames { get; set; } = MapGeneratorOptions.EnablePlayerNames;
 
     public void IncreaseMapScale()
     {
@@ -36,7 +53,92 @@ public class MapGeneratorSettingsService : IMapGeneratorSettingsService
     {
         if (!GameVersions.Remove(gameVersion))
             GameVersions.Add(gameVersion);
+
+        int maxNumberOfLegendaryPlanets = 0;
+        maxNumberOfLegendaryPlanets += GameVersions.Contains(GameVersion.ProphecyOfKings) ? 2 : 0;
+        maxNumberOfLegendaryPlanets += GameVersions.Contains(GameVersion.UnchartedSpace) ? 5 : 0;
+
+        if (NumberOfLegendaryPlanets > maxNumberOfLegendaryPlanets)
+            NumberOfLegendaryPlanets = maxNumberOfLegendaryPlanets;
     }
 
     public void UpdateWormholeDensity(WormholeDensity wormholeDensity) => WormholeDensity = wormholeDensity;
+
+    public void UpdateFactionBanStatus(FactionModel factionModel)
+    {
+        FactionsForMapGenerator.ForEach(x =>
+        {
+            if (x.FactionName == factionModel.FactionName && x.Banned)
+                x.Banned = true;
+            else if (x.FactionName == factionModel.FactionName && !x.Banned)
+                x.Banned = false;
+        });
+    }
+
+    public void GameVersionGlobalEnableDisable(GameVersion gameVersion)
+    {
+        if (FactionsForMapGenerator.Exists(x => x.GameVersion == gameVersion && !x.Banned))
+        {
+            FactionsForMapGenerator.ForEach(x =>
+            {
+                if (x.GameVersion == gameVersion)
+                    x.Banned = true;
+            });
+        }
+        else if (FactionsForMapGenerator.Where(x => x.GameVersion == gameVersion).All(x => x.Banned))
+        {
+            FactionsForMapGenerator.ForEach(x =>
+            {
+                if (x.GameVersion == gameVersion)
+                    x.Banned = false;
+            });
+        }
+    }
+
+    public async Task InitializeFactionsForMapGenerator()
+    {
+        var (response, statusCode) = await _httpClient.GetAsync<ApiResponse<ItemListDto<FactionDto>>>(Paths.ApiPath_Factions);
+        if (statusCode == HttpStatusCode.OK)
+        {
+            FactionsForMapGenerator = _mapper.Map<List<FactionModel>>(response!.Data!.Items);
+        }
+    }
+
+    public int GetMapTemplatePlayerCount()
+    {
+        return MapTemplate switch
+        {
+            MapTemplate.CustomMap => 0,
+            MapTemplate.ThreePlayersSmallMap => 3,
+            MapTemplate.ThreePlayersSmallAlternateMap => 3,
+            MapTemplate.ThreePlayersTriangleMap => 3,
+            MapTemplate.ThreePlayersTriangleNarrowMap => 3,
+            MapTemplate.ThreePlayersSnowflakeMap => 3,
+            MapTemplate.ThreePlayersMantaRayMap => 3,
+            MapTemplate.FourPlayersMediumMap => 4,
+            MapTemplate.SixPlayersMediumMap => 6,
+            MapTemplate.SixPlayersLargeMap => 6,
+            MapTemplate.EightPlayersLargeMap => 8,
+            _ => 0,
+        };
+    }
+
+    public Task InitializePlayersForMapGenerator()
+    {
+        if (Players.Count == 0)
+        {
+            Players = new List<MapGeneratorPlayerModel>();
+            for (int i = 0; i < GetMapTemplatePlayerCount(); i++)
+            {
+                Players.Add(new MapGeneratorPlayerModel());
+            }
+        }
+
+        return Task.CompletedTask;
+    }
+
+    public IReadOnlyCollection<string> GetPlayerNames()
+    {
+        return Players.OrderBy(x => random.Next()).Select(x => x.PlayerName).ToList();
+    }
 }

@@ -565,6 +565,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to \resources\images\shared\planettraits.
+        /// </summary>
+        public static string ResourcePath_PlanetTraitIconPath {
+            get {
+                return ResourceManager.GetString("ResourcePath_PlanetTraitIconPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to promissory.
         /// </summary>
         public static string ResourcePath_PromissoryCard {

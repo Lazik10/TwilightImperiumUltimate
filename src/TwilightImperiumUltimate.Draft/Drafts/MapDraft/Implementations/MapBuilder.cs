@@ -28,8 +28,13 @@ internal class MapBuilder(
         var galaxy = await _galaxyRedPositionSolver.SolveRedPositions(mapSettings, initialGalaxy, request);
 
         _systemTileSetter.SetMecatolSystemTile(galaxy, mapSettings, systemTilesForMapSetup.MecatolRex);
-        _systemTileSetter.SetHomeSystemTiles(galaxy, systemTilesForMapSetup, mapSettings, request.HomeSystemDraftType, request.Factions);
-        _systemTileSetter.SetRedSystemTiles(galaxy, systemTilesForMapSetup.RedTiles, mapSettings, request);
+        _systemTileSetter.SetHomeSystemTiles(galaxy, systemTilesForMapSetup, mapSettings, request.HomeSystemDraftType, request.Factions, request.PlayerNames);
+        _systemTileSetter.SetRedSystemTiles(galaxy, systemTilesForMapSetup, mapSettings, request);
+
+        if (mapSettings is IHyperlineSettings hyperlineSettings)
+        {
+            _systemTileSetter.SetHyperlines(galaxy, hyperlineSettings, systemTilesForMapSetup);
+        }
 
         _logger.LogInformation("{GeneratedMapLayout}", galaxy.GetMapLayoutLog(mapSettings.DimensionX, mapSettings.DimensionY));
 

@@ -27,13 +27,15 @@ public class MapGeneratorService(
         GenerateMapRequest request = new(
             previewMap,
             _mapGeneratorSettingsService.MapTemplate,
-            HomeSystemDraftType.Placeholders,
-            new List<FactionName>(),
-            AnomalyDensity.Low,
+            _mapGeneratorSettingsService.EnableFactionPick ? HomeSystemDraftType.SpecificFactions : HomeSystemDraftType.Placeholders,
+            _mapGeneratorSettingsService.FactionsForMapGenerator.Where(x => !x.Banned).Select(x => x.FactionName).ToList(),
+            _mapGeneratorSettingsService.GameVersions,
             _mapGeneratorSettingsService.PlacementStyle,
             _mapGeneratorSettingsService.SystemWeight,
             WormholeDensity.AtLeastTwoPairs,
-            1);
+            _mapGeneratorSettingsService.NumberOfLegendaryPlanets,
+            _mapGeneratorSettingsService.LegendaryPriorityInEquidistant,
+            _mapGeneratorSettingsService.GetPlayerNames());
 
         var (response, statusCode) = await _httpClient.PostAsync<GenerateMapRequest, ApiResponse<GeneratedMapLayoutDto>>(Paths.ApiPath_GenerateMap, request, ct);
 
@@ -55,6 +57,19 @@ public class MapGeneratorService(
                 index++;
             }
 
+            await _mapGeneratorSettingsService.InitializePlayersForMapGenerator();
+            var playerNames = _mapGeneratorSettingsService.GetPlayerNames().ToList();
+
+            foreach (var systemTile in sortedMapLayoutDictionary.Values)
+            {
+                if ((systemTile.SystemTileCategory == SystemTileCategory.Green && systemTile.FactionName != FactionName.None)
+                    || systemTile.SystemTileName == SystemTileName.TileHome)
+                {
+                    systemTile.PlayerName = playerNames[0];
+                    playerNames.RemoveAt(0);
+                }
+            }
+
             _systemTiles = sortedMapLayoutDictionary;
         }
 
@@ -63,8 +78,11 @@ public class MapGeneratorService(
 
     public async Task InitializeSystemTilesAsync(CancellationToken ct)
     {
-        _systemTiles = await GenerateMapAsync(true, ct);
-        await InitializeSystemTilesForMenu();
+        if (_systemTiles.Count == 0)
+            _systemTiles = await GenerateMapAsync(true, ct);
+
+        if (!AllSystemTiles.Any())
+            await InitializeSystemTilesForMenu();
     }
 
     public IEnumerable<SystemTileModel> GetSystemTilesToShow(SystemTileTypeFilter systemTileType)
@@ -94,7 +112,7 @@ public class MapGeneratorService(
 
     public void SetDraggingSystemTile(SystemTileModel systemTile)
     {
-        DraggedSystemTile = systemTile;
+        DraggedSystemTile = systemTile.Copy();
     }
 
     public void SetDraggingSystemTilePosition(int draggedSystemTileStartMapPosition)
@@ -124,6 +142,19 @@ public class MapGeneratorService(
         {
             _systemTiles[mapPosition] = DraggedSystemTile;
         }
+    }
+
+    public string GetMapString()
+    {
+        var mapHashString = string.Empty;
+        GeneratedPositionsWithSystemTiles.Values.ToList().ForEach(x => mapHashString += x.SystemTileName.ToString());
+        return mapHashString;
+    }
+
+    public Task InitializeMapFromLink(Dictionary<int, SystemTileModel> map)
+    {
+        _systemTiles = map;
+        return Task.CompletedTask;
     }
 
     private async Task InitializeSystemTilesForMenu()

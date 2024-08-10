@@ -16,6 +16,8 @@ public interface IMapSettings
 
     HashSet<(int X, int Y)> EmptyPositions { get; }
 
+    HashSet<(int X, int Y)> EquidistantPositions { get; }
+
     Dictionary<int, List<(int X, int Y)>> Slices { get; }
 
     Dictionary<int, List<(int X, int Y)>> AdjacentHomePositions { get; }

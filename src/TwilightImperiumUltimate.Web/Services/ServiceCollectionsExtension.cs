@@ -34,6 +34,9 @@ public static class ServiceCollectionsExtension
         services.AddScoped<IColorPickerService, ColorPickerService>();
         services.AddScoped<IMapGeneratorService, MapGeneratorService>();
         services.AddScoped<IMapGeneratorSettingsService, MapGeneratorSettingsService>();
+        services.AddScoped<IMapDataProvider, MapDataProvider>();
+        services.AddScoped<IMapEvaluationService, MapEvaluationService>();
+        services.AddScoped<IMapToStringConverter, MapToStringConverter>();
 
         services.AddScoped<ITwilightImperiumApiHttpClient, TwilightImperiumApiHttpClient>();
 

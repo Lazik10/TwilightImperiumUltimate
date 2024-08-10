@@ -12,17 +12,27 @@ public class SystemTilesForMapSetupProvider(
     private readonly IGalaxyRepository _galaxyRepository = galaxyRepository;
     private readonly Random _random = new();
 
-    public async Task<SystemTilesForMapSetup> GetSystemTilesForMapSetup(IMapSettings mapSettings, CancellationToken cancellationToken)
+    public async Task<SystemTilesForMapSetup> GetSystemTilesForMapSetup(IMapSettings mapSettings, GenerateMapRequest request, CancellationToken cancellationToken)
     {
         var mecatolRex = await _galaxyRepository.GetMecatolRex(cancellationToken);
         var emptyTilePlaceholder = await _galaxyRepository.GetEmptyPlaceholderSystemTile(cancellationToken);
         var homeTilePlaceholder = await _galaxyRepository.GetHomePlaceholderSystemTile(cancellationToken);
         var homeTiles = await _galaxyRepository.GetHomeSystemTiles(cancellationToken);
         var shuffledHomeTiles = homeTiles.OrderBy(x => _random.Next()).ToList();
+
         var blueTiles = await _galaxyRepository.GetBlueSystemTiles(cancellationToken);
-        var shuffledBlueTiles = blueTiles.OrderBy(x => _random.Next()).ToList();
+        var shuffledBlueTiles = blueTiles
+            .Where(x => request.GameVersions.Contains(x.GameVersion))
+            .OrderBy(x => _random.Next())
+            .ToList();
+
         var redTiles = await _galaxyRepository.GetRedSystemTiles(cancellationToken);
-        var shuffledRedTiles = redTiles.OrderBy(x => _random.Next()).ToList();
+        var shuffledRedTiles = redTiles
+            .Where(x => request.GameVersions.Contains(x.GameVersion))
+            .OrderBy(x => _random.Next())
+            .ToList();
+
+        var hyperLines = await _galaxyRepository.GetAllHyperlines(cancellationToken);
 
         return new SystemTilesForMapSetup(
             mecatolRex,
@@ -30,6 +40,7 @@ public class SystemTilesForMapSetupProvider(
             homeTilePlaceholder,
             shuffledHomeTiles,
             shuffledBlueTiles,
-            shuffledRedTiles);
+            shuffledRedTiles,
+            hyperLines);
     }
 }

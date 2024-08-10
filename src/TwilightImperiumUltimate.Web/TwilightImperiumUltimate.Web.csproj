@@ -102,7 +102,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Components\MapGenerator\MapGrids\FivePlayers\" />
     <Folder Include="Components\MapGenerator\MapGrids\SevenPlayers\" />
   </ItemGroup>
 

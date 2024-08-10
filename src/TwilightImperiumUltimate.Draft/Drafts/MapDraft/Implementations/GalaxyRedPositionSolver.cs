@@ -16,6 +16,17 @@ public class GalaxyRedPositionSolver(
 
     public Task<Dictionary<(int X, int Y), Hex>> SolveRedPositions(IMapSettings mapSettings, Dictionary<(int X, int Y), Hex> galaxy, GenerateMapRequest request)
     {
+        if (mapSettings is IHyperlineSettings hyperlineSettings)
+        {
+            foreach (var customNeighbor in hyperlineSettings.CustomNeighbors)
+            {
+                if (galaxy.ContainsKey((customNeighbor.X1, customNeighbor.Y1)) && galaxy.ContainsKey((customNeighbor.X2, customNeighbor.Y2)))
+                {
+                    galaxy[(customNeighbor.X1, customNeighbor.Y1)].AddCustomNeighbor(galaxy[(customNeighbor.X2, customNeighbor.Y2)]);
+                }
+            }
+        }
+
         var graph = GenerateGraphFromUniverse(galaxy);
 
         var galaxyWithRedPositions = CreateUniverseWithNRedHexes(galaxy, graph, mapSettings, request);
@@ -73,8 +84,6 @@ public class GalaxyRedPositionSolver(
 
     private Dictionary<(int X, int Y), Hex> CreateUniverseWithNRedHexes(Dictionary<(int X, int Y), Hex> galaxy, UndirectedGraph<Hex, Edge<Hex>> graph, IMapSettings mapSettings, GenerateMapRequest request)
     {
-        _logger.LogInformation("Creating universe with Anomaly density set to: {AnomalyDensity}", request.AnomalyDensity);
-
         // Remove home positions, empty positions and Mecatol Rex from the graph
         foreach (var pos in mapSettings.HomePositions.Where(pos => galaxy.ContainsKey(pos)))
         {
@@ -91,9 +100,35 @@ public class GalaxyRedPositionSolver(
             graph.RemoveVertex(value);
         }
 
+        if (mapSettings is IHyperlineSettings hyperlineSettings)
+        {
+            foreach (var pos in hyperlineSettings.Hyperlines.Select(x => (x.X, x.Y)))
+            {
+                if (galaxy.TryGetValue(pos, out Hex? hex))
+                {
+                    graph.RemoveVertex(hex);
+                }
+            }
+        }
+
+        // Remove corresponding number of equidistant positions so we can place legendaries there later
+        if (request.LegendaryPriorityInEquidistant)
+        {
+            var equidistantPositions = mapSettings.EquidistantPositions
+                .Where(pos => galaxy.ContainsKey(pos))
+                .OrderBy(x => _random.Next())
+                .Take(request.NumberOfLegendaries)
+                .ToList();
+
+            foreach (var pos in equidistantPositions)
+            {
+                graph.RemoveVertex(galaxy[pos]);
+            }
+        }
+
         // Find max independent set
         var maxIndependentSet = FindMaxIndependentSet(graph);
-        _logger.LogInformation("Detected max {MaxIndependentSet} red positions and {MinRedPositions} required.", maxIndependentSet, mapSettings.NumberOfPlayers);
+        _logger.LogInformation("Detected max {MaxIndependentSet} red positions and {MinRedPositions} required.", maxIndependentSet.Count, mapSettings.NumberOfPlayers);
 
         // Get the number of anomaly red positions
         var n = Math.Max(mapSettings.NumberOfPlayers, maxIndependentSet.Count);

@@ -28,8 +28,6 @@ public partial class TwilightImperiumDbContext : IdentityDbContext<TwilightImper
 
     public virtual DbSet<Wormhole> Wormholes { get; set; }
 
-    public virtual DbSet<MapRedPosition> MapRedPositions { get; set; }
-
     // Player
     public virtual DbSet<Player> Players { get; set; }
 

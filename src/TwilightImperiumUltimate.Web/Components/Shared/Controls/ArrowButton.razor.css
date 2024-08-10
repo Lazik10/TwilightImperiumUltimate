@@ -4,5 +4,5 @@
 }
 
 .arrow-button {
-    max-width: 50px;
+    transform: translateY(-5px);
 }

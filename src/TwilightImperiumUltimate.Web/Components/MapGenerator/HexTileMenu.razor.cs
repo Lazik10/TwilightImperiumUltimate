@@ -37,6 +37,7 @@ public partial class HexTileMenu
 
     private void ToggleTileMenu()
     {
+        GetSystemTilesToShow();
         _showTileMenu = !_showTileMenu;
     }
 

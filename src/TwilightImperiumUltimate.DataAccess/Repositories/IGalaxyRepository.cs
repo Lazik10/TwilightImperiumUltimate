@@ -25,4 +25,6 @@ public interface IGalaxyRepository
     Task<IReadOnlyList<SystemTile>> GetRedSystemTiles(CancellationToken cancellationToken);
 
     Task<IReadOnlyList<Planet>> GetAllPlanets(CancellationToken cancellationToken);
+
+    Task<IReadOnlyList<SystemTile>> GetAllHyperlines(CancellationToken cancellationToken);
 }

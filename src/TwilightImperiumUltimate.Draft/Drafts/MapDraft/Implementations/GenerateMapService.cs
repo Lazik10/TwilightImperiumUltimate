@@ -20,7 +20,7 @@ public class GenerateMapService(
         ArgumentNullException.ThrowIfNull(request);
 
         var mapSettings = await _mapSettingProvider.GetMapSettingsForSpecificTemplate(request.MapTemplate);
-        var systemTilesForMapSetup = await _systemTilesForMapSetupProvider.GetSystemTilesForMapSetup(mapSettings, cancellationToken);
+        var systemTilesForMapSetup = await _systemTilesForMapSetupProvider.GetSystemTilesForMapSetup(mapSettings, request, cancellationToken);
 
         var generatedMapLayout = request.PreviewMap ?
             await _previewMapBuilder.CreatePreviewMapLayout(mapSettings, systemTilesForMapSetup) :

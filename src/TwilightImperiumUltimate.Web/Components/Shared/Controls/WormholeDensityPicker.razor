@@ -1,10 +1,12 @@
 ﻿@using TwilightImperiumUltimate.Web.Helpers.Enums
 
 <FlexRowContainer Width="@Width"
-                  JustifyContent="Enums.JustifyContent.SpaceEvenly"
+                  JustifyContent="Enums.JustifyContent.FlexStart"
                   CssClass="title handel white shadow">
     <Label Text="@Strings.WormholeDensityPicker_WormholeDensity" FontSize="18" />
-    <ArrowButton ArrowSymbol="@LeftArrowSymbol" OnArrowClick="Decrease" />
-    <Label Text="@WormholeDensity.GetDisplayName()" FontSize="18" CenterText="true"/>
-    <ArrowButton ArrowSymbol="@RightArrowSymbol" OnArrowClick="Increase" />
+    <FlexRowContainer>
+        <ArrowButton ArrowSymbol="@LeftArrowSymbol" OnArrowClick="Decrease" />
+        <Label Text="@WormholeDensity.GetDisplayName()" FontSize="18" CenterText="true" />
+        <ArrowButton ArrowSymbol="@RightArrowSymbol" OnArrowClick="Increase" />
+    </FlexRowContainer>
 </FlexRowContainer>

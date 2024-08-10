@@ -3,9 +3,9 @@
 @using TwilightImperiumUltimate.Web.Components.Shared.Text
 @using TwilightImperiumUltimate.Web.Resources
 
-<FlexColumnContainer>
+<FlexColumnCenteredContainer>
 
-    <GridLayout Columns="3" Gap="20" Width="100" >
+    <GridLayout Columns="2" Gap="40" Width="80" >
 
         <FlexRowContainer AlignItems="Enums.AlignItems.Center">
             <Label Text="@Strings.MapGeneratorSettings_MapTemplate" FontSize="18" />
@@ -14,7 +14,8 @@
                             Change="() => SetMapTemplate(SelectedMapTemplate)"
                             ValueProperty="Key"
                             TextProperty="Value"
-                            Style="width: 100%; max-width: 400px;" />
+                            Style="width: 80%; max-width: 400px;"
+                            class="title handel" />
         </FlexRowContainer>
 
         <FlexRowContainer>
@@ -24,16 +25,8 @@
                             Change="() => SetSystemTileOverlay(SelectedSystemTileOverlay)"
                             ValueProperty="Key"
                             TextProperty="Value"
-                            Style="width: 100%; max-width: 400px;" />
-        </FlexRowContainer>
-
-        <FlexRowContainer>
-            <NumericPicker Title="@Strings.MapGeneratorSettings_MapScale"
-                           Value="@MapGeneratorSettingsService.MapScale"
-                           OnDecrease="DecreaseMapScale"
-                           OnIncrease="IncreaseMapScale"
-                           Width="100"
-                           FontSize="18" />
+                            Style="width: 80%; max-width: 400px;"
+                            class="title handel" />
         </FlexRowContainer>
 
         <FlexRowContainer>
@@ -43,7 +36,8 @@
                             Change="() => SetPlacementStyle(SelectedPlacementStyle)"
                             ValueProperty="Key"
                             TextProperty="Value"
-                            Style="width: 100%; max-width: 400px;" />
+                            Style="width: 80%; max-width: 400px;"
+                            class="title handel" />
         </FlexRowContainer>
 
         <FlexRowContainer>
@@ -53,16 +47,21 @@
                             Change="() => SetSystemWeight(SelectedSystemWeight)"
                             ValueProperty="Key"
                             TextProperty="Value"
-                            Style="width: 100%; max-width: 400px;" />
+                            Style="width: 80%; max-width: 400px;"
+                            class="title handel" />
         </FlexRowContainer>
+
+        <VerticalSpace Height="20" />
+
+        <VerticalSpace Height="20" />
+
+        <Label Text="@Strings.MapGeneratorSettings_SystemTiles" FontSize="18"/>
 
         <div />
 
-        <Label Text="@Strings.MapGeneratorSettings_EnabledTiles" FontSize="18"/>
-
         <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
             <YesNoPicker Title="@Strings.GameVersion_ProphecyOfKings" 
-                DefaultValue="true" 
+                DefaultValue="MapGeneratorSettingsService.GameVersions.Contains(GameVersion.ProphecyOfKings)" 
                 OnValueChange="() => UpdateGameVersion(GameVersion.ProphecyOfKings)"
                 Width="100"/>
         </FlexRowContainer>
@@ -70,20 +69,61 @@
         <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
             <YesNoPicker 
                 Title="@Strings.GameVersion_UnchartedSpace" 
-                DefaultValue="false" 
+                DefaultValue="MapGeneratorSettingsService.GameVersions.Contains(GameVersion.UnchartedSpace)" 
                 OnValueChange="() => UpdateGameVersion(GameVersion.UnchartedSpace)" 
                 Width="100"/>
         </FlexRowContainer>
 
-        <WormholeDensityPicker Width="100" />
+        <VerticalSpace Height="20" />
+
+        <VerticalSpace Height="20" />
 
         <NumericPicker Title="@Strings.MapGeneratorSettings_NumberOfLegendaryPlanets"
                        Value="@MapGeneratorSettingsService.NumberOfLegendaryPlanets"
                        OnDecrease="DecreaseNumberOfLegendaryPlanets"
                        OnIncrease="IncreaseNumberOfLegendaryPlanets"
                        Width="100"
-                       FontSize="18" />
+                       FontSize="18"
+                       CenteredText="false"/>
+
+        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+            <YesNoPicker Title="@Strings.MapGeneratorSettings_LegendariesInEquidistant"
+                         DefaultValue="@MapGeneratorSettingsService.LegendaryPriorityInEquidistant"
+                         OnValueChange="() => ToggleLegendaryPriorityInEquidistant()"
+                         Width="100" />
+        </FlexRowContainer>
+
+        <WormholeDensityPicker Width="100" WormholeDensity="MapGeneratorSettingsService.WormholeDensity" />
+
+        <div />
 
     </GridLayout>
 
-</FlexColumnContainer>
+    <VerticalSpace Height="20" />
+
+    <GridLayout Columns="2" Gap="40" Width="80" >
+
+        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+            <YesNoPicker Title="@Strings.MapGeneratorSettings_EnablePlaerNames"
+                         DefaultValue="@MapGeneratorSettingsService.EnablePlayerNames"
+                         OnValueChange="TogglePlayerNames"
+                         Width="100" />
+        </FlexRowContainer>
+
+    </GridLayout>
+
+    <GridLayout Columns="2" Gap="20" Width="80" >
+        @if(@MapGeneratorSettingsService.EnablePlayerNames)
+        {
+            // TODO: Fix this, so that players are changed when changing map template
+            foreach (var player in MapGeneratorSettingsService.Players)
+            {
+                <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+                    <RadzenTextBox Placeholder="@Strings.Player"
+                                    @bind-Value="player.PlayerName"
+                                    class="w-100 flex-row title white handel" />
+                </FlexRowContainer>
+            }
+        }
+    </GridLayout>
+</FlexColumnCenteredContainer>

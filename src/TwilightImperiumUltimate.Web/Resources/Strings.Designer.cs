@@ -1231,11 +1231,11 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to GENERATOR.
+        ///   Looks up a localized string similar to MAP.
         /// </summary>
-        public static string MapGeneratorMenu_MapGenerator {
+        public static string MapGeneratorMenu_Map {
             get {
-                return ResourceManager.GetString("MapGeneratorMenu_MapGenerator", resourceCulture);
+                return ResourceManager.GetString("MapGeneratorMenu_Map", resourceCulture);
             }
         }
         
@@ -1249,20 +1249,38 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to EVALUATIONS.
+        ///   Looks up a localized string similar to STATS.
         /// </summary>
-        public static string MapGeneratorMenu_SliceEvaluation {
+        public static string MapGeneratorMenu_Stats {
             get {
-                return ResourceManager.GetString("MapGeneratorMenu_SliceEvaluation", resourceCulture);
+                return ResourceManager.GetString("MapGeneratorMenu_Stats", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enabled tiles:.
+        ///   Looks up a localized string similar to Enable faction pick:.
         /// </summary>
-        public static string MapGeneratorSettings_EnabledTiles {
+        public static string MapGeneratorSettings_EnableFactionPick {
             get {
-                return ResourceManager.GetString("MapGeneratorSettings_EnabledTiles", resourceCulture);
+                return ResourceManager.GetString("MapGeneratorSettings_EnableFactionPick", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Player names:.
+        /// </summary>
+        public static string MapGeneratorSettings_EnablePlaerNames {
+            get {
+                return ResourceManager.GetString("MapGeneratorSettings_EnablePlaerNames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Legendaries in equidistant:.
+        /// </summary>
+        public static string MapGeneratorSettings_LegendariesInEquidistant {
+            get {
+                return ResourceManager.GetString("MapGeneratorSettings_LegendariesInEquidistant", resourceCulture);
             }
         }
         
@@ -1303,6 +1321,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to System tiles:.
+        /// </summary>
+        public static string MapGeneratorSettings_SystemTiles {
+            get {
+                return ResourceManager.GetString("MapGeneratorSettings_SystemTiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to System weight:.
         /// </summary>
         public static string MapGeneratorSettings_SystemWeight {
@@ -1321,6 +1348,105 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cultural:.
+        /// </summary>
+        public static string MapGeneratorStats_CulturalPlanetsBarTitle {
+            get {
+                return ResourceManager.GetString("MapGeneratorStats_CulturalPlanetsBarTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Frontiers:.
+        /// </summary>
+        public static string MapGeneratorStats_FrontiersBarTitle {
+            get {
+                return ResourceManager.GetString("MapGeneratorStats_FrontiersBarTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hazardous:.
+        /// </summary>
+        public static string MapGeneratorStats_HazardousBarTitle {
+            get {
+                return ResourceManager.GetString("MapGeneratorStats_HazardousBarTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Industrial:.
+        /// </summary>
+        public static string MapGeneratorStats_IndustrialPlanetsBarTitle {
+            get {
+                return ResourceManager.GetString("MapGeneratorStats_IndustrialPlanetsBarTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Influence:.
+        /// </summary>
+        public static string MapGeneratorStats_InfluenceBarTitle {
+            get {
+                return ResourceManager.GetString("MapGeneratorStats_InfluenceBarTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Legendaries:.
+        /// </summary>
+        public static string MapGeneratorStats_LegendariesBarTitle {
+            get {
+                return ResourceManager.GetString("MapGeneratorStats_LegendariesBarTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map statistics.
+        /// </summary>
+        public static string MapGeneratorStats_MapStats {
+            get {
+                return ResourceManager.GetString("MapGeneratorStats_MapStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Planets:.
+        /// </summary>
+        public static string MapGeneratorStats_PlanetsBarTitle {
+            get {
+                return ResourceManager.GetString("MapGeneratorStats_PlanetsBarTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resources:.
+        /// </summary>
+        public static string MapGeneratorStats_ResourcesBarTitle {
+            get {
+                return ResourceManager.GetString("MapGeneratorStats_ResourcesBarTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Slice statistics.
+        /// </summary>
+        public static string MapGeneratorStats_SliceStats {
+            get {
+                return ResourceManager.GetString("MapGeneratorStats_SliceStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wormholes:.
+        /// </summary>
+        public static string MapGeneratorStats_WormholesBarTitle {
+            get {
+                return ResourceManager.GetString("MapGeneratorStats_WormholesBarTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Custom.
         /// </summary>
         public static string MapTemplate_CustomMap {
@@ -1335,6 +1461,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string MapTemplate_EightPlayersLargeMap {
             get {
                 return ResourceManager.GetString("MapTemplate_EightPlayersLargeMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 5P Warp.
+        /// </summary>
+        public static string MapTemplate_FivePlayersMediumWarpMap {
+            get {
+                return ResourceManager.GetString("MapTemplate_FivePlayersMediumWarpMap", resourceCulture);
             }
         }
         
@@ -2253,6 +2388,87 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string SearchForKeyword {
             get {
                 return ResourceManager.GetString("SearchForKeyword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # ID.
+        /// </summary>
+        public static string SliceEvaluation_Id {
+            get {
+                return ResourceManager.GetString("SliceEvaluation_Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # Legendaries.
+        /// </summary>
+        public static string SliceEvaluation_LegendaryCount {
+            get {
+                return ResourceManager.GetString("SliceEvaluation_LegendaryCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Planet Traits.
+        /// </summary>
+        public static string SliceEvaluation_PlanetTraits {
+            get {
+                return ResourceManager.GetString("SliceEvaluation_PlanetTraits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tech Skips.
+        /// </summary>
+        public static string SliceEvaluation_TechnologySkips {
+            get {
+                return ResourceManager.GetString("SliceEvaluation_TechnologySkips", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Influence.
+        /// </summary>
+        public static string SliceEvaluation_TotalInfluence {
+            get {
+                return ResourceManager.GetString("SliceEvaluation_TotalInfluence", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Opt Value.
+        /// </summary>
+        public static string SliceEvaluation_TotalOptimalValue {
+            get {
+                return ResourceManager.GetString("SliceEvaluation_TotalOptimalValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Opt Influence.
+        /// </summary>
+        public static string SliceEvaluation_TotalOptimalValueInfluence {
+            get {
+                return ResourceManager.GetString("SliceEvaluation_TotalOptimalValueInfluence", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Opt Resources.
+        /// </summary>
+        public static string SliceEvaluation_TotalOptimalValueResources {
+            get {
+                return ResourceManager.GetString("SliceEvaluation_TotalOptimalValueResources", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resources.
+        /// </summary>
+        public static string SliceEvaluation_TotalResource {
+            get {
+                return ResourceManager.GetString("SliceEvaluation_TotalResource", resourceCulture);
             }
         }
         

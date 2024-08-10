@@ -1,4 +1,5 @@
 using System.Globalization;
+using TwilightImperiumUltimate.Contracts.Enums;
 
 namespace TwilightImperiumUltimate.Web.Services.Path;
 
@@ -64,6 +65,11 @@ public class PathProvider : IPathProvider
     public string GetTechnologyIconPath(TechnologyType technologyType)
     {
         return $"{Paths.ResourcePath_TechnologyIconPath}{Strings.BackSlash}{technologyType}{Strings.FileExtensionWebp}";
+    }
+
+    public string GetPlanetTraitPath(PlanetTrait planetTrait)
+    {
+        return $"{Paths.ResourcePath_PlanetTraitIconPath}{Strings.BackSlash}{planetTrait}{Strings.FileExtensionWebp}";
     }
 
     public string GetUnitImagePath(UnitName unitName)

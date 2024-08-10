@@ -11,4 +11,6 @@ public class HexDto()
     public string Name { get; set; } = string.Empty;
 
     public SystemTileDto? SystemTile { get; set; }
+
+    public string PlayerName { get; set; } = string.Empty;
 }

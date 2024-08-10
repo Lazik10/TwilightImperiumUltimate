@@ -1,0 +1,16 @@
+﻿<FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+    <Label Text="@MinValue.ToString()" FontSize="@FontSize" Width="10" CenterText="true" TextColor="TextColor.Red"/>
+    <div style="position: relative; display: flex; width: 100%;">
+        <div class="handel shadow value" style="color: yellow">
+            @Value.ToString()
+        </div>
+        <div style="width: 100%">
+            <div class="@(CssClass)"
+                 style="min-height: @(FontSize)px; background-color: @(Color); width: @(GetComputedValue())%;"
+                 max="100">
+            </div>
+        </div>
+    </div>
+    <Label Text="@MaxValue.ToString()" FontSize="@FontSize" Width="10" CenterText="true" TextColor="TextColor.Green"/>
+</FlexRowContainer>
+

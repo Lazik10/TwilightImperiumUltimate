@@ -15,6 +15,8 @@ public class Hex(int x, int y, string name = " _ ")
 
     public SystemTile? SystemTile { get; set; }
 
+    public string PlayerName { get; set; } = string.Empty;
+
     public void AddCustomNeighbor(Hex neighbor)
     {
         if (neighbor is not null && !Neighbors.Contains(neighbor))

@@ -1,3 +1,5 @@
+using TwilightImperiumUltimate.Web.Services.MapGenerators;
+
 namespace TwilightImperiumUltimate.Web.Components.Factions;
 
 public partial class FactionIconRow : TwilightImperiumBaseComponenet
@@ -22,7 +24,19 @@ public partial class FactionIconRow : TwilightImperiumBaseComponenet
     [Parameter]
     public bool ShowBaseGame { get; set; } = true;
 
+    [Parameter]
+    public List<FactionModel> ProvidedFactions { get; set; } = new List<FactionModel>();
+
+    [Inject]
+    private IMapGeneratorSettingsService MapGeneratorSettingsService { get; set; } = default!;
+
     public IReadOnlyCollection<FactionModel>? Factions => _factions;
+
+    public void RefreshFactions()
+    {
+        _factions = MapGeneratorSettingsService.FactionsForMapGenerator;
+        StateHasChanged();
+    }
 
     public void SetAllFactionsBanStatus(bool banStatus)
     {
@@ -32,6 +46,16 @@ public partial class FactionIconRow : TwilightImperiumBaseComponenet
 
     protected override async Task OnInitializedAsync()
     {
+        // This is a hack so I can use this component in the map generator, unfortunatelly the componenet is initialized every time
+        if (ProvidedFactions.Count != 0)
+        {
+            _factions = ProvidedFactions;
+
+            await OnInitializeGetFactions.InvokeAsync(Factions);
+            MapGeneratorSettingsService.FactionsForMapGenerator = ProvidedFactions;
+            return;
+        }
+
         await InitializeFactions();
 
         if (Factions is not null && Factions.Count != 0)

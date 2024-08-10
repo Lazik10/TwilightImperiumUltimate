@@ -5,5 +5,5 @@ namespace TwilightImperiumUltimate.Draft.Drafts.MapDraft.Interfaces;
 
 public interface ISystemTilesForMapSetupProvider
 {
-    Task<SystemTilesForMapSetup> GetSystemTilesForMapSetup(IMapSettings mapSettings, CancellationToken cancellationToken);
+    Task<SystemTilesForMapSetup> GetSystemTilesForMapSetup(IMapSettings mapSettings, GenerateMapRequest request, CancellationToken cancellationToken);
 }

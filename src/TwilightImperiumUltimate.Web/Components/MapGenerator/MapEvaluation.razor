@@ -1,0 +1,190 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Bars
+
+<div class="slice-evaluation-grid handel white shadow">
+
+    <FlexColumnCenteredContainer CssClass="background">
+        <VerticalSpace Height="20" />
+        <FlexRowContainer Width="80">
+            <Label Text="@Strings.MapGeneratorStats_PlanetsBarTitle" FontSize="18" Width="30"/>
+            <ProgressBar MinValue="MapEvaluations.TotalPlanetsCountMin"
+                         MaxValue="MapEvaluations.TotalPlanetsCountMax"
+                         Width="100"
+                         CssClass="planets"
+                         Value="MapEvaluations.PlanetsCount" />
+        </FlexRowContainer>
+
+        <FlexRowContainer Width="80">
+            <Label Text="@Strings.MapGeneratorStats_ResourcesBarTitle" FontSize="18" Width="30"/>
+            <ProgressBar MinValue="MapEvaluations.TotalResourcesMin"
+                         MaxValue="MapEvaluations.TotalResourcesMax"
+                         Width="100"
+                         Color="yellow"
+                         Value="MapEvaluations.Resources" />
+        </FlexRowContainer>
+
+        <FlexRowContainer Width="80">
+            <Label Text="@Strings.MapGeneratorStats_InfluenceBarTitle" FontSize="18" Width="30"/>
+            <ProgressBar MinValue="MapEvaluations.TotalInfluenceMin"
+                         MaxValue="MapEvaluations.TotalInfluenceMax"
+                         Width="100"
+                         Color="blue"
+                         Value="MapEvaluations.Influence" />
+        </FlexRowContainer>
+
+        <FlexRowContainer Width="80">
+            <Label Text="@Strings.MapGeneratorStats_FrontiersBarTitle" FontSize="18" Width="30" />
+            <ProgressBar MinValue="MapEvaluations.FrontierTokensMin"
+                         MaxValue="MapEvaluations.FrontierTokensMax"
+                         Width="100"
+                         Color="black"
+                         Value="MapEvaluations.FrontierTokens" />
+        </FlexRowContainer>
+
+        <FlexRowContainer Width="80">
+            <Label Text="@Strings.MapGeneratorStats_LegendariesBarTitle" FontSize="18" Width="30" />
+            <ProgressBar MinValue="MapEvaluations.LegendaryPlanetsMin"
+                         MaxValue="MapEvaluations.LegendaryPlanetsMax"
+                         Width="100"
+                         CssClass="pink"
+                         Value="MapEvaluations.LegendaryPlanets" />
+        </FlexRowContainer>
+
+        <FlexRowContainer Width="80">
+            <Label Text="@Strings.MapGeneratorStats_WormholesBarTitle" FontSize="18" Width="30"/>
+            <ProgressBar MinValue="MapEvaluations.WormholesMin"
+                         MaxValue="MapEvaluations.WormholesMax"
+                         Width="100"
+                         CssClass="wormholes"
+                         Value="MapEvaluations.Wormholes" />
+        </FlexRowContainer>
+
+        <FlexRowContainer Width="80">
+            <Label Text="@Strings.MapGeneratorStats_IndustrialPlanetsBarTitle" FontSize="18" Width="30" />
+            <ProgressBar MinValue="MapEvaluations.IndustrialPlanetsMin"
+                         MaxValue="MapEvaluations.IndustrialPlanetsMax"
+                         Width="100"
+                         CssClass="darkgreen"
+                         Value="MapEvaluations.IndustrialPlanets" />
+        </FlexRowContainer>
+
+                <FlexRowContainer Width="80">
+            <Label Text="@Strings.MapGeneratorStats_CulturalPlanetsBarTitle" FontSize="18" Width="30"/>
+            <ProgressBar MinValue="MapEvaluations.CulturalPlanetsMin"
+                         MaxValue="MapEvaluations.CulturalPlanetsMax"
+                         Width="100"
+                         Color="blue"
+                         Value="MapEvaluations.CulturalPlanets" />
+        </FlexRowContainer>
+
+        <FlexRowContainer Width="80">
+            <Label Text="@Strings.MapGeneratorStats_HazardousBarTitle" FontSize="18" Width="30" />
+            <ProgressBar MinValue="MapEvaluations.HazardousPlanetsMin"
+                         MaxValue="MapEvaluations.HazardousPlanetsMax"
+                         Width="100"
+                         Color="red"
+                         Value="MapEvaluations.HazardousPlanets" />
+        </FlexRowContainer>
+
+        <VerticalSpace Height="20" />
+    </FlexColumnCenteredContainer>
+
+    <VerticalSpace Height="50"/>
+
+    <FlexColumnCenteredContainer CssClass="background">
+
+        <GridLayout Columns="9" Gap="20" Width="100">
+            <div>
+                @Strings.SliceEvaluation_Id
+            </div>
+
+            <div class="green">
+                @Strings.SliceEvaluation_TotalOptimalValue
+            </div>
+
+            <div class="yellow">
+                @Strings.SliceEvaluation_TotalOptimalValueResources
+            </div>
+
+            <div class="blue">
+                @Strings.SliceEvaluation_TotalOptimalValueInfluence
+            </div>
+
+            <div class="yellow">
+                @Strings.SliceEvaluation_TotalResource
+            </div>
+
+            <div class="blue">
+                @Strings.SliceEvaluation_TotalInfluence
+            </div>
+
+            <div class="green">
+                @Strings.SliceEvaluation_LegendaryCount
+            </div>
+
+            <div>
+                @Strings.SliceEvaluation_PlanetTraits
+            </div>
+
+            <div>
+                @Strings.SliceEvaluation_TechnologySkips
+            </div>
+
+            @foreach(var sliceEvaluation in GetSliceEvaluations())
+            {
+                <div>
+                    @sliceEvaluation.Id
+                </div>
+
+                <div class="green grid-text">
+                    @sliceEvaluation.OptimalValueSum
+                </div>
+
+                <div class="yellow">
+                    @sliceEvaluation.OptimalResourcesSum
+                </div>
+
+                <div class="blue">
+                    @sliceEvaluation.OptimalInfluenceSum
+                </div>
+
+                <div class="yellow">
+                    @sliceEvaluation.Resources
+                </div>
+
+                <div class="blue grid-text">
+                    @sliceEvaluation.Influence
+                </div>
+
+                <div class="green">
+                    @sliceEvaluation.LegendariesCount
+                </div>
+
+                <div>
+                    <FlexRowContainer>
+                        @foreach (var planetTrait in sliceEvaluation.PlanetTraits.Keys)
+                        {
+                            for (int i = 0; i < sliceEvaluation.PlanetTraits[planetTrait]; i++)
+                            {
+                                <img src="@GetPlanetTraitPath(planetTrait)" class="max-height" />
+                            }
+                        }
+                    </FlexRowContainer>
+                </div>
+
+                <div>
+                    <FlexRowContainer>
+                        @foreach (var technologyType in sliceEvaluation.TechnologySkips.Keys)
+                        {
+                            for (int i = 0; i < sliceEvaluation.TechnologySkips[technologyType]; i++)
+                            {
+                                <img src="@GetTechnologyPath(technologyType)" class="max-height" />
+                            }
+                        }
+                    </FlexRowContainer>
+                </div>
+            }
+
+        </GridLayout>
+
+    </FlexColumnCenteredContainer>
+</div>

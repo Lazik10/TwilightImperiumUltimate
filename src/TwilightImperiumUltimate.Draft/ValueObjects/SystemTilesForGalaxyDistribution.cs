@@ -1,4 +1,3 @@
-using System.Collections.ObjectModel;
 using TwilightImperiumUltimate.Core.Entities.Galaxy;
 
 namespace TwilightImperiumUltimate.Draft.ValueObjects;

@@ -108,6 +108,14 @@ public class GalaxyRepository(
         return await dbContext.Planets.ToListAsync(cancellationToken);
     }
 
+    public async Task<IReadOnlyList<SystemTile>> GetAllHyperlines(CancellationToken cancellationToken)
+    {
+        var systemTiles = await GetSystemTiles(cancellationToken);
+        return systemTiles
+            .Where(x => x.TileCategory == SystemTileCategory.Hyperlane)
+            .ToList();
+    }
+
     private async Task<List<SystemTile>> GetSystemTiles(CancellationToken cancellationToken)
     {
         await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);

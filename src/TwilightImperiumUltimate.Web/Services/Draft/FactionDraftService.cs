@@ -1,5 +1,4 @@
 using TwilightImperiumUltimate.Contracts.DTOs.Draft;
-using TwilightImperiumUltimate.Web.Models.Drafts;
 using TwilightImperiumUltimate.Web.Options.Drafts;
 
 namespace TwilightImperiumUltimate.Web.Services.Draft;

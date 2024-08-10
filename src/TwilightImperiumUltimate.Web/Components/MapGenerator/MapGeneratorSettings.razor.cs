@@ -55,18 +55,6 @@ public partial class MapGeneratorSettings
         SelectedSystemTileOverlay = MapGeneratorSettingsService.SystemTileOverlay;
     }
 
-    private void IncreaseMapScale()
-    {
-        MapGeneratorSettingsService.IncreaseMapScale();
-        OnSelectedTemplateChange.InvokeAsync(SelectedMapTemplate);
-    }
-
-    private void DecreaseMapScale()
-    {
-        MapGeneratorSettingsService.DecreaseMapScale();
-        OnSelectedTemplateChange.InvokeAsync(SelectedMapTemplate);
-    }
-
     private void SetMapTemplate(MapTemplate mapTemplate)
     {
         SelectedMapTemplate = mapTemplate;
@@ -91,12 +79,6 @@ public partial class MapGeneratorSettings
         SelectedSystemTileOverlay = systemTileOverlay;
         MapGeneratorSettingsService.SystemTileOverlay = systemTileOverlay;
         OnSelectedSystemTileOverlayChange.InvokeAsync();
-    }
-
-    private void HideSettings()
-    {
-        OnHideSettings.InvokeAsync(true);
-        StateHasChanged();
     }
 
     private void UpdateGameVersion(GameVersion gameVersion)
@@ -124,5 +106,17 @@ public partial class MapGeneratorSettings
             MapGeneratorSettingsService.NumberOfLegendaryPlanets--;
             StateHasChanged();
         }
+    }
+
+    private void ToggleLegendaryPriorityInEquidistant()
+    {
+        MapGeneratorSettingsService.LegendaryPriorityInEquidistant = !MapGeneratorSettingsService.LegendaryPriorityInEquidistant;
+        StateHasChanged();
+    }
+
+    private void TogglePlayerNames()
+    {
+        MapGeneratorSettingsService.EnablePlayerNames = !MapGeneratorSettingsService.EnablePlayerNames;
+        StateHasChanged();
     }
 }

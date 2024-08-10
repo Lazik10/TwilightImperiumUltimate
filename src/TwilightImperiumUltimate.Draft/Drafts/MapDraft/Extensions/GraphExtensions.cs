@@ -45,7 +45,14 @@ public static class GraphExtensions
             {
                 if (universe.ContainsKey((x, y)))
                 {
-                    logString += universe[(x, y)].Name;
+                    if (universe[(x, y)].Name == " _ ")
+                    {
+                        logString += " _ ";
+                    }
+                    else
+                    {
+                        logString += "{" + $"{universe[(x, y)].Name}" + "}";
+                    }
                 }
                 else
                 {

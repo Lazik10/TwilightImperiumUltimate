@@ -34,7 +34,7 @@ public abstract class BaseMap : ComponentBase
     private async Task InitializeBaseMap(CancellationToken ct = default)
     {
         await MapGeneratorService.InitializeSystemTilesAsync(ct);
-        await MapGeneratorService.GenerateMapAsync(true, ct);
         GeneratedPositionsWithSystemTiles = MapGeneratorService.GeneratedPositionsWithSystemTiles;
+        StateHasChanged();
     }
 }

@@ -28,4 +28,7 @@ public partial class NumericPicker
 
     [Parameter]
     public bool HideTitle { get; set; } = false;
+
+    [Parameter]
+    public bool CenteredText { get; set; } = true;
 }
