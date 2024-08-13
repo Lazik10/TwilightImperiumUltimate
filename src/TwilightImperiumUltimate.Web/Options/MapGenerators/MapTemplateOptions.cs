@@ -1,4 +1,4 @@
-﻿namespace TwilightImperiumUltimate.Web.Options.MapGenerators;
+namespace TwilightImperiumUltimate.Web.Options.MapGenerators;
 
 public static class MapTemplateOptions
 {
@@ -16,7 +16,7 @@ public static class MapTemplateOptions
 
     public static readonly int MaxTilePositionsMantaRayMap = 35;
 
-    public static readonly int MaxTilePositionsLargeMap = 81;
+    public static readonly int MaxTilePositionsLargeMap = 77;
 
     public static readonly int MaxTilePositionsTridentMap = 49;
 }

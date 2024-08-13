@@ -126,7 +126,7 @@ public class MapGeneratorSettingsService(
 
     public Task InitializePlayersForMapGenerator()
     {
-        if (Players.Count == 0)
+        if (Players.Count == 0 || Players.Count != GetMapTemplatePlayerCount())
         {
             Players = new List<MapGeneratorPlayerModel>();
             for (int i = 0; i < GetMapTemplatePlayerCount(); i++)

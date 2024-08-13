@@ -10,4 +10,9 @@ internal interface IPlacementStyleHandler
         IMapSettings mapSettings,
         SystemTilesForMapSetup systemTilesForMapSetup,
         GenerateMapRequest request);
+
+    public Task HandleRemainingNonSlicePositions(
+        Dictionary<(int X, int Y), Hex> galaxy,
+        IMapSettings mapSettings,
+        SystemTilesForMapSetup systemTilesForMapSetup);
 }

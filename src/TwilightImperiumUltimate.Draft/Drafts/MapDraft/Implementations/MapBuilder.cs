@@ -40,6 +40,8 @@ internal class MapBuilder(
 
         await _placementStyleHandler.HandleRemainingPositions(galaxy, mapSettings, systemTilesForMapSetup, request);
 
+        await _placementStyleHandler.HandleRemainingNonSlicePositions(galaxy, mapSettings, systemTilesForMapSetup);
+
         return galaxy;
     }
 }

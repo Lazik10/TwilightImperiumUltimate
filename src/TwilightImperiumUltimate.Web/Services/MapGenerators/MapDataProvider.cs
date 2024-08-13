@@ -11,6 +11,7 @@ public class MapDataProvider : IMapDataProvider
             MapTemplate.FivePlayersMediumWarpMap => new FivePlayersMediumWarpMapData(),
             MapTemplate.SixPlayersMediumMap => new SixPlayersMediumMapData(),
             MapTemplate.SixPlayersMediumSpiralMap => new SixPlayersMediumSpiralMapData(),
+            MapTemplate.EightPlayersLargeMap => new EightPlayersLargeMapData(),
             _ => throw new NotImplementedException(),
         };
     }

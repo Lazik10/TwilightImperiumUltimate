@@ -17,9 +17,9 @@ public static class SystemTileExtensions
                 var resources when resources < planet.Influence => planet.Influence,
                 _ => 0.0f,
             };
-            value += planet.IsLegendary ? 2.0f : 0.0f;
-            value += planet.TechnologySkip != TechnologyType.None ? 0.3f : 0.0f;
-            value += tile.Planets.Count * 0.2f;
+            value += planet.IsLegendary ? 15.0f : 0.0f;
+            value += planet.TechnologySkip != TechnologyType.None ? 10.0f : 0.0f;
+            value += tile.Planets.Count * 0.3f;
             return value;
         }));
     }
