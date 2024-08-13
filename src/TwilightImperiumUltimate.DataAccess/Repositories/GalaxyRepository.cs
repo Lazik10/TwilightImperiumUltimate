@@ -45,7 +45,11 @@ public class GalaxyRepository(
                 && x.SystemTileName != SystemTileName.Tile51
                 && x.SystemTileName != SystemTileName.Tile92
                 && x.SystemTileName != SystemTileName.Tile93
-                && x.SystemTileName != SystemTileName.Tile94)
+                && x.SystemTileName != SystemTileName.Tile94
+                && x.SystemTileName != SystemTileName.Tile1036
+                && x.SystemTileName != SystemTileName.Tile1035A
+                && x.SystemTileName != SystemTileName.Tile1035B
+                && x.SystemTileName != SystemTileName.Tile81)
             .ToList();
 
         var keleresSystemTiles = systemTiles

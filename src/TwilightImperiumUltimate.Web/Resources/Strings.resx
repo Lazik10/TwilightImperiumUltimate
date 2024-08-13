@@ -583,28 +583,31 @@
     <value>Custom</value>
   </data>
   <data name="MapTemplate_EightPlayersLargeMap" xml:space="preserve">
-    <value>8P Large Map</value>
+    <value>8P Large</value>
   </data>
   <data name="MapTemplate_FivePlayersMediumWarpMap" xml:space="preserve">
-    <value>5P Warp</value>
+    <value>5P Medium Warp</value>
   </data>
   <data name="MapTemplate_FourPlayersMediumMap" xml:space="preserve">
-    <value>4P Medium Map</value>
+    <value>4P Medium</value>
   </data>
   <data name="MapTemplate_SixPlayersLargeMap" xml:space="preserve">
-    <value>6P Large Map</value>
+    <value>6P Large</value>
   </data>
   <data name="MapTemplate_SixPlayersMediumMap" xml:space="preserve">
-    <value>6P Medium Map</value>
+    <value>6P Medium</value>
+  </data>
+  <data name="MapTemplate_SixPlayersMediumSpiralMap" xml:space="preserve">
+    <value>6P Medium Spiral</value>
   </data>
   <data name="MapTemplate_ThreePlayersMantaRayMap" xml:space="preserve">
     <value>3P Manta Ray</value>
   </data>
   <data name="MapTemplate_ThreePlayersSmallAlternateMap" xml:space="preserve">
-    <value>3P Small Map Alternate</value>
+    <value>3P Small Alternate</value>
   </data>
   <data name="MapTemplate_ThreePlayersSmallMap" xml:space="preserve">
-    <value>3P Small Map</value>
+    <value>3P Small</value>
   </data>
   <data name="MapTemplate_ThreePlayersSnowflakeMap" xml:space="preserve">
     <value>3P Snowflake</value>

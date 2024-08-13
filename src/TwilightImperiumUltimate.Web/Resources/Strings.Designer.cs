@@ -1456,7 +1456,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 8P Large Map.
+        ///   Looks up a localized string similar to 8P Large.
         /// </summary>
         public static string MapTemplate_EightPlayersLargeMap {
             get {
@@ -1465,7 +1465,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 5P Warp.
+        ///   Looks up a localized string similar to 5P Medium Warp.
         /// </summary>
         public static string MapTemplate_FivePlayersMediumWarpMap {
             get {
@@ -1474,7 +1474,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 4P Medium Map.
+        ///   Looks up a localized string similar to 4P Medium.
         /// </summary>
         public static string MapTemplate_FourPlayersMediumMap {
             get {
@@ -1483,7 +1483,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 6P Large Map.
+        ///   Looks up a localized string similar to 6P Large.
         /// </summary>
         public static string MapTemplate_SixPlayersLargeMap {
             get {
@@ -1492,11 +1492,20 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 6P Medium Map.
+        ///   Looks up a localized string similar to 6P Medium.
         /// </summary>
         public static string MapTemplate_SixPlayersMediumMap {
             get {
                 return ResourceManager.GetString("MapTemplate_SixPlayersMediumMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 6P Medium Spiral.
+        /// </summary>
+        public static string MapTemplate_SixPlayersMediumSpiralMap {
+            get {
+                return ResourceManager.GetString("MapTemplate_SixPlayersMediumSpiralMap", resourceCulture);
             }
         }
         
@@ -1510,7 +1519,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 3P Small Map Alternate.
+        ///   Looks up a localized string similar to 3P Small Alternate.
         /// </summary>
         public static string MapTemplate_ThreePlayersSmallAlternateMap {
             get {
@@ -1519,7 +1528,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 3P Small Map.
+        ///   Looks up a localized string similar to 3P Small.
         /// </summary>
         public static string MapTemplate_ThreePlayersSmallMap {
             get {

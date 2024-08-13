@@ -1,5 +1,20 @@
 ﻿@inherits BaseMap
 
-<h3>SixPlayersMediumSpiralMap</h3>
+<div class="container">
 
+    @foreach (var mapPosition in MapPositions)
+    {
+        if (GeneratedPositionsWithSystemTiles is not null
+        && GeneratedPositionsWithSystemTiles.Keys.Count() == MapPositions.Count())
+        {
+            CurrentSystemTile = GeneratedPositionsWithSystemTiles[mapPosition];
 
+            <div class="hex">
+                <MapHexTile SystemTile="CurrentSystemTile"
+                            MapPosition="mapPosition"
+                            SwappedTwoSystemTiles="RefreshAfterSwap" />
+            </div>
+        }
+    }
+
+</div>

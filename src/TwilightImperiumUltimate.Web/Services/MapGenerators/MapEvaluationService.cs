@@ -58,14 +58,19 @@ public class MapEvaluationService(
 
     private (int Min, int Current, int Max) GetPossibleInfluenceValuesForMap()
     {
-        var systemTiles = _mapGeneratorService.GeneratedPositionsWithSystemTiles.Values.ToList();
+        var systemTiles = _mapGeneratorService.GeneratedPositionsWithSystemTiles.Values
+            .Where(x => x.SystemTileCategory != SystemTileCategory.Green)
+            .ToList();
 
         var mecatolRex = _mapGeneratorService.AllSystemTiles.Single(x => x.SystemTileName == SystemTileName.Tile18);
 
         var allSystemTiles = _mapGeneratorService.AllSystemTiles
             .Where(x => _mapGeneratorSettingsService.GameVersions.Contains(x.GameVersion)
-                && x.SystemTileName != SystemTileName.Tile18
-                && x.FactionName == FactionName.None)
+                && x.FactionName == FactionName.None
+                && x.SystemTileCategory != SystemTileCategory.Green
+                && x.SystemTileCategory != SystemTileCategory.MecatolRex
+                && x.SystemTileCategory != SystemTileCategory.ExternalMapTile
+                && x.SystemTileCategory != SystemTileCategory.Hyperlane)
             .ToList();
 
         var maxRedTiles = systemTiles.Count(x => x.SystemTileCategory == SystemTileCategory.Red);
@@ -104,16 +109,16 @@ public class MapEvaluationService(
         _logger.LogInformation(
             "Influence: Best red system tiles count: {BestRedCount} and combined value: {BestRedValue}\nBest blue system tiles count: {BestBlueCount} and combined value: {BestBlueValue}",
             bestRedSystemTiles.Count,
-            bestRedSystemTiles.Sum(x => x.Resources),
+            bestRedSystemTiles.Sum(x => x.Influence),
             bestBlueSystemTiles.Count,
-            bestBlueSystemTiles.Sum(x => x.Resources));
+            bestBlueSystemTiles.Sum(x => x.Influence));
 
         _logger.LogInformation(
             "Influence: Worst red system tiles count: {WorstRedCount} and combined value: {WorstRedValue}\nWorst blue system tiles count: {WorstBlueCount} and combined value: {WorstBlueValue}",
             worstRedSystemTiles.Count,
-            worstRedSystemTiles.Sum(x => x.Resources),
+            worstRedSystemTiles.Sum(x => x.Influence),
             worstBlueSystemTiles.Count,
-            worstBlueSystemTiles.Sum(x => x.Resources));
+            worstBlueSystemTiles.Sum(x => x.Influence));
 
         _logger.LogInformation(
             "Influence: Min Influence: {MinInfluence}, Actual Influence: {ActualInfluence} Max Influence: {MaxInfleunce}",
@@ -126,7 +131,9 @@ public class MapEvaluationService(
 
     private (int Min, int Current, int Max) GetPossibleResourceValuesForMap()
     {
-        var systemTiles = _mapGeneratorService.GeneratedPositionsWithSystemTiles.Values.ToList();
+        var systemTiles = _mapGeneratorService.GeneratedPositionsWithSystemTiles.Values
+            .Where(x => x.SystemTileCategory != SystemTileCategory.Green)
+            .ToList();
 
         var mecatolRex = _mapGeneratorService.AllSystemTiles.Single(x => x.SystemTileName == SystemTileName.Tile18);
 
@@ -197,7 +204,9 @@ public class MapEvaluationService(
 
     private (int Min, int Current, int Max) GetPossiblePlanetValuesForMap()
     {
-        var systemTiles = _mapGeneratorService.GeneratedPositionsWithSystemTiles.Values.ToList();
+        var systemTiles = _mapGeneratorService.GeneratedPositionsWithSystemTiles.Values
+            .Where(x => x.SystemTileCategory != SystemTileCategory.Green)
+            .ToList();
 
         var allSystemTiles = _mapGeneratorService.AllSystemTiles
             .Where(x => _mapGeneratorSettingsService.GameVersions.Contains(x.GameVersion)
