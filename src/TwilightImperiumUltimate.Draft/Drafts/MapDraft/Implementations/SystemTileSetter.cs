@@ -385,8 +385,8 @@ public class SystemTileSetter(
             {
                 mapSettings.Slices[slice.Id][1],
                 mapSettings.Slices[slice.Id][4],
-                mapSettings.Slices[slice.Id][0],
-                mapSettings.Slices[slice.Id][2],
+                mapSettings.Slices[slice.Id][priorityPositions[0]],
+                mapSettings.Slices[slice.Id][priorityPositions[1]],
                 mapSettings.Slices[slice.Id][3],
             };
 
@@ -394,6 +394,33 @@ public class SystemTileSetter(
             var orderedDraftedSystemTileList = slice.DraftedSystemTiles.AsEnumerable().OrderByOptimalValue().ToList();
 
             _logger.LogInformation("Ordered system tiles by Optimal value: {SystemTiles}", string.Join(",", orderedDraftedSystemTileList.Select(x => $"{x.SystemTileCode} {x.GetValue(systemWeight)}")));
+
+            // If legendary was drafted for this slice, place it in the most conflict position
+            if (slice.DraftedSystemTiles.Any(x => x.HasLegendaryPlanet))
+            {
+                for (var i = 0; i < slice.DraftedSystemTiles.Count(x => x.HasLegendaryPlanet); i++)
+                {
+                    var legendarySystemTile = slice.DraftedSystemTiles.FirstOrDefault(x => x.HasLegendaryPlanet);
+
+                    if (legendarySystemTile is not null && slice.Positions[4].SystemTile is null)
+                    {
+                        if (galaxy.TryGetValue((slice.Positions[4].X, slice.Positions[4].Y), out Hex? hex) && hex.SystemTile is null)
+                        {
+                            hex.SystemTile = legendarySystemTile;
+                            var systemTileToRemove = orderedDraftedSystemTileList.Single(x => x.SystemTileCode == legendarySystemTile.SystemTileCode);
+                            orderedDraftedSystemTileList.Remove(systemTileToRemove);
+                        }
+                    }
+                    else if (legendarySystemTile is not null && slice.Positions[3].SystemTile is null
+                        && galaxy.TryGetValue((slice.Positions[3].X, slice.Positions[3].Y), out Hex? hex)
+                        && hex.SystemTile is null)
+                    {
+                        hex.SystemTile = legendarySystemTile;
+                        var systemTileToRemove = orderedDraftedSystemTileList.Single(x => x.SystemTileCode == legendarySystemTile.SystemTileCode);
+                        orderedDraftedSystemTileList.Remove(systemTileToRemove);
+                    }
+                }
+            }
 
             foreach (var position in slicePositionsInPriorityOrder.Where(x => galaxy[x].SystemTile is null))
             {

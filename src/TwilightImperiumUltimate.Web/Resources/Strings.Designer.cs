@@ -1465,16 +1465,16 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 5P Medium Warp.
+        ///   Looks up a localized string similar to 5P Normal (Hyperline).
         /// </summary>
-        public static string MapTemplate_FivePlayersMediumWarpMap {
+        public static string MapTemplate_FivePlayersMediumHyperlineMap {
             get {
-                return ResourceManager.GetString("MapTemplate_FivePlayersMediumWarpMap", resourceCulture);
+                return ResourceManager.GetString("MapTemplate_FivePlayersMediumHyperlineMap", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 4P Medium.
+        ///   Looks up a localized string similar to 4P Normal.
         /// </summary>
         public static string MapTemplate_FourPlayersMediumMap {
             get {
@@ -1492,7 +1492,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 6P Medium.
+        ///   Looks up a localized string similar to 6P Normal.
         /// </summary>
         public static string MapTemplate_SixPlayersMediumMap {
             get {
@@ -1501,7 +1501,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 6P Medium Spiral.
+        ///   Looks up a localized string similar to 6P Normal (Spiral).
         /// </summary>
         public static string MapTemplate_SixPlayersMediumSpiralMap {
             get {
@@ -1519,7 +1519,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 3P Small Alternate.
+        ///   Looks up a localized string similar to 3P Small (Alternate).
         /// </summary>
         public static string MapTemplate_ThreePlayersSmallAlternateMap {
             get {
@@ -1555,7 +1555,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 3P Triangle Narrow.
+        ///   Looks up a localized string similar to 3P Triangle (Narrow).
         /// </summary>
         public static string MapTemplate_ThreePlayersTriangleNarrowMap {
             get {

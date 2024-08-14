@@ -156,10 +156,10 @@ public class MapToStringConverter(
         {
             // In my converter mecatol is first, but it should be ignored when creating the map
             // I need to have it so I can place it in the correct position when converting back based on map template
-            MapTemplate.FivePlayersMediumWarpMap or MapTemplate.SixPlayersMediumMap or MapTemplate.SixPlayersMediumSpiralMap
+            MapTemplate.FivePlayersMediumHyperlineMap or MapTemplate.SixPlayersMediumMap or MapTemplate.SixPlayersMediumSpiralMap
             => new List<int> { 24, 17, 25, 32, 31, 30, 23, 10, 18, 19, 26, 33, 39, 38, 37, 29, 22, 15, 16, 3, 11, 12, 20, 27, 34, 41, 40, 46, 45, 44, 36, 35, 28, 21, 14, 8, 9 },
 
-            MapTemplate.EightPlayersLargeMap
+            MapTemplate.EightPlayersLargeMap or MapTemplate.SixPlayersLargeMap
             => new List<int> { 40, 31, 32, 41, 49, 39, 30, 22, 23, 33, 42, 51, 50, 58, 48, 47, 38, 29, 21,
             13, 14, 24, 25, 34, 43, 52, 60, 59, 67, 57, 56, 46, 37, 28, 19, 20, 12, 4, 5, 15, 16, 26, 35, 44,
             53, 62, 61, 69, 68, 74, 66, 65, 55, 54, 45, 36, 27, 18, 10, 11, 3 },

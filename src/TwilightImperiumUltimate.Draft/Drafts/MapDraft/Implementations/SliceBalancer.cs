@@ -1,3 +1,4 @@
+using System.Linq;
 using TwilightImperiumUltimate.Draft.Drafts.MapDraft.Extensions;
 using TwilightImperiumUltimate.Draft.Drafts.MapDraft.Interfaces;
 using TwilightImperiumUltimate.Draft.Drafts.MapDraft.MapSettings;
@@ -88,37 +89,173 @@ internal class SliceBalancer(
             remainingSystemTilesForSlices.Count,
             remainingSystemTilesForSlices.GetSystemTileCodesWithSystemWeight(request.SystemWeight));
 
-        // Distribute red tile first
-        foreach (var systemTile in remainingSystemTilesForSlices.Where(x => x.TileCategory == SystemTileCategory.Red))
+        if (request.WormholesDensity == WormholeDensity.AtLeastTwoPairs)
         {
-            _logger.LogInformation(
-                "Slices evaluation before sort: \n{SlicesEvaluation}",
-                slices.GetSlicesEvaluation(request.SystemWeight));
+            // Distribute wormhole first
+            var alphaWormholeTiles = remainingSystemTilesForSlices
+                .Where(x => x.Wormholes.Any(x => x.WormholeName == WormholeName.Alpha))
+                .Take(2)
+                .ToList();
 
-            slices = slices.OrderBy(x => x.SliceEvaluation(request.SystemWeight))
-                .ThenBy(x => x.HasAnomaly()).ToList();
+            remainingSystemTilesForSlices = remainingSystemTilesForSlices
+                .Where(x => !alphaWormholeTiles.Select(x => x.SystemTileCode).Contains(x.SystemTileCode))
+                .ToList();
 
-            _logger.LogInformation(
-                "Slices evaluation after sort: \n{SlicesEvaluation}",
-                slices.GetSlicesEvaluation(request.SystemWeight));
+            var betaWormholeTiles = remainingSystemTilesForSlices
+                .Where(x => x.Wormholes.Any(x => x.WormholeName == WormholeName.Beta))
+                .Take(2)
+                .ToList();
 
-            for (int i = 0; i < slices.Count; i++)
+            remainingSystemTilesForSlices = remainingSystemTilesForSlices
+                .Where(x => !betaWormholeTiles.Select(x => x.SystemTileCode).Contains(x.SystemTileCode))
+                .ToList();
+
+            var alphaWormholeTilesToDistribute = alphaWormholeTiles.ToList();
+            var betaWormholeTilesToDistribute = betaWormholeTiles.ToList();
+
+            if (request.MapTemplate != MapTemplate.EightPlayersLargeMap && request.MapTemplate != MapTemplate.SixPlayersLargeMap)
             {
-                var isSystemTileRed = systemTile.TileCategory == SystemTileCategory.Red;
-
-                // loop through slices and add the system tile to the first slice that still has an empty position
-                // then break out and move to the next system tile, slices will be sorted by evaluation again so the weakest slice gets
-                // the next best system tile
-                if (slices[i].DraftedSystemTiles.Count < slices[i].Positions.Count(pos => pos.SystemTile is null)
-                    && (!isSystemTileRed || slices[i].DraftedSystemTiles.Count(x => x.TileCategory == SystemTileCategory.Red) + slices[i].Positions.Count(pos => pos.SystemTile is not null && pos.SystemTile.TileCategory == SystemTileCategory.Red) < 2))
+                for (int i = 0; i < alphaWormholeTiles.Count; i++)
                 {
-                    slices[i].DraftedSystemTiles.Add(systemTile);
+                    var leastRedSlice = slices
+                        .OrderBy(s => s.Positions.Count(t => t.SystemTile is not null && t.SystemTile!.TileCategory == SystemTileCategory.Red)
+                            + s.DraftedSystemTiles.Count(x => x.HasWormholes || x.TileCategory == SystemTileCategory.Red))
+                        .First();
 
-                    _logger.LogInformation(
-                        "SystemTile {SystemTile} added to Slice {SliceId}",
-                        systemTile.SystemTileCode,
-                        slices[i].Id);
-                    break;
+                    // Add the alpha wormhole tile to the leastRedSlice
+                    if (alphaWormholeTilesToDistribute.Count > 0
+                        && (leastRedSlice.DraftedSystemTiles.Count(x => x.TileCategory == SystemTileCategory.Red)
+                        + leastRedSlice.Positions.Count(pos => pos.SystemTile is not null && pos.SystemTile.TileCategory == SystemTileCategory.Red) < 2))
+                    {
+                        leastRedSlice.DraftedSystemTiles.Add(alphaWormholeTilesToDistribute[0]);
+                        alphaWormholeTilesToDistribute.RemoveAt(0);
+                    }
+
+                    // Determine the index of the leastRedSlice
+                    var sliceIndex = slices.IndexOf(leastRedSlice);
+
+                    // Calculate the opposite slice index
+                    int oppositeIndex;
+
+                    if (sliceIndex < slices.Count / 2)
+                    {
+                        oppositeIndex = (slices.Count / 2) + (sliceIndex % (slices.Count / 2));
+                    }
+                    else
+                    {
+                        oppositeIndex = sliceIndex - (slices.Count / 2);
+                    }
+
+                    var oppositeSlice = slices[oppositeIndex];
+
+                    for (int j = 0; j < slices.Count; j++)
+                    {
+                        if (alphaWormholeTilesToDistribute.Count > 0
+                            && slices[oppositeIndex].DraftedSystemTiles.Count(x => x.TileCategory == SystemTileCategory.Red)
+                            + slices[oppositeIndex].Positions.Count(pos => pos.SystemTile is not null && pos.SystemTile.TileCategory == SystemTileCategory.Red) < 2)
+                        {
+                            oppositeSlice.DraftedSystemTiles.Add(alphaWormholeTilesToDistribute[0]);
+                            alphaWormholeTilesToDistribute.RemoveAt(0);
+                            break;
+                        }
+                        else
+                        {
+                            oppositeIndex++;
+                            if (oppositeIndex >= slices.Count)
+                            {
+                                oppositeIndex = 0;
+                            }
+                        }
+                    }
+                }
+
+                for (int i = 0; i < betaWormholeTiles.Count; i++)
+                {
+                    var leastRedSlice = slices
+                        .OrderBy(s => s.Positions.Count(t => t.SystemTile is not null && t.SystemTile!.TileCategory == SystemTileCategory.Red)
+                            + s.DraftedSystemTiles.Count(x => x.HasWormholes || x.TileCategory == SystemTileCategory.Red))
+                        .First();
+
+                    // Add the beta wormhole tile to the leastRedSlice
+                    if (betaWormholeTilesToDistribute.Count > 0
+                        && (leastRedSlice.DraftedSystemTiles.Count(x => x.TileCategory == SystemTileCategory.Red)
+                        + leastRedSlice.Positions.Count(pos => pos.SystemTile is not null && pos.SystemTile.TileCategory == SystemTileCategory.Red) < 2))
+                    {
+                        leastRedSlice.DraftedSystemTiles.Add(betaWormholeTilesToDistribute[0]);
+                        betaWormholeTilesToDistribute.RemoveAt(0);
+                    }
+
+                    // Determine the index of the leastRedSlice
+                    var sliceIndex = slices.IndexOf(leastRedSlice);
+
+                    // Calculate the opposite slice index
+                    int oppositeIndex;
+
+                    if (sliceIndex < slices.Count / 2)
+                    {
+                        oppositeIndex = (slices.Count / 2) + (sliceIndex % (slices.Count / 2));
+                    }
+                    else
+                    {
+                        oppositeIndex = sliceIndex - (slices.Count / 2);
+                    }
+
+                    var oppositeSlice = slices[oppositeIndex];
+
+                    for (int j = 0; j < slices.Count; j++)
+                    {
+                        if (betaWormholeTilesToDistribute.Count > 0
+                            && slices[oppositeIndex].DraftedSystemTiles.Count(x => x.TileCategory == SystemTileCategory.Red)
+                            + slices[oppositeIndex].Positions.Count(pos => pos.SystemTile is not null && pos.SystemTile.TileCategory == SystemTileCategory.Red) < 2)
+                        {
+                            oppositeSlice.DraftedSystemTiles.Add(betaWormholeTilesToDistribute[0]);
+                            betaWormholeTilesToDistribute.RemoveAt(0);
+                            break;
+                        }
+                        else
+                        {
+                            oppositeIndex++;
+                            if (oppositeIndex >= slices.Count)
+                            {
+                                oppositeIndex = 0;
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Distribute red tile first
+            foreach (var systemTile in remainingSystemTilesForSlices.Where(x => x.TileCategory == SystemTileCategory.Red))
+            {
+                _logger.LogInformation(
+                    "Slices evaluation before sort: \n{SlicesEvaluation}",
+                    slices.GetSlicesEvaluation(request.SystemWeight));
+
+                slices = slices.OrderBy(x => x.SliceEvaluation(request.SystemWeight))
+                    .ThenBy(x => x.HasAnomaly()).ToList();
+
+                _logger.LogInformation(
+                    "Slices evaluation after sort: \n{SlicesEvaluation}",
+                    slices.GetSlicesEvaluation(request.SystemWeight));
+
+                for (int i = 0; i < slices.Count; i++)
+                {
+                    var isSystemTileRed = systemTile.TileCategory == SystemTileCategory.Red;
+
+                    // loop through slices and add the system tile to the first slice that still has an empty position
+                    // then break out and move to the next system tile, slices will be sorted by evaluation again so the weakest slice gets
+                    // the next best system tile
+                    if (slices[i].DraftedSystemTiles.Count < slices[i].Positions.Count(pos => pos.SystemTile is null)
+                        && (!isSystemTileRed || slices[i].DraftedSystemTiles.Count(x => x.TileCategory == SystemTileCategory.Red) + slices[i].Positions.Count(pos => pos.SystemTile is not null && pos.SystemTile.TileCategory == SystemTileCategory.Red) < 2))
+                    {
+                        slices[i].DraftedSystemTiles.Add(systemTile);
+
+                        _logger.LogInformation(
+                            "SystemTile {SystemTile} added to Slice {SliceId}",
+                            systemTile.SystemTileCode,
+                            slices[i].Id);
+                        break;
+                    }
                 }
             }
         }
@@ -148,11 +285,35 @@ internal class SliceBalancer(
 
                     if (currentSlice.DraftedSystemTiles.Sum(x => x.GetOptimalResourceValue()) > currentSlice.DraftedSystemTiles.Sum(x => x.GetOptimalInfluenceValue()))
                     {
-                        remainingSystemTilesForSlices = remainingSystemTilesForSlices.OrderByDescending(x => x.GetOptimalInfluenceValue()).ToList();
+                        if (request.MapTemplate != MapTemplate.SixPlayersLargeMap && request.MapTemplate == MapTemplate.EightPlayersLargeMap)
+                        {
+                            remainingSystemTilesForSlices = remainingSystemTilesForSlices
+                                .OrderByDescending(x => x.GetOptimalInfluenceValue())
+                                .ToList();
+                        }
+                        else
+                        {
+                            remainingSystemTilesForSlices = remainingSystemTilesForSlices
+                                .Where(x => x.Wormholes.Count == 0)
+                                .OrderByDescending(x => x.GetOptimalInfluenceValue())
+                                .ToList();
+                        }
                     }
                     else
                     {
-                        remainingSystemTilesForSlices = remainingSystemTilesForSlices.OrderByDescending(x => x.GetOptimalResourceValue()).ToList();
+                        if (request.MapTemplate != MapTemplate.SixPlayersLargeMap && request.MapTemplate == MapTemplate.EightPlayersLargeMap)
+                        {
+                            remainingSystemTilesForSlices = remainingSystemTilesForSlices
+                                .OrderByDescending(x => x.GetOptimalResourceValue())
+                                .ToList();
+                        }
+                        else
+                        {
+                            remainingSystemTilesForSlices = remainingSystemTilesForSlices
+                                .Where(x => x.Wormholes.Count == 0)
+                                .OrderByDescending(x => x.GetOptimalResourceValue())
+                                .ToList();
+                        }
                     }
 
                     currentSlice.DraftedSystemTiles.Add(remainingSystemTilesForSlices[0]);

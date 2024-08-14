@@ -2,7 +2,7 @@ namespace TwilightImperiumUltimate.Web.Models.MapGenerators.MapData;
 
 public class FivePlayersMediumWarpMapData : IMapData
 {
-    public MapTemplate MapTemplate => MapTemplate.FivePlayersMediumWarpMap;
+    public MapTemplate MapTemplate => MapTemplate.FivePlayersMediumHyperlineMap;
 
     public Dictionary<int, List<int>> SlicePositions { get; } = new()
     {

@@ -100,6 +100,10 @@ internal class SystemTilesForGalaxyDistributionProvider(
         // and take them randomly for the remaining galaxy distribution
         var requiredNumberOfRedTiles = (mappSettings.NumberOfPlayers * 2) - galaxyRedTiles.Count - alreadySelectedRedTiles.Count;
 
+        // This template requires all the red tiles to be in the galaxy
+        if (mappSettings.MapTemplate == MapTemplate.SixPlayersLargeMap)
+            requiredNumberOfRedTiles = 18 - galaxyRedTiles.Count - alreadySelectedRedTiles.Count;
+
         _logger.LogInformation(
             "Already in gaaxy red tiles: {GalaxyRedTilesCount} / Prepared red tiles: {Count} / Required {RequiredCount} additional red tiles!",
             galaxyRedTiles.Count,

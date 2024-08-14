@@ -27,10 +27,16 @@ public partial class ProgressBar
 
     private double GetComputedValue()
     {
+        // Fill the bar if the value is greater than the max
+        if (Value >= MaxValue)
+        {
+            return 100;
+        }
+
         // Show atleast a little
         if (Value == MinValue)
         {
-            return 5;
+            return 2;
         }
 
         var range = MaxValue - MinValue;

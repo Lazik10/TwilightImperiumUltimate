@@ -43,6 +43,16 @@ internal class PlacementStyleHandler(
             .Where(x => !galaxyUsedTiles.Contains(x.SystemTileCode))
             .ToList();
 
+        var avalilableRemainingRedSystemTiles = systemTilesForMapSetup.RedTiles
+            .Where(x => !galaxyUsedTiles.Contains(x.SystemTileCode))
+            .ToList();
+
+        // Add remaining red tiles so we have enough tiles to fill the galaxy
+        if (mapSettings.MapTemplate == MapTemplate.SixPlayersLargeMap)
+        {
+            availableRemainingSystemTiles.AddRange(avalilableRemainingRedSystemTiles);
+        }
+
         var countNeedToFill = galaxy.Values.Count(x => x.SystemTile is null && x.Name != PositionName.Empty);
 
         foreach (var hex in galaxy.Values.Where(x => x.SystemTile is null && x.Name != PositionName.Empty))

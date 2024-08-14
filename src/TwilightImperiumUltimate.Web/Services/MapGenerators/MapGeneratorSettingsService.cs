@@ -116,6 +116,7 @@ public class MapGeneratorSettingsService(
             MapTemplate.ThreePlayersSnowflakeMap => 3,
             MapTemplate.ThreePlayersMantaRayMap => 3,
             MapTemplate.FourPlayersMediumMap => 4,
+            MapTemplate.FivePlayersMediumHyperlineMap => 5,
             MapTemplate.SixPlayersMediumMap => 6,
             MapTemplate.SixPlayersLargeMap => 6,
             MapTemplate.SixPlayersMediumSpiralMap => 6,

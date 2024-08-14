@@ -1,8 +1,8 @@
 namespace TwilightImperiumUltimate.Draft.Drafts.MapDraft.MapSettings;
 
-internal class FivePlayersMediumWarpMapSettings : IMapSettings, IHyperlineSettings
+internal class FivePlayersMediumHyperlineMapSettings : IMapSettings, IHyperlineSettings
 {
-    public MapTemplate MapTemplate => MapTemplate.FivePlayersMediumWarpMap;
+    public MapTemplate MapTemplate => MapTemplate.FivePlayersMediumHyperlineMap;
 
     public int DimensionX => 14;
 

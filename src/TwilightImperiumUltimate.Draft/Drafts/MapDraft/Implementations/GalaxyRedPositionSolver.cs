@@ -133,6 +133,12 @@ public class GalaxyRedPositionSolver(
         // Get the number of anomaly red positions
         var n = Math.Max(mapSettings.NumberOfPlayers, maxIndependentSet.Count);
 
+        // This map is too big so we need to use as much red positions as possible
+        if (mapSettings.MapTemplate == MapTemplate.SixPlayersLargeMap)
+        {
+            n = Math.Max(18, maxIndependentSet.Count);
+        }
+
         var selectedNumberOfRedPositions = _random.Next(mapSettings.NumberOfPlayers, n + 1);
 
         _logger.LogInformation("Generatig {N} red positions...", selectedNumberOfRedPositions);
