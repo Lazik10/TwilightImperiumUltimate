@@ -2,7 +2,7 @@ namespace TwilightImperiumUltimate.Web.Models.MapGenerators.MapData;
 
 public class EightPlayersLargeWarpMapData : IMapData
 {
-    public MapTemplate MapTemplate => MapTemplate.EightPlayersLargeMap;
+    public MapTemplate MapTemplate => MapTemplate.EightPlayersLargeWarpMap;
 
     public Dictionary<int, List<int>> SlicePositions { get; } = new()
     {

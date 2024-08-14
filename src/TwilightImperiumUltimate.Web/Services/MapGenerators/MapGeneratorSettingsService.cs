@@ -120,6 +120,7 @@ public class MapGeneratorSettingsService(
             MapTemplate.SixPlayersMediumMap => 6,
             MapTemplate.SixPlayersLargeMap => 6,
             MapTemplate.SixPlayersMediumSpiralMap => 6,
+            MapTemplate.SevenPlayersLargeHyperlineMap => 7,
             MapTemplate.EightPlayersLargeMap => 8,
             MapTemplate.EightPlayersLargeWarpMap => 8,
             _ => 0,

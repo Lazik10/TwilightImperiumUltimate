@@ -14,6 +14,7 @@ public enum MapTemplate
     SixPlayersMediumMap,
     SixPlayersMediumSpiralMap,
     SixPlayersLargeMap,
+    SevenPlayersLargeHyperlineMap,
     EightPlayersLargeMap,
     EightPlayersLargeWarpMap,
 }

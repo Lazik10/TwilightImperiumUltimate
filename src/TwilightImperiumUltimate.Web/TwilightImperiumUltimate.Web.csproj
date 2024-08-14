@@ -102,10 +102,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Components\MapGenerator\MapGrids\SevenPlayers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\TwilightImperiumUltimate.Contracts\TwilightImperiumUltimate.Contracts.csproj" />
   </ItemGroup>
 

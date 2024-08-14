@@ -21,6 +21,7 @@ internal class SpecificMapSettingsProvider : ISpecificMapSettingProvider
             MapTemplate.SixPlayersMediumMap => new SixPlayersMediumMapSettings(),
             MapTemplate.SixPlayersMediumSpiralMap => new SixPlayersMediumSpiralMapSettings(),
             MapTemplate.SixPlayersLargeMap => new SixPlayersLargeMapSettings(),
+            MapTemplate.SevenPlayersLargeHyperlineMap => new SevenPlayersLargeHyperlineMapSettings(),
             MapTemplate.EightPlayersLargeMap => new EightPlayersLargeMapSettings(),
             MapTemplate.EightPlayersLargeWarpMap => new EightPlayersLargeWarpMapSettings(),
             _ => throw new ArgumentOutOfRangeException(nameof(mapTemplate), mapTemplate, null),

@@ -3,6 +3,7 @@ using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.Custom;
 using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.EightPlayers;
 using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.FivePlayers;
 using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.FourPlayers;
+using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.SevenPlayers;
 using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.SixPlayers;
 using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.ThreePlayers;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
@@ -91,6 +92,7 @@ public partial class MapGeneratorMainGrid
             MapTemplate.SixPlayersMediumMap => typeof(SixPlayersMediumMap),
             MapTemplate.SixPlayersMediumSpiralMap => typeof(SixPlayersMediumSpiralMap),
             MapTemplate.SixPlayersLargeMap => typeof(SixPlayersLargeMap),
+            MapTemplate.SevenPlayersLargeHyperlineMap => typeof(SevenPlayersLargeHyperlineMap),
             MapTemplate.EightPlayersLargeMap => typeof(EightPlayersLargeMap),
             MapTemplate.EightPlayersLargeWarpMap => typeof(EightPlayersLargeWarpMap),
             _ => throw new NotImplementedException(),

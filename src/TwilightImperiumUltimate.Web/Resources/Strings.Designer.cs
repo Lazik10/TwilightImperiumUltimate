@@ -1492,6 +1492,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 7P Large (Hyperline).
+        /// </summary>
+        public static string MapTemplate_SevenPlayersLargeHyperlineMap {
+            get {
+                return ResourceManager.GetString("MapTemplate_SevenPlayersLargeHyperlineMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 6P Large.
         /// </summary>
         public static string MapTemplate_SixPlayersLargeMap {
