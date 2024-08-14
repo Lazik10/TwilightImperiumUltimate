@@ -1,5 +1,4 @@
 using TwilightImperiumUltimate.Draft.Drafts.MapDraft.Interfaces;
-using System.Linq;
 
 namespace TwilightImperiumUltimate.Business.Logic.Drafts.Map;
 

@@ -1303,7 +1303,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Legendary planets:.
+        ///   Looks up a localized string similar to Min legendary planets:.
         /// </summary>
         public static string MapGeneratorSettings_NumberOfLegendaryPlanets {
             get {
@@ -1461,6 +1461,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string MapTemplate_EightPlayersLargeMap {
             get {
                 return ResourceManager.GetString("MapTemplate_EightPlayersLargeMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 8P Warp.
+        /// </summary>
+        public static string MapTemplate_EightPlayersLargeWarpMap {
+            get {
+                return ResourceManager.GetString("MapTemplate_EightPlayersLargeWarpMap", resourceCulture);
             }
         }
         

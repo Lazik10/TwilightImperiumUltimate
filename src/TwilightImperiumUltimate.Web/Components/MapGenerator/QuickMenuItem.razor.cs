@@ -2,8 +2,14 @@ namespace TwilightImperiumUltimate.Web.Components.MapGenerator;
 
 public partial class QuickMenuItem
 {
+
+    private IconType _currentIconType;
+
     [Parameter]
     public IconType IconType { get; set; }
+
+    [Parameter]
+    public IconType IconTypeClicked { get; set; }
 
     [Parameter]
     public int MaxWidth { get; set; } = 26;
@@ -14,10 +20,23 @@ public partial class QuickMenuItem
     [Inject]
     private IPathProvider PathProvider { get; set; } = default!;
 
-    private string IconPath => PathProvider.GetIconPath(IconType);
+    private string IconPath => PathProvider.GetIconPath(_currentIconType);
 
-    private void HandleClick()
+    protected override void OnInitialized()
     {
-        OnClick.InvokeAsync(IconType);
+        _currentIconType = IconType;
+    }
+
+    private async Task HandleClick()
+    {
+        _currentIconType = IconTypeClicked;
+        StateHasChanged();
+
+        await OnClick.InvokeAsync(IconType);
+
+        await Task.Delay(1000);
+
+        _currentIconType = IconType;
+        StateHasChanged();
     }
 }

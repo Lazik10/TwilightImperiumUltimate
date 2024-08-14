@@ -15,8 +15,6 @@ public partial class MapGeneratorMainGrid
 
     private MapGeneratorMenuItem _selectedSegment;
 
-    private bool _showImportMapString;
-
     public IReadOnlyDictionary<int, SystemTileModel> GeneratedPositionsWithSystemTiles { get; set; } = default!;
 
     [CascadingParameter(Name = "MapTemplateValue")]
@@ -94,6 +92,7 @@ public partial class MapGeneratorMainGrid
             MapTemplate.SixPlayersMediumSpiralMap => typeof(SixPlayersMediumSpiralMap),
             MapTemplate.SixPlayersLargeMap => typeof(SixPlayersLargeMap),
             MapTemplate.EightPlayersLargeMap => typeof(EightPlayersLargeMap),
+            MapTemplate.EightPlayersLargeWarpMap => typeof(EightPlayersLargeWarpMap),
             _ => throw new NotImplementedException(),
         };
 
@@ -171,9 +170,9 @@ public partial class MapGeneratorMainGrid
 
     private async Task DownloadMapImage()
     {
-        var mapCode = MapGeneratorService.GetMapString();
+        var mapTemplate = MapGeneratorSettingsService.MapTemplate.ToString();
         var module = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./Components/MapGenerator/MapGeneratorMainGrid.razor.js");
-        await module.InvokeVoidAsync("saveMapAsImage", "mapArea", $"Map_{mapCode}.png");
+        await module.InvokeVoidAsync("saveMapAsImage", "mapArea", $"TI4_Ultimate_{mapTemplate}_{DateTime.Now.ToLocalTime().ToLongTimeString()}.png");
     }
 
     private async Task HandleMenuIconClick(IconType iconType)

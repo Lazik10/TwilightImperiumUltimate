@@ -43,13 +43,13 @@ internal class EightPlayersLargeMapSettings : IMapSettings
 
     public Dictionary<int, List<(int X, int Y)>> AdjacentHomePositions => new Dictionary<int, List<(int X, int Y)>>
     {
-        { 1, new List<(int X , int Y)> { (1, 5), (2, 4), (1, 3) } },
-        { 2, new List<(int X , int Y)>() },
-        { 3, new List<(int X , int Y)>() },
-        { 4, new List<(int X , int Y)>() },
-        { 5, new List<(int X , int Y)> { (15, 3), (14, 4), (15, 5) } },
-        { 6, new List<(int X , int Y)>() },
-        { 7, new List<(int X , int Y)>() },
-        { 8, new List<(int X , int Y)>() },
+        { 1, new List<(int X, int Y)> { (1, 5), (2, 4), (1, 3) } },
+        { 2, new List<(int X, int Y)>() },
+        { 3, new List<(int X, int Y)>() },
+        { 4, new List<(int X, int Y)>() },
+        { 5, new List<(int X, int Y)> { (15, 3), (14, 4), (15, 5) } },
+        { 6, new List<(int X, int Y)>() },
+        { 7, new List<(int X, int Y)>() },
+        { 8, new List<(int X, int Y)>() },
     };
 }

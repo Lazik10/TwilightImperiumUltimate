@@ -23,12 +23,23 @@
                             @(systemtile.SystemTileCode)
                         </div>
                     </FlexColumnCenteredContainer>
-                    <img class="systemtile" src="@(GetSystemTileImagePath(systemtile))" alt="@systemtile.SystemTileName">
+                        <div class="clickable" @onclick="(() => ShowBigImage(systemtile))">
+                            <img class=" systemtile" src="@GetSystemTileImagePath(systemtile)" alt="@systemtile.SystemTileName">
+                        </div>
                     <VerticalSpace Height="50" />
                 </div>
             }
         </GridLayout>
-        }
+    }
+
+    @if (_showBigImage)
+    {
+        <div class="big-image-overlay" @onclick="HideBigImage">
+            <div class="image-container">
+                <img src="@_currentBigImageSrc" @onclick="HideBigImage" />
+            </div>
+        </div>
+    }
 </Page>
 
 

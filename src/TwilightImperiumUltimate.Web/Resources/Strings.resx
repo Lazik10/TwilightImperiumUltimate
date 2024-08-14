@@ -517,7 +517,7 @@
     <value>Map template:</value>
   </data>
   <data name="MapGeneratorSettings_NumberOfLegendaryPlanets" xml:space="preserve">
-    <value>Legendary planets:</value>
+    <value>Min legendary planets:</value>
   </data>
   <data name="MapGeneratorSettings_PlacementStyle" xml:space="preserve">
     <value>Placement style:</value>
@@ -584,6 +584,9 @@
   </data>
   <data name="MapTemplate_EightPlayersLargeMap" xml:space="preserve">
     <value>8P Large</value>
+  </data>
+  <data name="MapTemplate_EightPlayersLargeWarpMap" xml:space="preserve">
+    <value>8P Warp</value>
   </data>
   <data name="MapTemplate_FivePlayersMediumHyperlineMap" xml:space="preserve">
     <value>5P Normal (Hyperline)</value>

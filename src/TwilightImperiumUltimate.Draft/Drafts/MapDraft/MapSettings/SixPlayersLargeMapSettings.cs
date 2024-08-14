@@ -35,7 +35,7 @@ internal class SixPlayersLargeMapSettings : IMapSettings
         { 2, new List<(int, int)>() { (6, 8), (5, 7), (3, 7), (7, 7), (4, 6) } },
         { 3, new List<(int, int)>() { (13, 7), (11, 7), (10, 8), (12, 6), (9, 7) } },
         { 4, new List<(int, int)>() { (15, 3), (14, 4), (15, 5), (13, 3), (13, 5) } },
-        { 5, new List<(int, int)>() { (10, 0), (11, 1), (13, 1), (9, 1), (12, 2)} },
+        { 5, new List<(int, int)>() { (10, 0), (11, 1), (13, 1), (9, 1), (12, 2) } },
         { 6, new List<(int, int)>() { (3, 1), (5, 1), (6, 0), (4, 2), (7, 1) } },
     };
 

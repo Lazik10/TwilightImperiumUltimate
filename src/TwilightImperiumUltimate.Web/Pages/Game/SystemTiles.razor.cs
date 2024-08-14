@@ -6,6 +6,10 @@ public partial class SystemTiles
 
     private GameVersion? _currentGameVersion;
 
+    private bool _showBigImage;
+
+    private string _currentBigImageSrc = string.Empty;
+
     [Inject]
     private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
 
@@ -36,5 +40,16 @@ public partial class SystemTiles
                 .ThenBy(x => x.SystemTileName)
                 .ToList();
         }
+    }
+
+    private void ShowBigImage(SystemTileModel systemTile)
+    {
+        _currentBigImageSrc = GetSystemTileImagePath(systemTile);
+        _showBigImage = true;
+    }
+
+    private void HideBigImage()
+    {
+        _showBigImage = false;
     }
 }

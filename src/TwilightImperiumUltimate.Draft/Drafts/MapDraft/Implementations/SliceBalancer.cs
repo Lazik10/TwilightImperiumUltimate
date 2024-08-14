@@ -67,7 +67,6 @@ internal class SliceBalancer(
         _logger.LogInformation("Prepared red tiles for redistribution {RedTiles}", systemTilesForGalaxyDistribution.RedTiles.GetSystemTileCodes());
         int nullPositionsCount = slices.SelectMany(x => x.Positions).Count(x => x.SystemTile is null);
 
-
         int remainingSystemTilesCount = remainingSystemTiles.Count();
 
         if (remainingSystemTilesCount < nullPositionsCount || (remainingSystemTilesCount > nullPositionsCount))
@@ -288,14 +287,16 @@ internal class SliceBalancer(
                         if (request.MapTemplate != MapTemplate.SixPlayersLargeMap && request.MapTemplate == MapTemplate.EightPlayersLargeMap)
                         {
                             remainingSystemTilesForSlices = remainingSystemTilesForSlices
-                                .OrderByDescending(x => x.GetOptimalInfluenceValue())
+                                .OrderByDescending(x => x.HasLegendaryPlanet)
+                                .ThenByDescending(x => x.GetOptimalInfluenceValue())
                                 .ToList();
                         }
                         else
                         {
                             remainingSystemTilesForSlices = remainingSystemTilesForSlices
                                 .Where(x => x.Wormholes.Count == 0)
-                                .OrderByDescending(x => x.GetOptimalInfluenceValue())
+                                .OrderByDescending(x => x.HasLegendaryPlanet)
+                                .ThenByDescending(x => x.GetOptimalInfluenceValue())
                                 .ToList();
                         }
                     }
@@ -304,14 +305,16 @@ internal class SliceBalancer(
                         if (request.MapTemplate != MapTemplate.SixPlayersLargeMap && request.MapTemplate == MapTemplate.EightPlayersLargeMap)
                         {
                             remainingSystemTilesForSlices = remainingSystemTilesForSlices
-                                .OrderByDescending(x => x.GetOptimalResourceValue())
+                                .OrderByDescending(x => x.HasLegendaryPlanet)
+                                .ThenByDescending(x => x.GetOptimalResourceValue())
                                 .ToList();
                         }
                         else
                         {
                             remainingSystemTilesForSlices = remainingSystemTilesForSlices
                                 .Where(x => x.Wormholes.Count == 0)
-                                .OrderByDescending(x => x.GetOptimalResourceValue())
+                                .OrderByDescending(x => x.HasLegendaryPlanet)
+                                .ThenByDescending(x => x.GetOptimalResourceValue())
                                 .ToList();
                         }
                     }

@@ -10,4 +10,9 @@ public enum IconType
     ShareMap,
     CopyMapString,
     ImportMapString,
+    HashtagClicked,
+    DownloadMapImageClicked,
+    ShareMapClicked,
+    CopyMapStringClicked,
+    ImportMapStringClicked,
 }
