@@ -86,16 +86,22 @@ public class MapToStringConverter(
         {
             // In my converter mecatol is first, but it should be ignored when creating the map
             // I need to have it so I can place it in the correct position when converting back based on map template
-            MapTemplate.FivePlayersMediumMap or MapTemplate.FivePlayersMediumHyperlineMap
-            or MapTemplate.SixPlayersMediumMap or MapTemplate.SixPlayersMediumSpiralMap
+            MapTemplate.FivePlayersMediumMap or
+            MapTemplate.FivePlayersMediumHyperlineMap or
+            MapTemplate.SixPlayersMediumMap or
+            MapTemplate.SixPlayersMediumSpiralMap or
+            MapTemplate.FivePlayersMediumDiamondMap
             => new List<int>
             {
                 24, 17, 25, 32, 31, 30, 23, 10, 18, 19, 26, 33, 39, 38, 37, 29, 22, 15,
                 16, 3, 11, 12, 20, 27, 34, 41, 40, 46, 45, 44, 36, 35, 28, 21, 14, 8, 9,
             },
 
-            MapTemplate.EightPlayersLargeMap or MapTemplate.SixPlayersLargeMap or MapTemplate.EightPlayersLargeWarpMap
-            or MapTemplate.SevenPlayersLargeHyperlineMap or MapTemplate.SevenPlayersLargeWarpMap
+            MapTemplate.EightPlayersLargeMap or
+            MapTemplate.SixPlayersLargeMap or
+            MapTemplate.EightPlayersLargeWarpMap or
+            MapTemplate.SevenPlayersLargeHyperlineMap or
+            MapTemplate.SevenPlayersLargeWarpMap
             => new List<int>
             {
                 40, 31, 32, 41, 49, 39, 30, 22, 23, 33, 42, 51, 50, 58, 48, 47, 38, 29, 21, 13, 14,

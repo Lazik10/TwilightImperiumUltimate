@@ -1,3 +1,4 @@
+using TwilightImperiumUltimate.Core.Entities.Galaxy;
 using TwilightImperiumUltimate.Draft.Drafts.MapDraft.Constants;
 using TwilightImperiumUltimate.Draft.Drafts.MapDraft.Interfaces;
 using TwilightImperiumUltimate.Draft.Drafts.MapDraft.MapSettings;
@@ -14,7 +15,6 @@ internal class PlacementStyleHandler(
     private readonly ISystemTilesForGalaxyDistributionProvider _systemTilesForGalaxyDistributionProvider = systemTilesForGalaxyDistributionProvider;
     private readonly ISystemTileSetter _systemTileSetter = systemTileSetter;
     private readonly ISliceBalancer _sliceBalancer = sliceBalancer;
-    private readonly Random _random = new Random();
 
     public async Task HandleRemainingPositions(Dictionary<(int X, int Y), Hex> galaxy, IMapSettings mapSettings, SystemTilesForMapSetup systemTilesForMapSetup, GenerateMapRequest request)
     {
@@ -23,9 +23,12 @@ internal class PlacementStyleHandler(
         if (request.LegendaryPriorityInEquidistant)
             _systemTileSetter.SetLegendarySystemTiles(galaxy, remainingSystemTiles, mapSettings);
 
-        var balancedSlices = await _sliceBalancer.BalanceSlices(galaxy, mapSettings, systemTilesForMapSetup, remainingSystemTiles, request);
+        var result = await _sliceBalancer.BalanceSlices(galaxy, mapSettings, systemTilesForMapSetup, remainingSystemTiles, request);
 
-        _systemTileSetter.SetRemainingSystemTiles(galaxy, mapSettings, request, balancedSlices);
+        _systemTileSetter.SetRemainingSystemTiles(galaxy, mapSettings, request, result.Slices);
+
+        // This is a safe guard to assign all prepared system tiles that were not assigned to any slice
+        HandleRemainingNonSlicePositionsWithUnusedSystemTiles(galaxy, result.UnusesSystemTiles);
     }
 
     public Task HandleRemainingNonSlicePositions(Dictionary<(int X, int Y), Hex> galaxy, IMapSettings mapSettings, SystemTilesForMapSetup systemTilesForMapSetup)
@@ -35,7 +38,6 @@ internal class PlacementStyleHandler(
 
         var galaxyUsedTiles = galaxy.Values
             .Where(x => x.SystemTile is not null)
-            .OrderBy(x => _random.Next())
             .Select(x => x.SystemTile!.SystemTileCode)
             .ToHashSet();
 
@@ -53,8 +55,6 @@ internal class PlacementStyleHandler(
             availableRemainingSystemTiles.AddRange(avalilableRemainingRedSystemTiles);
         }
 
-        var countNeedToFill = galaxy.Values.Count(x => x.SystemTile is null && x.Name != PositionName.Empty);
-
         foreach (var hex in galaxy.Values.Where(x => x.SystemTile is null && x.Name != PositionName.Empty))
         {
             hex.SystemTile = availableRemainingSystemTiles[0];
@@ -62,5 +62,23 @@ internal class PlacementStyleHandler(
         }
 
         return Task.CompletedTask;
+    }
+
+    private void HandleRemainingNonSlicePositionsWithUnusedSystemTiles(
+        Dictionary<(int X, int Y),
+        Hex> galaxy,
+        List<SystemTile> unusedSystemTilesForGalaxyDistribution)
+    {
+        if (galaxy.Values.All(x => x.SystemTile is not null || (x.SystemTile is null && x.Name == PositionName.Empty)))
+            return;
+
+        foreach (var hex in galaxy.Values.Where(x => x.SystemTile is null && x.Name != PositionName.Empty))
+        {
+            if (unusedSystemTilesForGalaxyDistribution.Count == 0)
+                break;
+
+            hex.SystemTile = unusedSystemTilesForGalaxyDistribution[0];
+            unusedSystemTilesForGalaxyDistribution.RemoveAt(0);
+        }
     }
 }

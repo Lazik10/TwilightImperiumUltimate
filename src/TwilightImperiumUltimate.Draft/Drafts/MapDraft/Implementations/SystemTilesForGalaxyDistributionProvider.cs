@@ -197,6 +197,16 @@ internal class SystemTilesForGalaxyDistributionProvider(
                     systemTilesForGalaxyDistribution.BlueTiles.Add(selectedWormholeTile);
             }
 
+            _logger.LogInformation(
+                "Selected red wormhole tiles: {Count} with codes: {Codes}",
+                systemTilesForGalaxyDistribution.RedTilesCount,
+                systemTilesForGalaxyDistribution.RedTiles.GetSystemTilesWithWormholesCodes());
+
+            _logger.LogInformation(
+                "Selected blue wormhole tiles: {Count} with codes: {Codes}",
+                systemTilesForGalaxyDistribution.BlueTilesCount,
+                systemTilesForGalaxyDistribution.BlueTiles.GetSystemTilesWithWormholesCodes());
+
             return;
         }
 
@@ -231,18 +241,12 @@ internal class SystemTilesForGalaxyDistributionProvider(
             _logger.LogInformation(
                 "Selected red wormhole tiles: {Count} with codes: {Codes}",
                 systemTilesForGalaxyDistribution.RedTilesCount,
-                string.Join(",", systemTilesForGalaxyDistribution.RedTiles
-                .Where(x => x.HasWormholes)
-                .Select(x => x.SystemTileCode)
-                .ToList()));
+                systemTilesForGalaxyDistribution.RedTiles.GetSystemTilesWithWormholesCodes());
 
             _logger.LogInformation(
                 "Selected blue wormhole tiles: {Count} with codes: {Codes}",
                 systemTilesForGalaxyDistribution.BlueTilesCount,
-                string.Join(",", systemTilesForGalaxyDistribution.BlueTiles
-                .Where(x => x.HasWormholes)
-                .Select(x => x.SystemTileCode)
-                .ToList()));
+                systemTilesForGalaxyDistribution.BlueTiles.GetSystemTilesWithWormholesCodes());
 
             return;
         }

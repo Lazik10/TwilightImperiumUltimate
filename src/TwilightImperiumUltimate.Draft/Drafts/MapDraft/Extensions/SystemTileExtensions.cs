@@ -1,5 +1,6 @@
 using Azure.Core;
 using TwilightImperiumUltimate.Core.Entities.Galaxy;
+using TwilightImperiumUltimate.Draft.ValueObjects;
 
 namespace TwilightImperiumUltimate.Draft.Drafts.MapDraft.Extensions;
 
@@ -17,9 +18,9 @@ public static class SystemTileExtensions
                 var resources when resources < planet.Influence => planet.Influence,
                 _ => 0.0f,
             };
-            value += planet.IsLegendary ? 7.0f : 0.0f;
-            value += planet.TechnologySkip != TechnologyType.None ? 5.0f : 0.0f;
-            value += tile.Planets.Count * 0.5f;
+            value += planet.IsLegendary ? 1.0f : 0.0f;
+            value += planet.TechnologySkip != TechnologyType.None ? 0.5f : 0.0f;
+            value += tile.Planets.Count * 0.1f;
             return value;
         }));
     }
@@ -101,6 +102,14 @@ public static class SystemTileExtensions
     public static string GetSystemTileCodes(this IEnumerable<SystemTile> systemTiles)
     {
         return string.Join(",", systemTiles.Select(x => x.SystemTileCode).ToList());
+    }
+
+    public static string GetSystemTilesWithWormholesCodes(this IEnumerable<SystemTile> systemTiles)
+    {
+        return string.Join(",", systemTiles
+                .Where(x => x.HasWormholes)
+                .Select(x => x.SystemTileCode)
+                .ToList());
     }
 
     public static string GetSystemTileCodesWithSystemWeight(this IEnumerable<SystemTile> systemTiles, SystemWeight systemWeight)

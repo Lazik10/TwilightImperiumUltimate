@@ -32,7 +32,7 @@ public class MapGeneratorService(
             _mapGeneratorSettingsService.GameVersions,
             _mapGeneratorSettingsService.PlacementStyle,
             _mapGeneratorSettingsService.SystemWeight,
-            WormholeDensity.AtLeastTwoPairs,
+            _mapGeneratorSettingsService.WormholeDensity,
             _mapGeneratorSettingsService.NumberOfLegendaryPlanets,
             _mapGeneratorSettingsService.LegendaryPriorityInEquidistant,
             _mapGeneratorSettingsService.GetPlayerNames());

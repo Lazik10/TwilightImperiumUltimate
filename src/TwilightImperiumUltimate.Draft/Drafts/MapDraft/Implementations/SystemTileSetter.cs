@@ -1,4 +1,3 @@
-using Azure.Core;
 using TwilightImperiumUltimate.Core.Entities.Galaxy;
 using TwilightImperiumUltimate.Draft.Drafts.MapDraft.Constants;
 using TwilightImperiumUltimate.Draft.Drafts.MapDraft.Extensions;
@@ -118,6 +117,7 @@ public class SystemTileSetter(
         var remainingRedTiles = redTilesWithAnomalyAndPlanets
                 .Concat(redTilesWithAnomalyAndWithoutPlanets)
                 .ToList();
+
         _logger.LogInformation("Remaining red tiles with anomaly: {RedTilesCount}", remainingRedTiles.GetSystemTileCodes());
 
         var galaxyRedPositions = galaxy.Values.Where(x => x.Name == PositionName.Red && x.SystemTile is null).ToList();
@@ -158,6 +158,8 @@ public class SystemTileSetter(
                 galaxy[position].SystemTile = redTilesWithAnomalyAndLegendaryPlanet.FirstOrDefault();
             }
         }
+
+        _logger.LogInformation("Assigned red tile codes in galaxy: {RedTilesCount}", galaxy.GetRedTileCodes());
     }
 
     public void SetHomeSystemTiles(
@@ -392,14 +394,29 @@ public class SystemTileSetter(
 
             _logger.LogInformation("Drafted system tiles: {Count} {DraftedSystemTiles}", slice.DraftedSystemTiles.Count,  string.Join(" ", slice.DraftedSystemTiles.Select(x => x.SystemTileCode)));
 
-            var slicePositionsInPriorityOrder = new List<(int X, int Y)>
+            var slicePositionsInPriorityOrder = new List<(int X, int Y)>();
+
+            if (slice.Positions.Count == 5)
             {
-                mapSettings.Slices[slice.Id][1],
-                mapSettings.Slices[slice.Id][4],
-                mapSettings.Slices[slice.Id][priorityPositions[0]],
-                mapSettings.Slices[slice.Id][priorityPositions[1]],
-                mapSettings.Slices[slice.Id][3],
-            };
+                slicePositionsInPriorityOrder = new List<(int X, int Y)>
+                {
+                    mapSettings.Slices[slice.Id][1],
+                    mapSettings.Slices[slice.Id][4],
+                    mapSettings.Slices[slice.Id][priorityPositions[0]],
+                    mapSettings.Slices[slice.Id][priorityPositions[1]],
+                    mapSettings.Slices[slice.Id][3],
+                };
+            }
+            else if (slice.Positions.Count == 4)
+            {
+                slicePositionsInPriorityOrder = new List<(int X, int Y)>
+                {
+                    mapSettings.Slices[slice.Id][1],
+                    mapSettings.Slices[slice.Id][priorityPositions[0]],
+                    mapSettings.Slices[slice.Id][priorityPositions[1]],
+                    mapSettings.Slices[slice.Id][3],
+                };
+            }
 
             // Shuffle the remaining drafted system tiles and continue with the draft
             var orderedDraftedSystemTileList = slice.DraftedSystemTiles.AsEnumerable().OrderByOptimalValue().ToList();
@@ -413,9 +430,10 @@ public class SystemTileSetter(
                 {
                     var legendarySystemTile = slice.DraftedSystemTiles.FirstOrDefault(x => x.HasLegendaryPlanet);
 
-                    if (legendarySystemTile is not null && slice.Positions[4].SystemTile is null)
+                    var theMostConflictPosition = slice.Positions.Count - 1;
+                    if (legendarySystemTile is not null && slice.Positions[theMostConflictPosition].SystemTile is null)
                     {
-                        if (galaxy.TryGetValue((slice.Positions[4].X, slice.Positions[4].Y), out Hex? hex) && hex.SystemTile is null)
+                        if (galaxy.TryGetValue((slice.Positions[theMostConflictPosition].X, slice.Positions[theMostConflictPosition].Y), out Hex? hex) && hex.SystemTile is null)
                         {
                             hex.SystemTile = legendarySystemTile;
                             var systemTileToRemove = orderedDraftedSystemTileList.Single(x => x.SystemTileCode == legendarySystemTile.SystemTileCode);
@@ -423,7 +441,7 @@ public class SystemTileSetter(
                         }
                     }
                     else if (legendarySystemTile is not null && slice.Positions[3].SystemTile is null
-                        && galaxy.TryGetValue((slice.Positions[3].X, slice.Positions[3].Y), out Hex? hex)
+                        && galaxy.TryGetValue((slice.Positions[theMostConflictPosition - 1].X, slice.Positions[theMostConflictPosition - 1].Y), out Hex? hex)
                         && hex.SystemTile is null)
                     {
                         hex.SystemTile = legendarySystemTile;
@@ -435,10 +453,13 @@ public class SystemTileSetter(
 
             foreach (var position in slicePositionsInPriorityOrder.Where(x => galaxy[x].SystemTile is null))
             {
-                _logger.LogInformation("Handling position {Position}", position);
-                galaxy[position].SystemTile = orderedDraftedSystemTileList[0];
-                _logger.LogInformation("Tile assigned and removed: {TileCode}", orderedDraftedSystemTileList[0].SystemTileCode);
-                orderedDraftedSystemTileList.RemoveAt(0);
+                if (orderedDraftedSystemTileList.Count > 0)
+                {
+                    _logger.LogInformation("Handling position {Position}", position);
+                    galaxy[position].SystemTile = orderedDraftedSystemTileList[0];
+                    _logger.LogInformation("Tile assigned and removed: {TileCode}", orderedDraftedSystemTileList[0].SystemTileCode);
+                    orderedDraftedSystemTileList.RemoveAt(0);
+                }
             }
         }
 

@@ -1,3 +1,5 @@
+using System.Collections.ObjectModel;
+using TwilightImperiumUltimate.Core.Entities.Galaxy;
 using TwilightImperiumUltimate.Draft.ValueObjects;
 
 namespace TwilightImperiumUltimate.Draft.Drafts.MapDraft.Extensions;
@@ -42,5 +44,29 @@ public static class SliceExtensions
     public static string GetSlicesLog(this List<Slice> slices)
     {
         return string.Join("\n", slices.Select(x => x.GetSliceLog()));
+    }
+
+    public static int GetNumberOfRedTilesOrWormholeTiles(this Slice slice)
+    {
+        return slice.DraftedSystemTiles.Count(x => x.TileCategory == SystemTileCategory.Red || x.HasWormholes)
+            + slice.Positions.Count(pos =>
+                pos.SystemTile is not null
+                && (pos.SystemTile.TileCategory == SystemTileCategory.Red || pos.SystemTile.HasWormholes));
+    }
+
+    public static List<SystemTile> UpdateRemainingAvailableSystemTiles(this List<Slice> slices, List<SystemTile> remainingSystemTiles)
+    {
+        var draftedSystemTileCodes = slices.SelectMany(x => x.DraftedSystemTiles)
+            .Select(x => x.SystemTileCode)
+            .ToHashSet();
+
+        var assignedSystemTileCodes = slices.SelectMany(x => x.Positions)
+            .Where(x => x.SystemTile is not null)
+            .Select(x => x.SystemTile!.SystemTileCode)
+            .ToHashSet();
+
+        var allUsedSystemTileCodes = draftedSystemTileCodes.Union(assignedSystemTileCodes).ToHashSet();
+
+        return remainingSystemTiles.Where(x => !allUsedSystemTileCodes.Contains(x.SystemTileCode)).ToList();
     }
 }

@@ -588,6 +588,9 @@
   <data name="MapTemplate_EightPlayersLargeWarpMap" xml:space="preserve">
     <value>8P Large (Warp)</value>
   </data>
+  <data name="MapTemplate_FivePlayersMediumDiamondMap" xml:space="preserve">
+    <value>5P Diamond</value>
+  </data>
   <data name="MapTemplate_FivePlayersMediumHyperlineMap" xml:space="preserve">
     <value>5P Normal (Hyperline)</value>
   </data>

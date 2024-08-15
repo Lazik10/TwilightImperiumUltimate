@@ -1474,6 +1474,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 5P Diamond.
+        /// </summary>
+        public static string MapTemplate_FivePlayersMediumDiamondMap {
+            get {
+                return ResourceManager.GetString("MapTemplate_FivePlayersMediumDiamondMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 5P Normal (Hyperline).
         /// </summary>
         public static string MapTemplate_FivePlayersMediumHyperlineMap {

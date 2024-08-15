@@ -19,6 +19,7 @@ internal class SpecificMapSettingsProvider : ISpecificMapSettingProvider
             MapTemplate.FourPlayersMediumMap => new FourPlayersMediumMapSettings(),
             MapTemplate.FivePlayersMediumMap => new FivePlayersMediumMapSettings(),
             MapTemplate.FivePlayersMediumHyperlineMap => new FivePlayersMediumHyperlineMapSettings(),
+            MapTemplate.FivePlayersMediumDiamondMap => new FivePlayersMediumDiamondMapSettings(),
             MapTemplate.SixPlayersMediumMap => new SixPlayersMediumMapSettings(),
             MapTemplate.SixPlayersMediumSpiralMap => new SixPlayersMediumSpiralMapSettings(),
             MapTemplate.SixPlayersLargeMap => new SixPlayersLargeMapSettings(),

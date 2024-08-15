@@ -90,6 +90,7 @@ public partial class MapGeneratorMainGrid
             MapTemplate.FourPlayersMediumMap => typeof(FourPlayersMediumMap),
             MapTemplate.FivePlayersMediumMap => typeof(FivePlayersMediumMap),
             MapTemplate.FivePlayersMediumHyperlineMap => typeof(FivePlayersMediumHyperlineMap),
+            MapTemplate.FivePlayersMediumDiamondMap => typeof(FivePlayersMediumDiamondMap),
             MapTemplate.SixPlayersMediumMap => typeof(SixPlayersMediumMap),
             MapTemplate.SixPlayersMediumSpiralMap => typeof(SixPlayersMediumSpiralMap),
             MapTemplate.SixPlayersLargeMap => typeof(SixPlayersLargeMap),

@@ -109,17 +109,35 @@ public class MapGeneratorSettingsService(
         return MapTemplate switch
         {
             MapTemplate.CustomMap => 0,
+
             MapTemplate.ThreePlayersSmallMap => 3,
             MapTemplate.ThreePlayersSmallAlternateMap => 3,
             MapTemplate.ThreePlayersTriangleMap => 3,
             MapTemplate.ThreePlayersTriangleNarrowMap => 3,
             MapTemplate.ThreePlayersSnowflakeMap => 3,
             MapTemplate.ThreePlayersMantaRayMap => 3,
-            MapTemplate.FourPlayersMediumMap => 4,
-            MapTemplate.FivePlayersMediumMap or MapTemplate.FivePlayersMediumHyperlineMap => 5,
-            MapTemplate.SixPlayersMediumMap or MapTemplate.SixPlayersLargeMap or MapTemplate.SixPlayersMediumSpiralMap => 6,
-            MapTemplate.SevenPlayersLargeHyperlineMap or MapTemplate.SevenPlayersLargeWarpMap => 7,
-            MapTemplate.EightPlayersLargeMap or MapTemplate.EightPlayersLargeWarpMap => 8,
+
+            MapTemplate.FourPlayersMediumMap
+            => 4,
+
+            MapTemplate.FivePlayersMediumMap or
+            MapTemplate.FivePlayersMediumHyperlineMap or
+            MapTemplate.FivePlayersMediumDiamondMap
+            => 5,
+
+            MapTemplate.SixPlayersMediumMap or
+            MapTemplate.SixPlayersLargeMap or
+            MapTemplate.SixPlayersMediumSpiralMap
+            => 6,
+
+            MapTemplate.SevenPlayersLargeHyperlineMap or
+            MapTemplate.SevenPlayersLargeWarpMap
+            => 7,
+
+            MapTemplate.EightPlayersLargeMap or
+            MapTemplate.EightPlayersLargeWarpMap
+            => 8,
+
             _ => 0,
         };
     }
