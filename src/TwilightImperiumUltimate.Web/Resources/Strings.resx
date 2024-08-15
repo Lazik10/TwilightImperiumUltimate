@@ -591,6 +591,9 @@
   <data name="MapTemplate_FivePlayersMediumHyperlineMap" xml:space="preserve">
     <value>5P Normal (Hyperline)</value>
   </data>
+  <data name="MapTemplate_FivePlayersMediumMap" xml:space="preserve">
+    <value>5P Normal</value>
+  </data>
   <data name="MapTemplate_FourPlayersMediumMap" xml:space="preserve">
     <value>4P Normal</value>
   </data>

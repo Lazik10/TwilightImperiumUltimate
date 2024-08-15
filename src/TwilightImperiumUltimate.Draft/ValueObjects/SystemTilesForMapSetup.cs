@@ -6,7 +6,7 @@ public record SystemTilesForMapSetup(
     SystemTile MecatolRex,
     SystemTile EmptySystemPlaceholder,
     SystemTile EmptyHomeSystemPlaceholder,
-    SystemTile TransparentSystemPlaceholder,
+    SystemTile FrameSystemPlaceholder,
     IReadOnlyCollection<SystemTile> HomeTiles,
     IReadOnlyCollection<SystemTile> BlueTiles,
     IReadOnlyCollection<SystemTile> RedTiles,

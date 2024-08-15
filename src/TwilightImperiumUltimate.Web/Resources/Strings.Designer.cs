@@ -1483,6 +1483,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 5P Normal.
+        /// </summary>
+        public static string MapTemplate_FivePlayersMediumMap {
+            get {
+                return ResourceManager.GetString("MapTemplate_FivePlayersMediumMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 4P Normal.
         /// </summary>
         public static string MapTemplate_FourPlayersMediumMap {

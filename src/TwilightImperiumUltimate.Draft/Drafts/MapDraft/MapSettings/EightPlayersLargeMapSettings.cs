@@ -10,6 +10,8 @@ internal class EightPlayersLargeMapSettings : IMapSettings
 
     public int NumberOfPlayers => 8;
 
+    public int NumberOfRedTiles => 18;
+
     public (int X, int Y) MecatolRexPosition => (8, 4);
 
     public HashSet<(int X, int Y)> HomePositions => new HashSet<(int X, int Y)>

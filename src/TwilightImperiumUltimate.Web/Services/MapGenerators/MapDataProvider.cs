@@ -8,6 +8,7 @@ public class MapDataProvider : IMapDataProvider
     {
         return mapTemplate switch
         {
+            MapTemplate.FivePlayersMediumMap => new FivePlayersMediumMapData(),
             MapTemplate.FivePlayersMediumHyperlineMap => new FivePlayersMediumWarpMapData(),
             MapTemplate.SixPlayersMediumMap => new SixPlayersMediumMapData(),
             MapTemplate.SixPlayersMediumSpiralMap => new SixPlayersMediumSpiralMapData(),

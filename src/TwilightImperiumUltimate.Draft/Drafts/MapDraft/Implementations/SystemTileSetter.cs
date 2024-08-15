@@ -274,13 +274,13 @@ public class SystemTileSetter(
         }
     }
 
-    public void SetTransparentTiles(Dictionary<(int X, int Y), Hex> galaxy, SystemTile transparentSystemPlaceholder)
+    public void SetFrameTiles(Dictionary<(int X, int Y), Hex> galaxy, SystemTile frameSystemPlaceholder)
     {
         foreach (var hex in galaxy.Values)
         {
             if (galaxy.TryGetValue((hex.X, hex.Y), out Hex? galaxyHex) && galaxyHex is not null)
             {
-                galaxyHex.SystemTile = transparentSystemPlaceholder;
+                galaxyHex.SystemTile = frameSystemPlaceholder;
             }
         }
     }

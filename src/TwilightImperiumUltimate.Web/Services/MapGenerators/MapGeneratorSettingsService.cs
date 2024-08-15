@@ -116,14 +116,10 @@ public class MapGeneratorSettingsService(
             MapTemplate.ThreePlayersSnowflakeMap => 3,
             MapTemplate.ThreePlayersMantaRayMap => 3,
             MapTemplate.FourPlayersMediumMap => 4,
-            MapTemplate.FivePlayersMediumHyperlineMap => 5,
-            MapTemplate.SixPlayersMediumMap => 6,
-            MapTemplate.SixPlayersLargeMap => 6,
-            MapTemplate.SixPlayersMediumSpiralMap => 6,
-            MapTemplate.SevenPlayersLargeHyperlineMap => 7,
-            MapTemplate.SevenPlayersLargeWarpMap => 7,
-            MapTemplate.EightPlayersLargeMap => 8,
-            MapTemplate.EightPlayersLargeWarpMap => 8,
+            MapTemplate.FivePlayersMediumMap or MapTemplate.FivePlayersMediumHyperlineMap => 5,
+            MapTemplate.SixPlayersMediumMap or MapTemplate.SixPlayersLargeMap or MapTemplate.SixPlayersMediumSpiralMap => 6,
+            MapTemplate.SevenPlayersLargeHyperlineMap or MapTemplate.SevenPlayersLargeWarpMap => 7,
+            MapTemplate.EightPlayersLargeMap or MapTemplate.EightPlayersLargeWarpMap => 8,
             _ => 0,
         };
     }

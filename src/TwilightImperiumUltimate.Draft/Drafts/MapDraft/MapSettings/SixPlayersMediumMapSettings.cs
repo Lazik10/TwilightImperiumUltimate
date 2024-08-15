@@ -10,6 +10,8 @@ internal class SixPlayersMediumMapSettings : IMapSettings
 
     public int NumberOfPlayers => 6;
 
+    public int NumberOfRedTiles => 12;
+
     public (int, int) MecatolRexPosition => (7, 3);
 
     public HashSet<(int X, int Y)> HomePositions => new HashSet<(int X, int Y)>

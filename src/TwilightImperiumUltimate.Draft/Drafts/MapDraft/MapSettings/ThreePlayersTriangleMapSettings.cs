@@ -10,6 +10,8 @@ internal class ThreePlayersTriangleMapSettings : IMapSettings
 
     public int NumberOfPlayers => 6;
 
+    public int NumberOfRedTiles => 6;
+
     public (int, int) MecatolRexPosition => (8, 4);
 
     public HashSet<(int, int)> HomePositions => new HashSet<(int, int)>

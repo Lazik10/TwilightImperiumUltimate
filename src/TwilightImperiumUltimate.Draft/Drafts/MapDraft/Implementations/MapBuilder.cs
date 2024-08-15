@@ -29,7 +29,7 @@ internal class MapBuilder(
 
         if (mapSettings.MapTemplate == MapTemplate.CustomMap)
         {
-            _systemTileSetter.SetTransparentTiles(galaxy, systemTilesForMapSetup.TransparentSystemPlaceholder);
+            _systemTileSetter.SetFrameTiles(galaxy, systemTilesForMapSetup.FrameSystemPlaceholder);
             return galaxy;
         }
 

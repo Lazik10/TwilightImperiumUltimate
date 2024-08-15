@@ -10,6 +10,8 @@ public interface IMapSettings
 
     int NumberOfPlayers { get; }
 
+    int NumberOfRedTiles { get; }
+
     (int X, int Y) MecatolRexPosition { get; }
 
     HashSet<(int X, int Y)> HomePositions { get; }

@@ -10,6 +10,8 @@ internal class SevenPlayersLargeHyperlineMapSettings : IMapSettings, IHyperlineS
 
     public int NumberOfPlayers => 7;
 
+    public int NumberOfRedTiles => 14;
+
     public (int X, int Y) MecatolRexPosition => (8, 4);
 
     public HashSet<(int X, int Y)> HomePositions => new HashSet<(int X, int Y)>

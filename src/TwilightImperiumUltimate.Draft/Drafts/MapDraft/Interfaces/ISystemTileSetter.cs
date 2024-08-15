@@ -41,7 +41,7 @@ public interface ISystemTileSetter
         IHyperlineSettings hyperlineSettings,
         SystemTilesForMapSetup systemTilesForMapSetup);
 
-    void SetTransparentTiles(
+    void SetFrameTiles(
         Dictionary<(int X, int Y), Hex> galaxy,
-        SystemTile transparentSystemPlaceholder);
+        SystemTile frameSystemPlaceholder);
 }

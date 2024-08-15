@@ -28,5 +28,5 @@ public interface IGalaxyRepository
 
     Task<IReadOnlyList<SystemTile>> GetAllHyperlines(CancellationToken cancellationToken);
 
-    Task<SystemTile> GetTransparentSystemTile(CancellationToken cancellationToken);
+    Task<SystemTile> GetFrameSystemTile(CancellationToken cancellationToken);
 }

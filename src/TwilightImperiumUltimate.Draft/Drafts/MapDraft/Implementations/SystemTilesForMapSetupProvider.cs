@@ -34,13 +34,13 @@ public class SystemTilesForMapSetupProvider(
 
         var hyperLines = await _galaxyRepository.GetAllHyperlines(cancellationToken);
 
-        var transparentSystemPlaceholder = await _galaxyRepository.GetTransparentSystemTile(cancellationToken);
+        var frameSystemPlaceholder = await _galaxyRepository.GetFrameSystemTile(cancellationToken);
 
         return new SystemTilesForMapSetup(
             mecatolRex,
             emptyTilePlaceholder,
             homeTilePlaceholder,
-            transparentSystemPlaceholder,
+            frameSystemPlaceholder,
             shuffledHomeTiles,
             shuffledBlueTiles,
             shuffledRedTiles,

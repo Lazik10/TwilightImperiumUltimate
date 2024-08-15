@@ -10,6 +10,8 @@ internal class FivePlayersMediumHyperlineMapSettings : IMapSettings, IHyperlineS
 
     public int NumberOfPlayers => 5;
 
+    public int NumberOfRedTiles => 12;
+
     public (int, int) MecatolRexPosition => (7, 3);
 
     public HashSet<(int X, int Y)> HomePositions => new HashSet<(int X, int Y)>

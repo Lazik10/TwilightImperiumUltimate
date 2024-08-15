@@ -10,6 +10,8 @@ internal class CustomMapSettings : IMapSettings
 
     public int NumberOfPlayers => -1;
 
+    public int NumberOfRedTiles => 0;
+
     public (int, int) MecatolRexPosition => (-1, -1);
 
     public HashSet<(int, int)> HomePositions => new HashSet<(int, int)>();

@@ -120,7 +120,7 @@ public class GalaxyRepository(
             .ToList();
     }
 
-    public async Task<SystemTile> GetTransparentSystemTile(CancellationToken cancellationToken)
+    public async Task<SystemTile> GetFrameSystemTile(CancellationToken cancellationToken)
     {
         var systemTiles = await GetSystemTiles(cancellationToken);
         return systemTiles.First(x => x.SystemTileName == SystemTileName.TileBlackFrame);
