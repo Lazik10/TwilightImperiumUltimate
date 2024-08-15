@@ -2,7 +2,7 @@ namespace TwilightImperiumUltimate.Web.Options.MapGenerators;
 
 public static class MapTemplateOptions
 {
-    public static readonly int MaxTilePositionsCustomMap = 143;
+    public static readonly int MaxTilePositionsCustomMap = 116;
 
     public static readonly int MaxTilePositionsMediumMap = 49;
 

@@ -580,13 +580,13 @@
     <value>Unused Tiles</value>
   </data>
   <data name="MapTemplate_CustomMap" xml:space="preserve">
-    <value>Custom</value>
+    <value>Playground</value>
   </data>
   <data name="MapTemplate_EightPlayersLargeMap" xml:space="preserve">
     <value>8P Large</value>
   </data>
   <data name="MapTemplate_EightPlayersLargeWarpMap" xml:space="preserve">
-    <value>8P Warp</value>
+    <value>8P Large (Warp)</value>
   </data>
   <data name="MapTemplate_FivePlayersMediumHyperlineMap" xml:space="preserve">
     <value>5P Normal (Hyperline)</value>
@@ -596,6 +596,9 @@
   </data>
   <data name="MapTemplate_SevenPlayersLargeHyperlineMap" xml:space="preserve">
     <value>7P Large (Hyperline)</value>
+  </data>
+  <data name="MapTemplate_SevenPlayersLargeWarpMap" xml:space="preserve">
+    <value>7P Large (Warp)</value>
   </data>
   <data name="MapTemplate_SixPlayersLargeMap" xml:space="preserve">
     <value>6P Large</value>

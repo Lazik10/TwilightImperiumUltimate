@@ -64,6 +64,7 @@
         grid-row: 9; /* Place in 9th row */
     }
 
+
     .container > :nth-child(1),
     .container > :nth-child(2),
     .container > :nth-child(3),
@@ -71,7 +72,19 @@
     .container > :nth-child(8),
     .container > :nth-child(9),
     .container > :nth-child(10),
+    .container > :nth-child(16),
+    .container > :nth-child(17),
     .container > :nth-child(18),
+    .container > :nth-child(19),
+    .container > :nth-child(27),
+    .container > :nth-child(36),
+    .container > :nth-child(45),
+    .container > :nth-child(46),
+    .container > :nth-child(54),
+    .container > :nth-child(55),
+    .container > :nth-child(62),
+    .container > :nth-child(63),
+    .container > :nth-child(70),
     .container > :nth-child(77),
     .container > :nth-child(76),
     .container > :nth-child(74),

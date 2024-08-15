@@ -1447,7 +1447,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Custom.
+        ///   Looks up a localized string similar to Playground.
         /// </summary>
         public static string MapTemplate_CustomMap {
             get {
@@ -1465,7 +1465,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 8P Warp.
+        ///   Looks up a localized string similar to 8P Large (Warp).
         /// </summary>
         public static string MapTemplate_EightPlayersLargeWarpMap {
             get {
@@ -1497,6 +1497,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string MapTemplate_SevenPlayersLargeHyperlineMap {
             get {
                 return ResourceManager.GetString("MapTemplate_SevenPlayersLargeHyperlineMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 7P Large (Warp).
+        /// </summary>
+        public static string MapTemplate_SevenPlayersLargeWarpMap {
+            get {
+                return ResourceManager.GetString("MapTemplate_SevenPlayersLargeWarpMap", resourceCulture);
             }
         }
         

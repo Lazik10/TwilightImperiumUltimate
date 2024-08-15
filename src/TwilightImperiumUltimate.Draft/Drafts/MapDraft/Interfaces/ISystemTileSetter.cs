@@ -40,4 +40,8 @@ public interface ISystemTileSetter
         Dictionary<(int X, int Y), Hex> galaxy,
         IHyperlineSettings hyperlineSettings,
         SystemTilesForMapSetup systemTilesForMapSetup);
+
+    void SetTransparentTiles(
+        Dictionary<(int X, int Y), Hex> galaxy,
+        SystemTile transparentSystemPlaceholder);
 }

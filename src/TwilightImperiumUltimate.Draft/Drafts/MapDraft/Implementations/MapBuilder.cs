@@ -27,6 +27,12 @@ internal class MapBuilder(
         var initialGalaxy = await _galaxyBuilder.GenerateGalaxy(mapSettings);
         var galaxy = await _galaxyRedPositionSolver.SolveRedPositions(mapSettings, initialGalaxy, request);
 
+        if (mapSettings.MapTemplate == MapTemplate.CustomMap)
+        {
+            _systemTileSetter.SetTransparentTiles(galaxy, systemTilesForMapSetup.TransparentSystemPlaceholder);
+            return galaxy;
+        }
+
         _systemTileSetter.SetMecatolSystemTile(galaxy, mapSettings, systemTilesForMapSetup.MecatolRex);
         _systemTileSetter.SetHomeSystemTiles(galaxy, systemTilesForMapSetup, mapSettings, request.HomeSystemDraftType, request.Factions, request.PlayerNames);
         _systemTileSetter.SetRedSystemTiles(galaxy, systemTilesForMapSetup, mapSettings, request);

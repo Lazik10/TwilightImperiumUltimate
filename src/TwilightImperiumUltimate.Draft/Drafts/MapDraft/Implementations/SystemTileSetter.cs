@@ -274,6 +274,17 @@ public class SystemTileSetter(
         }
     }
 
+    public void SetTransparentTiles(Dictionary<(int X, int Y), Hex> galaxy, SystemTile transparentSystemPlaceholder)
+    {
+        foreach (var hex in galaxy.Values)
+        {
+            if (galaxy.TryGetValue((hex.X, hex.Y), out Hex? galaxyHex) && galaxyHex is not null)
+            {
+                galaxyHex.SystemTile = transparentSystemPlaceholder;
+            }
+        }
+    }
+
     private Task SetRemainingSystemTilesByRandomPlacement(Dictionary<(int X, int Y), Hex> galaxy, IReadOnlyCollection<Slice> balancedSlices)
     {
         foreach (var slice in balancedSlices)

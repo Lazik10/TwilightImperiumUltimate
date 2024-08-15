@@ -1,7 +1,7 @@
 ﻿.container {
     display: grid;
-    grid-template-columns: repeat(13, minmax(1px, auto));
-    grid-template-rows: repeat(11, auto);
+    grid-template-columns: repeat(11, minmax(1px, auto));
+    grid-template-rows: repeat(21, auto);
     grid-gap: 0px;
     align-content: center;
     justify-content: center;
@@ -9,52 +9,84 @@
     height: 100%;
 }
 
-    .container > :nth-child(13n+1) {
+    .container > :nth-child(11n+1) {
         transform: translate(150%, 0%);
     }
 
-    .container > :nth-child(13n+2) {
+    .container > :nth-child(11n+2) {
         transform: translate(125%, 50%);
     }
 
-    .container > :nth-child(13n+3) {
+    .container > :nth-child(11n+3) {
         transform: translate(100%, 0%);
     }
 
-    .container > :nth-child(13n+4) {
+    .container > :nth-child(11n+4) {
         transform: translate(75%, 50%);
     }
 
-    .container > :nth-child(13n+5) {
+    .container > :nth-child(11n+5) {
         transform: translate(50%, 0%);
     }
 
-    .container > :nth-child(13n+6) {
+    .container > :nth-child(11n+6) {
         transform: translate(25%, 50%);
     }
 
-    .container > :nth-child(13n+8) {
+    .container > :nth-child(11n+7) {
+        transform: translate(0%, 0%);
+    }
+
+    .container > :nth-child(11n+8) {
         transform: translate(-25%, 50%);
     }
 
-    .container > :nth-child(13n+9) {
+    .container > :nth-child(11n+9) {
         transform: translate(-50%, 0%);
     }
 
-    .container > :nth-child(13n+10) {
+    .container > :nth-child(11n+10) {
         transform: translate(-75%, 50%);
     }
 
-    .container > :nth-child(13n+11) {
+    .container > :nth-child(11n+11) {
         transform: translate(-100%, 0%);
     }
 
-    .container > :nth-child(13n+12) {
-        transform: translate(-125%, 50%);
+    .container > :nth-child(111) {
+        grid-column: 1 / span 1;
+        grid-row: 11;
+        transform: translate(150%, 0%);
     }
 
-    .container > :nth-child(13n+13) {
-        transform: translate(-150%, 0%);
+    .container > :nth-child(112) {
+        grid-column: 3 / span 1;
+        grid-row: 11;
+        transform: translate(100%, 0%);
+    }
+
+    .container > :nth-child(113) {
+        grid-column: 5 / span 1;
+        grid-row: 11;
+        transform: translate(50%, 0%);
+    }
+
+    .container > :nth-child(114) {
+        grid-column: 7 / span 1;
+        grid-row: 11;
+        transform: translate(0%, 0%);
+    }
+
+    .container > :nth-child(115) {
+        grid-column: 9 / span 1;
+        grid-row: 11;
+        transform: translate(-50%, 0%);
+    }
+
+    .container > :nth-child(116) {
+        grid-column: 11 / span 1;
+        grid-row: 11;
+        transform: translate(-100%, 0%);
     }
 
 .hex {

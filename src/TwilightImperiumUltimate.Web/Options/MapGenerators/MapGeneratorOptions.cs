@@ -12,7 +12,7 @@ public static class MapGeneratorOptions
 
     public static readonly int NumberOfLegendaryPlanets = 2;
 
-    public static readonly bool LegendaryPriorityInEquidistant = false;
+    public static readonly bool LegendaryPriorityInEquidistant;
 
     public static readonly bool EnableFactionPick;
 

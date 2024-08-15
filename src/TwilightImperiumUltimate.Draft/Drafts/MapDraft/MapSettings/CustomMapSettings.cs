@@ -4,9 +4,9 @@ internal class CustomMapSettings : IMapSettings
 {
     public MapTemplate MapTemplate => MapTemplate.CustomMap;
 
-    public int DimensionX => 14;
+    public int DimensionX => 21;
 
-    public int DimensionY => 7;
+    public int DimensionY => 11;
 
     public int NumberOfPlayers => -1;
 

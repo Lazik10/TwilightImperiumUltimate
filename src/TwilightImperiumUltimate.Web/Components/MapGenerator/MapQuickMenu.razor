@@ -1,11 +1,19 @@
 ﻿<div class="map-quick-menu">
 
     <FlexRowContainer JustifyContent="Enums.JustifyContent.SpaceEvenly">
+
         <QuickMenuItem IconType="IconType.Hashtag" IconTypeClicked="IconType.HashtagClicked" OnClick="async () => await HandleMenuIconClick(IconType.Hashtag)" />
-        <QuickMenuItem IconType="IconType.CopyMapString" IconTypeClicked="IconType.CopyMapStringClicked" OnClick="async () => await HandleMenuIconClick(IconType.CopyMapString)" />
-        <QuickMenuItem IconType="IconType.ImportMapString" IconTypeClicked="IconType.ImportMapStringClicked" OnClick="async () => await HandleMenuIconClick(IconType.ImportMapString)" />
+        @if (MapGeneratorSettingsService.MapTemplate != MapTemplate.CustomMap)
+        {
+            <QuickMenuItem IconType="IconType.CopyMapString" IconTypeClicked="IconType.CopyMapStringClicked" OnClick="async () => await HandleMenuIconClick(IconType.CopyMapString)" />
+            <QuickMenuItem IconType="IconType.ImportMapString" IconTypeClicked="IconType.ImportMapStringClicked" OnClick="async () => await HandleMenuIconClick(IconType.ImportMapString)" />
+        }
         <QuickMenuItem IconType="IconType.DownloadMapImage" IconTypeClicked="IconType.DownloadMapImageClicked" OnClick="async () => await HandleMenuIconClick(IconType.DownloadMapImage)" />
-        <QuickMenuItem IconType="IconType.ShareMap" IconTypeClicked="IconType.ShareMapClicked" OnClick="async () => await HandleMenuIconClick(IconType.ShareMap)" />
+        @if (MapGeneratorSettingsService.MapTemplate != MapTemplate.CustomMap)
+        {
+            <QuickMenuItem IconType="IconType.ShareMap" IconTypeClicked="IconType.ShareMapClicked" OnClick="async () => await HandleMenuIconClick(IconType.ShareMap)" />
+        }
+
     </FlexRowContainer>
 
     @if (_showImportMapString)

@@ -93,6 +93,7 @@ public partial class MapGeneratorMainGrid
             MapTemplate.SixPlayersMediumSpiralMap => typeof(SixPlayersMediumSpiralMap),
             MapTemplate.SixPlayersLargeMap => typeof(SixPlayersLargeMap),
             MapTemplate.SevenPlayersLargeHyperlineMap => typeof(SevenPlayersLargeHyperlineMap),
+            MapTemplate.SevenPlayersLargeWarpMap => typeof(SevenPlayersLargeWarpMap),
             MapTemplate.EightPlayersLargeMap => typeof(EightPlayersLargeMap),
             MapTemplate.EightPlayersLargeWarpMap => typeof(EightPlayersLargeWarpMap),
             _ => throw new NotImplementedException(),

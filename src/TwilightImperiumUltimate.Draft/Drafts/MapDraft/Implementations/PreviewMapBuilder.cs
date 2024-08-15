@@ -19,6 +19,12 @@ internal class PreviewMapBuilder(
     {
         var galaxy = await _galaxyBuilder.GenerateGalaxy(mapSettings);
 
+        if (mapSettings.MapTemplate == MapTemplate.CustomMap)
+        {
+            _systemTileSetter.SetTransparentTiles(galaxy, systemTilesForMapSetup.TransparentSystemPlaceholder);
+            return galaxy;
+        }
+
         _systemTileSetter.SetHomeSystemTiles(galaxy, systemTilesForMapSetup, mapSettings, HomeSystemDraftType.Placeholders, new List<FactionName>(), new List<string>());
         _systemTileSetter.SetMecatolSystemTile(galaxy, mapSettings, systemTilesForMapSetup.MecatolRex);
 
