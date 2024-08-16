@@ -10,6 +10,7 @@ public enum MapTemplate
     ThreePlayersSnowflakeMap,
     ThreePlayersMantaRayMap,
     FourPlayersMediumMap,
+    FourPlayersMediumHorizontalMap,
     FivePlayersMediumMap,
     FivePlayersMediumHyperlineMap,
     FivePlayersMediumDiamondMap,

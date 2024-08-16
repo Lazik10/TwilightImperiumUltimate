@@ -117,7 +117,8 @@ public class MapGeneratorSettingsService(
             MapTemplate.ThreePlayersSnowflakeMap => 3,
             MapTemplate.ThreePlayersMantaRayMap => 3,
 
-            MapTemplate.FourPlayersMediumMap
+            MapTemplate.FourPlayersMediumMap or
+            MapTemplate.FourPlayersMediumHorizontalMap
             => 4,
 
             MapTemplate.FivePlayersMediumMap or

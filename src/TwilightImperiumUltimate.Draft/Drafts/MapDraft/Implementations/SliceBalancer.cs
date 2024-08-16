@@ -316,9 +316,11 @@ internal class SliceBalancer(
                 else
                 {
                     // If we have only one wormhole to distribute, we need to find the slice with the already placed alpha wormhole
-                    sliceIndex = slices.First(x => x.Positions
+                    // unfortunately the first wormhole can be placed during red tiles placement and outside of every slice, so wee need to
+                    // choose the slice index randomly
+                    sliceIndex = slices.Find(x => x.Positions
                         .Any(x => x.SystemTile is not null && x.SystemTile.Wormholes
-                            .Any(x => x.WormholeName == WormholeName.Alpha))).Id;
+                            .Any(x => x.WormholeName == WormholeName.Alpha)))?.Id ?? Random.Next(0, slices.Count);
                 }
 
                 // Calculate the opposite slice index
@@ -394,9 +396,11 @@ internal class SliceBalancer(
                 else
                 {
                     // If we have only one wormhole to distribute, we need to find the slice with the already placed alpha wormhole
-                    sliceIndex = slices.First(x => x.Positions
+                    // unfortunately the first wormhole can be placed during red tiles placement and outside of every slice, so wee need to
+                    // choose the slice index randomly
+                    sliceIndex = slices.Find(x => x.Positions
                         .Any(x => x.SystemTile is not null && x.SystemTile.Wormholes
-                            .Any(x => x.WormholeName == WormholeName.Alpha))).Id;
+                            .Any(x => x.WormholeName == WormholeName.Beta)))?.Id ?? Random.Next(0, slices.Count);
                 }
 
                 if (sliceIndex < slices.Count / 2)
