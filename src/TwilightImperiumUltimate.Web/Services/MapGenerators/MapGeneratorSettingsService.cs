@@ -122,7 +122,8 @@ public class MapGeneratorSettingsService(
 
             MapTemplate.FivePlayersMediumMap or
             MapTemplate.FivePlayersMediumHyperlineMap or
-            MapTemplate.FivePlayersMediumDiamondMap
+            MapTemplate.FivePlayersMediumDiamondMap or
+            MapTemplate.FivePlayersLargeFlatMap
             => 5,
 
             MapTemplate.SixPlayersMediumMap or
