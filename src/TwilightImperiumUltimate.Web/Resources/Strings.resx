@@ -606,6 +606,9 @@
   <data name="MapTemplate_FourPlayersMediumMap" xml:space="preserve">
     <value>4P Normal</value>
   </data>
+  <data name="MapTemplate_FourPlayersMediumVerticalMap" xml:space="preserve">
+    <value>4P Vertical</value>
+  </data>
   <data name="MapTemplate_SevenPlayersLargeHyperlineMap" xml:space="preserve">
     <value>7P Large (Hyperline)</value>
   </data>

@@ -1528,6 +1528,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 4P Vertical.
+        /// </summary>
+        public static string MapTemplate_FourPlayersMediumVerticalMap {
+            get {
+                return ResourceManager.GetString("MapTemplate_FourPlayersMediumVerticalMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 7P Large (Hyperline).
         /// </summary>
         public static string MapTemplate_SevenPlayersLargeHyperlineMap {

@@ -92,7 +92,8 @@ public class MapToStringConverter(
             MapTemplate.FivePlayersMediumHyperlineMap or
             MapTemplate.FivePlayersMediumDiamondMap or
             MapTemplate.FourPlayersMediumMap or
-            MapTemplate.FourPlayersMediumHorizontalMap
+            MapTemplate.FourPlayersMediumHorizontalMap or
+            MapTemplate.FourPlayersMediumVerticalMap
             => new List<int>
             {
                 24, 17, 25, 32, 31, 30, 23, 10, 18, 19, 26, 33, 39, 38, 37, 29, 22, 15,

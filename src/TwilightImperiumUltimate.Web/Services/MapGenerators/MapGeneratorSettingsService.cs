@@ -118,7 +118,8 @@ public class MapGeneratorSettingsService(
             MapTemplate.ThreePlayersMantaRayMap => 3,
 
             MapTemplate.FourPlayersMediumMap or
-            MapTemplate.FourPlayersMediumHorizontalMap
+            MapTemplate.FourPlayersMediumHorizontalMap or
+            MapTemplate.FourPlayersMediumVerticalMap
             => 4,
 
             MapTemplate.FivePlayersMediumMap or
