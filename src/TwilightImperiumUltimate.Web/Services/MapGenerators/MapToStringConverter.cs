@@ -59,8 +59,8 @@ public class MapToStringConverter(
         {
             if (map.TryGetValue(position, out var systemTile) && systemTile is not null)
             {
-                if (systemTile.SystemTileCategory is SystemTileCategory.None
-                    || (systemTile.SystemTileCategory == SystemTileCategory.Green && systemTile.FactionName == FactionName.None))
+                if (systemTile.SystemTileCategory is not SystemTileCategory.Hyperlane && (systemTile.SystemTileCategory is SystemTileCategory.None
+                    || (systemTile.SystemTileCategory == SystemTileCategory.Green && systemTile.FactionName == FactionName.None)))
                 {
                     ttsString.Append('0');
                 }
@@ -96,7 +96,8 @@ public class MapToStringConverter(
             MapTemplate.FourPlayersMediumVerticalMap or
             MapTemplate.FourPlayersMediumGapsMap or
             MapTemplate.FourPlayersMediumWarpMap or
-            MapTemplate.FourPlayersMediumMiniWarpMap
+            MapTemplate.FourPlayersMediumMiniWarpMap or
+            MapTemplate.FourPlayersMediumDoubleWarpMap
             => new List<int>
             {
                 24, 17, 25, 32, 31, 30, 23, 10, 18, 19, 26, 33, 39, 38, 37, 29, 22, 15,
@@ -176,10 +177,13 @@ public class MapToStringConverter(
                         int startIndexA = stringNumber.IndexOf('A') + 1;
                         int startIndexB = stringNumber.IndexOf('B') + 1;
 
+                        var test = stringNumber[..startIndexA];
+                        var test1 = stringNumber[..startIndexB];
+
                         var index = startIndexA != 0 ? startIndexA : startIndexB;
 
                         var hyperlane = allSystemTiles
-                            .FirstOrDefault(x => x.SystemTileCode == stringNumber[..index]) ?? new SystemTileModel() { };
+                            .First(x => x.SystemTileCode == stringNumber[..index]);
 
                         var rotation = stringNumber[index..];
                         hyperlane.SystemTileCode += rotation;
