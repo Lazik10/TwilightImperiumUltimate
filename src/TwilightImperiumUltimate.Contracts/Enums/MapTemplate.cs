@@ -14,6 +14,7 @@ public enum MapTemplate
     FourPlayersMediumVerticalMap,
     FourPlayersMediumGapsMap,
     FourPlayersMediumWarpMap,
+    FourPlayersMediumDoubleWarpMap,
     FivePlayersMediumMap,
     FivePlayersMediumHyperlineMap,
     FivePlayersMediumDiamondMap,

@@ -50,7 +50,7 @@ internal class FourPlayersMediumWarpMapSettings : IMapSettings, IHyperlineSettin
     public HashSet<(int X, int Y, string SystemTileCode, string Orientation)> Hyperlines => new HashSet<(int X, int Y, string SystemTileCode, string Orientation)>()
     {
         { (5, 3, "87A", "1") },
-        { (9, 3, "88A", "5") },
+        { (9, 3, "88A", "2") },
     };
 
     public HashSet<(int X1, int Y1, int X2, int Y2)> CustomNeighbors => new()
