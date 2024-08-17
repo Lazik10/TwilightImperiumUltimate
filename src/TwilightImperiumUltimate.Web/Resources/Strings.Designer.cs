@@ -1510,15 +1510,6 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 4P Double Warp.
-        /// </summary>
-        public static string MapTemplate_FourPlayersMediumDoubleWarpMap {
-            get {
-                return ResourceManager.GetString("MapTemplate_FourPlayersMediumDoubleWarpMap", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to 4P Gaps.
         /// </summary>
         public static string MapTemplate_FourPlayersMediumGapsMap {
@@ -1542,6 +1533,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string MapTemplate_FourPlayersMediumMap {
             get {
                 return ResourceManager.GetString("MapTemplate_FourPlayersMediumMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 4P Mini Warp.
+        /// </summary>
+        public static string MapTemplate_FourPlayersMediumMiniWarpMap {
+            get {
+                return ResourceManager.GetString("MapTemplate_FourPlayersMediumMiniWarpMap", resourceCulture);
             }
         }
         

@@ -13,7 +13,7 @@ public class MapDataProvider : IMapDataProvider
             MapTemplate.FourPlayersMediumVerticalMap => new FourPlayersMediumVerticalMapData(),
             MapTemplate.FourPlayersMediumGapsMap => new FourPlayersMediumGapsMapData(),
             MapTemplate.FourPlayersMediumWarpMap => new FourPlayersMediumWarpMapData(),
-            MapTemplate.FourPlayersMediumDoubleWarpMap => new FourPlayersMediumDoubleWarpMapData(),
+            MapTemplate.FourPlayersMediumMiniWarpMap => new FourPlayersMediumMiniWarpMapData(),
             MapTemplate.FivePlayersMediumMap => new FivePlayersMediumMapData(),
             MapTemplate.FivePlayersMediumHyperlineMap => new FivePlayersMediumWarpMapData(),
             MapTemplate.FivePlayersMediumDiamondMap => new FivePlayersMediumDiamondMapData(),

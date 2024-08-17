@@ -600,9 +600,6 @@
   <data name="MapTemplate_FivePlayersMediumMap" xml:space="preserve">
     <value>5P Normal</value>
   </data>
-  <data name="MapTemplate_FourPlayersMediumDoubleWarpMap" xml:space="preserve">
-    <value>4P Double Warp</value>
-  </data>
   <data name="MapTemplate_FourPlayersMediumGapsMap" xml:space="preserve">
     <value>4P Gaps</value>
   </data>
@@ -611,6 +608,9 @@
   </data>
   <data name="MapTemplate_FourPlayersMediumMap" xml:space="preserve">
     <value>4P Normal</value>
+  </data>
+  <data name="MapTemplate_FourPlayersMediumMiniWarpMap" xml:space="preserve">
+    <value>4P Mini Warp</value>
   </data>
   <data name="MapTemplate_FourPlayersMediumVerticalMap" xml:space="preserve">
     <value>4P Vertical</value>

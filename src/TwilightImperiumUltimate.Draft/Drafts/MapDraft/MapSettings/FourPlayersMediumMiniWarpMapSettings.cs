@@ -1,8 +1,8 @@
 namespace TwilightImperiumUltimate.Draft.Drafts.MapDraft.MapSettings;
 
-internal class FourPlayersMediumDoubleWarpMapSettings : IMapSettings, IHyperlineSettings
+internal class FourPlayersMediumMiniWarpMapSettings : IMapSettings, IHyperlineSettings
 {
-    public MapTemplate MapTemplate => MapTemplate.FourPlayersMediumDoubleWarpMap;
+    public MapTemplate MapTemplate => MapTemplate.FourPlayersMediumMiniWarpMap;
 
     public int DimensionX => 14;
 
@@ -10,7 +10,7 @@ internal class FourPlayersMediumDoubleWarpMapSettings : IMapSettings, IHyperline
 
     public int NumberOfPlayers => 4;
 
-    public int NumberOfRedTiles => 10;
+    public int NumberOfRedTiles => 11;
 
     public (int, int) MecatolRexPosition => (7, 3);
 

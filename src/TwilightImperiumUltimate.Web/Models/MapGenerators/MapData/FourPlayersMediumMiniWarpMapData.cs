@@ -1,8 +1,8 @@
 namespace TwilightImperiumUltimate.Web.Models.MapGenerators.MapData;
 
-public class FourPlayersMediumDoubleWarpMapData : IMapData
+public class FourPlayersMediumMiniWarpMapData : IMapData
 {
-    public MapTemplate MapTemplate => MapTemplate.FourPlayersMediumDoubleWarpMap;
+    public MapTemplate MapTemplate => MapTemplate.FourPlayersMediumMiniWarpMap;
 
     public Dictionary<int, List<int>> SlicePositions { get; } = new()
     {
