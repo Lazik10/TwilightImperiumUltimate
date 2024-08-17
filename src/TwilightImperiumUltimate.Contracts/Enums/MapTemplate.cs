@@ -13,6 +13,7 @@ public enum MapTemplate
     FourPlayersMediumHorizontalMap,
     FourPlayersMediumVerticalMap,
     FourPlayersMediumGapsMap,
+    FourPlayersMediumWarpMap,
     FivePlayersMediumMap,
     FivePlayersMediumHyperlineMap,
     FivePlayersMediumDiamondMap,

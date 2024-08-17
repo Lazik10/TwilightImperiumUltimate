@@ -120,7 +120,8 @@ public class MapGeneratorSettingsService(
             MapTemplate.FourPlayersMediumMap or
             MapTemplate.FourPlayersMediumHorizontalMap or
             MapTemplate.FourPlayersMediumVerticalMap or
-            MapTemplate.FourPlayersMediumGapsMap
+            MapTemplate.FourPlayersMediumGapsMap or
+            MapTemplate.FourPlayersMediumWarpMap
             => 4,
 
             MapTemplate.FivePlayersMediumMap or

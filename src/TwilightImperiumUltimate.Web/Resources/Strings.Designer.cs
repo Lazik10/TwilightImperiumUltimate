@@ -1546,6 +1546,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 4P Warp.
+        /// </summary>
+        public static string MapTemplate_FourPlayersMediumWarpMap {
+            get {
+                return ResourceManager.GetString("MapTemplate_FourPlayersMediumWarpMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 7P Large (Hyperline).
         /// </summary>
         public static string MapTemplate_SevenPlayersLargeHyperlineMap {
