@@ -1510,6 +1510,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 4P Gaps.
+        /// </summary>
+        public static string MapTemplate_FourPlayersMediumGapsMap {
+            get {
+                return ResourceManager.GetString("MapTemplate_FourPlayersMediumGapsMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 4P Horizontal.
         /// </summary>
         public static string MapTemplate_FourPlayersMediumHorizontalMap {
