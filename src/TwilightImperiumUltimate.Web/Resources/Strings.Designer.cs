@@ -1620,9 +1620,9 @@ namespace TwilightImperiumUltimate.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to 3P Manta Ray.
         /// </summary>
-        public static string MapTemplate_ThreePlayersMantaRayMap {
+        public static string MapTemplate_ThreePlayersMediumMantaRayMap {
             get {
-                return ResourceManager.GetString("MapTemplate_ThreePlayersMantaRayMap", resourceCulture);
+                return ResourceManager.GetString("MapTemplate_ThreePlayersMediumMantaRayMap", resourceCulture);
             }
         }
         

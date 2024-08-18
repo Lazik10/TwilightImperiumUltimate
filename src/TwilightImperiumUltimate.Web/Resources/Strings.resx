@@ -636,7 +636,7 @@
   <data name="MapTemplate_SixPlayersMediumSpiralMap" xml:space="preserve">
     <value>6P Normal (Spiral)</value>
   </data>
-  <data name="MapTemplate_ThreePlayersMantaRayMap" xml:space="preserve">
+  <data name="MapTemplate_ThreePlayersMediumMantaRayMap" xml:space="preserve">
     <value>3P Manta Ray</value>
   </data>
   <data name="MapTemplate_ThreePlayersMediumSnowflakeMap" xml:space="preserve">
