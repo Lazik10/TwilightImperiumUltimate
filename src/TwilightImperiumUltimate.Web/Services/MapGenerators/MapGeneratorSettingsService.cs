@@ -110,12 +110,13 @@ public class MapGeneratorSettingsService(
         {
             MapTemplate.CustomMap => 0,
 
-            MapTemplate.ThreePlayersSmallMap => 3,
-            MapTemplate.ThreePlayersSmallAlternateMap => 3,
-            MapTemplate.ThreePlayersTriangleMap => 3,
-            MapTemplate.ThreePlayersTriangleNarrowMap => 3,
-            MapTemplate.ThreePlayersSnowflakeMap => 3,
-            MapTemplate.ThreePlayersMantaRayMap => 3,
+            MapTemplate.ThreePlayersSmallMap or
+            MapTemplate.ThreePlayersSmallAlternateMap or
+            MapTemplate.ThreePlayersTriangleMap or
+            MapTemplate.ThreePlayersTriangleNarrowMap or
+            MapTemplate.ThreePlayersSnowflakeMap or
+            MapTemplate.ThreePlayersMantaRayMap
+            => 3,
 
             MapTemplate.FourPlayersMediumMap or
             MapTemplate.FourPlayersMediumHorizontalMap or

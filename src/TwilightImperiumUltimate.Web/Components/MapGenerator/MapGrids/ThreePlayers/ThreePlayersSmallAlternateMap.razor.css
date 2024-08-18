@@ -25,12 +25,22 @@
         transform: translate(-50%, 0%);
     }
 
+    .container > :nth-child(22) {
+        grid-column: 3 / span 1;
+        grid-row: 5;
+        transform: translate(0%, 0%);
+    }
+
+    .container > :nth-child(23) {
+        grid-column: 5 / span 1;
+        grid-row: 5;
+        transform: translate(-50%, 0%);
+    }
+
     .container > :nth-child(1),
     .container > :nth-child(5),
     .container > :nth-child(21),
-    .container > :nth-child(22),
-    .container > :nth-child(24),
-    .container > :nth-child(25) {
+    .container > :nth-child(23) {
         visibility: hidden;
     }
 

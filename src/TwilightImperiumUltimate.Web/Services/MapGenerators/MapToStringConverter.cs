@@ -86,7 +86,8 @@ public class MapToStringConverter(
         {
             // In my converter mecatol is first, but it should be ignored when creating the map
             // I need to have it so I can place it in the correct position when converting back based on map template
-            MapTemplate.ThreePlayersSmallMap
+            MapTemplate.ThreePlayersSmallMap or
+            MapTemplate.ThreePlayersSmallAlternateMap
             => new List<int>
             {
                 12, 7, 8, 13, 17, 11, 6, 2, 3, 9, 14, 19, 18, 21, 16, 15, 10, 5, 1,
