@@ -36,4 +36,19 @@ public class SystemTile : IEntity, IGameVersion
     public bool HasWormholes => Wormholes.Count != 0;
 
     public GameVersion GameVersion { get; set; }
+
+    public SystemTile Copy()
+    {
+        return new SystemTile
+        {
+            SystemTileName = SystemTileName,
+            SystemTileCode = SystemTileCode,
+            TileCategory = TileCategory,
+            FactionName = FactionName,
+            Planets = new List<Planet>(Planets.ToList()),
+            Wormholes = new List<Wormhole>(Wormholes.ToList()),
+            Anomaly = Anomaly,
+            GameVersion = GameVersion,
+        };
+    }
 }

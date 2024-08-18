@@ -9,6 +9,7 @@ public enum MapTemplate
     ThreePlayersMediumTriangleNarrowMap,
     ThreePlayersMediumSnowflakeMap,
     ThreePlayersMediumMantaRayMap,
+    ThreePlayersMediumTridentMap,
     FourPlayersMediumMap,
     FourPlayersMediumHorizontalMap,
     FourPlayersMediumVerticalMap,

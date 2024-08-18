@@ -648,14 +648,14 @@
   <data name="MapTemplate_ThreePlayersMediumTriangleNarrowMap" xml:space="preserve">
     <value>3P Triangle (Narrow)</value>
   </data>
+  <data name="MapTemplate_ThreePlayersMediumTridentMap" xml:space="preserve">
+    <value>3P Trident</value>
+  </data>
   <data name="MapTemplate_ThreePlayersSmallAlternateMap" xml:space="preserve">
     <value>3P Small (Alternate)</value>
   </data>
   <data name="MapTemplate_ThreePlayersSmallMap" xml:space="preserve">
     <value>3P Small</value>
-  </data>
-  <data name="MapTemplate_ThreePlayersTridentMap" xml:space="preserve">
-    <value>3P Trident</value>
   </data>
   <data name="Medium" xml:space="preserve">
     <value>Medium</value>

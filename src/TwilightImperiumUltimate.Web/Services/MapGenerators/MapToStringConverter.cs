@@ -108,7 +108,8 @@ public class MapToStringConverter(
             MapTemplate.ThreePlayersMediumTriangleMap or
             MapTemplate.ThreePlayersMediumTriangleNarrowMap or
             MapTemplate.ThreePlayersMediumSnowflakeMap or
-            MapTemplate.ThreePlayersMediumMantaRayMap
+            MapTemplate.ThreePlayersMediumMantaRayMap or
+            MapTemplate.ThreePlayersMediumTridentMap
             => new List<int>
             {
                 24, 17, 25, 32, 31, 30, 23, 10, 18, 19, 26, 33, 39, 38, 37, 29, 22, 15,
@@ -188,18 +189,16 @@ public class MapToStringConverter(
                         int startIndexA = stringNumber.IndexOf('A') + 1;
                         int startIndexB = stringNumber.IndexOf('B') + 1;
 
-                        var test = stringNumber[..startIndexA];
-                        var test1 = stringNumber[..startIndexB];
-
                         var index = startIndexA != 0 ? startIndexA : startIndexB;
 
                         var hyperlane = allSystemTiles
                             .First(x => x.SystemTileCode == stringNumber[..index]);
 
+                        var hyperlineCopy = hyperlane.Copy();
                         var rotation = stringNumber[index..];
-                        hyperlane.SystemTileCode += rotation;
+                        hyperlineCopy.SystemTileCode += rotation;
 
-                        map[tiUltimatePositionsWithoutMecatolRex[i]] = hyperlane;
+                        map[tiUltimatePositionsWithoutMecatolRex[i]] = hyperlineCopy;
                     }
                 }
             }

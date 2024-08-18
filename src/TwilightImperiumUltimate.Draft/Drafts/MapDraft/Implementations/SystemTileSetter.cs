@@ -269,7 +269,8 @@ public class SystemTileSetter(
         {
             if (galaxy.TryGetValue((hyperline.X, hyperline.Y), out var hex) && hex.SystemTile is null)
             {
-                hex.SystemTile = systemTilesForMapSetup.Hyperlines.FirstOrDefault(x => x.SystemTileCode == hyperline.SystemTileCode);
+                var foundHyperlineSystemTile = systemTilesForMapSetup.Hyperlines.First(x => x.SystemTileCode == hyperline.SystemTileCode);
+                hex.SystemTile = foundHyperlineSystemTile.Copy();
                 if (hex.SystemTile is not null)
                     hex.SystemTile.SystemTileCode = hex.SystemTile.SystemTileCode + hyperline.Orientation;
             }
