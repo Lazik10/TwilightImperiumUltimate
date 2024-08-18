@@ -25,7 +25,6 @@
         transform: translate(0%, 50%);
     }
 
-
     .container > :nth-child(7n+5) {
         transform: translate(-25%, 0%);
     }
@@ -39,19 +38,26 @@
     }
 
     .container > :nth-child(1),
+    .container > :nth-child(2),
+    .container > :nth-child(3),
+    .container > :nth-child(4),
+    .container > :nth-child(5),
+    .container > :nth-child(6),
     .container > :nth-child(7),
     .container > :nth-child(8),
-    .container > :nth-child(11),
     .container > :nth-child(14),
-    .container > :nth-child(24),
-    .container > :nth-child(26),
-    .container > :nth-child(29),
-    .container > :nth-child(35),
+    .container > :nth-child(15),
+    .container > :nth-child(18),
+    .container > :nth-child(21),
+    .container > :nth-child(31),
+    .container > :nth-child(33),
     .container > :nth-child(36),
-    .container > :nth-child(37),
-    .container > :nth-child(39),
-    .container > :nth-child(41),
-    .container > :nth-child(42) {
+    .container > :nth-child(42),
+    .container > :nth-child(43),
+    .container > :nth-child(44),
+    .container > :nth-child(46),
+    .container > :nth-child(48),
+    .container > :nth-child(49) {
         visibility: hidden;
     }
 

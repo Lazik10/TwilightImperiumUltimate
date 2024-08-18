@@ -85,7 +85,7 @@ public partial class MapGeneratorMainGrid
             MapTemplate.ThreePlayersSmallAlternateMap => typeof(ThreePlayersSmallAlternateMap),
             MapTemplate.ThreePlayersMediumTriangleMap => typeof(ThreePlayersMediumTriangleMap),
             MapTemplate.ThreePlayersMediumTriangleNarrowMap => typeof(ThreePlayersMediumTriangleNarrowMap),
-            MapTemplate.ThreePlayersSnowflakeMap => typeof(ThreePlayersSnowflakeMap),
+            MapTemplate.ThreePlayersMediumSnowflakeMap => typeof(ThreePlayersMediumSnowflakeMap),
             MapTemplate.ThreePlayersMantaRayMap => typeof(ThreePlayersMantaRayMap),
             MapTemplate.FourPlayersMediumMap => typeof(FourPlayersMediumMap),
             MapTemplate.FourPlayersMediumHorizontalMap => typeof(FourPlayersMediumHorizontalMap),

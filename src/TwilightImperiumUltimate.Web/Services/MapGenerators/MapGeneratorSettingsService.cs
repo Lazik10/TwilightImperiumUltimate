@@ -114,7 +114,7 @@ public class MapGeneratorSettingsService(
             MapTemplate.ThreePlayersSmallAlternateMap or
             MapTemplate.ThreePlayersMediumTriangleMap or
             MapTemplate.ThreePlayersMediumTriangleNarrowMap or
-            MapTemplate.ThreePlayersSnowflakeMap or
+            MapTemplate.ThreePlayersMediumSnowflakeMap or
             MapTemplate.ThreePlayersMantaRayMap
             => 3,
 
