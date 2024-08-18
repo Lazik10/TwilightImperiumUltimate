@@ -1627,6 +1627,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 3P Rex.
+        /// </summary>
+        public static string MapTemplate_ThreePlayersMediumRexMap {
+            get {
+                return ResourceManager.GetString("MapTemplate_ThreePlayersMediumRexMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 3P Snowflake.
         /// </summary>
         public static string MapTemplate_ThreePlayersMediumSnowflakeMap {
