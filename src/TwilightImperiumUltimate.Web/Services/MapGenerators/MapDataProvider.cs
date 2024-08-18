@@ -10,6 +10,8 @@ public class MapDataProvider : IMapDataProvider
         {
             MapTemplate.ThreePlayersSmallMap => new ThreePlayersSmallMapData(),
             MapTemplate.ThreePlayersSmallAlternateMap => new ThreePlayersSmallAlternateMapData(),
+            MapTemplate.ThreePlayersMediumTriangleMap => new ThreePlayersMediumTriangleMapData(),
+            MapTemplate.ThreePlayersMediumTriangleNarrowMap => new ThreePlayersMediumTriangleNarrowMapData(),
             MapTemplate.FourPlayersMediumMap => new FourPlayersMediumMapData(),
             MapTemplate.FourPlayersMediumHorizontalMap => new FourPlayersMediumHorizontalMapData(),
             MapTemplate.FourPlayersMediumVerticalMap => new FourPlayersMediumVerticalMapData(),
