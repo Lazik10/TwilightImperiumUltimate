@@ -83,7 +83,7 @@ public partial class MapGeneratorMainGrid
             MapTemplate.CustomMap => typeof(CustomMap),
             MapTemplate.ThreePlayersSmallMap => typeof(ThreePlayersSmallMap),
             MapTemplate.ThreePlayersSmallAlternateMap => typeof(ThreePlayersSmallAlternateMap),
-            MapTemplate.ThreePlayersTriangleMap => typeof(ThreePlayersTriangleMap),
+            MapTemplate.ThreePlayersMediumTriangleMap => typeof(ThreePlayersMediumTriangleMap),
             MapTemplate.ThreePlayersTriangleNarrowMap => typeof(ThreePlayersTriangleNarrowMap),
             MapTemplate.ThreePlayersSnowflakeMap => typeof(ThreePlayersSnowflakeMap),
             MapTemplate.ThreePlayersMantaRayMap => typeof(ThreePlayersMantaRayMap),

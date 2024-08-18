@@ -639,6 +639,9 @@
   <data name="MapTemplate_ThreePlayersMantaRayMap" xml:space="preserve">
     <value>3P Manta Ray</value>
   </data>
+  <data name="MapTemplate_ThreePlayersMediumTriangleMap" xml:space="preserve">
+    <value>3P Triangle</value>
+  </data>
   <data name="MapTemplate_ThreePlayersSmallAlternateMap" xml:space="preserve">
     <value>3P Small (Alternate)</value>
   </data>
@@ -647,9 +650,6 @@
   </data>
   <data name="MapTemplate_ThreePlayersSnowflakeMap" xml:space="preserve">
     <value>3P Snowflake</value>
-  </data>
-  <data name="MapTemplate_ThreePlayersTriangleMap" xml:space="preserve">
-    <value>3P Triangle</value>
   </data>
   <data name="MapTemplate_ThreePlayersTriangleNarrowMap" xml:space="preserve">
     <value>3P Triangle (Narrow)</value>

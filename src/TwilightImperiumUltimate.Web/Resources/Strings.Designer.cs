@@ -1627,6 +1627,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 3P Triangle.
+        /// </summary>
+        public static string MapTemplate_ThreePlayersMediumTriangleMap {
+            get {
+                return ResourceManager.GetString("MapTemplate_ThreePlayersMediumTriangleMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 3P Small (Alternate).
         /// </summary>
         public static string MapTemplate_ThreePlayersSmallAlternateMap {
@@ -1650,15 +1659,6 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string MapTemplate_ThreePlayersSnowflakeMap {
             get {
                 return ResourceManager.GetString("MapTemplate_ThreePlayersSnowflakeMap", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 3P Triangle.
-        /// </summary>
-        public static string MapTemplate_ThreePlayersTriangleMap {
-            get {
-                return ResourceManager.GetString("MapTemplate_ThreePlayersTriangleMap", resourceCulture);
             }
         }
         

@@ -104,7 +104,8 @@ public class MapToStringConverter(
             MapTemplate.FourPlayersMediumGapsMap or
             MapTemplate.FourPlayersMediumWarpMap or
             MapTemplate.FourPlayersMediumMiniWarpMap or
-            MapTemplate.FourPlayersMediumDoubleWarpMap
+            MapTemplate.FourPlayersMediumDoubleWarpMap or
+            MapTemplate.ThreePlayersMediumTriangleMap
             => new List<int>
             {
                 24, 17, 25, 32, 31, 30, 23, 10, 18, 19, 26, 33, 39, 38, 37, 29, 22, 15,
