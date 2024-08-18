@@ -42,26 +42,26 @@
     }
 
     .container > :nth-child(74) {
-        grid-column: 3 / span 1; /* Place in 2nd column */
-        grid-row: 9; /* Place in 9th row */
+        grid-column: 3 / span 1;
+        grid-row: 9;
         transform: translate(50%, 0%);
     }
 
     .container > :nth-child(75) {
-        grid-column: 5 / span 1; /* Place in 2nd column */
-        grid-row: 9; /* Place in 9th row */
+        grid-column: 5 / span 1;
+        grid-row: 9;
         transform: translate(0%, 0%);
     }
 
     .container > :nth-child(76) {
-        grid-column: 7 / span 1; /* Place in 2nd column */
-        grid-row: 9; /* Place in 9th row */
+        grid-column: 7 / span 1;
+        grid-row: 9;
         transform: translate(-50%, 0%);
     }
 
     .container > :nth-child(77) {
-        grid-column: 8 / span 1; /* Place in 2nd column */
-        grid-row: 9; /* Place in 9th row */
+        grid-column: 8 / span 1;
+        grid-row: 9;
     }
 
 

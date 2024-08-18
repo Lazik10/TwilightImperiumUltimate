@@ -6,7 +6,7 @@ public static class MapTemplateOptions
 
     public static readonly int MaxTilePositionsMediumMap = 49;
 
-    public static readonly int MaxTilePositionsSmallMap = 25;
+    public static readonly int MaxTilePositionsSmallMap = 23;
 
     public static readonly int MaxTilePositionsTriangleMap = 42;
 
