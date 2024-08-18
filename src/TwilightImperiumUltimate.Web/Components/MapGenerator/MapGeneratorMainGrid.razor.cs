@@ -6,6 +6,7 @@ using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.FourPlayers;
 using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.SevenPlayers;
 using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.SixPlayers;
 using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.ThreePlayers;
+using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.TwoPlayers;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
 
 namespace TwilightImperiumUltimate.Web.Components.MapGenerator;
@@ -81,6 +82,7 @@ public partial class MapGeneratorMainGrid
         var mapTemplateType = MapGeneratorSettingsService.MapTemplate switch
         {
             MapTemplate.CustomMap => typeof(CustomMap),
+            MapTemplate.TwoPlayersMediumMap => typeof(TwoPlayersMediumMap),
             MapTemplate.ThreePlayersSmallMap => typeof(ThreePlayersSmallMap),
             MapTemplate.ThreePlayersSmallAlternateMap => typeof(ThreePlayersSmallAlternateMap),
             MapTemplate.ThreePlayersMediumTriangleMap => typeof(ThreePlayersMediumTriangleMap),

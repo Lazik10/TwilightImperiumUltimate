@@ -3,6 +3,7 @@ namespace TwilightImperiumUltimate.Contracts.Enums;
 public enum MapTemplate
 {
     CustomMap,
+    TwoPlayersMediumMap,
     ThreePlayersSmallMap,
     ThreePlayersSmallAlternateMap,
     ThreePlayersMediumTriangleMap,

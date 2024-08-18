@@ -10,6 +10,7 @@ internal class SpecificMapSettingsProvider : ISpecificMapSettingProvider
         IMapSettings mapSettings = mapTemplate switch
         {
             MapTemplate.CustomMap => new CustomMapSettings(),
+            MapTemplate.TwoPlayersMediumMap => new TwoPlayersMediumMapSettings(),
             MapTemplate.ThreePlayersSmallMap => new ThreePlayersSmallMapSettings(),
             MapTemplate.ThreePlayersSmallAlternateMap => new ThreePlayersSmallAlternateMapSettings(),
             MapTemplate.ThreePlayersMediumTriangleMap => new ThreePlayersMediumTriangleMapSettings(),

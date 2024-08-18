@@ -110,6 +110,9 @@ public class MapGeneratorSettingsService(
         {
             MapTemplate.CustomMap => 0,
 
+            MapTemplate.TwoPlayersMediumMap
+            => 2,
+
             MapTemplate.ThreePlayersSmallMap or
             MapTemplate.ThreePlayersSmallAlternateMap or
             MapTemplate.ThreePlayersMediumTriangleMap or

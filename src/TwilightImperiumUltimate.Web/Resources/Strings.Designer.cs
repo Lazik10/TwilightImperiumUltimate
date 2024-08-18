@@ -1690,6 +1690,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 2P Normal.
+        /// </summary>
+        public static string MapTemplate_TwoPlayersMediumMap {
+            get {
+                return ResourceManager.GetString("MapTemplate_TwoPlayersMediumMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Medium.
         /// </summary>
         public static string Medium {

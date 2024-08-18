@@ -660,6 +660,9 @@
   <data name="MapTemplate_ThreePlayersSmallMap" xml:space="preserve">
     <value>3P Small</value>
   </data>
+  <data name="MapTemplate_TwoPlayersMediumMap" xml:space="preserve">
+    <value>2P Normal</value>
+  </data>
   <data name="Medium" xml:space="preserve">
     <value>Medium</value>
   </data>
