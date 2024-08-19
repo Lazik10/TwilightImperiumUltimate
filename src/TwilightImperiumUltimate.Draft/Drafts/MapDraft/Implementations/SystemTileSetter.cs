@@ -1,3 +1,4 @@
+using TwilightImperiumUltimate.Contracts.Enums;
 using TwilightImperiumUltimate.Core.Entities.Galaxy;
 using TwilightImperiumUltimate.Draft.Drafts.MapDraft.Constants;
 using TwilightImperiumUltimate.Draft.Drafts.MapDraft.Extensions;
@@ -253,7 +254,7 @@ public class SystemTileSetter(
         _ = request.PlacementStyle switch
         {
             PlacementStyle.Random => SetRemainingSystemTilesByRandomPlacement(galaxy, balancedSlices),
-            PlacementStyle.Initial => SetRemainingSystemTilesByInitialPlacement(galaxy, mapSettings, balancedSlices),
+            PlacementStyle.Initial => SetRemainingSystemTilesByInitialPlacement(galaxy, mapSettings, balancedSlices, request.SystemWeight),
             PlacementStyle.Home => SetRemainingSystemTilesByHomePlacement(galaxy, mapSettings, balancedSlices, request.SystemWeight),
             PlacementStyle.Slice => SetRemainingSystemTilesBySlicePlacement(galaxy, mapSettings, balancedSlices, request.SystemWeight),
             _ => SetRemainingSystemTilesByRandomPlacement(galaxy, balancedSlices),
@@ -306,21 +307,38 @@ public class SystemTileSetter(
     private Task SetRemainingSystemTilesByInitialPlacement(
         Dictionary<(int X, int Y), Hex> galaxy,
         IMapSettings mapSettings,
-        IReadOnlyCollection<Slice> balancedSlices)
+        IReadOnlyCollection<Slice> balancedSlices,
+        SystemWeight systemWeight)
     {
         // Set which adjacent home system has higher priority left or right
-        var leftPositionFirst = Random.Next(0, 2) == 0;
+        var priorityPositions = new List<int> { 0, 2 };
+        priorityPositions.Shuffle();
 
         foreach (var slice in balancedSlices)
         {
-            var slicePositionsInPriorityOrder = new List<(int X, int Y)>
+            var slicePositionsInPriorityOrder = new List<(int X, int Y)>();
+
+            if (slice.Positions.Count == 5)
             {
-                mapSettings.Slices[slice.Id][1],
-                mapSettings.Slices[slice.Id][leftPositionFirst ? 0 : 2],
-                mapSettings.Slices[slice.Id][leftPositionFirst ? 2 : 0],
-                mapSettings.Slices[slice.Id][4],
-                mapSettings.Slices[slice.Id][3],
-            };
+                slicePositionsInPriorityOrder = new List<(int X, int Y)>()
+                {
+                    mapSettings.Slices[slice.Id][1],
+                    mapSettings.Slices[slice.Id][priorityPositions[0]],
+                    mapSettings.Slices[slice.Id][priorityPositions[1]],
+                    mapSettings.Slices[slice.Id][4],
+                    mapSettings.Slices[slice.Id][3],
+                };
+            }
+            else if (slice.Positions.Count == 4)
+            {
+                slicePositionsInPriorityOrder = new List<(int X, int Y)>
+                {
+                    mapSettings.Slices[slice.Id][1],
+                    mapSettings.Slices[slice.Id][priorityPositions[0]],
+                    mapSettings.Slices[slice.Id][priorityPositions[1]],
+                    mapSettings.Slices[slice.Id][3],
+                };
+            }
 
             // Set the best system tile in front of the home system or adjacent to home system
             var systemTile = slice.DraftedSystemTiles.AsEnumerable().OrderByOptimalValue().First();
@@ -330,11 +348,19 @@ public class SystemTileSetter(
             slice.DraftedSystemTiles.Remove(systemTile);
 
             // Shuffle the remaining drafted system tiles and continue with the draft
-            var shuffledDraftedSystemTiles = slice.DraftedSystemTiles.OrderBy(x => Random.Next()).ToList();
-            foreach (var position in slice.Positions.Where(pos => galaxy[pos.Position].SystemTile is null))
+            var orderedDraftedSystemTileList = slice.DraftedSystemTiles.AsEnumerable().OrderByOptimalValue().ToList();
+
+            _logger.LogInformation("Ordered system tiles by Optimal value: {SystemTiles}", string.Join(",", orderedDraftedSystemTileList.Select(x => $"{x.SystemTileCode} {x.GetValue(systemWeight)}")));
+
+            foreach (var position in slicePositionsInPriorityOrder.Where(x => galaxy[(x.X, x.Y)].SystemTile is null))
             {
-                galaxy[position.Position].SystemTile = shuffledDraftedSystemTiles[0];
-                shuffledDraftedSystemTiles.RemoveAt(0);
+                if (orderedDraftedSystemTileList.Count > 0)
+                {
+                    _logger.LogInformation("Handling position {Position}", position);
+                    galaxy[position].SystemTile = orderedDraftedSystemTileList[0];
+                    _logger.LogInformation("Tile assigned and removed: {TileCode}", orderedDraftedSystemTileList[0].SystemTileCode);
+                    orderedDraftedSystemTileList.RemoveAt(0);
+                }
             }
         }
 
@@ -353,14 +379,29 @@ public class SystemTileSetter(
 
         foreach (var slice in balancedSlices)
         {
-            var slicePositionsInPriorityOrder = new List<(int X, int Y)>
+            var slicePositionsInPriorityOrder = new List<(int X, int Y)>();
+
+            if (slice.Positions.Count == 5)
             {
-                mapSettings.Slices[slice.Id][priorityPositions[0]],
-                mapSettings.Slices[slice.Id][priorityPositions[1]],
-                mapSettings.Slices[slice.Id][priorityPositions[2]],
-                mapSettings.Slices[slice.Id][4],
-                mapSettings.Slices[slice.Id][3],
-            };
+                slicePositionsInPriorityOrder = new List<(int X, int Y)>
+                {
+                    mapSettings.Slices[slice.Id][priorityPositions[0]],
+                    mapSettings.Slices[slice.Id][priorityPositions[1]],
+                    mapSettings.Slices[slice.Id][priorityPositions[2]],
+                    mapSettings.Slices[slice.Id][4],
+                    mapSettings.Slices[slice.Id][3],
+                };
+            }
+            else if (slice.Positions.Count == 4)
+            {
+                slicePositionsInPriorityOrder = new List<(int X, int Y)>
+                {
+                    mapSettings.Slices[slice.Id][priorityPositions[0]],
+                    mapSettings.Slices[slice.Id][priorityPositions[1]],
+                    mapSettings.Slices[slice.Id][priorityPositions[2]],
+                    mapSettings.Slices[slice.Id][3],
+                };
+            }
 
             // Shuffle the remaining drafted system tiles and continue with the draft
             var orderedDraftedSystemTileList = slice.DraftedSystemTiles.AsEnumerable().OrderByOptimalValue().ToList();
@@ -369,8 +410,13 @@ public class SystemTileSetter(
 
             foreach (var position in slicePositionsInPriorityOrder.Where(x => galaxy[(x.X, x.Y)].SystemTile is null))
             {
-                galaxy[position].SystemTile = orderedDraftedSystemTileList[0];
-                orderedDraftedSystemTileList.RemoveAt(0);
+                if (orderedDraftedSystemTileList.Count > 0)
+                {
+                    _logger.LogInformation("Handling position {Position}", position);
+                    galaxy[position].SystemTile = orderedDraftedSystemTileList[0];
+                    _logger.LogInformation("Tile assigned and removed: {TileCode}", orderedDraftedSystemTileList[0].SystemTileCode);
+                    orderedDraftedSystemTileList.RemoveAt(0);
+                }
             }
         }
 
