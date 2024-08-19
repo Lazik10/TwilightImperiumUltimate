@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Components;
-
 namespace TwilightImperiumUltimate.Web.Components.Technologies;
 
-public partial class TechnologyCard
+public partial class TechnologyCard : TwilightImperiumBaseComponenet
 {
     [Parameter]
-    public string ImagePath { get; set; } = string.Empty;
+    public TechnologyName TechnologyName { get; set; }
+
+    private string GetImagePath()
+    {
+        return PathProvider.GetTechnologyImagePath(TechnologyName);
+    }
 }

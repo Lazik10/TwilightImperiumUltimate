@@ -1,0 +1,13 @@
+﻿@page "/game/factions-discordant-stars"
+@using TwilightImperiumUltimate.Web.Components.Factions
+
+<PageTitle>@Strings.Page_FactionsDS</PageTitle>
+
+<Page>
+    <FactionIconRow
+        OnFactionClickGetFaction="UpdateSelectedFaction"
+        ShowBaseGame="false"
+        ShowDiscordantStars="true" />
+
+    <FactionInfoGrid @ref="factionInfoRef" />
+</Page>

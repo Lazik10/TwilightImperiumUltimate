@@ -1,16 +1,14 @@
-﻿using TwilightImperiumUltimate.Web.Enums;
-
 namespace TwilightImperiumUltimate.Web.Services.Path;
 
 public interface IPathProvider
 {
     string GetCultureIconPath(string fileName);
 
-    string GetFactionIconPath(string fileName);
+    string GetFactionIconPath(FactionName factionName);
 
     string GetCardTypeIconPath(string fileName);
 
-    string GetComplexityIconPath(int complexity);
+    string GetComplexityIconPath(ComplexityRating complexity);
 
     string GetFactionSheetPath(string fileName, bool front = true);
 
@@ -18,11 +16,15 @@ public interface IPathProvider
 
     string GetCardGeneratorImageBackground(string fileName);
 
-    string GetLargeTileImagePath(string fileName);
+    string GetLargeTileImagePath(SystemTileName systemTileName);
 
-    string GetTechnologyImagePath(string fileName);
+    string GetTechnologyImagePath(TechnologyName technologyName);
 
-    string GetUnitImagePath(string fileName);
+    string GetTechnologyIconPath(TechnologyType technologyType);
+
+    string GetPlanetTraitPath(PlanetTrait planetTrait);
+
+    string GetUnitImagePath(UnitName unitName);
 
     string GetPlanetImagePath(string fileName);
 
@@ -33,4 +35,10 @@ public interface IPathProvider
     string GetTexturePath(Texture texture);
 
     string GetPromissoryNotePath(string fileName);
+
+    string GetCardImagePath(string fileName, string cardType);
+
+    string GetWebsitePreviewImagePath(string fileName);
+
+    string GetGameVersionIconPath(GameVersion gameVersion);
 }

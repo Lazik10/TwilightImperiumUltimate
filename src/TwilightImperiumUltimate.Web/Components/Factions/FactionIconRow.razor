@@ -1,30 +1,50 @@
 ﻿@using TwilightImperiumUltimate.Web.Models.Factions;
 @using TwilightImperiumUltimate.Web.Resources;
-@using TwilightImperiumUltimate.Web.Services.HttpClients
+@using TwilightImperiumUltimate.Web.Services.HttpClients;
 @using TwilightImperiumUltimate.Web.Services.Path;
-@inject ITwilightImperiumApiHttpClient HttpClient
-@inject IPathProvider PathProvider
+@inherits TwilightImperiumBaseComponenet
 
-@if (_factions is not null)
-{
-    <div class="icon-row">
-        @if (_factions.Count > 0)
+<FlexColumnCenteredContainer>
+
+    @if (_factions is not null)
+    {
+        if (ShowBaseGame)
         {
-            @foreach (var faction in _factions)
-            {
-                <div class="link" @onclick="() => FactionClicked(faction)">
+            <div class="icon-row width-100">
+                @foreach (var faction in GetBaseGameFactions())
+                {
+                    <FactionIcon Faction="faction" OnClick="() => FactionClicked(faction)" EnableBanMode="EnableBanMode" />
+                }
+            </div>
+        }
 
-                    @{
-                        var banned = faction.Banned && EnableBanMode ? "colorless" : string.Empty;
+        if (ShowDiscordantStars && _factions.Count > 25)
+        {
+            <VerticalSpace Height="10" />
+
+            <div class="icon-row width-100">
+                @foreach (var faction in GetDiscordantStarsFactions().Take(24))
+                {
+                    <FactionIcon Faction="faction" OnClick="() => FactionClicked(faction)" EnableBanMode="EnableBanMode" />
+                }
+            </div>
+
+            @if (_factions.Count > 49)
+            {
+                <HorizontalSpace Width="20" />
+            
+                <div class="icon-row width-50">
+
+                    @foreach (var faction in GetDiscordantStarsFactions().Skip(24).Take(10))
+                    {
+                        <FactionIcon Faction="faction" OnClick="() => FactionClicked(faction)" EnableBanMode="EnableBanMode" />
                     }
-                    <img 
-                        class="icon link @banned" 
-                        src="@(PathProvider.GetFactionIconPath(faction.FactionName.ToString()))" 
-                        alt="icon for @faction.FactionName"
-                        title="@faction.FactionName"
-                    >
+                    <HorizontalSpace Width="20" />
                 </div>
             }
         }
-    </div>
-}
+    }
+
+    <VerticalSpace Height="20" />
+
+</FlexColumnCenteredContainer>

@@ -1,4 +1,4 @@
-﻿@page "/tools/mapgenerator"
+﻿@page "/tools/map-generator"
 @using TwilightImperiumUltimate.Web.Components.MapGenerator
 @using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids
 @using TwilightImperiumUltimate.Web.Components.Shared
@@ -10,7 +10,11 @@
 <PageTitle>@Strings.Page_MapGenerator</PageTitle>
 
 <Page>
-    <StretchHeightContainer>
-        <MapGeneratorMainGrid />
-    </StretchHeightContainer>
+    <CascadingValue Value="MapTemplateImported" Name="MapTemplateValue">
+        <CascadingValue Value="TilesImported" Name="TilesValue">
+            <MapGeneratorMainGrid />
+        </CascadingValue>
+    </CascadingValue>>
 </Page>
+
+

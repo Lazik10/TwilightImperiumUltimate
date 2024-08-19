@@ -1,0 +1,9 @@
+﻿<GridLayout Columns="2" Gap="50" Width="70">
+
+    @foreach(var discordServer in _discordServers)
+    {
+        <DiscordCard Title="@discordServer.Title"
+                     DiscordInviteLink="@discordServer.DiscordInviteLink" />
+    })
+
+</GridLayout>

@@ -1,24 +1,15 @@
-﻿using TwilightImperiumUltimate.Web.Enums;
-using TwilightImperiumUltimate.Web.Helpers.Text;
-using TwilightImperiumUltimate.Web.Models.Drafts;
-using TwilightImperiumUltimate.Web.Models.Factions;
+using TwilightImperiumUltimate.Contracts.DTOs.Draft;
 using TwilightImperiumUltimate.Web.Options.Drafts;
-using TwilightImperiumUltimate.Web.Resources;
-using TwilightImperiumUltimate.Web.Services.HttpClients;
 
 namespace TwilightImperiumUltimate.Web.Services.Draft;
 
-public class FactionDraftService : IFactionDraftService
+public class FactionDraftService(ITwilightImperiumApiHttpClient httpClient)
+    : IFactionDraftService
 {
     private static readonly Random Random = new();
-    private readonly ITwilightImperiumApiHttpClient _httpClient;
+    private readonly ITwilightImperiumApiHttpClient _httpClient = httpClient;
     private readonly List<FactionDraftPlayerModel> _players = [];
     private IReadOnlyCollection<FactionModel> _factionsWithBanStatus = [];
-
-    public FactionDraftService(ITwilightImperiumApiHttpClient httpClient)
-    {
-        _httpClient = httpClient;
-    }
 
     public event EventHandler? OnFactionUpdate;
 
@@ -119,6 +110,30 @@ public class FactionDraftService : IFactionDraftService
         }
     }
 
+    public void GameVersionGlobalEnableDisable(GameVersion version)
+    {
+        if (_factionsWithBanStatus.Any(x => x.GameVersion == version && !x.Banned))
+        {
+            var updatedList = _factionsWithBanStatus.ToList();
+            updatedList.ForEach(x =>
+            {
+                if (x.GameVersion == version)
+                    x.Banned = true;
+            });
+            _factionsWithBanStatus = updatedList;
+        }
+        else if (_factionsWithBanStatus.Where(x => x.GameVersion == version).All(x => x.Banned))
+        {
+            var updatedList = _factionsWithBanStatus.ToList();
+            updatedList.ForEach(x =>
+            {
+                if (x.GameVersion == version)
+                    x.Banned = false;
+            });
+            _factionsWithBanStatus = updatedList;
+        }
+    }
+
     public async Task PerformDraft()
     {
         await StartRandomFactionAssignmentAsync();
@@ -128,14 +143,12 @@ public class FactionDraftService : IFactionDraftService
 
     public void UpdateBanFactions(IReadOnlyCollection<FactionModel>? factionsWithBanStatus)
     {
-        _factionsWithBanStatus = factionsWithBanStatus ?? [];
+        _factionsWithBanStatus = factionsWithBanStatus ?? new List<FactionModel>();
     }
 
-    private static FactionName GetRandomFaction()
+    private FactionName GetRandomFaction()
     {
-        var pickedRandomFactions = Enum.GetValues(typeof(FactionName))
-           .Cast<FactionName>()
-           .ToList();
+        var pickedRandomFactions = _factionsWithBanStatus.Where(x => !x.Banned).Select(x => x.FactionName).ToList();
 
         pickedRandomFactions.RemoveAt(0);
 
@@ -156,11 +169,18 @@ public class FactionDraftService : IFactionDraftService
 
     private void AssignDraftResultsToPlayers(IReadOnlyCollection<DraftResult>? draftResult)
     {
-        if (draftResult is not null)
+        if (draftResult is not null && draftResult.Count != 0)
         {
             for (int i = 0; i < Players.Count; i++)
             {
                 Players.ToArray()[i].DraftedFactions = draftResult.ToArray()[i].Factions.ToList();
+            }
+        }
+        else
+        {
+            for (int i = 0; i < Players.Count; i++)
+            {
+                Players.ToArray()[i].DraftedFactions = new List<FactionName>() { FactionName.None };
             }
         }
     }
@@ -174,9 +194,24 @@ public class FactionDraftService : IFactionDraftService
             Factions = _factionsWithBanStatus,
         };
 
-        var result = await _httpClient.PostAsync<FactionDraftRequest, List<DraftResult>>(Paths.ApiPath_FactionDraft, request);
+        var (response, statusCode) = await _httpClient.PostAsync<FactionDraftRequest, ApiResponse<FactionDraftResultDto>>(Paths.ApiPath_FactionDraft, request);
 
-        return result;
+        if (statusCode == HttpStatusCode.OK)
+        {
+            var draftResults = new List<DraftResult>();
+            foreach (var draftResult in response!.Data!.FactionDraftResults)
+            {
+                draftResults.Add(new DraftResult()
+                {
+                    PlayerId = draftResult.Key,
+                    Factions = draftResult.Value,
+                });
+            }
+
+            return draftResults;
+        }
+
+        return new List<DraftResult>();
     }
 
     private void RandomFactionAssignment()

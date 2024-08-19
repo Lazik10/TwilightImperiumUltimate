@@ -1,6 +1,3 @@
-﻿using Microsoft.AspNetCore.Components;
-using TwilightImperiumUltimate.Web.Resources;
-
 namespace TwilightImperiumUltimate.Web.Components.Shared.Controls;
 
 public partial class NumericPicker
@@ -25,4 +22,13 @@ public partial class NumericPicker
 
     [Parameter]
     public int Width { get; set; } = 100;
+
+    [Parameter]
+    public int FontSize { get; set; } = 24;
+
+    [Parameter]
+    public bool HideTitle { get; set; } = false;
+
+    [Parameter]
+    public bool CenteredText { get; set; } = true;
 }

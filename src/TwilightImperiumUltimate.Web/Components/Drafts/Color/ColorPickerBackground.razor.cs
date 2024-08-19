@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
-using TwilightImperiumUltimate.Web.Enums;
+using Microsoft.AspNetCore.Components;
+using TwilightImperiumUltimate.Contracts.Enums;
 
 namespace TwilightImperiumUltimate.Web.Components.Drafts.Color;
 

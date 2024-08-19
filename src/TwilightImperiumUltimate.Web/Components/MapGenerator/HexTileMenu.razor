@@ -6,24 +6,29 @@
 @inject IMapGeneratorSettingsService MapGeneratorSettingsService
 
 <div class="hex-menu">
-    <Title Text="Filter:" FontSize="20" />
-    <RadzenDropDown @bind-Value="_selectedSystemTileType"
-                    Data="@_systemTileTypes"
-                    Change="() => GetSystemTilesToShow()"
-                    TextProperty="Value"
-                    ValueProperty="Key"
-                    Style="width: 100%; min-height: 40px;" />
 
-    <div class="scrollbar-area">
-        @foreach (var systemTile in SystemTiles)
-        {
-            <MapHexTile ImagePath="@(PathProvider.GetLargeTileImagePath(systemTile.Name.ToString()))"
-                        SystemTileOverlay="@(MapGeneratorSettingsService.SystemTileOverlay)"
-                        MapTileId="@(systemTile.Name.ToString().Substring(4))"
-                        MapPosition="-1"
-                        SystemTile="systemTile"
-                        SwappedSystemTileFromMenu="RefreshSystemTilesMenu" />
-        }
+    <div class="clickable" @onclick="ToggleTileMenu">
+        <Label Text="@GetButtonText()" FontSize="20" CenterText="true" />
     </div>
 
+    @if (_showTileMenu)
+    {
+@*         <Title Text="Filter:" FontSize="20" /> *@
+        <RadzenDropDown @bind-Value="_selectedSystemTileType"
+            Data="@_systemTileTypes"
+            Change="() => GetSystemTilesToShow()"
+            TextProperty="Value"
+            ValueProperty="Key"
+            Style="width: 100%; min-height: 40px;"
+            class="title handel radzen-dropdown" />
+
+        <div class="scrollbar-area">
+            @foreach (var systemTile in SystemTiles)
+            {
+                <MapHexTile SystemTile="systemTile"
+                MapPosition="-1"
+                SwappedSystemTileFromMenu="RefreshSystemTilesMenu" />
+            }
+        </div>
+    }
 </div>

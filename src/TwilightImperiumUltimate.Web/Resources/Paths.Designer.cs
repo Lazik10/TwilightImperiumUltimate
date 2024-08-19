@@ -61,6 +61,60 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to confirmEmail.
+        /// </summary>
+        public static string ApiPath_AccountConfirmEmail {
+            get {
+                return ResourceManager.GetString("ApiPath_AccountConfirmEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to login?useCookies=false&amp;useSessionCookies=false.
+        /// </summary>
+        public static string ApiPath_AccountLogin {
+            get {
+                return ResourceManager.GetString("ApiPath_AccountLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to refresh.
+        /// </summary>
+        public static string ApiPath_AccountRefreshToken {
+            get {
+                return ResourceManager.GetString("ApiPath_AccountRefreshToken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to register.
+        /// </summary>
+        public static string ApiPath_AccountRegister {
+            get {
+                return ResourceManager.GetString("ApiPath_AccountRegister", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/cards/action.
+        /// </summary>
+        public static string ApiPath_ActionCards {
+            get {
+                return ResourceManager.GetString("ApiPath_ActionCards", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/cards/agenda.
+        /// </summary>
+        public static string ApiPath_AgendaCards {
+            get {
+                return ResourceManager.GetString("ApiPath_AgendaCards", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to api/cards/.
         /// </summary>
         public static string ApiPath_Cards {
@@ -70,7 +124,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to api/drafts/colors.
+        ///   Looks up a localized string similar to api/drafts/color.
         /// </summary>
         public static string ApiPath_ColorDraft {
             get {
@@ -79,7 +133,16 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to api/drafts/factions.
+        ///   Looks up a localized string similar to api/cards/exploration.
+        /// </summary>
+        public static string ApiPath_ExplorationCards {
+            get {
+                return ResourceManager.GetString("ApiPath_ExplorationCards", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/drafts/faction.
         /// </summary>
         public static string ApiPath_FactionDraft {
             get {
@@ -106,11 +169,38 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to api/mapgenerators.
+        ///   Looks up a localized string similar to forgotPassword.
         /// </summary>
-        public static string ApiPath_MapDraft {
+        public static string ApiPath_ForgotPassword {
             get {
-                return ResourceManager.GetString("ApiPath_MapDraft", resourceCulture);
+                return ResourceManager.GetString("ApiPath_ForgotPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/cards/frontier.
+        /// </summary>
+        public static string ApiPath_FrontierCards {
+            get {
+                return ResourceManager.GetString("ApiPath_FrontierCards", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/map-generators/generate-map.
+        /// </summary>
+        public static string ApiPath_GenerateMap {
+            get {
+                return ResourceManager.GetString("ApiPath_GenerateMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to manage/info.
+        /// </summary>
+        public static string ApiPath_ManageInfo {
+            get {
+                return ResourceManager.GetString("ApiPath_ManageInfo", resourceCulture);
             }
         }
         
@@ -124,11 +214,65 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to api/cards/objective.
+        /// </summary>
+        public static string ApiPath_ObjectiveCards {
+            get {
+                return ResourceManager.GetString("ApiPath_ObjectiveCards", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to api/galaxy/planets.
         /// </summary>
         public static string ApiPath_Planets {
             get {
                 return ResourceManager.GetString("ApiPath_Planets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/cards/promissory-note.
+        /// </summary>
+        public static string ApiPath_PromissoryNoteCards {
+            get {
+                return ResourceManager.GetString("ApiPath_PromissoryNoteCards", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/cards/promissory-note.
+        /// </summary>
+        public static string ApiPath_PromissoryNotes {
+            get {
+                return ResourceManager.GetString("ApiPath_PromissoryNotes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/cards/relic.
+        /// </summary>
+        public static string ApiPath_RelicCards {
+            get {
+                return ResourceManager.GetString("ApiPath_RelicCards", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to resendConfirmationEmail.
+        /// </summary>
+        public static string ApiPath_ResendConfirmationEmail {
+            get {
+                return ResourceManager.GetString("ApiPath_ResendConfirmationEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to resetPassword.
+        /// </summary>
+        public static string ApiPath_ResetPassword {
+            get {
+                return ResourceManager.GetString("ApiPath_ResetPassword", resourceCulture);
             }
         }
         
@@ -142,7 +286,43 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to api/galaxy/tiles.
+        ///   Looks up a localized string similar to api/cards/secret.
+        /// </summary>
+        public static string ApiPath_SecretObjectiveCards {
+            get {
+                return ResourceManager.GetString("ApiPath_SecretObjectiveCards", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/cards/stage-one-objective.
+        /// </summary>
+        public static string ApiPath_StageOneObjectiveCards {
+            get {
+                return ResourceManager.GetString("ApiPath_StageOneObjectiveCards", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/cards/stage-two-objective.
+        /// </summary>
+        public static string ApiPath_StageTwoObjectiveCards {
+            get {
+                return ResourceManager.GetString("ApiPath_StageTwoObjectiveCards", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/cards/strategy.
+        /// </summary>
+        public static string ApiPath_StrategyCards {
+            get {
+                return ResourceManager.GetString("ApiPath_StrategyCards", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/galaxy/system-tiles.
         /// </summary>
         public static string ApiPath_SystemTiles {
             get {
@@ -156,6 +336,33 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string ApiPath_Technologies {
             get {
                 return ResourceManager.GetString("ApiPath_Technologies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/user/byemail.
+        /// </summary>
+        public static string ApiPath_UserByEmail {
+            get {
+                return ResourceManager.GetString("ApiPath_UserByEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/user.
+        /// </summary>
+        public static string ApiPath_Users {
+            get {
+                return ResourceManager.GetString("ApiPath_Users", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/user/update.
+        /// </summary>
+        public static string ApiPath_UserUpdate {
+            get {
+                return ResourceManager.GetString("ApiPath_UserUpdate", resourceCulture);
             }
         }
         
@@ -183,6 +390,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string ResourceNamespace_Strings {
             get {
                 return ResourceManager.GetString("ResourceNamespace_Strings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to action.
+        /// </summary>
+        public static string ResourcePath_ActionCard {
+            get {
+                return ResourceManager.GetString("ResourcePath_ActionCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to agenda.
+        /// </summary>
+        public static string ResourcePath_AgendaCard {
+            get {
+                return ResourceManager.GetString("ResourcePath_AgendaCard", resourceCulture);
             }
         }
         
@@ -223,6 +448,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to exploration.
+        /// </summary>
+        public static string ResourcePath_ExplorationCard {
+            get {
+                return ResourceManager.GetString("ResourcePath_ExplorationCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to \resources\images\{language}\leaders.
         /// </summary>
         public static string ResourcePath_FactionComponentsPath {
@@ -259,6 +493,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to frontier.
+        /// </summary>
+        public static string ResourcePath_FrontierCard {
+            get {
+                return ResourceManager.GetString("ResourcePath_FrontierCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to \resources\images\shared\icons.
+        /// </summary>
+        public static string ResourcePath_GameVersionIconPath {
+            get {
+                return ResourceManager.GetString("ResourcePath_GameVersionIconPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to \resources\images\shared\icons.
         /// </summary>
         public static string ResourcePath_IconPath {
@@ -277,6 +529,33 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to objective/secret.
+        /// </summary>
+        public static string ResourcePath_ObjectiveSecret {
+            get {
+                return ResourceManager.GetString("ResourcePath_ObjectiveSecret", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to objective/stageone.
+        /// </summary>
+        public static string ResourcePath_ObjectiveStageOne {
+            get {
+                return ResourceManager.GetString("ResourcePath_ObjectiveStageOne", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to objective/stagetwo.
+        /// </summary>
+        public static string ResourcePath_ObjectiveStageTwo {
+            get {
+                return ResourceManager.GetString("ResourcePath_ObjectiveStageTwo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to \resources\images\{language}\planets.
         /// </summary>
         public static string ResourcePath_PlanetImagePath {
@@ -286,11 +565,56 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to \resources\images\shared\planettraits.
+        /// </summary>
+        public static string ResourcePath_PlanetTraitIconPath {
+            get {
+                return ResourceManager.GetString("ResourcePath_PlanetTraitIconPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to promissory.
+        /// </summary>
+        public static string ResourcePath_PromissoryCard {
+            get {
+                return ResourceManager.GetString("ResourcePath_PromissoryCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to \resources\images\{language}\cards\promissary.
         /// </summary>
         public static string ResourcePath_PromissoryNotePath {
             get {
                 return ResourceManager.GetString("ResourcePath_PromissoryNotePath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to relic.
+        /// </summary>
+        public static string ResourcePath_RelicCard {
+            get {
+                return ResourceManager.GetString("ResourcePath_RelicCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to strategy.
+        /// </summary>
+        public static string ResourcePath_StrategyCard {
+            get {
+                return ResourceManager.GetString("ResourcePath_StrategyCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to \resources\images\shared\technologies.
+        /// </summary>
+        public static string ResourcePath_TechnologyIconPath {
+            get {
+                return ResourceManager.GetString("ResourcePath_TechnologyIconPath", resourceCulture);
             }
         }
         
@@ -318,6 +642,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string ResourcePath_UnitImagePath {
             get {
                 return ResourceManager.GetString("ResourcePath_UnitImagePath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to \resources\images\shared\websites.
+        /// </summary>
+        public static string ResourcePath_WebsitePreviewPath {
+            get {
+                return ResourceManager.GetString("ResourcePath_WebsitePreviewPath", resourceCulture);
             }
         }
     }

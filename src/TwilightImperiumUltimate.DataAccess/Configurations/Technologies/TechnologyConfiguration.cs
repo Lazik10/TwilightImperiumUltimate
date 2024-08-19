@@ -1,8 +1,8 @@
-﻿using TwilightImperiumUltimate.DataAccess.Tables.Technologies;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace TwilightImperiumUltimate.DataAccess.Configurations.Technologies;
 
-public class TechnologyConfiguration : IEntityTypeConfiguration<Technology>
+internal sealed class TechnologyConfiguration : IEntityTypeConfiguration<Technology>
 {
     public void Configure(EntityTypeBuilder<Technology> builder)
     {
@@ -12,45 +12,62 @@ public class TechnologyConfiguration : IEntityTypeConfiguration<Technology>
 
         builder.HasKey(e => e.TechnologyName);
 
+        builder.Property(x => x.Id)
+            .IsRequired()
+            .UseIdentityColumn()
+            .HasColumnOrder(0);
+
         builder.Property(e => e.TechnologyName)
             .IsRequired()
             .HasColumnName(nameof(Technology.TechnologyName))
-            .HasConversion<int>()
-            .HasColumnType("integer");
+            .HasConversion<string>()
+            .HasColumnType("varchar(50)")
+            .HasMaxLength(50)
+            .HasColumnOrder(1);
 
         builder.Property(e => e.Type)
             .IsRequired()
             .HasColumnName(nameof(Technology.Type))
-            .HasConversion<int>()
-            .HasColumnType("integer");
+            .HasConversion<string>()
+            .HasColumnType("varchar(20)")
+            .HasMaxLength(20)
+            .HasColumnOrder(2);
 
         builder.Property(e => e.Level)
             .IsRequired()
             .HasColumnName(nameof(Technology.Level))
-            .HasConversion<int>()
-            .HasColumnType("integer");
-
-        builder.Property(e => e.IsFactionTechnology)
-            .IsRequired()
-            .HasColumnName(nameof(Technology.IsFactionTechnology))
-            .HasConversion<bool>()
-            .HasColumnType("bit");
+            .HasConversion<string>()
+            .HasColumnType("varchar(20)")
+            .HasMaxLength(20)
+            .HasColumnOrder(3);
 
         builder.Property(e => e.FactionName)
             .IsRequired()
             .HasColumnName(nameof(Technology.FactionName))
-            .HasConversion<int>()
-            .HasColumnType("integer");
+            .HasConversion<string>()
+            .HasColumnType("varchar(50)")
+            .HasMaxLength(50)
+            .HasColumnOrder(4);
+
+        builder.Property(e => e.IsFactionTechnology)
+            .IsRequired()
+            .HasColumnName(nameof(Technology.IsFactionTechnology))
+            .HasConversion(new BoolToStringConverter("false", "true"))
+            .HasColumnType("varchar(5)")
+            .HasColumnOrder(5);
 
         builder.Property(e => e.Text)
             .IsRequired()
             .HasColumnName(nameof(Technology.Text))
-            .HasColumnType("nvarchar(50)");
+            .HasColumnType("nvarchar(MAX)")
+            .HasColumnOrder(6);
 
         builder.Property(e => e.GameVersion)
             .IsRequired()
             .HasColumnName(nameof(Technology.GameVersion))
-            .HasConversion<int>()
-            .HasColumnType("integer");
+            .HasConversion<string>()
+            .HasColumnType("varchar(20)")
+            .HasMaxLength(20)
+            .HasColumnOrder(7);
     }
 }

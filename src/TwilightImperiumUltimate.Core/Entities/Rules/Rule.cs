@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Core.Enums.Rules;
+using TwilightImperiumUltimate.Contracts.Enums;
 using TwilightImperiumUltimate.Core.Interfaces;
 
 namespace TwilightImperiumUltimate.Core.Entities.Rules;

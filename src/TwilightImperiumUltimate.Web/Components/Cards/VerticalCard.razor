@@ -1,6 +1,6 @@
 ﻿@using TwilightImperiumUltimate.Web.Resources;
 
 <div class="@(TypeOfCard == Strings.StrategyCard ? "strategy-image-item" : "image-item")">
-    <img src="@ImagePath" alt="@ImagePath">
+    <img src="@GetCardImagePath()" alt="@Name">
 </div>
 

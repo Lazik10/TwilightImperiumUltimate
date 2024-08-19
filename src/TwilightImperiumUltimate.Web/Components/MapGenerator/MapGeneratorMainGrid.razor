@@ -1,42 +1,99 @@
-﻿@using TwilightImperiumUltimate.Web.Components.MapGenerator
+﻿@using TwilightImperiumUltimate.Web.Components.Factions
+@using TwilightImperiumUltimate.Web.Components.MapGenerator
 @using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids
 @using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.Custom
 @using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.EightPlayers
 @using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.SixPlayers
 @using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.ThreePlayers
 @using TwilightImperiumUltimate.Web.Components.Shared.Controls
+@using TwilightImperiumUltimate.Web.Components.Shared.GameVersions
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 
 <div class="map-generator-grid">
 
-    <VerticalSpace Height="50" />
+    <MapGeneratorMenu OnMenuItemClick="ChangeSegment"/>
 
-    <FlexRowContainer >
-        <Button @onclick="GenerateMap" ButtonText="GenerateMap" />
-        <Button @onclick="ToggleSettings" ButtonText="Settings" />
-        <Button @onclick="ToggleTilesMenu" ButtonText="Tiles Menu" />
-    </FlexRowContainer>
-
-    @if(_showSettings)
-    {
-        <MapGeneratorSettings 
-            OnSelectedTemplateChange="UpdateMapTemplate"
-            OnSelectedSystemTileOverlayChange="UpdateMapOverlay"
-            OnHideSettings="HideSettings" />
-    }
-
-    @if(_showTilesMenu)
+    @if (_selectedSegment == MapGeneratorMenuItem.MapGenerator)
     {
         <HexTileMenu SwappedSystemTileFromMenu="Refresh" />
+
+        <MapQuickMenu OnMenuIconClick="HandleMenuIconClick" />
+
+        <FlexColumnCenteredContainer>
+
+            <VerticalSpace Height="20" />
+
+            <Button @onclick="GenerateMap" ButtonText="@Strings.MapGenerator_GenerateMap" />
+
+            <StretchHeightContainer>
+                <FlexColumnCenteredContainer>
+                    <div id="mapArea" style="width: @(MapGeneratorSettingsService.MapScale)%">
+                        @DynamicComponent
+                        <VerticalSpace Height="150" />
+                    </div>
+                </FlexColumnCenteredContainer>
+            </StretchHeightContainer>
+            <StretchHeightContainer>
+            </StretchHeightContainer>
+
+        </FlexColumnCenteredContainer>
     }
 
-    <FlexColumnCenteredContainer>
+    @if (_selectedSegment == MapGeneratorMenuItem.Settings)
+    {
+        <VerticalSpace Height="50" />
 
-        <div style="width: @(MapGeneratorSettingsService.MapScale)%">
-            @DynamicComponent
-        </div>
+        <FlexColumnCenteredContainer>
+            <GridLayout Columns="2" Gap="40" Width="80" >
+                <YesNoPicker Title="@Strings.MapGeneratorSettings_EnableFactionPick"
+                                DefaultValue="MapGeneratorSettingsService.EnableFactionPick"
+                                Width="100"
+                                FontSize="18"
+                                OnValueChange="ToggleFactionPick" />
 
-    </FlexColumnCenteredContainer>
+                <NumericPicker Title="@Strings.MapGeneratorSettings_MapScale"
+                                Value="@MapGeneratorSettingsService.MapScale"
+                                OnDecrease="DecreaseMapScale"
+                                OnIncrease="IncreaseMapScale"
+                                Width="100"
+                                FontSize="18"
+                                CenteredText="false" />
+            </GridLayout>
+        </FlexColumnCenteredContainer>
+
+        if (MapGeneratorSettingsService.EnableFactionPick)
+        {
+            <VerticalSpace Height="20" />
+
+            <FactionIconRow 
+                ShowDiscordantStars="true" 
+                EnableBanMode="true"
+                ProvidedFactions="MapGeneratorSettingsService.FactionsForMapGenerator"
+                OnFactionClickGetFaction="HandleFactionClick" 
+                @ref="factionIconRowRef"/>
+
+            <GameVersionPicker OnVersionSelected="HandleGameVersionClick" />
+        }
+
+        <VerticalSpace Height="50" />
+
+        <MapGeneratorSettings 
+            OnSelectedTemplateChange="UpdateMapTemplate"
+            OnSelectedSystemTileOverlayChange="UpdateMapOverlay" />
+    }
+
+    @if (_selectedSegment == MapGeneratorMenuItem.MapEvaluation)
+    {
+        <VerticalSpace Height="20" />
+
+        <FlexColumnCenteredContainer>
+            <Button @onclick="GenerateMap" ButtonText="@Strings.MapGenerator_GenerateMap" />
+        </FlexColumnCenteredContainer>
+
+        <VerticalSpace Height="20" />
+
+        <MapEvaluation MapEvaluations="MapEvaluations"/>
+    }
 
 </div>
 

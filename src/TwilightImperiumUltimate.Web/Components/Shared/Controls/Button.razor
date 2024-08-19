@@ -1,8 +1,7 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 
-<div class="button clickable white handel shadow @(IsDisabled ? "button-disabled" : "button")"
-    @onclick="OnClickHandler">
-    <div class="flex-row">
-        @ButtonText
-    </div>
-</div>
+<button class="div-like-button clickable white handel shadow @(IsDisabled ? "button-disabled" : "button")" 
+        type="@GetButtonType()"
+        @onclick="OnClickHandler">
+    @ButtonText
+</button>

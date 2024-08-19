@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Web.Enums;
+using TwilightImperiumUltimate.Contracts.Enums;
 
 namespace TwilightImperiumUltimate.Web.Models.Rules;
 

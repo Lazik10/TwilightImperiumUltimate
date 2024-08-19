@@ -6,3 +6,7 @@
     justify-items: center; /*main-axis*/
     align-items: center; /*cross-axis*/
 }
+
+.background {
+    background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.5) 10%, rgba(0,0,0,0.5) 90%, rgba(0,0,0,0));
+}

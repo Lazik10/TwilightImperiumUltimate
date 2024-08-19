@@ -1,0 +1,38 @@
+﻿<div class="map-quick-menu">
+
+    <FlexRowContainer JustifyContent="Enums.JustifyContent.SpaceEvenly">
+
+        <QuickMenuItem IconType="IconType.Hashtag" IconTypeClicked="IconType.HashtagClicked" OnClick="async () => await HandleMenuIconClick(IconType.Hashtag)" />
+        @if (MapGeneratorSettingsService.MapTemplate != MapTemplate.CustomMap)
+        {
+            <QuickMenuItem IconType="IconType.CopyMapString" IconTypeClicked="IconType.CopyMapStringClicked" OnClick="async () => await HandleMenuIconClick(IconType.CopyMapString)" />
+            <QuickMenuItem IconType="IconType.ImportMapString" IconTypeClicked="IconType.ImportMapStringClicked" OnClick="async () => await HandleMenuIconClick(IconType.ImportMapString)" />
+        }
+        <QuickMenuItem IconType="IconType.DownloadMapImage" IconTypeClicked="IconType.DownloadMapImageClicked" OnClick="async () => await HandleMenuIconClick(IconType.DownloadMapImage)" />
+        @if (MapGeneratorSettingsService.MapTemplate != MapTemplate.CustomMap)
+        {
+            <QuickMenuItem IconType="IconType.ShareMap" IconTypeClicked="IconType.ShareMapClicked" OnClick="async () => await HandleMenuIconClick(IconType.ShareMap)" />
+        }
+
+    </FlexRowContainer>
+
+    @if (_showImportMapString)
+    {
+        <FlexColumnCenteredContainer Width="250">
+            <VerticalSpace Height="20" />
+            <RadzenTextBox @bind-Value="_importedTtsString" Text="Enter map string" Style="height: 24px; max-height: 24px;"/>
+            <VerticalSpace Height="10" />
+            <RadzenDropDown @bind-Value="_selectedMapTemplate"
+                            Data="@_mapTemplates"
+                            Change="async () => await HandleMapTemplateChange()"
+                            ValueProperty="Key"
+                            TextProperty="Value"
+                            Style="width: 115%; max-width: 400px;"
+                            class="title handel" />
+            <Button ButtonText="Load Map" OnClick="async () => await LoadMapFromTtsString()"/>
+        </FlexColumnCenteredContainer>
+    }
+
+</div>
+
+

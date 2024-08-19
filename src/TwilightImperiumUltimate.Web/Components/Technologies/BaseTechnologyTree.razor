@@ -2,26 +2,27 @@
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @using TwilightImperiumUltimate.Web.Resources
 @using TwilightImperiumUltimate.Web.Services.Path
-@inject IPathProvider PathProvider
+
+@inherits TwilightImperiumBaseComponenet
 
 <FlexColumnCenteredContainer>
 
-    <div class="tech-tree-grid">
+    <GridLayout Columns="GetCorrectNumberOFColumns()" Width="80" Gap="10">
 
         @foreach (var technology in Technologies)
         {
             <div class="image-container clickable" @onclick="@(()=> ShowBigImage(technology))">
-                <TechnologyCard ImagePath="@(PathProvider.GetTechnologyImagePath(technology.TechnologyName.ToString()))" />
+                <TechnologyCard TechnologyName="technology.TechnologyName" />
             </div>
         }
 
-    </div>
+    </GridLayout>
 
-    @if (showBigImage)
+    @if (_showBigImage)
     {
         <div class="big-image-overlay" @onclick="HideBigImage">
             <div class="image-container">
-                <img src="@currentBigImageSrc" @onclick="HideBigImage" />
+                <img src="@_currentBigImageSrc" @onclick="HideBigImage" />
             </div>
             <div id="language-menu">
                 <img src="@(GetCultureIconPath(Strings.EnglishCulture))"

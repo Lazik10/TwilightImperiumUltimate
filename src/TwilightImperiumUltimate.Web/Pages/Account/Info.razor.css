@@ -1,0 +1,4 @@
+﻿.fixed-width {
+    width: 100%; /* Or any desired width, e.g., 300px */
+    box-sizing: border-box !important; /* Ensures padding and border are included in the width */
+}

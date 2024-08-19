@@ -1,53 +1,57 @@
 ﻿@page "/game/planets"
 @using System.Globalization
 @using TwilightImperiumUltimate.Web.Components.Cards
+@using TwilightImperiumUltimate.Web.Components.Galaxy
 @using TwilightImperiumUltimate.Web.Components.Shared
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Helpers.Enums
 @using TwilightImperiumUltimate.Web.Resources
 
 <Page>
+    @{
+        _currentGameVersion = null;
+    }
+    @foreach (var gameVersion in _planets.GroupBy(x => x.GameVersion))
+    {
+        if (_currentGameVersion != gameVersion.Key)
+        {
+            _currentGameVersion = gameVersion.Key;
+            <Label Text="@_currentGameVersion.GetDisplayName()" FontSize="24" CenterText="true" />
+        }
 
-    <StretchHeightContainer>
-
-        <FlexColumnCenteredContainer>
-
-            <div class="planet-container">
-
-                @foreach (var planet in _planets)
-                {
-                    <FlexColumnCenteredContainer>
-                        <div class="clickable" @onclick="@(() => ShowBigImage(planet, CultureInfo.CurrentCulture.Name))">
-                            <VerticalCard ImagePath="@(GetPlanetImagePath(planet))" />
-                        </div>
-                        <VerticalSpace Height="50" />
-                    </FlexColumnCenteredContainer>
-                }
-
-            </div>
-
-            @if (showBigImage)
+        <GridLayout Columns="5" Width="80" Gap="10">
+            @foreach (var planet in gameVersion)
             {
-                <div class="big-image-overlay" @onclick="HideBigImage">
-                    <div class="image-container">
-                        <img src="@currentBigImageSrc" @onclick="HideBigImage" />
+                <FlexColumnCenteredContainer>
+                    <div class="clickable" @onclick="@(() => ShowBigImage(planet, CultureInfo.CurrentCulture.Name))">
+                        <PlanetCard Name="@planet.PlanetName.ToString()" />
                     </div>
-                    <div id="language-menu">
-                        <img src="@(GetCultureIconPath(Strings.EnglishCulture))"
-                             alt="English"
-                             height="50"
-                             @onclick="@(() =>SetBigImageAddress(Strings.EnglishCulture))"
-                             @onclick:stopPropagation="true" />
-                        <img src="@(GetCultureIconPath(Strings.CzechCulture))"
-                             alt="Czech"
-                             height="50"
-                             @onclick="@(() =>SetBigImageAddress(Strings.CzechCulture))"
-                             @onclick:stopPropagation="true" />
-                    </div>
-                </div>
+                    <VerticalSpace Height="50" />
+                </FlexColumnCenteredContainer>
             }
+        </GridLayout>
 
-        </FlexColumnCenteredContainer>
+        <VerticalSpace Height="50" />
+    }
 
-    </StretchHeightContainer>
-
+    @if (_showBigImage)
+    {
+        <div class="big-image-overlay" @onclick="HideBigImage">
+            <div class="image-container">
+                <img src="@_currentBigImageSrc" @onclick="HideBigImage" />
+            </div>
+            <div id="language-menu">
+                <img src="@(GetCultureIconPath(Strings.EnglishCulture))"
+                        alt="English"
+                        height="50"
+                        @onclick="@(() => SetBigImageAddress(Strings.EnglishCulture))"
+                        @onclick:stopPropagation="true" />
+                <img src="@(GetCultureIconPath(Strings.CzechCulture))"
+                        alt="Czech"
+                        height="50"
+                        @onclick="@(() => SetBigImageAddress(Strings.CzechCulture))"
+                        @onclick:stopPropagation="true" />
+            </div>
+        </div>
+    }
 </Page>

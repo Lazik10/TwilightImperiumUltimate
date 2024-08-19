@@ -1,6 +1,3 @@
-﻿using Microsoft.AspNetCore.Components;
-using TwilightImperiumUltimate.Web.Models.Factions;
-
 namespace TwilightImperiumUltimate.Web.Components.Factions;
 
 public abstract class FactionInfoComponentBase : ComponentBase

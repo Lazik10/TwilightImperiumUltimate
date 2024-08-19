@@ -1,66 +1,77 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Cards
+@using TwilightImperiumUltimate.Web.Components.Galaxy
 @using TwilightImperiumUltimate.Web.Components.MapGenerator
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @using TwilightImperiumUltimate.Web.Components.Technologies
 @using TwilightImperiumUltimate.Web.Services.Path
 @inherits FactionInfoComponentBase
 
-<div class="faction-components-grid">
+@if (_systemTiles.Any())
+{
+    <div class="faction-components-grid">
 
-    <FlexRowContainer AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.SpaceAround">
+        <FlexRowContainer>
+            @if (_systemTiles.Count > 0)
+            {
+                <img src="@(PathProvider.GetLargeTileImagePath(_systemTile.SystemTileName))" style="width: 50%;"/>
+            }
+        </FlexRowContainer>
 
-        @if(_systemTiles.Count > 0)
+        <FlexRowContainer JustifyContent="Enums.JustifyContent.Center">
+            @foreach (var planet in _planets)
+            {
+                <FlexRowContainer JustifyContent="Enums.JustifyContent.Center">
+
+                    @{
+                        var percentage = 33 * _planets.Count;
+                    }
+
+                    <div style="width: @(percentage)%">
+                        <PlanetCard Name="@(planet.PlanetName.ToString())" />
+                    </div>
+
+                </FlexRowContainer>
+            }
+        </FlexRowContainer>
+
+        @if (_technologies.Count > 0)
         {
-            <img src="@(PathProvider.GetLargeTileImagePath(SystemTile.Name.ToString()))" style="width: 50%;"/>
-        }
+            @foreach (var technology in _technologies)
+            {
+                <div style="width: 50%">
 
-    </FlexRowContainer>
-
-    <FlexRowContainer AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.Center">
-        @foreach (var planet in Planets)
-        {
-            <FlexRowContainer AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.Center">
-
-                @{
-                    var percentage = 33 * Planets.Count;
-                }
-
-                <div style="width: @(percentage)%">
-                    <VerticalCard ImagePath="@(PathProvider.GetPlanetImagePath(planet.PlanetName.ToString()))" />
+                    <FlexRowContainer>
+                        <TechnologyCard TechnologyName="technology.TechnologyName" />
+                    </FlexRowContainer>
                 </div>
-
-            </FlexRowContainer>
+            }
         }
-    </FlexRowContainer>
 
-    @if(Technologies.Count > 0)
-    {
-        @foreach (var technology in Technologies)
+        <div style="width: 50%">
+            <VerticalSpace Height="20" />
+            <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.Mech))" />
+        </div>
+
+        <FlexRowContainer>
+            @foreach (var promissoryNote in _promissoryNotes)
+            {
+                <div style="width: 35%; max-height: 100%">
+                    <VerticalSpace Height="20" />
+                    <VerticalCard Name="@promissoryNote.PromissoryNoteCardName.ToString()" TypeOfCard="@Paths.ResourcePath_PromissoryCard" />
+                </div>
+            }
+        </FlexRowContainer>
+
+        @if (Faction.FactionName == FactionName.TheGhostsOfCreuss || Faction.FactionName == FactionName.TheEmbersOfMuaat)
         {
-            <div style="width: 50%">
-
             <FlexRowContainer>
-                <TechnologyCard ImagePath="@(PathProvider.GetTechnologyImagePath(technology.TechnologyName.ToString()))" />
+                @if (_systemTiles.Count > 0)
+                {
+                    var _tile = Faction.FactionName == FactionName.TheGhostsOfCreuss ? SystemTileName.Tile51 : SystemTileName.Tile81;
+                    var _specialSystemTile = _systemTiles.Single(x => x.SystemTileName == _tile);
+                    <img src="@(PathProvider.GetLargeTileImagePath(_specialSystemTile.SystemTileName))" style="width: 50%;" />
+                }
             </FlexRowContainer>
-            </div>
         }
-    }
-
-    <div style="width: 50%">
-        <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.Mech))" />
     </div>
-
-    <FlexRowContainer>
-
-
-        @foreach (var promissoryNote in Faction.PromissaryNotes)
-        {
-            <div style="width: 35%; max-height: 100%">
-                <VerticalCard ImagePath="@(PathProvider.GetPromissoryNotePath(promissoryNote.ToString()))" />
-            </div>
-        }
-
-
-    </FlexRowContainer>
-
-</div>
+}

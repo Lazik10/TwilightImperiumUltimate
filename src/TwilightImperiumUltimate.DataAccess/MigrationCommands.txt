@@ -1,0 +1,12 @@
+﻿Create migration
+
+dotnet ef migrations add Initial Migration 
+--project TwilightImperiumUltimate.DataAccess/TwilightImperiumUltimate.DataAccess.csproj 
+--startup-project TwilightImperiumUltimate.API/TwilightImperiumUltimate.API.csproj 
+--output-dir Migrations
+
+Update database
+
+dotnet ef database update 
+--project TwilightImperiumUltimate.DataAccess/TwilightImperiumUltimate.DataAccess.csproj 
+--startup-project TwilightImperiumUltimate.API/TwilightImperiumUltimate.API.csproj

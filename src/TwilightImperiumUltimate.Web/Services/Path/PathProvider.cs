@@ -1,11 +1,11 @@
-﻿using System.Globalization;
-using TwilightImperiumUltimate.Web.Enums;
-using TwilightImperiumUltimate.Web.Resources;
+using System.Globalization;
+using TwilightImperiumUltimate.Contracts.Enums;
 
 namespace TwilightImperiumUltimate.Web.Services.Path;
 
 public class PathProvider : IPathProvider
 {
+    private const string _basePath = "resources\\images";
     private readonly string _language = CultureInfo.CurrentCulture.Name;
 
     public string GetCultureIconPath(string fileName)
@@ -13,9 +13,9 @@ public class PathProvider : IPathProvider
         return $"{Paths.ResourcePath_CulturePath}{Strings.BackSlash}{fileName}{Strings.FileExtensionWebp}";
     }
 
-    public string GetFactionIconPath(string fileName)
+    public string GetFactionIconPath(FactionName factionName)
     {
-        return $"{Paths.ResourcePath_FactionIconPath}{Strings.BackSlash}{fileName}{Strings.FileExtensionWebp}";
+        return $"{Paths.ResourcePath_FactionIconPath}{Strings.BackSlash}{factionName}{Strings.FileExtensionWebp}";
     }
 
     public string GetCardTypeIconPath(string fileName)
@@ -23,13 +23,13 @@ public class PathProvider : IPathProvider
         return $"{Paths.ResourcePath_CardTypeIconPath}{Strings.BackSlash}{fileName}{Strings.FileExtensionWebp}";
     }
 
-    public string GetComplexityIconPath(int complexity)
+    public string GetComplexityIconPath(ComplexityRating complexity)
     {
         var complexityName = complexity switch
         {
-            1 => Strings.Low,
-            2 => Strings.Medium,
-            3 => Strings.High,
+            ComplexityRating.Low => Strings.Low,
+            ComplexityRating.Medium => Strings.Medium,
+            ComplexityRating.High => Strings.High,
             _ => string.Empty,
         };
 
@@ -52,19 +52,29 @@ public class PathProvider : IPathProvider
         return $"{GetCorrectLanguagePath(Paths.ResourcePath_CardGeneratorPath)}{Strings.ForwardSlash}{fileName}{Strings.FileExtensionWebp}";
     }
 
-    public string GetLargeTileImagePath(string fileName)
+    public string GetLargeTileImagePath(SystemTileName systemTileName)
     {
-        return $"{Paths.ResourcePath_LargeTilePath}{Strings.BackSlash}{fileName}{Strings.FileExtensionWebp}";
+        return $"{Paths.ResourcePath_LargeTilePath}{Strings.BackSlash}{systemTileName}{Strings.FileExtensionWebp}";
     }
 
-    public string GetTechnologyImagePath(string fileName)
+    public string GetTechnologyImagePath(TechnologyName technologyName)
     {
-        return $"{GetCorrectLanguagePath(Paths.ResourcePath_TechnologyImagePath)}{Strings.BackSlash}{fileName}{Strings.FileExtensionWebp}";
+        return $"{GetCorrectLanguagePath(Paths.ResourcePath_TechnologyImagePath)}{Strings.BackSlash}{technologyName}{Strings.FileExtensionWebp}";
     }
 
-    public string GetUnitImagePath(string fileName)
+    public string GetTechnologyIconPath(TechnologyType technologyType)
     {
-        return $"{Paths.ResourcePath_UnitImagePath}{Strings.BackSlash}{fileName}{Strings.FileExtensionWebp}";
+        return $"{Paths.ResourcePath_TechnologyIconPath}{Strings.BackSlash}{technologyType}{Strings.FileExtensionWebp}";
+    }
+
+    public string GetPlanetTraitPath(PlanetTrait planetTrait)
+    {
+        return $"{Paths.ResourcePath_PlanetTraitIconPath}{Strings.BackSlash}{planetTrait}{Strings.FileExtensionWebp}";
+    }
+
+    public string GetUnitImagePath(UnitName unitName)
+    {
+        return $"{Paths.ResourcePath_UnitImagePath}{Strings.BackSlash}{unitName}{Strings.FileExtensionWebp}";
     }
 
     public string GetPlanetImagePath(string fileName)
@@ -90,6 +100,55 @@ public class PathProvider : IPathProvider
     public string GetPromissoryNotePath(string fileName)
     {
         return $"{GetCorrectLanguagePath(Paths.ResourcePath_PromissoryNotePath)}{Strings.BackSlash}{fileName}{Strings.FileExtensionWebp}";
+    }
+
+    public string GetCardImagePath(string fileName, string cardType)
+    {
+        ArgumentNullException.ThrowIfNull(cardType);
+
+        if (string.IsNullOrEmpty(fileName))
+            throw new ArgumentException("Enum name is a required parameter.");
+
+        return $"{_basePath}\\{_language}\\cards\\{cardType.ToLowerInvariant()}\\{fileName}.webp";
+    }
+
+    public string GetGameVersionIconPath(GameVersion gameVersion)
+    {
+        return $"{Paths.ResourcePath_GameVersionIconPath}{Strings.BackSlash}{gameVersion}{Strings.FileExtensionWebp}";
+    }
+
+    public string GetWebsitePreviewImagePath(string fileName)
+    {
+        // TODO: This is bad, should be handled differently, but I don't have the time to refactor this now.
+        var websitePath = fileName switch
+        {
+            "Fantasy Flight Games" => "FFG",
+            "Twilight Imperium Wiki" => "Wiki",
+            "Twilight Imperium 4th Edition Rules Reference" => "Rules",
+            "Board Game Geek" => "BGG",
+            "Reddit" => "Reddit",
+            "Facebook CZSK" => "FacebookCZSK",
+            "Facebook TI" => "Facebook",
+            "Facebook Global" => "FacebookGlobal",
+            "SCPT Podcasts" => "SCPTPodcasts",
+            "Twilight Wars" => "TwilightWars",
+            "Twilight Imperium Assistant" => "TIAssistant",
+            "Online Match Stats" => "OnlineMatchStats",
+            "Keegan Map Generator" => "KeeganMapGenerator",
+            "TI4 Lab" => "Lab",
+            "Twilight Imperium 4 Balanced Map Generator" => "BalancedMapGenerator",
+            "TI4 Map Lab" => "MapLab",
+            "Milty Draft Generator" => "MiltyDraft",
+            "Milty Draft Map Generator" => "MiltyDraftMapGenerator",
+            "TI4 Cartographer" => "Cartographer",
+            "Color Picker" => "ColorPicker",
+            "Twilight Imperium 4th Color Assigner" => "ColorAssigner",
+            "Card Generator" => "CardGenerator",
+            "Discord" => "Discord",
+            _ => string.Empty,
+        };
+
+        return $"{Paths.ResourcePath_WebsitePreviewPath}{Strings.BackSlash}{websitePath}{Strings.FileExtensionWebp}";
     }
 
     private string GetCorrectLanguagePath(string path)

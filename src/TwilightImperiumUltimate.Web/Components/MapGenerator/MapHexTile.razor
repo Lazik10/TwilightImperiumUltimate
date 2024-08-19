@@ -1,4 +1,6 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@inherits TwilightImperiumBaseComponenet
+
 <div class="hex-container"
      draggable="true" 
      @ondragstart="@(() => StartDragSystemTile(SystemTile))"
@@ -7,34 +9,81 @@
      @ondragover="@(() => DragOverSystemTile(SystemTile))"
      @ondragover:preventDefault="true"
      @ondragend="@(() => EndDragSystemTile(SystemTile))"
-     title="@(SystemTile.Name.ToString())">
+     title="@(SystemTile.SystemTileName.ToString())">
 
-    <img src="@ImagePath" alt="Hexagon">
+    <img src="@ImagePath"
+         style="transform: rotate(@(_degrees)deg);
+                transition: transform 0.5s ease;"
+        alt="Hexagon" 
+        @onclick="Rotate">
 
-    @if (SystemTileOverlay == SystemTileOverlay.Id)
+    @if (Overlay == SystemTileOverlay.Id || Overlay == SystemTileOverlay.Resources || Overlay == SystemTileOverlay.Influence)
+    {
+        <div class="hex-text @(SystemTileOverlayColor) handel shadow">
+            <FlexColumnCenteredContainer>
+                @if (SystemTile!.SystemTileCategory == SystemTileCategory.Green && SystemTile.FactionName != FactionName.None
+               || SystemTile.SystemTileName == SystemTileName.TileHome)
+                {
+                    <div class="handel green shadow">
+                        @SystemTile.PlayerName
+                    </div>
+                }
+
+                @if(SystemTile.SystemTileName != SystemTileName.TileHome)
+                {
+                    @SystemTileOverlayText
+                }
+            </FlexColumnCenteredContainer>
+        </div>
+    }
+    else if (Overlay == SystemTileOverlay.ResourcesAndInfluence)
     {
         <div class="hex-text white handel shadow">
-            @MapTileId
+            <FlexColumnCenteredContainer>
+                @if (SystemTile!.SystemTileCategory == SystemTileCategory.Green && SystemTile.FactionName != FactionName.None
+                    || SystemTile.SystemTileName == SystemTileName.TileHome)
+                {
+                    <div class="handel green shadow">
+                        @SystemTile.PlayerName
+                    </div>
+                }
+
+                @if (SystemTile.SystemTileName != SystemTileName.TileHome)
+                {
+                    <FlexRowContainer>
+                        <div class="yellow">@SystemTile.Resources</div><HorizontalSpace Width="10" />/<HorizontalSpace Width="10" /><div class="blue">@SystemTile.Influence</div>
+                    </FlexRowContainer>
+                }
+
+            </FlexColumnCenteredContainer>
         </div>
     }
-    else if (SystemTileOverlay == SystemTileOverlay.Resources)
+    else if (Overlay == SystemTileOverlay.MapPosition)
     {
-        <div class="hex-text yellow handel shadow">
-            @SystemTile.Resources
-        </div>
+        <FlexColumnCenteredContainer>
+            <div class="hex-text @(SystemTileOverlayColor) handel shadow">
+                @if (SystemTile!.SystemTileCategory == SystemTileCategory.Green && SystemTile.FactionName != FactionName.None
+               || SystemTile.SystemTileName == SystemTileName.TileHome)
+                {
+                    <div class="handel green shadow">
+                        @SystemTile.PlayerName
+                    </div>
+                }
+
+                <div>
+                    @MapPosition
+                </div>
+            </div>
+        </FlexColumnCenteredContainer>
     }
-    else if(SystemTileOverlay == SystemTileOverlay.Influence)
+    else
     {
-        <div class="hex-text blue handel shadow">
-            @SystemTile.Influence
-        </div>
-    }
-    else if (SystemTileOverlay == SystemTileOverlay.ResourcesAndInfluence)
-    {
-        <div class="hex-text white handel shadow">
-            <FlexRowContainer>
-                <div class="yellow">@SystemTile.Resources</div><HorizontalSpace Width="10" />/<HorizontalSpace Width="10" /><div class="blue">@SystemTile.Influence</div>
-            </FlexRowContainer>
-        </div>
+        @if (SystemTile!.SystemTileCategory == SystemTileCategory.Green && SystemTile.FactionName != FactionName.None
+       || SystemTile.SystemTileName == SystemTileName.TileHome)
+        {
+            <div class="hex-text handel green shadow">
+                @SystemTile.PlayerName
+            </div>
+        }
     }
 </div>

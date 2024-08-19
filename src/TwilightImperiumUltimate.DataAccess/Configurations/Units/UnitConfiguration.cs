@@ -1,9 +1,6 @@
-﻿using TwilightImperiumUltimate.Core.Entities.Units;
-using TwilightImperiumUltimate.DataAccess.Tables.Units;
-
 namespace TwilightImperiumUltimate.DataAccess.Configurations.Units;
 
-internal class UnitConfiguration : IEntityTypeConfiguration<Unit>
+internal sealed class UnitConfiguration : IEntityTypeConfiguration<Unit>
 {
     public void Configure(EntityTypeBuilder<Unit> builder)
     {
@@ -13,36 +10,49 @@ internal class UnitConfiguration : IEntityTypeConfiguration<Unit>
 
         builder.HasKey(e => e.UnitName);
 
+        builder.Property(x => x.Id)
+            .IsRequired()
+            .UseIdentityColumn()
+            .HasColumnOrder(0);
+
         builder.Property(e => e.UnitName)
             .IsRequired()
             .HasColumnName(nameof(Unit.UnitName))
-            .HasConversion<int>()
-            .HasColumnType("integer");
+            .HasConversion<string>()
+            .HasColumnType("varchar(20)")
+            .HasMaxLength(20)
+            .HasColumnOrder(1);
 
         builder.Property(e => e.UnitType)
             .IsRequired()
             .HasColumnName(nameof(Unit.UnitType))
-            .HasConversion<int>()
-            .HasColumnType("integer");
+            .HasConversion<string>()
+            .HasColumnType("varchar(20)")
+            .HasMaxLength(20)
+            .HasColumnOrder(2);
 
         builder.Property(e => e.Cost)
             .IsRequired()
             .HasColumnName(nameof(Unit.Cost))
-            .HasColumnType("integer");
+            .HasColumnType("integer")
+            .HasColumnOrder(3);
 
         builder.Property(e => e.Combat)
             .IsRequired()
             .HasColumnName(nameof(Unit.Combat))
-            .HasColumnType("integer");
+            .HasColumnType("integer")
+            .HasColumnOrder(4);
 
         builder.Property(e => e.Move)
             .IsRequired()
             .HasColumnName(nameof(Unit.Move))
-            .HasColumnType("integer");
+            .HasColumnType("integer")
+            .HasColumnOrder(5);
 
         builder.Property(e => e.Capacity)
             .IsRequired()
             .HasColumnName(nameof(Unit.Capacity))
-            .HasColumnType("integer");
+            .HasColumnType("integer")
+            .HasColumnOrder(6);
     }
 }

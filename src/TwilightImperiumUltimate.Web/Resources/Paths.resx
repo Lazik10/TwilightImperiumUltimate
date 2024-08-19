@@ -117,14 +117,35 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ApiPath_AccountConfirmEmail" xml:space="preserve">
+    <value>confirmEmail</value>
+  </data>
+  <data name="ApiPath_AccountLogin" xml:space="preserve">
+    <value>login?useCookies=false&amp;useSessionCookies=false</value>
+  </data>
+  <data name="ApiPath_AccountRefreshToken" xml:space="preserve">
+    <value>refresh</value>
+  </data>
+  <data name="ApiPath_AccountRegister" xml:space="preserve">
+    <value>register</value>
+  </data>
+  <data name="ApiPath_ActionCards" xml:space="preserve">
+    <value>api/cards/action</value>
+  </data>
+  <data name="ApiPath_AgendaCards" xml:space="preserve">
+    <value>api/cards/agenda</value>
+  </data>
   <data name="ApiPath_Cards" xml:space="preserve">
     <value>api/cards/</value>
   </data>
   <data name="ApiPath_ColorDraft" xml:space="preserve">
-    <value>api/drafts/colors</value>
+    <value>api/drafts/color</value>
+  </data>
+  <data name="ApiPath_ExplorationCards" xml:space="preserve">
+    <value>api/cards/exploration</value>
   </data>
   <data name="ApiPath_FactionDraft" xml:space="preserve">
-    <value>api/drafts/factions</value>
+    <value>api/drafts/faction</value>
   </data>
   <data name="ApiPath_Factions" xml:space="preserve">
     <value>api/factions</value>
@@ -132,23 +153,71 @@
   <data name="ApiPath_FirstFaction" xml:space="preserve">
     <value>api/factions/1</value>
   </data>
-  <data name="ApiPath_MapDraft" xml:space="preserve">
-    <value>api/mapgenerators</value>
+  <data name="ApiPath_ForgotPassword" xml:space="preserve">
+    <value>forgotPassword</value>
+  </data>
+  <data name="ApiPath_FrontierCards" xml:space="preserve">
+    <value>api/cards/frontier</value>
+  </data>
+  <data name="ApiPath_GenerateMap" xml:space="preserve">
+    <value>api/map-generators/generate-map</value>
+  </data>
+  <data name="ApiPath_ManageInfo" xml:space="preserve">
+    <value>manage/info</value>
   </data>
   <data name="ApiPath_News" xml:space="preserve">
     <value>api/news</value>
   </data>
+  <data name="ApiPath_ObjectiveCards" xml:space="preserve">
+    <value>api/cards/objective</value>
+  </data>
   <data name="ApiPath_Planets" xml:space="preserve">
     <value>api/galaxy/planets</value>
+  </data>
+  <data name="ApiPath_PromissoryNoteCards" xml:space="preserve">
+    <value>api/cards/promissory-note</value>
+  </data>
+  <data name="ApiPath_PromissoryNotes" xml:space="preserve">
+    <value>api/cards/promissory-note</value>
+  </data>
+  <data name="ApiPath_RelicCards" xml:space="preserve">
+    <value>api/cards/relic</value>
+  </data>
+  <data name="ApiPath_ResendConfirmationEmail" xml:space="preserve">
+    <value>resendConfirmationEmail</value>
+  </data>
+  <data name="ApiPath_ResetPassword" xml:space="preserve">
+    <value>resetPassword</value>
   </data>
   <data name="ApiPath_Rules" xml:space="preserve">
     <value>api/rules</value>
   </data>
+  <data name="ApiPath_SecretObjectiveCards" xml:space="preserve">
+    <value>api/cards/secret</value>
+  </data>
+  <data name="ApiPath_StageOneObjectiveCards" xml:space="preserve">
+    <value>api/cards/stage-one-objective</value>
+  </data>
+  <data name="ApiPath_StageTwoObjectiveCards" xml:space="preserve">
+    <value>api/cards/stage-two-objective</value>
+  </data>
+  <data name="ApiPath_StrategyCards" xml:space="preserve">
+    <value>api/cards/strategy</value>
+  </data>
   <data name="ApiPath_SystemTiles" xml:space="preserve">
-    <value>api/galaxy/tiles</value>
+    <value>api/galaxy/system-tiles</value>
   </data>
   <data name="ApiPath_Technologies" xml:space="preserve">
     <value>api/technologies</value>
+  </data>
+  <data name="ApiPath_UserByEmail" xml:space="preserve">
+    <value>api/user/byemail</value>
+  </data>
+  <data name="ApiPath_Users" xml:space="preserve">
+    <value>api/user</value>
+  </data>
+  <data name="ApiPath_UserUpdate" xml:space="preserve">
+    <value>api/user/update</value>
   </data>
   <data name="ResourceNamespace_FactionInfo" xml:space="preserve">
     <value>TwilightImperiumUltimate.Web.Resources.FactionsInfo</value>
@@ -158,6 +227,12 @@
   </data>
   <data name="ResourceNamespace_Strings" xml:space="preserve">
     <value>TwilightImperiumUltimate.Web.Resources.Strings</value>
+  </data>
+  <data name="ResourcePath_ActionCard" xml:space="preserve">
+    <value>action</value>
+  </data>
+  <data name="ResourcePath_AgendaCard" xml:space="preserve">
+    <value>agenda</value>
   </data>
   <data name="ResourcePath_CardGeneratorPath" xml:space="preserve">
     <value>/resources/images/{language}/cardgenerator</value>
@@ -171,6 +246,9 @@
   <data name="ResourcePath_CulturePath" xml:space="preserve">
     <value>\resources\images\shared\cultures</value>
   </data>
+  <data name="ResourcePath_ExplorationCard" xml:space="preserve">
+    <value>exploration</value>
+  </data>
   <data name="ResourcePath_FactionComponentsPath" xml:space="preserve">
     <value>\resources\images\{language}\leaders</value>
   </data>
@@ -183,17 +261,47 @@
   <data name="ResourcePath_FactionSheetPath" xml:space="preserve">
     <value>\resources\images\shared\factionimages</value>
   </data>
+  <data name="ResourcePath_FrontierCard" xml:space="preserve">
+    <value>frontier</value>
+  </data>
+  <data name="ResourcePath_GameVersionIconPath" xml:space="preserve">
+    <value>\resources\images\shared\icons</value>
+  </data>
   <data name="ResourcePath_IconPath" xml:space="preserve">
     <value>\resources\images\shared\icons</value>
   </data>
   <data name="ResourcePath_LargeTilePath" xml:space="preserve">
     <value>\resources\images\shared\tiles\large</value>
   </data>
+  <data name="ResourcePath_ObjectiveSecret" xml:space="preserve">
+    <value>objective/secret</value>
+  </data>
+  <data name="ResourcePath_ObjectiveStageOne" xml:space="preserve">
+    <value>objective/stageone</value>
+  </data>
+  <data name="ResourcePath_ObjectiveStageTwo" xml:space="preserve">
+    <value>objective/stagetwo</value>
+  </data>
   <data name="ResourcePath_PlanetImagePath" xml:space="preserve">
     <value>\resources\images\{language}\planets</value>
   </data>
+  <data name="ResourcePath_PlanetTraitIconPath" xml:space="preserve">
+    <value>\resources\images\shared\planettraits</value>
+  </data>
+  <data name="ResourcePath_PromissoryCard" xml:space="preserve">
+    <value>promissory</value>
+  </data>
   <data name="ResourcePath_PromissoryNotePath" xml:space="preserve">
     <value>\resources\images\{language}\cards\promissary</value>
+  </data>
+  <data name="ResourcePath_RelicCard" xml:space="preserve">
+    <value>relic</value>
+  </data>
+  <data name="ResourcePath_StrategyCard" xml:space="preserve">
+    <value>strategy</value>
+  </data>
+  <data name="ResourcePath_TechnologyIconPath" xml:space="preserve">
+    <value>\resources\images\shared\technologies</value>
   </data>
   <data name="ResourcePath_TechnologyImagePath" xml:space="preserve">
     <value>\resources\images\{language}\technologies</value>
@@ -203,5 +311,8 @@
   </data>
   <data name="ResourcePath_UnitImagePath" xml:space="preserve">
     <value>\resources\images\shared\units</value>
+  </data>
+  <data name="ResourcePath_WebsitePreviewPath" xml:space="preserve">
+    <value>\resources\images\shared\websites</value>
   </data>
 </root>

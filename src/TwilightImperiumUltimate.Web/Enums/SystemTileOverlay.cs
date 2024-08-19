@@ -1,4 +1,4 @@
-﻿namespace TwilightImperiumUltimate.Web.Enums;
+namespace TwilightImperiumUltimate.Web.Enums;
 
 public enum SystemTileOverlay
 {
@@ -7,4 +7,5 @@ public enum SystemTileOverlay
     Resources,
     Influence,
     ResourcesAndInfluence,
+    MapPosition,
 }

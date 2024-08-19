@@ -1,31 +1,31 @@
-﻿using Microsoft.AspNetCore.Components;
 using System.Globalization;
-using System.Text.RegularExpressions;
-using TwilightImperiumUltimate.Web.Models.Technologies;
 
 namespace TwilightImperiumUltimate.Web.Components.Technologies;
 
-public partial class BaseTechnologyTree
+public partial class BaseTechnologyTree : TwilightImperiumBaseComponenet
 {
-    private bool showBigImage;
+    private bool _showBigImage;
 
-    private string currentBigImageSrc = string.Empty;
+    private string _currentBigImageSrc = string.Empty;
 
-    private string currentBigImageCulture = string.Empty;
+    private string _currentBigImageCulture = string.Empty;
 
     [Parameter]
-    public IReadOnlyCollection<Technology> Technologies { get; set; } = Array.Empty<Technology>();
+    public TechnologyType SelectedTechnologyType { get; set; } = TechnologyType.None;
 
-    private void ShowBigImage(Technology technology)
+    [Parameter]
+    public IReadOnlyCollection<TechnologyModel> Technologies { get; set; } = Array.Empty<TechnologyModel>();
+
+    private void ShowBigImage(TechnologyModel technology)
     {
-        currentBigImageSrc = PathProvider.GetTechnologyImagePath(technology.TechnologyName.ToString());
-        currentBigImageCulture = CultureInfo.CurrentCulture.Name;
-        showBigImage = true;
+        _currentBigImageSrc = PathProvider.GetTechnologyImagePath(technology.TechnologyName);
+        _currentBigImageCulture = CultureInfo.CurrentCulture.Name;
+        _showBigImage = true;
     }
 
     private void HideBigImage()
     {
-        showBigImage = false;
+        _showBigImage = false;
     }
 
     private string GetCultureIconPath(string culture)
@@ -35,8 +35,10 @@ public partial class BaseTechnologyTree
 
     private void SetBigImageAddress(string culture)
     {
-        currentBigImageSrc = currentBigImageSrc.Replace(currentBigImageCulture, culture);
-        currentBigImageCulture = culture;
+        _currentBigImageSrc = _currentBigImageSrc.Replace(_currentBigImageCulture, culture);
+        _currentBigImageCulture = culture;
         StateHasChanged();
     }
+
+    private int GetCorrectNumberOFColumns() => SelectedTechnologyType == TechnologyType.Faction ? 4 : 3;
 }

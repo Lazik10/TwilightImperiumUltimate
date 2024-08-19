@@ -1,19 +1,19 @@
-using Microsoft.AspNetCore.Components;
-using TwilightImperiumUltimate.Web.Enums;
-using TwilightImperiumUltimate.Web.Services.Path;
-
 namespace TwilightImperiumUltimate.Web.Components.Factions;
 
-public partial class FactionIcon
+public partial class FactionIcon : TwilightImperiumBaseComponenet
 {
     [Parameter]
-    public FactionName FactionName { get; set; }
+    public required FactionModel Faction { get; set; }
 
     [Parameter]
-    public int Height { get; set; } = 40;
+    public bool EnableBanMode { get; set; }
 
-    [Inject]
-    private IPathProvider PathProvider { get; set; } = default!;
+    [Parameter]
+    public EventCallback<FactionModel> OnClick { get; set; }
 
-    private string ImgPath() => PathProvider.GetFactionIconPath(FactionName.ToString());
+    public string Name => Faction.FactionName.ToString();
+
+    private string GetBanIconState() => Faction.Banned && EnableBanMode ? "colorless" : string.Empty;
+
+    private string GetFactionIconPath() => PathProvider.GetFactionIconPath(Faction.FactionName);
 }

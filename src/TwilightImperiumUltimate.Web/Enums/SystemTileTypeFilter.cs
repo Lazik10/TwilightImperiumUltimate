@@ -9,4 +9,11 @@ public enum SystemTileTypeFilter
     BlueTiles,
     RedTiles,
     Hyperlanes,
+    Anomalies,
+    Empty,
+    BaseGame,
+    ProphecyOfKings,
+    DiscordantStars,
+    UnchartedSpace,
+    Custom,
 }

@@ -1,14 +1,8 @@
-﻿#country-selector {
-    position: absolute;
-    top: 0;
-    right: 1%;
-    cursor: pointer;
-}
-
-#country-menu {
+﻿#country-menu {
     position: absolute;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 }
 
 img {

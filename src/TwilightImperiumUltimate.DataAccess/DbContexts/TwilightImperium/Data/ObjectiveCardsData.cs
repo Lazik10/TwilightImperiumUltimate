@@ -1,119 +1,96 @@
-using TwilightImperiumUltimate.Core.Entities.Cards;
-using TwilightImperiumUltimate.Core.Enums.Cards;
-using TwilightImperiumUltimate.DataAccess.Services;
-
 namespace TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium.Data;
 
 internal static class ObjectiveCardsData
 {
-    internal static List<ObjectiveCard> ObjectiveCards => GetObjectiveCards();
-
-    private static List<ObjectiveCard> GetObjectiveCards()
+    internal static List<ObjectiveCard> ObjectiveCards => new()
     {
-        CreateCardImagePathService createCardImagePathService = new();
+        // First Stage
+        new() { EnumName = ObjectiveCardName.AMassWealth, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.BuildDefenses, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.CornerTheMarket, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.DevelopWeaponry, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.DiscoverLostOutposts, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.DiversifyResearch, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.EngineerAMarvel, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.ErectAMonument, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.ExpandBorders, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.ExploreDeepSpace, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.FoundResearchOutposts, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.ImproveInfrastructure, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.IntimidateCouncil, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.LeadFromTheFront, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.MakeHistory, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.NegotiateTradeRoutes, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.PopulateTheOuterRim, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.PushBoundaries, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.RaiseAFleet, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.SwayTheCouncil, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
 
-        var objectiveCards = new List<ObjectiveCard>()
-        {
-            // First Stage
-            new() { ObjectiveCardName = ObjectiveCardName.AMassWealth, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.BuildDefenses, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.CornerTheMarket, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.DevelopWeaponry, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.DiscoverLostOutposts, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.DiversifyResearch, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.EngineerAMarvel, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.ErectAMonument, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.ExpandBorders, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.ExploreDeepSpace, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.FoundResearchOutposts, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.ImproveInfrastructure, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.IntimidateCouncil, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.LeadFromTheFront, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.MakeHistory, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.NegotiateTradeRoutes, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.PopulateTheOuterRim, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.PushBoundaries, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.RaiseAFleet, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.SwayTheCouncil, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageOne, Type = CardType.Objective },
+        // Second Stage
+        new() { EnumName = ObjectiveCardName.AchieveSupremacy, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.BecomeALegend, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.CentralizeGalacticTrade, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.CommandAnArmada, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.ConquerTheWeak, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.ConstructMassiveCities, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.ControlTheBorderlands, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.FormGalacticBrainTrust, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.FoundAGoldenAge, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.GalvanizeThePeople, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.HoldVastReserves, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.ManipulateGalacticLaw, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.MasterTheSciences, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.PatrolVastTerritories, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.ProtectTheBorder, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.ReclaimAncientMonuments, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.RevolutionizeWarfare, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.RuleDistantLands, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.SubdueTheGalaxy, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.UnifyTheColonies, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
 
-            // Second Stage
-            new() { ObjectiveCardName = ObjectiveCardName.AchieveSupremacy, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.BecomeALegend, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.CentralizeGalacticTrade, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.CommandAnArmada, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.ConquerTheWeak, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.ConstructMassiveCities, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.ControlTheBorderlands, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.FormGalacticBrainTrust, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.FoundAGoldenAge, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.GalvanizeThePeople, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.HoldVastReserves, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.ManipulateGalacticLaw, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.MasterTheSciences, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.PatrolVastTerritories, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.ProtectTheBorder, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.ReclaimAncientMonuments, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.RevolutionizeWarfare, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.RuleDistantLands, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.SubdueTheGalaxy, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.UnifyTheColonies, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.StageTwo, Type = CardType.Objective },
-
-            // Secrets
-            new() { ObjectiveCardName = ObjectiveCardName.AdaptNewStrategies, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.BecomeAMartyr, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.BecomeTheGatekeeper, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.BetrayAFriend, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.BraveTheVoid, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.ControlTheRegion, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.CutSupplyLines, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.DarkenTheSkies, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.DefySpaceAndTime, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.DemonstrateYourPower, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.DestroyHereticalWorks, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.DestroyTheirGreatestShip, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.DictatePolicy, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.DriveTheDebate, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.EstablishAPerimeter, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.EstablishHegemony, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.FightWithPrecision, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.FightWithPrecisionOmega, GameVersion = GameVersion.CodexVigil, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.ForgeAnAlliance, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.FormASpyNetwork, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.FosterCohesion, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.FuelTheWarMachine, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.GatherAMightyFleet, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.HoardRawMaterials, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.LearnTheSecretsOfTheCosmos, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.MakeAnExampleOfTheirWorld, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.MakeAnExampleOfTheirWorldOmega, GameVersion = GameVersion.CodexVigil, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.MasterTheLawsOfPhysics, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.MechanizeTheMilitary, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.MineRareMinerals, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.MonopolizeProduction, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.OccupyTheFringe, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.OccupyTheSeatOfTheEmpire, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.ProduceEnMasse, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.ProveEndurance, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.SeizeAnIcon, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.SparkARebellion, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.StakeYourClaim, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.StrengthenBonds, GameVersion = GameVersion.ProphecyOfKing, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.ThreatenEnemies, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.TurnTheirFleetsToDust, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.TurnTheirFleetsToDustOmega, GameVersion = GameVersion.CodexVigil, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-            new() { ObjectiveCardName = ObjectiveCardName.UnveilFlagship, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective },
-        };
-
-        var updatedObjectiveCards = objectiveCards.Select((objectiveCard, i) =>
-        {
-            objectiveCard.Id = i + 1;
-            objectiveCard.Name = $"{objectiveCard.ObjectiveCardName}_{nameof(ObjectiveCard.Name)}";
-            objectiveCard.Text = $"{objectiveCard.ObjectiveCardName}_{nameof(ObjectiveCard.Text)}";
-            objectiveCard.Type = CardType.Objective;
-            objectiveCard.ImagePath = createCardImagePathService.GetCardImagePath(objectiveCard.ObjectiveCardName, objectiveCard.Type);
-            return objectiveCard;
-        }).ToList();
-
-        return updatedObjectiveCards;
-    }
+        // Secrets
+        new() { EnumName = ObjectiveCardName.AdaptNewStrategies, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.BecomeAMartyr, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.Action },
+        new() { EnumName = ObjectiveCardName.BecomeTheGatekeeper, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.BetrayAFriend, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.Action },
+        new() { EnumName = ObjectiveCardName.BraveTheVoid, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.Action },
+        new() { EnumName = ObjectiveCardName.ControlTheRegion, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.CutSupplyLines, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.DarkenTheSkies, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.Action },
+        new() { EnumName = ObjectiveCardName.DefySpaceAndTime, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.DemonstrateYourPower, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.Action },
+        new() { EnumName = ObjectiveCardName.DestroyHereticalWorks, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.DestroyTheirGreatestShip, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.Action, },
+        new() { EnumName = ObjectiveCardName.DictatePolicy, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.StrategyPhase },
+        new() { EnumName = ObjectiveCardName.DriveTheDebate, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.StrategyPhase },
+        new() { EnumName = ObjectiveCardName.EstablishAPerimeter, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.EstablishHegemony, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.FightWithPrecision, GameVersion = GameVersion.Deprecated, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.Action },
+        new() { EnumName = ObjectiveCardName.FightWithPrecisionOmega, GameVersion = GameVersion.CodexVigil, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.Action },
+        new() { EnumName = ObjectiveCardName.ForgeAnAlliance, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.FormASpyNetwork, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.FosterCohesion, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.FuelTheWarMachine, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.GatherAMightyFleet, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.HoardRawMaterials, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.LearnTheSecretsOfTheCosmos, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.MakeAnExampleOfTheirWorld, GameVersion = GameVersion.Deprecated, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.Action },
+        new() { EnumName = ObjectiveCardName.MakeAnExampleOfTheirWorldOmega, GameVersion = GameVersion.CodexVigil, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.Action },
+        new() { EnumName = ObjectiveCardName.MasterTheLawsOfPhysics, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.MechanizeTheMilitary, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.MineRareMinerals, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.MonopolizeProduction, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.OccupyTheFringe, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.OccupyTheSeatOfTheEmpire, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.ProduceEnMasse, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.ProveEndurance, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.Action },
+        new() { EnumName = ObjectiveCardName.SeizeAnIcon, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.SparkARebellion, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.Action },
+        new() { EnumName = ObjectiveCardName.StakeYourClaim, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.StrengthenBonds, GameVersion = GameVersion.ProphecyOfKings, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.ThreatenEnemies, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.StatusPhase },
+        new() { EnumName = ObjectiveCardName.TurnTheirFleetsToDust, GameVersion = GameVersion.Deprecated, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.Action },
+        new() { EnumName = ObjectiveCardName.TurnTheirFleetsToDustOmega, GameVersion = GameVersion.CodexVigil, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.Action },
+        new() { EnumName = ObjectiveCardName.UnveilFlagship, GameVersion = GameVersion.BaseGame, ObjectiveCardType = ObjectiveCardType.Secret, Type = CardType.Objective, TimingWindow = TimingWindow.Action },
+    };
 }

@@ -1,0 +1,15 @@
+﻿.version-row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 25px;
+    padding: 0% 0% 0% 0%;
+}
+
+.margin-bottom {
+    margin-bottom: 0px !important;
+}
+
+.background {
+    background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.5) 1%, rgba(0,0,0,0.5) 99%, rgba(0,0,0,0));
+}

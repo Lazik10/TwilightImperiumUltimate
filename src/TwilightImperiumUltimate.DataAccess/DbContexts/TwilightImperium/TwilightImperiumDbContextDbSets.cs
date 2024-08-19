@@ -1,13 +1,8 @@
-using TwilightImperiumUltimate.Core.Entities.Cards;
-using TwilightImperiumUltimate.Core.Entities.News;
-using TwilightImperiumUltimate.Core.Entities.RelationshipEntities;
-using TwilightImperiumUltimate.Core.Entities.Rules;
-using TwilightImperiumUltimate.Core.Entities.Units;
-using TwilightImperiumUltimate.Core.Entities.Users;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium;
 
-public partial class TwilightImperiumDbContext : DbContext
+public partial class TwilightImperiumDbContext : IdentityDbContext<TwilightImperiumUser>
 {
     // Cards
     public virtual DbSet<ActionCard> ActionCards { get; set; }
@@ -24,7 +19,7 @@ public partial class TwilightImperiumDbContext : DbContext
 
     public virtual DbSet<StrategyCard> StrategyCards { get; set; }
 
-    public virtual DbSet<PromissaryNoteCard> PromissaryNoteCards { get; set; }
+    public virtual DbSet<PromissoryNoteCard> PromissoryNoteCards { get; set; }
 
     // Galaxy
     public virtual DbSet<Planet> Planets { get; set; }
@@ -55,9 +50,9 @@ public partial class TwilightImperiumDbContext : DbContext
     // Units
     public virtual DbSet<Unit> Units { get; set; }
 
-    // Users
-    public virtual DbSet<User> Users { get; set; }
-
     // News
     public virtual DbSet<NewsArticle> NewsArticles { get; set; }
+
+    // Websites
+    public virtual DbSet<Website> Websites { get; set; }
 }

@@ -1,5 +1,3 @@
-﻿using Microsoft.AspNetCore.Components;
-
 namespace TwilightImperiumUltimate.Web.Components.Shared.Controls;
 
 public partial class ArrowButton
@@ -9,4 +7,7 @@ public partial class ArrowButton
 
     [Parameter]
     public MarkupString ArrowSymbol { get; set; }
+
+    [Parameter]
+    public int FontSize { get; set; } = 46;
 }

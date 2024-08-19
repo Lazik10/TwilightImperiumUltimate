@@ -1,10 +1,10 @@
-﻿namespace TwilightImperiumUltimate.Web.Enums;
+namespace TwilightImperiumUltimate.Web.Enums;
 
 public enum FactionResourceType
 {
     Title,
     Ability,
-    History,
+    Lore,
     PromissaryNote,
     Quote,
     SystemInfo,

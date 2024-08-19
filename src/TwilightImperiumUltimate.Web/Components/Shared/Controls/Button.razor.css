@@ -1,20 +1,40 @@
 ﻿.button {
-    min-width: 20%;
-    border-radius: 10px;
-    border: 2px solid black;
-    background-color: rgba(0, 0, 255, 0.3);
-    transition: background-color 0.3s ease;
-    padding: 10px;
+    min-width: 30% !important;
+    border-radius: 10px !important;
+    border: 2px solid black !important;
+    background-color: rgba(0, 0, 255, 0.3) !important;
+    transition: background-color 0.3s ease !important;
+    padding: 10px 30px !important;
 }
 
 .button-disabled {
-    border-radius: 10px;
-    border: 2px solid black;
-    background-color: rgba(128, 128, 128, 0.3);
-    transition: background-color 0.3s ease;
-    padding: 10px;
+    min-width: 30% !important;
+    border-radius: 10px !important;
+    border: 2px solid black !important;
+    background-color: rgba(128, 128, 128, 0.3) !important;
+    transition: background-color 0.3s ease !important;
+    padding: 10px 30px !important;
 }
 
 .button:hover {
-    background-color: white;
+    background-color: white !important;
 }
+
+.div-like-button {
+    display: block !important;
+    min-width: 30% !important;
+    padding: 10px 30px !important;
+    background-color: rgba(0, 0, 255, 0.3);
+    color: white !important;
+    border: 2px solid black !important;
+    border-radius: 10px !important;
+    cursor: pointer !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    font-size: 16px;
+    margin-bottom: 0px !important;
+}
+
+    .div-like-button:hover {
+        background-color: white !important;
+    }

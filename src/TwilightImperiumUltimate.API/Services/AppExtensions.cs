@@ -8,13 +8,17 @@ public static class AppExtensions
 {
     public static async Task CreateOrUpdateDbContextAsync(this WebApplication app)
     {
+        ArgumentNullException.ThrowIfNull(app);
+
         var context = app.Services.GetRequiredService<TwilightImperiumDbContext>();
         await context.Database.MigrateAsync();
         await context.SeedDatabaseAsync();
     }
 
-    public static async Task AppRun(this WebApplication app)
+    public static async Task AppRunAsync(this WebApplication app)
     {
+        ArgumentNullException.ThrowIfNull(app);
+
         try
         {
             Log.Information("Starting Twilight Imperium Ultimate API");

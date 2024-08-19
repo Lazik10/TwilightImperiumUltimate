@@ -1,5 +1,3 @@
-﻿using TwilightImperiumUltimate.Web.Enums;
-
 namespace TwilightImperiumUltimate.Web.Options.MapGenerators;
 
 public static class MapGeneratorOptions
@@ -8,15 +6,23 @@ public static class MapGeneratorOptions
 
     public static readonly int MaxScale = 100;
 
-    public static readonly int DefaultScale = 100;
+    public static readonly int DefaultScale = 80;
 
     public static readonly int ScaleIncrement = 5;
+
+    public static readonly int NumberOfLegendaryPlanets;
+
+    public static readonly bool LegendaryPriorityInEquidistant;
+
+    public static readonly bool EnableFactionPick;
+
+    public static readonly bool EnablePlayerNames;
 
     public static readonly SystemTileName DefaultTileName = SystemTileName.Tile18;
 
     public static readonly int MaxTilePositions = 81;
 
-    public static readonly MapTemplate MapTemplate = MapTemplate.MediumMapSixPlayers;
+    public static readonly MapTemplate MapTemplate = MapTemplate.SixPlayersMediumMap;
 
     public static readonly PlacementStyle PlacementStyle = PlacementStyle.Slice;
 
@@ -24,5 +30,7 @@ public static class MapGeneratorOptions
 
     public static readonly SystemTileOverlay SystemTileOverlay = SystemTileOverlay.None;
 
-    public static readonly GameVersion GameVersion = GameVersion.ProphecyOfKing;
+    public static readonly GameVersion GameVersion = GameVersion.ProphecyOfKings;
+
+    public static readonly WormholeDensity WormholeDensity = WormholeDensity.Random;
 }

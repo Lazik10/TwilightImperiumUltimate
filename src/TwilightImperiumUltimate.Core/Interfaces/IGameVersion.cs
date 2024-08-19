@@ -1,4 +1,4 @@
-﻿using TwilightImperiumUltimate.Core.Enums.Game;
+using TwilightImperiumUltimate.Contracts.Enums;
 
 namespace TwilightImperiumUltimate.Core.Interfaces;
 

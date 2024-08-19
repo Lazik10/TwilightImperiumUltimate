@@ -1,5 +1,3 @@
-﻿using TwilightImperiumUltimate.Web.Enums;
-
 namespace TwilightImperiumUltimate.Web.Models.Factions;
 
 public class FactionModel
@@ -8,13 +6,15 @@ public class FactionModel
 
     public int Commodities { get; set; }
 
-    public int ComplexityRating { get; set; }
+    public ComplexityRating ComplexityRating { get; set; }
 
     public GameVersion GameVersion { get; set; }
 
     public bool Banned { get; set; }
 
-    public IReadOnlyDictionary<UnitName, int> Units { get; set; } = new Dictionary<UnitName, int>();
+    public IReadOnlyCollection<UnitModel> StartingUnits { get; set; } = new List<UnitModel>();
 
-    public IReadOnlyCollection<PromissaryNoteName> PromissaryNotes { get; set; } = new List<PromissaryNoteName>();
+    public IReadOnlyCollection<TechnologyModel> StartingTechnologies { get; set; } = new List<TechnologyModel>();
+
+    public IReadOnlyCollection<PromissoryNoteCardName> PromissaryNotes { get; set; } = new List<PromissoryNoteCardName>();
 }

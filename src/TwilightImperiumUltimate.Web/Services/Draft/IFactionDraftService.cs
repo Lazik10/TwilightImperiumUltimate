@@ -1,4 +1,4 @@
-﻿using TwilightImperiumUltimate.Web.Models.Drafts;
+using TwilightImperiumUltimate.Web.Models.Drafts;
 using TwilightImperiumUltimate.Web.Models.Factions;
 
 namespace TwilightImperiumUltimate.Web.Services.Draft;
@@ -32,6 +32,8 @@ public interface IFactionDraftService
     void ResetPlayerFactions();
 
     void UpdateBanFactions(IReadOnlyCollection<FactionModel>? factionsWithBanStatus);
+
+    void GameVersionGlobalEnableDisable(GameVersion version);
 
     Task PerformDraft();
 }

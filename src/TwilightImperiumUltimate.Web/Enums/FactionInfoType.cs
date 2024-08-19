@@ -3,7 +3,7 @@
 public enum FactionInfoType
 {
     Ability,
-    StartingUnits,
+    Setup,
     Componenets,
     Leaders,
     History,

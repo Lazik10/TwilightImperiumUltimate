@@ -1,0 +1,11 @@
+﻿.map-quick-menu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    right: -5%;
+    top: 10%;
+    z-index: 1000;
+    width: 15%;
+    max-height: 40%;
+    min-height: 40%;
+}

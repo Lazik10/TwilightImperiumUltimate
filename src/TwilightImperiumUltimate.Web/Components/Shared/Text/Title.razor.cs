@@ -1,5 +1,3 @@
-﻿using Microsoft.AspNetCore.Components;
-
 namespace TwilightImperiumUltimate.Web.Components.Shared.Text;
 
 public partial class Title

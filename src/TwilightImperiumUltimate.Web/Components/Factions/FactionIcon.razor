@@ -1,3 +1,8 @@
-﻿<img src="@(ImgPath())"
-     style="height: @(Height)px;"
-     class="faction-icon"/>
+﻿@inherits TwilightImperiumBaseComponenet
+
+<div class="link responsive-icon" @onclick="() => OnClick.InvokeAsync(Faction)">
+    <img class="icon @GetBanIconState()"
+         src="@GetFactionIconPath()"
+         alt="icon for @Name"
+         title="@Name">
+</div>

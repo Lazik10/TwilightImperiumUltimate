@@ -1,9 +1,5 @@
-﻿using TwilightImperiumUltimate.Web.Enums;
-using TwilightImperiumUltimate.Web.Models.Drafts;
-using TwilightImperiumUltimate.Web.Models.Factions;
+using TwilightImperiumUltimate.Contracts.DTOs.Draft;
 using TwilightImperiumUltimate.Web.Options.Drafts;
-using TwilightImperiumUltimate.Web.Resources;
-using TwilightImperiumUltimate.Web.Services.HttpClients;
 
 namespace TwilightImperiumUltimate.Web.Services.Draft;
 
@@ -106,8 +102,24 @@ public class ColorPickerService : IColorPickerService
             Colors = _colors.Where(x => !x.Value).Select(x => x.Key).ToList(),
         };
 
-        var result = await _httpClient.PostAsync<ColorDraftRequest, List<FactionColorDraftResult>>(Paths.ApiPath_ColorDraft, request);
+        var (response, statusCode) = await _httpClient.PostAsync<ColorDraftRequest, ApiResponse<FactionColorDraftResultDto>>(Paths.ApiPath_ColorDraft, request);
 
-        _factionColorDraftResults = [.. result.OrderBy(results => results.FactionName)];
+        if (statusCode == HttpStatusCode.OK)
+        {
+            var factionColorDraftResults = response!.Data!.FactionColorDraftResults;
+
+            _factionColorDraftResults = factionColorDraftResults
+                .Select(factionColorDraftResult => new FactionColorDraftResult
+                {
+                    FactionName = factionColorDraftResult.Key,
+                    Color = factionColorDraftResult.Value,
+                })
+                .OrderBy(x => x.FactionName)
+                .ToList();
+        }
+        else
+        {
+            _factionColorDraftResults = new List<FactionColorDraftResult>();
+        }
     }
 }

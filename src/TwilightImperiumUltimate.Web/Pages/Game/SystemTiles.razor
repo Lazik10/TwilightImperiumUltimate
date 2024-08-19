@@ -1,34 +1,45 @@
 ﻿@page "/game/systemtiles"
 @using TwilightImperiumUltimate.Web.Components.Shared
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Helpers.Enums
 
 <Page>
+    @{
+        _currentGameVersion = null;
+    }
+    @foreach (var gameVersion in _systemTiles.GroupBy(x => x.GameVersion))
+    {
+        if (_currentGameVersion != gameVersion.Key)
+        {
+            _currentGameVersion = gameVersion.Key;
+            <Label Text="@_currentGameVersion.GetDisplayName()" FontSize="24" CenterText="true" />
+        }
+        <GridLayout Columns="5" Width="80" Gap="10">
+            @foreach (var systemtile in gameVersion)
+            {
+                <div>
+                    <FlexColumnCenteredContainer>
+                        <div class="handel shadow white size">
+                            @(systemtile.SystemTileCode)
+                        </div>
+                    </FlexColumnCenteredContainer>
+                        <div class="clickable" @onclick="(() => ShowBigImage(systemtile))">
+                            <img class=" systemtile" src="@GetSystemTileImagePath(systemtile)" alt="@systemtile.SystemTileName">
+                        </div>
+                    <VerticalSpace Height="50" />
+                </div>
+            }
+        </GridLayout>
+    }
 
-    <StretchHeightContainer>
-
-        <FlexColumnCenteredContainer>
-
-            <div class="systemtile-container">
-
-                @foreach (var systemtile in _systemTiles)
-                {
-                    <div>
-                        <FlexColumnCenteredContainer>
-                            <div class="handel shadow white size">
-                                @(systemtile.Name.ToString().Substring(4))
-                            </div>
-                        </FlexColumnCenteredContainer>
-                        <img class="systemtile" src="@(GetSystemTileImagePath(systemtile))" alt="@systemtile.Name">
-                        <VerticalSpace Height="50" />
-                    </div>
-                }
-
+    @if (_showBigImage)
+    {
+        <div class="big-image-overlay" @onclick="HideBigImage">
+            <div class="image-container">
+                <img src="@_currentBigImageSrc" @onclick="HideBigImage" />
             </div>
-
-        </FlexColumnCenteredContainer>
-
-    </StretchHeightContainer>
-
+        </div>
+    }
 </Page>
 
 

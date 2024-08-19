@@ -1,8 +1,6 @@
 using Serilog;
 using System.Globalization;
 using System.Resources;
-using TwilightImperiumUltimate.Web.Enums;
-using TwilightImperiumUltimate.Web.Resources;
 
 namespace TwilightImperiumUltimate.Web.Helpers.Resources;
 
@@ -25,7 +23,7 @@ public static class ResourceProvider
         }
         else
         {
-            Log.Error($"Could not find resource for {lookupString} in {nameof(FactionResourceManager)}");
+            Log.Error("Could not find resource for {LookupString} in {FactionResourceManager}", lookupString, nameof(FactionResourceManager));
             return string.Empty;
         }
     }
@@ -43,7 +41,7 @@ public static class ResourceProvider
         }
         else
         {
-            Log.Error($"Could not find resource for {lookupString} in {nameof(RuleResourceManager)}");
+            Log.Error("Could not find resource for {LookupString} in {RuleResourceManager}", lookupString, nameof(RuleResourceManager));
             return string.Empty;
         }
     }
@@ -61,7 +59,7 @@ public static class ResourceProvider
         }
         else
         {
-            Log.Error($"Could not find resource for {lookupString} in {nameof(RuleResourceManager)}");
+            Log.Error("Could not find resource for {LookupString} in {RuleResourceManager}", lookupString, nameof(RuleResourceManager));
             return string.Empty;
         }
     }

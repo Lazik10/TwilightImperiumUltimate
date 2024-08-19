@@ -1,8 +1,3 @@
-﻿using Microsoft.AspNetCore.Components;
-using TwilightImperiumUltimate.Web.Components.Factions;
-using TwilightImperiumUltimate.Web.Enums;
-using TwilightImperiumUltimate.Web.Models.Factions;
-using TwilightImperiumUltimate.Web.Resources;
 using TwilightImperiumUltimate.Web.Services.Draft;
 
 namespace TwilightImperiumUltimate.Web.Components.Drafts.Faction;
@@ -123,6 +118,12 @@ public partial class FactionDraftGrid
 
     private void HandleOnDataUpdated(object? sender, EventArgs e)
     {
+        StateHasChanged();
+    }
+
+    private void HandleGameVersionClick(GameVersion version)
+    {
+        FactionDraftService.GameVersionGlobalEnableDisable(version);
         StateHasChanged();
     }
 }

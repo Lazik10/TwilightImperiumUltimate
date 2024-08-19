@@ -16,7 +16,7 @@ public static class TwilightImperiumDbContextSeed
         await SeedIfEmpty(context.ObjectiveCards, ObjectiveCardsData.ObjectiveCards, context);
         await SeedIfEmpty(context.RelicCards, RelicCardsData.RelicCards, context);
         await SeedIfEmpty(context.StrategyCards, StrategyCardsData.StrategyCards, context);
-        await SeedIfEmpty(context.PromissaryNoteCards, PromissaryNoteCardsData.PromissaryNoteCards, context);
+        await SeedIfEmpty(context.PromissoryNoteCards, PromissaryNoteCardsData.PromissaryNoteCards, context);
 
         // Factions
         await SeedIfEmpty(context.Factions, FactionsData.Factions, context);
@@ -27,9 +27,12 @@ public static class TwilightImperiumDbContextSeed
         // Galaxy
         await SeedIfEmpty(context.SystemTiles, GalaxyData.SystemTiles, context);
 
+        // Users
+        await SeedIfEmpty(context.Users, UserData.Users, context);
+        await SeedIfEmpty(context.Roles, RolesData.Roles, context);
+
         // Articles
-        await SeedIfEmpty(context.Users, UsersData.Users, context);
-        await SeedIfEmpty(context.NewsArticles, ArticlesData.Articles, context);
+        await SeedIfEmptyArticles(context.NewsArticles, ArticlesData.Articles, context);
 
         // Players
         await SeedIfEmpty(context.Players, PlayersData.Players, context);
@@ -39,13 +42,43 @@ public static class TwilightImperiumDbContextSeed
 
         // Technologies
         await SeedIfEmpty(context.Technologies, TechnologiesData.Technologies, context);
+
+        // Websited
+        await SeedIfEmpty(context.Websites, WebsitesData.Websites, context);
+
+        await SeedIfEmpty(context.FactionTechnology, FactionTechnologiesData.FactionTechnologies, context);
     }
 
-    private static async Task SeedIfEmpty<TEntity>(DbSet<TEntity> dbSet, IEnumerable<TEntity> data, TwilightImperiumDbContext context)
+    private static async Task SeedIfEmpty<TEntity>(DbSet<TEntity> dbSet, List<TEntity> data, TwilightImperiumDbContext context)
         where TEntity : class
     {
         if (!await dbSet.AnyAsync())
         {
+            try
+            {
+                await dbSet.AddRangeAsync(data);
+                await context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unable to seed data for DbSet: {dbSet.EntityType.Name} and data {data.Count} with exception: {ex.Message}");
+            }
+        }
+    }
+
+    private static async Task SeedIfEmptyArticles(DbSet<NewsArticle> dbSet, IEnumerable<NewsArticle> data, TwilightImperiumDbContext context)
+    {
+        if (!await dbSet.AnyAsync())
+        {
+            var user = await context.Users.FirstOrDefaultAsync();
+            if (user is not null)
+            {
+                foreach (var article in data)
+                {
+                    article.UserId = user.Id;
+                }
+            }
+
             await dbSet.AddRangeAsync(data);
             await context.SaveChangesAsync();
         }

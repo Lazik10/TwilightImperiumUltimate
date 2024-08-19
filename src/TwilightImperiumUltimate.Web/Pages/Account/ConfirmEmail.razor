@@ -1,0 +1,27 @@
+﻿@page "/account/confirmemail/{Id}/{Code}"
+
+<Page>
+
+    <Label Text="@Strings.ConfirmEmail_Title" FontSize="36" CenterText="true"/>
+
+    <VerticalSpace Height="50" />
+
+    @if (!string.IsNullOrEmpty(Id))
+    {
+        <Label Text="@UserIdConfirmingMessage()" CenterText="true" />
+    }
+
+    <VerticalSpace Height="100" />
+
+    @if(_confirmSuccess)
+    {
+        <Label Text="@Strings.ConfirmEmail_UserEmailValidationSuccess" FontSize="26" CenterText="true" TextColor="TextColor.Green"/>
+    }
+    else
+    {
+        <Label Text="@Strings.ConfirmEmail_UserEmailValidationFailed" FontSize="26" CenterText="true" TextColor="TextColor.Red" />
+    }
+
+</Page>
+
+

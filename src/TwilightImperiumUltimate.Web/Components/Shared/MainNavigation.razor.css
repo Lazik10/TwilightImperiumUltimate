@@ -40,7 +40,7 @@
     flex-direction: column;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 1s, visibility 1s;
+    transition: opacity 0.5s, visibility 0.5s;
 }
 
     .dropdown:hover {
@@ -179,7 +179,7 @@
         flex-direction: column;
         opacity: 0;
         visibility: hidden;
-        transition: opacity 1s, visibility 1s;
+        transition: opacity 0.5s, visibility 0.5s;
     }
         .dropdown:hover {
             display: block;

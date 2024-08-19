@@ -4,5 +4,5 @@ namespace TwilightImperiumUltimate.Web.Models.MapGenerators;
 
 public class MapDraftResult
 {
-    public IReadOnlyDictionary<int, SystemTile> MapTiles { get; set; } = new Dictionary<int, SystemTile>();
+    public IReadOnlyDictionary<int, SystemTileModel> MapTiles { get; set; } = new Dictionary<int, SystemTileModel>();
 }

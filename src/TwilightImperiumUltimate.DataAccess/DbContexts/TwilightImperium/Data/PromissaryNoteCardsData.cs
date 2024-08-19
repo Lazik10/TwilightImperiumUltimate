@@ -1,55 +1,83 @@
-using TwilightImperiumUltimate.Core.Entities.Cards;
-using TwilightImperiumUltimate.Core.Enums.Cards;
-using TwilightImperiumUltimate.DataAccess.Services;
-
 namespace TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium.Data;
 
 internal static class PromissaryNoteCardsData
 {
-    internal static List<PromissaryNoteCard> PromissaryNoteCards => GetPromissaryNoteCards();
-
-    private static List<PromissaryNoteCard> GetPromissaryNoteCards()
+    internal static List<PromissoryNoteCard> PromissaryNoteCards => new List<PromissoryNoteCard>
     {
-        CreateCardImagePathService createCardImagePathService = new();
+        new() { EnumName = PromissoryNoteCardName.Ceasefire, Faction = FactionName.None, GameVersion = GameVersion.BaseGame },
+        new() { EnumName = PromissoryNoteCardName.TradeAgreement, Faction = FactionName.None, GameVersion = GameVersion.BaseGame },
+        new() { EnumName = PromissoryNoteCardName.SupportForTheThrone, Faction = FactionName.None, GameVersion = GameVersion.BaseGame },
+        new() { EnumName = PromissoryNoteCardName.PoliticalSecret, Faction = FactionName.None, GameVersion = GameVersion.BaseGame },
+        new() { EnumName = PromissoryNoteCardName.Alliance, Faction = FactionName.None, GameVersion = GameVersion.ProphecyOfKings },
+        new() { EnumName = PromissoryNoteCardName.Stymie, Faction = FactionName.TheArborec, GameVersion = GameVersion.Deprecated },
+        new() { EnumName = PromissoryNoteCardName.StymieOmega, Faction = FactionName.TheArborec, GameVersion = GameVersion.CodexOrdinian },
+        new() { EnumName = PromissoryNoteCardName.WarFunding, Faction = FactionName.TheBaronyOfLetnev, GameVersion = GameVersion.Deprecated },
+        new() { EnumName = PromissoryNoteCardName.WarFundingOmega, Faction = FactionName.TheBaronyOfLetnev, GameVersion = GameVersion.CodexOrdinian },
+        new() { EnumName = PromissoryNoteCardName.RaghsCall, Faction = FactionName.TheClanOfSaar, GameVersion = GameVersion.BaseGame },
+        new() { EnumName = PromissoryNoteCardName.FiresOfTheGashlai, Faction = FactionName.TheEmbersOfMuaat, GameVersion = GameVersion.BaseGame },
+        new() { EnumName = PromissoryNoteCardName.TradeConvoys, Faction = FactionName.TheEmiratesOfHacan, GameVersion = GameVersion.BaseGame },
+        new() { EnumName = PromissoryNoteCardName.MilitarySupport, Faction = FactionName.TheFederationOfSol, GameVersion = GameVersion.BaseGame },
+        new() { EnumName = PromissoryNoteCardName.CreussIff, Faction = FactionName.TheGhostsOfCreuss, GameVersion = GameVersion.BaseGame },
+        new() { EnumName = PromissoryNoteCardName.CyberneticEnhancements, Faction = FactionName.TheL1z1xMindnet, GameVersion = GameVersion.Deprecated },
+        new() { EnumName = PromissoryNoteCardName.CyberneticEnhancementsOmega, Faction = FactionName.TheL1z1xMindnet, GameVersion = GameVersion.CodexOrdinian },
+        new() { EnumName = PromissoryNoteCardName.PromiseOfProtection, Faction = FactionName.TheMentakCoalition, GameVersion = GameVersion.BaseGame },
+        new() { EnumName = PromissoryNoteCardName.GiftOfPrescience, Faction = FactionName.TheNaaluCollective, GameVersion = GameVersion.BaseGame },
+        new() { EnumName = PromissoryNoteCardName.Antivirus, Faction = FactionName.TheNekroVirus, GameVersion = GameVersion.BaseGame },
+        new() { EnumName = PromissoryNoteCardName.TekklarLegion, Faction = FactionName.SardakkNorr, GameVersion = GameVersion.BaseGame },
+        new() { EnumName = PromissoryNoteCardName.ResearchAgreement, Faction = FactionName.TheUniversitiesOfJolNar, GameVersion = GameVersion.BaseGame },
+        new() { EnumName = PromissoryNoteCardName.Acquiescence, Faction = FactionName.TheWinnu, GameVersion = GameVersion.Deprecated },
+        new() { EnumName = PromissoryNoteCardName.AcquiescenceOmega, Faction = FactionName.TheWinnu, GameVersion = GameVersion.CodexOrdinian },
+        new() { EnumName = PromissoryNoteCardName.PoliticalFavor, Faction = FactionName.TheXxchaKingdom, GameVersion = GameVersion.BaseGame },
+        new() { EnumName = PromissoryNoteCardName.GreyfireMutagen, Faction = FactionName.TheYinBrotherhood, GameVersion = GameVersion.Deprecated },
+        new() { EnumName = PromissoryNoteCardName.GreyfireMutagenOmega, Faction = FactionName.TheYinBrotherhood, GameVersion = GameVersion.CodexOrdinian },
+        new() { EnumName = PromissoryNoteCardName.SpyNet, Faction = FactionName.TheYssarilTribes, GameVersion = GameVersion.BaseGame },
 
-        var promissaryNoteCards = new List<PromissaryNoteCard>()
-        {
-            new() { PromissaryNoteCardName = PromissoryNoteName.Stymie, Faction = FactionName.TheArborec },
-            new() { PromissaryNoteCardName = PromissoryNoteName.WarFunding, Faction = FactionName.TheBaronyOfLetnev },
-            new() { PromissaryNoteCardName = PromissoryNoteName.RaghsCall, Faction = FactionName.TheClanOfSaar },
-            new() { PromissaryNoteCardName = PromissoryNoteName.FiresOfTheGashlai, Faction = FactionName.TheEmbersOfMuaat },
-            new() { PromissaryNoteCardName = PromissoryNoteName.TradeConvoys, Faction = FactionName.TheEmiratesOfHacan },
-            new() { PromissaryNoteCardName = PromissoryNoteName.MilitarySupport, Faction = FactionName.TheFederationOfSol },
-            new() { PromissaryNoteCardName = PromissoryNoteName.CreussIff, Faction = FactionName.TheGhostsOfCreuss },
-            new() { PromissaryNoteCardName = PromissoryNoteName.CyberneticEnhancements, Faction = FactionName.TheL1z1xMindnet },
-            new() { PromissaryNoteCardName = PromissoryNoteName.PromiseOfProtection, Faction = FactionName.TheMentakCoalition },
-            new() { PromissaryNoteCardName = PromissoryNoteName.GiftOfPrescience, Faction = FactionName.TheNaaluCollective },
-            new() { PromissaryNoteCardName = PromissoryNoteName.Antivirus, Faction = FactionName.TheNekroVirus },
-            new() { PromissaryNoteCardName = PromissoryNoteName.TekklarLegion, Faction = FactionName.SardakkNorr },
-            new() { PromissaryNoteCardName = PromissoryNoteName.ResearchAgreement, Faction = FactionName.TheUniversitiesOfJolNar },
-            new() { PromissaryNoteCardName = PromissoryNoteName.Acquiescence, Faction = FactionName.TheWinnu },
-            new() { PromissaryNoteCardName = PromissoryNoteName.PoliticalFavor, Faction = FactionName.TheXxchaKingdom },
-            new() { PromissaryNoteCardName = PromissoryNoteName.GreyfireMutagen, Faction = FactionName.TheYinBrotherhood },
-            new() { PromissaryNoteCardName = PromissoryNoteName.SpyNet, Faction = FactionName.TheYssarilTribes },
-            new() { PromissaryNoteCardName = PromissoryNoteName.StrikeWingAmbuscade, Faction = FactionName.TheArgentFlight },
-            new() { PromissaryNoteCardName = PromissoryNoteName.DarkPact, Faction = FactionName.TheEmpyrean },
-            new() { PromissaryNoteCardName = PromissoryNoteName.BloodPact, Faction = FactionName.TheEmpyrean },
-            new() { PromissaryNoteCardName = PromissoryNoteName.ScepterOfDominion, Faction = FactionName.TheMahactGeneSorcerers },
-            new() { PromissaryNoteCardName = PromissoryNoteName.BlackMarketForgery, Faction = FactionName.TheNaazRokhaAlliance },
-            new() { PromissaryNoteCardName = PromissoryNoteName.TheCavalry, Faction = FactionName.TheNomad },
-            new() { PromissaryNoteCardName = PromissoryNoteName.Terraform, Faction = FactionName.TheTitansOfUl },
-            new() { PromissaryNoteCardName = PromissoryNoteName.Crucible, Faction = FactionName.TheVuilRaithCabal },
-            new() { PromissaryNoteCardName = PromissoryNoteName.KeleresRider, Faction = FactionName.TheCouncilKeleres },
-        };
+        new() { EnumName = PromissoryNoteCardName.StrikeWingAmbuscade, Faction = FactionName.TheArgentFlight, GameVersion = GameVersion.ProphecyOfKings },
+        new() { EnumName = PromissoryNoteCardName.DarkPact, Faction = FactionName.TheEmpyrean, GameVersion = GameVersion.ProphecyOfKings },
+        new() { EnumName = PromissoryNoteCardName.BloodPact, Faction = FactionName.TheEmpyrean, GameVersion = GameVersion.ProphecyOfKings },
+        new() { EnumName = PromissoryNoteCardName.ScepterOfDominion, Faction = FactionName.TheMahactGeneSorcerers, GameVersion = GameVersion.ProphecyOfKings },
+        new() { EnumName = PromissoryNoteCardName.BlackMarketForgery, Faction = FactionName.TheNaazRokhaAlliance, GameVersion = GameVersion.ProphecyOfKings },
+        new() { EnumName = PromissoryNoteCardName.TheCavalry, Faction = FactionName.TheNomad, GameVersion = GameVersion.ProphecyOfKings },
+        new() { EnumName = PromissoryNoteCardName.Terraform, Faction = FactionName.TheTitansOfUl, GameVersion = GameVersion.ProphecyOfKings },
+        new() { EnumName = PromissoryNoteCardName.Crucible, Faction = FactionName.TheVuilRaithCabal, GameVersion = GameVersion.ProphecyOfKings },
+        new() { EnumName = PromissoryNoteCardName.KeleresRider, Faction = FactionName.TheCouncilKeleres, GameVersion = GameVersion.CodexVigil },
 
-        var updatedPromissaryNoteCards = promissaryNoteCards.Select((promissaryNoteCard, i) =>
-        {
-            promissaryNoteCard.Id = i + 1;
-            promissaryNoteCard.Type = CardType.Promissary;
-            promissaryNoteCard.ImagePath = createCardImagePathService.GetCardImagePath(promissaryNoteCard.PromissaryNoteCardName, promissaryNoteCard.Type);
-            return promissaryNoteCard;
-        }).ToList();
-
-        return updatedPromissaryNoteCards;
-    }
+        new() { EnumName = PromissoryNoteCardName.AiSurvey, Faction = FactionName.TheKolleccSociety, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.AlgorithmicReplication, Faction = FactionName.TheSavagesOfCymiae, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.Automatons, Faction = FactionName.RohDhnaMechatronics, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.BlessingOfTheQueens, Faction = FactionName.TheKortaliTribunal, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.BroadcastTeams, Faction = FactionName.TheFreeSystemsCompact, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.Carcinisation, Faction = FactionName.TheCheiranHordes, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.ClansFavor, Faction = FactionName.TheVaylerianScourge, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.CombatDrills, Faction = FactionName.TheDihMohnFlotilla, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.CombinatorialBypass, Faction = FactionName.TheMonksOfKolume, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.EdynRider, Faction = FactionName.TheEdynMandate, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.EncryptionKey, Faction = FactionName.TheBentorConglomerate, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.FavorOfRhodun, Faction = FactionName.TheZealotsOfRhodun, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.GhotiRelay, Faction = FactionName.TheGhotiWayfarers, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.GiftOfInsight, Faction = FactionName.TheMykoMentori, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.GledgeBase, Faction = FactionName.TheGledgeUnion, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.InciteRevolution, Faction = FactionName.TheOlradinLeague, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.IndustrySecrets, Faction = FactionName.TheShipwrightsofAxis, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.KyroRider, Faction = FactionName.TheKyroSodality, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.NivynGuidance, Faction = FactionName.TheNivynStarKings, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.NokarNavigator, Faction = FactionName.TheNokarSellships, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.PlotsWithinPlots, Faction = FactionName.TheTnelisSyndicate, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.RaidLeaders, Faction = FactionName.TheGheminaRaiders, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.RapidExcavation, Faction = FactionName.TheMirvedaProtectorate, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.ReadTheFates, Faction = FactionName.TheAugursOfIlyxum, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.SecretsOfTheWeave, Faction = FactionName.TheGlimmerOfMortheus, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.SpilsOfWar, Faction = FactionName.TheLanefirRemnants, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.StoneSpeakers, Faction = FactionName.TheLTokkKhrask, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.TradeAlliance, Faction = FactionName.TheCeldauriTradeConfederation, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.TrustedCounselor, Faction = FactionName.TheLiZhoDynasty, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.UndergroundMarket, Faction = FactionName.TheFlorzenProfiteers, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.VadenHandshake, Faction = FactionName.TheVadenBankingClans, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.Vassalage, Faction = FactionName.TheBerserkersOfKjalengard, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.BranchOfficeTaxHaven, Faction = FactionName.TheVeldyrSovereignty, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.BranchOfficeBroadcastHub, Faction = FactionName.TheVeldyrSovereignty, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.BranchOfficeReserveBank, Faction = FactionName.TheVeldyrSovereignty, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.BranchOfficeOrbitalShipyard, Faction = FactionName.TheVeldyrSovereignty, GameVersion = GameVersion.DiscordantStars },
+        new() { EnumName = PromissoryNoteCardName.HyperkineticOrdinance, Faction = FactionName.TheZelianPurifier, GameVersion = GameVersion.DiscordantStars },
+    };
 }

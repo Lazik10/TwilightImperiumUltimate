@@ -1,8 +1,3 @@
-﻿using Microsoft.AspNetCore.Components;
-using TwilightImperiumUltimate.Web.Components.Factions;
-using TwilightImperiumUltimate.Web.Enums;
-using TwilightImperiumUltimate.Web.Models.Factions;
-using TwilightImperiumUltimate.Web.Resources;
 using TwilightImperiumUltimate.Web.Services.Draft;
 
 namespace TwilightImperiumUltimate.Web.Components.Drafts.Color;

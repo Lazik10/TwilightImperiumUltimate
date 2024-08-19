@@ -1,5 +1,3 @@
-﻿using Microsoft.AspNetCore.Components;
-using TwilightImperiumUltimate.Web.Enums;
 using TwilightImperiumUltimate.Web.Helpers.Enums;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
 
@@ -57,18 +55,6 @@ public partial class MapGeneratorSettings
         SelectedSystemTileOverlay = MapGeneratorSettingsService.SystemTileOverlay;
     }
 
-    private void IncreaseMapScale()
-    {
-        MapGeneratorSettingsService.IncreaseMapScale();
-        OnSelectedTemplateChange.InvokeAsync(SelectedMapTemplate);
-    }
-
-    private void DecreaseMapScale()
-    {
-        MapGeneratorSettingsService.DecreaseMapScale();
-        OnSelectedTemplateChange.InvokeAsync(SelectedMapTemplate);
-    }
-
     private void SetMapTemplate(MapTemplate mapTemplate)
     {
         SelectedMapTemplate = mapTemplate;
@@ -95,9 +81,42 @@ public partial class MapGeneratorSettings
         OnSelectedSystemTileOverlayChange.InvokeAsync();
     }
 
-    private void HideSettings()
+    private void UpdateGameVersion(GameVersion gameVersion)
     {
-        OnHideSettings.InvokeAsync(true);
+        MapGeneratorSettingsService.UpdateGameVersion(gameVersion);
+    }
+
+    private void IncreaseNumberOfLegendaryPlanets()
+    {
+        int maxNumberOfLegendaryPlanets = 0;
+        maxNumberOfLegendaryPlanets += MapGeneratorSettingsService.GameVersions.Contains(GameVersion.ProphecyOfKings) ? 2 : 0;
+        maxNumberOfLegendaryPlanets += MapGeneratorSettingsService.GameVersions.Contains(GameVersion.UnchartedSpace) ? 5 : 0;
+
+        if (MapGeneratorSettingsService.NumberOfLegendaryPlanets < maxNumberOfLegendaryPlanets)
+        {
+            MapGeneratorSettingsService.NumberOfLegendaryPlanets++;
+            StateHasChanged();
+        }
+    }
+
+    private void DecreaseNumberOfLegendaryPlanets()
+    {
+        if (MapGeneratorSettingsService.NumberOfLegendaryPlanets > 0)
+        {
+            MapGeneratorSettingsService.NumberOfLegendaryPlanets--;
+            StateHasChanged();
+        }
+    }
+
+    private void ToggleLegendaryPriorityInEquidistant()
+    {
+        MapGeneratorSettingsService.LegendaryPriorityInEquidistant = !MapGeneratorSettingsService.LegendaryPriorityInEquidistant;
+        StateHasChanged();
+    }
+
+    private void TogglePlayerNames()
+    {
+        MapGeneratorSettingsService.EnablePlayerNames = !MapGeneratorSettingsService.EnablePlayerNames;
         StateHasChanged();
     }
 }

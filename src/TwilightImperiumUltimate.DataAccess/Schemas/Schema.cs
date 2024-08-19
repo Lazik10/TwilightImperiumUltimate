@@ -1,4 +1,4 @@
-﻿namespace TwilightImperiumUltimate.DataAccess.Schemas;
+namespace TwilightImperiumUltimate.DataAccess.Schemas;
 
 internal static class Schema
 {
@@ -14,7 +14,7 @@ internal static class Schema
 
     internal const string Faction = "Faction";
 
-    internal const string Realationships = "Relationships";
+    internal const string Relationships = "Relationships";
 
     internal const string Rule = "Rule";
 
@@ -26,5 +26,5 @@ internal static class Schema
 
     internal const string News = "News";
 
-    internal const string User = "User";
+    internal const string Website = "Website";
 }

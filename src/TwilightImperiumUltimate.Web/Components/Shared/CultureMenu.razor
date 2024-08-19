@@ -6,7 +6,7 @@
 @inject ICultureProvider CultureProvider
 @inject IPathProvider PathProvider
 
-<div id="country-selector" @onclick="ToggleMenu">
+<div @onclick="ToggleMenu">
     <img src="@(GetCultureIconPath(CultureInfo.CurrentCulture.Name))"
          alt="Selected Country">
     <div id="country-menu" style="@(_isMenuVisible ? "" : "display:none")">
@@ -19,26 +19,3 @@
     </div>
 </div>
 
-@code {
-    private bool _isMenuVisible = false;
-
-    private void ToggleMenu()
-    {
-        _isMenuVisible = !_isMenuVisible;
-    }
-
-    private async Task SetCulture(string culture)
-    {
-        await CultureProvider.SetCultureAsync(culture);
-        _isMenuVisible = false;
-
-        // Little hack to force reload of the page
-        NavigationManager.NavigateTo(NavigationManager.BaseUri);
-        NavigationManager.NavigateTo(NavigationManager.Uri, forceLoad: false);
-    }
-
-    private string GetCultureIconPath(string culture)
-    {
-        return PathProvider.GetCultureIconPath(culture);
-    }
-}

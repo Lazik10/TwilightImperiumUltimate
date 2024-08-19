@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccountInfo_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
   <data name="ActionCard" xml:space="preserve">
     <value>action</value>
   </data>
@@ -186,6 +189,9 @@
   <data name="CardTitle_Strategy" xml:space="preserve">
     <value>Strategy</value>
   </data>
+  <data name="Card_DeprecatedCategory" xml:space="preserve">
+    <value>Deprecated</value>
+  </data>
   <data name="ColorPcikerButton_Drafting" xml:space="preserve">
     <value>...Picking colors...</value>
   </data>
@@ -201,11 +207,50 @@
   <data name="ColorPicker_Title" xml:space="preserve">
     <value>Color Picker</value>
   </data>
+  <data name="ConfirmEmail_Title" xml:space="preserve">
+    <value>Confirm Email</value>
+  </data>
+  <data name="ConfirmEmail_UserEmailValidationFailed" xml:space="preserve">
+    <value>Email confirmation failed.</value>
+  </data>
+  <data name="ConfirmEmail_UserEmailValidationSuccess" xml:space="preserve">
+    <value>Email confirmed successfully.</value>
+  </data>
+  <data name="ConfirmEmail_UserId" xml:space="preserve">
+    <value>Confirming email for user ID: {0}</value>
+  </data>
   <data name="CultureKey" xml:space="preserve">
     <value>BlazorCulture</value>
   </data>
   <data name="CzechCulture" xml:space="preserve">
     <value>cs-CZ</value>
+  </data>
+  <data name="Discord_Asynchronous" xml:space="preserve">
+    <value>TI4 Asynchronous Hub</value>
+  </data>
+  <data name="Discord_AsynchronousInvite" xml:space="preserve">
+    <value>https://discord.gg/VTFeYeg9bx</value>
+  </data>
+  <data name="Discord_Homebrew" xml:space="preserve">
+    <value>TI4 Homebrew Hub</value>
+  </data>
+  <data name="Discord_HomebrewInvite" xml:space="preserve">
+    <value>https://discord.gg/7CZR5Huekx</value>
+  </data>
+  <data name="Discord_Online" xml:space="preserve">
+    <value>TI4 Online</value>
+  </data>
+  <data name="Discord_OnlineInvite" xml:space="preserve">
+    <value>https://discord.gg/zAz7tbSN6e</value>
+  </data>
+  <data name="Discord_PreviewImage" xml:space="preserve">
+    <value>Discord</value>
+  </data>
+  <data name="Discord_SpaceCatsPeaceTurtles" xml:space="preserve">
+    <value>Space Cats Peace Turtles</value>
+  </data>
+  <data name="Discord_SpaceCatsPeaceTurtlesInvite" xml:space="preserve">
+    <value>https://discord.gg/YbZGA8ttcZ</value>
   </data>
   <data name="DoubleBackslash" xml:space="preserve">
     <value>\\</value>
@@ -300,17 +345,29 @@
   <data name="Faction_HeroRequirement" xml:space="preserve">
     <value>Have 3 Scored Objectives</value>
   </data>
-  <data name="Faction_InfoPreview" xml:space="preserve">
-    <value>Info</value>
-  </data>
   <data name="Faction_Leaders" xml:space="preserve">
     <value>Leaders</value>
+  </data>
+  <data name="Faction_Lore" xml:space="preserve">
+    <value>Lore</value>
   </data>
   <data name="Faction_Mech" xml:space="preserve">
     <value>Mech</value>
   </data>
-  <data name="Faction_StartingUnits" xml:space="preserve">
-    <value>Starting Units</value>
+  <data name="Faction_Setup" xml:space="preserve">
+    <value>Setup</value>
+  </data>
+  <data name="Faction_SetupChooseEdynTechnologies" xml:space="preserve">
+    <value>Choose any three technologies that have different colors.</value>
+  </data>
+  <data name="Faction_SetupChooseKeleresTechnologies" xml:space="preserve">
+    <value>Choose two non-faction technologies owned by other players.</value>
+  </data>
+  <data name="Faction_SetupChooseOneTechnology" xml:space="preserve">
+    <value>Choose one of the following:</value>
+  </data>
+  <data name="Faction_SetupChooseTwoTechnologies" xml:space="preserve">
+    <value>Choose two of the following:</value>
   </data>
   <data name="FileExtensionPng" xml:space="preserve">
     <value>.png</value>
@@ -326,6 +383,39 @@
   </data>
   <data name="FrontierCard" xml:space="preserve">
     <value>frontier</value>
+  </data>
+  <data name="GameVersion_BaseGame" xml:space="preserve">
+    <value>Base Game</value>
+  </data>
+  <data name="GameVersion_CodexAffinity" xml:space="preserve">
+    <value>Codex Affinity</value>
+  </data>
+  <data name="GameVersion_CodexOrdinian" xml:space="preserve">
+    <value>Codex Ordinian</value>
+  </data>
+  <data name="GameVersion_CodexRecolo" xml:space="preserve">
+    <value>Codex Recolo</value>
+  </data>
+  <data name="GameVersion_CodexVigil" xml:space="preserve">
+    <value>Codex Vigil</value>
+  </data>
+  <data name="GameVersion_Custom" xml:space="preserve">
+    <value>Custom</value>
+  </data>
+  <data name="GameVersion_Deprecated" xml:space="preserve">
+    <value>Deprecated</value>
+  </data>
+  <data name="GameVersion_DiscordantStars" xml:space="preserve">
+    <value>Discordant Stars</value>
+  </data>
+  <data name="GameVersion_ProphecyOfKings" xml:space="preserve">
+    <value>Prophecy of Kings</value>
+  </data>
+  <data name="GameVersion_SelectVersion" xml:space="preserve">
+    <value>Game Versions:</value>
+  </data>
+  <data name="GameVersion_UnchartedSpace" xml:space="preserve">
+    <value>Uncharted Space</value>
   </data>
   <data name="High" xml:space="preserve">
     <value>High</value>
@@ -345,53 +435,233 @@
   <data name="LanguagePlaceholder" xml:space="preserve">
     <value>{language}</value>
   </data>
+  <data name="Login_ConfirmationEmail" xml:space="preserve">
+    <value>Resend confirmation email</value>
+  </data>
+  <data name="Login_ConfirmationEmailSent" xml:space="preserve">
+    <value>The confirmation email has been successfully sent.</value>
+  </data>
+  <data name="Login_ConfirmationEmailSentFail" xml:space="preserve">
+    <value>Your email has already been confirmed or account with this email address doesn't exist.</value>
+  </data>
+  <data name="Login_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Login_FailedUknown" xml:space="preserve">
+    <value>Login failed for unknown reason.</value>
+  </data>
+  <data name="Login_FailedUnauthorized" xml:space="preserve">
+    <value>Login failed. Check your credentials or make sure your email is confirmed!</value>
+  </data>
+  <data name="Login_ForgotPassword" xml:space="preserve">
+    <value>Restore Password</value>
+  </data>
+  <data name="Login_ForgotPasswordEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Login_Login" xml:space="preserve">
+    <value>Log In</value>
+  </data>
+  <data name="Login_Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="Login_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Login_PasswordRecovery" xml:space="preserve">
+    <value>Password Recovery</value>
+  </data>
+  <data name="Login_PasswordRecoveryEmailSend" xml:space="preserve">
+    <value>The password recovery code has been successfully sent.</value>
+  </data>
+  <data name="Login_PasswordRecoveryEmailSendFailed" xml:space="preserve">
+    <value>Email for password recovery couldn't be send because there is no account registered with this email address.</value>
+  </data>
+  <data name="Login_ResendConfirmationEmail" xml:space="preserve">
+    <value>Resend confirmation email</value>
+  </data>
+  <data name="Login_ResendPasswordRecoveryEmail" xml:space="preserve">
+    <value>Send password recovery email</value>
+  </data>
+  <data name="Login_SendPasswordResetCode" xml:space="preserve">
+    <value>Restore</value>
+  </data>
+  <data name="Login_Title" xml:space="preserve">
+    <value>Login</value>
+  </data>
   <data name="Low" xml:space="preserve">
     <value>Low</value>
+  </data>
+  <data name="MapGeneratorMenu_Map" xml:space="preserve">
+    <value>MAP</value>
+  </data>
+  <data name="MapGeneratorMenu_Settings" xml:space="preserve">
+    <value>SETTINGS</value>
+  </data>
+  <data name="MapGeneratorMenu_Stats" xml:space="preserve">
+    <value>STATS</value>
+  </data>
+  <data name="MapGeneratorSettings_EnableFactionPick" xml:space="preserve">
+    <value>Enable faction pick:</value>
+  </data>
+  <data name="MapGeneratorSettings_EnablePlaerNames" xml:space="preserve">
+    <value>Player names:</value>
+  </data>
+  <data name="MapGeneratorSettings_LegendariesInEquidistant" xml:space="preserve">
+    <value>Legendaries in equidistant:</value>
+  </data>
+  <data name="MapGeneratorSettings_MapScale" xml:space="preserve">
+    <value>Map Scale</value>
+  </data>
+  <data name="MapGeneratorSettings_MapTemplate" xml:space="preserve">
+    <value>Map template:</value>
+  </data>
+  <data name="MapGeneratorSettings_NumberOfLegendaryPlanets" xml:space="preserve">
+    <value>Min legendary planets:</value>
+  </data>
+  <data name="MapGeneratorSettings_PlacementStyle" xml:space="preserve">
+    <value>Placement style:</value>
+  </data>
+  <data name="MapGeneratorSettings_SystemTiles" xml:space="preserve">
+    <value>System tiles:</value>
+  </data>
+  <data name="MapGeneratorSettings_SystemWeight" xml:space="preserve">
+    <value>System weight:</value>
+  </data>
+  <data name="MapGeneratorSettings_TilesOverlay" xml:space="preserve">
+    <value>Tiles overlay:</value>
+  </data>
+  <data name="MapGeneratorStats_CulturalPlanetsBarTitle" xml:space="preserve">
+    <value>Cultural:</value>
+  </data>
+  <data name="MapGeneratorStats_FrontiersBarTitle" xml:space="preserve">
+    <value>Frontiers:</value>
+  </data>
+  <data name="MapGeneratorStats_HazardousBarTitle" xml:space="preserve">
+    <value>Hazardous:</value>
+  </data>
+  <data name="MapGeneratorStats_IndustrialPlanetsBarTitle" xml:space="preserve">
+    <value>Industrial:</value>
+  </data>
+  <data name="MapGeneratorStats_InfluenceBarTitle" xml:space="preserve">
+    <value>Influence:</value>
+  </data>
+  <data name="MapGeneratorStats_LegendariesBarTitle" xml:space="preserve">
+    <value>Legendaries:</value>
+  </data>
+  <data name="MapGeneratorStats_MapStats" xml:space="preserve">
+    <value>Map statistics</value>
+  </data>
+  <data name="MapGeneratorStats_PlanetsBarTitle" xml:space="preserve">
+    <value>Planets:</value>
+  </data>
+  <data name="MapGeneratorStats_ResourcesBarTitle" xml:space="preserve">
+    <value>Resources:</value>
+  </data>
+  <data name="MapGeneratorStats_SliceStats" xml:space="preserve">
+    <value>Slice statistics</value>
+  </data>
+  <data name="MapGeneratorStats_WormholesBarTitle" xml:space="preserve">
+    <value>Wormholes:</value>
   </data>
   <data name="MapGenerator_AllTiles" xml:space="preserve">
     <value>All Tiles</value>
   </data>
-  <data name="MapGenerator_MapScale" xml:space="preserve">
-    <value>Map Scale</value>
+  <data name="MapGenerator_GenerateMap" xml:space="preserve">
+    <value>Generate</value>
+  </data>
+  <data name="MapGenerator_ToggleTileMenuOff" xml:space="preserve">
+    <value>Hide Tiles</value>
+  </data>
+  <data name="MapGenerator_ToggleTileMenuOn" xml:space="preserve">
+    <value>Show Tiles</value>
   </data>
   <data name="MapGenerator_UnusedTiles" xml:space="preserve">
     <value>Unused Tiles</value>
   </data>
   <data name="MapTemplate_CustomMap" xml:space="preserve">
-    <value>Custom</value>
+    <value>Playground</value>
   </data>
-  <data name="MapTemplate_LargeMapEightPlayers" xml:space="preserve">
-    <value>8P Large Map</value>
+  <data name="MapTemplate_EightPlayersLargeMap" xml:space="preserve">
+    <value>8P Large</value>
   </data>
-  <data name="MapTemplate_LargeMapSixPlayers" xml:space="preserve">
-    <value>6P Large Map</value>
+  <data name="MapTemplate_EightPlayersLargeWarpMap" xml:space="preserve">
+    <value>8P Large (Warp)</value>
   </data>
-  <data name="MapTemplate_MantaRayMapThreePlayers" xml:space="preserve">
+  <data name="MapTemplate_FivePlayersLargeFlatMap" xml:space="preserve">
+    <value>5P Flat</value>
+  </data>
+  <data name="MapTemplate_FivePlayersMediumDiamondMap" xml:space="preserve">
+    <value>5P Diamond</value>
+  </data>
+  <data name="MapTemplate_FivePlayersMediumHyperlineMap" xml:space="preserve">
+    <value>5P Normal (Hyperline)</value>
+  </data>
+  <data name="MapTemplate_FivePlayersMediumMap" xml:space="preserve">
+    <value>5P Normal</value>
+  </data>
+  <data name="MapTemplate_FourPlayersMediumDoubleWarpMap" xml:space="preserve">
+    <value>4P Double Warp</value>
+  </data>
+  <data name="MapTemplate_FourPlayersMediumGapsMap" xml:space="preserve">
+    <value>4P Gaps</value>
+  </data>
+  <data name="MapTemplate_FourPlayersMediumHorizontalMap" xml:space="preserve">
+    <value>4P Horizontal</value>
+  </data>
+  <data name="MapTemplate_FourPlayersMediumMap" xml:space="preserve">
+    <value>4P Normal</value>
+  </data>
+  <data name="MapTemplate_FourPlayersMediumMiniWarpMap" xml:space="preserve">
+    <value>4P Mini Warp</value>
+  </data>
+  <data name="MapTemplate_FourPlayersMediumVerticalMap" xml:space="preserve">
+    <value>4P Vertical</value>
+  </data>
+  <data name="MapTemplate_FourPlayersMediumWarpMap" xml:space="preserve">
+    <value>4P Warp</value>
+  </data>
+  <data name="MapTemplate_SevenPlayersLargeHyperlineMap" xml:space="preserve">
+    <value>7P Large (Hyperline)</value>
+  </data>
+  <data name="MapTemplate_SevenPlayersLargeWarpMap" xml:space="preserve">
+    <value>7P Large (Warp)</value>
+  </data>
+  <data name="MapTemplate_SixPlayersLargeMap" xml:space="preserve">
+    <value>6P Large</value>
+  </data>
+  <data name="MapTemplate_SixPlayersMediumMap" xml:space="preserve">
+    <value>6P Normal</value>
+  </data>
+  <data name="MapTemplate_SixPlayersMediumSpiralMap" xml:space="preserve">
+    <value>6P Normal (Spiral)</value>
+  </data>
+  <data name="MapTemplate_ThreePlayersMediumMantaRayMap" xml:space="preserve">
     <value>3P Manta Ray</value>
   </data>
-  <data name="MapTemplate_MediumMapFourPlayers" xml:space="preserve">
-    <value>4P Medium Map</value>
+  <data name="MapTemplate_ThreePlayersMediumRexMap" xml:space="preserve">
+    <value>3P Rex</value>
   </data>
-  <data name="MapTemplate_MediumMapSixPlayers" xml:space="preserve">
-    <value>6P Medium Map</value>
-  </data>
-  <data name="MapTemplate_SmallMapAlternateThreePlayers" xml:space="preserve">
-    <value>3P Small Map Alternate</value>
-  </data>
-  <data name="MapTemplate_SmallMapThreePlayers" xml:space="preserve">
-    <value>3P Small Map</value>
-  </data>
-  <data name="MapTemplate_SnowflakeMapThreePlayers" xml:space="preserve">
+  <data name="MapTemplate_ThreePlayersMediumSnowflakeMap" xml:space="preserve">
     <value>3P Snowflake</value>
   </data>
-  <data name="MapTemplate_TriangleMapThreePlayers" xml:space="preserve">
+  <data name="MapTemplate_ThreePlayersMediumTriangleMap" xml:space="preserve">
     <value>3P Triangle</value>
   </data>
-  <data name="MapTemplate_TriangleNarrowMapThreePlayers" xml:space="preserve">
-    <value>3P Triangle Narrow</value>
+  <data name="MapTemplate_ThreePlayersMediumTriangleNarrowMap" xml:space="preserve">
+    <value>3P Triangle (Narrow)</value>
   </data>
-  <data name="MapTemplate_TridentMapThreePlayers" xml:space="preserve">
+  <data name="MapTemplate_ThreePlayersMediumTridentMap" xml:space="preserve">
     <value>3P Trident</value>
+  </data>
+  <data name="MapTemplate_ThreePlayersSmallAlternateMap" xml:space="preserve">
+    <value>3P Small (Alternate)</value>
+  </data>
+  <data name="MapTemplate_ThreePlayersSmallMap" xml:space="preserve">
+    <value>3P Small</value>
+  </data>
+  <data name="MapTemplate_TwoPlayersMediumMap" xml:space="preserve">
+    <value>2P Normal</value>
   </data>
   <data name="Medium" xml:space="preserve">
     <value>Medium</value>
@@ -407,6 +677,24 @@
   </data>
   <data name="Page_About" xml:space="preserve">
     <value>About</value>
+  </data>
+  <data name="Page_AccountClaims" xml:space="preserve">
+    <value>Claims</value>
+  </data>
+  <data name="Page_AccountInfo" xml:space="preserve">
+    <value>Account Info</value>
+  </data>
+  <data name="Page_AccountLogin" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Page_AccountPasswordReset" xml:space="preserve">
+    <value>Password Reset</value>
+  </data>
+  <data name="Page_AccountRegister" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="Page_Admin" xml:space="preserve">
+    <value>Admin</value>
   </data>
   <data name="Page_BattleCalculator" xml:space="preserve">
     <value>Battle Calculator</value>
@@ -426,6 +714,9 @@
   <data name="Page_Community" xml:space="preserve">
     <value>Community</value>
   </data>
+  <data name="Page_Discord" xml:space="preserve">
+    <value>Discord</value>
+  </data>
   <data name="Page_Diy" xml:space="preserve">
     <value>DIY</value>
   </data>
@@ -434,6 +725,9 @@
   </data>
   <data name="Page_DraftRooms" xml:space="preserve">
     <value>Draft Rooms</value>
+  </data>
+  <data name="Page_Events" xml:space="preserve">
+    <value>Events</value>
   </data>
   <data name="Page_FactionDraft" xml:space="preserve">
     <value>Faction Draft</value>
@@ -444,6 +738,9 @@
   <data name="Page_Factions" xml:space="preserve">
     <value>Factions</value>
   </data>
+  <data name="Page_FactionsDS" xml:space="preserve">
+    <value>DS Factions</value>
+  </data>
   <data name="Page_Faq" xml:space="preserve">
     <value>Faq</value>
   </data>
@@ -453,17 +750,29 @@
   <data name="Page_MapGenerator" xml:space="preserve">
     <value>Map Generator</value>
   </data>
+  <data name="Page_Maps" xml:space="preserve">
+    <value>Maps</value>
+  </data>
+  <data name="Page_Moderator" xml:space="preserve">
+    <value>Moderator</value>
+  </data>
   <data name="Page_News" xml:space="preserve">
     <value>News</value>
   </data>
   <data name="Page_OtherWebsites" xml:space="preserve">
     <value>Other Websites</value>
   </data>
+  <data name="Page_PasswordRecovery" xml:space="preserve">
+    <value>Password Recovery</value>
+  </data>
   <data name="Page_Planets" xml:space="preserve">
     <value>Planets</value>
   </data>
   <data name="Page_PlayOfTheMonth" xml:space="preserve">
     <value>Play of the Month</value>
+  </data>
+  <data name="Page_ResendConfirmationEmail" xml:space="preserve">
+    <value>Resend confirmation email</value>
   </data>
   <data name="Page_Resources" xml:space="preserve">
     <value>Resources</value>
@@ -482,6 +791,21 @@
   </data>
   <data name="Page_Tools" xml:space="preserve">
     <value>Tools</value>
+  </data>
+  <data name="PasswordReset_CredentialsInvalid" xml:space="preserve">
+    <value>Unable to reset password. Credentials does not meet requirements or reset code is invalid!</value>
+  </data>
+  <data name="PasswordReset_FailedUnknown" xml:space="preserve">
+    <value>Password reset failed!</value>
+  </data>
+  <data name="Password_PasswordReset" xml:space="preserve">
+    <value>Change passowrd</value>
+  </data>
+  <data name="Password_ResetCode" xml:space="preserve">
+    <value>Reset Code</value>
+  </data>
+  <data name="Password_ResetTitle" xml:space="preserve">
+    <value>Password Reset</value>
   </data>
   <data name="PlacementStyle_Home" xml:space="preserve">
     <value>Home</value>
@@ -504,80 +828,149 @@
   <data name="PromissoryNoteCard" xml:space="preserve">
     <value>promissorynote</value>
   </data>
+  <data name="Register_ConfirmPassword" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
+  <data name="Register_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Register_FailedBadRequest" xml:space="preserve">
+    <value>Account with this email address / username already exists.</value>
+  </data>
+  <data name="Register_FailedCredentials" xml:space="preserve">
+    <value>Unable to register new account. Credential requirements were not met.</value>
+  </data>
+  <data name="Register_FailedUnknown" xml:space="preserve">
+    <value>Unable to register new account with these credentials.</value>
+  </data>
+  <data name="Register_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Register_Redirect" xml:space="preserve">
+    <value>You will be redirected to login page shortly.</value>
+  </data>
+  <data name="Register_Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="Register_RegistrationSucceeded" xml:space="preserve">
+    <value>Your account has been registered successfully! Please visit your email to confirm your account.</value>
+  </data>
+  <data name="Register_Title" xml:space="preserve">
+    <value>Register New Account</value>
+  </data>
   <data name="RelicCard" xml:space="preserve">
     <value>relic</value>
+  </data>
+  <data name="ResetPassword_ConfirmNewPassword" xml:space="preserve">
+    <value>Confirm New Password</value>
+  </data>
+  <data name="ResetPassword_NewPassword" xml:space="preserve">
+    <value>New Password</value>
+  </data>
+  <data name="ResetPassword_NewPasswordPlaceholder" xml:space="preserve">
+    <value>Password</value>
   </data>
   <data name="RulesResource_AgendaPhase" xml:space="preserve">
     <value>Twilight Imperium 4th Edition - Agenda Phase</value>
   </data>
   <data name="RulesResource_AgendaPhaseLink" xml:space="preserve">
-    <value>https://1drv.ms/b/s!AifcqLzbdKjHhcMvoCfZA0sx1ZZk9A?e=LUnRGJ</value>
+    <value>https://1drv.ms/b/s!AifcqLzbdKjHhb1tZx48jC7FiraxGg?e=JGF9LS</value>
   </data>
   <data name="RulesResource_Cheatsheet" xml:space="preserve">
     <value>Twilight Imperium I4th Edition - Cheat Sheets</value>
   </data>
   <data name="RulesResource_CheatSheetLink" xml:space="preserve">
-    <value>https://1drv.ms/b/s!AifcqLzbdKjHhcM0EZj2tRnwn65usg?e=UXT2xu</value>
+    <value>https://1drv.ms/b/s!AifcqLzbdKjHhb1v8h5opo6OTgEXmQ?e=XiU3EH</value>
   </data>
   <data name="RulesResource_CompleteReference" xml:space="preserve">
     <value>Twilight Imperium 4th Edition - Complete Rules Reference</value>
   </data>
   <data name="RulesResource_CompleteReferenceLink" xml:space="preserve">
-    <value>https://1drv.ms/b/s!AifcqLzbdKjHhcM2w3lBzShjwZsw5Q?e=kAZrlE</value>
+    <value>https://1drv.ms/b/s!AifcqLzbdKjHhb1yLoTYaLElMJktIA?e=9ttGNg</value>
   </data>
   <data name="RulesResource_Faq" xml:space="preserve">
     <value>Twilight Imperium 4th Edition PoK - FAQ</value>
   </data>
   <data name="RulesResource_FaqLink" xml:space="preserve">
-    <value>https://1drv.ms/b/s!AifcqLzbdKjHhcMxktkeXB3x_beYSA?e=Mrgv4p</value>
+    <value>https://1drv.ms/b/s!AifcqLzbdKjHhb1qrRBKws0lA1w70g?e=8W14l9</value>
   </data>
   <data name="RulesResource_FaqTwo" xml:space="preserve">
     <value>Twilight Imperium 4th Edition PoK - FAQ 2</value>
   </data>
   <data name="RulesResource_FaqTwoLink" xml:space="preserve">
-    <value>https://1drv.ms/b/s!AifcqLzbdKjHhcMwv8C9fmrhz_ldow?e=E7eK6l</value>
+    <value>https://1drv.ms/b/s!AifcqLzbdKjHhb1pixA2M8ZsaSCPQA?e=Dw6XMv</value>
   </data>
   <data name="RulesResource_GuideToTheImperium" xml:space="preserve">
     <value>Twilight Imperium 4th Edition - Guide to the Imperium</value>
   </data>
   <data name="RulesResource_GuideToTheImperiumLink" xml:space="preserve">
-    <value>https://1drv.ms/b/s!AifcqLzbdKjHhcM5F1CSt5pfncXYfQ?e=gBYFna</value>
+    <value>https://1drv.ms/b/s!AifcqLzbdKjHhb1zqcFRel3kBZQBaQ?e=mpawsK</value>
   </data>
   <data name="RulesResource_LearnToPlay" xml:space="preserve">
     <value>Twilight Imperium 4th Edition - Learn to play</value>
   </data>
   <data name="RulesResource_LearnToPlayLink" xml:space="preserve">
-    <value>https://1drv.ms/b/s!AifcqLzbdKjHhcM4IgWTmhgGuJCB9Q?e=kn7xHX</value>
+    <value>https://1drv.ms/b/s!AifcqLzbdKjHhb1xhbggvUq79x9bZA?e=r43tJE</value>
   </data>
   <data name="RulesResource_LivingRulesReference" xml:space="preserve">
     <value>Twilight Imperium 4th Edition - Living Rules Reference 1.3</value>
   </data>
   <data name="RulesResource_LivingRulesReferenceLink" xml:space="preserve">
-    <value>https://1drv.ms/b/s!AifcqLzbdKjHhcMz8mZNmCavgfJOYw?e=M75Yoq</value>
+    <value>https://1drv.ms/b/s!AifcqLzbdKjHhb1wH3jl9_jRf9ORUQ?e=owQWyN</value>
   </data>
   <data name="RulesResource_LivingRulesReferenceTwo" xml:space="preserve">
     <value>Twilight Imperium 4th Edition - Living Rules Reference 2.0</value>
   </data>
   <data name="RulesResource_LivingRulesReferenceTwoLink" xml:space="preserve">
-    <value>https://1drv.ms/b/s!AifcqLzbdKjHhcM1KpGgzUJkFDyWkQ?e=6jjuDB</value>
+    <value>https://1drv.ms/b/s!AifcqLzbdKjHhb1seeEV4fgxH9dSew?e=tu5cbx</value>
   </data>
   <data name="RulesResource_ProphecyOfKingsRules" xml:space="preserve">
     <value>Twilight Imperium 4th Edition PoK - Rules</value>
   </data>
   <data name="RulesResource_ProphecyOfKingsRulesLink" xml:space="preserve">
-    <value>https://1drv.ms/b/s!AifcqLzbdKjHhcM336s0LEVtIhSuOA?e=inBegI</value>
+    <value>https://1drv.ms/b/s!AifcqLzbdKjHhb1uuHwko2H0ZSd6gg?e=6QYhbc</value>
   </data>
   <data name="RulesResource_Summary" xml:space="preserve">
     <value>Twilight Imperium 4th Edition - Summary Reference</value>
   </data>
   <data name="RulesResource_SummaryLink" xml:space="preserve">
-    <value>https://1drv.ms/b/s!AifcqLzbdKjHhcMyikY_5InEv44pPg?e=t59q2B</value>
+    <value>https://1drv.ms/b/s!AifcqLzbdKjHhb1r25l5s_4Vz2oXvw?e=gur9lZ</value>
   </data>
   <data name="SearchForKeyword" xml:space="preserve">
     <value>Search: </value>
   </data>
+  <data name="SliceEvaluation_Id" xml:space="preserve">
+    <value># ID</value>
+  </data>
+  <data name="SliceEvaluation_LegendaryCount" xml:space="preserve">
+    <value># Legendaries</value>
+  </data>
+  <data name="SliceEvaluation_PlanetTraits" xml:space="preserve">
+    <value>Planet Traits</value>
+  </data>
+  <data name="SliceEvaluation_TechnologySkips" xml:space="preserve">
+    <value>Tech Skips</value>
+  </data>
+  <data name="SliceEvaluation_TotalInfluence" xml:space="preserve">
+    <value>Influence</value>
+  </data>
+  <data name="SliceEvaluation_TotalOptimalValue" xml:space="preserve">
+    <value>Opt Value</value>
+  </data>
+  <data name="SliceEvaluation_TotalOptimalValueInfluence" xml:space="preserve">
+    <value>Opt Influence</value>
+  </data>
+  <data name="SliceEvaluation_TotalOptimalValueResources" xml:space="preserve">
+    <value>Opt Resources</value>
+  </data>
+  <data name="SliceEvaluation_TotalResource" xml:space="preserve">
+    <value>Resources</value>
+  </data>
   <data name="StrategyCard" xml:space="preserve">
     <value>strategy</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value> </value>
   </data>
   <data name="SystemTileOverlay_Id" xml:space="preserve">
     <value>Id</value>
@@ -597,8 +990,23 @@
   <data name="SystemTileTypeFilter_All" xml:space="preserve">
     <value>All</value>
   </data>
+  <data name="SystemTileTypeFilter_Anomalies" xml:space="preserve">
+    <value>Anomalies</value>
+  </data>
+  <data name="SystemTileTypeFilter_BaseGame" xml:space="preserve">
+    <value>Base Game</value>
+  </data>
   <data name="SystemTileTypeFilter_BlueTiles" xml:space="preserve">
     <value>Blue Tiles</value>
+  </data>
+  <data name="SystemTileTypeFilter_Custom" xml:space="preserve">
+    <value>Custom</value>
+  </data>
+  <data name="SystemTileTypeFilter_DiscordantStars" xml:space="preserve">
+    <value>Discordant Stars</value>
+  </data>
+  <data name="SystemTileTypeFilter_Empty" xml:space="preserve">
+    <value>Empty</value>
   </data>
   <data name="SystemTileTypeFilter_HomeSystems" xml:space="preserve">
     <value>Home Systems</value>
@@ -609,8 +1017,14 @@
   <data name="SystemTileTypeFilter_MecatolRex" xml:space="preserve">
     <value>Mecatol Rex</value>
   </data>
+  <data name="SystemTileTypeFilter_ProphecyOfKings" xml:space="preserve">
+    <value>Prophecy of Kings</value>
+  </data>
   <data name="SystemTileTypeFilter_RedTiles" xml:space="preserve">
     <value>Red Tiles</value>
+  </data>
+  <data name="SystemTileTypeFilter_UnchartedSpace" xml:space="preserve">
+    <value>Uncharted Space</value>
   </data>
   <data name="SystemTileTypeFilter_Unused" xml:space="preserve">
     <value>Unused</value>
@@ -627,22 +1041,70 @@
   <data name="SystemWeight_Resources" xml:space="preserve">
     <value>Resources</value>
   </data>
-  <data name="Technology_Biotic" xml:space="preserve">
+  <data name="TechnologyType_Biotic" xml:space="preserve">
     <value>Biotic</value>
   </data>
-  <data name="Technology_Cybernetic" xml:space="preserve">
+  <data name="TechnologyType_Cybernetic" xml:space="preserve">
     <value>Cybernetic</value>
   </data>
-  <data name="Technology_Faction" xml:space="preserve">
+  <data name="TechnologyType_Faction" xml:space="preserve">
     <value>Faction</value>
   </data>
-  <data name="Technology_Propulsion" xml:space="preserve">
+  <data name="TechnologyType_Propulsion" xml:space="preserve">
     <value>Propulsion</value>
   </data>
-  <data name="Technology_UnitUpgrade" xml:space="preserve">
+  <data name="TechnologyType_UnitUpgrade" xml:space="preserve">
     <value>Unit Upgrade</value>
   </data>
-  <data name="Technology_Warfare" xml:space="preserve">
+  <data name="TechnologyType_Warfare" xml:space="preserve">
     <value>Warfare</value>
+  </data>
+  <data name="User_AccountInfo" xml:space="preserve">
+    <value>Account Info</value>
+  </data>
+  <data name="User_Age" xml:space="preserve">
+    <value>Age:</value>
+  </data>
+  <data name="User_DiscordId" xml:space="preserve">
+    <value>Discord:</value>
+  </data>
+  <data name="User_Email" xml:space="preserve">
+    <value>Email:</value>
+  </data>
+  <data name="User_FavoriteFaction" xml:space="preserve">
+    <value>Favorite faction:</value>
+  </data>
+  <data name="User_FirstName" xml:space="preserve">
+    <value>First name:</value>
+  </data>
+  <data name="User_LastName" xml:space="preserve">
+    <value>Last name:</value>
+  </data>
+  <data name="User_PhoneNumber" xml:space="preserve">
+    <value>Phone number:</value>
+  </data>
+  <data name="User_SteamId" xml:space="preserve">
+    <value>Steam:</value>
+  </data>
+  <data name="User_UserInfo" xml:space="preserve">
+    <value>User info:</value>
+  </data>
+  <data name="User_UserName" xml:space="preserve">
+    <value>Username:</value>
+  </data>
+  <data name="WormholeDensityPicker_WormholeDensity" xml:space="preserve">
+    <value>Wormhole density:</value>
+  </data>
+  <data name="WormholeDensity_AtLeastOnePair" xml:space="preserve">
+    <value>At least one pair</value>
+  </data>
+  <data name="WormholeDensity_AtLeastTwoPairs" xml:space="preserve">
+    <value>At least two pairs</value>
+  </data>
+  <data name="WormholeDensity_None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="WormholeDensity_Random" xml:space="preserve">
+    <value>Random</value>
   </data>
 </root>

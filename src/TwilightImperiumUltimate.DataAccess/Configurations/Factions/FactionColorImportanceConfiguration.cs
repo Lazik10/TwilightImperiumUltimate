@@ -1,8 +1,6 @@
-﻿using TwilightImperiumUltimate.DataAccess.Tables.Factions;
-
 namespace TwilightImperiumUltimate.DataAccess.Configurations.Factions;
 
-public class FactionColorImportanceConfiguration : IEntityTypeConfiguration<FactionColorImportance>
+internal sealed class FactionColorImportanceConfiguration : IEntityTypeConfiguration<FactionColorImportance>
 {
     public void Configure(EntityTypeBuilder<FactionColorImportance> builder)
     {
@@ -12,16 +10,23 @@ public class FactionColorImportanceConfiguration : IEntityTypeConfiguration<Fact
 
         builder.HasKey(e => e.Id);
 
+        builder.Property(e => e.Id)
+            .HasColumnOrder(0);
+
         builder.Property(e => e.FactionName)
             .IsRequired()
             .HasColumnName(nameof(FactionColorImportance.FactionName))
-            .HasConversion<int>()
-            .HasColumnType("integer");
+            .HasConversion<string>()
+            .HasColumnType("varchar(50)")
+            .HasMaxLength(50)
+            .HasColumnOrder(1);
 
         builder.Property(e => e.Color)
             .IsRequired()
             .HasColumnName(nameof(FactionColorImportance.Color))
-            .HasConversion<int>()
-            .HasColumnType("integer");
+            .HasConversion<string>()
+            .HasColumnType("varchar(20)")
+            .HasMaxLength(20)
+            .HasColumnOrder(2);
     }
 }

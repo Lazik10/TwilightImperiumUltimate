@@ -1,0 +1,44 @@
+﻿@using Microsoft.AspNetCore.Components.Authorization
+@using TwilightImperiumUltimate.Web.Components.Shared.Controls
+@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Components.Shared.Text
+@using TwilightImperiumUltimate.Web.Resources
+@using TwilightImperiumUltimate.Web.Pages;
+
+<div id="account-menu">
+    <FlexRowContainer JustifyContent="Enums.JustifyContent.SpaceBetween" AlignItems="Enums.AlignItems.Center">
+        @if(_user is null)
+        {
+            <a href="@Pages.Login" class="handel white shadow">@Strings.Page_AccountLogin</a>
+            <HorizontalSpace Width="20"/>
+            <div class="handel white shadow">/</div>
+            <HorizontalSpace Width="20" />
+            <a href="@Pages.Register" class="handel white shadow">@Strings.Page_AccountRegister</a>
+        }
+        else
+        {
+            <div id="main-navbar">
+                <div class="menu-item">
+                    <div class="menu-container">
+                        <a href="#">@_user.UserName</a>
+                        <div class="dropdown">
+                            <a href="@Pages.AccountInfo">@Strings.Page_AccountInfo</a>
+                                <AuthorizeView Roles="Admin">
+                                    <a href="@Pages.Admin">@Strings.Page_Admin</a>
+                                </AuthorizeView>
+                                <AuthorizeView Roles="Moderator">
+                                    <a href="@Pages.Moderator">@Strings.Page_Moderator</a
+                                </AuthorizeView>
+                            <a href="@Pages.AccountClaims">@Strings.Page_AccountClaims</a>
+                            <a href="@Pages.ResendPasswordRecoveryEmail">@Strings.Page_AccountPasswordReset</a>
+                            <a href="#" @onclick="Logout">@Strings.Login_Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        <HorizontalSpace Width="70" />
+        <CultureMenu />
+    </FlexRowContainer>
+</div>
+

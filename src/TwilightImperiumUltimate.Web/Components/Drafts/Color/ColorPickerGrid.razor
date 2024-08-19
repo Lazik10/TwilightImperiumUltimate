@@ -1,4 +1,6 @@
-﻿@using TwilightImperiumUltimate.Web.Components.Shared.Controls
+﻿@using TwilightImperiumUltimate.Contracts.Enums
+@using TwilightImperiumUltimate.Web.Components.Shared.Controls
+@using TwilightImperiumUltimate.Web.Components.Shared.GameVersions
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @using TwilightImperiumUltimate.Web.Components.Shared.Text
 @using TwilightImperiumUltimate.Web.Helpers.Resources;
@@ -9,6 +11,7 @@
     EnableBanMode="true"
     OnFactionClickGetFaction="UpdateSelectedFactions" 
     BanAllFactions="true"
+    ShowDiscordantStars="true"
     @ref="_factionIconRow"/>
 
 <FlexColumnCenteredContainer>
