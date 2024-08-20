@@ -1,4 +1,7 @@
 ﻿@page "/rules/faq"
+@using System.Globalization
+@using Microsoft.AspNetCore.Components.Authorization
+@using TwilightImperiumUltimate.Web.Components.Rules
 @using TwilightImperiumUltimate.Web.Components.Shared
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @using TwilightImperiumUltimate.Web.Components.Shared.Text
@@ -7,5 +10,27 @@
 <PageTitle>@Strings.Page_Faq</PageTitle>
 
 <Page>
-    <Title Text="@Strings.Page_Faq" />
+    <Label Text="@Strings.Faq_SubmittedFaqs" CenterText="true" FontSize="24"/>
+
+    <VerticalSpace Height="50" />
+
+    @foreach (var faq in Faqs)
+    {
+        <FlexRowContainer Width="80">
+            <FaqRow Faq="@faq" Culture="@(CultureInfo.CurrentCulture.Name)" />
+
+            <AuthorizeView Roles="Admin">
+                <Authorized>
+                    <FlexRowContainer Width="35">
+                        <Button ButtonText="Approve" OnClick="async () => await ApproveFaq(faq)" />
+                        <Button ButtonText="Edit" OnClick="async () => await EditFaq(faq.Id)" />
+                        <Button ButtonText="Reject" OnClick="async () => await RejectFaq(faq)" />
+                    </FlexRowContainer>
+                </Authorized>
+            </AuthorizeView>
+
+        </FlexRowContainer>
+
+        <VerticalSpace Height="50" />
+    }
 </Page>

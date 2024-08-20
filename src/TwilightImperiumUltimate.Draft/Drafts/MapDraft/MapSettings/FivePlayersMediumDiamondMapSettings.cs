@@ -33,19 +33,19 @@ internal class FivePlayersMediumDiamondMapSettings : IMapSettings
 
     public Dictionary<int, List<(int X, int Y)>> Slices => new Dictionary<int, List<(int X, int Y)>>()
     {
-        { 1, new List<(int X , int Y)> { (5, 5), (4, 4), (2, 4), (6, 4), } },
-        { 2, new List<(int X , int Y)> { (9, 5), (7, 5), (6, 6), (8, 4), } },
-        { 3, new List<(int X , int Y)> { (12, 2), (11, 3), (12, 4), (9, 3), } },
-        { 4, new List<(int X , int Y)> { (6, 0), (7, 1), (9, 1), (8, 2), } },
-        { 5, new List<(int X , int Y)> { (2, 2), (4, 2), (5, 1), (6, 2), } },
+        { 1, new List<(int X, int Y)> { (5, 5), (4, 4), (2, 4), (6, 4), } },
+        { 2, new List<(int X, int Y)> { (9, 5), (7, 5), (6, 6), (8, 4), } },
+        { 3, new List<(int X, int Y)> { (12, 2), (11, 3), (12, 4), (9, 3), } },
+        { 4, new List<(int X, int Y)> { (6, 0), (7, 1), (9, 1), (8, 2), } },
+        { 5, new List<(int X, int Y)> { (2, 2), (4, 2), (5, 1), (6, 2), } },
     };
 
     public Dictionary<int, List<(int X, int Y)>> AdjacentHomePositions => new Dictionary<int, List<(int X, int Y)>>()
     {
-        { 1, new List<(int X , int Y)> { (5, 5), (4, 4), (2, 4), } },
-        { 2, new List<(int X , int Y)> { (9, 5), (7, 5), (6, 6), } },
-        { 3, new List<(int X , int Y)> { (12, 2), (11, 3), (12, 4), } },
-        { 4, new List<(int X , int Y)> { (6, 0), (7, 1), (9, 1), } },
-        { 5, new List<(int X , int Y)> { (2, 2), (4, 2), (5, 1), } },
+        { 1, new List<(int X, int Y)> { (5, 5), (4, 4), (2, 4), } },
+        { 2, new List<(int X, int Y)> { (9, 5), (7, 5), (6, 6), } },
+        { 3, new List<(int X, int Y)> { (12, 2), (11, 3), (12, 4), } },
+        { 4, new List<(int X, int Y)> { (6, 0), (7, 1), (9, 1), } },
+        { 5, new List<(int X, int Y)> { (2, 2), (4, 2), (5, 1), } },
     };
 }

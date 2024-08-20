@@ -1,8 +1,14 @@
 ﻿@using TwilightImperiumUltimate.Web.Helpers.Resources
 
-<RuleSearchBar OnSearchChange="GetFilteredRules" />
+<RuleSearchBar OnSearchChange="GetFilteredRulesAndNotes" />
+
+<VerticalSpace Height="20" />
+
+<FlexRowContainer JustifyContent="Enums.JustifyContent.FlexEnd">
+    <YesNoPicker Title="@Strings.Rules_ShowNotes" Width="30" OnValueChange="ToggleNotes" DefaultValue="_showNotes"/>
+</FlexRowContainer>
 
 @foreach (var transformedRule in FilteredAndTransformedRules)
 {
-    <RuleContent TransformedRule="@transformedRule" />
+    <RuleContent TransformedRule="@transformedRule" ShowNotes="_showNotes"/>
 }

@@ -6,6 +6,10 @@ namespace TwilightImperiumUltimate.Web.Components.MapGenerator;
 
 public partial class MapHexTile : TwilightImperiumBaseComponenet
 {
+    private TileRotation _tileRotation;
+
+    private int _degrees;
+
     [Parameter]
     public SystemTileModel? SystemTile { get; set; } = null!;
 
@@ -20,17 +24,21 @@ public partial class MapHexTile : TwilightImperiumBaseComponenet
 
     private string ImagePath => PathProvider.GetLargeTileImagePath(SystemTile?.SystemTileName ?? SystemTileName.TileEmpty);
 
+    [Inject]
+    private IMapGeneratorService MapGeneratorService { get; set; } = null!;
+
+    [Inject]
+    private IMapGeneratorSettingsService MapGeneratorSettingsService { get; set; } = null!;
+
     private SystemTileOverlay Overlay => MapGeneratorSettingsService.SystemTileOverlay;
 
-    private TileRotation _tileRotation;
-
-    private int _degrees;
-
-    protected override async Task OnParametersSetAsync()
+    private string SystemTileOverlayText => MapGeneratorSettingsService.SystemTileOverlay switch
     {
-        if (SystemTile!.SystemTileCategory == SystemTileCategory.Hyperlane)
-            await HandleInitialRotation();
-    }
+        SystemTileOverlay.Id => SystemTile?.SystemTileCode ?? string.Empty,
+        SystemTileOverlay.Resources => SystemTile?.Resources.ToString(CultureInfo.InvariantCulture) ?? string.Empty,
+        SystemTileOverlay.Influence => SystemTile?.Influence.ToString(CultureInfo.InvariantCulture) ?? string.Empty,
+        _ => string.Empty,
+    };
 
     private string SystemTileOverlayColor => MapGeneratorSettingsService.SystemTileOverlay switch
     {
@@ -42,19 +50,11 @@ public partial class MapHexTile : TwilightImperiumBaseComponenet
         _ => string.Empty,
     };
 
-    private string SystemTileOverlayText => MapGeneratorSettingsService.SystemTileOverlay switch
+    protected override async Task OnParametersSetAsync()
     {
-        SystemTileOverlay.Id => SystemTile?.SystemTileCode ?? string.Empty,
-        SystemTileOverlay.Resources => SystemTile?.Resources.ToString(CultureInfo.InvariantCulture) ?? string.Empty,
-        SystemTileOverlay.Influence => SystemTile?.Influence.ToString(CultureInfo.InvariantCulture) ?? string.Empty,
-        _ => string.Empty,
-    };
-
-    [Inject]
-    private IMapGeneratorService MapGeneratorService { get; set; } = null!;
-
-    [Inject]
-    private IMapGeneratorSettingsService MapGeneratorSettingsService { get; set; } = null!;
+        if (SystemTile!.SystemTileCategory == SystemTileCategory.Hyperlane)
+            await HandleInitialRotation();
+    }
 
     private Task HandleInitialRotation()
     {

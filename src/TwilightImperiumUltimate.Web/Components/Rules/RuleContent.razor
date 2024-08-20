@@ -5,5 +5,10 @@
     <br />
     <div class="markup-text">@TransformedRuleContent</div>
     <br />
+    @if(ShowNotes)
+    {
+        <Label Text="@Strings.Rules_Notes" />
+        <div class="markup-text">@TransformedNoteContent</div>
+    }
 </div>
 

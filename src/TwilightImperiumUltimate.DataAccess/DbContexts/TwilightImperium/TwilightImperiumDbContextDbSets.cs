@@ -44,6 +44,8 @@ public partial class TwilightImperiumDbContext : IdentityDbContext<TwilightImper
     // Rules
     public virtual DbSet<Rule> Rules { get; set; }
 
+    public virtual DbSet<Faq> Faqs { get; set; }
+
     // Technologies
     public virtual DbSet<Technology> Technologies { get; set; }
 

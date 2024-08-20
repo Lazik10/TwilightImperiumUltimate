@@ -279,6 +279,7 @@ dotnet_diagnostic.CA1848.severity = silent
 dotnet_diagnostic.CA1031.severity = suggestion
 dotnet_diagnostic.IDE0090.severity = silent
 dotnet_diagnostic.IDE0028.severity = silent
+dotnet_diagnostic.IDE0300.severity = none
 dotnet_style_explicit_tuple_names = true:suggestion
 dotnet_style_prefer_inferred_tuple_names = true:suggestion
 dotnet_style_prefer_inferred_anonymous_type_member_names = true:suggestion

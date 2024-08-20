@@ -1,0 +1,26 @@
+﻿@using System.Globalization
+
+@if(Culture == Strings.EnglishCulture)
+{
+    <FlexColumnContainer Width="Width">
+        <div class="handel white shadow" style="font-size: 24px;">
+            @Faq.QuestionEnglish
+        </div>
+        <VerticalSpace Height="10" />
+        <div class="text-handel white shadow" style="font-size: 18px;">
+            @Faq.AnswerEnglish
+        </div>
+    </FlexColumnContainer>
+}
+else if (Culture == Strings.CzechCulture)
+{
+    <FlexColumnContainer Width="Width">
+        <div class="handel white shadow" style="font-size: 24px;">
+            @Faq.QuestionCzech
+        </div>
+        <VerticalSpace Height="10" />
+        <div class="text-handel white shadow" style="font-size: 18px;">
+            @Faq.AnswerCzech
+        </div>
+    </FlexColumnContainer>
+}

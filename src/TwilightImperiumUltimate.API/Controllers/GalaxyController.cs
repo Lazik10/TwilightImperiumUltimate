@@ -18,7 +18,7 @@ public class GalaxyController(IMediator mediator) : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IApiResponse<ItemListDto<PlanetDto>>>> GetAllPlanets()
     {
-        var planets = await _mediator.Send(new GetAllPlanetsCommand());
+        var planets = await _mediator.Send(new GetAllPlanetsQuery());
         return Ok(new ApiResponse<ItemListDto<PlanetDto>>() { Success = true, Data = planets });
     }
 }

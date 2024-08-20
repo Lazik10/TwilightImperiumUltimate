@@ -27,10 +27,10 @@ public partial class FactionIconRow : TwilightImperiumBaseComponenet
     [Parameter]
     public List<FactionModel> ProvidedFactions { get; set; } = new List<FactionModel>();
 
+    public IReadOnlyCollection<FactionModel>? Factions => _factions;
+
     [Inject]
     private IMapGeneratorSettingsService MapGeneratorSettingsService { get; set; } = default!;
-
-    public IReadOnlyCollection<FactionModel>? Factions => _factions;
 
     public void RefreshFactions()
     {
@@ -40,8 +40,7 @@ public partial class FactionIconRow : TwilightImperiumBaseComponenet
 
     public void SetAllFactionsBanStatus(bool banStatus)
     {
-        if (_factions is not null)
-            _factions.ForEach(x => x.Banned = banStatus);
+        _factions?.ForEach(x => x.Banned = banStatus);
     }
 
     protected override async Task OnInitializedAsync()

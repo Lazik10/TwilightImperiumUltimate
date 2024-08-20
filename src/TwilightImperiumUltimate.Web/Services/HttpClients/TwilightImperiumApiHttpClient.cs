@@ -176,6 +176,7 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
                         Log.Error("Error while putting data to endpoint: {EndpointPath}. Status Code: {StatusCode}", endpointPath, response.StatusCode);
                         break;
                 }
+
                 return (new TResponse(), response.StatusCode);
             }
         }

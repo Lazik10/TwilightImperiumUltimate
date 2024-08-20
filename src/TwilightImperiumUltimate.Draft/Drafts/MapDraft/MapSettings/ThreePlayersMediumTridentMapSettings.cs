@@ -52,14 +52,12 @@ internal class ThreePlayersMediumTridentMapSettings : IMapSettings, IHyperlineSe
         { (13, 3, "85A", "0") },
         { (12, 2, "84A", "0") },
         { (10, 2, "87A", "0") },
-
         { (6, 4, "86A", "4") },
         { (4, 4, "88A", "4") },
         { (3, 5, "83A", "1") },
         { (4, 6, "85A", "4") },
         { (6, 6, "84A", "1") },
         { (7, 5, "87A", "4") },
-
         { (6, 2, "86A", "2") },
         { (7, 1, "88A", "2") },
         { (6, 0, "83A", "2") },
@@ -78,7 +76,6 @@ internal class ThreePlayersMediumTridentMapSettings : IMapSettings, IHyperlineSe
         { (11, 3, 8, 2) },
         { (8, 4, 8, 2) },
         { (11, 1, 11, 5) },
-
         { (5, 5, 5, 3) },
         { (5, 5, 3, 3) },
         { (5, 5, 2, 4) },
@@ -87,7 +84,6 @@ internal class ThreePlayersMediumTridentMapSettings : IMapSettings, IHyperlineSe
         { (5, 5, 8, 6) },
         { (2, 4, 8, 6) },
         { (5, 3, 8, 4) },
-
         { (5, 1, 2, 2) },
         { (5, 1, 3, 3) },
         { (5, 1, 5, 3) },

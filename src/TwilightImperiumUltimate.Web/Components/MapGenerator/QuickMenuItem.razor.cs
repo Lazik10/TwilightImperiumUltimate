@@ -2,7 +2,6 @@ namespace TwilightImperiumUltimate.Web.Components.MapGenerator;
 
 public partial class QuickMenuItem
 {
-
     private IconType _currentIconType;
 
     [Parameter]

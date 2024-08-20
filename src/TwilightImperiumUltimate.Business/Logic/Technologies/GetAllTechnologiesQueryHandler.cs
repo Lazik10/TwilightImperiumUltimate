@@ -1,14 +1,14 @@
 namespace TwilightImperiumUltimate.Business.Logic.Technologies;
 
-public class GetAllTechnologiesCommandHandler(
+public class GetAllTechnologiesQueryHandler(
     ITechnologyRepository technologyRepository,
     IMapper mapper)
-    : IRequestHandler<GetAllTechnologiesCommand, ItemListDto<TechnologyDto>>
+    : IRequestHandler<GetAllTechnologiesQuery, ItemListDto<TechnologyDto>>
 {
     private readonly ITechnologyRepository _technologyRepository = technologyRepository;
     private readonly IMapper _mapper = mapper;
 
-    public async Task<ItemListDto<TechnologyDto>> Handle(GetAllTechnologiesCommand request, CancellationToken cancellationToken)
+    public async Task<ItemListDto<TechnologyDto>> Handle(GetAllTechnologiesQuery request, CancellationToken cancellationToken)
     {
         var technologies = await _technologyRepository.GetAllTechnologies(cancellationToken);
 

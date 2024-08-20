@@ -1,6 +1,3 @@
-﻿using Microsoft.AspNetCore.Components;
-using TwilightImperiumUltimate.Web.Enums;
-
 namespace TwilightImperiumUltimate.Web.Components.Shared.Layouts;
 
 public partial class FlexColumnContainer
@@ -15,6 +12,9 @@ public partial class FlexColumnContainer
     public int Height { get; set; } = 100;
 
     [Parameter]
+    public int Width { get; set; } = 100;
+
+    [Parameter]
     public JustifyContent JustifyContent { get; set; } = JustifyContent.FlexStart;
 
     [Parameter]
@@ -24,7 +24,7 @@ public partial class FlexColumnContainer
 
     private string Align => GetAlignString(AlignItems);
 
-    private string GetAlignString(AlignItems alignItems)
+    private static string GetAlignString(AlignItems alignItems)
     {
         return alignItems switch
         {
@@ -37,7 +37,7 @@ public partial class FlexColumnContainer
         };
     }
 
-    private string GetJustifyString(JustifyContent justifyContent)
+    private static string GetJustifyString(JustifyContent justifyContent)
     {
         return justifyContent switch
         {

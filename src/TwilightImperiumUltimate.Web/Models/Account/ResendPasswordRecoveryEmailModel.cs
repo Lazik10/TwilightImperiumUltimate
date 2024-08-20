@@ -1,6 +1,6 @@
 namespace TwilightImperiumUltimate.Web.Models.Account;
 
-public class ResendPasswordRecoveryEmailModelModel
+public class ResendPasswordRecoveryEmailModel
 {
     public string Email { get; set; } = string.Empty;
 }

@@ -601,6 +601,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add new FAQ.
+        /// </summary>
+        public static string Faction_AddFaq {
+            get {
+                return ResourceManager.GetString("Faction_AddFaq", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Agent.
         /// </summary>
         public static string Faction_Agent {
@@ -727,6 +736,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to RULE NOTES.
+        /// </summary>
+        public static string Faction_Notes {
+            get {
+                return ResourceManager.GetString("Faction_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Setup.
         /// </summary>
         public static string Faction_Setup {
@@ -813,6 +831,60 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string FactionSheetBack {
             get {
                 return ResourceManager.GetString("FactionSheetBack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Answer:.
+        /// </summary>
+        public static string Faq_Answer {
+            get {
+                return ResourceManager.GetString("Faq_Answer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Question:.
+        /// </summary>
+        public static string Faq_Question {
+            get {
+                return ResourceManager.GetString("Faq_Question", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string Faq_Save {
+            get {
+                return ResourceManager.GetString("Faq_Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submit.
+        /// </summary>
+        public static string Faq_Submit {
+            get {
+                return ResourceManager.GetString("Faq_Submit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your FAQ was submitted successfully!.
+        /// </summary>
+        public static string Faq_SubmitSuccess {
+            get {
+                return ResourceManager.GetString("Faq_SubmitSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submitted FAQs.
+        /// </summary>
+        public static string Faq_SubmittedFaqs {
+            get {
+                return ResourceManager.GetString("Faq_SubmittedFaqs", resourceCulture);
             }
         }
         
@@ -2320,6 +2392,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Notes:.
+        /// </summary>
+        public static string Rules_Notes {
+            get {
+                return ResourceManager.GetString("Rules_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show notes:.
+        /// </summary>
+        public static string Rules_ShowNotes {
+            get {
+                return ResourceManager.GetString("Rules_ShowNotes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Twilight Imperium 4th Edition - Agenda Phase.
         /// </summary>
         public static string RulesResource_AgendaPhase {
@@ -2613,15 +2703,6 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string StrategyCard {
             get {
                 return ResourceManager.GetString("StrategyCard", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to  .
-        /// </summary>
-        public static string String1 {
-            get {
-                return ResourceManager.GetString("String1", resourceCulture);
             }
         }
         

@@ -48,6 +48,8 @@ internal static class TableName
     // Rules
     internal const string Rules = "Rules";
 
+    internal const string Faq = "Faq";
+
     // Settings
     internal const string Settings = "Settings";
 

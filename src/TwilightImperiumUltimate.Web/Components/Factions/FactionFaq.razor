@@ -1,1 +1,48 @@
-﻿@inherits FactionInfoComponentBase
+﻿@using System.Globalization
+@using Microsoft.AspNetCore.Components.Authorization
+@using TwilightImperiumUltimate.Web.Components.Rules
+@inherits FactionInfoComponentBase
+
+<FlexColumnCenteredContainer Width="80">
+    <FlexRowContainer Width="50">
+        <div class="faction-faq-navbar">
+            <FlexRowContainer Width="40" JustifyContent="Enums.JustifyContent.SpaceBetween">
+                <div class="menu-item clickable" @onclick="() => ShowNotes()">
+                    @Strings.Faction_Notes
+                </div>
+                <div class="menu-item clickable" @onclick="() => ShowFaq()">
+                    @Strings.Faction_Faq
+                </div>
+            </FlexRowContainer>
+        </div>
+    </FlexRowContainer>
+
+    @if (_showFaq)
+    {
+        <FlexRowContainer Width="100" JustifyContent="Enums.JustifyContent.FlexEnd">
+            <AuthorizeView>
+                <Authorized>
+                    <FlexRowContainer Width="35">
+                        <Button ButtonText="@Strings.Faction_AddFaq" OnClick="AddFaq" />
+                    </FlexRowContainer>
+                </Authorized>
+            </AuthorizeView>
+
+        </FlexRowContainer>
+
+        <VerticalSpace Height="20" />
+
+        @foreach (var faq in Faqs)
+        {
+            <FaqRow Faq="@faq" Culture="@(CultureInfo.CurrentCulture.Name)" />
+            <VerticalSpace Height="50" />
+        }
+    }
+    else if (_showNotes)
+    {
+        <FlexColumnContainer CssClass="white shadow handel">
+            @(FactionNotes)
+        </FlexColumnContainer>
+    }
+</FlexColumnCenteredContainer>
+

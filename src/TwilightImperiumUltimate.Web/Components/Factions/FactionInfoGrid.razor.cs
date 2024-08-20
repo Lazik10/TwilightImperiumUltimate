@@ -10,9 +10,6 @@ public partial class FactionInfoGrid
 
     private string currentBigImageSrc = string.Empty;
 
-    [Inject]
-    private IMapper Mapper { get; set; } = default!;
-
     private RenderFragment DynamicComponent => builder =>
     {
         builder.OpenComponent(0, CreateInfoType());
@@ -25,11 +22,6 @@ public partial class FactionInfoGrid
         _selectedFaction = faction;
         StateHasChanged();
     }
-
-/*    protected async override Task OnInitializedAsync()
-    {
-        await InitializeSelectedFaction();
-    }*/
 
     private Type CreateInfoType()
     {
@@ -65,13 +57,4 @@ public partial class FactionInfoGrid
     {
         _selectedFactionInfoType = factionInfoType;
     }
-
-/*    private async Task InitializeSelectedFaction()
-    {
-        var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<FactionDto>>>(Paths.ApiPath_FirstFaction);
-        if (statusCode == HttpStatusCode.OK && response?.Data?.Items is not null)
-            _selectedFaction = Mapper.Map<FactionModel>(response.Data?.Items?.First());
-
-        StateHasChanged();
-    }*/
 }

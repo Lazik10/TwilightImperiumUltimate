@@ -11,7 +11,7 @@ public partial class ResendPasswordRecoveryEmail
     private bool _recoveryEmailSend;
     private bool _disableButton;
 
-    private ResendPasswordRecoveryEmailModelModel PasswordRecoveryModel { get; set; } = new ResendPasswordRecoveryEmailModelModel();
+    private ResendPasswordRecoveryEmailModel PasswordRecoveryModel { get; set; } = new ResendPasswordRecoveryEmailModel();
 
     [Inject]
     private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
@@ -31,7 +31,7 @@ public partial class ResendPasswordRecoveryEmail
         {
             _passwordRecoveryEmailSendSuccess = true;
             _recoveryEmailSend = true;
-            PasswordRecoveryModel = new ResendPasswordRecoveryEmailModelModel();
+            PasswordRecoveryModel = new ResendPasswordRecoveryEmailModel();
             StateHasChanged();
         }
         else

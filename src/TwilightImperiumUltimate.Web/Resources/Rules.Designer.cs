@@ -74,6 +74,19 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;An ability may be triggered during the timing window it was gained, if applicable. For example, if a player receives the Creuss player&amp;rsquo;s &lt;i&gt;Creuss Iff&lt;/i&gt; promissory note at the start of their turn, they may use it immediately.&lt;/li&gt;
+        ///    &lt;ol&gt;
+        ///        &lt;li&gt;Note that some triggers check their conditions when they trigger, while some check their conditions when they would resolve.&lt;/li&gt;
+        ///        &lt;li&gt;The Ul player&amp;rsquo;s &lt;sc&gt;Awaken&lt;/sc&gt; ability is an example of an ability that c [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_Abilities_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Abilities_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;Action cards provide players with various abilities that they can resolve as described on the cards.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;Each player draws one action card during each status phase.&lt;/li&gt;
@@ -88,6 +101,20 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;Players start the game with zero action cards.&lt;/li&gt;
+        ///    &lt;li&gt;A player may choose to reveal any or all of the action cards in their hand, if they so choose.&lt;/li&gt;
+        ///    &lt;li&gt;If the action card deck is depleted, immediately shuffle the discard pile to form a new action card deck.&lt;/li&gt;
+        ///    &lt;li&gt;During the action phase, action cards are dealt out in initiative order.&lt;/li&gt;
+        ///    &lt;li&gt;If a player&amp;rsquo;s action card is cancelled, usually via a &lt;i&gt;Sabotage&lt;/i&gt; action card, then if that player [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_ActionCards_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_ActionCards_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;During the action phase, each player takes a turn in initiative order. During a player&amp;rsquo;s turn, they perform a single action. After each player has taken a turn, player turns begin again in initiative order. This process continues until all players have passed.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;During a player&amp;rsquo;s turn, they may perform one of the following three types of actions: a strategic action, a tactical action, or a component action.&lt;/li&gt;
@@ -96,6 +123,19 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_ActionPhase {
             get {
                 return ResourceManager.GetString("RuleCategory_ActionPhase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;Players may still play non&amp;ndash;component action action cards after they have passed.&lt;/li&gt;
+        ///    &lt;li&gt;Any abilities that occur at the end of an action happen before any abilities that occur at the end of a player&amp;rsquo;s turn.&lt;/li&gt;
+        ///    &lt;li&gt;A player may resolve &amp;ldquo;at the start of your turn&amp;rdquo; and &amp;ldquo;at the end of your turn&amp;rdquo; abilities on the turn that they pass.&lt;/li&gt;
+        ///    &lt;li&gt;If all other players have passed, a player will continue to resolve &amp;ldquo;at the start of [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_ActionPhase_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_ActionPhase_Notes", resourceCulture);
             }
         }
         
@@ -113,6 +153,20 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;During combat, the active player is the attacker.&lt;/li&gt;
+        ///    &lt;li&gt;The active player will have the first opportunity to resolve abilities during each timing window.&lt;/li&gt;
+        ///    &lt;li&gt;All transactions during the action phase must involve the active player.&lt;/li&gt;
+        ///    &lt;li&gt;If a non&amp;ndash;active player produces hits using the &lt;sc&gt;Space Cannon Offense&lt;/sc&gt; ability of one of their units, those hits must be assigned to the active player&amp;rsquo;s units.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_ActivePlayer_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_ActivePlayer_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;The active system is the system that is activated during a tactical action.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;When a player performs a tactical action, they activate a system by placing a command token from their tactic pool in that system. That system is the active system.&lt;/li&gt;
@@ -122,6 +176,20 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_ActiveSystem {
             get {
                 return ResourceManager.GetString("RuleCategory_ActiveSystem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;A player may only move into a nebula if it is the active system.&lt;/li&gt;
+        ///    &lt;li&gt;No system is the active system during a component or strategic action.&lt;/li&gt;
+        ///    &lt;ol&gt;&lt;li&gt;Effects that trigger when a system is activated will not trigger during a component or strategic action.&lt;/li&gt;&lt;/ol&gt;
+        ///    &lt;li&gt;After activating a system during a tactical action, play will proceed to the &lt;b&gt;Movement&lt;/b&gt; step.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_ActiveSystem_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_ActiveSystem_Notes", resourceCulture);
             }
         }
         
@@ -140,6 +208,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;A unit is not adjacent to the system it is in.&lt;/li&gt;
+        ///    &lt;li&gt;The Wormhole Nexus and the Creuss home system are only adjacent to tiles via wormholes.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Adjacency_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Adjacency_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;Agenda cards represent galactic laws and policies. During each agenda phase, players cast votes for specific outcomes on two agenda cards.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;There are two types of agenda cards: laws and directives.&lt;/li&gt;
@@ -149,6 +229,19 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_AgendaCard {
             get {
                 return ResourceManager.GetString("RuleCategory_AgendaCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;When resolving the primary ability of the &lt;i&gt;Politics&lt;/i&gt; card, the active player cannot show the agenda cards they drew to any other player.&lt;/li&gt;
+        ///    &lt;li&gt;If the outcome of an agenda affects multiple players, it will do so in speaker order.&lt;/li&gt;
+        ///    &lt;li&gt;For notes about specific agenda cards, see the agenda card page.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_AgendaCard_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_AgendaCard_Notes", resourceCulture);
             }
         }
         
@@ -166,17 +259,44 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;A player cannot cast zero votes for an outcome. Casting zero votes is the same as abstaining.&lt;/li&gt;
+        ///    &lt;li&gt;When a player casts votes during the agenda phase, it is not that player&amp;rsquo;s turn for the purpose of game effects.&lt;/li&gt;
+        ///    &lt;li&gt;If an agenda outcome affects multiple players, it does so in speaker order.&lt;/li&gt;
+        ///    &lt;li&gt;Riders are resolved after the agenda is fully resolved, in speaker order.&lt;/li&gt;
+        ///    &lt;li&gt;If a player successfully predicts multiple riders, they resolve on [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_AgendaPhase_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_AgendaPhase_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;An anomaly is a system tile that has unique rules.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;An anomaly is identified by a red border located on the tile&amp;rsquo;s corners.&lt;/li&gt;
         ///    &lt;li&gt;There are four types of anomalies: asteroid fields, nebulae, supernovas, and gravity rifts.&lt;/li&gt;
         ///    &lt;ol&gt;&lt;li&gt;Some anomalies contain planets; those systems are still anomalies.&lt;/li&gt;&lt;/ol&gt;
-        ///    &lt;li&gt;Each type of anomaly is identified by its art. &lt;code&gt;See rulebook for images.&lt;/code&gt;&lt;/li&gt;
-        ///    &lt;li&gt;Abilities can cause a system tile to [rest of string was truncated]&quot;;.
+        ///    &lt;li&gt;Each type of anomaly is identified by its art. See rulebook for images.&lt;/li&gt;
+        ///    &lt;li&gt;Abilities can cause a system tile to become an an [rest of string was truncated]&quot;;.
         /// </summary>
         public static string RuleCategory_Anomalies {
             get {
                 return ResourceManager.GetString("RuleCategory_Anomalies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;An empty system is not an anomaly.&lt;/li&gt;
+        ///    &lt;li&gt;A system containing a wormhole is not an anomaly.&lt;/li&gt;
+        ///    &lt;li&gt;A system with a Vuil&amp;rsquo;raith Dimensional Tear is a gravity rift, and thus an anomaly.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Anomalies_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Anomalies_Notes", resourceCulture);
             }
         }
         
@@ -192,6 +312,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;Game effects that reroll, modify, or otherwise affect dice rolls during combat may affect anti&amp;ndash;fighter barrage rolls. This is distinct from, and a superset of, both anti&amp;ndash;fighter barrage rolls and combat rolls.&lt;/li&gt;
+        ///    &lt;li&gt;A non&amp;ndash;fighter ship cannot its &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability to cancel a hit produced by an anti&amp;ndash;fighter barrage roll.&lt;/li&gt;
+        ///    &lt;li&gt;Effects such as the &lt;i&gt;Shields Holding&lt;/i&gt; action card, which trigger on hits produced during space com [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_AntiFighterBarrage_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_AntiFighterBarrage_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;An asteroid field is an anomaly that affects movement.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;A ship cannot move through or into an asteroid field.&lt;/li&gt;
@@ -200,6 +332,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_AsteroidField {
             get {
                 return ResourceManager.GetString("RuleCategory_AsteroidField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;A player with the &lt;i&gt;Antimass Deflectors&lt;/i&gt; technology may move their ships through asteroid fields.&lt;/li&gt;
+        ///    &lt;li&gt;A future rule change will place the ship movement restrictions of anomalies upon all units.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_AsteroidField_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_AsteroidField_Notes", resourceCulture);
             }
         }
         
@@ -218,6 +362,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;There is no limit on how many attachments a single planet may have.&lt;/li&gt;
+        ///    &lt;li&gt;The Custodians Token is not an attachment.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Attach_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Attach_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;During combat, the active player is the attacker.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;/ol&gt;.
@@ -225,6 +381,19 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_Attacker {
             get {
                 return ResourceManager.GetString("RuleCategory_Attacker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;The attacker&amp;rsquo;s opponent is the defender.&lt;/li&gt;
+        ///    &lt;li&gt;The attacker will have the first opportunity to resolve abilities during each timing window.&lt;/li&gt;
+        ///    &lt;li&gt;When the Mahact player resolves their &lt;i&gt;Benediction&lt;/i&gt; hero ability, the player than had their ships moved will be the attacker.&lt;/li&gt;
+        ///    &lt;ol&gt;&lt;li&gt;Resolving abilities will be by initiative order, starting with the Mahact player. As such, the defender may resolve abilities before the attacker, depending on what ord [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_Attacker_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Attacker_Notes", resourceCulture);
             }
         }
         
@@ -241,6 +410,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;While a player is involved in a space combat in a system, their units in that system are not blockaded, as both players will have ships in the system. Consequently, they may capture their opponent&amp;rsquo;s units.&lt;/li&gt;
+        ///    &lt;ol&gt;&lt;li&gt;If that player has a unit in another system that their opponent is blockading, they will be unable to capture their opponent&amp;rsquo;s units.&lt;/li&gt;&lt;/ol&gt;
+        ///    &lt;li&gt;If, at the end of a combat, one player has no ships, but a space dock in the system, and the oth [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_Blockaded_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Blockaded_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;A unit with the &lt;sc&gt;Bombardment&lt;/sc&gt; ability may be able to destroy another player&amp;rsquo;s ground forces during an invasion. During the &lt;b&gt;Bombardment&lt;/b&gt; step, players perform the following steps:&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;&lt;b&gt;Step 1&lt;/b&gt; &amp;ndash; The active player chooses which planet each of their units that has a &lt;sc&gt;Bombardment&lt;/sc&gt; ability will bombard. Then, that player rolls dice for each of those units; this is called a bombardment roll. A hit is produced for each die roll that is equal to [rest of string was truncated]&quot;;.
@@ -248,6 +429,19 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_Bombardment {
             get {
                 return ResourceManager.GetString("RuleCategory_Bombardment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;The &lt;b&gt;Bombardment&lt;/b&gt; step happens outside of combat. No combat effects may affect a bombardment roll.&lt;/li&gt;
+        ///    &lt;ol&gt;&lt;li&gt;A player cannot score a secret objective that requires them to win a combat or similar by destroying units during the &lt;b&gt;Bombardment&lt;/b&gt; step.&lt;/li&gt;&lt;/ol&gt;
+        ///    &lt;li&gt;Mechs may use their &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability to cancel a hit produced by a bombardment roll.&lt;/li&gt;
+        ///    &lt;li&gt;Only the active player may bombard. Usually, but not always, only the active player wil [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_Bombardment_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Bombardment_Notes", resourceCulture);
             }
         }
         
@@ -261,6 +455,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_Capacity {
             get {
                 return ResourceManager.GetString("RuleCategory_Capacity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;If a player moves more fighters and/or ground forces into a system containing another player&amp;rsquo;s ships, capacity limits must be met before proceeding to the &lt;b&gt;Space Cannon Offense&lt;/b&gt; substep or the &lt;b&gt;Space Combat&lt;/b&gt; step.&lt;/li&gt;
+        ///    &lt;li&gt;If a ship with capacity is destroyed during the &lt;b&gt;Space Cannon Offense&lt;/b&gt; step, capacity limits must be met before space combat starts.&lt;/li&gt;
+        ///    &lt;li&gt;Capacity is checked after the winner of a space combat is determined. As such, it is poss [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_Capacity_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Capacity_Notes", resourceCulture);
             }
         }
         
@@ -279,6 +485,19 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;For more information, see the uil&amp;rsquo;raith faction notes page.&lt;/li&gt;
+        ///	&lt;li&gt;Units are returned as soon as a space dock is blockaded. If this occurs at the end of the &lt;b&gt;Space Combat&lt;/b&gt; step of a tactical action, the units will be returned before the &lt;b&gt;Invasion&lt;/b&gt; step, in which the space dock could potentially be destroyed.&lt;/li&gt;
+        ///    &lt;li&gt;A captured unit may only be returned to the player that originally owned it, and not to another player.&lt;/li&gt;
+        ///    &lt;li&gt;The Nekro player and th [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_Capture_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Capture_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;Combat is an attribute of some units that is presented on faction sheets and unit upgrade technology cards.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;During combat, if a unit&amp;rsquo;s combat roll produces a result equal to or greater than its combat value, it produces a hit.&lt;/li&gt;
@@ -292,6 +511,17 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;The &amp;ldquo;0&amp;rdquo; side of the d10 represents a result of 10.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Combat_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Combat_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;Each player has a command sheet that contains a strategy pool, a tactic pool, a fleet pool, a trade good area, and a quick reference.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;The pools on the command sheet are where players place their command tokens. Command tokens in a player&amp;rsquo;s pools are used by that player to perform strategic and tactical actions and to increase the number of ships that player can have in each system.&lt;/li&gt;
@@ -300,6 +530,17 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_CommandSheet {
             get {
                 return ResourceManager.GetString("RuleCategory_CommandSheet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;When a command token is gained, it may be placed in any of the three pools.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_CommandSheet_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_CommandSheet_Notes", resourceCulture);
             }
         }
         
@@ -319,6 +560,16 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_CommandTokens_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_CommandTokens_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;Commodities represent goods that are plentiful for their own faction and are desired by other factions. A commodity has no inherent game effects, but converts into a trade good if given to or received from another player.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;Commodities and trade goods are represented by opposite sides of the same token.&lt;/li&gt;
@@ -332,6 +583,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;A player starts the game with zero commodities.&lt;/li&gt;
+        ///    &lt;li&gt;If a player has their maximum number of commodities, and is instructed to replenish their commodities, they will take no commodities. However, they will still trigger any &amp;ldquo;when [this] player replenishes commodities&amp;rdquo; effects, most notably the &lt;i&gt;Trade Agreement&lt;/i&gt; promissory note.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Commodities_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Commodities_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;A component action is a type of action that a player can perform during their turn of an action phase.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;Component actions can be found on various game components, including action cards, technology cards, leaders, exploration cards, relics, promissory notes, and faction sheets. Each component action is indicated by an &amp;ldquo;Action&amp;rdquo; header.&lt;/li&gt;
@@ -340,6 +603,17 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_ComponentAction {
             get {
                 return ResourceManager.GetString("RuleCategory_ComponentAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;Action cards without the &amp;ldquo;Action&amp;rdquo; header are not used to perform component actions.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_ComponentAction_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_ComponentAction_Notes", resourceCulture);
             }
         }
         
@@ -360,6 +634,19 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;As each player only has ten plastic fighter figures and twelve plastic infantry figures, a player cannot have fighters in more than ten systems, and cannot have infantry on more than twelve planets or being carried in more than twelve space areas, or any combination thereof.&lt;/li&gt;
+        ///    &lt;li&gt;Players may also swap infantry and fighter plastic pieces for tokens at any time.&lt;/li&gt;
+        ///    &lt;li&gt;Players may swap between three value tokens and one value tokens as desired.&lt;/li&gt;
+        ///    &lt;li&gt;A player [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_ComponentLimitations_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_ComponentLimitations_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;The &lt;i&gt;Construction&lt;/i&gt; strategy card allows players to construct structures on planets they control. This card&amp;rsquo;s initiative value is &amp;ldquo;4&amp;rdquo;.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;During the action phase, if the active player has the &lt;i&gt;Construction&lt;/i&gt; strategy card, they can perform a strategic action to resolve that card&amp;rsquo;s primary ability.&lt;/li&gt;
@@ -368,6 +655,19 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_Construction {
             get {
                 return ResourceManager.GetString("RuleCategory_Construction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;A player may have a maximum of one space dock on each planet.&lt;/li&gt;
+        ///    &lt;li&gt;A player may have a maximum of two PDS units on each planet.&lt;/li&gt;
+        ///    &lt;li&gt;Structures cannot be placed on the planet with the &lt;i&gt;Demilitarized Zone&lt;/i&gt; exploration card attached.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Construction_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Construction_Notes", resourceCulture);
             }
         }
         
@@ -386,6 +686,17 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;Control tokens are not component limited; a player may control an unlimited number of planets.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Control_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Control_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;Cost is an attribute of some units that is presented on faction sheets and unit upgrade technology cards. A unit&amp;rsquo;s cost determines the number of resources a player must spend to produce that unit.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;To produce a unit, a player must spend a number of resources equal to or greater than the cost of the unit they are producing.&lt;/li&gt;
@@ -394,6 +705,29 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_Cost {
             get {
                 return ResourceManager.GetString("RuleCategory_Cost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;Whenever a unit is produced, its cost must be paid, unless the effect that is producing the unit explicitly says otherwise.&lt;/li&gt;
+        ///    &lt;li&gt;A player does not have to pay a unit&amp;rsquo;s cost to resolve that unit&amp;rsquo;s deploy ability. However, the deploy ability itself may have a cost that must be paid.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Cost_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Cost_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;The custodians token is not an attachment.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_CustiodiansToken_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_CustiodiansToken_Notes", resourceCulture);
             }
         }
         
@@ -423,6 +757,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;In general, only the terms of the deal that a player can immediately perform, even without the deal taking place, are binding. For example:&lt;/li&gt;
+        ///    &lt;ol&gt;
+        ///        &lt;li&gt;If a player has four resources available during the &lt;b&gt;Production&lt;/b&gt; step of a tactical action, another player may give them four trade goods to on the condition that they produce a dreadnought during this &lt;b&gt;Production&lt;/b&gt; step. As the active player could produce a dreadnought with the resources, this deal is bind [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_Deals_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Deals_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;During either a space or ground combat, the player who is not the active player is the defender.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;/ol&gt;.
@@ -430,6 +776,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_Defender {
             get {
                 return ResourceManager.GetString("RuleCategory_Defender", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;When the Mahact player resolves their &lt;i&gt;Benediction&lt;/i&gt; hero ability, the player than had their ships already in the system will be the defender.&lt;/li&gt;
+        ///    &lt;ol&gt;&lt;li&gt;Resolving abilities will be by initiative order, starting with the Mahact player. As such, the defender may resolve abilities before the attacker, depending on what order those two players are in.&lt;/li&gt;&lt;/ol&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Defender_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Defender_Notes", resourceCulture);
             }
         }
         
@@ -447,6 +805,16 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Deploy_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Deploy_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;Various game effects can cause a unit to be destroyed. When a player&amp;rsquo;s unit is destroyed, it is removed from the game board and returned to their reinforcements.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;When a player assigns hits that were produced against their units, that player chooses a number of their units to be destroyed equal to the number of hits produced against those units.&lt;/li&gt;
@@ -459,6 +827,16 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Destroyed_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Destroyed_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;The &lt;i&gt;Diplomacy&lt;/i&gt; strategy card can be used to preemptively prevent other players from activating a specific system. It can also be used to ready planets. This card&amp;rsquo;s initiative value is &amp;ldquo;2&amp;rdquo;.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;During the action phase, if the active player has the &lt;i&gt;Diplomacy&lt;/i&gt; strategy card, they can perform a strategic action to resolve that card&amp;rsquo;s primary ability.&lt;/li&gt;
@@ -467,6 +845,16 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_Diplomacy {
             get {
                 return ResourceManager.GetString("RuleCategory_Diplomacy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Diplomacy_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Diplomacy_Notes", resourceCulture);
             }
         }
         
@@ -488,6 +876,19 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;While the Arborec flagship may produce units, it does not have the &lt;sc&gt;Production&lt;/sc&gt; ability. Having it on the game board will not prevent the Arborec player from being eliminated. This applies to all similar effects in the game.&lt;/li&gt;
+        ///    &lt;li&gt;An eliminated player&amp;rsquo;s home system remains a home system for game effects.&lt;/li&gt;
+        ///        &lt;ol&gt;&lt;li&gt;This includes effects that specify &amp;ldquo;another player&amp;rsquo;s home system&amp;rdquo;.&lt;/li&gt;&lt;/ol&gt;
+        ///    &lt;li&gt;If an eliminated player had any  [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_Elimination_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Elimination_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;Some cards can be exhausted. A player cannot resolve abilities or spend the resources or influence of an exhausted card.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;To exhaust a card, a player flips the card facedown.&lt;/li&gt;
@@ -498,6 +899,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_Exhausted {
             get {
                 return ResourceManager.GetString("RuleCategory_Exhausted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;Planets will also ready at the end of each agenda phase. Leaders, relics and technology will not.&lt;/li&gt;
+        ///    &lt;li&gt;If a game effect instructs a player to exhaust a planet, the exhausted planet must be controlled by that player, unless the game effect specifies otherwise.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Exhausted_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Exhausted_Notes", resourceCulture);
             }
         }
         
@@ -516,6 +929,19 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;An exploration cards that purges itself is not discarded into its respective discard pile.&lt;/li&gt;
+        ///    &lt;li&gt;&lt;i&gt;Enigmatic Device&lt;/i&gt; and &lt;i&gt;Ion Storm&lt;/i&gt; are placed into play, not into the frontier discard pile.&lt;/li&gt;
+        ///    &lt;li&gt;If a player is to gain multiple planets in a system, they choose the order in which they gain them, and explore each planet as they gain it before gaining the next.&lt;/li&gt;
+        ///    &lt;li&gt;A player may perform transactions after revealing an exploration card and before res [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_Exploration_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Exploration_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;A fighter token functions as a plastic fighter unit for all game purposes.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;When producing a fighter unit, a player can use a fighter token from the supply instead of a plastic piece.&lt;/li&gt;
@@ -530,6 +956,20 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;As each player only has ten plastic fighter figures, a player cannot have fighters in more than ten systems.&lt;/li&gt;
+        ///    &lt;li&gt;Players may also swap fighter tokens for plastic pieces at any time.&lt;/li&gt;
+        ///    &lt;li&gt;Fighter tokens are not component limited.&lt;/li&gt;
+        ///    &lt;li&gt;A future rule change will have any unaccompanied fighter tokens removed, instead of destroyed.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_FighterTokens_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_FighterTokens_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;The fleet pool is an area of a player&amp;rsquo;s command sheet.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;The number of command tokens in a player&amp;rsquo;s fleet pool indicates the maximum number of non&amp;ndash;fighter ships that a player can have in a system.&lt;/li&gt;
@@ -540,6 +980,17 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_FleetPool {
             get {
                 return ResourceManager.GetString("RuleCategory_FleetPool", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;Fighters and ground forces do not count towards capacity during combat. As such, any number of Fighter II may be in a system during combat, regardless of capacity and fleet pool. This will usually only be caused by effects that place units in a system during combat. When combat ends, however units will need to be removed to meet capacity and fleet pool requirements.&lt;/li&gt;
+        ///    &lt;li&gt;Ships may be moved into, produced in or placed in a system even if doing so would exceed the fleet poo [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_FleetPool_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_FleetPool_Notes", resourceCulture);
             }
         }
         
@@ -560,6 +1011,17 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;Players may explore space areas that contain frontier tokens if they own the &lt;i&gt;Dark Energy Tap&lt;/i&gt; technology or if another game effect allows them to.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_FrontierTokens_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_FrontierTokens_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;The game board consists of all system tiles in play.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;The game board consists of all system tiles that were placed during setup, even if the sides of those tiles do not touch any other system tiles, such as the Ghosts of Creuss&amp;rsquo; home system.&lt;/li&gt;
@@ -569,6 +1031,19 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_GameBoard {
             get {
                 return ResourceManager.GetString("RuleCategory_GameBoard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;If the edge of a system tile is touching a hyperlane tile, that edge does not cause that system tile to be on the edge of the game board.&lt;/li&gt;
+        ///    &lt;ol&gt;
+        ///        &lt;li&gt;When using the five&amp;ndash; and seven&amp;ndash;player hyperlane setups, the system tile in the center of the ring of hyperlanes is not on the edge of the game board.&lt;/li&gt;
+        ///        &lt;li&gt;When using the seven&amp;ndash; and eight&amp;ndash;player alternate setups, only the system tiles designated as &amp;ldquo;Ring 3&amp;rdquo; and home syst [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_GameBoard_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_GameBoard_Notes", resourceCulture);
             }
         }
         
@@ -592,6 +1067,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;During the strategy, status and agenda phases, players to not take turns for the purpose of game effects.&lt;/li&gt;
+        ///    &lt;li&gt;A game has a maximum of nine game rounds.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_GameRound_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_GameRound_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;A gravity rift is an anomaly that affects movement.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;A ship that will move out of or through a gravity rift at any time during its movement, applies +1 to its move value.&lt;/li&gt;
@@ -605,6 +1092,20 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;Moving into a gravity rift will not provide the +1, nor will the ships have to roll for removal.&lt;/li&gt;
+        ///    &lt;li&gt;A ship removed by a gravity rift is not destroyed.&lt;/li&gt;
+        ///    &lt;li&gt;All ship movement must be declared before any roll for gravity rift removal. A player may not move additional ships after seeing the result of this roll.&lt;/li&gt;
+        ///    &lt;li&gt;A ship that is removed by a gravity rift will not count toward the fleet limit in the destination system.&lt;/li&gt;
+        ///    &lt;li&gt;Retreating from a gra [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_GravityRift_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_GravityRift_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;During the &lt;b&gt;Ground Combat&lt;/b&gt; step of an invasion, if the active player has ground forces on a planet that contains another player&amp;rsquo;s ground forces, those players resolve a ground combat on that planet. To resolve a ground combat, players perform the following steps:&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;&lt;b&gt;Step 1 &amp;ndash; Roll Dice&lt;/b&gt;: Each player rolls one die for each ground force they have on the planet; this is a combat roll. If a unit&amp;rsquo;s combat roll produces a result that is equal to or gr [rest of string was truncated]&quot;;.
@@ -612,6 +1113,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_GroundCombat {
             get {
                 return ResourceManager.GetString("RuleCategory_GroundCombat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;The &amp;ldquo;start of combat&amp;rdquo; and &amp;ldquo;start of combat round&amp;rdquo; occurs before the &lt;b&gt;Roll Dice&lt;/b&gt; step.&lt;/li&gt;
+        ///    &lt;li&gt;The &amp;ldquo;end of combat&amp;rdquo; and &amp;ldquo;end of combat round&amp;rdquo; occurs after the &lt;b&gt;Assign Hits&lt;/b&gt; step.&lt;/li&gt;
+        ///    &lt;li&gt;If ground combat is to happen on multiple planets during a single invasion step, they will be resolved planet by planet, after the &lt;b&gt;Space Cannon Defense&lt;/b&gt; step has resolved been resolved on all planets and before the &lt;b&gt;Establ [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_GroundCombat_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_GroundCombat_Notes", resourceCulture);
             }
         }
         
@@ -629,6 +1142,16 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_GroundForces_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_GroundForces_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;Hyperlanes are tiles that are used in some game board setups to create adjacency of system tiles that are not touching each other.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;Systems that are connected by lines drawn across one or more hyperlane tiles are adjacent for all purposes.&lt;/li&gt;
@@ -642,6 +1165,19 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;If the edge of a system time is touching a hyperlane tile, that edge does not cause that system tile to be on the edge of the game board.&lt;/li&gt;
+        ///    &lt;ol&gt;
+        ///        &lt;li&gt;When using the five&amp;ndash; and seven&amp;ndash;player hyperlane setups, the system tile in the center of the ring of hyperlanes is not on the edge of the game board.&lt;/li&gt;
+        ///        &lt;li&gt;When using the seven&amp;ndash; and eight&amp;ndash;player alternate setups, only the system tiles designated as &amp;ldquo;Ring 3&amp;rdquo; and home syst [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_Hyperlanes_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Hyperlanes_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;The &lt;i&gt;Imperial&lt;/i&gt; strategy card allows players to score victory points and draw secret objectives. This card&amp;rsquo;s initiative value is &amp;ldquo;8&amp;rdquo;.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;During the action phase, if the active player has the &lt;i&gt;Imperial&lt;/i&gt; strategy card, they can perform a strategic action to resolve that card&amp;rsquo;s primary ability.&lt;/li&gt;
@@ -650,6 +1186,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_Imperial {
             get {
                 return ResourceManager.GetString("RuleCategory_Imperial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;A player must control every planet in their home system to score a public objective using the first primary ability of &lt;i&gt;Imperial&lt;/i&gt;.&lt;/li&gt;
+        ///    &lt;li&gt;A player who controls Mecatol Rex does not need to control every planet in their home system to gain a victory point from the second primary ability of &lt;i&gt;Imperial&lt;/i&gt;.&lt;/li&gt;
+        ///    &lt;li&gt;A player who controls Mecatol Rex while resolving the primary ability of &lt;i&gt;Imperial&lt;/i&gt; must gain a victory point; they cannot instead draw a secret ob [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_Imperial_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Imperial_Notes", resourceCulture);
             }
         }
         
@@ -667,6 +1215,19 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;As each player only has twelve plastic infantry figures, a player cannot have infantry on more than twelve planets or being transported in more than twelve space areas, or any combination thereof.&lt;/li&gt;
+        ///    &lt;li&gt;Players may also swap infantry tokens for plastic pieces at any time.&lt;/li&gt;
+        ///    &lt;li&gt;Infantry tokens are not component limited.&lt;/li&gt;
+        ///    &lt;li&gt;A player may remove a plastic infantry figure from a planet or space area, along with any accompanying infantry tokens, if doing so a [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_InfantryTokens_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_InfantryTokens_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;Influence represents a planet&amp;rsquo;s political power. Players spend influence to gain command tokens using the &lt;i&gt;Leadership&lt;/i&gt; strategy card, and the influence values of planets are used to cast votes during the agenda phase.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;A planet&amp;rsquo;s influence is the rightmost value (surrounded by a blue border) found on the planet&amp;rsquo;s system tile and planet card.&lt;/li&gt;
@@ -676,6 +1237,16 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_Influence {
             get {
                 return ResourceManager.GetString("RuleCategory_Influence", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Influence_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Influence_Notes", resourceCulture);
             }
         }
         
@@ -693,6 +1264,25 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;If there are multiple abilities that players wish to resolve at the same time during the action phase, initiative order will determine the order they are resolved in. See faction page for more details.&lt;/li&gt;
+        ///    &lt;li&gt;The initiative order of all strategy cards is:&lt;/li&gt;
+        ///    &lt;ol class=&quot;roman&quot;&gt;
+        ///        &lt;li&gt;Leadership&lt;/li&gt;
+        ///        &lt;li&gt;Diplomacy&lt;/li&gt;
+        ///        &lt;li&gt;Politics&lt;/li&gt;
+        ///        &lt;li&gt;Construction&lt;/li&gt;
+        ///        &lt;li&gt;Trade&lt;/li&gt;
+        ///        &lt;li&gt;Warfare&lt;/li&gt;
+        ///        &lt;li&gt;Technology&lt;/li&gt; [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_InitiativeOrder_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_InitiativeOrder_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;Invasion is a step of the tactical action during which the active player can land ground forces on planets to gain control of those planets.&lt;/p&gt;
         ///&lt;p&gt;To resolve an invasion, players perform the following steps:&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
@@ -702,6 +1292,19 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_Invasion {
             get {
                 return ResourceManager.GetString("RuleCategory_Invasion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;Units are considered to be on the planet for game effects from the &lt;b&gt;Commit Ground Forces&lt;/b&gt; step onward.&lt;/li&gt;
+        ///    &lt;li&gt;If a player gains control of an uncontrolled planet during the &lt;b&gt;Establish Control&lt;/b&gt; step, they explore it.&lt;/li&gt;
+        ///    &lt;li&gt;If a player gains control of a legendary planet, they gain the legendary planet ability card in addition to the planet card. The card will not be exhausted if it was readied.&lt;/li&gt;
+        ///    &lt;li&gt;If Mecatol Rex has the custodians token on it, a  [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_Invasion_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Invasion_Notes", resourceCulture);
             }
         }
         
@@ -721,6 +1324,19 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;A commander&amp;rsquo;s ability cannot be applied to the instance of the effect that unlocked it.&lt;/li&gt;
+        ///    &lt;li&gt;A commander may be unlocked between two abilities that occur in the same timing window.&lt;/li&gt;
+        ///    &lt;li&gt;For notes about a leader of a specific faction, see that faction&amp;rsquo;s page.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Leaders_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Leaders_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;Each player has a leader sheet that contains slots for their faction&amp;rsquo;s three leader cards as well as their faction&amp;rsquo;s mech unit card. &lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;The leader slots of the leader sheet are where players place their three leader cards during setup. Each slot displays the name of the type of leader that is placed in that slot (agent, commander, and hero) as well as a symbol in the upper&amp;ndash;right that helps players quickly determine which side of those leaders begins the  [rest of string was truncated]&quot;;.
@@ -728,6 +1344,16 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_LeaderSheet {
             get {
                 return ResourceManager.GetString("RuleCategory_LeaderSheet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_LeaderSheet_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_LeaderSheet_Notes", resourceCulture);
             }
         }
         
@@ -740,6 +1366,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_Leadership {
             get {
                 return ResourceManager.GetString("RuleCategory_Leadership", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;The secondary ability of &lt;i&gt;Leadership&lt;/i&gt; does not require a player to spend a strategy token.&lt;/li&gt;
+        ///    &lt;li&gt;A player may spend one or two more influence than the amount necessary for the tokens they gain; however, this influence is wasted.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Leadership_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Leadership_Notes", resourceCulture);
             }
         }
         
@@ -759,6 +1397,17 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;If a player wishes to resolve the &lt;i&gt;Imperial Arms Vault&lt;/i&gt; ability of Hope&amp;rsquo;s End, but they have no mechs left in their reinforcements, they may remove a mech from any system that does not contain one of their command tokens and place that instead. The mech will be placed undamaged.&lt;/li&gt;
+        ///    &lt;li&gt;If an effect instructs a player to &amp;ldquo;end your turn&amp;rdquo;, that player may still resolve any &amp;ldquo;at the end of your turn&amp;rdquo; abilities, including those of legendary plan [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_LegendaryPlanets_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_LegendaryPlanets_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;Mecatol Rex is the planet placed in the center of the game board during setup.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;During setup, the custodians token is placed on Mecatol Rex. This token prevents a player from committing ground forces to land on the planet unless they spend six influence to remove the token.&lt;/li&gt;
@@ -767,6 +1416,17 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_MecatolRex {
             get {
                 return ResourceManager.GetString("RuleCategory_MecatolRex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;Mecatol Rex is not a legendary planet.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_MecatolRex_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_MecatolRex_Notes", resourceCulture);
             }
         }
         
@@ -785,6 +1445,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;Effects that refer to &amp;ldquo;ground forces&amp;rdquo; apply to Mechs. Effects that refer to &amp;ldquo;infantry&amp;rdquo; do not.&lt;/li&gt;
+        ///    &lt;li&gt;For notes about a mech of a specific faction, see that faction&amp;rsquo;s page.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Mechs_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Mechs_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;A modifier is a number that is applied by an ability to increase or decrease the attribute values of a unit or the results of a die roll.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;A modifier is always preceded by the word &amp;ldquo;apply&amp;rdquo; followed by a numerical value.&lt;/li&gt;
@@ -794,6 +1466,19 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_Modifiers {
             get {
                 return ResourceManager.GetString("RuleCategory_Modifiers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;&amp;ldquo;Combat roll&amp;rdquo; modifiers do not modify anti&amp;ndash;fighter barrage, bombardment or space cannon rolls.&lt;/li&gt;
+        ///    &lt;ol&gt;&lt;li&gt;Modifiers that apply during combat do apply to anti&amp;ndash;fighter barrage rolls.&lt;/li&gt;&lt;/ol&gt;
+        ///    &lt;li&gt;When an effect moves a unit to an adjacent system, modifying that unit&amp;rsquo;s move value will have no effect.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Modifiers_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Modifiers_Notes", resourceCulture);
             }
         }
         
@@ -810,6 +1495,17 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;When an effect moves a unit to an adjacent system, modifying that unit&amp;rsquo;s move value will have no effect.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Move_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Move_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;A player can move their ships by resolving a tactical action during the action phase. Additionally, some abilities can move a unit outside of the tactical action.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;b&gt;&lt;li&gt;Tactical Action Movement&lt;/li&gt;&lt;/b&gt;
@@ -819,6 +1515,17 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_Movement {
             get {
                 return ResourceManager.GetString("RuleCategory_Movement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;When an effect moves a unit to an adjacent system, modifying that unit&amp;rsquo;s move value will have no effect.&lt;/li&gt;
+        ///    &lt;li&gt;An ability may move a player&amp;rsquo;s ship out of a system containing one of the player&amp;rsquo;s faction&amp;rsquo;s commend tokens. However, the transport rules prevent a player&amp;rsquo;s units from being transported from systems containing one of that player&amp;rsquo;s command tokens, other than the active system. An ability that moves a player&amp;rsquo;s ship must also [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_Movement_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Movement_Notes", resourceCulture);
             }
         }
         
@@ -837,6 +1544,20 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;A player cannot retreat (or similar) into a nebula, since it would not be the active system.&lt;/li&gt;
+        ///    &lt;li&gt;The +1 modifier for the defender does not modify anti&amp;ndash;fighter barrage, bombardment or space cannon rolls.&lt;/li&gt;
+        ///    &lt;li&gt;The +1 modifier for the defender has no effect during ground combat.&lt;/li&gt;
+        ///    &lt;li&gt;A future rule change will place the ship movement restrictions of anomalies upon all units.&lt;/li&gt;
+        ///    &lt;li&gt;A future rule change will allow ships to move into a nebula whe [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_Nebula_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Nebula_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;Two players are neighbors if they both have a unit or control a planet in the same system. They are also neighbors if they both have a unit or control a planet in systems that are adjacent to each other.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;Players can resolve transactions with their neighbors.&lt;/li&gt;
@@ -846,6 +1567,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_Neighbors {
             get {
                 return ResourceManager.GetString("RuleCategory_Neighbors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;A player may make a deal with any player, however, these deals may only include a transaction if the two players are neighbors.&lt;/li&gt;
+        ///    &lt;li&gt;A player may resolve one transaction with each other player per each agenda during the agenda phase, however, the agenda phase does not make all players neighbors.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Neighbors_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Neighbors_Notes", resourceCulture);
             }
         }
         
@@ -864,6 +1597,19 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;A status phase objective must have its condition met during the status phase; any activity during the action phase is irrelevant.&lt;/li&gt;
+        ///    &lt;li&gt;A player may choose to reveal any or all of the secret objective cards in their hand, if they so choose.&lt;/li&gt;
+        ///    &lt;li&gt;If multiple ground combats happen on separate planets as part of a single invasion during one action, one secret objective may be scored during each.&lt;/li&gt;
+        ///    &lt;li&gt;The &lt;b&gt;Bombardment&lt;/b&gt; and &lt;b&gt;Space Cannon&lt;/b&gt; steps happe [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_ObjectiveCards_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_ObjectiveCards_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;During combat, a player&amp;rsquo;s opponent is the other player that either has ships in the system at the start of the space combat or has ground forces on the planet at the start of a ground combat.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;Players who do not have units on either side of a combat are not opponents. Those players cannot use abilities or have abilities used against them that are used against an opponent.&lt;/li&gt;
@@ -872,6 +1618,16 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_Opponent {
             get {
                 return ResourceManager.GetString("RuleCategory_Opponent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Opponent_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Opponent_Notes", resourceCulture);
             }
         }
         
@@ -890,6 +1646,33 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;A PDS is both a structure and a unit.&lt;/li&gt;
+        ///    &lt;li&gt;Each PDS also has the &lt;sc&gt;Planetary Shield&lt;/sc&gt; ability.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Pds_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Pds_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;Mecatol Rex and planets in home systems do not have traits.&lt;/li&gt;
+        ///    &lt;li&gt;Planets with traits can be explored.&lt;/li&gt;
+        ///    &lt;li&gt;A planet cannot be spent for both its influence and resources during a single exhaustion.&lt;/li&gt;
+        ///    &lt;li&gt;If a planet is exhausted for its technology specialty, it does not provide influence or resources.&lt;/li&gt;
+        ///    &lt;li&gt;A player may only exhaust their own planets, unless a game effect specifies otherwise.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Planet_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Planet_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;Units cannot use the &lt;sc&gt;Bombardment&lt;/sc&gt; ability against a planet that contains a unit that has the &lt;sc&gt;Planetary Shield&lt;/sc&gt; ability.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;The &lt;sc&gt;Planetary Shield&lt;/sc&gt; ability does not prevent a planet from being affected by the &lt;i&gt;X&amp;ndash;89 Bacterial Weapon&lt;/i&gt; technology.&lt;/li&gt;
@@ -899,6 +1682,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_PlanetaryShield {
             get {
                 return ResourceManager.GetString("RuleCategory_PlanetaryShield", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;A unit with the &lt;sc&gt;Planetary Shield&lt;/sc&gt; ability on a planet does not stop of the use of a unit&amp;rsquo;s &lt;sc&gt;Bombardment&lt;/sc&gt; ability on other planets in the same system.&lt;/li&gt;
+        ///    &lt;li&gt;The &lt;sc&gt;Planetary Shield&lt;/sc&gt; ability prevents the use of the &lt;i&gt;X&amp;ndash;89 Bacterial Weapon &amp;Omega;&lt;/i&gt; technology.&lt;/li&gt;
+        ///    &lt;li&gt;If a war sun causes a unit to be treated as if it does not have a &lt;sc&gt;Planetary Shield&lt;/sc&gt; ability, that unit may still use the ability of the &lt;i&gt;Magen Defense Grid &amp;Om [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_PlanetaryShield_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_PlanetaryShield_Notes", resourceCulture);
             }
         }
         
@@ -928,6 +1723,17 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;If there are few cards remaining in the action card deck, they will be dealt out in clockwise order from the active player. After those players have discarded down to their seven card hand limit, if necessary, the discard pile will be shuffled to form a new deck. The remaining players (including the player who received the last action card from the previous deck, if applicable) will then be dealt their action cards.&lt;/li&gt;
+        ///    &lt;li&gt;When resolving the primary ability of the &lt;i&gt;Politi [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_Politics_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Politics_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;The primary way that a player produces new units is by resolving the &lt;sc&gt;Production&lt;/sc&gt; abilities of existing units during a tactical action. However, other game effects also allow players to produce units.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;Each unit that a player can produce has a cost value presented on its faction sheet or technology card. To produce a unit, a player must spend a number of resources equal to or greater than the cost value of the unit they are producing.&lt;/li&gt;
@@ -937,6 +1743,19 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_ProducingUnits {
             get {
                 return ResourceManager.GetString("RuleCategory_ProducingUnits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;Whenever a unit is produced, its cost must be paid, unless the effect that is producing the unit explicitly says otherwise.&lt;/li&gt;
+        ///    &lt;li&gt;A player cannot produce one fighter and one infantry for one resource.&lt;/li&gt;
+        ///    &lt;li&gt;If an effect allows a player produce a ship of a specific type, then factional variations do not prevent that player from producing that type of ship.&lt;/li&gt;
+        ///    &lt;li&gt;If a player removes a unit in order to place it, because they have none of that unit type in thei [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_ProducingUnits_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_ProducingUnits_Notes", resourceCulture);
             }
         }
         
@@ -954,6 +1773,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;A unit&amp;rsquo;s &lt;sc&gt;Production&lt;/sc&gt; value is the maximum number of units that may be produced by that unit, regardless of cost. For example, a space dock with &amp;ldquo;&lt;sc&gt;Production&lt;/sc&gt; 6&amp;rdquo; could produce six dreadnoughts or six fighters.&lt;/li&gt;
+        ///    &lt;li&gt;Placement of produced units is not limited by a unit&amp;rsquo;s &lt;sc&gt;Production&lt;/sc&gt; value, only by the location of the producing units.&lt;/li&gt;
+        ///    &lt;ol&gt;&lt;li&gt;For example, say a player is performing a tactical action on tile 75. They hav [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_Production_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Production_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;Each player begins the game with one unique and five generic promissory note cards that can be given to other players.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;Each promissory note contains timing text and ability text. A player can resolve any of their promissory note cards by following the text on the card.&lt;/li&gt;
@@ -963,6 +1794,21 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_PromissoryNotes {
             get {
                 return ResourceManager.GetString("RuleCategory_PromissoryNotes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;When two players make a trade for a promissory note, the specific promissory note that was traded may be hidden from other players.&lt;/li&gt;
+        ///    &lt;ol&gt;
+        ///        &lt;li&gt;However, it is public information that a promissory note was traded.&lt;/li&gt;
+        ///        &lt;li&gt;The &lt;i&gt;Alliance&lt;/i&gt; and &lt;i&gt;Support for the Throne&lt;/i&gt; promissory notes must be played immediately when received. As such, trading either of these notes cannot be kept hidden.&lt;/li&gt;
+        ///    &lt;/ol&gt;
+        ///    &lt;li&gt;A player may choose to reveal any or a [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_PromissoryNotes_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_PromissoryNotes_Notes", resourceCulture);
             }
         }
         
@@ -980,6 +1826,16 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Purge_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Purge_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;Cards have a readied state, which indicates that a player can exhaust or resolve the abilities on those cards.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;A card that is readied is placed faceup in a player&amp;rsquo;s play area; a card that is exhausted is placed facedown in a player&amp;rsquo;s area.&lt;/li&gt;
@@ -989,6 +1845,19 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_Readied {
             get {
                 return ResourceManager.GetString("RuleCategory_Readied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;Passive abilities on an exhausted card are still in effect while that card is exhausted.&lt;/li&gt;
+        ///    &lt;li&gt;Planets will also ready at the end of each agenda phase. Leaders, relics and technology will not.&lt;/li&gt;
+        ///    &lt;li&gt;If a game effect instructs a player to ready a planet, the readied planet must be controlled by that player, unless the game effect specifies otherwise.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Redied_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Redied_Notes", resourceCulture);
             }
         }
         
@@ -1005,6 +1874,19 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;If a player wishes to place a unit, but there are none of that type left in their reinforcements, they may remove a unit of that type from any system that does not contain one of their command tokens and place that instead.&lt;/li&gt;
+        ///    &lt;li&gt;Command tokens on a player&amp;rsquo;s command sheet are not in that player&amp;rsquo;s reinforcements.&lt;/li&gt;
+        ///    &lt;li&gt;Captured units are not in any player&amp;rsquo;s reinforcements.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Reinforcements_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Reinforcements_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;Relics are powerful artifacts with unique abilities.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;Players can use the abilities of hazardous, cultural, and industrial relic fragments in their play area to draw cards from the relic deck.&lt;/li&gt;
@@ -1014,6 +1896,19 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_Relics {
             get {
                 return ResourceManager.GetString("RuleCategory_Relics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;If the relic deck is empty, a player may still purge three relic fragments as an action.&lt;/li&gt;
+        ///    &lt;li&gt;If an eliminated player had any relic fragments, they are discarded to their respective exploration discard piles. If an eliminated player had any relics, they are purged.&lt;/li&gt;
+        ///    &lt;li&gt;For notes about specific relics, see the Relic page.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Relics_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Relics_Notes", resourceCulture);
             }
         }
         
@@ -1032,6 +1927,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;Effects that reroll &amp;ldquo;combat rolls&amp;rdquo; do not reroll anti&amp;ndash;fighter barrage, bombardment or space cannon rolls.&lt;/li&gt;
+        ///    &lt;ol&gt;&lt;li&gt;Reroll effects that apply during combat do apply to anti&amp;ndash;fighter barrage rolls.&lt;/li&gt;&lt;/ol&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Rerolls_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Rerolls_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;Resources represent a planet&amp;rsquo;s material value and industry. Many game effects, such as producing units, require players to spend resources.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;A planet&amp;rsquo;s resources are the leftmost value that is surrounded by a yellow border on the planet&amp;rsquo;s system tile and planet card.&lt;/li&gt;
@@ -1042,6 +1949,16 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_Resources {
             get {
                 return ResourceManager.GetString("RuleCategory_Resources", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Resources_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Resources_Notes", resourceCulture);
             }
         }
         
@@ -1060,6 +1977,17 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;A Fighter II may count towards either the fleet pool limit or a player&amp;rsquo;s capacity.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Ships_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Ships_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;A unit that has the &lt;sc&gt;Space Cannon&lt;/sc&gt; ability can use it during two different steps of a player&amp;rsquo;s tactical action: after the &lt;b&gt;Move Ships&lt;/b&gt; substep (&lt;b&gt;Space Cannon Offense&lt;/b&gt;) and during an invasion (&lt;b&gt;Space Cannon Defense&lt;/b&gt;).&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;A player is &lt;b&gt;not&lt;/b&gt; required to be the active player to use their &lt;sc&gt;Space Cannon&lt;/sc&gt; ability of their units.&lt;/li&gt;
@@ -1073,6 +2001,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;&amp;ldquo;&lt;sc&gt;Deep Space Cannon&lt;/sc&gt;&amp;rdquo; is not a term with meaning within the rules. It is, however, used within the notes on this website as a shorthand for &lt;sc&gt;Space Cannon&lt;/sc&gt; abilities that can be used against ships in an adjacent system.&lt;/li&gt;
+        ///    &lt;li&gt;The &lt;b&gt;Space Cannon Offense&lt;/b&gt; step happens before combat. Any secret objectives that require winning a combat or similar cannot be scored if all of one player&amp;rsquo;s ships in a system are destroyed during this step.&lt;/li&gt;
+        ///  [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_SpaceCannon_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_SpaceCannon_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;After resolving the &lt;b&gt;Space Cannon Offense&lt;/b&gt; step of a tactical action, if two players have ships in the active system, those players must resolve a space combat.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;If the active player is the only player with ships in the system, they skip the &lt;b&gt;Space Combat&lt;/b&gt; step of the tactical action and proceeds to the &lt;b&gt;Invasion&lt;/b&gt; step.&lt;/li&gt;
@@ -1081,6 +2021,19 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_SpaceCombat {
             get {
                 return ResourceManager.GetString("RuleCategory_SpaceCombat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;A player&amp;rsquo;s fighters and ground forces do not count against capacity during combat. At the end of combat, any excess units are removed and returned to that player&amp;rsquo;s reinforcements.&lt;/li&gt;
+        ///    &lt;li&gt;A player may retreat into an asteroid field only if that player owns the &lt;i&gt;Antimass Deflectors&lt;/i&gt; technology.&lt;/li&gt;
+        ///    &lt;li&gt;A player may retreat into a supernova only if that player owns the &lt;i&gt;Magmus Reactor&lt;/i&gt; Muaat factional technology.&lt;/li&gt;
+        ///    &lt;li&gt;A player cannot retrea [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_SpaceCombat_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_SpaceCombat_Notes", resourceCulture);
             }
         }
         
@@ -1099,6 +2052,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;A Space Dock is both a structure and a unit.&lt;/li&gt;
+        ///	&lt;li&gt;Fighters transported during movement remain assigned to the transporting ship until movement is complete. They cannot be counted towards a space dock&amp;rsquo;s allocation until after movement is complete.&lt;/li&gt;
+        ///	&lt;ol&gt;&lt;li&gt;If a player moves one of their units with capacity into a system, transporting fighters, they cannot pick up ground forces from a planet in that system with that ship by transferring those fighters to a space do [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_SpaceDock_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_SpaceDock_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;The speaker is the player who has the speaker token.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;During the strategy phase, the speaker is the first player to choose a strategy card.&lt;/li&gt;
@@ -1109,6 +2074,17 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_Speaker {
             get {
                 return ResourceManager.GetString("RuleCategory_Speaker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;During the strategy and agenda phases, the speaker will have the first opportunity to resolve abilities during each timing window.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Speaker_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Speaker_Notes", resourceCulture);
             }
         }
         
@@ -1124,6 +2100,17 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;A player cannot score public objectives if that player does not control each planet in their home system.&lt;/li&gt;
+        ///    &lt;li&gt;If there are few cards remaining in the action card deck, they will be dealt out first to the players lowest in initiative order. After those players have discarded down to their seven card hand limit, if necessary, the discard pile will be shuffled to form a new deck. The remaining players (including the player who received the last action card from the previous [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_StatusPhase_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_StatusPhase_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;During the action phase, the active player may perform a strategic action to resolve the primary ability on their strategy card.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;After the active player resolves the primary ability on their strategy card, each other player, beginning with the player to the left of the active player and proceeding clockwise, may resolve that strategy card&amp;rsquo;s secondary ability.&lt;/li&gt;
@@ -1132,6 +2119,16 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_StrategicAction {
             get {
                 return ResourceManager.GetString("RuleCategory_StrategicAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_StrategicAction_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_StrategicAction_Notes", resourceCulture);
             }
         }
         
@@ -1151,6 +2148,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;During three&amp;ndash; and four&amp;ndash;player games, each player will choose two strategy cards during the strategy phase.&lt;/li&gt;
+        ///    &lt;ol&gt;&lt;li&gt;Players will use the lower of the two initiative numbers on their strategy cards to determine the initiative order.&lt;/li&gt;&lt;/ol&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_StrategyCard_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_StrategyCard_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;During the strategy phase, each player chooses a strategy card to use during the round.&lt;/p&gt;
         ///&lt;p&gt;To resolve the strategy phase, players perform the following steps:&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
@@ -1161,6 +2170,17 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_StrategyPhase {
             get {
                 return ResourceManager.GetString("RuleCategory_StrategyPhase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;If a player chooses a strategy card, but later loses it, they will keep any trade goods that were on the strategy card.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_StrategyPhase_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_StrategyPhase_Notes", resourceCulture);
             }
         }
         
@@ -1180,6 +2200,16 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Structures_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Structures_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;A supernova is an anomaly that affects movement.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;A ship cannot move through or into a supernova.&lt;/li&gt;
@@ -1192,6 +2222,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;If a ship finds itself in a supernova by some uncommon game effect, it may remain there and move out without harm.&lt;/li&gt;
+        ///    &lt;li&gt;A future rule change will place the ship movement restrictions of anomalies upon all units.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Supernova_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Supernova_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;Some units have the &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability. Immediately before a player assigns hits to their units, that player can use the &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability of any of their units in the active system.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;For each &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability that a player uses, one hit produced by another player&amp;rsquo;s units is canceled. Then, each unit using this ability is placed on its side to indicate that it is damaged.&lt;/li&gt;
@@ -1200,6 +2242,16 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_SustainDamage {
             get {
                 return ResourceManager.GetString("RuleCategory_SustainDamage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_SustainDamage_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_SustainDamage_Notes", resourceCulture);
             }
         }
         
@@ -1218,6 +2270,16 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_SystemTiles_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_SystemTiles_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;The tactical action is the primary method by which players produce units, move ships, and extend their dominion within the galaxy. To perform a tactical action, the active player performs the following steps:&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;&lt;b&gt;Step 1 &amp;ndash; Activation&lt;/b&gt;: The active player must activate a system that does not contain one of their command tokens.&lt;/li&gt;
@@ -1231,6 +2293,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;Each of these five steps happen during every tactical action, unless explicitly skipped; the active player does not have to choose between fighting a combat or producing units, for example.&lt;/li&gt;
+        ///    &lt;li&gt;Any abilities that occur at the end of an action happen before any abilities that occur at the end of a player&amp;rsquo;s turn.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_TacticalAction_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_TacticalAction_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;The &lt;i&gt;Technology&lt;/i&gt; strategy card allows players to research new technology. This card&amp;rsquo;s initiative value is &amp;ldquo;7&amp;rdquo;.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;During the action phase, if the active player has the &lt;i&gt;Technology&lt;/i&gt; strategy card, they can perform a strategic action to resolve that card&amp;rsquo;s primary ability.&lt;/li&gt;
@@ -1239,6 +2313,16 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_Technology {
             get {
                 return ResourceManager.GetString("RuleCategory_Technology", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Technology_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Technology_Notes", resourceCulture);
             }
         }
         
@@ -1256,6 +2340,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;If a player is instructed to research a technology by any game effect, that player must meet the prerequisites for the technology they research.&lt;/li&gt;
+        ///    &lt;li&gt;If a player is instructed to gain a technology, that player does not have to meet the prerequisites, although most game effects that do this will specify what technologies may be gained by that effect.&lt;/li&gt;
+        ///    &lt;li&gt;If a player is playing a faction with a faction&amp;ndash;specific unit upgrade, they cannot research the generic  [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_TechnologySystem_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_TechnologySystem_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;The &lt;i&gt;Trade&lt;/i&gt; strategy card allows players to gain trade goods and replenish commodities. This card&amp;rsquo;s initiative value is &amp;ldquo;5&amp;rdquo;.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;During the action phase, if the active player has the &lt;i&gt;Trade&lt;/i&gt; strategy card, they can perform a strategic action to resolve that card&amp;rsquo;s primary ability. To resolve the primary ability on the &lt;i&gt;Trade&lt;/i&gt; strategy card, the active player resolves the following effects in order:&lt;/li&gt;
@@ -1264,6 +2360,21 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_Trade {
             get {
                 return ResourceManager.GetString("RuleCategory_Trade", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;Say, for example, Alice is the active player, and is performing a strategic action with the &lt;i&gt;Trade&lt;/i&gt; strategy card. To her left is Bob. To his left is Cheng, then Diego, then Esther, then Fahd. The full order of steps is:&lt;/li&gt;
+        ///    &lt;ol&gt;
+        ///        &lt;li&gt;Alice gains three trade goods.&lt;/li&gt;
+        ///        &lt;li&gt;Alice replenishes her commodities.&lt;/li&gt;
+        ///        &lt;li&gt;Alice chooses players for the secondary.&lt;/li&gt;
+        ///        &lt;li&gt;Bob may/must replenish his commodities by performing the secondary abi [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_Trade_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Trade_Notes", resourceCulture);
             }
         }
         
@@ -1282,6 +2393,16 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_TradeGoods_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_TradeGoods_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;A transaction is a way for a player to exchange commodities, trade goods, promissory notes, and relic fragments.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;During the active player&amp;rsquo;s turn, they may resolve up to one transaction with each of their neighbors.&lt;/li&gt;
@@ -1295,6 +2416,20 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;Relic fragments may be traded. Relics themselves cannot be.&lt;/li&gt;
+        ///    &lt;li&gt;Captured units may be returned to the player that originally owned them as part of a transaction.&lt;/li&gt;
+        ///    &lt;li&gt;If a player becomes neighbors with another player on their turn, they may then perform a transaction with that player.&lt;/li&gt;
+        ///    &lt;ol&gt;
+        ///        &lt;li&gt;If a player stops being neighbors with another player that they have performed a transaction with this turn, but then becomes neighbors with that player [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_Transactions_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Transactions_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;When a ship moves, it may transport any combination of fighters and ground forces, but the number of units it transports cannot exceed that ship&amp;rsquo;s capacity value.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;The ship can pick up and transport fighters and ground forces when it moves. During a tactical action, it can pick up and transport units from the active system, the system it started its movement in, and each system it moves through.&lt;/li&gt;
@@ -1304,6 +2439,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_Transport {
             get {
                 return ResourceManager.GetString("RuleCategory_Transport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;A ship that can both move and be transported (i.e. Fighter II) cannot do both by &amp;ldquo;meeting&amp;rdquo; a ship with capacity partway though a tactical action movement, as all movement is simultaneous.&lt;/li&gt;
+        ///    &lt;li&gt;A ship may transport as it retreats or is otherwise moved out of the active system, as the units it transports will be picked up from the active system.&lt;/li&gt;
+        ///    &lt;li&gt;A ship may pick up ground forces from a planet in the active system, usually to invade a different plane [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_Transport_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Transport_Notes", resourceCulture);
             }
         }
         
@@ -1331,6 +2478,19 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;If an effect allows a player produce a ship of a specific type, then factional variations do not prevent that player from producing that type of ship.&lt;/li&gt;
+        ///    &lt;li&gt;Units are component limited.&lt;/li&gt;
+        ///    &lt;ol&gt;&lt;li&gt;Fighters and infantry are semi&amp;ndash;limited, via the use of tokens.&lt;/li&gt;&lt;/ol&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Units_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Units_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;A unit upgrade is a type of technology card.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;Unit upgrades share a name with a unit that is printed on a player&amp;rsquo;s faction sheet, but have a higher roman numeral. For example, a player&amp;rsquo;s &amp;ldquo;Carrier I&amp;rdquo; unit is upgraded by the unit upgrade technology &amp;ldquo;Carrier II&amp;rdquo;.&lt;/li&gt;
@@ -1339,6 +2499,19 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_UnitUpgrades {
             get {
                 return ResourceManager.GetString("RuleCategory_UnitUpgrades", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;If a player is playing a faction with a faction&amp;ndash;specific unit upgrade, they cannot research the generic upgrade for that unit type.&lt;/li&gt;
+        ///    &lt;li&gt;For notes about specific generic unit upgrades, see the Technolgoies (Unit upgrades) page.&lt;/li&gt;
+        ///    &lt;li&gt;For notes about a technologies of a specific faction, see that faction&amp;rsquo;s notes.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_UnitUpgrades_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_UnitUpgrades_Notes", resourceCulture);
             }
         }
         
@@ -1356,12 +2529,33 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_VictoryPoints_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_VictoryPoints_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;The &lt;i&gt;Warfare&lt;/i&gt; strategy card allows a player to remove a command token from the board and redistribute their command tokens between their tactic, fleet, and strategy pools. This card&amp;rsquo;s initiative value is &amp;ldquo;6&amp;rdquo;. During the action phase, if the active player has the &lt;i&gt;Warfare&lt;/i&gt; strategy card, they can perform a strategic action to resolve that card&amp;rsquo;s primary ability.&lt;/p&gt;
         ///&lt;p&gt;To resolve the primary ability on the &lt;i&gt;Warfare&lt;/i&gt; strategy card, the active player performs the foll [rest of string was truncated]&quot;;.
         /// </summary>
         public static string RuleCategory_Warfare {
             get {
                 return ResourceManager.GetString("RuleCategory_Warfare", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;If the player with &lt;i&gt;Warfare&lt;/i&gt; has no command tokens on the game board, they may still perform a strategic action. However, they will not gain a command token.&lt;/li&gt;
+        ///    &lt;/ol&gt;.
+        /// </summary>
+        public static string RuleCategory_Warfare_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Warfare_Notes", resourceCulture);
             }
         }
         
@@ -1382,6 +2576,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;The wormhole nexus will flip if a unit exists in the system while inactive, even if that unit did not move through a gamma wormhole.&lt;/li&gt;
+        ///    &lt;li&gt;As the wormhole nexus becomes active at the end of the &lt;b&gt;Movement&lt;/b&gt; step, only units with the &lt;sc&gt;Deep Space Cannon&lt;/sc&gt; ability in systems containing a gamma wormhole will be able to produce hits during the &lt;b&gt;Space Cannon Offense&lt;/b&gt; step.&lt;/li&gt;
+        ///    &lt;li&gt;If the Creuss player moves their &lt;i&gt;Hil Colish&lt;/i&gt; flagship into the inactive w [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_WormholeNexus_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_WormholeNexus_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;Some systems contain wormholes. Systems that contain identical wormholes are adjacent.&lt;/p&gt;
         ///    &lt;ol class=&quot;lrr&quot;&gt;
         ///    &lt;li&gt;There are two basic types of wormholes: alpha and beta.&lt;/li&gt;
@@ -1392,6 +2598,21 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RuleCategory_Wormholes {
             get {
                 return ResourceManager.GetString("RuleCategory_Wormholes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;A system with a wormhole is not an anomaly.&lt;/li&gt;
+        ///    &lt;li&gt;If a system contains multiple wormholes of the same type, those are treated as separate wormholes.&lt;/li&gt;
+        ///    &lt;li&gt;A system cannot be adjacent to itself, even if it has multiple wormholes in it.&lt;/li&gt;
+        ///    &lt;li&gt;A player chooses the path of adjacent systems each ship moves through during movement. If two systems on that path are adjacent because of a wormhole, that ship moves through that wormhole.&lt;/li&gt;
+        ///    &lt;ol&gt;
+        ///        &lt;li&gt;If [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string RuleCategory_Wormholes_Notes {
+            get {
+                return ResourceManager.GetString("RuleCategory_Wormholes_Notes", resourceCulture);
             }
         }
         

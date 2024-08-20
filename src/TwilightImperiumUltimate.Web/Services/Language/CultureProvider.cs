@@ -1,21 +1,16 @@
-﻿using Microsoft.JSInterop;
+using Microsoft.JSInterop;
 using Serilog;
 using System.Globalization;
 
 namespace TwilightImperiumUltimate.Web.Services.Language;
 
-public class CultureProvider : ICultureProvider
+public class CultureProvider(IJSRuntime js) : ICultureProvider
 {
-    private readonly IJSRuntime _js;
-
-    public CultureProvider(IJSRuntime js)
-    {
-        _js = js;
-    }
+    private readonly IJSRuntime _js = js;
 
     public async Task SetCultureAsync(string culture)
     {
-        Log.Verbose($"Setting application culture to: '{culture}'");
+        Log.Verbose("Setting application culture to: {Culture}", culture);
         await _js.InvokeVoidAsync("blazorCulture.set", culture);
         SetApplicationCulture(culture);
     }

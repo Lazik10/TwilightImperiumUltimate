@@ -33,18 +33,18 @@ internal class FourPlayersMediumWarpMapSettings : IMapSettings, IHyperlineSettin
 
     public Dictionary<int, List<(int X, int Y)>> Slices => new Dictionary<int, List<(int X, int Y)>>()
     {
-        { 1, new List<(int X , int Y)> { (5, 5), (4, 4), (2, 4), (6, 4),  } },
-        { 2, new List<(int X , int Y)> { (12, 4), (10, 4), (9, 5), (8, 4), } },
-        { 3, new List<(int X , int Y)> { (9, 1), (10, 2), (12, 2), (8, 2), } },
-        { 4, new List<(int X , int Y)> { (2, 2), (4, 2), (5, 1), (6, 2), } },
+        { 1, new List<(int X, int Y)> { (5, 5), (4, 4), (2, 4), (6, 4),  } },
+        { 2, new List<(int X, int Y)> { (12, 4), (10, 4), (9, 5), (8, 4), } },
+        { 3, new List<(int X, int Y)> { (9, 1), (10, 2), (12, 2), (8, 2), } },
+        { 4, new List<(int X, int Y)> { (2, 2), (4, 2), (5, 1), (6, 2), } },
     };
 
     public Dictionary<int, List<(int X, int Y)>> AdjacentHomePositions => new Dictionary<int, List<(int X, int Y)>>()
     {
-        { 1, new List<(int X , int Y)> { (5, 5), (4, 4), (2, 4),  } },
-        { 2, new List<(int X , int Y)> { (12, 4), (10, 4), (9, 5), } },
-        { 3, new List<(int X , int Y)> { (9, 1), (10, 2), (12, 2), } },
-        { 4, new List<(int X , int Y)> { (2, 2), (4, 2), (5, 1), } },
+        { 1, new List<(int X, int Y)> { (5, 5), (4, 4), (2, 4), } },
+        { 2, new List<(int X, int Y)> { (12, 4), (10, 4), (9, 5), } },
+        { 3, new List<(int X, int Y)> { (9, 1), (10, 2), (12, 2), } },
+        { 4, new List<(int X, int Y)> { (2, 2), (4, 2), (5, 1), } },
     };
 
     public HashSet<(int X, int Y, string SystemTileCode, string Orientation)> Hyperlines => new HashSet<(int X, int Y, string SystemTileCode, string Orientation)>()

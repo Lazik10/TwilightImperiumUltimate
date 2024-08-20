@@ -12,5 +12,7 @@ public partial class TwilightImperiumDbContext(DbContextOptions<TwilightImperium
         base.OnModelCreating(builder);
 
         _ = builder.ApplyConfigurationsFromAssembly(System.Reflection.Assembly.GetExecutingAssembly());
+
+        this.SeedDatabaseAsync(builder);
     }
 }

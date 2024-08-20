@@ -11,7 +11,7 @@ internal static class UserData
     {
         var user = new TwilightImperiumUser()
         {
-            Id = Guid.NewGuid().ToString(),
+            Id = "1",
             UserName = "TestUser",
             NormalizedUserName = "TESTUSER",
             Email = "Test@user.cz",
