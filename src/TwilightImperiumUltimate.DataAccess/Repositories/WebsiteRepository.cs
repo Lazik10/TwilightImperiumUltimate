@@ -6,7 +6,7 @@ public class WebsiteRepository(
     IDbContextFactory<TwilightImperiumDbContext> context)
     : IWebsiteRepository
 {
-    private readonly IDbContextFactory<TwilightImperiumDbContext> _context = context; 
+    private readonly IDbContextFactory<TwilightImperiumDbContext> _context = context;
 
     public async Task<List<Website>> GetAllWebsites(CancellationToken cancellationToken)
     {

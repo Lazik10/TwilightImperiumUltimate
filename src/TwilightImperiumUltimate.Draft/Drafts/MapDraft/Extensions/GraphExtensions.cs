@@ -32,6 +32,7 @@ public static class GraphExtensions
         {
             return edge.Target;
         }
+
         return edge.Source;
     }
 

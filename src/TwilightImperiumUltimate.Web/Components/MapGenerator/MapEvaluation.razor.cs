@@ -42,14 +42,15 @@ public partial class MapEvaluation
         AllSystemTiles = MapGeneratorService.AllSystemTiles.ToList();
     }
 
-    private string GetPlanetTraitPath(PlanetTrait planetTrait)
+    private static float GetOptimalInfluenceValue(PlanetModel planetModel)
     {
-        return PathProvider.GetPlanetTraitPath(planetTrait);
-    }
-
-    private string GetTechnologyPath(TechnologyType technologyType)
-    {
-        return PathProvider.GetTechnologyIconPath(technologyType);
+        return planetModel.Influence switch
+        {
+            var influence when planetModel.Influence > planetModel.Resources => influence,
+            var influence when influence == planetModel.Resources => influence / 2.0f,
+            var influence when influence < planetModel.Resources => 0.0f,
+            _ => 0.0f,
+        };
     }
 
     private static float GetOptimalResourceValue(PlanetModel planetModel)
@@ -63,15 +64,14 @@ public partial class MapEvaluation
         };
     }
 
-    private static float GetOptimalInfluenceValue(PlanetModel planetModel)
+    private string GetPlanetTraitPath(PlanetTrait planetTrait)
     {
-        return planetModel.Influence switch
-        {
-            var influence when planetModel.Influence > planetModel.Resources => influence,
-            var influence when influence == planetModel.Resources => influence / 2.0f,
-            var influence when influence < planetModel.Resources => 0.0f,
-            _ => 0.0f,
-        };
+        return PathProvider.GetPlanetTraitPath(planetTrait);
+    }
+
+    private string GetTechnologyPath(TechnologyType technologyType)
+    {
+        return PathProvider.GetTechnologyIconPath(technologyType);
     }
 
     private List<SliceEvaluation> GetSliceEvaluations()
@@ -80,23 +80,24 @@ public partial class MapEvaluation
         var sliceData = SliceData;
         var sliceEvaluations = new List<SliceEvaluation>();
 
-
         foreach (var slice in sliceData.SlicePositions)
         {
-            var sliceEvaluation = new SliceEvaluation();
-            sliceEvaluation.Id = slice.Key;
-            sliceEvaluation.TechnologySkips = new Dictionary<TechnologyType, int>()
+            var sliceEvaluation = new SliceEvaluation
             {
-                [TechnologyType.Propulsion] = 0,
-                [TechnologyType.Biotic] = 0,
-                [TechnologyType.Cybernetic] = 0,
-                [TechnologyType.Warfare] = 0,
-            };
-            sliceEvaluation.PlanetTraits = new Dictionary<PlanetTrait, int>()
-            {
-                [PlanetTrait.Hazardous] = 0,
-                [PlanetTrait.Cultural] = 0,
-                [PlanetTrait.Industrial] = 0,
+                Id = slice.Key,
+                TechnologySkips = new Dictionary<TechnologyType, int>()
+                {
+                    [TechnologyType.Propulsion] = 0,
+                    [TechnologyType.Biotic] = 0,
+                    [TechnologyType.Cybernetic] = 0,
+                    [TechnologyType.Warfare] = 0,
+                },
+                PlanetTraits = new Dictionary<PlanetTrait, int>()
+                {
+                    [PlanetTrait.Hazardous] = 0,
+                    [PlanetTrait.Cultural] = 0,
+                    [PlanetTrait.Industrial] = 0,
+                },
             };
 
             foreach (var position in slice.Value)

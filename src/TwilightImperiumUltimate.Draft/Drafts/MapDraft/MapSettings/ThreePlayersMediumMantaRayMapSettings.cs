@@ -34,15 +34,15 @@ internal class ThreePlayersMediumMantaRayMapSettings : IMapSettings
 
     public Dictionary<int, List<(int X, int Y)>> Slices => new Dictionary<int, List<(int X, int Y)>>()
     {
-        { 1, new List<(int X , int Y)> { (11, 5), (9, 5), (8, 6), (7, 5), (8, 4) } },
-        { 2, new List<(int X , int Y)> { (12, 2), (11, 3), (12, 4), (10, 2), (10, 4) } },
-        { 3, new List<(int X , int Y)> { (8, 0), (9, 1), (11, 1), (7, 1), (8, 2) } },
+        { 1, new List<(int X, int Y)> { (11, 5), (9, 5), (8, 6), (7, 5), (8, 4) } },
+        { 2, new List<(int X, int Y)> { (12, 2), (11, 3), (12, 4), (10, 2), (10, 4) } },
+        { 3, new List<(int X, int Y)> { (8, 0), (9, 1), (11, 1), (7, 1), (8, 2) } },
     };
 
     public Dictionary<int, List<(int X, int Y)>> AdjacentHomePositions => new Dictionary<int, List<(int X, int Y)>>()
     {
-        { 1, new List<(int X , int Y)> { (11, 5), (9, 5), (8, 6), } },
-        { 2, new List<(int X , int Y)> { (12, 2), (11, 3), (12, 4), } },
-        { 3, new List<(int X , int Y)> { (8, 0), (9, 1), (11, 1), } },
+        { 1, new List<(int X, int Y)> { (11, 5), (9, 5), (8, 6), } },
+        { 2, new List<(int X, int Y)> { (12, 2), (11, 3), (12, 4), } },
+        { 3, new List<(int X, int Y)> { (8, 0), (9, 1), (11, 1), } },
     };
 }

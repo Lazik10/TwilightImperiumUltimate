@@ -16,5 +16,10 @@ internal static class WormholesData
         new() { Id = 10, SystemTileName = SystemTileName.Tile82B, WormholeName = WormholeName.Alpha, GameVersion = GameVersion.ProphecyOfKings },
         new() { Id = 11, SystemTileName = SystemTileName.Tile82B, WormholeName = WormholeName.Beta, GameVersion = GameVersion.ProphecyOfKings },
         new() { Id = 12, SystemTileName = SystemTileName.Tile82B, WormholeName = WormholeName.Gamma, GameVersion = GameVersion.ProphecyOfKings },
+        new() { Id = 13, SystemTileName = SystemTileName.Tile4260, WormholeName = WormholeName.Alpha, GameVersion = GameVersion.UnchartedSpace },
+        new() { Id = 14, SystemTileName = SystemTileName.Tile4272, WormholeName = WormholeName.Beta, GameVersion = GameVersion.UnchartedSpace },
+        new() { Id = 15, SystemTileName = SystemTileName.Tile4275, WormholeName = WormholeName.Gamma, GameVersion = GameVersion.UnchartedSpace },
+        new() { Id = 16, SystemTileName = SystemTileName.Tile4276, WormholeName = WormholeName.Alpha, GameVersion = GameVersion.UnchartedSpace },
+        new() { Id = 17, SystemTileName = SystemTileName.Tile4276, WormholeName = WormholeName.Beta, GameVersion = GameVersion.UnchartedSpace },
     };
 }

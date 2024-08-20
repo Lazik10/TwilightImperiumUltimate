@@ -1,0 +1,2228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AbandonedWarehouses" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player cannot have more commodities than their commodity value.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="AccretionEngine" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="AchieveSupremacy" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The flagship or war sun may be in the home system of an eliminated player.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="AdaptNewStrategies" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A &lt;i&gt;Valefar Assimilator&lt;/i&gt; technology will count if it is currently copying another player&amp;rsquo;s faction technology.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="AIDevelopmentAlgorithm" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;When exhausted, a prerequisite will be ignored, and &lt;i&gt;AI Development Algorithm&lt;/i&gt; will still count towards meeting a warfare technology (red) prerequisite.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;For example, &lt;i&gt;AI Development Algorithm&lt;/i&gt; alone may be used to research the Destroyer II unit upgrade.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="Alliance" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;An &lt;i&gt;Alliance&lt;/i&gt; must be played by the receiving player as soon as it is received. It cannot be kept secret.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;If the active player receives an &lt;i&gt;Alliance&lt;/i&gt;, they cannot then attempt to trade it with another player. It must be played immediately.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;&lt;i&gt;Alliance&lt;/i&gt; is returned when the system is activated, even if the active player will perform no hostile acts towards the other player this turn.&lt;/li&gt;
+    &lt;li&gt;If an effect other than activating a system during a tactical action places a command counter in a system with the other player&amp;rsquo;s units (for example, the primary ability of the &lt;i&gt;Diplomacy&lt;/i&gt; strategy card), this will not cause &lt;i&gt;Alliance&lt;/i&gt; to be returned.&lt;/li&gt;
+    &lt;li&gt;Activating a system containing only a player&amp;rsquo;s structures will still cause their &lt;i&gt;Alliance&lt;/i&gt; to be returned.&lt;/li&gt;
+    &lt;li&gt;For notes about a commander of a specific faction, see that faction&amp;rsquo;s notes page.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="AMassWealth" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The influence, resources and trade goods must be spent during the status phase. Any that were spent during the action phase will have no effect.&lt;/li&gt;
+    &lt;li&gt;A planet may be exhausted to spend either its resource or influence value, but not both.&lt;/li&gt;
+    &lt;li&gt;Trade goods may be spent as influence or resources when scoring &lt;i&gt;Amass Wealth&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="AncientBurialSites" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;&lt;i&gt;Ancient Burial Sites&lt;/i&gt; is played before the first agenda is revealed.&lt;/li&gt;
+    &lt;li&gt;A player with zero cultural planets may be chosen.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="AncientShipyard" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="AntiIntellectualRevolution" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;When &lt;i&gt;Anti&amp;ndash;Intellectual Revolution&lt;/i&gt; is a law in play, a player that directly gains a technology will be unaffected.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;The Nekro player is never affected by the &lt;i&gt;Anti&amp;ndash;Intellectual Revolution&lt;/i&gt; law.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;The Nekro player&amp;rsquo;s &lt;i&gt;Valefar Assimilator&lt;/i&gt; technologies count for the &amp;ldquo;Against&amp;rdquo; effect, whether their tokens are on another player&amp;rsquo;s faction technology or not.&lt;/li&gt;
+    &lt;li&gt;A player with no non&amp;ndash;fighter ships on the game board may still research technology when &lt;i&gt;Anti&amp;ndash;Intellectual Revolution&lt;/i&gt; is a law in play.&lt;/li&gt;
+    &lt;li&gt;A player may only exhaust planets they control for the &amp;ldquo;Against&amp;rdquo; effect of &lt;i&gt;Anti&amp;ndash;Intellectual Revolution&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="AntimassDeflectors" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The &amp;minus;1 applies to space cannon rolls during both the &lt;b&gt;Space Cannon Offense&lt;/b&gt; and &lt;b&gt;Space Cannon Defense&lt;/b&gt; steps.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ArcaneCitadel" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ArchaeologicalExpedition" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player must control at least one planet with a trait to play and resolve &lt;i&gt;Archaeological Expedition&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ArchivedSecret" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player with three scored secret objectives may draw a fourth. However, they must immediately shuffle it into the secret objective deck.&lt;/li&gt;
+	&lt;li&gt;If a player draws the &lt;i&gt;Drive the Debate&lt;/i&gt; secret objective while resolving &lt;i&gt;Archived Secret&lt;/i&gt;, they cannot score it immediately.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ArmedForcesStandardization" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ArmsReduction" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ArticlesOfWar" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="AssassinateRepresentative" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The chosen player may still play rider cards.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="AssaultCannon" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player with &lt;i&gt;Assault Cannon&lt;/i&gt; must mandatorily resolve its ability if they meet the requirement.&lt;/li&gt;
+    &lt;li&gt;If a player loses ships before they can resolve the &lt;i&gt;Assault Cannon&lt;/i&gt; ability, they will be unable to resolve it if they no longer have three or more non&amp;ndash;fighter ships.&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;This will most commonly happen when both players in a combat have &lt;i&gt;Assault Cannon&lt;/i&gt;, and the defender has exactly three non&amp;ndash;fighter ships.&lt;/li&gt;
+        &lt;li&gt;Examples of other abilities that may remove units at the start of a space combat include the Creuss player&amp;rsquo;s &lt;i&gt;Dimensional Splicer&lt;/i&gt; faction technology ability, the Mentak player&amp;rsquo;s &lt;sc&gt;Ambush&lt;/sc&gt; faction ability, the Yin player&amp;rsquo;s &lt;i&gt;Impulse Core&lt;/i&gt; faction technology ability, as well as abilities such as the &lt;i&gt;Courageous to the End&lt;/i&gt; action card or the &lt;i&gt;Reflective Shielding&lt;/i&gt; action card that may trigger off of any of the previous abilities.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;li&gt;A player may use an ability to add ships at the start of combat. If this brings the number of non&amp;ndash;fighter ships to three or more, the player may then use the ability of &lt;i&gt;Assault Cannon&lt;/i&gt;.&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;Each other player may use one ability after that player has gained ships, and before that player has the opportunity to use the &lt;i&gt;Assault Cannon&lt;/i&gt; ability. This may prevent that player from using the ability, as above.
+        &lt;li&gt;Examples of abilities that may add units at the start of space combat include a combination of the Mentak player&amp;rsquo;s &lt;i&gt;Sleeper Cell&lt;/i&gt; hero ability and their &lt;sc&gt;Ambush&lt;/sc&gt; faction ability, the ability of the Nekro player&amp;rsquo;s flagship, &lt;i&gt;The Alastor&lt;/i&gt;, and the Naaz&amp;ndash;Rokha player&amp;rsquo; &lt;i&gt;Eidolon&lt;/i&gt; mech ability.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;li&gt;Effects that cancel hits, such as &lt;sc&gt;Sustain Damage&lt;/sc&gt;, cannot be used to prevent ships from being destroyed.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="AzdelsKey" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="BecomeALegend" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The number of units in the system is irrelevant, if there is at least one.&lt;/li&gt;
+    &lt;li&gt;A ship, ground force, or structure will all qualify for &lt;i&gt;Become a Legend&lt;/i&gt;.&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;If one player has a ground force or structure on a planet in a qualifying system, and another player has a ship in the same system, both players may count the system towards the requirements of &lt;i&gt;Become a Legend&lt;/i&gt;.&lt;/li&gt;
+        &lt;li&gt;A player may have ships in the system containing a legendary planet or Mecatol Rex without controlling the planet for that system to count towards the requirements of &lt;i&gt;Become a Legend&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;li&gt;If Mirage is placed in an anomaly, or the &lt;i&gt;Nano&amp;ndash;Forge&lt;/i&gt; relic is attached to a planet in an anomaly, that system will only count as one system towards the requirements of &lt;i&gt;Become a Legend&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;Any system containing a Vuil&amp;rsquo;raith player&amp;rsquo;s Dimensional Tear is a gravity rift, and thus, an anomaly.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;If a Vuil&amp;rsquo;raith player&amp;rsquo;s Dimensional Tear is in a system containing another anomaly, a legendary planet, or Mecatol Rex, that system will only count as one system towards the requirements of &lt;i&gt;Become a Legend&lt;/i&gt;.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="BecomeAMartyr" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The lost planet may be in any player&amp;rsquo;s home system. It does not have a planet in the home system of the player scoring &lt;i&gt;Become a Martyr&lt;/i&gt;.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;The lost planet may be in the home system of an eliminated player.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;If the lost planet is the last planet a player controls, that player will be eliminated before they score &lt;i&gt;Become a Martyr&lt;/i&gt;, if they meet the other requirements for elimination.&lt;/li&gt;
+    &lt;li&gt;If the player with the &lt;i&gt;Shard of the Throne&lt;/i&gt; relic loses their home system, they will lose the &lt;i&gt;Shard of the Throne&lt;/i&gt; card and the associated victory point before they may score &lt;i&gt;Become a Martyr&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;The attacker will have the opportunity to score a secret objective before the defender has the opportunity to score &lt;i&gt;Become a Martyr&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="BecomeTheGatekeeper" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player with a ship in the wormhole nexus, or in any other system with both an alpha and beta wormhole, qualifies for &lt;i&gt;Become the Gatekeeper&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;Any ground forces or structures are irrelevant.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="BetrayAFriend" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The following promissory notes qualify for scoring &lt;i&gt;Betray a Friend&lt;/i&gt;:&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;&lt;i&gt;Alliance&lt;/i&gt;.&lt;/li&gt;
+        &lt;li&gt;&lt;i&gt;Support for the Throne&lt;/i&gt;.&lt;/li&gt;
+        &lt;li&gt;&lt;i&gt;Stymie&lt;/i&gt; (Arborec).&lt;/li&gt;
+        &lt;li&gt;&lt;i&gt;Trade Convoys&lt;/i&gt; (Hacan).&lt;/li&gt;
+        &lt;li&gt;&lt;i&gt;Dark Pact&lt;/i&gt; (Empyrean).&lt;/li&gt;
+        &lt;li&gt;&lt;i&gt;Blood Pact&lt;/i&gt; (Empyrean).&lt;/li&gt;
+        &lt;li&gt;&lt;i&gt;Promise of Protection&lt;/i&gt; (Mentak).&lt;/li&gt;
+        &lt;li&gt;&lt;i&gt;Gift of Prescience&lt;/i&gt; (Naalu).&lt;/li&gt;
+        &lt;li&gt;&lt;i&gt;Antivirus&lt;/i&gt; (Nekro).&lt;/li&gt;
+        &lt;li&gt;&lt;i&gt;Terraform&lt;/i&gt; (Ul).&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;li&gt;The defender cannot score &lt;i&gt;Betray a Friend&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="BioStims" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="BioticResearchFacility" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="Blitz" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If the L1Z1X player plays &lt;i&gt;Blitz&lt;/i&gt;, they may use the gained &lt;sc&gt;Bombardment&lt;/sc&gt; ability of each of their non&amp;ndash;fighter ships in the system when resolving their &lt;sc&gt;Harrow&lt;/sc&gt; faction ability during that invasion.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="BraveTheVoid" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Any system containing a Vuil&amp;rsquo;raith player&amp;rsquo;s Dimensional Tear is a gravity rift, and thus, an anomaly.&lt;/li&gt;
+    &lt;li&gt;A wormhole is not an anomaly.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="Bribery" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;&lt;i&gt;Bribery&lt;/i&gt; may be played after the speaker has abstained, or would vote if they are unable to.&lt;/li&gt;
+    &lt;li&gt;A player may spend zero trade goods when they play &lt;i&gt;Bribery&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;A player must have cast votes for an outcome to play &lt;i&gt;Bribery&lt;/i&gt;, and the additional votes must be cast for the same outcome.&lt;/li&gt;
+    &lt;li&gt;The speaker may play &lt;i&gt;Distinguished Councilor&lt;/i&gt; after another player plays &lt;i&gt;Bribery&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Bribery&lt;/i&gt; is played before any effects that change the outcome of an agenda.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="BuildDefenses" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="Bunker" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The modifier will apply to bombardment rolls for each planet in the active system.&lt;/li&gt;
+    &lt;li&gt;The modifier will apply to bombardment rolls made for the L1Z1X player&amp;rsquo;s &lt;sc&gt;Harrow&lt;/sc&gt; faction ability during that invasion.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="Ceasefire" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The active player may still use the &lt;sc&gt;Space Cannon&lt;/sc&gt; ability of any units during the &lt;b&gt;Space Cannon Offense&lt;/b&gt; step of the tactical action.&lt;/li&gt;
+    &lt;li&gt;If a player has units in the active system from before the tactical action in which their &lt;i&gt;Ceasefire&lt;/i&gt; is played, those units will remain in the active system.&lt;/li&gt;
+    &lt;li&gt;If the active player already has units with capacity in the active system, they may transport ground forces on planets in that system into the space area of that system. Those units may then be committed to invade a planet during this tactical action.&lt;/li&gt;
+    &lt;li&gt;If a system containing only a player&amp;rsquo;s ground forces or structures is activated, that player may still play the active player&amp;rsquo;s &lt;i&gt;Ceasefire&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Ceasefire&lt;/i&gt; does not prevent a player from producing or placing units in the active system.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="CentralizeGalacticTrade" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The trade goods must be spent during the status phase. Any trade goods that were spent during the action phase will have no effect.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ChecksAndBalances" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If there are any trade goods on a chosen strategy card while &lt;i&gt;Checks and Balances&lt;/i&gt; is a law in play, the player who chose the strategy card gains them, not the player who receives that card.&lt;/li&gt;
+    &lt;li&gt;The &lt;i&gt;Public Disgrace&lt;/i&gt; action card may be played after a player has chosen a strategy card and announced which player will be receiving it. The player must choose a different strategy card, and then choose the same or a different player to receive it.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ClandestineOperations" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If the &amp;ldquo;For&amp;rdquo; effect of &lt;i&gt;Clandestine Operations&lt;/i&gt; is resolved, the removed tokens may be from any pool or pools on a player&amp;rsquo;s command sheet.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ClassifiedDocumentLeaks" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If &lt;i&gt;Classified Document Leaks&lt;/i&gt; is revealed when only one secret objective is in play, players may only vote for that secret objective or abstain. If no votes are cast, the speaker must decide for that secret objective to be elected.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;Players may still play riders if only one secret objective is in play.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;The player that originally owned the secret objective elected by &lt;i&gt;Classified Document Leaks&lt;/i&gt; cannot score it again after it becomes a public objective.&lt;/li&gt;
+    &lt;li&gt;The elected secret objective no longer counts towards the original player&amp;rsquo;s limit of three secret objectives.&lt;/li&gt;
+    &lt;li&gt;If &lt;i&gt;Classified Document Leaks&lt;/i&gt; is discarded, the elected secret objective is not returned to the original player, and it is no longer scorable as a public objective. It remains in play, not discarded.&lt;/li&gt;
+    &lt;li&gt;A player can score a maximum of one objective of any type during or after each combat. A player cannot score the elected objective and one of their own secret objectives from the same combat.&lt;/li&gt;
+    &lt;li&gt;The elected objective becomes a public objective and stops being a secret objective.&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;If &lt;i&gt;Classified Document Leaks&lt;/i&gt; is elected by &lt;i&gt;Miscount Disclosed&lt;/i&gt;, the objective that was originally elected will remain a public objective during the vote. It therefore cannot be re&amp;ndash;elected.&lt;/li&gt;
+        &lt;li&gt;If there are no other secret objectives eligable to be elected by the &lt;i&gt;Miscount Disclosed&lt;/i&gt; revote, &lt;i&gt;Classified Document Leaks&lt;/i&gt; will be discarded, and another agenda will be revealed and voted on.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ColonialRedistribution" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If the player that originally controlled the elected planet has the fewest victory points, they may choose themselves to place an infantry on that planet.&lt;/li&gt;
+    &lt;li&gt;If the elected planet has the &lt;i&gt;Demilitarized Zone&lt;/i&gt; exploration card attached, no infantry will be placed on it. Control of the planet will remain with the original player.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="CommandAnArmada" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="CommitteeFormation" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;&lt;i&gt;Committee Formation&lt;/i&gt; is resolved after any riders have been played, if the owner so chooses. Riders will resolve if the predicted outcome matches the player elected by the effect of &lt;i&gt;Committee Formation&lt;/i&gt;.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;The owner of &lt;i&gt;Committee Formation&lt;/i&gt; may play riders before they resolve &lt;i&gt;Committee Formation&lt;/i&gt;.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;The &lt;i&gt;Confusing Legal Text&lt;/i&gt; and &lt;i&gt;Confounding Legal Text&lt;/i&gt; action cards may be played after &lt;i&gt;Committee Formation&lt;/i&gt; has been discarded to change who the elected player is, which will negate the effects of &lt;i&gt;Committee Formation&lt;/i&gt;.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;The &lt;i&gt;Deadly Plot&lt;/i&gt; action card may be played after &lt;i&gt;Committee Formation&lt;/i&gt; has been discarded to discard the agenda without resolving it, but only if that player predicted a different outcome from some other game effect.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="CompensatedDisarmament" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;All trade goods are gained together.&lt;/li&gt;
+    &lt;li&gt;A planet with zero units on it is eligible to be elected.&lt;/li&gt;
+    &lt;li&gt;Structures are unaffected by &lt;i&gt;Compensated Disarmament&lt;/i&gt;.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;The Titans of Ul&amp;rsquo;s Hel&amp;ndash;Titans are also ground forces and are thus affected by &lt;i&gt;Compensated Disarmament&lt;/i&gt;.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ConfoundingLegalText" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Any predictions made on the outcome of the agenda resolve based on the newly elected player.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Confounding Legal Text&lt;/i&gt; is played after any effects that allow a player to cast additional votes.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Confounding Legal Text&lt;/i&gt; is played before &lt;i&gt;Deadly Plot&lt;/i&gt; is played, before revealing hidden agenda for the &lt;i&gt;Covert Legislation&lt;/i&gt; agenda, and before the &lt;i&gt;Drive the Debate&lt;/i&gt; objective may be scored.
+    &lt;li&gt;&lt;i&gt;Confounding Legal Text&lt;/i&gt; may be played after &lt;i&gt;Confusing Legal Text&lt;/i&gt; is played.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ConfusingLegalText" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Any predictions made on the outcome of the agenda resolve based on the newly elected player.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Confusing Legal Text&lt;/i&gt; is played after any effects that allow a player to cast additional votes.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Confusing Legal Text&lt;/i&gt; is played before &lt;i&gt;Deadly Plot&lt;/i&gt; is played, before revealing hidden agenda for the &lt;i&gt;Covert Legislation&lt;/i&gt; agenda, and before the &lt;i&gt;Drive the Debate&lt;/i&gt; objective may be scored.
+    &lt;li&gt;&lt;i&gt;Confusing Legal Text&lt;/i&gt; may be played after &lt;i&gt;Confounding Legal Text&lt;/i&gt; is played.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ConquerTheWeak" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The planet may be in the home system of an eliminated player.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ConstructionRider" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;After playing a &lt;i&gt;Construction Rider&lt;/i&gt;, a player may use additional abilities, including playing other rider cards.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;Any other riders may be played to predict the same or a different outcome.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;The effect of a successful &lt;i&gt;Construction Rider&lt;/i&gt; will be resolved after the effect of the agenda.&lt;/li&gt;
+    &lt;li&gt;A player who cannot vote may still play a &lt;i&gt;Construction Rider&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;If a player wishes to place a space dock, but there are none left in their reinforcements, they may remove a space dock from any system that does not contain one of their command tokens and place that instead.&lt;/li&gt;
+    &lt;li&gt;The Saar player may play a &lt;i&gt;Construction Rider&lt;/i&gt;, and may place a space dock in a system containing a planet they control if successful.&lt;/li&gt;
+    &lt;li&gt;If a player successfully resolves a &lt;i&gt;Construction Rider&lt;/i&gt; while they own the &lt;i&gt;Minister of Industry&lt;/i&gt; law, they use the &lt;sc&gt;Production&lt;/sc&gt; ability of their units in the system where they place their space dock. They may exhaust planets for resources, but those planets cannot be used to cast votes for the remainder of the agenda phase.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ConstructMassiveCities" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ControlTheBorderlands" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The number of units in the system is irrelevant, if there is at least one.&lt;/li&gt;
+    &lt;li&gt;A ship, ground force, or structure will all qualify for &lt;i&gt;Control the Borderlands&lt;/i&gt;.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;If one player has a ground force or structure on a planet in a qualifying system, and another player has a ship in the same system, both players may count the system towards the requirements of &lt;i&gt;Control the Borderlands&lt;/i&gt;.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;The units may be in another player&amp;rsquo;s home system.&lt;/li&gt;
+    &lt;li&gt;The Creuss Gate is not a home system.&lt;/li&gt;
+    &lt;li&gt;The Wormhole Nexus and the Creuss home system are both on the edge of the game board.&lt;/li&gt;
+    &lt;li&gt;If the edge of a system tile is touching a hyperlane tile, that edge does not cause that system tile to be on the edge of the game board.&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;When using the five&amp;ndash; and seven&amp;ndash;player hyperlane setups, the system tile in the center of the ring of hyperlanes is not on the edge of the game board.&lt;/li&gt;
+        &lt;li&gt;When using the seven&amp;ndash; and eight&amp;ndash;player alternate setups, only the system tiles designated as &amp;ldquo;Ring 3&amp;rdquo;, and home systems are on the edge of the game board, along with the Creuss home system and the wormhole nexus.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ControlTheRegion" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Any ground forces or structures are irrelevant.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ConventionsOfWar" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;When &lt;i&gt;Conventions of War&lt;/i&gt; is a law in play a player may still use the &lt;i&gt;Tactical Bombardment&lt;/i&gt; action card or the &lt;i&gt;X&amp;ndash;89 Baterial Weapon&lt;/i&gt; technology on a cultural planet.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="CoreMine" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="CoreMining" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A planet with zero infantry on it may be elected.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="CornerTheMarket" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="CouncilPreserve" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="Counterstroke" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="CoupDetat" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The active player may still use any &amp;ldquo;at the end of your turn&amp;rdquo; abilities.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="CourageousToTheEnd" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Any combat roll modifiers will not apply to the dice roll for &lt;i&gt;Courageous to the End&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;Effects that cancel hits, such as &lt;sc&gt;Sustain Damage&lt;/sc&gt;, cannot be used to prevent ships from being destroyed.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="CovertLegislation" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If the Speaker draws &lt;i&gt;Classified Document Leaks&lt;/i&gt;, &lt;i&gt;Judicial Abolishment&lt;/i&gt;, &lt;i&gt;Miscount Disclosed&lt;/i&gt; or &lt;i&gt;New Constitution&lt;/i&gt;, when that agenda would be discarded if revealed, both the hidden agenda and &lt;i&gt;Covert Legislation&lt;/i&gt; are discarded.&lt;/li&gt;
+    &lt;li&gt;Any effects that take place when or after an agenda is revealed instead take place when or after the speaker has drawn and announced the possible outcomes for the hidden agenda.&lt;/li&gt;
+    &lt;li&gt;If an effect, such as the &lt;i&gt;Veto&lt;/i&gt; action card, would discard &lt;i&gt;Covert Legislation&lt;/i&gt;, both it and the hidden agenda are discarded.&lt;/li&gt;
+    &lt;li&gt;The hidden agenda is only revealed as it is resolved. All abilities that may be played after voting, such as the &lt;i&gt;Bribery&lt;/i&gt;, &lt;i&gt;Confounding Legal Text&lt;/i&gt;, &lt;i&gt;Confusing Legal Text&lt;/i&gt; or &lt;i&gt;Deadly Plot&lt;/i&gt; action cards, must be played before the agenda is revealed.&lt;/li&gt;
+    &lt;li&gt;The speaker may still vote on &lt;i&gt;Covert Legislation&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="CrippleDefenses" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The chosen planet may have zero PDS on it.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="CulturalRelicFragment" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If the relic deck is empty, a player may still purge three Cultural Relic Fragments as an action.&lt;/li&gt;
+    &lt;li&gt;If an eliminated player had any Cultural Relic Fragments, they are discarded to the cultural planet exploration discard pile.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="CutSupplyLines" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="CyberneticResearchFacility" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="DacxiveAnimators" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="DarkEnergyTap" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A ship may be moved into the system containing the frontier token during the same action that it is explored.&lt;/li&gt;
+    &lt;li&gt;Exploring the frontier token happens at the end of the tactical action. Notably, this is after the &lt;b&gt;Space Cannon Offense&lt;/b&gt; and/or &lt;b&gt;Space Combat&lt;/b&gt; steps.&lt;/li&gt;
+    &lt;li&gt;A player cannot use &lt;i&gt;Dark Energy Tap&lt;/i&gt; to retreat into a system that contains another player&amp;rsquo;s units, including ground forces and structures on planets.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="DarkenTheSkies" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;&lt;i&gt;Darken the Skies&lt;/i&gt; may be scored by winning a combat in an eliminated player&amp;rsquo;s home system.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="DarkVisions" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="DeadlyPlot" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Any prediction made for a rider or similar ability is incorrect, and will not resolve.&lt;/li&gt;
+    &lt;li&gt;A player cannot make the prediction that &lt;i&gt;Deadly Plot&lt;/i&gt; will be played when they predict the outcome of an agenda.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Deadly Plot&lt;/i&gt; is played after any effects that allow a player to cast additional votes, and after any effects that change the outcome of an agenda.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Deadly Plot&lt;/i&gt; is played before revealing hidden agenda for the &lt;i&gt;Covert Legislation&lt;/i&gt; agenda, and before the &lt;i&gt;Drive the Debate&lt;/i&gt; objective may be scored.
+    &lt;li&gt;If a player predicts multiple outcomes, they may play &lt;i&gt;Deadly Plot&lt;/i&gt; regardless of which outcome would be resolved.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;If the Xxcha player uses their commander, Elder Qanoj, to vote for one outcome, when they have predicted another, they may play &lt;i&gt;Deadly Plot&lt;/i&gt; regardless of which outcome would be resolved.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="DeadWorld" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If the relic deck is empty, &lt;i&gt;Dead World&lt;/i&gt; will be discarded with no effect.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="DecoyOperation" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If a mech is damaged when it is removed, it will remain damaged when it is placed.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="DefySpaceAndTime" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The number of units in the system is irrelevant, if there is at least one.&lt;/li&gt;
+    &lt;li&gt;A ship, ground force, or structure will all qualify for &lt;i&gt;Defy Space and Time&lt;/i&gt;.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;If one player has a ground force or structure on Mallice, and another player has a ship in the wormhole nexus, both players may score &lt;i&gt;Defy Space and Time&lt;/i&gt;, if it is elected by the &lt;i&gt;Classified Document Leaks&lt;/i&gt; agenda.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="DemilitarizedZone" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;After the active player has returned ground forces on the planet to the space area, if they does not have enough capacity in the space area for the returned ground forces, including zero capacity, they will have to remove fighters and/or ground forces to meet capacity limits.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="DemonstrateYourPower" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player need not win the combat to score &lt;i&gt;Demonstrate Your Power&lt;/i&gt;; they are able to score it if their opponent plays the &lt;i&gt;Skilled Retreat&lt;/i&gt; action card.&lt;/li&gt;
+    &lt;li&gt;A player involved in a combat due to the Mahact player&amp;rsquo;s &lt;i&gt;Benediction&lt;/i&gt; hero ability may score &lt;i&gt;Demonstrate Your Power&lt;/i&gt; after that combat.&lt;/li&gt;
+    &lt;li&gt;Units that are temporarily ships for the duration of a space combat, such as those made so by the Nekro player&amp;rsquo;s flagship, &lt;i&gt;The Alastor&lt;/i&gt;, or the Naaz&amp;ndash;Rokha player&amp;rsquo;s Z&amp;ndash;Grav Eidolon mechs, may count towards scoring &lt;i&gt;Demonstrate Your Power&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;The Mentak player may use the &lt;i&gt;Sleeper Cell&lt;/i&gt; ability of their hero, during the last round of combat to place ships before scoring &lt;i&gt;Demonstrate Your Power&lt;/i&gt;. However, fleet pool limits are also checked before scoring.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;The Mentak player cannot use the ability of their &lt;i&gt;Salvage Operations&lt;/i&gt; technology until after the window in which to score &lt;i&gt;Demonstrate Your Power&lt;/i&gt;.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="DerelictVessel" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player with three scored secret objectives may draw a fourth. However, they must immediately shuffle it into the secret objective deck.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="DesertedTradeStation" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="DestroyHereticalWorks" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player will not gain a relic when scoring &lt;i&gt;Destroy Heretical Works&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;The relic fragments may the the same or different types.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="DestroyTheirGreatestShip" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If a player destroys their own flagship or war sun during combat, such as via the effect of &lt;i&gt;The Crown of Thalnos&lt;/i&gt; relic, their opponent cannot score &lt;i&gt;Destroy their Greatest Ship&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Destroy their Greatest Ship&lt;/i&gt; is scored as soon as the war sun or flagship is destroyed; it does not require waiting until the end of the combat.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;A player does not have to win a combat to score &lt;i&gt;Destroy their Greatest Ship&lt;/i&gt;.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;A player may score &lt;i&gt;Destroy their Greatest Ship&lt;/i&gt; outside of a combat.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="DevelopWeaponry" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A &lt;i&gt;Valefar Assimilator&lt;/i&gt; technology will count if it is currently copying another player&amp;rsquo;s faction unit upgrade technology.&lt;/li&gt;
+    &lt;li&gt;If the Nekro player owns both a generic unit upgrade technology and a faction unit upgrade technology of the same type, only the faction unit upgrade technology will count for &lt;i&gt;Develop Weaponry&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="DictatePolicy" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;&lt;i&gt;Dictate Policy&lt;/i&gt; is scored after the third law resolves. As such, the &lt;i&gt;Deadly Plot&lt;/i&gt; action card will prevent any player from scoring &lt;i&gt;Dictate Policy&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Dictate Policy&lt;/i&gt; is scored before any rider action cards are resolved.&lt;/li&gt;
+    &lt;li&gt;If there are three laws in play at the start of the agenda phase, a player may score &lt;i&gt;Dictate Policy&lt;/i&gt; immediately.&lt;/li&gt;
+    &lt;li&gt;If the &lt;i&gt;Political Data Nexus&lt;/i&gt; Xxcha hero ability puts a third law in play, &lt;i&gt;Dictate Policy&lt;/i&gt; cannot be scored until the agenda phase.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="DiplomacyRider" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The Mecatol Rex system may be chosen.&lt;/li&gt;
+    &lt;li&gt;After playing a &lt;i&gt;Diplomacy Rider&lt;/i&gt;, a player may use additional abilities, including playing other rider cards.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;Any other riders may be played to predict the same or a different outcome.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;The effect of a successful &lt;i&gt;Diplomacy Rider&lt;/i&gt; will be resolved after the effect of the agenda.&lt;/li&gt;
+    &lt;li&gt;A player who cannot vote may still play a &lt;i&gt;Diplomacy Rider&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="DiplomaticPressure" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The target player chooses which promissory note they give.&lt;/li&gt;
+    &lt;li&gt;A player cannot play a second &lt;i&gt;Diplomatic Pressure&lt;/i&gt; targeting the same player during the same agenda.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="DirectHit" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If multiple ships use their &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability, a &lt;i&gt;Direct Hit&lt;/i&gt; may be played for each.&lt;/li&gt;
+    &lt;li&gt;A &lt;i&gt;Direct Hit&lt;/i&gt; may be used whenever hits produced by a player&amp;rsquo;s units or abilities are cancelled by a unit using its &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability.&lt;/li&gt;
+    &lt;li&gt;When a player uses the &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability of one of their units, they do not have to decide if another of their units in the same combat will use its &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability until after their opponent has used or declined to use a &lt;i&gt;Direct Hit&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;When &lt;i&gt;Direct Hit&lt;/i&gt; is used outside of combat, if used on a ship with capacity, then fighters and/or ground forces must immediately be removed from the space area to meet the capacity limit.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;For example, say a player has a dreadnought, a destroyer and a fighter in a system with no other units during the &lt;b&gt;Space Cannon Defense&lt;/b&gt; step. During the &lt;b&gt;Roll Dice&lt;/b&gt; step, two hits are produced against that player. They cancel one with the dreadnought&amp;rsquo;s &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability, but a &lt;i&gt;Direct Hit&lt;/i&gt; is played to destroy it. The fighter in that system is immediately removed. The player must then assign the other produced hit to their destroyer.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;A mech cannot be destroyed by &lt;i&gt;Direct Hit&lt;/i&gt;, unless a game effect causes the mech to be considered a ship.&lt;/li&gt; 
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="Disable" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If the Ul player is targeted, their Hel&amp;ndash;Titans will still participate in the ground combat during the current invasion.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Disable&lt;/i&gt; has no effect on the &lt;i&gt;Magen Defense Grid &amp;Omega;&lt;/i&gt; technology.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="DiscoverLostOutposts" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The number of attachments a planet has is irrelevant, if it has at least one.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="DistinguishedAdmiral" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="DistinguishedCouncilor" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player must have cast votes for an outcome to play &lt;i&gt;Distinguished Councilor&lt;/i&gt;, and the additional votes must be cast for the same outcome.&lt;/li&gt;
+    &lt;li&gt;A player may only play &lt;i&gt;Distinguished Councilor&lt;/i&gt; after their normal vote, not after they cast additional votes at another point.&lt;/li&gt;
+    &lt;li&gt;The speaker may play &lt;i&gt;Distinguished Councilor&lt;/i&gt; after another player plays &lt;i&gt;Bribery&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Distinguished Councilor&lt;/i&gt; is played before any effects that change the outcome of an agenda.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="DiversifyResearch" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="DivertFunding" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player must have at least one non&amp;ndash;unit upgrade, non&amp;ndash;faction technology to play and resolve &lt;i&gt;Divert Funding&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;A player must still meet the prerequisites for the technology they research.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;The returned technology does not count towards meeting the prerequisites.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;The researched technology may be a unit upgrade technology, and it may be a faction technology.&lt;/li&gt;
+    &lt;li&gt;The researched technology cannot be the returned technology.&lt;/li&gt;
+    &lt;li&gt;Other players must decide whether to play &lt;i&gt;Sabotage&lt;/i&gt; before the player playing &lt;i&gt;Divert Funding&lt;/i&gt; announces which technology they are researching.&lt;/li&gt;
+    &lt;li&gt;If a player later gains the technology they returned, they gain it readied.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="DominusOrb" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="DriveTheDebate" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Any &amp;ldquo;For&amp;rdquo;/&amp;ldquo;Against&amp;rdquo; agenda cannot count for &lt;i&gt;Drive the Debate&lt;/i&gt;, even if the outcome affects only a single player.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Drive the Debate&lt;/i&gt; is scored immediately before the agenda resolves. The &lt;i&gt;Confounding Legal Text&lt;/i&gt; and &lt;i&gt;Confusing Legal Text&lt;/i&gt; action cards will allow only the newly elected player to score &lt;i&gt;Drive the Debate&lt;/i&gt;, and the &lt;i&gt;Deadly Plot&lt;/i&gt; action card will prevent any player from scoring &lt;i&gt;Drive the Debate&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;Scoring &lt;i&gt;Drive the Debate&lt;/i&gt; immediately before the &lt;i&gt;Colonial Redistribution&lt;/i&gt; agenda is resolved may change which player(s) can be chosen to place the infantry on the elected planet.&lt;/li&gt;
+	&lt;li&gt;If a player draws &lt;i&gt;Drive the Debate&lt;/i&gt; while resolving the &lt;i&gt;Archived Secret&lt;/i&gt; or &lt;i&gt;Search Warrant&lt;/i&gt; agendas, they cannot score it immediately.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="DuraniumArmor" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player must mandatorily repair a unit with &lt;i&gt;Duranium Armor&lt;/i&gt; during each round of combat, if possible.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Duranium Armor&lt;/i&gt; is used even if a player&amp;rsquo;s opponent produced no hits during a round of combat.&lt;/li&gt;
+    &lt;li&gt;If a player starts a combat with a damaged unit, they use &lt;i&gt;Duranium Armor&lt;/i&gt; in the first round of combat.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;A player may use &lt;i&gt;Duranium Armor&lt;/i&gt; to repair a unit damaged by &lt;sc&gt;Space Cannon&lt;/sc&gt; or &lt;sc&gt;Bombardment&lt;/sc&gt; hits that occurred immediately before the combat.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;Only units participating in the combat may be chosen to be repaired.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="DynamisCore" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If a player uses the purge ability of &lt;i&gt;Dynamis Core&lt;/i&gt;, they will need to return commodities if they now exceed their original commodity value.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="DysonSphere" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="EconomicEquality" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If the &amp;ldquo;For&amp;rdquo; outcome of &lt;i&gt;Economic Equality&lt;/i&gt; is resolved, the Mentak player may resolve their &lt;sc&gt;Pillage&lt;/sc&gt; faction ability against each of their neighbors.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="EconomicInitiative" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player with zero cultural planets may play &lt;i&gt;Economic Initiative&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="EmergencyRepairs" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player may play &lt;i&gt;Emergency Repairs&lt;/i&gt; at the start of the first round of combat to repair ships damaged in a previous combat, or during the &lt;b&gt;Space Cannon Offense&lt;/b&gt; step of the current action.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="EnforcedTravelBan" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The effect of the &lt;i&gt;Enforced Travel Ban&lt;/i&gt; law does not affect the Creuss player.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Enforced Travel Ban&lt;/i&gt; only prevents movement using the normal adjacency provided by wormholes. Other effects that creates adjacency, such as &lt;i&gt;Wormhole Reconstruction&lt;/i&gt; agenda or the &lt;i&gt;Lost Star Chart&lt;/i&gt; action card, may be used to allow movement between systems containing wormholes.&lt;/li&gt;
+    &lt;li&gt;When the &lt;i&gt;Enforced Travel Ban&lt;/i&gt; law is in play, units cannot move through wormholes, even by effects that move ships outside of the &lt;b&gt;Movement&lt;/b&gt; step of a tactical action, such as while retreating.&lt;/li&gt;
+    &lt;li&gt;When the &lt;i&gt;Enforced Travel Ban&lt;/i&gt; law is in play, hits may still be produced against ships in the active system by units with the &lt;sc&gt;Deep Space Cannon&lt;/sc&gt; ability in systems that are adjacent via a wormhole during the &lt;b&gt;Space Cannon Offense&lt;/b&gt; step of a tactical action.&lt;/li&gt;
+    &lt;li&gt;Players may still be neighbors via systems that are adjacent via wormholes.&lt;/li&gt;
+    &lt;li&gt;The &amp;ldquo;Against&amp;rdquo; effect of &lt;i&gt;Enforced Travel Ban&lt;/i&gt; will affect PDS in or adjacent to systems containing an alpha, beta, delta or gamma wormhole.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="EngineerAMarvel" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="EnigmaticDevice" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player cannot play &lt;i&gt;Enigmatic Device&lt;/i&gt; as a component action if they have less than six resources available.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="EntropicField" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ErectAMonument" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The resources must be spent during the status phase. Any resources that were spent during the action phase will have no effect.&lt;/li&gt;
+    &lt;li&gt;Trade goods may be spent as resources when scoring &lt;i&gt;Erect a Monument&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ESixGoNetwork" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="EstablishAPerimeter" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="EstablishHegemony" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;With the right attachments, the requirements of &lt;i&gt;Establish Hegemony&lt;/i&gt; may be met with a single planet.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ExecutiveSanctions" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The effect of the &lt;i&gt;Executive Sanctions&lt;/i&gt; law does not affect the Yssaril player.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ExpandBorders" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The planets cannot be in any player&amp;rsquo;s home system, including those of eliminiated players.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="Expedition" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ExperimentalBattlestation" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The selected space dock will use the &lt;sc&gt;Space Cannon&lt;/sc&gt; ability during the &lt;b&gt;Space Cannon Offense&lt;/b&gt; step of the current tactical action.&lt;/li&gt;
+    &lt;li&gt;Hits may only be assigned to the active player&amp;rsquo;s ships.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Experimental Battlestation&lt;/i&gt; cannot be played if no ships are moved into the active system, even if the active player already has ships in that system.&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;If ships are moved into the active system, ships that were already in that system may be assigned any hits produced.&lt;/li&gt;
+        &lt;li&gt;If a ship is moved out of the active system and then back in, &lt;i&gt;Experimental Battlestation&lt;/i&gt; may be played.&lt;/li&gt;
+        &lt;li&gt;If all moving ships are lost to a gravity rift, and none arrive in the active system, &lt;i&gt;Experimental Battlestation&lt;/i&gt; cannot be played.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;li&gt;&lt;i&gt;Experimental Battlestation&lt;/i&gt; cannot be played if ships are moved outside of the &lt;b&gt;Move Ships&lt;/b&gt; step, such as during a retreat, or while resolving the Mahact player&amp;rsquo;s &lt;i&gt;Benediction&lt;/i&gt; hero ability.&lt;/li&gt;
+    &lt;li&gt;The hits produced by the &lt;i&gt;Experimental Battlestation&lt;/i&gt; space cannon rolls may be cancelled with &lt;i&gt;Maneuvering Jets&lt;/i&gt;.
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ExplorationProbe" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player must have an exploration token in or adjacent to a system containing one or more of their ships to play and resolve &lt;i&gt;Exploration Probe&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ExploreDeepSpace" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The number of units in the system is irrelevant, if there is at least one.&lt;/li&gt;
+    &lt;li&gt;A system that contains a planet destroyed by the &lt;i&gt;Stellar Converter&lt;/i&gt; relic, and no other planets, is considered to contain no planets.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="EyeOfVogul" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="FighterConscription" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Only one fighter will be placed in a system containing both a space dock and a ship with capacity.&lt;/li&gt;
+    &lt;li&gt;A player may place a fighter in a system that is at its capacity limit. If they do so, they must then remove a fighter or ground force from the space area of that system.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="FighterPrototype" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="FightWithPrecision" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Scoring &lt;i&gt;Fight with Precision&lt;/i&gt; will count as that player&amp;rsquo;s single secret objective scoring for that combat.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Fight with Precision&lt;/i&gt; is scored immediately in the &lt;b&gt;Anti&amp;ndash;Fighter Barrage&lt;/b&gt; step of combat.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;A player does not have to win a combat to score &lt;i&gt;Fight with Precision&lt;/i&gt;.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;If a player&amp;rsquo;s last fighter in a system is destroyed, but an ability allows that player to then place fighters into that system, &lt;i&gt;Fight with Precision&lt;/i&gt; may still be scored.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="FightWithPrecisionOmega" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Scoring &lt;i&gt;Fight with Precision &amp;Omega;&lt;/i&gt; will count as that player&amp;rsquo;s single secret objective scoring for that combat.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Fight with Precision&lt;/i&gt; is scored immediately in the &lt;b&gt;Anti&amp;ndash;Fighter Barrage&lt;/b&gt; step of combat.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;A player does not have to win a combat to score &lt;i&gt;Fight with Precision&lt;/i&gt;.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;If a player&amp;rsquo;s last fighter in a system is destroyed, but an ability allows that player to then place fighters into that system, &lt;i&gt;Fight with Precision &amp;Omega;&lt;/i&gt; may still be scored.&lt;/li&gt;
+    &lt;li&gt;Any effect that destroys fighters during the &lt;b&gt;Anti&amp;ndash;Fighter Barrage&lt;/b&gt; step may be used to score &lt;i&gt;Fight with Precision &amp;Omega;&lt;/i&gt;, not just hits produced by an anti&amp;ndash;fighter barrage roll.&lt;/li&gt;
+	&lt;ol&gt;&lt;li&gt;For example, say a player plays the &lt;i&gt;Courageous to the End&lt;/i&gt; action card when one of their fighters are destroyed during the &lt;b&gt;Anti&amp;ndash;Fighter Barrage&lt;/b&gt; step. If the dice roll causes their opponent to destroy their ships, and they choose their last fighter, that would allow the player to score &lt;i&gt;Fight with Precision &amp;Omega;&lt;/i&gt;.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="FireTeam" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Any modifiers on the original combat roll will apply to the reroll.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="FlankSpeed" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A second &lt;i&gt;Flank Speed&lt;/i&gt; cannot be played to give +2 to the move value of each ship.&lt;/li&gt;
+    &lt;li&gt;Cancelling &lt;i&gt;Flank Speed&lt;/i&gt; will not cancel the system activation.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="FleetLogistics" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Effects that trigger at the start or end of a player&amp;rsquo;s turn will not trigger between each of those player&amp;rsquo;s actions.&lt;/li&gt;
+    &lt;li&gt;A player may use the ability of &lt;i&gt;Fleet Logistics&lt;/i&gt; the same turn they gain it.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="FleetRegulations" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The effect of the &lt;i&gt;Fleet Regulations&lt;/i&gt; law does not prevent the Letnev player from using their &lt;sc&gt;Armada&lt;/sc&gt; faction ability. They may have up to six non&amp;ndash;fighter ships in a system if they have four command tokens in their fleet pool.&lt;/li&gt;
+    &lt;li&gt;The Mahact player may only have up to four command tokens in their fleet pool when the &lt;i&gt;Fleet Regulations&lt;/i&gt; law is in play, regardless of which faction the command tokens belong to.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="FocusedResearch" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player cannot play &lt;i&gt;Focused Research&lt;/i&gt; if they have less than four trade goods.&lt;/li&gt;
+    &lt;li&gt;A player must still meet the prerequisites for the technology they research.&lt;/li&gt;
+    &lt;li&gt;Other players must decide whether to play &lt;i&gt;Sabotage&lt;/i&gt; before the player playing &lt;i&gt;Focused Research&lt;/i&gt; announces which technology they are researching.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="FoldedSpace" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ForgeAnAlliance" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="FormASpyNetwork" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The action cards must be discarded during the status phase. Any action cards that were discarded during the action phase will have no effect.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="FormGalacticBrainTrust" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ForwardSupplyBase" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="FosterCohesion" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The Hacan player&amp;rsquo;s &lt;sc&gt;Guild Ships&lt;/sc&gt; faction ability and &lt;i&gt;Trade Convoys&lt;/i&gt; promissory note does not make a player neighbors with all other players.&lt;/li&gt;
+    &lt;li&gt;If a player has units or controls a planet in a system containing an alpha wormhole, and the Creuss player has units or controls a planet in a system containing a beta wormhole, or vice versa, those two players are neighbors.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="FotgottenThrone" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="FoundAGoldenAge" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The resources must be spent during the status phase. Any resources that were spent during the action phase will have no effect.&lt;/li&gt;
+    &lt;li&gt;Trade goods may be spent as resources when scoring &lt;i&gt;Found a Golden Age&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="FoundResearchOutposts" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="Freelancers" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A planet may be exhausted to spend its influence or resources, but not both.&lt;/li&gt;
+    &lt;li&gt;If a player is to gain multiple planets in a system, they choose the order in which they gain them, and explore each planet as they gain it before gaining the next. As such, a player cannot place ground forces produced by &lt;i&gt;Freelancers&lt;/i&gt; on a planet in the active system that they are yet to gain and explore.&lt;/li&gt;
+    &lt;li&gt;If a player wishes to place a unit, but there are none of that type left in their reinforcements, they may remove a unit of that type from any system that does not contain one of their command tokens and place that instead. This unit will be placed undamaged.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="FrontlineDeployment" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player must control at least one planet to play and resolve &lt;i&gt;Frontline Deployment&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;All three infantry must be placed on a single planet.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="FuelTheWarMachine" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="FunctioningBase" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player cannot have more commodities than their commodity value.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="GalacticCrisisPact" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Players resolve the secondary ability of the elected strategy card in speaker order.&lt;/li&gt;
+    &lt;li&gt;The secondary ability is resolved immediately, during the agenda phase.&lt;/li&gt;
+    &lt;li&gt;Players must pay the influence or resource costs to resolve the abilities of the &lt;i&gt;Leadership&lt;/i&gt;, &lt;i&gt;Warfare&lt;/i&gt; or &lt;i&gt;Technology&lt;/i&gt; strategy cards if they are elected. Any planets used to pay these costs will ready at the end of the agenda phase.&lt;/li&gt;
+    &lt;li&gt;If the &lt;i&gt;Technology&lt;/i&gt; strategy card is elected, a player may exhaust a planet with a technology specialty to ignore a prerequisite on a technology as normal. This planet will ready at the end of the agenda phase.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;A player may exhaust the &lt;i&gt;AI Development Algorithm&lt;/i&gt; technology to ignore a prerequisite on a unit upgrade technology as normal. &lt;i&gt;AI Development Algorithm&lt;/i&gt; will not ready at the end of the agenda phase.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;If a player has a strategy card in their play area due to the effect of the &lt;i&gt;Political Stability&lt;/i&gt; action card, that strategy card is eligible to be elected.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="GalvanizeThePeople" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The command tokens must be spent during the status phase. Any command tokens that were spent during the action phase will have no effect.&lt;/li&gt;
+    &lt;li&gt;Any effect that triggers when a command token is spent will be triggered six times. For example, if the Muaat player has unlocked their commander, Magmus, they will gain six trade goods, one at a time, when scoring &lt;i&gt;Galvanize the People&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="GammaRelay" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="GammaWormhole" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="GatherAMightyFleet" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="GhostShip" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player may place the destroyer in the Creuss gate (tile 17), the wormhole nexus, or any system with a printed wormhole or wormhole token.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;Placing the destroyer in the inactive wormhole nexus will cause it to flip to its active side.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;The destroyer cannot be placed in the home system of an eliminated player.&lt;/li&gt;
+    &lt;li&gt;There must be an eligible system to place the destroyer in for a player to play and resolve &lt;i&gt;Ghost Ship&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;If a player wishes to place a destroyer, but there are none left in their reinforcements, they may remove a destroyer from any system that does not contain one of their command tokens and place that instead.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="GhostSquad" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;&lt;i&gt;Ghost Squad&lt;/i&gt; is played after the active player has assigned which planet each of their ground forces are being committed to. They cannot modify this after &lt;i&gt;Ghost Squad&lt;/i&gt; has been played.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Ghost Squad&lt;/i&gt; may be played whenever ground forces are committed, such as from the Yin player&amp;rsquo;s &lt;i&gt;Quantum Dissemination Ω&lt;/i&gt; hero ability.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;&lt;i&gt;Ghost Squad&lt;/i&gt; cannot be played in response to abilities that place ground forces on a planet without committing them, such as the &lt;i&gt;Colonial Redistribution&lt;/i&gt; agenda.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;The Ul player cannot use &lt;i&gt;Ghost Squad&lt;/i&gt; to move a Hel&amp;ndash;Titan.&lt;/li&gt;
+    &lt;li&gt;A player may move zero ground forces with &lt;i&gt;Ghost Squad&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="GravitonLaserSystem" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If multiple players are resolving the &lt;sc&gt;Space Cannon&lt;/sc&gt; ability of their units against the active player, the active player must resolve capacity limits after assigning one player&amp;rsquo;s hits and before the next player make their space cannon roll.&lt;/li&gt; 
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="GravityDrive" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="HackElection" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The speaker will still vote last.&lt;/li&gt;
+    &lt;li&gt;The Argent player will still vote before all other players.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="HarnessEnergy" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If a player has their maximum number of commodities, they may still play &lt;i&gt;Harness Energy&lt;/i&gt;. If they do, they will still trigger any &amp;ldquo;when [this] player replenishes commodities&amp;rdquo; effects, most notably the &lt;i&gt;Trade Agreement&lt;/i&gt; promissory note.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="HazardousRelicFragment" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If the relic deck is empty, a player may still purge three Hazardous Relic Fragments as an action.&lt;/li&gt;
+    &lt;li&gt;If an eliminated player had any Hazardous Relic Fragments, they are discarded to the hazardous planet exploration discard pile.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="HiddenLab" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="HoardRawMaterials" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;With the right attachments, the requirements of &lt;i&gt;Hoard Raw Materials&lt;/i&gt; may be met with a single planet.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="HoldVastReserves" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The influence, resources and trade goods must be spent during the status phase. Any that were spent during the action phase will have no effect.&lt;/li&gt;
+    &lt;li&gt;A planet may be exhausted to spend either its resource or influence value, but not both.&lt;/li&gt;
+    &lt;li&gt;Trade goods may be spent as influence or resources when scoring &lt;i&gt;Hold Vast Reserves&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="HolyPlanetOfIxth" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If the &lt;i&gt;Holy Planet of Ixth&lt;/i&gt; law is discarded, no player loses a victory point.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="HomelandDefenseAct" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If the &lt;i&gt; Homeland Defense Act&lt;/i&gt; law is discarded, players might have to remove PDS so that they have no more than two on each planet.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="HyperMetabolism" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ImperialArbiter" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If either strategy card had trade goods on it at the start of the strategy phase, those trade goods remain with the player that originally chose the strategy card.&lt;/li&gt;
+    &lt;li&gt;In a three&amp;ndash; or four&amp;ndash;player game, the owner of &lt;i&gt;Imperial Arbiter&lt;/i&gt; chooses which strategy cards are swapped.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ImperialRider" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;After playing an &lt;i&gt;Imperial Rider&lt;/i&gt;, a player may use additional abilities, including playing other rider cards.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;Any other riders may be played to predict the same or a different outcome.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;The effect of a successful &lt;i&gt;Imperial Rider&lt;/i&gt; will be resolved after the effect of the agenda.&lt;/li&gt;
+    &lt;li&gt;A player who cannot vote may still play an &lt;i&gt;Imperial Rider&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="Impersonation" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player cannot play &lt;i&gt;Impersonation&lt;/i&gt; if they have less than three influence available.&lt;/li&gt;
+    &lt;li&gt;A player with three secret objectives may draw a fourth, and then shuffle one of their unscored secret objectives into the secret objective deck.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;If a player has scored three secret objectives, they may use &lt;i&gt;Impersonation&lt;/i&gt; to draw a secret objective, then immediately shuffle it into the secret objective deck.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ImproveInfrastructure" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The number of structures on the planet is irrelevant, if there is at least one.&lt;/li&gt;
+    &lt;li&gt;The structures may be on planets in another player&amp;rsquo;s home system.&lt;/li&gt;
+    &lt;li&gt;The Saar player&amp;rsquo;s Floating Factories cannot be used to score &lt;i&gt;Improve Infrastructure&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="IncentiveProgram" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="IndustrialInitiative" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player with zero industrial planets may play &lt;i&gt;Industrial Initiative&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="IndustrialRelicFragment" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If the relic deck is empty, a player may still purge three Industrial Relic Fragments as an action.&lt;/li&gt;
+    &lt;li&gt;If an eliminated player had any Industrial Relic Fragments, they are discarded to the industrial planet exploration discard pile.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="Infiltrate" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If the L1Z1X player plays &lt;i&gt;Infiltrate&lt;/i&gt; before they resolve their &lt;sc&gt;Assimilate&lt;/sc&gt; ability, or vice versa, they will replace zero PDS and space docks with zero PDS and space docks when they resolve the latter ability.&lt;/li&gt;
+    &lt;li&gt;If a player wishes to place a structure, but there are none of that type left in their reinforcements, they may remove a structure of that type from any system that does not contain one of their command tokens and place that instead. That player may make the choice for each structure.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;The Ul player will place each of their Hel Titan PDS undamaged.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="InsiderInformation" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="Insubordination" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;&lt;i&gt;Insubordination&lt;/i&gt; cannot target a player with zero command tokens in their tactic pool.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="IntegratedEconomy" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The produced units must be paid for.&lt;/li&gt;
+    &lt;li&gt;There is no limit on the number of units produced, so long as the combined cost does not exceed the planet&amp;rsquo;s resource value.&lt;/li&gt;
+    &lt;li&gt;Two fighters or two infantry have a combined cost of one resource.&lt;/li&gt;
+    &lt;li&gt;A player may produce ships with &lt;i&gt;Integrated Economy&lt;/i&gt;, unless another player has ships in the space area of that planet&amp;rsquo;s system.&lt;/li&gt; 
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="Intercept" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;During the next round of combat, the targeted player may declare another retreat.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Intercept&lt;/i&gt; cannot be played to prevent &lt;i&gt;Skilled Retreat&lt;/i&gt; or the Naalu player&amp;rsquo;s &lt;i&gt;Foresight&lt;/i&gt; faction ability.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="InTheSilenceOfSpace" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="IntimidateCouncil" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Any ships in the Mecatol Rex system are irrelevant.&lt;/li&gt;
+    &lt;li&gt;Any ground forces or structures are irrelevant.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="IonStorm" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The active player chooses which side of the Ion Storm token is initially face up.&lt;/li&gt;
+    &lt;li&gt;All ship movement is simultaneous. If the Ion Storm token system is the active system, and the token is currently on the alpha side, a player cannot move a ship from a system with an alpha wormhole, flip the token, then move a ship from a system with the beta wormhole (then flip the token again).&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;The Creuss player may do this by moving their &lt;i&gt;Hil Colish&lt;/i&gt; flagship before or after their other ships.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;If the Ion Storm token is in a system containing a wormhole of the same type, a player chooses which wormhole they use when moving through a wormhole of that type. The Ion Storm token only flips if it was the chosen wormhole.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;As the system is not adjacent to itself, a ship cannot move out through one wormhole and in through the other while remaining in the system. The ship must pass through another system with a wormhole to use both wormholes.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;If ships are moved through the Ion Storm token wormhole outside of the &lt;b&gt;Move Ship&lt;/b&gt; or &lt;b&gt;Retreat&lt;/b&gt; substeps of a tactical action, such as by the effect of the &lt;i&gt;Skilled Retreat&lt;/i&gt; action card, the Ion Storm token is not flipped.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="IxthianArtifact" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player must still meet the prerequisites for the technology they research.&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;A player may use the first technology they research to meet the prerequisites of the second technology they research.&lt;/li&gt;
+        &lt;li&gt;A player may exhaust a planet with a technology specialty to ignore a prerequisite on a technology as normal. This planet will ready at the end of the agenda phase.&lt;/li&gt;
+        &lt;li&gt;A player may exhaust the &lt;i&gt;AI Development Algorithm&lt;/i&gt; technology to ignore a prerequisite on a unit upgrade technology as normal. &lt;i&gt;AI Development Algorithm&lt;/i&gt; will not ready at the end of the agenda phase.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;li&gt;A player with three or fewer units in a system adjacent to the Mecatol Rex system destroys all of their units in that system. Otherwise, a player chooses which three units are destroyed.&lt;/li&gt;
+    &lt;li&gt;All units are destroyed simultaneously.&lt;/li&gt;
+    &lt;li style="color:white;"&gt;To cast vote against or to play a rider on &lt;i&gt;Ixthian Artifact&lt;/i&gt; is to commit heresy.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="JRXS455OLostTitanPrototypeAgent" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;&lt;i&gt;JR-XS455-O&lt;/i&gt; is an agent. All rules that apply to agents (and leaders) applies to &lt;i&gt;JR-XS455-O&lt;/i&gt;.&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;&lt;i&gt;JR-XS455-O&lt;/i&gt; may be refreshed by the Nomad player's &lt;i&gt;Temporal Command Suite&lt;/i&gt; technology.&lt;/li&gt;
+        &lt;li&gt;The ability of &lt;i&gt;JR-XS455-O&lt;/i&gt; may be duplicated by the Yssaril player&amp;rsquo;s agent, Ssruu, if the Yssaril player themselves do not own &lt;i&gt;JR-XS455-O&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="JudicialAbolishment" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If &lt;i&gt;Judicial Abolishment&lt;/i&gt; is revealed when only one law is in play, players may only vote for that law or abstain. If no votes are cast, the speaker must decide for that law to be elected.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;Players may still play riders if only one law is in play.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="KeleresShip" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="LazaxSurvivors" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="LeadershipRider" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;After playing a &lt;i&gt;Leadership Rider&lt;/i&gt;, a player may use additional abilities, including playing other rider cards.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;Any other riders may be played to predict the same or a different outcome.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;The effect of a successful &lt;i&gt;Leadership Rider&lt;/i&gt; will be resolved after the effect of the agenda.&lt;/li&gt;
+    &lt;li&gt;A player who cannot vote may still play a &lt;i&gt;Leadership Rider&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="LeadFromTheFront" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The command tokens must be spent during the status phase. Any command tokens that were spent during the action phase will have no effect.&lt;/li&gt;
+    &lt;li&gt;Any effect that triggers when a command token is spent will be triggered three times. For example, if the Muaat player has unlocked their commander, Magmus, they will gain three trade goods, one at a time when scoring &lt;i&gt;Lead From the Front&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="LearnTheSecretsOfTheCosmos" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The three systems may be mutually adjacent to one system, or separate systems.&lt;/li&gt;
+    &lt;li&gt;Having ships in an anomaly is irrelevant, unless that system is also adjacent to another anomaly.&lt;/li&gt;
+    &lt;li&gt;Any ground forces or structures are irrelevant.&lt;/li&gt;
+    &lt;li&gt;Any system containing a Vuil&amp;rsquo;raith player&amp;rsquo;s Dimensional Tear is a gravity rift, and thus, an anomaly.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="LightWaveDeflector" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="LocalFabricators" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player cannot have more commodities than their commodity value.&lt;/li&gt;
+    &lt;li&gt;If a player wishes to place a mech, but there are none left in their reinforcements, they may remove a mech from any system that does not contain one of their command tokens and place that instead. The mech will be placed undamaged.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="LostCrew" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="LostStarChart" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If the &lt;i&gt;Enforced Travel Ban&lt;/i&gt; law is in play, &lt;i&gt;Lost Star Chart&lt;/i&gt; will allow a player to move through wormholes during this action.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;A player may move from a system containing an alpha wormhole to a system containing an alpha wormhole, and similarly for beta wormholes.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;If the active system contains a beta wormhole, a player that has a unit with the &lt;sc&gt;Deep Space Cannon&lt;/sc&gt; ability in an alpha wormhole may produce hits against ships in the active system during the &lt;b&gt;Space Cannon Offense&lt;/b&gt; step of the tactical action, and vice versa.&lt;/li&gt;
+    &lt;li&gt;A player may retreat from a system containing an alpha wormhole into a system containing a beta wormhole, and vice versa, during this action.&lt;/li&gt;
+    &lt;li&gt;If player has units or controls planets in a system with an alpha wormhole, and another player has units or controls planets in a system with an beta wormhole, then those two players are neighbors during this action.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;The Mentak player may use their &lt;sc&gt;Pillage&lt;/sc&gt; ability against a player in this manner.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;A player moving a ship between two systems, both with alpha wormholes or both with beta wormholes, does not have to move through the wormhole, as the systems are adjacent. In particular, if one of those systems has the Ion Storm token, that player chooses if the Ion Storm token will flip.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="LuckyShot" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player cannot use &lt;i&gt;Lucky Shot&lt;/i&gt; against their own units.&lt;/li&gt;
+    &lt;li&gt;Effects that cancel hits, such as &lt;sc&gt;Sustain Damage&lt;/sc&gt;, cannot be used to prevent ships from being destroyed.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="MagenDefenseGrid" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;&lt;i&gt;Magen Defense Grid&lt;/i&gt; cannot be used if all of a player&amp;rsquo;s units in combat that had the &lt;sc&gt;Planetary Shield&lt;/sc&gt; ability have lost it.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="MagenDefenseGridOmega" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The player with &lt;i&gt;Magen Defense Grid &amp;Omega;&lt;/i&gt; chooses which ground force the hit is assigned to.&lt;/li&gt;
+    &lt;li&gt;The chosen ground force may cancel the hit by using its &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability, if present. A different ground force with the &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability cannot do so.&lt;/li&gt;
+    &lt;li&gt;If the last of a player&amp;rsquo;s ground forces in a ground combat are destroyed by the effect of &lt;i&gt;Magen Defense Grid &amp;Omega;&lt;/i&gt;, that player loses the combat immediately. They will be unable to use any &amp;ldquo;start of combat&amp;rdquo; abilities.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="MajorEntropicField" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="MakeAnExampleOfTheirWorld" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If the last ground force is destroyed using the &lt;i&gt;X&amp;ndash;89 Bacterial Weapon &amp;Omega;&lt;/i&gt; technology, &lt;i&gt;Make an Example of Their World&lt;/i&gt; cannot be scored.&lt;/li&gt;
+    &lt;li&gt;Scoring &lt;i&gt;Make an Example of Their World&lt;/i&gt; will not prevent that player from scoring a secret objective in any ground combats during this tactical action.&lt;/li&gt;
+    &lt;li&gt;If a player&amp;rsquo;s last ground force on a planet is destroyed, but an ability allows that player to then place ground forces onto that planet, &lt;i&gt;Make an Example of Their World&lt;/i&gt; may still be scored.&lt;/li&gt;
+    &lt;li&gt;The L1Z1X player may score &lt;i&gt;Make an Example of Their World&lt;/i&gt; by using their &lt;sc&gt;Harrow&lt;/sc&gt; faction ability. If they do they cannot score another objective during that ground combat.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="MakeAnExampleOfTheirWorldOmega" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If the last ground force is destroyed using the &lt;i&gt;X&amp;ndash;89 Bacterial Weapon &amp;Omega;&lt;/i&gt; technology, &lt;i&gt;Make an Example of Their World &amp;Omega;&lt;/i&gt; may be scored.&lt;/li&gt;
+    &lt;li&gt;Scoring &lt;i&gt;Make an Example of Their World &amp;Omega;&lt;/i&gt; will not prevent that player from scoring a secret objective in any ground combats during this tactical action.&lt;/li&gt;
+    &lt;li&gt;If a player&amp;rsquo;s last ground force on a planet is destroyed, but an ability allows that player to then place ground forces onto that planet, &lt;i&gt;Make an Example of Their World &amp;Omega;&lt;/i&gt; may still be scored.&lt;/li&gt;
+    &lt;li&gt;The L1Z1X player cannot score &lt;i&gt;Make an Example of Their World &amp;Omega;&lt;/i&gt; by using their &lt;sc&gt;Harrow&lt;/sc&gt; faction ability.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="MakeHistory" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The number of units in the system is irrelevant, if there is at least one.&lt;/li&gt;
+    &lt;li&gt;A ship, ground force, or structure will all qualify for &lt;i&gt;Make History&lt;/i&gt;.&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;If one player has a ground force or structure on a planet in a qualifying system, and another player has a ship in the same system, both players may count the system towards the requirements of &lt;i&gt;Make History&lt;/i&gt;.&lt;/li&gt;
+        &lt;li&gt;A player may have ships in the system containing a legendary planet or Mecatol Rex without controlling the planet for that system to count towards the requirements of &lt;i&gt;Make History&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;li&gt;If Mirage is placed in an anomaly, or the &lt;i&gt;Nano&amp;ndash;Forge&lt;/i&gt; relic is attached to a planet in an anomaly, that system will only count as one system towards the requirements of &lt;i&gt;Make History&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;Any system containing a Vuil&amp;rsquo;raith player&amp;rsquo;s Dimensional Tear is a gravity rift, and thus, an anomaly.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;If a Vuil&amp;rsquo;raith player&amp;rsquo;s Dimensional Tear is in a system containing another anomaly, a legendary planet, or Mecatol Rex, that system will only count as one system towards the requirements of &lt;i&gt;Make History&lt;/i&gt;.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ManeuveringJets" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;&lt;i&gt;Maneuvering Jets&lt;/i&gt; cannot be used to cancel hits during combat.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Maneuvering Jets&lt;/i&gt; may cancel hits produced during either the &lt;b&gt;Space Cannon Offense&lt;/b&gt; or the &lt;b&gt;Space Cannon Defense&lt;/b&gt; step.&lt;/li&gt;
+    &lt;li&gt;A player cannot play a second &lt;i&gt;Maneuvering Jets&lt;/i&gt; to cancel a second hit produced by the same Space Cannon roll.&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;During the &lt;b&gt;Space Cannon Offense&lt;/b&gt; step, each player makes their Space Cannon roll independent of each other player, in clockwise order. As such, a player may use one &lt;i&gt;Maneuvering Jets&lt;/i&gt; after each other player makes a space cannon roll.&lt;/li&gt;
+        &lt;li&gt;During the &lt;b&gt;Space Cannon Defense&lt;/b&gt; step, the units on each planet make their Space Cannon roll independent of each other planet. The active player chooses the order. As such, a player may use one &lt;i&gt;Maneuvering Jets&lt;/i&gt; after each the units on each planet make a space cannon roll.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;li&gt;&lt;i&gt;Maneuvering Jets&lt;/i&gt; may cancel hits produced due to the &lt;i&gt;Experimental Battlestation&lt;/i&gt; action card.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ManipulateGalacticLaw" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The influence must be spent during the status phase. Any influence that were spent during the action phase will have no effect.&lt;/li&gt;
+    &lt;li&gt;Trade goods may be spent as influence when scoring &lt;i&gt;Manipulate Galactic Law&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ManipulateInvestments" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If a player still has a strategy card because of &lt;i&gt;Political Stability&lt;/i&gt;, trade goods may be placed on that strategy card. However, those trade goods will remain on that strategy card until it is chosen from the common area.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;If a player takes the strategy card with trade goods on it from the player who played &lt;i&gt;Political Stability&lt;/i&gt;, using the ability of the &lt;i&gt;Imperial Arbiter&lt;/i&gt; law or similar, they will not gain the trade goods, which will remain on the strategy card.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="MasterPlan" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Effects that trigger at the start or end of a player&amp;rsquo;s turn will not trigger between each of those player&amp;rsquo;s action.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="MasterTheLawsOfPhysics" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="MasterTheSciences" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="MawOfWorlds" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The player does not have to meet the prerequisites of the technologies they acquire using &lt;i&gt;Maw of Worlds&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="MechanizeTheMilitary" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Given that each player only has four mechs, to score &lt;i&gt;Mechanize the Military&lt;/i&gt;, a player will have to have all of them on the game board, and on separate planets.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="MercenaryOutfit" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="MerchantStation" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="MineRareMinerals" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="MiningInitiative" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player must control at least one planet to play and resolve &lt;i&gt;Mining Initiative&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Mining Initiative&lt;/i&gt; does not exhaust the chosen planet.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="MiningWorld" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="MinisterOfAntiquities" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="MinisterOfCommerce" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+	&lt;li&gt;&lt;i&gt;Minister of Commerce&lt;/i&gt; triggers when its owner has their commodities replenished by any game effect.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;Gaining a fixed number of commodities does not trigger &lt;i&gt;Minister of Commerce&lt;/i&gt;, even if doing so would result in its owner having commodities equal to their commodity value.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;All trade goods are gained together.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="MinisterOfExploration" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If the owner of &lt;i&gt;Minister of Exploration&lt;/i&gt; gains control of multiple planets during one invasion, the trade goods are gained one at a time.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="MinisterOfIndustry" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;All units in that system may use their &lt;sc&gt;Production&lt;/sc&gt; ability, not just the placed space dock.&lt;/li&gt;
+    &lt;li&gt;The produced units must be paid for.&lt;/li&gt;
+    &lt;li&gt;A space dock cannot be placed on a planet already containing a space dock.&lt;/li&gt;
+    &lt;li&gt;An ability that puts a space dock on the game board by &amp;ldquo;replacing&amp;rdquo;, rather than &amp;ldquo;placing&amp;rdquo;, such as the &lt;i&gt;Infiltrate&lt;/i&gt; action card, will trigger &lt;i&gt;Minister of Industry&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="MinisterOfPeace" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Once a player resolves the ability of &lt;i&gt;Minister of Peace&lt;/i&gt;, the active player cannot use any &amp;ldquo;after you activate a system&amp;rdquo; abilities.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;Other players, including the &lt;i&gt;Minister of Peace&lt;/i&gt; player, cannot use any &amp;ldquo;after another player activates a system that&amp;hellip;&amp;rdquo; abilities.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;The active player may still use any &amp;ldquo;at the end of your turn&amp;rdquo; abilities when their turn is ended by &lt;i&gt;Minister of Peace&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;The player that owns &lt;i&gt;Minister of Peace&lt;/i&gt; does not have to have any of their units in the active system to resolve &lt;i&gt;Minister of Peace&lt;/i&gt;, so long as any non&amp;ndash;active player owns at least one unit in the active system.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="MinisterOfPolicy" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The owner of &lt;i&gt;Minister of Policy&lt;/i&gt; will draw action cards during the &lt;b&gt;Draw Action Cards&lt;/b&gt; step of the status phase, and again at the end of the status phase.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;If the Yssaril player owns &lt;i&gt;Minister of Policy&lt;/i&gt;, they will use their &lt;sc&gt;Scheming&lt;/sc&gt; ability for both the &lt;b&gt;Draw Action Cards&lt;/b&gt; step and for &lt;i&gt;Minister of Policy&lt;/i&gt;. However, they do not draw all the cards together; they must fully resolve &lt;sc&gt;Scheming&lt;/sc&gt; by discarding an action card for the &lt;b&gt;Draw Action Cards&lt;/b&gt; step before drawing any action cards for &lt;i&gt;Minister of Policy&lt;/i&gt;.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;&lt;i&gt;Neural Motivator&lt;/i&gt; does not apply when the owner of &lt;i&gt;Minister of Policy&lt;/i&gt; draws action cards from its effect.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="MinisterOfSciences" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="MinisterOfWar" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Effects that trigger at the start or end of a player&amp;rsquo;s turn will not trigger between each of those player&amp;rsquo;s action.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="MinorEntropicField" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="Mirage" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="MiscountDisclosed" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If &lt;i&gt;Miscount Disclosed&lt;/i&gt; is revealed when only one law is in play, players may only vote for that law or abstain. If no votes are cast, the speaker must decide for that law to be elected.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;Players may still play riders if only one law is in play.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;The elected law remains in play, and remains elected to the same object if applicable, while it is being voted on.&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;If &lt;i&gt;Articles of War&lt;/i&gt; is elected by &lt;i&gt;Miscount Disclosed&lt;/i&gt;, the Hacan player&amp;rsquo;s transactions during the revote cannot involve any planets containing their Pride of Kenara mechs, and the Empyrean player cannot cancel action cards played during the revote with their Watcher mechs.&lt;/li&gt;
+        &lt;li&gt;If &lt;i&gt;Classified Document Leaks&lt;/i&gt; is elected by &lt;i&gt;Miscount Disclosed&lt;/i&gt;, the objective that was originally elected will remain a public objective during the vote. It therefore cannot be re&amp;ndash;elected.&lt;/li&gt;
+        &lt;li&gt;If &lt;i&gt;Committee Formation&lt;/i&gt; is elected by &lt;i&gt;Miscount Disclosed&lt;/i&gt;, the owner may use its ability. The elected player will receive &lt;i&gt;Committee Formation&lt;/i&gt; from the discard pile.&lt;/li&gt;
+        &lt;li&gt;If &lt;i&gt;Homeland Defense Act&lt;/i&gt; is elected by &lt;i&gt;Miscount Disclosed&lt;/i&gt;, and the &amp;ldquo;For&amp;rdquo; effect is resolved again, players will not have to remove any PDS from the board.&lt;/li&gt;
+        &lt;li&gt;If &lt;i&gt;Political Censure&lt;/i&gt; is elected by &lt;i&gt;Miscount Disclosed&lt;/i&gt;, the current owner cannot play action cards, including &lt;i&gt;Confounding Legal Text&lt;/i&gt;, if another player is elected. If another player is elected, that player may play the &lt;i&gt;Confusing Legal Text&lt;/i&gt; action card.&lt;/li&gt;
+        &lt;li&gt;If &lt;i&gt;Wormhole Reconstruction&lt;/i&gt; is elected by &lt;i&gt;Miscount Disclosed&lt;/i&gt;, the Mentak player will remain neighbors with players through wormholes, allowing them to use their &lt;sc&gt;Pillage&lt;/sc&gt; faction ability on those players. The Empyrean player&amp;rsquo;s Watcher mechs will remaing adjacent to other players&amp;rsquo; units through wormholes, allowing them to cancel action cards played with the mech&amp;rsquo;s ability.&lt;/li&gt;
+        &lt;li&gt;If &lt;i&gt;Representative Government&lt;/i&gt; is elected by &lt;i&gt;Miscount Disclosed&lt;/i&gt;, each player will cast only one vote during the revote.&lt;/li&gt;
+        &lt;li&gt;If the elected law is attached to a planet, and is increasing its influence value, the player that controls that planet may still cast votes using the increased influence.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;li&gt;Once the law is elected, any riders on &lt;i&gt;Miscount Disclosed&lt;/i&gt; will resolve. Following that, the elected law is then treated as being revealed.&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;If &lt;i&gt;Classified Document Leaks&lt;/i&gt; is elected by &lt;i&gt;Miscount Disclosed&lt;/i&gt;, and there are no other secret objectives eligable to be elected by the &lt;i&gt;Miscount Disclosed&lt;/i&gt; revote, &lt;i&gt;Classified Document Leaks&lt;/i&gt; will be discarded and replaced.&lt;/li&gt;
+        &lt;li&gt;When the elected law is treated as revealed, the &lt;i&gt;Veto&lt;/i&gt; action card, the Xxcha &lt;sc&gt;Quash&lt;/sc&gt; faction ability, or the Xxcha &lt;i&gt;Political Favor&lt;/i&gt; promissory note may be played. If so, the law will be discarded and replaced.&lt;/li&gt;
+        &lt;li&gt;The &lt;i&gt;Political Secret&lt;/i&gt; promissory note may also be played when the elected law is treated as revealed.&lt;/li&gt;
+        &lt;li&gt;After the elected law is treated as revealed, riders may be played to predict the outcome of the elected law.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;li&gt;After all players have voted for &lt;i&gt;Miscount Disclosed&lt;/i&gt;, the &lt;i&gt;Deadly Plot&lt;/i&gt; action card may be played. If so, the elected law is not voted on and remains in play.&lt;/li&gt;
+    &lt;li&gt;After all players have voted for the elected law, the &lt;i&gt;Deadly Plot&lt;/i&gt; action card may be played. If so, the elected law is discarded.&lt;/li&gt;
+    &lt;li&gt;Players who resolved a transaction while voting on and resolving &lt;i&gt;Miscount Disclosed&lt;/i&gt; may resolve an additional transaction voting on and resolving the elected law.&lt;/li&gt;
+    &lt;li&gt;If &lt;i&gt;Holy Planet of Ixth&lt;/i&gt;, &lt;i&gt;Shard of the Throne&lt;/i&gt; or &lt;i&gt;The Crown of Emphidia&lt;/i&gt; is elected by &lt;i&gt;Miscount Disclosed&lt;/i&gt;, the owner will not lose a victory point.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="MonopolizeProduction" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="MoraleBoost" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The +1 will apply to any rerolls during the combat round.&lt;/li&gt;
+    &lt;li&gt;A second &lt;i&gt;Morale Boost&lt;/i&gt; cannot be played during a combat round to give +2 to the combat rolls of a player&amp;rsquo;s units.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Morale Boost&lt;/i&gt; has no effect on anti&amp;ndash;fighter barrage rolls.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="Mutiny" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If the &amp;ldquo;For&amp;rdquo; outcome of &lt;i&gt;Mutiny&lt;/i&gt; is resolved, players gain victory points in speaker order.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="NanoForge" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The attached planet will not have a corresponding legendary planet ability card. However, it will be legendary for effects such as scoring the &lt;i&gt;Make History&lt;/i&gt; and similar objectives, transferring the &lt;i&gt;Shard of the Throne&lt;/i&gt; relic, and the Winnu player's commander. The attached planet will also no longer be non&amp;ndash;legendary for effects such as the &lt;i&gt;Stellar Converter&lt;/i&gt; relic.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="NavSuite" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Wormholes are not anomalies.&lt;/li&gt;
+    &lt;li&gt;An anomaly will retain its regular effect if a player retreats.&lt;/li&gt;
+    &lt;li&gt;A player may move ships though or into an asteroid field without the &lt;i&gt;Antimass Deflectors&lt;/i&gt; technology. After moving into, those ships may remain there and move out during a later action without harm.&lt;/li&gt;
+    &lt;li&gt;A player may move ships though or out of a gravity rift without rolling for removal. Those ships will not get +1 to their move value.&lt;/li&gt;
+    &lt;li&gt;A player may move ships though a nebula. Ships moving out of a nebula retain their normal move value.&lt;/li&gt;
+    &lt;li&gt;A player may move ships though or into a supernova. After moving into, those ships may remain there and move out during a later action without harm.&lt;/li&gt;
+    &lt;li&gt;Other players cannot ignore the effect of anomalies during this tactical action.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;The Naalu player will still be affected by anomalies if they use their &lt;sc&gt;Foresight&lt;/sc&gt; faction ability.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="NegotiateTradeRoutes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The trade goods must be spent during the status phase. Any trade goods that were spent during the action phase will have no effect.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="NeuralMotivator" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;&lt;i&gt;Neural Motivator&lt;/i&gt; does not apply when a player draws action cards from either of the abilities of the &lt;i&gt;Politics&lt;/i&gt; action card, or any other effect outside of the status phase.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Neural Motivator&lt;/i&gt; only applies to the &lt;b&gt;Draw Action Card&lt;/b&gt; step of the status phase. It does not apply when a player draws action cards due to the effect of the &lt;i&gt;Minister of Policy&lt;/i&gt; law or similar effects.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="NewConstitution" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If a player controls planets in another player&amp;rsquo;s home system, those planets are not exhausted by the &amp;ldquo;For&amp;rdquo; outcome of &lt;i&gt;New Constitution&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="NexusSovereignty" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The effect of the &lt;i&gt;Nexus Sovereignty&lt;/i&gt; law does not affect the Creuss player.&lt;/li&gt;
+    &lt;li&gt;When the &lt;i&gt;Nexus Sovereignty&lt;/i&gt; law is in play, units cannot move through the alpha and beta wormholes in the wormhole nexus, even by effects that move ships outside of the movement step of a tactical action, such as while retreating.&lt;/li&gt;
+    &lt;li&gt;When the &lt;i&gt;Nexus Sovereignty&lt;/i&gt; law is in play, hits may still be produced against ships in the active system by units with the &lt;sc&gt;Deep Space Cannon&lt;/sc&gt; ability in systems that are adjacent via a wormhole during the &lt;b&gt;Space Cannon Offense&lt;/b&gt; step of a tactical action.&lt;/li&gt;
+    &lt;li&gt;Players may still be neighbors via systems that are adjacent via wormholes.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="OccupyTheFringe" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The Saar player&amp;rsquo;s Floating Factories are never on a planet.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="OccupyTheSeatOfTheEmpire" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="OrbitalFoundries" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ParadiseWorld" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="Parley" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If a player commits ground forces to multiple planets, &lt;i&gt;Parley&lt;/i&gt; will affect those ground forces on only one.&lt;/li&gt;
+    &lt;li&gt;The returned ground forces cannot be committed to another planet.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="PatrolVastTerritories" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The number of units in the system is irrelevant, if there is at least one.&lt;/li&gt;
+    &lt;li&gt;A system that contains a planet destroyed by the &lt;i&gt;Stellar Converter&lt;/i&gt; relic, and no other planets, is considered to contain no planets.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="Plagiarize" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player cannot play &lt;i&gt;Plagiarize&lt;/i&gt; if they have less than five influence available.&lt;/li&gt;
+    &lt;li&gt;A player does not need to meet the prerequisites of the technology they gain from &lt;i&gt;Plagiarize&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;The active player must announce which technology they are gaining before other players decide whether to play a &lt;i&gt;Sabotage&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;If a faction has a faction&amp;ndash;specific unit upgrade as one of their faction technologies, they cannot use &lt;i&gt;Plagiarize&lt;/i&gt; to gain that unit upgrade.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;If a player&amp;rsquo;s neighbor owns a faction&amp;ndash;specific unit upgrade, that cannot be used to gain the generic version of that unit upgrade by using &lt;i&gt;Plagiarize&lt;/i&gt;.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="Plague" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A planet with zero infantry on it may be targeted by &lt;i&gt;Plague&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="PlasmaScoring" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Only one additional dice is rolled for each bombardment or space cannon roll, regardless of how many units are using that ability.&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;During an invasion in a system with multiple planets, only one unit will add a dice to its bombardment roll.&lt;/li&gt;
+        &lt;li&gt;During an invasion, if ground forces have been committed to multiple planets, &lt;i&gt;Plasma Scoring&lt;/i&gt; will add an additional dice to the space cannon rolls for each planet during the &lt;b&gt;Space Cannon Defense&lt;/b&gt; step.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="PoliticalCensure" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;When a player is elected for &lt;i&gt;Political Censure&lt;/i&gt;, they may play the &lt;i&gt;Confusing Legal Text&lt;/i&gt; or &lt;i&gt;Deadly Plot&lt;/i&gt; action cards before it resolves.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="PoliticalSecret" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player may still use abilities from their faction technology, leaders, or mechs after their &lt;i&gt;Political Secret&lt;/i&gt; has been played.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;If a player has had their &lt;i&gt;Political Secret&lt;/i&gt; played, other players may still use that player&amp;rsquo;s other promissory notes.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;If an agenda is discarded, each &lt;i&gt;Political Secret&lt;/i&gt; that has been played is returned. The affected players may vote on the next agenda as normal.&lt;/li&gt;
+    &lt;li&gt;The effect of &lt;i&gt;Political Secret&lt;/i&gt; does not stop a player from using their passive faction ability, only the abilities that player may choose to use.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="PoliticalStability" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;During the upcoming agenda phase, all abilities remain resolved in speaker order, not initiative order.&lt;/li&gt;
+    &lt;li&gt;The strategy cards are readied when &lt;i&gt;Political Stability&lt;/i&gt; is played.&lt;/li&gt;
+    &lt;li&gt;The &amp;ldquo;Return Strategy Cards&amp;rdquo; step is the last step of the status phase. All other steps must be completed by all players before &lt;i&gt;Political Stability&lt;/i&gt; may be played. This includes scoring and revealing objectives, drawing action cards (and discarding down to hand limit, if necessary), and gaining and redistributing command tokens.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;If a player draws &lt;i&gt;Political Stability&lt;/i&gt; during the status phase, they may play it during the same phase.&lt;/li&gt;&lt;/ol&gt; 
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="PoliticsRider" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;After playing a &lt;i&gt;Politics Rider&lt;/i&gt;, a player may use additional abilities, including playing other rider cards.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;Any other riders may be played to predict the same or a different outcome.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;The effect of a successful &lt;i&gt;Politics Rider&lt;/i&gt; will be resolved after the effect of the agenda.&lt;/li&gt;
+    &lt;li&gt;A player who cannot vote may still play a &lt;i&gt;Politics Rider&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="PopulateTheOuterRim" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The number of units in the system is irrelevant, if there is at least one.&lt;/li&gt;
+    &lt;li&gt;A ship, ground force, or structure will all qualify for &lt;i&gt;Populate the Outer Rim&lt;/i&gt;.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;If one player has a ground force or structure on a planet in a qualifying system, and another player has a ship in the same system, both players may count the system towards the requirements of &lt;i&gt;Populate the Outer Rim&lt;/i&gt;.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;The units may be in another player&amp;rsquo;s home system.&lt;/li&gt;
+    &lt;li&gt;The Creuss Gate is not a home system.&lt;/li&gt;
+    &lt;li&gt;The Wormhole Nexus and the Creuss home system are both on the edge of the game board.&lt;/li&gt;
+    &lt;li&gt;If the edge of a system tile is touching a hyperlane tile, that edge does not cause that system tile to be on the edge of the game board.&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;When using the five&amp;ndash; and seven&amp;ndash;player hyperlane setups, the system tile in the center of the ring of hyperlanes is not on the edge of the game board.&lt;/li&gt;
+        &lt;li&gt;When using the seven&amp;ndash; and eight&amp;ndash;player alternate setups, only the system tiles designated as &amp;ldquo;Ring 3&amp;rdquo; and home systems are on the edge of the game board, along with the Creuss home system and the wormhole nexus.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="PredictiveIntelligence" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Neither ability of &lt;i&gt;Predictive Intelligence&lt;/i&gt; may be used if it is exhausted.&lt;/li&gt;
+    &lt;li&gt;If a player removes any tokens from their fleet pool, they will need to meet their new fleet pool limits before any other effects may resolve.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ProduceEnMasse" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The number of units in the system is irrelevant, if there is at least one.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ProphecyOfIxth" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Other effects that produce units without a unit using its &lt;sc&gt;Production&lt;/sc&gt; ability will not cause &lt;i&gt;Prophecy of Ixth&lt;/i&gt; to be discarded.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="PropulsionResearchFacility" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ProtectTheBorder" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The number of structures on the planet is irrelevant, if there is at least one.&lt;/li&gt;
+    &lt;li&gt;The structures may be on planets in another player&amp;rsquo;s home system.&lt;/li&gt;
+    &lt;li&gt;The Saar player&amp;rsquo;s Floating Factories cannot be used to score &lt;i&gt;Protect the Border&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ProveEndurance" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;&lt;i&gt;Prove Endurance&lt;/i&gt; is scored when the player passes during the action phase. They may then score another secret objective in the status phase immediately following.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="Psychoarchaeology" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;When researching a technology, each planet with a technology speciality can only be used to ignore a single prerequisite.&lt;/li&gt;
+    &lt;li&gt;Exhausting planets to gain trade goods can be done at any time during action phase, except when another ability is being resolved. For example, if a player has one of their planets with a technology specialty targeted with the &lt;i&gt;Uprising&lt;/i&gt; action card, they cannot use &lt;i&gt;Psychoarchaeology&lt;/i&gt; in response to gain a trade good.&lt;/li&gt;
+    &lt;li&gt;If multiple planets are exhausted, the trade goods are gained one at a time.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="PublicDisgrace" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If the originally chosen strategy card has trade goods on it, those will not be taken if &lt;i&gt;Public Disgrace&lt;/i&gt; is played.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Public Disgrace&lt;/i&gt; may only be played during the regular choosing of a strategy card during the strategy phase. It cannot be played when other effects cause a player to take a strategy card, such as the &lt;i&gt;Imperial Arbiter&lt;/i&gt; strategy card.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="PublicExecution" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="PublicizeWeaponSchematics" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If the &lt;i&gt;Publicize Weapon Schematics&lt;/i&gt; law is in play, and a player is the first to gain the war sun unit upgrade technology, from then on, prerequisites for the war sun unit upgrade technology will be ignored.&lt;/li&gt;
+    &lt;li&gt;If the Muaat does not own their Prototype War Sun II faction unit upgrade technology, they do not own a war sun technology.&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;If the &lt;i&gt;Publicize Weapon Schematics&lt;/i&gt; law is in play, the Muaat player will not cause prerequisites for the War Sun unit upgrade technology to be ignored if they do not own their Prototype War Sun II faction unit upgrade technology.&lt;/li&gt;
+        &lt;li&gt;If the &amp;ldquo;Against&amp;rdquo; outcome of &lt;i&gt;Publicize Weapon Schematics&lt;/i&gt; is resolved, the Muaat player will not discard their action cards if they do not own their Prototype War Sun II faction unit upgrade technology.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;li&gt;The Muaat player&amp;rsquo;s Prototype War Sun will lose its &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability, regardless of if the Muaat player owns their Prototype War Sun II faction unit upgrade technology.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="PublicObjectives" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PushBoundaries" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If a player has units or controls a planet in a system containing an alpha wormhole, and the Creuss player has units or controls a planet in a system containing a beta wormhole, or vice versa, those two players are neighbors.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RaiseAFleet" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="Rally" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ReactorMeltdown" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player cannot destroy their own space dock with &lt;i&gt;Reactor Meltdown&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;At least one space dock belonging to another player must exist on the game board in a non&amp;ndash;home system for a player to play and resolve &lt;i&gt;Reactor Meltdown&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;If a player owns a space dock in another player&amp;rsquo;s home system, that space dock cannot be targeted by &lt;i&gt;Reactor Meltdown&lt;/i&gt;.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;A space dock in an eliminated player&amp;rsquo;s home system cannot be targeted.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RearmamentAgreement" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player that controls no planets in their home system will not place a mech if the &amp;ldquo;For&amp;rdquo; outcome of Rearmament Agreement is resolved.&lt;/li&gt;
+    &lt;li&gt;If a player wishes to place a mech, but there are none in their reinforcements, they may remove a mech from any system that does not contain one of their command tokens and place that instead. The mech will be placed undamaged.&lt;/li&gt;
+    &lt;li&gt;A player that has no mechs on the game board is unaffected by the &amp;ldquo;Against&amp;rdquo; effect of Rearmament Agreement.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ReclaimAncientMonuments" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The number of attachments a planet has is irrelevant, if it has at least one.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RefitTroops" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player must have at least one infantry on the game board to play and resolve &lt;i&gt;Refit Troops&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;If a player has no mechs left in their reinforcements, they may remove a mech from any system that does not contain one of their command tokens and place that instead. The mech will be placed undamaged.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ReflectiveShielding" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If &lt;i&gt;Reflective Shielding&lt;/i&gt; is played after a ship uses its &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability during an &lt;b&gt;Assign Hits&lt;/b&gt; step, then the hits produced by &lt;i&gt;Reflective Shielding&lt;/i&gt; are added to any other hits produced in the immediately proceeding &lt;b&gt;Roll Dice&lt;/b&gt; step.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;A unit that used its &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability to cancel some of those other hits, and been repaired, cannot use is &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability again to cancel the hits produced by &lt;i&gt;Reflective Shielding&lt;/i&gt;.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;If &lt;i&gt;Reflective Shielding&lt;/i&gt; is played after a ship uses its &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability at any other time during combat (for example, when the Creuss player uses their &lt;i&gt;Dimensional Splicer&lt;/i&gt; faction technology ability), the hits are assigned immediately.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RegulatedConscription" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="Reparations" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;&lt;i&gt;Reparations&lt;/i&gt; may be played by a player with no exhausted planets, or when when they lose control to a player with no readied planets.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;&lt;i&gt;Reparations&lt;/i&gt; cannot be played by a player with no exhausted planets when they lost control to a player with no readied planets.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RepealLaw" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;There must be at least one law in play for a player to play and resolve &lt;i&gt;Repeal Law&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RepresentativeGovernment" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RepresentativeGovernmentProphecyOfKings" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ResearchGrantReallocation" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player may gain any technology, regardless of the number of command tokens in their fleet pool.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;If a player must remove more command tokens than they have in their fleet pool, they remove all their command tokens from their fleet pool instead.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ResearchTeamBiotic" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The agenda card, not the planet, is exhausted to ignore the prerequisite.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ResearchTeamCybernetic" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The agenda card, not the planet, is exhausted to ignore the prerequisite.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ResearchTeamPropulsion" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The agenda card, not the planet, is exhausted to ignore the prerequisite.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ResearchTeamWarfare" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The agenda card, not the planet, is exhausted to ignore the prerequisite.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RevealPrototype" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player must still meet the prerequisites for the technology they research.&lt;/li&gt;
+    &lt;li&gt;A player cannot play &lt;i&gt;Reveal Prototype&lt;/i&gt; if they have less than four resources available.&lt;/li&gt;
+    &lt;li&gt;A player cannot play &lt;i&gt;Reveal Prototype&lt;/i&gt; if they already own the unit upgrade technology for each unit they have in the combat.&lt;/li&gt;
+    &lt;li&gt;Other players must decide whether to play &lt;i&gt;Sabotage&lt;/i&gt; before the player playing &lt;i&gt;Reveal Prototype&lt;/i&gt; announces which technology they are researching.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ReverseEngineer" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;&lt;i&gt;Reverse Engineer&lt;/i&gt; may be played if the action card is discarded after being played or cancelled, if it is discarded due to hand size limits, or if it is discarded for another game effect.&lt;/li&gt;
+    &lt;li&gt;It is public knowlege which action cards a player takes using &lt;i&gt;Reverse Engineer&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RevolutionizeWarfare" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A &lt;i&gt;Valefar Assimilator&lt;/i&gt; technology will count if it is currently copying another player&amp;rsquo;s faction unit upgrade technology.&lt;/li&gt;
+    &lt;li&gt;If the Nekro player owns both a generic unit upgrade technology and a faction unit upgrade technology of the same type, only the faction unit upgrade technology will count for &lt;i&gt;Revolutionize Warfare&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RichWorld" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RiseOfAMessiah" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player that controls zero planets may play &lt;i&gt;Rise of a Messiah&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="Rout" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player cannot announce a retreat if there is not at least one eligible system to retreat to.&lt;/li&gt;
+    &lt;li&gt;A player cannot announce a retreat from the space combat initiated by the Mahact player&amp;rsquo;s &lt;i&gt;Benediction&lt;/i&gt; hero ability.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleDistantLands" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player will qualify for &lt;i&gt;Rule Distant Lands&lt;/i&gt; if they can select two home systems other than their own, and they control a planet in or adjacent to each of those systems.&lt;/li&gt;
+    &lt;li&gt;The planets may meet the criteria by being adjacent to an eliminated player&amp;rsquo;s home system.&lt;/li&gt;
+    &lt;li&gt;If a player controls a single planet in a home system that is adjacent to another home system via the use of wormholes, that planet alone will not qualify them for &lt;i&gt;Rule Distant Lands&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="Sabotage" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If a player has a second copy of an action card, they may play it if the first was cancelled by &lt;i&gt;Sabotage&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;If an action card is cancelled by &lt;i&gt;Sabotage&lt;/i&gt;, no costs are paid.&lt;/li&gt;
+    &lt;li&gt;A player playing an action card announces the following before &lt;i&gt;Sabotage&lt;/i&gt; may be played:&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;Any targeted planets, system, units, players, cards, outcomes, and/or other such objects.&lt;/li&gt;
+        &lt;li&gt;The value of any variable cost to be paid.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;li&gt;Any dice are rolled and any cards are drawn after each other player has declined to play &lt;i&gt;Sabotage&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;If an action card is played that will have an effect later, such as a rider, that card may only be cancelled by &lt;i&gt;Sabotage&lt;/i&gt; when it is originally played.&lt;/li&gt;
+    &lt;li&gt;If the action card that was cancelled by &lt;i&gt;Sabotage&lt;/i&gt; was to be used to perform a component action, the active player must perform a different action, or pass.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;If the component action was to be second action the active player was to perform on their turn, though an effect such as the &lt;i&gt;Fleet Logistics&lt;/i&gt; technology, the active player may end their turn without performing a second action and without passing.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="Salvage" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The active player may perform transactions after &lt;i&gt;Salvage&lt;/i&gt; is played and before it resolves.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="Sanction" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;After playing a &lt;i&gt;Sanction&lt;/i&gt;, a player may use additional abilities, including playing rider cards.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;Any riders may be played to predict the same or a different outcome.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;The effect of a successful &lt;i&gt;Sanction&lt;/i&gt; will be resolved after the effect of the agenda.&lt;/li&gt;
+    &lt;li&gt;A player who cannot vote may still play a &lt;i&gt;Sanction&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="SarweenTools" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If units are produced without any unit using its &lt;sc&gt;Production&lt;/sc&gt; ability, &lt;i&gt;Sarween Tools&lt;/i&gt; will not provide a reduction to the cost.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ScanlinkDroneNetwork" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The units must be on the planet before the &lt;b&gt;Movement&lt;/b&gt; step of the tactical action.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ScepterOfEmelpar" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If a player has no command tokens in their reinforcements, they cannot resolve the ability of &lt;i&gt;Scepter of Emelpar&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;The &lt;i&gt;Scepter of Emelpar&lt;/i&gt; may be used whenever a command token would be spent from a player&amp;rsquo;s strategy pool. This includes when spending to perform the secondary ability of a strategy card, for faction abilities, and when scoring objectives.&lt;/li&gt;
+    &lt;li&gt;If the Muaat player uses the ability of the &lt;i&gt;Scepter of Emelpar&lt;/i&gt;, they will be unable to use the ability of their commander, Magmus.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ScorchedDepot" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ScrambleFrequency" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="Scuttle" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player must have at least one non&amp;ndash;fighter ship on the game board to play and resolve &lt;i&gt;Scuttle&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="SearchWarrant" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player with three scored secret objectives may draw a fourth. However, they must immediately shuffle it into the secret objective deck.&lt;/li&gt;
+    &lt;li&gt;If the elected player has three secret objective cards, and they would draw another, the drawn secret objective card is reveal before that player chooses which card to discard. This applies both when the elected player initially draws the secret objective cards from the effect of &lt;i&gt;Search Warrant&lt;/i&gt; when they are elected, and if they later draw secret objective cards from another effect.&lt;/li&gt;
+	&lt;li&gt;If a player draws the &lt;i&gt;Drive the Debate&lt;/i&gt; secret objective while resolving &lt;i&gt;Search Warrant&lt;/i&gt;, they cannot score it immediately.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="SeedOfAnEmpire" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If multiple players have the most or fewest victory points, they gain victory points in speaker order.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="SeedySpaceport" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="SeizeAnIcon" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="SeizeArtifact" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player must have at least one neighbor with at least one relic fragment to play and resolve &lt;i&gt;Seize Artifact&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="SelfAssemblyRoutines" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If multiple mechs are destroyed, the trade goods are gained one at a time.&lt;/li&gt;
+    &lt;li&gt;A mech cannot be placed in a space area with &lt;i&gt;Self&amp;ndash;Assembly Routines&lt;/i&gt;, and so cannot be placed in a system that does not contain a planet.&lt;/li&gt;
+    &lt;li&gt;If a player wishes to place a mech, but there are none left in their reinforcements, they may remove a mech from any system that does not contain one of their command tokens and place that instead. The mech will be placed undamaged.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="SenateSanctuary" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ShardOfTheThrone" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If the &lt;i&gt;Shard of the Throne (AGENDA)&lt;/i&gt; law is discarded, no player loses a victory point.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;When the player that owns the &lt;i&gt;Shard of the Throne (RELIC)&lt;/i&gt; loses control of a legendary planet or a planet in their home system, they immediately give it to the player who gained control of that planet. No abilities may be resolved before this.&lt;/li&gt;
+    &lt;li&gt;If the player that gains &lt;i&gt;Shard of the Throne (RELIC)&lt;/i&gt; controls no legendary planets or planets in their home system, they cannot lose it.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="SharedResearch" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If the &lt;i&gt;Shared Research&lt;/i&gt; law is in play, a player still cannot move into a nebula unless it is the active system.&lt;/li&gt;
+    &lt;li&gt;If the &lt;i&gt;Shared Research&lt;/i&gt; law is in play, a ship that begins the &lt;b&gt;Movement&lt;/b&gt; step of a tactical action in a nebula still treats its move value as one for the duration of that step.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ShieldsHolding" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;&lt;i&gt;Shields Holding&lt;/i&gt; cannot be used to cancel hits produced by &lt;sc&gt;Space Cannon&lt;/sc&gt; abilities.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Shields Holding&lt;/i&gt; cannot be used to prevent an effect that directly destroys a unit.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Shields Holding&lt;/i&gt; cannot be used during ground combat.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Shields Holding&lt;/i&gt; may be used to cancel hits produced by any ability during combat.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;&lt;i&gt;Shields Holding&lt;/i&gt; may be used to cancel hits produced by an anti&amp;ndash;fighter barrage roll.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;A player cannot play a second &lt;i&gt;Shields Holding&lt;/i&gt; to cancel a second pair of hits produced by the same dice roll or other source.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="SignalJamming" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The Mecatol Rex system may be chosen.&lt;/li&gt;
+    &lt;li&gt;A command token cannot be placed in an eliminated player&amp;rsquo;s home system.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="SkilledRetreat" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Using &lt;i&gt;Skilled Retreat&lt;/i&gt; is not a retreat. As such, it cannot be cancelled with the &lt;i&gt;Intercept&lt;/i&gt; action card.&lt;/li&gt;
+    &lt;li&gt;A player may use &lt;i&gt;Skilled Retreat&lt;/i&gt; to move into a system that does not contain their ships, as long as it does not contain another player&amp;rsquo;s ships.&lt;/li&gt;
+    &lt;li&gt;A player cannot use &lt;i&gt;Skilled Retreat&lt;/i&gt; to move into a nebula.&lt;/li&gt;
+    &lt;li&gt;Fighters are moved without being transported. Ground forces may be transported.&lt;/li&gt;
+    &lt;li&gt;After moving, capacity and fleet pool limits apply in the destination system.&lt;/li&gt;
+    &lt;li&gt;If the destination system already contains a player&amp;rsquo;s command token, no command token is placed.&lt;/li&gt;
+    &lt;li&gt;If a player has no command tokens in their reinforcements, they must take one from any pool of their command sheet and place that instead.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="SlingRelay" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The produced unit must be paid for.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Sling Relay&lt;/i&gt; cannot be used without producing a unit.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="SolarFlare" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The active player may still use the &lt;sc&gt;Space Cannon&lt;/sc&gt; ability of their units.&lt;/li&gt;
+    &lt;li&gt;During the &lt;b&gt;Space Cannon Defense&lt;/b&gt; step of an invasion during the same tactical action, other players may use the &lt;sc&gt;Space Cannon&lt;/sc&gt; ability of their units.&lt;/li&gt;
+    &lt;li&gt;Another player cannot play &lt;i&gt;Experimental Battlestation&lt;/i&gt; during this tactical action.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="SparkARebellion" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player that currently outright has the most victory points cannot score &lt;i&gt;Spark a Rebellion&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;If multiple players are tied for the most victory points, &lt;i&gt;Spark a Rebellion&lt;/i&gt; may be scored by winning a combat against any of them.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;&lt;i&gt;Spark a Rebellion&lt;/i&gt; may be scored by winning a combat against a player with zero victory points if all players have zero victory points.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="Spy" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;&lt;i&gt;Spy&lt;/i&gt; cannot target a player with zero action cards in their hand.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="StakeYourClaim" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="StarChart" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="StarChartCultural" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="StarChartHazardous" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="StarChartIndustrial" xml:space="preserve">
+    <value />
+  </data>
+  <data name="StarfallArray" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="StellarConverter" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The chosen planet must be in a system adjacent to the unit with &lt;sc&gt;bombardment&lt;/sc&gt;; the planet and unit cannot both be in the same system.&lt;/li&gt;
+    &lt;li&gt;A system that contains a planet destroyed by &lt;i&gt;Stellar Converter&lt;/i&gt;, and no other planets, is considered to contain no planets.&lt;/li&gt;
+    &lt;li&gt;A player cannot target a planet they control with &lt;i&gt;Stellar Converter&lt;/i&gt;.&lt;/li&gt; 
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="StrengthenBonds" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The following promissory notes qualify for scoring Strengthen Bonds:&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;&lt;i&gt;Alliance&lt;/i&gt;.&lt;/li&gt;
+        &lt;li&gt;&lt;i&gt;Support for the Throne&lt;/i&gt;.&lt;/li&gt;
+        &lt;li&gt;&lt;i&gt;Stymie&lt;/i&gt; (Arborec).&lt;/li&gt;
+        &lt;li&gt;&lt;i&gt;Trade Convoys&lt;/i&gt; (Hacan).&lt;/li&gt;
+        &lt;li&gt;&lt;i&gt;Dark Pact&lt;/i&gt; (Empyrean).&lt;/li&gt;
+        &lt;li&gt;&lt;i&gt;Blood Pact&lt;/i&gt; (Empyrean).&lt;/li&gt;
+        &lt;li&gt;&lt;i&gt;Promise of Protection&lt;/i&gt; (Mentak).&lt;/li&gt;
+        &lt;li&gt;&lt;i&gt;Gift of Prescience&lt;/i&gt; (Naalu).&lt;/li&gt;
+        &lt;li&gt;&lt;i&gt;Antivirus&lt;/i&gt; (Nekro).&lt;/li&gt;
+        &lt;li&gt;&lt;i&gt;Terraform&lt;/i&gt; (Ul).&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="SubdueTheGalaxy" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The planets cannot be in any player&amp;rsquo;s home system, including those of eliminiated players.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="Summit" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="SupportForTheThrone" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A &lt;i&gt;Support For The Throne&lt;/i&gt; must be played by the receiving player as soon as it is received. It cannot be kept secret.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;If the active player receives a &lt;i&gt;Support For The Throne&lt;/i&gt;, they cannot then attempt to trade it with another player. It must be played immediately.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;&lt;i&gt;Support For The Throne&lt;/i&gt; is returned when the system is activated, even if the active player will perform no hostile acts towards the other player this turn.&lt;/li&gt;
+    &lt;li&gt;If an effect other than activating a system during a tactical action places a command counter in a system with the other player&amp;rsquo;s units (for example, the primary ability of the &lt;i&gt;Diplomacy&lt;/i&gt; strategy card), this will not cause &lt;i&gt;Support For The Throne&lt;/i&gt; to be returned.&lt;/li&gt;
+    &lt;li&gt;Activating a system containing only a player&amp;rsquo;s structures will still cause their &lt;i&gt;Support For The Throne&lt;/i&gt; to be returned.&lt;/li&gt;
+    &lt;li&gt;If two players trade their &lt;i&gt;Support For The Throne&lt;/i&gt; to one another simultaneously, the active player will be the first to gain a victory point.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;During the agenda phase, the first player in speaker order will be the first to gain a victory point.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="SuspiciousWreckage" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;`</value>
+  </data>
+  <data name="SwayTheCouncil" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The influence must be spent during the status phase. Any influence that were spent during the action phase will have no effect.&lt;/li&gt;
+    &lt;li&gt;Trade goods may be spent as influence when scoring &lt;i&gt;Manipulate Galactic Law&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="SwordsToPlowshares" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Mechs are ignored by the &amp;ldquo;For&amp;rdquo; effect of &lt;i&gt;Swords to Plowshares.&lt;/i&gt;&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="TacticalBombardment" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player must have at least one unit with the &lt;sc&gt;Bombardment&lt;/sc&gt; ability to play and resolve &lt;i&gt;Tactical Bombardment&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;A player may select a system that contains zero readied planets controlled by other players.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="TechnologyRider" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;After playing a &lt;i&gt;Technology Rider&lt;/i&gt;, a player may use additional abilities, including playing other rider cards.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;Any other riders may be played to predict the same or a different outcome.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;The effect of a successful &lt;i&gt;Technology Rider&lt;/i&gt; will be resolved after the effect of the agenda.&lt;/li&gt;
+    &lt;li&gt;A player who cannot vote may still play a &lt;i&gt;Technology Rider&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;A player must still meet the prerequisites for the technology they research.&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;A player may exhaust a planet with a technology specialty to ignore a prerequisite on a technology as normal. This planet will ready at the end of the agenda phase.&lt;/li&gt;
+        &lt;li&gt;A player may exhaust the &lt;i&gt;AI Development Algorithm&lt;/i&gt; technology to ignore a prerequisite on a unit upgrade technology as normal. &lt;i&gt;AI Development Algorithm&lt;/i&gt; will not ready at the end of the agenda phase.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="TerraformingInitiative" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="TheCodex" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The action card discard is shuffled to form a new action card deck as soon as the action card deck has zero cards in it.&lt;/li&gt;
+    &lt;li&gt;It is public knowledge which action cards a player takes using &lt;i&gt;The Codex&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="TheCrownOfEmphidia" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If &lt;i&gt;The Crown of Emphidia&lt;/i&gt; law is discarded, no player loses a victory point.&lt;/li&gt;
+    &lt;li&gt;If the player that gains &lt;i&gt;The Crown of Emphidia&lt;/i&gt; controls no planets in their home system, they cannot lose it.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="TheCrownOfThalnos" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player may only reroll combat rolls with &lt;i&gt;The Crown of Thalnos&lt;/i&gt;. They cannot reroll anti&amp;ndash;fighter barrage rolls and similar.&lt;/li&gt;
+    &lt;li&gt;If a unit rolls multiple dice, it will not be destroyed if it produces at least one hit from its original roll, and that dice is not rerolled, even if it produces no hits from its reroll.&lt;/li&gt;
+    &lt;li&gt;A reroll caused by any other effect will not cause a unit to be destroyed.&lt;/li&gt;
+    &lt;li&gt;Units destroyed by &lt;i&gt;The Crown of Thalnos&lt;/i&gt; are destroyed at the end of the &lt;b&gt;Roll Dice&lt;/b&gt; step, before the &lt;b&gt;Assign Hits&lt;/b&gt; step.&lt;/li&gt;
+    &lt;li&gt;A unit with the &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability cannot use it to avoid being destroyed by &lt;i&gt;The Crown of Thalnos&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="TheObsidian" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="TheProphetsTears" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player cannot use the ability of &lt;i&gt;The Prophet&amp;rsquo;s Tears&lt;/i&gt; when they directly gain a technology.&lt;/li&gt;
+    &lt;li&gt;The Nekro player may use the ability of &lt;i&gt;The Prophet&amp;rsquo;s Tears&lt;/i&gt; to draw an action card when they would have researched a technology.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="ThreatenEnemies" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Any ships in another players home system are irrelevant.&lt;/li&gt;
+    &lt;li&gt;The ships may be adjacent to the home system of an eliminated player.&lt;/li&gt;
+    &lt;li&gt;Any ground forces or structures are irrelevant.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="TombOfEmphidia" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="TradeAgreement" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If a player has their maximum number of commodities, and is instructed to replenish their commodities, they will take no commodities. However, that player&amp;rsquo;s &lt;i&gt;Trade Agreement&lt;/i&gt; may be played.&lt;/li&gt;
+    &lt;li&gt;A player does not have to be neighbors with the player that plays their &lt;i&gt;Trade Agreement&lt;/i&gt; to give them their commodities.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Trade Agreement&lt;/i&gt; cannot be played when a player gains commodities, only when they replenish commodities.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="TradeRider" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;After playing a &lt;i&gt;Trade Rider&lt;/i&gt;, a player may use additional abilities, including playing other rider cards.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;Any other riders may be played to predict the same or a different outcome.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;The effect of a successful &lt;i&gt;Trade Rider&lt;/i&gt; will be resolved after the effect of the agenda.&lt;/li&gt;
+    &lt;li&gt;A player who cannot vote may still play a &lt;i&gt;Trade Rider&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="TransitDiodes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;When resolving the ability of &lt;i&gt;Transit Diodes&lt;/i&gt;, that player may remove ground forces from a system containing their command token.&lt;/li&gt;
+    &lt;li&gt;The ground forces may be removed from on a planet or from in a space area.&lt;/li&gt;
+    &lt;li&gt;The ground forces may be removed from different systems.&lt;/li&gt;
+    &lt;li&gt;The ground forces may be placed on different planets.&lt;/li&gt;
+    &lt;li&gt;If a mech is damaged when it is removed, it will remain damaged when it is placed.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="TurnTheirFleetsToDust" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If the last ship is destroyed using a &lt;i&gt;Direct Hit&lt;/i&gt; action card, &lt;i&gt;Turn Their Fleets to Dust&lt;/i&gt; cannot be scored.&lt;/li&gt;
+    &lt;li&gt;If a player still has fighters in a system after assigning all hits produced during &lt;b&gt;Space Cannon Offense&lt;/b&gt; step, but is forced to remove all of them to meet capacity limits, &lt;i&gt;Turn Their Fleets to Dust&lt;/i&gt; cannot be scored.&lt;/li&gt;
+    &lt;li&gt;If a player&amp;rsquo;s last ship in a system is destroyed, but an ability allows that player to then place ships into that system, &lt;i&gt;Turn Their Fleets to Dust&lt;/i&gt; may still be scored.&lt;/li&gt;
+    &lt;li&gt;Scoring &lt;i&gt;Turn Their Fleets to Dust&lt;/i&gt; will not prevent that player from scoring a secret objective in the &lt;b&gt;Space Combat&lt;/b&gt; step during this tactical action.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="TurnTheirFleetsToDustOmega" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If the last ship is destroyed using a &lt;i&gt;Direct Hit&lt;/i&gt; action card, &lt;i&gt;Turn Their Fleets to Dust &amp;Omega;&lt;/i&gt; may be scored.&lt;/li&gt;
+    &lt;li&gt;If a player still has fighters in a system after assigning all hits produced during &lt;b&gt;Space Cannon Offense&lt;/b&gt; step, &lt;i&gt;Turn Their Fleets to Dust &amp;Omega;&lt;/i&gt; may be scored.&lt;/li&gt;
+    &lt;li&gt;If a player&amp;rsquo;s last ship in a system is destroyed, but an ability allows that player to then place ships into that system, &lt;i&gt;Turn Their Fleets to Dust &amp;Omega;&lt;/i&gt; may still be scored.&lt;/li&gt;
+    &lt;li&gt;Scoring &lt;i&gt;Turn Their Fleets to Dust &amp;Omega;&lt;/i&gt; will not prevent that player from scoring a secret objective in the &lt;b&gt;Space Combat&lt;/b&gt; step during this tactical action.&lt;/li&gt;
+    &lt;li&gt;If a system contains only fighters, then &lt;i&gt;Turn Their Fleets to Dust &amp;Omega;&lt;/i&gt; cannot be scored by destroying them.&lt;/li&gt;
+    &lt;li&gt;Any effect that destroys non&amp;ndash;fighter ships during the &lt;b&gt;Space Cannon Offense&lt;/b&gt; step may be used to score &lt;i&gt;Turn Their Fleets to Dust &amp;Omega;&lt;/i&gt;, not just hits produced by a space cannon roll.&lt;/li&gt;
+	&lt;ol&gt;&lt;li&gt;For example, say the Yin player has their flagship, the &lt;i&gt;Van Hauge&lt;/i&gt;, destroyed during the &lt;b&gt;Space Cannon Offense&lt;/b&gt; step. They may score &lt;i&gt;Turn Their Fleets to Dust &amp;Omega;&lt;/i&gt; if the effect of their flagship destroys all non&amp;ndash;fighter ships owned by another player in the active system.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="TwilightMirror" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="UnconventionalMeasures" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="UnexpectedAction" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;&lt;i&gt;Unexpected Action&lt;/i&gt; cannot be played by a player with zero command tokens on the game board.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="UnifyTheColonies" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="UnknownRelicFragment" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player cannot purge three Unknown Relic Fragments to gain a relic. At least one cultural, hazardous or industrial relic fragment must be purged.&lt;/li&gt;
+    &lt;li&gt;If an eliminated player had any Unknown Relic Fragments, they are discarded to the frontier exploration discard pile.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="UnstablePlanet" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player may select an exhausted planet, and they may select a planet with fewer than three infantry on it (including zero).&lt;/li&gt;
+    &lt;li&gt;If the selected planet has three or fewer infantry on it, all infantry will be destroyed. Otherwise, three infantry will be destroyed.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="UnveilFlagship" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If a player&amp;rsquo;s flagship is destroyed during combat, but a later effect places it into the same combat, that player cannot score &lt;i&gt;Unveil Flagship.&lt;/i&gt;&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="Upgrade" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The cruiser must be in the system when it is activated for &lt;i&gt;Upgrade&lt;/i&gt; to be played. &lt;i&gt;Upgrade&lt;/i&gt; cannot be played if the cruiser is moved into the active system later in the turn.&lt;/li&gt;
+    &lt;li&gt;A player must have at least one cruiser in the active system to play and resolve &lt;i&gt;Upgrade&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;If a player wishes to place a dreadnought, but there are none left in their reinforcements, they may remove a dreadnought from any system that does not contain one of their command tokens and place that instead. This dreadnought will be placed undamaged.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="Uprising" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;&lt;i&gt;Uprising&lt;/i&gt; cannot be played if all planets owned by each other player is exhausted.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Uprising&lt;/i&gt; cannot target an exhausted planet.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="Veto" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;&lt;i&gt;Veto&lt;/i&gt;, the Xxcha &lt;sc&gt;Quash&lt;/sc&gt; faction ability, the Xxcha &lt;i&gt;Political Favor&lt;/i&gt; promissory note, and the &lt;i&gt;Political Secret&lt;/i&gt; promissory note are all played in the same timing window, before the rider timing window.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;If &lt;i&gt;Veto&lt;/i&gt; is used after any &lt;i&gt;Political Secret&lt;/i&gt; promissory notes have been played, those are immediately returned and will have no effect on the replacement agenda.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;Each agenda is considered separate for the purpose of limiting each pair of players to one transaction per agenda.&lt;/li&gt;
+    &lt;li&gt;A second &lt;i&gt;Veto&lt;/i&gt; may be used on the replacement agenda.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="VolatileFuelSource" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="WarEffort" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If a player wishes to place a cruiser, but there are none left in their reinforcements, they may remove a cruiser from any system that does not contain one of their command tokens and place that instead. This cruiser will be placed undamaged.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="WarfareResearchFacility" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="WarfareRider" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;After playing a &lt;i&gt;Warfare Rider&lt;/i&gt;, a player may use additional abilities, including playing other rider cards.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;Any other riders may be played to predict the same or a different outcome.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;The effect of a successful &lt;i&gt;Warfare Rider&lt;/i&gt; will be resolved after the effect of the agenda.&lt;/li&gt;
+    &lt;li&gt;A player who cannot vote may still play a &lt;i&gt;Warfare Rider&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;If a player wishes to place a dreadnought, but there are none in their reinforcements, they may remove a dreadnought from any system that does not contain one of their command tokens and place that instead. This dreadnought will be placed undamaged.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="WarMachine" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A second &lt;i&gt;War Machine&lt;/i&gt; cannot be played during use of production to give +8 to the total production value and/or to reduce the combined cost of the produced units by 2.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;War Machine&lt;/i&gt; may only be used by effects that cause a unit to use its &lt;sc&gt;Production&lt;/sc&gt; ability. It cannot be used for other effects that produce units.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="Waylay" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A ship with the &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability may cancel a hit produced by an anti&amp;ndash;fighter barrage roll if &lt;i&gt;Waylay&lt;/i&gt; causes that ship to be eligible to be hit.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="WormholeReconstruction" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;While &lt;i&gt;Wormhole Reconstruction&lt;/i&gt; is in play, &lt;i&gt;Enforced Travel Ban&lt;/i&gt; will have no effect.&lt;/li&gt;
+    &lt;li&gt;The &amp;ldquo;Against&amp;rdquo; effect of &lt;i&gt;Wormhole Reconstruction&lt;/i&gt; will cause each player to place command tokens in each system that contains an alpha, beta, delta or gamma wormhole and one or more of that player&amp;rsquo;s ships.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="WormholeResearch" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player with ships in a delta or gamma wormhole may research a technology from the &amp;ldquo;For&amp;rdquo; effect. Those ships will not be destroyed.&lt;/li&gt;
+    &lt;li&gt;A player must still meet the prerequisites for the technology they research.&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;A player may exhaust a planet with a technology specialty to ignore a prerequisite on a technology as normal. This planet will ready at the end of the agenda phase.&lt;/li&gt;
+        &lt;li&gt;A player may exhaust the &lt;i&gt;AI Development Algorithm&lt;/i&gt; technology to ignore a prerequisite on a unit upgrade technology as normal. &lt;i&gt;AI Development Algorithm&lt;/i&gt; will not ready at the end of the agenda phase.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;li&gt;Ground forces in the space area of a system containing an alpha or beta wormhole will be removed due to lack of capacity after the ships in that system are destroyed; those ground forces will not trigger any &amp;ldquo;destroyed&amp;rdquo; effects.
+    &lt;li&gt;If &lt;i&gt;Anti&amp;ndash;Intellectual Revolution&lt;/i&gt; is in play as a law, players who research a technology will destroy a ship due to &lt;i&gt;Anti&amp;ndash;Intellectual Revolution&lt;/i&gt; before they destroy ships in systems containing alpha or beta wormholes. As such, they may choose a ship in a system containing an alpha or beta wormhole to destroy for &lt;i&gt;Anti&amp;ndash;Intellectual Revolution&lt;/i&gt;&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;If the Vuil&amp;rsquo;raith player has their flagship, &lt;i&gt;The Terror Between&lt;/i&gt;, in a system containing an alpha or beta wormhole, and they choose to destroy it for &lt;i&gt;Anti&amp;ndash;Intellectual Revolution&lt;/i&gt;, then they will not capture the other ships in that system that are destroyed by &lt;i&gt;Wormhole Research&lt;/i&gt;.&lt;/li&gt;
+        &lt;li&gt;If the Vuil&amp;rsquo;raith player has their flagship, &lt;i&gt;The Terror Between&lt;/i&gt;, in a system containing an alpha or beta wormhole, and they choose to destroy another ship with capacity, they must resolve capacity before &lt;i&gt;Wormhole Research&lt;/i&gt; destroys any ships. Any fighters they remove due to capacity will not be captured when ships are destroyed for &lt;i&gt;Wormhole Research&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;li&gt;The Saar player&amp;rsquo;s Floating Factories will not be destroyed by &lt;i&gt;Wormhole Research&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="X89BacterialWeapon" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="X89BacterialWeaponOmega" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;&lt;i&gt;X&amp;ndash;89 Bacterial Weapon &amp;Omega;&lt;/i&gt; may be used against each planet in a system, if the conditions are met.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;X&amp;ndash;89 Bacterial Weapon &amp;Omega;&lt;/i&gt; will trigger only after all bombardment hits have been assigned.&lt;/li&gt; 
+    &lt;li&gt;The L1Z1X may use &lt;i&gt;X&amp;ndash;89 Bacterial Weapon &amp;Omega;&lt;/i&gt; after they use their &lt;sc&gt;Harrow&lt;/sc&gt; faction ability.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+</root>

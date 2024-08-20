@@ -25,7 +25,6 @@ public enum ObjectiveCardName
     SwayTheCouncil,
 
     // Stage Two
-    PublicObjectives,
     AchieveSupremacy,
     BecomeALegend,
     CentralizeGalacticTrade,

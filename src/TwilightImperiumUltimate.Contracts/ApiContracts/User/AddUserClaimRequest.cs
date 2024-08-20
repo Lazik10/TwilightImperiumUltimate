@@ -2,9 +2,9 @@ namespace TwilightImperiumUltimate.Contracts.ApiContracts.User;
 
 public class AddUserClaimRequest
 {
-    required public string UserId { get; set; }
+    public required string UserId { get; set; }
 
-    required public string ClaimType { get; set; }
+    public required string ClaimType { get; set; }
 
-    required public string ClaimValue { get; set; }
+    public required string ClaimValue { get; set; }
 }

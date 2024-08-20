@@ -4,9 +4,14 @@ namespace TwilightImperiumUltimate.Web.Components.Cards;
 
 public partial class CardsGrid
 {
+    private bool _showNotes = true;
+    private bool _showFaq;
+
     private IReadOnlyCollection<CardModel> _listOfCards = new List<CardModel>();
 
     private IReadOnlyCollection<CardModel> _listOfDeprecatedCards = new List<CardModel>();
+
+    private CardModel _selectedCardModel = new CardModel();
 
     private bool showBigImage;
 
@@ -28,15 +33,28 @@ public partial class CardsGrid
     [Inject]
     private IMapper Mapper { get; set; } = default!;
 
+    [Inject]
+    private NavigationManager NavigationManager { get; set; } = default!;
+
+    private List<FaqModel> Faqs { get; set; } = new List<FaqModel>();
+
     protected override async Task OnParametersSetAsync()
     {
         await InitializeCards();
+
+        var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<FaqDto>>>(Paths.ApiPath_Faq, default);
+        if (statusCode == System.Net.HttpStatusCode.OK)
+        {
+            var faqs = Mapper.Map<List<FaqModel>>(response!.Data!.Items);
+            Faqs = faqs.Where(f => f.FaqStatus == FaqStatus.Approved).ToList();
+        }
     }
 
     private int GetNumberOfColumns() => TypeOfCard == Paths.ResourcePath_StrategyCard ? 4 : 5;
 
     private void ShowBigImage(CardModel card, string culture)
     {
+        _selectedCardModel = card;
         currentBigImageSrc = PathProvider.GetCardImagePath(card.Name, TypeOfCard);
         currentBigImageCulture = culture;
         showBigImage = true;
@@ -98,5 +116,32 @@ public partial class CardsGrid
             .OrderBy(x => x.GameVersion)
             .ThenBy(x => x.Id)
             .GroupBy(x => x.GameVersion);
+    }
+
+    private void ShowFaq()
+    {
+        _showNotes = false;
+        _showFaq = true;
+    }
+
+    private void ShowNotes()
+    {
+        _showFaq = false;
+        _showNotes = true;
+    }
+
+    private List<FaqModel> GetSpecificCardFaqs()
+    {
+        return Faqs.Where(f => f.ComponentName == _selectedCardModel.Name && f.FaqStatus == FaqStatus.Approved).ToList();
+    }
+
+    private void AddFaq()
+    {
+        NavigationManager.NavigateTo($"/faq/create-new-faq/{_selectedCardModel.Name}");
+    }
+
+    private MarkupString GetSelectedCardNotes()
+    {
+        return (MarkupString)_selectedCardModel.Name.ToString().GetComponentNotesText();
     }
 }

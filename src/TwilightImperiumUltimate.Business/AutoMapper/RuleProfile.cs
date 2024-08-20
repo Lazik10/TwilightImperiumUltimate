@@ -1,7 +1,7 @@
+using TwilightImperiumUltimate.Core.Entities.Rules;
 using TiRule = TwilightImperiumUltimate.Core.Entities.Rules.Rule;
 
 namespace TwilightImperiumUltimate.Business.AutoMapper;
-
 
 internal class RuleProfile : Profile
 {
@@ -12,5 +12,17 @@ internal class RuleProfile : Profile
                 x.Id,
                 x.RuleCategory,
                 x.Content));
+
+        CreateMap<Faq, FaqDto>()
+            .ConstructUsing(x => new FaqDto(
+                x.Id,
+                x.ComponentName,
+                x.QuestionEnglish,
+                x.AnswerEnglish,
+                x.QuestionCzech,
+                x.AnswerCzech,
+                x.FaqStatus));
+
+        CreateMap<FaqDto, Faq>();
     }
 }

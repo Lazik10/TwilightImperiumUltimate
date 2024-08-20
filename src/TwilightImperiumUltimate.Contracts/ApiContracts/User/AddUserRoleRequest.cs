@@ -2,7 +2,7 @@ namespace TwilightImperiumUltimate.Contracts.ApiContracts.User;
 
 public class AddUserRoleRequest
 {
-    required public string UserId { get; set; }
+    public required string UserId { get; set; }
 
-    required public string RoleName { get; set; }
+    public required string RoleName { get; set; }
 }

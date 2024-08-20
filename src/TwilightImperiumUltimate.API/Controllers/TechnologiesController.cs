@@ -9,7 +9,7 @@ public class TechnologiesController(IMediator mediator) : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IApiResponse<ItemListDto<TechnologyDto>>>> GetAllNews()
     {
-        var result = await _mediator.Send(new GetAllTechnologiesCommand());
+        var result = await _mediator.Send(new GetAllTechnologiesQuery());
         return Ok(new ApiResponse<ItemListDto<TechnologyDto>>() { Success = true, Data = result });
     }
 }

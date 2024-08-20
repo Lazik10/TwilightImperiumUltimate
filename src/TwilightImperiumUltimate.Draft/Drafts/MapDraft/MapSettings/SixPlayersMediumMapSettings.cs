@@ -32,21 +32,21 @@ internal class SixPlayersMediumMapSettings : IMapSettings
 
     public Dictionary<int, List<(int X, int Y)>> Slices => new Dictionary<int, List<(int X, int Y)>>()
     {
-        { 1, new List<(int X , int Y)> { (2, 4), (3, 3), (2, 2), (4, 4), (5, 3) } },
-        { 2, new List<(int X , int Y)> { (6, 6), (5, 5), (3, 5), (7, 5), (6, 4) } },
-        { 3, new List<(int X , int Y)> { (11, 5), (9, 5), (8, 6), (10, 4), (8, 4) } },
-        { 4, new List<(int X , int Y)> { (12, 2), (11, 3), (12, 4), (10, 2), (9, 3) } },
-        { 5, new List<(int X , int Y)> { (8, 0), (9, 1), (11, 1), (7, 1), (8, 2) } },
-        { 6, new List<(int X , int Y)> { (3, 1), (5, 1), (6, 0), (4, 2), (6, 2) } },
+        { 1, new List<(int X, int Y)> { (2, 4), (3, 3), (2, 2), (4, 4), (5, 3) } },
+        { 2, new List<(int X, int Y)> { (6, 6), (5, 5), (3, 5), (7, 5), (6, 4) } },
+        { 3, new List<(int X, int Y)> { (11, 5), (9, 5), (8, 6), (10, 4), (8, 4) } },
+        { 4, new List<(int X, int Y)> { (12, 2), (11, 3), (12, 4), (10, 2), (9, 3) } },
+        { 5, new List<(int X, int Y)> { (8, 0), (9, 1), (11, 1), (7, 1), (8, 2) } },
+        { 6, new List<(int X, int Y)> { (3, 1), (5, 1), (6, 0), (4, 2), (6, 2) } },
     };
 
     public Dictionary<int, List<(int X, int Y)>> AdjacentHomePositions => new Dictionary<int, List<(int X, int Y)>>()
     {
-        { 1, new List<(int X , int Y)> { (2, 4), (3, 3), (2, 2) } },
-        { 2, new List<(int X , int Y)> { (6, 6), (5, 5), (3, 5) } },
-        { 3, new List<(int X , int Y)> { (11, 5), (9, 5), (8, 6) } },
-        { 4, new List<(int X , int Y)> { (12, 2), (11, 3), (12, 4) } },
-        { 5, new List<(int X , int Y)> { (8, 0), (9, 1), (11, 1) } },
-        { 6, new List<(int X , int Y)> { (3, 1), (5, 1), (6, 0) } },
+        { 1, new List<(int X, int Y)> { (2, 4), (3, 3), (2, 2) } },
+        { 2, new List<(int X, int Y)> { (6, 6), (5, 5), (3, 5) } },
+        { 3, new List<(int X, int Y)> { (11, 5), (9, 5), (8, 6) } },
+        { 4, new List<(int X, int Y)> { (12, 2), (11, 3), (12, 4) } },
+        { 5, new List<(int X, int Y)> { (8, 0), (9, 1), (11, 1) } },
+        { 6, new List<(int X, int Y)> { (3, 1), (5, 1), (6, 0) } },
     };
 }

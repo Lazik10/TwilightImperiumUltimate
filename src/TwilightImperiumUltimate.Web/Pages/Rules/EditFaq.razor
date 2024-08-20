@@ -1,0 +1,69 @@
+﻿@page "/faq/edit-faq/{Id:int}"
+
+<Page>
+
+    <FlexColumnCenteredContainer>
+        <Label Text="@(FaqModel.ComponentName)" FontSize="24" CenterText />
+
+        <VerticalSpace Height="50" />
+
+        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+            <img src="@(PathProvider.GetCultureIconPath(Strings.EnglishCulture))"
+                 alt="English"
+                 style="max-height: 100px;" />
+        </FlexRowContainer>
+
+        <VerticalSpace Height="50" />
+
+        <FlexRowContainer>
+            <Label Text="@Strings.Faq_Question" Width="15" />
+            <RadzenTextBox Placeholder="@FaqModel.QuestionEnglish"
+                           @bind-Value="FaqModel.QuestionEnglish"
+                           class="w-100 flex-row title white handel" />
+        </FlexRowContainer>
+
+        <VerticalSpace Height="20" />
+
+        <FlexRowContainer>
+            <Label Text="@Strings.Faq_Answer" Width="15" />
+            <RadzenTextBox Placeholder="@FaqModel.AnswerEnglish"
+                           @bind-Value="FaqModel.AnswerEnglish"
+                           class="w-100 flex-row title white handel" />
+        </FlexRowContainer>
+
+        <VerticalSpace Height="50" />
+
+        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+            <img src="@(PathProvider.GetCultureIconPath(Strings.CzechCulture))"
+                 alt="Czech"
+                 style="max-height: 100px;" />
+        </FlexRowContainer>
+
+        <VerticalSpace Height="50" />
+
+        <FlexRowContainer>
+            <Label Text="@Strings.Faq_Question" Width="15" />
+            <RadzenTextBox Placeholder="@FaqModel.QuestionCzech"
+                           @bind-Value="FaqModel.QuestionCzech"
+                           class="w-100 flex-row title white handel" />
+        </FlexRowContainer>
+
+        <VerticalSpace Height="20" />
+
+        <FlexRowContainer>
+            <Label Text="@Strings.Faq_Answer" Width="15" />
+            <RadzenTextBox Placeholder="@FaqModel.AnswerCzech"
+                           @bind-Value="FaqModel.AnswerCzech"
+                           class="w-100 flex-row title white handel" />
+        </FlexRowContainer>
+
+        <VerticalSpace Height="50" />
+
+        <FlexRowContainer JustifyContent="Enums.JustifyContent.Center" Width="50">
+            <Button ButtonText="@Strings.Faq_Save" OnClick="Save" CssClass="button" ButtonType="ButtonType.Submit" />
+        </FlexRowContainer>
+
+
+    </FlexColumnCenteredContainer>
+
+</Page>

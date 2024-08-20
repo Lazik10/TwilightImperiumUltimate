@@ -34,13 +34,13 @@ internal class TwoPlayersMediumMapSettings : IMapSettings
 
     public Dictionary<int, List<(int X, int Y)>> Slices => new Dictionary<int, List<(int X, int Y)>>()
     {
-        { 1, new List<(int X , int Y)> { (6, 6), (5, 5), (3, 5), (7, 5), (4, 4) } },
-        { 2, new List<(int X , int Y)> { (8, 0), (9, 1), (11, 1), (7, 1), (10, 2) } },
+        { 1, new List<(int X, int Y)> { (6, 6), (5, 5), (3, 5), (7, 5), (4, 4) } },
+        { 2, new List<(int X, int Y)> { (8, 0), (9, 1), (11, 1), (7, 1), (10, 2) } },
     };
 
     public Dictionary<int, List<(int X, int Y)>> AdjacentHomePositions => new Dictionary<int, List<(int X, int Y)>>()
     {
-        { 1, new List<(int X , int Y)> { (6, 6), (5, 5), (3, 5), } },
-        { 2, new List<(int X , int Y)> { (8, 0), (9, 1), (11, 1), } },
+        { 1, new List<(int X, int Y)> { (6, 6), (5, 5), (3, 5), } },
+        { 2, new List<(int X, int Y)> { (8, 0), (9, 1), (11, 1), } },
     };
 }

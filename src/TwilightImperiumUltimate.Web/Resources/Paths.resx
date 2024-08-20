@@ -150,6 +150,9 @@
   <data name="ApiPath_Factions" xml:space="preserve">
     <value>api/factions</value>
   </data>
+  <data name="ApiPath_Faq" xml:space="preserve">
+    <value>api/faqs</value>
+  </data>
   <data name="ApiPath_FirstFaction" xml:space="preserve">
     <value>api/factions/1</value>
   </data>
@@ -221,6 +224,9 @@
   </data>
   <data name="ResourceNamespace_FactionInfo" xml:space="preserve">
     <value>TwilightImperiumUltimate.Web.Resources.FactionsInfo</value>
+  </data>
+  <data name="ResourceNamespace_RuleNotes" xml:space="preserve">
+    <value>TwilightImperiumUltimate.Web.Resources.RuleNotes</value>
   </data>
   <data name="ResourceNamespace_Rules" xml:space="preserve">
     <value>TwilightImperiumUltimate.Web.Resources.Rules</value>

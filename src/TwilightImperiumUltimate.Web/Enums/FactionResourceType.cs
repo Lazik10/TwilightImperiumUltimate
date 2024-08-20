@@ -10,4 +10,5 @@ public enum FactionResourceType
     SystemInfo,
     SystemStats,
     CommanderRequirement,
+    Notes,
 }

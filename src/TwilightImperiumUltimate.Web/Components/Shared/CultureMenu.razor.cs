@@ -18,7 +18,7 @@ public partial class CultureMenu
 
         // Little hack to force reload of the page
         NavigationManager.NavigateTo(NavigationManager.BaseUri);
-        NavigationManager.NavigateTo(NavigationManager.Uri, forceLoad: false);
+        NavigationManager.NavigateTo(NavigationManager.Uri, forceLoad: true);
     }
 
     private string GetCultureIconPath(string culture)

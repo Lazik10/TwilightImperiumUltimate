@@ -160,6 +160,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to api/faqs.
+        /// </summary>
+        public static string ApiPath_Faq {
+            get {
+                return ResourceManager.GetString("ApiPath_Faq", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to api/factions/1.
         /// </summary>
         public static string ApiPath_FirstFaction {
@@ -372,6 +381,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string ResourceNamespace_FactionInfo {
             get {
                 return ResourceManager.GetString("ResourceNamespace_FactionInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TwilightImperiumUltimate.Web.Resources.RuleNotes.
+        /// </summary>
+        public static string ResourceNamespace_RuleNotes {
+            get {
+                return ResourceManager.GetString("ResourceNamespace_RuleNotes", resourceCulture);
             }
         }
         

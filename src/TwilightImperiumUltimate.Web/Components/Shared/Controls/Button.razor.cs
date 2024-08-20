@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Radzen;
 
@@ -19,7 +18,7 @@ public partial class Button
     public bool IsDisabled { get; set; } = false;
 
     [Parameter]
-    public ButtonType ButtonType { get ; set; } = ButtonType.Button;
+    public ButtonType ButtonType { get; set; } = ButtonType.Button;
 
     private async Task OnClickHandler(MouseEventArgs e)
     {

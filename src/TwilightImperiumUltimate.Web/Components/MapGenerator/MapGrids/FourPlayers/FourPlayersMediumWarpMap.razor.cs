@@ -5,5 +5,4 @@ namespace TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.FourPlay
 public partial class FourPlayersMediumWarpMap : BaseMap
 {
     protected override IEnumerable<int> MapPositions { get; set; } = Enumerable.Range(0, MapTemplateOptions.MaxTilePositionsMediumMap);
-
 }

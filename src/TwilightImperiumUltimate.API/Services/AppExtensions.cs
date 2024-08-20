@@ -12,7 +12,6 @@ public static class AppExtensions
 
         var context = app.Services.GetRequiredService<TwilightImperiumDbContext>();
         await context.Database.MigrateAsync();
-        await context.SeedDatabaseAsync();
     }
 
     public static async Task AppRunAsync(this WebApplication app)

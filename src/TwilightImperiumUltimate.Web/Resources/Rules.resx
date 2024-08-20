@@ -466,6 +466,31 @@
     &lt;li&gt;If a unit&amp;rsquo;s ability uses the phrase &amp;ldquo;this system&amp;rdquo; or &amp;ldquo;this planet&amp;rdquo;, the ability is referring to the system or planet that contains that unit.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_Abilities_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;An ability may be triggered during the timing window it was gained, if applicable. For example, if a player receives the Creuss player&amp;rsquo;s &lt;i&gt;Creuss Iff&lt;/i&gt; promissory note at the start of their turn, they may use it immediately.&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;Note that some triggers check their conditions when they trigger, while some check their conditions when they would resolve.&lt;/li&gt;
+        &lt;li&gt;The Ul player&amp;rsquo;s &lt;sc&gt;Awaken&lt;/sc&gt; ability is an example of an ability that checks its condition when it triggers; activating a system without a sleeper token will not trigger &lt;sc&gt;Awaken&lt;/sc&gt;, even if a sleeper token is later added.&lt;/li&gt;
+        &lt;li&gt;The &lt;i&gt;Assault Cannon&lt;/i&gt; technology is an example of an ability that checks its condition when it would resolve; a player without three or more non&amp;ndash;fighter ships in the system cannot use &lt;i&gt;Assault Cannon&lt;/i&gt;, even if they previously had more ships.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;li&gt;An ability from a single physical object cannot be resolved more than once in one timing window. For example, if a player starts their turn with the Creuss player&amp;rsquo;s &lt;i&gt;Creuss Iff&lt;/i&gt; promissory note in their hand (having received it on a previous turn) and uses it, they will not be able to used it a second time this turn, if they receive it as part of a transaction.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;Each unit on the board is its own separate physical object. For example, two of the N&amp;rsquo;orr player&amp;rsquo;s &lt;i&gt;Exotrireme II&lt;/i&gt; in a system may use their ability to destroy themselves and other ships, even though that ability is printed on a single technology card.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;Multiple action cards with the same name cannot be played during a single timing window to affect the same units or game effect. See the Action cards page for more details.&lt;/li&gt;
+    &lt;li&gt;During the action phase, abilities are resolved in the current relative turn order, starting with the active player. For example, if it is currently the &lt;i&gt;Trade&lt;/i&gt; (5) player&amp;rsquo;s turn, they will have the option to resolve first, then the &lt;i&gt;Warfare&lt;/i&gt; (6) player, then the &lt;i&gt;Technology&lt;/i&gt; (7) player, and so on.&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;If a player has multiple abilities they wish to resolve, they must be resolved one at a time. Between each ability being resolved, each other player will have the opportunity to resolve one ability.&lt;/li&gt;
+        &lt;li&gt;For example, Alice, the active player, wishes to resolve four abilities during the current timing window. Bob, the next player in order, wishes to resolve one. Cheng, later in the order, wishes to resolve two. The order of resolution would be: Alice &amp;num;1; Bob &amp;num;1; Cheng &amp;num;1; Alice &amp;num;2; Cheng &amp;num;2; Alice &amp;num;3; Alice &amp;num;4.&lt;/li&gt;
+        &lt;li&gt;Once every player has consecutively declined to resolve an ability during a timing window, no more abilities may be resolved during that window.&lt;/li&gt;
+        &lt;li&gt;A player may decline to resolve an ability during a timing window, but later chose to resolve an ability during that same timing window, but only if another player chooses to resolve an ability after the player declined.&lt;/li&gt;
+        &lt;li&gt;Following on from the above example, had Alice declined to resolve &amp;ldquo;Alice &amp;num;2&amp;rdquo;, she could still resolve &amp;ldquo;Alice &amp;num;3&amp;rdquo;, as Cheng resolved &amp;ldquo;Cheng &amp;num;2&amp;rdquo;, breaking the series of consecutive declinations. However, if Alice had instead declined to resolve &amp;ldquo;Alice &amp;num;3&amp;rdquo;, she would be unable to resolve &amp;ldquo;Alice &amp;num;4&amp;rdquo;, as then each player would have consecutively declined to resolve an ability.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;li&gt;The secondary abilities of strategy cards are resolved in clockwise order, after the primary ability.&lt;/li&gt;
+    &lt;li&gt;A player may resolve &amp;ldquo;at the start of your turn&amp;rdquo; and &amp;ldquo;at the end of your turn&amp;rdquo; abilities on the turn that they pass.&lt;/li&gt;
+    &lt;li&gt;All abilities that occur &amp;ldquo;when&amp;rdquo; an event occurs all trigger before any abilities that occur &amp;ldquo;after&amp;rdquo; the same event occurs.&lt;/li&gt;
+    &lt;li&gt;All abilities that occur &amp;ldquo;after&amp;rdquo; an event occurs all trigger before any abilities that occur &amp;ldquo;before&amp;rdquo; the next event occurs.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_ActionCards" xml:space="preserve">
     <value>&lt;p&gt;Action cards provide players with various abilities that they can resolve as described on the cards.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
@@ -484,6 +509,20 @@
     &lt;li&gt;If an action card is canceled, that card has no effect and is discarded.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_ActionCards_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Players start the game with zero action cards.&lt;/li&gt;
+    &lt;li&gt;A player may choose to reveal any or all of the action cards in their hand, if they so choose.&lt;/li&gt;
+    &lt;li&gt;If the action card deck is depleted, immediately shuffle the discard pile to form a new action card deck.&lt;/li&gt;
+    &lt;li&gt;During the action phase, action cards are dealt out in initiative order.&lt;/li&gt;
+    &lt;li&gt;If a player&amp;rsquo;s action card is cancelled, usually via a &lt;i&gt;Sabotage&lt;/i&gt; action card, then if that player has a second copy of that action card, they may play it.&lt;/li&gt;
+    &lt;li&gt;A player cannot target themselves with offensive action cards, such as &lt;i&gt;Lucky Shot&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;If an action card targets &amp;ldquo;any number&amp;rdquo;, &amp;ldquo;up to&amp;rdquo;, or &amp;ldquo;each&amp;rdquo; of a particular type of object, that action card may target zero of those objects. As such, these cards may be played even if they would cause no effect.&lt;/li&gt;
+    &lt;li&gt;If an action card targets a specific number of a particular type of object, that action card cannot be played if those objects do not currently exist. For example, &lt;i&gt;Repeal Law&lt;/i&gt; cannot be played if there are no laws in play.&lt;/li&gt;
+    &lt;li&gt;If a player has more than seven action cards, they must discard the excess immediately. They cannot play them to get down to seven, and the Hacan player cannot trade them.&lt;/li&gt;
+    &lt;li&gt;For notes about specific action cards, see the action cards page.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_ActionPhase" xml:space="preserve">
     <value>&lt;p&gt;During the action phase, each player takes a turn in initiative order. During a player&amp;rsquo;s turn, they perform a single action. After each player has taken a turn, player turns begin again in initiative order. This process continues until all players have passed.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
@@ -500,12 +539,28 @@
     &lt;li&gt;After all players have passed, play proceeds to the status phase.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_ActionPhase_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Players may still play non&amp;ndash;component action action cards after they have passed.&lt;/li&gt;
+    &lt;li&gt;Any abilities that occur at the end of an action happen before any abilities that occur at the end of a player&amp;rsquo;s turn.&lt;/li&gt;
+    &lt;li&gt;A player may resolve &amp;ldquo;at the start of your turn&amp;rdquo; and &amp;ldquo;at the end of your turn&amp;rdquo; abilities on the turn that they pass.&lt;/li&gt;
+    &lt;li&gt;If all other players have passed, a player will continue to resolve &amp;ldquo;at the start of your turn&amp;rdquo; and &amp;ldquo;at the end of your turn&amp;rdquo; abilities.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_ActivePlayer" xml:space="preserve">
     <value>&lt;p&gt;The active player is the player taking a turn during the action phase.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
     &lt;li&gt;During the action phase, the player who is first in initiative order is the first active player.&lt;/li&gt;
     &lt;li&gt;After the active player takes a turn, the next player in initiative order becomes the active player.&lt;/li&gt;
     &lt;li&gt;After the last player in initiative order takes a turn, the player who is first in initiative order becomes the active player again, and turns begin again in initiative order, ignoring any players who have already passed.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_ActivePlayer_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;During combat, the active player is the attacker.&lt;/li&gt;
+    &lt;li&gt;The active player will have the first opportunity to resolve abilities during each timing window.&lt;/li&gt;
+    &lt;li&gt;All transactions during the action phase must involve the active player.&lt;/li&gt;
+    &lt;li&gt;If a non&amp;ndash;active player produces hits using the &lt;sc&gt;Space Cannon Offense&lt;/sc&gt; ability of one of their units, those hits must be assigned to the active player&amp;rsquo;s units.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_ActiveSystem" xml:space="preserve">
@@ -517,6 +572,14 @@
     &lt;li&gt;A system remains the active system for the duration of the tactical action during which it was activated.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_ActiveSystem_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player may only move into a nebula if it is the active system.&lt;/li&gt;
+    &lt;li&gt;No system is the active system during a component or strategic action.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;Effects that trigger when a system is activated will not trigger during a component or strategic action.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;After activating a system during a tactical action, play will proceed to the &lt;b&gt;Movement&lt;/b&gt; step.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_Adjacency" xml:space="preserve">
     <value>&lt;p&gt;Two system tiles are adjacent to each other if any of the tiles&amp;rsquo; sides are touching each other.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
@@ -525,6 +588,12 @@
     &lt;ol&gt;&lt;li&gt;A system is not adjacent to itself.&lt;/li&gt;&lt;/ol&gt;
     &lt;li&gt;A planet is treated as being adjacent to the system that contains that planet.&lt;/li&gt;
     &lt;li&gt;Systems that are connected by lines drawn across one or more hyperlane tiles are adjacent for all purposes.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Adjacency_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A unit is not adjacent to the system it is in.&lt;/li&gt;
+    &lt;li&gt;The Wormhole Nexus and the Creuss home system are only adjacent to tiles via wormholes.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_AgendaCard" xml:space="preserve">
@@ -538,6 +607,13 @@
     &lt;li&gt;If an &amp;ldquo;Against&amp;rdquo; outcome of a law received the most votes, players resolve the outcome and discard the agenda.&lt;/li&gt;
     &lt;li&gt;Directives provide one&amp;ndash;time game effects.&lt;/li&gt;
     &lt;li&gt;When resolving a directive, players resolve the outcome that received the most votes and discard the agenda card.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_AgendaCard_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;When resolving the primary ability of the &lt;i&gt;Politics&lt;/i&gt; card, the active player cannot show the agenda cards they drew to any other player.&lt;/li&gt;
+    &lt;li&gt;If the outcome of an agenda affects multiple players, it will do so in speaker order.&lt;/li&gt;
+    &lt;li&gt;For notes about specific agenda cards, see the agenda card page.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_AgendaPhase" xml:space="preserve">
@@ -581,15 +657,34 @@
     &lt;/ol&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_AgendaPhase_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player cannot cast zero votes for an outcome. Casting zero votes is the same as abstaining.&lt;/li&gt;
+    &lt;li&gt;When a player casts votes during the agenda phase, it is not that player&amp;rsquo;s turn for the purpose of game effects.&lt;/li&gt;
+    &lt;li&gt;If an agenda outcome affects multiple players, it does so in speaker order.&lt;/li&gt;
+    &lt;li&gt;Riders are resolved after the agenda is fully resolved, in speaker order.&lt;/li&gt;
+    &lt;li&gt;If a player successfully predicts multiple riders, they resolve one at a time, in the order that player chooses, with each other player having the opportunity to resolve an ability between each.&lt;/li&gt;
+    &lt;li&gt;Each pair of players may resolve one transaction during each agenda.&lt;/li&gt;
+    &lt;li&gt;Only planets ready at the end of the phase. Technologies, leaders, relics, and other cards do not.&lt;/li&gt;
+    &lt;li&gt;For notes about specific agenda cards, see the agenda cards page.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_Anomalies" xml:space="preserve">
     <value>&lt;p&gt;An anomaly is a system tile that has unique rules.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
     &lt;li&gt;An anomaly is identified by a red border located on the tile&amp;rsquo;s corners.&lt;/li&gt;
     &lt;li&gt;There are four types of anomalies: asteroid fields, nebulae, supernovas, and gravity rifts.&lt;/li&gt;
     &lt;ol&gt;&lt;li&gt;Some anomalies contain planets; those systems are still anomalies.&lt;/li&gt;&lt;/ol&gt;
-    &lt;li&gt;Each type of anomaly is identified by its art. &lt;code&gt;See rulebook for images.&lt;/code&gt;&lt;/li&gt;
+    &lt;li&gt;Each type of anomaly is identified by its art. See rulebook for images.&lt;/li&gt;
     &lt;li&gt;Abilities can cause a system tile to become an anomaly; that system tile is an anomaly in addition to its other properties.&lt;/li&gt;
     &lt;li&gt;Abilities can cause a system to be two different anomalies; that system has the properties of both anomalies.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Anomalies_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;An empty system is not an anomaly.&lt;/li&gt;
+    &lt;li&gt;A system containing a wormhole is not an anomaly.&lt;/li&gt;
+    &lt;li&gt;A system with a Vuil&amp;rsquo;raith Dimensional Tear is a gravity rift, and thus an anomaly.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_AntiFighterBarrage" xml:space="preserve">
@@ -606,10 +701,24 @@
     &lt;ol&gt;&lt;li&gt;If a player has to assign more hits than they have fighters in the active system, the excess hits have no effect.&lt;/li&gt;&lt;/ol&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_AntiFighterBarrage_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Game effects that reroll, modify, or otherwise affect dice rolls during combat may affect anti&amp;ndash;fighter barrage rolls. This is distinct from, and a superset of, both anti&amp;ndash;fighter barrage rolls and combat rolls.&lt;/li&gt;
+    &lt;li&gt;A non&amp;ndash;fighter ship cannot its &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability to cancel a hit produced by an anti&amp;ndash;fighter barrage roll.&lt;/li&gt;
+    &lt;li&gt;Effects such as the &lt;i&gt;Shields Holding&lt;/i&gt; action card, which trigger on hits produced during space combat, may be used to cancel a hit produced by an anti&amp;ndash;fighter barrage roll.&lt;/li&gt;
+    &lt;li&gt;The &amp;ldquo;0&amp;rdquo; side of the d10 represents a result of 10.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_AsteroidField" xml:space="preserve">
     <value>&lt;p&gt;An asteroid field is an anomaly that affects movement.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
     &lt;li&gt;A ship cannot move through or into an asteroid field.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_AsteroidField_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player with the &lt;i&gt;Antimass Deflectors&lt;/i&gt; technology may move their ships through asteroid fields.&lt;/li&gt;
+    &lt;li&gt;A future rule change will place the ship movement restrictions of anomalies upon all units.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_Attach" xml:space="preserve">
@@ -624,9 +733,23 @@
     &lt;li&gt;When a card is attached to a planet card, place the corresponding attachment token on that planet on the game board.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_Attach_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;There is no limit on how many attachments a single planet may have.&lt;/li&gt;
+    &lt;li&gt;The Custodians Token is not an attachment.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_Attacker" xml:space="preserve">
     <value>&lt;p&gt;During combat, the active player is the attacker.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Attacker_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The attacker&amp;rsquo;s opponent is the defender.&lt;/li&gt;
+    &lt;li&gt;The attacker will have the first opportunity to resolve abilities during each timing window.&lt;/li&gt;
+    &lt;li&gt;When the Mahact player resolves their &lt;i&gt;Benediction&lt;/i&gt; hero ability, the player than had their ships moved will be the attacker.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;Resolving abilities will be by initiative order, starting with the Mahact player. As such, the defender may resolve abilities before the attacker, depending on what order those two players are in.&lt;/li&gt;&lt;/ol&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_Blockaded" xml:space="preserve">
@@ -635,6 +758,14 @@
     &lt;li&gt;A player cannot use a blockaded unit to produce ships; that player can still use a blockaded unit to produce ground forces.&lt;/li&gt;
     &lt;li&gt;When a player blockades another player&amp;rsquo;s space dock, if the blockaded player has captured any of the blockading player&amp;rsquo;s units, those units are returned to the blockading player&amp;rsquo;s reinforcements.&lt;/li&gt;
     &lt;ol&gt;&lt;li&gt;While a player is blockading another player, the blockaded player cannot capture any of the blockading player&amp;rsquo;s units.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Blockaded_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;While a player is involved in a space combat in a system, their units in that system are not blockaded, as both players will have ships in the system. Consequently, they may capture their opponent&amp;rsquo;s units.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;If that player has a unit in another system that their opponent is blockading, they will be unable to capture their opponent&amp;rsquo;s units.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;If, at the end of a combat, one player has no ships, but a space dock in the system, and the other player has only fighters, the space dock will be blockaded before the fighters are removed.&lt;/li&gt;
+    &lt;li&gt;When a ship moves, it does not blockade units in systems it moves through.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_Bombardment" xml:space="preserve">
@@ -653,6 +784,16 @@
     &lt;ol&gt;&lt;li&gt;If a player has to assign more hits than that player has ground forces, the excess hits have no effect.&lt;/li&gt;&lt;/ol&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_Bombardment_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The &lt;b&gt;Bombardment&lt;/b&gt; step happens outside of combat. No combat effects may affect a bombardment roll.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;A player cannot score a secret objective that requires them to win a combat or similar by destroying units during the &lt;b&gt;Bombardment&lt;/b&gt; step.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;Mechs may use their &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability to cancel a hit produced by a bombardment roll.&lt;/li&gt;
+    &lt;li&gt;Only the active player may bombard. Usually, but not always, only the active player will have ships in the system during an invasion.&lt;/li&gt;
+    &lt;li&gt;For notes about Harrow L1Z1X faction notes page&lt;/li&gt; 
+    &lt;li&gt;The &amp;ldquo;0&amp;rdquo; side of the d10 represents a result of 10.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_Capacity" xml:space="preserve">
     <value>&lt;p&gt;Capacity is an attribute of some units that is presented on faction sheets and unit upgrade technology cards.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
@@ -665,6 +806,22 @@
         &lt;li&gt;A player&amp;rsquo;s fighters and ground forces do not count against capacity during combat. At the end of combat, any excess units are removed and returned to that player&amp;rsquo;s reinforcements.&lt;/li&gt;
     &lt;/ol&gt;
     &lt;li&gt;Fighters and ground forces are not assigned to specific ships, except while they are being transported.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Capacity_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If a player moves more fighters and/or ground forces into a system containing another player&amp;rsquo;s ships, capacity limits must be met before proceeding to the &lt;b&gt;Space Cannon Offense&lt;/b&gt; substep or the &lt;b&gt;Space Combat&lt;/b&gt; step.&lt;/li&gt;
+    &lt;li&gt;If a ship with capacity is destroyed during the &lt;b&gt;Space Cannon Offense&lt;/b&gt; step, capacity limits must be met before space combat starts.&lt;/li&gt;
+    &lt;li&gt;Capacity is checked after the winner of a space combat is determined. As such, it is possible to win a space combat with only fighters remaining, before removing those fighters due to lack of capacity.&lt;/li&gt;
+    &lt;li&gt;A ship cannot pick up more units from a planet than it has capacity. However, a ship may pick up any units (including zero) in a system as it transports, even if doing so would cause units to be removed due to capacity limits.&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;For example, say a carrier (with capacity four) is in the space area of a system along with four fighters. On the only planet in that system are eight infantry. There are no other units in the system. When the carrier moves out of the system, it obeys the following:&lt;/li&gt;
+        &lt;li&gt;The carrier may transport the four fighters, leaving behind all eight of the infantry in the system.&lt;/li&gt;
+        &lt;li&gt;The carrier may transport four of the eight infantry, leaving behind the four remaining infantry in the system. Now that the system has zero capacity, all four of the fighters will be removed.&lt;/li&gt;
+        &lt;li&gt;The carrier may transport two of the eight infantry and two of the four fighters, leaving behind the six remaining infantry in the system. Now that the system has zero capacity, the two remaining fighters will be removed.&lt;/li&gt;
+        &lt;li&gt;The carrier may transport nothing, leaving behind all eight of the infantry in the system. Now that the system has zero capacity, all four of the fighters will be removed.&lt;/li&gt;
+        &lt;li&gt;The carrier cannot attempt to pick up all eight infantry, even if it immediately removes four of them (and the fighters).&lt;/li&gt;
+    &lt;/ol&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_Capture" xml:space="preserve">
@@ -688,11 +845,30 @@
     &lt;li&gt;If one or more of a player&amp;rsquo;s space docks is being blockaded, that player cannot capture units from the blockading players.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_Capture_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;For more information, see the uil&amp;rsquo;raith faction notes page.&lt;/li&gt;
+	&lt;li&gt;Units are returned as soon as a space dock is blockaded. If this occurs at the end of the &lt;b&gt;Space Combat&lt;/b&gt; step of a tactical action, the units will be returned before the &lt;b&gt;Invasion&lt;/b&gt; step, in which the space dock could potentially be destroyed.&lt;/li&gt;
+    &lt;li&gt;A captured unit may only be returned to the player that originally owned it, and not to another player.&lt;/li&gt;
+    &lt;li&gt;The Nekro player and the Yssaril player are able to capture units by copying the Vuil&amp;rsquo;raith player&amp;rsquo;s abilities, but they will be unable to spend the captured units.&lt;/li&gt;
+    &lt;li&gt;If a player is eliminated, any of their units that are captured remain with the player that captured them. When the capturing player would return them, the units are instead returned to the game box.&lt;/li&gt;
+	&lt;li&gt;If a player captures their own units, they cannot be returned to that player&amp;rsquo;s reinforcements.&lt;/li&gt;
+	&lt;ol&gt;
+        &lt;li&gt;That player cannot produce or place those units, except by effects that allow that player to use captured units.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;li&gt;If a player has all of their units of one type on the game board or captured, and so have none in their reinforcements, and would place a unit of that type, they may remove a unit from any system on the game board that does not contain one of their command tokens and place that unit in their reinforcements, before placing that unit on the game board.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_Combat" xml:space="preserve">
     <value>&lt;p&gt;Combat is an attribute of some units that is presented on faction sheets and unit upgrade technology cards.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
     &lt;li&gt;During combat, if a unit&amp;rsquo;s combat roll produces a result equal to or greater than its combat value, it produces a hit.&lt;/li&gt;
     &lt;li&gt;If a unit&amp;rsquo;s combat value contains two or more burst icons, instead of rolling a single die, the player rolls one die for each burst icon when making that unit&amp;rsquo;s combat rolls.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Combat_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The &amp;ldquo;0&amp;rdquo; side of the d10 represents a result of 10.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_CommandSheet" xml:space="preserve">
@@ -701,6 +877,11 @@
     &lt;li&gt;The pools on the command sheet are where players place their command tokens. Command tokens in a player&amp;rsquo;s pools are used by that player to perform strategic and tactical actions and to increase the number of ships that player can have in each system.&lt;/li&gt;
     &lt;li&gt;The trade good area on the command sheet is where a player places their trade good tokens; trade tokens in a player&amp;rsquo;s trade good area can be spent by that player as resources, influence, or to resolve certain game effects that require trade goods.&lt;/li&gt;
     &lt;li&gt;Players who are familiar with the game can hide the quick reference by placing that portion of the command sheet under their faction sheets.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_CommandSheet_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;When a command token is gained, it may be placed in any of the three pools.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_CommandTokens" xml:space="preserve">
@@ -723,6 +904,10 @@
     &lt;li&gt;If a game effect would place a player&amp;rsquo;s command token in a system where they already have one, they place the token in their reinforcements instead. Any effects that resolve by placing that token are resolved as normal.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_CommandTokens_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_Commodities" xml:space="preserve">
     <value>&lt;p&gt;Commodities represent goods that are plentiful for their own faction and are desired by other factions. A commodity has no inherent game effects, but converts into a trade good if given to or received from another player.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
@@ -741,6 +926,12 @@
     &lt;li&gt;Commodity tokens come in values of one and three. A player can swap between these tokens as necessary.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_Commodities_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player starts the game with zero commodities.&lt;/li&gt;
+    &lt;li&gt;If a player has their maximum number of commodities, and is instructed to replenish their commodities, they will take no commodities. However, they will still trigger any &amp;ldquo;when [this] player replenishes commodities&amp;rdquo; effects, most notably the &lt;i&gt;Trade Agreement&lt;/i&gt; promissory note.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_ComponentAction" xml:space="preserve">
     <value>&lt;p&gt;A component action is a type of action that a player can perform during their turn of an action phase.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
@@ -748,6 +939,11 @@
     &lt;li&gt;To perform a component action, a player reads the action&amp;rsquo;s text and follows the instructions as described.&lt;/li&gt;
     &lt;li&gt;A component action cannot be performed if its ability cannot be completely resolved.&lt;/li&gt;
     &lt;li&gt;If a component action is canceled, it does not use that player&amp;rsquo;s action.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_ComponentAction_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Action cards without the &amp;ldquo;Action&amp;rdquo; header are not used to perform component actions.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_ComponentLimitations" xml:space="preserve">
@@ -770,6 +966,18 @@
     &lt;li&gt;Cards: When a deck is depleted, players shuffle the deck&amp;rsquo;s discard pile and place it facedown to create a new deck.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_ComponentLimitations_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;As each player only has ten plastic fighter figures and twelve plastic infantry figures, a player cannot have fighters in more than ten systems, and cannot have infantry on more than twelve planets or being carried in more than twelve space areas, or any combination thereof.&lt;/li&gt;
+    &lt;li&gt;Players may also swap infantry and fighter plastic pieces for tokens at any time.&lt;/li&gt;
+    &lt;li&gt;Players may swap between three value tokens and one value tokens as desired.&lt;/li&gt;
+    &lt;li&gt;A player may only resolve a deploy ability to place a unit that is in their reinforcements. A player cannot remove a unit from the board to use its deploy ability.&lt;/li&gt;
+    &lt;li&gt;Each faction has sixteen command and seventeen control tokens included in the game.&lt;/li&gt;
+    &lt;li&gt;When a discard pile is shuffled to form a new deck, any cards that have been purged are not included.&lt;/li&gt;
+    &lt;li&gt;If a player removes a unit in order to place it, because they have none of that unit type in their reinforcements, that unit is placed undamaged.&lt;/li&gt;
+    &lt;li&gt;If a player is instructed to &amp;ldquo;replace&amp;rdquo; one unit with another, and they have none of the replacement unit type in their reinforcements, they may remove a unit of that type from any system that does not contain one of their command tokens and place that unit instead.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_Construction" xml:space="preserve">
     <value>&lt;p&gt;The &lt;i&gt;Construction&lt;/i&gt; strategy card allows players to construct structures on planets they control. This card&amp;rsquo;s initiative value is &amp;ldquo;4&amp;rdquo;.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
@@ -782,6 +990,13 @@
     &lt;li&gt;After the active player resolves the primary ability of the &lt;i&gt;Construction&lt;/i&gt; strategy card, each other player, beginning with the player to the left of the active player and proceeding clockwise, may spend one command token from their strategy pool and place that command token in any system. If that player already has a command token in that system, the spent token is returned to their reinforcements instead. Then, that player places either one PDS or one space dock on a planet they control in that system.&lt;/li&gt;
     &lt;li&gt;When a player places either a PDS or space dock using the &lt;i&gt;Construction&lt;/i&gt; strategy card, they take that PDS or space dock from their reinforcements.&lt;/li&gt;
     &lt;ol&gt;&lt;li&gt;If a player does not have the unit in their reinforcements, that player can remove a unit from any system that does not contain one of their command tokens and place that unit in their reinforcements. Then, that player must place the unit on the game board as instructed by the effect that is placing the unit.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Construction_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player may have a maximum of one space dock on each planet.&lt;/li&gt;
+    &lt;li&gt;A player may have a maximum of two PDS units on each planet.&lt;/li&gt;
+    &lt;li&gt;Structures cannot be placed on the planet with the &lt;i&gt;Demilitarized Zone&lt;/i&gt; exploration card attached.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_Control" xml:space="preserve">
@@ -805,6 +1020,11 @@
     &lt;li&gt;If a player loses control of a planet that contains their control token, they remove their control token from the planet.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_Control_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Control tokens are not component limited; a player may control an unlimited number of planets.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_Cost" xml:space="preserve">
     <value>&lt;p&gt;Cost is an attribute of some units that is presented on faction sheets and unit upgrade technology cards. A unit&amp;rsquo;s cost determines the number of resources a player must spend to produce that unit.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
@@ -812,6 +1032,17 @@
     &lt;li&gt;If the cost is accompanied by two icons &amp;ndash; typically for fighters and ground forces &amp;ndash; a player produces two of that unit for that cost.&lt;/li&gt;
     &lt;li&gt;If a unit does not have a cost, it cannot be produced.&lt;/li&gt;
     &lt;ol&gt;&lt;li&gt;Structures do not have costs and are usually placed by resolving the &lt;i&gt;Construction&lt;/i&gt; strategy card.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Cost_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Whenever a unit is produced, its cost must be paid, unless the effect that is producing the unit explicitly says otherwise.&lt;/li&gt;
+    &lt;li&gt;A player does not have to pay a unit&amp;rsquo;s cost to resolve that unit&amp;rsquo;s deploy ability. However, the deploy ability itself may have a cost that must be paid.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_CustiodiansToken_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The custodians token is not an attachment.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_CustodiansToken" xml:space="preserve">
@@ -834,9 +1065,32 @@
     &lt;li&gt;If the terms of a deal cannot be resolved immediately, it is a non&amp;ndash;binding deal. When a deal is non&amp;ndash;binding, a player does not have to adhere to any part of the agreement.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_Deals_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;In general, only the terms of the deal that a player can immediately perform, even without the deal taking place, are binding. For example:&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;If a player has four resources available during the &lt;b&gt;Production&lt;/b&gt; step of a tactical action, another player may give them four trade goods to on the condition that they produce a dreadnought during this &lt;b&gt;Production&lt;/b&gt; step. As the active player could produce a dreadnought with the resources, this deal is binding.&lt;/li&gt;
+        &lt;li&gt;If instead the active player has zero resources available, the same deal would be non&amp;ndash;binding.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;li&gt;The following are further examples of non&amp;ndash;binding deals:&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;Making a deal to use a promissory note in a specific way, before the promissory note has been transacted.&lt;/li&gt;
+        &lt;li&gt;Making a deal not make use of a unit&amp;rsquo;s &lt;sc&gt;Space Cannon&lt;/sc&gt; ability during a tactical action, before ships have been moved.&lt;/li&gt;
+        &lt;li&gt;Making a deal to trade commodities in exchange for the active player to replenish another player&amp;rsquo;s commodities during the resolution of the primary ability of the &lt;i&gt;Trade&lt;/i&gt; strategic action.&lt;/li&gt;
+        &lt;li&gt;Making a deal for a player to vote on an agenda in a certain way, when it is not yet that player&amp;rsquo;s opportunity to vote.&lt;/li&gt;
+        &lt;li&gt;Any deal that will resolve after dice are rolled.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_Defender" xml:space="preserve">
     <value>&lt;p&gt;During either a space or ground combat, the player who is not the active player is the defender.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Defender_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;When the Mahact player resolves their &lt;i&gt;Benediction&lt;/i&gt; hero ability, the player than had their ships already in the system will be the defender.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;Resolving abilities will be by initiative order, starting with the Mahact player. As such, the defender may resolve abilities before the attacker, depending on what order those two players are in.&lt;/li&gt;&lt;/ol&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_Deploy" xml:space="preserve">
@@ -849,11 +1103,19 @@
     &lt;li&gt;A unit&amp;rsquo;s &lt;sc&gt;Deploy&lt;/sc&gt; ability can be resolved only once per timing window.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_Deploy_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_Destroyed" xml:space="preserve">
     <value>&lt;p&gt;Various game effects can cause a unit to be destroyed. When a player&amp;rsquo;s unit is destroyed, it is removed from the game board and returned to their reinforcements.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
     &lt;li&gt;When a player assigns hits that were produced against their units, that player chooses a number of their units to be destroyed equal to the number of hits produced against those units.&lt;/li&gt;
     &lt;li&gt;If a player&amp;rsquo;s unit is removed from the board by a game effect, it is not treated as being destroyed; effects that trigger when a unit is destroyed are not triggered.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Destroyed_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_Diplomacy" xml:space="preserve">
@@ -866,6 +1128,10 @@
         &lt;li&gt;If a player already has a command token in the chosen system, they do not place a command token there.&lt;/li&gt;
     &lt;/ol&gt;
     &lt;li&gt;After the active player resolves the primary ability of the &lt;i&gt;Diplomacy&lt;/i&gt; strategy card, each other player, beginning with the player to the left of the active player and proceeding clockwise, may spend one command token from their strategy pool to ready up to two exhausted planets they control.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Diplomacy_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_Elimination" xml:space="preserve">
@@ -898,6 +1164,15 @@
     &lt;li&gt;If a player becomes eliminated, any units they have captured are returned to the reinforcements of their original owners.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_Elimination_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;While the Arborec flagship may produce units, it does not have the &lt;sc&gt;Production&lt;/sc&gt; ability. Having it on the game board will not prevent the Arborec player from being eliminated. This applies to all similar effects in the game.&lt;/li&gt;
+    &lt;li&gt;An eliminated player&amp;rsquo;s home system remains a home system for game effects.&lt;/li&gt;
+        &lt;ol&gt;&lt;li&gt;This includes effects that specify &amp;ldquo;another player&amp;rsquo;s home system&amp;rdquo;.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;If an eliminated player had any relic fragments, they are discarded to their respective exploration discard piles. If an eliminated player had any relics, they are purged.&lt;/li&gt;
+    &lt;li&gt;If a player is eliminated, any of their units that are captured remain with the player that captured them. When the capturing player would return them, the units are instead returned to the game box.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_Exhausted" xml:space="preserve">
     <value>&lt;p&gt;Some cards can be exhausted. A player cannot resolve abilities or spend the resources or influence of an exhausted card.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
@@ -907,6 +1182,12 @@
     &lt;li&gt;Abilities, including some found on technology cards, may instruct a player to exhaust a card to resolve those abilities. If a card is already exhausted, it cannot be exhausted again.&lt;/li&gt;
     &lt;ol&gt;&lt;li&gt;Passive abilities on an exhausted card are still in effect while that card is exhausted.&lt;/li&gt;&lt;/ol&gt;
     &lt;li&gt;After a player performs a strategic action, they exhaust the strategy card that corresponds to that action.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Exhausted_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Planets will also ready at the end of each agenda phase. Leaders, relics and technology will not.&lt;/li&gt;
+    &lt;li&gt;If a game effect instructs a player to exhaust a planet, the exhausted planet must be controlled by that player, unless the game effect specifies otherwise.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_Exploration" xml:space="preserve">
@@ -935,6 +1216,16 @@
     &lt;/ol&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_Exploration_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;An exploration cards that purges itself is not discarded into its respective discard pile.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Enigmatic Device&lt;/i&gt; and &lt;i&gt;Ion Storm&lt;/i&gt; are placed into play, not into the frontier discard pile.&lt;/li&gt;
+    &lt;li&gt;If a player is to gain multiple planets in a system, they choose the order in which they gain them, and explore each planet as they gain it before gaining the next.&lt;/li&gt;
+    &lt;li&gt;A player may perform transactions after revealing an exploration card and before resolving it.&lt;/li&gt;
+    &lt;li&gt;Before resolving an exploration card, it is revealed to all players.&lt;/li&gt;
+    &lt;li&gt;For notes about specific exploration cards, see the Exploration cards page.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_FighterTokens" xml:space="preserve">
     <value>&lt;p&gt;A fighter token functions as a plastic fighter unit for all game purposes.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
@@ -943,6 +1234,14 @@
     &lt;li&gt;If a player ever has a fighter token in a system that does not contain one of their plastic fighters, that player must replace it with a plastic fighter from their reinforcements.&lt;/li&gt;
     &lt;ol&gt;&lt;li&gt;If the player cannot replace the token, the unit is destroyed.&lt;/li&gt;&lt;/ol&gt;
     &lt;li&gt;Fighter tokens come in values of one and three. A player can swap between these tokens as necessary.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_FighterTokens_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;As each player only has ten plastic fighter figures, a player cannot have fighters in more than ten systems.&lt;/li&gt;
+    &lt;li&gt;Players may also swap fighter tokens for plastic pieces at any time.&lt;/li&gt;
+    &lt;li&gt;Fighter tokens are not component limited.&lt;/li&gt;
+    &lt;li&gt;A future rule change will have any unaccompanied fighter tokens removed, instead of destroyed.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_FleetPool" xml:space="preserve">
@@ -958,6 +1257,14 @@
     &lt;li&gt;Players do not spend command tokens from this pool unless a game effect specifically allows it.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_FleetPool_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Fighters and ground forces do not count towards capacity during combat. As such, any number of Fighter II may be in a system during combat, regardless of capacity and fleet pool. This will usually only be caused by effects that place units in a system during combat. When combat ends, however units will need to be removed to meet capacity and fleet pool requirements.&lt;/li&gt;
+    &lt;li&gt;Ships may be moved into, produced in or placed in a system even if doing so would exceed the fleet pool limit. However, some of those ships must immediately be removed to satisfy the limit.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;If some of those ships are fighters II, they may instead count towards that player&amp;rsquo;s capacity in that system. If capacity is exceeded, fighters or ground forces must be removed to meet the limit.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;During movement, a ship may move through a system regardless of how many ships are in that system relative to the fleet pool limit.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_FrontierTokens" xml:space="preserve">
     <value>&lt;p&gt;Frontier tokens can be explored for a variety of game effects.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
@@ -970,12 +1277,26 @@
     &lt;/ol&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_FrontierTokens_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Players may explore space areas that contain frontier tokens if they own the &lt;i&gt;Dark Energy Tap&lt;/i&gt; technology or if another game effect allows them to.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_GameBoard" xml:space="preserve">
     <value>&lt;p&gt;The game board consists of all system tiles in play.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
     &lt;li&gt;The game board consists of all system tiles that were placed during setup, even if the sides of those tiles do not touch any other system tiles, such as the Ghosts of Creuss&amp;rsquo; home system.&lt;/li&gt;
     &lt;li&gt;A system tile is on the edge of the game board if any of its sides are not touching another system tile.&lt;/li&gt;
     &lt;ol&gt;&lt;li&gt;The Ghosts of Creuss home system and the wormhole nexus are on the edge of the game board.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_GameBoard_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If the edge of a system tile is touching a hyperlane tile, that edge does not cause that system tile to be on the edge of the game board.&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;When using the five&amp;ndash; and seven&amp;ndash;player hyperlane setups, the system tile in the center of the ring of hyperlanes is not on the edge of the game board.&lt;/li&gt;
+        &lt;li&gt;When using the seven&amp;ndash; and eight&amp;ndash;player alternate setups, only the system tiles designated as &amp;ldquo;Ring 3&amp;rdquo; and home systems are on the edge of the game board, along with the Creuss home system and the wormhole nexus.&lt;/li&gt;
+    &lt;/ol&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_GameRound" xml:space="preserve">
@@ -992,6 +1313,12 @@
     &lt;li&gt;Abilities that last until the end of a player&amp;rsquo;s turn do not persist for the duration of a game round or into the other phases of that game round. Those effects end at the end of that player&amp;rsquo;s turn, before the next player&amp;rsquo;s turn begins.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_GameRound_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;During the strategy, status and agenda phases, players to not take turns for the purpose of game effects.&lt;/li&gt;
+    &lt;li&gt;A game has a maximum of nine game rounds.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_GravityRift" xml:space="preserve">
     <value>&lt;p&gt;A gravity rift is an anomaly that affects movement.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
@@ -1005,6 +1332,25 @@
     &lt;/ol&gt;
     &lt;li&gt;A gravity rift can affect the same ship multiple times during a single movement.&lt;/li&gt;
     &lt;li&gt;A system that contains multiple gravity rifts is treated as a single gravity rift.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_GravityRift_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Moving into a gravity rift will not provide the +1, nor will the ships have to roll for removal.&lt;/li&gt;
+    &lt;li&gt;A ship removed by a gravity rift is not destroyed.&lt;/li&gt;
+    &lt;li&gt;All ship movement must be declared before any roll for gravity rift removal. A player may not move additional ships after seeing the result of this roll.&lt;/li&gt;
+    &lt;li&gt;A ship that is removed by a gravity rift will not count toward the fleet limit in the destination system.&lt;/li&gt;
+    &lt;li&gt;Retreating from a gravity rift will result in the following:&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;The retreating player must declare which, if any, fighters and ground forces they are moving, and which ships will be transporting them. If they have the Fighter II technology, then for each fighter, they must choose if that fighter is moving itself or being transported.&lt;/li&gt;
+        &lt;li&gt;Each non&amp;ndash;fighter ship and each Fighter II moving itself will have to roll for removal. Transported units are also removed if they ship transporting them is removed.&lt;/li&gt;
+        &lt;li&gt;The +1 will have no effect, as retreats are restricted to adjacent systems.&lt;/li&gt;
+        &lt;li&gt;If all ships are lost to the rift, the retreating player will not place a command token in the destination system.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;li&gt;If a ship moves through or out of multiple gravity rifts, and/or the same gravity rift multiple times, each instance will provide a +1 to movement, and requires a separate roll for removal.&lt;/li&gt;
+    &lt;li&gt;If a ship with capacity would transport another unit after moving out of or through a gravity rift, but is removed, that unit remains where it is.&lt;/li&gt;
+    &lt;li&gt;A system containing a Vuil&amp;rsquo;raith Dimensional Tear is a gravity rift, and thus an anomaly.&lt;/li&gt;
+    &lt;li&gt;A future rule change will place the ship movement restrictions of anomalies upon all units.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_GroundCombat" xml:space="preserve">
@@ -1024,12 +1370,27 @@
     &lt;/ol&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_GroundCombat_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The &amp;ldquo;start of combat&amp;rdquo; and &amp;ldquo;start of combat round&amp;rdquo; occurs before the &lt;b&gt;Roll Dice&lt;/b&gt; step.&lt;/li&gt;
+    &lt;li&gt;The &amp;ldquo;end of combat&amp;rdquo; and &amp;ldquo;end of combat round&amp;rdquo; occurs after the &lt;b&gt;Assign Hits&lt;/b&gt; step.&lt;/li&gt;
+    &lt;li&gt;If ground combat is to happen on multiple planets during a single invasion step, they will be resolved planet by planet, after the &lt;b&gt;Space Cannon Defense&lt;/b&gt; step has resolved been resolved on all planets and before the &lt;b&gt;Establish Control&lt;/b&gt; step is resolved on any planet. The active player chooses the order combats are fought in.&lt;/li&gt;
+    &lt;li&gt;A player may score up to one secret objective per ground combat. If there is combat on multiple planets, a player may score a secret objective in each.&lt;/li&gt;
+    &lt;li&gt;A player may use the &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability of a unit involved in a combat, usually a mech, to cancel a hit produced by their opponent.&lt;/li&gt;
+    &lt;li&gt;No player may retreat from a ground combat.&lt;/li&gt;
+    &lt;li&gt;The &amp;ldquo;0&amp;rdquo; side of the d10 represents a result of 10.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_GroundForces" xml:space="preserve">
     <value>&lt;p&gt;A ground force is a type of unit. All infantry and mech units in the game are ground forces. Some races have unique infantry units.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
     &lt;li&gt;Ground forces are always on planets, in a space area with ships that have capacity values, or being transported by those ships.&lt;/li&gt;
     &lt;li&gt;Ground forces being transported by a ship are placed in a system&amp;rsquo;s space area along with the ship that is transporting them.&lt;/li&gt;
     &lt;li&gt;There is no limit to the number of ground forces a player can have on a planet.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_GroundForces_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_Hyperlanes" xml:space="preserve">
@@ -1039,6 +1400,23 @@
     &lt;li&gt;Hyperlane tiles are not systems. They cannot have units on them and they cannot be targets for effects or abilities.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_Hyperlanes_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If the edge of a system time is touching a hyperlane tile, that edge does not cause that system tile to be on the edge of the game board.&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;When using the five&amp;ndash; and seven&amp;ndash;player hyperlane setups, the system tile in the center of the ring of hyperlanes is not on the edge of the game board.&lt;/li&gt;
+        &lt;li&gt;When using the seven&amp;ndash; and eight&amp;ndash;player alternate setups, only the system tiles designated as &amp;ldquo;Ring 3&amp;rdquo; and home systems are on the edge of the game board, along with the Creuss home system and the wormhole nexus.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;li&gt;&amp;ldquo;Adjacent for all purposes&amp;rdquo; includes:&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;&lt;sc&gt;Deep Space Cannon&lt;/sc&gt;.&lt;/li&gt;
+        &lt;li&gt;Movement.&lt;/li&gt;
+        &lt;li&gt;Neighbors.&lt;/li&gt;
+        &lt;li&gt;Any other game effect that specifies adjacent systems.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;li&gt;Hyperlanes on the same tile that converge at a point on the tile edge are not connected. For example, with the &amp;ldquo;Five&amp;ndash;Player Galaxy Setup (With Hyperlanes)&amp;rdquo; in the &lt;i&gt;Prophecy of Kings&lt;/i&gt; Map Appendix, the hyperlanes on tile 87A do not connect tiles 39 and 63, and the hyperlanes on tile 88A do not connect tiles 41 and 80.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_Imperial" xml:space="preserve">
     <value>&lt;p&gt;The &lt;i&gt;Imperial&lt;/i&gt; strategy card allows players to score victory points and draw secret objectives. This card&amp;rsquo;s initiative value is &amp;ldquo;8&amp;rdquo;.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
@@ -1046,6 +1424,14 @@
     &lt;li&gt;To resolve the primary ability on the &lt;i&gt;Imperial&lt;/i&gt; strategy card, the active player can score one public objective of their choice if they meet that objective&amp;rsquo;s requirements as described on its card. Then, if the active player controls Mecatol Rex, they gain one victory point; if they do not control Mecatol Rex, they can draw one secret objective card.&lt;/li&gt;
     &lt;li&gt;After the active player resolves the primary ability of the &lt;i&gt;Imperial&lt;/i&gt; strategy card, each other player, beginning with the player to the left of the active player and proceeding clockwise, may spend one command token from their strategy pool to draw one secret objective card.&lt;/li&gt;
     &lt;li&gt;If a player has more than three secret objective cards after drawing a secret objective, they must choose one of their &lt;b&gt;unscored&lt;/b&gt; secret objectives and return it to the secret objective deck. This number includes the secret objective cards in the player&amp;rsquo;s hand &lt;b&gt;and&lt;/b&gt; the cards that player has already scored. Then, they shuffle the secret objective deck.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Imperial_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player must control every planet in their home system to score a public objective using the first primary ability of &lt;i&gt;Imperial&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;A player who controls Mecatol Rex does not need to control every planet in their home system to gain a victory point from the second primary ability of &lt;i&gt;Imperial&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;A player who controls Mecatol Rex while resolving the primary ability of &lt;i&gt;Imperial&lt;/i&gt; must gain a victory point; they cannot instead draw a secret objective.&lt;/li&gt;
+    &lt;li&gt;A player who needs to discard a secret objective must do so and reshuffle the deck before the next player may draw from the deck.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_InfantryTokens" xml:space="preserve">
@@ -1058,6 +1444,15 @@
     &lt;li&gt;Infantry tokens come in values of one and three. A player can swap between these tokens as necessary.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_InfantryTokens_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;As each player only has twelve plastic infantry figures, a player cannot have infantry on more than twelve planets or being transported in more than twelve space areas, or any combination thereof.&lt;/li&gt;
+    &lt;li&gt;Players may also swap infantry tokens for plastic pieces at any time.&lt;/li&gt;
+    &lt;li&gt;Infantry tokens are not component limited.&lt;/li&gt;
+    &lt;li&gt;A player may remove a plastic infantry figure from a planet or space area, along with any accompanying infantry tokens, if doing so allows them to swap it into the active system and allows them to commit ground forces to and fight ground combats on multiple planets during the &lt;b&gt;Invasion&lt;/b&gt; step of the tactical action in that system when they could otherwise not do so.&lt;/li&gt;
+    &lt;li&gt;A future rule change will have any unaccompanied infantry tokens removed, instead of destroyed.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_Influence" xml:space="preserve">
     <value>&lt;p&gt;Influence represents a planet&amp;rsquo;s political power. Players spend influence to gain command tokens using the &lt;i&gt;Leadership&lt;/i&gt; strategy card, and the influence values of planets are used to cast votes during the agenda phase.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
@@ -1065,6 +1460,10 @@
     &lt;li&gt;A player can spend a planet&amp;rsquo;s influence by exhausting that planet&amp;rsquo;s card.&lt;/li&gt;
     &lt;li&gt;A player can spend a trade good as if it were one influence.&lt;/li&gt;
     &lt;ol&gt;&lt;li&gt;Players cannot spend trade goods to cast votes during the agenda phase.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Influence_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_InitiativeOrder" xml:space="preserve">
@@ -1075,6 +1474,22 @@
     &lt;li&gt;Initiative order begins with the player who has the lowest&amp;ndash;numbered strategy card and proceeds to the player who has the strategy card that is next in numerical order.&lt;/li&gt;
     &lt;ol&gt;&lt;li&gt;Only strategy cards that were chosen during the strategy phase are used when determining initiative order; strategy cards not chosen during the strategy phase are ignored.&lt;/li&gt;&lt;/ol&gt;
     &lt;li&gt;When playing with three or four players, a player&amp;rsquo;s initiative is determined only by their lowest&amp;ndash;numbered strategy card.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_InitiativeOrder_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If there are multiple abilities that players wish to resolve at the same time during the action phase, initiative order will determine the order they are resolved in. See faction page for more details.&lt;/li&gt;
+    &lt;li&gt;The initiative order of all strategy cards is:&lt;/li&gt;
+    &lt;ol class="roman"&gt;
+        &lt;li&gt;Leadership&lt;/li&gt;
+        &lt;li&gt;Diplomacy&lt;/li&gt;
+        &lt;li&gt;Politics&lt;/li&gt;
+        &lt;li&gt;Construction&lt;/li&gt;
+        &lt;li&gt;Trade&lt;/li&gt;
+        &lt;li&gt;Warfare&lt;/li&gt;
+        &lt;li&gt;Technology&lt;/li&gt;
+        &lt;li&gt;Imperial&lt;/li&gt;
+    &lt;/ol&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_Invasion" xml:space="preserve">
@@ -1099,6 +1514,14 @@
         &lt;li&gt;A player cannot gain control of a planet they already control.&lt;/li&gt;
         &lt;li&gt;If there was a combat, and all units belonging to both players were destroyed, the player who was the defender retains control of the planet and places one of their control tokens on the planet.&lt;/li&gt;
     &lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Invasion_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Units are considered to be on the planet for game effects from the &lt;b&gt;Commit Ground Forces&lt;/b&gt; step onward.&lt;/li&gt;
+    &lt;li&gt;If a player gains control of an uncontrolled planet during the &lt;b&gt;Establish Control&lt;/b&gt; step, they explore it.&lt;/li&gt;
+    &lt;li&gt;If a player gains control of a legendary planet, they gain the legendary planet ability card in addition to the planet card. The card will not be exhausted if it was readied.&lt;/li&gt;
+    &lt;li&gt;If Mecatol Rex has the custodians token on it, a player must remove it before they may commit ground forces to it.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_Leaders" xml:space="preserve">
@@ -1146,6 +1569,10 @@
     &lt;li&gt;Players who are familiar with the game can hide the quick reference by placing that portion of the leader sheet under their faction sheets.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_LeaderSheet_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_Leadership" xml:space="preserve">
     <value>&lt;p&gt;The &lt;i&gt;Leadership&lt;/i&gt; strategy card allows players to gain command tokens. This card&amp;rsquo;s initiative value is &amp;ldquo;1&amp;rdquo;.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
@@ -1153,6 +1580,19 @@
     &lt;li&gt;To resolve the primary ability on the &lt;i&gt;Leadership&lt;/i&gt; strategy card, the active player gains three command tokens. Then, that player can spend any amount of their influence to gain one command token for every three influence they spend.&lt;/li&gt;
     &lt;li&gt;After the active player resolves the primary ability of the &lt;i&gt;Leadership&lt;/i&gt; strategy card, each other player, beginning with the player to the left of the active player and proceeding clockwise, may spend any amount of influence to gain one command token for every three influence they spend.&lt;/li&gt;
     &lt;li&gt;When a player gains command tokens, that player places each token on their command sheet in the pool of their choice.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Leadership_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The secondary ability of &lt;i&gt;Leadership&lt;/i&gt; does not require a player to spend a strategy token.&lt;/li&gt;
+    &lt;li&gt;A player may spend one or two more influence than the amount necessary for the tokens they gain; however, this influence is wasted.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Leaders_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A commander&amp;rsquo;s ability cannot be applied to the instance of the effect that unlocked it.&lt;/li&gt;
+    &lt;li&gt;A commander may be unlocked between two abilities that occur in the same timing window.&lt;/li&gt;
+    &lt;li&gt;For notes about a leader of a specific faction, see that faction&amp;rsquo;s page.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_LegendaryPlanets" xml:space="preserve">
@@ -1168,10 +1608,27 @@
     &lt;li&gt;If a legendary planet&amp;rsquo;s planet card is purged, its corresponding legendary planet ability card is also purged.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_LegendaryPlanets_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If a player wishes to resolve the &lt;i&gt;Imperial Arms Vault&lt;/i&gt; ability of Hope&amp;rsquo;s End, but they have no mechs left in their reinforcements, they may remove a mech from any system that does not contain one of their command tokens and place that instead. The mech will be placed undamaged.&lt;/li&gt;
+    &lt;li&gt;If an effect instructs a player to &amp;ldquo;end your turn&amp;rdquo;, that player may still resolve any &amp;ldquo;at the end of your turn&amp;rdquo; abilities, including those of legendary planets.&lt;/li&gt;
+    &lt;li&gt;A player may resolve multiple legendary planet abilities at the end of a single turn.&lt;/li&gt;
+    &lt;li&gt;Legendary planet ability cards exhaust and ready independently from respective planet card.&lt;/li&gt;
+    &lt;li&gt;An ability that readies a plannet cannot be used to ready a legendary planet ability card.&lt;/li&gt;
+    &lt;li&gt;A legendary planet ability card will ready in the status phase.&lt;/li&gt;
+    &lt;li&gt;Mecatol Rex is not a legendary planet.&lt;/li&gt;
+    &lt;li&gt;For the system that contains Malice, see the Wormhole Nexus section&lt;/a&gt;.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_MecatolRex" xml:space="preserve">
     <value>&lt;p&gt;Mecatol Rex is the planet placed in the center of the game board during setup.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
     &lt;li&gt;During setup, the custodians token is placed on Mecatol Rex. This token prevents a player from committing ground forces to land on the planet unless they spend six influence to remove the token.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_MecatolRex_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Mecatol Rex is not a legendary planet.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_Mechs" xml:space="preserve">
@@ -1183,11 +1640,24 @@
     &lt;li&gt;Mech unit cards are not technologies.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_Mechs_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Effects that refer to &amp;ldquo;ground forces&amp;rdquo; apply to Mechs. Effects that refer to &amp;ldquo;infantry&amp;rdquo; do not.&lt;/li&gt;
+    &lt;li&gt;For notes about a mech of a specific faction, see that faction&amp;rsquo;s page.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_Modifiers" xml:space="preserve">
     <value>&lt;p&gt;A modifier is a number that is applied by an ability to increase or decrease the attribute values of a unit or the results of a die roll.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
     &lt;li&gt;A modifier is always preceded by the word &amp;ldquo;apply&amp;rdquo; followed by a numerical value.&lt;/li&gt;
     &lt;li&gt;A modifier value preceded by a &amp;ldquo;+&amp;rdquo; is added to the attribute or result being modified; a modifier value preceded by a &amp;ldquo;&amp;minus;&amp;rdquo; is subtracted from the attribute or result being modified.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Modifiers_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;&amp;ldquo;Combat roll&amp;rdquo; modifiers do not modify anti&amp;ndash;fighter barrage, bombardment or space cannon rolls.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;Modifiers that apply during combat do apply to anti&amp;ndash;fighter barrage rolls.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;When an effect moves a unit to an adjacent system, modifying that unit&amp;rsquo;s move value will have no effect.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_Move" xml:space="preserve">
@@ -1218,6 +1688,21 @@
     &lt;li&gt;If an ability moves a unit outside of the &lt;b&gt;Movement&lt;/b&gt; step of a tactical action, players follow the rules specified by that ability; neither a unit&amp;rsquo;s move value nor the rules specified above apply.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_Movement_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;When an effect moves a unit to an adjacent system, modifying that unit&amp;rsquo;s move value will have no effect.&lt;/li&gt;
+    &lt;li&gt;An ability may move a player&amp;rsquo;s ship out of a system containing one of the player&amp;rsquo;s faction&amp;rsquo;s commend tokens. However, the transport rules prevent a player&amp;rsquo;s units from being transported from systems containing one of that player&amp;rsquo;s command tokens, other than the active system. An ability that moves a player&amp;rsquo;s ship must also explicitly allow it to transport units from non&amp;ndash;active systems containing that player&amp;rsquo;s faction&amp;rsquo;s command token for it to be able to do so.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;During a retreat, units may be transported from the active system.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;A ship that can both move and be transported (i.e. Fighter II) cannot do both by &amp;ldquo;meeting&amp;rdquo; a ship with capacity partway though a tactical action movement, as all movement is simultaneous.&lt;/li&gt;
+    &lt;li&gt;Ships only move &amp;ldquo;into&amp;rdquo; the destination system. A ship may move &amp;ldquo;through&amp;rdquo; other systems.&lt;/li&gt;
+    &lt;li&gt;Fighters alone will block other player&amp;rsquo;s ships from moving through that system, whether they are accompanied by a Space Dock or they are Fighters II.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Move_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;When an effect moves a unit to an adjacent system, modifying that unit&amp;rsquo;s move value will have no effect.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_Nebula" xml:space="preserve">
     <value>&lt;p&gt;A nebula is an anomaly that affects movement and combat.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
@@ -1228,12 +1713,27 @@
     &lt;li&gt;If a space combat occurs in a nebula, the defender applies +1 to each combat roll of their ships during that combat.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_Nebula_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player cannot retreat (or similar) into a nebula, since it would not be the active system.&lt;/li&gt;
+    &lt;li&gt;The +1 modifier for the defender does not modify anti&amp;ndash;fighter barrage, bombardment or space cannon rolls.&lt;/li&gt;
+    &lt;li&gt;The +1 modifier for the defender has no effect during ground combat.&lt;/li&gt;
+    &lt;li&gt;A future rule change will place the ship movement restrictions of anomalies upon all units.&lt;/li&gt;
+    &lt;li&gt;A future rule change will allow ships to move into a nebula when it is not the active system.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_Neighbors" xml:space="preserve">
     <value>&lt;p&gt;Two players are neighbors if they both have a unit or control a planet in the same system. They are also neighbors if they both have a unit or control a planet in systems that are adjacent to each other.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
     &lt;li&gt;Players can resolve transactions with their neighbors.&lt;/li&gt;
     &lt;li&gt;Players are neighbors if the adjacency of systems is granted by a wormhole.&lt;/li&gt;
     &lt;li&gt;Players are neighbors with the Ghosts of Creuss if the Ghosts of Creuss&amp;rsquo; &amp;ldquo;Quantum Entanglement&amp;rdquo; faction ability is causing adjacency from the perspective of the Ghosts of Creuss player.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Neighbors_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player may make a deal with any player, however, these deals may only include a transaction if the two players are neighbors.&lt;/li&gt;
+    &lt;li&gt;A player may resolve one transaction with each other player per each agenda during the agenda phase, however, the agenda phase does not make all players neighbors.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_ObjectiveCards" xml:space="preserve">
@@ -1277,10 +1777,26 @@
     &lt;li&gt;A player can gain secret objectives by resolving either the primary or secondary ability of the &lt;i&gt;Imperial&lt;/i&gt; strategy card.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_ObjectiveCards_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A status phase objective must have its condition met during the status phase; any activity during the action phase is irrelevant.&lt;/li&gt;
+    &lt;li&gt;A player may choose to reveal any or all of the secret objective cards in their hand, if they so choose.&lt;/li&gt;
+    &lt;li&gt;If multiple ground combats happen on separate planets as part of a single invasion during one action, one secret objective may be scored during each.&lt;/li&gt;
+    &lt;li&gt;The &lt;b&gt;Bombardment&lt;/b&gt; and &lt;b&gt;Space Cannon&lt;/b&gt; steps happen outside of combat; any number of secret objectives may be scored during those steps, and do not prevent another secret objective being scored during combat that turn.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;The &lt;b&gt;Anti&amp;ndash;Fighter Barrage&lt;/b&gt; step, however, is a step during combat.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;A player may score an action phase secret objective when they are not the active player.&lt;/li&gt;
+    &lt;li&gt;A player with three scored secret objectives may draw a fourth. However, they must immediately shuffle it into the secret objective deck.&lt;/li&gt;
+    &lt;li&gt;For notes about specific objective cards, see the Objective cards page.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_Opponent" xml:space="preserve">
     <value>&lt;p&gt;During combat, a player&amp;rsquo;s opponent is the other player that either has ships in the system at the start of the space combat or has ground forces on the planet at the start of a ground combat.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
     &lt;li&gt;Players who do not have units on either side of a combat are not opponents. Those players cannot use abilities or have abilities used against them that are used against an opponent.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Opponent_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_Pds" xml:space="preserve">
@@ -1290,6 +1806,12 @@
     &lt;li&gt;The primary way by which players acquire PDS units is by resolving either the primary or secondary ability of the &lt;i&gt;Construction&lt;/i&gt; strategy card.&lt;/li&gt;
     &lt;li&gt;A PDS unit is placed on a planet. Each planet can have a maximum of &lt;b&gt;two&lt;/b&gt; PDS units.&lt;/li&gt;
     &lt;li&gt;If a player&amp;rsquo;s PDS is ever on a planet that does not contain any of their own ground forces and contains a unit that belongs to another player, that PDS is destroyed.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Pds_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A PDS is both a structure and a unit.&lt;/li&gt;
+    &lt;li&gt;Each PDS also has the &lt;sc&gt;Planetary Shield&lt;/sc&gt; ability.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_PlanetaryShield" xml:space="preserve">
@@ -1302,6 +1824,14 @@
         &lt;li&gt;Units treated as if they do not have a &lt;sc&gt;Planetary Shield&lt;/sc&gt; ability cannot use the &lt;i&gt;Magen Defense Grid&lt;/i&gt; technology.&lt;/li&gt;
         &lt;li&gt;A war sun can use its &lt;sc&gt;Bombardment&lt;/sc&gt; ability against planets that contain units that have the &lt;sc&gt;Planetary Shield&lt;/sc&gt; ability.&lt;/li&gt;
     &lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_PlanetaryShield_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A unit with the &lt;sc&gt;Planetary Shield&lt;/sc&gt; ability on a planet does not stop of the use of a unit&amp;rsquo;s &lt;sc&gt;Bombardment&lt;/sc&gt; ability on other planets in the same system.&lt;/li&gt;
+    &lt;li&gt;The &lt;sc&gt;Planetary Shield&lt;/sc&gt; ability prevents the use of the &lt;i&gt;X&amp;ndash;89 Bacterial Weapon &amp;Omega;&lt;/i&gt; technology.&lt;/li&gt;
+    &lt;li&gt;If a war sun causes a unit to be treated as if it does not have a &lt;sc&gt;Planetary Shield&lt;/sc&gt; ability, that unit may still use the ability of the &lt;i&gt;Magen Defense Grid &amp;Omega;&lt;/i&gt; technology.&lt;/li&gt;
+    &lt;li&gt;If a war sun causes a unit to be treated as if it does not have a &lt;sc&gt;Planetary Shield&lt;/sc&gt; ability, all units in that system with a &lt;sc&gt;Bombardment&lt;/sc&gt; ability may use it against the planet that unit is on.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_Planets" xml:space="preserve">
@@ -1319,6 +1849,15 @@
     &lt;li&gt;A player cannot spend an exhausted planet&amp;rsquo;s resources or influence.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_Planet_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Mecatol Rex and planets in home systems do not have traits.&lt;/li&gt;
+    &lt;li&gt;Planets with traits can be explored.&lt;/li&gt;
+    &lt;li&gt;A planet cannot be spent for both its influence and resources during a single exhaustion.&lt;/li&gt;
+    &lt;li&gt;If a planet is exhausted for its technology specialty, it does not provide influence or resources.&lt;/li&gt;
+    &lt;li&gt;A player may only exhaust their own planets, unless a game effect specifies otherwise.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_Politics" xml:space="preserve">
     <value>&lt;p&gt;The &lt;i&gt;Politics&lt;/i&gt; strategy card allows players to draw action cards. Additionally, the active player chooses a new speaker and looks at cards in the agenda deck. This card&amp;rsquo;s initiative value is &amp;ldquo;3&amp;rdquo;.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
@@ -1330,6 +1869,12 @@
         &lt;li&gt;The active player secretly looks at the top two cards of the agenda deck. Then, that player places each card on either the top or the bottom of the deck. If they place both cards on either the top or bottom, they can place them in any order.&lt;/li&gt;
     &lt;/ol&gt;
     &lt;li&gt;After the active player resolves the primary ability of the &lt;i&gt;Politics&lt;/i&gt; strategy card, each other player, beginning with the player to the left of the active player and proceeding clockwise, may spend one command token from their strategy pool to draw two action cards.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Politics_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If there are few cards remaining in the action card deck, they will be dealt out in clockwise order from the active player. After those players have discarded down to their seven card hand limit, if necessary, the discard pile will be shuffled to form a new deck. The remaining players (including the player who received the last action card from the previous deck, if applicable) will then be dealt their action cards.&lt;/li&gt;
+    &lt;li&gt;When resolving the primary ability of the &lt;i&gt;Politics&lt;/i&gt; card, the active player cannot show the agenda cards they drew to any other player.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_ProducingUnits" xml:space="preserve">
@@ -1361,6 +1906,14 @@
     &lt;ol&gt;&lt;li&gt;Ground forces can still be produced.&lt;/li&gt;&lt;/ol&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_ProducingUnits_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Whenever a unit is produced, its cost must be paid, unless the effect that is producing the unit explicitly says otherwise.&lt;/li&gt;
+    &lt;li&gt;A player cannot produce one fighter and one infantry for one resource.&lt;/li&gt;
+    &lt;li&gt;If an effect allows a player produce a ship of a specific type, then factional variations do not prevent that player from producing that type of ship.&lt;/li&gt;
+    &lt;li&gt;If a player removes a unit in order to place it, because they have none of that unit type in their reinforcements, that unit is placed undamaged.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_Production" xml:space="preserve">
     <value>&lt;p&gt;During the &lt;b&gt;Production&lt;/b&gt; step of a tactical action, the active player can resolve the &lt;sc&gt;Production&lt;/sc&gt; ability of each of their units that are in the active system to produce units&lt;/p&gt;
     &lt;ol class="lrr"&gt;
@@ -1374,6 +1927,14 @@
     &lt;li&gt;When a player produces ships by using &lt;sc&gt;Production&lt;/sc&gt; that player must place them in the active system.&lt;/li&gt;
     &lt;li&gt;When a player produces ground forces, that player must place those unit on planets that contain a unit that used its &lt;sc&gt;Production&lt;/sc&gt; ability.&lt;/li&gt;
     &lt;li&gt;If a player uses the &lt;sc&gt;Production&lt;/sc&gt; ability of a unit in a space area of a system to produce ground forces, those ground forces may either be placed on a planet the player controls in that system or in the space area of that system.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Production_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A unit&amp;rsquo;s &lt;sc&gt;Production&lt;/sc&gt; value is the maximum number of units that may be produced by that unit, regardless of cost. For example, a space dock with &amp;ldquo;&lt;sc&gt;Production&lt;/sc&gt; 6&amp;rdquo; could produce six dreadnoughts or six fighters.&lt;/li&gt;
+    &lt;li&gt;Placement of produced units is not limited by a unit&amp;rsquo;s &lt;sc&gt;Production&lt;/sc&gt; value, only by the location of the producing units.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;For example, say a player is performing a tactical action on tile 75. They have one Space Dock I each on Abaddon and Ashtroth, but not on Loki. They combine their production to place seven infantry. They could place all seven on Abaddon, all seven on Ashtroth, or split them. They cannot place any on Loki.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;If an effect allows a player produce a ship of a specific type, then factional variations do not prevent that player from producing that type of ship.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_PromissoryNotes" xml:space="preserve">
@@ -1392,12 +1953,28 @@
     &lt;ol&gt;&lt;li&gt;Other players&amp;rsquo; promissory notes are returned to those players.&lt;/li&gt;&lt;/ol&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_PromissoryNotes_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;When two players make a trade for a promissory note, the specific promissory note that was traded may be hidden from other players.&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;However, it is public information that a promissory note was traded.&lt;/li&gt;
+        &lt;li&gt;The &lt;i&gt;Alliance&lt;/i&gt; and &lt;i&gt;Support for the Throne&lt;/i&gt; promissory notes must be played immediately when received. As such, trading either of these notes cannot be kept hidden.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;li&gt;A player may choose to reveal any or all of the promissory notes in their hand, if they so choose.&lt;/li&gt;
+    &lt;li&gt;For notes about specific generic promissory notes, see the Promissory notes page.&lt;/li&gt;
+    &lt;li&gt;For notes about a promissory note of a specific faction, see that faction&amp;rsquo;s notes page.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_Purge" xml:space="preserve">
     <value>&lt;p&gt;Purge is a cost that permanently removes a component from the game. If an ability requires that its component is purged, that component can only be used once per game.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
     &lt;li&gt;If an ability instructs a player to purge a component, that component is removed from the game and returned to the box.&lt;/li&gt;
     &lt;li&gt;Purged components cannot be used or otherwise returned to the game by any means.&lt;/li&gt;
     &lt;li&gt;When a player is instructed to purge a component, that component is purged even if its ability was only partially resolved.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Purge_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_Readied" xml:space="preserve">
@@ -1413,10 +1990,24 @@
     &lt;ol&gt;&lt;li&gt;That card is later readied during the status phase.&lt;/li&gt;&lt;/ol&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_Redied_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Passive abilities on an exhausted card are still in effect while that card is exhausted.&lt;/li&gt;
+    &lt;li&gt;Planets will also ready at the end of each agenda phase. Leaders, relics and technology will not.&lt;/li&gt;
+    &lt;li&gt;If a game effect instructs a player to ready a planet, the readied planet must be controlled by that player, unless the game effect specifies otherwise.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_Reinforcements" xml:space="preserve">
     <value>&lt;p&gt;A player&amp;rsquo;s reinforcements is that player&amp;rsquo;s personal supply of units and command tokens that are not on the game board or otherwise in use.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
     &lt;li&gt;The components in a player&amp;rsquo;s reinforcements are limited.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Reinforcements_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If a player wishes to place a unit, but there are none of that type left in their reinforcements, they may remove a unit of that type from any system that does not contain one of their command tokens and place that instead.&lt;/li&gt;
+    &lt;li&gt;Command tokens on a player&amp;rsquo;s command sheet are not in that player&amp;rsquo;s reinforcements.&lt;/li&gt;
+    &lt;li&gt;Captured units are not in any player&amp;rsquo;s reinforcements.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_Relics" xml:space="preserve">
@@ -1430,12 +2021,25 @@
     &lt;li&gt;Relics cannot be traded.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_Relics_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If the relic deck is empty, a player may still purge three relic fragments as an action.&lt;/li&gt;
+    &lt;li&gt;If an eliminated player had any relic fragments, they are discarded to their respective exploration discard piles. If an eliminated player had any relics, they are purged.&lt;/li&gt;
+    &lt;li&gt;For notes about specific relics, see the Relic page.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_Rerolls" xml:space="preserve">
     <value>&lt;p&gt;Some game effects instruct a player to reroll dice.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
     &lt;li&gt;When a die is rerolled, its new result is used instead of its previous result.&lt;/li&gt;
     &lt;li&gt;The same ability cannot be used to reroll the same die multiple times, but multiple abilities can be used to reroll a single die.&lt;/li&gt;
     &lt;li&gt;Die rerolls must occur after rolling the dice, before other abilities are resolved.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Rerolls_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Effects that reroll &amp;ldquo;combat rolls&amp;rdquo; do not reroll anti&amp;ndash;fighter barrage, bombardment or space cannon rolls.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;Reroll effects that apply during combat do apply to anti&amp;ndash;fighter barrage rolls.&lt;/li&gt;&lt;/ol&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_Resources" xml:space="preserve">
@@ -1446,6 +2050,10 @@
     &lt;li&gt;A player can spend a trade good as if it were one resource.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_Resources_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_Ships" xml:space="preserve">
     <value>&lt;p&gt;A ship is a unit type consisting of carriers, cruisers, dreadnoughts, destroyers, fighters, and war suns. Each race also has a unique flagship.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
@@ -1453,6 +2061,11 @@
     &lt;li&gt;A player can have a number of ships in a system equal to or less than the number of command tokens in that player&amp;rsquo;s fleet pool.&lt;/li&gt;
     &lt;ol&gt;&lt;li&gt;Fighters do not count toward the fleet pool limit, and instead count against a player&amp;rsquo;s capacity.&lt;/li&gt;&lt;/ol&gt;
     &lt;li&gt;Ships can have any number of the following attributes: cost, combat, move, and capacity. These attributes are shown on faction sheets and unit upgrade technology cards.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Ships_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A Fighter II may count towards either the fleet pool limit or a player&amp;rsquo;s capacity.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_SpaceCannon" xml:space="preserve">
@@ -1485,6 +2098,19 @@
     &lt;/ol&gt;
     &lt;li&gt;&lt;b&gt;Step 2 &amp;ndash; Assign Hits&lt;/b&gt;: The active player must choose and destroy one of their ground forces on the planet for each hit the space cannon roll produced.&lt;/li&gt;
     &lt;ol&gt;&lt;li&gt;Hits can only be assigned to units that are on the same planet as the units using the &lt;sc&gt;Space Cannon&lt;/sc&gt; ability.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_SpaceCannon_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;&amp;ldquo;&lt;sc&gt;Deep Space Cannon&lt;/sc&gt;&amp;rdquo; is not a term with meaning within the rules. It is, however, used within the notes on this website as a shorthand for &lt;sc&gt;Space Cannon&lt;/sc&gt; abilities that can be used against ships in an adjacent system.&lt;/li&gt;
+    &lt;li&gt;The &lt;b&gt;Space Cannon Offense&lt;/b&gt; step happens before combat. Any secret objectives that require winning a combat or similar cannot be scored if all of one player&amp;rsquo;s ships in a system are destroyed during this step.&lt;/li&gt;
+    &lt;li&gt;If a player chooses to use the &lt;sc&gt;Space Cannon&lt;/sc&gt; ability of their units, they must do so for all of their eligible units with the &lt;sc&gt;Space Cannon&lt;/sc&gt; ability. This includes units in adjacent systems, if applicable.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;A player that chooses to use the &lt;sc&gt;Space Cannon&lt;/sc&gt; ability of their units may choose whether or not they use the ability of the &lt;i&gt;Plasma Scoring&lt;/i&gt; technology, if they own it, and any similar abilities, independent of one another.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;A player may use the &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability of a ship in the active system to cancel a hit produced during the &lt;b&gt;Space Cannon Offense&lt;/b&gt; step.&lt;/li&gt;
+    &lt;li&gt;A player may use the &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability of a mech committed to a planet to cancel a produced during the &lt;b&gt;Space Cannon Defense&lt;/b&gt; step by a unit on that planet.&lt;/li&gt;
+    &lt;li&gt;If multiple players are resolving the &lt;sc&gt;Space Cannon&lt;/sc&gt; ability of their units against the active player, the active player must resolve capacity limits after assigning one player&amp;rsquo;s hits and before the next player make their space cannon roll.&lt;/li&gt; 
+    &lt;li&gt;A player cannot assign hits produced by a space cannon roll to their own units.&lt;/li&gt;
+    &lt;li&gt;The &amp;ldquo;0&amp;rdquo; side of the d10 represents a result of 10.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_SpaceCombat" xml:space="preserve">
@@ -1537,6 +2163,26 @@
     &lt;ol&gt;&lt;li&gt;If the winner of the combat has fighters or ground forces in the space area of the active system and those units exceed the capacity of that player&amp;rsquo;s ships in that system, that player must choose and remove any excess units.&lt;/li&gt;&lt;/ol&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_SpaceCombat_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player&amp;rsquo;s fighters and ground forces do not count against capacity during combat. At the end of combat, any excess units are removed and returned to that player&amp;rsquo;s reinforcements.&lt;/li&gt;
+    &lt;li&gt;A player may retreat into an asteroid field only if that player owns the &lt;i&gt;Antimass Deflectors&lt;/i&gt; technology.&lt;/li&gt;
+    &lt;li&gt;A player may retreat into a supernova only if that player owns the &lt;i&gt;Magmus Reactor&lt;/i&gt; Muaat factional technology.&lt;/li&gt;
+    &lt;li&gt;A player cannot retreat into a nebula.&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;The Empyrean player may retreat into a nebula.&lt;/li&gt;
+        &lt;li&gt;The &lt;i&gt;Shared Research&lt;/i&gt; law will not allow a player to retreat into a nebula.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;li&gt;A player may attempt to retreat from a combat in a gravity rift, but will still be affected by it. See the Gravity Rift section for more details.&lt;/li&gt;
+    &lt;li&gt;If a player only has fighters I in the combat when they retreat, those will be removed from the board, and they will not place a command token in an adjacent system.&lt;/li&gt;
+    &lt;li&gt;The &lt;i&gt;Nav Suite&lt;/i&gt; action card will not allow a player ignore an anomaly while retreating.&lt;/li&gt;
+    &lt;li&gt;The &lt;i&gt;Dark Energy Tap&lt;/i&gt; technology allows a player to retreat into a system that does not contain their ships or a planet they control.&lt;/li&gt;
+    &lt;li&gt;Modifying the move value of a ship will have no effect when retreating. Retreats are limited to adjacent systems.&lt;/li&gt;
+    &lt;li&gt;While retreating, a player cannot transport more fighters and/or ground forces than they have capacity in the retreating ships.&lt;/li&gt;
+    &lt;li&gt;Capacity is checked after the winner of a space combat is determined. As such, it is possible to win a space combat with only fighters remaining, before removing those fighters due to lack of capacity.&lt;/li&gt;
+    &lt;li&gt;The &amp;ldquo;0&amp;rdquo; side of the d10 represents a result of 10.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_SpaceDock" xml:space="preserve">
     <value>&lt;p&gt;A space dock is a structure that allows players to produce units.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
@@ -1545,6 +2191,13 @@
     &lt;li&gt;Space docks are placed on planets. Each planet can have a maximum of &lt;b&gt;one&lt;/b&gt; space dock.&lt;/li&gt;
     &lt;li&gt;If a player&amp;rsquo;s space dock is ever on a planet that does not contain any of their ground forces and contains a unit that belongs to another player, that space dock is destroyed.&lt;/li&gt;
     &lt;ol&gt;&lt;li&gt;The Clan of Saar&amp;rsquo;s &lt;i&gt;Floating Factory&lt;/i&gt; faction&amp;ndash;specific space dock is destroyed when it is blockaded; that is to say, when it is in a system with another player&amp;rsquo;s ships and none of the Clan of Saar&amp;rsquo;s ships.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_SpaceDock_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A Space Dock is both a structure and a unit.&lt;/li&gt;
+	&lt;li&gt;Fighters transported during movement remain assigned to the transporting ship until movement is complete. They cannot be counted towards a space dock&amp;rsquo;s allocation until after movement is complete.&lt;/li&gt;
+	&lt;ol&gt;&lt;li&gt;If a player moves one of their units with capacity into a system, transporting fighters, they cannot pick up ground forces from a planet in that system with that ship by transferring those fighters to a space dock in that system to free up capacity.&lt;/li&gt;&lt;/ol&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_Speaker" xml:space="preserve">
@@ -1557,6 +2210,11 @@
     &lt;li&gt;A random player gains the speaker token during setup before the game begins.&lt;/li&gt;
     &lt;li&gt;During the action phase, if a player resolves the primary ability on the &lt;i&gt;Politics&lt;/i&gt; strategy card, that player chooses any player other than the current speaker to gain the speaker token.&lt;/li&gt;
     &lt;li&gt;If the speaker is eliminated from the game, the speaker token is passed to the player to the speaker&amp;rsquo;s left.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Speaker_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;During the strategy and agenda phases, the speaker will have the first opportunity to resolve abilities during each timing window.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_StatusPhase" xml:space="preserve">
@@ -1580,6 +2238,13 @@
     &lt;li&gt;&lt;b&gt;Step 8 &amp;ndash; Return Strategy Cards&lt;/b&gt;: Each player returns their strategy card to the common play area. Then, if a player has removed the custodians token from Mecatol Rex, the game round continues to the agenda phase. Otherwise, a new game round begins with the strategy phase.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_StatusPhase_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A player cannot score public objectives if that player does not control each planet in their home system.&lt;/li&gt;
+    &lt;li&gt;If there are few cards remaining in the action card deck, they will be dealt out first to the players lowest in initiative order. After those players have discarded down to their seven card hand limit, if necessary, the discard pile will be shuffled to form a new deck. The remaining players (including the player who received the last action card from the previous deck, if applicable) will then be dealt their action cards.&lt;/li&gt;
+    &lt;li&gt;All damaged units will be repaired, even if a game effect has caused those units to no longer have the &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability.&lt;/li&gt; 
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_StrategicAction" xml:space="preserve">
     <value>&lt;p&gt;During the action phase, the active player may perform a strategic action to resolve the primary ability on their strategy card.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
@@ -1588,6 +2253,10 @@
     &lt;li&gt;After each player has had an opportunity to resolve a strategy card&amp;rsquo;s secondary ability, the active player exhausts their strategy card so that it is facedown &amp;ndash; this indicates that they cannot use this card again this round and is a reminder that they can now pass during one of their later turns.&lt;/li&gt;
     &lt;ol&gt;&lt;li&gt;During three&amp;ndash; and four&amp;ndash;player games, a player must resolve the strategic action on each of their chosen strategy cards before they can pass.&lt;/li&gt;&lt;/ol&gt;
     &lt;li&gt;When a player is resolving either the primary or secondary abilities from a strategy card, that player resolves each of the ability&amp;rsquo;s effects from top to bottom.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_StrategicAction_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_StrategyCard" xml:space="preserve">
@@ -1611,6 +2280,12 @@
     &lt;/ol&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_StrategyCard_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;During three&amp;ndash; and four&amp;ndash;player games, each player will choose two strategy cards during the strategy phase.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;Players will use the lower of the two initiative numbers on their strategy cards to determine the initiative order.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_StrategyPhase" xml:space="preserve">
     <value>&lt;p&gt;During the strategy phase, each player chooses a strategy card to use during the round.&lt;/p&gt;
 &lt;p&gt;To resolve the strategy phase, players perform the following steps:&lt;/p&gt;
@@ -1626,6 +2301,11 @@
     &lt;p&gt;Then, players proceed to the action phase.&lt;/p&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_StrategyPhase_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If a player chooses a strategy card, but later loses it, they will keep any trade goods that were on the strategy card.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_Structures" xml:space="preserve">
     <value>&lt;p&gt;A structure is a type of unit. PDS units and space docks are structures.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
@@ -1638,10 +2318,20 @@
     &lt;li&gt;A player cannot place a structure on a planet if it would exceed the maximum number of allowed structures of that type on that planet.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_Structures_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_Supernova" xml:space="preserve">
     <value>&lt;p&gt;A supernova is an anomaly that affects movement.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
     &lt;li&gt;A ship cannot move through or into a supernova.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Supernova_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If a ship finds itself in a supernova by some uncommon game effect, it may remain there and move out without harm.&lt;/li&gt;
+    &lt;li&gt;A future rule change will place the ship movement restrictions of anomalies upon all units.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_SustainDamage" xml:space="preserve">
@@ -1656,6 +2346,10 @@
     &lt;li&gt;The Barony of Letnev&amp;rsquo;s &lt;i&gt;Non&amp;ndash;Euclidean Shielding&lt;/i&gt; faction technology allows the Letnev player&amp;rsquo;s units with the &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability to cancel up to two hits instead of one.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_SustainDamage_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_SystemTiles" xml:space="preserve">
     <value>&lt;p&gt;A system tile represents an area of the galaxy. Players place system tiles during setup to create the game board.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
@@ -1666,6 +2360,10 @@
     &lt;li&gt;Planets are located in systems. Ground forces and structures are usually placed on planets.&lt;/li&gt;
     &lt;li&gt;Any area on a system tile that is not a planet is space. Ships are usually placed in the space area.&lt;/li&gt;
     &lt;li&gt;Double&amp;ndash;sided tiles that have lines crossing from one edge to another are hyperlane tiles. Hyperlane tiles are not systems.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_SystemTiles_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_TacticalAction" xml:space="preserve">
@@ -1687,6 +2385,12 @@
     &lt;li&gt;&lt;b&gt;Step 4 &amp;ndash; Invasion&lt;/b&gt;: The active player may use their &lt;sc&gt;Bombardment&lt;/sc&gt; abilities, commit units to land on planets, and resolve ground combat against other players&amp;rsquo; units.&lt;/li&gt;
     &lt;li&gt;&lt;b&gt;Step 5 &amp;ndash; Production&lt;/b&gt;: The active player may resolve each of their unit&amp;rsquo;s &lt;sc&gt;Production&lt;/sc&gt; abilities in the active system.&lt;/li&gt;
     &lt;ol&gt;&lt;li&gt;The active player may do this even if they did not move units or land ground forces during this tactical action.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_TacticalAction_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Each of these five steps happen during every tactical action, unless explicitly skipped; the active player does not have to choose between fighting a combat or producing units, for example.&lt;/li&gt;
+    &lt;li&gt;Any abilities that occur at the end of an action happen before any abilities that occur at the end of a player&amp;rsquo;s turn.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_Technology" xml:space="preserve">
@@ -1741,6 +2445,20 @@
     &lt;li&gt;When a Valefar Assimilator token is on a technology, that technology&amp;rsquo;s color and type count toward objectives.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_TechnologySystem_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If a player is instructed to research a technology by any game effect, that player must meet the prerequisites for the technology they research.&lt;/li&gt;
+    &lt;li&gt;If a player is instructed to gain a technology, that player does not have to meet the prerequisites, although most game effects that do this will specify what technologies may be gained by that effect.&lt;/li&gt;
+    &lt;li&gt;If a player is playing a faction with a faction&amp;ndash;specific unit upgrade, they cannot research the generic upgrade for that unit type.&lt;/li&gt;
+    &lt;li&gt;For notes about specific generic technologies, see the Technologies page.&lt;/li&gt;
+    &lt;li&gt;For notes about specific generic unit upgrades, see the Technolgoies (Unit Upgrades) page.&lt;/li&gt;
+    &lt;li&gt;For notes about a technologies of a specific faction, see that faction&amp;rsquo;s notes page.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Technology_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_Trade" xml:space="preserve">
     <value>&lt;p&gt;The &lt;i&gt;Trade&lt;/i&gt; strategy card allows players to gain trade goods and replenish commodities. This card&amp;rsquo;s initiative value is &amp;ldquo;5&amp;rdquo;.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
@@ -1774,6 +2492,27 @@
     &lt;li&gt;Trade good tokens come in values of one and three. A player can swap between these tokens as necessary.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_TradeGoods_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Trade_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Say, for example, Alice is the active player, and is performing a strategic action with the &lt;i&gt;Trade&lt;/i&gt; strategy card. To her left is Bob. To his left is Cheng, then Diego, then Esther, then Fahd. The full order of steps is:&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;Alice gains three trade goods.&lt;/li&gt;
+        &lt;li&gt;Alice replenishes her commodities.&lt;/li&gt;
+        &lt;li&gt;Alice chooses players for the secondary.&lt;/li&gt;
+        &lt;li&gt;Bob may/must replenish his commodities by performing the secondary ability.&lt;/li&gt;
+        &lt;li&gt;Cheng may/must replenish her commodities by performing the secondary ability.&lt;/li&gt;
+        &lt;li&gt;Diego may/must replenish his commodities by performing the secondary ability.&lt;/li&gt;
+        &lt;li&gt;Esther may/must replenish her commodities by performing the secondary ability.&lt;/li&gt;
+        &lt;li&gt;Fahd may/must replenish his commodities by performing the secondary ability.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;p&gt;A deal made during a given step is non&amp;ndash;binding if any part of it is to resolve during a later step. As such, if Alice makes a deal to chose a player with the primary ability in exchange for commodities from that player after they perform the secondary, then such a deal will be non&amp;ndash;binding.&lt;/p&gt;
+    &lt;li&gt;If a player has their maximum number of commodities, and is instructed to replenish their commodities, they will take no commodities. However, they will still trigger any &amp;ldquo;when [this] player replenishes commodities&amp;rdquo; effects, most notably the &lt;i&gt;Trade Agreement&lt;/i&gt; promissory note.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_Transactions" xml:space="preserve">
     <value>&lt;p&gt;A transaction is a way for a player to exchange commodities, trade goods, promissory notes, and relic fragments.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
@@ -1789,6 +2528,19 @@
     &lt;ol&gt;&lt;li&gt;Players do not need to be neighbors to perform these transactions.&lt;/li&gt;&lt;/ol&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_Transactions_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;Relic fragments may be traded. Relics themselves cannot be.&lt;/li&gt;
+    &lt;li&gt;Captured units may be returned to the player that originally owned them as part of a transaction.&lt;/li&gt;
+    &lt;li&gt;If a player becomes neighbors with another player on their turn, they may then perform a transaction with that player.&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;If a player stops being neighbors with another player that they have performed a transaction with this turn, but then becomes neighbors with that player again later that same turn, they cannot perform a second transaction with that player.&lt;/li&gt;
+        &lt;li&gt;A player may perform a transaction during combat with their opponent, even if they are neighbors only in the active system.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;li&gt;If a player may perform multiple action on their turn, they may still only resolve one transaction with each of their neighbors.&lt;/li&gt;
+    &lt;li&gt;If an agenda is discarded and replaced with another, players who resolved a transaction during the discarded may resolve another transaction during the replacement agenda.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_Transport" xml:space="preserve">
     <value>&lt;p&gt;When a ship moves, it may transport any combination of fighters and ground forces, but the number of units it transports cannot exceed that ship&amp;rsquo;s capacity value.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
@@ -1800,6 +2552,23 @@
     &lt;li&gt;Any fighters and ground forces that a ship transports must move with the ship and remain in the space area of a system.&lt;/li&gt;
     &lt;li&gt;Fighters and ground forces cannot be picked up from a system that contains one of their faction&amp;rsquo;s command tokens other than the active system.&lt;/li&gt;
     &lt;li&gt;A player can land ground forces on a planet in a system during the &lt;b&gt;Invasion&lt;/b&gt; step of a tactical action.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Transport_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A ship that can both move and be transported (i.e. Fighter II) cannot do both by &amp;ldquo;meeting&amp;rdquo; a ship with capacity partway though a tactical action movement, as all movement is simultaneous.&lt;/li&gt;
+    &lt;li&gt;A ship may transport as it retreats or is otherwise moved out of the active system, as the units it transports will be picked up from the active system.&lt;/li&gt;
+    &lt;li&gt;A ship may pick up ground forces from a planet in the active system, usually to invade a different planet in the same system.&lt;/li&gt;
+    &lt;li&gt;A ship cannot pick up more units from a planet than it has capacity. However, a ship may pick up any units (including none) in a system as it transports, even if doing so would cause units to be removed due to capacity limits.&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;For example, say a carrier (with capacity 4) is in the space area of a system along with four fighters. On the only planet in that system are eight infantry. There are no other units in the system. When the carrier moves out of the system, it obeys the following:&lt;/li&gt;
+        &lt;li&gt;The carrier may transport the four fighters, leaving behind all eight of the infantry in the system.&lt;/li&gt;
+        &lt;li&gt;The carrier may transport four of the eight infantry, leaving behind the four remaining infantry in the system. Now that the system has zero capacity, all four of the fighters will be removed.&lt;/li&gt;
+        &lt;li&gt;The carrier may transport two of the eight infantry and two of the four fighters, leaving behind the six remaining infantry in the system. Now that the system has zero capacity, the two remaining fighters will be removed.&lt;/li&gt;
+        &lt;li&gt;The carrier may transport nothing, leaving behind all eight of the infantry in the system. Now that the system has zero capacity, all four of the fighters will be removed.&lt;/li&gt;
+        &lt;li&gt;The carrier cannot attempt to pick up all eight infantry, even if it immediately removes four of them (and the fighters).&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;li&gt;A future rule change will allow a player&amp;rsquo;s ships to transport units from systems that contain that player&amp;rsquo;s command token when those ships move outside of a tactical action.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_Units" xml:space="preserve">
@@ -1823,6 +2592,13 @@
     &lt;li&gt;Units exist either on the game board or in a player&amp;rsquo;s reinforcements.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_Units_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If an effect allows a player produce a ship of a specific type, then factional variations do not prevent that player from producing that type of ship.&lt;/li&gt;
+    &lt;li&gt;Units are component limited.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;Fighters and infantry are semi&amp;ndash;limited, via the use of tokens.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_UnitUpgrades" xml:space="preserve">
     <value>&lt;p&gt;A unit upgrade is a type of technology card.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
@@ -1832,6 +2608,13 @@
     &lt;li&gt;The white arrows next to an attribute on a faction sheet indicate that the attribute will improve when the unit is upgraded.&lt;/li&gt;
     &lt;li&gt;After a player gains a unit upgrade card, each of that player&amp;rsquo;s units that correspond to that upgrade card is treated as having the attributes and abilities printed on that upgrade card. Any previous attributes of that unit, such as the one printed on that player&amp;rsquo;s faction sheet, are ignored.&lt;/li&gt;
     &lt;li&gt;A mech unit card is not a technology.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_UnitUpgrades_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If a player is playing a faction with a faction&amp;ndash;specific unit upgrade, they cannot research the generic upgrade for that unit type.&lt;/li&gt;
+    &lt;li&gt;For notes about specific generic unit upgrades, see the Technolgoies (Unit upgrades) page.&lt;/li&gt;
+    &lt;li&gt;For notes about a technologies of a specific faction, see that faction&amp;rsquo;s notes.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_VictoryPoints" xml:space="preserve">
@@ -1849,6 +2632,10 @@
     &lt;li&gt;If the game ends because the speaker cannot reveal an objective card, the player with the most victory points is the winner. If one or more players are tied for having the most victory points, the tied player who is first in initiative order is the winner.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_VictoryPoints_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_Warfare" xml:space="preserve">
     <value>&lt;p&gt;The &lt;i&gt;Warfare&lt;/i&gt; strategy card allows a player to remove a command token from the board and redistribute their command tokens between their tactic, fleet, and strategy pools. This card&amp;rsquo;s initiative value is &amp;ldquo;6&amp;rdquo;. During the action phase, if the active player has the &lt;i&gt;Warfare&lt;/i&gt; strategy card, they can perform a strategic action to resolve that card&amp;rsquo;s primary ability.&lt;/p&gt;
 &lt;p&gt;To resolve the primary ability on the &lt;i&gt;Warfare&lt;/i&gt; strategy card, the active player performs the following steps:&lt;/p&gt;
@@ -1857,6 +2644,11 @@
     &lt;li&gt;&lt;b&gt;Step 2&lt;/b&gt;: The active player can redistribute their command tokens.&lt;/li&gt;
     &lt;li&gt;After the active player resolves the primary ability of the &lt;i&gt;Warfare&lt;/i&gt; strategy card, each other player, beginning with the player to the left of the active player and proceeding clockwise, may spend one command token from their strategy pool to resolve the &lt;sc&gt;Production&lt;/sc&gt; ability of one space dock in their home system.&lt;/li&gt;
     &lt;ol&gt;&lt;li&gt;The command token is &lt;b&gt;not&lt;/b&gt; placed in their home system.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Warfare_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If the player with &lt;i&gt;Warfare&lt;/i&gt; has no command tokens on the game board, they may still perform a strategic action. However, they will not gain a command token.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_WormholeNexus" xml:space="preserve">
@@ -1872,6 +2664,15 @@
     &lt;ol&gt;&lt;li&gt;When a ship moves into the wormhole nexus, the nexus becomes active at the end of the &lt;b&gt;Movement&lt;/b&gt; step.&lt;/li&gt;&lt;/ol&gt;
     &lt;/ol&gt;</value>
   </data>
+  <data name="RuleCategory_WormholeNexus_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The wormhole nexus will flip if a unit exists in the system while inactive, even if that unit did not move through a gamma wormhole.&lt;/li&gt;
+    &lt;li&gt;As the wormhole nexus becomes active at the end of the &lt;b&gt;Movement&lt;/b&gt; step, only units with the &lt;sc&gt;Deep Space Cannon&lt;/sc&gt; ability in systems containing a gamma wormhole will be able to produce hits during the &lt;b&gt;Space Cannon Offense&lt;/b&gt; step.&lt;/li&gt;
+    &lt;li&gt;If the Creuss player moves their &lt;i&gt;Hil Colish&lt;/i&gt; flagship into the inactive wormhole nexus, the wormhole nexus will not flip before they move any other ships. Any other ships they wish to move into the wormhole nexus must do so via either a delta wormhole or a gamma wormhole, unless the Creuss player is utilizing the ability of their agent, Emissary Taivra.&lt;/li&gt;
+    &lt;li&gt;Any units and tokens on the inactive side are transferred to the active side when the wormhole nexus flips.&lt;/li&gt;
+    &lt;li&gt;A ship in the wormhole will single&amp;ndash;handedly qualify for the &lt;i&gt;Become the Gatekeeper&lt;/i&gt; objective.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
   <data name="RuleCategory_Wormholes" xml:space="preserve">
     <value>&lt;p&gt;Some systems contain wormholes. Systems that contain identical wormholes are adjacent.&lt;/p&gt;
     &lt;ol class="lrr"&gt;
@@ -1883,6 +2684,20 @@
         &lt;li&gt;The delta wormholes are present on the Creuss Gate system tile and the Ghosts of Creuss home system tile.&lt;/li&gt;
         &lt;li&gt;The gamma wormholes are present on the wormhole nexus and can be discovered during exploration.&lt;/li&gt;
     &lt;/ol&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="RuleCategory_Wormholes_Notes" xml:space="preserve">
+    <value>&lt;ol class="note"&gt;
+    &lt;li&gt;A system with a wormhole is not an anomaly.&lt;/li&gt;
+    &lt;li&gt;If a system contains multiple wormholes of the same type, those are treated as separate wormholes.&lt;/li&gt;
+    &lt;li&gt;A system cannot be adjacent to itself, even if it has multiple wormholes in it.&lt;/li&gt;
+    &lt;li&gt;A player chooses the path of adjacent systems each ship moves through during movement. If two systems on that path are adjacent because of a wormhole, that ship moves through that wormhole.&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;If the two systems are adjacent because of a wormhole and because of a shared edge or another reason, the player may choose whether or not the ship moves through the wormhole.&lt;/li&gt;
+        &lt;li&gt;If the two systems are adjacent because of two types of wormholes, the player chooses which type of wormhole the ship moves through.&lt;/li&gt;
+        &lt;li&gt;A player may move a ship back and forth through a wormhole between two systems any number of times, if its movement value is high enough.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;li&gt;For more information on how the Creuss interact with wormholes, see  their faction page.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
 </root>

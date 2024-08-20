@@ -4,83 +4,41 @@ namespace TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium;
 
 public static class TwilightImperiumDbContextSeed
 {
-    public static async Task SeedDatabaseAsync(this TwilightImperiumDbContext context)
+    public static void SeedDatabaseAsync(this TwilightImperiumDbContext context, ModelBuilder modelBuilder)
     {
         ArgumentNullException.ThrowIfNull(context);
+        ArgumentNullException.ThrowIfNull(modelBuilder);
 
-        // Cards
-        await SeedIfEmpty(context.ActionCards, ActionCardsData.ActionCards, context);
-        await SeedIfEmpty(context.AgendaCards, AgendaCardsData.AgendaCards, context);
-        await SeedIfEmpty(context.ExplorationCards, ExplorationCardsData.ExplorationCards, context);
-        await SeedIfEmpty(context.FrontierCards, FrontierCardsData.FrontierCards, context);
-        await SeedIfEmpty(context.ObjectiveCards, ObjectiveCardsData.ObjectiveCards, context);
-        await SeedIfEmpty(context.RelicCards, RelicCardsData.RelicCards, context);
-        await SeedIfEmpty(context.StrategyCards, StrategyCardsData.StrategyCards, context);
-        await SeedIfEmpty(context.PromissoryNoteCards, PromissaryNoteCardsData.PromissaryNoteCards, context);
+        modelBuilder.Entity<ActionCard>().HasData(ActionCardsData.ActionCards);
+        modelBuilder.Entity<AgendaCard>().HasData(AgendaCardsData.AgendaCards);
+        modelBuilder.Entity<ExplorationCard>().HasData(ExplorationCardsData.ExplorationCards);
+        modelBuilder.Entity<FrontierCard>().HasData(FrontierCardsData.FrontierCards);
+        modelBuilder.Entity<ObjectiveCard>().HasData(ObjectiveCardsData.ObjectiveCards);
+        modelBuilder.Entity<RelicCard>().HasData(RelicCardsData.RelicCards);
+        modelBuilder.Entity<StrategyCard>().HasData(StrategyCardsData.StrategyCards);
+        modelBuilder.Entity<PromissoryNoteCard>().HasData(PromissaryNoteCardsData.PromissaryNoteCards);
 
-        // Factions
-        await SeedIfEmpty(context.Factions, FactionsData.Factions, context);
-        await SeedIfEmpty(context.Units, UnitsData.Units, context);
-        await SeedIfEmpty(context.FactionUnit, FactionUnitsData.FactionUnits, context);
-        await SeedIfEmpty(context.FactionColorImportances, FactionColorImportancesData.FactionColorImportances, context);
+        modelBuilder.Entity<Faction>().HasData(FactionsData.Factions);
+        modelBuilder.Entity<Unit>().HasData(UnitsData.Units);
+        modelBuilder.Entity<FactionUnit>().HasData(FactionUnitsData.FactionUnits);
+        modelBuilder.Entity<FactionColorImportance>().HasData(FactionColorImportancesData.FactionColorImportances);
 
-        // Galaxy
-        await SeedIfEmpty(context.SystemTiles, GalaxyData.SystemTiles, context);
+        modelBuilder.Entity<Planet>().HasData(PlanetsData.Planets);
+        modelBuilder.Entity<Wormhole>().HasData(WormholesData.Wormholes);
+        modelBuilder.Entity<SystemTile>().HasData(SystemTilesData.SystemTiles);
 
-        // Users
-        await SeedIfEmpty(context.Users, UserData.Users, context);
-        await SeedIfEmpty(context.Roles, RolesData.Roles, context);
+        modelBuilder.Entity<TwilightImperiumUser>().HasData(UserData.Users);
+        modelBuilder.Entity<IdentityRole>().HasData(RolesData.Roles);
 
-        // Articles
-        await SeedIfEmptyArticles(context.NewsArticles, ArticlesData.Articles, context);
+        modelBuilder.Entity<NewsArticle>().HasData(ArticlesData.Articles);
 
-        // Players
-        await SeedIfEmpty(context.Players, PlayersData.Players, context);
+        modelBuilder.Entity<Rule>().HasData(RulesData.Rules);
+        modelBuilder.Entity<Faq>().HasData(FaqData.Faqs);
 
-        // Rules
-        await SeedIfEmpty(context.Rules, RulesData.Rules, context);
+        modelBuilder.Entity<Technology>().HasData(TechnologiesData.Technologies);
 
-        // Technologies
-        await SeedIfEmpty(context.Technologies, TechnologiesData.Technologies, context);
+        modelBuilder.Entity<Website>().HasData(WebsitesData.Websites);
 
-        // Websited
-        await SeedIfEmpty(context.Websites, WebsitesData.Websites, context);
-
-        await SeedIfEmpty(context.FactionTechnology, FactionTechnologiesData.FactionTechnologies, context);
-    }
-
-    private static async Task SeedIfEmpty<TEntity>(DbSet<TEntity> dbSet, List<TEntity> data, TwilightImperiumDbContext context)
-        where TEntity : class
-    {
-        if (!await dbSet.AnyAsync())
-        {
-            try
-            {
-                await dbSet.AddRangeAsync(data);
-                await context.SaveChangesAsync();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Unable to seed data for DbSet: {dbSet.EntityType.Name} and data {data.Count} with exception: {ex.Message}");
-            }
-        }
-    }
-
-    private static async Task SeedIfEmptyArticles(DbSet<NewsArticle> dbSet, IEnumerable<NewsArticle> data, TwilightImperiumDbContext context)
-    {
-        if (!await dbSet.AnyAsync())
-        {
-            var user = await context.Users.FirstOrDefaultAsync();
-            if (user is not null)
-            {
-                foreach (var article in data)
-                {
-                    article.UserId = user.Id;
-                }
-            }
-
-            await dbSet.AddRangeAsync(data);
-            await context.SaveChangesAsync();
-        }
+        modelBuilder.Entity<FactionTechnology>().HasData(FactionTechnologiesData.FactionTechnologies);
     }
 }

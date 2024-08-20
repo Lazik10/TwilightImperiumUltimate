@@ -48,6 +48,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<ITechnologyRepository, TechnologyRepository>();
         services.AddScoped<IRuleRepository, RuleRepository>();
         services.AddScoped<IWebsiteRepository, WebsiteRepository>();
+        services.AddScoped<IFaqRepository, FaqRepository>();
 
         return services;
     }

@@ -262,6 +262,27 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;h1&gt;Unrelenting&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;&lt;sc&gt;Unrelenting&lt;/sc&gt; does not affect anti&amp;ndash;fighter barrage, bombardment or space cannon rolls.&lt;/li&gt;
+        ///    &lt;/ol&gt;
+        ///
+        ///&lt;h1&gt;Tekklar Legion &lt;sub&gt;(Promissory Note)&lt;/sub&gt;&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;&lt;i&gt;Tekklar Legion&lt;/i&gt; does not affect anti&amp;ndash;fighter barrage, bombardment or space cannon rolls.&lt;/li&gt;
+        ///    &lt;/ol&gt;
+        ///
+        ///&lt;h1&gt;Valkyrie Particle Weave &lt;sub&gt;(Technology)&lt;/sub&gt;&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;The hit produced by &lt;i&gt;Valkyrie Particle Weave [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string SardakkNorr_Notes {
+            get {
+                return ResourceManager.GetString("SardakkNorr_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tekklar Legion
         ///
         ///At the start of an invasion combat:
@@ -356,6 +377,19 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string TheArborec_Lore {
             get {
                 return ResourceManager.GetString("TheArborec_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h1&gt;Mitosis&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;If the Arborec player produces one or more units with a space dock, and produces any infantry with their Letani Warriors, the produced infantry may be placed on the same planet as the space dock, regardless of if that planet contains any Letani Warriors.&lt;/li&gt;
+        ///    &lt;li&gt;The Arborec player may produce Letani Behemoth with their space docks.&lt;/li&gt;
+        ///    &lt;li&gt;Placing the infantry during the status phase is mandatory (unless the Arborec player controls no planets).&lt;/l [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheArborec_Notes {
+            get {
+                return ResourceManager.GetString("TheArborec_Notes", resourceCulture);
             }
         }
         
@@ -461,6 +495,20 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string TheArgentFlight_Lore {
             get {
                 return ResourceManager.GetString("TheArgentFlight_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h1&gt;Zeal&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;Additional votes must be cast for the same outcome as the other votes the Argent player cast.&lt;/li&gt;
+        ///    &lt;ol&gt;&lt;li&gt;If the Argent player abstains or otherwise casts zero votes, they cannot cast additional votes.&lt;/li&gt;&lt;/ol&gt;
+        ///    &lt;li&gt;The Argent player always votes first, even if they are the speaker.&lt;/li&gt;
+        ///    &lt;li&gt;Other players vote in their regular order after the Argent player votes; clockwise starting with the player to the left of the speaker (skipping over the Arg [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheArgentFlight_Notes {
+            get {
+                return ResourceManager.GetString("TheArgentFlight_Notes", resourceCulture);
             }
         }
         
@@ -653,6 +701,22 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string TheBaronyOfLetnev_Lore {
             get {
                 return ResourceManager.GetString("TheBaronyOfLetnev_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h1&gt;Munitions Reserves&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;&lt;sc&gt;Munitions Reserves&lt;/sc&gt; may only be triggered once per round. The Letnev player cannot spend four (or more) trade goods to get two (or more) rerolls.&lt;/li&gt;
+        ///    &lt;/ol&gt;
+        ///
+        ///&lt;h1&gt;Armada&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;If the Letnev player has zero command tokens in their fleet pool, they may still have ships on the game board. While this is the case, effects that remove command tokens from a player&amp;rsquo;s fleet pool cannot affect the Letnev pla [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheBaronyOfLetnev_Notes {
+            get {
+                return ResourceManager.GetString("TheBaronyOfLetnev_Notes", resourceCulture);
             }
         }
         
@@ -1127,6 +1191,20 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;h1&gt;Scavenge&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;If the Saar player gains control of multiple planets during one invasion, the trade goods are gained one at a time.&lt;/li&gt;
+        ///    &lt;li&gt;When the Saar player gains control of a planet that is not already controlled by another player, they will explore it before gaining the trade good from this ability.&lt;/li&gt;
+        ///    &lt;ol&gt;
+        ///        &lt;li&gt;If the Saar player is to gain control of multiple planets not already controlled by another player, they will gain and explore one planet [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheClanOfSaar_Notes {
+            get {
+                return ResourceManager.GetString("TheClanOfSaar_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ragh&apos;s Call
         ///
         ///After you commit 1 or more units to land on a planet:
@@ -1228,6 +1306,19 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string TheCouncilKeleres_Lore {
             get {
                 return ResourceManager.GetString("TheCouncilKeleres_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h1&gt;The Tribunii&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;The Keleres player chooses their starting technology after all other players, including the Argent and Winnu players, have gained their starting technologies.&lt;/li&gt;
+        ///    &lt;li&gt;If there are not two unique starting technologies amongst those owned by other players, the Keleres player will start the game with fewer technologies. This will most commonly happen in a three player game, where one of the other players is playing as N&amp;rsquo;orr or Winnu.&lt;/li&gt;
+        ///    &lt; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheCouncilKeleres_Notes {
+            get {
+                return ResourceManager.GetString("TheCouncilKeleres_Notes", resourceCulture);
             }
         }
         
@@ -1519,6 +1610,30 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;h1&gt;Star Forge&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;/ol&gt;
+        ///
+        ///&lt;h1&gt;Gashlai Physiology&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;/ol&gt;
+        ///
+        ///&lt;h1&gt;Fires of the Gashlai &lt;sub&gt;(Promissory Note)&lt;/sub&gt;&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;If a player already owns their war sun unit upgrade technology, they cannot play &lt;i&gt;Fires of the Gashlai&lt;/i&gt;.&lt;/li&gt;
+        ///    &lt;/ol&gt;
+        ///
+        ///&lt;h1&gt;Magmus Reactor &lt;sub&gt;(Technology)&lt;/sub&gt;&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;The war sun must be in the system prior to the use of &lt;sc&gt;Production&lt;/sc&gt; to gain the trad [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheEmbersOfMuaat_Notes {
+            get {
+                return ResourceManager.GetString("TheEmbersOfMuaat_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ACTION: Remove 1 token from the Muaat player&apos;s fleet pool and return it to their reinforcements. Then, gain your war sun unit upgrade technology card.
         ///
         ///Then, return this card to the Muaat player..
@@ -1625,6 +1740,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;h1&gt;Masters of Trade&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;If the Hacan player has the Muaat player&amp;rsquo;s &lt;i&gt;Alliance&lt;/i&gt; promissory note, they will not gain a trade good from it when they use their Masters of Trade ability.&lt;/li&gt;
+        ///    &lt;/ol&gt;
+        ///
+        ///&lt;h1&gt;Guild Ships&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;This ability does not make the Hacan player neighbors with all other players.&lt;/li&gt;
+        ///    &lt;li&gt;Either player may initiate negotiations for a transaction.&lt;/li&gt;
+        ///    &lt;li&gt;The Hacan player is still limited to one transact [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheEmiratesOfHacan_Notes {
+            get {
+                return ResourceManager.GetString("TheEmiratesOfHacan_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Trade Convoys
         ///
         ///ACTION: Place this card face-up in your play area.
@@ -1717,6 +1850,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string TheEmpyrean_Lore {
             get {
                 return ResourceManager.GetString("TheEmpyrean_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h1&gt;Voidborn&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;This effect also applies outside the &lt;b&gt;Movement&lt;/b&gt; step.&lt;/li&gt;
+        ///    &lt;li&gt;The Empyrean player treats nebulae as nebulae and as anomalies for all other game purposes.&lt;/li&gt;
+        ///    &lt;ol&gt;&lt;li&gt;When the Empyrean player is the defender during a space combat in a nebula, they will receive the +1 to their combat rolls.&lt;/li&gt;&lt;/ol&gt;
+        ///    &lt;/ol&gt;
+        ///
+        ///&lt;h1&gt;Aetherpassage&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;The Empyrean player does not decide to use this ability until after the othe [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheEmpyrean_Notes {
+            get {
+                return ResourceManager.GetString("TheEmpyrean_Notes", resourceCulture);
             }
         }
         
@@ -1826,6 +1977,28 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string TheFederationOfSol_Lore {
             get {
                 return ResourceManager.GetString("TheFederationOfSol_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h1&gt;Orbital Drop&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;/ol&gt;
+        ///
+        ///&lt;h1&gt;Versatile&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;/ol&gt;
+        ///
+        ///&lt;h1&gt;Military Support &lt;sub&gt;(Promissory Note)&lt;/sub&gt;&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;&lt;i&gt;Military Support&lt;/i&gt; is played before the Sol player may use &lt;i&gt;Orbital Drop&lt;/i&gt;.&lt;/li&gt;
+        ///    &lt;li&gt;&lt;i&gt;Military Support&lt;/i&gt; may be played the turn the Sol player passes.&lt;/li&gt;
+        ///    &lt;li&gt;&lt;i&gt;Military Support&lt;/i&gt; may be played when the Sol player has no command tokens in their strategy pool.&lt;/li&gt;
+        ///    &lt;li&gt;A player  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheFederationOfSol_Notes {
+            get {
+                return ResourceManager.GetString("TheFederationOfSol_Notes", resourceCulture);
             }
         }
         
@@ -2203,6 +2376,19 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string TheGhostsOfCreuss_Lore {
             get {
                 return ResourceManager.GetString("TheGhostsOfCreuss_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h1&gt;Quantum Entanglement&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;The effect of the &lt;i&gt;Enforced Travel Ban&lt;/i&gt; law does not affect the Creuss player.&lt;/li&gt;
+        ///    &lt;li&gt;If the Creuss player has units or controls planets in a system with an alpha wormhole, and another player has units or controls planets in a system with an beta wormhole, or vice versa, then the Creuss player and that player are neighbors.&lt;/li&gt;
+        ///    &lt;ol&gt;&lt;li&gt;The Mentak player may use their &lt;sc&gt;Pillage&lt;/sc&gt; ability against the Creuss player in this man [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheGhostsOfCreuss_Notes {
+            get {
+                return ResourceManager.GetString("TheGhostsOfCreuss_Notes", resourceCulture);
             }
         }
         
@@ -2853,6 +3039,19 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;h1&gt;Assimilate&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;Any space docks that are placed by this ability during a tactical action may produce units during the &lt;b&gt;Production&lt;/b&gt; step of that tactical action.&lt;/li&gt;
+        ///    &lt;li&gt;If the L1Z1X player resolves their &lt;sc&gt;Assimilate&lt;/sc&gt; ability, and then plays the &lt;i&gt;Infiltrate&lt;/i&gt; action card, or vice versa, they will replace zero PDS and space docks with zero PDS and space docks when they resolve the latter ability.&lt;/li&gt;
+        ///    &lt;li&gt;If the L1Z1X player would have to place a  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheL1z1xMindnet_Notes {
+            get {
+                return ResourceManager.GetString("TheL1z1xMindnet_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cybernetic Enhancements
         ///
         ///At the start of your turn:
@@ -3230,6 +3429,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;h1&gt;Edict&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;If the Mahact player is ever required to remove one of their command tokens from their fleet pool, and they only have other players&amp;rsquo; command tokens in their fleet pool, they must remove one of those tokens, and return it to the reinforcements of the player that owns it.&lt;/li&gt;
+        ///    &lt;li&gt;If the Mahact player is ever limited by the number of tokens they may have in their fleet pool, such as by the &lt;i&gt;Fleet Regulations&lt;/i&gt; law, they may still add a command toke [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheMahactGeneSorcerers_Notes {
+            get {
+                return ResourceManager.GetString("TheMahactGeneSorcerers_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Scepter of Dominion
         ///
         ///At the start of the strategy phase:
@@ -3329,6 +3540,19 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string TheMentakCoalition_Lore {
             get {
                 return ResourceManager.GetString("TheMentakCoalition_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h1&gt;Ambush&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;Game effects that reroll, modify, or otherwise affect combat rolls do not affect dice rolls made when resolving the &lt;sc&gt;Ambush&lt;/sc&gt; ability.&lt;/li&gt;
+        ///    &lt;li&gt;Game effects that reroll, modify, or otherwise affect dice rolls during combat can affect dice rolls made when resolving the &lt;sc&gt;Ambush&lt;/sc&gt; ability. This is distinct from, and a superset of, combat rolls.&lt;/li&gt;
+        ///    &lt;li&gt;If a cruiser or destroyer is removed before the Mentak player can resolve their &lt;sc&gt;Ambus [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheMentakCoalition_Notes {
+            get {
+                return ResourceManager.GetString("TheMentakCoalition_Notes", resourceCulture);
             }
         }
         
@@ -3717,6 +3941,23 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;h1&gt;Telepathic&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;The Naalu player retains the Naalu 0 token, even if an effect such as the &lt;i&gt;Imperial Arbiter&lt;/i&gt; law causes them to lose the strategy card it was on. The Naalu player will place the Naalu 0 token on another strategy card in this scenario.&lt;/li&gt;
+        ///    &lt;/ol&gt;
+        ///
+        ///&lt;h1&gt;Foresight&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;Using &lt;sc&gt;Foresight&lt;/sc&gt; is not a retreat. As such, it cannot be cancelled with the &lt;i&gt;Intercept&lt;/i&gt; action card.&lt;/li&gt;
+        ///    &lt;li&gt;The command token is n [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheNaaluCollective_Notes {
+            get {
+                return ResourceManager.GetString("TheNaaluCollective_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to “You insult me, ssskinling. Ze monstrosity you
         ///suggest–ze Druaa, we are not capable of such
         ///cruelty. Purge zis madness from your mind
@@ -3794,6 +4035,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string TheNaazRokhaAlliance_Lore {
             get {
                 return ResourceManager.GetString("TheNaazRokhaAlliance_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h1&gt;Distant Suns&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;If the Naaz&amp;ndash;Rokha player has multiple Eidolon on the planet they explore, they will draw only one additional exploration card.&lt;/li&gt;
+        ///    &lt;li&gt;The Naaz&amp;ndash;Rokha player must choose to use this ability before seeing the first exploration card.&lt;/li&gt;
+        ///    &lt;li&gt;If a planet has multiple traits, the additional exploration card must come from the same deck as the first.&lt;/li&gt;
+        ///    &lt;/ol&gt;
+        ///
+        ///&lt;h1&gt;Fabrication&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;If the relic de [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheNaazRokhaAlliance_Notes {
+            get {
+                return ResourceManager.GetString("TheNaazRokhaAlliance_Notes", resourceCulture);
             }
         }
         
@@ -3900,6 +4159,20 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string TheNekroVirus_Lore {
             get {
                 return ResourceManager.GetString("TheNekroVirus_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h1&gt;Galactic Threat&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;The Nekro player may still play rider action cards.&lt;/li&gt;
+        ///    &lt;li&gt;If the Nekro player has the Xxcha player&amp;rsquo;s &lt;i&gt;Alliance&lt;/i&gt; promissory note, the Nekro player may vote, without losing their ability to predict outcomes for their &lt;sc&gt;Galactic Threat&lt;/sc&gt; ability.&lt;/li&gt;
+        ///    &lt;li&gt;If the speaker breaks a tie without casting any votes, then the speaker&amp;rsquo;s technology are ineligible to be gained.&lt;/li&gt;
+        ///    &lt;ol&gt;&lt;li&gt;If no player casts votes, then no t [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheNekroVirus_Notes {
+            get {
+                return ResourceManager.GetString("TheNekroVirus_Notes", resourceCulture);
             }
         }
         
@@ -4180,6 +4453,23 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string TheNomad_Lore {
             get {
                 return ResourceManager.GetString("TheNomad_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h1&gt;The Company&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;/ol&gt;
+        ///
+        ///&lt;h1&gt;Future Sight&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;The Nomad player may only predict agenda outcomes via game effects that allow them to do so, e.g. rider action cards.&lt;/li&gt;
+        ///    &lt;li&gt;If the Nomad player predicts multiple different outcomes, and one of those outcomes is resolved, they will gain the trade good.&lt;/li&gt;
+        ///    &lt;ol&gt;&lt;li&gt;If the Nomad player predicts an outcome and votes for another outcome (via the Xxcha player&amp;rsquo;s &lt;i&gt;Alliance&lt;/i&gt; promis [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheNomad_Notes {
+            get {
+                return ResourceManager.GetString("TheNomad_Notes", resourceCulture);
             }
         }
         
@@ -4545,6 +4835,23 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;h1&gt;Terragenesis&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;/ol&gt;
+        ///
+        ///&lt;h1&gt;Awaken &lt;sub&gt;&lt;/sub&gt;&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;Only sleeper tokens present in the system when it is activated may be replaced with PDS.&lt;/li&gt;
+        ///    &lt;li&gt;A sleeper token that is placed during the &lt;b&gt;Activation&lt;/b&gt; step, most commonly by using the &lt;i&gt;Scanlink Drone Network&lt;/i&gt; technology and the &lt;sc&gt;Terragenesis&lt;/sc&gt; ability, cannot be replaced via the &lt;sc&gt;Awaken&lt;/sc&gt; ability during the same tactical action.&lt;/li&gt;
+        ///    &lt;li&gt;If the Ul player wi [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheTitansOfUl_Notes {
+            get {
+                return ResourceManager.GetString("TheTitansOfUl_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Terraform
         ///
         ///ACTION: Attach this card to a non-home planet you control other than Mecatol Rex.
@@ -4734,6 +5041,31 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string TheUniversitiesOfJolNar_Lore {
             get {
                 return ResourceManager.GetString("TheUniversitiesOfJolNar_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h1&gt;Fragile&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;The &lt;sc&gt;Fragile&lt;/sc&gt; ability does not affect anti&amp;ndash;fighter barrage, bombardment or space cannon rolls.&lt;/li&gt;
+        ///    &lt;li&gt;The effect of the &lt;sc&gt;Fragile&lt;/sc&gt; ability is mandatory.&lt;/li&gt;
+        ///    &lt;/ol&gt;
+        ///
+        ///&lt;h1&gt;Brilliant&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;/ol&gt;
+        ///
+        ///&lt;h1&gt;Analytical&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;/ol&gt;
+        ///
+        ///&lt;h1&gt;Research Agreement &lt;sub&gt;(Promissory Note)&lt;/sub&gt;&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;&lt;i&gt;Research Agreement&lt;/i&gt; is only triggered by the Jol&amp;ndash;Na [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheUniversitiesOfJolNar_Notes {
+            get {
+                return ResourceManager.GetString("TheUniversitiesOfJolNar_Notes", resourceCulture);
             }
         }
         
@@ -5108,6 +5440,23 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;h1&gt;Devour&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;When an opponent&amp;rsquo;s Infantry II is destroyed during combat, the Vuil&amp;rsquo;raith player captures an infantry token, and the opponent rolls for resurrection, placing the destroyed infantry on the Infantry II unit upgrade card if successful.&lt;/li&gt;
+        ///    &lt;li&gt;The Vuil&amp;rsquo;raith player cannot capture the Ul player&amp;rsquo;s Hel Titan PDS.&lt;/li&gt;
+        ///    &lt;/ol&gt;
+        ///
+        ///&lt;h1&gt;Amalgamation&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;If the Vuil&amp;rsquo;raith player produces multiple uni [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheVuilRaithCabal_Notes {
+            get {
+                return ResourceManager.GetString("TheVuilRaithCabal_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Crucible
         ///
         ///After you activate a system:
@@ -5205,6 +5554,23 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string TheWinnu_Lore {
             get {
                 return ResourceManager.GetString("TheWinnu_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h1&gt;Blood Ties&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;The Winnu player must still commit at least one ground force to Mecatol Rex to remove the custodians token.&lt;/li&gt;
+        ///    &lt;/ol&gt;
+        ///
+        ///&lt;h1&gt;Reclamation&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;Placing the structure will occur after the &lt;b&gt;Production&lt;/b&gt; step. If the Winnu player places a Space Dock, they cannot produce out of it during the same action.&lt;/li&gt;
+        ///    &lt;li&gt;If the Winnu player has no PDS or Space Docks left in their reinforcements, they may remove a unit from  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheWinnu_Notes {
+            get {
+                return ResourceManager.GetString("TheWinnu_Notes", resourceCulture);
             }
         }
         
@@ -5323,6 +5689,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;h1&gt;Peace Accords&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;A planet is adjacent to both the system it is in, and every system adjacent to that.&lt;/li&gt;
+        ///    &lt;li&gt;If the planet was uncontrolled, the Xxcha player explores it.&lt;/li&gt;
+        ///    &lt;/ol&gt;
+        ///
+        ///&lt;h1&gt;Quash&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;&lt;sc&gt;Quash&lt;/sc&gt;, &lt;i&gt;Political Favor&lt;/i&gt;, the &lt;i&gt;Political Secret&lt;/i&gt; promissory note, and the &lt;i&gt;Veto&lt;/i&gt; action card are all played in the same timing window, before the rider timing window.&lt;/li&gt;
+        ///    &lt;ol&gt;&lt;li&gt;If &lt;sc&gt;Quash&lt;/sc&gt; is  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheXxchaKingdom_Notes {
+            get {
+                return ResourceManager.GetString("TheXxchaKingdom_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Political Favor
         ///
         ///When an agenda is revealed:
@@ -5423,6 +5807,20 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string TheYinBrotherhood_Lore {
             get {
                 return ResourceManager.GetString("TheYinBrotherhood_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h1&gt;Indoctrination&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;&lt;sc&gt;Indoctrination&lt;/sc&gt; is limited to once per ground combat.&lt;/li&gt;
+        ///    &lt;li&gt;If an invasion involves ground combats on multiple planets, &lt;sc&gt;Indoctrination&lt;/sc&gt; may be used at the start of each of them.&lt;/li&gt;
+        ///    &lt;li&gt;If the Yin player&amp;rsquo;s opponent only has mechs in the ground combat, &lt;sc&gt;Indoctrination&lt;/sc&gt; cannot be used.&lt;/li&gt;
+        ///    &lt;ol&gt;&lt;li&gt;If the Yin player is in a combat with the Naalu player, and the Naalu player is using the ability of their fla [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheYinBrotherhood_Notes {
+            get {
+                return ResourceManager.GetString("TheYinBrotherhood_Notes", resourceCulture);
             }
         }
         
@@ -5536,6 +5934,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string TheYssarilTribes_Lore {
             get {
                 return ResourceManager.GetString("TheYssarilTribes_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h1&gt;Stall Tactics&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;/ol&gt;
+        ///
+        ///&lt;h1&gt;Scheming&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;No other abilities may resolve until the Yssaril player has discarded the action card.&lt;/li&gt;
+        ///    &lt;li&gt;&lt;sc&gt;Scheming&lt;/sc&gt; applies whenever the Yssaril player draws action cards.&lt;/li&gt;
+        ///    &lt;li&gt;The Yssaril player will draw only one additional action card, regardless of how many action cards they are instructed to draw.&lt;/li&gt;
+        ///    &lt;li&gt;The discarded action card may be any card in the Yssaril player&amp;rsquo;s  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheYssarilTribes_Notes {
+            get {
+                return ResourceManager.GetString("TheYssarilTribes_Notes", resourceCulture);
             }
         }
         

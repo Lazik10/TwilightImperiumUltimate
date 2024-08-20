@@ -8,6 +8,7 @@ internal static class FactionColorImportancesData
     {
         var factionColorMappings = GetFactionColorMappings();
         var factionColorImportances = new List<FactionColorImportance>();
+        var id = 1;
 
         foreach (var (faction, colorMapping) in factionColorMappings)
         {
@@ -15,11 +16,13 @@ internal static class FactionColorImportancesData
             {
                 var entity = new FactionColorImportance
                 {
+                    Id = id,
                     FactionName = faction,
                     Color = color,
                     Importance = importance,
                 };
                 factionColorImportances.Add(entity);
+                id++;
             }
         }
 
@@ -55,7 +58,6 @@ internal static class FactionColorImportancesData
             { FactionName.TheYinBrotherhood, CreateColorMapping(0, 1, 9, 1, 2, 0, 7, 1) },
             { FactionName.TheYssarilTribes, CreateColorMapping(1, 0, 0, 9, 0, 3, 1, 2) },
             { FactionName.TheCouncilKeleres, CreateColorMapping(0, 6, 6, 0, 5, 8, 7, 0) },
-
             { FactionName.TheAugursOfIlyxum, CreateColorMapping(7, 8, 3, 0, 0, 9, 0, 0) },
             { FactionName.TheCeldauriTradeConfederation, CreateColorMapping(0, 4, 9, 0, 7, 0, 0, 2) },
             { FactionName.TheDihMohnFlotilla, CreateColorMapping(6, 0, 0, 0, 2, 10, 8, 1) },
@@ -80,7 +82,6 @@ internal static class FactionColorImportancesData
             { FactionName.TheVeldyrSovereignty, CreateColorMapping(0, 2, 0, 6, 9, 0, 0, 8) },
             { FactionName.TheZealotsOfRhodun, CreateColorMapping(0, 6, 0, 2, 8, 0, 0, 9) },
             { FactionName.TheZelianPurifier, CreateColorMapping(10, 6, 2, 0, 0, 0, 0, 8) },
-
             { FactionName.TheBentorConglomerate, CreateColorMapping(0, 0, 0, 5, 7, 8, 3, 0) },
             { FactionName.TheCheiranHordes, CreateColorMapping(6, 9, 2, 0, 7, 0, 0, 0) },
             { FactionName.TheEdynMandate, CreateColorMapping(1, 5, 7, 0, 0, 2, 0, 9) },

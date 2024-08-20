@@ -1,4 +1,6 @@
 ﻿@using System.Globalization;
+@using Microsoft.AspNetCore.Components.Authorization
+@using TwilightImperiumUltimate.Web.Components.Rules
 @using TwilightImperiumUltimate.Web.Helpers.Enums
 @using TwilightImperiumUltimate.Web.Models.Cards;
 @using TwilightImperiumUltimate.Web.Resources;
@@ -73,20 +75,75 @@
 @if (showBigImage)
 {
     <div class="big-image-overlay" @onclick="HideBigImage">
-        <div class="image-container">
-            <img src="@currentBigImageSrc" @onclick="HideBigImage" />
-        </div>
+        <FlexRowContainer Width="80" AlignItems="Enums.AlignItems.Center">
+            <div class="image-container">
+                <img src="@currentBigImageSrc" @onclick="HideBigImage" />
+            </div>
+            <FlexColumnContainer JustifyContent="Enums.JustifyContent.SpaceBetween">
+                <FlexColumnCenteredContainer>
+                    <FlexRowContainer Width="40" JustifyContent="Enums.JustifyContent.SpaceBetween">
+                        <div class="handel white shadow clickable"
+                                style="font-size: 24px;"
+                                @onclick="() => ShowNotes()"
+                                @onclick:stopPropagation="true">
+                            @Strings.Faction_Notes
+                        </div>
+                        <div class=" handel white shadow clickable"
+                                style="font-size: 24px;"
+                                @onclick="() => ShowFaq()"
+                                @onclick:stopPropagation="true">
+                            @Strings.Faction_Faq
+                        </div>
+                    </FlexRowContainer>
+                </FlexColumnCenteredContainer>
+
+                <VerticalSpace Height="40" />
+
+                @if (_showFaq)
+                {
+                    <FlexColumnCenteredContainer>
+                        <div class="scrollable-element"
+                            style="overflow: auto; max-height: 60vh; min-height: 60vh; width: 80%;">
+                            <FlexRowContainer Width="100" JustifyContent="Enums.JustifyContent.FlexEnd">
+                                <AuthorizeView>
+                                    <Authorized>
+                                        <Button ButtonText="@Strings.Faction_AddFaq" OnClick="AddFaq" />
+                                    </Authorized>
+                                </AuthorizeView>
+                            </FlexRowContainer>
+                            @foreach (var faq in GetSpecificCardFaqs())
+                            {
+                                <FaqRow Faq="@faq" Culture="@(currentBigImageCulture)" Width="100" />
+                                <VerticalSpace Height="50" />
+                            }
+                        </div>
+                    </FlexColumnCenteredContainer>
+                }
+                else if (_showNotes)
+                {
+                    <FlexColumnCenteredContainer CssClass="white shadow handel">
+                        <FlexRowContainer Width="100">
+                            <div class="scrollable-element"
+                                style="line-height: 1.5rem; overflow: auto; min-height: 60vh; max-height: 60vh;">
+                                @(GetSelectedCardNotes())
+                            </div>
+                        </FlexRowContainer>
+                    </FlexColumnCenteredContainer>
+                }
+
+            </FlexColumnContainer>
+        </FlexRowContainer>
         <div id="language-menu">
             <img src="@(GetCultureIconPath(Strings.EnglishCulture))"
-                 alt="English"
-                 height="50"
-                 @onclick="@(() =>SetBigImageAddress(Strings.EnglishCulture))"
-                 @onclick:stopPropagation="true" />
+                    alt="English"
+                    height="50"
+                    @onclick="@(() =>SetBigImageAddress(Strings.EnglishCulture))"
+                    @onclick:stopPropagation="true" />
             <img src="@(GetCultureIconPath(Strings.CzechCulture))"
-                 alt="Czech"
-                 height="50"
-                 @onclick="@(() =>SetBigImageAddress(Strings.CzechCulture))"
-                 @onclick:stopPropagation="true" />
+                    alt="Czech"
+                    height="50"
+                    @onclick="@(() =>SetBigImageAddress(Strings.CzechCulture))"
+                    @onclick:stopPropagation="true" />
         </div>
     </div>
 }

@@ -2,5 +2,5 @@ namespace TwilightImperiumUltimate.Contracts.ApiContracts.User;
 
 public class UserByEmailRequest
 {
-    required public string Email { get; set; } = string.Empty;
+    public required string Email { get; set; } = string.Empty;
 }

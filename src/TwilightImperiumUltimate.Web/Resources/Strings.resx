@@ -312,6 +312,9 @@
   <data name="Faction_Ability" xml:space="preserve">
     <value>Abilities</value>
   </data>
+  <data name="Faction_AddFaq" xml:space="preserve">
+    <value>Add new FAQ</value>
+  </data>
   <data name="Faction_Agent" xml:space="preserve">
     <value>Agent</value>
   </data>
@@ -354,6 +357,9 @@
   <data name="Faction_Mech" xml:space="preserve">
     <value>Mech</value>
   </data>
+  <data name="Faction_Notes" xml:space="preserve">
+    <value>RULE NOTES</value>
+  </data>
   <data name="Faction_Setup" xml:space="preserve">
     <value>Setup</value>
   </data>
@@ -368,6 +374,24 @@
   </data>
   <data name="Faction_SetupChooseTwoTechnologies" xml:space="preserve">
     <value>Choose two of the following:</value>
+  </data>
+  <data name="Faq_Answer" xml:space="preserve">
+    <value>Answer:</value>
+  </data>
+  <data name="Faq_Question" xml:space="preserve">
+    <value>Question:</value>
+  </data>
+  <data name="Faq_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Faq_Submit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="Faq_SubmitSuccess" xml:space="preserve">
+    <value>Your FAQ was submitted successfully!</value>
+  </data>
+  <data name="Faq_SubmittedFaqs" xml:space="preserve">
+    <value>Submitted FAQs</value>
   </data>
   <data name="FileExtensionPng" xml:space="preserve">
     <value>.png</value>
@@ -936,6 +960,12 @@
   <data name="RulesResource_SummaryLink" xml:space="preserve">
     <value>https://1drv.ms/b/s!AifcqLzbdKjHhb1r25l5s_4Vz2oXvw?e=gur9lZ</value>
   </data>
+  <data name="Rules_Notes" xml:space="preserve">
+    <value>Notes:</value>
+  </data>
+  <data name="Rules_ShowNotes" xml:space="preserve">
+    <value>Show notes:</value>
+  </data>
   <data name="SearchForKeyword" xml:space="preserve">
     <value>Search: </value>
   </data>
@@ -968,9 +998,6 @@
   </data>
   <data name="StrategyCard" xml:space="preserve">
     <value>strategy</value>
-  </data>
-  <data name="String1" xml:space="preserve">
-    <value> </value>
   </data>
   <data name="SystemTileOverlay_Id" xml:space="preserve">
     <value>Id</value>

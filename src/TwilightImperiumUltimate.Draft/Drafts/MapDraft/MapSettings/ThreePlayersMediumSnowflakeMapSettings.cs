@@ -33,15 +33,15 @@ internal class ThreePlayersMediumSnowflakeMapSettings : IMapSettings
 
     public Dictionary<int, List<(int X, int Y)>> Slices => new Dictionary<int, List<(int X, int Y)>>()
     {
-        { 1, new List<(int X , int Y)> { (10, 4), (7, 5), (11, 5), (8, 6), } },
-        { 2, new List<(int X , int Y)> { (7, 1), (10, 2), (8, 0), (11, 1), } },
-        { 3, new List<(int X , int Y)> { (4, 4), (4, 2), (2, 4), (2, 2), } },
+        { 1, new List<(int X, int Y)> { (10, 4), (7, 5), (11, 5), (8, 6), } },
+        { 2, new List<(int X, int Y)> { (7, 1), (10, 2), (8, 0), (11, 1), } },
+        { 3, new List<(int X, int Y)> { (4, 4), (4, 2), (2, 4), (2, 2), } },
     };
 
     public Dictionary<int, List<(int X, int Y)>> AdjacentHomePositions => new Dictionary<int, List<(int X, int Y)>>()
     {
-        { 1, new List<(int X , int Y)>() },
-        { 2, new List<(int X , int Y)>() },
-        { 3, new List<(int X , int Y)>() },
+        { 1, new List<(int X, int Y)>() },
+        { 2, new List<(int X, int Y)>() },
+        { 3, new List<(int X, int Y)>() },
     };
 }

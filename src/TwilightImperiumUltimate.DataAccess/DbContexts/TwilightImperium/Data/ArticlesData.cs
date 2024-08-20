@@ -6,6 +6,7 @@ internal static class ArticlesData
     {
         new()
         {
+            Id = 1,
             Title = "New Era - Twilight Imperium: Ultimate!",
             Content = "Welcome to the all-new 'Twilight Imperium: Ultimate' website<br/><br/>" +
                         "As an avid fan and a dedicated developer, I'm developing this website to elevate your Twilight Imperium gaming experience. Here, you'll find a host of new features, game-enhancing tools, and community-driven sections tailor-made for fans, by a fans.<br/><br/>" +
@@ -14,9 +15,11 @@ internal static class ArticlesData
                         "Happy gaming,<br/>Lazik",
             CreatedAt = new DateOnly(2023, 06, 15),
             UpdatedAt = new DateOnly(2023, 06, 15),
+            UserId = "1",
         },
         new()
         {
+            Id = 2,
             Title = "First Steps - Launching Our First Feature!",
             Content = "Introducing the Game Section<br/><br/>" +
                         "<p>Exciting news for all Twilight Imperium enthusiasts! The first section of our website is now live, dedicated to the mesmerizing universe of Twilight Imperium 4th Edition, the PoK Expansion, and Codices 1-3.</p>" +
@@ -29,9 +32,11 @@ internal static class ArticlesData
                         "<p><a href=\"https://github.com/Lazik10/TwilightImperiumUltimate/issues\" style=\"color: yellow\">GitHub Repository</a></p>",
             CreatedAt = new DateOnly(2023, 08, 24),
             UpdatedAt = new DateOnly(2023, 08, 24),
+            UserId = "1",
         },
         new()
         {
+            Id = 3,
             Title = "Exciting Update - Introducing the 'Tools' Section!",
             Content = "Discover the New 'Tools' Section<br/><br/>" +
                         "<p>Great news for Twilight Imperium Commanders! I am thrilled to announce the launch of the 'Tools' section, a brand-new feature designed to enhance your galactic conquests. This section is tailor-made to add a new level of depth and customization to your Twilight Imperium experience.</p>" +
@@ -47,9 +52,11 @@ internal static class ArticlesData
                         "<p><a href=\"https://github.com/Lazik10/TwilightImperiumUltimate/issues\" style=\"color: yellow\">GitHub Repository</a></p>",
             CreatedAt = new DateOnly(2023, 11, 05),
             UpdatedAt = new DateOnly(2023, 11, 05),
+            UserId = "1",
         },
         new()
         {
+            Id = 4,
             Title = "First Milestone - TI: Ultimate Test Website Launch!",
             Content = "Embarking on a New Journey: TI: Ultimate Test Site Goes Live!<br/><br/>" +
                         "<p>I am thrilled to announce a giant leap in my developing Twilight Imperium website journey – the launch of the TI: Ultimate test website! This is a pivotal moment, marking the first time my platform is open for interstellar explorers – like you.</p>" +
@@ -63,9 +70,11 @@ internal static class ArticlesData
                         "<p>Join me in this adventure! Looking forward to your feedback and participation!</p>",
             CreatedAt = new DateOnly(2023, 11, 14),
             UpdatedAt = new DateOnly(2023, 11, 14),
+            UserId = "1",
         },
         new()
         {
+            Id = 5,
             Title = "Tech Triumph - Launching the Technology Cards Compendium!",
             Content = "Unveiling the Technology Cards Compendium<br/><br/>" +
                         "<p>Dear Twilight Imperium Commanders, it's time to unveil our latest addition to the TI: Ultimate website - the comprehensive Technology Cards Compendium! This new section is a treasure trove for players seeking in-depth knowledge and strategies around the game’s technological advancements.</p>" +
@@ -82,6 +91,7 @@ internal static class ArticlesData
                         "<p>Here's to many more technological breakthroughs!</p>",
             CreatedAt = new DateOnly(2023, 11, 19),
             UpdatedAt = new DateOnly(2023, 11, 19),
+            UserId = "1",
         },
     };
 }

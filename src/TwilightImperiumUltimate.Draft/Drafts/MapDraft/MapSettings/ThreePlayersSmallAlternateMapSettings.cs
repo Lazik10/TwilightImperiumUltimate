@@ -31,15 +31,15 @@ internal class ThreePlayersSmallAlternateMapSettings : IMapSettings
 
     public Dictionary<int, List<(int X, int Y)>> Slices => new Dictionary<int, List<(int X, int Y)>>()
     {
-        { 1, new List<(int X , int Y)> { (6, 4), (5, 3), (3, 3), (2, 4), } },
-        { 2, new List<(int X , int Y)> { (6, 0), (5, 1), (6, 2), (8, 2), } },
-        { 3, new List<(int X , int Y)> { (0, 2), (0, 4), (3, 1), (2, 0), } },
+        { 1, new List<(int X, int Y)> { (6, 4), (5, 3), (3, 3), (2, 4), } },
+        { 2, new List<(int X, int Y)> { (6, 0), (5, 1), (6, 2), (8, 2), } },
+        { 3, new List<(int X, int Y)> { (0, 2), (0, 4), (3, 1), (2, 0), } },
     };
 
     public Dictionary<int, List<(int X, int Y)>> AdjacentHomePositions => new Dictionary<int, List<(int X, int Y)>>()
     {
-        { 1, new List<(int X , int Y)>() },
-        { 2, new List<(int X , int Y)>() },
-        { 3, new List<(int X , int Y)>() },
+        { 1, new List<(int X, int Y)>() },
+        { 2, new List<(int X, int Y)>() },
+        { 3, new List<(int X, int Y)>() },
     };
 }
