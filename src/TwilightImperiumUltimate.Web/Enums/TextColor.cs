@@ -7,4 +7,5 @@ public enum TextColor
     Green,
     Yellow,
     Blue,
+    Deepskyblue,
 }

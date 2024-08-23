@@ -804,6 +804,9 @@
   <data name="Page_Rules" xml:space="preserve">
     <value>Rules</value>
   </data>
+  <data name="Page_SliceGenerator" xml:space="preserve">
+    <value>Slice Generator</value>
+  </data>
   <data name="Page_Statistics" xml:space="preserve">
     <value>Statistics</value>
   </data>
@@ -995,6 +998,36 @@
   </data>
   <data name="SliceEvaluation_TotalResource" xml:space="preserve">
     <value>Resources</value>
+  </data>
+  <data name="SliceGeneratorMenu_Settings" xml:space="preserve">
+    <value>SETTINGS</value>
+  </data>
+  <data name="SliceGeneratorMenu_Slices" xml:space="preserve">
+    <value>SLICES</value>
+  </data>
+  <data name="SliceGeneratorMenu_Stats" xml:space="preserve">
+    <value>STATS</value>
+  </data>
+  <data name="SliceGeneratorSettings_TilesOverlay" xml:space="preserve">
+    <value>Tiles overlay:</value>
+  </data>
+  <data name="SliceGenerator_GenerateRandomSlices" xml:space="preserve">
+    <value>Generate Slices</value>
+  </data>
+  <data name="SliceGenerator_NumberOfSlices" xml:space="preserve">
+    <value>Number of slices:</value>
+  </data>
+  <data name="SliceGenerator_Optimal" xml:space="preserve">
+    <value>Optimal:</value>
+  </data>
+  <data name="SliceGenerator_SliceId" xml:space="preserve">
+    <value>Slice ID:</value>
+  </data>
+  <data name="SliceGenerator_Total" xml:space="preserve">
+    <value>Total:</value>
+  </data>
+  <data name="SliceGenerator_Traits" xml:space="preserve">
+    <value>Traits:</value>
   </data>
   <data name="StrategyCard" xml:space="preserve">
     <value>strategy</value>

@@ -2122,6 +2122,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Slice Generator.
+        /// </summary>
+        public static string Page_SliceGenerator {
+            get {
+                return ResourceManager.GetString("Page_SliceGenerator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Statistics.
         /// </summary>
         public static string Page_Statistics {
@@ -2694,6 +2703,96 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string SliceEvaluation_TotalResource {
             get {
                 return ResourceManager.GetString("SliceEvaluation_TotalResource", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Generate Slices.
+        /// </summary>
+        public static string SliceGenerator_GenerateRandomSlices {
+            get {
+                return ResourceManager.GetString("SliceGenerator_GenerateRandomSlices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of slices:.
+        /// </summary>
+        public static string SliceGenerator_NumberOfSlices {
+            get {
+                return ResourceManager.GetString("SliceGenerator_NumberOfSlices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optimal:.
+        /// </summary>
+        public static string SliceGenerator_Optimal {
+            get {
+                return ResourceManager.GetString("SliceGenerator_Optimal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Slice ID:.
+        /// </summary>
+        public static string SliceGenerator_SliceId {
+            get {
+                return ResourceManager.GetString("SliceGenerator_SliceId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total:.
+        /// </summary>
+        public static string SliceGenerator_Total {
+            get {
+                return ResourceManager.GetString("SliceGenerator_Total", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Traits:.
+        /// </summary>
+        public static string SliceGenerator_Traits {
+            get {
+                return ResourceManager.GetString("SliceGenerator_Traits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SETTINGS.
+        /// </summary>
+        public static string SliceGeneratorMenu_Settings {
+            get {
+                return ResourceManager.GetString("SliceGeneratorMenu_Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SLICES.
+        /// </summary>
+        public static string SliceGeneratorMenu_Slices {
+            get {
+                return ResourceManager.GetString("SliceGeneratorMenu_Slices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to STATS.
+        /// </summary>
+        public static string SliceGeneratorMenu_Stats {
+            get {
+                return ResourceManager.GetString("SliceGeneratorMenu_Stats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tiles overlay:.
+        /// </summary>
+        public static string SliceGeneratorSettings_TilesOverlay {
+            get {
+                return ResourceManager.GetString("SliceGeneratorSettings_TilesOverlay", resourceCulture);
             }
         }
         

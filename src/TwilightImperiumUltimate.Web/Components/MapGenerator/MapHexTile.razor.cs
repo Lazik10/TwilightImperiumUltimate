@@ -73,16 +73,19 @@ public partial class MapHexTile : TwilightImperiumBaseComponenet
         return Task.CompletedTask;
     }
 
-    private void StartDragSystemTile(SystemTileModel systemTile)
+    private void StartDragSystemTile(SystemTileModel? systemTile)
     {
-        MapGeneratorService.SetDraggingSystemTile(systemTile);
-        MapGeneratorService.SetDraggingSystemTilePosition(MapPosition);
-        Log.Information("Drag started for system tile: {TileName}", systemTile.SystemTileName.ToString());
+        if (systemTile is not null)
+        {
+            MapGeneratorService.SetDraggingSystemTile(systemTile);
+            MapGeneratorService.SetDraggingSystemTilePosition(MapPosition);
+            Log.Information("Drag started for system tile: {TileName}", systemTile.SystemTileName.ToString());
+        }
     }
 
-    private void DropSystemTile(SystemTileModel systemTile)
+    private void DropSystemTile(SystemTileModel? systemTile)
     {
-        if (systemTile != null)
+        if (systemTile is not null)
         {
             var draggedSystemTile = MapGeneratorService.GetCurrentDraggingSystemTile();
             Log.Information("Dragged system tile was: {TileName}", draggedSystemTile.SystemTileName.ToString());
@@ -95,14 +98,14 @@ public partial class MapHexTile : TwilightImperiumBaseComponenet
         }
     }
 
-    private void DragOverSystemTile(SystemTileModel systemTile)
+    private void DragOverSystemTile(SystemTileModel? systemTile)
     {
-        Log.Information("Draging over system tile: {TileName}", systemTile.SystemTileName.ToString());
+        Log.Information("Draging over system tile: {TileName}", systemTile?.SystemTileName.ToString());
     }
 
-    private void EndDragSystemTile(SystemTileModel systemTile)
+    private void EndDragSystemTile(SystemTileModel? systemTile)
     {
-        Log.Information("Drag ended for system tile: {TileName}", systemTile.SystemTileName.ToString());
+        Log.Information("Drag ended for system tile: {TileName}", systemTile?.SystemTileName.ToString());
         SwappedSystemTileFromMenu.InvokeAsync();
     }
 

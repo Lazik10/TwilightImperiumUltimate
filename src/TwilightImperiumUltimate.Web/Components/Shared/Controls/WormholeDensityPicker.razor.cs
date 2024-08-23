@@ -1,5 +1,6 @@
 using System.Globalization;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
+using TwilightImperiumUltimate.Web.Services.SliceGenerators;
 
 namespace TwilightImperiumUltimate.Web.Components.Shared.Controls;
 
@@ -26,23 +27,28 @@ public partial class WormholeDensityPicker
     [Inject]
     private IMapGeneratorSettingsService MapGeneratorSettingsService { get; set; } = default!;
 
+    [Inject]
+    private ISliceGeneratorSettingsService SliceGeneratorSettingsService { get; set; } = default!;
+
     private int WormholeDensityValue => (int)WormholeDensity;
 
-    private void Decrease()
+    private async Task Decrease()
     {
         if (Enum.TryParse<WormholeDensity>((WormholeDensityValue - 1).ToString(CultureInfo.InvariantCulture), out var wormholeDensity)
             && Enum.GetValues<WormholeDensity>().Contains(wormholeDensity))
         {
             WormholeDensity = MapGeneratorSettingsService.WormholeDensity = wormholeDensity;
+            await SliceGeneratorSettingsService.UpdateWormholeDensity(wormholeDensity);
         }
     }
 
-    private void Increase()
+    private async Task Increase()
     {
         if (Enum.TryParse<WormholeDensity>((WormholeDensityValue + 1).ToString(CultureInfo.InvariantCulture), out var wormholeDensity)
             && Enum.GetValues<WormholeDensity>().Contains(wormholeDensity))
         {
             WormholeDensity = MapGeneratorSettingsService.WormholeDensity = wormholeDensity;
+            await SliceGeneratorSettingsService.UpdateWormholeDensity(wormholeDensity);
         }
     }
 }

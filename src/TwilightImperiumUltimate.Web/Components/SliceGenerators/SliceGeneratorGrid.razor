@@ -1,0 +1,46 @@
+﻿@using TwilightImperiumUltimate.Web.Components.MapGenerator
+
+<SliceGeneratorNavBar OnMenuItemClick="OnMenuItemClick" />
+
+@if(_selectedMenuItem == SliceGeneratorMenuItem.SliceGenerator)
+{
+    <VerticalSpace Height="20" />
+
+    <FlexColumnCenteredContainer>
+        <Button ButtonText="@Strings.SliceGenerator_GenerateRandomSlices" OnClick="GenerateSlices" />
+    </FlexColumnCenteredContainer>
+
+    <FlexColumnCenteredContainer>
+
+        <div id="sliceArea">
+            <GridLayout Width="100" Gap="50" Columns="3">
+
+                <SliceHexTileMenu @ref="_sliceHexTileMenu" />
+
+                <SliceQuickMenu OnMenuIconClick="HandleQuickMenuClick"/>
+
+                @foreach (var slice in Slices)
+                {
+                    <Slice SliceModel="slice" />
+                }
+            </GridLayout>
+        </div>
+
+    </FlexColumnCenteredContainer>
+}
+else if (_selectedMenuItem == SliceGeneratorMenuItem.SliceEvaluation)
+{
+    <VerticalSpace Height="20" />
+
+    <FlexColumnCenteredContainer>
+        <Button ButtonText="@Strings.SliceGenerator_GenerateRandomSlices" OnClick="GenerateSlices" />
+    </FlexColumnCenteredContainer>
+
+    <VerticalSpace Height="20" />
+
+    <SliceEvaluationGrid Slices="Slices" />
+}
+else if (_selectedMenuItem == SliceGeneratorMenuItem.Settings)
+{
+    <SliceGeneratorSettings OnSettingsChange="async () =>  await UpdateSlices()" />
+}

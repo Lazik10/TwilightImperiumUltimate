@@ -165,6 +165,9 @@
   <data name="ApiPath_GenerateMap" xml:space="preserve">
     <value>api/map-generators/generate-map</value>
   </data>
+  <data name="ApiPath_GenerateSlices" xml:space="preserve">
+    <value>api/slice-generators/generate-slices</value>
+  </data>
   <data name="ApiPath_ManageInfo" xml:space="preserve">
     <value>manage/info</value>
   </data>

@@ -28,7 +28,7 @@ public class GalaxyRepository(
     public async Task<SystemTile> GetEmptyPlaceholderSystemTile(CancellationToken cancellationToken)
     {
         var systemTiles = await GetSystemTiles(cancellationToken);
-        return systemTiles.Single(x => x.SystemTileName == SystemTileName.TileTransparent);
+        return systemTiles.Single(x => x.SystemTileName == SystemTileName.TileEmpty);
     }
 
     public async Task<IReadOnlyList<SystemTile>> GetAllSystemTiles(CancellationToken cancellationToken)

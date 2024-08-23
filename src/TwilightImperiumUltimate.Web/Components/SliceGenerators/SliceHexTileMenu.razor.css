@@ -1,0 +1,42 @@
+﻿.hex-menu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 20px;
+    top: 400px;
+    z-index: 1000;
+    width: 10%;
+    max-height: 835px;
+    min-height: 835px;
+}
+
+.rz-dropdown-item {
+    font-family: Handel, fallback, sans-serif !important;
+}
+
+.radzen-dropdown {
+    font-family: Handel, fallback, sans-serif !important;
+}
+
+.scrollbar-area {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+    .scrollbar-area::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    .scrollbar-area::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .scrollbar-area::-webkit-scrollbar-thumb {
+        background: #0024ff;
+    }
+
+    .scrollbar-area::-webkit-scrollbar-button {
+        background-color: transparent;
+        color: transparent;
+    }

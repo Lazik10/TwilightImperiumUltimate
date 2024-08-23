@@ -3,6 +3,7 @@ using TwilightImperiumUltimate.Draft.Drafts.ColorDraft;
 using TwilightImperiumUltimate.Draft.Drafts.FactionDraft;
 using TwilightImperiumUltimate.Draft.Drafts.MapDraft.Implementations;
 using TwilightImperiumUltimate.Draft.Drafts.MapDraft.Interfaces;
+using TwilightImperiumUltimate.Draft.Drafts.SliceDraft;
 
 namespace TwilightImperiumUltimate.Draft;
 
@@ -29,6 +30,11 @@ public static class ServiceCollectionExtensions
 
         services.AddScoped<IPlacementStyleHandler, PlacementStyleHandler>();
         services.AddScoped<ISliceBalancer, SliceBalancer>();
+
+        services.AddScoped<IDraftSlicesService, DraftSlicesService>();
+        services.AddScoped<ISliceSystemTilePreparer, SliceSystemTilePreparer>();
+        services.AddScoped<IMiltyDraftSliceBalancer, MiltyDraftSliceBalancer>();
+        services.AddScoped<IMiltyDraftSystemTileSetter, MiltyDraftSystemTileSetter>();
 
         return services;
     }

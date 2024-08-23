@@ -874,7 +874,7 @@ internal static class PlanetsData
             PlanetName = PlanetName.Semlore,
             PlanetTrait = PlanetTrait.Cultural,
             SystemTileName = SystemTileName.Tile62,
-            Resources = 2,
+            Resources = 3,
             Influence = 2,
             IsLegendary = false,
             TechnologySkip = TechnologyType.Cybernetic,

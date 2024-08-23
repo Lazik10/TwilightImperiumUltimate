@@ -107,7 +107,11 @@ public partial class MapEvaluation
                 {
                     sliceEvaluation.Influence += systemTileModel.Influence;
                     sliceEvaluation.Resources += systemTileModel.Resources;
+
                     sliceEvaluation.LegendariesCount += systemTileModel.Planets.Count(x => x.IsLegendary);
+                    sliceEvaluation.AlphaWormholesCount += systemTileModel.Wormholes.Count(x => x.WormholeName == WormholeName.Alpha);
+                    sliceEvaluation.BetaWormholesCount += systemTileModel.Wormholes.Count(x => x.WormholeName == WormholeName.Beta);
+                    sliceEvaluation.GammaWormholesCount += systemTileModel.Wormholes.Count(x => x.WormholeName == WormholeName.Gamma);
 
                     sliceEvaluation.TechnologySkips[TechnologyType.Propulsion] += systemTileModel.Planets.Count(x => x.TechnologySkip == TechnologyType.Propulsion);
                     sliceEvaluation.TechnologySkips[TechnologyType.Biotic] += systemTileModel.Planets.Count(x => x.TechnologySkip == TechnologyType.Biotic);

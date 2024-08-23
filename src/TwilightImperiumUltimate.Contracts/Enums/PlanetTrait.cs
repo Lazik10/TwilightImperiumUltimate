@@ -6,4 +6,8 @@ public enum PlanetTrait
     Industrial,
     Cultural,
     Hazardous,
+    Legendary,
+    AlphaWormhole,
+    BetaWormhole,
+    GammaWormhole,
 }

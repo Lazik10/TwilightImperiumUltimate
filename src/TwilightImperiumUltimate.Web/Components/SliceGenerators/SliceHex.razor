@@ -1,0 +1,27 @@
+﻿<div class="hex-container"
+     draggable="true" 
+     title="@(SystemTile?.SystemTileName.ToString())">
+
+    <img src="@ImagePath"
+         alt="Hexagon">
+
+    @if (Overlay == SystemTileOverlay.Id || Overlay == SystemTileOverlay.Resources || Overlay == SystemTileOverlay.Influence)
+    {
+        <div class="hex-text @(SystemTileOverlayColor) handel shadow">
+            <FlexColumnCenteredContainer>
+                @SystemTileOverlayText
+            </FlexColumnCenteredContainer>
+        </div>
+    }
+    else if (Overlay == SystemTileOverlay.ResourcesAndInfluence)
+    {
+        <div class="hex-text white handel shadow">
+            <FlexColumnCenteredContainer>
+                <FlexRowContainer>
+                    <div class="yellow">@SystemTile?.Resources</div><HorizontalSpace Width="10" />/<HorizontalSpace Width="10" /><div class="blue">@SystemTile?.Influence</div>
+                </FlexRowContainer>
+            </FlexColumnCenteredContainer>
+        </div>
+    }
+
+</div>

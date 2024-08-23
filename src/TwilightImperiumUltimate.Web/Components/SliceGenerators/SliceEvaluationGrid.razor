@@ -1,0 +1,120 @@
+﻿<div class="slice-evaluation-grid handel white shadow">
+
+    <FlexColumnCenteredContainer CssClass="background">
+
+        <GridLayout Columns="9" Gap="20" Width="100">
+            <div>
+                @Strings.SliceEvaluation_Id
+            </div>
+
+            <div class="green">
+                @Strings.SliceEvaluation_TotalOptimalValue
+            </div>
+
+            <div class="yellow">
+                @Strings.SliceEvaluation_TotalOptimalValueResources
+            </div>
+
+            <div class="blue">
+                @Strings.SliceEvaluation_TotalOptimalValueInfluence
+            </div>
+
+            <div class="yellow">
+                @Strings.SliceEvaluation_TotalResource
+            </div>
+
+            <div class="blue">
+                @Strings.SliceEvaluation_TotalInfluence
+            </div>
+
+            <div class="green">
+                @Strings.SliceEvaluation_LegendaryCount
+            </div>
+
+            <div>
+                @Strings.SliceEvaluation_PlanetTraits
+            </div>
+
+            <div>
+                @Strings.SliceEvaluation_TechnologySkips
+            </div>
+
+            @foreach(var sliceEvaluation in GetSliceEvaluations())
+            {
+                <div>
+                    @GetDisplaySliceId(sliceEvaluation)
+                </div>
+
+                <div class="green grid-text">
+                    @sliceEvaluation.OptimalValueSum
+                </div>
+
+                <div class="yellow">
+                    @sliceEvaluation.OptimalResourcesSum
+                </div>
+
+                <div class="blue">
+                    @sliceEvaluation.OptimalInfluenceSum
+                </div>
+
+                <div class="yellow">
+                    @sliceEvaluation.Resources
+                </div>
+
+                <div class="blue grid-text">
+                    @sliceEvaluation.Influence
+                </div>
+
+                <div class="green">
+                    @sliceEvaluation.LegendariesCount
+                </div>
+
+                <div>
+                    <FlexRowContainer>
+                        @foreach (var planetTrait in sliceEvaluation.PlanetTraits.Keys)
+                        {
+                            for (int i = 0; i < sliceEvaluation.PlanetTraits[planetTrait]; i++)
+                            {
+                                <img src="@GetPlanetTraitPath(planetTrait)" class="max-height" />
+                            }
+                        }
+                    </FlexRowContainer>
+                </div>
+
+                <div>
+                    <FlexRowContainer>
+                        @foreach (var technologyType in sliceEvaluation.TechnologySkips.Keys)
+                        {
+                            for (int i = 0; i < sliceEvaluation.TechnologySkips[technologyType]; i++)
+                            {
+                                <img src="@GetTechnologyPath(technologyType)" class="max-height" />
+                            }
+                        }
+
+                        @for (int i = 0; i < sliceEvaluation.LegendariesCount; i++)
+                        {
+                            <img src="@GetPlanetTraitPath(PlanetTrait.Legendary)" class="max-height" style="max-width: 40px;" />
+                        }
+
+                        @for (int i = 0; i < sliceEvaluation.AlphaWormholesCount; i++)
+                        {
+                            <img src="@GetPlanetTraitPath(PlanetTrait.AlphaWormhole)" class="max-height" style="max-width: 40px;" />
+                        }
+
+                        @for (int i = 0; i < sliceEvaluation.BetaWormholesCount; i++)
+                        {
+                            <img src="@GetPlanetTraitPath(PlanetTrait.BetaWormhole)" class="max-height" style="max-width: 40px;" />
+                        }
+
+                        @for (int i = 0; i < sliceEvaluation.GammaWormholesCount; i++)
+                        {
+                            <img src="@GetPlanetTraitPath(PlanetTrait.GammaWormhole)" class="max-height" style="max-width: 40px;" />
+                        }
+                    </FlexRowContainer>
+                </div>
+            }
+
+        </GridLayout>
+
+    </FlexColumnCenteredContainer>
+</div>

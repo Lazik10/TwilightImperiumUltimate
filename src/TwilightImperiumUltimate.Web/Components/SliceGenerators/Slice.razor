@@ -1,0 +1,18 @@
+﻿<FlexColumnCenteredContainer>
+
+    <div class="slice-grid">
+
+        @foreach(var systemTile in SliceModel.SystemTiles)
+        {
+            <div class="hex">
+                <SliceHex SystemTile="systemTile" />
+            </div>
+        }
+
+    </div>
+
+    <VerticalSpace Height="100" />
+
+    <SliceEvaluationStats SliceModel="SliceModel" />
+
+</FlexColumnCenteredContainer>
