@@ -104,6 +104,7 @@ public class SliceGeneratorService(
             SystemTileTypeFilter.ProphecyOfKings => AllSystemTiles.Where(x => x.GameVersion == GameVersion.ProphecyOfKings),
             SystemTileTypeFilter.DiscordantStars => AllSystemTiles.Where(x => x.GameVersion == GameVersion.DiscordantStars),
             SystemTileTypeFilter.UnchartedSpace => AllSystemTiles.Where(x => x.GameVersion == GameVersion.UnchartedSpace),
+            SystemTileTypeFilter.AscendantSun => AllSystemTiles.Where(x => x.GameVersion == GameVersion.AscendantSun),
             SystemTileTypeFilter.Custom => AllSystemTiles.Where(x => x.GameVersion == GameVersion.Custom),
             _ => throw new ArgumentOutOfRangeException(nameof(systemTileType), systemTileType, null),
         };

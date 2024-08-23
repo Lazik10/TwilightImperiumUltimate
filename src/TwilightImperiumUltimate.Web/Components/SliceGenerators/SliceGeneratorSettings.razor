@@ -41,6 +41,15 @@
                          Width="100" />
         </FlexRowContainer>
 
+        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+            <YesNoPicker Title="@Strings.GameVersion_AscendantSun"
+                         DefaultValue="SliceGeneratorSettingsService.GameVersions.Contains(GameVersion.AscendantSun)"
+                         OnValueChange="async () => await UpdateGameVersion(GameVersion.AscendantSun)"
+                         Width="100" />
+        </FlexRowContainer>
+
+        <div />
+
         <NumericPicker Title="@Strings.MapGeneratorSettings_NumberOfLegendaryPlanets"
                        Value="@SliceGeneratorSettingsService.NumberOfLegendaries"
                        OnDecrease="DecreaseNumberOfLegendaryPlanets"

@@ -408,6 +408,9 @@
   <data name="FrontierCard" xml:space="preserve">
     <value>frontier</value>
   </data>
+  <data name="GameVersion_AscendantSun" xml:space="preserve">
+    <value>Ascendant Sun</value>
+  </data>
   <data name="GameVersion_BaseGame" xml:space="preserve">
     <value>Base Game</value>
   </data>
@@ -437,6 +440,9 @@
   </data>
   <data name="GameVersion_SelectVersion" xml:space="preserve">
     <value>Game Versions:</value>
+  </data>
+  <data name="GameVersion_TtsHyperlines" xml:space="preserve">
+    <value>TTS Custom Hyperlines</value>
   </data>
   <data name="GameVersion_UnchartedSpace" xml:space="preserve">
     <value>Uncharted Space</value>
@@ -1166,5 +1172,8 @@
   </data>
   <data name="WormholeDensity_Random" xml:space="preserve">
     <value>Random</value>
+  </data>
+  <data name="SystemTileTypeFilter_AscendantSun" xml:space="preserve">
+    <value>Ascendant Sun</value>
   </data>
 </root>

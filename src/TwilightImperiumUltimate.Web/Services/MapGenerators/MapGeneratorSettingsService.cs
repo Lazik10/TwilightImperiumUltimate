@@ -57,8 +57,10 @@ public class MapGeneratorSettingsService(
         int maxNumberOfLegendaryPlanets = 0;
         maxNumberOfLegendaryPlanets += GameVersions.Contains(GameVersion.ProphecyOfKings) ? 2 : 0;
         maxNumberOfLegendaryPlanets += GameVersions.Contains(GameVersion.UnchartedSpace) ? 5 : 0;
+        maxNumberOfLegendaryPlanets += GameVersions.Contains(GameVersion.AscendantSun) ? 12 : 0;
 
-        NumberOfLegendaryPlanets = maxNumberOfLegendaryPlanets;
+        if (NumberOfLegendaryPlanets > maxNumberOfLegendaryPlanets)
+            NumberOfLegendaryPlanets = maxNumberOfLegendaryPlanets;
     }
 
     public void UpdateWormholeDensity(WormholeDensity wormholeDensity) => WormholeDensity = wormholeDensity;

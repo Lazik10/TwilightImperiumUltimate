@@ -74,6 +74,15 @@
                 Width="100"/>
         </FlexRowContainer>
 
+        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+            <YesNoPicker Title="@Strings.GameVersion_AscendantSun"
+                         DefaultValue="MapGeneratorSettingsService.GameVersions.Contains(GameVersion.AscendantSun)"
+                         OnValueChange="() => UpdateGameVersion(GameVersion.AscendantSun)"
+                         Width="100" />
+        </FlexRowContainer>
+
+        <div />
+
         <VerticalSpace Height="20" />
 
         <VerticalSpace Height="20" />

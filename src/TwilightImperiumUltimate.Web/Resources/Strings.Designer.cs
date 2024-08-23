@@ -934,6 +934,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ascendant Sun.
+        /// </summary>
+        public static string GameVersion_AscendantSun {
+            get {
+                return ResourceManager.GetString("GameVersion_AscendantSun", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Base Game.
         /// </summary>
         public static string GameVersion_BaseGame {
@@ -1020,6 +1029,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string GameVersion_SelectVersion {
             get {
                 return ResourceManager.GetString("GameVersion_SelectVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TTS Custom Hyperlines.
+        /// </summary>
+        public static string GameVersion_TtsHyperlines {
+            get {
+                return ResourceManager.GetString("GameVersion_TtsHyperlines", resourceCulture);
             }
         }
         
@@ -2865,6 +2883,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string SystemTileTypeFilter_Anomalies {
             get {
                 return ResourceManager.GetString("SystemTileTypeFilter_Anomalies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ascendant Sun.
+        /// </summary>
+        public static string SystemTileTypeFilter_AscendantSun {
+            get {
+                return ResourceManager.GetString("SystemTileTypeFilter_AscendantSun", resourceCulture);
             }
         }
         
