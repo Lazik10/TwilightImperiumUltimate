@@ -29,6 +29,11 @@ public partial class SliceGeneratorGrid
         await SliceGeneratorService.GeneratePreviewSlices();
     }
 
+    public void UpdateSliceHexTileMenu()
+    {
+        _sliceHexTileMenu?.RefreshSystemTilesMenu();
+    }
+
     private List<SliceModel> GetUpdatedSlices()
     {
         return SliceGeneratorService.Slices.ToList();

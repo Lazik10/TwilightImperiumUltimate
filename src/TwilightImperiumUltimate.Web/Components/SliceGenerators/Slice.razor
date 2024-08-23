@@ -1,12 +1,16 @@
 ﻿<FlexColumnCenteredContainer>
 
     <div class="slice-grid">
-
+        @{
+            int position = 0;
+        }
         @foreach(var systemTile in SliceModel.SystemTiles)
         {
+
             <div class="hex">
-                <SliceHex SystemTile="systemTile" />
+                <SliceHex SystemTile="systemTile" SliceId="SliceModel.Id" SlicePosition="position" />
             </div>
+            position++;
         }
 
     </div>

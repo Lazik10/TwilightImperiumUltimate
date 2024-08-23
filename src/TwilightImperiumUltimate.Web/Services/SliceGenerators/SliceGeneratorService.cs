@@ -16,6 +16,12 @@ public class SliceGeneratorService(
 
     private List<SliceModel> _slices = new List<SliceModel>();
 
+    private SystemTileModel? _draggedSystemTile;
+
+    private int _draggedSystemTileSlicePosition;
+
+    private int _draggedSystemTileSliceId;
+
     public IReadOnlyList<SystemTileModel> AllSystemTiles => _allSystemTiles;
 
     public IReadOnlyList<SliceModel> Slices => GetOrderedSlices();
@@ -108,6 +114,53 @@ public class SliceGeneratorService(
             SystemTileTypeFilter.Custom => AllSystemTiles.Where(x => x.GameVersion == GameVersion.Custom),
             _ => throw new ArgumentOutOfRangeException(nameof(systemTileType), systemTileType, null),
         };
+    }
+
+    public Task SetDraggedSystemTile(SystemTileModel systemTile, int draggedSystemTileSlicePosition, int draggedSystemTileSliceId)
+    {
+        _draggedSystemTile = systemTile;
+        _draggedSystemTileSlicePosition = draggedSystemTileSlicePosition;
+        _draggedSystemTileSliceId = draggedSystemTileSliceId;
+        return Task.CompletedTask;
+    }
+
+    public Task<SystemTileModel?> GetCurrentDraggingSystemTile()
+    {
+        return Task.FromResult(_draggedSystemTile);
+    }
+
+    public Task SwitchDraggingSystemTileWithDropSystemTile(
+        SystemTileModel droppedSystemTile,
+        int droppedSystemTileSliceId,
+        int droppedSystemTileSlicePosition)
+    {
+        if (_draggedSystemTile is not null && _draggedSystemTileSlicePosition != -1 && _draggedSystemTileSliceId != -1)
+        {
+            var sliceContainingDraggedSystemTile = _slices
+                .Find(x => x.Id == _draggedSystemTileSliceId);
+
+            if (sliceContainingDraggedSystemTile is not null)
+            {
+                sliceContainingDraggedSystemTile.SystemTiles[_draggedSystemTileSlicePosition] = droppedSystemTile;
+            }
+        }
+
+        if (droppedSystemTile is not null)
+        {
+            var sliceContainingDroppedSystemTile = _slices
+                .Find(x => x.Id == droppedSystemTileSliceId);
+
+            if (sliceContainingDroppedSystemTile is not null && _draggedSystemTile is not null)
+            {
+                sliceContainingDroppedSystemTile.SystemTiles[droppedSystemTileSlicePosition] = _draggedSystemTile;
+            }
+        }
+
+        _draggedSystemTile = null;
+        _draggedSystemTileSliceId = -1;
+        _draggedSystemTileSlicePosition = -1;
+
+        return Task.CompletedTask;
     }
 
     private List<SliceModel> GetOrderedSlices()

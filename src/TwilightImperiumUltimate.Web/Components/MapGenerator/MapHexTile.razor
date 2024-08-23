@@ -9,7 +9,7 @@
      @ondragover="@(() => DragOverSystemTile(SystemTile))"
      @ondragover:preventDefault="true"
      @ondragend="@(() => EndDragSystemTile(SystemTile))"
-     title="@(SystemTile.SystemTileName.ToString())">
+     title="@(SystemTile?.SystemTileName.ToString())">
 
     <img src="@ImagePath"
          style="transform: rotate(@(_degrees)deg);
