@@ -17,4 +17,16 @@ public interface ISliceGeneratorService
     Task AddSlice();
 
     Task RemoveSlice();
+
+    Task SetDraggedSystemTile(
+        SystemTileModel systemTile,
+        int draggedSystemTileSlicePosition,
+        int draggedSystemTileSliceId);
+
+    Task<SystemTileModel?> GetCurrentDraggingSystemTile();
+
+    Task SwitchDraggingSystemTileWithDropSystemTile(
+        SystemTileModel droppedSystemTile,
+        int droppedSystemTileSliceId,
+        int droppedSystemTileSlicePosition);
 }

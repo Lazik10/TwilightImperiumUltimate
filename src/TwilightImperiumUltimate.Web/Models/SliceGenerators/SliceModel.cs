@@ -4,7 +4,7 @@ public class SliceModel
 {
     public int Id { get; set; }
 
-    public IReadOnlyList<SystemTileModel> SystemTiles { get; set; } = new List<SystemTileModel>();
+    public List<SystemTileModel> SystemTiles { get; set; } = new List<SystemTileModel>();
 
     public int Resources => SystemTiles.Sum(x => x.Resources);
 

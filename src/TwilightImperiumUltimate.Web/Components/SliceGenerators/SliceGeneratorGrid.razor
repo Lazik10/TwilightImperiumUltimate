@@ -15,14 +15,18 @@
         <div id="sliceArea">
             <GridLayout Width="100" Gap="50" Columns="3">
 
-                <SliceHexTileMenu @ref="_sliceHexTileMenu" />
+                <CascadingValue Value="this" Name="SliceGeneratorGrid">
 
-                <SliceQuickMenu OnMenuIconClick="HandleQuickMenuClick"/>
+                    <SliceHexTileMenu @ref="_sliceHexTileMenu" />
 
-                @foreach (var slice in Slices)
-                {
-                    <Slice SliceModel="slice" />
-                }
+                    <SliceQuickMenu OnMenuIconClick="HandleQuickMenuClick"/>
+
+                    @foreach (var slice in Slices)
+                    {
+                        <Slice SliceModel="slice" />
+                    }
+                </CascadingValue>
+
             </GridLayout>
         </div>
 

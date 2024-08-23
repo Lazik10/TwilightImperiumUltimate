@@ -1,5 +1,6 @@
 using Serilog;
 using System.Globalization;
+using TwilightImperiumUltimate.Web.Pages.Tools;
 using TwilightImperiumUltimate.Web.Services.SliceGenerators;
 
 namespace TwilightImperiumUltimate.Web.Components.SliceGenerators;
@@ -14,7 +15,13 @@ public partial class SliceHexTile : TwilightImperiumBaseComponenet
     public SystemTileModel? SystemTile { get; set; } = null!;
 
     [Parameter]
-    public int MapPosition { get; set; }
+    public int Position { get; set; }
+
+    [Parameter]
+    public int SliceId { get; set; }
+
+    [CascadingParameter(Name = "SliceGeneratorPage")]
+    public SliceGenerator SliceGeneratorPage { get; set; } = default!;
 
     [Parameter]
     public EventCallback SwappedTwoSystemTiles { get; set; }
@@ -73,41 +80,34 @@ public partial class SliceHexTile : TwilightImperiumBaseComponenet
         return Task.CompletedTask;
     }
 
-    /*private void StartDragSystemTile(SystemTileModel? systemTile)
+    private async Task StartDragSystemTile()
     {
-        if (systemTile is not null)
-        {
-            SliceGeneratorService.SetDraggingSystemTile(systemTile);
-            SliceGeneratorService.SetDraggingSystemTilePosition(MapPosition);
-            Log.Information("Drag started for system tile: {TileName}", systemTile.SystemTileName.ToString());
-        }
+        if (SystemTile is not null)
+            await SliceGeneratorService.SetDraggedSystemTile(SystemTile, Position, SliceId);
     }
 
-    private void DropSystemTile(SystemTileModel? systemTile)
+    private void DragOverSystemTile()
     {
-        if (systemTile is not null)
+        Log.Information("Draging over system tile: {TileName}", SystemTile?.SystemTileName.ToString());
+    }
+
+    private void EndDragSystemTile()
+    {
+        Log.Information("Drag ended for system tile: {TileName}", SystemTile?.SystemTileName.ToString());
+    }
+
+    private async Task DropSystemTile()
+    {
+        if (SystemTile is not null)
         {
-            var draggedSystemTile = SliceGeneratorService.GetCurrentDraggingSystemTile();
-            Log.Information("Dragged system tile was: {TileName}", draggedSystemTile.SystemTileName.ToString());
-            Log.Information("Dropped on system tile: {TileName}", systemTile.SystemTileName.ToString());
-            SliceGeneratorService.SwapSystemTiles(systemTile, MapPosition);
-            SwappedTwoSystemTiles.InvokeAsync();
-            SwappedSystemTileFromMenu.InvokeAsync();
+            var draggedSystemTile = await SliceGeneratorService.GetCurrentDraggingSystemTile();
+            Log.Information("Dragged system tile was: {TileName}", draggedSystemTile?.SystemTileCode);
+            Log.Information("Dropped on system tile: {TileName}", SystemTile.SystemTileCode);
+            await SliceGeneratorService.SwitchDraggingSystemTileWithDropSystemTile(SystemTile, SliceId, Position);
+            await SliceGeneratorPage.Reload();
             StateHasChanged();
-            SliceGeneratorService.ResetDraggingSystemTile(systemTile);
         }
     }
-
-    private void DragOverSystemTile(SystemTileModel? systemTile)
-    {
-        Log.Information("Draging over system tile: {TileName}", systemTile?.SystemTileName.ToString());
-    }
-
-    private void EndDragSystemTile(SystemTileModel? systemTile)
-    {
-        Log.Information("Drag ended for system tile: {TileName}", systemTile?.SystemTileName.ToString());
-        SwappedSystemTileFromMenu.InvokeAsync();
-    }*/
 
     private void Rotate()
     {
