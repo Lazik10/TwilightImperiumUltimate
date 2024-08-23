@@ -10,6 +10,8 @@ public enum GameVersion
     CodexVigil,
     DiscordantStars,
     UnchartedSpace,
+    AscendantSun,
+    TtsHyperlines,
     Deprecated,
     Custom,
 }

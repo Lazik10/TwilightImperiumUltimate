@@ -1,0 +1,65 @@
+﻿<FlexColumnCenteredContainer>
+
+    <VerticalSpace Height="50" />
+
+    <GridLayout Columns="2" Gap="40" Width="80">
+
+        <NumericPicker Title="@Strings.SliceGenerator_NumberOfSlices"
+                       Value="GetSliceCount()"
+                       OnDecrease="DecreaseSliceCount"
+                       OnIncrease="IncreaseSliceCount"
+                       Width="100"
+                       FontSize="18"
+                       CenteredText="false" />
+
+        <FlexRowContainer>
+            <Label Text="@Strings.SliceGeneratorSettings_TilesOverlay" FontSize="18" />
+            <RadzenDropDown @bind-Value="SelectedSystemTileOverlay"
+                            Data="@_systemTileOverlays"
+                            Change="async () => await SetSystemTileOverlay(SelectedSystemTileOverlay)"
+                            ValueProperty="Key"
+                            TextProperty="Value"
+                            Style="width: 80%; max-width: 400px;"
+                            class="title handel" />
+        </FlexRowContainer>
+
+        <Label Text="@Strings.MapGeneratorSettings_SystemTiles" FontSize="18" />
+
+        <div />
+
+        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+            <YesNoPicker Title="@Strings.GameVersion_ProphecyOfKings"
+                         DefaultValue="SliceGeneratorSettingsService.GameVersions.Contains(GameVersion.ProphecyOfKings)"
+                         OnValueChange="async () => await UpdateGameVersion(GameVersion.ProphecyOfKings)"
+                         Width="100" />
+        </FlexRowContainer>
+
+        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+            <YesNoPicker Title="@Strings.GameVersion_UnchartedSpace"
+                         DefaultValue="SliceGeneratorSettingsService.GameVersions.Contains(GameVersion.UnchartedSpace)"
+                         OnValueChange="async () => await UpdateGameVersion(GameVersion.UnchartedSpace)"
+                         Width="100" />
+        </FlexRowContainer>
+
+        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+            <YesNoPicker Title="@Strings.GameVersion_AscendantSun"
+                         DefaultValue="SliceGeneratorSettingsService.GameVersions.Contains(GameVersion.AscendantSun)"
+                         OnValueChange="async () => await UpdateGameVersion(GameVersion.AscendantSun)"
+                         Width="100" />
+        </FlexRowContainer>
+
+        <div />
+
+        <NumericPicker Title="@Strings.MapGeneratorSettings_NumberOfLegendaryPlanets"
+                       Value="@SliceGeneratorSettingsService.NumberOfLegendaries"
+                       OnDecrease="DecreaseNumberOfLegendaryPlanets"
+                       OnIncrease="IncreaseNumberOfLegendaryPlanets"
+                       Width="100"
+                       FontSize="18"
+                       CenteredText="false" />
+
+        <WormholeDensityPicker Width="100" WormholeDensity="SliceGeneratorSettingsService.WormholeDensity" />
+
+    </GridLayout>
+
+</FlexColumnCenteredContainer>

@@ -18,5 +18,11 @@ public class SliceEvaluation
 
     public int LegendariesCount { get; set; }
 
+    public int AlphaWormholesCount { get; set; }
+
+    public int BetaWormholesCount { get; set; }
+
+    public int GammaWormholesCount { get; set; }
+
     public Dictionary<PlanetTrait, int> PlanetTraits { get; set; } = new Dictionary<PlanetTrait, int>();
 }

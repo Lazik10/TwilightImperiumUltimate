@@ -12,7 +12,7 @@ using TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium;
 namespace TwilightImperiumUltimate.DataAccess.Migrations
 {
     [DbContext(typeof(TwilightImperiumDbContext))]
-    [Migration("20240819173620_Initial-Migration")]
+    [Migration("20240823132526_Initial-Migration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -54,19 +54,19 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "2131a8d3-15b0-403a-93b0-1a44d9421377",
+                            Id = "c9608fed-985d-43ad-b0ba-93b8fa9d9438",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "e476b3fd-46c4-4e43-9cd9-2195441e6fb3",
+                            Id = "3ff0f206-016f-4773-bf05-5d7bbe154582",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "565fdce3-7847-42b7-9bc2-6a1a2f7f82a8",
+                            Id = "bfa71a2b-83ba-4c27-990b-c7eab7e27256",
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
                         });
@@ -9624,7 +9624,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Influence = 2,
                             IsLegendary = "false",
                             PlanetTrait = "Cultural",
-                            Resources = 2,
+                            Resources = 3,
                             SystemTileName = "Tile62",
                             TechnologySkip = "Cybernetic"
                         },
@@ -11006,6 +11006,1326 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             PlanetTrait = "Hazardous",
                             Resources = 2,
                             SystemTileName = "Tile4269",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "RialArchon",
+                            GameVersion = "AscendantSun",
+                            Id = 189,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 1,
+                            SystemTileName = "TileEronous01",
+                            TechnologySkip = "Propulsion"
+                        },
+                        new
+                        {
+                            PlanetName = "Eshonia",
+                            GameVersion = "AscendantSun",
+                            Id = 190,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 2,
+                            SystemTileName = "TileEronous02",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "HellsMaw",
+                            GameVersion = "AscendantSun",
+                            Id = 191,
+                            Influence = 0,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 3,
+                            SystemTileName = "TileEronous03",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "DeathsGate",
+                            GameVersion = "AscendantSun",
+                            Id = 192,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 0,
+                            SystemTileName = "TileEronous03",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Suprima",
+                            GameVersion = "AscendantSun",
+                            Id = 193,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Cultural",
+                            Resources = 2,
+                            SystemTileName = "TileEronous04",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "KkitaUlin",
+                            GameVersion = "AscendantSun",
+                            Id = 194,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Cultural",
+                            Resources = 0,
+                            SystemTileName = "TileEronous05",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "SelenTu",
+                            GameVersion = "AscendantSun",
+                            Id = 195,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 2,
+                            SystemTileName = "TileEronous06",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "SolinUo",
+                            GameVersion = "AscendantSun",
+                            Id = 196,
+                            Influence = 3,
+                            IsLegendary = "false",
+                            PlanetTrait = "Cultural",
+                            Resources = 1,
+                            SystemTileName = "TileEronous06",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Khjan",
+                            GameVersion = "AscendantSun",
+                            Id = 197,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 2,
+                            SystemTileName = "TileEronous07",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Shul",
+                            GameVersion = "AscendantSun",
+                            Id = 198,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Cultural",
+                            Resources = 1,
+                            SystemTileName = "TileEronous07",
+                            TechnologySkip = "Propulsion"
+                        },
+                        new
+                        {
+                            PlanetName = "RayonFive",
+                            GameVersion = "AscendantSun",
+                            Id = 199,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 2,
+                            SystemTileName = "TileEronous08",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "UlonGamma",
+                            GameVersion = "AscendantSun",
+                            Id = 200,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 0,
+                            SystemTileName = "TileEronous09",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "UlonRho",
+                            GameVersion = "AscendantSun",
+                            Id = 201,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 1,
+                            SystemTileName = "TileEronous09",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "ElokPhi",
+                            GameVersion = "AscendantSun",
+                            Id = 200,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 0,
+                            SystemTileName = "TileEronous10",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "ElokNu",
+                            GameVersion = "AscendantSun",
+                            Id = 201,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 1,
+                            SystemTileName = "TileEronous10",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Erodius",
+                            GameVersion = "AscendantSun",
+                            Id = 202,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 2,
+                            SystemTileName = "TileEronous20",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "IlVoshu",
+                            GameVersion = "AscendantSun",
+                            Id = 203,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Cultural",
+                            Resources = 2,
+                            SystemTileName = "TileEronous22",
+                            TechnologySkip = "Biotic"
+                        },
+                        new
+                        {
+                            PlanetName = "Xyon",
+                            GameVersion = "AscendantSun",
+                            Id = 204,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 2,
+                            SystemTileName = "TileEronous23",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Ynnis",
+                            GameVersion = "AscendantSun",
+                            Id = 205,
+                            Influence = 3,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 2,
+                            SystemTileName = "TileEronous24",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Zhgen",
+                            GameVersion = "AscendantSun",
+                            Id = 206,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 0,
+                            SystemTileName = "TileEronous48",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Sehnn",
+                            GameVersion = "AscendantSun",
+                            Id = 207,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 1,
+                            SystemTileName = "TileEronous48",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Myrwater",
+                            GameVersion = "AscendantSun",
+                            Id = 208,
+                            Influence = 3,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 1,
+                            SystemTileName = "TileEronous49",
+                            TechnologySkip = "Biotic"
+                        },
+                        new
+                        {
+                            PlanetName = "Adrian",
+                            GameVersion = "AscendantSun",
+                            Id = 209,
+                            Influence = 0,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 1,
+                            SystemTileName = "TileEronous50",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Telahas",
+                            GameVersion = "AscendantSun",
+                            Id = 210,
+                            Influence = 0,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 2,
+                            SystemTileName = "TileEronous50",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Grywon",
+                            GameVersion = "AscendantSun",
+                            Id = 211,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Cultural",
+                            Resources = 2,
+                            SystemTileName = "TileEronous51",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "IkrusThree",
+                            GameVersion = "AscendantSun",
+                            Id = 212,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 2,
+                            SystemTileName = "TileEronous52",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Tir",
+                            GameVersion = "AscendantSun",
+                            Id = 213,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 1,
+                            SystemTileName = "TileEronous52",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "MekoTwo",
+                            GameVersion = "AscendantSun",
+                            Id = 214,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Cultural",
+                            Resources = 0,
+                            SystemTileName = "TileEronous53",
+                            TechnologySkip = "Propulsion"
+                        },
+                        new
+                        {
+                            PlanetName = "TethnSekus",
+                            GameVersion = "AscendantSun",
+                            Id = 215,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Cultural",
+                            Resources = 1,
+                            SystemTileName = "TileEronous54",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "TethnTirs",
+                            GameVersion = "AscendantSun",
+                            Id = 216,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 2,
+                            SystemTileName = "TileEronous54",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Dwuuit",
+                            GameVersion = "AscendantSun",
+                            Id = 217,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Cultural",
+                            Resources = 1,
+                            SystemTileName = "TileEronous55",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Uhott",
+                            GameVersion = "AscendantSun",
+                            Id = 218,
+                            Influence = 3,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 0,
+                            SystemTileName = "TileEronous55",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Breakpoint",
+                            GameVersion = "AscendantSun",
+                            Id = 219,
+                            Influence = 3,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 3,
+                            SystemTileName = "TileEronous56",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Akhassi",
+                            GameVersion = "AscendantSun",
+                            Id = 220,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 0,
+                            SystemTileName = "TileEronous57",
+                            TechnologySkip = "Warfare"
+                        },
+                        new
+                        {
+                            PlanetName = "Rhyah",
+                            GameVersion = "AscendantSun",
+                            Id = 221,
+                            Influence = 0,
+                            IsLegendary = "false",
+                            PlanetTrait = "Cultural",
+                            Resources = 2,
+                            SystemTileName = "TileEronous58",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "TaalDorn",
+                            GameVersion = "AscendantSun",
+                            Id = 222,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 1,
+                            SystemTileName = "TileEronous58",
+                            TechnologySkip = "Cybernetic"
+                        },
+                        new
+                        {
+                            PlanetName = "Volra",
+                            GameVersion = "AscendantSun",
+                            Id = 223,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 3,
+                            SystemTileName = "TileEronous59",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Venhalo",
+                            GameVersion = "AscendantSun",
+                            Id = 224,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 1,
+                            SystemTileName = "TileEronous59",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Orchard",
+                            GameVersion = "AscendantSun",
+                            Id = 225,
+                            Influence = 3,
+                            IsLegendary = "false",
+                            PlanetTrait = "Cultural",
+                            Resources = 2,
+                            SystemTileName = "TileEronous60",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Erissiha",
+                            GameVersion = "AscendantSun",
+                            Id = 226,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 1,
+                            SystemTileName = "TileEronous61",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Renhult",
+                            GameVersion = "AscendantSun",
+                            Id = 227,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 1,
+                            SystemTileName = "TileEronous61",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Heska",
+                            GameVersion = "AscendantSun",
+                            Id = 228,
+                            Influence = 0,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 2,
+                            SystemTileName = "TileEronous62",
+                            TechnologySkip = "Cybernetic"
+                        },
+                        new
+                        {
+                            PlanetName = "Mayris",
+                            GameVersion = "AscendantSun",
+                            Id = 229,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 0,
+                            SystemTileName = "TileEronous63",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Quwon",
+                            GameVersion = "AscendantSun",
+                            Id = 230,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 1,
+                            SystemTileName = "TileEronous63",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Hevahold",
+                            GameVersion = "AscendantSun",
+                            Id = 231,
+                            Influence = 0,
+                            IsLegendary = "false",
+                            PlanetTrait = "Cultural",
+                            Resources = 2,
+                            SystemTileName = "TileEronous64",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Kris",
+                            GameVersion = "AscendantSun",
+                            Id = 232,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Cultural",
+                            Resources = 0,
+                            SystemTileName = "TileEronous65",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Shigonas",
+                            GameVersion = "AscendantSun",
+                            Id = 233,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 0,
+                            SystemTileName = "TileEronous65",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "AkoDotFourDotOm",
+                            GameVersion = "AscendantSun",
+                            Id = 234,
+                            Influence = 1,
+                            IsLegendary = "true",
+                            PlanetTrait = "Hazardous",
+                            Resources = 1,
+                            SystemTileName = "TileEronous82",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Kelgate",
+                            GameVersion = "AscendantSun",
+                            Id = 235,
+                            Influence = 2,
+                            IsLegendary = "true",
+                            PlanetTrait = "Industrial",
+                            Resources = 1,
+                            SystemTileName = "TileEronous83",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Casibann",
+                            GameVersion = "AscendantSun",
+                            Id = 236,
+                            Influence = 3,
+                            IsLegendary = "true",
+                            PlanetTrait = "Cultural",
+                            Resources = 0,
+                            SystemTileName = "TileEronous84",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "StationThreeZeroNine",
+                            GameVersion = "AscendantSun",
+                            Id = 237,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 3,
+                            SystemTileName = "TileEronous85",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Hurigati",
+                            GameVersion = "AscendantSun",
+                            Id = 238,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 0,
+                            SystemTileName = "TileEronous86",
+                            TechnologySkip = "Cybernetic"
+                        },
+                        new
+                        {
+                            PlanetName = "Meranna",
+                            GameVersion = "AscendantSun",
+                            Id = 239,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Cultural",
+                            Resources = 0,
+                            SystemTileName = "TileEronous86",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Ferrust",
+                            GameVersion = "AscendantSun",
+                            Id = 240,
+                            Influence = 0,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 2,
+                            SystemTileName = "TileEronous86",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Argenum",
+                            GameVersion = "AscendantSun",
+                            Id = 241,
+                            Influence = 3,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 3,
+                            SystemTileName = "TileEronous87",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Vernium",
+                            GameVersion = "AscendantSun",
+                            Id = 242,
+                            Influence = 0,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 1,
+                            SystemTileName = "TileEronous87",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "ElansRest",
+                            GameVersion = "AscendantSun",
+                            Id = 243,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 1,
+                            SystemTileName = "TileEronous88",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Verdis",
+                            GameVersion = "AscendantSun",
+                            Id = 244,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 3,
+                            SystemTileName = "TileEronous88",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Brilenci",
+                            GameVersion = "AscendantSun",
+                            Id = 245,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 1,
+                            SystemTileName = "TileEronous89",
+                            TechnologySkip = "Cybernetic"
+                        },
+                        new
+                        {
+                            PlanetName = "Char",
+                            GameVersion = "AscendantSun",
+                            Id = 246,
+                            Influence = 0,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 1,
+                            SystemTileName = "TileEronous90",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Dognui",
+                            GameVersion = "AscendantSun",
+                            Id = 247,
+                            Influence = 0,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 1,
+                            SystemTileName = "TileEronous91",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Fyrain",
+                            GameVersion = "AscendantSun",
+                            Id = 248,
+                            Influence = 0,
+                            IsLegendary = "false",
+                            PlanetTrait = "Cultural",
+                            Resources = 3,
+                            SystemTileName = "TileEronous92",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Leonelli",
+                            GameVersion = "AscendantSun",
+                            Id = 249,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 2,
+                            SystemTileName = "TileEronous92",
+                            TechnologySkip = "Cybernetic"
+                        },
+                        new
+                        {
+                            PlanetName = "Sigilus",
+                            GameVersion = "AscendantSun",
+                            Id = 250,
+                            Influence = 4,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 0,
+                            SystemTileName = "TileEronous93",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Iynntani",
+                            GameVersion = "AscendantSun",
+                            Id = 251,
+                            Influence = 3,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 1,
+                            SystemTileName = "TileEronous94",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Kytos",
+                            GameVersion = "AscendantSun",
+                            Id = 252,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Cultural",
+                            Resources = 2,
+                            SystemTileName = "TileEronous95",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Prymis",
+                            GameVersion = "AscendantSun",
+                            Id = 253,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 1,
+                            SystemTileName = "TileEronous95",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Mecantor",
+                            GameVersion = "AscendantSun",
+                            Id = 254,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 2,
+                            SystemTileName = "TileEronous96",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Merjae",
+                            GameVersion = "AscendantSun",
+                            Id = 255,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 2,
+                            SystemTileName = "TileEronous97",
+                            TechnologySkip = "Propulsion"
+                        },
+                        new
+                        {
+                            PlanetName = "MorRock",
+                            GameVersion = "AscendantSun",
+                            Id = 256,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Cultural",
+                            Resources = 2,
+                            SystemTileName = "TileEronous98",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Migyro",
+                            GameVersion = "AscendantSun",
+                            Id = 257,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 1,
+                            SystemTileName = "TileEronous98",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Mornn",
+                            GameVersion = "AscendantSun",
+                            Id = 258,
+                            Influence = 3,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 0,
+                            SystemTileName = "TileEronous99",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Nokturn",
+                            GameVersion = "AscendantSun",
+                            Id = 259,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 0,
+                            SystemTileName = "TileEronous100",
+                            TechnologySkip = "Warfare"
+                        },
+                        new
+                        {
+                            PlanetName = "Nix",
+                            GameVersion = "AscendantSun",
+                            Id = 260,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 0,
+                            SystemTileName = "TileEronous100",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Viliguard",
+                            GameVersion = "AscendantSun",
+                            Id = 261,
+                            Influence = 0,
+                            IsLegendary = "false",
+                            PlanetTrait = "Cultural",
+                            Resources = 1,
+                            SystemTileName = "TileEronous100",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "RylFang",
+                            GameVersion = "AscendantSun",
+                            Id = 262,
+                            Influence = 0,
+                            IsLegendary = "false",
+                            PlanetTrait = "Cultural",
+                            Resources = 2,
+                            SystemTileName = "TileEronous101",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Syvian",
+                            GameVersion = "AscendantSun",
+                            Id = 263,
+                            Influence = 3,
+                            IsLegendary = "false",
+                            PlanetTrait = "Cultural",
+                            Resources = 0,
+                            SystemTileName = "TileEronous101",
+                            TechnologySkip = "Biotic"
+                        },
+                        new
+                        {
+                            PlanetName = "Norrk",
+                            GameVersion = "AscendantSun",
+                            Id = 264,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 1,
+                            SystemTileName = "TileEronous102",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Perpetual",
+                            GameVersion = "AscendantSun",
+                            Id = 265,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 0,
+                            SystemTileName = "TileEronous103",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Thenphase",
+                            GameVersion = "AscendantSun",
+                            Id = 266,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 2,
+                            SystemTileName = "TileEronous104",
+                            TechnologySkip = "Biotic"
+                        },
+                        new
+                        {
+                            PlanetName = "Vent",
+                            GameVersion = "AscendantSun",
+                            Id = 267,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 2,
+                            SystemTileName = "TileEronous105",
+                            TechnologySkip = "Warfare"
+                        },
+                        new
+                        {
+                            PlanetName = "VygarTwo",
+                            GameVersion = "AscendantSun",
+                            Id = 268,
+                            Influence = 0,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 2,
+                            SystemTileName = "TileEronous106",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Yncranti",
+                            GameVersion = "AscendantSun",
+                            Id = 269,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 1,
+                            SystemTileName = "TileEronous106",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Limbo",
+                            GameVersion = "AscendantSun",
+                            Id = 270,
+                            Influence = 2,
+                            IsLegendary = "true",
+                            PlanetTrait = "Hazardous",
+                            Resources = 0,
+                            SystemTileName = "TileEronous107",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Lust",
+                            GameVersion = "AscendantSun",
+                            Id = 271,
+                            Influence = 2,
+                            IsLegendary = "true",
+                            PlanetTrait = "Cultural",
+                            Resources = 1,
+                            SystemTileName = "TileEronous108",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Cerberus",
+                            GameVersion = "AscendantSun",
+                            Id = 272,
+                            Influence = 1,
+                            IsLegendary = "true",
+                            PlanetTrait = "Hazardous",
+                            Resources = 3,
+                            SystemTileName = "TileEronous109",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Plutus",
+                            GameVersion = "AscendantSun",
+                            Id = 273,
+                            Influence = 0,
+                            IsLegendary = "true",
+                            PlanetTrait = "Industrial",
+                            Resources = 1,
+                            SystemTileName = "TileEronous110",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Stygain",
+                            GameVersion = "AscendantSun",
+                            Id = 274,
+                            Influence = 0,
+                            IsLegendary = "true",
+                            PlanetTrait = "Hazardous",
+                            Resources = 3,
+                            SystemTileName = "TileEronous111",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Hersey",
+                            GameVersion = "AscendantSun",
+                            Id = 275,
+                            Influence = 5,
+                            IsLegendary = "true",
+                            PlanetTrait = "Cultural",
+                            Resources = 0,
+                            SystemTileName = "TileEronous112",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Violence",
+                            GameVersion = "AscendantSun",
+                            Id = 276,
+                            Influence = 1,
+                            IsLegendary = "true",
+                            PlanetTrait = "Industrial",
+                            Resources = 3,
+                            SystemTileName = "TileEronous113",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Malbolge",
+                            GameVersion = "AscendantSun",
+                            Id = 277,
+                            Influence = 3,
+                            IsLegendary = "true",
+                            PlanetTrait = "Hazardous",
+                            Resources = 1,
+                            SystemTileName = "TileEronous114",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Cantris",
+                            GameVersion = "AscendantSun",
+                            Id = 278,
+                            Influence = 4,
+                            IsLegendary = "true",
+                            PlanetTrait = "Hazardous",
+                            Resources = 4,
+                            SystemTileName = "TileEronous115",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Phylo",
+                            GameVersion = "AscendantSun",
+                            Id = 279,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 2,
+                            SystemTileName = "TileEronous116",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Cahgaris",
+                            GameVersion = "AscendantSun",
+                            Id = 280,
+                            Influence = 3,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 1,
+                            SystemTileName = "TileEronous117",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Ultimur",
+                            GameVersion = "AscendantSun",
+                            Id = 281,
+                            Influence = 0,
+                            IsLegendary = "false",
+                            PlanetTrait = "Cultural",
+                            Resources = 3,
+                            SystemTileName = "TileEronous118",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Sentuim",
+                            GameVersion = "AscendantSun",
+                            Id = 282,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Cultural",
+                            Resources = 1,
+                            SystemTileName = "TileEronous120",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Volgan",
+                            GameVersion = "AscendantSun",
+                            Id = 283,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 3,
+                            SystemTileName = "TileEronous120",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Aranndan",
+                            GameVersion = "AscendantSun",
+                            Id = 284,
+                            Influence = 3,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 3,
+                            SystemTileName = "TileEronous121",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "HranCus",
+                            GameVersion = "AscendantSun",
+                            Id = 285,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Cultural",
+                            Resources = 1,
+                            SystemTileName = "TileEronous122",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "KanHis",
+                            GameVersion = "AscendantSun",
+                            Id = 286,
+                            Influence = 3,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 0,
+                            SystemTileName = "TileEronous122",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Vylanua",
+                            GameVersion = "AscendantSun",
+                            Id = 287,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 0,
+                            SystemTileName = "TileEronous123",
+                            TechnologySkip = "Warfare"
+                        },
+                        new
+                        {
+                            PlanetName = "Ghanis",
+                            GameVersion = "AscendantSun",
+                            Id = 288,
+                            Influence = 0,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 2,
+                            SystemTileName = "TileEronous124",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Behjan",
+                            GameVersion = "AscendantSun",
+                            Id = 289,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Cultural",
+                            Resources = 1,
+                            SystemTileName = "TileEronous124",
+                            TechnologySkip = "Cybernetic"
+                        },
+                        new
+                        {
+                            PlanetName = "Veyhrune",
+                            GameVersion = "AscendantSun",
+                            Id = 290,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 2,
+                            SystemTileName = "TileEronous125",
+                            TechnologySkip = "Propulsion"
+                        },
+                        new
+                        {
+                            PlanetName = "Sokaris",
+                            GameVersion = "AscendantSun",
+                            Id = 291,
+                            Influence = 3,
+                            IsLegendary = "false",
+                            PlanetTrait = "Cultural",
+                            Resources = 1,
+                            SystemTileName = "TileEronous126",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Lunerus",
+                            GameVersion = "AscendantSun",
+                            Id = 292,
+                            Influence = 3,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 2,
+                            SystemTileName = "TileEronous126",
+                            TechnologySkip = "Cybernetic"
+                        },
+                        new
+                        {
+                            PlanetName = "MaonLor",
+                            GameVersion = "AscendantSun",
+                            Id = 293,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 3,
+                            SystemTileName = "TileEronous127",
+                            TechnologySkip = "Biotic"
+                        },
+                        new
+                        {
+                            PlanetName = "Adoriah",
+                            GameVersion = "AscendantSun",
+                            Id = 294,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Cultural",
+                            Resources = 1,
+                            SystemTileName = "TileEronous128",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Grishinu",
+                            GameVersion = "AscendantSun",
+                            Id = 295,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Cultural",
+                            Resources = 3,
+                            SystemTileName = "TileEronous129",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Gryenorn",
+                            GameVersion = "AscendantSun",
+                            Id = 296,
+                            Influence = 3,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 2,
+                            SystemTileName = "TileEronous129",
                             TechnologySkip = "None"
                         });
                 });
@@ -12766,6 +14086,1476 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 170,
                             SystemTileCode = "4276",
                             TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "Tile3001A",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "TtsHyperlines",
+                            Id = 171,
+                            SystemTileCode = "3001A",
+                            TileCategory = "Hyperlane"
+                        },
+                        new
+                        {
+                            SystemTileName = "Tile3002A",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "TtsHyperlines",
+                            Id = 172,
+                            SystemTileCode = "3002A",
+                            TileCategory = "Hyperlane"
+                        },
+                        new
+                        {
+                            SystemTileName = "Tile3003A",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "TtsHyperlines",
+                            Id = 173,
+                            SystemTileCode = "3003A",
+                            TileCategory = "Hyperlane"
+                        },
+                        new
+                        {
+                            SystemTileName = "Tile3004A",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "TtsHyperlines",
+                            Id = 174,
+                            SystemTileCode = "3004A",
+                            TileCategory = "Hyperlane"
+                        },
+                        new
+                        {
+                            SystemTileName = "Tile3005A",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "TtsHyperlines",
+                            Id = 175,
+                            SystemTileCode = "3005A",
+                            TileCategory = "Hyperlane"
+                        },
+                        new
+                        {
+                            SystemTileName = "Tile3006A",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "TtsHyperlines",
+                            Id = 176,
+                            SystemTileCode = "3006A",
+                            TileCategory = "Hyperlane"
+                        },
+                        new
+                        {
+                            SystemTileName = "Tile3007A",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "TtsHyperlines",
+                            Id = 177,
+                            SystemTileCode = "3007A",
+                            TileCategory = "Hyperlane"
+                        },
+                        new
+                        {
+                            SystemTileName = "Tile3008A",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "TtsHyperlines",
+                            Id = 178,
+                            SystemTileCode = "3008A",
+                            TileCategory = "Hyperlane"
+                        },
+                        new
+                        {
+                            SystemTileName = "Tile3009A",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "TtsHyperlines",
+                            Id = 179,
+                            SystemTileCode = "3009A",
+                            TileCategory = "Hyperlane"
+                        },
+                        new
+                        {
+                            SystemTileName = "Tile3010A",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "TtsHyperlines",
+                            Id = 180,
+                            SystemTileCode = "3010A",
+                            TileCategory = "Hyperlane"
+                        },
+                        new
+                        {
+                            SystemTileName = "Tile3011A",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "TtsHyperlines",
+                            Id = 181,
+                            SystemTileCode = "3011A",
+                            TileCategory = "Hyperlane"
+                        },
+                        new
+                        {
+                            SystemTileName = "Tile3012A",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "TtsHyperlines",
+                            Id = 182,
+                            SystemTileCode = "3012A",
+                            TileCategory = "Hyperlane"
+                        },
+                        new
+                        {
+                            SystemTileName = "Tile3013A",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "TtsHyperlines",
+                            Id = 183,
+                            SystemTileCode = "3013A",
+                            TileCategory = "Hyperlane"
+                        },
+                        new
+                        {
+                            SystemTileName = "Tile3014A",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "TtsHyperlines",
+                            Id = 184,
+                            SystemTileCode = "3014A",
+                            TileCategory = "Hyperlane"
+                        },
+                        new
+                        {
+                            SystemTileName = "Tile3015A",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "TtsHyperlines",
+                            Id = 185,
+                            SystemTileCode = "3015A",
+                            TileCategory = "Hyperlane"
+                        },
+                        new
+                        {
+                            SystemTileName = "Tile3016A",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "TtsHyperlines",
+                            Id = 186,
+                            SystemTileCode = "3016A",
+                            TileCategory = "Hyperlane"
+                        },
+                        new
+                        {
+                            SystemTileName = "Tile3017A",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "TtsHyperlines",
+                            Id = 187,
+                            SystemTileCode = "Tile3017A",
+                            TileCategory = "Hyperlane"
+                        },
+                        new
+                        {
+                            SystemTileName = "Tile3018A",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "TtsHyperlines",
+                            Id = 188,
+                            SystemTileCode = "3018A",
+                            TileCategory = "Hyperlane"
+                        },
+                        new
+                        {
+                            SystemTileName = "Tile3019A",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "TtsHyperlines",
+                            Id = 189,
+                            SystemTileCode = "3019A",
+                            TileCategory = "Hyperlane"
+                        },
+                        new
+                        {
+                            SystemTileName = "Tile3020A",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "TtsHyperlines",
+                            Id = 190,
+                            SystemTileCode = "3020A",
+                            TileCategory = "Hyperlane"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous01",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 191,
+                            SystemTileCode = "Er01",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous02",
+                            Anomaly = "Nebula",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 192,
+                            SystemTileCode = "Er02",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous03",
+                            Anomaly = "GravityRift",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 193,
+                            SystemTileCode = "Er03",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous04",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 194,
+                            SystemTileCode = "Er04",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous05",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 195,
+                            SystemTileCode = "Er05",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous06",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 196,
+                            SystemTileCode = "Er06",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous07",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 197,
+                            SystemTileCode = "Er07",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous08",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 198,
+                            SystemTileCode = "Er08",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous09",
+                            Anomaly = "AsteroidField",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 199,
+                            SystemTileCode = "Er09",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous10",
+                            Anomaly = "Nebula",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 200,
+                            SystemTileCode = "Er10",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous11",
+                            Anomaly = "AsteroidField",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 201,
+                            SystemTileCode = "Er11",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous12",
+                            Anomaly = "AsteroidField",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 202,
+                            SystemTileCode = "Er12",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous13",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 203,
+                            SystemTileCode = "Er013",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous14",
+                            Anomaly = "GravityRift",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 204,
+                            SystemTileCode = "Er14",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous15",
+                            Anomaly = "Nebula",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 205,
+                            SystemTileCode = "Er15",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous16",
+                            Anomaly = "Supernova",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 206,
+                            SystemTileCode = "Er16",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous17",
+                            Anomaly = "GravityRift",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 207,
+                            SystemTileCode = "Er17",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous18",
+                            Anomaly = "Nebula",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 208,
+                            SystemTileCode = "Er18",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous19",
+                            Anomaly = "GravityRift",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 209,
+                            SystemTileCode = "Er19",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous20",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 210,
+                            SystemTileCode = "Er20",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous21",
+                            Anomaly = "AsteroidField",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 211,
+                            SystemTileCode = "Er21",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous22",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 212,
+                            SystemTileCode = "Er22",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous23",
+                            Anomaly = "GravityRift",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 213,
+                            SystemTileCode = "Er23",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous24",
+                            Anomaly = "GravityRift",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 214,
+                            SystemTileCode = "Er24",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous25",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 215,
+                            SystemTileCode = "Er25",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous26",
+                            Anomaly = "GravityRift",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 216,
+                            SystemTileCode = "Er26",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous27",
+                            Anomaly = "Nebula",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 217,
+                            SystemTileCode = "Er27",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous28",
+                            Anomaly = "AsteroidField",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 218,
+                            SystemTileCode = "Er28",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous29",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 219,
+                            SystemTileCode = "Er29",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous30",
+                            Anomaly = "GravityRift",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 220,
+                            SystemTileCode = "Er30",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous31",
+                            Anomaly = "Nebula",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 221,
+                            SystemTileCode = "Er31",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous32",
+                            Anomaly = "AsteroidField",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 222,
+                            SystemTileCode = "Er32",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous33",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 223,
+                            SystemTileCode = "Er33",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous34",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 224,
+                            SystemTileCode = "Er34",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous35",
+                            Anomaly = "GravityRift",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 225,
+                            SystemTileCode = "Er35",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous36",
+                            Anomaly = "Nebula",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 226,
+                            SystemTileCode = "Er36",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous37",
+                            Anomaly = "AsteroidField",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 227,
+                            SystemTileCode = "Er37",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous38",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 228,
+                            SystemTileCode = "Er38",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous39",
+                            Anomaly = "GravityRift",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 229,
+                            SystemTileCode = "Er39",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous40",
+                            Anomaly = "Nebula",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 230,
+                            SystemTileCode = "Er40",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous41",
+                            Anomaly = "AsteroidField",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 231,
+                            SystemTileCode = "Er41",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous42",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 232,
+                            SystemTileCode = "Er42",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous43",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 233,
+                            SystemTileCode = "Er43",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous44",
+                            Anomaly = "GravityRift",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 234,
+                            SystemTileCode = "Er44",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous45",
+                            Anomaly = "Nebula",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 235,
+                            SystemTileCode = "Er45",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous46",
+                            Anomaly = "AsteroidField",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 236,
+                            SystemTileCode = "Er46",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous47",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 237,
+                            SystemTileCode = "Er47",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous48",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 238,
+                            SystemTileCode = "Er48",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous49",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 239,
+                            SystemTileCode = "Er49",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous50",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 240,
+                            SystemTileCode = "Er50",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous51",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 241,
+                            SystemTileCode = "Er51",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous52",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 242,
+                            SystemTileCode = "Er52",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous53",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 243,
+                            SystemTileCode = "Er53",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous54",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 244,
+                            SystemTileCode = "Er54",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous55",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 245,
+                            SystemTileCode = "Er55",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous56",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 246,
+                            SystemTileCode = "Er56",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous57",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 247,
+                            SystemTileCode = "Er57",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous58",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 248,
+                            SystemTileCode = "Er58",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous59",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 249,
+                            SystemTileCode = "Er59",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous60",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 250,
+                            SystemTileCode = "Er60",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous61",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 251,
+                            SystemTileCode = "Er61",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous62",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 252,
+                            SystemTileCode = "Er62",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous63",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 253,
+                            SystemTileCode = "Er63",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous64",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 254,
+                            SystemTileCode = "Er64",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous65",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 255,
+                            SystemTileCode = "Er65",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous66",
+                            Anomaly = "GravityRift",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 256,
+                            SystemTileCode = "Er66",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous67",
+                            Anomaly = "Nebula",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 257,
+                            SystemTileCode = "Er67",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous68",
+                            Anomaly = "Supernova",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 258,
+                            SystemTileCode = "Er68",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous69",
+                            Anomaly = "GravityRift",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 259,
+                            SystemTileCode = "Er69",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous70",
+                            Anomaly = "Nebula",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 260,
+                            SystemTileCode = "Er70",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous71",
+                            Anomaly = "AsteroidField",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 261,
+                            SystemTileCode = "Er71",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous72",
+                            Anomaly = "AsteroidField",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 262,
+                            SystemTileCode = "Er72",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous75",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 263,
+                            SystemTileCode = "Er75",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous76",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 264,
+                            SystemTileCode = "Er76",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous77",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 265,
+                            SystemTileCode = "Er77",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous78",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 266,
+                            SystemTileCode = "Er78",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous79",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 267,
+                            SystemTileCode = "Er79",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous80",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 268,
+                            SystemTileCode = "Er80",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous81",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 269,
+                            SystemTileCode = "Er81",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous82",
+                            Anomaly = "GravityRift",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 270,
+                            SystemTileCode = "Er82",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous83",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 271,
+                            SystemTileCode = "Er83",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous84",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 272,
+                            SystemTileCode = "Er84",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous85",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 273,
+                            SystemTileCode = "Er85",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous86",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 274,
+                            SystemTileCode = "Er86",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous87",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 275,
+                            SystemTileCode = "Er87",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous88",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 276,
+                            SystemTileCode = "Er88",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous89",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 277,
+                            SystemTileCode = "Er89",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous90",
+                            Anomaly = "Supernova",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 278,
+                            SystemTileCode = "Er90",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous91",
+                            Anomaly = "GravityRift",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 279,
+                            SystemTileCode = "Er91",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous92",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 280,
+                            SystemTileCode = "Er92",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous93",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 281,
+                            SystemTileCode = "Er93",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous94",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 282,
+                            SystemTileCode = "Er94",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous95",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 283,
+                            SystemTileCode = "Er95",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous96",
+                            Anomaly = "GravityRift",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 284,
+                            SystemTileCode = "Er96",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous97",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 285,
+                            SystemTileCode = "Er97",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous98",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 286,
+                            SystemTileCode = "Er98",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous99",
+                            Anomaly = "Nebula",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 287,
+                            SystemTileCode = "Er99",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous100",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 288,
+                            SystemTileCode = "Er100",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous101",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 289,
+                            SystemTileCode = "Er101",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous102",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 290,
+                            SystemTileCode = "Er102",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous103",
+                            Anomaly = "Supernova",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 291,
+                            SystemTileCode = "Er103",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous104",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 292,
+                            SystemTileCode = "Er104",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous105",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 293,
+                            SystemTileCode = "Er105",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous106",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 294,
+                            SystemTileCode = "Er106",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous107",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 295,
+                            SystemTileCode = "Er107",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous108",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 296,
+                            SystemTileCode = "Er108",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous109",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 297,
+                            SystemTileCode = "Er109",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous110",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 298,
+                            SystemTileCode = "Er110",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous111",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 299,
+                            SystemTileCode = "Er111",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous112",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 300,
+                            SystemTileCode = "Er112",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous113",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 301,
+                            SystemTileCode = "Er113",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous114",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 302,
+                            SystemTileCode = "Er114",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous115",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 303,
+                            SystemTileCode = "Er115",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous116",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 304,
+                            SystemTileCode = "Er116",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous117",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 305,
+                            SystemTileCode = "Er117",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous118",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 306,
+                            SystemTileCode = "Er118",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous119",
+                            Anomaly = "Nebula",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 307,
+                            SystemTileCode = "Er119",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous120",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 308,
+                            SystemTileCode = "Er120",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous121",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 309,
+                            SystemTileCode = "Er121",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous122",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 310,
+                            SystemTileCode = "Er122",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous123",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 311,
+                            SystemTileCode = "Er123",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous124",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 312,
+                            SystemTileCode = "Er124",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous125",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 190,
+                            SystemTileCode = "Er125",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous126",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 313,
+                            SystemTileCode = "Er126",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous127",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 313,
+                            SystemTileCode = "Er127",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous128",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 313,
+                            SystemTileCode = "Er128",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous129",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 313,
+                            SystemTileCode = "Er129",
+                            TileCategory = "Blue"
                         });
                 });
 
@@ -12924,6 +15714,377 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             GameVersion = "UnchartedSpace",
                             SystemTileName = "Tile4276",
                             WormholeName = "Beta"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous03",
+                            WormholeName = "Epsilon"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous08",
+                            WormholeName = "Epsilon"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous11",
+                            WormholeName = "Beta"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous12",
+                            WormholeName = "Iota"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous13",
+                            WormholeName = "Iota"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous14",
+                            WormholeName = "Iota"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous15",
+                            WormholeName = "Iota"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous19",
+                            WormholeName = "Alpha"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous19",
+                            WormholeName = "Beta"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous20",
+                            WormholeName = "Epsilon"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous25",
+                            WormholeName = "Epsilon"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous26",
+                            WormholeName = "Epsilon"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous27",
+                            WormholeName = "Epsilon"
+                        },
+                        new
+                        {
+                            Id = 31,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous28",
+                            WormholeName = "Epsilon"
+                        },
+                        new
+                        {
+                            Id = 32,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous29",
+                            WormholeName = "Zeta"
+                        },
+                        new
+                        {
+                            Id = 33,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous30",
+                            WormholeName = "Zeta"
+                        },
+                        new
+                        {
+                            Id = 34,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous31",
+                            WormholeName = "Zeta"
+                        },
+                        new
+                        {
+                            Id = 35,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous32",
+                            WormholeName = "Zeta"
+                        },
+                        new
+                        {
+                            Id = 36,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous33",
+                            WormholeName = "Epsilon"
+                        },
+                        new
+                        {
+                            Id = 37,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous33",
+                            WormholeName = "Zeta"
+                        },
+                        new
+                        {
+                            Id = 38,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous34",
+                            WormholeName = "Eta"
+                        },
+                        new
+                        {
+                            Id = 39,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous35",
+                            WormholeName = "Eta"
+                        },
+                        new
+                        {
+                            Id = 40,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous36",
+                            WormholeName = "Eta"
+                        },
+                        new
+                        {
+                            Id = 41,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous37",
+                            WormholeName = "Eta"
+                        },
+                        new
+                        {
+                            Id = 42,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous38",
+                            WormholeName = "Theta"
+                        },
+                        new
+                        {
+                            Id = 43,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous39",
+                            WormholeName = "Theta"
+                        },
+                        new
+                        {
+                            Id = 44,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous40",
+                            WormholeName = "Theta"
+                        },
+                        new
+                        {
+                            Id = 45,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous41",
+                            WormholeName = "Theta"
+                        },
+                        new
+                        {
+                            Id = 46,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous42",
+                            WormholeName = "Eta"
+                        },
+                        new
+                        {
+                            Id = 47,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous42",
+                            WormholeName = "Theta"
+                        },
+                        new
+                        {
+                            Id = 48,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous43",
+                            WormholeName = "Kappa"
+                        },
+                        new
+                        {
+                            Id = 49,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous44",
+                            WormholeName = "Kappa"
+                        },
+                        new
+                        {
+                            Id = 50,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous45",
+                            WormholeName = "Kappa"
+                        },
+                        new
+                        {
+                            Id = 51,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous46",
+                            WormholeName = "Kappa"
+                        },
+                        new
+                        {
+                            Id = 52,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous47",
+                            WormholeName = "Iota"
+                        },
+                        new
+                        {
+                            Id = 53,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous47",
+                            WormholeName = "Kappa"
+                        },
+                        new
+                        {
+                            Id = 54,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous51",
+                            WormholeName = "Theta"
+                        },
+                        new
+                        {
+                            Id = 55,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous56",
+                            WormholeName = "Theta"
+                        },
+                        new
+                        {
+                            Id = 56,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous62",
+                            WormholeName = "Iota"
+                        },
+                        new
+                        {
+                            Id = 57,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous64",
+                            WormholeName = "Eta"
+                        },
+                        new
+                        {
+                            Id = 58,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous89",
+                            WormholeName = "Epsilon"
+                        },
+                        new
+                        {
+                            Id = 59,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous94",
+                            WormholeName = "Beta"
+                        },
+                        new
+                        {
+                            Id = 60,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous95",
+                            WormholeName = "Alpha"
+                        },
+                        new
+                        {
+                            Id = 61,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous95",
+                            WormholeName = "Beta"
+                        },
+                        new
+                        {
+                            Id = 62,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous99",
+                            WormholeName = "Epsilon"
+                        },
+                        new
+                        {
+                            Id = 63,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous116",
+                            WormholeName = "Iota"
+                        },
+                        new
+                        {
+                            Id = 64,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous117",
+                            WormholeName = "Kappa"
+                        },
+                        new
+                        {
+                            Id = 65,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous118",
+                            WormholeName = "Kappa"
+                        },
+                        new
+                        {
+                            Id = 66,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous119",
+                            WormholeName = "Alpha"
+                        },
+                        new
+                        {
+                            Id = 67,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous119",
+                            WormholeName = "Beta"
+                        },
+                        new
+                        {
+                            Id = 68,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous121",
+                            WormholeName = "Zeta"
+                        },
+                        new
+                        {
+                            Id = 69,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous127",
+                            WormholeName = "Zeta"
+                        },
+                        new
+                        {
+                            Id = 70,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous128",
+                            WormholeName = "Eta"
                         });
                 });
 
@@ -18635,7 +21796,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3b33f8d8-d162-4eaa-848a-da3954dc0912",
+                            ConcurrencyStamp = "252d321c-6fcb-4b9c-817c-beefe31df502",
                             DiscordId = "",
                             Email = "Test@user.cz",
                             EmailConfirmed = true,
@@ -18645,9 +21806,9 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST@USER.CZ",
                             NormalizedUserName = "TESTUSER",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEnfLCDkhcDEIbHf8qxFRhY0SAN+m/csoIDsFOnlEBqZ/EmYvj+N5kcYsTayQCCOxw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOJdbEvHJYbp/NykICJK9ocm7AVIE8T3MaWfxc7EPEGLEEAI1RJSaZ5Mem/mNfaayQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8f12b80f-7bf9-4f9b-a534-b8bdb7a8ca6b",
+                            SecurityStamp = "35ba031e-69e0-41ed-bf8c-b1ff000fbd93",
                             SteamId = "",
                             TwoFactorEnabled = false,
                             UserInfo = "First seeded test user",

@@ -46,4 +46,39 @@ public class SystemTilesForMapSetupProvider(
             shuffledRedTiles,
             hyperLines);
     }
+
+    public async Task<SystemTilesForMapSetup> GetSystemTilesForSlices(IReadOnlyCollection<GameVersion> gameVersions, CancellationToken cancellationToken)
+    {
+        var mecatolRex = await _galaxyRepository.GetMecatolRex(cancellationToken);
+        var emptyTilePlaceholder = await _galaxyRepository.GetEmptyPlaceholderSystemTile(cancellationToken);
+        var homeTilePlaceholder = await _galaxyRepository.GetHomePlaceholderSystemTile(cancellationToken);
+        var homeTiles = await _galaxyRepository.GetHomeSystemTiles(cancellationToken);
+        var shuffledHomeTiles = homeTiles.OrderBy(x => _random.Next()).ToList();
+
+        var blueTiles = await _galaxyRepository.GetBlueSystemTiles(cancellationToken);
+        var shuffledBlueTiles = blueTiles
+            .Where(x => gameVersions.Contains(x.GameVersion))
+            .OrderBy(x => _random.Next())
+            .ToList();
+
+        var redTiles = await _galaxyRepository.GetRedSystemTiles(cancellationToken);
+        var shuffledRedTiles = redTiles
+            .Where(x => gameVersions.Contains(x.GameVersion))
+            .OrderBy(x => _random.Next())
+            .ToList();
+
+        var hyperLines = await _galaxyRepository.GetAllHyperlines(cancellationToken);
+
+        var frameSystemPlaceholder = await _galaxyRepository.GetFrameSystemTile(cancellationToken);
+
+        return new SystemTilesForMapSetup(
+            mecatolRex,
+            emptyTilePlaceholder,
+            homeTilePlaceholder,
+            frameSystemPlaceholder,
+            shuffledHomeTiles,
+            shuffledBlueTiles,
+            shuffledRedTiles,
+            hyperLines);
+    }
 }

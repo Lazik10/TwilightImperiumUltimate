@@ -7,4 +7,10 @@ public enum WormholeName
     Beta,
     Gamma,
     Delta,
+    Eta,
+    Epsilon,
+    Theta,
+    Zeta,
+    Iota,
+    Kappa,
 }

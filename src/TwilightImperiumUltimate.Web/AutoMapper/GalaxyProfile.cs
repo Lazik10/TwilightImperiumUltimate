@@ -7,5 +7,6 @@ public class GalaxyProfile : Profile
         CreateMap<PlanetDto, PlanetModel>();
         CreateMap<SystemTileDto, SystemTileModel>();
         CreateMap<WormholeDto, WormholeModel>();
+        CreateMap<SliceDto, SliceModel>();
     }
 }

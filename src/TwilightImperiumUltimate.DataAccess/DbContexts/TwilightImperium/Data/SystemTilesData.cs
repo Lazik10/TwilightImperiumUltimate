@@ -1715,5 +1715,1476 @@ internal static class SystemTilesData
             TileCategory = SystemTileCategory.Red,
             GameVersion = GameVersion.UnchartedSpace,
         },
+        new SystemTile()
+        {
+            Id = 171,
+            SystemTileName = SystemTileName.Tile3001A,
+            SystemTileCode = "3001A",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            GameVersion = GameVersion.TtsHyperlines,
+        },
+        new SystemTile()
+        {
+            Id = 172,
+            SystemTileName = SystemTileName.Tile3002A,
+            SystemTileCode = "3002A",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            GameVersion = GameVersion.TtsHyperlines,
+        },
+        new SystemTile()
+        {
+            Id = 173,
+            SystemTileName = SystemTileName.Tile3003A,
+            SystemTileCode = "3003A",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            GameVersion = GameVersion.TtsHyperlines,
+        },
+        new SystemTile()
+        {
+            Id = 174,
+            SystemTileName = SystemTileName.Tile3004A,
+            SystemTileCode = "3004A",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            GameVersion = GameVersion.TtsHyperlines,
+        },
+        new SystemTile()
+        {
+            Id = 175,
+            SystemTileName = SystemTileName.Tile3005A,
+            SystemTileCode = "3005A",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            GameVersion = GameVersion.TtsHyperlines,
+        },
+        new SystemTile()
+        {
+            Id = 176,
+            SystemTileName = SystemTileName.Tile3006A,
+            SystemTileCode = "3006A",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            GameVersion = GameVersion.TtsHyperlines,
+        },
+        new SystemTile()
+        {
+            Id = 177,
+            SystemTileName = SystemTileName.Tile3007A,
+            SystemTileCode = "3007A",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            GameVersion = GameVersion.TtsHyperlines,
+        },
+        new SystemTile()
+        {
+            Id = 178,
+            SystemTileName = SystemTileName.Tile3008A,
+            SystemTileCode = "3008A",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            GameVersion = GameVersion.TtsHyperlines,
+        },
+        new SystemTile()
+        {
+            Id = 179,
+            SystemTileName = SystemTileName.Tile3009A,
+            SystemTileCode = "3009A",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            GameVersion = GameVersion.TtsHyperlines,
+        },
+        new SystemTile()
+        {
+            Id = 180,
+            SystemTileName = SystemTileName.Tile3010A,
+            SystemTileCode = "3010A",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            GameVersion = GameVersion.TtsHyperlines,
+        },
+        new SystemTile()
+        {
+            Id = 181,
+            SystemTileName = SystemTileName.Tile3011A,
+            SystemTileCode = "3011A",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            GameVersion = GameVersion.TtsHyperlines,
+        },
+        new SystemTile()
+        {
+            Id = 182,
+            SystemTileName = SystemTileName.Tile3012A,
+            SystemTileCode = "3012A",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            GameVersion = GameVersion.TtsHyperlines,
+        },
+        new SystemTile()
+        {
+            Id = 183,
+            SystemTileName = SystemTileName.Tile3013A,
+            SystemTileCode = "3013A",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            GameVersion = GameVersion.TtsHyperlines,
+        },
+        new SystemTile()
+        {
+            Id = 184,
+            SystemTileName = SystemTileName.Tile3014A,
+            SystemTileCode = "3014A",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            GameVersion = GameVersion.TtsHyperlines,
+        },
+        new SystemTile()
+        {
+            Id = 185,
+            SystemTileName = SystemTileName.Tile3015A,
+            SystemTileCode = "3015A",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            GameVersion = GameVersion.TtsHyperlines,
+        },
+        new SystemTile()
+        {
+            Id = 186,
+            SystemTileName = SystemTileName.Tile3016A,
+            SystemTileCode = "3016A",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            GameVersion = GameVersion.TtsHyperlines,
+        },
+        new SystemTile()
+        {
+            Id = 187,
+            SystemTileName = SystemTileName.Tile3017A,
+            SystemTileCode = "Tile3017A",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            GameVersion = GameVersion.TtsHyperlines,
+        },
+        new SystemTile()
+        {
+            Id = 188,
+            SystemTileName = SystemTileName.Tile3018A,
+            SystemTileCode = "3018A",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            GameVersion = GameVersion.TtsHyperlines,
+        },
+        new SystemTile()
+        {
+            Id = 189,
+            SystemTileName = SystemTileName.Tile3019A,
+            SystemTileCode = "3019A",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            GameVersion = GameVersion.TtsHyperlines,
+        },
+        new SystemTile()
+        {
+            Id = 190,
+            SystemTileName = SystemTileName.Tile3020A,
+            SystemTileCode = "3020A",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            GameVersion = GameVersion.TtsHyperlines,
+        },
+
+        new SystemTile()
+        {
+            Id = 191,
+            SystemTileName = SystemTileName.TileEronous01,
+            SystemTileCode = "Er01",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 192,
+            SystemTileName = SystemTileName.TileEronous02,
+            SystemTileCode = "Er02",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.Nebula,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 193,
+            SystemTileName = SystemTileName.TileEronous03,
+            SystemTileCode = "Er03",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.GravityRift,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 194,
+            SystemTileName = SystemTileName.TileEronous04,
+            SystemTileCode = "Er04",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 195,
+            SystemTileName = SystemTileName.TileEronous05,
+            SystemTileCode = "Er05",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 196,
+            SystemTileName = SystemTileName.TileEronous06,
+            SystemTileCode = "Er06",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 197,
+            SystemTileName = SystemTileName.TileEronous07,
+            SystemTileCode = "Er07",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 198,
+            SystemTileName = SystemTileName.TileEronous08,
+            SystemTileCode = "Er08",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 199,
+            SystemTileName = SystemTileName.TileEronous09,
+            SystemTileCode = "Er09",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.AsteroidField,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 200,
+            SystemTileName = SystemTileName.TileEronous10,
+            SystemTileCode = "Er10",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.Nebula,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 201,
+            SystemTileName = SystemTileName.TileEronous11,
+            SystemTileCode = "Er11",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.AsteroidField,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 202,
+            SystemTileName = SystemTileName.TileEronous12,
+            SystemTileCode = "Er12",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.AsteroidField,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 203,
+            SystemTileName = SystemTileName.TileEronous13,
+            SystemTileCode = "Er013",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 204,
+            SystemTileName = SystemTileName.TileEronous14,
+            SystemTileCode = "Er14",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.GravityRift,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 205,
+            SystemTileName = SystemTileName.TileEronous15,
+            SystemTileCode = "Er15",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.Nebula,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 206,
+            SystemTileName = SystemTileName.TileEronous16,
+            SystemTileCode = "Er16",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.Supernova,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 207,
+            SystemTileName = SystemTileName.TileEronous17,
+            SystemTileCode = "Er17",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.GravityRift, // Also Asteroid Field, but I would need to implement flags and it doesn't really matter
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 208,
+            SystemTileName = SystemTileName.TileEronous18,
+            SystemTileCode = "Er18",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.Nebula, // Also Asteroid Field, but I would need to implement flags and it doesn't really matter
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 209,
+            SystemTileName = SystemTileName.TileEronous19,
+            SystemTileCode = "Er19",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.GravityRift,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 210,
+            SystemTileName = SystemTileName.TileEronous20,
+            SystemTileCode = "Er20",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 211,
+            SystemTileName = SystemTileName.TileEronous21,
+            SystemTileCode = "Er21",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.AsteroidField, // Also Grvity Rift and Supernova, but I would need to implement flags and it doesn't really matter
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 212,
+            SystemTileName = SystemTileName.TileEronous22,
+            SystemTileCode = "Er22",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 213,
+            SystemTileName = SystemTileName.TileEronous23,
+            SystemTileCode = "Er23",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.GravityRift,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 214,
+            SystemTileName = SystemTileName.TileEronous24,
+            SystemTileCode = "Er24",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.GravityRift,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 215,
+            SystemTileName = SystemTileName.TileEronous25,
+            SystemTileCode = "Er25",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 216,
+            SystemTileName = SystemTileName.TileEronous26,
+            SystemTileCode = "Er26",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.GravityRift,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 217,
+            SystemTileName = SystemTileName.TileEronous27,
+            SystemTileCode = "Er27",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.Nebula,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 218,
+            SystemTileName = SystemTileName.TileEronous28,
+            SystemTileCode = "Er28",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.AsteroidField,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 219,
+            SystemTileName = SystemTileName.TileEronous29,
+            SystemTileCode = "Er29",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 220,
+            SystemTileName = SystemTileName.TileEronous30,
+            SystemTileCode = "Er30",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.GravityRift,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 221,
+            SystemTileName = SystemTileName.TileEronous31,
+            SystemTileCode = "Er31",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.Nebula,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 222,
+            SystemTileName = SystemTileName.TileEronous32,
+            SystemTileCode = "Er32",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.AsteroidField,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 223,
+            SystemTileName = SystemTileName.TileEronous33,
+            SystemTileCode = "Er33",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 224,
+            SystemTileName = SystemTileName.TileEronous34,
+            SystemTileCode = "Er34",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 225,
+            SystemTileName = SystemTileName.TileEronous35,
+            SystemTileCode = "Er35",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.GravityRift,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 226,
+            SystemTileName = SystemTileName.TileEronous36,
+            SystemTileCode = "Er36",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.Nebula,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 227,
+            SystemTileName = SystemTileName.TileEronous37,
+            SystemTileCode = "Er37",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.AsteroidField,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 228,
+            SystemTileName = SystemTileName.TileEronous38,
+            SystemTileCode = "Er38",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 229,
+            SystemTileName = SystemTileName.TileEronous39,
+            SystemTileCode = "Er39",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.GravityRift,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 230,
+            SystemTileName = SystemTileName.TileEronous40,
+            SystemTileCode = "Er40",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.Nebula,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 231,
+            SystemTileName = SystemTileName.TileEronous41,
+            SystemTileCode = "Er41",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.AsteroidField,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 232,
+            SystemTileName = SystemTileName.TileEronous42,
+            SystemTileCode = "Er42",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 233,
+            SystemTileName = SystemTileName.TileEronous43,
+            SystemTileCode = "Er43",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 234,
+            SystemTileName = SystemTileName.TileEronous44,
+            SystemTileCode = "Er44",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.GravityRift,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 235,
+            SystemTileName = SystemTileName.TileEronous45,
+            SystemTileCode = "Er45",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.Nebula,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 236,
+            SystemTileName = SystemTileName.TileEronous46,
+            SystemTileCode = "Er46",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.AsteroidField,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 237,
+            SystemTileName = SystemTileName.TileEronous47,
+            SystemTileCode = "Er47",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 238,
+            SystemTileName = SystemTileName.TileEronous48,
+            SystemTileCode = "Er48",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 239,
+            SystemTileName = SystemTileName.TileEronous49,
+            SystemTileCode = "Er49",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 240,
+            SystemTileName = SystemTileName.TileEronous50,
+            SystemTileCode = "Er50",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 241,
+            SystemTileName = SystemTileName.TileEronous51,
+            SystemTileCode = "Er51",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 242,
+            SystemTileName = SystemTileName.TileEronous52,
+            SystemTileCode = "Er52",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 243,
+            SystemTileName = SystemTileName.TileEronous53,
+            SystemTileCode = "Er53",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 244,
+            SystemTileName = SystemTileName.TileEronous54,
+            SystemTileCode = "Er54",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 245,
+            SystemTileName = SystemTileName.TileEronous55,
+            SystemTileCode = "Er55",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 246,
+            SystemTileName = SystemTileName.TileEronous56,
+            SystemTileCode = "Er56",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 247,
+            SystemTileName = SystemTileName.TileEronous57,
+            SystemTileCode = "Er57",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 248,
+            SystemTileName = SystemTileName.TileEronous58,
+            SystemTileCode = "Er58",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 249,
+            SystemTileName = SystemTileName.TileEronous59,
+            SystemTileCode = "Er59",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 250,
+            SystemTileName = SystemTileName.TileEronous60,
+            SystemTileCode = "Er60",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 251,
+            SystemTileName = SystemTileName.TileEronous61,
+            SystemTileCode = "Er61",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 252,
+            SystemTileName = SystemTileName.TileEronous62,
+            SystemTileCode = "Er62",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 253,
+            SystemTileName = SystemTileName.TileEronous63,
+            SystemTileCode = "Er63",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 254,
+            SystemTileName = SystemTileName.TileEronous64,
+            SystemTileCode = "Er64",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 255,
+            SystemTileName = SystemTileName.TileEronous65,
+            SystemTileCode = "Er65",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 256,
+            SystemTileName = SystemTileName.TileEronous66,
+            SystemTileCode = "Er66",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.GravityRift,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 257,
+            SystemTileName = SystemTileName.TileEronous67,
+            SystemTileCode = "Er67",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.Nebula,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 258,
+            SystemTileName = SystemTileName.TileEronous68,
+            SystemTileCode = "Er68",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.Supernova,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 259,
+            SystemTileName = SystemTileName.TileEronous69,
+            SystemTileCode = "Er69",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.GravityRift,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 260,
+            SystemTileName = SystemTileName.TileEronous70,
+            SystemTileCode = "Er70",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.Nebula,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 261,
+            SystemTileName = SystemTileName.TileEronous71,
+            SystemTileCode = "Er71",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.AsteroidField,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 262,
+            SystemTileName = SystemTileName.TileEronous72,
+            SystemTileCode = "Er72",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.AsteroidField,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 263,
+            SystemTileName = SystemTileName.TileEronous75,
+            SystemTileCode = "Er75",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 264,
+            SystemTileName = SystemTileName.TileEronous76,
+            SystemTileCode = "Er76",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 265,
+            SystemTileName = SystemTileName.TileEronous77,
+            SystemTileCode = "Er77",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 266,
+            SystemTileName = SystemTileName.TileEronous78,
+            SystemTileCode = "Er78",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 267,
+            SystemTileName = SystemTileName.TileEronous79,
+            SystemTileCode = "Er79",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 268,
+            SystemTileName = SystemTileName.TileEronous80,
+            SystemTileCode = "Er80",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 269,
+            SystemTileName = SystemTileName.TileEronous81,
+            SystemTileCode = "Er81",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 270,
+            SystemTileName = SystemTileName.TileEronous82,
+            SystemTileCode = "Er82",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.GravityRift,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 271,
+            SystemTileName = SystemTileName.TileEronous83,
+            SystemTileCode = "Er83",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 272,
+            SystemTileName = SystemTileName.TileEronous84,
+            SystemTileCode = "Er84",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 273,
+            SystemTileName = SystemTileName.TileEronous85,
+            SystemTileCode = "Er85",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 274,
+            SystemTileName = SystemTileName.TileEronous86,
+            SystemTileCode = "Er86",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 275,
+            SystemTileName = SystemTileName.TileEronous87,
+            SystemTileCode = "Er87",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 276,
+            SystemTileName = SystemTileName.TileEronous88,
+            SystemTileCode = "Er88",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 277,
+            SystemTileName = SystemTileName.TileEronous89,
+            SystemTileCode = "Er89",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 278,
+            SystemTileName = SystemTileName.TileEronous90,
+            SystemTileCode = "Er90",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.Supernova,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 279,
+            SystemTileName = SystemTileName.TileEronous91,
+            SystemTileCode = "Er91",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.GravityRift,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 280,
+            SystemTileName = SystemTileName.TileEronous92,
+            SystemTileCode = "Er92",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 281,
+            SystemTileName = SystemTileName.TileEronous93,
+            SystemTileCode = "Er93",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 282,
+            SystemTileName = SystemTileName.TileEronous94,
+            SystemTileCode = "Er94",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 283,
+            SystemTileName = SystemTileName.TileEronous95,
+            SystemTileCode = "Er95",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 284,
+            SystemTileName = SystemTileName.TileEronous96,
+            SystemTileCode = "Er96",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.GravityRift,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 285,
+            SystemTileName = SystemTileName.TileEronous97,
+            SystemTileCode = "Er97",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 286,
+            SystemTileName = SystemTileName.TileEronous98,
+            SystemTileCode = "Er98",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 287,
+            SystemTileName = SystemTileName.TileEronous99,
+            SystemTileCode = "Er99",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.Nebula,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 288,
+            SystemTileName = SystemTileName.TileEronous100,
+            SystemTileCode = "Er100",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 289,
+            SystemTileName = SystemTileName.TileEronous101,
+            SystemTileCode = "Er101",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 290,
+            SystemTileName = SystemTileName.TileEronous102,
+            SystemTileCode = "Er102",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 291,
+            SystemTileName = SystemTileName.TileEronous103,
+            SystemTileCode = "Er103",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.Supernova, // Also a nebula, but I would need to implement flags and it doesn't really matter
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 292,
+            SystemTileName = SystemTileName.TileEronous104,
+            SystemTileCode = "Er104",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 293,
+            SystemTileName = SystemTileName.TileEronous105,
+            SystemTileCode = "Er105",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 294,
+            SystemTileName = SystemTileName.TileEronous106,
+            SystemTileCode = "Er106",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 295,
+            SystemTileName = SystemTileName.TileEronous107,
+            SystemTileCode = "Er107",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 296,
+            SystemTileName = SystemTileName.TileEronous108,
+            SystemTileCode = "Er108",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 297,
+            SystemTileName = SystemTileName.TileEronous109,
+            SystemTileCode = "Er109",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 298,
+            SystemTileName = SystemTileName.TileEronous110,
+            SystemTileCode = "Er110",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 299,
+            SystemTileName = SystemTileName.TileEronous111,
+            SystemTileCode = "Er111",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 300,
+            SystemTileName = SystemTileName.TileEronous112,
+            SystemTileCode = "Er112",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 301,
+            SystemTileName = SystemTileName.TileEronous113,
+            SystemTileCode = "Er113",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 302,
+            SystemTileName = SystemTileName.TileEronous114,
+            SystemTileCode = "Er114",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 303,
+            SystemTileName = SystemTileName.TileEronous115,
+            SystemTileCode = "Er115",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 304,
+            SystemTileName = SystemTileName.TileEronous116,
+            SystemTileCode = "Er116",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 305,
+            SystemTileName = SystemTileName.TileEronous117,
+            SystemTileCode = "Er117",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 306,
+            SystemTileName = SystemTileName.TileEronous118,
+            SystemTileCode = "Er118",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 307,
+            SystemTileName = SystemTileName.TileEronous119,
+            SystemTileCode = "Er119",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.Nebula,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 308,
+            SystemTileName = SystemTileName.TileEronous120,
+            SystemTileCode = "Er120",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 309,
+            SystemTileName = SystemTileName.TileEronous121,
+            SystemTileCode = "Er121",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 310,
+            SystemTileName = SystemTileName.TileEronous122,
+            SystemTileCode = "Er122",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 311,
+            SystemTileName = SystemTileName.TileEronous123,
+            SystemTileCode = "Er123",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 312,
+            SystemTileName = SystemTileName.TileEronous124,
+            SystemTileCode = "Er124",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 190,
+            SystemTileName = SystemTileName.TileEronous125,
+            SystemTileCode = "Er125",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 313,
+            SystemTileName = SystemTileName.TileEronous126,
+            SystemTileCode = "Er126",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 313,
+            SystemTileName = SystemTileName.TileEronous127,
+            SystemTileCode = "Er127",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 313,
+            SystemTileName = SystemTileName.TileEronous128,
+            SystemTileCode = "Er128",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
+        new SystemTile()
+        {
+            Id = 313,
+            SystemTileName = SystemTileName.TileEronous129,
+            SystemTileCode = "Er129",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.AscendantSun,
+        },
     };
 }

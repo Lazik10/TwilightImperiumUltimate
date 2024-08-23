@@ -8,6 +8,7 @@ using TwilightImperiumUltimate.Web.Services.Authentication;
 using TwilightImperiumUltimate.Web.Services.Draft;
 using TwilightImperiumUltimate.Web.Services.Language;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
+using TwilightImperiumUltimate.Web.Services.SliceGenerators;
 using TwilightImperiumUltimate.Web.Services.User;
 
 namespace TwilightImperiumUltimate.Web.Services;
@@ -37,6 +38,8 @@ public static class ServiceCollectionsExtension
         services.AddScoped<IMapDataProvider, MapDataProvider>();
         services.AddScoped<IMapEvaluationService, MapEvaluationService>();
         services.AddScoped<IMapToStringConverter, MapToStringConverter>();
+        services.AddScoped<ISliceGeneratorService, SliceGeneratorService>();
+        services.AddScoped<ISliceGeneratorSettingsService, SliceGeneratorSettingsService>();
 
         services.AddScoped<ITwilightImperiumApiHttpClient, TwilightImperiumApiHttpClient>();
 

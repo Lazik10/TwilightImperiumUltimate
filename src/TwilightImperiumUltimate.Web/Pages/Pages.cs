@@ -29,6 +29,8 @@ public static class Pages
 
     public const string MapGenerator = "/tools/map-generator";
 
+    public const string SliceGenerator = "/tools/slice-generator";
+
     public const string CardGenerator = "/tools/card-generator";
 
     public const string BattleCalculator = "/tools/battle-calculator";

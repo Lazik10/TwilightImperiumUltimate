@@ -205,6 +205,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to api/slice-generators/generate-slices.
+        /// </summary>
+        public static string ApiPath_GenerateSlices {
+            get {
+                return ResourceManager.GetString("ApiPath_GenerateSlices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to manage/info.
         /// </summary>
         public static string ApiPath_ManageInfo {

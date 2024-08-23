@@ -38,6 +38,7 @@ public partial class Label
             TextColor.Green => "lawngreen",
             TextColor.Blue => "blue",
             TextColor.Yellow => "yellow",
+            TextColor.Deepskyblue => "deepskyblue",
             _ => "white",
         };
     }

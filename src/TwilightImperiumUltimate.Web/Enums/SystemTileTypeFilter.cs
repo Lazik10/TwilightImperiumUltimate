@@ -15,5 +15,6 @@ public enum SystemTileTypeFilter
     ProphecyOfKings,
     DiscordantStars,
     UnchartedSpace,
+    AscendantSun,
     Custom,
 }

@@ -10,7 +10,7 @@ public static class MapGeneratorOptions
 
     public static readonly int ScaleIncrement = 5;
 
-    public static readonly int NumberOfLegendaryPlanets;
+    public static readonly int NumberOfLegendaryPlanets = 2;
 
     public static readonly bool LegendaryPriorityInEquidistant;
 

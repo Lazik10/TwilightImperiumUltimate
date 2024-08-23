@@ -54,6 +54,22 @@ public static class SliceExtensions
                 && (pos.SystemTile.TileCategory == SystemTileCategory.Red || pos.SystemTile.HasWormholes));
     }
 
+    public static int GetNumberOfRedTiles(this Slice slice)
+    {
+        return slice.DraftedSystemTiles.Count(x => x.TileCategory == SystemTileCategory.Red)
+            + slice.Positions.Count(pos =>
+                pos.SystemTile is not null
+                && (pos.SystemTile.TileCategory == SystemTileCategory.Red));
+    }
+
+    public static int GetNumberOfWormholeTiles(this Slice slice)
+    {
+        return slice.DraftedSystemTiles.Count(x => x.HasWormholes)
+            + slice.Positions.Count(pos =>
+                pos.SystemTile is not null
+                && pos.SystemTile.HasWormholes);
+    }
+
     public static List<SystemTile> UpdateRemainingAvailableSystemTiles(this List<Slice> slices, List<SystemTile> remainingSystemTiles)
     {
         var draftedSystemTileCodes = slices.SelectMany(x => x.DraftedSystemTiles)

@@ -180,6 +180,26 @@
                                 <img src="@GetTechnologyPath(technologyType)" class="max-height" />
                             }
                         }
+
+                        @for (int i = 0; i < sliceEvaluation.LegendariesCount; i++)
+                        {
+                            <img src="@GetPlanetTraitPath(PlanetTrait.Legendary)" class="max-height" style="max-width: 40px;" />
+                        }
+
+                        @for (int i = 0; i < sliceEvaluation.AlphaWormholesCount; i++)
+                        {
+                            <img src="@GetPlanetTraitPath(PlanetTrait.AlphaWormhole)" class="max-height" style="max-width: 40px;" />
+                        }
+
+                        @for (int i = 0; i < sliceEvaluation.BetaWormholesCount; i++)
+                        {
+                            <img src="@GetPlanetTraitPath(PlanetTrait.BetaWormhole)" class="max-height" style="max-width: 40px;" />
+                        }
+
+                        @for (int i = 0; i < sliceEvaluation.GammaWormholesCount; i++)
+                        {
+                            <img src="@GetPlanetTraitPath(PlanetTrait.GammaWormhole)" class="max-height" style="max-width: 40px;" />
+                        }
                     </FlexRowContainer>
                 </div>
             }

@@ -1,3 +1,6 @@
+using TwilightImperiumUltimate.Contracts.DTOs.SliceGeneration;
+using TwilightImperiumUltimate.Draft.ValueObjects;
+
 namespace TwilightImperiumUltimate.Business.AutoMapperProfiles;
 
 public class GalaxyProfile : Profile
@@ -49,5 +52,34 @@ public class GalaxyProfile : Profile
                 x.SystemTileName,
                 x.GameVersion)
             );
+
+        CreateMap<Slice, SliceDto>()
+            .ConstructUsing(x => new SliceDto(
+                x.Id,
+                x.DraftedSystemTiles.Select(s => new SystemTileDto(
+                    s.Id,
+                    s.SystemTileName,
+                    s.SystemTileCode,
+                    s.TileCategory,
+                    s.Resources,
+                    s.Influence,
+                    s.HasPlanets,
+                    s.FactionName,
+                    s.Planets.Select(p => new PlanetDto(
+                        p.Id,
+                        p.PlanetName,
+                        p.Resources,
+                        p.Influence,
+                        p.IsLegendary,
+                        p.TechnologySkip,
+                        p.PlanetTrait,
+                        p.GameVersion)).ToList(),
+                    s.Wormholes.Select(w => new WormholeDto(
+                        w.Id,
+                        w.WormholeName,
+                        w.SystemTileName,
+                        w.GameVersion)).ToList(),
+                    s.Anomaly,
+                    s.GameVersion)).ToList()));
     }
 }

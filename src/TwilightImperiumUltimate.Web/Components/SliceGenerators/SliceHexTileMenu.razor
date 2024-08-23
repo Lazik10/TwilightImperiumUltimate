@@ -1,0 +1,28 @@
+﻿@using TwilightImperiumUltimate.Web.Components.MapGenerator
+
+<div class="hex-menu">
+
+    <div class="clickable" @onclick="ToggleTileMenu">
+        <Label Text="@GetButtonText()" FontSize="20" CenterText="true" />
+    </div>
+
+    @if (_showTileMenu)
+    {
+        <RadzenDropDown @bind-Value="_selectedSystemTileType"
+            Data="@_systemTileTypes"
+            Change="() => GetSystemTilesToShow()"
+            TextProperty="Value"
+            ValueProperty="Key"
+            Style="width: 100%; min-height: 40px;"
+            class="title handel radzen-dropdown" />
+
+        <div class="scrollbar-area">
+            @foreach (var systemTile in SystemTiles)
+            {
+                <SliceHexTile SystemTile="systemTile"
+                MapPosition="-1"
+                SwappedSystemTileFromMenu="RefreshSystemTilesMenu" />
+            }
+        </div>
+    }
+</div>

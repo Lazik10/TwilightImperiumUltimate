@@ -1,0 +1,12 @@
+﻿@using TwilightImperiumUltimate.Web.Components.MapGenerator
+
+<div class="map-quick-menu">
+
+    <FlexRowContainer JustifyContent="Enums.JustifyContent.SpaceEvenly">
+
+        <QuickMenuItem IconType="IconType.Hashtag" IconTypeClicked="IconType.HashtagClicked" OnClick="async () => await HandleMenuIconClick(IconType.Hashtag)" />
+        <QuickMenuItem IconType="IconType.DownloadMapImage" IconTypeClicked="IconType.DownloadMapImageClicked" OnClick="async () => await HandleMenuIconClick(IconType.DownloadMapImage)" />
+
+    </FlexRowContainer>
+
+</div>

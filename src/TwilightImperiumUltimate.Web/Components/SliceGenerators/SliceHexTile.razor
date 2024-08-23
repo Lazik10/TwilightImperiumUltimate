@@ -1,0 +1,41 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@inherits TwilightImperiumBaseComponenet
+
+@*
+@ondragstart="@(() => StartDragSystemTile(SystemTile))"
+@ondrop="@(() => DropSystemTile(SystemTile))"
+@ondrop:preventDefault="true"
+@ondragover="@(() => DragOverSystemTile(SystemTile))"
+@ondragover:preventDefault="true"
+@ondragend="@(() => EndDragSystemTile(SystemTile))"
+*@
+
+<div class="hex-container"
+     draggable="true" 
+     title="@(SystemTile?.SystemTileName.ToString())">
+
+    <img src="@ImagePath"
+         style="transform: rotate(@(_degrees)deg);
+                transition: transform 0.5s ease;"
+        alt="Hexagon" 
+        @onclick="Rotate">
+
+    @if (Overlay == SystemTileOverlay.Id || Overlay == SystemTileOverlay.Resources || Overlay == SystemTileOverlay.Influence)
+    {
+        <div class="hex-text @(SystemTileOverlayColor) handel shadow">
+            <FlexColumnCenteredContainer>
+                @SystemTileOverlayText
+            </FlexColumnCenteredContainer>
+        </div>
+    }
+    else if (Overlay == SystemTileOverlay.ResourcesAndInfluence)
+    {
+        <div class="hex-text white handel shadow">
+            <FlexColumnCenteredContainer>
+                <FlexRowContainer>
+                    <div class="yellow">@SystemTile?.Resources</div><HorizontalSpace Width="10" />/<HorizontalSpace Width="10" /><div class="blue">@SystemTile?.Influence</div>
+                </FlexRowContainer>
+            </FlexColumnCenteredContainer>
+        </div>
+    }
+</div>
