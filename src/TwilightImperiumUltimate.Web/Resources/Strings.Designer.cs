@@ -61,6 +61,70 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;Hello there! I was fortunate enough to be introduced to Twilight Imperium 4th Edition a few years back, and ever since, it has been my favorite game of all time. I fell in love with every aspect of it. Unfortunately, I don&apos;t get to play as often as I&apos;d like, but that doesn&apos;t stop me from thinking about the game constantly.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;During one of our games, a friend who wasn&apos;t very fluent in English kept asking about the cards and what they did. At one point, he needed to know the details of a secret  [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string About_AboutMe {
+            get {
+                return ResourceManager.GetString("About_AboutMe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;The content on this website is intended to serve as a guide, compendium, and FAQ source for new players looking to explore the gameplay and lore of the Twilight Imperium franchise. Additionally, it offers tools to facilitate easier and faster setup before game day.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;This website does not condone the use of its information for any other purposes. It is not permitted to use this content to produce or sell components of any part of the games.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;Twilight Imperium™ and all its expansion [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string About_Disclaimer {
+            get {
+                return ResourceManager.GetString("About_Disclaimer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disclaimer.
+        /// </summary>
+        public static string About_DisclaimerTitle {
+            get {
+                return ResourceManager.GetString("About_DisclaimerTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;I would personally wanted to thank to all people from Fintasy Flight Games who were behind creating this beautiful game.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;I would also like to thanks to people who created any tool for the Twilight Imperium 4th edition may it be map generators, milty drafts, faction picker or any other tool, I will not hide that I took most of the inspiration at your websites and tools. My goal was to unify them and integrate them into one website that will have it all.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;And last thank you goe [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string About_ThankYou {
+            get {
+                return ResourceManager.GetString("About_ThankYou", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thank you.
+        /// </summary>
+        public static string About_ThankYouTitle {
+            get {
+                return ResourceManager.GetString("About_ThankYouTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to About the author.
+        /// </summary>
+        public static string About_Title {
+            get {
+                return ResourceManager.GetString("About_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
         public static string AccountInfo_Save {

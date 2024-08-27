@@ -11,6 +11,8 @@
             {
                 <FlexColumnCenteredContainer>
                     <MiltyDraftFaction Faction="FactionName.None" />
+                    <VerticalSpace Height="10" />
+                    <Button ButtonText="@Strings.MiltyDraft_PickOption" IsDisabled="true" />
                 </FlexColumnCenteredContainer>
             }
         }
@@ -20,7 +22,6 @@
             {
                 <FlexColumnCenteredContainer>
                     <MiltyDraftFaction Faction="faction.FactionName" IsPicked="faction.IsPicked" Color="faction.Color" IsColorless="IsColorless(faction)" />
-
                     <VerticalSpace Height="10" />
                     <Button ButtonText="@Strings.MiltyDraft_PickOption" OnClick="async () => await PickFaction(faction)" IsDisabled="IsDisabled(faction)"/>
 

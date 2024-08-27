@@ -27,7 +27,7 @@ public partial class MiltyDraftSlice
 
     private bool IsDisabled()
     {
-        return MiltyDraftService.State == MiltyDraftState.Finished
+        return MiltyDraftService.State == MiltyDraftState.Finished || MiltyDraftService.State == MiltyDraftState.Initialized
             || (MiltyDraftService.State == MiltyDraftState.Started
             && ((MiltyDraftService.ActivePlayer.Slice is not null && MiltyDraftService.ActivePlayer.Slice.IsPicked)
             || SliceModel.IsPicked
