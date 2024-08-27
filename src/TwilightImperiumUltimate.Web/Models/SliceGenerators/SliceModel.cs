@@ -13,4 +13,8 @@ public class SliceModel
     public float OptimalResources { get; set; }
 
     public float OptimalInfluence { get; set; }
+
+    public bool IsPicked { get; set; }
+
+    public DraftColor Color { get; set; } = DraftColor.None;
 }

@@ -1176,4 +1176,132 @@
   <data name="SystemTileTypeFilter_AscendantSun" xml:space="preserve">
     <value>Ascendant Sun</value>
   </data>
+  <data name="MiltyDraft_Title" xml:space="preserve">
+    <value>Milty Draft</value>
+  </data>
+  <data name="MiltyDraft_NumberOfPlayers" xml:space="preserve">
+    <value>Number of players:</value>
+  </data>
+  <data name="MiltyDraft_NumberOfSlices" xml:space="preserve">
+    <value>Number of slices:</value>
+  </data>
+  <data name="MiltyDraft_NumberOfFactions" xml:space="preserve">
+    <value>Number of factions:</value>
+  </data>
+  <data name="MiltyDraft_StartMiltyDraft" xml:space="preserve">
+    <value>Start Draft</value>
+  </data>
+  <data name="Page_MiltyDraft" xml:space="preserve">
+    <value>Milty Draft</value>
+  </data>
+  <data name="MiltyDraftInitiative_None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="MiltyDraftInitiative_Speaker" xml:space="preserve">
+    <value>Speaker</value>
+  </data>
+  <data name="MiltyDraftInitiative_Second" xml:space="preserve">
+    <value>2nd</value>
+  </data>
+  <data name="MiltyDraftInitiative_Third" xml:space="preserve">
+    <value>3rd</value>
+  </data>
+  <data name="MiltyDraftInitiative_Fourth" xml:space="preserve">
+    <value>4th</value>
+  </data>
+  <data name="MiltyDraftInitiative_Fifth" xml:space="preserve">
+    <value>5th</value>
+  </data>
+  <data name="MiltyDraftInitiative_Sixth" xml:space="preserve">
+    <value>6th</value>
+  </data>
+  <data name="MiltyDraftInitiative_Seventh" xml:space="preserve">
+    <value>7th</value>
+  </data>
+  <data name="MiltyDraftInitiative_Eighth" xml:space="preserve">
+    <value>8th</value>
+  </data>
+  <data name="MiltyDraft_Positions" xml:space="preserve">
+    <value>Positions:</value>
+  </data>
+  <data name="MiltyDraft_Slices" xml:space="preserve">
+    <value>Slices:</value>
+  </data>
+  <data name="MiltyDraft_Factions" xml:space="preserve">
+    <value>Factions:</value>
+  </data>
+  <data name="MiltyDraft_PlayerNames" xml:space="preserve">
+    <value>Player names:</value>
+  </data>
+  <data name="MiltyDraft_Draft" xml:space="preserve">
+    <value>DRAFT</value>
+  </data>
+  <data name="MiltyDraft_DraftPreview" xml:space="preserve">
+    <value>PREVIEW</value>
+  </data>
+  <data name="MiltyDraft_Settings" xml:space="preserve">
+    <value>SETTINGS</value>
+  </data>
+  <data name="MiltyDraft_NextPicks" xml:space="preserve">
+    <value>Next -&gt;</value>
+  </data>
+  <data name="MiltyDraft_ActivePlayer" xml:space="preserve">
+    <value>Current player to pick:</value>
+  </data>
+  <data name="MiltyDraft_Finnished" xml:space="preserve">
+    <value>Milty draft finished!</value>
+  </data>
+  <data name="MiltyDraft_ResetDraft" xml:space="preserve">
+    <value>Reset Draft</value>
+  </data>
+  <data name="MiltyDraft_PickOption" xml:space="preserve">
+    <value>Pick</value>
+  </data>
+  <data name="MiltyDraft_NotEnoughFactions" xml:space="preserve">
+    <value>Not enough factions</value>
+  </data>
+  <data name="MiltyDraft_DraftNotInProgress" xml:space="preserve">
+    <value>Current draft is not in progress.</value>
+  </data>
+  <data name="MiltyDraft_PlayerName" xml:space="preserve">
+    <value>Player:</value>
+  </data>
+  <data name="MiltyDraft_PlayerFaction" xml:space="preserve">
+    <value>Faction:</value>
+  </data>
+  <data name="MiltyDraft_PlayerSliceId" xml:space="preserve">
+    <value>Slice ID:</value>
+  </data>
+  <data name="MiltyDraft_PlayerInitiative" xml:space="preserve">
+    <value>Position:</value>
+  </data>
+  <data name="MiltyDraft_MapString" xml:space="preserve">
+    <value>Map string: </value>
+  </data>
+  <data name="MiltyDraft_GeneratingDraft" xml:space="preserve">
+    <value>...Generating Draft...</value>
+  </data>
+  <data name="MiltyDraft_NewSlices" xml:space="preserve">
+    <value>New slices</value>
+  </data>
+  <data name="MiltyDraft_NewPickOrder" xml:space="preserve">
+    <value>New pick order</value>
+  </data>
+  <data name="MiltyDraft_NewFactions" xml:space="preserve">
+    <value>New factions</value>
+  </data>
+  <data name="MiltyDraft_ImportSlices" xml:space="preserve">
+    <value>Import slices:</value>
+  </data>
+  <data name="MiltyDraft_ImportSlicesPlaceholder" xml:space="preserve">
+    <value>0,0,0,0,0
+0,0,0,0,0
+0,0,0,0,0
+0,0,0,0,0
+0,0,0,0,0
+0,0,0,0,0</value>
+  </data>
+  <data name="MiltyDraft_InvalidImportedSlicesStringFormat" xml:space="preserve">
+    <value>Your provided string for slices is invalid. It may contain less slices than set in settings or the format is corrupted. Please check your imported string or disable imported slices.</value>
+  </data>
 </root>

@@ -1,0 +1,12 @@
+﻿@using TwilightImperiumUltimate.Web.Helpers.Enums
+
+<div style="@(IsColorless())">
+    <FlexColumnCenteredContainer>
+        <Label Text="@(Initiative.GetDisplayName())" FontSize="24" TextColor="Color.GetTextColor(!IsPicked)" CenterText="true" />
+
+        <VerticalSpace Height="10" />
+
+        <Button ButtonText="@Strings.MiltyDraft_PickOption" OnClick="PickInitiative" IsDisabled="IsDisabled()" />
+
+    </FlexColumnCenteredContainer>
+</div>

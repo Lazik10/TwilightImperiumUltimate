@@ -76,6 +76,45 @@ public class MapGeneratorService(
         return sortedMapLayoutDictionary;
     }
 
+    public async Task<Dictionary<int, SystemTileModel>> GenerateMapLayoutPreview(MapTemplate mapTemplate)
+    {
+        GenerateMapRequest request = new(
+            true,
+            mapTemplate,
+            HomeSystemDraftType.Placeholders,
+            new List<FactionName>(),
+            new List<GameVersion>(),
+            PlacementStyle.Random,
+            SystemWeight.Random,
+            WormholeDensity.Random,
+            0,
+            false,
+            new List<string>());
+
+        var (response, statusCode) = await _httpClient.PostAsync<GenerateMapRequest, ApiResponse<GeneratedMapLayoutDto>>(Paths.ApiPath_GenerateMap, request, default);
+
+        var sortedMapLayoutDictionary = new Dictionary<int, SystemTileModel>();
+
+        if (statusCode == HttpStatusCode.OK)
+        {
+            var generatedMapLayout = response!.Data!.MapLayout.ToList();
+            var sortedMapLayout = generatedMapLayout
+                .GroupBy(hex => hex.X / 2) // Group by pairs (0,1), (2,3), (4,5), (6,7)
+                .OrderBy(group => group.Key) // Ensure groups are ordered
+                .SelectMany(group => group.OrderBy(hex => hex.Y)) // Sort each group by Y and flatten the groups
+                .ToList();
+
+            int index = 0;
+            foreach (var hexDto in sortedMapLayout)
+            {
+                sortedMapLayoutDictionary.Add(index, _mapper.Map<SystemTileModel>(hexDto.SystemTile is null ? new SystemTileModel() { SystemTileName = SystemTileName.TileEmpty } : hexDto.SystemTile));
+                index++;
+            }
+        }
+
+        return sortedMapLayoutDictionary;
+    }
+
     public async Task InitializeSystemTilesAsync(CancellationToken ct)
     {
         if (_systemTiles.Count == 0)

@@ -1,5 +1,6 @@
 using System.Globalization;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
+using TwilightImperiumUltimate.Web.Services.MiltyDraft;
 using TwilightImperiumUltimate.Web.Services.SliceGenerators;
 
 namespace TwilightImperiumUltimate.Web.Components.Shared.Controls;
@@ -30,6 +31,9 @@ public partial class WormholeDensityPicker
     [Inject]
     private ISliceGeneratorSettingsService SliceGeneratorSettingsService { get; set; } = default!;
 
+    [Inject]
+    private IMiltyDraftSettingsService MiltyDraftSettingsService { get; set; } = default!;
+
     private int WormholeDensityValue => (int)WormholeDensity;
 
     private async Task Decrease()
@@ -39,6 +43,7 @@ public partial class WormholeDensityPicker
         {
             WormholeDensity = MapGeneratorSettingsService.WormholeDensity = wormholeDensity;
             await SliceGeneratorSettingsService.UpdateWormholeDensity(wormholeDensity);
+            await MiltyDraftSettingsService.UpdateWormholeDensity(wormholeDensity);
         }
     }
 
@@ -49,6 +54,7 @@ public partial class WormholeDensityPicker
         {
             WormholeDensity = MapGeneratorSettingsService.WormholeDensity = wormholeDensity;
             await SliceGeneratorSettingsService.UpdateWormholeDensity(wormholeDensity);
+            await MiltyDraftSettingsService.UpdateWormholeDensity(wormholeDensity);
         }
     }
 }

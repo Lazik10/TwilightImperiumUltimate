@@ -1,0 +1,57 @@
+﻿@using TwilightImperiumUltimate.Web.Components.MapGenerator
+@using TwilightImperiumUltimate.Web.Helpers.Enums
+
+<FlexColumnCenteredContainer>
+
+    @if (MiltyDraftService.State == MiltyDraftState.Initialized)
+    {
+        <VerticalSpace Height="50" />
+        <Label Text="@Strings.MiltyDraft_DraftNotInProgress" FontSize="32" CenterText="true" />
+        <VerticalSpace Height="50" />
+    }
+    else
+    {
+        <VerticalSpace Height="50" />
+
+        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexEnd">
+            <QuickMenuItem IconType="IconType.CopyMapString" IconTypeClicked="IconType.CopyMapStringClicked" OnClick="HandleCopyMapString" />
+            <HorizontalSpace Width="10" />
+            <QuickMenuItem IconType="IconType.DownloadMapImage" IconTypeClicked="IconType.DownloadMapImageClicked" OnClick="HandleDownloadImage" />
+        </FlexRowContainer>
+
+        <VerticalSpace Height="10" />
+
+        <div id="draftpreviewArea">
+
+            <GridLayout Columns="3" Width="100" Gap="10" AlignItems="stretch">
+
+                @if (Players is not null && Players.Count > 0)
+                {
+                    foreach (var player in Players)
+                    {
+                        <MiltyDraftPlayerInfo Player="@player" />
+                    }
+                }
+
+            </GridLayout>
+
+            <VerticalSpace Height="20" />
+
+            <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+                <Label Text="@Strings.MiltyDraft_MapString" TextColor="TextColor.Green" FontSize="24" Width="15" />
+                <Label Text="@MapTtsString()" CenterText="true" FontSize="18"/>
+            </FlexRowContainer>
+
+            <VerticalSpace Height="20" />
+
+            @if (IsSupportedMapPreview())
+            {
+                @DynamicComponent
+            }
+
+            <VerticalSpace Height="100" />
+
+        </div>
+    }
+
+</FlexColumnCenteredContainer>

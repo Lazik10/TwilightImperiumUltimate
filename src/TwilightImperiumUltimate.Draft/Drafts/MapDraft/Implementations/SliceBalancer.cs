@@ -151,7 +151,7 @@ internal class SliceBalancer(
                 {
                     anySliceCanAcceptTile = true;
 
-                    if (currentSlice.DraftedSystemTiles.Sum(x => x.GetOptimalResourceValue()) > currentSlice.DraftedSystemTiles.Sum(x => x.GetOptimalInfluenceValue()))
+                    if (currentSlice.DraftedSystemTiles.Sum(x => x.GetOptimalResourceValue()) >= currentSlice.DraftedSystemTiles.Sum(x => x.GetOptimalInfluenceValue()))
                     {
                         if (request.MapTemplate != MapTemplate.SixPlayersLargeMap && request.MapTemplate == MapTemplate.EightPlayersLargeMap)
                         {

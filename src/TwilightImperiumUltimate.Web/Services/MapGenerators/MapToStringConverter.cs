@@ -43,6 +43,14 @@ public class MapToStringConverter(
         return Task.FromResult(ttsString);
     }
 
+    public Task<string> ConvertMapToTtsString(MapTemplate mapTemplate, IReadOnlyDictionary<int, SystemTileModel> map)
+    {
+        var ttsPositions = TiUltimatePositionsFromTtsPositions(mapTemplate);
+        string ttsString = GenerateTtsString(ttsPositions, map);
+
+        return Task.FromResult(ttsString);
+    }
+
     public async Task ConvertTtsStringToMap(MapTemplate mapTemplate, string ttsString)
     {
         var ttsPositions = TiUltimatePositionsFromTtsPositions(mapTemplate);

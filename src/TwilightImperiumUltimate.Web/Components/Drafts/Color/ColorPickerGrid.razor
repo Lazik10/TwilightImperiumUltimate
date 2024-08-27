@@ -32,7 +32,7 @@
 
 <FlexRowContainer CssClass="margin-top-50">
     <Button ButtonText="@GetButtonStateText()"
-            OnClick="DraftColors" />
+            OnClick="DraftColors" IsDisabled="GetButtonState()" />
     <Button ButtonText="@Strings.DraftButton_ResetSelectedFactions"
             OnClick="ResetSelectedFactions" />
     <Button ButtonText="@Strings.DraftButton_ResetBannedColors"

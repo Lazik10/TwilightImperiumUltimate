@@ -13,4 +13,7 @@ public partial class GridLayout
 
     [Parameter]
     public int Width { get; set; } = 100;
+
+    [Parameter]
+    public string AlignItems { get; set; } = "center";
 }

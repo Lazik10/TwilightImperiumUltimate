@@ -1798,6 +1798,371 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Current player to pick:.
+        /// </summary>
+        public static string MiltyDraft_ActivePlayer {
+            get {
+                return ResourceManager.GetString("MiltyDraft_ActivePlayer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DRAFT.
+        /// </summary>
+        public static string MiltyDraft_Draft {
+            get {
+                return ResourceManager.GetString("MiltyDraft_Draft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current draft is not in progress..
+        /// </summary>
+        public static string MiltyDraft_DraftNotInProgress {
+            get {
+                return ResourceManager.GetString("MiltyDraft_DraftNotInProgress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PREVIEW.
+        /// </summary>
+        public static string MiltyDraft_DraftPreview {
+            get {
+                return ResourceManager.GetString("MiltyDraft_DraftPreview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Factions:.
+        /// </summary>
+        public static string MiltyDraft_Factions {
+            get {
+                return ResourceManager.GetString("MiltyDraft_Factions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Milty draft finished!.
+        /// </summary>
+        public static string MiltyDraft_Finnished {
+            get {
+                return ResourceManager.GetString("MiltyDraft_Finnished", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ...Generating Draft....
+        /// </summary>
+        public static string MiltyDraft_GeneratingDraft {
+            get {
+                return ResourceManager.GetString("MiltyDraft_GeneratingDraft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Import slices:.
+        /// </summary>
+        public static string MiltyDraft_ImportSlices {
+            get {
+                return ResourceManager.GetString("MiltyDraft_ImportSlices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 0,0,0,0,0
+        ///0,0,0,0,0
+        ///0,0,0,0,0
+        ///0,0,0,0,0
+        ///0,0,0,0,0
+        ///0,0,0,0,0.
+        /// </summary>
+        public static string MiltyDraft_ImportSlicesPlaceholder {
+            get {
+                return ResourceManager.GetString("MiltyDraft_ImportSlicesPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your provided string for slices is invalid. It may contain less slices than set in settings or the format is corrupted. Please check your imported string or disable imported slices..
+        /// </summary>
+        public static string MiltyDraft_InvalidImportedSlicesStringFormat {
+            get {
+                return ResourceManager.GetString("MiltyDraft_InvalidImportedSlicesStringFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map string: .
+        /// </summary>
+        public static string MiltyDraft_MapString {
+            get {
+                return ResourceManager.GetString("MiltyDraft_MapString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New factions.
+        /// </summary>
+        public static string MiltyDraft_NewFactions {
+            get {
+                return ResourceManager.GetString("MiltyDraft_NewFactions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New pick order.
+        /// </summary>
+        public static string MiltyDraft_NewPickOrder {
+            get {
+                return ResourceManager.GetString("MiltyDraft_NewPickOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New slices.
+        /// </summary>
+        public static string MiltyDraft_NewSlices {
+            get {
+                return ResourceManager.GetString("MiltyDraft_NewSlices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Next -&gt;.
+        /// </summary>
+        public static string MiltyDraft_NextPicks {
+            get {
+                return ResourceManager.GetString("MiltyDraft_NextPicks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not enough factions.
+        /// </summary>
+        public static string MiltyDraft_NotEnoughFactions {
+            get {
+                return ResourceManager.GetString("MiltyDraft_NotEnoughFactions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of factions:.
+        /// </summary>
+        public static string MiltyDraft_NumberOfFactions {
+            get {
+                return ResourceManager.GetString("MiltyDraft_NumberOfFactions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of players:.
+        /// </summary>
+        public static string MiltyDraft_NumberOfPlayers {
+            get {
+                return ResourceManager.GetString("MiltyDraft_NumberOfPlayers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of slices:.
+        /// </summary>
+        public static string MiltyDraft_NumberOfSlices {
+            get {
+                return ResourceManager.GetString("MiltyDraft_NumberOfSlices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pick.
+        /// </summary>
+        public static string MiltyDraft_PickOption {
+            get {
+                return ResourceManager.GetString("MiltyDraft_PickOption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Faction:.
+        /// </summary>
+        public static string MiltyDraft_PlayerFaction {
+            get {
+                return ResourceManager.GetString("MiltyDraft_PlayerFaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Position:.
+        /// </summary>
+        public static string MiltyDraft_PlayerInitiative {
+            get {
+                return ResourceManager.GetString("MiltyDraft_PlayerInitiative", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Player:.
+        /// </summary>
+        public static string MiltyDraft_PlayerName {
+            get {
+                return ResourceManager.GetString("MiltyDraft_PlayerName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Player names:.
+        /// </summary>
+        public static string MiltyDraft_PlayerNames {
+            get {
+                return ResourceManager.GetString("MiltyDraft_PlayerNames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Slice ID:.
+        /// </summary>
+        public static string MiltyDraft_PlayerSliceId {
+            get {
+                return ResourceManager.GetString("MiltyDraft_PlayerSliceId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Positions:.
+        /// </summary>
+        public static string MiltyDraft_Positions {
+            get {
+                return ResourceManager.GetString("MiltyDraft_Positions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset Draft.
+        /// </summary>
+        public static string MiltyDraft_ResetDraft {
+            get {
+                return ResourceManager.GetString("MiltyDraft_ResetDraft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SETTINGS.
+        /// </summary>
+        public static string MiltyDraft_Settings {
+            get {
+                return ResourceManager.GetString("MiltyDraft_Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Slices:.
+        /// </summary>
+        public static string MiltyDraft_Slices {
+            get {
+                return ResourceManager.GetString("MiltyDraft_Slices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start Draft.
+        /// </summary>
+        public static string MiltyDraft_StartMiltyDraft {
+            get {
+                return ResourceManager.GetString("MiltyDraft_StartMiltyDraft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Milty Draft.
+        /// </summary>
+        public static string MiltyDraft_Title {
+            get {
+                return ResourceManager.GetString("MiltyDraft_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 8th.
+        /// </summary>
+        public static string MiltyDraftInitiative_Eighth {
+            get {
+                return ResourceManager.GetString("MiltyDraftInitiative_Eighth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 5th.
+        /// </summary>
+        public static string MiltyDraftInitiative_Fifth {
+            get {
+                return ResourceManager.GetString("MiltyDraftInitiative_Fifth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 4th.
+        /// </summary>
+        public static string MiltyDraftInitiative_Fourth {
+            get {
+                return ResourceManager.GetString("MiltyDraftInitiative_Fourth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to None.
+        /// </summary>
+        public static string MiltyDraftInitiative_None {
+            get {
+                return ResourceManager.GetString("MiltyDraftInitiative_None", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 2nd.
+        /// </summary>
+        public static string MiltyDraftInitiative_Second {
+            get {
+                return ResourceManager.GetString("MiltyDraftInitiative_Second", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 7th.
+        /// </summary>
+        public static string MiltyDraftInitiative_Seventh {
+            get {
+                return ResourceManager.GetString("MiltyDraftInitiative_Seventh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 6th.
+        /// </summary>
+        public static string MiltyDraftInitiative_Sixth {
+            get {
+                return ResourceManager.GetString("MiltyDraftInitiative_Sixth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Speaker.
+        /// </summary>
+        public static string MiltyDraftInitiative_Speaker {
+            get {
+                return ResourceManager.GetString("MiltyDraftInitiative_Speaker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3rd.
+        /// </summary>
+        public static string MiltyDraftInitiative_Third {
+            get {
+                return ResourceManager.GetString("MiltyDraftInitiative_Third", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to secret.
         /// </summary>
         public static string ObjectiveCardSecret {
@@ -2055,6 +2420,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string Page_Maps {
             get {
                 return ResourceManager.GetString("Page_Maps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Milty Draft.
+        /// </summary>
+        public static string Page_MiltyDraft {
+            get {
+                return ResourceManager.GetString("Page_MiltyDraft", resourceCulture);
             }
         }
         

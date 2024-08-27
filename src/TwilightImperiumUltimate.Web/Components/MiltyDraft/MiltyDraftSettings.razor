@@ -1,0 +1,133 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Factions
+@using TwilightImperiumUltimate.Web.Components.Shared.GameVersions
+
+<FlexColumnCenteredContainer>
+
+    <VerticalSpace Height="50" />
+
+    <FactionIconRow 
+        ShowDiscordantStars="true" 
+        EnableBanMode="true"
+        ProvidedFactions="MiltyDraftService.FactionsForMiltyDraftMenu.ToList()"
+        OnFactionClickGetFaction="HandleFactionClick" />
+
+    <GameVersionPicker OnVersionSelected="HandleGameVersionClick" />
+
+    <VerticalSpace Height="50" />
+
+    <GridLayout Columns="2" Gap="40" Width="80">
+
+        <NumericPicker Title="@Strings.MiltyDraft_NumberOfPlayers"
+                       Value="@MiltyDraftSettingsService.NumberOfPlayers"
+                       OnDecrease="DecreaseNumberOfPlayers"
+                       OnIncrease="IncreaseNumberOfPlayers"
+                       Width="100"
+                       FontSize="18"
+                       CenteredText="false" />
+
+        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+            <YesNoPicker Title="@Strings.MiltyDraft_PlayerNames"
+                         DefaultValue="MiltyDraftSettingsService.EnablePlayerNames"
+                         OnValueChange="EnablePlayerNames"
+                         Width="100" />
+        </FlexRowContainer>
+
+        @if (MiltyDraftSettingsService.EnablePlayerNames)
+        {
+            @foreach (var player in MiltyDraftSettingsService.Players)
+            {
+                <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+                    <RadzenTextBox Placeholder="@Strings.Player"
+                                   @bind-Value="player.PlayerName"
+                                   class="w-100 flex-row title white handel" />
+                </FlexRowContainer>
+            }
+
+            @if (MiltyDraftSettingsService.Players.Count % 2 == 1)
+            {
+                <div />
+            }
+        }
+
+        <NumericPicker Title="@Strings.MiltyDraft_NumberOfSlices"
+                       Value="@MiltyDraftSettingsService.NumberOfSlices"
+                       OnDecrease="DecreaseNumberOfSlices"
+                       OnIncrease="IncreaseNumberOfSlices"
+                       Width="100"
+                       FontSize="18"
+                       CenteredText="false" />
+
+        <NumericPicker Title="@Strings.MiltyDraft_NumberOfFactions"
+                       Value="@MiltyDraftSettingsService.NumberOfFactions"
+                       OnDecrease="DecreaseNumberOfFactions"
+                       OnIncrease="IncreaseNumberOfFactions"
+                       Width="100"
+                       FontSize="18"
+                       CenteredText="false" />
+
+        <VerticalSpace Height="20" />
+
+        <VerticalSpace Height="20" />
+
+        <Label Text="@Strings.MapGeneratorSettings_SystemTiles" FontSize="18" />
+
+        <div />
+
+        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+            <YesNoPicker Title="@Strings.GameVersion_ProphecyOfKings"
+                         DefaultValue="MiltyDraftSettingsService.GameVersions.Contains(GameVersion.ProphecyOfKings)"
+                         OnValueChange="() => UpdateGameVersion(GameVersion.ProphecyOfKings)"
+                         Width="100" />
+        </FlexRowContainer>
+
+        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+            <YesNoPicker Title="@Strings.GameVersion_UnchartedSpace"
+                         DefaultValue="MiltyDraftSettingsService.GameVersions.Contains(GameVersion.UnchartedSpace)"
+                         OnValueChange="() => UpdateGameVersion(GameVersion.UnchartedSpace)"
+                         Width="100" />
+        </FlexRowContainer>
+
+        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+            <YesNoPicker Title="@Strings.GameVersion_AscendantSun"
+                         DefaultValue="MiltyDraftSettingsService.GameVersions.Contains(GameVersion.AscendantSun)"
+                         OnValueChange="() => UpdateGameVersion(GameVersion.AscendantSun)"
+                         Width="100" />
+        </FlexRowContainer>
+
+        <div />
+
+        <VerticalSpace Height="20" />
+
+        <VerticalSpace Height="20" />
+
+        <NumericPicker Title="@Strings.MapGeneratorSettings_NumberOfLegendaryPlanets"
+                       Value="@MiltyDraftSettingsService.NumberOfLegendaryPlanets"
+                       OnDecrease="DecreaseNumberOfLegendaryPlanets"
+                       OnIncrease="IncreaseNumberOfLegendaryPlanets"
+                       Width="100"
+                       FontSize="18"
+                       CenteredText="false" />
+
+        <WormholeDensityPicker Width="100" WormholeDensity="MiltyDraftSettingsService.WormholeDensity" />
+
+        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+            <YesNoPicker Title="@Strings.MiltyDraft_ImportSlices"
+                         DefaultValue="MiltyDraftSettingsService.ImportSlices"
+                         OnValueChange="EnableImportSlices"
+                         Width="100" />
+        </FlexRowContainer>
+
+        <div />
+
+        @if (MiltyDraftSettingsService.ImportSlices)
+        {
+            <RadzenTextArea Placeholder="@Strings.MiltyDraft_ImportSlicesPlaceholder"
+                            @bind-Value="MiltyDraftSettingsService.ImportedSlicesString"
+                            class="w-100 flex-row title white handel" Style="height: 200px;" />
+        }
+
+    </GridLayout>
+
+    <VerticalSpace Height="20" />
+
+</FlexColumnCenteredContainer>

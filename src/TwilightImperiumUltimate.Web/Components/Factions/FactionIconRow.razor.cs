@@ -45,7 +45,8 @@ public partial class FactionIconRow : TwilightImperiumBaseComponenet
 
     protected override async Task OnInitializedAsync()
     {
-        // This is a hack so I can use this component in the map generator, unfortunatelly the componenet is initialized every time
+        // This is a hack so I can use this component in the map generator,
+        // unfortunatelly the componenet is initialized every time
         if (ProvidedFactions.Count != 0)
         {
             _factions = ProvidedFactions;

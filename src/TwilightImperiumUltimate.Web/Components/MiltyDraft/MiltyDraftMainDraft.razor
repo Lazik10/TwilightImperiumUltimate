@@ -1,0 +1,138 @@
+﻿@using TwilightImperiumUltimate.Web.Components.MapGenerator
+@using TwilightImperiumUltimate.Web.Helpers.Enums
+
+@if ((Initiatives is not null && Initiatives.Count > 0
+     && Slices is not null && Slices.Count > 0
+     && DraftState == MiltyDraftState.Initialized) ||
+    (Initiatives is not null && Initiatives.Count > 0
+    && Slices is not null && Slices.Count > 0
+    && DraftedFactions is not null && DraftedFactions.Count > 0
+    && DraftState != MiltyDraftState.Initialized))
+{
+    <FlexColumnCenteredContainer>
+
+        <VerticalSpace Height="20" />
+
+        <Button ButtonText="@(GetButtonText())" OnClick="StartMiltyDraft" IsDisabled="GetButtonStatus()" />
+
+        @if (IsImportedSlicesEnabledAndImportedStringInvalid().Result)
+        {
+            <VerticalSpace Height="20" />
+            <HelpText Text="@Strings.MiltyDraft_InvalidImportedSlicesStringFormat" TextColor="TextColor.Red" />
+        }
+
+        @if (DraftState == MiltyDraftState.Started && !MiltyDraftService.FirstPickAssigned)
+        {
+            <VerticalSpace Height="20" />
+            <FlexRowContainer>
+                <Button ButtonText="@Strings.MiltyDraft_NewPickOrder" OnClick="NewPickOrder" />
+                <Button ButtonText="@Strings.MiltyDraft_NewFactions" OnClick="NewFactions" />
+                <Button ButtonText="@Strings.MiltyDraft_NewSlices" OnClick="NewSlices" />
+            </FlexRowContainer>
+        }
+
+        <VerticalSpace Height="50" />
+
+        <div style="border: 10px solid @(DraftState == MiltyDraftState.Started ? MiltyDraftService.ActivePlayer.PlayerColor.GetUIColor() : "transparent"); width: 100%; padding-left: 10px; padding-right: 10px;">
+
+            @if (DraftState == MiltyDraftState.Started)
+            {
+                <FlexColumnCenteredContainer CssClass="background">
+
+                    <VerticalSpace Height="10" />
+
+                    <GridLayout Columns="3" Gap="0" Width="100" >
+                        <Label Text="@Strings.MiltyDraft_ActivePlayer" FontSize="24" TextColor="TextColor.Green" PaddingLeft="40" />
+                        <Label Text="@GetPlayerName(ActivePlayer)" FontSize="36" CenterText="true" TextColor="ActivePlayerColor.GetTextColor()" />
+                    </GridLayout>
+
+                    <VerticalSpace Height="20" />
+
+                    <FlexRowContainer>
+                        <Label Text="@Strings.MiltyDraft_NextPicks" TextColor="TextColor.White" PaddingLeft="20" />
+                        @foreach (var player in PlayersOrderOfPicks)
+                        {
+                            <Label Text="@GetPlayerName(player)" TextColor="player.PlayerColor.GetTextColor()" />
+                        }
+                    </FlexRowContainer>
+
+                    <VerticalSpace Height="10" />
+
+                </FlexColumnCenteredContainer>
+            }
+            else if (DraftState == MiltyDraftState.Finished)
+            {
+                <FlexColumnCenteredContainer CssClass="background">
+
+                    <VerticalSpace Height="10" />
+                    <Label Text="@Strings.MiltyDraft_Finnished" FontSize="36" TextColor="TextColor.Green" CenterText="true" />
+
+                </FlexColumnCenteredContainer>
+            }
+
+            <VerticalSpace Height="40" />
+
+            <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexEnd">
+                <QuickMenuItem IconType="IconType.DownloadMapImage" IconTypeClicked="IconType.DownloadMapImageClicked" OnClick="HandleDownloadImage" />
+            </FlexRowContainer>
+
+            <div id="draftArea">
+
+                <Label Text="@Strings.MiltyDraft_Positions" TextColor="TextColor.Green" FontSize="24" PaddingLeft="20" />
+
+                <FlexColumnCenteredContainer CssClass="background">
+
+                    <VerticalSpace Height="10" />
+
+                    <FlexRowContainer>
+                        @foreach (var initiative in Initiatives)
+                        {
+                            <CascadingValue Value="this" Name="MiltyDraftMainDraft">
+                                <MiltyDraftInitiativeOrder Initiative="initiative.Initiative" FontSize="28" IsPicked="initiative.Picked" Color="initiative.DraftColor" />
+                            </CascadingValue>
+                        }
+                    </FlexRowContainer>
+
+                    <VerticalSpace Height="10" />
+
+                </FlexColumnCenteredContainer>
+
+                <VerticalSpace Height="50" />
+
+                <Label Text="@Strings.MiltyDraft_Factions" TextColor="TextColor.Green" FontSize="24" PaddingLeft="20" />
+
+                <CascadingValue Value="this" Name="MiltyDraftMainDraft">
+                    <MiltyDraftFactionRow DraftedFactions="DraftedFactions"/>
+                </CascadingValue>
+
+                <VerticalSpace Height="50" />
+
+                <Label Text="@Strings.MiltyDraft_Slices" TextColor="TextColor.Green" FontSize="24" PaddingLeft="20" />
+
+                <GridLayout Width="100" Gap="10" Columns="3">
+
+                    @foreach (var slice in Slices)
+                    {
+                        <CascadingValue Value="this" Name="MiltyDraftMainDraft">
+                            <MiltyDraftSlice SliceModel="slice" />
+                        </CascadingValue>
+                    }
+
+                    @for (var i = 0; i < (3 - (Slices.Count % 3)); i++)
+                    {
+                        <div class="background" style="width: 100%; height: 100%;" />    
+                    }
+
+                </GridLayout>
+
+            </div>
+
+        </div>
+
+    </FlexColumnCenteredContainer>
+}
+else
+{
+    <VerticalSpace Height="150" />
+    <Title Text="@Strings.MiltyDraft_GeneratingDraft" FontSize="32" />
+}

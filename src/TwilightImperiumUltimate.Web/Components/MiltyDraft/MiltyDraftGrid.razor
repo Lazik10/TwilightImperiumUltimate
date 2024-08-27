@@ -1,0 +1,15 @@
+﻿
+<MiltyDraftNavBar OnMenuItemClick="OnMenuItemClick"/>
+
+@if(_selectedMenuItem == MiltyDraftMenuItem.Draft)
+{
+    <MiltyDraftMainDraft />
+}
+else if (_selectedMenuItem == MiltyDraftMenuItem.Map)
+{
+    <MiltyDraftMapPreview />
+}
+else if (_selectedMenuItem == MiltyDraftMenuItem.Settings)
+{
+    <MiltyDraftSettings />
+}

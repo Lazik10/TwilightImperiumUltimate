@@ -23,6 +23,8 @@ public static class Pages
     // Tools
     public const string DraftRooms = "/tools/draft-rooms";
 
+    public const string MiltyDraft = "/tools/milty-draft";
+
     public const string ColorPicker = "/tools/color-picker";
 
     public const string FactionDraft = "/tools/faction-draft";

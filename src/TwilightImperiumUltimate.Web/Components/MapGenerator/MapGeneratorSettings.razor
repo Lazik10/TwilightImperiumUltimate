@@ -124,7 +124,6 @@
     <GridLayout Columns="2" Gap="20" Width="80" >
         @if(@MapGeneratorSettingsService.EnablePlayerNames)
         {
-            // TODO: Fix this, so that players are changed when changing map template
             foreach (var player in MapGeneratorSettingsService.Players)
             {
                 <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
