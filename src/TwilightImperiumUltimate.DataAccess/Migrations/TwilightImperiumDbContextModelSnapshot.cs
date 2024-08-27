@@ -51,19 +51,19 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "c9608fed-985d-43ad-b0ba-93b8fa9d9438",
+                            Id = "945781e4-c996-4a3a-803c-c46c24d1f082",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "3ff0f206-016f-4773-bf05-5d7bbe154582",
+                            Id = "4e6df00b-ccb0-4c7b-ba6a-34daee4cea49",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "bfa71a2b-83ba-4c27-990b-c7eab7e27256",
+                            Id = "5d80234f-eb74-4b81-92a3-c67b39d6d386",
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
                         });
@@ -14251,7 +14251,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             FactionName = "None",
                             GameVersion = "TtsHyperlines",
                             Id = 187,
-                            SystemTileCode = "Tile3017A",
+                            SystemTileCode = "3017A",
                             TileCategory = "Hyperlane"
                         },
                         new
@@ -16174,6 +16174,69 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             CreatedAt = new DateOnly(2023, 11, 19),
                             Title = "Tech Triumph - Launching the Technology Cards Compendium!",
                             UpdatedAt = new DateOnly(2023, 11, 19),
+                            UserId = "1"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Content = "<p>I’m thrilled to announce the integration of a brand-new Cards Compendium into the TI: Ultimate website!</p></br>\r\n                        <p>This latest addition includes all the system tiles and planets.\r\n                        You can now scroll through the entire collection of system tiles and planets, making it easier than ever to strategize and plan your next moves.\r\n                        Whether you're new to the game or a seasoned veteran, this compendium is designed to help you dive deeper into the galaxy.</p></br>\r\n                        <p>Explore the compendium, familiarize yourself with all the system tiles and planets, and get ready to conquer the stars!</p>",
+                            CreatedAt = new DateOnly(2024, 1, 2),
+                            Title = "Explore the New System Tiles and Planets Compendium!",
+                            UpdatedAt = new DateOnly(2024, 1, 2),
+                            UserId = "1"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Content = "<p>I’m excited to announce that the TI: Ultimate website now features comprehensive information on all 25 factions from <em>Twilight Imperium</em>!\r\n                        Whether you're exploring the galaxy for the first time or you're a seasoned commander,\r\n                        you can now find detailed information about each faction, including:</p>\r\n                            <ul>\r\n                                <li><strong>Difficulty:</strong> Understand the complexity and challenge level of each faction.</li>\r\n                                <li><strong>Lore:</strong> Dive into the rich backstory and lore behind every faction.</li>\r\n                                <li><strong>Starting Components:</strong> Review the starting resources and units each faction brings to the table.</li>\r\n                                <li><strong>Faction Components:</strong> Get familiar with unique faction-specific components that define their strategy.</li>\r\n                                <li><strong>Abilities:</strong> Learn about the powerful abilities that set each faction apart.</li>\r\n                                <li><strong>FAQ:</strong> Find answers to common questions and clarifications specific to each faction.</li>\r\n                                <li><strong>Leaders:</strong> Discover the leaders that guide each faction and their special traits.</li>\r\n                            </ul>\r\n                        <p>This comprehensive resource is designed to help you master your favorite factions and explore new ones with confidence.\r\n                        I hope these additions enhance your gameplay and provide you with all the information you need to dominate the galaxy.</p>\r\n                        <p>Explore the factions, strategize, and lead your people to victory!</p>",
+                            CreatedAt = new DateOnly(2024, 5, 7),
+                            Title = "All 25 Twilight Imperium Factions Now Available!",
+                            UpdatedAt = new DateOnly(2024, 5, 7),
+                            UserId = "1"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Content = "<p>I'm thrilled to announce that we've expanded the TI: Ultimate website with an exciting new addition of 34 homebrew factions\r\n                        from the Discordant Stars community! These fan-created factions bring even more depth and variety to your <em>Twilight Imperium</em> experience.</p>\r\n                        <p>Dive into the creativity of the community and explore these unique factions, each with its own lore, abilities, and strategies. Whether you're\r\n                        looking to challenge yourself with something new or simply curious about what the community has to offer, these homebrew factions are sure to add\r\n                        fresh excitement to your games.</p>\r\n                        <p>Check them out, experiment with their playstyles, and discover how these new factions can reshape the galaxy!</p>\r\n                        <p>As always, your feedback is invaluable. Let us know your thoughts on these new additions and how they integrate into your games.</p>\r\n                        <p>Happy gaming, and may the stars align in your favor!</p>",
+                            CreatedAt = new DateOnly(2024, 6, 2),
+                            Title = "Introducing 34 New Homebrew Factions from Discordant Stars!",
+                            UpdatedAt = new DateOnly(2024, 6, 2),
+                            UserId = "1"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Content = "<p>I am excited to introduce a new FAQ section on the TI: Ultimate website, designed to enhance your gaming experience.\r\n                        Now, if you're logged in, you can contribute by adding FAQs to any component or faction in the game. This community-driven\r\n                        feature allows everyone to share knowledge and clarify any uncertainties that might arise during gameplay.</p>\r\n                        <p>The FAQ section also includes a powerful search functionality, making it easier than ever to find answers to your\r\n                        questions. Additionally, you can search through the Rules section, which contains all the latest rules updated\r\n                        with the Living Rule Reference (LRR). To further enrich the experience, the Rules section also features notes provided\r\n                        by other players, offering insights and interpretations that might help you navigate the complexities of the game.</p>\r\n                        <p>We hope this new feature becomes a valuable resource for the entire community. Dive in, explore the FAQs, contribute your own,\r\n                        and make use of the comprehensive rules search to ensure you're always playing at your best!</p>\r\n                        <p>Thank you for being a part of this galactic journey, and we look forward to your continued contributions.</p>\r\n                        <p>Happy gaming, and may your strategies be ever victorious!</p>",
+                            CreatedAt = new DateOnly(2024, 6, 20),
+                            Title = "Announcing the New FAQ and Rules Section with Community Contributions!",
+                            UpdatedAt = new DateOnly(2024, 6, 20),
+                            UserId = "1"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Content = "<p>We are thrilled to announce the addition of the Ascendant Sun (Eronous homebrew) System Tiles to the TI: Ultimate website!\r\n                        This new set includes an incredible 127 system tiles that significantly expand the possibilities when creating your game maps.</p>\r\n                        <p>Among these new tiles, you'll find:</p>\r\n                        <ul>\r\n                            <li><strong>Legendary Planets:</strong> New planets that offer unique abilities and strategic advantages.</li>\r\n                            <li><strong>Anomalies:</strong> Fresh anomalies that add complexity and challenge to your gameplay.</li>\r\n                            <li><strong>Wormhole Types:</strong> Innovative wormhole designs that change how you navigate the galaxy.</li>\r\n                            <li><strong>Numerous Planets:</strong> A variety of new planets to explore, each bringing its own flavor and strategic opportunities.</li>\r\n                        </ul>\r\n                        <p>These tiles are designed to further enrich your map creation experience, allowing for even more creative and dynamic setups.\r\n                        Whether you're looking to add new challenges or simply explore different gameplay scenarios, the Ascendant Sun tiles are sure to enhance your games.</p>\r\n                        <p>We hope you enjoy these new additions and look forward to seeing the exciting maps you create!</p>",
+                            CreatedAt = new DateOnly(2024, 6, 29),
+                            Title = "Introducing the Ascendant Sun (Eronous Homebrew) System Tiles!",
+                            UpdatedAt = new DateOnly(2024, 6, 29),
+                            UserId = "1"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Content = "<p>Today I would like to inform you about the latest addition to the TI: Ultimate website—the Game Tracker!\r\n                        This powerful new feature is designed to enhance your gaming experience by helping you keep track of various\r\n                        aspects of your <em>Twilight Imperium</em> games in real-time.</p>\r\n                        <p>With the Game Tracker, you can now:</p>\r\n                        <ul>\r\n                            <li><strong>Track Game Length:</strong> Monitor the total duration of your game, from start to finish.</li>\r\n                            <li><strong>Strategy Card Picks:</strong> Keep a record of which strategy cards each player has chosen during each round.</li>\r\n                            <li><strong>Individual Game Time:</strong> Track how much time each player spends on their turns, helping you identify pacing and efficiency.</li>\r\n                            <li><strong>Agenda Phase:</strong> Easily manage and track the progression of the agenda phase, ensuring smooth gameplay.</li>\r\n                            <li><strong>Score Tracking:</strong> Keep an updated tally of each player's score throughout the game.</li>\r\n                            <li><strong>Turn Indicator:</strong> Know exactly whose turn it is at any given moment, reducing confusion and keeping the game flowing.</li>\r\n                        </ul>\r\n                        <p>This feature is designed to streamline your games, making it easier to focus on strategy and enjoy the epic experience that is <em>Twilight Imperium</em>. We hope this tool enhances your gameplay and makes tracking every detail a breeze!</p>\r\n                        <p>As always, your feedback is invaluable—let us know how the Game Tracker is working for you and any additional features you’d like to see.</p>\r\n                        <p>Happy gaming, and may your empire thrive!</p>",
+                            CreatedAt = new DateOnly(2024, 7, 13),
+                            Title = "Introducing the New Game Tracker Feature!",
+                            UpdatedAt = new DateOnly(2024, 7, 13),
+                            UserId = "1"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Content = "<p>Dear <em>Twilight Imperium</em> Commanders,</p>\r\n                        <p>It’s hard to believe, but it’s been a year since the first line of code was written for the TI: Ultimate website.\r\n                        Today, I’m thrilled to announce that the site is now fully operational and ready for you to explore! After countless\r\n                        hours of development and testing, the website has been brought to the knowledge of players like you, and now,\r\n                        it's your turn to dive in and test all the features, compendiums, and resources available.</p>\r\n                        <p>This is a significant milestone, and I couldn’t be more excited to share it with the community.\r\n                        You can now explore everything the website has to offer, from the detailed faction and system tile compendiums\r\n                        to the advanced tools like the Game Tracker, Map Generators, and much more.</p>\r\n                        <p>Your feedback is crucial as we continue to improve and expand the site. I invite you to share your thoughts,\r\n                        ideas, and any areas where you think improvements could be made. Together, we can make the TI: Ultimate website an even\r\n                        better resource for all <em>Twilight Imperium</em> players.</p>\r\n                        <p>Thank you for being a part of this journey, and I can’t wait to see how the community helps shape the future of the website.\r\n                        Test, explore, and enjoy—and don’t hesitate to reach out with your feedback!</p>\r\n                        <p>Here’s to another year of galactic conquests and innovations!</p>",
+                            CreatedAt = new DateOnly(2024, 9, 1),
+                            Title = "Celebrating a Major Milestone: One Year of Development!",
+                            UpdatedAt = new DateOnly(2024, 9, 1),
                             UserId = "1"
                         });
                 });
@@ -21793,7 +21856,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "252d321c-6fcb-4b9c-817c-beefe31df502",
+                            ConcurrencyStamp = "e64086bf-7263-4b50-999c-3a85524b327f",
                             DiscordId = "",
                             Email = "Test@user.cz",
                             EmailConfirmed = true,
@@ -21802,14 +21865,14 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             LastName = "User",
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST@USER.CZ",
-                            NormalizedUserName = "TESTUSER",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOJdbEvHJYbp/NykICJK9ocm7AVIE8T3MaWfxc7EPEGLEEAI1RJSaZ5Mem/mNfaayQ==",
+                            NormalizedUserName = "ADMIN",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOYMAQIGmF/6G1F1aF7PGxkBuCo8vLATHihWXRP6El/J1DcFUEdEMCXzT2UEMylHSg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "35ba031e-69e0-41ed-bf8c-b1ff000fbd93",
+                            SecurityStamp = "fe4f7309-303a-48a2-983d-f8f953761822",
                             SteamId = "",
                             TwoFactorEnabled = false,
                             UserInfo = "First seeded test user",
-                            UserName = "TestUser"
+                            UserName = "Admin"
                         });
                 });
 

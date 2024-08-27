@@ -12,8 +12,8 @@ internal static class UserData
         var user = new TwilightImperiumUser()
         {
             Id = "1",
-            UserName = "TestUser",
-            NormalizedUserName = "TESTUSER",
+            UserName = "Admin",
+            NormalizedUserName = "ADMIN",
             Email = "Test@user.cz",
             NormalizedEmail = "TEST@USER.CZ",
             EmailConfirmed = true,

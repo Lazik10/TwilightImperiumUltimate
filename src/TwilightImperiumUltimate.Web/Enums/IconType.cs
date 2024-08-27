@@ -15,4 +15,5 @@ public enum IconType
     ShareMapClicked,
     CopyMapStringClicked,
     ImportMapStringClicked,
+    Info,
 }

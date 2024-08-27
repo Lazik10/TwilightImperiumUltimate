@@ -1,1 +1,25 @@
-﻿
+﻿.about {
+    color: white;
+    text-align: justify;
+    width: 80%;
+    line-height: 1.5;
+    text-indent: 2em;
+}
+
+    .about::after {
+        content: "";
+        display: inline-block;
+        width: 100%;
+    }
+
+@media (max-width: 1248px) {
+    .about {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about {
+        font-size: 10px;
+    }
+}

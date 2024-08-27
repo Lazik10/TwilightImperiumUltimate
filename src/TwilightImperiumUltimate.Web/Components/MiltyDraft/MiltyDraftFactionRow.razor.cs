@@ -31,13 +31,12 @@ public partial class MiltyDraftFactionRow
 
         await MiltyDraftService.FactionPicked(faction.FactionName);
         await MiltyDraftMainDraft.Refresh();
-        await MiltyDraftMainDraft.Refresh();
     }
 
     private bool IsDisabled(MiltyDraftFactionModel faction)
     {
-        return MiltyDraftService.State == MiltyDraftState.Finished ||
-            (MiltyDraftService.State == MiltyDraftState.Started
+        return MiltyDraftService.State == MiltyDraftState.Finished || MiltyDraftService.State == MiltyDraftState.Initialized
+            || (MiltyDraftService.State == MiltyDraftState.Started
             && (MiltyDraftService.ActivePlayer.Faction != FactionName.None
             || faction.IsPicked
             || MiltyDraftService.DraftedFactions.Count(x => x.IsPicked) >= MiltyDraftService.Players.Count));

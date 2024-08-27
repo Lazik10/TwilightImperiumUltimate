@@ -1304,4 +1304,42 @@
   <data name="MiltyDraft_InvalidImportedSlicesStringFormat" xml:space="preserve">
     <value>Your provided string for slices is invalid. It may contain less slices than set in settings or the format is corrupted. Please check your imported string or disable imported slices.</value>
   </data>
+  <data name="About_Title" xml:space="preserve">
+    <value>About the author</value>
+  </data>
+  <data name="About_AboutMe" xml:space="preserve">
+    <value>&lt;p&gt;Hello there! I was fortunate enough to be introduced to Twilight Imperium 4th Edition a few years back, and ever since, it has been my favorite game of all time. I fell in love with every aspect of it. Unfortunately, I don't get to play as often as I'd like, but that doesn't stop me from thinking about the game constantly.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;During one of our games, a friend who wasn't very fluent in English kept asking about the cards and what they did. At one point, he needed to know the details of a secret card, which unfortunately led to him accidentally revealing what he had. This experience gave me the idea to create a website where he could search for his card and switch to the Czech version to understand it—without spoiling his secrets. That was 12 months ago, and here we are now. Fun fact: I still haven't finished the translation part of the website, but I've implemented many more features since then.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;I've spent countless hours on this project—gathering resources, formatting and resizing images, building an API backend, creating a SQL database, learning Blazor, improving my C# skills, and diving into algorithms. By now, I've likely invested over 1,000 hours into it. The codebase has grown to over 42,000 lines of code (though about one-third of that is boilerplate and copied resources), which feels crazy to me. But I have no regrets about starting this project (though my girlfriend might have a different opinion ^^).&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;This project is documented on GitHub: &lt;a href="https://github.com/Lazik10/TwilightImperiumUltimate" style="color: yellow; text-decoration: none;"&gt;Twilight Imperium Ultimate Project&lt;/a&gt;
+.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;If you find any bugs or things that aren't working as they should, please contact me on my &lt;a href="https://discord.gg/YZzUMj7dDj" style="color: yellow; text-decoration: none;"&gt;Discord Server&lt;/a&gt; or create an issue on GitHub (link aboe). I'll do my best to fix it. The same applies if you have ideas for improvements or new feature requests—sky's the limit (and time, of course).&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;If you feel I've done a good job and you're satisfied with the experience this website provides, you can tip me for a coffee to help me stay awake during those late-night coding sessions. &lt;a href="https://www.paypal.com/donate/?hosted_button_id=VRFQW3EAQZEYN" style="color: yellow; text-decoration: none;"&gt;TIP JAR&lt;/a&gt;&lt;/p&gt;</value>
+  </data>
+  <data name="About_Disclaimer" xml:space="preserve">
+    <value>&lt;p&gt;The content on this website is intended to serve as a guide, compendium, and FAQ source for new players looking to explore the gameplay and lore of the Twilight Imperium franchise. Additionally, it offers tools to facilitate easier and faster setup before game day.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;This website does not condone the use of its information for any other purposes. It is not permitted to use this content to produce or sell components of any part of the games.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;Twilight Imperium™ and all its expansions are the property of Fantasy Flight Games® (not affiliated with this website).&lt;/p&gt;
+</value>
+  </data>
+  <data name="About_DisclaimerTitle" xml:space="preserve">
+    <value>Disclaimer</value>
+  </data>
+  <data name="About_ThankYouTitle" xml:space="preserve">
+    <value>Thank you</value>
+  </data>
+  <data name="About_ThankYou" xml:space="preserve">
+    <value>&lt;p&gt;I would personally wanted to thank to all people from Fintasy Flight Games who were behind creating this beautiful game.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;I would also like to thanks to people who created any tool for the Twilight Imperium 4th edition may it be map generators, milty drafts, faction picker or any other tool, I will not hide that I took most of the inspiration at your websites and tools. My goal was to unify them and integrate them into one website that will have it all.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;And last thank you goes to all the creators who created a homebrew factions, cards, system tiles and any other stuff out there. I would like to give a credit to you all but I have no idea where to gather all the names. If you want to be mentioned here, let me know and I will add the list for sure!&lt;/p&gt;</value>
+  </data>
 </root>

@@ -1,11 +1,35 @@
 ﻿@page "/about"
-@using TwilightImperiumUltimate.Web.Components.Shared
-@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
-@using TwilightImperiumUltimate.Web.Components.Shared.Text
-@using TwilightImperiumUltimate.Web.Resources;
 
 <PageTitle>@Strings.Page_About</PageTitle>
 
 <Page>
-   <Title Text="@Strings.Page_About" />
+
+    <FlexColumnContainer>
+
+        <Title Text="@Strings.About_Title"/>
+
+        <FlexColumnCenteredContainer>
+            <div class="about handel white shadow">
+                @_aboutTheAuthor
+            </div>
+        </FlexColumnCenteredContainer>
+
+        <Title Text="@Strings.About_DisclaimerTitle"/>
+
+        <FlexColumnCenteredContainer>
+            <div class="about handel white shadow">
+                @_disclaimer
+            </div>
+        </FlexColumnCenteredContainer>
+
+        <Title Text="@Strings.About_ThankYouTitle" />
+
+        <FlexColumnCenteredContainer>
+            <div class="about handel white shadow">
+                @_thankYou
+            </div>
+        </FlexColumnCenteredContainer>
+
+    </FlexColumnContainer>
+
 </Page>

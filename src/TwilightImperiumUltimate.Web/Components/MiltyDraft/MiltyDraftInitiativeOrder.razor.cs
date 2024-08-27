@@ -35,7 +35,7 @@ public partial class MiltyDraftInitiativeOrder
 
     private bool IsDisabled()
     {
-        return MiltyDraftService.State == MiltyDraftState.Finished
+        return MiltyDraftService.State == MiltyDraftState.Finished || MiltyDraftService.State == MiltyDraftState.Initialized
             || (MiltyDraftService.State == MiltyDraftState.Started
             && (MiltyDraftService.ActivePlayer.Initiative != MiltyDraftInitiative.None
             || IsPicked
