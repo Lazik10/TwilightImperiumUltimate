@@ -59,6 +59,8 @@ public partial class ColorPickerGrid
         };
     }
 
+    private bool GetButtonState() => _draftStage == DraftStage.Draft && !ColorPickerService.IsDraftPossible();
+
     private void HandleOnDataUpdated(object? sender, EventArgs e)
     {
         StateHasChanged();

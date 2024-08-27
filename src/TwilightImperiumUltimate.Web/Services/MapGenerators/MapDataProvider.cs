@@ -25,7 +25,7 @@ public class MapDataProvider : IMapDataProvider
             MapTemplate.FourPlayersMediumMiniWarpMap => new FourPlayersMediumMiniWarpMapData(),
             MapTemplate.FourPlayersMediumDoubleWarpMap => new FourPlayersMediumDoubleWarpMapData(),
             MapTemplate.FivePlayersMediumMap => new FivePlayersMediumMapData(),
-            MapTemplate.FivePlayersMediumHyperlineMap => new FivePlayersMediumWarpMapData(),
+            MapTemplate.FivePlayersMediumHyperlineMap => new FivePlayersMediumHyperlineMapData(),
             MapTemplate.FivePlayersMediumDiamondMap => new FivePlayersMediumDiamondMapData(),
             MapTemplate.FivePlayersLargeFlatMap => new FivePlayersLargeFlatMapData(),
             MapTemplate.SixPlayersMediumMap => new SixPlayersMediumMapData(),

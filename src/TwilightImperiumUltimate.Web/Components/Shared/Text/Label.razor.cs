@@ -1,6 +1,3 @@
-using Microsoft.AspNetCore.Components;
-using TwilightImperiumUltimate.Web.Enums;
-
 namespace TwilightImperiumUltimate.Web.Components.Shared.Text;
 
 public partial class Label
@@ -24,6 +21,9 @@ public partial class Label
     public int MinWidth { get; set; } = 0;
 
     [Parameter]
+    public int PaddingLeft { get; set; } = 0;
+
+    [Parameter]
     public bool CenterText { get; set; } = false;
 
     [Parameter]
@@ -39,6 +39,11 @@ public partial class Label
             TextColor.Blue => "blue",
             TextColor.Yellow => "yellow",
             TextColor.Deepskyblue => "deepskyblue",
+            TextColor.Purple => "purple",
+            TextColor.Pink => "magenta",
+            TextColor.Orange => "orange",
+            TextColor.Grey => "grey",
+            TextColor.DarkGreen => "darkgreen",
             _ => "white",
         };
     }

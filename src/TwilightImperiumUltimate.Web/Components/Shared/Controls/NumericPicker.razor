@@ -1,7 +1,7 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 
 <FlexRowContainer Width="@Width"
-    JustifyContent="Enums.JustifyContent.FlexStart"
+    JustifyContent="Enums.JustifyContent.SpaceEvenly"
     CssClass="title handel white shadow">
     @if(HideTitle == false)
     {
@@ -15,7 +15,7 @@
         }
 
     }
-    <FlexRowContainer>
+    <FlexRowContainer AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.FlexStart">
         <ArrowButton ArrowSymbol="@LeftArrowSymbol" OnArrowClick="() => OnDecrease.InvokeAsync(null)" />
         <Label Text="@Value.ToString()" FontSize="@FontSize" CenterText="true" />
         <ArrowButton ArrowSymbol="@RightArrowSymbol" OnArrowClick="() => OnIncrease.InvokeAsync(null)" />

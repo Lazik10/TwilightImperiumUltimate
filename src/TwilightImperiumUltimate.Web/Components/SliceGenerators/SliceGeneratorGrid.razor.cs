@@ -1,4 +1,5 @@
 using Microsoft.JSInterop;
+using System.Text;
 using TwilightImperiumUltimate.Web.Pages.Tools;
 using TwilightImperiumUltimate.Web.Services.SliceGenerators;
 
@@ -24,14 +25,14 @@ public partial class SliceGeneratorGrid
     [Inject]
     private IJSRuntime JSRuntime { get; set; } = default!;
 
-    protected override async Task OnInitializedAsync()
-    {
-        await SliceGeneratorService.GeneratePreviewSlices();
-    }
-
     public void UpdateSliceHexTileMenu()
     {
         _sliceHexTileMenu?.RefreshSystemTilesMenu();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await SliceGeneratorService.GeneratePreviewSlices();
     }
 
     private List<SliceModel> GetUpdatedSlices()
@@ -74,11 +75,35 @@ public partial class SliceGeneratorGrid
             _sliceHexTileMenu?.RefreshSystemTilesMenu();
             StateHasChanged();
         }
+
+        if (iconType == IconType.CopyMapString)
+        {
+            var slicesString = GetSlicesString();
+            var module = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./Components/SliceGenerators/SliceGeneratorGrid.razor.js");
+            await module.InvokeVoidAsync("copyToClipboard", slicesString);
+        }
     }
 
     private async Task DownloadSliceImage()
     {
         var module = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./Components/SliceGenerators/SliceGeneratorGrid.razor.js");
         await module.InvokeVoidAsync("saveMapAsImage", "sliceArea", $"TI4_Ultimate_Slices_{DateTime.Now.ToLocalTime().ToLongTimeString()}.png");
+    }
+
+    private string GetSlicesString()
+    {
+        StringBuilder sliceString = new();
+        foreach (var slice in Slices)
+        {
+            foreach (var systemTile in slice.SystemTiles.Skip(1))
+            {
+                sliceString.Append(systemTile.SystemTileCode);
+                sliceString.Append(',');
+            }
+
+            sliceString.Append('\n');
+        }
+
+        return sliceString.ToString();
     }
 }

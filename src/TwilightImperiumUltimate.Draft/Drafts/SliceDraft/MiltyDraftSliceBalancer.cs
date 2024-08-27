@@ -1,4 +1,3 @@
-using Azure.Core;
 using TwilightImperiumUltimate.Core.Entities.Galaxy;
 using TwilightImperiumUltimate.Draft.Drafts.MapDraft.Extensions;
 using TwilightImperiumUltimate.Draft.ValueObjects;
@@ -98,8 +97,8 @@ public class MiltyDraftSliceBalancer(
                 slices.GetSlicesEvaluation(SystemWeight.Balanced));
 
             slices = slices
-                .OrderBy(x => x.GetNumberOfWormholeTiles())
-                .ThenBy(x => x.SliceEvaluation(SystemWeight.Balanced))
+                .OrderBy(x => x.SliceEvaluation(SystemWeight.Balanced))
+                .ThenBy(x => x.GetNumberOfWormholeTiles())
                 .ThenBy(x => x.HasAnomaly())
                 .ToList();
 
@@ -113,18 +112,18 @@ public class MiltyDraftSliceBalancer(
                 {
                     anySliceCanAcceptTile = true;
 
-                    if (currentSlice.DraftedSystemTiles.Sum(x => x.GetOptimalResourceValue()) > currentSlice.DraftedSystemTiles.Sum(x => x.GetOptimalInfluenceValue()))
+                    if (currentSlice.DraftedSystemTiles.Sum(x => x.GetOptimalResourceValue()) >= currentSlice.DraftedSystemTiles.Sum(x => x.GetOptimalInfluenceValue()))
                     {
                         blueSystemTiles = blueSystemTiles
-                            .OrderByDescending(x => x.HasWormholes)
-                            .ThenByDescending(x => x.GetOptimalInfluenceValue())
+                            .OrderByDescending(x => x.GetOptimalInfluenceValue())
+                            .ThenByDescending(x => x.HasWormholes)
                             .ToList();
                     }
                     else
                     {
                         blueSystemTiles = blueSystemTiles
+                            .OrderByDescending(x => x.GetOptimalResourceValue())
                             .OrderByDescending(x => x.HasWormholes)
-                            .ThenByDescending(x => x.GetOptimalResourceValue())
                             .ToList();
                     }
 

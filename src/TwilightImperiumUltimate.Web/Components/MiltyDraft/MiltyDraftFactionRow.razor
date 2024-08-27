@@ -1,0 +1,35 @@
+﻿
+<FlexColumnCenteredContainer CssClass="background">
+
+    <VerticalSpace Height="10" />
+
+    <GridLayout Width="100" Gap="10" Columns="GetGridColumns()">
+
+        @if (GetMiltyDraftState() == MiltyDraftState.Initialized)
+        {
+            for (int i = 0; i < MiltyDraftSettingsService.NumberOfFactions; i++)
+            {
+                <FlexColumnCenteredContainer>
+                    <MiltyDraftFaction Faction="FactionName.None" />
+                </FlexColumnCenteredContainer>
+            }
+        }
+        else
+        {
+            @foreach (var faction in DraftedFactions)
+            {
+                <FlexColumnCenteredContainer>
+                    <MiltyDraftFaction Faction="faction.FactionName" IsPicked="faction.IsPicked" Color="faction.Color" IsColorless="IsColorless(faction)" />
+
+                    <VerticalSpace Height="10" />
+                    <Button ButtonText="@Strings.MiltyDraft_PickOption" OnClick="async () => await PickFaction(faction)" IsDisabled="IsDisabled(faction)"/>
+
+                </FlexColumnCenteredContainer>
+            }
+        }
+
+    </GridLayout>
+
+    <VerticalSpace Height="10" />
+
+</FlexColumnCenteredContainer>

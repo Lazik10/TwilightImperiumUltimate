@@ -8,6 +8,8 @@ public interface IMapGeneratorService
 
     Task<Dictionary<int, SystemTileModel>> GenerateMapAsync(bool previewMap, CancellationToken ct);
 
+    Task<Dictionary<int, SystemTileModel>> GenerateMapLayoutPreview(MapTemplate mapTemplate);
+
     Task InitializeSystemTilesAsync(CancellationToken ct);
 
     IEnumerable<SystemTileModel> GetSystemTilesToShow(SystemTileTypeFilter systemTileType);

@@ -1677,7 +1677,7 @@ internal static class SystemTilesData
             FactionName = FactionName.None,
 
             // Also Nebula, but I would need to implement flags and it doesn't really matter
-            // in druft, it is picked randomly from red tiles not based on AnomalyType
+            // in draft, it is picked randomly from red tiles not based on AnomalyType
             Anomaly = AnomalyName.AsteroidField,
             TileCategory = SystemTileCategory.Red,
             GameVersion = GameVersion.UnchartedSpace,
@@ -1690,7 +1690,7 @@ internal static class SystemTilesData
             FactionName = FactionName.None,
 
             // Also Nebula, but I would need to implement flags and it doesn't really matter
-            // in druft, it is picked randomly from red tiles not based on AnomalyType
+            // in draft, it is picked randomly from red tiles not based on AnomalyType
             Anomaly = AnomalyName.GravityRift,
             TileCategory = SystemTileCategory.Red,
             GameVersion = GameVersion.UnchartedSpace,
@@ -1879,7 +1879,7 @@ internal static class SystemTilesData
         {
             Id = 187,
             SystemTileName = SystemTileName.Tile3017A,
-            SystemTileCode = "Tile3017A",
+            SystemTileCode = "3017A",
             FactionName = FactionName.None,
             Anomaly = AnomalyName.None,
             TileCategory = SystemTileCategory.Hyperlane,
@@ -2082,7 +2082,9 @@ internal static class SystemTilesData
             SystemTileName = SystemTileName.TileEronous17,
             SystemTileCode = "Er17",
             FactionName = FactionName.None,
-            Anomaly = AnomalyName.GravityRift, // Also Asteroid Field, but I would need to implement flags and it doesn't really matter
+
+            // Also Asteroid Field, but I would need to implement flags and it doesn't really matter
+            Anomaly = AnomalyName.GravityRift,
             TileCategory = SystemTileCategory.Red,
             GameVersion = GameVersion.AscendantSun,
         },
@@ -2092,7 +2094,9 @@ internal static class SystemTilesData
             SystemTileName = SystemTileName.TileEronous18,
             SystemTileCode = "Er18",
             FactionName = FactionName.None,
-            Anomaly = AnomalyName.Nebula, // Also Asteroid Field, but I would need to implement flags and it doesn't really matter
+
+            // Also Asteroid Field, but I would need to implement flags and it doesn't really matter
+            Anomaly = AnomalyName.Nebula,
             TileCategory = SystemTileCategory.Red,
             GameVersion = GameVersion.AscendantSun,
         },
@@ -2122,7 +2126,9 @@ internal static class SystemTilesData
             SystemTileName = SystemTileName.TileEronous21,
             SystemTileCode = "Er21",
             FactionName = FactionName.None,
-            Anomaly = AnomalyName.AsteroidField, // Also Grvity Rift and Supernova, but I would need to implement flags and it doesn't really matter
+
+            // Also Grvity Rift and Supernova, but I would need to implement flags and it doesn't really matter
+            Anomaly = AnomalyName.AsteroidField,
             TileCategory = SystemTileCategory.Red,
             GameVersion = GameVersion.AscendantSun,
         },
@@ -2922,7 +2928,9 @@ internal static class SystemTilesData
             SystemTileName = SystemTileName.TileEronous103,
             SystemTileCode = "Er103",
             FactionName = FactionName.None,
-            Anomaly = AnomalyName.Supernova, // Also a nebula, but I would need to implement flags and it doesn't really matter
+
+            // Also a nebula, but I would need to implement flags and it doesn't really matter
+            Anomaly = AnomalyName.Supernova,
             TileCategory = SystemTileCategory.Red,
             GameVersion = GameVersion.AscendantSun,
         },

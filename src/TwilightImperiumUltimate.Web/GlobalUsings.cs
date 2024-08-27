@@ -25,6 +25,7 @@ global using TwilightImperiumUltimate.Web.Models.Drafts;
 global using TwilightImperiumUltimate.Web.Models.Factions;
 global using TwilightImperiumUltimate.Web.Models.Galaxy;
 global using TwilightImperiumUltimate.Web.Models.MapGenerators;
+global using TwilightImperiumUltimate.Web.Models.MiltyDrafts;
 global using TwilightImperiumUltimate.Web.Models.Rules;
 global using TwilightImperiumUltimate.Web.Models.SliceGenerators;
 global using TwilightImperiumUltimate.Web.Models.Technologies;

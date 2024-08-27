@@ -1,0 +1,21 @@
+﻿.responsive-icon {
+    display: flex;
+    flex: 1 1 auto;
+    max-width: 90%;
+    height: auto;
+    padding: 0.25em;
+    align-self: center;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    width: 100%;
+    max-width: 128px;
+    height: 75px;
+    max-height: 128px;
+    transition: transform 0.3s ease;
+    align-self: center;
+    justify-self: center;
+}

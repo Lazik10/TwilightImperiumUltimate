@@ -1,0 +1,11 @@
+﻿@using TwilightImperiumUltimate.Web.Helpers.Enums
+
+<div style="border: 5px solid @(IsPicked ? Color.GetUIColor() : "transparent"); height: 100%; filter: @(ApplyGreyscale()); -webkit-filter: @(ApplyGreyscale())">
+    <div class="link responsive-icon">
+        <img class="icon"
+             src="@GetFactionImage()"
+             alt="icon for @Faction.ToString()"
+             title="@Faction.ToString()"
+             style="filter: @(ApplyGreyscale()); -webkit-filter: @(ApplyGreyscale())" />
+    </div>
+</div>

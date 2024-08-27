@@ -30,6 +30,30 @@
     color: blue;
 }
 
+.orange {
+    color: orange;
+}
+
+.purple {
+    color: rebeccapurple;
+}
+
+.pink {
+    color: magenta;
+}
+
+.darkgreen {
+    color: green;
+}
+
+.grey {
+    color: grey;
+}
+
+.transparent {
+    color: transparent;
+}
+
 .underline {
     text-decoration: underline;
 }

@@ -1,6 +1,6 @@
 namespace TwilightImperiumUltimate.Web.Models.MapGenerators.MapData;
 
-public class FivePlayersMediumWarpMapData : IMapData
+public class FivePlayersMediumHyperlineMapData : IMapData
 {
     public MapTemplate MapTemplate => MapTemplate.FivePlayersMediumHyperlineMap;
 
