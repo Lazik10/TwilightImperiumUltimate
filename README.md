@@ -24,37 +24,55 @@
 </br>
 
 <h3>Home</h3>
-&emsp;&emsp;- News page</br>
+&emsp;&emsp;- :white_check_mark:  News page</br>
+
 <h3>Game</h3>
-&emsp;&emsp;- Factions</br>
-&emsp;&emsp;&emsp;&emsp;- All informations about the races</br>
-&emsp;&emsp;&emsp;&emsp;- Strategies</br>
-&emsp;&emsp;- Technologies</br>
-&emsp;&emsp;&emsp;&emsp;Technology tree</br>
-&emsp;&emsp;- Cards translation (EN, CZ - for now)</br>
-&emsp;&emsp;&emsp;&emsp;Action</br>
-&emsp;&emsp;&emsp;&emsp;Agenda</br>
-&emsp;&emsp;&emsp;&emsp;Secret</br>
-&emsp;&emsp;&emsp;&emsp;Objective stage one</br>
-&emsp;&emsp;&emsp;&emsp;Objective stage two</br>
-&emsp;&emsp;&emsp;&emsp;Technology and Race technologies</br>
-&emsp;&emsp;&emsp;&emsp;Mechs</br>
-&emsp;&emsp;- Game tracker and assistant</br>
-<h3>Tools</h3>
-&emsp;&emsp;- Color draft</br>
-&emsp;&emsp;- Race draft</br>
-&emsp;&emsp;- Map generator</br>
-&emsp;&emsp;- Battle calculator</br>
-<h3>Rules</h3>
-&emsp;&emsp;- FAQ</br>
-&emsp;&emsp;- Rules</br>
+&emsp;&emsp;- :white_check_mark: Factions</br>
+&emsp;&emsp;&emsp;&emsp;- :white_check_mark: All informations about the factions</br>
+&emsp;&emsp;- :white_check_mark: DS Factions</br>
+&emsp;&emsp;&emsp;&emsp;- :white_check_mark: All informations about the Discordant stars factions</br>
+&emsp;&emsp;- :white_check_mark: Cards compendium</br>
+&emsp;&emsp;&emsp;&emsp;- :white_check_mark: Action</br>
+&emsp;&emsp;&emsp;&emsp;- :white_check_mark: Agenda</br>
+&emsp;&emsp;&emsp;&emsp;- :white_check_mark: Secret</br>
+&emsp;&emsp;&emsp;&emsp;- :white_check_mark: Objective stage one</br>
+&emsp;&emsp;&emsp;&emsp;- :white_check_mark: Objective stage two</br>
+&emsp;&emsp;&emsp;&emsp;- :white_check_mark: Technology and Race technologies</br>
+&emsp;&emsp;&emsp;&emsp;- :x: Mechs</br>
+&emsp;&emsp;- :white_check_mark: Technologies</br>
+&emsp;&emsp;&emsp;&emsp;- :white_check_mark: Technology tree</br>
+&emsp;&emsp;- :white_check_mark: System tiles compendium</br>
+&emsp;&emsp;- :white_check_mark: Planets compendium</br>
+&emsp;&emsp;- :x: Statistics</br>
+
 <h3>Community</h3>
-&emsp;&emsp;- DIY section</br>
-&emsp;&emsp;- Guides</br>
-&emsp;&emsp;- Screenshots</br>
-&emsp;&emsp;- Stories</br>
-&emsp;&emsp;- Play of the Day</br>
-&emsp;&emsp;- Chat rooms</br>
+&emsp;&emsp;- :white_check_mark:Discord servers</br>
+&emsp;&emsp;- :white_check_mark:Other websites</br>
+&emsp;&emsp;- :x: DIY section</br>
+&emsp;&emsp;- :x: Guides</br>
+&emsp;&emsp;- :x: Screenshots</br>
+&emsp;&emsp;- :x: Stories</br>
+&emsp;&emsp;- :x: Play of the Day</br>
+&emsp;&emsp;- :x: Chat rooms</br>
+&emsp;&emsp;- :x: Map archive</br>
+&emsp;&emsp;- :x: Events</br>
+
+<h3>Tools</h3>
+&emsp;&emsp;- :white_check_mark: Color draft</br>
+&emsp;&emsp;- :white_check_mark: Faction draft</br>
+&emsp;&emsp;- :white_check_mark: Milty draft</br>
+&emsp;&emsp;- :white_check_mark: Slice generator</br>
+&emsp;&emsp;- :white_check_mark: Map generator</br>
+&emsp;&emsp;- :warning: Card generator</br>
+&emsp;&emsp;- :x: Online draft rooms</br>
+&emsp;&emsp;- :x: Game tracker and assistant</br>
+&emsp;&emsp;- :x: Battle calculator</br>
+
+<h3>Rules</h3>
+&emsp;&emsp;- :white_check_mark:Rules</br>
+&emsp;&emsp;- :white_check_mark:FAQ</br>
+&emsp;&emsp;- :white_check_mark:Resources</br>
+
 </br>
 And many more, if you would like to request anything else, just let me know.
 </br>
