@@ -17,12 +17,15 @@
     @foreach (var faq in Faqs)
     {
         <FaqRow Faq="@faq" Culture="@(CultureInfo.CurrentCulture.Name)" Width="80"/>
+        <VerticalSpace Height="20" />
         <FlexRowContainer>
             <AuthorizeView Roles="Admin">
                 <Authorized>
                     <FlexRowContainer Width="80">
                         <Button ButtonText="Approve" OnClick="async () => await ApproveFaq(faq)" Width="100" />
+                        <HorizontalSpace Width="50" />
                         <Button ButtonText="Edit" OnClick="async () => await EditFaq(faq.Id)" Width="100" />
+                        <HorizontalSpace Width="50" />
                         <Button ButtonText="Reject" OnClick="async () => await RejectFaq(faq)" Width="100" />
                     </FlexRowContainer>
                 </Authorized>

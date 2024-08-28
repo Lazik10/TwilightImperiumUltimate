@@ -399,9 +399,6 @@
   <data name="FileExtensionWebp" xml:space="preserve">
     <value>.webp</value>
   </data>
-  <data name="Footer_Text" xml:space="preserve">
-    <value>Developed by "Lázik" &amp;copy; 2024</value>
-  </data>
   <data name="ForwardSlash" xml:space="preserve">
     <value>/</value>
   </data>
@@ -1381,5 +1378,81 @@
   </data>
   <data name="CardGenerator_KeywordsInfo" xml:space="preserve">
     <value>To use keywords separate them by comma. E.g. sustain damage, space cannon, etc...</value>
+  </data>
+  <data name="Page_GameTracker" xml:space="preserve">
+    <value>Game Tracker</value>
+  </data>
+  <data name="About_Credits" xml:space="preserve">
+    <value>&lt;p&gt;FOURTH EDITION DEVELOPMENT: Dane Beltrami with Corey Konieczka&lt;/p&gt;
+&lt;p&gt;ORIGINAL GAME DESIGN: Christian T. Petersen&lt;/p&gt;
+&lt;p&gt;TECHNICAL WRITING: Adam Baker&lt;/p&gt;
+&lt;p&gt;PRODUCER: Jason Walden&lt;/p&gt;
+&lt;p&gt;EDITING AND PROOFREADING: Mark Pollard&lt;/p&gt;
+&lt;p&gt;BOARD GAME MANAGER: James Kniffen&lt;/p&gt;
+&lt;p&gt;TWILIGHT IMPERIUM STORY TEAM: Matt Newman, Katrina Ostrander,
+and Sam Stewart&lt;/p&gt;
+&lt;p&gt;GRAPHIC DESIGN: Christopher Hosch with WiL Springer&lt;/p&gt;
+&lt;p&gt;GRAPHIC DESIGN MANAGER: Brian Schomburg&lt;/p&gt;
+&lt;p&gt;COVER ART: Scott Schomburg&lt;/p&gt;
+&lt;p&gt;MAP TILE ART: Stephen Somers&lt;/p&gt;
+&lt;p&gt;INTERIOR ART: Cristi Balanescu, Anders Finér, Tomasz Jedruszek, Alex Kim,
+and David Auden Nash&lt;/p&gt;
+&lt;p&gt;ART DIRECTION: Andy Christensen&lt;/p&gt;
+&lt;p&gt;SCULPTING: Neil Hagre, with Bexley Andrajack and Akshay Pathak&lt;/p&gt;
+&lt;p&gt;SCULPTING COORDINATOR: Niklas Norman&lt;/p&gt;
+&lt;p&gt;MANAGING ART DIRECTOR: Melissa Shetler&lt;/p&gt;
+&lt;p&gt;QUALITY ASSURANCE COORDINATOR: Zach Tewalthomas&lt;/p&gt;
+&lt;p&gt;SENIOR PROJECT MANAGER: John Franz-Wichlacz&lt;/p&gt;
+&lt;p&gt;SENIOR MANAGER OF PRODUCT DEVELOPMENT: Chris Gerber&lt;/p&gt;
+&lt;p&gt;CREATIVE DIRECTOR: Andrew Navaro&lt;/p&gt;
+&lt;p&gt;PRODUCTION COORDINATION: Marcia Colby, Jason Glawe,
+Liza Lundgren, and Johanna Whiting&lt;/p&gt;
+&lt;p&gt;PRODUCTION MANAGEMENT: Megan Duehn and Jason Beaudoin&lt;/p&gt;
+&lt;p&gt;PLAYTESTERS: Jason Aiken, Maxwell Andersen, Victor Andrade, Michael Beck, Tyler
+Beckett, Thomas Black, Zach Blomme, Brandon Bockhold, Michael Bomholt, JS Bragg,
+Ben Burch, Jonathan Bush, Stefano Carlino, Andrew Carr, Matt Carter, Federico Castelo,
+Kara Centell-Dunk, Roy Chartier, Daniel Lovat Clark, John Clarke, Kevin Collins, Rebecca
+Corner, Glenn Cullen, Hayden Cunmingham, Caterina D’Agostini, Stuart Day, Chris J
+Davis, Andrea Dell’Agnese &amp; Julia Faeta, Pablo Densen, Ariel Dominelli, Tony Fanchi,
+Andrew Fischer, Simon Forsbrook, Alix Talbot Gagner, David Gagner, Ian Gillings, Molly
+Glover, Tino Gouvras, Chris Hardin, Alex Hartman, Ben Hodgson, Grace Holdinghaus,
+Chris Huter, Nate Kaplan, Daniel Keith, Erik Kemnitz, Jason Kerr, Jewel Kerr, Kees-jan
+Kleef, Lawrence Keohane, Ben Kline, Oli Lan, Jamie Lewis, Josh Lewis, Scott Lewis, Mark
+Larson, Ty Lunch, Kenneth Mackinnon, Greg Mahlum, Federico Martínez, Pim Mauve,
+Chris Mayfield, Michael McFadgen, Sam McGrath, Max McLaughlin-Callan, Sawyer
+Meegan, Mihai Georgescu, Troy Miller, Peter Leo Minor, Glenn Mondro, Riley Mullins,
+Will Mundy, Nathan Neeson, Ken Nelson, Eli Ninnemann, Ciaran O’Sullivan, Spencer
+Palmer, Robert Parkinson, Ryan Peck, Brandon Perdue, Ben Pletcher, Alex Porter, Jeremy
+Rainbow, Kendra Rainbow, Scott Randolph, Mike Reynolds, Daniel Smith, Joshua Stocks,
+Kramer Straube, Taylor Swain, AJ Swanson, Zach Tedford, Zeb Tedford, James Thorne, Jake
+Tighe, Regine Mualla Tighe, Aaron Uchytil, Jan-cees Voogd, Joris Voogd, Mark Wilkie, and
+Brandon Williams&lt;/p&gt;</value>
+  </data>
+  <data name="About_CreditsTitle" xml:space="preserve">
+    <value>Credits</value>
+  </data>
+  <data name="Footer_DevelopedBy" xml:space="preserve">
+    <value>Developed by "Lázik" (2023-2024)</value>
+  </data>
+  <data name="Footer_Disclaimer" xml:space="preserve">
+    <value>TI4 Ultimate is not affiliated with or sponsored by Fantasy Flight Games®</value>
+  </data>
+  <data name="Footer_Property" xml:space="preserve">
+    <value>Twilight Imperium™ and all associated images are the property of Fantasy Flight Games®</value>
+  </data>
+  <data name="SystemTileTypeFilter_Wormholes" xml:space="preserve">
+    <value>Wormholes</value>
+  </data>
+  <data name="SystemTileTypeFilter_OnePlanet" xml:space="preserve">
+    <value>1 Planet</value>
+  </data>
+  <data name="SystemTileTypeFilter_TwoPlanets" xml:space="preserve">
+    <value>2 Planets</value>
+  </data>
+  <data name="SystemTileTypeFilter_ThreePlanets" xml:space="preserve">
+    <value>3 Planets</value>
+  </data>
+  <data name="SystemTileTypeFilter_Legendary" xml:space="preserve">
+    <value>Legendaries</value>
   </data>
 </root>
