@@ -58,7 +58,7 @@
 
     <VerticalSpace Height="50" />
 
-    <FlexRowContainer Width="50">
+    <FlexRowContainer >
         <Button ButtonText="@Strings.Login_ConfirmationEmail" OnClick="@(() => NavigationManager.NavigateTo(Pages.ResendConfirmationEmail))" />
         <Button ButtonText="@Strings.Login_ForgotPassword" OnClick="@(() => NavigationManager.NavigateTo(Pages.ResendPasswordRecoveryEmail))" />
     </FlexRowContainer>

@@ -1317,9 +1317,7 @@
 &lt;p&gt;This project is documented on GitHub: &lt;a href="https://github.com/Lazik10/TwilightImperiumUltimate" style="color: yellow; text-decoration: none;"&gt;Twilight Imperium Ultimate Project&lt;/a&gt;
 .&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;If you find any bugs or things that aren't working as they should, please contact me on my &lt;a href="https://discord.gg/YZzUMj7dDj" style="color: yellow; text-decoration: none;"&gt;Discord Server&lt;/a&gt; or create an issue on GitHub (link aboe). I'll do my best to fix it. The same applies if you have ideas for improvements or new feature requests—sky's the limit (and time, of course).&lt;/p&gt;
-&lt;/br&gt;
-&lt;p&gt;If you feel I've done a good job and you're satisfied with the experience this website provides, you can tip me for a coffee to help me stay awake during those late-night coding sessions. &lt;a href="https://www.paypal.com/donate/?hosted_button_id=VRFQW3EAQZEYN" style="color: yellow; text-decoration: none;"&gt;TIP JAR&lt;/a&gt;&lt;/p&gt;</value>
+&lt;p&gt;If you find any bugs or things that aren't working as they should, please contact me on my &lt;a href="https://discord.gg/YZzUMj7dDj" style="color: yellow; text-decoration: none;"&gt;Discord Server&lt;/a&gt; or create an issue on GitHub (link above). I'll do my best to fix it. The same applies if you have ideas for improvements or new feature requests—sky's the limit (and time, of course).&lt;/p&gt;</value>
   </data>
   <data name="About_Disclaimer" xml:space="preserve">
     <value>&lt;p&gt;The content on this website is intended to serve as a guide, compendium, and FAQ source for new players looking to explore the gameplay and lore of the Twilight Imperium franchise. Additionally, it offers tools to facilitate easier and faster setup before game day.&lt;/p&gt;
@@ -1341,5 +1339,47 @@
 &lt;p&gt;I would also like to thanks to people who created any tool for the Twilight Imperium 4th edition may it be map generators, milty drafts, faction picker or any other tool, I will not hide that I took most of the inspiration at your websites and tools. My goal was to unify them and integrate them into one website that will have it all.&lt;/p&gt;
 &lt;/br&gt;
 &lt;p&gt;And last thank you goes to all the creators who created a homebrew factions, cards, system tiles and any other stuff out there. I would like to give a credit to you all but I have no idea where to gather all the names. If you want to be mentioned here, let me know and I will add the list for sure!&lt;/p&gt;</value>
+  </data>
+  <data name="SearchForPlayer" xml:space="preserve">
+    <value>Find player with email:</value>
+  </data>
+  <data name="Admin_AddUserRole" xml:space="preserve">
+    <value>Add role</value>
+  </data>
+  <data name="Admin_AddRoleToUserSuccess" xml:space="preserve">
+    <value>Role was successfully added to the user.</value>
+  </data>
+  <data name="Admin_UserRoles" xml:space="preserve">
+    <value>Seleceted user roles: </value>
+  </data>
+  <data name="SelectedPlayer" xml:space="preserve">
+    <value>Player:</value>
+  </data>
+  <data name="SelectedRole" xml:space="preserve">
+    <value>Role:</value>
+  </data>
+  <data name="Admin_UserRoleSection" xml:space="preserve">
+    <value>User Roles</value>
+  </data>
+  <data name="Admin_RemoveUserRole" xml:space="preserve">
+    <value>Remove role</value>
+  </data>
+  <data name="Admin_RemoveRoleFromUserSuccess" xml:space="preserve">
+    <value>Role was removed sucessfully from the user.</value>
+  </data>
+  <data name="CardGenerator_CardTitle" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="CardGenerator_CardText" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="CardGenerator_FlavoredText" xml:space="preserve">
+    <value>Flavored text</value>
+  </data>
+  <data name="CardGenerator_CardKeywords" xml:space="preserve">
+    <value>Keywords</value>
+  </data>
+  <data name="CardGenerator_KeywordsInfo" xml:space="preserve">
+    <value>To use keywords separate them by comma. E.g. sustain damage, space cannon, etc...</value>
   </data>
 </root>

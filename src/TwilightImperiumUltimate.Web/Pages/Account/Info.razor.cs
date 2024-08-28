@@ -13,7 +13,7 @@ public partial class Info
 
     private FactionName FavoriteFaction { get; set; }
 
-    private IReadOnlyCollection<FactionName> FactionNames { get; } = Enum.GetValues<FactionName>().ToList();
+    private IReadOnlyCollection<FactionName> FactionNames { get; set; } = new List<FactionName>();
 
     [Inject]
     private IUserService UserService { get; set; } = default!;
@@ -22,11 +22,15 @@ public partial class Info
 
     protected override async Task OnInitializedAsync()
     {
+        var factions = Enum.GetValues<FactionName>().ToList();
+        FactionNames = factions;
+
         User = await UserService.GetCurrentUserAsync();
         if (User is not null)
         {
             Age = User.Age ?? 0;
             FavoriteFactionNumber = (int)User.FavoriteFaction;
+            FavoriteFaction = User.FavoriteFaction;
         }
     }
 
@@ -58,6 +62,9 @@ public partial class Info
 
     private async Task SaveInfo()
     {
+        if (User is not null)
+            User.FavoriteFaction = FavoriteFaction;
+
         await UserService.UpdateUserInfoAsync(User, default);
     }
 }

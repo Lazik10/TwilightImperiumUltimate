@@ -1,10 +1,15 @@
 ﻿@page "/account/admin"
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Components.Authorization
+@using TwilightImperiumUltimate.Web.Components.Admin
 @attribute [Authorize(Roles = "Admin")]
 
 <Page>
 
+    <Label Text="@Strings.Admin_UserRoleSection" FontSize="26" CenterText="true" />
+
+    <VerticalSpace Height="20" />
+
+    <RoleAssignment />
+
 </Page>
-
-

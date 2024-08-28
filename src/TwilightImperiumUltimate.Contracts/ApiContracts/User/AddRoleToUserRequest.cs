@@ -1,6 +1,6 @@
 namespace TwilightImperiumUltimate.Contracts.ApiContracts.User;
 
-public class AddUserRoleRequest
+public class AddRoleToUserRequest
 {
     public required string UserId { get; set; }
 
