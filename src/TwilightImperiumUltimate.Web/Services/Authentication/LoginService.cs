@@ -1,4 +1,3 @@
-using System.Net;
 using TwilightImperiumUltimate.Web.Models.Account;
 using TwilightImperiumUltimate.Web.Services.User;
 
@@ -8,18 +7,18 @@ public class LoginService(IUserService userService, TwilightImperiumAuthenticati
 {
     private readonly IUserService _userService = userService;
 
-    public async Task<(bool LoginSuccess, HttpStatusCode StatusCode)> LoginAsync(LoginModel loginModel, CancellationToken ct)
+    public async Task<(bool LoginSuccess, HttpStatusCode StatusCode)> LoginAsync(LoginModel loginModel, CancellationToken cancellationToken)
     {
-        return await _userService.TryLoginUserAsync(loginModel, ct);
+        return await _userService.TryLoginUserAsync(loginModel, cancellationToken);
     }
 
-    public async Task<bool> TryAutomaticLoginAsync(CancellationToken ct)
+    public async Task<bool> TryAutomaticLoginAsync(CancellationToken cancellationToken)
     {
-        var loginSuccess = await _userService.TryLoginUserWithAccessTokenAsync(ct);
+        var loginSuccess = await _userService.TryLoginUserWithAccessTokenAsync(cancellationToken);
 
         if (!loginSuccess)
         {
-            loginSuccess = await _userService.TryLoginUserWithRefreshTokenAsync(ct);
+            loginSuccess = await _userService.TryLoginUserWithRefreshTokenAsync(cancellationToken);
             if (loginSuccess)
             {
                 await stateProvider.NotifyUserLogin();

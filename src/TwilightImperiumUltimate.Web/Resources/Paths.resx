@@ -217,13 +217,13 @@
     <value>api/technologies</value>
   </data>
   <data name="ApiPath_UserByEmail" xml:space="preserve">
-    <value>api/user/byemail</value>
+    <value>api/users/email</value>
   </data>
   <data name="ApiPath_Users" xml:space="preserve">
-    <value>api/user</value>
+    <value>api/users</value>
   </data>
   <data name="ApiPath_UserUpdate" xml:space="preserve">
-    <value>api/user/update</value>
+    <value>api/users/update</value>
   </data>
   <data name="ResourceNamespace_FactionInfo" xml:space="preserve">
     <value>TwilightImperiumUltimate.Web.Resources.FactionsInfo</value>
@@ -323,5 +323,20 @@
   </data>
   <data name="ResourcePath_WebsitePreviewPath" xml:space="preserve">
     <value>\resources\images\shared\websites</value>
+  </data>
+  <data name="ApiPath_UserRoles" xml:space="preserve">
+    <value>api/users/user-roles</value>
+  </data>
+  <data name="ApiPath_Roles" xml:space="preserve">
+    <value>api/users/roles</value>
+  </data>
+  <data name="ApiPath_AddRole" xml:space="preserve">
+    <value>api/users/add-role</value>
+  </data>
+  <data name="ApiPath_SpecificUserRoles" xml:space="preserve">
+    <value>api/users/user-roles</value>
+  </data>
+  <data name="ApiPath_RemoveRole" xml:space="preserve">
+    <value>api/users/remove-role</value>
   </data>
 </root>

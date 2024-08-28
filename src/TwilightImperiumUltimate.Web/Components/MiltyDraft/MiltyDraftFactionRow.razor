@@ -12,7 +12,7 @@
                 <FlexColumnCenteredContainer>
                     <MiltyDraftFaction Faction="FactionName.None" />
                     <VerticalSpace Height="10" />
-                    <Button ButtonText="@Strings.MiltyDraft_PickOption" IsDisabled="true" />
+                    <Button ButtonText="@Strings.MiltyDraft_PickOption" IsDisabled="true" Width="100" />
                 </FlexColumnCenteredContainer>
             }
         }
@@ -23,8 +23,7 @@
                 <FlexColumnCenteredContainer>
                     <MiltyDraftFaction Faction="faction.FactionName" IsPicked="faction.IsPicked" Color="faction.Color" IsColorless="IsColorless(faction)" />
                     <VerticalSpace Height="10" />
-                    <Button ButtonText="@Strings.MiltyDraft_PickOption" OnClick="async () => await PickFaction(faction)" IsDisabled="IsDisabled(faction)"/>
-
+                    <Button ButtonText="@Strings.MiltyDraft_PickOption" OnClick="async () => await PickFaction(faction)" IsDisabled="IsDisabled(faction)" Width="100" />
                 </FlexColumnCenteredContainer>
             }
         }

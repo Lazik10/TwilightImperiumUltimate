@@ -16,21 +16,18 @@
 
     @foreach (var faq in Faqs)
     {
-        <FlexRowContainer Width="80">
-            <FaqRow Faq="@faq" Culture="@(CultureInfo.CurrentCulture.Name)" />
-
+        <FaqRow Faq="@faq" Culture="@(CultureInfo.CurrentCulture.Name)" Width="80"/>
+        <FlexRowContainer>
             <AuthorizeView Roles="Admin">
                 <Authorized>
-                    <FlexRowContainer Width="35">
-                        <Button ButtonText="Approve" OnClick="async () => await ApproveFaq(faq)" />
-                        <Button ButtonText="Edit" OnClick="async () => await EditFaq(faq.Id)" />
-                        <Button ButtonText="Reject" OnClick="async () => await RejectFaq(faq)" />
+                    <FlexRowContainer Width="80">
+                        <Button ButtonText="Approve" OnClick="async () => await ApproveFaq(faq)" Width="100" />
+                        <Button ButtonText="Edit" OnClick="async () => await EditFaq(faq.Id)" Width="100" />
+                        <Button ButtonText="Reject" OnClick="async () => await RejectFaq(faq)" Width="100" />
                     </FlexRowContainer>
                 </Authorized>
             </AuthorizeView>
-
         </FlexRowContainer>
-
         <VerticalSpace Height="50" />
     }
 </Page>

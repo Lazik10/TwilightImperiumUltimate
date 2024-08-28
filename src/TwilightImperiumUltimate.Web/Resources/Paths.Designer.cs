@@ -106,6 +106,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to api/users/add-role.
+        /// </summary>
+        public static string ApiPath_AddRole {
+            get {
+                return ResourceManager.GetString("ApiPath_AddRole", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to api/cards/agenda.
         /// </summary>
         public static string ApiPath_AgendaCards {
@@ -277,6 +286,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to api/users/remove-role.
+        /// </summary>
+        public static string ApiPath_RemoveRole {
+            get {
+                return ResourceManager.GetString("ApiPath_RemoveRole", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to resendConfirmationEmail.
         /// </summary>
         public static string ApiPath_ResendConfirmationEmail {
@@ -295,6 +313,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to api/users/roles.
+        /// </summary>
+        public static string ApiPath_Roles {
+            get {
+                return ResourceManager.GetString("ApiPath_Roles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to api/rules.
         /// </summary>
         public static string ApiPath_Rules {
@@ -309,6 +336,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string ApiPath_SecretObjectiveCards {
             get {
                 return ResourceManager.GetString("ApiPath_SecretObjectiveCards", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/users/user-roles.
+        /// </summary>
+        public static string ApiPath_SpecificUserRoles {
+            get {
+                return ResourceManager.GetString("ApiPath_SpecificUserRoles", resourceCulture);
             }
         }
         
@@ -358,7 +394,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to api/user/byemail.
+        ///   Looks up a localized string similar to api/users/email.
         /// </summary>
         public static string ApiPath_UserByEmail {
             get {
@@ -367,7 +403,16 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to api/user.
+        ///   Looks up a localized string similar to api/users/user-roles.
+        /// </summary>
+        public static string ApiPath_UserRoles {
+            get {
+                return ResourceManager.GetString("ApiPath_UserRoles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/users.
         /// </summary>
         public static string ApiPath_Users {
             get {
@@ -376,7 +421,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to api/user/update.
+        ///   Looks up a localized string similar to api/users/update.
         /// </summary>
         public static string ApiPath_UserUpdate {
             get {

@@ -20,6 +20,9 @@ public partial class Button
     [Parameter]
     public ButtonType ButtonType { get; set; } = ButtonType.Button;
 
+    [Parameter]
+    public int Width { get; set; } = 30;
+
     private async Task OnClickHandler(MouseEventArgs e)
     {
         if (OnClick.HasDelegate)

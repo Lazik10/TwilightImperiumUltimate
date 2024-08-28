@@ -143,6 +143,60 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Role was successfully added to the user..
+        /// </summary>
+        public static string Admin_AddRoleToUserSuccess {
+            get {
+                return ResourceManager.GetString("Admin_AddRoleToUserSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add role.
+        /// </summary>
+        public static string Admin_AddUserRole {
+            get {
+                return ResourceManager.GetString("Admin_AddUserRole", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Role was removed sucessfully from the user..
+        /// </summary>
+        public static string Admin_RemoveRoleFromUserSuccess {
+            get {
+                return ResourceManager.GetString("Admin_RemoveRoleFromUserSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove role.
+        /// </summary>
+        public static string Admin_RemoveUserRole {
+            get {
+                return ResourceManager.GetString("Admin_RemoveUserRole", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seleceted user roles: .
+        /// </summary>
+        public static string Admin_UserRoles {
+            get {
+                return ResourceManager.GetString("Admin_UserRoles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User Roles.
+        /// </summary>
+        public static string Admin_UserRoleSection {
+            get {
+                return ResourceManager.GetString("Admin_UserRoleSection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to agenda.
         /// </summary>
         public static string AgendaCard {
@@ -256,6 +310,51 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string CardGenerationType_SecretObjectiveStatusPhase {
             get {
                 return ResourceManager.GetString("CardGenerationType_SecretObjectiveStatusPhase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keywords.
+        /// </summary>
+        public static string CardGenerator_CardKeywords {
+            get {
+                return ResourceManager.GetString("CardGenerator_CardKeywords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text.
+        /// </summary>
+        public static string CardGenerator_CardText {
+            get {
+                return ResourceManager.GetString("CardGenerator_CardText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title.
+        /// </summary>
+        public static string CardGenerator_CardTitle {
+            get {
+                return ResourceManager.GetString("CardGenerator_CardTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flavored text.
+        /// </summary>
+        public static string CardGenerator_FlavoredText {
+            get {
+                return ResourceManager.GetString("CardGenerator_FlavoredText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To use keywords separate them by comma. E.g. sustain damage, space cannon, etc....
+        /// </summary>
+        public static string CardGenerator_KeywordsInfo {
+            get {
+                return ResourceManager.GetString("CardGenerator_KeywordsInfo", resourceCulture);
             }
         }
         
@@ -3078,6 +3177,33 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string SearchForKeyword {
             get {
                 return ResourceManager.GetString("SearchForKeyword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Find player with email:.
+        /// </summary>
+        public static string SearchForPlayer {
+            get {
+                return ResourceManager.GetString("SearchForPlayer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Player:.
+        /// </summary>
+        public static string SelectedPlayer {
+            get {
+                return ResourceManager.GetString("SelectedPlayer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Role:.
+        /// </summary>
+        public static string SelectedRole {
+            get {
+                return ResourceManager.GetString("SelectedRole", resourceCulture);
             }
         }
         

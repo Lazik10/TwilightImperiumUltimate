@@ -66,10 +66,10 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
                         Log.Warning("Endpoint not found: {EndpointPath}", endpointPath);
                         break;
                     case HttpStatusCode.InternalServerError:
-                        Log.Error("Server error while accessing endpoint: {EndpointPath}", endpointPath);
+                        Log.Warning("Server error while accessing endpoint: {EndpointPath}", endpointPath);
                         break;
                     default:
-                        Log.Error("Error while getting data from endpoint: {EndpointPath}. Status Code: {StatusCode}", endpointPath, response.StatusCode);
+                        Log.Warning("Error while getting data from endpoint: {EndpointPath}. Status Code: {StatusCode}", endpointPath, response.StatusCode);
                         break;
                 }
 
@@ -78,7 +78,7 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
         }
         catch (HttpRequestException ex)
         {
-            Log.Error(ex, "Error while getting data from endpoint: {EndpointPath}", endpointPath);
+            Log.Warning(ex, "Error while getting data from endpoint: {EndpointPath}", endpointPath);
             return (null, HttpStatusCode.InternalServerError);
         }
     }
@@ -126,10 +126,10 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
                         Log.Warning("Endpoint not found: {EndpointPath}", endpointPath);
                         break;
                     case HttpStatusCode.InternalServerError:
-                        Log.Error("Server error while accessing endpoint: {EndpointPath}", endpointPath);
+                        Log.Warning("Server error while accessing endpoint: {EndpointPath}", endpointPath);
                         break;
                     default:
-                        Log.Error("Error while posting data to endpoint: {EndpointPath}. Status Code: {StatusCode}", endpointPath, response.StatusCode);
+                        Log.Warning("Error while posting data to endpoint: {EndpointPath}. Status Code: {StatusCode}", endpointPath, response.StatusCode);
                         break;
                 }
 
@@ -138,7 +138,7 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
         }
         catch (HttpRequestException ex)
         {
-            Log.Error(ex, "Error while posting data to endpoint: {EndpointPath}", endpointPath);
+            Log.Warning(ex, "Error while posting data to endpoint: {EndpointPath}", endpointPath);
             return (new TResponse(), HttpStatusCode.InternalServerError);
         }
     }
@@ -170,10 +170,10 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
                         Log.Warning("Endpoint not found: {EndpointPath}", endpointPath);
                         break;
                     case HttpStatusCode.InternalServerError:
-                        Log.Error("Server error while accessing endpoint: {EndpointPath}", endpointPath);
+                        Log.Warning("Server error while accessing endpoint: {EndpointPath}", endpointPath);
                         break;
                     default:
-                        Log.Error("Error while putting data to endpoint: {EndpointPath}. Status Code: {StatusCode}", endpointPath, response.StatusCode);
+                        Log.Warning("Error while putting data to endpoint: {EndpointPath}. Status Code: {StatusCode}", endpointPath, response.StatusCode);
                         break;
                 }
 
@@ -182,7 +182,7 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
         }
         catch (HttpRequestException ex)
         {
-            Log.Error(ex, "Error while putting data to endpoint: {EndpointPath}", endpointPath);
+            Log.Warning(ex, "Error while putting data to endpoint: {EndpointPath}", endpointPath);
             return (new TResponse(), HttpStatusCode.InternalServerError);
         }
         catch (OperationCanceledException ex)

@@ -1,14 +1,59 @@
 ﻿@using Microsoft.AspNetCore.Components.Forms
+@using TwilightImperiumUltimate.Web.Components.Shared.Bars
 @using TwilightImperiumUltimate.Web.Components.Shared.Text
 
 <FlexColumnCenteredContainer>
-     <EditForm>
+    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" >
+        <SearchBar OnSearchChange="FilterUsersByEmail" Text="@Strings.SearchForPlayer" Width="50" />
+    </FlexRowContainer>
 
-         <FlexRowContainer>
-             <RadzenDropDown Data="_users" TextProperty="UserName" ValueProperty="Id" @bind-Value="_selectedUser" Style="width: 100%" />
+    <VerticalSpace Height="20" />
 
-             <RadzenDropDown Data="UserRoles" TextProperty="Name" ValueProperty="Id" @bind-Value="_selectedRole" Style="width: 100%" />
-         </FlexRowContainer>
+    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+        <Label Text="@Strings.SelectedPlayer" Width="20" />
+        <RadzenDropDown Data="_filteredUsers" TextProperty="Email" ValueProperty="Email" @bind-Value="_selectedUserEmail" @onselectionchange="async () => await GetUserRoles()" Style="width: 40%" />
+    </FlexRowContainer>
 
-     </EditForm>
+    <VerticalSpace Height="10" />
+
+    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+        <Label Text="@Strings.SelectedRole" Width="20" />
+        <RadzenDropDown Data="_roles" TextProperty="Name" ValueProperty="Name" @bind-Value="_selectedRole" Style="width: 40%" />
+    </FlexRowContainer>
+    <VerticalSpace Height="10" />
+
+    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+        <Label Text="@Strings.Admin_UserRoles" Width="20"/>
+
+        <HorizontalSpace Width="10" />
+
+        @foreach (var role in _specificUserRoles)
+        {
+            <Label Text="@role.Name" PaddingLeft="10" Width="10" CenterText="true" />
+            <HorizontalSpace Width="10" />
+        }
+
+    </FlexRowContainer>
+
+    <VerticalSpace Height="10" />
+
+    <FlexRowContainer AlignItems="Enums.AlignItems.FlexEnd">
+        <Button ButtonText="@Strings.Admin_AddUserRole" OnClick="AddRoleToUser" ButtonType="ButtonType.Submit" IsDisabled="IsAddRolePossible()"/>
+        <HorizontalSpace Width="10" />
+        <Button ButtonText="@Strings.Admin_RemoveUserRole" OnClick="RemoveRoleFromUser" ButtonType="ButtonType.Submit" IsDisabled="IsRemoveRolePossible()"/>
+    </FlexRowContainer>
+
+    @if(_showRoleAddSuccess)
+    {
+        <VerticalSpace Height="50" />
+        <Label Text="@Strings.Admin_AddRoleToUserSuccess" FontSize="22" TextColor="TextColor.Green" CenterText="true" />
+        <VerticalSpace Height="50" />
+    }
+
+    @if (_showRoleRemoveSuccess)
+    {
+        <VerticalSpace Height="50" />
+        <Label Text="@Strings.Admin_RemoveRoleFromUserSuccess" FontSize="22" TextColor="TextColor.Green" CenterText="true" />
+        <VerticalSpace Height="50" />
+    }
 </FlexColumnCenteredContainer>

@@ -1,27 +1,32 @@
 using Blazored.LocalStorage;
-using System.Net;
 using System.Security.Claims;
 using TwilightImperiumUltimate.Contracts.ApiContracts.Account;
+using TwilightImperiumUltimate.Contracts.DTOs.User;
 using TwilightImperiumUltimate.Web.Models.Account;
 using TwilightImperiumUltimate.Web.Models.Users;
-using TwilightImperiumUltimate.Web.Resources;
-using TwilightImperiumUltimate.Web.Services.HttpClients;
 
 namespace TwilightImperiumUltimate.Web.Services.User;
 
 public class UserService(
     ITwilightImperiumApiHttpClient httpClient,
-    ILocalStorageService localStorge)
+    ILocalStorageService localStorge,
+    IMapper mapper)
     : IUserService
 {
     private readonly ITwilightImperiumApiHttpClient _httpClient = httpClient;
     private readonly ILocalStorageService _localStorage = localStorge;
+    private readonly IMapper _mapper = mapper;
     private TwilightImperiumUser? _currentUser;
 
-    public Task SetCurrentUserAsync(TwilightImperiumUser? user)
+    public async Task SetCurrentUserAsync(TwilightImperiumUser? user)
     {
         _currentUser = user;
-        return Task.CompletedTask;
+        var roles = await GetUserRoles();
+
+        if (roles.Count > 0 && _currentUser is not null)
+        {
+            _currentUser!.Roles = roles;
+        }
     }
 
     public Task<TwilightImperiumUser?> GetCurrentUserAsync() => Task.FromResult(_currentUser);
@@ -30,32 +35,38 @@ public class UserService(
     {
         if (_currentUser is not null)
         {
-            var claims = new List<Claim>
+            if (_currentUser.Roles.Count > 0)
             {
-                new(ClaimTypes.Name, _currentUser.UserName),
-                new(ClaimTypes.Email, _currentUser.Email),
-                new(ClaimTypes.Role, "Admin"),
-                new(ClaimTypes.Role, "User"),
-            };
+                var claims = new List<Claim>
+                {
+                    new(ClaimTypes.Name, _currentUser.UserName),
+                    new(ClaimTypes.Email, _currentUser.Email),
+                };
 
-            var identity = new ClaimsIdentity(claims, "CustomAuth");
-            var principal = new ClaimsPrincipal(identity);
+                foreach (var role in _currentUser.Roles)
+                {
+                    claims.Add(new(ClaimTypes.Role, role));
+                }
 
-            return Task.FromResult(principal);
+                var identity = new ClaimsIdentity(claims, "CustomAuth");
+                var principal = new ClaimsPrincipal(identity);
+
+                return Task.FromResult(principal);
+            }
         }
 
         return Task.FromResult(new ClaimsPrincipal(new ClaimsIdentity()));
     }
 
-    public async Task<(bool LoginSuccess, HttpStatusCode StatusCode)> TryLoginUserAsync(LoginModel loginModel, CancellationToken ct)
+    public async Task<(bool LoginSuccess, HttpStatusCode StatusCode)> TryLoginUserAsync(LoginModel loginModel, CancellationToken cancellationToken)
     {
-        (LoginResponse response, HttpStatusCode statusCode) = await _httpClient.PostAsync<LoginModel, LoginResponse>(Paths.ApiPath_AccountLogin, loginModel, ct);
+        (LoginResponse response, HttpStatusCode statusCode) = await _httpClient.PostAsync<LoginModel, LoginResponse>(Paths.ApiPath_AccountLogin, loginModel, cancellationToken);
         if (statusCode == HttpStatusCode.OK)
         {
-            await _localStorage.SetItemAsync("authentication", response, ct);
-            await _httpClient.SetAuthorizationHeaderAsync(ct, response.AccessToken);
+            await _localStorage.SetItemAsync("authentication", response, cancellationToken);
+            await _httpClient.SetAuthorizationHeaderAsync(cancellationToken, response.AccessToken);
 
-            if (await TryLoginUserWithAccessTokenAsync(ct))
+            if (await TryLoginUserWithAccessTokenAsync(cancellationToken))
             {
                 return (true, statusCode);
             }
@@ -64,18 +75,19 @@ public class UserService(
         return (false, statusCode);
     }
 
-    public async Task<bool> TryLoginUserWithAccessTokenAsync(CancellationToken ct)
+    public async Task<bool> TryLoginUserWithAccessTokenAsync(CancellationToken cancellationToken)
     {
-        var authenticationStore = await _localStorage.GetItemAsync<LoginResponse>("authentication", ct);
+        var authenticationStore = await _localStorage.GetItemAsync<LoginResponse>("authentication", cancellationToken);
 
         if (authenticationStore is not null)
         {
-            await _httpClient.SetAuthorizationHeaderAsync(ct, authenticationStore.AccessToken);
+            await _httpClient.SetAuthorizationHeaderAsync(cancellationToken, authenticationStore.AccessToken);
 
-            (string email, HttpStatusCode statusCode) = await GetLoginUserManageInfoAsync(ct);
+            (string email, HttpStatusCode statusCode) = await GetLoginUserManageInfoAsync(cancellationToken);
             if (statusCode == HttpStatusCode.OK)
             {
-                await SetCurrentUserAsync(await GetLoginUserAsync(email, ct));
+                var user = await GetLoginUserAsync(email, cancellationToken);
+                await SetCurrentUserAsync(user);
                 return true;
             }
         }
@@ -83,17 +95,18 @@ public class UserService(
         return false;
     }
 
-    public async Task<bool> TryLoginUserWithRefreshTokenAsync(CancellationToken ct)
+    public async Task<bool> TryLoginUserWithRefreshTokenAsync(CancellationToken cancellationToken)
     {
-        var refreshTokensSuccess = await TryUpdateStorageTokensFromRefreshTokenAsync(ct);
+        var refreshTokensSuccess = await TryUpdateStorageTokensFromRefreshTokenAsync(cancellationToken);
 
         if (refreshTokensSuccess)
         {
-            var (email, statusCode) = await GetLoginUserManageInfoAsync(ct);
+            var (email, statusCode) = await GetLoginUserManageInfoAsync(cancellationToken);
 
             if (statusCode == HttpStatusCode.OK)
             {
-                await SetCurrentUserAsync(await GetLoginUserAsync(email, ct));
+                var user = await GetLoginUserAsync(email, cancellationToken);
+                await SetCurrentUserAsync(user);
                 return true;
             }
         }
@@ -101,67 +114,82 @@ public class UserService(
         return false;
     }
 
-    public async Task UpdateUserInfoAsync(TwilightImperiumUser? user, CancellationToken ct)
+    public async Task UpdateUserInfoAsync(TwilightImperiumUser? user, CancellationToken cancellationToken)
     {
         if (user is not null)
         {
-            var (response, statusCode) = await _httpClient.PutAsync<TwilightImperiumUser, TwilightImperiumUser>(Paths.ApiPath_UserUpdate, user, ct);
+            var userDto = _mapper.Map<TwilightImperiumUserDto>(user);
+            var (response, statusCode) = await _httpClient.PutAsync<TwilightImperiumUserDto, TwilightImperiumUser>(Paths.ApiPath_UserUpdate, userDto, cancellationToken);
             if (statusCode == HttpStatusCode.OK)
                 await SetCurrentUserAsync(response);
         }
     }
 
-    public async Task LogoutUserAsync(CancellationToken ct)
+    public async Task LogoutUserAsync(CancellationToken cancellationToken)
     {
         await SetCurrentUserAsync(null);
-        await _localStorage.SetItemAsync<LoginResponse>("authentication", new LoginResponse(), ct);
-        await _httpClient.SetAuthorizationHeaderAsync(ct, string.Empty);
+        await _localStorage.SetItemAsync<LoginResponse>("authentication", new LoginResponse(), cancellationToken);
+        await _httpClient.SetAuthorizationHeaderAsync(cancellationToken, string.Empty);
     }
 
-    public async Task<bool> ConfirmEmailAsync(string userId, string code, CancellationToken ct = default)
+    public async Task<bool> ConfirmEmailAsync(string userId, string code, CancellationToken cancellationToken = default)
     {
         var query = $"?userId={userId}&code={code}";
-        var success = await _httpClient.GetAsync(query, Paths.ApiPath_AccountConfirmEmail, ct);
+        var success = await _httpClient.GetAsync(query, Paths.ApiPath_AccountConfirmEmail, cancellationToken);
 
         return success;
     }
 
-    private async Task<TwilightImperiumUser?> GetLoginUserAsync(string email, CancellationToken ct)
+    private async Task<TwilightImperiumUser?> GetLoginUserAsync(string email, CancellationToken cancellationToken)
     {
         var accountInfoRequest = new AccountInfoRequest { Email = email };
 
-        var (response, statusCode) = await _httpClient.PostAsync<AccountInfoRequest, TwilightImperiumUser>(Paths.ApiPath_UserByEmail, accountInfoRequest, ct);
+        var (response, statusCode) = await _httpClient.PostAsync<AccountInfoRequest, ApiResponse<TwilightImperiumUserDto>>(Paths.ApiPath_UserByEmail, accountInfoRequest, cancellationToken);
         if (statusCode == HttpStatusCode.OK)
-            return response;
+            return _mapper.Map<TwilightImperiumUser>(response.Data);
 
         return null;
     }
 
-    private async Task<(string Email, HttpStatusCode StatusCode)> GetLoginUserManageInfoAsync(CancellationToken ct)
+    private async Task<(string Email, HttpStatusCode StatusCode)> GetLoginUserManageInfoAsync(CancellationToken cancellationToken)
     {
-        var (response, statusCode) = await _httpClient.GetAsync<ManageInfoResponse>(Paths.ApiPath_ManageInfo, ct);
+        var (response, statusCode) = await _httpClient.GetAsync<ManageInfoResponse>(Paths.ApiPath_ManageInfo, cancellationToken);
         if (statusCode == HttpStatusCode.OK)
-            return (response.Email, statusCode);
+            return (response!.Email, statusCode);
 
         return (string.Empty, statusCode);
     }
 
-    private async Task<bool> TryUpdateStorageTokensFromRefreshTokenAsync(CancellationToken ct)
+    private async Task<bool> TryUpdateStorageTokensFromRefreshTokenAsync(CancellationToken cancellationToken)
     {
-        var authenticationStore = await _localStorage.GetItemAsync<LoginResponse>("authentication", ct);
+        var authenticationStore = await _localStorage.GetItemAsync<LoginResponse>("authentication", cancellationToken);
 
         if (authenticationStore is not null)
         {
             var refreshTokenRequest = new RefreshTokenRequest { RefreshToken = authenticationStore.RefreshToken ?? string.Empty };
-            var (response, statusCode) = await _httpClient.PostAsync<RefreshTokenRequest, LoginResponse>(Paths.ApiPath_AccountRefreshToken, refreshTokenRequest, ct);
+            var (response, statusCode) = await _httpClient.PostAsync<RefreshTokenRequest, LoginResponse>(Paths.ApiPath_AccountRefreshToken, refreshTokenRequest, cancellationToken);
             if (statusCode == HttpStatusCode.OK)
             {
-                await _localStorage.SetItemAsync("authentication", response, ct);
-                await _httpClient.SetAuthorizationHeaderAsync(ct, response.AccessToken!);
+                await _localStorage.SetItemAsync("authentication", response, cancellationToken);
+                await _httpClient.SetAuthorizationHeaderAsync(cancellationToken, response.AccessToken!);
                 return true;
             }
         }
 
         return false;
+    }
+
+    private async Task<List<string>> GetUserRoles(CancellationToken cancellationToken = default)
+    {
+        if (_currentUser is null)
+            return new List<string>();
+
+        var request = _mapper.Map<TwilightImperiumUserDto>(_currentUser);
+        var (response, statusCode) = await _httpClient.PostAsync<TwilightImperiumUserDto, ApiResponse<ItemListDto<RoleDto>>>(Paths.ApiPath_UserRoles, request, cancellationToken);
+
+        if (statusCode == HttpStatusCode.OK)
+            return response!.Data!.Items.Select(x => x.Name).ToList();
+
+        return new List<string>();
     }
 }

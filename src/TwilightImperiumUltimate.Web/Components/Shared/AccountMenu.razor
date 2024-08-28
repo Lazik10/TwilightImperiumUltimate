@@ -26,10 +26,6 @@
                                 <AuthorizeView Roles="Admin">
                                     <a href="@Pages.Admin">@Strings.Page_Admin</a>
                                 </AuthorizeView>
-                                <AuthorizeView Roles="Moderator">
-                                    <a href="@Pages.Moderator">@Strings.Page_Moderator</a>
-                                </AuthorizeView>
-                            <a href="@Pages.AccountClaims">@Strings.Page_AccountClaims</a>
                             <a href="@Pages.ResendPasswordRecoveryEmail">@Strings.Page_AccountPasswordReset</a>
                             <a href="#" @onclick="Logout">@Strings.Login_Logout</a>
                         </div>
