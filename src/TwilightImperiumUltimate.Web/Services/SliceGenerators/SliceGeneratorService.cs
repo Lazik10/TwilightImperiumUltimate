@@ -101,6 +101,11 @@ public class SliceGeneratorService(
             SystemTileTypeFilter.BlueTiles => AllSystemTiles.Where(x => x.SystemTileCategory == SystemTileCategory.Blue),
             SystemTileTypeFilter.RedTiles => AllSystemTiles.Where(x => x.SystemTileCategory == SystemTileCategory.Red),
             SystemTileTypeFilter.Hyperlanes => AllSystemTiles.Where(x => x.SystemTileCategory == SystemTileCategory.Hyperlane),
+            SystemTileTypeFilter.Legendary => AllSystemTiles.Where(x => x.Planets.Any(x => x.IsLegendary)),
+            SystemTileTypeFilter.Wormholes => AllSystemTiles.Where(x => x.Wormholes.Count > 0),
+            SystemTileTypeFilter.OnePlanet => AllSystemTiles.Where(x => x.Planets.Count == 1),
+            SystemTileTypeFilter.TwoPlanets => AllSystemTiles.Where(x => x.Planets.Count == 2),
+            SystemTileTypeFilter.ThreePlanets => AllSystemTiles.Where(x => x.Planets.Count == 3),
             SystemTileTypeFilter.Anomalies => AllSystemTiles.Where(x => x.AnomalyName != AnomalyName.None),
             SystemTileTypeFilter.Empty => AllSystemTiles.Where(x => !x.HasPlanets
                 && x.GameVersion != GameVersion.Custom

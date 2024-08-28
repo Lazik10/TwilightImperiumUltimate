@@ -72,6 +72,35 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;FOURTH EDITION DEVELOPMENT: Dane Beltrami with Corey Konieczka&lt;/p&gt;
+        ///&lt;p&gt;ORIGINAL GAME DESIGN: Christian T. Petersen&lt;/p&gt;
+        ///&lt;p&gt;TECHNICAL WRITING: Adam Baker&lt;/p&gt;
+        ///&lt;p&gt;PRODUCER: Jason Walden&lt;/p&gt;
+        ///&lt;p&gt;EDITING AND PROOFREADING: Mark Pollard&lt;/p&gt;
+        ///&lt;p&gt;BOARD GAME MANAGER: James Kniffen&lt;/p&gt;
+        ///&lt;p&gt;TWILIGHT IMPERIUM STORY TEAM: Matt Newman, Katrina Ostrander,
+        ///and Sam Stewart&lt;/p&gt;
+        ///&lt;p&gt;GRAPHIC DESIGN: Christopher Hosch with WiL Springer&lt;/p&gt;
+        ///&lt;p&gt;GRAPHIC DESIGN MANAGER: Brian Schomburg&lt;/p&gt;
+        ///&lt;p&gt;COVER ART: Scott Schomburg&lt;/p&gt;
+        ///&lt; [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string About_Credits {
+            get {
+                return ResourceManager.GetString("About_Credits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Credits.
+        /// </summary>
+        public static string About_CreditsTitle {
+            get {
+                return ResourceManager.GetString("About_CreditsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;The content on this website is intended to serve as a guide, compendium, and FAQ source for new players looking to explore the gameplay and lore of the Twilight Imperium franchise. Additionally, it offers tools to facilitate easier and faster setup before game day.&lt;/p&gt;
         ///&lt;/br&gt;
         ///&lt;p&gt;This website does not condone the use of its information for any other purposes. It is not permitted to use this content to produce or sell components of any part of the games.&lt;/p&gt;
@@ -1070,11 +1099,29 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Developed by &quot;Lázik&quot; &amp;copy; 2024.
+        ///   Looks up a localized string similar to Developed by &quot;Lázik&quot; (2023-2024).
         /// </summary>
-        public static string Footer_Text {
+        public static string Footer_DevelopedBy {
             get {
-                return ResourceManager.GetString("Footer_Text", resourceCulture);
+                return ResourceManager.GetString("Footer_DevelopedBy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TI4 Ultimate is not affiliated with or sponsored by Fantasy Flight Games®.
+        /// </summary>
+        public static string Footer_Disclaimer {
+            get {
+                return ResourceManager.GetString("Footer_Disclaimer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Twilight Imperium™ and all associated images are the property of Fantasy Flight Games®.
+        /// </summary>
+        public static string Footer_Property {
+            get {
+                return ResourceManager.GetString("Footer_Property", resourceCulture);
             }
         }
         
@@ -2569,6 +2616,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Game Tracker.
+        /// </summary>
+        public static string Page_GameTracker {
+            get {
+                return ResourceManager.GetString("Page_GameTracker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Map Generator.
         /// </summary>
         public static string Page_MapGenerator {
@@ -3523,11 +3579,29 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Legendaries.
+        /// </summary>
+        public static string SystemTileTypeFilter_Legendary {
+            get {
+                return ResourceManager.GetString("SystemTileTypeFilter_Legendary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mecatol Rex.
         /// </summary>
         public static string SystemTileTypeFilter_MecatolRex {
             get {
                 return ResourceManager.GetString("SystemTileTypeFilter_MecatolRex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1 Planet.
+        /// </summary>
+        public static string SystemTileTypeFilter_OnePlanet {
+            get {
+                return ResourceManager.GetString("SystemTileTypeFilter_OnePlanet", resourceCulture);
             }
         }
         
@@ -3550,6 +3624,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 3 Planets.
+        /// </summary>
+        public static string SystemTileTypeFilter_ThreePlanets {
+            get {
+                return ResourceManager.GetString("SystemTileTypeFilter_ThreePlanets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 2 Planets.
+        /// </summary>
+        public static string SystemTileTypeFilter_TwoPlanets {
+            get {
+                return ResourceManager.GetString("SystemTileTypeFilter_TwoPlanets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Uncharted Space.
         /// </summary>
         public static string SystemTileTypeFilter_UnchartedSpace {
@@ -3564,6 +3656,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string SystemTileTypeFilter_Unused {
             get {
                 return ResourceManager.GetString("SystemTileTypeFilter_Unused", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wormholes.
+        /// </summary>
+        public static string SystemTileTypeFilter_Wormholes {
+            get {
+                return ResourceManager.GetString("SystemTileTypeFilter_Wormholes", resourceCulture);
             }
         }
         

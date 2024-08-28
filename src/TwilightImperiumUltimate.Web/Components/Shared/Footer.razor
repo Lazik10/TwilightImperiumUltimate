@@ -1,5 +1,12 @@
 ﻿@using TwilightImperiumUltimate.Web.Resources
 
 <footer>
-    <p class="shadow">Developed by "Lázik" &copy; 2024</p>
+    <FlexColumnCenteredContainer>
+        <Label Text="@Strings.Footer_DevelopedBy" CssClass="miriad-pro-bold" FontSize="16" CenterText="true" />
+        <VerticalSpace Height="10" />
+        <Label Text="@Strings.Footer_Disclaimer" CssClass="miriad-pro-bold" FontSize="12" CenterText="true" />
+        <VerticalSpace Height="5" />
+        <Label Text="@Strings.Footer_Property" CssClass="miriad-pro-bold" FontSize="12" CenterText="true" />
+        <VerticalSpace Height="10" />
+    </FlexColumnCenteredContainer>
 </footer>

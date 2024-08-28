@@ -7,4 +7,6 @@ public partial class About
     private readonly MarkupString _disclaimer = (MarkupString)Strings.About_Disclaimer;
 
     private readonly MarkupString _thankYou = (MarkupString)Strings.About_ThankYou;
+
+    private readonly MarkupString _credits = (MarkupString)Strings.About_Credits;
 }
