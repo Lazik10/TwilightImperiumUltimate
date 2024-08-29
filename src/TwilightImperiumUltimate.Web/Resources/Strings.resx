@@ -1455,4 +1455,22 @@ Brandon Williams&lt;/p&gt;</value>
   <data name="SystemTileTypeFilter_Legendary" xml:space="preserve">
     <value>Legendaries</value>
   </data>
+  <data name="GameTracker_EnablePlayerNames" xml:space="preserve">
+    <value>Enable player names:</value>
+  </data>
+  <data name="GameTracker_Settings" xml:space="preserve">
+    <value>Game Settings</value>
+  </data>
+  <data name="GameTracker_NumberOfPlayers" xml:space="preserve">
+    <value>Number of players:</value>
+  </data>
+  <data name="GameTracker_ScorePoints" xml:space="preserve">
+    <value>Score points:</value>
+  </data>
+  <data name="GameTracker_InitializePhaseComplete" xml:space="preserve">
+    <value>Begin Game</value>
+  </data>
+  <data name="GameTracker_PlayersInTableOrder" xml:space="preserve">
+    <value>( Important: Fill the players information in order from the speaker! )</value>
+  </data>
 </root>

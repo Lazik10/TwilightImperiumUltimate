@@ -1,0 +1,15 @@
+﻿
+<CascadingValue Value="this" Name="GameTrackerGrid">
+
+@if (_currentPhase == GameTrackerPhase.Setup)
+{
+    <GameTrackerSettings />
+}
+else
+{
+    <GamePhaseGrid />
+}
+
+</CascadingValue>
+
+

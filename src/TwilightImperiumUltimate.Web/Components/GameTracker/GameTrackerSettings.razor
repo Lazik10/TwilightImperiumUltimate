@@ -1,0 +1,100 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Factions
+@using TwilightImperiumUltimate.Web.Components.Shared.Shapes
+
+<FlexColumnCenteredContainer>
+
+    <FlexColumnCenteredContainer Width="70">
+
+        <Title Text="@Strings.GameTracker_Settings" FontSize="48"/>
+
+        <VerticalSpace Height="50" />
+
+        <GridLayout Columns="2" Gap="40" >
+
+            <NumericPicker Title="@Strings.GameTracker_ScorePoints"
+                Value="@GameTrackerSettingsService.NumberOfPoints"
+                OnDecrease="DecreaseScorePoints"
+                OnIncrease="IncreaseScorePoints"
+                Width="100"
+                FontSize="24"
+                CenteredText="false" />
+
+                <div />
+
+            <NumericPicker Title="@Strings.GameTracker_NumberOfPlayers"
+                           Value="@GameTrackerSettingsService.NumberOfPlayers"
+                           OnDecrease="DecreasePlayerCount"
+                           OnIncrease="IncreasePlayerCount"
+                           Width="100"
+                           FontSize="24"
+                           CenteredText="false" />
+
+            <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+                <YesNoPicker Title="@Strings.GameTracker_EnablePlayerNames"
+                             DefaultValue="@GameTrackerSettingsService.EnablePlayerNames"
+                             OnValueChange="TogglePlayerNames"
+                             Width="100"
+                             FontSize="24" />
+            </FlexRowContainer>
+
+            <HelpText Text="@Strings.GameTracker_PlayersInTableOrder" Style="grid-column: span 2;" />
+
+            @foreach (var player in _players)
+            {
+                <FlexRowContainer>
+
+                    <FlexRowContainer Width="20">
+                        <FactionIconImg FactionName="@player.FactionName" Height="50" />
+                    </FlexRowContainer>
+
+                    <HorizontalSpace Width="10" />
+
+                    <Rectangle Width="50" Height="50" Fill="@player.ColoTextName" OnClick="() => HandleRectangleClick(player)"/>
+
+                    @if(GameTrackerSettingsService.EnablePlayerNames)
+                    {
+                        <RadzenTextBox Placeholder="@player.DefaultName"
+                                       @bind-Value="@player.Name"
+                                       class="title white handel"
+                                       Style="max-height: 25px; margin-right: 20px; margin-left: 20px;" />
+                    }
+                    else
+                    {
+                        <Label Text="@player.DefaultName" CenterText="true" FontSize="20" />
+                    }
+
+                    <RadzenDropDown Data="_factionNames" 
+                        TextProperty="Value" 
+                        ValueProperty="Key" 
+                        @bind-Value="player.FactionName"
+                        class="title handel"
+                        style="width: 100%;"
+                        @onchange="UpdatePlayerColors"
+                        Change="UpdatePlayerColors" />
+
+                </FlexRowContainer>
+            }
+
+            @if (_players.Count % 2 == 1)
+            {
+                <div />
+            }
+
+            <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+                <YesNoPicker Title="@Strings.GameVersion_ProphecyOfKings"
+                             DefaultValue="GameTrackerSettingsService.GameVersions.Contains(GameVersion.ProphecyOfKings)"
+                             OnValueChange="async () => await UpdateGameVersion(GameVersion.ProphecyOfKings)"
+                             Width="100"
+                             FontSize="24" />
+            </FlexRowContainer>
+
+            <div />
+        </GridLayout>
+
+        <VerticalSpace Height="50" />
+
+        <Button ButtonText="@Strings.GameTracker_InitializePhaseComplete" Width="25" IsDisabled="!IsNextPhasePossible()" OnClick="ProceedToNextPhase"/>
+
+    </FlexColumnCenteredContainer>
+
+</FlexColumnCenteredContainer>
