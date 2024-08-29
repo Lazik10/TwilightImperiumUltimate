@@ -6,6 +6,7 @@ using Radzen;
 using System.Reflection;
 using TwilightImperiumUltimate.Web.Services.Authentication;
 using TwilightImperiumUltimate.Web.Services.Draft;
+using TwilightImperiumUltimate.Web.Services.GameTracker;
 using TwilightImperiumUltimate.Web.Services.Language;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
 using TwilightImperiumUltimate.Web.Services.MiltyDraft;
@@ -45,6 +46,8 @@ public static class ServiceCollectionsExtension
         services.AddScoped<IMiltyDraftSettingsService, MiltyDraftSettingsService>();
         services.AddScoped<IMiltyDraftMapPositionSetter, MiltyDraftMapPositionSetter>();
         services.AddScoped<IMiltyDraftSpecificMapPositionProvider, MiltyDraftSpecificMapPositionProvider>();
+        services.AddScoped<IGameTrackerService, GameTrackerService>();
+        services.AddScoped<IGameTrackerSettingsService, GameTrackerSettingsService>();
 
         services.AddScoped<ITwilightImperiumApiHttpClient, TwilightImperiumApiHttpClient>();
 

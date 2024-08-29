@@ -21,6 +21,8 @@ public static class Pages
     public const string Statistics = "/game/statistics";
 
     // Tools
+    public const string GameTracker = "/tools/game-tracker";
+
     public const string DraftRooms = "/tools/draft-rooms";
 
     public const string MiltyDraft = "/tools/milty-draft";

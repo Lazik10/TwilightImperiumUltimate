@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Components;
-
 namespace TwilightImperiumUltimate.Web.Components.Shared.Text;
 
 public partial class HelpText
@@ -9,6 +7,9 @@ public partial class HelpText
 
     [Parameter]
     public string CssClass { get; set; } = string.Empty;
+
+    [Parameter]
+    public string Style { get; set; } = string.Empty;
 
     [Parameter]
     public TextColor TextColor { get; set; }

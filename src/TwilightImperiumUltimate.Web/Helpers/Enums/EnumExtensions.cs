@@ -25,6 +25,14 @@ public static class EnumExtensions
                    .ToList();
     }
 
+    public static IReadOnlyCollection<KeyValuePair<FactionName, string>> GetFactionValuesWithDisplayNames()
+    {
+        return Enum.GetValues(typeof(FactionName))
+                   .Cast<FactionName>()
+                   .Select(x => new KeyValuePair<FactionName, string>(x, x.GetFactionUIText(FactionResourceType.Title)))
+                   .ToList();
+    }
+
     public static string GetUIColor(this DraftColor color)
     {
         return color switch
@@ -38,6 +46,22 @@ public static class EnumExtensions
             DraftColor.Orange => "orange",
             DraftColor.Pink => "magenta",
             DraftColor.White => "white",
+            _ => "transparent",
+        };
+    }
+
+    public static string GetUIColor(this PlayerColor color)
+    {
+        return color switch
+        {
+            PlayerColor.Red => "red",
+            PlayerColor.Blue => "blue",
+            PlayerColor.Green => "green",
+            PlayerColor.Yellow => "yellow",
+            PlayerColor.Purple => "rebeccapurple",
+            PlayerColor.Orange => "orange",
+            PlayerColor.Pink => "magenta",
+            PlayerColor.Black => "black",
             _ => "transparent",
         };
     }

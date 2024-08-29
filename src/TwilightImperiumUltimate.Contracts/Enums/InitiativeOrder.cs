@@ -3,12 +3,12 @@ namespace TwilightImperiumUltimate.Contracts.Enums;
 public enum InitiativeOrder
 {
     Zero = 0,
-    One = 1,
-    Two = 2,
-    Three = 3,
-    Four = 4,
-    Five = 5,
-    Six = 6,
-    Seven = 7,
-    Eight = 8,
+    First = 1,
+    Second = 2,
+    Third = 3,
+    Fourth = 4,
+    Fifth = 5,
+    Sixth = 6,
+    Seventh = 7,
+    Eighth = 8,
 }

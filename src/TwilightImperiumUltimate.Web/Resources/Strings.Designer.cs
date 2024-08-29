@@ -1144,6 +1144,60 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enable player names:.
+        /// </summary>
+        public static string GameTracker_EnablePlayerNames {
+            get {
+                return ResourceManager.GetString("GameTracker_EnablePlayerNames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Begin Game.
+        /// </summary>
+        public static string GameTracker_InitializePhaseComplete {
+            get {
+                return ResourceManager.GetString("GameTracker_InitializePhaseComplete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of players:.
+        /// </summary>
+        public static string GameTracker_NumberOfPlayers {
+            get {
+                return ResourceManager.GetString("GameTracker_NumberOfPlayers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ( Important: Fill the players information in order from the speaker! ).
+        /// </summary>
+        public static string GameTracker_PlayersInTableOrder {
+            get {
+                return ResourceManager.GetString("GameTracker_PlayersInTableOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Score points:.
+        /// </summary>
+        public static string GameTracker_ScorePoints {
+            get {
+                return ResourceManager.GetString("GameTracker_ScorePoints", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game Settings.
+        /// </summary>
+        public static string GameTracker_Settings {
+            get {
+                return ResourceManager.GetString("GameTracker_Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ascendant Sun.
         /// </summary>
         public static string GameVersion_AscendantSun {
