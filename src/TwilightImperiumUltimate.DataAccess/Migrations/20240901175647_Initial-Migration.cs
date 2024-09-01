@@ -895,15 +895,15 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "6f36cbdb-d8e7-4e2c-9c6c-8272f078e659", null, "Moderator", "MODERATOR" },
-                    { "97dcd62b-d209-400b-89d7-c1f589c77176", null, "Admin", "ADMIN" },
-                    { "df490e55-c2e8-4e71-b622-2f8ceac79aea", null, "User", "USER" }
+                    { "09fc298b-7db2-4e64-81be-e5ace8b6e9af", null, "Moderator", "MODERATOR" },
+                    { "9aa41995-3354-401f-b3ac-1f9aff4c28d0", null, "User", "USER" },
+                    { "dee58ca6-a55d-41cf-93d8-06bea05c6c60", null, "Admin", "ADMIN" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "Age", "ConcurrencyStamp", "DiscordId", "Email", "EmailConfirmed", "FavoriteFaction", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "SteamId", "TwoFactorEnabled", "UserInfo", "UserName" },
-                values: new object[] { "1", 0, null, "7b065b8a-9f86-41dc-ab0f-0770e17c8540", "", "Test@user.cz", true, 17, "Test", "User", false, null, "TEST@USER.CZ", "ADMIN", "AQAAAAIAAYagAAAAENEvkPBg+u58x6QgP3lpAtPf0CYhvF0eay/B9lmwww8DX7LpN+QzkqmQqonQnPQJCQ==", null, false, "4721b53a-5b07-4a2f-a6d8-3edfa3890f4f", "", false, "First seeded test user", "Admin" });
+                values: new object[] { "1", 0, null, "9256ad62-2146-4c1c-be7c-59d203977857", "", "Test@user.cz", true, 17, "Test", "User", false, null, "TEST@USER.CZ", "ADMIN", "AQAAAAIAAYagAAAAEJsmIsjuYZjaRPc9Hk0t2MOyluphnLwW7JU0h448Icyd5yyboD3xUOR23iKSwpCG4Q==", null, false, "92ffff43-4e36-4f61-973f-85bf6a402654", "", false, "First seeded test user", "Admin" });
 
             migrationBuilder.InsertData(
                 schema: "Card",
@@ -3326,6 +3326,13 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                 name: "EmailIndex",
                 table: "AspNetUsers",
                 column: "NormalizedEmail");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUsers_UserName",
+                table: "AspNetUsers",
+                column: "UserName",
+                unique: true,
+                filter: "[UserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "UserNameIndex",
