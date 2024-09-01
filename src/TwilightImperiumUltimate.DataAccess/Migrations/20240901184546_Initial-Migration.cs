@@ -895,15 +895,15 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "09fc298b-7db2-4e64-81be-e5ace8b6e9af", null, "Moderator", "MODERATOR" },
-                    { "9aa41995-3354-401f-b3ac-1f9aff4c28d0", null, "User", "USER" },
-                    { "dee58ca6-a55d-41cf-93d8-06bea05c6c60", null, "Admin", "ADMIN" }
+                    { "0b40bbf9-fcf8-4975-afcf-8c3c89277b2b", null, "Moderator", "MODERATOR" },
+                    { "79bfd091-130f-4ca9-bd24-9453a0c9b71f", null, "User", "USER" },
+                    { "caf9bad4-43a5-4caa-8d56-f40179e30e20", null, "Admin", "ADMIN" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "Age", "ConcurrencyStamp", "DiscordId", "Email", "EmailConfirmed", "FavoriteFaction", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "SteamId", "TwoFactorEnabled", "UserInfo", "UserName" },
-                values: new object[] { "1", 0, null, "9256ad62-2146-4c1c-be7c-59d203977857", "", "Test@user.cz", true, 17, "Test", "User", false, null, "TEST@USER.CZ", "ADMIN", "AQAAAAIAAYagAAAAEJsmIsjuYZjaRPc9Hk0t2MOyluphnLwW7JU0h448Icyd5yyboD3xUOR23iKSwpCG4Q==", null, false, "92ffff43-4e36-4f61-973f-85bf6a402654", "", false, "First seeded test user", "Admin" });
+                values: new object[] { "1", 0, null, "d2695d4a-5329-4fef-894b-32aa1135be65", "", "Test@user.cz", true, 17, "Test", "User", false, null, "TEST@USER.CZ", "ADMIN", "AQAAAAIAAYagAAAAEHMFBWgflA0Ns35Lx5iYkKdVJwjWDMMsWYwH91D9SnVFdSZUgffoyLS5pbDMsX5BLg==", null, false, "a54168b8-448e-4369-b926-57f3d69747a6", "", false, "First seeded test user", "Admin" });
 
             migrationBuilder.InsertData(
                 schema: "Card",
@@ -2177,7 +2177,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     { "TileEronous98", "Nebula", "None", "AscendantSun", 288, "Er98", "Red" },
                     { "TileEronous99", "AsteroidField", "None", "AscendantSun", 289, "Er99", "Red" },
                     { "TileHome", "None", "None", "Custom", 1, "", "None" },
-                    { "TileTransparent", "None", "None", "Custom", 5, "", "None" }
+                    { "TileTransparent", "None", "None", "Custom", 5, "T", "None" }
                 });
 
             migrationBuilder.InsertData(

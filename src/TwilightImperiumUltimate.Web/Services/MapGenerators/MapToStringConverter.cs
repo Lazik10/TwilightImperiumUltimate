@@ -1,5 +1,7 @@
 using System.Globalization;
+using System.Linq;
 using System.Text;
+using TwilightImperiumUltimate.Web.Options.MapGenerators;
 
 namespace TwilightImperiumUltimate.Web.Services.MapGenerators;
 
@@ -51,7 +53,11 @@ public class MapToStringConverter(
         var ttsPositions = TiUltimatePositionsFromTtsPositions(template);
         var map = _mapGeneratorService.GeneratedPositionsWithSystemTiles;
 
-        string ttsString = GenerateTtsString(ttsPositions, map);
+        string ttsString = string.Empty;
+        if (template != MapTemplate.CustomMap)
+            ttsString = GenerateTtsString(ttsPositions, map);
+        else
+            ttsString = GenerateCustomMapTtsString(map);
 
         return Task.FromResult(ttsString);
     }
@@ -84,6 +90,42 @@ public class MapToStringConverter(
         var baseAddress = _navigationManager.BaseUri;
         var mapUrl = $"{baseAddress}community/maps-archive/map/";
         return Task.FromResult(mapUrl);
+    }
+
+    private static string GenerateCustomMapTtsString(IReadOnlyDictionary<int, SystemTileModel> map)
+    {
+        var ttsString = new StringBuilder();
+
+        foreach (var mapPosition in map.Keys)
+        {
+            if (map[mapPosition] is not null)
+            {
+                if (map[mapPosition].SystemTileName == SystemTileName.TileHome && map[mapPosition].SystemTileCategory == SystemTileCategory.None)
+                {
+                    ttsString.Append('0');
+                }
+                else if (map[mapPosition].SystemTileName == SystemTileName.TileEmpty
+                    || map[mapPosition].SystemTileName == SystemTileName.TileTransparent
+                    || map[mapPosition].SystemTileName == SystemTileName.TileBlackFrame
+                    || map[mapPosition].SystemTileName == SystemTileName.TileBlueFrame)
+                {
+                    ttsString.Append('T');
+                }
+                else
+                {
+                    ttsString.Append(map[mapPosition].SystemTileCode);
+                }
+
+                ttsString.Append(' ');
+            }
+            else
+            {
+                ttsString.Append('N');
+                ttsString.Append(' ');
+            }
+        }
+
+        return ttsString.ToString().Trim();
     }
 
     private static string GenerateTtsString(List<int> ttsPositions, IReadOnlyDictionary<int, SystemTileModel> map)
@@ -166,20 +208,29 @@ public class MapToStringConverter(
                 35, 44, 53, 62, 61, 69, 68, 74, 66, 65, 55, 54, 45, 36, 27, 18, 10, 11, 3,
             },
 
+            MapTemplate.CustomMap
+            => Enumerable.Range(0, MapTemplateOptions.MaxTilePositionsCustomMap).ToList(),
+
             _ => new List<int>(),
         };
     }
 
     private async Task CreateMapFromTtsString(List<string> systemTileCodes, List<int> tiUltimatePositions)
     {
-        if (systemTileCodes.Count != tiUltimatePositions.Skip(1).Count())
+        var mapTemplate = _mapGeneratorSettingsService.MapTemplate;
+
+        if (mapTemplate == MapTemplate.CustomMap && systemTileCodes.Count != tiUltimatePositions.Count)
+            return;
+
+        if (mapTemplate != MapTemplate.CustomMap && systemTileCodes.Count != tiUltimatePositions.Count - 1)
             return;
 
         await _mapGeneratorService.GenerateMapAsync(true, default);
         var map = _mapGeneratorService.GeneratedPositionsWithSystemTiles.ToDictionary();
         await _mapGeneratorService.InitializeSystemTilesAsync(default);
         var allSystemTiles = _mapGeneratorService.AllSystemTiles;
-        var tiUltimatePositionsWithoutMecatolRex = tiUltimatePositions.Skip(1).ToList();
+
+        var tiUltimatePositionsWithoutMecatolRex = tiUltimatePositions.Skip(mapTemplate == MapTemplate.CustomMap ? 0 : 1).ToList();
 
         var mecatolRex = allSystemTiles
             .First(x => x.SystemTileCategory == SystemTileCategory.MecatolRex);
@@ -189,8 +240,9 @@ public class MapToStringConverter(
             && x.FactionName == FactionName.None
             && x.SystemTileName == SystemTileName.TileHome);
 
-        // First assign Mecatol Rex
-        map[tiUltimatePositions[0]] = mecatolRex;
+        // First assign Mecatol Rex if it is not Custom Map
+        if (mapTemplate != MapTemplate.CustomMap)
+            map[tiUltimatePositions[0]] = mecatolRex;
 
         for (var i = 0; i < tiUltimatePositionsWithoutMecatolRex.Count; i++)
         {
@@ -212,7 +264,7 @@ public class MapToStringConverter(
                     {
                         map[tiUltimatePositionsWithoutMecatolRex[i]] = allSystemTiles
                             .FirstOrDefault(x =>
-                                x.SystemTileCode == systemTileCodes[i].ToString(CultureInfo.InvariantCulture)) ?? new SystemTileModel() { };
+                                x.SystemTileCode == systemTileCodes[i].ToString(CultureInfo.InvariantCulture)) ?? new SystemTileModel() { SystemTileName = SystemTileName.TileBlackFrame };
                     }
                 }
                 else
@@ -236,6 +288,18 @@ public class MapToStringConverter(
                         hyperlineCopy.SystemTileCode += rotation;
 
                         map[tiUltimatePositionsWithoutMecatolRex[i]] = hyperlineCopy;
+                    }
+                    else if (stringNumber == "T")
+                    {
+                        var transparent = allSystemTiles.First(x => x.SystemTileName == SystemTileName.TileTransparent);
+                        map[tiUltimatePositionsWithoutMecatolRex[i]] = transparent.Copy();
+                    }
+                    else
+                    {
+                        var transparent = allSystemTiles.First(x => x.SystemTileName == SystemTileName.TileBlackFrame);
+                        var systemTileWithStringCode = allSystemTiles.FirstOrDefault(x => x.SystemTileCode == stringNumber);
+
+                        map[tiUltimatePositionsWithoutMecatolRex[i]] = systemTileWithStringCode is not null ? systemTileWithStringCode.Copy() : transparent.Copy();
                     }
                 }
             }

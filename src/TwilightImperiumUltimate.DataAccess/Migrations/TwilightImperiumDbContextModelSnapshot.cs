@@ -51,19 +51,19 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "dee58ca6-a55d-41cf-93d8-06bea05c6c60",
+                            Id = "caf9bad4-43a5-4caa-8d56-f40179e30e20",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "9aa41995-3354-401f-b3ac-1f9aff4c28d0",
+                            Id = "79bfd091-130f-4ca9-bd24-9453a0c9b71f",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "09fc298b-7db2-4e64-81be-e5ace8b6e9af",
+                            Id = "0b40bbf9-fcf8-4975-afcf-8c3c89277b2b",
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
                         });
@@ -12639,7 +12639,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             FactionName = "None",
                             GameVersion = "Custom",
                             Id = 5,
-                            SystemTileCode = "",
+                            SystemTileCode = "T",
                             TileCategory = "None"
                         },
                         new
@@ -22110,7 +22110,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9256ad62-2146-4c1c-be7c-59d203977857",
+                            ConcurrencyStamp = "d2695d4a-5329-4fef-894b-32aa1135be65",
                             DiscordId = "",
                             Email = "Test@user.cz",
                             EmailConfirmed = true,
@@ -22120,9 +22120,9 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST@USER.CZ",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJsmIsjuYZjaRPc9Hk0t2MOyluphnLwW7JU0h448Icyd5yyboD3xUOR23iKSwpCG4Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEHMFBWgflA0Ns35Lx5iYkKdVJwjWDMMsWYwH91D9SnVFdSZUgffoyLS5pbDMsX5BLg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "92ffff43-4e36-4f61-973f-85bf6a402654",
+                            SecurityStamp = "a54168b8-448e-4369-b926-57f3d69747a6",
                             SteamId = "",
                             TwoFactorEnabled = false,
                             UserInfo = "First seeded test user",
