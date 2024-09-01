@@ -28,6 +28,8 @@ public partial class TwilightImperiumDbContext : IdentityDbContext<TwilightImper
 
     public virtual DbSet<Wormhole> Wormholes { get; set; }
 
+    public virtual DbSet<Map> Maps { get; set; }
+
     // Player
     public virtual DbSet<Player> Players { get; set; }
 
@@ -40,6 +42,8 @@ public partial class TwilightImperiumDbContext : IdentityDbContext<TwilightImper
     public virtual DbSet<FactionTechnology> FactionTechnology { get; set; }
 
     public virtual DbSet<FactionUnit> FactionUnit { get; set; }
+
+    public virtual DbSet<MapRating> MapRatings { get; set; }
 
     // Rules
     public virtual DbSet<Rule> Rules { get; set; }

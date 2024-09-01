@@ -264,6 +264,8 @@ public enum SystemTileName
     TileEronous70,
     TileEronous71,
     TileEronous72,
+    TileEronous73,
+    TileEronous74,
     TileEronous75,
     TileEronous76,
     TileEronous77,

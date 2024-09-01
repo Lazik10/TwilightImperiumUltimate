@@ -40,6 +40,7 @@ public static class ServiceCollectionsExtension
         services.AddScoped<IMapDataProvider, MapDataProvider>();
         services.AddScoped<IMapEvaluationService, MapEvaluationService>();
         services.AddScoped<IMapToStringConverter, MapToStringConverter>();
+        services.AddScoped<IMapGeneratorArchiveService, MapGeneratorArchiveService>();
         services.AddScoped<ISliceGeneratorService, SliceGeneratorService>();
         services.AddScoped<ISliceGeneratorSettingsService, SliceGeneratorSettingsService>();
         services.AddScoped<IMiltyDraftService, MiltyDraftService>();

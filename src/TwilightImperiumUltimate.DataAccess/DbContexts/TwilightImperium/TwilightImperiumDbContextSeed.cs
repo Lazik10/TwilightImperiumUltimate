@@ -31,6 +31,7 @@ public static class TwilightImperiumDbContextSeed
         modelBuilder.Entity<IdentityRole>().HasData(RolesData.Roles);
 
         modelBuilder.Entity<NewsArticle>().HasData(ArticlesData.Articles);
+        modelBuilder.Entity<Map>().HasData(MapData.Maps);
 
         modelBuilder.Entity<Rule>().HasData(RulesData.Rules);
         modelBuilder.Entity<Faq>().HasData(FaqData.Faqs);

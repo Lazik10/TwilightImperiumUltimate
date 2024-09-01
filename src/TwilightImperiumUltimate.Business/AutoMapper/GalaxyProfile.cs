@@ -1,4 +1,6 @@
+using TwilightImperiumUltimate.Contracts.ApiContracts.Maps;
 using TwilightImperiumUltimate.Contracts.DTOs.SliceGeneration;
+using TwilightImperiumUltimate.Core.Entities.RelationshipEntities;
 using TwilightImperiumUltimate.Draft.ValueObjects;
 
 namespace TwilightImperiumUltimate.Business.AutoMapperProfiles;
@@ -81,5 +83,28 @@ public class GalaxyProfile : Profile
                         w.GameVersion)).ToList(),
                     s.Anomaly,
                     s.GameVersion)).ToList()));
+
+        CreateMap<Map, MapDto>()
+            .ConstructUsing(x => new MapDto(
+                x.Id,
+                x.Name,
+                x.EventName,
+                x.Description,
+                x.MapTemplate,
+                x.UserName,
+                x.UserId,
+                x.TtsString,
+                x.MapGeneratorLink,
+                x.MapArchiveLink,
+                x.MapRatings.Count > 0 ? x.MapRatings.Average(x => x.Rating) : 0,
+                x.MapRatings.Count));
+
+        CreateMap<MapDto, Map>();
+
+        CreateMap<MapRating, MapRatingDto>()
+            .ConstructUsing(x => new MapRatingDto(
+                x.UserId,
+                x.MapId,
+                x.Rating));
     }
 }

@@ -24,6 +24,7 @@ global using TwilightImperiumUltimate.Web.Models.Discord;
 global using TwilightImperiumUltimate.Web.Models.Drafts;
 global using TwilightImperiumUltimate.Web.Models.Factions;
 global using TwilightImperiumUltimate.Web.Models.Galaxy;
+global using TwilightImperiumUltimate.Web.Models.MapArchive;
 global using TwilightImperiumUltimate.Web.Models.MapGenerators;
 global using TwilightImperiumUltimate.Web.Models.MiltyDrafts;
 global using TwilightImperiumUltimate.Web.Models.Rules;

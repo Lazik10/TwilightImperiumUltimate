@@ -13,6 +13,9 @@ public partial class MapQuickMenu
 
     private IReadOnlyCollection<KeyValuePair<MapTemplate, string>> _mapTemplates = default!;
 
+    [CascadingParameter(Name = "MapGeneratorMainGrid")]
+    public MapGeneratorMainGrid MapGeneratorMainGrid { get; set; } = default!;
+
     [Parameter]
     public EventCallback<IconType> OnMenuIconClick { get; set; }
 
@@ -28,6 +31,7 @@ public partial class MapQuickMenu
     protected override void OnInitialized()
     {
         CreateEnumsWithDisplayNames();
+        _selectedMapTemplate = MapGeneratorSettingsService.MapTemplate;
     }
 
     private void CreateEnumsWithDisplayNames()
@@ -56,5 +60,6 @@ public partial class MapQuickMenu
     {
         MapGeneratorSettingsService.MapTemplate = _selectedMapTemplate;
         await MapGeneratorService.GenerateMapAsync(true, default);
+        await MapGeneratorMainGrid.UpdateMapOverlay();
     }
 }

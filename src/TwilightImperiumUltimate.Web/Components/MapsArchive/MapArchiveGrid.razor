@@ -1,0 +1,51 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Bars
+@using TwilightImperiumUltimate.Web.Helpers.Enums
+
+<div style="overflow-x: auto; white-space: nowrap;">
+
+    <div class="grid-header background">
+        <GridLayout Columns="6" Gap="5" Style="grid-template-columns: 18% 19% 15% 15% 20% 10%;">
+
+            <Label Text="@Strings.MapArchive_MapName" CenterText="true" />
+            <Label Text="@Strings.MapArchive_MapEvent" CenterText="true" />
+            <Label Text="@Strings.MapArchive_MapAuthor" CenterText="true" />
+            <Label Text="@Strings.MapArchive_MapTemplate" CenterText="true "/>
+            <Label Text="@Strings.MapArchive_MapRating" CenterText="true" />
+            <div />
+
+            <SearchBar HideText="true" OnSearchChange="ApplyMapFilter" EnableEmptySearch="true" @ref=_nameSearchBar Height="65" />
+            <SearchBar HideText="true" OnSearchChange="ApplyEventFilter" EnableEmptySearch="true" @ref=_eventSearchBar Height="65"/>
+            <SearchBar HideText="true" OnSearchChange="ApplyUserFilter" EnableEmptySearch="true" @ref=_userSearchBar Height="65"/>
+            <RadzenDropDown @bind-Value="SelectedMapTemplate"
+                            Data="@_mapTemplates"
+                            Change="() => ApplyMapTemplateFilter()"
+                            ValueProperty="Key"
+                            TextProperty="Value"
+                            Style="width: 100%; height: 100%;"
+                            class="title handel" />
+            <RadzenDropDown @bind-Value="SelectedFilterOrder"
+                            Data="@_filterOrders"
+                            Change="() => ApplyOrderFilter()"
+                            ValueProperty="Key"
+                            TextProperty="Value"
+                            Style="width: 100%; height: 100%;"
+                            class="title handel" />
+            <Button ButtonText="Clear" Width="100" OnClick="ResetSearch" />
+        </GridLayout>
+    </div>
+
+    <VerticalSpace Height="20" />
+
+    <GridLayout Columns="6" Gap="5" Style="grid-template-columns: 18% 19% 15% 15% 20% 10%;">
+        @foreach (var map in FilteredMaps)
+        {
+            <Label Text="@map.Name" />
+            <Label Text="@map.EventName" />
+            <Label Text="@map.UserName" />
+            <Label Text="@map.MapTemplate.GetDisplayName()" CenterText="true"/>
+            <StarRating IsReadOnly="true" Rating="@map.Rating" />
+            <Button ButtonText="View" Width="100" OnClick="() => RedirectToMapDetails(map.Id)" />
+        }
+    </GridLayout>
+
+</div>

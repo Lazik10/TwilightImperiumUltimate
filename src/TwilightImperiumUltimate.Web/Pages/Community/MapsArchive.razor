@@ -1,0 +1,10 @@
+﻿@page "/community/maps-archive"
+@using TwilightImperiumUltimate.Web.Components.MapsArchive
+
+<Page>
+
+    <Button ButtonText="@Strings.MapArchiveButton_NewMap" OnClick="Redirect"/>
+    <VerticalSpace Height="20" />
+    <MapArchiveGrid AllMaps="Maps"/>
+
+</Page>

@@ -33,6 +33,8 @@ internal static class TableName
 
     internal const string Wormholes = "Wormholes";
 
+    internal const string Maps = "Maps";
+
     // Game
     internal const string Games = "Games";
 

@@ -1,0 +1,16 @@
+﻿<div class="container">
+
+    @foreach (var mapPosition in MapPositions)
+    {
+        if (GeneratedPositionsWithSystemTiles is not null
+            && GeneratedPositionsWithSystemTiles.Keys.Count() == MapPositions.Count())
+        {
+            CurrentSystemTile = GeneratedPositionsWithSystemTiles[mapPosition];
+
+            <div class="hex">
+                <PreviewMapHex SystemTile="CurrentSystemTile" />
+            </div>
+        }
+    }
+
+</div>

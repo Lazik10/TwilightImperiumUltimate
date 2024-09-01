@@ -1,4 +1,6 @@
-﻿<div class="map-quick-menu">
+﻿@using Microsoft.AspNetCore.Components.Authorization
+
+<div class="map-quick-menu">
 
     <FlexRowContainer JustifyContent="Enums.JustifyContent.SpaceEvenly">
 
@@ -13,12 +15,15 @@
         {
             <QuickMenuItem IconType="IconType.ShareMap" IconTypeClicked="IconType.ShareMapClicked" OnClick="async () => await HandleMenuIconClick(IconType.ShareMap)" />
         }
+        <AuthorizeView Roles="User">
+            <QuickMenuItem IconType="IconType.Archive" IconTypeClicked="IconType.ArchiveClicked" OnClick="async () => await HandleMenuIconClick(IconType.Archive)" />
+        </AuthorizeView>
 
     </FlexRowContainer>
 
     @if (_showImportMapString)
     {
-        <FlexColumnCenteredContainer Width="250">
+        <FlexColumnCenteredContainer Width="100">
             <VerticalSpace Height="20" />
             <RadzenTextBox @bind-Value="_importedTtsString" Text="Enter map string" Style="height: 24px; max-height: 24px;"/>
             <VerticalSpace Height="10" />
@@ -27,9 +32,8 @@
                             Change="async () => await HandleMapTemplateChange()"
                             ValueProperty="Key"
                             TextProperty="Value"
-                            Style="width: 115%; max-width: 400px;"
                             class="title handel" />
-            <Button ButtonText="Load Map" OnClick="async () => await LoadMapFromTtsString()"/>
+            <Button ButtonText="Load Map" OnClick="async () => await LoadMapFromTtsString()" Width="100"/>
         </FlexColumnCenteredContainer>
     }
 

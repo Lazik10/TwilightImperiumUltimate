@@ -609,85 +609,169 @@
   <data name="MapTemplate_CustomMap" xml:space="preserve">
     <value>Playground</value>
   </data>
+  <data name="MapTemplateFilter_CustomMap" xml:space="preserve">
+    <value>Playground</value>
+  </data>
   <data name="MapTemplate_EightPlayersLargeMap" xml:space="preserve">
+    <value>8P Large</value>
+  </data>
+  <data name="MapTemplateFilter_EightPlayersLargeMap" xml:space="preserve">
     <value>8P Large</value>
   </data>
   <data name="MapTemplate_EightPlayersLargeWarpMap" xml:space="preserve">
     <value>8P Large (Warp)</value>
   </data>
+  <data name="MapTemplateFilter_EightPlayersLargeWarpMap" xml:space="preserve">
+    <value>8P Large (Warp)</value>
+  </data>
   <data name="MapTemplate_FivePlayersLargeFlatMap" xml:space="preserve">
+    <value>5P Flat</value>
+  </data>
+  <data name="MapTemplateFilter_FivePlayersLargeFlatMap" xml:space="preserve">
     <value>5P Flat</value>
   </data>
   <data name="MapTemplate_FivePlayersMediumDiamondMap" xml:space="preserve">
     <value>5P Diamond</value>
   </data>
+  <data name="MapTemplateFilter_FivePlayersMediumDiamondMap" xml:space="preserve">
+    <value>5P Diamond</value>
+  </data>
   <data name="MapTemplate_FivePlayersMediumHyperlineMap" xml:space="preserve">
+    <value>5P Normal (Hyperline)</value>
+  </data>
+  <data name="MapTemplateFilter_FivePlayersMediumHyperlineMap" xml:space="preserve">
     <value>5P Normal (Hyperline)</value>
   </data>
   <data name="MapTemplate_FivePlayersMediumMap" xml:space="preserve">
     <value>5P Normal</value>
   </data>
+  <data name="MapTemplateFilter_FivePlayersMediumMap" xml:space="preserve">
+    <value>5P Normal</value>
+  </data>
   <data name="MapTemplate_FourPlayersMediumDoubleWarpMap" xml:space="preserve">
+    <value>4P Double Warp</value>
+  </data>
+  <data name="MapTemplateFilter_FourPlayersMediumDoubleWarpMap" xml:space="preserve">
     <value>4P Double Warp</value>
   </data>
   <data name="MapTemplate_FourPlayersMediumGapsMap" xml:space="preserve">
     <value>4P Gaps</value>
   </data>
+  <data name="MapTemplateFilter_FourPlayersMediumGapsMap" xml:space="preserve">
+    <value>4P Gaps</value>
+  </data>
   <data name="MapTemplate_FourPlayersMediumHorizontalMap" xml:space="preserve">
+    <value>4P Horizontal</value>
+  </data>
+  <data name="MapTemplateFilter_FourPlayersMediumHorizontalMap" xml:space="preserve">
     <value>4P Horizontal</value>
   </data>
   <data name="MapTemplate_FourPlayersMediumMap" xml:space="preserve">
     <value>4P Normal</value>
   </data>
+  <data name="MapTemplateFilter_FourPlayersMediumMap" xml:space="preserve">
+    <value>4P Normal</value>
+  </data>
   <data name="MapTemplate_FourPlayersMediumMiniWarpMap" xml:space="preserve">
+    <value>4P Mini Warp</value>
+  </data>
+  <data name="MapTemplateFilter_FourPlayersMediumMiniWarpMap" xml:space="preserve">
     <value>4P Mini Warp</value>
   </data>
   <data name="MapTemplate_FourPlayersMediumVerticalMap" xml:space="preserve">
     <value>4P Vertical</value>
   </data>
+  <data name="MapTemplateFilter_FourPlayersMediumVerticalMap" xml:space="preserve">
+    <value>4P Vertical</value>
+  </data>
   <data name="MapTemplate_FourPlayersMediumWarpMap" xml:space="preserve">
+    <value>4P Warp</value>
+  </data>
+  <data name="MapTemplateFilter_FourPlayersMediumWarpMap" xml:space="preserve">
     <value>4P Warp</value>
   </data>
   <data name="MapTemplate_SevenPlayersLargeHyperlineMap" xml:space="preserve">
     <value>7P Large (Hyperline)</value>
   </data>
+  <data name="MapTemplateFilter_SevenPlayersLargeHyperlineMap" xml:space="preserve">
+    <value>7P Large (Hyperline)</value>
+  </data>
   <data name="MapTemplate_SevenPlayersLargeWarpMap" xml:space="preserve">
+    <value>7P Large (Warp)</value>
+  </data>
+  <data name="MapTemplateFilter_SevenPlayersLargeWarpMap" xml:space="preserve">
     <value>7P Large (Warp)</value>
   </data>
   <data name="MapTemplate_SixPlayersLargeMap" xml:space="preserve">
     <value>6P Large</value>
   </data>
+  <data name="MapTemplateFilter_SixPlayersLargeMap" xml:space="preserve">
+    <value>6P Large</value>
+  </data>
   <data name="MapTemplate_SixPlayersMediumMap" xml:space="preserve">
+    <value>6P Normal</value>
+  </data>
+  <data name="MapTemplateFilter_SixPlayersMediumMap" xml:space="preserve">
     <value>6P Normal</value>
   </data>
   <data name="MapTemplate_SixPlayersMediumSpiralMap" xml:space="preserve">
     <value>6P Normal (Spiral)</value>
   </data>
+  <data name="MapTemplateFilter_SixPlayersMediumSpiralMap" xml:space="preserve">
+    <value>6P Normal (Spiral)</value>
+  </data>
   <data name="MapTemplate_ThreePlayersMediumMantaRayMap" xml:space="preserve">
+    <value>3P Manta Ray</value>
+  </data>
+  <data name="MapTemplateFilter_ThreePlayersMediumMantaRayMap" xml:space="preserve">
     <value>3P Manta Ray</value>
   </data>
   <data name="MapTemplate_ThreePlayersMediumRexMap" xml:space="preserve">
     <value>3P Rex</value>
   </data>
+  <data name="MapTemplateFilter_ThreePlayersMediumRexMap" xml:space="preserve">
+    <value>3P Rex</value>
+  </data>
   <data name="MapTemplate_ThreePlayersMediumSnowflakeMap" xml:space="preserve">
+    <value>3P Snowflake</value>
+  </data>
+  <data name="MapTemplateFilter_ThreePlayersMediumSnowflakeMap" xml:space="preserve">
     <value>3P Snowflake</value>
   </data>
   <data name="MapTemplate_ThreePlayersMediumTriangleMap" xml:space="preserve">
     <value>3P Triangle</value>
   </data>
+  <data name="MapTemplateFilter_ThreePlayersMediumTriangleMap" xml:space="preserve">
+    <value>3P Triangle</value>
+  </data>
   <data name="MapTemplate_ThreePlayersMediumTriangleNarrowMap" xml:space="preserve">
+    <value>3P Triangle (Narrow)</value>
+  </data>
+  <data name="MapTemplateFilter_ThreePlayersMediumTriangleNarrowMap" xml:space="preserve">
     <value>3P Triangle (Narrow)</value>
   </data>
   <data name="MapTemplate_ThreePlayersMediumTridentMap" xml:space="preserve">
     <value>3P Trident</value>
   </data>
+  <data name="MapTemplateFilter_ThreePlayersMediumTridentMap" xml:space="preserve">
+    <value>3P Trident</value>
+  </data>
   <data name="MapTemplate_ThreePlayersSmallAlternateMap" xml:space="preserve">
+    <value>3P Small (Alternate)</value>
+  </data>
+  <data name="MapTemplateFilter_ThreePlayersSmallAlternateMap" xml:space="preserve">
     <value>3P Small (Alternate)</value>
   </data>
   <data name="MapTemplate_ThreePlayersSmallMap" xml:space="preserve">
     <value>3P Small</value>
   </data>
+  <data name="MapTemplateFilter_ThreePlayersSmallMap" xml:space="preserve">
+    <value>3P Small</value>
+  </data>
   <data name="MapTemplate_TwoPlayersMediumMap" xml:space="preserve">
+    <value>2P Normal</value>
+  </data>
+  <data name="MapTemplateFilter_TwoPlayersMediumMap" xml:space="preserve">
     <value>2P Normal</value>
   </data>
   <data name="Medium" xml:space="preserve">
@@ -1472,5 +1556,68 @@ Brandon Williams&lt;/p&gt;</value>
   </data>
   <data name="GameTracker_PlayersInTableOrder" xml:space="preserve">
     <value>( Important: Fill the players information in order from the speaker! )</value>
+  </data>
+  <data name="Page_MapArchive" xml:space="preserve">
+    <value>Map archive</value>
+  </data>
+  <data name="Page_SlicesArchive" xml:space="preserve">
+    <value>Slices archive</value>
+  </data>
+  <data name="MapArchive_MapName" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="MapArchive_MapRating" xml:space="preserve">
+    <value>Overall:</value>
+  </data>
+  <data name="MapArchive_MapEvent" xml:space="preserve">
+    <value>Event:</value>
+  </data>
+  <data name="MapArchive_MapDescription" xml:space="preserve">
+    <value>Description:</value>
+  </data>
+  <data name="MapArchive_MapAuthor" xml:space="preserve">
+    <value>Author:</value>
+  </data>
+  <data name="MapArchive_TtsString" xml:space="preserve">
+    <value>TTS String:</value>
+  </data>
+  <data name="MapArchive_MapGeneratorLink" xml:space="preserve">
+    <value>Map generator link:</value>
+  </data>
+  <data name="MapArchive_MapArchiveLink" xml:space="preserve">
+    <value>Archive link:</value>
+  </data>
+  <data name="MapArchive_DescriptionPlaceholder" xml:space="preserve">
+    <value>Copy map description here (supports HTML tags and inline CSS styles)</value>
+  </data>
+  <data name="MapArchive_MapTemplate" xml:space="preserve">
+    <value>Map template:</value>
+  </data>
+  <data name="MapArchive_SaveMap" xml:space="preserve">
+    <value>Save map</value>
+  </data>
+  <data name="MapsArchive_MapAlreadyExistsError" xml:space="preserve">
+    <value>Unable to add the map to the database because map with this name and event name already exists!</value>
+  </data>
+  <data name="FilterOrder_Descending" xml:space="preserve">
+    <value>Descending</value>
+  </data>
+  <data name="FilterOrder_Ascending" xml:space="preserve">
+    <value>Ascending</value>
+  </data>
+  <data name="MapArchive_UserRating" xml:space="preserve">
+    <value>Your:</value>
+  </data>
+  <data name="ButtonBack" xml:space="preserve">
+    <value>&amp;#8249;  Back</value>
+  </data>
+  <data name="MapArchiveButton_NewMap" xml:space="preserve">
+    <value>New map</value>
+  </data>
+  <data name="MapTemplateFilter_All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="Register_UserName" xml:space="preserve">
+    <value>Username</value>
   </data>
 </root>

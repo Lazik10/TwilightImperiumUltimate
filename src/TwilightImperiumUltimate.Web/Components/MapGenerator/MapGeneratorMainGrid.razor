@@ -17,7 +17,9 @@
     {
         <HexTileMenu SwappedSystemTileFromMenu="Refresh" />
 
-        <MapQuickMenu OnMenuIconClick="HandleMenuIconClick" />
+        <CascadingValue Value="this" Name="MapGeneratorMainGrid">
+            <MapQuickMenu OnMenuIconClick="HandleMenuIconClick" />
+        </CascadingValue>
 
         <FlexColumnCenteredContainer>
 

@@ -1,5 +1,12 @@
 using System.Globalization;
 using System.Resources;
+using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.EightPlayers;
+using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.FivePlayers;
+using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.FourPlayers;
+using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.SevenPlayers;
+using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.SixPlayers;
+using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.ThreePlayers;
+using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.TwoPlayers;
 
 namespace TwilightImperiumUltimate.Web.Helpers.Enums;
 
@@ -85,6 +92,43 @@ public static class EnumExtensions
             DraftColor.Pink => TextColor.Pink,
             DraftColor.Orange => TextColor.Orange,
             _ => TextColor.White,
+        };
+    }
+
+    public static MapTemplate GetCorrectMapTemplateFromFilter(this MapTemplateFilter mapFilter)
+    {
+        return mapFilter switch
+        {
+            MapTemplateFilter.CustomMap => MapTemplate.CustomMap,
+            MapTemplateFilter.TwoPlayersMediumMap => MapTemplate.TwoPlayersMediumMap,
+            MapTemplateFilter.ThreePlayersSmallMap => MapTemplate.ThreePlayersSmallMap,
+            MapTemplateFilter.ThreePlayersSmallAlternateMap => MapTemplate.ThreePlayersSmallAlternateMap,
+            MapTemplateFilter.ThreePlayersMediumTriangleMap => MapTemplate.ThreePlayersMediumTriangleMap,
+            MapTemplateFilter.ThreePlayersMediumTriangleNarrowMap => MapTemplate.ThreePlayersMediumTriangleNarrowMap,
+            MapTemplateFilter.ThreePlayersMediumSnowflakeMap => MapTemplate.ThreePlayersMediumSnowflakeMap,
+            MapTemplateFilter.ThreePlayersMediumMantaRayMap => MapTemplate.ThreePlayersMediumMantaRayMap,
+            MapTemplateFilter.ThreePlayersMediumTridentMap => MapTemplate.ThreePlayersMediumTridentMap,
+            MapTemplateFilter.ThreePlayersMediumRexMap => MapTemplate.ThreePlayersMediumRexMap,
+            MapTemplateFilter.FourPlayersMediumMap => MapTemplate.FourPlayersMediumMap,
+            MapTemplateFilter.FourPlayersMediumHorizontalMap => MapTemplate.FourPlayersMediumHorizontalMap,
+            MapTemplateFilter.FourPlayersMediumVerticalMap => MapTemplate.FourPlayersMediumVerticalMap,
+            MapTemplateFilter.FourPlayersMediumGapsMap => MapTemplate.FourPlayersMediumGapsMap,
+            MapTemplateFilter.FourPlayersMediumWarpMap => MapTemplate.FourPlayersMediumWarpMap,
+            MapTemplateFilter.FourPlayersMediumMiniWarpMap => MapTemplate.FourPlayersMediumMiniWarpMap,
+            MapTemplateFilter.FourPlayersMediumDoubleWarpMap => MapTemplate.FourPlayersMediumDoubleWarpMap,
+            MapTemplateFilter.FivePlayersMediumMap => MapTemplate.FivePlayersMediumMap,
+            MapTemplateFilter.FivePlayersMediumHyperlineMap => MapTemplate.FivePlayersMediumHyperlineMap,
+            MapTemplateFilter.FivePlayersMediumDiamondMap => MapTemplate.FivePlayersMediumDiamondMap,
+            MapTemplateFilter.FivePlayersLargeFlatMap => MapTemplate.FivePlayersLargeFlatMap,
+            MapTemplateFilter.SixPlayersMediumMap => MapTemplate.SixPlayersMediumMap,
+            MapTemplateFilter.SixPlayersMediumSpiralMap => MapTemplate.SixPlayersMediumSpiralMap,
+            MapTemplateFilter.SixPlayersLargeMap => MapTemplate.SixPlayersLargeMap,
+            MapTemplateFilter.SevenPlayersLargeHyperlineMap => MapTemplate.SevenPlayersLargeHyperlineMap,
+            MapTemplateFilter.SevenPlayersLargeWarpMap => MapTemplate.SevenPlayersLargeWarpMap,
+            MapTemplateFilter.EightPlayersLargeMap => MapTemplate.EightPlayersLargeMap,
+            MapTemplateFilter.EightPlayersLargeWarpMap => MapTemplate.EightPlayersLargeWarpMap,
+            MapTemplateFilter.All => MapTemplate.CustomMap,
+            _ => MapTemplate.CustomMap,
         };
     }
 }

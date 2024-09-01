@@ -52,7 +52,15 @@ public static class Pages
 
     public const string Events = "/community/events";
 
-    public const string Maps = "/community/maps";
+    public const string MapsArchive = "/community/maps-archive";
+
+    public const string MapPreview = "/community/maps-archive/map/";
+
+    public const string SlicesArchive = "/community/slices-archive";
+
+    public const string AddMap = "/community/add-map-to-archive";
+
+    public const string AddSlices = "/community/add-slices-to-archive";
 
     // Rules
     public const string Rules = "/rules";

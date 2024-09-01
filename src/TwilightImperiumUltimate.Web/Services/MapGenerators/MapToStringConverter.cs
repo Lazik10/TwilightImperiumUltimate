@@ -6,12 +6,18 @@ namespace TwilightImperiumUltimate.Web.Services.MapGenerators;
 public class MapToStringConverter(
     IMapGeneratorSettingsService mapGeneratorSettingsService,
     IMapGeneratorService mapGeneratorService,
-    ILogger<MapToStringConverter> logger)
+    ILogger<MapToStringConverter> logger,
+    NavigationManager navigationManager)
     : IMapToStringConverter
 {
     private readonly IMapGeneratorSettingsService _mapGeneratorSettingsService = mapGeneratorSettingsService;
     private readonly IMapGeneratorService _mapGeneratorService = mapGeneratorService;
     private readonly ILogger<MapToStringConverter> _logger = logger;
+    private readonly NavigationManager _navigationManager = navigationManager;
+
+    private Dictionary<int, SystemTileModel> _map = new();
+
+    public IReadOnlyDictionary<int, SystemTileModel> Map => _map;
 
     public async Task ConvertBase64StringToMap(MapTemplate mapTemplate, string base64String)
     {
@@ -28,6 +34,13 @@ public class MapToStringConverter(
     public async Task<string> ConvertMapToBase64String()
     {
         var ttsString = await ConvertMapToTtsString();
+        var base64string = Convert.ToBase64String(Encoding.UTF8.GetBytes(ttsString));
+        return base64string;
+    }
+
+    public async Task<string> ConvertMapToBase64String(MapTemplate mapTemplate, IReadOnlyDictionary<int, SystemTileModel> map)
+    {
+        var ttsString = await ConvertMapToTtsString(mapTemplate, map);
         var base64string = Convert.ToBase64String(Encoding.UTF8.GetBytes(ttsString));
         return base64string;
     }
@@ -57,6 +70,20 @@ public class MapToStringConverter(
         var importedTtsSystemTileCodes = ttsString.Split(' ').ToList();
 
         await CreateMapFromTtsString(importedTtsSystemTileCodes, ttsPositions);
+    }
+
+    public Task<string> GenerateMapGeneratorLink(MapTemplate mapTemplate, string mapCode)
+    {
+        var baseAddress = _navigationManager.BaseUri;
+        var mapUrl = $"{baseAddress}tools/map-generator?template={mapTemplate}&tiles={mapCode}";
+        return Task.FromResult(mapUrl);
+    }
+
+    public Task<string> GenerateMapArchiveLink(string mapName, string mapEvent)
+    {
+        var baseAddress = _navigationManager.BaseUri;
+        var mapUrl = $"{baseAddress}community/maps-archive/map/";
+        return Task.FromResult(mapUrl);
     }
 
     private static string GenerateTtsString(List<int> ttsPositions, IReadOnlyDictionary<int, SystemTileModel> map)
@@ -214,8 +241,7 @@ public class MapToStringConverter(
             }
         }
 
+        _map = map;
         await _mapGeneratorService.InitializeMapFromLink(map);
     }
 }
-
-

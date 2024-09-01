@@ -53,10 +53,20 @@ public class UsersController(
         return Ok(new ApiResponse<TwilightImperiumUserDto>() { Success = true, Data = dbUser });
     }
 
+    // PUT: api/users/user-name-update
+    [HttpPut]
+    [Route("user-name-update")]
+    [AllowAnonymous]
+    public async Task<ActionResult<IApiResponse<TwilightImperiumUserDto>>> UpdateUserName(TwilightImperiumUserDto user, CancellationToken cancellationToken)
+    {
+        var dbUser = await _mediator.Send(new UpdateUserNameCommand(user.Email ?? string.Empty, user.UserName ?? string.Empty), cancellationToken);
+        return Ok(new ApiResponse<TwilightImperiumUserDto>() { Success = true, Data = dbUser });
+    }
+
     // Get: api/users/roles
     [HttpGet]
     [Route("roles")]
-    public async Task<ActionResult<ApiResponse<ItemListDto<RoleDto>>>> GetAllRoles(CancellationToken cancellationToken)
+    public async Task<ActionResult<IApiResponse<ItemListDto<RoleDto>>>> GetAllRoles(CancellationToken cancellationToken)
     {
         var roles = await _mediator.Send(new GetAllRolesQuery(), cancellationToken);
         return Ok(new ApiResponse<ItemListDto<RoleDto>>() { Success = true, Data = roles });
@@ -65,7 +75,7 @@ public class UsersController(
     // POST: api/users/user-roles
     [HttpPost]
     [Route("user-roles")]
-    public async Task<ActionResult<ApiResponse<ItemListDto<RoleDto>>>> GetAllSpecificUserRoles(TwilightImperiumUserDto twilightImperiumUserDto, CancellationToken cancellationToken)
+    public async Task<ActionResult<IApiResponse<ItemListDto<RoleDto>>>> GetAllSpecificUserRoles(TwilightImperiumUserDto twilightImperiumUserDto, CancellationToken cancellationToken)
     {
         var roles = await _mediator.Send(new GetAllUserRolesQuery(twilightImperiumUserDto.Id), cancellationToken);
         return Ok(new ApiResponse<ItemListDto<RoleDto>>() { Success = true, Data = roles });

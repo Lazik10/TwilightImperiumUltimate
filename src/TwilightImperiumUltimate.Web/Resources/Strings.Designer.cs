@@ -63,7 +63,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;Hello there! I was fortunate enough to be introduced to Twilight Imperium 4th Edition a few years back, and ever since, it has been my favorite game of all time. I fell in love with every aspect of it. Unfortunately, I don&apos;t get to play as often as I&apos;d like, but that doesn&apos;t stop me from thinking about the game constantly.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;During one of our games, a friend who wasn&apos;t very fluent in English kept asking about the cards and what they did. At one point, he needed to know the details of a secret  [rest of string was truncated]&quot;;.
+        ///&lt;p&gt;During one of our games, a friend who wasn&apos;t very fluent in English kept asking about the cards and what they did. At one point, he needed to know the details of a secre [rest of string was truncated]&quot;;.
         /// </summary>
         public static string About_AboutMe {
             get {
@@ -105,7 +105,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         ///&lt;/br&gt;
         ///&lt;p&gt;This website does not condone the use of its information for any other purposes. It is not permitted to use this content to produce or sell components of any part of the games.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;Twilight Imperium™ and all its expansion [rest of string was truncated]&quot;;.
+        ///&lt;p&gt;Twilight Imperium™ and all its expan [rest of string was truncated]&quot;;.
         /// </summary>
         public static string About_Disclaimer {
             get {
@@ -240,6 +240,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string BackSlash {
             get {
                 return ResourceManager.GetString("BackSlash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;#8249;  Back.
+        /// </summary>
+        public static string ButtonBack {
+            get {
+                return ResourceManager.GetString("ButtonBack", resourceCulture);
             }
         }
         
@@ -1099,6 +1108,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ascending.
+        /// </summary>
+        public static string FilterOrder_Ascending {
+            get {
+                return ResourceManager.GetString("FilterOrder_Ascending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Descending.
+        /// </summary>
+        public static string FilterOrder_Descending {
+            get {
+                return ResourceManager.GetString("FilterOrder_Descending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Developed by &quot;Lázik&quot; (2023-2024).
         /// </summary>
         public static string Footer_DevelopedBy {
@@ -1540,6 +1567,123 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Copy map description here (supports HTML tags and inline CSS styles).
+        /// </summary>
+        public static string MapArchive_DescriptionPlaceholder {
+            get {
+                return ResourceManager.GetString("MapArchive_DescriptionPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Archive link:.
+        /// </summary>
+        public static string MapArchive_MapArchiveLink {
+            get {
+                return ResourceManager.GetString("MapArchive_MapArchiveLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Author:.
+        /// </summary>
+        public static string MapArchive_MapAuthor {
+            get {
+                return ResourceManager.GetString("MapArchive_MapAuthor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description:.
+        /// </summary>
+        public static string MapArchive_MapDescription {
+            get {
+                return ResourceManager.GetString("MapArchive_MapDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Event:.
+        /// </summary>
+        public static string MapArchive_MapEvent {
+            get {
+                return ResourceManager.GetString("MapArchive_MapEvent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map generator link:.
+        /// </summary>
+        public static string MapArchive_MapGeneratorLink {
+            get {
+                return ResourceManager.GetString("MapArchive_MapGeneratorLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name:.
+        /// </summary>
+        public static string MapArchive_MapName {
+            get {
+                return ResourceManager.GetString("MapArchive_MapName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overall:.
+        /// </summary>
+        public static string MapArchive_MapRating {
+            get {
+                return ResourceManager.GetString("MapArchive_MapRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map template:.
+        /// </summary>
+        public static string MapArchive_MapTemplate {
+            get {
+                return ResourceManager.GetString("MapArchive_MapTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save map.
+        /// </summary>
+        public static string MapArchive_SaveMap {
+            get {
+                return ResourceManager.GetString("MapArchive_SaveMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TTS String:.
+        /// </summary>
+        public static string MapArchive_TtsString {
+            get {
+                return ResourceManager.GetString("MapArchive_TtsString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your:.
+        /// </summary>
+        public static string MapArchive_UserRating {
+            get {
+                return ResourceManager.GetString("MapArchive_UserRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New map.
+        /// </summary>
+        public static string MapArchiveButton_NewMap {
+            get {
+                return ResourceManager.GetString("MapArchiveButton_NewMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All Tiles.
         /// </summary>
         public static string MapGenerator_AllTiles {
@@ -1801,6 +1945,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unable to add the map to the database because map with this name and event name already exists!.
+        /// </summary>
+        public static string MapsArchive_MapAlreadyExistsError {
+            get {
+                return ResourceManager.GetString("MapsArchive_MapAlreadyExistsError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Playground.
         /// </summary>
         public static string MapTemplate_CustomMap {
@@ -2049,6 +2202,267 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string MapTemplate_TwoPlayersMediumMap {
             get {
                 return ResourceManager.GetString("MapTemplate_TwoPlayersMediumMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All.
+        /// </summary>
+        public static string MapTemplateFilter_All {
+            get {
+                return ResourceManager.GetString("MapTemplateFilter_All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Playground.
+        /// </summary>
+        public static string MapTemplateFilter_CustomMap {
+            get {
+                return ResourceManager.GetString("MapTemplateFilter_CustomMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 8P Large.
+        /// </summary>
+        public static string MapTemplateFilter_EightPlayersLargeMap {
+            get {
+                return ResourceManager.GetString("MapTemplateFilter_EightPlayersLargeMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 8P Large (Warp).
+        /// </summary>
+        public static string MapTemplateFilter_EightPlayersLargeWarpMap {
+            get {
+                return ResourceManager.GetString("MapTemplateFilter_EightPlayersLargeWarpMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 5P Flat.
+        /// </summary>
+        public static string MapTemplateFilter_FivePlayersLargeFlatMap {
+            get {
+                return ResourceManager.GetString("MapTemplateFilter_FivePlayersLargeFlatMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 5P Diamond.
+        /// </summary>
+        public static string MapTemplateFilter_FivePlayersMediumDiamondMap {
+            get {
+                return ResourceManager.GetString("MapTemplateFilter_FivePlayersMediumDiamondMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 5P Normal (Hyperline).
+        /// </summary>
+        public static string MapTemplateFilter_FivePlayersMediumHyperlineMap {
+            get {
+                return ResourceManager.GetString("MapTemplateFilter_FivePlayersMediumHyperlineMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 5P Normal.
+        /// </summary>
+        public static string MapTemplateFilter_FivePlayersMediumMap {
+            get {
+                return ResourceManager.GetString("MapTemplateFilter_FivePlayersMediumMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 4P Double Warp.
+        /// </summary>
+        public static string MapTemplateFilter_FourPlayersMediumDoubleWarpMap {
+            get {
+                return ResourceManager.GetString("MapTemplateFilter_FourPlayersMediumDoubleWarpMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 4P Gaps.
+        /// </summary>
+        public static string MapTemplateFilter_FourPlayersMediumGapsMap {
+            get {
+                return ResourceManager.GetString("MapTemplateFilter_FourPlayersMediumGapsMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 4P Horizontal.
+        /// </summary>
+        public static string MapTemplateFilter_FourPlayersMediumHorizontalMap {
+            get {
+                return ResourceManager.GetString("MapTemplateFilter_FourPlayersMediumHorizontalMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 4P Normal.
+        /// </summary>
+        public static string MapTemplateFilter_FourPlayersMediumMap {
+            get {
+                return ResourceManager.GetString("MapTemplateFilter_FourPlayersMediumMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 4P Mini Warp.
+        /// </summary>
+        public static string MapTemplateFilter_FourPlayersMediumMiniWarpMap {
+            get {
+                return ResourceManager.GetString("MapTemplateFilter_FourPlayersMediumMiniWarpMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 4P Vertical.
+        /// </summary>
+        public static string MapTemplateFilter_FourPlayersMediumVerticalMap {
+            get {
+                return ResourceManager.GetString("MapTemplateFilter_FourPlayersMediumVerticalMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 4P Warp.
+        /// </summary>
+        public static string MapTemplateFilter_FourPlayersMediumWarpMap {
+            get {
+                return ResourceManager.GetString("MapTemplateFilter_FourPlayersMediumWarpMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 7P Large (Hyperline).
+        /// </summary>
+        public static string MapTemplateFilter_SevenPlayersLargeHyperlineMap {
+            get {
+                return ResourceManager.GetString("MapTemplateFilter_SevenPlayersLargeHyperlineMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 7P Large (Warp).
+        /// </summary>
+        public static string MapTemplateFilter_SevenPlayersLargeWarpMap {
+            get {
+                return ResourceManager.GetString("MapTemplateFilter_SevenPlayersLargeWarpMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 6P Large.
+        /// </summary>
+        public static string MapTemplateFilter_SixPlayersLargeMap {
+            get {
+                return ResourceManager.GetString("MapTemplateFilter_SixPlayersLargeMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 6P Normal.
+        /// </summary>
+        public static string MapTemplateFilter_SixPlayersMediumMap {
+            get {
+                return ResourceManager.GetString("MapTemplateFilter_SixPlayersMediumMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 6P Normal (Spiral).
+        /// </summary>
+        public static string MapTemplateFilter_SixPlayersMediumSpiralMap {
+            get {
+                return ResourceManager.GetString("MapTemplateFilter_SixPlayersMediumSpiralMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3P Manta Ray.
+        /// </summary>
+        public static string MapTemplateFilter_ThreePlayersMediumMantaRayMap {
+            get {
+                return ResourceManager.GetString("MapTemplateFilter_ThreePlayersMediumMantaRayMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3P Rex.
+        /// </summary>
+        public static string MapTemplateFilter_ThreePlayersMediumRexMap {
+            get {
+                return ResourceManager.GetString("MapTemplateFilter_ThreePlayersMediumRexMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3P Snowflake.
+        /// </summary>
+        public static string MapTemplateFilter_ThreePlayersMediumSnowflakeMap {
+            get {
+                return ResourceManager.GetString("MapTemplateFilter_ThreePlayersMediumSnowflakeMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3P Triangle.
+        /// </summary>
+        public static string MapTemplateFilter_ThreePlayersMediumTriangleMap {
+            get {
+                return ResourceManager.GetString("MapTemplateFilter_ThreePlayersMediumTriangleMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3P Triangle (Narrow).
+        /// </summary>
+        public static string MapTemplateFilter_ThreePlayersMediumTriangleNarrowMap {
+            get {
+                return ResourceManager.GetString("MapTemplateFilter_ThreePlayersMediumTriangleNarrowMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3P Trident.
+        /// </summary>
+        public static string MapTemplateFilter_ThreePlayersMediumTridentMap {
+            get {
+                return ResourceManager.GetString("MapTemplateFilter_ThreePlayersMediumTridentMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3P Small (Alternate).
+        /// </summary>
+        public static string MapTemplateFilter_ThreePlayersSmallAlternateMap {
+            get {
+                return ResourceManager.GetString("MapTemplateFilter_ThreePlayersSmallAlternateMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3P Small.
+        /// </summary>
+        public static string MapTemplateFilter_ThreePlayersSmallMap {
+            get {
+                return ResourceManager.GetString("MapTemplateFilter_ThreePlayersSmallMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 2P Normal.
+        /// </summary>
+        public static string MapTemplateFilter_TwoPlayersMediumMap {
+            get {
+                return ResourceManager.GetString("MapTemplateFilter_TwoPlayersMediumMap", resourceCulture);
             }
         }
         
@@ -2679,6 +3093,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Map archive.
+        /// </summary>
+        public static string Page_MapArchive {
+            get {
+                return ResourceManager.GetString("Page_MapArchive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Map Generator.
         /// </summary>
         public static string Page_MapGenerator {
@@ -2792,6 +3215,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string Page_SliceGenerator {
             get {
                 return ResourceManager.GetString("Page_SliceGenerator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Slices archive.
+        /// </summary>
+        public static string Page_SlicesArchive {
+            get {
+                return ResourceManager.GetString("Page_SlicesArchive", resourceCulture);
             }
         }
         
@@ -3026,6 +3458,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string Register_Title {
             get {
                 return ResourceManager.GetString("Register_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username.
+        /// </summary>
+        public static string Register_UserName {
+            get {
+                return ResourceManager.GetString("Register_UserName", resourceCulture);
             }
         }
         

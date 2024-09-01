@@ -1,0 +1,52 @@
+﻿.comment-stars {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+    .comment-stars.is-read-only .comment-stars-view {
+        cursor: default;
+        pointer-events: none; /* Prevents any interaction */
+    }
+
+.comment-stars-input {
+    display: none;
+}
+
+    .comment-stars-input:checked ~ .comment-stars-view svg {
+        fill: yellow;
+    }
+
+    .comment-stars-input:checked ~ .comment-stars-view:hover svg,
+    .comment-stars-input:checked ~ .comment-stars-view:hover ~ .comment-stars-view
+    svg {
+        fill: gold;
+    }
+
+.comment-stars-view {
+    cursor: pointer;
+}
+
+    .comment-stars-view svg {
+        fill: #ededef;
+        width: calc(1.39306640625em * 1.5);
+        height: calc(1.5em * 1.5);
+    }
+
+    .comment-stars-view.is-half {
+        transform: translateX(100%);
+        margin-left: calc(-0.69580078125em * 1.5);
+    }
+
+        .comment-stars-view.is-half svg {
+            width: calc(0.69580078125em * 1.5);
+        }
+
+    .comment-stars-view:hover svg,
+    .comment-stars-view:hover ~ .comment-stars-view svg {
+        fill: gold;
+    }
+
+/* Additional CSS to handle disabled (read-only) state */
+.comment-stars-input:disabled ~ .comment-stars-view svg {
+    fill: yellow;
+}

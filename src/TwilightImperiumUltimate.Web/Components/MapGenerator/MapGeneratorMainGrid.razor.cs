@@ -1,12 +1,5 @@
 using Microsoft.JSInterop;
-using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.Custom;
-using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.EightPlayers;
-using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.FivePlayers;
-using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.FourPlayers;
-using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.SevenPlayers;
-using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.SixPlayers;
-using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.ThreePlayers;
-using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.TwoPlayers;
+using TwilightImperiumUltimate.Web.Helpers.Maps;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
 
 namespace TwilightImperiumUltimate.Web.Components.MapGenerator;
@@ -38,19 +31,25 @@ public partial class MapGeneratorMainGrid
     private IMapEvaluationService MapEvaluationService { get; set; } = default!;
 
     [Inject]
-    private IJSRuntime JSRuntime { get; set; } = default!;
+    private IMapGeneratorArchiveService MapGeneratorArchiveService { get; set; } = default!;
 
     [Inject]
-    private NavigationManager NavigationManager { get; set; } = default!;
+    private IJSRuntime JSRuntime { get; set; } = default!;
 
     private MapEvaluations MapEvaluations { get; set; } = new MapEvaluations();
 
     private RenderFragment DynamicComponent => builder =>
     {
-        builder.OpenComponent(0, AssignMapType());
+        builder.OpenComponent(0, MapGeneratorSettingsService.MapTemplate.GetMapTypeFromMapTemplate());
         builder.AddAttribute(1, "GeneratedPositionsWithSystemTiles", GeneratedPositionsWithSystemTiles);
         builder.CloseComponent();
     };
+
+    public Task UpdateMapOverlay()
+    {
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
 
     protected override async Task OnInitializedAsync()
     {
@@ -77,56 +76,12 @@ public partial class MapGeneratorMainGrid
         StateHasChanged();
     }
 
-    private Type AssignMapType()
-    {
-        var mapTemplateType = MapGeneratorSettingsService.MapTemplate switch
-        {
-            MapTemplate.CustomMap => typeof(CustomMap),
-            MapTemplate.TwoPlayersMediumMap => typeof(TwoPlayersMediumMap),
-            MapTemplate.ThreePlayersSmallMap => typeof(ThreePlayersSmallMap),
-            MapTemplate.ThreePlayersSmallAlternateMap => typeof(ThreePlayersSmallAlternateMap),
-            MapTemplate.ThreePlayersMediumTriangleMap => typeof(ThreePlayersMediumTriangleMap),
-            MapTemplate.ThreePlayersMediumTriangleNarrowMap => typeof(ThreePlayersMediumTriangleNarrowMap),
-            MapTemplate.ThreePlayersMediumSnowflakeMap => typeof(ThreePlayersMediumSnowflakeMap),
-            MapTemplate.ThreePlayersMediumMantaRayMap => typeof(ThreePlayersMediumMantaRayMap),
-            MapTemplate.ThreePlayersMediumTridentMap => typeof(ThreePlayersMediumTridentMap),
-            MapTemplate.ThreePlayersMediumRexMap => typeof(ThreePlayersMediumRexMap),
-            MapTemplate.FourPlayersMediumMap => typeof(FourPlayersMediumMap),
-            MapTemplate.FourPlayersMediumHorizontalMap => typeof(FourPlayersMediumHorizontalMap),
-            MapTemplate.FourPlayersMediumVerticalMap => typeof(FourPlayersMediumVerticalMap),
-            MapTemplate.FourPlayersMediumGapsMap => typeof(FourPlayersMediumGapsMap),
-            MapTemplate.FourPlayersMediumWarpMap => typeof(FourPlayersMediumWarpMap),
-            MapTemplate.FourPlayersMediumMiniWarpMap => typeof(FourPlayersMediumMiniWarpMap),
-            MapTemplate.FourPlayersMediumDoubleWarpMap => typeof(FourPlayersMediumDoubleWarpMap),
-            MapTemplate.FivePlayersMediumMap => typeof(FivePlayersMediumMap),
-            MapTemplate.FivePlayersMediumHyperlineMap => typeof(FivePlayersMediumHyperlineMap),
-            MapTemplate.FivePlayersMediumDiamondMap => typeof(FivePlayersMediumDiamondMap),
-            MapTemplate.FivePlayersLargeFlatMap => typeof(FivePlayersLargeFlatMap),
-            MapTemplate.SixPlayersMediumMap => typeof(SixPlayersMediumMap),
-            MapTemplate.SixPlayersMediumSpiralMap => typeof(SixPlayersMediumSpiralMap),
-            MapTemplate.SixPlayersLargeMap => typeof(SixPlayersLargeMap),
-            MapTemplate.SevenPlayersLargeHyperlineMap => typeof(SevenPlayersLargeHyperlineMap),
-            MapTemplate.SevenPlayersLargeWarpMap => typeof(SevenPlayersLargeWarpMap),
-            MapTemplate.EightPlayersLargeMap => typeof(EightPlayersLargeMap),
-            MapTemplate.EightPlayersLargeWarpMap => typeof(EightPlayersLargeWarpMap),
-            _ => throw new NotImplementedException(),
-        };
-
-        return mapTemplateType;
-    }
-
     private async Task UpdateMapTemplate(MapTemplate mapTemplate)
     {
         await MapGeneratorService.GenerateMapAsync(true, CancellationToken.None);
         GeneratedPositionsWithSystemTiles = MapGeneratorService.GeneratedPositionsWithSystemTiles;
         await MapGeneratorSettingsService.InitializePlayersForMapGenerator();
         StateHasChanged();
-    }
-
-    private Task UpdateMapOverlay()
-    {
-        StateHasChanged();
-        return Task.CompletedTask;
     }
 
     private async Task GenerateMap()
@@ -209,9 +164,8 @@ public partial class MapGeneratorMainGrid
         if (iconType == IconType.ShareMap)
         {
             var mapCode = await MapToStringConverter.ConvertMapToBase64String();
-            var mapTemplate = MapGeneratorSettingsService.MapTemplate.ToString();
-            var baseAddress = NavigationManager.BaseUri;
-            var mapUrl = $"{baseAddress}tools/map-generator?template={mapTemplate}&tiles={mapCode}";
+            var mapTemplate = MapGeneratorSettingsService.MapTemplate;
+            var mapUrl = await MapToStringConverter.GenerateMapGeneratorLink(mapTemplate, mapCode);
             var module = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./Components/MapGenerator/MapGeneratorMainGrid.razor.js");
             await module.InvokeVoidAsync("copyToClipboard", mapUrl);
         }
@@ -228,6 +182,13 @@ public partial class MapGeneratorMainGrid
             GeneratedPositionsWithSystemTiles = MapGeneratorService.GeneratedPositionsWithSystemTiles;
             await UpdateMapOverlay();
             StateHasChanged();
+        }
+
+        if (iconType == IconType.Archive)
+        {
+            var mapTemplate = MapGeneratorSettingsService.MapTemplate;
+            var map64BaseString = await MapToStringConverter.ConvertMapToBase64String();
+            await MapGeneratorArchiveService.RedirectToAddToArchivePage(mapTemplate, map64BaseString);
         }
     }
 }

@@ -1,0 +1,90 @@
+﻿@page "/community/maps-archive/map/{MapId:int}"
+
+@using TwilightImperiumUltimate.Web.Components.MapGenerator
+@using TwilightImperiumUltimate.Web.Components.Shared.Bars
+@using TwilightImperiumUltimate.Web.Helpers.Enums
+
+<Page>
+
+    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" >
+        <TextButton Text="@Strings.ButtonBack" OnClick="RedirectBack" FontSize="24"/>
+    </FlexRowContainer>
+    
+    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexEnd">
+        <QuickMenuItem IconType="IconType.DownloadMapImage" IconTypeClicked="IconType.DownloadMapImageClicked" OnClick="async () => await HandleDownloadIconClick()" />
+    </FlexRowContainer>
+
+    @if (!_map.Keys.Any())
+        return;
+
+    <div id="mapArea" style="width=100%;">
+
+        <FlexColumnCenteredContainer>
+
+            <FlexColumnCenteredContainer Width="70">
+
+                <Title Text="@Map.Name"  MarginTop="0" MarginBottom="20" />
+
+                <FlexRowContainer>
+                    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" Width="50">
+                        <Label Text="@Strings.MapArchive_MapRating" Style="margin-right: 10px;" Width="20"/>
+                        <StarRating Rating="@Map.Rating" IsReadOnly="true" />
+                    </FlexRowContainer>
+                    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexEnd" Width="50">
+                        <Label Text="@Strings.MapArchive_UserRating" Style="margin-right: 10px;" Width="30"/>
+                        <StarRating Rating="@_userRating" OnRatingChange="UpdateUserMapRating" />
+                    </FlexRowContainer>
+                </FlexRowContainer>
+
+
+                @DynamicComponent
+
+                <VerticalSpace Height="100" />
+
+                <GridLayout Columns="4" Gap="40">
+
+                    <Label Text="@Strings.MapArchive_MapAuthor" />
+                    <Label Text="@Map.UserName" Style="grid-column: span 3;" />
+
+                    <Label Text="@Strings.MapArchive_MapEvent" />
+                    <Label Text="@Map.EventName" Style="grid-column: span 3;" />
+
+                    <Label Text="@Strings.MapArchive_MapTemplate" />
+                    <Label Text="@Map.MapTemplate.GetDisplayName()" Style="grid-column: span 3;" />
+
+                    <Label Text="@Strings.MapArchive_MapDescription" Style="grid-column: span 4;" />
+
+                    <FlexColumnCenteredContainer Style="grid-column: span 4;">
+
+                        <VerticalSpace Height="20" />
+
+                        <div class="handel white shadow">
+                            @MarkupStringDescription
+                        </div>
+
+                        <VerticalSpace Height="20" />
+                    </FlexColumnCenteredContainer>
+
+                    <Label Text="@Strings.MapArchive_TtsString" />
+
+                    <Label Text="@Map.TtsString" CssClass="text-break-all" Style="grid-column: span 3;" />
+
+                    <Label Text="@Strings.MapArchive_MapGeneratorLink" />
+
+                    <Label Text="@Map.MapGeneratorLink" CssClass="text-break-all" Style="grid-column: span 3;" />
+
+                    <Label Text="@Strings.MapArchive_MapArchiveLink" />
+
+                    <Label Text="@Map.MapArchiveLink" CssClass="text-break-all" Style="grid-column: span 3;" />
+
+                </GridLayout>
+
+                <VerticalSpace Height="20" />
+
+            </FlexColumnCenteredContainer>
+
+        </FlexColumnCenteredContainer>
+
+    </div>
+
+</Page>

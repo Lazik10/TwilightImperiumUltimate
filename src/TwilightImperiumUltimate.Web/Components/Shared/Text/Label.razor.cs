@@ -9,6 +9,9 @@ public partial class Label
     public string CssClass { get; set; } = string.Empty;
 
     [Parameter]
+    public string Style { get; set; } = string.Empty;
+
+    [Parameter]
     public int FontSize { get; set; } = 16;
 
     [Parameter]

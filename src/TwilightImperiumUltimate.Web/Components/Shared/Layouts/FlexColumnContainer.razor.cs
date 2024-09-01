@@ -9,6 +9,9 @@ public partial class FlexColumnContainer
     public string CssClass { get; set; } = string.Empty;
 
     [Parameter]
+    public string Style { get; set; } = string.Empty;
+
+    [Parameter]
     public int Height { get; set; } = 100;
 
     [Parameter]
