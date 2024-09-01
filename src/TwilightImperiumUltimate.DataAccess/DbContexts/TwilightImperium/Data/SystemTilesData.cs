@@ -48,7 +48,7 @@ internal static class SystemTilesData
         {
             Id = 5,
             SystemTileName = SystemTileName.TileTransparent,
-            SystemTileCode = string.Empty,
+            SystemTileCode = "T",
             FactionName = FactionName.None,
             Anomaly = AnomalyName.None,
             TileCategory = SystemTileCategory.None,
