@@ -4,6 +4,9 @@ internal sealed class TwilightImperiumUserConfiguration : IEntityTypeConfigurati
 {
     public void Configure(EntityTypeBuilder<TwilightImperiumUser> builder)
     {
+        builder.HasIndex(x => x.UserName)
+            .IsUnique();
+
         // One-to-Many: User -> Maps
         builder.HasMany(u => u.Maps)
                .WithOne(m => m.User)
