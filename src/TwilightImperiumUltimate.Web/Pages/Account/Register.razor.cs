@@ -1,5 +1,3 @@
-using System.Net.Http;
-using System.Threading;
 using TwilightImperiumUltimate.Contracts.ApiContracts.Account;
 using TwilightImperiumUltimate.Contracts.ApiContracts.User;
 using TwilightImperiumUltimate.Contracts.DTOs.User;
@@ -13,6 +11,7 @@ public partial class Register
     private bool _registeringUser;
     private bool _registrationSuceeded;
     private string _errorMessage = string.Empty;
+    private string _userName = string.Empty;
 
     [Inject]
     private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
@@ -73,10 +72,25 @@ public partial class Register
         if (statusCode == HttpStatusCode.OK)
         {
             var roleRequest = new AddRoleToUserRequest() { RoleName = "User", UserId = response!.Data!.Id };
-            var (newResponse, newStatusCode) =await HttpClient.PostAsync<AddRoleToUserRequest, AddRoleToUserResponse>(Paths.ApiPath_AddRole, roleRequest);
+            var (_, newStatusCode) = await HttpClient.PostAsync<AddRoleToUserRequest, AddRoleToUserResponse>(Paths.ApiPath_AddRole, roleRequest);
 
-            var newResponseTwo = newResponse;
-            var newStatusCodeTwo = newStatusCode;
+            if (newStatusCode == HttpStatusCode.OK)
+            {
+                var request = new TwilightImperiumUserDto(
+                    string.Empty,
+                    _userName,
+                    string.Empty,
+                    string.Empty,
+                    RegistrationUserModel.Email,
+                    string.Empty,
+                    0,
+                    FactionName.None,
+                    string.Empty,
+                    string.Empty,
+                    string.Empty);
+
+                await HttpClient.PutAsync<TwilightImperiumUserDto, ApiResponse<TwilightImperiumUserDto>>(Paths.ApiPath_UpdateUserName, request, default);
+            }
         }
     }
 

@@ -62,7 +62,7 @@ public partial class Planets
         {
             var planets = Mapper.Map<List<PlanetModel>>(response!.Data!.Items);
             _planets = planets
-                .Where(x => x.PlanetName != PlanetName.MalliceInactive && x.GameVersion != GameVersion.AscendantSun)
+                .Where(x => x.PlanetName != PlanetName.MalliceInactive)
                 .OrderBy(x => x.GameVersion)
                 .ThenBy(x => x.PlanetName)
                 .ToList();

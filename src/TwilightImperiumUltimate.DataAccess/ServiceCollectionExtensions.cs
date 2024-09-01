@@ -50,6 +50,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IWebsiteRepository, WebsiteRepository>();
         services.AddScoped<IFaqRepository, FaqRepository>();
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IMapArchiveRepository, MapArchiveRepository>();
 
         return services;
     }

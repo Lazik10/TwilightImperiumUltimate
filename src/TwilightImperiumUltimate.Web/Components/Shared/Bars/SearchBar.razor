@@ -1,11 +1,15 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @using TwilightImperiumUltimate.Web.Resources
 
-<FlexRowContainer Width="@Width" JustifyContent="Enums.JustifyContent.Center" AlignItems="Enums.AlignItems.Center">
-    <Label Text="@(Text)" />
-    <HorizontalSpace Width="150"/>
+<FlexRowContainer Width="@Width" JustifyContent="Enums.JustifyContent.Center" AlignItems="Enums.AlignItems.Center" Style="height: 100%;">
+    @if (!HideText)
+    {
+        <Label Text="@(Text)" />
+        <HorizontalSpace Width="150"/>
+    }
     <RadzenTextBox Placeholder="@SearchPlaceholder"
                    @bind-Value="SearchTerm"
-                   @oninput="@(args => SearchKeyword(args.Value?.ToString()!))"
-                   class="w-20 title white handel" />
+                   @oninput="@(args => SearchKeyword(args.Value?.ToString()))"
+                   class="title white handel"
+                   Style="@GetHeight()" />
 </FlexRowContainer>

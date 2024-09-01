@@ -16,4 +16,6 @@ public enum IconType
     CopyMapStringClicked,
     ImportMapStringClicked,
     Info,
+    Archive,
+    ArchiveClicked,
 }

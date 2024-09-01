@@ -106,6 +106,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to api/map-archive/add-map.
+        /// </summary>
+        public static string ApiPath_AddNewMapToArchive {
+            get {
+                return ResourceManager.GetString("ApiPath_AddNewMapToArchive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to api/users/add-role.
         /// </summary>
         public static string ApiPath_AddRole {
@@ -228,6 +237,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string ApiPath_ManageInfo {
             get {
                 return ResourceManager.GetString("ApiPath_ManageInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/map-archive/maps.
+        /// </summary>
+        public static string ApiPath_MapArchiveMaps {
+            get {
+                return ResourceManager.GetString("ApiPath_MapArchiveMaps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/map-ratings/user.
+        /// </summary>
+        public static string ApiPath_MapRatingsUser {
+            get {
+                return ResourceManager.GetString("ApiPath_MapRatingsUser", resourceCulture);
             }
         }
         
@@ -394,6 +421,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to api/users/user-name-update.
+        /// </summary>
+        public static string ApiPath_UpdateUserName {
+            get {
+                return ResourceManager.GetString("ApiPath_UpdateUserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to api/users/email.
         /// </summary>
         public static string ApiPath_UserByEmail {
@@ -426,6 +462,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string ApiPath_UserUpdate {
             get {
                 return ResourceManager.GetString("ApiPath_UserUpdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New map.
+        /// </summary>
+        public static string MapArchiveButton_NewMap {
+            get {
+                return ResourceManager.GetString("MapArchiveButton_NewMap", resourceCulture);
             }
         }
         
@@ -723,6 +768,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string ResourcePath_WebsitePreviewPath {
             get {
                 return ResourceManager.GetString("ResourcePath_WebsitePreviewPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /community/maps-archive.
+        /// </summary>
+        public static string WebsitePath_MapsArchive {
+            get {
+                return ResourceManager.GetString("WebsitePath_MapsArchive", resourceCulture);
             }
         }
     }

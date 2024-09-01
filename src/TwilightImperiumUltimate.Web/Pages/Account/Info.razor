@@ -15,7 +15,7 @@
 
     <FlexRowContainer Width="50" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.SpaceEvenly">
         <Label Text="@Strings.User_UserName" />
-        <RadzenTextBox @bind-Value="User.UserName"
+        <RadzenTextBox @bind-Value="User!.UserName"
                         class="w-50 flex-row title white handel" />
     </FlexRowContainer>
 
@@ -23,7 +23,7 @@
 
     <FlexRowContainer Width="50" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.SpaceEvenly">
         <Label Text="@Strings.User_FirstName" />
-        <RadzenTextBox @bind-Value="User.FirstName"
+        <RadzenTextBox @bind-Value="User!.FirstName"
                         class="w-100 flex-row title white handel" />
     </FlexRowContainer>
 
@@ -31,7 +31,7 @@
 
     <FlexRowContainer Width="50" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.SpaceEvenly">
         <Label Text="@Strings.User_LastName" />
-        <RadzenTextBox @bind-Value="User.LastName"
+        <RadzenTextBox @bind-Value="User!.LastName"
                         class="w-100 flex-row title white handel" />
     </FlexRowContainer>
 
@@ -39,7 +39,7 @@
 
     <FlexRowContainer Width="50" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.SpaceEvenly">
         <Label Text="@Strings.User_Email" />
-        <RadzenTextBox @bind-Value="User.Email"
+        <RadzenTextBox @bind-Value="User!.Email"
                         class="w-100 flex-row title white handel" />
     </FlexRowContainer>
 
@@ -54,7 +54,7 @@
 
     <FlexRowContainer Width="50" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.SpaceEvenly">
         <Label Text="@Strings.User_PhoneNumber" />
-        <RadzenTextBox @bind-Value="User.PhoneNumber"
+        <RadzenTextBox @bind-Value="User!.PhoneNumber"
                         class="w-100 flex-row title white handel" />
     </FlexRowContainer>
 
@@ -62,7 +62,7 @@
 
     <FlexRowContainer Width="50" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.SpaceEvenly">
         <Label Text="@Strings.User_UserInfo" />
-        <RadzenTextBox @bind-Value="User.UserInfo"
+        <RadzenTextBox @bind-Value="User!.UserInfo"
                         class="w-100 flex-row title white handel" />
     </FlexRowContainer>
 
@@ -77,7 +77,7 @@
 
     <FlexRowContainer Width="50" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.SpaceEvenly">
         <Label Text="@Strings.User_DiscordId" />
-        <RadzenTextBox @bind-Value="User.DiscordId"
+        <RadzenTextBox @bind-Value="User!.DiscordId"
                         class="w-100 flex-row title white handel" />
     </FlexRowContainer>
 
@@ -85,7 +85,7 @@
 
     <FlexRowContainer Width="50" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.SpaceEvenly">
         <Label Text="@Strings.User_SteamId" />
-        <RadzenTextBox @bind-Value="User.SteamId"
+        <RadzenTextBox @bind-Value="User!.SteamId"
                         class="w-100 flex-row title white handel" />
     </FlexRowContainer>
 

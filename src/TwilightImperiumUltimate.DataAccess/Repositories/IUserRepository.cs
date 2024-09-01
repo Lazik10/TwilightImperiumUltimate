@@ -17,4 +17,6 @@ public interface IUserRepository
     Task<bool> AddUserToRole(string userId, string roleName);
 
     Task<bool> DeleteUserFromRole(string userId, string roleName);
+
+    Task<TwilightImperiumUser?> UpdateInitialUserName(string email, string userName);
 }

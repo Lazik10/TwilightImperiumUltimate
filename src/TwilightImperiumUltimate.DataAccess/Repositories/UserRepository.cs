@@ -1,10 +1,30 @@
+using Microsoft.Extensions.Logging;
+using System.Globalization;
+
 namespace TwilightImperiumUltimate.DataAccess.Repositories;
 
 public class UserRepository(
-    IDbContextFactory<TwilightImperiumDbContext> context)
+    IDbContextFactory<TwilightImperiumDbContext> context,
+    ILogger<UserRepository> logger)
     : IUserRepository
 {
     private readonly IDbContextFactory<TwilightImperiumDbContext> _context = context;
+    private readonly ILogger<UserRepository> _logger = logger;
+    private readonly Random _random = new();
+
+    public static void UpdateDbUser(TwilightImperiumUser dbUser, TwilightImperiumUser user)
+    {
+        dbUser.UserName = user.UserName;
+        dbUser.FirstName = user.FirstName;
+        dbUser.LastName = user.LastName;
+        dbUser.Email = user.Email;
+        dbUser.Age = user.Age;
+        dbUser.PhoneNumber = user.PhoneNumber;
+        dbUser.UserInfo = user.UserInfo;
+        dbUser.FavoriteFaction = user.FavoriteFaction;
+        dbUser.DiscordId = user.DiscordId;
+        dbUser.SteamId = user.SteamId;
+    }
 
     public async Task<IReadOnlyCollection<TwilightImperiumUser>> GetAllUsers()
     {
@@ -38,20 +58,6 @@ public class UserRepository(
         dbContext.Update(dbUser);
         await dbContext.SaveChangesAsync();
         return true;
-    }
-
-    public void UpdateDbUser(TwilightImperiumUser dbUser, TwilightImperiumUser user)
-    {
-        dbUser.UserName = user.UserName;
-        dbUser.FirstName = user.FirstName;
-        dbUser.LastName = user.LastName;
-        dbUser.Email = user.Email;
-        dbUser.Age = user.Age;
-        dbUser.PhoneNumber = user.PhoneNumber;
-        dbUser.UserInfo = user.UserInfo;
-        dbUser.FavoriteFaction = user.FavoriteFaction;
-        dbUser.DiscordId = user.DiscordId;
-        dbUser.SteamId = user.SteamId;
     }
 
     public async Task<IReadOnlyCollection<IdentityRole>> GetAllRoles()
@@ -121,5 +127,33 @@ public class UserRepository(
         await dbContext.SaveChangesAsync();
 
         return true;
+    }
+
+    public async Task<TwilightImperiumUser?> UpdateInitialUserName(string email, string userName)
+    {
+        await using var dbContext = await _context.CreateDbContextAsync();
+        var dbUser = await dbContext.Users.FirstOrDefaultAsync(x => x.Email == email);
+
+        if (dbUser is null)
+            return new TwilightImperiumUser();
+
+        if (!string.IsNullOrWhiteSpace(userName))
+        {
+            try
+            {
+                dbUser.UserName = userName;
+                dbContext.Update(dbUser);
+                await dbContext.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogInformation(ex, "Creating random username for user: {Email}", dbUser.Email!);
+                dbUser.UserName = userName + _random.Next(0, 10) + _random.Next(0, 10) + _random.Next(0, 10);
+                dbContext.Update(dbUser);
+                await dbContext.SaveChangesAsync();
+            }
+        }
+
+        return dbUser;
     }
 }

@@ -59,6 +59,20 @@
 
                 <VerticalSpace Height="50" />
 
+                <FlexRowContainer Width="40">
+                    <Label Text="@Strings.Register_UserName" Width="50" CenterText="true" />
+                </FlexRowContainer>
+
+                <VerticalSpace Height="20" />
+
+                <FlexRowContainer Width="40">
+                    <RadzenTextBox Placeholder="@Strings.Register_UserName"
+                                   @bind-Value="_userName"
+                                   class="w-20 flex-row title white handel" />
+                </FlexRowContainer>
+
+                <VerticalSpace Height="50" />
+
                 <FlexRowContainer JustifyContent="Enums.JustifyContent.Center" Width="40">
                     <Label Text="@Strings.Register_Password" Width="50" CenterText="true" />
                 </FlexRowContainer>

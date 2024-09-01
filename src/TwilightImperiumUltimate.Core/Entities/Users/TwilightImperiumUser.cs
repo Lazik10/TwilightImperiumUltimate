@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using TwilightImperiumUltimate.Contracts.Enums;
+using TwilightImperiumUltimate.Core.Entities.Galaxy;
+using TwilightImperiumUltimate.Core.Entities.RelationshipEntities;
 
 namespace TwilightImperiumUltimate.Core.Entities.Users;
 
@@ -18,4 +20,8 @@ public class TwilightImperiumUser : IdentityUser
     public string DiscordId { get; set; } = string.Empty;
 
     public string SteamId { get; set; } = string.Empty;
+
+    public IReadOnlyCollection<Map> Maps { get; set; } = new List<Map>();
+
+    public IReadOnlyCollection<MapRating> MapRatings { get; set; } = new List<MapRating>();
 }

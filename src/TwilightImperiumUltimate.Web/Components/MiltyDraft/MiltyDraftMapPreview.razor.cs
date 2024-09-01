@@ -1,6 +1,5 @@
 using Microsoft.JSInterop;
-using System.Reflection.Emit;
-using TwilightImperiumUltimate.Web.Components.MiltyDraft.MapGrids;
+using TwilightImperiumUltimate.Web.Helpers.Maps;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
 using TwilightImperiumUltimate.Web.Services.MiltyDraft;
 
@@ -21,40 +20,13 @@ public partial class MiltyDraftMapPreview
 
     private RenderFragment DynamicComponent => builder =>
     {
-        builder.OpenComponent(0, AssignMapType());
+        builder.OpenComponent(0, MiltyDraftService.CurrentDraftMapTemplate.GetPreviewMapTypeFromMapTemplate());
         var generatedPositionsWithSystemTiles = MiltyDraftService.GeneratedPositionsWithSystemTiles;
         builder.AddAttribute(1, "GeneratedPositionsWithSystemTiles", generatedPositionsWithSystemTiles);
         builder.CloseComponent();
     };
 
-    private Type AssignMapType()
-    {
-        var mapTemplate = MiltyDraftService.CurrentDraftMapTemplate;
-
-        var mapTemplateType = mapTemplate switch
-        {
-            MapTemplate.FivePlayersMediumHyperlineMap => typeof(MiltyDraftFivePlayersMediumHyperlineMap),
-            MapTemplate.SixPlayersMediumMap => typeof(MiltyDraftSixPlayersMediumMap),
-            MapTemplate.SevenPlayersLargeWarpMap => typeof(MiltyDraftSevenPlayersLargeWarpMap),
-            MapTemplate.EightPlayersLargeWarpMap => typeof(MiltyDraftEightPlayersLargeWarpMap),
-            _ => typeof(MiltyDraftSixPlayersMediumMap),
-        };
-
-        return mapTemplateType;
-    }
-
-    private bool IsSupportedMapPreview()
-    {
-        var supportedMapTemplates = new List<MapTemplate>()
-        {
-            MapTemplate.FivePlayersMediumHyperlineMap,
-            MapTemplate.SixPlayersMediumMap,
-            MapTemplate.SevenPlayersLargeWarpMap,
-            MapTemplate.EightPlayersLargeWarpMap,
-        };
-
-        return supportedMapTemplates.Contains(MiltyDraftService.CurrentDraftMapTemplate);
-    }
+    private bool IsSupportedPreviewMap() => MiltyDraftService.CurrentDraftMapTemplate.IsSupportedPreviewForMiltyDraftMap();
 
     private async Task HandleDownloadImage(IconType iconType)
     {

@@ -51,19 +51,19 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "945781e4-c996-4a3a-803c-c46c24d1f082",
+                            Id = "97dcd62b-d209-400b-89d7-c1f589c77176",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "4e6df00b-ccb0-4c7b-ba6a-34daee4cea49",
+                            Id = "df490e55-c2e8-4e71-b622-2f8ceac79aea",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "5d80234f-eb74-4b81-92a3-c67b39d6d386",
+                            Id = "6f36cbdb-d8e7-4e2c-9c6c-8272f078e659",
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
                         });
@@ -4336,7 +4336,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 1,
                             EnumName = "Leadership",
                             GameVersion = "BaseGame",
-                            InitiativeOrder = "One",
+                            InitiativeOrder = "First",
                             PrimaryAbilityText = "",
                             SecondaryAbilityText = "",
                             Text = "",
@@ -4347,7 +4347,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 2,
                             EnumName = "Diplomacy",
                             GameVersion = "Deprecated",
-                            InitiativeOrder = "Two",
+                            InitiativeOrder = "Second",
                             PrimaryAbilityText = "",
                             SecondaryAbilityText = "",
                             Text = "",
@@ -4358,7 +4358,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 3,
                             EnumName = "Politics",
                             GameVersion = "BaseGame",
-                            InitiativeOrder = "Three",
+                            InitiativeOrder = "Third",
                             PrimaryAbilityText = "",
                             SecondaryAbilityText = "",
                             Text = "",
@@ -4369,7 +4369,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 4,
                             EnumName = "Construction",
                             GameVersion = "Deprecated",
-                            InitiativeOrder = "Four",
+                            InitiativeOrder = "Fourth",
                             PrimaryAbilityText = "",
                             SecondaryAbilityText = "",
                             Text = "",
@@ -4380,7 +4380,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 5,
                             EnumName = "Trade",
                             GameVersion = "BaseGame",
-                            InitiativeOrder = "Five",
+                            InitiativeOrder = "Fifth",
                             PrimaryAbilityText = "",
                             SecondaryAbilityText = "",
                             Text = "",
@@ -4391,7 +4391,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 6,
                             EnumName = "Warfare",
                             GameVersion = "BaseGame",
-                            InitiativeOrder = "Six",
+                            InitiativeOrder = "Sixth",
                             PrimaryAbilityText = "",
                             SecondaryAbilityText = "",
                             Text = "",
@@ -4402,7 +4402,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 7,
                             EnumName = "Technology",
                             GameVersion = "BaseGame",
-                            InitiativeOrder = "Seven",
+                            InitiativeOrder = "Seventh",
                             PrimaryAbilityText = "",
                             SecondaryAbilityText = "",
                             Text = "",
@@ -4413,7 +4413,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 8,
                             EnumName = "Imperial",
                             GameVersion = "BaseGame",
-                            InitiativeOrder = "Eight",
+                            InitiativeOrder = "Eighth",
                             PrimaryAbilityText = "",
                             SecondaryAbilityText = "",
                             Text = "",
@@ -4424,7 +4424,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 9,
                             EnumName = "DiplomacyCodexOrdinian",
                             GameVersion = "CodexOrdinian",
-                            InitiativeOrder = "Two",
+                            InitiativeOrder = "Second",
                             PrimaryAbilityText = "",
                             SecondaryAbilityText = "",
                             Text = "",
@@ -4435,7 +4435,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 10,
                             EnumName = "ConstructionProphecyOfKings",
                             GameVersion = "ProphecyOfKings",
-                            InitiativeOrder = "Four",
+                            InitiativeOrder = "Fourth",
                             PrimaryAbilityText = "",
                             SecondaryAbilityText = "",
                             Text = "",
@@ -8681,6 +8681,214 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         });
                 });
 
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Galaxy.Map", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("varchar(MAX)")
+                        .HasColumnName("Description")
+                        .HasColumnOrder(3);
+
+                    b.Property<string>("EventName")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)")
+                        .HasColumnName("EventName")
+                        .HasColumnOrder(2);
+
+                    b.Property<string>("MapArchiveLink")
+                        .IsRequired()
+                        .HasColumnType("varchar(MAX)")
+                        .HasColumnName("MapArchiveLink")
+                        .HasColumnOrder(7);
+
+                    b.Property<string>("MapGeneratorLink")
+                        .IsRequired()
+                        .HasColumnType("varchar(MAX)")
+                        .HasColumnName("MapGeneratorLink")
+                        .HasColumnOrder(6);
+
+                    b.Property<string>("MapTemplate")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("MapTemplate")
+                        .HasColumnOrder(4);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)")
+                        .HasColumnName("Name")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("TtsString")
+                        .IsRequired()
+                        .HasColumnType("varchar(MAX)")
+                        .HasColumnName("TtsString")
+                        .HasColumnOrder(5);
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("UserId")
+                        .HasColumnOrder(9);
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("varchar(256)")
+                        .HasColumnName("UserName")
+                        .HasColumnOrder(8);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("Name", "EventName")
+                        .IsUnique();
+
+                    b.ToTable("Maps", "Galaxy");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Three-Player galaxy setup map suggestion in Learn to Play by Fantasy Flight Games.",
+                            EventName = "Learn to Play",
+                            MapArchiveLink = "https://ti4ultimate.com/community/maps-archive/map/1",
+                            MapGeneratorLink = "https://ti4ultimate.com/tools/map-generator?template=ThreePlayersMediumTriangleMap&tiles=NDIgMjQgNDUgMjIgNDQgMTkgMzMgNDcgMjcgMjYgMzAgNDAgMzUgMjMgMzYgMzkgMzggMjUgMCAzNCAwIDAgMCAyOCAwIDIxIDAgMCAwIDUwIDAgMzEgMCAwIDAgMjk=",
+                            MapTemplate = "ThreePlayersMediumTriangleMap",
+                            Name = "Three-Player Galaxy Setup",
+                            TtsString = "42 24 45 22 44 19 33 47 27 26 30 40 35 23 36 39 38 25 0 34 0 0 0 28 0 21 0 0 0 50 0 31 0 0 0 29",
+                            UserId = "1",
+                            UserName = "Admin"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "Four-Player galaxy setup map suggestion in Learn to Play by Fantasy Flight Games.",
+                            EventName = "Learn to Play",
+                            MapArchiveLink = "https://ti4ultimate.com/community/maps-archive/map/2",
+                            MapGeneratorLink = "https://ti4ultimate.com/tools/map-generator?template=FourPlayersMediumMap&tiles=NDggNDQgMzggNDIgMjggNDUgMjMgMjYgMzIgMzQgNDkgMzMgMzYgMzkgMjcgMzAgNDcgMzUgMjQgNDEgNTAgMzEgMCAyMCAyNSAzNyAwIDIyIDQzIDI5IDQ2IDAgMTkgNDAgMjEgMA==",
+                            MapTemplate = "FourPlayersMediumMap",
+                            Name = "Four-Player Galaxy Setup",
+                            TtsString = "48 44 38 42 28 45 23 26 32 34 49 33 36 39 27 30 47 35 24 41 50 31 0 20 25 37 0 22 43 29 46 0 19 40 21 0",
+                            UserId = "1",
+                            UserName = "Admin"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "Five-Player galaxy setup map suggestion in Learn to Play by Fantasy Flight Games.",
+                            EventName = "Learn to Play",
+                            MapArchiveLink = "https://ti4ultimate.com/community/maps-archive/map/3",
+                            MapGeneratorLink = "https://ti4ultimate.com/tools/map-generator?template=FivePlayersMediumMap&tiles=NDUgMjIgNDQgMTkgNDIgMjQgMzAgNDAgMzUgMjMgMzYgMzkgMzggMjUgMzMgNDcgMjAgMjYgMjggNDkgMCAzMiA0MyA1MCAwIDMxIDQ4IDAgMzcgMjkgMCAzNCAyNyA0NiAwIDIx",
+                            MapTemplate = "FivePlayersMediumMap",
+                            Name = "Five-Player Galaxy Setup",
+                            TtsString = "45 22 44 19 42 24 30 40 35 23 36 39 38 25 33 47 20 26 28 49 0 32 43 50 0 31 48 0 37 29 0 34 27 46 0 21",
+                            UserId = "1",
+                            UserName = "Admin"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Description = "Six-Player galaxy setup map suggestion in Learn to Play by Fantasy Flight Games.",
+                            EventName = "Learn to Play",
+                            MapArchiveLink = "https://ti4ultimate.com/community/maps-archive/map/4",
+                            MapGeneratorLink = "https://ti4ultimate.com/tools/map-generator?template=SixPlayersMediumMap&tiles=MjIgNDQgMTkgNDIgMjQgNDUgMzUgMjMgMzYgMzkgMzggMjUgMzMgNDcgMjcgMjYgMzAgNDAgMCAzMiA1MCAwIDMxIDQ4IDAgMzcgMjkgMCAzNCAyMCAwIDQ5IDI4IDAgMjEgNDM=",
+                            MapTemplate = "SixPlayersMediumMap",
+                            Name = "Six-Player Galaxy Setup",
+                            TtsString = "22 44 19 42 24 45 35 23 36 39 38 25 33 47 27 26 30 40 0 32 50 0 31 48 0 37 29 0 34 20 0 49 28 0 21 43",
+                            UserId = "1",
+                            UserName = "Admin"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Description = "Three-Player galaxy setup map suggestion in Prophecy of Kings rulebook by Fantasy Flight Games.",
+                            EventName = "PoK Rulebook",
+                            MapArchiveLink = "https://ti4ultimate.com/community/maps-archive/map/5",
+                            MapGeneratorLink = "https://ti4ultimate.com/tools/map-generator?template=ThreePlayersMediumTriangleMap&tiles=NDggNzIgNDkgMzEgNDYgNzQgMzYgNDQgNzEgNjIgNzAgNzcgNjkgMjQgMjggNDEgMzUgNjMgMCA0MCAwIDAgMCAyNSAwIDc5IDAgMCAwIDY0IDAgMzkgMCAwIDAgMjY=",
+                            MapTemplate = "ThreePlayersMediumTriangleMap",
+                            Name = "Three-Player Galaxy Setup",
+                            TtsString = "48 72 49 31 46 74 36 44 71 62 70 77 69 24 28 41 35 63 0 40 0 0 0 25 0 79 0 0 0 64 0 39 0 0 0 26",
+                            UserId = "1",
+                            UserName = "Admin"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Description = "Four-Player galaxy setup map suggestion in Prophecy of Kings rulebook by Fantasy Flight Games.",
+                            EventName = "PoK Rulebook",
+                            MapArchiveLink = "https://ti4ultimate.com/community/maps-archive/map/6",
+                            MapGeneratorLink = "https://ti4ultimate.com/tools/map-generator?template=FourPlayersMediumMap&tiles=MjYgNzYgNjcgNjQgNzAgNDUgNzEgNjYgNjggNjAgMzkgNjkgNDcgNjUgNzggNjIgNzUgNjMgNDIgNDAgNzcgNzMgMCA0OCA3NCA0MSAwIDU5IDUwIDc5IDcyIDAgODAgMjAgNjEgMA==",
+                            MapTemplate = "FourPlayersMediumMap",
+                            Name = "Four-Player Galaxy Setup",
+                            TtsString = "26 76 67 64 70 45 71 66 68 60 39 69 47 65 78 62 75 63 42 40 77 73 0 48 74 41 0 59 50 79 72 0 80 20 61 0",
+                            UserId = "1",
+                            UserName = "Admin"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Description = "Five-Player galaxy setup map suggestion in Prophecy of Kings rulebook by Fantasy Flight Games.",
+                            EventName = "PoK Rulebook",
+                            MapArchiveLink = "https://ti4ultimate.com/community/maps-archive/map/7",
+                            MapGeneratorLink = "https://ti4ultimate.com/tools/map-generator?template=FivePlayersMediumHyperlineMap&tiles=NzcgNDAgNDEgODVBIDM5IDY1IDY3IDYwIDcwIDY2IDc0IDg4QSA3NSA4N0EgNjggNzIgNzMgNjkgMCA2MiA3NiAwIDc5IDcxIDAgODAgODNBIDg2QSA4NEEgNjMgMCA2NCA3OCAwIDYxIDU5",
+                            MapTemplate = "FivePlayersMediumHyperlineMap",
+                            Name = "Five-Player Galaxy Setup",
+                            TtsString = "77 40 41 85A 39 65 67 60 70 66 74 88A 75 87A 68 72 73 69 0 62 76 0 79 71 0 80 83A 86A 84A 63 0 64 78 0 61 59",
+                            UserId = "1",
+                            UserName = "Admin"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Description = "Six-Player galaxy setup map suggestion in Prophecy of Kings rulebook by Fantasy Flight Games.",
+                            EventName = "PoK Rulebook",
+                            MapArchiveLink = "https://ti4ultimate.com/community/maps-archive/map/8",
+                            MapGeneratorLink = "https://ti4ultimate.com/tools/map-generator?template=SixPlayersMediumMap&tiles=MjYgNjEgNjQgNTkgNjIgNjMgNzEgNDUgNjkgNDEgNjUgNjggNzIgNzkgNjYgODAgNzUgNjcgMCA3MyA0MCAwIDc0IDQ2IDAgMzcgNDkgMCA2MCA3NyAwIDc2IDQ3IDAgNzAgNzg=",
+                            MapTemplate = "SixPlayersMediumMap",
+                            Name = "Six-Player Galaxy Setup",
+                            TtsString = "26 61 64 59 62 63 71 45 69 41 65 68 72 79 66 80 75 67 0 73 40 0 74 46 0 37 49 0 60 77 0 76 47 0 70 78",
+                            UserId = "1",
+                            UserName = "Admin"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Description = "Seven-Player galaxy setup map suggestion in Prophecy of Kings rulebook by Fantasy Flight Games.",
+                            EventName = "PoK Rulebook",
+                            MapArchiveLink = "https://ti4ultimate.com/community/maps-archive/map/9",
+                            MapGeneratorLink = "https://ti4ultimate.com/tools/map-generator?template=SevenPlayersLargeWarpMap&tiles=ODVCMCA3MiAyMyA4NEIwIDkwQjAgNzYgNjQgNjUgNzUgNzggNjIgMzcgNzkgNjEgNDMgNzAgMjYgNjcgNzQgODhCMCA0MiAwIDM5IDY4IDAgNDUgODZCMCA3MyA0NyA2NiA2MyA0OCA4M0IyIDQ0IDY5IDcxIDAgNjAgMCAwIDAgMCAwIDAgMCAwIDAgMzUgMCA0MCA0MSAwIDAgMCAwIDI1IDAgMCA1OSA3Nw==",
+                            MapTemplate = "SevenPlayersLargeWarpMap",
+                            Name = "Seven-Player Galaxy Setup",
+                            TtsString = "85B0 72 23 84B0 90B0 76 64 65 75 78 62 37 79 61 43 70 26 67 74 88B0 42 0 39 68 0 45 86B0 73 47 66 63 48 83B2 44 69 71 0 60 0 0 0 0 0 0 0 0 0 35 0 40 41 0 0 0 0 25 0 0 59 77",
+                            UserId = "1",
+                            UserName = "Admin"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Description = "Eight-Player galaxy setup map suggestion in Prophecy of Kings rulebook by Fantasy Flight Games.",
+                            EventName = "PoK Rulebook",
+                            MapArchiveLink = "https://ti4ultimate.com/community/maps-archive/map/10",
+                            MapGeneratorLink = "https://ti4ultimate.com/tools/map-generator?template=EightPlayersLargeWarpMap&tiles=ODdBMSA5MEIzIDY1IDg4QTIgODlCMCA2NiAxOSAyMSA0NSAzMSA0NiA2NCAyMiA3MyA0NCAzNCA0OSAyNCAyNyA1MCA3MiA0MCA1OSA4NUIyIDYyIDc2IDQxIDM3IDQzIDM1IDQ4IDYzIDgzQjIgNzQgMzYgNzkgMCA0MiAzMCAwIDAgMCAwIDY4IDAgMCA0NyA3MSAwIDM5IDYxIDAgMCAwIDAgNjcgMCAwIDc4IDI4",
+                            MapTemplate = "EightPlayersLargeWarpMap",
+                            Name = "Eight-Player Galaxy Setup",
+                            TtsString = "87A1 90B3 65 88A2 89B0 66 19 21 45 31 46 64 22 73 44 34 49 24 27 50 72 40 59 85B2 62 76 41 37 43 35 48 63 83B2 74 36 79 0 42 30 0 0 0 0 68 0 0 47 71 0 39 61 0 0 0 0 67 0 0 78 28",
+                            UserId = "1",
+                            UserName = "Admin"
+                        });
+                });
+
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Galaxy.Planet", b =>
                 {
                     b.Property<string>("PlanetName")
@@ -11026,7 +11234,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 2,
-                            SystemTileName = "TileEronous02",
+                            SystemTileName = "TileEronous18",
                             TechnologySkip = "None"
                         },
                         new
@@ -11038,7 +11246,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 3,
-                            SystemTileName = "TileEronous03",
+                            SystemTileName = "TileEronous95",
                             TechnologySkip = "None"
                         },
                         new
@@ -11050,7 +11258,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 0,
-                            SystemTileName = "TileEronous03",
+                            SystemTileName = "TileEronous95",
                             TechnologySkip = "None"
                         },
                         new
@@ -11062,7 +11270,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Cultural",
                             Resources = 2,
-                            SystemTileName = "TileEronous04",
+                            SystemTileName = "TileEronous02",
                             TechnologySkip = "None"
                         },
                         new
@@ -11074,7 +11282,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Cultural",
                             Resources = 0,
-                            SystemTileName = "TileEronous05",
+                            SystemTileName = "TileEronous03",
                             TechnologySkip = "None"
                         },
                         new
@@ -11086,7 +11294,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Industrial",
                             Resources = 2,
-                            SystemTileName = "TileEronous06",
+                            SystemTileName = "TileEronous25",
                             TechnologySkip = "None"
                         },
                         new
@@ -11098,7 +11306,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Cultural",
                             Resources = 1,
-                            SystemTileName = "TileEronous06",
+                            SystemTileName = "TileEronous25",
                             TechnologySkip = "None"
                         },
                         new
@@ -11110,7 +11318,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 2,
-                            SystemTileName = "TileEronous07",
+                            SystemTileName = "TileEronous26",
                             TechnologySkip = "None"
                         },
                         new
@@ -11122,7 +11330,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Cultural",
                             Resources = 1,
-                            SystemTileName = "TileEronous07",
+                            SystemTileName = "TileEronous26",
                             TechnologySkip = "Propulsion"
                         },
                         new
@@ -11134,7 +11342,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 2,
-                            SystemTileName = "TileEronous08",
+                            SystemTileName = "TileEronous91",
                             TechnologySkip = "None"
                         },
                         new
@@ -11146,7 +11354,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 0,
-                            SystemTileName = "TileEronous09",
+                            SystemTileName = "TileEronous49",
                             TechnologySkip = "None"
                         },
                         new
@@ -11158,7 +11366,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Industrial",
                             Resources = 1,
-                            SystemTileName = "TileEronous09",
+                            SystemTileName = "TileEronous49",
                             TechnologySkip = "None"
                         },
                         new
@@ -11170,7 +11378,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 0,
-                            SystemTileName = "TileEronous10",
+                            SystemTileName = "TileEronous50",
                             TechnologySkip = "None"
                         },
                         new
@@ -11182,7 +11390,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 1,
-                            SystemTileName = "TileEronous10",
+                            SystemTileName = "TileEronous50",
                             TechnologySkip = "None"
                         },
                         new
@@ -11194,7 +11402,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 2,
-                            SystemTileName = "TileEronous20",
+                            SystemTileName = "TileEronous92",
                             TechnologySkip = "None"
                         },
                         new
@@ -11206,8 +11414,8 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Cultural",
                             Resources = 2,
-                            SystemTileName = "TileEronous22",
-                            TechnologySkip = "Biotic"
+                            SystemTileName = "TileEronous04",
+                            TechnologySkip = "None"
                         },
                         new
                         {
@@ -11218,7 +11426,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 2,
-                            SystemTileName = "TileEronous23",
+                            SystemTileName = "TileEronous19",
                             TechnologySkip = "None"
                         },
                         new
@@ -11230,7 +11438,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 2,
-                            SystemTileName = "TileEronous24",
+                            SystemTileName = "TileEronous20",
                             TechnologySkip = "None"
                         },
                         new
@@ -11242,7 +11450,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Industrial",
                             Resources = 0,
-                            SystemTileName = "TileEronous48",
+                            SystemTileName = "TileEronous27",
                             TechnologySkip = "None"
                         },
                         new
@@ -11254,7 +11462,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Industrial",
                             Resources = 1,
-                            SystemTileName = "TileEronous48",
+                            SystemTileName = "TileEronous27",
                             TechnologySkip = "None"
                         },
                         new
@@ -11266,7 +11474,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 1,
-                            SystemTileName = "TileEronous49",
+                            SystemTileName = "TileEronous05",
                             TechnologySkip = "Biotic"
                         },
                         new
@@ -11278,7 +11486,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 1,
-                            SystemTileName = "TileEronous50",
+                            SystemTileName = "TileEronous28",
                             TechnologySkip = "None"
                         },
                         new
@@ -11290,7 +11498,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Industrial",
                             Resources = 2,
-                            SystemTileName = "TileEronous50",
+                            SystemTileName = "TileEronous28",
                             TechnologySkip = "None"
                         },
                         new
@@ -11302,7 +11510,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Cultural",
                             Resources = 2,
-                            SystemTileName = "TileEronous51",
+                            SystemTileName = "TileEronous112",
                             TechnologySkip = "None"
                         },
                         new
@@ -11314,7 +11522,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Industrial",
                             Resources = 2,
-                            SystemTileName = "TileEronous52",
+                            SystemTileName = "TileEronous29",
                             TechnologySkip = "None"
                         },
                         new
@@ -11326,7 +11534,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 1,
-                            SystemTileName = "TileEronous52",
+                            SystemTileName = "TileEronous29",
                             TechnologySkip = "None"
                         },
                         new
@@ -11338,7 +11546,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Cultural",
                             Resources = 0,
-                            SystemTileName = "TileEronous53",
+                            SystemTileName = "TileEronous06",
                             TechnologySkip = "Propulsion"
                         },
                         new
@@ -11350,7 +11558,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Cultural",
                             Resources = 1,
-                            SystemTileName = "TileEronous54",
+                            SystemTileName = "TileEronous30",
                             TechnologySkip = "None"
                         },
                         new
@@ -11362,7 +11570,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 2,
-                            SystemTileName = "TileEronous54",
+                            SystemTileName = "TileEronous30",
                             TechnologySkip = "None"
                         },
                         new
@@ -11374,7 +11582,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Cultural",
                             Resources = 1,
-                            SystemTileName = "TileEronous55",
+                            SystemTileName = "TileEronous31",
                             TechnologySkip = "None"
                         },
                         new
@@ -11386,7 +11594,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Industrial",
                             Resources = 0,
-                            SystemTileName = "TileEronous55",
+                            SystemTileName = "TileEronous31",
                             TechnologySkip = "None"
                         },
                         new
@@ -11398,7 +11606,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 3,
-                            SystemTileName = "TileEronous56",
+                            SystemTileName = "TileEronous113",
                             TechnologySkip = "None"
                         },
                         new
@@ -11410,7 +11618,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 0,
-                            SystemTileName = "TileEronous57",
+                            SystemTileName = "TileEronous07",
                             TechnologySkip = "Warfare"
                         },
                         new
@@ -11422,7 +11630,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Cultural",
                             Resources = 2,
-                            SystemTileName = "TileEronous58",
+                            SystemTileName = "TileEronous32",
                             TechnologySkip = "None"
                         },
                         new
@@ -11434,7 +11642,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Industrial",
                             Resources = 1,
-                            SystemTileName = "TileEronous58",
+                            SystemTileName = "TileEronous32",
                             TechnologySkip = "Cybernetic"
                         },
                         new
@@ -11446,7 +11654,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 3,
-                            SystemTileName = "TileEronous59",
+                            SystemTileName = "TileEronous33",
                             TechnologySkip = "None"
                         },
                         new
@@ -11458,7 +11666,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Industrial",
                             Resources = 1,
-                            SystemTileName = "TileEronous59",
+                            SystemTileName = "TileEronous33",
                             TechnologySkip = "None"
                         },
                         new
@@ -11470,7 +11678,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Cultural",
                             Resources = 2,
-                            SystemTileName = "TileEronous60",
+                            SystemTileName = "TileEronous08",
                             TechnologySkip = "None"
                         },
                         new
@@ -11482,7 +11690,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 1,
-                            SystemTileName = "TileEronous61",
+                            SystemTileName = "TileEronous34",
                             TechnologySkip = "None"
                         },
                         new
@@ -11494,7 +11702,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Industrial",
                             Resources = 1,
-                            SystemTileName = "TileEronous61",
+                            SystemTileName = "TileEronous34",
                             TechnologySkip = "None"
                         },
                         new
@@ -11506,7 +11714,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Industrial",
                             Resources = 2,
-                            SystemTileName = "TileEronous62",
+                            SystemTileName = "TileEronous118",
                             TechnologySkip = "Cybernetic"
                         },
                         new
@@ -11518,7 +11726,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Industrial",
                             Resources = 0,
-                            SystemTileName = "TileEronous63",
+                            SystemTileName = "TileEronous35",
                             TechnologySkip = "None"
                         },
                         new
@@ -11530,7 +11738,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Industrial",
                             Resources = 1,
-                            SystemTileName = "TileEronous63",
+                            SystemTileName = "TileEronous35",
                             TechnologySkip = "None"
                         },
                         new
@@ -11542,7 +11750,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Cultural",
                             Resources = 2,
-                            SystemTileName = "TileEronous64",
+                            SystemTileName = "TileEronous106",
                             TechnologySkip = "None"
                         },
                         new
@@ -11554,7 +11762,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Cultural",
                             Resources = 0,
-                            SystemTileName = "TileEronous65",
+                            SystemTileName = "TileEronous36",
                             TechnologySkip = "None"
                         },
                         new
@@ -11566,7 +11774,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 0,
-                            SystemTileName = "TileEronous65",
+                            SystemTileName = "TileEronous36",
                             TechnologySkip = "None"
                         },
                         new
@@ -11578,7 +11786,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "true",
                             PlanetTrait = "Hazardous",
                             Resources = 1,
-                            SystemTileName = "TileEronous82",
+                            SystemTileName = "TileEronous53",
                             TechnologySkip = "None"
                         },
                         new
@@ -11590,7 +11798,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "true",
                             PlanetTrait = "Industrial",
                             Resources = 1,
-                            SystemTileName = "TileEronous83",
+                            SystemTileName = "TileEronous54",
                             TechnologySkip = "None"
                         },
                         new
@@ -11602,7 +11810,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "true",
                             PlanetTrait = "Cultural",
                             Resources = 0,
-                            SystemTileName = "TileEronous84",
+                            SystemTileName = "TileEronous55",
                             TechnologySkip = "None"
                         },
                         new
@@ -11614,7 +11822,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Industrial",
                             Resources = 3,
-                            SystemTileName = "TileEronous85",
+                            SystemTileName = "TileEronous09",
                             TechnologySkip = "None"
                         },
                         new
@@ -11626,7 +11834,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 0,
-                            SystemTileName = "TileEronous86",
+                            SystemTileName = "TileEronous51",
                             TechnologySkip = "Cybernetic"
                         },
                         new
@@ -11638,7 +11846,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Cultural",
                             Resources = 0,
-                            SystemTileName = "TileEronous86",
+                            SystemTileName = "TileEronous51",
                             TechnologySkip = "None"
                         },
                         new
@@ -11650,7 +11858,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 2,
-                            SystemTileName = "TileEronous86",
+                            SystemTileName = "TileEronous51",
                             TechnologySkip = "None"
                         },
                         new
@@ -11662,7 +11870,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 3,
-                            SystemTileName = "TileEronous87",
+                            SystemTileName = "TileEronous37",
                             TechnologySkip = "None"
                         },
                         new
@@ -11674,7 +11882,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 1,
-                            SystemTileName = "TileEronous87",
+                            SystemTileName = "TileEronous37",
                             TechnologySkip = "None"
                         },
                         new
@@ -11686,7 +11894,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Industrial",
                             Resources = 1,
-                            SystemTileName = "TileEronous88",
+                            SystemTileName = "TileEronous38",
                             TechnologySkip = "None"
                         },
                         new
@@ -11698,7 +11906,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Industrial",
                             Resources = 3,
-                            SystemTileName = "TileEronous88",
+                            SystemTileName = "TileEronous38",
                             TechnologySkip = "None"
                         },
                         new
@@ -11710,7 +11918,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Industrial",
                             Resources = 1,
-                            SystemTileName = "TileEronous89",
+                            SystemTileName = "TileEronous93",
                             TechnologySkip = "Cybernetic"
                         },
                         new
@@ -11722,7 +11930,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 1,
-                            SystemTileName = "TileEronous90",
+                            SystemTileName = "TileEronous21",
                             TechnologySkip = "None"
                         },
                         new
@@ -11734,7 +11942,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 1,
-                            SystemTileName = "TileEronous91",
+                            SystemTileName = "TileEronous22",
                             TechnologySkip = "None"
                         },
                         new
@@ -11746,7 +11954,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Cultural",
                             Resources = 3,
-                            SystemTileName = "TileEronous92",
+                            SystemTileName = "TileEronous39",
                             TechnologySkip = "None"
                         },
                         new
@@ -11758,7 +11966,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Industrial",
                             Resources = 2,
-                            SystemTileName = "TileEronous92",
+                            SystemTileName = "TileEronous39",
                             TechnologySkip = "Cybernetic"
                         },
                         new
@@ -11770,7 +11978,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 0,
-                            SystemTileName = "TileEronous93",
+                            SystemTileName = "TileEronous10",
                             TechnologySkip = "None"
                         },
                         new
@@ -11782,7 +11990,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Industrial",
                             Resources = 1,
-                            SystemTileName = "TileEronous94",
+                            SystemTileName = "TileEronous17",
                             TechnologySkip = "None"
                         },
                         new
@@ -11794,7 +12002,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Cultural",
                             Resources = 2,
-                            SystemTileName = "TileEronous95",
+                            SystemTileName = "TileEronous48",
                             TechnologySkip = "None"
                         },
                         new
@@ -11806,7 +12014,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Industrial",
                             Resources = 1,
-                            SystemTileName = "TileEronous95",
+                            SystemTileName = "TileEronous48",
                             TechnologySkip = "None"
                         },
                         new
@@ -11818,7 +12026,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 2,
-                            SystemTileName = "TileEronous96",
+                            SystemTileName = "TileEronous23",
                             TechnologySkip = "None"
                         },
                         new
@@ -11830,7 +12038,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Industrial",
                             Resources = 2,
-                            SystemTileName = "TileEronous97",
+                            SystemTileName = "TileEronous11",
                             TechnologySkip = "Propulsion"
                         },
                         new
@@ -11842,7 +12050,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Cultural",
                             Resources = 2,
-                            SystemTileName = "TileEronous98",
+                            SystemTileName = "TileEronous40",
                             TechnologySkip = "None"
                         },
                         new
@@ -11854,7 +12062,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Industrial",
                             Resources = 1,
-                            SystemTileName = "TileEronous98",
+                            SystemTileName = "TileEronous40",
                             TechnologySkip = "None"
                         },
                         new
@@ -11866,7 +12074,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 0,
-                            SystemTileName = "TileEronous99",
+                            SystemTileName = "TileEronous94",
                             TechnologySkip = "None"
                         },
                         new
@@ -11878,7 +12086,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 0,
-                            SystemTileName = "TileEronous100",
+                            SystemTileName = "TileEronous52",
                             TechnologySkip = "Warfare"
                         },
                         new
@@ -11890,7 +12098,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Industrial",
                             Resources = 0,
-                            SystemTileName = "TileEronous100",
+                            SystemTileName = "TileEronous52",
                             TechnologySkip = "None"
                         },
                         new
@@ -11902,7 +12110,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Cultural",
                             Resources = 1,
-                            SystemTileName = "TileEronous100",
+                            SystemTileName = "TileEronous52",
                             TechnologySkip = "None"
                         },
                         new
@@ -11914,7 +12122,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Cultural",
                             Resources = 2,
-                            SystemTileName = "TileEronous101",
+                            SystemTileName = "TileEronous41",
                             TechnologySkip = "None"
                         },
                         new
@@ -11926,7 +12134,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Cultural",
                             Resources = 0,
-                            SystemTileName = "TileEronous101",
+                            SystemTileName = "TileEronous41",
                             TechnologySkip = "Biotic"
                         },
                         new
@@ -11938,7 +12146,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Industrial",
                             Resources = 1,
-                            SystemTileName = "TileEronous102",
+                            SystemTileName = "TileEronous12",
                             TechnologySkip = "None"
                         },
                         new
@@ -11950,7 +12158,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 0,
-                            SystemTileName = "TileEronous103",
+                            SystemTileName = "TileEronous24",
                             TechnologySkip = "None"
                         },
                         new
@@ -11962,7 +12170,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 2,
-                            SystemTileName = "TileEronous104",
+                            SystemTileName = "TileEronous13",
                             TechnologySkip = "Biotic"
                         },
                         new
@@ -11974,8 +12182,8 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Industrial",
                             Resources = 2,
-                            SystemTileName = "TileEronous105",
-                            TechnologySkip = "Warfare"
+                            SystemTileName = "TileEronous14",
+                            TechnologySkip = "Cybernetic"
                         },
                         new
                         {
@@ -11986,7 +12194,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 2,
-                            SystemTileName = "TileEronous106",
+                            SystemTileName = "TileEronous42",
                             TechnologySkip = "None"
                         },
                         new
@@ -11998,7 +12206,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Industrial",
                             Resources = 1,
-                            SystemTileName = "TileEronous106",
+                            SystemTileName = "TileEronous42",
                             TechnologySkip = "None"
                         },
                         new
@@ -12010,7 +12218,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "true",
                             PlanetTrait = "Hazardous",
                             Resources = 0,
-                            SystemTileName = "TileEronous107",
+                            SystemTileName = "TileEronous56",
                             TechnologySkip = "None"
                         },
                         new
@@ -12022,7 +12230,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "true",
                             PlanetTrait = "Cultural",
                             Resources = 1,
-                            SystemTileName = "TileEronous108",
+                            SystemTileName = "TileEronous57",
                             TechnologySkip = "None"
                         },
                         new
@@ -12034,7 +12242,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "true",
                             PlanetTrait = "Hazardous",
                             Resources = 3,
-                            SystemTileName = "TileEronous109",
+                            SystemTileName = "TileEronous58",
                             TechnologySkip = "None"
                         },
                         new
@@ -12046,7 +12254,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "true",
                             PlanetTrait = "Industrial",
                             Resources = 1,
-                            SystemTileName = "TileEronous110",
+                            SystemTileName = "TileEronous59",
                             TechnologySkip = "None"
                         },
                         new
@@ -12058,7 +12266,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "true",
                             PlanetTrait = "Hazardous",
                             Resources = 3,
-                            SystemTileName = "TileEronous111",
+                            SystemTileName = "TileEronous60",
                             TechnologySkip = "None"
                         },
                         new
@@ -12070,7 +12278,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "true",
                             PlanetTrait = "Cultural",
                             Resources = 0,
-                            SystemTileName = "TileEronous112",
+                            SystemTileName = "TileEronous61",
                             TechnologySkip = "None"
                         },
                         new
@@ -12082,7 +12290,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "true",
                             PlanetTrait = "Industrial",
                             Resources = 3,
-                            SystemTileName = "TileEronous113",
+                            SystemTileName = "TileEronous62",
                             TechnologySkip = "None"
                         },
                         new
@@ -12094,7 +12302,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "true",
                             PlanetTrait = "Hazardous",
                             Resources = 1,
-                            SystemTileName = "TileEronous114",
+                            SystemTileName = "TileEronous63",
                             TechnologySkip = "None"
                         },
                         new
@@ -12106,7 +12314,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "true",
                             PlanetTrait = "Hazardous",
                             Resources = 4,
-                            SystemTileName = "TileEronous115",
+                            SystemTileName = "TileEronous64",
                             TechnologySkip = "None"
                         },
                         new
@@ -12118,7 +12326,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Industrial",
                             Resources = 2,
-                            SystemTileName = "TileEronous116",
+                            SystemTileName = "TileEronous119",
                             TechnologySkip = "None"
                         },
                         new
@@ -12130,7 +12338,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 1,
-                            SystemTileName = "TileEronous117",
+                            SystemTileName = "TileEronous124",
                             TechnologySkip = "None"
                         },
                         new
@@ -12142,7 +12350,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Cultural",
                             Resources = 3,
-                            SystemTileName = "TileEronous118",
+                            SystemTileName = "TileEronous125",
                             TechnologySkip = "None"
                         },
                         new
@@ -12154,7 +12362,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Cultural",
                             Resources = 1,
-                            SystemTileName = "TileEronous120",
+                            SystemTileName = "TileEronous43",
                             TechnologySkip = "None"
                         },
                         new
@@ -12166,7 +12374,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 3,
-                            SystemTileName = "TileEronous120",
+                            SystemTileName = "TileEronous43",
                             TechnologySkip = "None"
                         },
                         new
@@ -12178,7 +12386,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 3,
-                            SystemTileName = "TileEronous121",
+                            SystemTileName = "TileEronous100",
                             TechnologySkip = "None"
                         },
                         new
@@ -12190,7 +12398,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Cultural",
                             Resources = 1,
-                            SystemTileName = "TileEronous122",
+                            SystemTileName = "TileEronous44",
                             TechnologySkip = "None"
                         },
                         new
@@ -12202,7 +12410,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Industrial",
                             Resources = 0,
-                            SystemTileName = "TileEronous122",
+                            SystemTileName = "TileEronous44",
                             TechnologySkip = "None"
                         },
                         new
@@ -12214,7 +12422,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 0,
-                            SystemTileName = "TileEronous123",
+                            SystemTileName = "TileEronous15",
                             TechnologySkip = "Warfare"
                         },
                         new
@@ -12226,7 +12434,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Industrial",
                             Resources = 2,
-                            SystemTileName = "TileEronous124",
+                            SystemTileName = "TileEronous45",
                             TechnologySkip = "None"
                         },
                         new
@@ -12238,8 +12446,8 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Cultural",
                             Resources = 1,
-                            SystemTileName = "TileEronous124",
-                            TechnologySkip = "Cybernetic"
+                            SystemTileName = "TileEronous45",
+                            TechnologySkip = "None"
                         },
                         new
                         {
@@ -12250,8 +12458,8 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Industrial",
                             Resources = 2,
-                            SystemTileName = "TileEronous125",
-                            TechnologySkip = "Propulsion"
+                            SystemTileName = "TileEronous16",
+                            TechnologySkip = "Cybernetic"
                         },
                         new
                         {
@@ -12262,7 +12470,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Cultural",
                             Resources = 1,
-                            SystemTileName = "TileEronous126",
+                            SystemTileName = "TileEronous46",
                             TechnologySkip = "None"
                         },
                         new
@@ -12274,8 +12482,8 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Hazardous",
                             Resources = 2,
-                            SystemTileName = "TileEronous126",
-                            TechnologySkip = "Cybernetic"
+                            SystemTileName = "TileEronous46",
+                            TechnologySkip = "None"
                         },
                         new
                         {
@@ -12286,7 +12494,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Industrial",
                             Resources = 3,
-                            SystemTileName = "TileEronous127",
+                            SystemTileName = "TileEronous101",
                             TechnologySkip = "Biotic"
                         },
                         new
@@ -12298,7 +12506,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Cultural",
                             Resources = 1,
-                            SystemTileName = "TileEronous128",
+                            SystemTileName = "TileEronous107",
                             TechnologySkip = "None"
                         },
                         new
@@ -12310,7 +12518,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Cultural",
                             Resources = 3,
-                            SystemTileName = "TileEronous129",
+                            SystemTileName = "TileEronous47",
                             TechnologySkip = "None"
                         },
                         new
@@ -12322,7 +12530,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             IsLegendary = "false",
                             PlanetTrait = "Industrial",
                             Resources = 2,
-                            SystemTileName = "TileEronous129",
+                            SystemTileName = "TileEronous47",
                             TechnologySkip = "None"
                         });
                 });
@@ -14297,22 +14505,22 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         new
                         {
                             SystemTileName = "TileEronous02",
-                            Anomaly = "Nebula",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 192,
                             SystemTileCode = "Er02",
-                            TileCategory = "Red"
+                            TileCategory = "Blue"
                         },
                         new
                         {
                             SystemTileName = "TileEronous03",
-                            Anomaly = "GravityRift",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 193,
                             SystemTileCode = "Er03",
-                            TileCategory = "Red"
+                            TileCategory = "Blue"
                         },
                         new
                         {
@@ -14367,42 +14575,42 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         new
                         {
                             SystemTileName = "TileEronous09",
-                            Anomaly = "AsteroidField",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 199,
                             SystemTileCode = "Er09",
-                            TileCategory = "Red"
+                            TileCategory = "None"
                         },
                         new
                         {
                             SystemTileName = "TileEronous10",
-                            Anomaly = "Nebula",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 200,
                             SystemTileCode = "Er10",
-                            TileCategory = "Red"
+                            TileCategory = "Blue"
                         },
                         new
                         {
                             SystemTileName = "TileEronous11",
-                            Anomaly = "AsteroidField",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 201,
                             SystemTileCode = "Er11",
-                            TileCategory = "Red"
+                            TileCategory = "Blue"
                         },
                         new
                         {
                             SystemTileName = "TileEronous12",
-                            Anomaly = "AsteroidField",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 202,
                             SystemTileCode = "Er12",
-                            TileCategory = "Red"
+                            TileCategory = "Blue"
                         },
                         new
                         {
@@ -14412,47 +14620,47 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             GameVersion = "AscendantSun",
                             Id = 203,
                             SystemTileCode = "Er013",
-                            TileCategory = "Red"
+                            TileCategory = "Blue"
                         },
                         new
                         {
                             SystemTileName = "TileEronous14",
-                            Anomaly = "GravityRift",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 204,
                             SystemTileCode = "Er14",
-                            TileCategory = "Red"
+                            TileCategory = "Blue"
                         },
                         new
                         {
                             SystemTileName = "TileEronous15",
-                            Anomaly = "Nebula",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 205,
                             SystemTileCode = "Er15",
-                            TileCategory = "Red"
+                            TileCategory = "None"
                         },
                         new
                         {
                             SystemTileName = "TileEronous16",
-                            Anomaly = "Supernova",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 206,
                             SystemTileCode = "Er16",
-                            TileCategory = "Red"
+                            TileCategory = "None"
                         },
                         new
                         {
                             SystemTileName = "TileEronous17",
-                            Anomaly = "GravityRift",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 207,
                             SystemTileCode = "Er17",
-                            TileCategory = "Red"
+                            TileCategory = "None"
                         },
                         new
                         {
@@ -14477,17 +14685,17 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         new
                         {
                             SystemTileName = "TileEronous20",
-                            Anomaly = "None",
+                            Anomaly = "GravityRift",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 210,
                             SystemTileCode = "Er20",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous21",
-                            Anomaly = "AsteroidField",
+                            Anomaly = "Supernova",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 211,
@@ -14497,12 +14705,12 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         new
                         {
                             SystemTileName = "TileEronous22",
-                            Anomaly = "None",
+                            Anomaly = "Nebula",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 212,
                             SystemTileCode = "Er22",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
@@ -14517,7 +14725,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         new
                         {
                             SystemTileName = "TileEronous24",
-                            Anomaly = "GravityRift",
+                            Anomaly = "Supernova",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 214,
@@ -14532,37 +14740,37 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             GameVersion = "AscendantSun",
                             Id = 215,
                             SystemTileCode = "Er25",
-                            TileCategory = "Red"
+                            TileCategory = "Blue"
                         },
                         new
                         {
                             SystemTileName = "TileEronous26",
-                            Anomaly = "GravityRift",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 216,
                             SystemTileCode = "Er26",
-                            TileCategory = "Red"
+                            TileCategory = "Blue"
                         },
                         new
                         {
                             SystemTileName = "TileEronous27",
-                            Anomaly = "Nebula",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 217,
                             SystemTileCode = "Er27",
-                            TileCategory = "Red"
+                            TileCategory = "Blue"
                         },
                         new
                         {
                             SystemTileName = "TileEronous28",
-                            Anomaly = "AsteroidField",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 218,
                             SystemTileCode = "Er28",
-                            TileCategory = "Red"
+                            TileCategory = "Blue"
                         },
                         new
                         {
@@ -14572,37 +14780,37 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             GameVersion = "AscendantSun",
                             Id = 219,
                             SystemTileCode = "Er29",
-                            TileCategory = "Red"
+                            TileCategory = "Blue"
                         },
                         new
                         {
                             SystemTileName = "TileEronous30",
-                            Anomaly = "GravityRift",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 220,
                             SystemTileCode = "Er30",
-                            TileCategory = "Red"
+                            TileCategory = "Blue"
                         },
                         new
                         {
                             SystemTileName = "TileEronous31",
-                            Anomaly = "Nebula",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 221,
                             SystemTileCode = "Er31",
-                            TileCategory = "Red"
+                            TileCategory = "Blue"
                         },
                         new
                         {
                             SystemTileName = "TileEronous32",
-                            Anomaly = "AsteroidField",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 222,
                             SystemTileCode = "Er32",
-                            TileCategory = "Red"
+                            TileCategory = "Blue"
                         },
                         new
                         {
@@ -14612,7 +14820,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             GameVersion = "AscendantSun",
                             Id = 223,
                             SystemTileCode = "Er33",
-                            TileCategory = "Red"
+                            TileCategory = "Blue"
                         },
                         new
                         {
@@ -14622,37 +14830,37 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             GameVersion = "AscendantSun",
                             Id = 224,
                             SystemTileCode = "Er34",
-                            TileCategory = "Red"
+                            TileCategory = "Blue"
                         },
                         new
                         {
                             SystemTileName = "TileEronous35",
-                            Anomaly = "GravityRift",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 225,
                             SystemTileCode = "Er35",
-                            TileCategory = "Red"
+                            TileCategory = "Blue"
                         },
                         new
                         {
                             SystemTileName = "TileEronous36",
-                            Anomaly = "Nebula",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 226,
                             SystemTileCode = "Er36",
-                            TileCategory = "Red"
+                            TileCategory = "Blue"
                         },
                         new
                         {
                             SystemTileName = "TileEronous37",
-                            Anomaly = "AsteroidField",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 227,
                             SystemTileCode = "Er37",
-                            TileCategory = "Red"
+                            TileCategory = "Blue"
                         },
                         new
                         {
@@ -14662,37 +14870,37 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             GameVersion = "AscendantSun",
                             Id = 228,
                             SystemTileCode = "Er38",
-                            TileCategory = "Red"
+                            TileCategory = "Blue"
                         },
                         new
                         {
                             SystemTileName = "TileEronous39",
-                            Anomaly = "GravityRift",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 229,
                             SystemTileCode = "Er39",
-                            TileCategory = "Red"
+                            TileCategory = "Blue"
                         },
                         new
                         {
                             SystemTileName = "TileEronous40",
-                            Anomaly = "Nebula",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 230,
                             SystemTileCode = "Er40",
-                            TileCategory = "Red"
+                            TileCategory = "Blue"
                         },
                         new
                         {
                             SystemTileName = "TileEronous41",
-                            Anomaly = "AsteroidField",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 231,
                             SystemTileCode = "Er41",
-                            TileCategory = "Red"
+                            TileCategory = "Blue"
                         },
                         new
                         {
@@ -14702,7 +14910,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             GameVersion = "AscendantSun",
                             Id = 232,
                             SystemTileCode = "Er42",
-                            TileCategory = "Red"
+                            TileCategory = "Blue"
                         },
                         new
                         {
@@ -14712,37 +14920,37 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             GameVersion = "AscendantSun",
                             Id = 233,
                             SystemTileCode = "Er43",
-                            TileCategory = "Red"
+                            TileCategory = "Blue"
                         },
                         new
                         {
                             SystemTileName = "TileEronous44",
-                            Anomaly = "GravityRift",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 234,
                             SystemTileCode = "Er44",
-                            TileCategory = "Red"
+                            TileCategory = "Blue"
                         },
                         new
                         {
                             SystemTileName = "TileEronous45",
-                            Anomaly = "Nebula",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 235,
                             SystemTileCode = "Er45",
-                            TileCategory = "Red"
+                            TileCategory = "Blue"
                         },
                         new
                         {
                             SystemTileName = "TileEronous46",
-                            Anomaly = "AsteroidField",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 236,
                             SystemTileCode = "Er46",
-                            TileCategory = "Red"
+                            TileCategory = "Blue"
                         },
                         new
                         {
@@ -14752,7 +14960,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             GameVersion = "AscendantSun",
                             Id = 237,
                             SystemTileCode = "Er47",
-                            TileCategory = "Red"
+                            TileCategory = "Blue"
                         },
                         new
                         {
@@ -14767,22 +14975,22 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         new
                         {
                             SystemTileName = "TileEronous49",
-                            Anomaly = "None",
+                            Anomaly = "AsteroidField",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 239,
                             SystemTileCode = "Er49",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous50",
-                            Anomaly = "None",
+                            Anomaly = "Nebula",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 240,
                             SystemTileCode = "Er50",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
@@ -14807,12 +15015,12 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         new
                         {
                             SystemTileName = "TileEronous53",
-                            Anomaly = "None",
+                            Anomaly = "GravityRift",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 243,
                             SystemTileCode = "Er53",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
@@ -14932,12 +15140,12 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             GameVersion = "AscendantSun",
                             Id = 255,
                             SystemTileCode = "Er65",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous66",
-                            Anomaly = "GravityRift",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 256,
@@ -14947,7 +15155,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         new
                         {
                             SystemTileName = "TileEronous67",
-                            Anomaly = "Nebula",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 257,
@@ -14957,7 +15165,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         new
                         {
                             SystemTileName = "TileEronous68",
-                            Anomaly = "Supernova",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 258,
@@ -14967,7 +15175,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         new
                         {
                             SystemTileName = "TileEronous69",
-                            Anomaly = "GravityRift",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 259,
@@ -14977,7 +15185,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         new
                         {
                             SystemTileName = "TileEronous70",
-                            Anomaly = "Nebula",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 260,
@@ -14987,7 +15195,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         new
                         {
                             SystemTileName = "TileEronous71",
-                            Anomaly = "AsteroidField",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 261,
@@ -15006,123 +15214,143 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         },
                         new
                         {
-                            SystemTileName = "TileEronous75",
-                            Anomaly = "None",
+                            SystemTileName = "TileEronous73",
+                            Anomaly = "AsteroidField",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
                             Id = 263,
+                            SystemTileCode = "Er72",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous74",
+                            Anomaly = "Nebula",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 264,
+                            SystemTileCode = "Er72",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileEronous75",
+                            Anomaly = "Nebula",
+                            FactionName = "None",
+                            GameVersion = "AscendantSun",
+                            Id = 265,
                             SystemTileCode = "Er75",
                             TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous76",
-                            Anomaly = "None",
+                            Anomaly = "GravityRift",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 264,
+                            Id = 266,
                             SystemTileCode = "Er76",
                             TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous77",
-                            Anomaly = "None",
+                            Anomaly = "GravityRift",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 265,
+                            Id = 267,
                             SystemTileCode = "Er77",
                             TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous78",
-                            Anomaly = "None",
+                            Anomaly = "GravityRift",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 266,
+                            Id = 268,
                             SystemTileCode = "Er78",
                             TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous79",
-                            Anomaly = "None",
+                            Anomaly = "Supernova",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 267,
+                            Id = 269,
                             SystemTileCode = "Er79",
                             TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous80",
-                            Anomaly = "None",
+                            Anomaly = "Supernova",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 268,
+                            Id = 270,
                             SystemTileCode = "Er80",
                             TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous81",
-                            Anomaly = "None",
+                            Anomaly = "AsteroidField",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 269,
+                            Id = 271,
                             SystemTileCode = "Er81",
                             TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous82",
-                            Anomaly = "GravityRift",
+                            Anomaly = "AsteroidField",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 270,
+                            Id = 272,
                             SystemTileCode = "Er82",
                             TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous83",
-                            Anomaly = "None",
+                            Anomaly = "AsteroidField",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 271,
+                            Id = 273,
                             SystemTileCode = "Er83",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous84",
-                            Anomaly = "None",
+                            Anomaly = "GravityRift",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 272,
+                            Id = 274,
                             SystemTileCode = "Er84",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous85",
-                            Anomaly = "None",
+                            Anomaly = "Nebula",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 273,
+                            Id = 275,
                             SystemTileCode = "Er85",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous86",
-                            Anomaly = "None",
+                            Anomaly = "Supernova",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 274,
+                            Id = 276,
                             SystemTileCode = "Er86",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
@@ -15130,49 +15358,49 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 275,
+                            Id = 277,
                             SystemTileCode = "Er87",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous88",
-                            Anomaly = "None",
+                            Anomaly = "GravityRift",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 276,
+                            Id = 278,
                             SystemTileCode = "Er88",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous89",
-                            Anomaly = "None",
+                            Anomaly = "Nebula",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 277,
+                            Id = 279,
                             SystemTileCode = "Er89",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous90",
-                            Anomaly = "Supernova",
+                            Anomaly = "AsteroidField",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 278,
+                            Id = 280,
                             SystemTileCode = "Er90",
                             TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous91",
-                            Anomaly = "GravityRift",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 279,
+                            Id = 281,
                             SystemTileCode = "Er91",
-                            TileCategory = "Red"
+                            TileCategory = "Blue"
                         },
                         new
                         {
@@ -15180,7 +15408,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 280,
+                            Id = 282,
                             SystemTileCode = "Er92",
                             TileCategory = "Blue"
                         },
@@ -15190,67 +15418,67 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 281,
+                            Id = 283,
                             SystemTileCode = "Er93",
                             TileCategory = "Blue"
                         },
                         new
                         {
                             SystemTileName = "TileEronous94",
-                            Anomaly = "None",
+                            Anomaly = "Nebula",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 282,
+                            Id = 284,
                             SystemTileCode = "Er94",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous95",
-                            Anomaly = "None",
+                            Anomaly = "GravityRift",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 283,
+                            Id = 285,
                             SystemTileCode = "Er95",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous96",
-                            Anomaly = "GravityRift",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 284,
+                            Id = 286,
                             SystemTileCode = "Er96",
                             TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous97",
-                            Anomaly = "None",
+                            Anomaly = "GravityRift",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 285,
+                            Id = 287,
                             SystemTileCode = "Er97",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous98",
-                            Anomaly = "None",
+                            Anomaly = "Nebula",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 286,
+                            Id = 288,
                             SystemTileCode = "Er98",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous99",
-                            Anomaly = "Nebula",
+                            Anomaly = "AsteroidField",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 287,
+                            Id = 289,
                             SystemTileCode = "Er99",
                             TileCategory = "Red"
                         },
@@ -15260,7 +15488,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 288,
+                            Id = 290,
                             SystemTileCode = "Er100",
                             TileCategory = "Blue"
                         },
@@ -15270,7 +15498,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 289,
+                            Id = 291,
                             SystemTileCode = "Er101",
                             TileCategory = "Blue"
                         },
@@ -15280,39 +15508,39 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 290,
+                            Id = 292,
                             SystemTileCode = "Er102",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous103",
-                            Anomaly = "Supernova",
+                            Anomaly = "GravityRift",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 291,
+                            Id = 293,
                             SystemTileCode = "Er103",
                             TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous104",
-                            Anomaly = "None",
+                            Anomaly = "Nebula",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 292,
+                            Id = 294,
                             SystemTileCode = "Er104",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous105",
-                            Anomaly = "None",
+                            Anomaly = "AsteroidField",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 293,
+                            Id = 295,
                             SystemTileCode = "Er105",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
@@ -15320,7 +15548,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 294,
+                            Id = 296,
                             SystemTileCode = "Er106",
                             TileCategory = "Blue"
                         },
@@ -15330,7 +15558,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 295,
+                            Id = 297,
                             SystemTileCode = "Er107",
                             TileCategory = "Blue"
                         },
@@ -15340,39 +15568,39 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 296,
+                            Id = 298,
                             SystemTileCode = "Er108",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous109",
-                            Anomaly = "None",
+                            Anomaly = "GravityRift",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 297,
+                            Id = 299,
                             SystemTileCode = "Er109",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous110",
-                            Anomaly = "None",
+                            Anomaly = "Nebula",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 298,
+                            Id = 300,
                             SystemTileCode = "Er110",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous111",
-                            Anomaly = "None",
+                            Anomaly = "AsteroidField",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 299,
+                            Id = 301,
                             SystemTileCode = "Er111",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
@@ -15380,7 +15608,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 300,
+                            Id = 302,
                             SystemTileCode = "Er112",
                             TileCategory = "Blue"
                         },
@@ -15390,7 +15618,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 301,
+                            Id = 303,
                             SystemTileCode = "Er113",
                             TileCategory = "Blue"
                         },
@@ -15400,39 +15628,39 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 302,
+                            Id = 304,
                             SystemTileCode = "Er114",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous115",
-                            Anomaly = "None",
+                            Anomaly = "GravityRift",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 303,
+                            Id = 305,
                             SystemTileCode = "Er115",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous116",
-                            Anomaly = "None",
+                            Anomaly = "Nebula",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 304,
+                            Id = 306,
                             SystemTileCode = "Er116",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous117",
-                            Anomaly = "None",
+                            Anomaly = "AsteroidField",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 305,
+                            Id = 307,
                             SystemTileCode = "Er117",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
@@ -15440,19 +15668,19 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 306,
+                            Id = 308,
                             SystemTileCode = "Er118",
                             TileCategory = "Blue"
                         },
                         new
                         {
                             SystemTileName = "TileEronous119",
-                            Anomaly = "Nebula",
+                            Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 307,
+                            Id = 309,
                             SystemTileCode = "Er119",
-                            TileCategory = "Red"
+                            TileCategory = "Blue"
                         },
                         new
                         {
@@ -15460,39 +15688,39 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 308,
+                            Id = 310,
                             SystemTileCode = "Er120",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous121",
-                            Anomaly = "None",
+                            Anomaly = "GravityRift",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 309,
+                            Id = 311,
                             SystemTileCode = "Er121",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous122",
-                            Anomaly = "None",
+                            Anomaly = "Nebula",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 310,
+                            Id = 312,
                             SystemTileCode = "Er122",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
                             SystemTileName = "TileEronous123",
-                            Anomaly = "None",
+                            Anomaly = "AsteroidField",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 311,
+                            Id = 313,
                             SystemTileCode = "Er123",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
@@ -15500,7 +15728,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 312,
+                            Id = 314,
                             SystemTileCode = "Er124",
                             TileCategory = "Blue"
                         },
@@ -15510,7 +15738,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 190,
+                            Id = 315,
                             SystemTileCode = "Er125",
                             TileCategory = "Blue"
                         },
@@ -15520,9 +15748,9 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 313,
+                            Id = 316,
                             SystemTileCode = "Er126",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
@@ -15530,9 +15758,9 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 313,
+                            Id = 317,
                             SystemTileCode = "Er127",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         },
                         new
                         {
@@ -15540,19 +15768,9 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Anomaly = "None",
                             FactionName = "None",
                             GameVersion = "AscendantSun",
-                            Id = 313,
+                            Id = 318,
                             SystemTileCode = "Er128",
-                            TileCategory = "Blue"
-                        },
-                        new
-                        {
-                            SystemTileName = "TileEronous129",
-                            Anomaly = "None",
-                            FactionName = "None",
-                            GameVersion = "AscendantSun",
-                            Id = 313,
-                            SystemTileCode = "Er129",
-                            TileCategory = "Blue"
+                            TileCategory = "Red"
                         });
                 });
 
@@ -15716,372 +15934,372 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             Id = 18,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous03",
-                            WormholeName = "Epsilon"
+                            SystemTileName = "TileEronous17",
+                            WormholeName = "Beta"
                         },
                         new
                         {
                             Id = 19,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous08",
-                            WormholeName = "Epsilon"
+                            SystemTileName = "TileEronous48",
+                            WormholeName = "Alpha"
                         },
                         new
                         {
                             Id = 20,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous11",
+                            SystemTileName = "TileEronous48",
                             WormholeName = "Beta"
                         },
                         new
                         {
                             Id = 21,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous12",
-                            WormholeName = "Iota"
+                            SystemTileName = "TileEronous81",
+                            WormholeName = "Beta"
                         },
                         new
                         {
                             Id = 22,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous13",
-                            WormholeName = "Iota"
+                            SystemTileName = "TileEronous84",
+                            WormholeName = "Alpha"
                         },
                         new
                         {
                             Id = 23,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous14",
-                            WormholeName = "Iota"
+                            SystemTileName = "TileEronous84",
+                            WormholeName = "Beta"
                         },
                         new
                         {
                             Id = 24,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous15",
-                            WormholeName = "Iota"
+                            SystemTileName = "TileEronous85",
+                            WormholeName = "Alpha"
                         },
                         new
                         {
                             Id = 25,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous19",
-                            WormholeName = "Alpha"
+                            SystemTileName = "TileEronous85",
+                            WormholeName = "Beta"
                         },
                         new
                         {
                             Id = 26,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous19",
-                            WormholeName = "Beta"
+                            SystemTileName = "TileEronous87",
+                            WormholeName = "Epsilon"
                         },
                         new
                         {
                             Id = 27,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous20",
+                            SystemTileName = "TileEronous88",
                             WormholeName = "Epsilon"
                         },
                         new
                         {
                             Id = 28,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous25",
+                            SystemTileName = "TileEronous89",
                             WormholeName = "Epsilon"
                         },
                         new
                         {
                             Id = 29,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous26",
+                            SystemTileName = "TileEronous90",
                             WormholeName = "Epsilon"
                         },
                         new
                         {
                             Id = 30,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous27",
+                            SystemTileName = "TileEronous91",
                             WormholeName = "Epsilon"
                         },
                         new
                         {
                             Id = 31,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous28",
+                            SystemTileName = "TileEronous92",
                             WormholeName = "Epsilon"
                         },
                         new
                         {
                             Id = 32,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous29",
-                            WormholeName = "Zeta"
+                            SystemTileName = "TileEronous93",
+                            WormholeName = "Epsilon"
                         },
                         new
                         {
                             Id = 33,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous30",
-                            WormholeName = "Zeta"
+                            SystemTileName = "TileEronous94",
+                            WormholeName = "Epsilon"
                         },
                         new
                         {
                             Id = 34,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous31",
-                            WormholeName = "Zeta"
+                            SystemTileName = "TileEronous95",
+                            WormholeName = "Epsilon"
                         },
                         new
                         {
                             Id = 35,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous32",
+                            SystemTileName = "TileEronous96",
                             WormholeName = "Zeta"
                         },
                         new
                         {
                             Id = 36,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous33",
-                            WormholeName = "Epsilon"
+                            SystemTileName = "TileEronous97",
+                            WormholeName = "Zeta"
                         },
                         new
                         {
                             Id = 37,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous33",
+                            SystemTileName = "TileEronous98",
                             WormholeName = "Zeta"
                         },
                         new
                         {
                             Id = 38,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous34",
-                            WormholeName = "Eta"
+                            SystemTileName = "TileEronous99",
+                            WormholeName = "Zeta"
                         },
                         new
                         {
                             Id = 39,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous35",
-                            WormholeName = "Eta"
+                            SystemTileName = "TileEronous100",
+                            WormholeName = "Zeta"
                         },
                         new
                         {
                             Id = 40,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous36",
-                            WormholeName = "Eta"
+                            SystemTileName = "TileEronous101",
+                            WormholeName = "Zeta"
                         },
                         new
                         {
                             Id = 41,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous37",
+                            SystemTileName = "TileEronous102",
                             WormholeName = "Eta"
                         },
                         new
                         {
                             Id = 42,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous38",
-                            WormholeName = "Theta"
+                            SystemTileName = "TileEronous103",
+                            WormholeName = "Eta"
                         },
                         new
                         {
                             Id = 43,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous39",
-                            WormholeName = "Theta"
+                            SystemTileName = "TileEronous104",
+                            WormholeName = "Eta"
                         },
                         new
                         {
                             Id = 44,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous40",
-                            WormholeName = "Theta"
+                            SystemTileName = "TileEronous105",
+                            WormholeName = "Eta"
                         },
                         new
                         {
                             Id = 45,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous41",
-                            WormholeName = "Theta"
+                            SystemTileName = "TileEronous106",
+                            WormholeName = "Eta"
                         },
                         new
                         {
                             Id = 46,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous42",
+                            SystemTileName = "TileEronous107",
                             WormholeName = "Eta"
                         },
                         new
                         {
                             Id = 47,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous42",
+                            SystemTileName = "TileEronous108",
                             WormholeName = "Theta"
                         },
                         new
                         {
                             Id = 48,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous43",
-                            WormholeName = "Kappa"
+                            SystemTileName = "TileEronous109",
+                            WormholeName = "Theta"
                         },
                         new
                         {
                             Id = 49,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous44",
-                            WormholeName = "Kappa"
+                            SystemTileName = "TileEronous110",
+                            WormholeName = "Theta"
                         },
                         new
                         {
                             Id = 50,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous45",
-                            WormholeName = "Kappa"
+                            SystemTileName = "TileEronous111",
+                            WormholeName = "Theta"
                         },
                         new
                         {
                             Id = 51,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous46",
-                            WormholeName = "Kappa"
+                            SystemTileName = "TileEronous112",
+                            WormholeName = "Theta"
                         },
                         new
                         {
                             Id = 52,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous47",
-                            WormholeName = "Iota"
+                            SystemTileName = "TileEronous113",
+                            WormholeName = "Theta"
                         },
                         new
                         {
                             Id = 53,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous47",
-                            WormholeName = "Kappa"
+                            SystemTileName = "TileEronous114",
+                            WormholeName = "Iota"
                         },
                         new
                         {
                             Id = 54,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous51",
-                            WormholeName = "Theta"
-                        },
-                        new
-                        {
-                            Id = 55,
-                            GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous56",
-                            WormholeName = "Theta"
-                        },
-                        new
-                        {
-                            Id = 56,
-                            GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous62",
+                            SystemTileName = "TileEronous115",
                             WormholeName = "Iota"
                         },
                         new
                         {
-                            Id = 57,
-                            GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous64",
-                            WormholeName = "Eta"
-                        },
-                        new
-                        {
-                            Id = 58,
-                            GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous89",
-                            WormholeName = "Epsilon"
-                        },
-                        new
-                        {
-                            Id = 59,
-                            GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous94",
-                            WormholeName = "Beta"
-                        },
-                        new
-                        {
-                            Id = 60,
-                            GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous95",
-                            WormholeName = "Alpha"
-                        },
-                        new
-                        {
-                            Id = 61,
-                            GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous95",
-                            WormholeName = "Beta"
-                        },
-                        new
-                        {
-                            Id = 62,
-                            GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous99",
-                            WormholeName = "Epsilon"
-                        },
-                        new
-                        {
-                            Id = 63,
+                            Id = 55,
                             GameVersion = "AscendantSun",
                             SystemTileName = "TileEronous116",
                             WormholeName = "Iota"
                         },
                         new
                         {
-                            Id = 64,
+                            Id = 56,
                             GameVersion = "AscendantSun",
                             SystemTileName = "TileEronous117",
+                            WormholeName = "Iota"
+                        },
+                        new
+                        {
+                            Id = 57,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous118",
+                            WormholeName = "Iota"
+                        },
+                        new
+                        {
+                            Id = 58,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous119",
+                            WormholeName = "Iota"
+                        },
+                        new
+                        {
+                            Id = 59,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous120",
+                            WormholeName = "Kappa"
+                        },
+                        new
+                        {
+                            Id = 60,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous121",
+                            WormholeName = "Kappa"
+                        },
+                        new
+                        {
+                            Id = 61,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous122",
+                            WormholeName = "Kappa"
+                        },
+                        new
+                        {
+                            Id = 62,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous123",
+                            WormholeName = "Kappa"
+                        },
+                        new
+                        {
+                            Id = 63,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous124",
+                            WormholeName = "Kappa"
+                        },
+                        new
+                        {
+                            Id = 64,
+                            GameVersion = "AscendantSun",
+                            SystemTileName = "TileEronous125",
                             WormholeName = "Kappa"
                         },
                         new
                         {
                             Id = 65,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous118",
-                            WormholeName = "Kappa"
+                            SystemTileName = "TileEronous126",
+                            WormholeName = "Zeta"
                         },
                         new
                         {
                             Id = 66,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous119",
-                            WormholeName = "Alpha"
+                            SystemTileName = "TileEronous126",
+                            WormholeName = "Epsilon"
                         },
                         new
                         {
                             Id = 67,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous119",
-                            WormholeName = "Beta"
+                            SystemTileName = "TileEronous127",
+                            WormholeName = "Theta"
                         },
                         new
                         {
                             Id = 68,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous121",
-                            WormholeName = "Zeta"
+                            SystemTileName = "TileEronous127",
+                            WormholeName = "Eta"
                         },
                         new
                         {
                             Id = 69,
                             GameVersion = "AscendantSun",
-                            SystemTileName = "TileEronous127",
-                            WormholeName = "Zeta"
+                            SystemTileName = "TileEronous128",
+                            WormholeName = "Iota"
                         },
                         new
                         {
                             Id = 70,
                             GameVersion = "AscendantSun",
                             SystemTileName = "TileEronous128",
-                            WormholeName = "Eta"
+                            WormholeName = "Kappa"
                         });
                 });
 
@@ -19124,6 +19342,38 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         });
                 });
 
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.RelationshipEntities.MapRating", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("MapId")
+                        .HasColumnType("integer")
+                        .HasColumnOrder(1);
+
+                    b.Property<float>("Rating")
+                        .HasColumnType("real")
+                        .HasColumnOrder(3);
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnOrder(2);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("MapId", "UserId")
+                        .IsUnique();
+
+                    b.ToTable("MapRating", "Relationships");
+                });
+
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Rules.Faq", b =>
                 {
                     b.Property<int>("Id")
@@ -21856,7 +22106,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e64086bf-7263-4b50-999c-3a85524b327f",
+                            ConcurrencyStamp = "7b065b8a-9f86-41dc-ab0f-0770e17c8540",
                             DiscordId = "",
                             Email = "Test@user.cz",
                             EmailConfirmed = true,
@@ -21866,9 +22116,9 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST@USER.CZ",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOYMAQIGmF/6G1F1aF7PGxkBuCo8vLATHihWXRP6El/J1DcFUEdEMCXzT2UEMylHSg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENEvkPBg+u58x6QgP3lpAtPf0CYhvF0eay/B9lmwww8DX7LpN+QzkqmQqonQnPQJCQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "fe4f7309-303a-48a2-983d-f8f953761822",
+                            SecurityStamp = "4721b53a-5b07-4a2f-a6d8-3edfa3890f4f",
                             SteamId = "",
                             TwoFactorEnabled = false,
                             UserInfo = "First seeded test user",
@@ -22097,6 +22347,17 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Galaxy.Map", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Users.TwilightImperiumUser", "User")
+                        .WithMany("Maps")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Galaxy.Planet", b =>
                 {
                     b.HasOne("TwilightImperiumUltimate.Core.Entities.Galaxy.SystemTile", "SystemTile")
@@ -22168,11 +22429,35 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.Navigation("Unit");
                 });
 
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.RelationshipEntities.MapRating", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Galaxy.Map", "Map")
+                        .WithMany("MapRatings")
+                        .HasForeignKey("MapId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Users.TwilightImperiumUser", "User")
+                        .WithMany("MapRatings")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Map");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Factions.Faction", b =>
                 {
                     b.Navigation("FactionTechnologies");
 
                     b.Navigation("FactionUnits");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Galaxy.Map", b =>
+                {
+                    b.Navigation("MapRatings");
                 });
 
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Galaxy.SystemTile", b =>
@@ -22190,6 +22475,13 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Units.Unit", b =>
                 {
                     b.Navigation("FactionUnits");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Users.TwilightImperiumUser", b =>
+                {
+                    b.Navigation("MapRatings");
+
+                    b.Navigation("Maps");
                 });
 #pragma warning restore 612, 618
         }

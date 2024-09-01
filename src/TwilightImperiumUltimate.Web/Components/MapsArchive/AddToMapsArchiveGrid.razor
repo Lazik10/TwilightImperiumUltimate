@@ -1,0 +1,79 @@
+﻿@using TwilightImperiumUltimate.Web.Helpers.Enums
+
+<Page>
+
+    <FlexColumnCenteredContainer Width="70" >
+
+        @DynamicComponent
+
+        <VerticalSpace Height="100" />
+
+        <GridLayout Columns="4" Gap="40">
+
+            <Label Text="@Strings.MapArchive_MapAuthor" />
+            <Label Text="@_mapModel.UserName" Style="grid-column: span 3;"/>
+
+            <Label Text="@Strings.MapArchive_MapName" />
+            <RadzenTextBox @bind-Value="_mapModel.Name" @oninput="HandleNameChange" class="handel white title"/>
+
+            <Label Text="@Strings.MapArchive_MapEvent" />
+            <RadzenTextBox @bind-Value="_mapModel.EventName" @oninput="HandleEventChange" class="handel white title" />
+
+            <Label Text="@Strings.MapArchive_MapTemplate" />
+            <Label Text="@_mapModel.MapTemplate.GetDisplayName()" Style="grid-column: span 3;" />
+
+            <Label Text="@Strings.MapArchive_MapDescription" Style="grid-column: span 4;" />
+
+            <FlexColumnCenteredContainer Style="grid-column: span 4;">
+
+                <VerticalSpace Height="20" />
+
+                @if (_enableEditModeForDescription)
+                {
+                    <RadzenTextArea Placeholder="@Strings.MapArchive_DescriptionPlaceholder"
+                                    @bind-Value="_mapModel.Description"
+                                    class="w-100 flex-row title white handel" Style="height: 200px;" />
+                }
+                else
+                {
+                    <div class="handel white shadow">
+                        @MarkupStringDescription
+                    </div>
+                }
+
+                <VerticalSpace Height="20" />
+
+                <FlexRowContainer>
+                    <Button ButtonText="Preview" OnClick="() => ToggleEditDescription(false)" />
+                    <Button ButtonText="Edit" OnClick="() => ToggleEditDescription(true)" />
+                </FlexRowContainer>
+
+
+                <VerticalSpace Height="20" />
+            </FlexColumnCenteredContainer>
+
+            <Label Text="@Strings.MapArchive_TtsString" />
+
+            <Label Text="@_mapModel.TtsString" CssClass="text-break-all" Style="grid-column: span 3;"/>
+
+            <Label Text="@Strings.MapArchive_MapGeneratorLink" />
+
+            <Label Text="@_mapModel.MapGeneratorLink" CssClass="text-break-all" Style="grid-column: span 3;"/>
+        </GridLayout>
+
+        <VerticalSpace Height="20" />
+
+        <FlexColumnCenteredContainer Width="80" >
+            <Button ButtonText="@Strings.MapArchive_SaveMap" OnClick="SaveMap" ButtonType="ButtonType.Submit" IsDisabled="IsNameOrEventNotFilled()" />
+        </FlexColumnCenteredContainer>
+
+        @if (_showMapDuplicateError)
+        {
+            <VerticalSpace Height="20" />
+            <FlexColumnCenteredContainer Width="80" >
+                <Label Text="@Strings.MapsArchive_MapAlreadyExistsError" TextColor="TextColor.Red" />
+            </FlexColumnCenteredContainer>
+        }
+
+    </FlexColumnCenteredContainer>
+</Page>

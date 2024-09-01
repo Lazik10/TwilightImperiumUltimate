@@ -12,6 +12,9 @@ public partial class FlexRowContainer
     public string CssClass { get; set; } = string.Empty;
 
     [Parameter]
+    public string Style { get; set; } = string.Empty;
+
+    [Parameter]
     public int Width { get; set; } = 100;
 
     [Parameter]

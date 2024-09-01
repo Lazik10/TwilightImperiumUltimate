@@ -150,7 +150,17 @@ html {
 }
 
 .text-break {
+    word-wrap: break-word;
     overflow-wrap: break-word;
+    white-space: normal;
+    word-break: break-all;
+}
+
+.text-break-all {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    word-break: break-all;
 }
 
 .white {

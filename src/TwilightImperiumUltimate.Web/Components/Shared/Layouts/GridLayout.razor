@@ -1,9 +1,10 @@
-﻿<div class="grid-container" 
+﻿<div class="grid-container @(CssClass)" 
      style="grid-template-columns: repeat(@Columns, 1fr); 
             gap: @(Gap)px; 
             width: @(Width)%; 
             justify-items: center; 
             align-items: @(AlignItems);
-            grid-template-rows: auto;">
+            grid-template-rows: auto;
+            @(Style)">
     @ChildContent
 </div>

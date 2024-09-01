@@ -339,4 +339,22 @@
   <data name="ApiPath_RemoveRole" xml:space="preserve">
     <value>api/users/remove-role</value>
   </data>
+  <data name="ApiPath_AddNewMapToArchive" xml:space="preserve">
+    <value>api/map-archive/add-map</value>
+  </data>
+  <data name="ApiPath_MapArchiveMaps" xml:space="preserve">
+    <value>api/map-archive/maps</value>
+  </data>
+  <data name="ApiPath_MapRatingsUser" xml:space="preserve">
+    <value>api/map-ratings/user</value>
+  </data>
+  <data name="WebsitePath_MapsArchive" xml:space="preserve">
+    <value>/community/maps-archive</value>
+  </data>
+  <data name="MapArchiveButton_NewMap" xml:space="preserve">
+    <value>New map</value>
+  </data>
+  <data name="ApiPath_UpdateUserName" xml:space="preserve">
+    <value>api/users/user-name-update</value>
+  </data>
 </root>

@@ -16,4 +16,10 @@ public partial class GridLayout
 
     [Parameter]
     public string AlignItems { get; set; } = "center";
+
+    [Parameter]
+    public string Style { get; set; } = string.Empty;
+
+    [Parameter]
+    public string CssClass { get; set; } = string.Empty;
 }
