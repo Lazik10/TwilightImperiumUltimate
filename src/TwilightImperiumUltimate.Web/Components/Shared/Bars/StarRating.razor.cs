@@ -18,12 +18,20 @@ public partial class StarRating
 
     private Guid Guid { get; set; } = Guid.NewGuid();
 
+    public void Refresh()
+    {
+        StateHasChanged();
+    }
+
     private void HandleClick(float rating)
     {
         if (IsReadOnly)
             return;
 
+        Rating = rating;
         OnRatingChange.InvokeAsync(rating);
+        _isInitialRatingSet = true;
+        Refresh();
     }
 
     private bool IsChecked(float value)

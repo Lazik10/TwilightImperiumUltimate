@@ -1620,4 +1620,108 @@ Brandon Williams&lt;/p&gt;</value>
   <data name="Register_UserName" xml:space="preserve">
     <value>Username</value>
   </data>
+  <data name="MapGenerator_EnterMapString" xml:space="preserve">
+    <value>Enter import string</value>
+  </data>
+  <data name="SlicesGenerator_EnterSlicesString" xml:space="preserve">
+    <value>0,0,0,0,0
+0,0,0,0,0
+0,0,0,0,0
+0,0,0,0,0
+0,0,0,0,0
+0,0,0,0,0</value>
+  </data>
+  <data name="ButtonText_LoadMap" xml:space="preserve">
+    <value>Load map</value>
+  </data>
+  <data name="ButtonText_LoadSlices" xml:space="preserve">
+    <value>Load slices</value>
+  </data>
+  <data name="SlicesArchive_SliceDraftAuthor" xml:space="preserve">
+    <value>Author:</value>
+  </data>
+  <data name="SlicesArchive_SliceDraftName" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="SlicesArchive_SliceDraftEventName" xml:space="preserve">
+    <value>Event:</value>
+  </data>
+  <data name="SlicesArchive_SlicesCount" xml:space="preserve">
+    <value>Count:</value>
+  </data>
+  <data name="SlicesArchive_SliceDraftDescription" xml:space="preserve">
+    <value>Description:</value>
+  </data>
+  <data name="SlicesArchive_DescriptionPlaceholder" xml:space="preserve">
+    <value>Copy slice draft description here (supports HTML tags and inline CSS styles)</value>
+  </data>
+  <data name="ButtonText_Preview" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="ButtonText_Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="SlicesArchive_SlicesString" xml:space="preserve">
+    <value>Slices:</value>
+  </data>
+  <data name="SlicesArchive_SliceGeneratorLink" xml:space="preserve">
+    <value>Slices generator link:</value>
+  </data>
+  <data name="ButtonText_SaveMap" xml:space="preserve">
+    <value>Save map</value>
+  </data>
+  <data name="ButtonText_SaveSliceDraft" xml:space="preserve">
+    <value>Save slice draft</value>
+  </data>
+  <data name="SlicesArchive_SliceDraftAlreadyExistsError" xml:space="preserve">
+    <value>Unable to add the slice draft to the database because slice draft with this name and event name already exists!</value>
+  </data>
+  <data name="SliceArchive_SliceName" xml:space="preserve">
+    <value>Slice name</value>
+  </data>
+  <data name="SlicesArchiveButton_NewSlice" xml:space="preserve">
+    <value>Add new slice</value>
+  </data>
+  <data name="SlicesArchive_SliceDraftRating" xml:space="preserve">
+    <value>Rating:</value>
+  </data>
+  <data name="SlicesArchive_SliceDraftSliseCount" xml:space="preserve">
+    <value>Slices:</value>
+  </data>
+  <data name="ButtonText_Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="ButtonText_View" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="SliceCountFilter_All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="SliceCountFilter_ThreeSlices" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="SliceCountFilter_FourSlices" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="SliceCountFilter_FiveSlices" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="SliceCountFilter_SixSlices" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="SliceCountFilter_SevenSlices" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="SliceCountFilter_EightSlices" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="SliceCountFilter_NineSlices" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="SlicesArchive_SliceDraftUserRating" xml:space="preserve">
+    <value>Your:</value>
+  </data>
+  <data name="SlicesArchive_SliceDraftArchiveLink" xml:space="preserve">
+    <value>Archive link:</value>
+  </data>
 </root>

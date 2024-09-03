@@ -24,4 +24,8 @@ public class TwilightImperiumUser : IdentityUser
     public IReadOnlyCollection<Map> Maps { get; set; } = new List<Map>();
 
     public IReadOnlyCollection<MapRating> MapRatings { get; set; } = new List<MapRating>();
+
+    public IReadOnlyCollection<SliceDraft> SliceDrafts { get; set; } = new List<SliceDraft>();
+
+    public IReadOnlyCollection<SliceDraftRating> SliceDraftRatings { get; set; } = new List<SliceDraftRating>();
 }

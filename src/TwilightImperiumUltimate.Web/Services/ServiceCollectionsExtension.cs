@@ -43,6 +43,7 @@ public static class ServiceCollectionsExtension
         services.AddScoped<IMapGeneratorArchiveService, MapGeneratorArchiveService>();
         services.AddScoped<ISliceGeneratorService, SliceGeneratorService>();
         services.AddScoped<ISliceGeneratorSettingsService, SliceGeneratorSettingsService>();
+        services.AddScoped<ISlicesDraftToStringConverter, SlicesDraftToStringConverter>();
         services.AddScoped<IMiltyDraftService, MiltyDraftService>();
         services.AddScoped<IMiltyDraftSettingsService, MiltyDraftSettingsService>();
         services.AddScoped<IMiltyDraftMapPositionSetter, MiltyDraftMapPositionSetter>();

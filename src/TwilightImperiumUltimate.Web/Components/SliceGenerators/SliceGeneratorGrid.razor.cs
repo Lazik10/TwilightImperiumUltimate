@@ -1,6 +1,6 @@
 using Microsoft.JSInterop;
-using System.Text;
 using TwilightImperiumUltimate.Web.Pages.Tools;
+using TwilightImperiumUltimate.Web.Services.MapGenerators;
 using TwilightImperiumUltimate.Web.Services.SliceGenerators;
 
 namespace TwilightImperiumUltimate.Web.Components.SliceGenerators;
@@ -11,10 +11,15 @@ public partial class SliceGeneratorGrid
 
     private SliceHexTileMenu? _sliceHexTileMenu;
 
-    public List<SliceModel> Slices => GetUpdatedSlices();
+    private List<SliceModel> _slices = new List<SliceModel>();
+
+    public IReadOnlyCollection<SliceModel> Slices => _slices;
 
     [CascadingParameter(Name = "SliceGeneratorPage")]
     public SliceGenerator SliceGeneratorPage { get; set; } = default!;
+
+    [CascadingParameter(Name = "TilesValue")]
+    public string TilesImported { get; set; } = string.Empty;
 
     [Inject]
     private ISliceGeneratorService SliceGeneratorService { get; set; } = default!;
@@ -23,7 +28,13 @@ public partial class SliceGeneratorGrid
     private ISliceGeneratorSettingsService SliceGeneratorSettingsService { get; set; } = default!;
 
     [Inject]
+    private ISlicesDraftToStringConverter SlicesDraftToStringConverter { get; set; } = default!;
+
+    [Inject]
     private IJSRuntime JSRuntime { get; set; } = default!;
+
+    [Inject]
+    private NavigationManager NavigationManager { get; set; } = default!;
 
     public void UpdateSliceHexTileMenu()
     {
@@ -32,7 +43,20 @@ public partial class SliceGeneratorGrid
 
     protected override async Task OnInitializedAsync()
     {
-        await SliceGeneratorService.GeneratePreviewSlices();
+        await SlicesDraftToStringConverter.InitializeSystemTiles();
+
+        if (!string.IsNullOrEmpty(TilesImported))
+        {
+            await SlicesDraftToStringConverter.GenerateSlicesFromShareLink(TilesImported);
+            _slices = SlicesDraftToStringConverter.Slices.ToList();
+            await SliceGeneratorService.SetImportedSlices(_slices);
+            await SliceGeneratorSettingsService.SetNumberOfSlices(_slices.Count);
+        }
+        else
+        {
+            await SliceGeneratorService.GeneratePreviewSlices();
+            _slices = GetUpdatedSlices();
+        }
     }
 
     private List<SliceModel> GetUpdatedSlices()
@@ -43,6 +67,7 @@ public partial class SliceGeneratorGrid
     private async Task GenerateSlices()
     {
         await SliceGeneratorService.GenerateSlices(false);
+        _slices = GetUpdatedSlices();
         StateHasChanged();
     }
 
@@ -54,6 +79,7 @@ public partial class SliceGeneratorGrid
 
     private Task UpdateSlices()
     {
+        _slices = GetUpdatedSlices();
         StateHasChanged();
         return Task.CompletedTask;
     }
@@ -78,9 +104,33 @@ public partial class SliceGeneratorGrid
 
         if (iconType == IconType.CopyMapString)
         {
-            var slicesString = GetSlicesString();
+            var slicesString = await GetSlicesString();
             var module = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./Components/SliceGenerators/SliceGeneratorGrid.razor.js");
             await module.InvokeVoidAsync("copyToClipboard", slicesString);
+        }
+
+        if (iconType == IconType.ImportMapString)
+        {
+            await SliceGeneratorService.SetImportedSlices(SlicesDraftToStringConverter.Slices.ToList());
+            var newSliceCount = SliceGeneratorService.Slices.Count;
+            await SliceGeneratorSettingsService.SetNumberOfSlices(newSliceCount);
+            await UpdateSlices();
+        }
+
+        if (iconType == IconType.ShareMap)
+        {
+            var slices = SliceGeneratorService.Slices;
+            var slicesString = await SlicesDraftToStringConverter.ConvertSlicesDraftToString(slices);
+            var shareString = await SlicesDraftToStringConverter.CreateShareLink(slicesString);
+            var module = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./Components/SliceGenerators/SliceGeneratorGrid.razor.js");
+            await module.InvokeVoidAsync("copyToClipboard", shareString);
+        }
+
+        if (iconType == IconType.Archive)
+        {
+            var sliceDraftString = await SlicesDraftToStringConverter.ConvertSlicesDraftToString(SliceGeneratorService.Slices);
+            var map64BaseString = await SlicesDraftToStringConverter.ConvertSliceDraftStringToBase64String(sliceDraftString);
+            NavigationManager.NavigateTo(NavigationManager.BaseUri + $"community/add-slice-draft-to-archive?tiles={map64BaseString}");
         }
     }
 
@@ -90,20 +140,8 @@ public partial class SliceGeneratorGrid
         await module.InvokeVoidAsync("saveMapAsImage", "sliceArea", $"TI4_Ultimate_Slices_{DateTime.Now.ToLocalTime().ToLongTimeString()}.png");
     }
 
-    private string GetSlicesString()
+    private async Task<string> GetSlicesString()
     {
-        StringBuilder sliceString = new();
-        foreach (var slice in Slices)
-        {
-            foreach (var systemTile in slice.SystemTiles.Skip(1))
-            {
-                sliceString.Append(systemTile.SystemTileCode);
-                sliceString.Append(',');
-            }
-
-            sliceString.Append('\n');
-        }
-
-        return sliceString.ToString();
+        return await SlicesDraftToStringConverter.ConvertSlicesDraftToString(Slices);
     }
 }

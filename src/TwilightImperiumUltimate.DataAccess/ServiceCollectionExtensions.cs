@@ -51,6 +51,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IFaqRepository, FaqRepository>();
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IMapArchiveRepository, MapArchiveRepository>();
+        services.AddScoped<ISlicesArchiveRepository, SlicesArchiveRepository>();
 
         return services;
     }

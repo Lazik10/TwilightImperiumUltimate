@@ -1,0 +1,24 @@
+﻿.slice-evaluation-grid {
+}
+
+.yellow {
+    color: yellow;
+}
+
+.blue {
+    color: deepskyblue;
+}
+
+.green {
+    color: lawngreen;
+}
+
+.max-height {
+    max-height: 40px;
+}
+
+.grid-text {
+    text-align: center;
+    align-self: center;
+    justify-self: center;
+}

@@ -1,3 +1,5 @@
+using TwilightImperiumUltimate.Web.Models.SlicesArchive;
+
 namespace TwilightImperiumUltimate.Web.AutoMapper;
 
 public class GalaxyProfile : Profile
@@ -22,6 +24,23 @@ public class GalaxyProfile : Profile
                 x.TtsString,
                 x.MapGeneratorLink,
                 x.MapArchiveLink,
+                x.Rating,
+                x.NumberOfVotes));
+
+        CreateMap<SliceDraftDto, SliceDraftModel>();
+        CreateMap<SliceDraftModel, SliceDraftDto>()
+            .ConstructUsing(x => new SliceDraftDto(
+                x.Id,
+                x.Name,
+                x.EventName,
+                x.Description,
+                string.Join(",", x.SliceNames),
+                x.SliceCount,
+                x.SliceDraftString,
+                x.SliceDraftGeneratorLink,
+                x.SliceDraftArchiveLink,
+                x.UserName,
+                x.UserId,
                 x.Rating,
                 x.NumberOfVotes));
     }

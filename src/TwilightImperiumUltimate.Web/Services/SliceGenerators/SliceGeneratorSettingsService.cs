@@ -32,6 +32,13 @@ public class SliceGeneratorSettingsService : ISliceGeneratorSettingsService
         return Task.CompletedTask;
     }
 
+
+    public Task SetNumberOfSlices(int numberOfSlices)
+    {
+        _numberOfSlices = numberOfSlices;
+        return Task.CompletedTask;
+    }
+
     public Task UpdateGameVersion(GameVersion gameVersion)
     {
         var gameVersions = GameVersions.ToList();

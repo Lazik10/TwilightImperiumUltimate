@@ -357,4 +357,19 @@
   <data name="ApiPath_UpdateUserName" xml:space="preserve">
     <value>api/users/user-name-update</value>
   </data>
+  <data name="SlicesArchive_SliceDraftAlreadyExistsError" xml:space="preserve">
+    <value>Unable to add the slice draft to the database because slice draft with this name and event name already exists!</value>
+  </data>
+  <data name="ApiPath_AddNewSliceDraftToArchive" xml:space="preserve">
+    <value>api/slices-archive/add-slice-draft</value>
+  </data>
+  <data name="ApiPath_SlicesArchiveSliceDrafts" xml:space="preserve">
+    <value>api/slices-archive/drafts</value>
+  </data>
+  <data name="ApiPath_SliceDraftRatingsUser" xml:space="preserve">
+    <value>api/slice-draft-ratings/user</value>
+  </data>
+  <data name="ApiPath_SlicesArchiveSliceDraft" xml:space="preserve">
+    <value>api/slices-archive/slice-draft</value>
+  </data>
 </root>

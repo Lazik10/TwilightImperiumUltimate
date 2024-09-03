@@ -51,19 +51,19 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "caf9bad4-43a5-4caa-8d56-f40179e30e20",
+                            Id = "4de1fbd4-b071-4056-9621-b91512d394ed",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "79bfd091-130f-4ca9-bd24-9453a0c9b71f",
+                            Id = "06a8322d-6be4-4911-a401-e242c8908f92",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "0b40bbf9-fcf8-4975-afcf-8c3c89277b2b",
+                            Id = "0b704165-8cfa-4e4f-807e-20a8c91c2aaf",
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
                         });
@@ -12535,6 +12535,242 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         });
                 });
 
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Galaxy.SliceDraft", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("varchar(MAX)")
+                        .HasColumnName("Description")
+                        .HasColumnOrder(3);
+
+                    b.Property<string>("EventName")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)")
+                        .HasColumnName("EventName")
+                        .HasColumnOrder(2);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)")
+                        .HasColumnName("Name")
+                        .HasColumnOrder(1);
+
+                    b.Property<int>("SliceCount")
+                        .HasColumnType("integer")
+                        .HasColumnName("SliceCount")
+                        .HasColumnOrder(7);
+
+                    b.Property<string>("SliceDraftArchiveLink")
+                        .IsRequired()
+                        .HasColumnType("varchar(MAX)")
+                        .HasColumnName("SliceDraftArchiveLink")
+                        .HasColumnOrder(9);
+
+                    b.Property<string>("SliceDraftGeneratorLink")
+                        .IsRequired()
+                        .HasColumnType("varchar(MAX)")
+                        .HasColumnName("SliceDraftGeneratorLink")
+                        .HasColumnOrder(8);
+
+                    b.Property<string>("SliceDraftString")
+                        .IsRequired()
+                        .HasColumnType("varchar(MAX)")
+                        .HasColumnName("SliceDraftString")
+                        .HasColumnOrder(5);
+
+                    b.Property<string>("SliceNames")
+                        .IsRequired()
+                        .HasColumnType("varchar(MAX)")
+                        .HasColumnName("SliceNames")
+                        .HasColumnOrder(6);
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("UserId")
+                        .HasColumnOrder(11);
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("varchar(256)")
+                        .HasColumnName("UserName")
+                        .HasColumnOrder(10);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("Name", "EventName")
+                        .IsUnique();
+
+                    b.ToTable("SliceDrafts", "Galaxy");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Qualifiers for the SCPT 2022 tournament.",
+                            EventName = "SCPT 2022",
+                            Name = "Qualifiers",
+                            SliceCount = 6,
+                            SliceDraftArchiveLink = "https://ti4ultimate.com/community/slices-archive/slice-draft/1",
+                            SliceDraftGeneratorLink = "https://ti4ultimate.com/tools/slice-generator?tiles=MzksMzUsNDEsNjYsNzQsCjQ3LDM3LDc2LDIwLDY4LAoyNiwzMCw1OSw2Nyw0OCwKNjUsMjQsNDksNzksMjgsCjI3LDY5LDc4LDY0LDQ1LAo0MiwyNSwyOSw3Nyw2MiwK",
+                            SliceDraftString = "39,35,41,66,74,\r\n47,37,76,20,68,\r\n26,30,59,67,48,\r\n65,24,49,79,28,\r\n27,69,78,64,45,\r\n42,25,29,77,62,\r\n",
+                            SliceNames = "Hope,Mama's Drama,Golden Corral,Antimassachusetts,Tom Hanks,Chili Dogs on the Beach",
+                            UserId = "1",
+                            UserName = "Admin"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "Prelims for the SCPT 2022 tournament.",
+                            EventName = "SCPT 2022",
+                            Name = "Prelims",
+                            SliceCount = 7,
+                            SliceDraftArchiveLink = "https://ti4ultimate.com/community/slices-archive/slice-draft/2",
+                            SliceDraftGeneratorLink = "https://ti4ultimate.com/tools/slice-generator?tiles=NDIsNzUsNzgsNTksMjQsCjQ2LDcxLDYzLDMxLDI2LAozNyw2MCwzOSw1MCw2NywKNjgsNzMsNzksMjAsNjUsCjM0LDc3LDM2LDQxLDY0LAo3Niw2Niw0MCw2Miw0NCwKMjgsMTksMjUsODAsNDcsCg==",
+                            SliceDraftString = "42,75,78,59,24,\r\n46,71,63,31,26,\r\n37,60,39,50,67,\r\n68,73,79,20,65,\r\n34,77,36,41,64,\r\n76,66,40,62,44,\r\n28,19,25,80,47,\r\n",
+                            SliceNames = "Soft Launch,Winslayer's Dugout,Custodian's Gambit,Between a Rock and a Slow Place,The Glass House,Grand Opening,Twilight Imperium 4th Edition",
+                            UserId = "1",
+                            UserName = "Admin"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "Semifinals for the SCPT 2022 tournament.",
+                            EventName = "SCPT 2022",
+                            Name = "Semifinals",
+                            SliceCount = 6,
+                            SliceDraftArchiveLink = "https://ti4ultimate.com/community/slices-archive/slice-draft/3",
+                            SliceDraftGeneratorLink = "https://ti4ultimate.com/tools/slice-generator?tiles=NDgsMjUsNzAsNjcsMjgsCjIzLDY0LDMzLDc4LDY1LAoyMSw0MCw2OSw1MCwzOCwKMzUsMzksMzQsNDQsNjEsCjQxLDI2LDMwLDc3LDczLAo3Miw3OSwzMiwyMiw2NiwK",
+                            SliceDraftString = "48,25,70,67,28,\r\n23,64,33,78,65,\r\n21,40,69,50,38,\r\n35,39,34,44,61,\r\n41,26,30,77,73,\r\n72,79,32,22,66,\r\n",
+                            SliceNames = "Rift of the Valkyries,Drunken Saudor,Jeol Ir: The Entertainer,Public Domain Smooth,Mellon Tell Lodorture,In the Hall of the Asteroid King",
+                            UserId = "1",
+                            UserName = "Admin"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Description = "Finals for the SCPT 2022 tournament.",
+                            EventName = "SCPT 2022",
+                            Name = "Finals",
+                            SliceCount = 6,
+                            SliceDraftArchiveLink = "https://ti4ultimate.com/community/slices-archive/slice-draft/4",
+                            SliceDraftGeneratorLink = "https://ti4ultimate.com/tools/slice-generator?tiles=NzksMzUsMzQsNjQsNzgsCjI3LDI5LDQ2LDQ0LDI1LAo0MCwzNywzMSw2NSw0MSwKMzksNjYsNjksNDcsNzQsCjQ4LDc2LDY4LDIwLDE5LAo2NywyOCw0OSw3MywyNiwK",
+                            SliceDraftString = "79,35,34,64,78,\r\n27,29,46,44,25,\r\n40,37,31,65,41,\r\n39,66,69,47,74,\r\n48,76,68,20,19,\r\n67,28,49,73,26,\r\n",
+                            SliceNames = "Final slice 1,Final slice 2,Final slice 3,Final slice 4,Final slice 5,Final slice 6Rift of the Valkyries,Drunken Saudor,Jeol Ir: The Entertainer,Public Domain Smooth,Mellon Tell Lodorture,In the Hall of the Asteroid King",
+                            UserId = "1",
+                            UserName = "Admin"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Description = "Qualifiers for the SCPT 2023 tournament.",
+                            EventName = "SCPT 2023",
+                            Name = "Qualifiers",
+                            SliceCount = 7,
+                            SliceDraftArchiveLink = "https://ti4ultimate.com/community/slices-archive/slice-draft/5",
+                            SliceDraftGeneratorLink = "https://ti4ultimate.com/tools/slice-generator?tiles=MzAsNjMsNDYsNjcsNjEsCjM1LDc4LDQyLDI2LDcyLAoyNywyMyw0OCw3OSw2MiwKMjEsNjYsNjksNDAsODAsCjQ1LDc1LDI0LDY0LDUwLAozMSwzNyw0OSwyNSw0MSwKNjUsNDcsNTksMzksMzYsCg==",
+                            SliceDraftString = "30,63,46,67,61,\r\n35,78,42,26,72,\r\n27,23,48,79,62,\r\n21,66,69,40,80,\r\n45,75,24,64,50,\r\n31,37,49,25,41,\r\n65,47,59,39,36,\r\n",
+                            SliceNames = "Vorhallywood,Lirta IV: The Voyage Home,Synecdoche, New Albion,No Country for Hope's End,Three Little Devils,Gravity's Blindside,More-d'Or",
+                            UserId = "1",
+                            UserName = "Admin"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Description = "Prelims for the SCPT 2023 tournament.",
+                            EventName = "SCPT 2023",
+                            Name = "Prelims",
+                            SliceCount = 7,
+                            SliceDraftArchiveLink = "https://ti4ultimate.com/community/slices-archive/slice-draft/6",
+                            SliceDraftGeneratorLink = "https://ti4ultimate.com/tools/slice-generator?tiles=NjMsNDAsNzIsNDYsNjgsCjM2LDI1LDI0LDUwLDQxLAozOSw2MSw1OSw0Myw3MSwKNDcsNzAsNjUsNDQsMTksCjQ1LDY0LDM0LDYyLDQ5LAo0OCwyMiw2Niw3OSwzMiwKNDIsMjYsNzMsNzgsMjEsCg==",
+                            SliceDraftString = "63,40,72,46,68,\r\n36,25,24,50,41,\r\n39,61,59,43,71,\r\n47,70,65,44,19,\r\n45,64,34,62,49,\r\n48,22,66,79,32,\r\n42,26,73,78,21,\r\n",
+                            SliceNames = "Gone Girl,DOOT! DOOT!,It's Finger,It's Pronounced Celery,Big-Lore, Not Four,Ginger As She Goes,It's Pronounced Kay All Dree",
+                            UserId = "1",
+                            UserName = "Admin"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Description = "Semifinals for the SCPT 2023 tournament.",
+                            EventName = "SCPT 2023",
+                            Name = "Semifinals",
+                            SliceCount = 7,
+                            SliceDraftArchiveLink = "https://ti4ultimate.com/community/slices-archive/slice-draft/7",
+                            SliceDraftGeneratorLink = "https://ti4ultimate.com/tools/slice-generator?tiles=NzcsMzQsMjYsNjcsMjcsCjY0LDUwLDI5LDQyLDcyLAozNSw0Nyw3Niw0Myw2NSwKNDUsMjQsMjgsMzgsNDAsCjc1LDU5LDc4LDY2LDM5LAoyNSwzNyw0OSw0MSw3MSwKNDgsNjksNzksMTksMzAsCg==",
+                            SliceDraftString = "77,34,26,67,27,\r\n64,50,29,42,72,\r\n35,47,76,43,65,\r\n45,24,28,38,40,\r\n75,59,78,66,39,\r\n25,37,49,41,71,\r\n48,69,79,19,30,\r\n",
+                            SliceNames = "Encounter at Starpoint,We'll Always Have Atlas,The Most of Best Worlds,Shades of Meh...Ar Xull,Hope's End Pursuits,Ba'Kal Good Things,Lickin' Good!",
+                            UserId = "1",
+                            UserName = "Admin"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Description = "Finals for the SCPT 2023 tournament.",
+                            EventName = "SCPT 2023",
+                            Name = "Finals",
+                            SliceCount = 7,
+                            SliceDraftArchiveLink = "https://ti4ultimate.com/community/slices-archive/slice-draft/8",
+                            SliceDraftGeneratorLink = "https://ti4ultimate.com/tools/slice-generator?tiles=NzcsMjIsNTksNjcsNjUsCjQ2LDI1LDI5LDMxLDQ1LAo3OCw2NCw3NCwzNyw0MSwKNjEsNDAsNzAsNjgsMzYsCjczLDM5LDI0LDgwLDcxLAo0MiwyNiw3MiwzNSw0NywKNDksNzksMjgsNjIsNzYsCg==",
+                            SliceDraftString = "77,22,59,67,65,\r\n46,25,29,31,45,\r\n78,64,74,37,41,\r\n61,40,70,68,36,\r\n73,39,24,80,71,\r\n42,26,72,35,47,\r\n49,79,28,62,76,\r\n",
+                            SliceNames = "Final Slice 1,Final Slice 2,Final Slice 3,Final Slice 4,Final Slice 5,Final Slice 6,Final Slice 7",
+                            UserId = "1",
+                            UserName = "Admin"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Description = "Qualifiers for the SCPT 2024 tournament.",
+                            EventName = "SCPT 2024",
+                            Name = "Qualifiers",
+                            SliceCount = 6,
+                            SliceDraftArchiveLink = "https://ti4ultimate.com/community/slices-archive/slice-draft/9",
+                            SliceDraftGeneratorLink = "https://ti4ultimate.com/tools/slice-generator?tiles=MzIsNjYsNjgsNjMsMzksCjI2LDc2LDQ5LDE5LDQxLAo2NCwzNSw2NSwyMiw3OSwKNTAsMzcsNDUsNjEsMzYsCjI1LDczLDc4LDU5LDYyLAo3Miw3NSw4MCwyMSw0MCwK",
+                            SliceDraftString = "32,66,68,63,39,\r\n26,76,49,19,41,\r\n64,35,65,22,79,\r\n50,37,45,61,36,\r\n25,73,78,59,62,\r\n72,75,80,21,40,\r\n",
+                            SliceNames = "101 Dal Boothas,Will,Tharma & Breg,Yellow Slice Because It Has Two Reds,Give Me Integrated or Give Me Death,Devil Went Down to Velnor",
+                            UserId = "1",
+                            UserName = "Admin"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Description = "Prelims for the SCPT 2024 tournament.",
+                            EventName = "SCPT 2024",
+                            Name = "Prelims",
+                            SliceCount = 6,
+                            SliceDraftArchiveLink = "https://ti4ultimate.com/community/slices-archive/slice-draft/10",
+                            SliceDraftGeneratorLink = "https://ti4ultimate.com/tools/slice-generator?tiles=MzMsNjIsNDEsMjUsMzIsCjQ0LDM2LDE5LDQwLDcyLAo0NSw3MCwzNSw2NCw3OCwKNTAsNzQsNjUsMjYsNjMsCjY5LDIxLDIzLDc5LDQ4LAozOCw1OSw0MiwzOSwyNCwK",
+                            SliceDraftString = "33,62,41,25,32,\r\n44,36,19,40,72,\r\n45,70,35,64,78,\r\n50,74,65,26,63,\r\n69,21,23,79,48,\r\n38,59,42,39,24,\r\n",
+                            SliceNames = "Corneeqticut,Lorxembourg,Siigney,Vorhalabama,Düssaudorf,New South Vails",
+                            UserId = "1",
+                            UserName = "Admin"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Description = "Semifinals for the SCPT 2024 tournament.",
+                            EventName = "SCPT 2024",
+                            Name = "Semifinals",
+                            SliceCount = 6,
+                            SliceDraftArchiveLink = "https://ti4ultimate.com/community/slices-archive/slice-draft/11",
+                            SliceDraftGeneratorLink = "https://ti4ultimate.com/tools/slice-generator?tiles=NjgsNDksMzYsMjUsNjMsCjIzLDc5LDc1LDYyLDUwLAo2NCwzMiw0Miw3MCw2NywKMzksNjYsMTksNDgsNzYsCjI2LDc0LDc4LDI0LDQzLAoyMCwyNyw1OSw0MCw0MSwK",
+                            SliceDraftString = "68,49,36,25,63,\r\n23,79,75,62,50,\r\n64,32,42,70,67,\r\n39,66,19,48,76,\r\n26,74,78,24,43,\r\n20,27,59,40,41,\r\n",
+                            SliceNames = "<name1>,<name2>,<name3>,<name4>,<name5>,<name6>",
+                            UserId = "1",
+                            UserName = "Admin"
+                        });
+                });
+
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Galaxy.SystemTile", b =>
                 {
                     b.Property<string>("SystemTileName")
@@ -19374,6 +19610,38 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.ToTable("MapRating", "Relationships");
                 });
 
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.RelationshipEntities.SliceDraftRating", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<float>("Rating")
+                        .HasColumnType("real")
+                        .HasColumnOrder(3);
+
+                    b.Property<int>("SliceDraftId")
+                        .HasColumnType("integer")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnOrder(2);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("SliceDraftId", "UserId")
+                        .IsUnique();
+
+                    b.ToTable("SliceDraftRating", "Relationships");
+                });
+
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Rules.Faq", b =>
                 {
                     b.Property<int>("Id")
@@ -22110,7 +22378,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d2695d4a-5329-4fef-894b-32aa1135be65",
+                            ConcurrencyStamp = "b69ea7d9-244a-447f-91d5-ba586fc4e24a",
                             DiscordId = "",
                             Email = "Test@user.cz",
                             EmailConfirmed = true,
@@ -22120,9 +22388,9 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST@USER.CZ",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEHMFBWgflA0Ns35Lx5iYkKdVJwjWDMMsWYwH91D9SnVFdSZUgffoyLS5pbDMsX5BLg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENBN3ovJY9oTxyti0dd58zOxDg1KjMpeiXQoYU71NoVt7FMFznVMA5iaqCCpzvvcLQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a54168b8-448e-4369-b926-57f3d69747a6",
+                            SecurityStamp = "fed93b39-2421-490d-a229-0957dd256deb",
                             SteamId = "",
                             TwoFactorEnabled = false,
                             UserInfo = "First seeded test user",
@@ -22373,6 +22641,17 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.Navigation("SystemTile");
                 });
 
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Galaxy.SliceDraft", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Users.TwilightImperiumUser", "User")
+                        .WithMany("SliceDrafts")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Galaxy.Wormhole", b =>
                 {
                     b.HasOne("TwilightImperiumUltimate.Core.Entities.Galaxy.SystemTile", "SystemTile")
@@ -22452,6 +22731,25 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.RelationshipEntities.SliceDraftRating", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Galaxy.SliceDraft", "SliceDraft")
+                        .WithMany("SliceDraftRatings")
+                        .HasForeignKey("SliceDraftId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Users.TwilightImperiumUser", "User")
+                        .WithMany("SliceDraftRatings")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("SliceDraft");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Factions.Faction", b =>
                 {
                     b.Navigation("FactionTechnologies");
@@ -22462,6 +22760,11 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Galaxy.Map", b =>
                 {
                     b.Navigation("MapRatings");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Galaxy.SliceDraft", b =>
+                {
+                    b.Navigation("SliceDraftRatings");
                 });
 
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Galaxy.SystemTile", b =>
@@ -22486,6 +22789,10 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.Navigation("MapRatings");
 
                     b.Navigation("Maps");
+
+                    b.Navigation("SliceDraftRatings");
+
+                    b.Navigation("SliceDrafts");
                 });
 #pragma warning restore 612, 618
         }

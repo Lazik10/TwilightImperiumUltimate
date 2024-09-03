@@ -1,0 +1,50 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Bars
+
+<div style="overflow-x: auto; white-space: nowrap;">
+
+    <div class="grid-header background">
+        <GridLayout Columns="6" Gap="5" Style="grid-template-columns: 22% 22% 15% 8% 20% 10%;">
+
+            <Label Text="@Strings.SlicesArchive_SliceDraftName" CenterText="true" />
+            <Label Text="@Strings.SlicesArchive_SliceDraftEventName" CenterText="true" />
+            <Label Text="@Strings.SlicesArchive_SliceDraftAuthor" CenterText="true" />
+            <Label Text="@Strings.SlicesArchive_SliceDraftSliseCount" CenterText="true "/>
+            <Label Text="@Strings.SlicesArchive_SliceDraftRating" CenterText="true" />
+            <div />
+
+            <SearchBar HideText="true" OnSearchChange="ApplyNameFilter" EnableEmptySearch="true" @ref=_nameSearchBar Height="65" />
+            <SearchBar HideText="true" OnSearchChange="ApplyEventFilter" EnableEmptySearch="true" @ref=_eventSearchBar Height="65"/>
+            <SearchBar HideText="true" OnSearchChange="ApplyUserFilter" EnableEmptySearch="true" @ref=_userSearchBar Height="65"/>
+            <RadzenDropDown @bind-Value="SelectedSliceFilter"
+                            Data="@_sliceFilters"
+                            Change="() => ApplySliceCountFilter()"
+                            ValueProperty="Key"
+                            TextProperty="Value"
+                            Style="width: 100%; height: 100%;"
+                            class="title handel" />
+            <RadzenDropDown @bind-Value="SelectedFilterOrder"
+                            Data="@_filterOrders"
+                            Change="() => ApplyOrderFilter()"
+                            ValueProperty="Key"
+                            TextProperty="Value"
+                            Style="width: 100%; height: 100%;"
+                            class="title handel" />
+            <Button ButtonText="@Strings.ButtonText_Clear" Width="100" OnClick="ResetSearch" />
+        </GridLayout>
+    </div>
+
+    <VerticalSpace Height="20" />
+
+    <GridLayout Columns="6" Gap="5" Style="grid-template-columns: 22% 22% 15% 8% 20% 10%;">
+        @foreach (var sliceDraft in FilteredSliceDrafts)
+        {
+            <Label Text="@sliceDraft.Name" />
+            <Label Text="@sliceDraft.EventName" />
+            <Label Text="@sliceDraft.UserName" />
+            <Label Text="@sliceDraft.SliceCount.ToString()" CenterText="true"/>
+            <StarRating IsReadOnly="true" Rating="@sliceDraft.Rating" />
+            <Button ButtonText="@Strings.ButtonText_View" Width="100" OnClick="() => RedirectToMapDetails(sliceDraft.Id)" />
+        }
+    </GridLayout>
+
+</div>

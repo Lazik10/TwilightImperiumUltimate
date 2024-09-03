@@ -115,6 +115,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to api/slices-archive/add-slice-draft.
+        /// </summary>
+        public static string ApiPath_AddNewSliceDraftToArchive {
+            get {
+                return ResourceManager.GetString("ApiPath_AddNewSliceDraftToArchive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to api/users/add-role.
         /// </summary>
         public static string ApiPath_AddRole {
@@ -363,6 +372,33 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string ApiPath_SecretObjectiveCards {
             get {
                 return ResourceManager.GetString("ApiPath_SecretObjectiveCards", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/slice-draft-ratings/user.
+        /// </summary>
+        public static string ApiPath_SliceDraftRatingsUser {
+            get {
+                return ResourceManager.GetString("ApiPath_SliceDraftRatingsUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/slices-archive/slice-draft.
+        /// </summary>
+        public static string ApiPath_SlicesArchiveSliceDraft {
+            get {
+                return ResourceManager.GetString("ApiPath_SlicesArchiveSliceDraft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/slices-archive/drafts.
+        /// </summary>
+        public static string ApiPath_SlicesArchiveSliceDrafts {
+            get {
+                return ResourceManager.GetString("ApiPath_SlicesArchiveSliceDrafts", resourceCulture);
             }
         }
         
@@ -768,6 +804,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string ResourcePath_WebsitePreviewPath {
             get {
                 return ResourceManager.GetString("ResourcePath_WebsitePreviewPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to add the slice draft to the database because slice draft with this name and event name already exists!.
+        /// </summary>
+        public static string SlicesArchive_SliceDraftAlreadyExistsError {
+            get {
+                return ResourceManager.GetString("SlicesArchive_SliceDraftAlreadyExistsError", resourceCulture);
             }
         }
         

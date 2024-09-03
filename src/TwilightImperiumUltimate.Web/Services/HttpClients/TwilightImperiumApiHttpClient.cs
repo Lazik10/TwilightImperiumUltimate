@@ -115,7 +115,7 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
             else
             {
                 var errorResponse = await response.Content.ReadAsStringAsync(cancellationToken);
-                Log.Error("Error while posting data to endpoint: {EndpointPath}. Status Code: {StatusCode}. Error: {Error}", endpointPath, response.StatusCode, errorResponse);
+                Log.Warning("Error while posting data to endpoint: {EndpointPath}. Status Code: {StatusCode}. Error: {Error}", endpointPath, response.StatusCode, errorResponse);
 
                 switch (response.StatusCode)
                 {

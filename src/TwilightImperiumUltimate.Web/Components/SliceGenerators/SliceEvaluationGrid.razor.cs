@@ -6,7 +6,7 @@ namespace TwilightImperiumUltimate.Web.Components.SliceGenerators;
 public partial class SliceEvaluationGrid
 {
     [Parameter]
-    public List<SliceModel> Slices { get; set; } = new();
+    public IReadOnlyCollection<SliceModel> Slices { get; set; } = new List<SliceModel>();
 
     [Inject]
     private ISliceGeneratorService SliceGeneratorService { get; set; } = default!;
@@ -50,7 +50,13 @@ public partial class SliceEvaluationGrid
 
     private List<SliceEvaluation> GetSliceEvaluations()
     {
-        var slices = SliceGeneratorService.Slices;
+        List<SliceModel> slices;
+
+        if (Slices.Count == 0)
+            slices = SliceGeneratorService.Slices.ToList();
+        else
+            slices = Slices.ToList();
+
         var sliceEvaluations = new List<SliceEvaluation>();
 
         foreach (var slice in slices)

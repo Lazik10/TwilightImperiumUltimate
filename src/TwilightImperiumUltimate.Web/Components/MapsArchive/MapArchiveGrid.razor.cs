@@ -38,9 +38,10 @@ public partial class MapArchiveGrid
         InitializeEnumsWithDisplayNames();
     }
 
-    protected override void OnParametersSet()
+    protected override async Task OnParametersSetAsync()
     {
         FilteredMaps = AllMaps;
+        await ApplyOrderFilter();
     }
 
     private static bool IsInvalidSearchInput(string searchKeyword)

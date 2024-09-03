@@ -52,8 +52,7 @@ public class GalaxyProfile : Profile
                 x.Id,
                 x.WormholeName,
                 x.SystemTileName,
-                x.GameVersion)
-            );
+                x.GameVersion));
 
         CreateMap<Slice, SliceDto>()
             .ConstructUsing(x => new SliceDto(
@@ -101,10 +100,34 @@ public class GalaxyProfile : Profile
 
         CreateMap<MapDto, Map>();
 
+        CreateMap<SliceDraft, SliceDraftDto>()
+            .ConstructUsing(x => new SliceDraftDto(
+                x.Id,
+                x.Name,
+                x.EventName,
+                x.Description,
+                x.SliceNames,
+                x.SliceCount,
+                x.SliceDraftString,
+                x.SliceDraftGeneratorLink,
+                x.SliceDraftArchiveLink,
+                x.UserName,
+                x.UserId,
+                x.SliceDraftRatings.Count > 0 ? x.SliceDraftRatings.Average(x => x.Rating) : 0,
+                x.SliceDraftRatings.Count));
+
+        CreateMap<SliceDraftDto, SliceDraft>();
+
         CreateMap<MapRating, MapRatingDto>()
             .ConstructUsing(x => new MapRatingDto(
                 x.UserId,
                 x.MapId,
+                x.Rating));
+
+        CreateMap<SliceDraftRating, SliceDraftRatingDto>()
+            .ConstructUsing(x => new SliceDraftRatingDto(
+                x.UserId,
+                x.SliceDraftId,
                 x.Rating));
     }
 }

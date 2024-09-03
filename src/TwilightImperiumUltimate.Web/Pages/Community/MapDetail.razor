@@ -1,6 +1,7 @@
 ﻿@page "/community/maps-archive/map/{MapId:int}"
 
 @using TwilightImperiumUltimate.Web.Components.MapGenerator
+@using TwilightImperiumUltimate.Web.Components.MapsArchive
 @using TwilightImperiumUltimate.Web.Components.Shared.Bars
 @using TwilightImperiumUltimate.Web.Helpers.Enums
 
@@ -17,7 +18,7 @@
     @if (!_map.Keys.Any())
         return;
 
-    <div id="mapArea" style="width=100%;">
+    <div id="mapArea" style="width: 100%;">
 
         <FlexColumnCenteredContainer>
 
@@ -32,14 +33,24 @@
                     </FlexRowContainer>
                     <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexEnd" Width="50">
                         <Label Text="@Strings.MapArchive_UserRating" Style="margin-right: 10px;" Width="30"/>
-                        <StarRating Rating="@_userRating" OnRatingChange="UpdateUserMapRating" />
+                        <StarRating Rating="@UserRating" OnRatingChange="UpdateUserMapRating" @ref=_userStarRating />
                     </FlexRowContainer>
                 </FlexRowContainer>
 
-
                 @DynamicComponent
+            </FlexColumnCenteredContainer>
 
-                <VerticalSpace Height="100" />
+            <VerticalSpace Height="100" />
+
+            <FlexColumnCenteredContainer Width="100">
+
+                <MapSliceEvaluation Map="_map" MapTemplate="Map.MapTemplate" />
+
+            </FlexColumnCenteredContainer>
+
+            <VerticalSpace Height="50" />
+
+            <FlexColumnCenteredContainer Width="70">
 
                 <GridLayout Columns="4" Gap="40">
 

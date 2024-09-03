@@ -1,8 +1,8 @@
-﻿.map-quick-menu {
+﻿.slice-quick-menu {
     position: absolute;
     display: flex;
     flex-direction: column;
-    right: 20px;
+    right: 50px;
     top: 400px;
     z-index: 1000;
     width: 10%;
