@@ -1,0 +1,92 @@
+﻿@using TwilightImperiumUltimate.Web.Components.PreviewSlices
+@using TwilightImperiumUltimate.Web.Helpers.Enums
+
+<Page>
+    <FlexColumnCenteredContainer>
+
+        <GridLayout Columns="3" Gap="50">
+
+            @foreach (var slice in _slices)
+            {
+                <SlicePreview SliceModel="slice" EditNameMode="true"/>
+            }
+
+        </GridLayout>
+
+    </FlexColumnCenteredContainer>
+
+    <FlexColumnCenteredContainer Width="70">
+
+        <VerticalSpace Height="100" />
+
+        <GridLayout Columns="4" Gap="40">
+
+            <Label Text="@Strings.SlicesArchive_SliceDraftAuthor" />
+            <Label Text="@_sliceDraftModel.UserName" Style="grid-column: span 3;" />
+
+            <Label Text="@Strings.SlicesArchive_SliceDraftName" />
+            <RadzenTextBox @bind-Value="_sliceDraftModel.Name" @oninput="HandleNameChange" class="handel white title" />
+
+            <Label Text="@Strings.SlicesArchive_SliceDraftEventName" />
+            <RadzenTextBox @bind-Value="_sliceDraftModel.EventName" @oninput="HandleEventChange" class="handel white title" />
+
+            <Label Text="@Strings.SlicesArchive_SlicesCount" />
+            <Label Text="@_slices.Count.ToString()" Style="grid-column: span 3;" />
+
+            <Label Text="@Strings.SlicesArchive_SliceDraftDescription" Style="grid-column: span 4;" />
+
+            <FlexColumnCenteredContainer Style="grid-column: span 4;">
+
+                <VerticalSpace Height="20" />
+
+                @if (_enableEditModeForDescription)
+                {
+                    <RadzenTextArea Placeholder="@Strings.SlicesArchive_DescriptionPlaceholder"
+                                    @bind-Value="_sliceDraftModel.Description"
+                                    class="w-100 flex-row title white handel" Style="height: 200px;" />
+                }
+                else
+                {
+                    <div class="handel white shadow">
+                        @MarkupStringDescription
+                    </div>
+                }
+
+                <VerticalSpace Height="20" />
+
+                <FlexRowContainer>
+                    <Button ButtonText="@Strings.ButtonText_Preview" OnClick="() => ToggleEditDescription(false)" />
+                    <Button ButtonText="@Strings.ButtonText_Edit" OnClick="() => ToggleEditDescription(true)" />
+                </FlexRowContainer>
+
+
+                <VerticalSpace Height="20" />
+            </FlexColumnCenteredContainer>
+
+            <Label Text="@Strings.SlicesArchive_SlicesString" />
+
+            <div class="handel white shadow" style="grid-column: span 3;">
+                @SlicesString
+            </div>
+
+            <Label Text="@Strings.SlicesArchive_SliceGeneratorLink" />
+
+            <Label Text="@_sliceDraftModel.SliceDraftGeneratorLink" CssClass="text-break-all" Style="grid-column: span 3;" />
+        </GridLayout>
+
+        <VerticalSpace Height="20" />
+
+        <FlexColumnCenteredContainer Width="80">
+            <Button ButtonText="@Strings.ButtonText_SaveSliceDraft" OnClick="SaveSliceDraft" ButtonType="ButtonType.Submit" IsDisabled="IsNameOrEventNotFilled()" />
+        </FlexColumnCenteredContainer>
+
+        @if (_showMapDuplicateError)
+        {
+            <VerticalSpace Height="20" />
+            <FlexColumnCenteredContainer Width="80">
+                <Label Text="@Strings.SlicesArchive_SliceDraftAlreadyExistsError" TextColor="TextColor.Red" />
+            </FlexColumnCenteredContainer>
+        }
+
+    </FlexColumnCenteredContainer>
+</Page>

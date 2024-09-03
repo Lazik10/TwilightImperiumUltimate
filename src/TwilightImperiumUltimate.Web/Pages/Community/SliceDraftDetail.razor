@@ -1,0 +1,105 @@
+﻿@page "/community/slices-archive/slice-draft/{SliceDraftId:int}"
+@using TwilightImperiumUltimate.Web.Components.MapGenerator
+@using TwilightImperiumUltimate.Web.Components.PreviewSlices
+@using TwilightImperiumUltimate.Web.Components.Shared.Bars
+@using TwilightImperiumUltimate.Web.Components.SliceGenerators
+
+<Page>
+
+    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" >
+        <TextButton Text="@Strings.ButtonBack" OnClick="RedirectBack" FontSize="24"/>
+    </FlexRowContainer>
+    
+    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexEnd">
+        <QuickMenuItem IconType="IconType.DownloadMapImage" IconTypeClicked="IconType.DownloadMapImageClicked" OnClick="async () => await HandleDownloadIconClick()" />
+    </FlexRowContainer>
+
+    @if (!_slices.Any())
+        return;
+
+    <div id="sliceDraftArea" style="width: 100%;" >
+
+        <FlexColumnCenteredContainer>
+
+            <Title Text="@SliceDraft.Name"  MarginTop="0" MarginBottom="20" />
+
+            <FlexRowContainer>
+                <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" Width="50">
+                    <Label Text="@Strings.SlicesArchive_SliceDraftRating" Style="margin-right: 10px;" Width="20"/>
+                    <StarRating Rating="@SliceDraft.Rating" IsReadOnly="true" />
+                </FlexRowContainer>
+                <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexEnd" Width="50">
+                    <Label Text="@Strings.SlicesArchive_SliceDraftUserRating" Style="margin-right: 10px;" Width="30"/>
+                    <StarRating Rating="@_userRating" OnRatingChange="UpdateUserMapRating" />
+                </FlexRowContainer>
+            </FlexRowContainer>
+
+            <FlexColumnCenteredContainer>
+
+                <GridLayout Columns="3" Gap="50">
+
+                    @foreach (var slice in _slices)
+                    {
+                        <SlicePreview SliceModel="slice" />
+                    }
+
+                </GridLayout>
+
+            </FlexColumnCenteredContainer>
+
+            <VerticalSpace Height="100" />
+
+            <SliceEvaluationGrid Slices="_slices" />
+
+            <VerticalSpace Height="50" />
+
+            <FlexColumnCenteredContainer Width="70">
+
+                <GridLayout Columns="4" Gap="40">
+
+                    <Label Text="@Strings.SlicesArchive_SliceDraftAuthor" />
+                    <Label Text="@SliceDraft.UserName" Style="grid-column: span 3;" />
+
+                    <Label Text="@Strings.SlicesArchive_SliceDraftEventName" />
+                    <Label Text="@SliceDraft.EventName" Style="grid-column: span 3;" />
+
+                    <Label Text="@Strings.SlicesArchive_SlicesCount" />
+                    <Label Text="@SliceDraft.SliceCount.ToString()" Style="grid-column: span 3;" />
+
+                    <Label Text="@Strings.SlicesArchive_SliceDraftDescription" Style="grid-column: span 1;" />
+
+                    <FlexColumnCenteredContainer Style="grid-column: span 3;">
+
+                        <VerticalSpace Height="20" />
+
+                        <div class="handel white shadow">
+                            @MarkupStringDescription
+                        </div>
+
+                        <VerticalSpace Height="20" />
+                    </FlexColumnCenteredContainer>
+
+                    <Label Text="@Strings.SlicesArchive_SlicesString" />
+
+                    <div class="handel white shadow" style="grid-column: span 3;">
+                        @SlicesString
+                    </div>
+
+                    <Label Text="@Strings.SlicesArchive_SliceGeneratorLink" />
+
+                    <Label Text="@SliceDraft.SliceDraftGeneratorLink" CssClass="text-break-all" Style="grid-column: span 3;" />
+
+                    <Label Text="@Strings.SlicesArchive_SliceDraftArchiveLink" />
+
+                    <Label Text="@SliceDraft.SliceDraftArchiveLink" CssClass="text-break-all" Style="grid-column: span 3;" />
+
+                </GridLayout>
+
+                <VerticalSpace Height="20" />
+
+            </FlexColumnCenteredContainer>
+
+        </FlexColumnCenteredContainer>
+
+    </div>
+</Page>

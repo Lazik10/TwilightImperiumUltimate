@@ -14,6 +14,8 @@ public interface ISliceGeneratorService
 
     Task GenerateSlices(bool previewSlices);
 
+    Task SetImportedSlices(IReadOnlyCollection<SliceModel> slices);
+
     Task AddSlice();
 
     Task RemoveSlice();

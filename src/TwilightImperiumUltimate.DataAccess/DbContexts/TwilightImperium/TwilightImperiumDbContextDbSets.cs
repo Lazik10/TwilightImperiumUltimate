@@ -30,6 +30,10 @@ public partial class TwilightImperiumDbContext : IdentityDbContext<TwilightImper
 
     public virtual DbSet<Map> Maps { get; set; }
 
+    public virtual DbSet<SliceDraft> SliceDrafts { get; set; }
+
+    public virtual DbSet<SliceDraftRating> SliceDraftRatings { get; set; }
+
     // Player
     public virtual DbSet<Player> Players { get; set; }
 

@@ -1,13 +1,27 @@
-﻿@using TwilightImperiumUltimate.Web.Components.MapGenerator
+﻿@using Microsoft.AspNetCore.Components.Authorization
+@using TwilightImperiumUltimate.Web.Components.MapGenerator
 
-<div class="map-quick-menu">
+<div class="slice-quick-menu">
 
     <FlexRowContainer JustifyContent="Enums.JustifyContent.SpaceEvenly">
 
         <QuickMenuItem IconType="IconType.Hashtag" IconTypeClicked="IconType.HashtagClicked" OnClick="async () => await HandleMenuIconClick(IconType.Hashtag)" />
         <QuickMenuItem IconType="IconType.CopyMapString" IconTypeClicked="IconType.CopyMapStringClicked" OnClick="async () => await HandleMenuIconClick(IconType.CopyMapString)" />
+        <QuickMenuItem IconType="IconType.ImportMapString" IconTypeClicked="IconType.ImportMapStringClicked" OnClick="async () => await HandleMenuIconClick(IconType.ImportMapString)" />
         <QuickMenuItem IconType="IconType.DownloadMapImage" IconTypeClicked="IconType.DownloadMapImageClicked" OnClick="async () => await HandleMenuIconClick(IconType.DownloadMapImage)" />
-
+        <QuickMenuItem IconType="IconType.ShareMap" IconTypeClicked="IconType.ShareMapClicked" OnClick="async () => await HandleMenuIconClick(IconType.ShareMap)" />
+        <AuthorizeView Roles="User">
+            <QuickMenuItem IconType="IconType.Archive" IconTypeClicked="IconType.ArchiveClicked" OnClick="async () => await HandleMenuIconClick(IconType.Archive)" />
+        </AuthorizeView>
     </FlexRowContainer>
 
+    @if (_showImportSliceDraftString)
+    {
+        <FlexColumnCenteredContainer Width="100">
+            <VerticalSpace Height="20" />
+            <RadzenTextArea @bind-Value="_importedSliceDraftString" Placeholder="@Strings.SlicesGenerator_EnterSlicesString" Style="height: 220px; max-height: 220px;" />
+            <VerticalSpace Height="10" />
+            <Button ButtonText="@Strings.ButtonText_LoadSlices" OnClick="async () => await LoadSlicesFromSlicesDraftString()" Width="100" />
+        </FlexColumnCenteredContainer>
+    }
 </div>

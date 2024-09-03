@@ -10,6 +10,11 @@ public class MapEvaluationService(
     private readonly IMapGeneratorSettingsService _mapGeneratorSettingsService = mapGeneratorSettingsService;
     private readonly ILogger<MapEvaluationService> _logger = logger;
 
+    public Task<MapEvaluations> GetMapEvaluation(MapTemplate mpaTemplate, IReadOnlyDictionary<int, SystemTileModel> map)
+    {
+        throw new NotImplementedException();
+    }
+
     public Task<MapEvaluations> GetMapEvaluation()
     {
         var resourceResults = GetPossibleResourceValuesForMap();

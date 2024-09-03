@@ -271,6 +271,78 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Clear.
+        /// </summary>
+        public static string ButtonText_Clear {
+            get {
+                return ResourceManager.GetString("ButtonText_Clear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string ButtonText_Edit {
+            get {
+                return ResourceManager.GetString("ButtonText_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Load map.
+        /// </summary>
+        public static string ButtonText_LoadMap {
+            get {
+                return ResourceManager.GetString("ButtonText_LoadMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Load slices.
+        /// </summary>
+        public static string ButtonText_LoadSlices {
+            get {
+                return ResourceManager.GetString("ButtonText_LoadSlices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preview.
+        /// </summary>
+        public static string ButtonText_Preview {
+            get {
+                return ResourceManager.GetString("ButtonText_Preview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save map.
+        /// </summary>
+        public static string ButtonText_SaveMap {
+            get {
+                return ResourceManager.GetString("ButtonText_SaveMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save slice draft.
+        /// </summary>
+        public static string ButtonText_SaveSliceDraft {
+            get {
+                return ResourceManager.GetString("ButtonText_SaveSliceDraft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View.
+        /// </summary>
+        public static string ButtonText_View {
+            get {
+                return ResourceManager.GetString("ButtonText_View", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Deprecated.
         /// </summary>
         public static string Card_DeprecatedCategory {
@@ -1689,6 +1761,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string MapGenerator_AllTiles {
             get {
                 return ResourceManager.GetString("MapGenerator_AllTiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter import string.
+        /// </summary>
+        public static string MapGenerator_EnterMapString {
+            get {
+                return ResourceManager.GetString("MapGenerator_EnterMapString", resourceCulture);
             }
         }
         
@@ -3759,6 +3840,87 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Slice name.
+        /// </summary>
+        public static string SliceArchive_SliceName {
+            get {
+                return ResourceManager.GetString("SliceArchive_SliceName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All.
+        /// </summary>
+        public static string SliceCountFilter_All {
+            get {
+                return ResourceManager.GetString("SliceCountFilter_All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 8.
+        /// </summary>
+        public static string SliceCountFilter_EightSlices {
+            get {
+                return ResourceManager.GetString("SliceCountFilter_EightSlices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 5.
+        /// </summary>
+        public static string SliceCountFilter_FiveSlices {
+            get {
+                return ResourceManager.GetString("SliceCountFilter_FiveSlices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 4.
+        /// </summary>
+        public static string SliceCountFilter_FourSlices {
+            get {
+                return ResourceManager.GetString("SliceCountFilter_FourSlices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 9.
+        /// </summary>
+        public static string SliceCountFilter_NineSlices {
+            get {
+                return ResourceManager.GetString("SliceCountFilter_NineSlices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 7.
+        /// </summary>
+        public static string SliceCountFilter_SevenSlices {
+            get {
+                return ResourceManager.GetString("SliceCountFilter_SevenSlices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 6.
+        /// </summary>
+        public static string SliceCountFilter_SixSlices {
+            get {
+                return ResourceManager.GetString("SliceCountFilter_SixSlices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3.
+        /// </summary>
+        public static string SliceCountFilter_ThreeSlices {
+            get {
+                return ResourceManager.GetString("SliceCountFilter_ThreeSlices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to # ID.
         /// </summary>
         public static string SliceEvaluation_Id {
@@ -3926,6 +4088,146 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string SliceGeneratorSettings_TilesOverlay {
             get {
                 return ResourceManager.GetString("SliceGeneratorSettings_TilesOverlay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy slice draft description here (supports HTML tags and inline CSS styles).
+        /// </summary>
+        public static string SlicesArchive_DescriptionPlaceholder {
+            get {
+                return ResourceManager.GetString("SlicesArchive_DescriptionPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to add the slice draft to the database because slice draft with this name and event name already exists!.
+        /// </summary>
+        public static string SlicesArchive_SliceDraftAlreadyExistsError {
+            get {
+                return ResourceManager.GetString("SlicesArchive_SliceDraftAlreadyExistsError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Archive link:.
+        /// </summary>
+        public static string SlicesArchive_SliceDraftArchiveLink {
+            get {
+                return ResourceManager.GetString("SlicesArchive_SliceDraftArchiveLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Author:.
+        /// </summary>
+        public static string SlicesArchive_SliceDraftAuthor {
+            get {
+                return ResourceManager.GetString("SlicesArchive_SliceDraftAuthor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description:.
+        /// </summary>
+        public static string SlicesArchive_SliceDraftDescription {
+            get {
+                return ResourceManager.GetString("SlicesArchive_SliceDraftDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Event:.
+        /// </summary>
+        public static string SlicesArchive_SliceDraftEventName {
+            get {
+                return ResourceManager.GetString("SlicesArchive_SliceDraftEventName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name:.
+        /// </summary>
+        public static string SlicesArchive_SliceDraftName {
+            get {
+                return ResourceManager.GetString("SlicesArchive_SliceDraftName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rating:.
+        /// </summary>
+        public static string SlicesArchive_SliceDraftRating {
+            get {
+                return ResourceManager.GetString("SlicesArchive_SliceDraftRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Slices:.
+        /// </summary>
+        public static string SlicesArchive_SliceDraftSliseCount {
+            get {
+                return ResourceManager.GetString("SlicesArchive_SliceDraftSliseCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your:.
+        /// </summary>
+        public static string SlicesArchive_SliceDraftUserRating {
+            get {
+                return ResourceManager.GetString("SlicesArchive_SliceDraftUserRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Slices generator link:.
+        /// </summary>
+        public static string SlicesArchive_SliceGeneratorLink {
+            get {
+                return ResourceManager.GetString("SlicesArchive_SliceGeneratorLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Count:.
+        /// </summary>
+        public static string SlicesArchive_SlicesCount {
+            get {
+                return ResourceManager.GetString("SlicesArchive_SlicesCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Slices:.
+        /// </summary>
+        public static string SlicesArchive_SlicesString {
+            get {
+                return ResourceManager.GetString("SlicesArchive_SlicesString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add new slice.
+        /// </summary>
+        public static string SlicesArchiveButton_NewSlice {
+            get {
+                return ResourceManager.GetString("SlicesArchiveButton_NewSlice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 0,0,0,0,0
+        ///0,0,0,0,0
+        ///0,0,0,0,0
+        ///0,0,0,0,0
+        ///0,0,0,0,0
+        ///0,0,0,0,0.
+        /// </summary>
+        public static string SlicesGenerator_EnterSlicesString {
+            get {
+                return ResourceManager.GetString("SlicesGenerator_EnterSlicesString", resourceCulture);
             }
         }
         

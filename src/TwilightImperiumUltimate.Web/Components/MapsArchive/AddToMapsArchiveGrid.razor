@@ -44,12 +44,12 @@
                 <VerticalSpace Height="20" />
 
                 <FlexRowContainer>
-                    <Button ButtonText="Preview" OnClick="() => ToggleEditDescription(false)" />
-                    <Button ButtonText="Edit" OnClick="() => ToggleEditDescription(true)" />
+                    <Button ButtonText="@Strings.ButtonText_Preview" OnClick="() => ToggleEditDescription(false)" />
+                    <Button ButtonText="@Strings.ButtonText_Edit" OnClick="() => ToggleEditDescription(true)" />
                 </FlexRowContainer>
 
-
                 <VerticalSpace Height="20" />
+
             </FlexColumnCenteredContainer>
 
             <Label Text="@Strings.MapArchive_TtsString" />

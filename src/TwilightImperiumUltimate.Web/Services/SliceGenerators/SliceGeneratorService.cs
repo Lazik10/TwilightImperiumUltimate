@@ -67,11 +67,11 @@ public class SliceGeneratorService(
                 SystemTiles = new List<SystemTileModel>
                 {
                     new SystemTileModel() { SystemTileName = SystemTileName.TileHome },
-                    new SystemTileModel() { SystemTileName = SystemTileName.TileEmpty },
-                    new SystemTileModel() { SystemTileName = SystemTileName.TileEmpty },
-                    new SystemTileModel() { SystemTileName = SystemTileName.TileEmpty },
-                    new SystemTileModel() { SystemTileName = SystemTileName.TileEmpty },
-                    new SystemTileModel() { SystemTileName = SystemTileName.TileEmpty },
+                    new SystemTileModel() { SystemTileName = SystemTileName.TileEmpty, GameVersion = GameVersion.Custom },
+                    new SystemTileModel() { SystemTileName = SystemTileName.TileEmpty, GameVersion = GameVersion.Custom },
+                    new SystemTileModel() { SystemTileName = SystemTileName.TileEmpty, GameVersion = GameVersion.Custom},
+                    new SystemTileModel() { SystemTileName = SystemTileName.TileEmpty, GameVersion = GameVersion.Custom },
+                    new SystemTileModel() { SystemTileName = SystemTileName.TileEmpty, GameVersion = GameVersion.Custom },
                 },
             });
         }
@@ -94,7 +94,7 @@ public class SliceGeneratorService(
     {
         return systemTileType switch
         {
-            SystemTileTypeFilter.Unused => AllSystemTiles.Where(x => !UsedSystemTileCodes().Contains(x.SystemTileCode)),
+            SystemTileTypeFilter.Unused => AllSystemTiles.Where(x => !UsedSystemTileCodes().Contains(x.SystemTileCode) && x.SystemTileName != SystemTileName.TileTransparent),
             SystemTileTypeFilter.All => AllSystemTiles.OrderBy(x => x.GameVersion),
             SystemTileTypeFilter.MecatolRex => AllSystemTiles.Where(x => x.SystemTileName == SystemTileName.Tile18),
             SystemTileTypeFilter.HomeSystems => AllSystemTiles.Where(x => x.SystemTileCategory == SystemTileCategory.Green),
@@ -165,6 +165,12 @@ public class SliceGeneratorService(
         _draggedSystemTileSliceId = -1;
         _draggedSystemTileSlicePosition = -1;
 
+        return Task.CompletedTask;
+    }
+
+    public Task SetImportedSlices(IReadOnlyCollection<SliceModel> slices)
+    {
+        _slices = slices.ToList();
         return Task.CompletedTask;
     }
 

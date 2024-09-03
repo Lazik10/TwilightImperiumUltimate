@@ -555,6 +555,34 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "SliceDrafts",
+                schema: "Galaxy",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: false),
+                    EventName = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: false),
+                    Description = table.Column<string>(type: "varchar(MAX)", nullable: false),
+                    SliceDraftString = table.Column<string>(type: "varchar(MAX)", nullable: false),
+                    SliceNames = table.Column<string>(type: "varchar(MAX)", nullable: false),
+                    SliceCount = table.Column<int>(type: "integer", nullable: false),
+                    SliceDraftGeneratorLink = table.Column<string>(type: "varchar(MAX)", nullable: false),
+                    SliceDraftArchiveLink = table.Column<string>(type: "varchar(MAX)", nullable: false),
+                    UserName = table.Column<string>(type: "varchar(256)", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SliceDrafts", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_SliceDrafts_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Planets",
                 schema: "Galaxy",
                 columns: table => new
@@ -686,6 +714,34 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         column: x => x.MapId,
                         principalSchema: "Galaxy",
                         principalTable: "Maps",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SliceDraftRating",
+                schema: "Relationships",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SliceDraftId = table.Column<int>(type: "integer", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Rating = table.Column<float>(type: "real", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SliceDraftRating", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_SliceDraftRating_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_SliceDraftRating_SliceDrafts_SliceDraftId",
+                        column: x => x.SliceDraftId,
+                        principalSchema: "Galaxy",
+                        principalTable: "SliceDrafts",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -895,15 +951,15 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "0b40bbf9-fcf8-4975-afcf-8c3c89277b2b", null, "Moderator", "MODERATOR" },
-                    { "79bfd091-130f-4ca9-bd24-9453a0c9b71f", null, "User", "USER" },
-                    { "caf9bad4-43a5-4caa-8d56-f40179e30e20", null, "Admin", "ADMIN" }
+                    { "06a8322d-6be4-4911-a401-e242c8908f92", null, "User", "USER" },
+                    { "0b704165-8cfa-4e4f-807e-20a8c91c2aaf", null, "Moderator", "MODERATOR" },
+                    { "4de1fbd4-b071-4056-9621-b91512d394ed", null, "Admin", "ADMIN" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "Age", "ConcurrencyStamp", "DiscordId", "Email", "EmailConfirmed", "FavoriteFaction", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "SteamId", "TwoFactorEnabled", "UserInfo", "UserName" },
-                values: new object[] { "1", 0, null, "d2695d4a-5329-4fef-894b-32aa1135be65", "", "Test@user.cz", true, 17, "Test", "User", false, null, "TEST@USER.CZ", "ADMIN", "AQAAAAIAAYagAAAAEHMFBWgflA0Ns35Lx5iYkKdVJwjWDMMsWYwH91D9SnVFdSZUgffoyLS5pbDMsX5BLg==", null, false, "a54168b8-448e-4369-b926-57f3d69747a6", "", false, "First seeded test user", "Admin" });
+                values: new object[] { "1", 0, null, "b69ea7d9-244a-447f-91d5-ba586fc4e24a", "", "Test@user.cz", true, 17, "Test", "User", false, null, "TEST@USER.CZ", "ADMIN", "AQAAAAIAAYagAAAAENBN3ovJY9oTxyti0dd58zOxDg1KjMpeiXQoYU71NoVt7FMFznVMA5iaqCCpzvvcLQ==", null, false, "fed93b39-2421-490d-a229-0957dd256deb", "", false, "First seeded test user", "Admin" });
 
             migrationBuilder.InsertData(
                 schema: "Card",
@@ -3219,6 +3275,25 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
 
             migrationBuilder.InsertData(
                 schema: "Galaxy",
+                table: "SliceDrafts",
+                columns: new[] { "Id", "Description", "EventName", "Name", "SliceCount", "SliceDraftArchiveLink", "SliceDraftGeneratorLink", "SliceDraftString", "SliceNames", "UserId", "UserName" },
+                values: new object[,]
+                {
+                    { 1, "Qualifiers for the SCPT 2022 tournament.", "SCPT 2022", "Qualifiers", 6, "https://ti4ultimate.com/community/slices-archive/slice-draft/1", "https://ti4ultimate.com/tools/slice-generator?tiles=MzksMzUsNDEsNjYsNzQsCjQ3LDM3LDc2LDIwLDY4LAoyNiwzMCw1OSw2Nyw0OCwKNjUsMjQsNDksNzksMjgsCjI3LDY5LDc4LDY0LDQ1LAo0MiwyNSwyOSw3Nyw2MiwK", "39,35,41,66,74,\r\n47,37,76,20,68,\r\n26,30,59,67,48,\r\n65,24,49,79,28,\r\n27,69,78,64,45,\r\n42,25,29,77,62,\r\n", "Hope,Mama's Drama,Golden Corral,Antimassachusetts,Tom Hanks,Chili Dogs on the Beach", "1", "Admin" },
+                    { 2, "Prelims for the SCPT 2022 tournament.", "SCPT 2022", "Prelims", 7, "https://ti4ultimate.com/community/slices-archive/slice-draft/2", "https://ti4ultimate.com/tools/slice-generator?tiles=NDIsNzUsNzgsNTksMjQsCjQ2LDcxLDYzLDMxLDI2LAozNyw2MCwzOSw1MCw2NywKNjgsNzMsNzksMjAsNjUsCjM0LDc3LDM2LDQxLDY0LAo3Niw2Niw0MCw2Miw0NCwKMjgsMTksMjUsODAsNDcsCg==", "42,75,78,59,24,\r\n46,71,63,31,26,\r\n37,60,39,50,67,\r\n68,73,79,20,65,\r\n34,77,36,41,64,\r\n76,66,40,62,44,\r\n28,19,25,80,47,\r\n", "Soft Launch,Winslayer's Dugout,Custodian's Gambit,Between a Rock and a Slow Place,The Glass House,Grand Opening,Twilight Imperium 4th Edition", "1", "Admin" },
+                    { 3, "Semifinals for the SCPT 2022 tournament.", "SCPT 2022", "Semifinals", 6, "https://ti4ultimate.com/community/slices-archive/slice-draft/3", "https://ti4ultimate.com/tools/slice-generator?tiles=NDgsMjUsNzAsNjcsMjgsCjIzLDY0LDMzLDc4LDY1LAoyMSw0MCw2OSw1MCwzOCwKMzUsMzksMzQsNDQsNjEsCjQxLDI2LDMwLDc3LDczLAo3Miw3OSwzMiwyMiw2NiwK", "48,25,70,67,28,\r\n23,64,33,78,65,\r\n21,40,69,50,38,\r\n35,39,34,44,61,\r\n41,26,30,77,73,\r\n72,79,32,22,66,\r\n", "Rift of the Valkyries,Drunken Saudor,Jeol Ir: The Entertainer,Public Domain Smooth,Mellon Tell Lodorture,In the Hall of the Asteroid King", "1", "Admin" },
+                    { 4, "Finals for the SCPT 2022 tournament.", "SCPT 2022", "Finals", 6, "https://ti4ultimate.com/community/slices-archive/slice-draft/4", "https://ti4ultimate.com/tools/slice-generator?tiles=NzksMzUsMzQsNjQsNzgsCjI3LDI5LDQ2LDQ0LDI1LAo0MCwzNywzMSw2NSw0MSwKMzksNjYsNjksNDcsNzQsCjQ4LDc2LDY4LDIwLDE5LAo2NywyOCw0OSw3MywyNiwK", "79,35,34,64,78,\r\n27,29,46,44,25,\r\n40,37,31,65,41,\r\n39,66,69,47,74,\r\n48,76,68,20,19,\r\n67,28,49,73,26,\r\n", "Final slice 1,Final slice 2,Final slice 3,Final slice 4,Final slice 5,Final slice 6Rift of the Valkyries,Drunken Saudor,Jeol Ir: The Entertainer,Public Domain Smooth,Mellon Tell Lodorture,In the Hall of the Asteroid King", "1", "Admin" },
+                    { 5, "Qualifiers for the SCPT 2023 tournament.", "SCPT 2023", "Qualifiers", 7, "https://ti4ultimate.com/community/slices-archive/slice-draft/5", "https://ti4ultimate.com/tools/slice-generator?tiles=MzAsNjMsNDYsNjcsNjEsCjM1LDc4LDQyLDI2LDcyLAoyNywyMyw0OCw3OSw2MiwKMjEsNjYsNjksNDAsODAsCjQ1LDc1LDI0LDY0LDUwLAozMSwzNyw0OSwyNSw0MSwKNjUsNDcsNTksMzksMzYsCg==", "30,63,46,67,61,\r\n35,78,42,26,72,\r\n27,23,48,79,62,\r\n21,66,69,40,80,\r\n45,75,24,64,50,\r\n31,37,49,25,41,\r\n65,47,59,39,36,\r\n", "Vorhallywood,Lirta IV: The Voyage Home,Synecdoche, New Albion,No Country for Hope's End,Three Little Devils,Gravity's Blindside,More-d'Or", "1", "Admin" },
+                    { 6, "Prelims for the SCPT 2023 tournament.", "SCPT 2023", "Prelims", 7, "https://ti4ultimate.com/community/slices-archive/slice-draft/6", "https://ti4ultimate.com/tools/slice-generator?tiles=NjMsNDAsNzIsNDYsNjgsCjM2LDI1LDI0LDUwLDQxLAozOSw2MSw1OSw0Myw3MSwKNDcsNzAsNjUsNDQsMTksCjQ1LDY0LDM0LDYyLDQ5LAo0OCwyMiw2Niw3OSwzMiwKNDIsMjYsNzMsNzgsMjEsCg==", "63,40,72,46,68,\r\n36,25,24,50,41,\r\n39,61,59,43,71,\r\n47,70,65,44,19,\r\n45,64,34,62,49,\r\n48,22,66,79,32,\r\n42,26,73,78,21,\r\n", "Gone Girl,DOOT! DOOT!,It's Finger,It's Pronounced Celery,Big-Lore, Not Four,Ginger As She Goes,It's Pronounced Kay All Dree", "1", "Admin" },
+                    { 7, "Semifinals for the SCPT 2023 tournament.", "SCPT 2023", "Semifinals", 7, "https://ti4ultimate.com/community/slices-archive/slice-draft/7", "https://ti4ultimate.com/tools/slice-generator?tiles=NzcsMzQsMjYsNjcsMjcsCjY0LDUwLDI5LDQyLDcyLAozNSw0Nyw3Niw0Myw2NSwKNDUsMjQsMjgsMzgsNDAsCjc1LDU5LDc4LDY2LDM5LAoyNSwzNyw0OSw0MSw3MSwKNDgsNjksNzksMTksMzAsCg==", "77,34,26,67,27,\r\n64,50,29,42,72,\r\n35,47,76,43,65,\r\n45,24,28,38,40,\r\n75,59,78,66,39,\r\n25,37,49,41,71,\r\n48,69,79,19,30,\r\n", "Encounter at Starpoint,We'll Always Have Atlas,The Most of Best Worlds,Shades of Meh...Ar Xull,Hope's End Pursuits,Ba'Kal Good Things,Lickin' Good!", "1", "Admin" },
+                    { 8, "Finals for the SCPT 2023 tournament.", "SCPT 2023", "Finals", 7, "https://ti4ultimate.com/community/slices-archive/slice-draft/8", "https://ti4ultimate.com/tools/slice-generator?tiles=NzcsMjIsNTksNjcsNjUsCjQ2LDI1LDI5LDMxLDQ1LAo3OCw2NCw3NCwzNyw0MSwKNjEsNDAsNzAsNjgsMzYsCjczLDM5LDI0LDgwLDcxLAo0MiwyNiw3MiwzNSw0NywKNDksNzksMjgsNjIsNzYsCg==", "77,22,59,67,65,\r\n46,25,29,31,45,\r\n78,64,74,37,41,\r\n61,40,70,68,36,\r\n73,39,24,80,71,\r\n42,26,72,35,47,\r\n49,79,28,62,76,\r\n", "Final Slice 1,Final Slice 2,Final Slice 3,Final Slice 4,Final Slice 5,Final Slice 6,Final Slice 7", "1", "Admin" },
+                    { 9, "Qualifiers for the SCPT 2024 tournament.", "SCPT 2024", "Qualifiers", 6, "https://ti4ultimate.com/community/slices-archive/slice-draft/9", "https://ti4ultimate.com/tools/slice-generator?tiles=MzIsNjYsNjgsNjMsMzksCjI2LDc2LDQ5LDE5LDQxLAo2NCwzNSw2NSwyMiw3OSwKNTAsMzcsNDUsNjEsMzYsCjI1LDczLDc4LDU5LDYyLAo3Miw3NSw4MCwyMSw0MCwK", "32,66,68,63,39,\r\n26,76,49,19,41,\r\n64,35,65,22,79,\r\n50,37,45,61,36,\r\n25,73,78,59,62,\r\n72,75,80,21,40,\r\n", "101 Dal Boothas,Will,Tharma & Breg,Yellow Slice Because It Has Two Reds,Give Me Integrated or Give Me Death,Devil Went Down to Velnor", "1", "Admin" },
+                    { 10, "Prelims for the SCPT 2024 tournament.", "SCPT 2024", "Prelims", 6, "https://ti4ultimate.com/community/slices-archive/slice-draft/10", "https://ti4ultimate.com/tools/slice-generator?tiles=MzMsNjIsNDEsMjUsMzIsCjQ0LDM2LDE5LDQwLDcyLAo0NSw3MCwzNSw2NCw3OCwKNTAsNzQsNjUsMjYsNjMsCjY5LDIxLDIzLDc5LDQ4LAozOCw1OSw0MiwzOSwyNCwK", "33,62,41,25,32,\r\n44,36,19,40,72,\r\n45,70,35,64,78,\r\n50,74,65,26,63,\r\n69,21,23,79,48,\r\n38,59,42,39,24,\r\n", "Corneeqticut,Lorxembourg,Siigney,Vorhalabama,Düssaudorf,New South Vails", "1", "Admin" },
+                    { 11, "Semifinals for the SCPT 2024 tournament.", "SCPT 2024", "Semifinals", 6, "https://ti4ultimate.com/community/slices-archive/slice-draft/11", "https://ti4ultimate.com/tools/slice-generator?tiles=NjgsNDksMzYsMjUsNjMsCjIzLDc5LDc1LDYyLDUwLAo2NCwzMiw0Miw3MCw2NywKMzksNjYsMTksNDgsNzYsCjI2LDc0LDc4LDI0LDQzLAoyMCwyNyw1OSw0MCw0MSwK", "68,49,36,25,63,\r\n23,79,75,62,50,\r\n64,32,42,70,67,\r\n39,66,19,48,76,\r\n26,74,78,24,43,\r\n20,27,59,40,41,\r\n", "<name1>,<name2>,<name3>,<name4>,<name5>,<name6>", "1", "Admin" }
+                });
+
+            migrationBuilder.InsertData(
+                schema: "Galaxy",
                 table: "Wormholes",
                 columns: new[] { "Id", "GameVersion", "SystemTileName", "WormholeName" },
                 values: new object[,]
@@ -3392,6 +3467,32 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                 column: "SystemTileName");
 
             migrationBuilder.CreateIndex(
+                name: "IX_SliceDraftRating_SliceDraftId_UserId",
+                schema: "Relationships",
+                table: "SliceDraftRating",
+                columns: new[] { "SliceDraftId", "UserId" },
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SliceDraftRating_UserId",
+                schema: "Relationships",
+                table: "SliceDraftRating",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SliceDrafts_Name_EventName",
+                schema: "Galaxy",
+                table: "SliceDrafts",
+                columns: new[] { "Name", "EventName" },
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SliceDrafts_UserId",
+                schema: "Galaxy",
+                table: "SliceDrafts",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Wormholes_SystemTileName",
                 schema: "Galaxy",
                 table: "Wormholes",
@@ -3481,6 +3582,10 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                 schema: "Rule");
 
             migrationBuilder.DropTable(
+                name: "SliceDraftRating",
+                schema: "Relationships");
+
+            migrationBuilder.DropTable(
                 name: "StrategyCards",
                 schema: "Card");
 
@@ -3509,6 +3614,10 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
 
             migrationBuilder.DropTable(
                 name: "Maps",
+                schema: "Galaxy");
+
+            migrationBuilder.DropTable(
+                name: "SliceDrafts",
                 schema: "Galaxy");
 
             migrationBuilder.DropTable(

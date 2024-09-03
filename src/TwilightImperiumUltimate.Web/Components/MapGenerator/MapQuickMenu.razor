@@ -19,7 +19,7 @@
     {
         <FlexColumnCenteredContainer Width="100">
             <VerticalSpace Height="20" />
-            <RadzenTextBox @bind-Value="_importedTtsString" Text="Enter map string" Style="height: 24px; max-height: 24px;"/>
+            <RadzenTextBox @bind-Value="_importedTtsString" Placeholder="@Strings.MapGenerator_EnterMapString" Style="height: 24px; max-height: 24px;"/>
             <VerticalSpace Height="10" />
             <RadzenDropDown @bind-Value="_selectedMapTemplate"
                             Data="@_mapTemplates"
@@ -27,7 +27,7 @@
                             ValueProperty="Key"
                             TextProperty="Value"
                             class="title handel" />
-            <Button ButtonText="Load Map" OnClick="async () => await LoadMapFromTtsString()" Width="100"/>
+            <Button ButtonText="@Strings.ButtonText_LoadMap" OnClick="async () => await LoadMapFromTtsString()" Width="100"/>
         </FlexColumnCenteredContainer>
     }
 

@@ -35,6 +35,10 @@ internal static class TableName
 
     internal const string Maps = "Maps";
 
+    internal const string SliceDrafts = "SliceDrafts";
+
+    internal const string Slices = "Slices";
+
     // Game
     internal const string Games = "Games";
 

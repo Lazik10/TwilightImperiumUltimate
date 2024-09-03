@@ -58,9 +58,11 @@ public static class Pages
 
     public const string SlicesArchive = "/community/slices-archive";
 
+    public const string SliceDraftPreview = "/community/slices-archive/slice-draft/";
+
     public const string AddMap = "/community/add-map-to-archive";
 
-    public const string AddSlices = "/community/add-slices-to-archive";
+    public const string AddSliceDraft = "/community/add-slice-draft-to-archive";
 
     // Rules
     public const string Rules = "/rules";

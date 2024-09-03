@@ -30,7 +30,7 @@
                             TextProperty="Value"
                             Style="width: 100%; height: 100%;"
                             class="title handel" />
-            <Button ButtonText="Clear" Width="100" OnClick="ResetSearch" />
+            <Button ButtonText="@Strings.ButtonText_Clear" Width="100" OnClick="ResetSearch" />
         </GridLayout>
     </div>
 
@@ -44,7 +44,7 @@
             <Label Text="@map.UserName" />
             <Label Text="@map.MapTemplate.GetDisplayName()" CenterText="true"/>
             <StarRating IsReadOnly="true" Rating="@map.Rating" />
-            <Button ButtonText="View" Width="100" OnClick="() => RedirectToMapDetails(map.Id)" />
+            <Button ButtonText="@Strings.ButtonText_View" Width="100" OnClick="() => RedirectToMapDetails(map.Id)" />
         }
     </GridLayout>
 

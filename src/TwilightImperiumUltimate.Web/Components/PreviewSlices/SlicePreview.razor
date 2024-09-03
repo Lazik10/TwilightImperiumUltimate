@@ -1,0 +1,35 @@
+﻿@using TwilightImperiumUltimate.Web.Components.PreviewMaps
+@using TwilightImperiumUltimate.Web.Components.SliceGenerators
+
+<div>
+
+    <div class="slice-grid">
+
+        @foreach(var systemTile in SliceModel.SystemTiles)
+        {
+            <div class="hex">
+                <PreviewMapHex SystemTile="systemTile" />
+            </div>
+        }
+
+    </div>
+
+    <VerticalSpace Height="100" />
+    <FlexColumnCenteredContainer>
+        @if (EditNameMode)
+        {
+            <Label Text="@Strings.SliceArchive_SliceName" CenterText="true" />
+            <RadzenTextBox @bind-Value=SliceModel.Name class="title white" Placeholder="Optional" />
+        }
+        else
+        {
+            <Label Text=@SliceModel.Name CenterText="true" />
+        }
+    </FlexColumnCenteredContainer>
+
+    <VerticalSpace Height="10" />
+
+    <SliceEvaluationStats SliceModel="SliceModel" />
+
+    <VerticalSpace Height="20" />
+</div>

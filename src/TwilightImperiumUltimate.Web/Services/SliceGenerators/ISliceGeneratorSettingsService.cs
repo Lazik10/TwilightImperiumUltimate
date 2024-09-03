@@ -16,6 +16,8 @@ public interface ISliceGeneratorSettingsService
 
     Task DecreaseNumberOfSlices();
 
+    Task SetNumberOfSlices(int numberOfSlices);
+
     Task UpdateGameVersion(GameVersion gameVersion);
 
     Task UpdateSystemTileOverlay(SystemTileOverlay systemTileOverlay);

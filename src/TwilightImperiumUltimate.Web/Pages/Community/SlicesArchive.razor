@@ -1,7 +1,10 @@
 ﻿@page "/community/slices-archive"
+@using TwilightImperiumUltimate.Web.Components.SlicesArchive
 
 <Page>
 
-
+    <Button ButtonText="@Strings.SlicesArchiveButton_NewSlice" OnClick="Redirect"/>
+    <VerticalSpace Height="20" />
+    <SlicesArchiveGrid AllSliceDrafts="SliceDrafts" />
 
 </Page>

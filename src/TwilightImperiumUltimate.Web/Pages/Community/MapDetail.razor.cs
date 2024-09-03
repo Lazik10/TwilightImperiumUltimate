@@ -1,5 +1,6 @@
 using Microsoft.JSInterop;
 using TwilightImperiumUltimate.Contracts.ApiContracts.Maps;
+using TwilightImperiumUltimate.Web.Components.Shared.Bars;
 using TwilightImperiumUltimate.Web.Helpers.Maps;
 using TwilightImperiumUltimate.Web.Models.Users;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
@@ -13,7 +14,10 @@ public partial class MapDetail
 
     private TwilightImperiumUser? _user;
 
-    private float _userRating;
+    private StarRating _userStarRating = default!;
+
+    [Parameter]
+    public float UserRating { get; set; }
 
     [Parameter]
     public int MapId { get; set; }
@@ -22,6 +26,9 @@ public partial class MapDetail
 
     [Inject]
     private IMapToStringConverter MapToStringConverter { get; set; } = default!;
+
+    [Inject]
+    private IMapGeneratorSettingsService MapGeneratorSettingsService { get; set; } = default!;
 
     [Inject]
     private IJSRuntime JSRuntime { get; set; } = default!;
@@ -56,8 +63,10 @@ public partial class MapDetail
 
     protected override async Task OnParametersSetAsync()
     {
+        MapGeneratorSettingsService.MapTemplate = Map.MapTemplate;
         await MapToStringConverter.ConvertTtsStringToMap(Map.MapTemplate, Map.TtsString);
         _map = MapToStringConverter.Map.ToDictionary();
+        await InitializeUserRating();
     }
 
     private async Task InitializeUserRating()
@@ -69,7 +78,7 @@ public partial class MapDetail
 
             if (statusCode == HttpStatusCode.OK)
             {
-                _userRating = response!.Data!.Rating;
+                UserRating = response!.Data!.Rating;
             }
         }
     }
@@ -93,11 +102,20 @@ public partial class MapDetail
 
             if (statusCode == HttpStatusCode.OK)
             {
-                _userRating = response!.Data!.Rating;
+                UserRating = response!.Data!.Rating;
+                if (_userStarRating is not null)
+                {
+                    _userStarRating.Rating = response!.Data.Rating;
+                    _userStarRating.Refresh();
+                }
+
+                StateHasChanged();
             }
 
             await InitializeMap();
             StateHasChanged();
+
+            NavigationManager.NavigateTo(NavigationManager.Uri, false);
         }
     }
 
