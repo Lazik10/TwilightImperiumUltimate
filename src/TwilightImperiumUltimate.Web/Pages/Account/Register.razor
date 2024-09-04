@@ -41,6 +41,14 @@
             <FluentValidationValidator />
 
             <FlexColumnCenteredContainer>
+
+                @if (_emailExists)
+                {
+                    <VerticalSpace Height="20" />
+                    <Label Text="@Strings.Registration_EmailExists" CenterText="true" FontSize="24" TextColor="TextColor.Red" />
+                    <VerticalSpace Height="20" />
+                }
+
                 <FlexRowContainer Width="40">
                     <Label Text="@Strings.Register_Email" Width="50" CenterText="true"/>
                 </FlexRowContainer>
@@ -58,6 +66,12 @@
                 <ValidationMessage For="@(() => RegistrationUserModel.Email)" class="handel shadow white" style="color: red;" />
 
                 <VerticalSpace Height="50" />
+
+                @if (_usernameExists)
+                {
+                    <Label Text="@Strings.Registration_UsernameExists" CenterText="true" FontSize="24" TextColor="TextColor.Red" />
+                    <VerticalSpace Height="20" />
+                }
 
                 <FlexRowContainer Width="40">
                     <Label Text="@Strings.Register_UserName" Width="50" CenterText="true" />

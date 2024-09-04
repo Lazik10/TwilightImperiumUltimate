@@ -15,8 +15,7 @@
 
     <FlexRowContainer Width="50" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.SpaceEvenly">
         <Label Text="@Strings.User_UserName" />
-        <RadzenTextBox @bind-Value="User!.UserName"
-                        class="w-50 flex-row title white handel" />
+        <Label Text="@User!.UserName" />
     </FlexRowContainer>
 
     <VerticalSpace Height="20" />
@@ -94,5 +93,16 @@
     <FlexRowContainer AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.Center" Width="50">
         <Button ButtonText="@Strings.AccountInfo_Save" OnClick="@SaveInfo" CssClass="button" />
     </FlexRowContainer>
+
+    <VerticalSpace Height="20" />
+
+    @if(_updateSend && _infoSaved)
+    {
+        <Label Text="@Strings.UserInfo_UpdateSuccess" CenterText="true" FontSize="18" TextColor="TextColor.Green" />
+    }
+    else if (_updateSend && !_infoSaved)
+    {
+        <Label Text="@Strings.UserInfo_UpdateFailed" CenterText="true" FontSize="18" TextColor="TextColor.Red" />        
+    }
 
 </Page>

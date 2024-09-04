@@ -33,26 +33,23 @@ public class UserService(
 
     public Task<ClaimsPrincipal> GetCurrentUserClaimsPrincipalAsync()
     {
-        if (_currentUser is not null)
+        if (_currentUser is not null && _currentUser.Roles.Count > 0)
         {
-            if (_currentUser.Roles.Count > 0)
-            {
-                var claims = new List<Claim>
+            var claims = new List<Claim>
                 {
                     new(ClaimTypes.Name, _currentUser.UserName),
                     new(ClaimTypes.Email, _currentUser.Email),
                 };
 
-                foreach (var role in _currentUser.Roles)
-                {
-                    claims.Add(new(ClaimTypes.Role, role));
-                }
-
-                var identity = new ClaimsIdentity(claims, "CustomAuth");
-                var principal = new ClaimsPrincipal(identity);
-
-                return Task.FromResult(principal);
+            foreach (var role in _currentUser.Roles)
+            {
+                claims.Add(new(ClaimTypes.Role, role));
             }
+
+            var identity = new ClaimsIdentity(claims, "CustomAuth");
+            var principal = new ClaimsPrincipal(identity);
+
+            return Task.FromResult(principal);
         }
 
         return Task.FromResult(new ClaimsPrincipal(new ClaimsIdentity()));
@@ -114,15 +111,20 @@ public class UserService(
         return false;
     }
 
-    public async Task UpdateUserInfoAsync(TwilightImperiumUser? user, CancellationToken cancellationToken)
+    public async Task<bool> UpdateUserInfoAsync(TwilightImperiumUser? user, CancellationToken cancellationToken)
     {
         if (user is not null)
         {
             var userDto = _mapper.Map<TwilightImperiumUserDto>(user);
             var (response, statusCode) = await _httpClient.PutAsync<TwilightImperiumUserDto, TwilightImperiumUser>(Paths.ApiPath_UserUpdate, userDto, cancellationToken);
             if (statusCode == HttpStatusCode.OK)
+            {
                 await SetCurrentUserAsync(response);
+                return true;
+            }
         }
+
+        return false;
     }
 
     public async Task LogoutUserAsync(CancellationToken cancellationToken)

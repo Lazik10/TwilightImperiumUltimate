@@ -295,6 +295,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to api/users/login-and-email-check.
+        /// </summary>
+        public static string ApiPath_PreRegistrationCheck {
+            get {
+                return ResourceManager.GetString("ApiPath_PreRegistrationCheck", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to api/cards/promissory-note.
         /// </summary>
         public static string ApiPath_PromissoryNoteCards {

@@ -12,7 +12,7 @@ using TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium;
 namespace TwilightImperiumUltimate.DataAccess.Migrations
 {
     [DbContext(typeof(TwilightImperiumDbContext))]
-    [Migration("20240903222614_Initial-Migration")]
+    [Migration("20240904071833_Initial-Migration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -54,19 +54,19 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "4de1fbd4-b071-4056-9621-b91512d394ed",
+                            Id = "8e5f6a00-33d5-4a64-99f1-e11d3dfc3588",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "06a8322d-6be4-4911-a401-e242c8908f92",
+                            Id = "dc18c302-98e1-45e5-abf6-c7f826493702",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "0b704165-8cfa-4e4f-807e-20a8c91c2aaf",
+                            Id = "a4c45751-b6ce-4bb9-99ba-fdf60662a8c9",
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
                         });
@@ -12670,7 +12670,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             SliceDraftArchiveLink = "https://ti4ultimate.com/community/slices-archive/slice-draft/4",
                             SliceDraftGeneratorLink = "https://ti4ultimate.com/tools/slice-generator?tiles=NzksMzUsMzQsNjQsNzgsCjI3LDI5LDQ2LDQ0LDI1LAo0MCwzNywzMSw2NSw0MSwKMzksNjYsNjksNDcsNzQsCjQ4LDc2LDY4LDIwLDE5LAo2NywyOCw0OSw3MywyNiwK",
                             SliceDraftString = "79,35,34,64,78,\r\n27,29,46,44,25,\r\n40,37,31,65,41,\r\n39,66,69,47,74,\r\n48,76,68,20,19,\r\n67,28,49,73,26,\r\n",
-                            SliceNames = "Final slice 1,Final slice 2,Final slice 3,Final slice 4,Final slice 5,Final slice 6Rift of the Valkyries,Drunken Saudor,Jeol Ir: The Entertainer,Public Domain Smooth,Mellon Tell Lodorture,In the Hall of the Asteroid King",
+                            SliceNames = "Final slice 1,Final slice 2,Final slice 3,Final slice 4,Final slice 5,Final slice 6",
                             UserId = "1",
                             UserName = "Admin"
                         },
@@ -12684,7 +12684,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             SliceDraftArchiveLink = "https://ti4ultimate.com/community/slices-archive/slice-draft/5",
                             SliceDraftGeneratorLink = "https://ti4ultimate.com/tools/slice-generator?tiles=MzAsNjMsNDYsNjcsNjEsCjM1LDc4LDQyLDI2LDcyLAoyNywyMyw0OCw3OSw2MiwKMjEsNjYsNjksNDAsODAsCjQ1LDc1LDI0LDY0LDUwLAozMSwzNyw0OSwyNSw0MSwKNjUsNDcsNTksMzksMzYsCg==",
                             SliceDraftString = "30,63,46,67,61,\r\n35,78,42,26,72,\r\n27,23,48,79,62,\r\n21,66,69,40,80,\r\n45,75,24,64,50,\r\n31,37,49,25,41,\r\n65,47,59,39,36,\r\n",
-                            SliceNames = "Vorhallywood,Lirta IV: The Voyage Home,Synecdoche, New Albion,No Country for Hope's End,Three Little Devils,Gravity's Blindside,More-d'Or",
+                            SliceNames = "Vorhallywood,Lirta IV: The Voyage Home,Synecdoche New Albion,No Country for Hope's End,Three Little Devils,Gravity's Blindside,More-d'Or",
                             UserId = "1",
                             UserName = "Admin"
                         },
@@ -22381,7 +22381,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b69ea7d9-244a-447f-91d5-ba586fc4e24a",
+                            ConcurrencyStamp = "25f6f1d2-a65a-4c60-a466-174902c572f0",
                             DiscordId = "",
                             Email = "Test@user.cz",
                             EmailConfirmed = true,
@@ -22391,9 +22391,9 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST@USER.CZ",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAENBN3ovJY9oTxyti0dd58zOxDg1KjMpeiXQoYU71NoVt7FMFznVMA5iaqCCpzvvcLQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEO/KFeAymTEBFlxstuZm0sppZy/6P2tRsQSrSOgzaqQp10OqTRTYlyZGeUAqG/IyAw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "fed93b39-2421-490d-a229-0957dd256deb",
+                            SecurityStamp = "1114de37-495d-4a75-a6e1-b192c67bc3de",
                             SteamId = "",
                             TwoFactorEnabled = false,
                             UserInfo = "First seeded test user",

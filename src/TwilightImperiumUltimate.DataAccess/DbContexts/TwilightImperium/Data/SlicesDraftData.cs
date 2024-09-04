@@ -53,7 +53,7 @@ internal static class SlicesDraftData
             EventName = "SCPT 2022",
             Description = "Finals for the SCPT 2022 tournament.",
             SliceDraftString = "79,35,34,64,78,\r\n27,29,46,44,25,\r\n40,37,31,65,41,\r\n39,66,69,47,74,\r\n48,76,68,20,19,\r\n67,28,49,73,26,\r\n",
-            SliceNames = "Final slice 1,Final slice 2,Final slice 3,Final slice 4,Final slice 5,Final slice 6Rift of the Valkyries,Drunken Saudor,Jeol Ir: The Entertainer,Public Domain Smooth,Mellon Tell Lodorture,In the Hall of the Asteroid King",
+            SliceNames = "Final slice 1,Final slice 2,Final slice 3,Final slice 4,Final slice 5,Final slice 6",
             SliceCount = 6,
             SliceDraftGeneratorLink = "https://ti4ultimate.com/tools/slice-generator?tiles=NzksMzUsMzQsNjQsNzgsCjI3LDI5LDQ2LDQ0LDI1LAo0MCwzNywzMSw2NSw0MSwKMzksNjYsNjksNDcsNzQsCjQ4LDc2LDY4LDIwLDE5LAo2NywyOCw0OSw3MywyNiwK",
             SliceDraftArchiveLink = "https://ti4ultimate.com/community/slices-archive/slice-draft/4",

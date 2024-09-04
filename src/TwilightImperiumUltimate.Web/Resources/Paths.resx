@@ -372,4 +372,7 @@
   <data name="ApiPath_SlicesArchiveSliceDraft" xml:space="preserve">
     <value>api/slices-archive/slice-draft</value>
   </data>
+  <data name="ApiPath_PreRegistrationCheck" xml:space="preserve">
+    <value>api/users/login-and-email-check</value>
+  </data>
 </root>
