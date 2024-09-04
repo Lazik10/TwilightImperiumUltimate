@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Components;
-using TwilightImperiumUltimate.Contracts.Enums;
 using TwilightImperiumUltimate.Web.Models.Users;
 using TwilightImperiumUltimate.Web.Services.User;
 
@@ -7,6 +5,9 @@ namespace TwilightImperiumUltimate.Web.Pages.Account;
 
 public partial class Info
 {
+    private bool _infoSaved;
+    private bool _updateSend;
+
     private int Age { get; set; }
 
     private int FavoriteFactionNumber { get; set; }
@@ -62,9 +63,13 @@ public partial class Info
 
     private async Task SaveInfo()
     {
+        _infoSaved = false;
+        _updateSend = false;
+
         if (User is not null)
             User.FavoriteFaction = FavoriteFaction;
 
-        await UserService.UpdateUserInfoAsync(User, default);
+        _updateSend = true;
+        _infoSaved = await UserService.UpdateUserInfoAsync(User, default);
     }
 }

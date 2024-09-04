@@ -8,6 +8,8 @@ public interface IUserRepository
 
     Task<TwilightImperiumUser?> GetUserByEmail(string email);
 
+    Task<TwilightImperiumUser?> GetUserByUserName(string username);
+
     Task<bool> UpdateUser(TwilightImperiumUser user);
 
     Task<IReadOnlyCollection<IdentityRole>> GetAllRoles();

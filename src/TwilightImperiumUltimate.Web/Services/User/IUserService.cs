@@ -16,7 +16,7 @@ public interface IUserService
 
     Task SetCurrentUserAsync(TwilightImperiumUser? user);
 
-    Task UpdateUserInfoAsync(TwilightImperiumUser? user, CancellationToken cancellationToken);
+    Task<bool> UpdateUserInfoAsync(TwilightImperiumUser? user, CancellationToken cancellationToken);
 
     Task LogoutUserAsync(CancellationToken cancellationToken);
 

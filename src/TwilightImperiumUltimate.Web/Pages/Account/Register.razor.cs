@@ -10,6 +10,8 @@ public partial class Register
     private bool _showRegistrationFailed;
     private bool _registeringUser;
     private bool _registrationSuceeded;
+    private bool _usernameExists;
+    private bool _emailExists;
     private string _errorMessage = string.Empty;
     private string _userName = string.Empty;
 
@@ -23,6 +25,8 @@ public partial class Register
 
     private async Task RegisterUser()
     {
+        _usernameExists = false;
+        _emailExists = false;
         _showRegistrationFailed = false;
         _registrationSuceeded = false;
         _errorMessage = string.Empty;
@@ -32,32 +36,48 @@ public partial class Register
             _registeringUser = true;
             StateHasChanged();
 
-            var (_, statusCode) = await HttpClient.PostAsync<RegistrationModel, RegistrationResponse>(Paths.ApiPath_AccountRegister, RegistrationUserModel, default);
-
-            if (statusCode == HttpStatusCode.OK)
+            var precheckRequest = new UserRegisterationPrecheckRequest
             {
-                _registrationSuceeded = true;
-                StateHasChanged();
+                Email = RegistrationUserModel.Email,
+                Username = _userName,
+            };
 
-                await AddDefaultUserRole();
+            var (precheckResponse, precheckStatusCode) = await HttpClient.PostAsync<UserRegisterationPrecheckRequest, ApiResponse<UserRegistrationPrecheckResponse>>(Paths.ApiPath_PreRegistrationCheck, precheckRequest);
 
-                RegistrationUserModel = new RegistrationModel();
-                await Task.Delay(7000);
-                NavigationManager.NavigateTo(Pages.Login);
-            }
-            else
+            if (precheckStatusCode == HttpStatusCode.OK && !precheckResponse.Data!.UserNameNotAvailable && !precheckResponse.Data!.EmailNotAvailable)
             {
-                if (statusCode == HttpStatusCode.BadRequest)
+                var (_, statusCode) = await HttpClient.PostAsync<RegistrationModel, RegistrationResponse>(Paths.ApiPath_AccountRegister, RegistrationUserModel, default);
+
+                if (statusCode == HttpStatusCode.OK)
                 {
-                    _errorMessage = Strings.Register_FailedBadRequest;
+                    _registrationSuceeded = true;
+                    StateHasChanged();
+
+                    await AddDefaultUserRole();
+
+                    RegistrationUserModel = new RegistrationModel();
+                    await Task.Delay(7000);
+                    NavigationManager.NavigateTo(Pages.Login);
                 }
                 else
                 {
-                    _errorMessage = Strings.Register_FailedUnknown;
-                }
+                    if (statusCode == HttpStatusCode.BadRequest)
+                    {
+                        _errorMessage = Strings.Register_FailedBadRequest;
+                    }
+                    else
+                    {
+                        _errorMessage = Strings.Register_FailedUnknown;
+                    }
 
-                _showRegistrationFailed = true;
-                StateHasChanged();
+                    _showRegistrationFailed = true;
+                    StateHasChanged();
+                }
+            }
+            else
+            {
+                _usernameExists = precheckResponse.Data!.UserNameNotAvailable;
+                _emailExists = precheckResponse.Data!.EmailNotAvailable;
             }
         }
 
@@ -72,9 +92,9 @@ public partial class Register
         if (statusCode == HttpStatusCode.OK)
         {
             var roleRequest = new AddRoleToUserRequest() { RoleName = "User", UserId = response!.Data!.Id };
-            var (_, newStatusCode) = await HttpClient.PostAsync<AddRoleToUserRequest, AddRoleToUserResponse>(Paths.ApiPath_AddRole, roleRequest);
+            var (_, roleStatusCode) = await HttpClient.PostAsync<AddRoleToUserRequest, AddRoleToUserResponse>(Paths.ApiPath_AddRole, roleRequest);
 
-            if (newStatusCode == HttpStatusCode.OK)
+            if (roleStatusCode == HttpStatusCode.OK)
             {
                 var request = new TwilightImperiumUserDto(
                     string.Empty,

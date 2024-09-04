@@ -1724,4 +1724,19 @@ Brandon Williams&lt;/p&gt;</value>
   <data name="SlicesArchive_SliceDraftArchiveLink" xml:space="preserve">
     <value>Archive link:</value>
   </data>
+  <data name="Registration_UsernameExists" xml:space="preserve">
+    <value>Account with this username already exists.</value>
+  </data>
+  <data name="Registration_EmailExists" xml:space="preserve">
+    <value>Account with this email already exists.</value>
+  </data>
+  <data name="Login_Username" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="UserInfo_UpdateSuccess" xml:space="preserve">
+    <value>Update completed successfully.</value>
+  </data>
+  <data name="UserInfo_UpdateFailed" xml:space="preserve">
+    <value>Update failed.</value>
+  </data>
 </root>

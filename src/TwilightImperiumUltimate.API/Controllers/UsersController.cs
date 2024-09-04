@@ -34,7 +34,7 @@ public class UsersController(
         return Ok(new ApiResponse<TwilightImperiumUserDto>() { Success = true, Data = dbUser });
     }
 
-    // GET: api/users/email
+    // POST: api/users/email
     [HttpPost]
     [Route("email")]
     [AllowAnonymous]
@@ -44,13 +44,27 @@ public class UsersController(
         return Ok(new ApiResponse<TwilightImperiumUserDto>() { Success = true, Data = user });
     }
 
+    // POST: api/users/login-and-email-check
+    [HttpPost]
+    [Route("login-and-email-check")]
+    [AllowAnonymous]
+    public async Task<ActionResult<IApiResponse<UserRegistrationPrecheckResponse>>> CheckRegistrationInformation(UserRegisterationPrecheckRequest request, CancellationToken cancellationToken)
+    {
+        var response = await _mediator.Send(new CheckRegistrationInfoQuery(request.Email, request.Username), cancellationToken);
+        return Ok(new ApiResponse<UserRegistrationPrecheckResponse>() { Success = true, Data = response });
+    }
+
     // PUT: api/users/update
     [HttpPut]
     [Route("update")]
     public async Task<ActionResult<IApiResponse<TwilightImperiumUserDto>>> UpdateUser(TwilightImperiumUserDto user, CancellationToken cancellationToken)
     {
-        var dbUser = await _mediator.Send(new UpdateUserCommand(user), cancellationToken);
-        return Ok(new ApiResponse<TwilightImperiumUserDto>() { Success = true, Data = dbUser });
+        var response = await _mediator.Send(new UpdateUserCommand(user), cancellationToken);
+
+        if (response.Success)
+            return Ok(response);
+        else
+            return Conflict(response);
     }
 
     // PUT: api/users/user-name-update
@@ -63,7 +77,7 @@ public class UsersController(
         return Ok(new ApiResponse<TwilightImperiumUserDto>() { Success = true, Data = dbUser });
     }
 
-    // Get: api/users/roles
+    // GET: api/users/roles
     [HttpGet]
     [Route("roles")]
     public async Task<ActionResult<IApiResponse<ItemListDto<RoleDto>>>> GetAllRoles(CancellationToken cancellationToken)

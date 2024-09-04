@@ -14,8 +14,6 @@ public partial class MapDetail
 
     private TwilightImperiumUser? _user;
 
-    private StarRating _userStarRating = default!;
-
     [Parameter]
     public float UserRating { get; set; }
 
@@ -103,12 +101,6 @@ public partial class MapDetail
             if (statusCode == HttpStatusCode.OK)
             {
                 UserRating = response!.Data!.Rating;
-                if (_userStarRating is not null)
-                {
-                    _userStarRating.Rating = response!.Data.Rating;
-                    _userStarRating.Refresh();
-                }
-
                 StateHasChanged();
             }
 

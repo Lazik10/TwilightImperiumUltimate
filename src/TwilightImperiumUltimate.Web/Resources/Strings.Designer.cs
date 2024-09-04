@@ -1630,6 +1630,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Username.
+        /// </summary>
+        public static string Login_Username {
+            get {
+                return ResourceManager.GetString("Login_Username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Low.
         /// </summary>
         public static string Low {
@@ -3552,6 +3561,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Account with this email already exists..
+        /// </summary>
+        public static string Registration_EmailExists {
+            get {
+                return ResourceManager.GetString("Registration_EmailExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Account with this username already exists..
+        /// </summary>
+        public static string Registration_UsernameExists {
+            get {
+                return ResourceManager.GetString("Registration_UsernameExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to relic.
         /// </summary>
         public static string RelicCard {
@@ -4651,6 +4678,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string User_UserName {
             get {
                 return ResourceManager.GetString("User_UserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update failed..
+        /// </summary>
+        public static string UserInfo_UpdateFailed {
+            get {
+                return ResourceManager.GetString("UserInfo_UpdateFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update completed successfully..
+        /// </summary>
+        public static string UserInfo_UpdateSuccess {
+            get {
+                return ResourceManager.GetString("UserInfo_UpdateSuccess", resourceCulture);
             }
         }
         
