@@ -664,6 +664,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to /resources/images/shared/Galaxy_map.webp.
+        /// </summary>
+        public static string ResourcePath_GalaxyMap {
+            get {
+                return ResourceManager.GetString("ResourcePath_GalaxyMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to \resources\images\shared\icons.
         /// </summary>
         public static string ResourcePath_GameVersionIconPath {

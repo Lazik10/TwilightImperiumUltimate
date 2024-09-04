@@ -375,4 +375,7 @@
   <data name="ApiPath_PreRegistrationCheck" xml:space="preserve">
     <value>api/users/login-and-email-check</value>
   </data>
+  <data name="ResourcePath_GalaxyMap" xml:space="preserve">
+    <value>/resources/images/shared/Galaxy_map.webp</value>
+  </data>
 </root>

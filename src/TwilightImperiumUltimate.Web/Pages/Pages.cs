@@ -64,6 +64,8 @@ public static class Pages
 
     public const string AddSliceDraft = "/community/add-slice-draft-to-archive";
 
+    public const string GalaxyMap = "/community/galaxy-map";
+
     // Rules
     public const string Rules = "/rules";
 
