@@ -1739,4 +1739,7 @@ Brandon Williams&lt;/p&gt;</value>
   <data name="UserInfo_UpdateFailed" xml:space="preserve">
     <value>Update failed.</value>
   </data>
+  <data name="Page_GalaxyMap" xml:space="preserve">
+    <value>Galaxy Map</value>
+  </data>
 </root>

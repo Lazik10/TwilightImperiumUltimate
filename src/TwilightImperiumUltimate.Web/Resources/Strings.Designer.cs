@@ -3165,6 +3165,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Galaxy Map.
+        /// </summary>
+        public static string Page_GalaxyMap {
+            get {
+                return ResourceManager.GetString("Page_GalaxyMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Game.
         /// </summary>
         public static string Page_Game {
