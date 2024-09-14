@@ -46,6 +46,9 @@
 &emsp;&emsp;- :x: Statistics</br>
 
 <h3>Community</h3>
+&emsp;&emsp;- :white_check_mark:Galaxy map</br>
+&emsp;&emsp;- :white_check_mark:Map archive</br>
+&emsp;&emsp;- :white_check_mark:Slices archive</br>
 &emsp;&emsp;- :white_check_mark:Discord servers</br>
 &emsp;&emsp;- :white_check_mark:Other websites</br>
 &emsp;&emsp;- :x: DIY section</br>
@@ -54,10 +57,10 @@
 &emsp;&emsp;- :x: Stories</br>
 &emsp;&emsp;- :x: Play of the Day</br>
 &emsp;&emsp;- :x: Chat rooms</br>
-&emsp;&emsp;- :x: Map archive</br>
 &emsp;&emsp;- :x: Events</br>
 
 <h3>Tools</h3>
+&emsp;&emsp;- :white_check_mark: Game tracker</br>
 &emsp;&emsp;- :white_check_mark: Color draft</br>
 &emsp;&emsp;- :white_check_mark: Faction draft</br>
 &emsp;&emsp;- :white_check_mark: Milty draft</br>
@@ -65,7 +68,6 @@
 &emsp;&emsp;- :white_check_mark: Map generator</br>
 &emsp;&emsp;- :warning: Card generator</br>
 &emsp;&emsp;- :x: Online draft rooms</br>
-&emsp;&emsp;- :x: Game tracker and assistant</br>
 &emsp;&emsp;- :x: Battle calculator</br>
 
 <h3>Rules</h3>
