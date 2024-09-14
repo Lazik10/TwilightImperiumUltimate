@@ -51,19 +51,19 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "8e5f6a00-33d5-4a64-99f1-e11d3dfc3588",
+                            Id = "2147411d-19b7-4936-800a-b8d815271d00",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "dc18c302-98e1-45e5-abf6-c7f826493702",
+                            Id = "cc4089b0-22e9-47df-b7c5-a4734b4423f4",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "a4c45751-b6ce-4bb9-99ba-fdf60662a8c9",
+                            Id = "5b2bee5c-e5ce-4472-a141-bff7e040ac78",
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
                         });
@@ -12768,6 +12768,20 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             SliceNames = "<name1>,<name2>,<name3>,<name4>,<name5>,<name6>",
                             UserId = "1",
                             UserName = "Admin"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Description = "Finals for the SCPT 2024 tournament.",
+                            EventName = "SCPT 2024",
+                            Name = "Finals",
+                            SliceCount = 6,
+                            SliceDraftArchiveLink = "https://ti4ultimate.com/community/slices-archive/slice-draft/12",
+                            SliceDraftGeneratorLink = "https://ti4ultimate.com/tools/slice-generator?tiles=MzQsMjIsNjcsNzcsNjYsCjQxLDMyLDQ3LDU5LDY5LAozNSwyNSw0NCw3Myw0OSwKNDAsNzUsNDIsMjQsMjYsCjM5LDc2LDYyLDQzLDY0LAoyNyw0MCw3Miw3OSw2NSwK",
+                            SliceDraftString = "34,22,67,77,66,\r\n41,32,47,59,69,\r\n35,25,44,73,49,\r\n40,75,42,24,26,\r\n39,76,62,43,64,\r\n27,40,72,79,65,\r\n",
+                            SliceNames = "Slice 1,Slice 2,Slice 3,Slice 4,Slice 5,Slice 6",
+                            UserId = "1",
+                            UserName = "Admin"
                         });
                 });
 
@@ -20342,6 +20356,163 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         });
                 });
 
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Statistics.FactionRoundStatistics", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("FactionName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("FactionName")
+                        .HasColumnOrder(3);
+
+                    b.Property<string>("GameId")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("GameId")
+                        .HasColumnOrder(1);
+
+                    b.Property<int>("Round")
+                        .HasColumnType("integer")
+                        .HasColumnName("Round")
+                        .HasColumnOrder(2);
+
+                    b.Property<int>("Score")
+                        .HasColumnType("integer")
+                        .HasColumnName("Score")
+                        .HasColumnOrder(4);
+
+                    b.Property<int>("StrategyCardName")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FactionRoundStatistics", "Statistics");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Statistics.GameStatistics", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("GameId")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("GameId")
+                        .HasColumnOrder(1);
+
+                    b.Property<int>("MaxPoints")
+                        .HasColumnType("integer")
+                        .HasColumnName("MaxPoints")
+                        .HasColumnOrder(2);
+
+                    b.Property<int>("NumberOfPlayers")
+                        .HasColumnType("integer")
+                        .HasColumnName("NumberOfPlayers")
+                        .HasColumnOrder(3);
+
+                    b.Property<int>("Round")
+                        .HasColumnType("integer")
+                        .HasColumnName("Round")
+                        .HasColumnOrder(4);
+
+                    b.Property<string>("Time")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("Time")
+                        .HasColumnOrder(5);
+
+                    b.Property<string>("Winner")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("Winner")
+                        .HasColumnOrder(6);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("GameStatistics", "Statistics");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Statistics.WebsiteStatistics", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ColorsDrafted")
+                        .HasColumnType("integer")
+                        .HasColumnName("ColorsDrafted")
+                        .HasColumnOrder(8);
+
+                    b.Property<int>("FactionsDrafted")
+                        .HasColumnType("integer")
+                        .HasColumnName("FactionsDrafted")
+                        .HasColumnOrder(7);
+
+                    b.Property<int>("GamesPlayed")
+                        .HasColumnType("integer")
+                        .HasColumnName("GamesPlayed")
+                        .HasColumnOrder(6);
+
+                    b.Property<int>("MapsArchived")
+                        .HasColumnType("integer")
+                        .HasColumnName("MapsArchived")
+                        .HasColumnOrder(4);
+
+                    b.Property<int>("MapsGenerated")
+                        .HasColumnType("integer")
+                        .HasColumnName("MapsGenerated")
+                        .HasColumnOrder(2);
+
+                    b.Property<int>("SlicesArchived")
+                        .HasColumnType("integer")
+                        .HasColumnName("SlicesArchived")
+                        .HasColumnOrder(5);
+
+                    b.Property<int>("SlicesGenerated")
+                        .HasColumnType("integer")
+                        .HasColumnName("SlicesGenerated")
+                        .HasColumnOrder(3);
+
+                    b.Property<int>("Visitors")
+                        .HasColumnType("integer")
+                        .HasColumnName("Visitors")
+                        .HasColumnOrder(1);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("WebsiteStatistics", "Statistics");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ColorsDrafted = 0,
+                            FactionsDrafted = 0,
+                            GamesPlayed = 0,
+                            MapsArchived = 0,
+                            MapsGenerated = 0,
+                            SlicesArchived = 0,
+                            SlicesGenerated = 0,
+                            Visitors = 0
+                        });
+                });
+
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Technologies.Technology", b =>
                 {
                     b.Property<string>("TechnologyName")
@@ -22378,7 +22549,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "25f6f1d2-a65a-4c60-a466-174902c572f0",
+                            ConcurrencyStamp = "b3f1533b-9a81-4b4e-9717-4ed06275b455",
                             DiscordId = "",
                             Email = "Test@user.cz",
                             EmailConfirmed = true,
@@ -22388,9 +22559,9 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST@USER.CZ",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEO/KFeAymTEBFlxstuZm0sppZy/6P2tRsQSrSOgzaqQp10OqTRTYlyZGeUAqG/IyAw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBR3YUVjbEJ90H/W4UJvhWxkzFGKDcfkvuXqznAhS6vj0p8vBUgFBKepfxoHMw2wmA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "1114de37-495d-4a75-a6e1-b192c67bc3de",
+                            SecurityStamp = "9ccae6b7-e015-4b21-8b07-6d4d85b6192b",
                             SteamId = "",
                             TwoFactorEnabled = false,
                             UserInfo = "First seeded test user",

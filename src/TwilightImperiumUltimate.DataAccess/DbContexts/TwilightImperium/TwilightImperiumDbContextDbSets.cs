@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using TwilightImperiumUltimate.Core.Entities.Statistics;
 
 namespace TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium;
 
@@ -33,6 +34,13 @@ public partial class TwilightImperiumDbContext : IdentityDbContext<TwilightImper
     public virtual DbSet<SliceDraft> SliceDrafts { get; set; }
 
     public virtual DbSet<SliceDraftRating> SliceDraftRatings { get; set; }
+
+    // Game Statistics
+    public virtual DbSet<FactionRoundStatistics> FactionRoundStatistics { get; set; }
+
+    public virtual DbSet<GameStatistics> GameStatistics { get; set; }
+
+    public virtual DbSet<WebsiteStatistics> WebsiteStatistics { get; set; }
 
     // Player
     public virtual DbSet<Player> Players { get; set; }

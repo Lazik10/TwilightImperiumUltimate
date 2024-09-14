@@ -50,6 +50,7 @@ public static class ServiceCollectionsExtension
         services.AddScoped<IMiltyDraftSpecificMapPositionProvider, MiltyDraftSpecificMapPositionProvider>();
         services.AddScoped<IGameTrackerService, GameTrackerService>();
         services.AddScoped<IGameTrackerSettingsService, GameTrackerSettingsService>();
+        services.AddScoped<IObjectiveCardTracker, ObjectiveCardTracker>();
 
         services.AddScoped<ITwilightImperiumApiHttpClient, TwilightImperiumApiHttpClient>();
 

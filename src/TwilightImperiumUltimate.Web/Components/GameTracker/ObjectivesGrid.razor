@@ -1,0 +1,56 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Cards
+@using TwilightImperiumUltimate.Web.Components.Factions
+
+<FlexRowContainer>
+    <Label Text="@Strings.GameTracker_Round" FontSize="28" />
+    <Label Text="@GameTrackerService.CurrentRound.ToString()" FontSize="28" />
+    <Label Text="@Strings.GameTracker_Points" FontSize="28" />
+    <Label Text="@GameTrackerSettingsService.NumberOfPoints.ToString()" FontSize="28" />
+</FlexRowContainer>
+
+<VerticalSpace Height="10" />
+
+<GridLayout Columns="@GetColumnsCount()" Gap="0" Style="@(Style)">
+
+    @foreach (var objective in _stageOneObjectives)
+    {
+        <div>
+            <ObjectiveCard Name="@objective.ObjectiveCard.Name" ObjectiveCardType="objective.ObjectiveCard.ObjectiveCardType" Picked="objective.Revealed" />
+            <GridLayout Columns="4" CssClass="background">
+                @foreach (var faction in objective.ScoredFactions)
+                {
+                    <FactionIconImg FactionName="@faction" />
+                }
+
+                @for(int i = 0; i < (GetNumberOfPlayers() - objective.ScoredFactions.Count); i++)
+                {
+                    <VerticalSpace Height="40" />
+                }
+            </GridLayout>
+        </div>
+    }
+
+    @if (GetColumnsCount() != _stageOneObjectives.Count)
+    {
+        <div></div>
+    }
+
+    @foreach (var objective in _stageTwoObjectives)
+    {
+        <div>
+            <ObjectiveCard Name="@objective.ObjectiveCard.Name" ObjectiveCardType="objective.ObjectiveCard.ObjectiveCardType" Picked="objective.Revealed" />
+            <GridLayout Columns="4" CssClass="background">
+                @foreach (var faction in objective.ScoredFactions)
+                {
+                    <FactionIconImg FactionName="@faction" />
+                }
+
+                @for (int i = 0; i < (GetNumberOfPlayers() - objective.ScoredFactions.Count); i++)
+                {
+                    <VerticalSpace Height="40" />
+                }
+            </GridLayout>
+        </div>
+    }
+
+</GridLayout>

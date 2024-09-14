@@ -158,5 +158,19 @@ internal static class SlicesDraftData
             UserName = "Admin",
             UserId = "1",
         },
+        new SliceDraft()
+        {
+            Id = 12,
+            Name = "Finals",
+            EventName = "SCPT 2024",
+            Description = "Finals for the SCPT 2024 tournament.",
+            SliceDraftString = "34,22,67,77,66,\r\n41,32,47,59,69,\r\n35,25,44,73,49,\r\n40,75,42,24,26,\r\n39,76,62,43,64,\r\n27,40,72,79,65,\r\n",
+            SliceNames = "Slice 1,Slice 2,Slice 3,Slice 4,Slice 5,Slice 6",
+            SliceCount = 6,
+            SliceDraftGeneratorLink = "https://ti4ultimate.com/tools/slice-generator?tiles=MzQsMjIsNjcsNzcsNjYsCjQxLDMyLDQ3LDU5LDY5LAozNSwyNSw0NCw3Myw0OSwKNDAsNzUsNDIsMjQsMjYsCjM5LDc2LDYyLDQzLDY0LAoyNyw0MCw3Miw3OSw2NSwK",
+            SliceDraftArchiveLink = "https://ti4ultimate.com/community/slices-archive/slice-draft/12",
+            UserName = "Admin",
+            UserId = "1",
+        },
     };
 }

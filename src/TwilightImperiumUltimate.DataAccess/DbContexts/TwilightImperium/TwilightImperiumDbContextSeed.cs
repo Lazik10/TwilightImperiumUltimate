@@ -1,3 +1,4 @@
+using TwilightImperiumUltimate.Core.Entities.Statistics;
 using TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium.Data;
 
 namespace TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium;
@@ -42,5 +43,7 @@ public static class TwilightImperiumDbContextSeed
         modelBuilder.Entity<Website>().HasData(WebsitesData.Websites);
 
         modelBuilder.Entity<FactionTechnology>().HasData(FactionTechnologiesData.FactionTechnologies);
+
+        modelBuilder.Entity<WebsiteStatistics>().HasData(WebsiteStatisticsData.WebsiteStatistics);
     }
 }

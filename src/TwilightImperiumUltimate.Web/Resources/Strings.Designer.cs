@@ -271,6 +271,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Agenda.
+        /// </summary>
+        public static string ButtonText_Agenda {
+            get {
+                return ResourceManager.GetString("ButtonText_Agenda", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Clear.
         /// </summary>
         public static string ButtonText_Clear {
@@ -307,11 +316,47 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &amp;#10073;&amp;#10073;.
+        /// </summary>
+        public static string ButtonText_Pause {
+            get {
+                return ResourceManager.GetString("ButtonText_Pause", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;#10148;.
+        /// </summary>
+        public static string ButtonText_Play {
+            get {
+                return ResourceManager.GetString("ButtonText_Play", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Preview.
         /// </summary>
         public static string ButtonText_Preview {
             get {
                 return ResourceManager.GetString("ButtonText_Preview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;#9723;.
+        /// </summary>
+        public static string ButtonText_Reset {
+            get {
+                return ResourceManager.GetString("ButtonText_Reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reveal.
+        /// </summary>
+        public static string ButtonText_Reveal {
+            get {
+                return ResourceManager.GetString("ButtonText_Reveal", resourceCulture);
             }
         }
         
@@ -1243,6 +1288,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Agenda.
+        /// </summary>
+        public static string GameTracker_Agenda {
+            get {
+                return ResourceManager.GetString("GameTracker_Agenda", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bonus Points.
+        /// </summary>
+        public static string GameTracker_BonusPoints {
+            get {
+                return ResourceManager.GetString("GameTracker_BonusPoints", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enable player names:.
         /// </summary>
         public static string GameTracker_EnablePlayerNames {
@@ -1261,11 +1324,38 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Manual Pick.
+        /// </summary>
+        public static string GameTracker_ManualObjectivePick {
+            get {
+                return ResourceManager.GetString("GameTracker_ManualObjectivePick", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Number of players:.
         /// </summary>
         public static string GameTracker_NumberOfPlayers {
             get {
                 return ResourceManager.GetString("GameTracker_NumberOfPlayers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Objectives.
+        /// </summary>
+        public static string GameTracker_Objectives {
+            get {
+                return ResourceManager.GetString("GameTracker_Objectives", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overview.
+        /// </summary>
+        public static string GameTracker_Overview {
+            get {
+                return ResourceManager.GetString("GameTracker_Overview", resourceCulture);
             }
         }
         
@@ -1279,6 +1369,33 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Points: .
+        /// </summary>
+        public static string GameTracker_Points {
+            get {
+                return ResourceManager.GetString("GameTracker_Points", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Public.
+        /// </summary>
+        public static string GameTracker_PublicObjectives {
+            get {
+                return ResourceManager.GetString("GameTracker_PublicObjectives", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Round: .
+        /// </summary>
+        public static string GameTracker_Round {
+            get {
+                return ResourceManager.GetString("GameTracker_Round", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Score points:.
         /// </summary>
         public static string GameTracker_ScorePoints {
@@ -1288,11 +1405,56 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Scoring.
+        /// </summary>
+        public static string GameTracker_Scoring {
+            get {
+                return ResourceManager.GetString("GameTracker_Scoring", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Secret.
+        /// </summary>
+        public static string GameTracker_SecretObjectives {
+            get {
+                return ResourceManager.GetString("GameTracker_SecretObjectives", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Game Settings.
         /// </summary>
         public static string GameTracker_Settings {
             get {
                 return ResourceManager.GetString("GameTracker_Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stage I.
+        /// </summary>
+        public static string GameTracker_StageOneObjectives {
+            get {
+                return ResourceManager.GetString("GameTracker_StageOneObjectives", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stage II.
+        /// </summary>
+        public static string GameTracker_StageTwoObjectives {
+            get {
+                return ResourceManager.GetString("GameTracker_StageTwoObjectives", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Strategy.
+        /// </summary>
+        public static string GameTracker_StrategyCards {
+            get {
+                return ResourceManager.GetString("GameTracker_StrategyCards", resourceCulture);
             }
         }
         
@@ -2954,6 +3116,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string ObjectiveCardStageTwo {
             get {
                 return ResourceManager.GetString("ObjectiveCardStageTwo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manual pick:.
+        /// </summary>
+        public static string ObjectiveGrid_ManualPick {
+            get {
+                return ResourceManager.GetString("ObjectiveGrid_ManualPick", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable scoring:.
+        /// </summary>
+        public static string ObjectiveGrid_ScoreMode {
+            get {
+                return ResourceManager.GetString("ObjectiveGrid_ScoreMode", resourceCulture);
             }
         }
         

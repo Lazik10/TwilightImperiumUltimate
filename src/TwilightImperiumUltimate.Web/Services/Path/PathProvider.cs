@@ -111,6 +111,11 @@ public class PathProvider : IPathProvider
         return $"{_basePath}\\{_language}\\cards\\{cardType.ToLowerInvariant()}\\{fileName}.webp";
     }
 
+    public string GetObjectiveCardBackPath(ObjectiveCardType objectiveCardType)
+    {
+        return $"{_basePath}\\shared\\cardbacks\\{objectiveCardType}{Strings.FileExtensionWebp}";
+    }
+
     public string GetGameVersionIconPath(GameVersion gameVersion)
     {
         return $"{Paths.ResourcePath_GameVersionIconPath}{Strings.BackSlash}{gameVersion}{Strings.FileExtensionWebp}";

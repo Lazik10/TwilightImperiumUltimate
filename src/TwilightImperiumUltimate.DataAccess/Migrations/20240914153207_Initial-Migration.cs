@@ -20,6 +20,9 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                 name: "Faction");
 
             migrationBuilder.EnsureSchema(
+                name: "Statistics");
+
+            migrationBuilder.EnsureSchema(
                 name: "Relationships");
 
             migrationBuilder.EnsureSchema(
@@ -160,6 +163,24 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "FactionRoundStatistics",
+                schema: "Statistics",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    GameId = table.Column<string>(type: "varchar(100)", nullable: false),
+                    Round = table.Column<int>(type: "integer", nullable: false),
+                    FactionName = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
+                    Score = table.Column<int>(type: "integer", nullable: false),
+                    StrategyCardName = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FactionRoundStatistics", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Factions",
                 schema: "Faction",
                 columns: table => new
@@ -215,6 +236,25 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_FrontierCards", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "GameStatistics",
+                schema: "Statistics",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    GameId = table.Column<string>(type: "varchar(100)", nullable: false),
+                    MaxPoints = table.Column<int>(type: "integer", nullable: false),
+                    NumberOfPlayers = table.Column<int>(type: "integer", nullable: false),
+                    Round = table.Column<int>(type: "integer", nullable: false),
+                    Time = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
+                    Winner = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_GameStatistics", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -394,6 +434,27 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Websites", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "WebsiteStatistics",
+                schema: "Statistics",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Visitors = table.Column<int>(type: "integer", nullable: false),
+                    MapsGenerated = table.Column<int>(type: "integer", nullable: false),
+                    SlicesGenerated = table.Column<int>(type: "integer", nullable: false),
+                    MapsArchived = table.Column<int>(type: "integer", nullable: false),
+                    SlicesArchived = table.Column<int>(type: "integer", nullable: false),
+                    GamesPlayed = table.Column<int>(type: "integer", nullable: false),
+                    FactionsDrafted = table.Column<int>(type: "integer", nullable: false),
+                    ColorsDrafted = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_WebsiteStatistics", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -951,15 +1012,15 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "8e5f6a00-33d5-4a64-99f1-e11d3dfc3588", null, "Admin", "ADMIN" },
-                    { "a4c45751-b6ce-4bb9-99ba-fdf60662a8c9", null, "Moderator", "MODERATOR" },
-                    { "dc18c302-98e1-45e5-abf6-c7f826493702", null, "User", "USER" }
+                    { "2147411d-19b7-4936-800a-b8d815271d00", null, "Admin", "ADMIN" },
+                    { "5b2bee5c-e5ce-4472-a141-bff7e040ac78", null, "Moderator", "MODERATOR" },
+                    { "cc4089b0-22e9-47df-b7c5-a4734b4423f4", null, "User", "USER" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "Age", "ConcurrencyStamp", "DiscordId", "Email", "EmailConfirmed", "FavoriteFaction", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "SteamId", "TwoFactorEnabled", "UserInfo", "UserName" },
-                values: new object[] { "1", 0, null, "25f6f1d2-a65a-4c60-a466-174902c572f0", "", "Test@user.cz", true, 17, "Test", "User", false, null, "TEST@USER.CZ", "ADMIN", "AQAAAAIAAYagAAAAEO/KFeAymTEBFlxstuZm0sppZy/6P2tRsQSrSOgzaqQp10OqTRTYlyZGeUAqG/IyAw==", null, false, "1114de37-495d-4a75-a6e1-b192c67bc3de", "", false, "First seeded test user", "Admin" });
+                values: new object[] { "1", 0, null, "b3f1533b-9a81-4b4e-9717-4ed06275b455", "", "Test@user.cz", true, 17, "Test", "User", false, null, "TEST@USER.CZ", "ADMIN", "AQAAAAIAAYagAAAAEBR3YUVjbEJ90H/W4UJvhWxkzFGKDcfkvuXqznAhS6vj0p8vBUgFBKepfxoHMw2wmA==", null, false, "9ccae6b7-e015-4b21-8b07-6d4d85b6192b", "", false, "First seeded test user", "Admin" });
 
             migrationBuilder.InsertData(
                 schema: "Card",
@@ -2420,6 +2481,12 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                 });
 
             migrationBuilder.InsertData(
+                schema: "Statistics",
+                table: "WebsiteStatistics",
+                columns: new[] { "Id", "ColorsDrafted", "FactionsDrafted", "GamesPlayed", "MapsArchived", "MapsGenerated", "SlicesArchived", "SlicesGenerated", "Visitors" },
+                values: new object[] { 1, 0, 0, 0, 0, 0, 0, 0, 0 });
+
+            migrationBuilder.InsertData(
                 schema: "Website",
                 table: "Websites",
                 columns: new[] { "Id", "Description", "Title", "WebsitePath" },
@@ -3289,7 +3356,8 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     { 8, "Finals for the SCPT 2023 tournament.", "SCPT 2023", "Finals", 7, "https://ti4ultimate.com/community/slices-archive/slice-draft/8", "https://ti4ultimate.com/tools/slice-generator?tiles=NzcsMjIsNTksNjcsNjUsCjQ2LDI1LDI5LDMxLDQ1LAo3OCw2NCw3NCwzNyw0MSwKNjEsNDAsNzAsNjgsMzYsCjczLDM5LDI0LDgwLDcxLAo0MiwyNiw3MiwzNSw0NywKNDksNzksMjgsNjIsNzYsCg==", "77,22,59,67,65,\r\n46,25,29,31,45,\r\n78,64,74,37,41,\r\n61,40,70,68,36,\r\n73,39,24,80,71,\r\n42,26,72,35,47,\r\n49,79,28,62,76,\r\n", "Final Slice 1,Final Slice 2,Final Slice 3,Final Slice 4,Final Slice 5,Final Slice 6,Final Slice 7", "1", "Admin" },
                     { 9, "Qualifiers for the SCPT 2024 tournament.", "SCPT 2024", "Qualifiers", 6, "https://ti4ultimate.com/community/slices-archive/slice-draft/9", "https://ti4ultimate.com/tools/slice-generator?tiles=MzIsNjYsNjgsNjMsMzksCjI2LDc2LDQ5LDE5LDQxLAo2NCwzNSw2NSwyMiw3OSwKNTAsMzcsNDUsNjEsMzYsCjI1LDczLDc4LDU5LDYyLAo3Miw3NSw4MCwyMSw0MCwK", "32,66,68,63,39,\r\n26,76,49,19,41,\r\n64,35,65,22,79,\r\n50,37,45,61,36,\r\n25,73,78,59,62,\r\n72,75,80,21,40,\r\n", "101 Dal Boothas,Will,Tharma & Breg,Yellow Slice Because It Has Two Reds,Give Me Integrated or Give Me Death,Devil Went Down to Velnor", "1", "Admin" },
                     { 10, "Prelims for the SCPT 2024 tournament.", "SCPT 2024", "Prelims", 6, "https://ti4ultimate.com/community/slices-archive/slice-draft/10", "https://ti4ultimate.com/tools/slice-generator?tiles=MzMsNjIsNDEsMjUsMzIsCjQ0LDM2LDE5LDQwLDcyLAo0NSw3MCwzNSw2NCw3OCwKNTAsNzQsNjUsMjYsNjMsCjY5LDIxLDIzLDc5LDQ4LAozOCw1OSw0MiwzOSwyNCwK", "33,62,41,25,32,\r\n44,36,19,40,72,\r\n45,70,35,64,78,\r\n50,74,65,26,63,\r\n69,21,23,79,48,\r\n38,59,42,39,24,\r\n", "Corneeqticut,Lorxembourg,Siigney,Vorhalabama,Düssaudorf,New South Vails", "1", "Admin" },
-                    { 11, "Semifinals for the SCPT 2024 tournament.", "SCPT 2024", "Semifinals", 6, "https://ti4ultimate.com/community/slices-archive/slice-draft/11", "https://ti4ultimate.com/tools/slice-generator?tiles=NjgsNDksMzYsMjUsNjMsCjIzLDc5LDc1LDYyLDUwLAo2NCwzMiw0Miw3MCw2NywKMzksNjYsMTksNDgsNzYsCjI2LDc0LDc4LDI0LDQzLAoyMCwyNyw1OSw0MCw0MSwK", "68,49,36,25,63,\r\n23,79,75,62,50,\r\n64,32,42,70,67,\r\n39,66,19,48,76,\r\n26,74,78,24,43,\r\n20,27,59,40,41,\r\n", "<name1>,<name2>,<name3>,<name4>,<name5>,<name6>", "1", "Admin" }
+                    { 11, "Semifinals for the SCPT 2024 tournament.", "SCPT 2024", "Semifinals", 6, "https://ti4ultimate.com/community/slices-archive/slice-draft/11", "https://ti4ultimate.com/tools/slice-generator?tiles=NjgsNDksMzYsMjUsNjMsCjIzLDc5LDc1LDYyLDUwLAo2NCwzMiw0Miw3MCw2NywKMzksNjYsMTksNDgsNzYsCjI2LDc0LDc4LDI0LDQzLAoyMCwyNyw1OSw0MCw0MSwK", "68,49,36,25,63,\r\n23,79,75,62,50,\r\n64,32,42,70,67,\r\n39,66,19,48,76,\r\n26,74,78,24,43,\r\n20,27,59,40,41,\r\n", "<name1>,<name2>,<name3>,<name4>,<name5>,<name6>", "1", "Admin" },
+                    { 12, "Finals for the SCPT 2024 tournament.", "SCPT 2024", "Finals", 6, "https://ti4ultimate.com/community/slices-archive/slice-draft/12", "https://ti4ultimate.com/tools/slice-generator?tiles=MzQsMjIsNjcsNzcsNjYsCjQxLDMyLDQ3LDU5LDY5LAozNSwyNSw0NCw3Myw0OSwKNDAsNzUsNDIsMjQsMjYsCjM5LDc2LDYyLDQzLDY0LAoyNyw0MCw3Miw3OSw2NSwK", "34,22,67,77,66,\r\n41,32,47,59,69,\r\n35,25,44,73,49,\r\n40,75,42,24,26,\r\n39,76,62,43,64,\r\n27,40,72,79,65,\r\n", "Slice 1,Slice 2,Slice 3,Slice 4,Slice 5,Slice 6", "1", "Admin" }
                 });
 
             migrationBuilder.InsertData(
@@ -3534,6 +3602,10 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                 schema: "Faction");
 
             migrationBuilder.DropTable(
+                name: "FactionRoundStatistics",
+                schema: "Statistics");
+
+            migrationBuilder.DropTable(
                 name: "FactionTechnology",
                 schema: "Relationships");
 
@@ -3548,6 +3620,10 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
             migrationBuilder.DropTable(
                 name: "FrontierCards",
                 schema: "Card");
+
+            migrationBuilder.DropTable(
+                name: "GameStatistics",
+                schema: "Statistics");
 
             migrationBuilder.DropTable(
                 name: "MapRating",
@@ -3592,6 +3668,10 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
             migrationBuilder.DropTable(
                 name: "Websites",
                 schema: "Website");
+
+            migrationBuilder.DropTable(
+                name: "WebsiteStatistics",
+                schema: "Statistics");
 
             migrationBuilder.DropTable(
                 name: "Wormholes",

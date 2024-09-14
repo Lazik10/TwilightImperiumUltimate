@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ObjectiveCardName_AMassWealth" xml:space="preserve">
+    <value>A Mass Wealth</value>
+  </data>
+  <data name="ObjectiveCardName_ProtectTheBorder" xml:space="preserve">
+    <value>Protect The Border</value>
+  </data>
+  <data name="ObjectiveCardName_FightWithPrecision" xml:space="preserve">
+    <value>Fight With Precision</value>
+  </data>
+  <data name="ObjectiveCardName_OccupyTheSeatOfTheEmpire" xml:space="preserve">
+    <value>Occupy The Seat Of The Empire</value>
+  </data>
+  <data name="ObjectiveCardName_OccupyTheFringe" xml:space="preserve">
+    <value>Occupy The Fringe</value>
+  </data>
+  <data name="ObjectiveCardName_MonopolizeProduction" xml:space="preserve">
+    <value>Monopolize Production</value>
+  </data>
+  <data name="ObjectiveCardName_MineRareMinerals" xml:space="preserve">
+    <value>Mine Rare Minerals</value>
+  </data>
+  <data name="ObjectiveCardName_MechanizeTheMilitary" xml:space="preserve">
+    <value>Mechanize The Military</value>
+  </data>
+  <data name="ObjectiveCardName_MasterTheLawsOfPhysics" xml:space="preserve">
+    <value>Master The Laws Of Physics</value>
+  </data>
+  <data name="ObjectiveCardName_MakeAnExampleOfTheirWorldOmega" xml:space="preserve">
+    <value>Make An Example Of Their World  Ω</value>
+  </data>
+  <data name="ObjectiveCardName_MakeAnExampleOfTheirWorld" xml:space="preserve">
+    <value>Make An Example Of Their World</value>
+  </data>
+  <data name="ObjectiveCardName_LearnTheSecretsOfTheCosmos" xml:space="preserve">
+    <value>Learn The Secrets Of The Cosmos</value>
+  </data>
+  <data name="ObjectiveCardName_HoardRawMaterials" xml:space="preserve">
+    <value>Hoard Raw Materials</value>
+  </data>
+  <data name="ObjectiveCardName_GatherAMightyFleet" xml:space="preserve">
+    <value>Gather A Mighty Fleet</value>
+  </data>
+  <data name="ObjectiveCardName_FuelTheWarMachine" xml:space="preserve">
+    <value>Fuel The War Machine</value>
+  </data>
+  <data name="ObjectiveCardName_FosterCohesion" xml:space="preserve">
+    <value>Foster Cohesion</value>
+  </data>
+  <data name="ObjectiveCardName_FormASpyNetwork" xml:space="preserve">
+    <value>Form A Spy Network</value>
+  </data>
+  <data name="ObjectiveCardName_ForgeAnAlliance" xml:space="preserve">
+    <value>Forge An Alliance</value>
+  </data>
+  <data name="ObjectiveCardName_FightWithPrecisionOmega" xml:space="preserve">
+    <value>Fight With Precision  Ω</value>
+  </data>
+  <data name="ObjectiveCardName_EstablishHegemony" xml:space="preserve">
+    <value>Establish Hegemony</value>
+  </data>
+  <data name="ObjectiveCardName_EstablishAPerimeter" xml:space="preserve">
+    <value>Establish A Perimeter</value>
+  </data>
+  <data name="ObjectiveCardName_DriveTheDebate" xml:space="preserve">
+    <value>Drive The Debate</value>
+  </data>
+  <data name="ObjectiveCardName_DictatePolicy" xml:space="preserve">
+    <value>Dictate Policy</value>
+  </data>
+  <data name="ObjectiveCardName_DestroyTheirGreatestShip" xml:space="preserve">
+    <value>Destroy Their Greatest Ship</value>
+  </data>
+  <data name="ObjectiveCardName_DestroyHereticalWorks" xml:space="preserve">
+    <value>Destroy Heretical Works</value>
+  </data>
+  <data name="ObjectiveCardName_DemonstrateYourPower" xml:space="preserve">
+    <value>Demonstrate Your Power</value>
+  </data>
+  <data name="ObjectiveCardName_DefySpaceAndTime" xml:space="preserve">
+    <value>Defy Space And Time</value>
+  </data>
+  <data name="ObjectiveCardName_DarkenTheSkies" xml:space="preserve">
+    <value>Darken The Skies</value>
+  </data>
+  <data name="ObjectiveCardName_CutSupplyLines" xml:space="preserve">
+    <value>Cut Supply Lines</value>
+  </data>
+  <data name="ObjectiveCardName_ControlTheRegion" xml:space="preserve">
+    <value>Control The Region</value>
+  </data>
+  <data name="ObjectiveCardName_BraveTheVoid" xml:space="preserve">
+    <value>Brave The Void</value>
+  </data>
+  <data name="ObjectiveCardName_BetrayAFriend" xml:space="preserve">
+    <value>Betray A Friend</value>
+  </data>
+  <data name="ObjectiveCardName_BecomeTheGatekeeper" xml:space="preserve">
+    <value>Become The Gatekeeper</value>
+  </data>
+  <data name="ObjectiveCardName_BecomeAMartyr" xml:space="preserve">
+    <value>Become A Martyr</value>
+  </data>
+  <data name="ObjectiveCardName_AdaptNewStrategies" xml:space="preserve">
+    <value>Adapt New Strategies</value>
+  </data>
+  <data name="ObjectiveCardName_UnifyTheColonies" xml:space="preserve">
+    <value>Unify The Colonies</value>
+  </data>
+  <data name="ObjectiveCardName_SubdueTheGalaxy" xml:space="preserve">
+    <value>Subdue The Galaxy</value>
+  </data>
+  <data name="ObjectiveCardName_RuleDistantLands" xml:space="preserve">
+    <value>Rule Distant Lands</value>
+  </data>
+  <data name="ObjectiveCardName_RevolutionizeWarfare" xml:space="preserve">
+    <value>Revolutionize Warfare</value>
+  </data>
+  <data name="ObjectiveCardName_ReclaimAncientMonuments" xml:space="preserve">
+    <value>Reclaim Ancient Monuments</value>
+  </data>
+  <data name="ObjectiveCardName_PatrolVastTerritories" xml:space="preserve">
+    <value>Patrol Vast Territories</value>
+  </data>
+  <data name="ObjectiveCardName_MasterTheSciences" xml:space="preserve">
+    <value>Master The Sciences</value>
+  </data>
+  <data name="ObjectiveCardName_ManipulateGalacticLaw" xml:space="preserve">
+    <value>Manipulate Galactic Law</value>
+  </data>
+  <data name="ObjectiveCardName_HoldVastReserves" xml:space="preserve">
+    <value>Hold Vast Reserves</value>
+  </data>
+  <data name="ObjectiveCardName_GalvanizeThePeople" xml:space="preserve">
+    <value>Galvanize The People</value>
+  </data>
+  <data name="ObjectiveCardName_FoundAGoldenAge" xml:space="preserve">
+    <value>Found A Golden Age</value>
+  </data>
+  <data name="ObjectiveCardName_FormGalacticBrainTrust" xml:space="preserve">
+    <value>Form Galactic Brain Trust</value>
+  </data>
+  <data name="ObjectiveCardName_ControlTheBorderlands" xml:space="preserve">
+    <value>Control The Borderlands</value>
+  </data>
+  <data name="ObjectiveCardName_ConstructMassiveCities" xml:space="preserve">
+    <value>Construct Massive Cities</value>
+  </data>
+  <data name="ObjectiveCardName_ConquerTheWeak" xml:space="preserve">
+    <value>Conquer The Weak</value>
+  </data>
+  <data name="ObjectiveCardName_CommandAnArmada" xml:space="preserve">
+    <value>Command An Armada</value>
+  </data>
+  <data name="ObjectiveCardName_CentralizeGalacticTrade" xml:space="preserve">
+    <value>Centralize Galactic Trade</value>
+  </data>
+  <data name="ObjectiveCardName_BecomeALegend" xml:space="preserve">
+    <value>Become A Legend</value>
+  </data>
+  <data name="ObjectiveCardName_AchieveSupremacy" xml:space="preserve">
+    <value>Achieve Supremacy</value>
+  </data>
+  <data name="ObjectiveCardName_UnveilFlagship" xml:space="preserve">
+    <value>Unveil Flagship</value>
+  </data>
+  <data name="ObjectiveCardName_TurnTheirFleetsToDustOmega" xml:space="preserve">
+    <value>Turn Their Fleets To Dust  Ω</value>
+  </data>
+  <data name="ObjectiveCardName_TurnTheirFleetsToDust" xml:space="preserve">
+    <value>Turn Their Fleets To Dust</value>
+  </data>
+  <data name="ObjectiveCardName_ThreatenEnemies" xml:space="preserve">
+    <value>Threaten Enemies</value>
+  </data>
+  <data name="ObjectiveCardName_StrengthenBonds" xml:space="preserve">
+    <value>Strengthen Bonds</value>
+  </data>
+  <data name="ObjectiveCardName_StakeYourClaim" xml:space="preserve">
+    <value>Stake Your Claim</value>
+  </data>
+  <data name="ObjectiveCardName_SparkARebellion" xml:space="preserve">
+    <value>Spark A Rebellion</value>
+  </data>
+  <data name="ObjectiveCardName_SeizeAnIcon" xml:space="preserve">
+    <value>Seize An Icon</value>
+  </data>
+  <data name="ObjectiveCardName_ProveEndurance" xml:space="preserve">
+    <value>Prove Endurance</value>
+  </data>
+  <data name="ObjectiveCardName_ProduceEnMasse" xml:space="preserve">
+    <value>Produce En Masse</value>
+  </data>
+  <data name="ObjectiveCardName_SwayTheCouncil" xml:space="preserve">
+    <value>Sway The Council</value>
+  </data>
+  <data name="ObjectiveCardName_RaiseAFleet" xml:space="preserve">
+    <value>Raise A Fleet</value>
+  </data>
+  <data name="ObjectiveCardName_PushBoundaries" xml:space="preserve">
+    <value>Push Boundaries</value>
+  </data>
+  <data name="ObjectiveCardName_PopulateTheOuterRim" xml:space="preserve">
+    <value>Populate The Outer Rim</value>
+  </data>
+  <data name="ObjectiveCardName_NegotiateTradeRoutes" xml:space="preserve">
+    <value>Negotiate Trade Routes</value>
+  </data>
+  <data name="ObjectiveCardName_MakeHistory" xml:space="preserve">
+    <value>Make History</value>
+  </data>
+  <data name="ObjectiveCardName_LeadFromTheFront" xml:space="preserve">
+    <value>Lead From The Front</value>
+  </data>
+  <data name="ObjectiveCardName_IntimidateCouncil" xml:space="preserve">
+    <value>Intimidate Council</value>
+  </data>
+  <data name="ObjectiveCardName_ImproveInfrastructure" xml:space="preserve">
+    <value>Improve Infrastructure</value>
+  </data>
+  <data name="ObjectiveCardName_FoundResearchOutposts" xml:space="preserve">
+    <value>Found Research Outposts</value>
+  </data>
+  <data name="ObjectiveCardName_ExploreDeepSpace" xml:space="preserve">
+    <value>Explore Deep Space</value>
+  </data>
+  <data name="ObjectiveCardName_ExpandBorders" xml:space="preserve">
+    <value>Expand Borders</value>
+  </data>
+  <data name="ObjectiveCardName_ErectAMonument" xml:space="preserve">
+    <value>Erect A Monument</value>
+  </data>
+  <data name="ObjectiveCardName_EngineerAMarvel" xml:space="preserve">
+    <value>Engineer A Marvel</value>
+  </data>
+  <data name="ObjectiveCardName_DiversifyResearch" xml:space="preserve">
+    <value>Diversify Research</value>
+  </data>
+  <data name="ObjectiveCardName_DiscoverLostOutposts" xml:space="preserve">
+    <value>Discover Lost Outposts</value>
+  </data>
+  <data name="ObjectiveCardName_DevelopWeaponry" xml:space="preserve">
+    <value>Develop Weaponry</value>
+  </data>
+  <data name="ObjectiveCardName_CornerTheMarket" xml:space="preserve">
+    <value>Corner The Market</value>
+  </data>
+  <data name="ObjectiveCardName_BuildDefenses" xml:space="preserve">
+    <value>Build Defenses</value>
+  </data>
+</root>

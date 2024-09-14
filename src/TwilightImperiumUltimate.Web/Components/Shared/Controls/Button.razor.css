@@ -1,5 +1,4 @@
 ﻿.button {
-    min-width: 30% !important;
     border-radius: 10px !important;
     border: 2px solid black !important;
     background-color: rgba(0, 0, 255, 0.3) !important;
@@ -8,7 +7,6 @@
 }
 
 .button-disabled {
-    min-width: 30% !important;
     border-radius: 10px !important;
     border: 2px solid black !important;
     background-color: rgba(128, 128, 128, 0.3) !important;
@@ -22,7 +20,6 @@
 
 .div-like-button {
     display: block !important;
-    min-width: 30% !important;
     padding: 10px 30px !important;
     background-color: rgba(0, 0, 255, 0.3);
     color: white !important;

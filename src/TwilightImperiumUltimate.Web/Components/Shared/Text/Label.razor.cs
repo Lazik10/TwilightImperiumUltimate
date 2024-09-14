@@ -47,6 +47,7 @@ public partial class Label
             TextColor.Orange => "orange",
             TextColor.Grey => "grey",
             TextColor.DarkGreen => "darkgreen",
+            TextColor.Black => "black",
             _ => "white",
         };
     }

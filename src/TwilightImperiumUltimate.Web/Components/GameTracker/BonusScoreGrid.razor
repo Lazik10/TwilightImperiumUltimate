@@ -1,0 +1,220 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Cards
+@using TwilightImperiumUltimate.Web.Components.Factions
+
+<FlexColumnCenteredContainer>
+
+    <Label Text="Custodians and Imperial" CenterText="true" FontSize="24" />
+
+    <VerticalSpace Height="20" />
+
+    <FlexRowContainer Width="60" AlignItems="Enums.AlignItems.Center" CssClass="background">
+        <FlexColumnCenteredContainer Width="25">
+            <img src="@(PathProvider.GetIconPath(IconType.Custodians))" style="width: 50%;" />
+            <Label Text="Score:" CenterText="true" />
+            <GridLayout Columns="4">
+                @foreach (var player in _players)
+                {
+                    <div @onclick="() => ScoreCustodians(player)"
+                         class="clickable"
+                         style="filter: @GetCustodiansScoreStatus(player); -webkit-filter: @GetCustodiansScoreStatus(player);">
+                        <FactionIconImg FactionName="@player.FactionName" />
+                    </div>
+                }
+            </GridLayout>
+        </FlexColumnCenteredContainer>
+
+        <FlexRowContainer AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.SpaceEvenly" Width="25">
+            <FlexRowContainer JustifyContent="Enums.JustifyContent.SpaceBetween">
+                <StrategyCard Name="@StrategyCardName.Imperial" MaxHeight="250"/>
+                <GridLayout Columns="2">
+                    @foreach (var player in _players)
+                    {
+                        <FactionIconImg FactionName="@player.FactionName" />
+                        <NumericPicker 
+                            CenteredText="true" 
+                            Value="player.BonusObjectives.ImperialScore" 
+                            OnDecrease="() => DecreasePlayerImperialScore(player)"
+                            OnIncrease="() => IncreasePlayerImperialScore(player)" />
+                    }
+                </GridLayout>
+            </FlexRowContainer>
+        </FlexRowContainer>
+    </FlexRowContainer>
+
+    <Label Text="Agenda" FontSize="24" CenterText="true" />
+
+    <VerticalSpace Height="20" />
+
+    <FlexRowContainer Width="60" AlignItems="Enums.AlignItems.FlexStart" CssClass="background">
+
+        <FlexColumnContainer AlignItems="Enums.AlignItems.FlexStart" JustifyContent="Enums.JustifyContent.SpaceEvenly">
+            <VerticalCard Name="@AgendaCardName.PoliticalCensure.ToString()" TypeOfCard="@CardType.Agenda.ToString()" />
+            <Label Text="Score:" CenterText="true" />
+            <GridLayout Columns="4">
+                @foreach (var player in _players)
+                {
+                    <div @onclick="() => ScoreAgendaBonusObjective(AgendaCardName.PoliticalCensure, player)"
+                        class="clickable"
+                         style="filter: @GetAgendaScoreStatus(AgendaCardName.PoliticalCensure, player); -webkit-filter: @GetAgendaScoreStatus(AgendaCardName.PoliticalCensure, player);">
+                        <FactionIconImg FactionName="@player.FactionName" />
+                    </div>
+                }
+            </GridLayout>
+        </FlexColumnContainer>
+
+        <HorizontalSpace Width="15" />
+
+        <FlexColumnContainer AlignItems="Enums.AlignItems.FlexStart" JustifyContent="Enums.JustifyContent.SpaceEvenly">
+            <VerticalCard Name="@AgendaCardName.ClassifiedDocumentLeaks.ToString()" TypeOfCard="@CardType.Agenda.ToString()" />
+            <FlexColumnCenteredContainer>
+                @if (ShowClassifiedDocumnetLeaks())
+                {
+                    <Label Text="Select secret:" CenterText="true" />
+                    <RadzenDropDown @bind-Value="_selectedObjectiveCard"
+                                Data="@_objectives"
+                                Change="() => HandleClassifiedDocumentLeaks()"
+                                ValueProperty="Key"
+                                TextProperty="Value"
+                                Style="width: 100%; max-width: 200px; height: 100%; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"
+                                class="title handel" />
+                    <Button ButtonText="Clear" OnClick="() => ClearClassifiedDocumentLeaks(true)" Width="100"/>
+                }
+                else
+                {
+                    <Label Text="No secret scored!" CenterText="true" TextColor="TextColor.Red" />
+                }
+            </FlexColumnCenteredContainer>
+        </FlexColumnContainer>
+
+        <HorizontalSpace Width="15" />
+
+        <FlexColumnContainer AlignItems="Enums.AlignItems.FlexStart" JustifyContent="Enums.JustifyContent.SpaceEvenly">
+            <VerticalCard Name="@AgendaCardName.Mutiny.ToString()" TypeOfCard="@CardType.Agenda.ToString()" />
+            <FlexRowContainer>
+                <div style="width: 45%; cursor: pointer;" @onclick="() => UpdateMutiny(true)">
+                    <Label Text="For" TextColor="GetMutinyTextColor(true)" CenterText="true" />
+                </div>
+                <Label Text="/" CenterText="true" Width="10" />
+                <div style="width: 45%; cursor: pointer;" @onclick="() => UpdateMutiny(false)">
+                    <Label Text="Against" TextColor="GetMutinyTextColor(false)" CenterText="true" />
+                </div>
+            </FlexRowContainer>
+            <GridLayout Columns="4">
+                @foreach (var player in _players)
+                {
+                    <div @onclick="() => ScoreAgendaBonusObjective(AgendaCardName.Mutiny, player)"
+                         class="clickable"
+                         style="filter: @GetAgendaScoreStatus(AgendaCardName.Mutiny, player); -webkit-filter: @GetAgendaScoreStatus(AgendaCardName.Mutiny, player);">
+                        <FactionIconImg FactionName="@player.FactionName" />
+                    </div>
+                }
+            </GridLayout>
+        </FlexColumnContainer>
+
+        <HorizontalSpace Width="15" />
+
+        <FlexColumnContainer AlignItems="Enums.AlignItems.FlexStart" JustifyContent="Enums.JustifyContent.SpaceEvenly">
+            <VerticalCard Name="@AgendaCardName.SeedOfAnEmpire.ToString()" TypeOfCard="@CardType.Agenda.ToString()" />
+            <Label Text="Score:" CenterText="true" />
+            <GridLayout Columns="4">
+                @foreach (var player in _players)
+                {
+                    <div @onclick="() => ScoreAgendaBonusObjective(AgendaCardName.SeedOfAnEmpire, player)"
+                         class="clickable"
+                         style="filter: @GetAgendaScoreStatus(AgendaCardName.SeedOfAnEmpire, player); -webkit-filter: @GetAgendaScoreStatus(AgendaCardName.SeedOfAnEmpire, player);">
+                        <FactionIconImg FactionName="@player.FactionName" />
+                    </div>
+                }
+            </GridLayout>
+        </FlexColumnContainer>
+
+        <HorizontalSpace Width="15" />
+
+        <FlexColumnContainer AlignItems="Enums.AlignItems.FlexStart" JustifyContent="Enums.JustifyContent.SpaceEvenly">
+            <VerticalCard Name="@AgendaCardName.IncentiveProgram.ToString()" TypeOfCard="@CardType.Agenda.ToString()" />
+            <FlexRowContainer AlignItems="Enums.AlignItems.FlexStart">
+                <FlexColumnCenteredContainer Width="25">
+                    <div @onclick="async () => await HandleIncentiveProgram(ObjectiveCardType.StageOne)">
+                        <Label Text="Revealed" TextColor="GetIncentiveProgramTextColor(ObjectiveCardType.StageOne)" />
+                        <ObjectiveCard Picked="false" ObjectiveCardType="ObjectiveCardType.StageOne" />
+                    </div>
+                </FlexColumnCenteredContainer>
+                <FlexColumnCenteredContainer Width="25">
+                    <div @onclick="async () => await HandleIncentiveProgram(ObjectiveCardType.StageTwo)">
+                        <Label Text="Revealed" TextColor="GetIncentiveProgramTextColor(ObjectiveCardType.StageTwo)" />
+                        <ObjectiveCard Picked="false" ObjectiveCardType="ObjectiveCardType.StageTwo" />
+                    </div>
+                </FlexColumnCenteredContainer>
+            </FlexRowContainer>
+        </FlexColumnContainer>
+
+    </FlexRowContainer>
+
+    <VerticalSpace Height="20" />
+
+    <Label Text="Relics & Action Cards" FontSize="24" CenterText="true" />
+
+    <FlexRowContainer Width="60" AlignItems="Enums.AlignItems.FlexStart" CssClass="background">
+
+        <FlexColumnContainer AlignItems="Enums.AlignItems.FlexStart" JustifyContent="Enums.JustifyContent.SpaceEvenly" Width="20">
+
+            <VerticalCard Name="@RelicCardName.ShardOfTheThrone.ToString()" TypeOfCard="@CardType.Relic.ToString()" />
+            <Label Text="Score:" CenterText="true" />
+            <GridLayout Columns="4">
+                @foreach (var player in _players)
+                {
+                    <div @onclick="() => ScoreRelicBonusObjective(RelicCardName.ShardOfTheThrone, player)"
+                         class="clickable"
+                         style="filter: @GetRelicScoreStatus(RelicCardName.ShardOfTheThrone, player); -webkit-filter: @GetRelicScoreStatus(RelicCardName.ShardOfTheThrone, player);">
+                        <FactionIconImg FactionName="@player.FactionName" />
+                    </div>
+                }
+            </GridLayout>
+
+        </FlexColumnContainer>
+
+        <FlexColumnContainer AlignItems="Enums.AlignItems.FlexStart" JustifyContent="Enums.JustifyContent.SpaceEvenly" Width="20">
+
+            <VerticalCard Name="@RelicCardName.TheCrownOfEmphidia.ToString()" TypeOfCard="@CardType.Relic.ToString()" />
+            <Label Text="Score:" CenterText="true" />
+            <GridLayout Columns="4">
+                @foreach (var player in _players)
+                {
+                    <div @onclick="() => ScoreRelicBonusObjective(RelicCardName.TheCrownOfEmphidia, player)"
+                         class="clickable"
+                         style="filter: @GetRelicScoreStatus(RelicCardName.TheCrownOfEmphidia, player); -webkit-filter: @GetRelicScoreStatus(RelicCardName.TheCrownOfEmphidia, player);">
+                        <FactionIconImg FactionName="@player.FactionName" />
+                    </div>
+                }
+            </GridLayout>
+
+        </FlexColumnContainer>
+
+        <FlexColumnContainer Width="25">
+
+        </FlexColumnContainer>
+
+        <FlexColumnContainer AlignItems="Enums.AlignItems.FlexStart" JustifyContent="Enums.JustifyContent.SpaceEvenly" Width="20">
+
+            <VerticalCard Name="@ActionCardName.ImperialRider.ToString()" TypeOfCard="@CardType.Action.ToString()" />
+            <Label Text="Score:" CenterText="true" />
+            <GridLayout Columns="4">
+                @foreach (var player in _players)
+                {
+                    <div @onclick="() => ScoreActionBonusObjective(ActionCardName.ImperialRider, player)"
+                         class="clickable"
+                         style="filter: @GetActionScoreStatus(ActionCardName.ImperialRider, player); -webkit-filter: @GetActionScoreStatus(ActionCardName.ImperialRider, player);">
+                        <FactionIconImg FactionName="@player.FactionName" />
+                    </div>
+                }
+            </GridLayout>
+
+        </FlexColumnContainer>
+
+    </FlexRowContainer>
+
+    <VerticalSpace Height="20" />
+
+</FlexColumnCenteredContainer>
+
+

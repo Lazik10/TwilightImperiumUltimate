@@ -14,4 +14,5 @@ public enum TextColor
     Orange,
     Grey,
     DarkGreen,
+    Black,
 }

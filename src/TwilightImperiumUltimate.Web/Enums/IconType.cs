@@ -18,4 +18,6 @@ public enum IconType
     Info,
     Archive,
     ArchiveClicked,
+    Custodians,
+    WinnerTrophy,
 }

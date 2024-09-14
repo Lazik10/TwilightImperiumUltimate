@@ -1742,4 +1742,64 @@ Brandon Williams&lt;/p&gt;</value>
   <data name="Page_GalaxyMap" xml:space="preserve">
     <value>Galaxy Map</value>
   </data>
+  <data name="GameTracker_StageOneObjectives" xml:space="preserve">
+    <value>Stage I</value>
+  </data>
+  <data name="GameTracker_StageTwoObjectives" xml:space="preserve">
+    <value>Stage II</value>
+  </data>
+  <data name="ButtonText_Play" xml:space="preserve">
+    <value>&amp;#10148;</value>
+  </data>
+  <data name="ButtonText_Pause" xml:space="preserve">
+    <value>&amp;#10073;&amp;#10073;</value>
+  </data>
+  <data name="ButtonText_Reset" xml:space="preserve">
+    <value>&amp;#9723;</value>
+  </data>
+  <data name="ButtonText_Reveal" xml:space="preserve">
+    <value>Reveal</value>
+  </data>
+  <data name="ObjectiveGrid_ManualPick" xml:space="preserve">
+    <value>Manual pick:</value>
+  </data>
+  <data name="ObjectiveGrid_ScoreMode" xml:space="preserve">
+    <value>Enable scoring:</value>
+  </data>
+  <data name="GameTracker_StrategyCards" xml:space="preserve">
+    <value>Strategy</value>
+  </data>
+  <data name="GameTracker_Agenda" xml:space="preserve">
+    <value>Agenda</value>
+  </data>
+  <data name="GameTracker_BonusPoints" xml:space="preserve">
+    <value>Bonus Points</value>
+  </data>
+  <data name="GameTracker_Objectives" xml:space="preserve">
+    <value>Objectives</value>
+  </data>
+  <data name="GameTracker_Overview" xml:space="preserve">
+    <value>Overview</value>
+  </data>
+  <data name="GameTracker_PublicObjectives" xml:space="preserve">
+    <value>Public</value>
+  </data>
+  <data name="GameTracker_SecretObjectives" xml:space="preserve">
+    <value>Secret</value>
+  </data>
+  <data name="GameTracker_ManualObjectivePick" xml:space="preserve">
+    <value>Manual Pick</value>
+  </data>
+  <data name="GameTracker_Scoring" xml:space="preserve">
+    <value>Scoring</value>
+  </data>
+  <data name="ButtonText_Agenda" xml:space="preserve">
+    <value>Agenda</value>
+  </data>
+  <data name="GameTracker_Round" xml:space="preserve">
+    <value>Round: </value>
+  </data>
+  <data name="GameTracker_Points" xml:space="preserve">
+    <value>Points: </value>
+  </data>
 </root>
