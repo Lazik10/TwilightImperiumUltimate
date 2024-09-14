@@ -1,0 +1,19 @@
+﻿
+<FlexColumnCenteredContainer Width="@(Width)">
+
+    @if (DropDownEnabled && Picked)
+    {
+        <RadzenDropDown @bind-Value="_selectedObjectiveCard"
+                        Data="@_objectives"
+                        Change="() => HandleObjectiveChange()"
+                        ValueProperty="Key"
+                        TextProperty="Value"
+                        Style="width: 100%; max-width: 230px; height: 100%; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"
+                        class="title handel" />
+    }
+
+    <div class="image-item clickable" @onclick="HandleClick">
+        <img src="@GetCardImagePath()">
+    </div>
+
+</FlexColumnCenteredContainer>

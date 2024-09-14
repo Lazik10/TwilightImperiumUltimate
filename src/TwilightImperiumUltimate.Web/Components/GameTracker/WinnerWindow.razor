@@ -1,0 +1,25 @@
+﻿@using TwilightImperiumUltimate.Web.Helpers.Enums
+
+<VerticalSpace Height="30" />
+
+<FlexColumnCenteredContainer>
+
+    <FlexRowContainer Width="60">
+
+        <FlexColumnCenteredContainer>
+            <Label Text="!This Game Winner!" CenterText="true" FontSize="32" TextColor="@Winner.PlayerColor.GetTextColor(true)" />
+            <VerticalSpace Height="10" />
+            <Label Text="@Winner.Name" CenterText="true" FontSize="32" TextColor="@Winner.PlayerColor.GetTextColor(true)" />
+            <VerticalSpace Height="10" />
+            <Label Text="@Winner.FactionName.GetFactionUIText(FactionResourceType.Title)" CenterText="true" FontSize="32" TextColor="@Winner.PlayerColor.GetTextColor(true)" />
+            <VerticalSpace Height="20" />
+
+            <img src="@PathProvider.GetIconPath(IconType.WinnerTrophy)" style="max-height: 300px;" />
+
+        </FlexColumnCenteredContainer>
+
+        <PlayersGrid />
+
+    </FlexRowContainer>
+
+</FlexColumnCenteredContainer>

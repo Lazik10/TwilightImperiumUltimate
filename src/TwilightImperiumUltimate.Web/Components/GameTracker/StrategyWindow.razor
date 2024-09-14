@@ -1,0 +1,22 @@
+﻿@using TwilightImperiumUltimate.Web.Helpers.Enums
+
+<VerticalSpace Height="50" />
+
+<FlexColumnCenteredContainer>
+
+    <GridLayout Columns="PlayersCount" Width="60">
+
+    @foreach (var player in GetPlayers())
+    {
+        <FlexColumnCenteredContainer>
+            <Label Text="@player.Name" FontSize="24" CenterText="true" TextColor="@player.PlayerColor.GetTextColor(true)" />
+            <Label Text="@player.FactionName.GetFactionUIText(FactionResourceType.Title)" FontSize="24" CenterText="true" TextColor="@player.PlayerColor.GetTextColor(true)" />
+            <VerticalSpace Height="10" />
+            <StrategyCardPicker MaxHeight="300" StrategyCards="_strategyCards" Player="@player"  />
+            <VerticalSpace Height="20" />
+        </FlexColumnCenteredContainer>
+    }
+
+    </GridLayout>
+
+</FlexColumnCenteredContainer>

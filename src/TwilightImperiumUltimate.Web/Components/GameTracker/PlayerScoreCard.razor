@@ -1,0 +1,43 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Factions
+@using TwilightImperiumUltimate.Web.Helpers.Enums
+
+<div @onclick="ActivatePlayer" style="width: 100%;" class="clickable @(GetPassStatus())">
+
+    <GridLayout Columns="5" Gap="0" Style="@(Border)">
+
+        <img src="@(StrategyCardPath)" 
+            style="max-height: 100px;" 
+            class="@GetStrategyCardStatus()" 
+            @onclick="StrategyCardClick" 
+            @onclick:stopPropagation="true" />
+
+        <FlexRowContainer Style="grid-column: span 2;">
+            <FactionIconImg FactionName="@Player.FactionName" Height="80" />
+            <FlexColumnCenteredContainer>
+                <Label Text="@Player.Name" CenterText="true" FontSize="24" TextColor="@Player.PlayerColor.GetTextColor(true)" />
+                <Label Text="@Player.FactionName.GetFactionUIText(FactionResourceType.Title)" CenterText="true" FontSize="18" TextColor="@Player.PlayerColor.GetTextColor(true)" />
+            </FlexColumnCenteredContainer>
+        </FlexRowContainer>
+
+        <FlexRowContainer>
+            <Label Text="@Player.ElapsedTime.ToString()" TextColor="@Player.PlayerColor.GetTextColor(true)" CenterText="true" />
+        </FlexRowContainer>
+
+        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" >
+            <FlexColumnContainer Width="40">
+                <Label Text="@GetPlayerScoreBreakdown(ScoreType.StageOne)" FontSize="14" TextColor="@Player.PlayerColor.GetTextColor(true)" />
+                <Label Text="@GetPlayerScoreBreakdown(ScoreType.StageTwo)"  FontSize="14" TextColor="@Player.PlayerColor.GetTextColor(true)" />
+                <Label Text="@GetPlayerScoreBreakdown(ScoreType.Secret)" FontSize="14" TextColor="@Player.PlayerColor.GetTextColor(true)" />
+                <Label Text="@GetPlayerScoreBreakdown(ScoreType.Bonus)" FontSize="14" TextColor="@Player.PlayerColor.GetTextColor(true)" />
+            </FlexColumnContainer>
+
+            <FlexColumnCenteredContainer Width="60">
+                <Label Text="@Player.Score.ToString()" CenterText="true" FontSize="56" TextColor="@Player.PlayerColor.GetTextColor(true)" />
+            </FlexColumnCenteredContainer>
+        </FlexRowContainer>
+    </GridLayout>
+    
+    <VerticalSpace Height="5" />
+
+</div>
+

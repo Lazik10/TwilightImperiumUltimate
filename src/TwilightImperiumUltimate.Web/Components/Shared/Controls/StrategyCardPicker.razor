@@ -1,0 +1,9 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Cards
+
+<FlexRowContainer Width="@Width"
+                  JustifyContent="Enums.JustifyContent.SpaceEvenly"
+                  CssClass="title handel white shadow">
+    <ArrowButton ArrowSymbol="@LeftArrowSymbol" OnArrowClick="() => DecreaseStrategyCard()" />
+    <StrategyCard Name="@(Value)" MaxHeight="@MaxHeight" />
+    <ArrowButton ArrowSymbol="@RightArrowSymbol" OnArrowClick="() => IncreaseStrategyCard()" />
+</FlexRowContainer>

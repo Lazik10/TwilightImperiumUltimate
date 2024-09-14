@@ -59,6 +59,13 @@ internal static class TableName
     // Settings
     internal const string Settings = "Settings";
 
+    // Statistics
+    internal const string FactionRoundStatistics = "FactionRoundStatistics";
+
+    internal const string GameStatistics = "GameStatistics";
+
+    internal const string WebsiteStatistics = "WebsiteStatistics";
+
     // Technologies
     internal const string Technologies = "Technologies";
 

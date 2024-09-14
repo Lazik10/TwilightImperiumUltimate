@@ -20,6 +20,8 @@ internal static class Schema
 
     internal const string Setting = "Setting";
 
+    internal const string Statistics = "Statistics";
+
     internal const string Technology = "Technology";
 
     internal const string Unit = "Unit";

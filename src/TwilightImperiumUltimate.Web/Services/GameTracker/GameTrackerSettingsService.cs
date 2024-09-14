@@ -50,7 +50,7 @@ public class GameTrackerSettingsService : IGameTrackerSettingsService
                 Id = NumberOfPlayers - 1,
                 DefaultName = $"Player {NumberOfPlayers}",
                 FactionName = FactionName.None,
-                Initiative = (InitiativeOrder)NumberOfPlayers,
+                Initiative = InitiativeOrder.First,
                 Score = 0,
             });
         }

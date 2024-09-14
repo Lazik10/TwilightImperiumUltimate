@@ -1,0 +1,65 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Cards
+@using TwilightImperiumUltimate.Web.Components.Factions
+
+<FlexRowContainer Width="60" JustifyContent="Enums.JustifyContent.SpaceBetween">
+    <FlexColumnCenteredContainer>
+        <Button ButtonText="@Strings.ButtonText_Reveal" OnClick="RevealNextObjective" Width="50" />
+    </FlexColumnCenteredContainer>
+    <YesNoPicker DefaultValue="ObjectiveCardTracker.ManualPickEnabled" Title="@Strings.GameTracker_ManualObjectivePick" OnValueChange="ManualPickChange" Width="50"/>
+</FlexRowContainer>
+
+<VerticalSpace Height="20" />
+
+<CascadingValue Value="this" Name="ObjectiveScoreGrid">
+    <GridLayout Columns="@GetColumnsCount()" Gap="10" Width="60">
+        @foreach (var objective in _stageOneObjectives)
+        {
+            <div style="max-width: 100%;">
+
+                <ObjectiveCard 
+                    Name="@objective.ObjectiveCard.Name"
+                    ObjectiveCardName="objective.ObjectiveCard.ObjectiveCardName"
+                    ObjectiveCardType="objective.ObjectiveCard.ObjectiveCardType" 
+                    Picked="objective.Revealed"
+                    DropDownEnabled="ManualPickState()"/>
+
+                <GridLayout Columns="4" CssClass="background" >
+                    @foreach (var player in _players)
+                    {
+                        <div @onclick="() => ScoreObjective(objective, player)"
+                            class="clickable"
+                            style="filter: @GetScoreStatus(objective, player); -webkit-filter: @GetScoreStatus(objective, player);">
+                            <FactionIconImg FactionName="@player.FactionName" />
+                        </div>
+                    }
+                </GridLayout>
+            </div>
+        }
+    </GridLayout>
+
+    <VerticalSpace Height="10" />
+
+    <GridLayout Columns="@GetColumnsCount()" Gap="10" Width="60">
+        @foreach (var objective in _stageTwoObjectives)
+        {
+            <div style="max-width: 100%;">
+                <ObjectiveCard Name="@objective.ObjectiveCard.Name"
+                               ObjectiveCardName="objective.ObjectiveCard.ObjectiveCardName"
+                               ObjectiveCardType="objective.ObjectiveCard.ObjectiveCardType"
+                               Picked="objective.Revealed"
+                               DropDownEnabled="ManualPickState()" />
+                <GridLayout Columns="4" CssClass="background">
+                    @foreach (var player in _players)
+                    {
+                        <div @onclick="() => ScoreObjective(objective, player)"
+                            class="clickable"
+                             style="filter: @GetScoreStatus(objective, player); -webkit-filter: @GetScoreStatus(objective, player);">
+                            <FactionIconImg FactionName="@player.FactionName" />
+                        </div>
+                    }
+                </GridLayout>
+            </div>
+        }
+    </GridLayout>
+
+</CascadingValue>

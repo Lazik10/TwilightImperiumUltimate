@@ -38,6 +38,8 @@ public interface IPathProvider
 
     string GetCardImagePath(string fileName, string cardType);
 
+    string GetObjectiveCardBackPath(ObjectiveCardType objectiveCardType);
+
     string GetWebsitePreviewImagePath(string fileName);
 
     string GetGameVersionIconPath(GameVersion gameVersion);

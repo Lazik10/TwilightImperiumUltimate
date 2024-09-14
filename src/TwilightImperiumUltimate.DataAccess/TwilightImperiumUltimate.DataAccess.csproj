@@ -27,11 +27,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Configurations\Game\" />
-    <Folder Include="Configurations\Settings\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\TwilightImperiumUltimate.Core\TwilightImperiumUltimate.Core.csproj" />
   </ItemGroup>
 

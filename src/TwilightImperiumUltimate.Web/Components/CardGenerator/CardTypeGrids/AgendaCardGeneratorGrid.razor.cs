@@ -1,5 +1,3 @@
-﻿using Microsoft.AspNetCore.Components;
-
 namespace TwilightImperiumUltimate.Web.Components.CardGenerator.CardTypeGrids;
 
 public partial class AgendaCardGeneratorGrid : BaseCardPreview

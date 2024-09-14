@@ -3,11 +3,50 @@
 
 @if (_currentPhase == GameTrackerPhase.Setup)
 {
-    <GameTrackerSettings />
+        <GameTrackerSettings />
 }
 else
 {
-    <GamePhaseGrid />
+    <VerticalSpace Height="10" />
+    <FlexRowContainer>
+        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" Width="40" >
+            <Label Text="@elapsedTime.ToString()" FontSize="32" Width="40" PaddingLeft="20" />
+            <Button ButtonText="@Strings.ButtonText_Play" OnClick="StartTimer" IsDisabled="@isTimerRunning" Width="15" />
+            <Button ButtonText="@Strings.ButtonText_Pause" OnClick="StopTimer" IsDisabled="!isTimerRunning" Width="15" />
+            <Button ButtonText="@Strings.ButtonText_Reset" OnClick="ResetTimer" Width="15" />
+            <Button ButtonText="@Strings.ButtonText_Agenda" OnClick="Agenda" Width="35" />
+        </FlexRowContainer>
+        <TextButton Text="@Strings.GameTracker_Overview" Width="20" OnClick="() => SetSelectedWindow(GameTrackerWindow.Overview)" FontSize="26" />
+        <TextButton Text="@Strings.GameTracker_StrategyCards" Width="20" OnClick="() => SetSelectedWindow(GameTrackerWindow.StrategyCardPick)" FontSize="26" />
+        <TextButton Text="@Strings.GameTracker_Scoring" Width="20" OnClick="() => SetSelectedWindow(GameTrackerWindow.Objectives)" FontSize="26" />
+        @if (ShowFinishGameButton())
+        {
+            <Button ButtonText="Finish Game" OnClick="FinishGame" Width="20" />
+        }
+        else
+        {
+            <Button ButtonText="Next Round" OnClick="ProcessNextRound" Width="20" />
+        }
+        </FlexRowContainer>
+
+    <VerticalSpace Height="20" />
+
+    if (_selectedWindow == GameTrackerWindow.Overview)
+    {
+        <OverviewWindow @ref=_overviewWindow />
+    }
+    else if (_selectedWindow == GameTrackerWindow.StrategyCardPick)
+    {
+         <StrategyWindow />
+    }
+    else if (_selectedWindow == GameTrackerWindow.Objectives)
+    {
+        <ObjectivesWindow />
+    }
+    else if (_selectedWindow == GameTrackerWindow.Winner)
+    {
+        <WinnerWindow />
+    }
 }
 
 </CascadingValue>

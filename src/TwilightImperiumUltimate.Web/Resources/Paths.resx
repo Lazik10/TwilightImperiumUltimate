@@ -378,4 +378,13 @@
   <data name="ResourcePath_GalaxyMap" xml:space="preserve">
     <value>/resources/images/shared/Galaxy_map.webp</value>
   </data>
+  <data name="ResourceNamespace_CardNames" xml:space="preserve">
+    <value>TwilightImperiumUltimate.Web.Resources.CardNames</value>
+  </data>
+  <data name="ApiPath_RoundStatistics" xml:space="preserve">
+    <value>api/game-statistics/round</value>
+  </data>
+  <data name="ApiPath_EndGameStatistics" xml:space="preserve">
+    <value>api/game-statistics/game</value>
+  </data>
 </root>

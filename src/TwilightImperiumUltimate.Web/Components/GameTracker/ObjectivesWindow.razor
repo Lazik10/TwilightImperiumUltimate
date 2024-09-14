@@ -1,0 +1,30 @@
+﻿
+<VerticalSpace Height="50" />
+
+<FlexRowContainer>
+    <TextButton Text="@Strings.GameTracker_PublicObjectives" OnClick="() => UpdateWindow(GameTrackerWindow.PublicObjectives)" FontSize="22" />
+    <TextButton Text="@Strings.GameTracker_SecretObjectives" OnClick="() => UpdateWindow(GameTrackerWindow.SecretObjectives)" FontSize="22" />
+    <TextButton Text="@Strings.GameTracker_BonusPoints" OnClick="() => UpdateWindow(GameTrackerWindow.BonusPoints)" FontSize="22" />
+</FlexRowContainer>
+
+<VerticalSpace Height="30" />
+
+@if (_window == GameTrackerWindow.PublicObjectives)
+{
+    <FlexColumnCenteredContainer>
+        <ObjectiveScoreGrid />
+    </FlexColumnCenteredContainer>
+}
+else if (_window == GameTrackerWindow.SecretObjectives)
+{
+    <FlexColumnCenteredContainer>
+        <SecretScoreGrid />
+    </FlexColumnCenteredContainer>
+}
+else if (_window == GameTrackerWindow.BonusPoints)
+{
+    <FlexColumnCenteredContainer>
+        <BonusScoreGrid />
+    </FlexColumnCenteredContainer>
+}
+

@@ -1751,6 +1751,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Resources\CardNames.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CardNames.resx</DependentUpon>
+    </Compile>
     <Compile Update="Resources\Paths.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -1784,6 +1789,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Resources\CardNames.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CardNames.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\Paths.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Paths.Designer.cs</LastGenOutput>

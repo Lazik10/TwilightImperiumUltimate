@@ -19,6 +19,9 @@ public partial class GameTrackerSettings
     [Inject]
     private IGameTrackerService GameTrackerService { get; set; } = default!;
 
+    [Inject]
+    private IObjectiveCardTracker ObjectiveCardTracker { get; set; } = default!;
+
     protected override void OnInitialized()
     {
         _factionNames = EnumExtensions.GetFactionValuesWithDisplayNames().OrderBy(x => x.Key.GetFactionUIText(FactionResourceType.Title)).ToDictionary();
@@ -110,6 +113,9 @@ public partial class GameTrackerSettings
     private async Task ProceedToNextPhase()
     {
         await GameTrackerService.SetGamePhase(GameTrackerPhase.GameStarted);
+        await ObjectiveCardTracker.InitializeRequiredCards();
+        await ObjectiveCardTracker.DraftObjectiveCards();
+        GameTrackerService.GameId = Guid.NewGuid();
         await GameTrackerGrid.Refresh();
     }
 }

@@ -160,6 +160,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to api/game-statistics/game.
+        /// </summary>
+        public static string ApiPath_EndGameStatistics {
+            get {
+                return ResourceManager.GetString("ApiPath_EndGameStatistics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to api/cards/exploration.
         /// </summary>
         public static string ApiPath_ExplorationCards {
@@ -367,6 +376,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to api/game-statistics/round.
+        /// </summary>
+        public static string ApiPath_RoundStatistics {
+            get {
+                return ResourceManager.GetString("ApiPath_RoundStatistics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to api/rules.
         /// </summary>
         public static string ApiPath_Rules {
@@ -516,6 +534,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string MapArchiveButton_NewMap {
             get {
                 return ResourceManager.GetString("MapArchiveButton_NewMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TwilightImperiumUltimate.Web.Resources.CardNames.
+        /// </summary>
+        public static string ResourceNamespace_CardNames {
+            get {
+                return ResourceManager.GetString("ResourceNamespace_CardNames", resourceCulture);
             }
         }
         

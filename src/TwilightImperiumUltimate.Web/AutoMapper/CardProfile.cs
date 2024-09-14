@@ -9,5 +9,7 @@ public class CardProfile : Profile
         CreateMap<BaseCardDto, CardModel>();
         CreateMap<PromissoryNoteCardDto, PromissoryNoteCardModel>();
         CreateMap<ObjectiveCardDto, ObjectiveCardModel>();
+        CreateMap<AgendaCardDto, AgendaCardModel>();
+        CreateMap<StrategyCardDto, StrategyCardModel>();
     }
 }

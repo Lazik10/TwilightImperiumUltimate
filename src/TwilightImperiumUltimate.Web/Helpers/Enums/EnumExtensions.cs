@@ -13,6 +13,7 @@ namespace TwilightImperiumUltimate.Web.Helpers.Enums;
 public static class EnumExtensions
 {
     private static readonly ResourceManager StringsResourceManager = new(Paths.ResourceNamespace_Strings, typeof(Program).Assembly);
+    private static readonly ResourceManager CardNameResourceManager = new(Paths.ResourceNamespace_CardNames, typeof(Program).Assembly);
 
     public static string GetDisplayName<TEnum>(this TEnum enumValue)
     {
@@ -21,6 +22,15 @@ public static class EnumExtensions
         string key = $"{enumValue.GetType().Name}_{enumValue}";
         string? displayName = StringsResourceManager.GetString(key, CultureInfo.InvariantCulture);
         return displayName ?? enumValue.GetType().ToString();
+    }
+
+    public static string GetCardDisplayName<TEnum>(this TEnum enumValue)
+    {
+        ArgumentNullException.ThrowIfNull(enumValue);
+
+        string key = $"{enumValue.GetType().Name}_{enumValue}";
+        string? displayName = CardNameResourceManager.GetString(key, CultureInfo.InvariantCulture);
+        return displayName ?? string.Empty;
     }
 
     public static IReadOnlyCollection<KeyValuePair<TEnum, string>> GetEnumValuesWithDisplayNames<TEnum>()
@@ -91,6 +101,25 @@ public static class EnumExtensions
             DraftColor.White => TextColor.White,
             DraftColor.Pink => TextColor.Pink,
             DraftColor.Orange => TextColor.Orange,
+            _ => TextColor.White,
+        };
+    }
+
+    public static TextColor GetTextColor(this PlayerColor color, bool substituteBlack = false)
+    {
+        if (color == PlayerColor.Black && substituteBlack)
+            return TextColor.Grey;
+
+        return color switch
+        {
+            PlayerColor.Red => TextColor.Red,
+            PlayerColor.Blue => TextColor.Deepskyblue,
+            PlayerColor.Green => TextColor.Green,
+            PlayerColor.Yellow => TextColor.Yellow,
+            PlayerColor.Purple => TextColor.Purple,
+            PlayerColor.Pink => TextColor.Pink,
+            PlayerColor.Orange => TextColor.Orange,
+            PlayerColor.Black => TextColor.Black,
             _ => TextColor.White,
         };
     }

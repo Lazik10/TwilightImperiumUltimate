@@ -1,24 +1,32 @@
+using TwilightImperiumUltimate.Web.Models.GameTracker;
+
 namespace TwilightImperiumUltimate.Web.Services.GameTracker;
 
 public interface IGameTrackerService
 {
+    Guid GameId { get; set; }
+
     GameTrackerPhase CurrentPhase { get; }
+
+    int CurrentRound { get; set; }
+
+    bool Mutiny { get; set; }
+
+    GameTrackerPlayerModel ActivePlayer { get; }
+
+    IReadOnlyCollection<GameTrackerPlayerModel> Players { get; }
 
     Task<IReadOnlyDictionary<FactionName, PlayerColor>> GetCorrectColors(IReadOnlyCollection<FactionName> factions);
 
-    Task StartGame();
-
-    Task EndGame();
-
     Task SetGamePhase(GameTrackerPhase phase);
 
-    Task PreviousPhase();
+    Task InitializePlayers();
 
-    Task UpdatePlayerScore(int playerIndex, int score);
+    Task SetActivePlayer(GameTrackerPlayerModel player);
 
-    Task UpdatePlayerFaction(int playerIndex, FactionName factionName);
+    Task ScoreObjective(GameTrackerObjectiveCardModel objectiveCard, GameTrackerPlayerModel player);
 
-    Task UpdatePlayerInitiative(int playerIndex, InitiativeOrder initiative);
+    Task ResetPlayersScoreForSpecificObjective(GameTrackerObjectiveCardModel objectiveCard);
 
-    Task UpdatePlayerName(int playerIndex, string name);
+    void SetActivePlayerForAgenda();
 }

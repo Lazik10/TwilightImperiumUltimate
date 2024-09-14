@@ -1,0 +1,12 @@
+﻿.agenda-card-text {
+    width: 375px;
+    height: 100%;
+    overflow-wrap: break-word;
+    text-align: center;
+    text-justify: auto;
+    max-height: 375px;
+}
+
+.center-text {
+    text-align: center;
+}
