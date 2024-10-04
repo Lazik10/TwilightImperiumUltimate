@@ -21,7 +21,10 @@
   <ItemGroup>
     <None Include="wwwroot\css\app.css" />
     <None Include="wwwroot\index.html" />
-    <None Include="wwwroot\manifest.webmanifest" />
+    <None Include="wwwroot\manifest.webmanifest">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </None>
     <None Include="wwwroot\resources\fonts\Bodoni Poster Compressed.otf" />
     <None Include="wwwroot\resources\fonts\Handel Gothic D Bold.otf" />
     <None Include="wwwroot\resources\fonts\Handel Gothic Regular.otf" />

@@ -4173,6 +4173,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Specifications.
+        /// </summary>
+        public static string SliceEvaluation_Specifications {
+            get {
+                return ResourceManager.GetString("SliceEvaluation_Specifications", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tech Skips.
         /// </summary>
         public static string SliceEvaluation_TechnologySkips {
