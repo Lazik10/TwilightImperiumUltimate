@@ -1802,4 +1802,10 @@ Brandon Williams&lt;/p&gt;</value>
   <data name="GameTracker_Points" xml:space="preserve">
     <value>Points: </value>
   </data>
+  <data name="Update_Notification" xml:space="preserve">
+    <value>There is newer version of the website app. Please update your version by clicking on this update button:</value>
+  </data>
+  <data name="ButtonText_Reload" xml:space="preserve">
+    <value>Reload</value>
+  </data>
 </root>
