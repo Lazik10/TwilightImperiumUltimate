@@ -343,6 +343,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reload.
+        /// </summary>
+        public static string ButtonText_Reload {
+            get {
+                return ResourceManager.GetString("ButtonText_Reload", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &amp;#9723;.
         /// </summary>
         public static string ButtonText_Reset {
@@ -4768,6 +4777,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string TechnologyType_Warfare {
             get {
                 return ResourceManager.GetString("TechnologyType_Warfare", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is newer version of the website app. Please update your version by clicking on this update button:.
+        /// </summary>
+        public static string Update_Notification {
+            get {
+                return ResourceManager.GetString("Update_Notification", resourceCulture);
             }
         }
         

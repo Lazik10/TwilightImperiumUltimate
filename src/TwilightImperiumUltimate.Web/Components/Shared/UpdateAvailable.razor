@@ -1,0 +1,9 @@
+﻿@if(_newVersionAvailable)
+{
+    <FlexRowContainer CssClass="update-notify" Width="50" JustifyContent="Enums.JustifyContent.FlexStart">
+        <Label Text="@Strings.Update_Notification" />
+        <button type="button" onclick="window.location.reload()" class="div-like-button clickable white handel shadow">
+            @Strings.ButtonText_Reload
+        </button>
+    </FlexRowContainer>
+}
