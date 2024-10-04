@@ -6,7 +6,7 @@ public static class SliceGeneratorOptions
 
     public static readonly int NumberOfLegendaryPlanets = 2;
 
-    public static readonly WormholeDensity WormholeDensity = WormholeDensity.Random;
+    public static readonly WormholeDensity WormholeDensity = WormholeDensity.AtLeastTwoPairs;
 
     public static readonly IReadOnlyCollection<GameVersion> GameVersions = new List<GameVersion>()
     {
