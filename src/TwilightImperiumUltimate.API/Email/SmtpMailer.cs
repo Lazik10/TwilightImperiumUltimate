@@ -59,22 +59,10 @@ public class SmtpMailer(
 
     private Uri CreateConfirmEmailLinkUrl(Uri confirmationLink)
     {
-        var queryParams = HttpUtility.ParseQueryString(confirmationLink.Query);
-
-        // Extract userId and code from query parameters
-        var userId = queryParams["userId"];
-        var code = queryParams["amp;code"];
-
-        // Ensure userId and code are not null or empty
-        if (string.IsNullOrEmpty(userId) || string.IsNullOrEmpty(code))
-        {
-            throw new ArgumentException("The URL does not contain valid userId or code.");
-        }
-
         // Construct the new URL
         var newUrlBase = _frontendOptions.Url;
 
-        var newUrlPath = $"account/confirmEmail/{userId}/{code}";
+        var newUrlPath = $"account{confirmationLink.PathAndQuery}";
 
         // Construct the new Uri using Uri class
         var newUri = new Uri(newUrlBase!, newUrlPath);
