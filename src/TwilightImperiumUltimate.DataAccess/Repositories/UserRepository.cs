@@ -1,4 +1,5 @@
 using Microsoft.Extensions.Logging;
+using System.Globalization;
 
 namespace TwilightImperiumUltimate.DataAccess.Repositories;
 
@@ -148,6 +149,7 @@ public class UserRepository(
             try
             {
                 dbUser.UserName = userName;
+                dbUser.NormalizedUserName = userName.ToUpper(CultureInfo.InvariantCulture);
                 dbContext.Update(dbUser);
                 await dbContext.SaveChangesAsync();
             }

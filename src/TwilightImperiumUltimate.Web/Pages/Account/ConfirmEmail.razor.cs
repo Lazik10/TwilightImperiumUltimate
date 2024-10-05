@@ -11,9 +11,11 @@ public partial class ConfirmEmail
     private bool _confirmSuccess;
 
     [Parameter]
+    [SupplyParameterFromQuery(Name = "userId")]
     public string Id { get; set; } = string.Empty;
 
     [Parameter]
+    [SupplyParameterFromQuery(Name = "code")]
     public string Code { get; set; } = string.Empty;
 
     [Inject]
