@@ -75,6 +75,8 @@ public class MiltyDraftSettingsService : IMiltyDraftSettingsService
     {
         return NumberOfPlayers switch
         {
+            3 => Task.FromResult(MapTemplate.ThreePlayersMediumHyperlineMap),
+            4 => Task.FromResult(MapTemplate.FourPlayersMediumHyperlineMap),
             5 => Task.FromResult(MapTemplate.FivePlayersMediumHyperlineMap),
             6 => Task.FromResult(MapTemplate.SixPlayersMediumMap),
             7 => Task.FromResult(MapTemplate.SevenPlayersLargeWarpMap),

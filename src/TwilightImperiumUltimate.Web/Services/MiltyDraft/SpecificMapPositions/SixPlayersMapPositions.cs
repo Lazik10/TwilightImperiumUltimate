@@ -4,8 +4,8 @@ public class SixPlayersMapPositions : IMapPositions
 {
     public Dictionary<MiltyDraftInitiative, List<int>> SlicePositions { get; } = new()
     {
-        { MiltyDraftInitiative.Speaker, new List<int> { 9, 10, 11, 18, 17 } },
-        { MiltyDraftInitiative.Second, new List<int> { 12, 19, 27, 26, 25 } },
+        { MiltyDraftInitiative.Speaker, new List<int> { 11, 10, 9, 18, 17 } },
+        { MiltyDraftInitiative.Second, new List<int> { 27, 19, 12, 26, 25 } },
         { MiltyDraftInitiative.Third, new List<int> { 40, 33, 34, 39, 32 } },
         { MiltyDraftInitiative.Fourth, new List<int> { 44, 38, 46, 37, 31 } },
         { MiltyDraftInitiative.Fifth, new List<int> { 28, 29, 36, 22, 30 } },

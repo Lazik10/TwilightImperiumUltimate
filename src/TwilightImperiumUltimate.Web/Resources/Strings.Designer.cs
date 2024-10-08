@@ -2233,7 +2233,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 8P Large (Warp).
+        ///   Looks up a localized string similar to 8P Warp.
         /// </summary>
         public static string MapTemplate_EightPlayersLargeWarpMap {
             get {
@@ -2260,7 +2260,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 5P Normal (Hyperline).
+        ///   Looks up a localized string similar to 5P Hyperline.
         /// </summary>
         public static string MapTemplate_FivePlayersMediumHyperlineMap {
             get {
@@ -2305,6 +2305,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 4P Hyperline.
+        /// </summary>
+        public static string MapTemplate_FourPlayersMediumHyperlineMap {
+            get {
+                return ResourceManager.GetString("MapTemplate_FourPlayersMediumHyperlineMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 4P Normal.
         /// </summary>
         public static string MapTemplate_FourPlayersMediumMap {
@@ -2341,7 +2350,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 7P Large (Hyperline).
+        ///   Looks up a localized string similar to 7P Hyperline.
         /// </summary>
         public static string MapTemplate_SevenPlayersLargeHyperlineMap {
             get {
@@ -2350,7 +2359,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 7P Large (Warp).
+        ///   Looks up a localized string similar to 7P Warp.
         /// </summary>
         public static string MapTemplate_SevenPlayersLargeWarpMap {
             get {
@@ -2377,11 +2386,20 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 6P Normal (Spiral).
+        ///   Looks up a localized string similar to 6P Spiral.
         /// </summary>
         public static string MapTemplate_SixPlayersMediumSpiralMap {
             get {
                 return ResourceManager.GetString("MapTemplate_SixPlayersMediumSpiralMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3P Hyperline.
+        /// </summary>
+        public static string MapTemplate_ThreePlayersMediumHyperlineMap {
+            get {
+                return ResourceManager.GetString("MapTemplate_ThreePlayersMediumHyperlineMap", resourceCulture);
             }
         }
         
@@ -2494,7 +2512,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 8P Large (Warp).
+        ///   Looks up a localized string similar to 8P Warp.
         /// </summary>
         public static string MapTemplateFilter_EightPlayersLargeWarpMap {
             get {
@@ -2521,7 +2539,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 5P Normal (Hyperline).
+        ///   Looks up a localized string similar to 5P Hyperline.
         /// </summary>
         public static string MapTemplateFilter_FivePlayersMediumHyperlineMap {
             get {
@@ -2566,6 +2584,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 4P Hyperline.
+        /// </summary>
+        public static string MapTemplateFilter_FourPlayersMediumHyperlineMap {
+            get {
+                return ResourceManager.GetString("MapTemplateFilter_FourPlayersMediumHyperlineMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 4P Normal.
         /// </summary>
         public static string MapTemplateFilter_FourPlayersMediumMap {
@@ -2602,7 +2629,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 7P Large (Hyperline).
+        ///   Looks up a localized string similar to 7P Hyperline.
         /// </summary>
         public static string MapTemplateFilter_SevenPlayersLargeHyperlineMap {
             get {
@@ -2611,7 +2638,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 7P Large (Warp).
+        ///   Looks up a localized string similar to 7P Warp.
         /// </summary>
         public static string MapTemplateFilter_SevenPlayersLargeWarpMap {
             get {
@@ -2638,11 +2665,20 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 6P Normal (Spiral).
+        ///   Looks up a localized string similar to 6P Spiral.
         /// </summary>
         public static string MapTemplateFilter_SixPlayersMediumSpiralMap {
             get {
                 return ResourceManager.GetString("MapTemplateFilter_SixPlayersMediumSpiralMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3P Hyperline.
+        /// </summary>
+        public static string MapTemplateFilter_ThreePlayersMediumHyperlineMap {
+            get {
+                return ResourceManager.GetString("MapTemplateFilter_ThreePlayersMediumHyperlineMap", resourceCulture);
             }
         }
         
@@ -4489,6 +4525,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string SystemTileOverlay_Influence {
             get {
                 return ResourceManager.GetString("SystemTileOverlay_Influence", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map position.
+        /// </summary>
+        public static string SystemTileOverlay_MapPosition {
+            get {
+                return ResourceManager.GetString("SystemTileOverlay_MapPosition", resourceCulture);
             }
         }
         
