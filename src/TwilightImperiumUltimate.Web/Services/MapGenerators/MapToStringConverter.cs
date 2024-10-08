@@ -177,10 +177,12 @@ public class MapToStringConverter(
             MapTemplate.FourPlayersMediumMap or
             MapTemplate.FourPlayersMediumHorizontalMap or
             MapTemplate.FourPlayersMediumVerticalMap or
+            MapTemplate.FourPlayersMediumHyperlineMap or
             MapTemplate.FourPlayersMediumGapsMap or
             MapTemplate.FourPlayersMediumWarpMap or
             MapTemplate.FourPlayersMediumMiniWarpMap or
             MapTemplate.FourPlayersMediumDoubleWarpMap or
+            MapTemplate.ThreePlayersMediumHyperlineMap or
             MapTemplate.ThreePlayersMediumTriangleMap or
             MapTemplate.ThreePlayersMediumTriangleNarrowMap or
             MapTemplate.ThreePlayersMediumSnowflakeMap or

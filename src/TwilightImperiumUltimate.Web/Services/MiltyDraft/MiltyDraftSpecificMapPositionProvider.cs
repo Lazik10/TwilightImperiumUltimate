@@ -8,6 +8,8 @@ public class MiltyDraftSpecificMapPositionProvider : IMiltyDraftSpecificMapPosit
     {
         return mapTemplate switch
         {
+            MapTemplate.ThreePlayersMediumHyperlineMap => Task.FromResult(new ThreePlayersMapPositions() as IMapPositions),
+            MapTemplate.FourPlayersMediumHyperlineMap => Task.FromResult(new FourPlayersMapPositions() as IMapPositions),
             MapTemplate.FivePlayersMediumHyperlineMap => Task.FromResult(new FivePlayersMapPositions() as IMapPositions),
             MapTemplate.SixPlayersMediumMap => Task.FromResult(new SixPlayersMapPositions() as IMapPositions),
             MapTemplate.SevenPlayersLargeWarpMap => Task.FromResult(new SevenPlayersMapPositions() as IMapPositions),

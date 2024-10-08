@@ -52,7 +52,7 @@ public partial class MapQuickMenu
 
     private async Task LoadMapFromTtsString()
     {
-        await MapToStringConverter.ConvertTtsStringToMap(_selectedMapTemplate, _importedTtsString);
+        await MapToStringConverter.ConvertTtsStringToMap(_selectedMapTemplate, _importedTtsString.Trim());
         await OnMenuIconClick.InvokeAsync(IconType.ImportMapString);
     }
 

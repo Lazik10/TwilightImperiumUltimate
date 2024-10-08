@@ -1,5 +1,4 @@
 using Microsoft.JSInterop;
-using TwilightImperiumUltimate.Web.Services.MapGenerators;
 using TwilightImperiumUltimate.Web.Services.MiltyDraft;
 
 namespace TwilightImperiumUltimate.Web.Components.MiltyDraft;

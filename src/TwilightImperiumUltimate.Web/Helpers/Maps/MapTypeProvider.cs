@@ -20,6 +20,7 @@ public static class MapTypeProvider
             MapTemplate.TwoPlayersMediumMap => typeof(TwoPlayersMediumMap),
             MapTemplate.ThreePlayersSmallMap => typeof(ThreePlayersSmallMap),
             MapTemplate.ThreePlayersSmallAlternateMap => typeof(ThreePlayersSmallAlternateMap),
+            MapTemplate.ThreePlayersMediumHyperlineMap => typeof(ThreePlayersMediumHyperlineMap),
             MapTemplate.ThreePlayersMediumTriangleMap => typeof(ThreePlayersMediumTriangleMap),
             MapTemplate.ThreePlayersMediumTriangleNarrowMap => typeof(ThreePlayersMediumTriangleNarrowMap),
             MapTemplate.ThreePlayersMediumSnowflakeMap => typeof(ThreePlayersMediumSnowflakeMap),
@@ -29,6 +30,7 @@ public static class MapTypeProvider
             MapTemplate.FourPlayersMediumMap => typeof(FourPlayersMediumMap),
             MapTemplate.FourPlayersMediumHorizontalMap => typeof(FourPlayersMediumHorizontalMap),
             MapTemplate.FourPlayersMediumVerticalMap => typeof(FourPlayersMediumVerticalMap),
+            MapTemplate.FourPlayersMediumHyperlineMap => typeof(FourPlayersMediumHyperlineMap),
             MapTemplate.FourPlayersMediumGapsMap => typeof(FourPlayersMediumGapsMap),
             MapTemplate.FourPlayersMediumWarpMap => typeof(FourPlayersMediumWarpMap),
             MapTemplate.FourPlayersMediumMiniWarpMap => typeof(FourPlayersMediumMiniWarpMap),
@@ -56,6 +58,7 @@ public static class MapTypeProvider
             MapTemplate.TwoPlayersMediumMap => typeof(TwoPlayersMediumMapPreview),
             MapTemplate.ThreePlayersSmallMap => typeof(ThreePlayersSmallMapPreview),
             MapTemplate.ThreePlayersSmallAlternateMap => typeof(ThreePlayersSmallAlternateMapPreview),
+            MapTemplate.ThreePlayersMediumHyperlineMap => typeof(ThreePlayersMediumHyperlineMapPreview),
             MapTemplate.ThreePlayersMediumTriangleMap => typeof(ThreePlayersMediumTriangleMapPreview),
             MapTemplate.ThreePlayersMediumTriangleNarrowMap => typeof(ThreePlayersMediumTriangleNarrowMapPreview),
             MapTemplate.ThreePlayersMediumSnowflakeMap => typeof(ThreePlayersMediumSnowflakeMapPreview),
@@ -65,6 +68,7 @@ public static class MapTypeProvider
             MapTemplate.FourPlayersMediumMap => typeof(FourPlayersMediumMapPreview),
             MapTemplate.FourPlayersMediumHorizontalMap => typeof(FourPlayersMediumHorizontalMapPreview),
             MapTemplate.FourPlayersMediumVerticalMap => typeof(FourPlayersMediumVerticalMapPreview),
+            MapTemplate.FourPlayersMediumHyperlineMap => typeof(FourPlayersMediumHyperlineMapPreview),
             MapTemplate.FourPlayersMediumGapsMap => typeof(FourPlayersMediumGapsMapPreview),
             MapTemplate.FourPlayersMediumWarpMap => typeof(FourPlayersMediumWarpMapPreview),
             MapTemplate.FourPlayersMediumMiniWarpMap => typeof(FourPlayersMediumMiniWarpMapPreview),
@@ -88,6 +92,8 @@ public static class MapTypeProvider
     {
         var supportedMapTemplates = new List<MapTemplate>()
         {
+            MapTemplate.ThreePlayersMediumHyperlineMap,
+            MapTemplate.FourPlayersMediumHyperlineMap,
             MapTemplate.FivePlayersMediumHyperlineMap,
             MapTemplate.SixPlayersMediumMap,
             MapTemplate.SevenPlayersLargeWarpMap,

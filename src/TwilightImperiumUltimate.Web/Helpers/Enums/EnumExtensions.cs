@@ -1,12 +1,5 @@
 using System.Globalization;
 using System.Resources;
-using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.EightPlayers;
-using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.FivePlayers;
-using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.FourPlayers;
-using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.SevenPlayers;
-using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.SixPlayers;
-using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.ThreePlayers;
-using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.TwoPlayers;
 
 namespace TwilightImperiumUltimate.Web.Helpers.Enums;
 
@@ -132,12 +125,14 @@ public static class EnumExtensions
             MapTemplateFilter.TwoPlayersMediumMap => MapTemplate.TwoPlayersMediumMap,
             MapTemplateFilter.ThreePlayersSmallMap => MapTemplate.ThreePlayersSmallMap,
             MapTemplateFilter.ThreePlayersSmallAlternateMap => MapTemplate.ThreePlayersSmallAlternateMap,
+            MapTemplateFilter.ThreePlayersMediumHyperlineMap => MapTemplate.ThreePlayersMediumHyperlineMap,
             MapTemplateFilter.ThreePlayersMediumTriangleMap => MapTemplate.ThreePlayersMediumTriangleMap,
             MapTemplateFilter.ThreePlayersMediumTriangleNarrowMap => MapTemplate.ThreePlayersMediumTriangleNarrowMap,
             MapTemplateFilter.ThreePlayersMediumSnowflakeMap => MapTemplate.ThreePlayersMediumSnowflakeMap,
             MapTemplateFilter.ThreePlayersMediumMantaRayMap => MapTemplate.ThreePlayersMediumMantaRayMap,
             MapTemplateFilter.ThreePlayersMediumTridentMap => MapTemplate.ThreePlayersMediumTridentMap,
             MapTemplateFilter.ThreePlayersMediumRexMap => MapTemplate.ThreePlayersMediumRexMap,
+            MapTemplateFilter.FourPlayersMediumHyperlineMap => MapTemplate.FourPlayersMediumHyperlineMap,
             MapTemplateFilter.FourPlayersMediumMap => MapTemplate.FourPlayersMediumMap,
             MapTemplateFilter.FourPlayersMediumHorizontalMap => MapTemplate.FourPlayersMediumHorizontalMap,
             MapTemplateFilter.FourPlayersMediumVerticalMap => MapTemplate.FourPlayersMediumVerticalMap,

@@ -619,10 +619,10 @@
     <value>8P Large</value>
   </data>
   <data name="MapTemplate_EightPlayersLargeWarpMap" xml:space="preserve">
-    <value>8P Large (Warp)</value>
+    <value>8P Warp</value>
   </data>
   <data name="MapTemplateFilter_EightPlayersLargeWarpMap" xml:space="preserve">
-    <value>8P Large (Warp)</value>
+    <value>8P Warp</value>
   </data>
   <data name="MapTemplate_FivePlayersLargeFlatMap" xml:space="preserve">
     <value>5P Flat</value>
@@ -637,10 +637,10 @@
     <value>5P Diamond</value>
   </data>
   <data name="MapTemplate_FivePlayersMediumHyperlineMap" xml:space="preserve">
-    <value>5P Normal (Hyperline)</value>
+    <value>5P Hyperline</value>
   </data>
   <data name="MapTemplateFilter_FivePlayersMediumHyperlineMap" xml:space="preserve">
-    <value>5P Normal (Hyperline)</value>
+    <value>5P Hyperline</value>
   </data>
   <data name="MapTemplate_FivePlayersMediumMap" xml:space="preserve">
     <value>5P Normal</value>
@@ -691,16 +691,16 @@
     <value>4P Warp</value>
   </data>
   <data name="MapTemplate_SevenPlayersLargeHyperlineMap" xml:space="preserve">
-    <value>7P Large (Hyperline)</value>
+    <value>7P Hyperline</value>
   </data>
   <data name="MapTemplateFilter_SevenPlayersLargeHyperlineMap" xml:space="preserve">
-    <value>7P Large (Hyperline)</value>
+    <value>7P Hyperline</value>
   </data>
   <data name="MapTemplate_SevenPlayersLargeWarpMap" xml:space="preserve">
-    <value>7P Large (Warp)</value>
+    <value>7P Warp</value>
   </data>
   <data name="MapTemplateFilter_SevenPlayersLargeWarpMap" xml:space="preserve">
-    <value>7P Large (Warp)</value>
+    <value>7P Warp</value>
   </data>
   <data name="MapTemplate_SixPlayersLargeMap" xml:space="preserve">
     <value>6P Large</value>
@@ -715,10 +715,10 @@
     <value>6P Normal</value>
   </data>
   <data name="MapTemplate_SixPlayersMediumSpiralMap" xml:space="preserve">
-    <value>6P Normal (Spiral)</value>
+    <value>6P Spiral</value>
   </data>
   <data name="MapTemplateFilter_SixPlayersMediumSpiralMap" xml:space="preserve">
-    <value>6P Normal (Spiral)</value>
+    <value>6P Spiral</value>
   </data>
   <data name="MapTemplate_ThreePlayersMediumMantaRayMap" xml:space="preserve">
     <value>3P Manta Ray</value>
@@ -1810,5 +1810,20 @@ Brandon Williams&lt;/p&gt;</value>
   </data>
   <data name="SliceEvaluation_Specifications" xml:space="preserve">
     <value>Specifications</value>
+  </data>
+  <data name="MapTemplate_FourPlayersMediumHyperlineMap" xml:space="preserve">
+    <value>4P Hyperline</value>
+  </data>
+  <data name="MapTemplate_ThreePlayersMediumHyperlineMap" xml:space="preserve">
+    <value>3P Hyperline</value>
+  </data>
+  <data name="MapTemplateFilter_FourPlayersMediumHyperlineMap" xml:space="preserve">
+    <value>4P Hyperline</value>
+  </data>
+  <data name="MapTemplateFilter_ThreePlayersMediumHyperlineMap" xml:space="preserve">
+    <value>3P Hyperline</value>
+  </data>
+  <data name="SystemTileOverlay_MapPosition" xml:space="preserve">
+    <value>Map position</value>
   </data>
 </root>

@@ -116,6 +116,7 @@ public class MapGeneratorSettingsService(
 
             MapTemplate.ThreePlayersSmallMap or
             MapTemplate.ThreePlayersSmallAlternateMap or
+            MapTemplate.ThreePlayersMediumHyperlineMap or
             MapTemplate.ThreePlayersMediumTriangleMap or
             MapTemplate.ThreePlayersMediumTriangleNarrowMap or
             MapTemplate.ThreePlayersMediumSnowflakeMap or
@@ -126,6 +127,7 @@ public class MapGeneratorSettingsService(
 
             MapTemplate.FourPlayersMediumMap or
             MapTemplate.FourPlayersMediumHorizontalMap or
+            MapTemplate.FourPlayersMediumHyperlineMap or
             MapTemplate.FourPlayersMediumVerticalMap or
             MapTemplate.FourPlayersMediumGapsMap or
             MapTemplate.FourPlayersMediumWarpMap or
