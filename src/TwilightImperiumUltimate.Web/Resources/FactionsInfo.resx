@@ -3240,7 +3240,7 @@ Population:.Unknown
 &lt;p&gt;HARROW:&lt;/p&gt;
 &lt;p&gt;At the end of each round of ground combat, your ships in the active system may use their Bombardment abilities against your opponent's ground forces on the planet.&lt;/p&gt;</value>
   </data>
-  <data name="TheL1Z1XMindnet_CommanderRequirement" xml:space="preserve">
+  <data name="TheL1z1xMindnet_CommanderRequirement" xml:space="preserve">
     <value>Have 4 dreadnoughts on the Board.</value>
   </data>
   <data name="TheL1z1xMindnet_Lore" xml:space="preserve">
@@ -5178,7 +5178,7 @@ seen sudden leadership changes.</value>
 &lt;p&gt;When a player negotiates a transaction, they may exchange Axis Order cards in their play area as part of that transaction. You cannot resolve the effects of Axis Order cards.&lt;/p&gt;</value>
   </data>
   <data name="TheShipwrightsofAxis_CommanderRequirement" xml:space="preserve">
-    <value>TheShipwrightsofAxis_CommanderRequirement</value>
+    <value>Have 4 Axis Order cards of different unit types in 1 or more players’ play areas.</value>
   </data>
   <data name="TheShipwrightsofAxis_Lore" xml:space="preserve">
     <value>&lt;p&gt;The massive hives and foundries of Axis were the hub of galactic industry and construction for millennia during the Lazax Emperors' reign over the galaxy. Axian merchants and arms dealers had innumerable intricate connections with nearly every major faction across the empire; their ships and quality seals represented the gold standard for craftsmanship and quality throughout the galaxy.&lt;/p&gt;

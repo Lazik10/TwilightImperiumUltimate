@@ -330,8 +330,8 @@
   <data name="Faction_ComplexityRating" xml:space="preserve">
     <value>Complexity Rating: </value>
   </data>
-  <data name="Faction_FactionComponenets" xml:space="preserve">
-    <value>Faction Componenets</value>
+  <data name="Faction_FactionComponents" xml:space="preserve">
+    <value>Faction Components</value>
   </data>
   <data name="Faction_Faq" xml:space="preserve">
     <value>FAQ</value>

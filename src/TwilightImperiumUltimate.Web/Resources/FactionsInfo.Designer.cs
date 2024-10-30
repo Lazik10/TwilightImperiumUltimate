@@ -3014,9 +3014,9 @@ namespace TwilightImperiumUltimate.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Have 4 dreadnoughts on the Board..
         /// </summary>
-        internal static string TheL1Z1XMindnet_CommanderRequirement {
+        internal static string TheL1z1xMindnet_CommanderRequirement {
             get {
-                return ResourceManager.GetString("TheL1Z1XMindnet_CommanderRequirement", resourceCulture);
+                return ResourceManager.GetString("TheL1z1xMindnet_CommanderRequirement", resourceCulture);
             }
         }
         
@@ -4725,7 +4725,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TheShipwrightsofAxis_CommanderRequirement.
+        ///   Looks up a localized string similar to Have 4 Axis Order cards of different unit types in 1 or more players’ play areas..
         /// </summary>
         internal static string TheShipwrightsofAxis_CommanderRequirement {
             get {
