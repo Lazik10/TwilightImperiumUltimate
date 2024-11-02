@@ -1,10 +1,10 @@
-﻿namespace TwilightImperiumUltimate.Web.Enums;
+namespace TwilightImperiumUltimate.Web.Enums;
 
 public enum FactionInfoType
 {
     Ability,
     Setup,
-    Componenets,
+    Components,
     Leaders,
     History,
     Faq,

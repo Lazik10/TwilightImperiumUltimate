@@ -29,7 +29,7 @@ public partial class FactionInfoGrid
         {
             FactionInfoType.Ability => typeof(FactionAbilities),
             FactionInfoType.Setup => typeof(FactionSetup),
-            FactionInfoType.Componenets => typeof(FactionComponents),
+            FactionInfoType.Components => typeof(FactionComponents),
             FactionInfoType.Leaders => typeof(FactionLeaders),
             FactionInfoType.History => typeof(FactionLore),
             FactionInfoType.Faq => typeof(FactionFaq),

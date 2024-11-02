@@ -982,11 +982,11 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Faction Componenets.
+        ///   Looks up a localized string similar to Faction Components.
         /// </summary>
-        public static string Faction_FactionComponenets {
+        public static string Faction_FactionComponents {
             get {
-                return ResourceManager.GetString("Faction_FactionComponenets", resourceCulture);
+                return ResourceManager.GetString("Faction_FactionComponents", resourceCulture);
             }
         }
         
