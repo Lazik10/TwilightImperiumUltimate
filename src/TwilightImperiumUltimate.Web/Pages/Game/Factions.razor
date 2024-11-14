@@ -4,7 +4,7 @@
 <PageTitle>@Strings.Page_Factions</PageTitle>
 
 <Page>
-    <FactionIconRow OnFactionClickGetFaction="UpdateSelectedFaction" />
+    <FactionIconRow OnFactionClickGetFaction="UpdateSelectedFaction" Faction="@Faction" />
 
     <FactionInfoGrid @ref="factionInfoRef" />
 </Page>

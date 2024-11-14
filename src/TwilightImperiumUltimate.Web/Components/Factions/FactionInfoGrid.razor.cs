@@ -1,3 +1,5 @@
+using TwilightImperiumUltimate.Contracts.Enums;
+
 namespace TwilightImperiumUltimate.Web.Components.Factions;
 
 public partial class FactionInfoGrid
@@ -20,6 +22,16 @@ public partial class FactionInfoGrid
     public void UpdateSelectedFaction(FactionModel faction)
     {
         _selectedFaction = faction;
+        StateHasChanged();
+    }
+
+    public void SetFactionInfo(string factionInfoType)
+    {
+        if (Enum.TryParse<FactionInfoType>(factionInfoType, out var infoType))
+        {
+            SetFactionInfoType(infoType);
+        }
+
         StateHasChanged();
     }
 
