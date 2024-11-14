@@ -27,6 +27,9 @@ public partial class FactionIconRow : TwilightImperiumBaseComponenet
     [Parameter]
     public List<FactionModel> ProvidedFactions { get; set; } = new List<FactionModel>();
 
+    [Parameter]
+    public string Faction { get; set; } = string.Empty;
+
     public IReadOnlyCollection<FactionModel>? Factions => _factions;
 
     [Inject]
@@ -60,14 +63,8 @@ public partial class FactionIconRow : TwilightImperiumBaseComponenet
 
         if (Factions is not null && Factions.Count != 0)
         {
-            if (!ShowBaseGame && ShowDiscordantStars)
-            {
-                await OnFactionClickGetFaction.InvokeAsync(Factions.Single(x => x.FactionName == FactionName.TheAugursOfIlyxum));
-            }
-            else
-            {
-                await OnFactionClickGetFaction.InvokeAsync(Factions.Single(x => x.FactionName == FactionName.TheArborec));
-            }
+            var initialFaction = ResolveInitialFaction(Faction);
+            await OnFactionClickGetFaction.InvokeAsync(Factions.Single(x => x.FactionName == initialFaction));
         }
     }
 
@@ -77,6 +74,29 @@ public partial class FactionIconRow : TwilightImperiumBaseComponenet
             selectedFaction.Banned = !selectedFaction.Banned;
 
         OnFactionClickGetFaction.InvokeAsync(selectedFaction);
+    }
+
+    private FactionName ResolveInitialFaction(string factionName)
+    {
+        if (Enum.TryParse<FactionName>(factionName, out var faction))
+        {
+            if (ShowBaseGame && faction > FactionName.TheCouncilKeleres)
+                return FactionName.TheArborec;
+
+            if (ShowDiscordantStars && faction < FactionName.TheAugursOfIlyxum)
+                return FactionName.TheAugursOfIlyxum;
+
+            return faction;
+        }
+
+        if (!ShowBaseGame && ShowDiscordantStars)
+        {
+            return FactionName.TheAugursOfIlyxum;
+        }
+        else
+        {
+            return FactionName.TheArborec;
+        }
     }
 
     private async Task InitializeFactions()
