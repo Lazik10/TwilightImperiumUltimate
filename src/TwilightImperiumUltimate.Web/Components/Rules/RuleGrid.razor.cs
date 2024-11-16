@@ -7,6 +7,9 @@ public partial class RuleGrid
     private bool _showNotes = true;
     private IReadOnlyCollection<RuleModel> _rules = new List<RuleModel>();
 
+    [Parameter]
+    public string SearchWord { get; set; } = string.Empty;
+
     private IReadOnlyCollection<TransformedRule> FilteredAndTransformedRules { get; set; } = [];
 
     [Inject]
@@ -18,6 +21,11 @@ public partial class RuleGrid
     protected override async Task OnInitializedAsync()
     {
         await InitializeRules();
+
+        if (!string.IsNullOrEmpty(SearchWord))
+        {
+            GetFilteredRulesAndNotes(SearchWord);
+        }
     }
 
     private void GetFilteredRulesAndNotes(string search)
