@@ -1345,6 +1345,7 @@
     &lt;li&gt;All units in that system may use their &lt;sc&gt;Production&lt;/sc&gt; ability, not just the placed space dock.&lt;/li&gt;
     &lt;li&gt;The produced units must be paid for.&lt;/li&gt;
     &lt;li&gt;A space dock cannot be placed on a planet already containing a space dock.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;If a player has no space docks in their reinforcements when they may place a space dock on they game board, they may first remove a space dock from a system that does not contain their command token. However, they cannot then place the space dock on the same planet that they removed it from.&lt;/li&gt;&lt;/ol&gt;
     &lt;li&gt;An ability that puts a space dock on the game board by &amp;ldquo;replacing&amp;rdquo;, rather than &amp;ldquo;placing&amp;rdquo;, such as the &lt;i&gt;Infiltrate&lt;/i&gt; action card, will trigger &lt;i&gt;Minister of Industry&lt;/i&gt;.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
@@ -1697,6 +1698,8 @@
     <value>&lt;ol class="note"&gt;
     &lt;li&gt;A player may gain any technology, regardless of the number of command tokens in their fleet pool.&lt;/li&gt;
     &lt;ol&gt;&lt;li&gt;If a player must remove more command tokens than they have in their fleet pool, they remove all their command tokens from their fleet pool instead.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;The number and colors of technologies a player owns will have no effect on the number of command tokens they remove.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;A player cannot exhaust a planet with a technology specialty to reduce the number of commend tokens they remove.&lt;/li&gt;&lt;/ol&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="ResearchTeamBiotic" xml:space="preserve">
@@ -1802,7 +1805,7 @@
   </data>
   <data name="ScepterOfEmelpar" xml:space="preserve">
     <value>&lt;ol class="note"&gt;
-    &lt;li&gt;If a player has no command tokens in their reinforcements, they cannot resolve the ability of the &lt;i&gt;Scepter of Emelpar&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;If a player has no command tokens in their reinforcements, they must use a command token from their command sheet instead when they use the ability of the &lt;i&gt;Scepter of Emelpar&lt;/i&gt;.&lt;/li&gt;
     &lt;li&gt;The &lt;i&gt;Scepter of Emelpar&lt;/i&gt; may be used whenever a command token would be spent from a player&amp;rsquo;s strategy pool. This includes when spending to perform the secondary ability of a strategy card, for faction abilities, and when scoring objectives.&lt;/li&gt;
     &lt;li&gt;If the Muaat player uses the ability of the &lt;i&gt;Scepter of Emelpar&lt;/i&gt;, they will not gain a trade good from the ability of their commander, Magmus.&lt;/li&gt;
     &lt;/ol&gt;</value>
@@ -2044,7 +2047,8 @@
   <data name="TheCrownOfThalnos" xml:space="preserve">
     <value>&lt;ol class="note"&gt;
     &lt;li&gt;A player may only reroll combat rolls with &lt;i&gt;The Crown of Thalnos&lt;/i&gt;. They cannot reroll anti&amp;ndash;fighter barrage rolls and similar.&lt;/li&gt;
-    &lt;li&gt;If a unit rolls multiple dice, it will not be destroyed if it produces at least one hit from its original roll, and that dice is not rerolled, even if it produces no hits from its reroll.&lt;/li&gt;
+    &lt;li&gt;If a unit rolls multiple combat dice, it will not be destroyed if it produces at least one hit from its original roll, and that dice is not rerolled, even if it produces no hits from its reroll.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;For each unit that rolls multiple combat dice, the player with &lt;i&gt;The Crown of Thalnos&lt;/i&gt; should roll those unit&amp;rsquo;s dice separately from any other combat dice.&lt;/li&gt;&lt;/ol&gt;
     &lt;li&gt;A reroll caused by any other effect will not cause a unit to be destroyed.&lt;/li&gt;
     &lt;li&gt;Units destroyed by &lt;i&gt;The Crown of Thalnos&lt;/i&gt; are destroyed at the end of the &lt;b&gt;Roll Dice&lt;/b&gt; step, before the &lt;b&gt;Assign Hits&lt;/b&gt; step.&lt;/li&gt;
     &lt;li&gt;A unit with the &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability cannot use it to avoid being destroyed when it fails to produce a hit with the reroll from &lt;i&gt;The Crown of Thalnos&lt;/i&gt;.&lt;/li&gt;

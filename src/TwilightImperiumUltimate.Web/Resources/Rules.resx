@@ -512,9 +512,14 @@
   <data name="RuleCategory_ActionCards_Notes" xml:space="preserve">
     <value>&lt;ol class="note"&gt;
     &lt;li&gt;Players start the game with zero action cards.&lt;/li&gt;
+    &lt;li&gt;The number of action cards in a player&amp;rsquo;s hand is public information.&lt;/li&gt;
     &lt;li&gt;A player may choose to reveal any or all of the action cards in their hand, if they so choose.&lt;/li&gt;
     &lt;li&gt;If the action card deck is depleted, immediately shuffle the discard pile to form a new action card deck.&lt;/li&gt;
     &lt;li&gt;During the action phase, action cards are dealt out in initiative order.&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;If a player has the &lt;i&gt;Neural Motivator&lt;/i&gt; technology, they will draw both their action cards before the next player in order draws an action card.&lt;/li&gt;
+        &lt;li&gt;The Yssaril player will draw all of their action cards, and discard for their &lt;sc&gt;Scheming&lt;/sc&gt; ability, before the next player in order draws an action card.&lt;/li&gt;
+    &lt;/ol&gt;
     &lt;li&gt;If a player&amp;rsquo;s action card is cancelled, usually via a &lt;i&gt;Sabotage&lt;/i&gt; action card, then if that player has a second copy of that action card, they may play it.&lt;/li&gt;
     &lt;li&gt;A player cannot target themselves with offensive action cards, such as &lt;i&gt;Lucky Shot&lt;/i&gt;.&lt;/li&gt;
     &lt;li&gt;If an action card targets &amp;ldquo;any number&amp;rdquo;, &amp;ldquo;up to&amp;rdquo;, or &amp;ldquo;each&amp;rdquo; of a particular type of object, that action card may target zero of those objects. As such, these cards may be played even if they would cause no effect.&lt;/li&gt;
@@ -852,7 +857,7 @@
     &lt;li&gt;A captured unit may only be returned to the player that originally owned it, and not to another player.&lt;/li&gt;
     &lt;li&gt;The Nekro player and the Yssaril player are able to capture units by copying the Vuil&amp;rsquo;raith player&amp;rsquo;s abilities, but they will be unable to spend the captured units.&lt;/li&gt;
     &lt;li&gt;If a player is eliminated, any of their units that are captured remain with the player that captured them. When the capturing player would return them, the units are instead returned to the game box.&lt;/li&gt;
-	&lt;li&gt;If a player captures their own units, they cannot be returned to that player&amp;rsquo;s reinforcements.&lt;/li&gt;
+	&lt;li&gt;If a player captures their own units, they cannot be returned to that player&amp;rsquo;s reinforcements, unless instructed to do so by a game effect.&lt;/li&gt;
 	&lt;ol&gt;
         &lt;li&gt;That player cannot produce or place those units, except by effects that allow that player to use captured units.&lt;/li&gt;
     &lt;/ol&gt;
@@ -1132,6 +1137,8 @@
   </data>
   <data name="RuleCategory_Diplomacy_Notes" xml:space="preserve">
     <value>&lt;ol class="note"&gt;
+    &lt;li&gt;If the player with &lt;i&gt;Diplomacy&lt;/i&gt; controls no planets, or controls only Mecatol Rex, they may still perform a strategic action. However, other players will no place a command token in any system.&lt;/li&gt;
+    &lt;li&gt;If the player with &lt;i&gt;Diplomacy&lt;/i&gt; controls fewer than two exhausted planets, they may still perform a strategic action. They will ready as many planets as possible.&lt;/li&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="RuleCategory_Elimination" xml:space="preserve">
@@ -1336,7 +1343,7 @@
   </data>
   <data name="RuleCategory_GravityRift_Notes" xml:space="preserve">
     <value>&lt;ol class="note"&gt;
-    &lt;li&gt;Moving into a gravity rift will not provide the +1, nor will the ships have to roll for removal.&lt;/li&gt;
+    &lt;li&gt;Moving into a gravity rift, usually when it is the active system, will not provide the +1, nor will the ships have to roll for removal.&lt;/li&gt;
     &lt;li&gt;A ship removed by a gravity rift is not destroyed.&lt;/li&gt;
     &lt;li&gt;All ship movement must be declared before any of them roll for gravity rift removal. A player may not choose additional ships to move after seeing the result of this roll.&lt;/li&gt;
     &lt;li&gt;A ship that is removed by a gravity rift will not count toward the fleet limit in the destination system.&lt;/li&gt;
@@ -1779,6 +1786,7 @@
   <data name="RuleCategory_ObjectiveCards_Notes" xml:space="preserve">
     <value>&lt;ol class="note"&gt;
     &lt;li&gt;A status phase objective must have its condition met during the status phase; any activity during the action phase is irrelevant.&lt;/li&gt;
+    &lt;li&gt;The number of secret objective cards in a player&amp;rsquo;s hand is public information.&lt;/li&gt;
     &lt;li&gt;A player may choose to reveal any or all of the secret objective cards in their hand, if they so choose.&lt;/li&gt;
     &lt;li&gt;If multiple ground combats happen on separate planets as part of a single invasion during one action, one secret objective may be scored during each.&lt;/li&gt;
     &lt;li&gt;The &lt;b&gt;Bombardment&lt;/b&gt; and &lt;b&gt;Space Cannon&lt;/b&gt; steps happen outside of combat; any number of secret objectives may be scored during those steps, and do not prevent another secret objective being scored during combat that turn.&lt;/li&gt;
@@ -1954,6 +1962,7 @@
   </data>
   <data name="RuleCategory_PromissoryNotes_Notes" xml:space="preserve">
     <value>&lt;ol class="note"&gt;
+    &lt;li&gt;The number of promissory notes in a player&amp;rsquo;s hand is public information.&lt;/li&gt;
     &lt;li&gt;When two players make a trade for a promissory note, the specific promissory note that was traded may be hidden from other players.&lt;/li&gt;
     &lt;ol&gt;
         &lt;li&gt;However, it is public information that a promissory note was traded.&lt;/li&gt;

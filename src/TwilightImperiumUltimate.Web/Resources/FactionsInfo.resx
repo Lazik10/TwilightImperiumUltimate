@@ -696,12 +696,12 @@ the stars?</value>
 &lt;h1&gt;Mirik Aun Sissiri &amp;mdash; Helix Protocol &lt;sub&gt;(Hero)&lt;/sub&gt;&lt;/h1&gt;
     &lt;ol class="note"&gt;
     &lt;li&gt;Fighters may be moved without being transported.&lt;/li&gt;
-    &lt;li&gt;Ships in systems with an Argent command token may move.&lt;/li&gt;
-    &lt;li&gt;Ships may transport units only if their origin system does not contain an Argent command token.&lt;/li&gt;
+    &lt;li&gt;Ships in systems with one of the Argent player&amp;rsquo;s command tokens may move.&lt;/li&gt;
+    &lt;li&gt;Ships may transport units only if their origin system does not contain one of the Argent player&amp;rsquo;s command tokens.&lt;/li&gt;
     &lt;ol&gt;&lt;li&gt;A future rule change will allow a player&amp;rsquo;s ships to transport units from systems that contain that player&amp;rsquo;s command token when those ships move outside of a tactical action.&lt;/li&gt;&lt;/ol&gt;
     &lt;li&gt;Ships move directly to their destination system. They may only transport units from their origin system.&lt;/li&gt;
     &lt;li&gt;Ships moving out of a gravity rift must roll for removal.&lt;/li&gt;
-    &lt;li&gt;Ships cannot move into a nebula or supernova, even if it contains an Argent command token.&lt;/li&gt;
+    &lt;li&gt;Ships cannot move into a nebula or supernova, even if it contains one of the Argent player&amp;rsquo;s command tokens.&lt;/li&gt;
     &lt;ol&gt;&lt;li&gt;Ships may travel into an asteroid field only if the Argent player has the &lt;i&gt;Antimass Deflectors&lt;/i&gt; technology.&lt;/li&gt;&lt;/ol&gt;
     &lt;li&gt;&lt;i&gt;Helix Protocol&lt;/i&gt; may be used to move ships into the wormhole nexus. If the nexus is inactive, this will cause it to activate.&lt;/li&gt;
     &lt;/ol&gt;
@@ -944,12 +944,13 @@ at any cost.&lt;/p&gt;</value>
 
 &lt;h1&gt;Viscount Unlenn &lt;sub&gt;(Agent)&lt;/sub&gt;&lt;/h1&gt;
     &lt;ol class="note"&gt;
-    &lt;li&gt;This ability does not apply to dice rolls for a unit&amp;rsquo;s &lt;sc&gt;Anti&amp;ndash;Fighter Barrage&lt;/sc&gt; ability.&lt;/li&gt;
+    &lt;li&gt;This ability only applies to combat rolls. It does not apply to dice rolls for a unit&amp;rsquo;s &lt;sc&gt;Anti&amp;ndash;Fighter Barrage&lt;/sc&gt; ability.&lt;/li&gt;
     &lt;li&gt;The extra dice is mandatory for the chosen unit.&lt;/li&gt;
     &lt;/ol&gt;
 
 &lt;h1&gt;Rear Admiral Farran &lt;sub&gt;(Commander)&lt;/sub&gt;&lt;/h1&gt;
     &lt;ol class="note"&gt;
+    &lt;li&gt;If the Letnev player has more ships in a system than allowed for by their fleet pool plus &lt;sc&gt;Armada&lt;/sc&gt;, they must first remove ships to meet this limit before they can unlock Rear Admiral Farran.&lt;/li&gt;
     &lt;li&gt;This effect may be applied when a Dunlain Reaper uses its &lt;sc&gt;Sustain damage&lt;/sc&gt; ability.&lt;/li&gt;
     &lt;ol&gt;&lt;li&gt;If the Ul player has the Letnev player&amp;rsquo;s &lt;i&gt;Alliance&lt;/i&gt; promissory note, then this effect may be applied when a Hel&amp;ndash;Titan PDS uses its &lt;sc&gt;Sustain damage&lt;/sc&gt; ability.&lt;/li&gt;&lt;/ol&gt;
     &lt;li&gt;A unit that becomes damaged without using its &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability will not trigger this effect.&lt;/li&gt;
@@ -2289,6 +2290,8 @@ worlds, their ancestral homes.</value>
 &lt;h1&gt;Watcher &lt;sub&gt;(Mech)&lt;/sub&gt;&lt;/h1&gt;
     &lt;ol class="note"&gt;
     &lt;li&gt;This effect may cancel a &lt;i&gt;Sabotage&lt;/i&gt; action card.&lt;/li&gt;
+    &lt;li&gt;The Watcher must be adjacent to the other player&amp;rsquo;s units during the timing window when the action card is played in order to cancel it.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;In particular, if an action card is played &amp;ldquo;when/after you activate a system&amp;rdquo; or similar, then the Watcher must be adjacent before any ships move during that tactical action.&lt;/li&gt;&lt;/ol&gt;
     &lt;/ol&gt;</value>
   </data>
   <data name="TheEmpyrean_PromissaryNote" xml:space="preserve">
@@ -2446,7 +2449,8 @@ and the distant suns theirs to command.&lt;/p&gt;</value>
 
 &lt;h1&gt;Evelyn DeLouis &lt;sub&gt;(Agent)&lt;/sub&gt;&lt;/h1&gt;
     &lt;ol class="note"&gt;
-    &lt;li&gt;If the Sol player chooses one of the L1Z1X player&amp;rsquo;s Annihilator mechs on a different planet or in the space area, then this ability applies to dice rolls for that unit&amp;rsquo;s bombardment rolls when the L1Z1X player uses their &lt;sc&gt;Harrow&lt;/sc&gt; ability.&lt;/li&gt;
+    &lt;li&gt;This ability only applies to combat rolls.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;This ability does not allow one of the L1Z1X player&amp;rsquo;s Annihilator mechs to roll an additional &lt;sc&gt;Bombardment&lt;/sc&gt; dice when resolving their &lt;sc&gt;Harrow&lt;/sc&gt; ability.&lt;/li&gt;&lt;/ol&gt;
     &lt;/ol&gt;
 
 &lt;h1&gt;Claire Gibson &lt;sub&gt;(Commander)&lt;/sub&gt;&lt;/h1&gt;
@@ -2861,7 +2865,7 @@ their brooding metal helmets.&lt;/p&gt;</value>
     &lt;/ol&gt;
     &lt;li&gt;This ability may be used whenever the Creuss player&amp;rsquo;s ships move, not just during the movement step of a tactical action.&lt;/li&gt;
     &lt;ol&gt;
-        &lt;li&gt;While this ability would trigger after the Creuss player retreats, retreating will leave no capacity in the active system.&lt;/li&gt;
+        &lt;li&gt;If the Creuss player retreats from a combat, then they will have no capacity in the active system, and so cannot place any fighters there.&lt;/li&gt;
         &lt;li&gt;If the Mahact player uses their &lt;i&gt;Benediction&lt;/i&gt; hero ability to move the Creuss player&amp;rsquo;s ships, then the Creuss player may use this ability.&lt;/li&gt;
     &lt;/ol&gt;
     &lt;li&gt;A ship may move out of a system and back into the same system during tactical action movement, if its move value is high enough. If the Creuss player does this with a ship with capacity, and moves in this manner via a wormhole, they may place a fighter, if possible.&lt;/li&gt;
@@ -3384,12 +3388,12 @@ like a tide of prophecy and steel.&lt;/p&gt;</value>
 
 &lt;h1&gt;The Helmsman &amp;mdash; Dark Space Navigation &lt;sub&gt;(Hero)&lt;/sub&gt;&lt;/h1&gt;
     &lt;ol class="note"&gt;
-    &lt;li&gt;Ships in systems with a L1Z1X command token may move.&lt;/li&gt;
-    &lt;li&gt;Ships may transport units only if their origin system does not contain a L1Z1X command token.&lt;/li&gt;
+    &lt;li&gt;Ships in systems with one of the L1Z1X player&amp;rsquo;s command tokens may move.&lt;/li&gt;
+    &lt;li&gt;Ships may transport units only if their origin system does not contain one of the L1Z1X player&amp;rsquo;s command tokens.&lt;/li&gt;
     &lt;ol&gt;&lt;li&gt;A future rule change will allow a player&amp;rsquo;s ships to transport units from systems that contain that player&amp;rsquo;s command token when those ships move outside of a tactical action.&lt;/li&gt;&lt;/ol&gt;
     &lt;li&gt;Ships move directly to their destination system. They may only transport units from their origin system.&lt;/li&gt;
     &lt;li&gt;Ships moving out of a gravity rift must roll for removal.&lt;/li&gt;
-    &lt;li&gt;Ships cannot move into a nebula or supernova, even if it contains a L1Z1X command token.&lt;/li&gt;
+    &lt;li&gt;Ships cannot move into a nebula or supernova, even if it contains one of the L1Z1X player&amp;rsquo;s command tokens.&lt;/li&gt;
     &lt;ol&gt;&lt;li&gt;Ships may travel into an asteroid field only if the L1Z1X player owns the &lt;i&gt;Antimass Deflectors&lt;/i&gt; technology.&lt;/li&gt;&lt;/ol&gt;
     &lt;li&gt;&lt;i&gt;Dark Space Navigation&lt;/i&gt; may be used to move ships into the wormhole nexus. If the nexus is inactive, this will cause it to activate.&lt;/li&gt;
     &lt;/ol&gt;
@@ -4263,7 +4267,7 @@ They will submit to that beauty... or be destroyed.&lt;/p&gt;</value>
     &lt;li&gt;If the Naalu player uses &lt;sc&gt;Foresight&lt;/sc&gt; to move out of a gravity rift, they will have to roll for removal.&lt;/li&gt;
     &lt;ol&gt;&lt;li&gt;If all ships are removed, the strategy token will still be placed in the destination system.&lt;/li&gt;&lt;/ol&gt;
     &lt;li&gt;After moving, capacity and fleet pool limits apply in the destination system.&lt;/li&gt;
-    &lt;li&gt;If the destination system already contains a Naalu command token, the command token from the Naalu player&amp;rsquo;s strategy pool is instead placed in their reinforcements.&lt;/li&gt;
+    &lt;li&gt;If the destination system already contains one of the Naalu player&amp;rsquo;s command tokens, the command token from the Naalu player&amp;rsquo;s strategy pool is instead placed in their reinforcements.&lt;/li&gt;
     &lt;li&gt;After resolving &lt;sc&gt;Foresight&lt;/sc&gt;, play continues to the &lt;b&gt;Space Cannon Offense&lt;/b&gt; step. Only the active player&amp;rsquo;s ships in the active system may be assigned hits.&lt;/li&gt;
     &lt;/ol&gt;
 
@@ -4727,6 +4731,8 @@ follows blackness and death.&lt;/p&gt;</value>
     &lt;li&gt;A mech in the space combat may be targeted with the &lt;i&gt;Direct Hit&lt;/i&gt; action card if it uses its &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability.&lt;/li&gt;
     &lt;li&gt;If the Nekro player has one of their &lt;i&gt;Valefar Assimilator&lt;/i&gt; tokens on the Ul player&amp;rsquo;s Hel Titan II faction unit upgrade technology, they may use &lt;i&gt;The Alastor&lt;/i&gt; to have their PDS in the active system participate in the space combat.&lt;/li&gt;
     &lt;li&gt;A ground force participating in a space combat may count towards scoring the &lt;i&gt;Demonstrate Your Power&lt;/i&gt; secret objective.&lt;/li&gt;
+    &lt;li&gt;If the Nekro player loses their last ground force during a space combat and consequently meets the requirements for elimination, they are immediately eliminated. They will not be given the opportunity to score any objectives from winning the combat or destroying certain units at the same time their last ground force was destroyed.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;If the Nekro player uses a &lt;i&gt;Direct Hit&lt;/i&gt; action card to destroy an opponent&amp;rsquo;s flagship, they may score the &lt;i&gt;Destroy their Greatest Ship&lt;/i&gt; secret objective, even if there are some hits remaining that will cause the Nekro player to be eliminated once they are assigned. If this would bring the Nekro player to ten victory points, they will instead win the game before they are eliminated.&lt;/li&gt;&lt;/ol&gt;
     &lt;/ol&gt;
 
 &lt;h1&gt;Nekro Malleon &lt;sub&gt;(Agent)&lt;/sub&gt;&lt;/h1&gt;
@@ -5565,6 +5571,7 @@ intellectual achievement.&lt;/p&gt;</value>
 
 &lt;h1&gt;Doctor Sucaban &lt;sub&gt;(Agent)&lt;/sub&gt;&lt;/h1&gt;
     &lt;ol class="note"&gt;
+    &lt;li&gt;If the Jol&amp;ndash;Nar player has the Infantry II unit upgrade, any of their infantry removed with Doctor Sucaban will not roll for resurrection.&lt;/li&gt;
     &lt;/ol&gt;
 
 &lt;h1&gt;Ta Zern &lt;sub&gt;(Commander)&lt;/sub&gt;&lt;/h1&gt;
@@ -5864,7 +5871,9 @@ In order to construct a gateway that could reach across the gulf of intergalacti
 &lt;h1&gt;Vortex &lt;sub&gt;(Technology)&lt;/sub&gt;&lt;/h1&gt;
     &lt;ol class="note"&gt;
     &lt;li&gt;A unit is not adjacent to the system it is in; the &lt;i&gt;Vortex&lt;/i&gt; ability cannot target a ground force on another planet in the same systems as one of the Vuil&amp;rsquo;raith player&amp;rsquo;s Dimensional Tears, unless there is a second space dock in an adjacent system.&lt;/li&gt;
-    &lt;li&gt;If a player has all their units of a particular type on the board, other than fighters or infantry, that type of unit belonging to that player cannot be targeted. &lt;i&gt;Vortex&lt;/i&gt; cannot be used if there are no units that can be targeted.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Vortex&lt;/i&gt; cannot be used if there are no units that can be targeted.&lt;/li&gt;
+    &lt;li&gt;If a player has all their units of a particular type on the board, other than fighters or infantry, that type of unit belonging to that player cannot be targeted.&lt;/li&gt;
+    &lt;li&gt;If another player is blockading a Dimensional Tear, their units cannot be targeted with &lt;i&gt;Vortex&lt;/i&gt;.&lt;/li&gt;
     &lt;/ol&gt;
 
 &lt;h1&gt;Dimensional Tear &lt;sub&gt;(Unit)&lt;/sub&gt;&lt;/h1&gt;
@@ -6281,6 +6290,7 @@ and be wise for all.&lt;/p&gt;</value>
     &lt;ol class="note"&gt;
     &lt;li&gt;A planet is adjacent to both the system it is in, and every system adjacent to that.&lt;/li&gt;
     &lt;li&gt;If the planet was uncontrolled, the Xxcha player explores it.&lt;/li&gt;
+    &lt;li&gt;The planet is gained exhausted.&lt;/li&gt;
     &lt;/ol&gt;
 
 &lt;h1&gt;Quash&lt;/h1&gt;
@@ -6354,15 +6364,15 @@ and be wise for all.&lt;/p&gt;</value>
 
 &lt;h1&gt;Xxekir Grom &amp;mdash; Political Data Nexus &amp;Omega;&lt;sub&gt;(Hero)&lt;/sub&gt;&lt;/h1&gt;
     &lt;ol class="note"&gt;
-    &lt;li&gt;During the status phase, public and secret objectives are scored simultaneously. The Xxcha player cannot score a public objective, unlock Xxekir Grom, and then use &lt;i&gt;Political Data Nexus&lt;/i&gt; in order to score a secret objective, or vice versa.&lt;/li&gt;
+    &lt;li&gt;During the status phase, public and secret objectives are scored simultaneously. The Xxcha player cannot score a public objective, unlock Xxekir Grom, and then use &lt;i&gt;Political Data Nexus &amp;Omega;&lt;/i&gt; in order to score a secret objective, or vice versa.&lt;/li&gt;
     &lt;li&gt;The combined value may be spent as either influence or resources, not both, and cannot be split between the two.&lt;/li&gt;
     &lt;ol&gt;&lt;li&gt;If the Xxcha player owns a planet with three influence and three resources, they cannot score the &lt;i&gt;Amass Wealth&lt;/i&gt; objective by exhausting it and spending three trade goods.&lt;/li&gt;&lt;/ol&gt;
-    &lt;li&gt;&lt;i&gt;Political Data Nexus&lt;/i&gt; only changes the spendable influence and resources. It does not change the value for any other game effect.&lt;/li&gt;
+    &lt;li&gt;&lt;i&gt;Political Data Nexus &amp;Omega;&lt;/i&gt; only changes the spendable influence and resources. It does not change the value for any other game effect.&lt;/li&gt;
     &lt;ol&gt;
         &lt;li&gt;A space dock will not add the influence of the planet it is on to its &lt;sc&gt;Production&lt;sc&gt; value.&lt;/li&gt;
         &lt;li&gt;The influence of a planet will not increase the number of units the Xxcha player may produce when using the &lt;i&gt;Integrated Economy&lt;/i&gt; technology.&lt;/li&gt;
         &lt;li&gt;The resources of the planets the Xxcha player controls will not contribute to unlocking Elder Qanoj.&lt;/li&gt;
-        &lt;li&gt;&lt;i&gt;Political Data Nexus&lt;/i&gt; does not apply when scoring the &lt;i&gt;Establish Hegemony&lt;/i&gt; or &lt;i&gt;Hoard Raw Materials&lt;/i&gt; objectives.&lt;/li&gt;
+        &lt;li&gt;&lt;i&gt;Political Data Nexus &amp;Omega;&lt;/i&gt; does not apply when scoring the &lt;i&gt;Establish Hegemony&lt;/i&gt; or &lt;i&gt;Hoard Raw Materials&lt;/i&gt; objectives.&lt;/li&gt;
         &lt;li&gt;The Xxcha player will not add the influence of a planet when they gain trade goods with the &lt;i&gt;Mining Initiative&lt;/i&gt; action card. Other players will not add the influence when they gain trade goods from the &lt;i&gt;Uprising&lt;/i&gt; action card if they choose to exhaust one of the Xxcha player&amp;rsquo;s planets.&lt;/li&gt;
     &lt;/ol&gt;
     &lt;li&gt;The resource value of a planet will be added to its influence value when the Xxcha player casts votes during the agenda phase.&lt;/li&gt;
@@ -6824,6 +6834,7 @@ ambitions of the small green people.&lt;/p&gt;</value>
 &lt;h1&gt;Mageon Implants &lt;sub&gt;(Technology)&lt;/sub&gt;&lt;/h1&gt;
     &lt;ol class="note"&gt;
     &lt;li&gt;When resolving &lt;i&gt;Mageon Implants&lt;/i&gt;, the Yssaril player is not drawing a card. As such, &lt;sc&gt;Scheming&lt;/sc&gt; will not trigger.&lt;/li&gt;
+    &lt;li&gt;The Yssaril player must target a player with at least one action card in their hand when they resolve &lt;i&gt;Mageon Implants&lt;/i&gt;.&lt;/li&gt;
     &lt;/ol&gt;
 
 &lt;h1&gt;Transparasteel Plating &lt;sub&gt;(Technology)&lt;/sub&gt;&lt;/h1&gt;
