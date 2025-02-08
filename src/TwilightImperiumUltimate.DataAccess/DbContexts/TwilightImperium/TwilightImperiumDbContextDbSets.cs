@@ -1,10 +1,20 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using TwilightImperiumUltimate.Core.Entities.Async;
 using TwilightImperiumUltimate.Core.Entities.Statistics;
 
 namespace TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium;
 
 public partial class TwilightImperiumDbContext : IdentityDbContext<TwilightImperiumUser>
 {
+    // Async
+    public virtual DbSet<AsyncPlayerProfile> AsyncPlayerProfiles { get; set; }
+
+    public virtual DbSet<AsyncPlayerProfileSettings> AsyncPlayerStatisticsSettings { get; set; }
+
+    public virtual DbSet<GameStats> GameStats { get; set; }
+
+    public virtual DbSet<PlayerStats> PlayerStats { get; set; }
+
     // Cards
     public virtual DbSet<ActionCard> ActionCards { get; set; }
 
@@ -56,6 +66,8 @@ public partial class TwilightImperiumDbContext : IdentityDbContext<TwilightImper
     public virtual DbSet<FactionUnit> FactionUnit { get; set; }
 
     public virtual DbSet<MapRating> MapRatings { get; set; }
+
+    public virtual DbSet<AsyncPlayerProfileGameStats> AsyncPlayerProfileGameStats { get; set; }
 
     // Rules
     public virtual DbSet<Rule> Rules { get; set; }

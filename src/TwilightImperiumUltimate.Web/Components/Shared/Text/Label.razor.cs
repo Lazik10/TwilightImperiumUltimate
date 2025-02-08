@@ -32,6 +32,12 @@ public partial class Label
     [Parameter]
     public TextColor TextColor { get; set; }
 
+    [Parameter]
+    public bool Vertical { get; set; } = false;
+
+    [Parameter]
+    public bool Visible { get; set; } = true;
+
     public string SetColor()
     {
         return TextColor switch

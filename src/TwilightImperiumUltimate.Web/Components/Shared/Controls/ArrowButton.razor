@@ -1,5 +1,7 @@
-﻿<div class="clickable flex-row arrow-button" @onclick="OnArrowClick">
-    <div class="space"></div>
-        <div style="font-size: @(FontSize)px;">@ArrowSymbol</div>
-    <div class="space"></div>
-</div>
+﻿<FlexRowContainer Width="@(Width)">
+    <div class="clickable flex-row arrow-button" @onclick="OnArrowClick">
+        <div class="space"></div>
+            <div style="font-size: @(FontSize)px;">@ArrowSymbol</div>
+        <div class="space"></div>
+    </div>
+</FlexRowContainer>

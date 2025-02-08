@@ -1,0 +1,15 @@
+﻿
+<div class="custom-autocomplete">
+    <input type="text" class="custom-input" @bind="Value" @oninput="OnInput" placeholder="@Placeholder" />
+    @if (Suggestions?.Any() == true)
+    {
+        <ul class="custom-autocomplete-list">
+            @foreach (var suggestion in Suggestions)
+            {
+                <li class="custom-autocomplete-item" @onclick="() => SelectSuggestion(suggestion)">
+                    @suggestion
+                </li>
+            }
+        </ul>
+    }
+</div>

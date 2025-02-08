@@ -142,6 +142,177 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to api/async/combat-stats.
+        /// </summary>
+        public static string ApiPath_AsyncCombatStats {
+            get {
+                return ResourceManager.GetString("ApiPath_AsyncCombatStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/async/durations-stats.
+        /// </summary>
+        public static string ApiPath_AsyncDurationsStats {
+            get {
+                return ResourceManager.GetString("ApiPath_AsyncDurationsStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/async/eliminations-stats.
+        /// </summary>
+        public static string ApiPath_AsyncEliminationsStats {
+            get {
+                return ResourceManager.GetString("ApiPath_AsyncEliminationsStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/async/factions-stats.
+        /// </summary>
+        public static string ApiPath_AsyncFactionStats {
+            get {
+                return ResourceManager.GetString("ApiPath_AsyncFactionStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/async/game-by-discordId.
+        /// </summary>
+        public static string ApiPath_AsyncGameByDiscordId {
+            get {
+                return ResourceManager.GetString("ApiPath_AsyncGameByDiscordId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/async/game-dates.
+        /// </summary>
+        public static string ApiPath_AsyncGameDates {
+            get {
+                return ResourceManager.GetString("ApiPath_AsyncGameDates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/async/game-names.
+        /// </summary>
+        public static string ApiPath_AsyncGameNames {
+            get {
+                return ResourceManager.GetString("ApiPath_AsyncGameNames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/async/games.
+        /// </summary>
+        public static string ApiPath_AsyncGames {
+            get {
+                return ResourceManager.GetString("ApiPath_AsyncGames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/async/games-by-date.
+        /// </summary>
+        public static string ApiPath_AsyncGamesByDate {
+            get {
+                return ResourceManager.GetString("ApiPath_AsyncGamesByDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/async/games-stats.
+        /// </summary>
+        public static string ApiPath_AsyncGamesStats {
+            get {
+                return ResourceManager.GetString("ApiPath_AsyncGamesStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/async/general-stats.
+        /// </summary>
+        public static string ApiPath_AsyncGeneralStats {
+            get {
+                return ResourceManager.GetString("ApiPath_AsyncGeneralStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/async/history-stats.
+        /// </summary>
+        public static string ApiPath_AsyncHistoryStats {
+            get {
+                return ResourceManager.GetString("ApiPath_AsyncHistoryStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/async/opponents-stats.
+        /// </summary>
+        public static string ApiPath_AsyncOpponentsStats {
+            get {
+                return ResourceManager.GetString("ApiPath_AsyncOpponentsStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/async/player-profile.
+        /// </summary>
+        public static string ApiPath_AsyncPlayerProfile {
+            get {
+                return ResourceManager.GetString("ApiPath_AsyncPlayerProfile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/async/player-profile.
+        /// </summary>
+        public static string ApiPath_AsyncPlayerProfileByDiscordId {
+            get {
+                return ResourceManager.GetString("ApiPath_AsyncPlayerProfileByDiscordId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/async/player-profiles.
+        /// </summary>
+        public static string ApiPath_AsyncPlayerProfiles {
+            get {
+                return ResourceManager.GetString("ApiPath_AsyncPlayerProfiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/async/turns-stats.
+        /// </summary>
+        public static string ApiPath_AsyncTurnsStats {
+            get {
+                return ResourceManager.GetString("ApiPath_AsyncTurnsStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/async/vp-stats.
+        /// </summary>
+        public static string ApiPath_AsyncVpStats {
+            get {
+                return ResourceManager.GetString("ApiPath_AsyncVpStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/async/wins-stats.
+        /// </summary>
+        public static string ApiPath_AsyncWinsStats {
+            get {
+                return ResourceManager.GetString("ApiPath_AsyncWinsStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to api/cards/.
         /// </summary>
         public static string ApiPath_Cards {
@@ -525,6 +696,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string ApiPath_UserUpdate {
             get {
                 return ResourceManager.GetString("ApiPath_UserUpdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Hits.
+        /// </summary>
+        public static string AsyncGames_MostHitsTitle {
+            get {
+                return ResourceManager.GetString("AsyncGames_MostHitsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hits.
+        /// </summary>
+        public static string AsyncStats_Hits {
+            get {
+                return ResourceManager.GetString("AsyncStats_Hits", resourceCulture);
             }
         }
         

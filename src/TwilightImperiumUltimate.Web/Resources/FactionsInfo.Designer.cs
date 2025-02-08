@@ -61,6 +61,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Franken.
+        /// </summary>
+        internal static string Franken_Title {
+            get {
+                return ResourceManager.GetString("Franken_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Homebrew.
+        /// </summary>
+        internal static string Homebrew_Title {
+            get {
+                return ResourceManager.GetString("Homebrew_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
         internal static string None_Ability {
@@ -1386,6 +1404,33 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Council Keleres - Argent.
+        /// </summary>
+        internal static string TheCouncilKeleresArgent_Title {
+            get {
+                return ResourceManager.GetString("TheCouncilKeleresArgent_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Council Keleres - Mentak.
+        /// </summary>
+        internal static string TheCouncilKeleresMentak_Title {
+            get {
+                return ResourceManager.GetString("TheCouncilKeleresMentak_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Council Keleres - Xxcha.
+        /// </summary>
+        internal static string TheCouncilKeleresXxcha_Title {
+            get {
+                return ResourceManager.GetString("TheCouncilKeleresXxcha_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;CAPITAL FLEET:&lt;/p&gt;
         ///&lt;p&gt;Destroyers count as 1/2 of a ship against your fleet pool.&lt;p&gt;
         ///&lt;/br&gt;
@@ -2383,8 +2428,8 @@ namespace TwilightImperiumUltimate.Web.Resources {
         ///   Looks up a localized string similar to &lt;h1&gt;Quantum Entanglement&lt;/h1&gt;
         ///    &lt;ol class=&quot;note&quot;&gt;
         ///    &lt;li&gt;The effect of the &lt;i&gt;Enforced Travel Ban&lt;/i&gt; law does not affect the Creuss player.&lt;/li&gt;
-        ///    &lt;li&gt;If the Creuss player has units or controls planets in a system with an alpha wormhole, and another player has units or controls planets in a system with an beta wormhole, or vice versa, then the Creuss player and that player are neighbors.&lt;/li&gt;
-        ///    &lt;ol&gt;&lt;li&gt;The Mentak player may use their &lt;sc&gt;Pillage&lt;/sc&gt; ability against the Creuss player in this man [rest of string was truncated]&quot;;.
+        ///    &lt;li&gt;If the Creuss player has units or controls planets in a system with an alpha wormhole, and another player has units or controls planets in a system with a beta wormhole, or vice versa, then the Creuss player and that player are neighbors.&lt;/li&gt;
+        ///    &lt;ol&gt;&lt;li&gt;The Mentak player may use their &lt;sc&gt;Pillage&lt;/sc&gt; ability against the Creuss player in this mann [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheGhostsOfCreuss_Notes {
             get {
@@ -2725,6 +2770,33 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string TheGlimmerOfMortheus_Title {
             get {
                 return ResourceManager.GetString("TheGlimmerOfMortheus_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keleres - Argent.
+        /// </summary>
+        internal static string TheKeleresCouncilArgent_Title {
+            get {
+                return ResourceManager.GetString("TheKeleresCouncilArgent_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keleres - Mentak.
+        /// </summary>
+        internal static string TheKeleresCouncilMentak_Title {
+            get {
+                return ResourceManager.GetString("TheKeleresCouncilMentak_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keleres - Xxcha.
+        /// </summary>
+        internal static string TheKeleresCouncilXxcha_Title {
+            get {
+                return ResourceManager.GetString("TheKeleresCouncilXxcha_Title", resourceCulture);
             }
         }
         
@@ -3547,8 +3619,9 @@ namespace TwilightImperiumUltimate.Web.Resources {
         ///   Looks up a localized string similar to &lt;h1&gt;Ambush&lt;/h1&gt;
         ///    &lt;ol class=&quot;note&quot;&gt;
         ///    &lt;li&gt;Game effects that reroll, modify, or otherwise affect combat rolls do not affect dice rolls made when resolving the &lt;sc&gt;Ambush&lt;/sc&gt; ability.&lt;/li&gt;
-        ///    &lt;li&gt;Game effects that reroll, modify, or otherwise affect dice rolls during combat can affect dice rolls made when resolving the &lt;sc&gt;Ambush&lt;/sc&gt; ability. This is distinct from, and a superset of, combat rolls.&lt;/li&gt;
-        ///    &lt;li&gt;If a cruiser or destroyer is removed before the Mentak player can resolve their &lt;sc&gt;Ambus [rest of string was truncated]&quot;;.
+        ///    &lt;li&gt;If a cruiser or destroyer is removed before the Mentak player can resolve their &lt;sc&gt;Ambush&lt;/sc&gt; ability, that ship cannot be one of the ships used when they do resolve their &lt;sc&gt;Ambush&lt;/sc&gt; ability.&lt;/li&gt;
+        ///    &lt;li&gt;The &lt;i&gt;Shields Holding&lt;/i&gt; action card may be used to cancel the hit.&lt;/li&gt;
+        ///    &lt;li&gt;A ship may c [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheMentakCoalition_Notes {
             get {
@@ -5061,7 +5134,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         ///
         ///&lt;h1&gt;Research Agreement &lt;sub&gt;(Promissory Note)&lt;/sub&gt;&lt;/h1&gt;
         ///    &lt;ol class=&quot;note&quot;&gt;
-        ///    &lt;li&gt;&lt;i&gt;Research Agreement&lt;/i&gt; is only triggered by the Jol&amp;ndash;Na [rest of string was truncated]&quot;;.
+        ///    &lt;li&gt;If the Jol&amp;ndash;Nar player will research several technologies  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheUniversitiesOfJolNar_Notes {
             get {
@@ -5693,12 +5766,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         ///    &lt;ol class=&quot;note&quot;&gt;
         ///    &lt;li&gt;A planet is adjacent to both the system it is in, and every system adjacent to that.&lt;/li&gt;
         ///    &lt;li&gt;If the planet was uncontrolled, the Xxcha player explores it.&lt;/li&gt;
+        ///    &lt;li&gt;The planet is gained exhausted.&lt;/li&gt;
         ///    &lt;/ol&gt;
         ///
         ///&lt;h1&gt;Quash&lt;/h1&gt;
         ///    &lt;ol class=&quot;note&quot;&gt;
-        ///    &lt;li&gt;&lt;sc&gt;Quash&lt;/sc&gt;, &lt;i&gt;Political Favor&lt;/i&gt;, the &lt;i&gt;Political Secret&lt;/i&gt; promissory note, and the &lt;i&gt;Veto&lt;/i&gt; action card are all played in the same timing window, before the rider timing window.&lt;/li&gt;
-        ///    &lt;ol&gt;&lt;li&gt;If &lt;sc&gt;Quash&lt;/sc&gt; is  [rest of string was truncated]&quot;;.
+        ///    &lt;li&gt;&lt;sc&gt;Quash&lt;/sc&gt;, &lt;i&gt;Political Favor&lt;/i&gt;, the &lt;i&gt;Political Secret&lt;/i&gt; promissory note, and the &lt;i&gt;Veto&lt;/i&gt; action card are all played in the same timing window, before the rider timing w [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheXxchaKingdom_Notes {
             get {

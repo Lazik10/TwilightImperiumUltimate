@@ -1,0 +1,67 @@
+﻿@using TwilightImperiumUltimate.Web.Helpers.Numbers
+
+<FlexRowContainer>
+
+    <FlexColumnCenteredContainer Width="100">
+
+        @if (AsyncPlayerProfile is not null)
+        {
+            <Label Text="@Strings.CombatStats_Title" FontSize="24" CenterText="true" />
+
+            <VerticalSpace Height="20" />
+
+            <GridLayout Columns="3" CssClass="background">
+
+                <VerticalSpace Height="20" Style="grid-column: span 3;" />
+
+                <Label Text="@Strings.CombatStats_ExpectedHits" CenterText="true" />
+                <Label Text="@Strings.CombatStats_ActualHits" CenterText="true" />
+                <Label Text="@Strings.CombatStats_HitsDeviation" CenterText="true" />
+
+                <VerticalSpace Height="20" Style="grid-column: span 3;" />
+
+                @if (AsyncPlayerProfile.Settings.ShowCombatStats)
+                {
+                    <Label Text="@CombatStats.ExpectedHits.ToStringWithPrecision(2)" CenterText="true" TextColor="TextColor.Yellow" />
+                    <Label Text="@CombatStats.ActualHits.ToStringWithPrecision(0)" CenterText="true" TextColor="TextColor.Yellow" />
+                    <Label Text="@GetHitDeviationText()" CenterText="true" TextColor="@GetDiceDeviationTextColor()" />
+                }
+                else
+                {
+                    <VerticalSpace Height="10" Style="grid-column: span 3;" />
+                    <Label Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" Style="grid-column: span 3;" />
+                    <VerticalSpace Height="10" Style="grid-column: span 3;" />
+                }
+
+                <VerticalSpace Height="20" Style="grid-column: span 3;" />
+
+                <Label Text="@Strings.CombatStats_MinHits" CenterText="true" />
+                <Label Text="@Strings.CombatStats_AverageHits" CenterText="true" />
+                <Label Text="@Strings.CombatStats_MaxHits" CenterText="true" />
+
+                <VerticalSpace Height="20" Style="grid-column: span 3;" />
+
+                @if (AsyncPlayerProfile.Settings.ShowCombatStats)
+                {
+                    <Label Text="@CombatStats.MinHitsPerGame.ToStringWithPrecision(0)" CenterText="true" TextColor="TextColor.Yellow" />
+                    <Label Text="@CombatStats.AverageHitsPerGame.ToStringWithPrecision(0)" CenterText="true" TextColor="TextColor.Yellow" />
+                    <Label Text="@CombatStats.MaxHitsPerGame.ToStringWithPrecision(0)" CenterText="true" TextColor="TextColor.Yellow" />
+                }
+                else
+                {
+                    <VerticalSpace Height="10" Style="grid-column: span 3;" />
+                    <Label Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" Style="grid-column: span 3;" />
+                    <VerticalSpace Height="10" Style="grid-column: span 3;" />
+                }
+
+                <VerticalSpace Height="20" Style="grid-column: span 3;" />
+
+            </GridLayout>
+
+            <VerticalSpace Height="20" />
+        }
+
+    </FlexColumnCenteredContainer>
+    <FlexColumnCenteredContainer Width="20" />
+
+</FlexRowContainer>

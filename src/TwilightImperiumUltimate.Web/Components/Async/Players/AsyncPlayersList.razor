@@ -1,0 +1,45 @@
+﻿
+<VerticalSpace Height="20" />
+
+<AsyncPlayerSearchbar OnSearchUpdate="SearchPlayerGroup"/>
+
+<VerticalSpace Height="20" />
+
+<AsyncPlayerAlphabet OnLetterClick="SearchPlayerGroup" />
+
+<VerticalSpace Height="20" />
+
+<StretchHeightContainer CssClass="background">
+
+    @if (PlayerProfileNames is not null)
+    {
+        if (!GroupedPlayers.Any())
+        {
+            <VerticalSpace Height="100" />
+            <Label Text="@Strings.AsyncPlayersList_NoPlayerMatch" FontSize="24" CenterText="true" TextColor="TextColor.White" />
+            <VerticalSpace Height="100" />
+        }
+        else if (_filteredPlayerProfiles is not null && _filteredPlayerProfiles.Any())
+        {
+            <div class="players-grid">
+                @foreach (var playerProfileName in _filteredPlayerProfiles)
+                {
+                    <TextButton Text="@playerProfileName.DiscordUsername" FontSize="14" OnClick="() => RedirectToPlayerProfile(playerProfileName.Id)" />
+                }
+            </div>
+        }
+        else
+        {
+            <VerticalSpace Height="100" />
+            <Label Text="@Strings.AsyncPlayersList_NoPlayerMatch" FontSize="24" CenterText="true" TextColor="TextColor.White" />
+            <VerticalSpace Height="100" />
+        }
+    }
+    else
+    {
+        <VerticalSpace Height="100" />
+            <Label Text="@Strings.AsyncPlayersList_NoPlayersFound" FontSize="24" CenterText="true" TextColor="TextColor.White" />
+        <VerticalSpace Height="100" />
+    }
+
+</StretchHeightContainer>

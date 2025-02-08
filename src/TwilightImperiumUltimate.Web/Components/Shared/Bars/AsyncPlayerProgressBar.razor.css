@@ -1,0 +1,55 @@
+﻿.value {
+    position: absolute;
+    left: 50%;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: lawngreen;
+}
+
+.blue {
+    background-color: deepskyblue;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+progress {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.darkgreen {
+    background-color: limegreen;
+}
+
+.black {
+    background-color: black;
+}
+
+.pink {
+    background-color: hotpink;
+}
+
+.planets {
+    background-color: orange;
+    background: linear-gradient(to right, rgba(0, 255, 0, 1) 15%, rgba(0, 0, 255, 1) 50%, rgba(255, 0, 0, 1) 85%);
+}
+
+.wormholes {
+    background-color: white;
+    background: linear-gradient(to right, rgb(246, 133, 10) 15%,rgb(72, 189, 71) 50%, rgb(196, 49, 98) 85%);
+}
+
+.ab {
+    color: 
+}

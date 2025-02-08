@@ -1,7 +1,3 @@
-using Microsoft.AspNetCore.Components;
-using TwilightImperiumUltimate.Web.Enums;
-using TwilightImperiumUltimate.Web.Services.Path;
-
 namespace TwilightImperiumUltimate.Web.Components.Shared.Layouts;
 
 public partial class TitleTexture

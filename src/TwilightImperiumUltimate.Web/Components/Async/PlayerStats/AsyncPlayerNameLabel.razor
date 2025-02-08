@@ -1,0 +1,29 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Factions
+
+<FlexColumnCenteredContainer Width="100" >
+
+    <VerticalSpace Height="10" />
+
+    <TitleLine TransformX="-10" Width="115" MaxWidth="115" />
+
+    <FlexColumnCenteredContainer CssClass="title handel white shadow">
+
+        <FlexRowContainer JustifyContent="Enums.JustifyContent.SpaceBetween">
+            @if (AsyncPlayerProfile is not null)
+            {
+                <Label Text="@AsyncPlayerProfile.PlayerInfo.DiscordUserName.ToUpper()" CenterText="true" FontSize="36" />
+            }
+            else
+            {
+                <VerticalSpace Height="36" />
+            }
+
+            <div style="min-width: 20%;" />
+
+        </FlexRowContainer>
+
+    </FlexColumnCenteredContainer>
+
+    <TitleLine TransformX="-10" Width="115" MaxWidth="115"/>
+
+</FlexColumnCenteredContainer>

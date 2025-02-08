@@ -1,0 +1,221 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Bars
+
+<FlexColumnContainer AlignItems="Enums.AlignItems.Center" >
+
+    <VerticalSpace Height="20" />
+
+    @if (_isDataLoaded && HistoryStats.GamesHistory.Count > 0)
+    {
+        <Label Text="@Strings.AsyncGames_GamesHistoryTitle" FontSize="24" CenterText="true" />
+
+        <VerticalSpace Height="20" />
+
+        <GridLayout Columns="6" CssClass="background" Style="grid-template-columns: 5% 15% 15% 15% 45% 5%">
+
+            <VerticalSpace Height="20" CssClass="span-6" />
+
+            <Label />
+            <Label Text="@Strings.AsyncStats_Year" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_Month" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_Games" CenterText="true" />
+            <Label Style="span-2" />
+            <VerticalSpace Height="20" CssClass="span-6" />
+
+            @foreach (var yearGroup in HistoryStats.GamesHistory.GroupBy(x => x.Year).OrderByDescending(x => x.Key))
+            {
+                var background = _row % 2 == 0 ? "background" : string.Empty;
+
+                <Label CssClass="@(background)" Style="height: 100%;" />
+                <Label Text="@yearGroup.Key.ToString()" CenterText="true" FontSize="20" TextColor="TextColor.White" CssClass="@(background)" />
+                <Label CssClass="@("span-4 " + background)" Style="height: 100%;" />
+
+                _row++;
+
+                @foreach (var monthGroup in yearGroup.OrderByDescending(x => x.Month))
+                {
+                    background = _row % 2 == 0 ? "background" : string.Empty;
+                    var max = HistoryStats.GamesHistory.Max(x => x.Count);
+
+                    <Label CssClass="@("span-2 " + background)" Style="height: 100%;" />
+                    <Label Text="@(new DateTime(monthGroup.Year, monthGroup.Month, 1).ToString("MMMM"))" CenterText="true" TextColor="TextColor.White" CssClass="@(background)" />
+                    <Label Text="@monthGroup.Count.ToString()" CenterText="true" TextColor="TextColor.Yellow" CssClass="@(background)" />
+                    <AsyncPlayerProgressBar Value="monthGroup.Count" MaxValue="max" TextColor="TextColor.Yellow" CssClass="@(background)" />
+                    <Label CssClass="@(background)" Style="height: 100%;" />
+
+                    _row++;
+                }
+            }
+
+            <VerticalSpace Height="20" CssClass="span-6" />
+
+            @{
+                _row = 0;
+            }
+
+        </GridLayout>
+
+        <VerticalSpace Height="20" />
+
+        <Label Text="@Strings.AsyncGames_NewGamesPerMonthHistoryTitle" FontSize="24" CenterText="true" />
+
+        <VerticalSpace Height="20" />
+
+        <GridLayout Columns="6" CssClass="background" Style="grid-template-columns: 5% 15% 15% 15% 45% 5%">
+
+            <VerticalSpace Height="20" CssClass="span-6" />
+
+            <Label />
+            <Label Text="@Strings.AsyncStats_Year" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_Month" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_Games" CenterText="true" />
+            <Label Style="span-2" />
+            <VerticalSpace Height="20" CssClass="span-6" />
+
+            @foreach (var yearGroup in HistoryStats.GamesHistory.GroupBy(x => x.Year).OrderByDescending(x => x.Key))
+            {
+                var background = _row % 2 == 0 ? "background" : string.Empty;
+
+                <Label CssClass="@(background)" Style="height: 100%;" />
+                <Label Text="@yearGroup.Key.ToString()" CenterText="true" FontSize="20" TextColor="TextColor.White" CssClass="@(background)" />
+                <Label CssClass="@("span-4 " + background)" Style="height: 100%;" />
+
+                _row++;
+
+                @foreach (var monthGroup in yearGroup.OrderByDescending(x => x.Month))
+                {
+                    background = _row % 2 == 0 ? "background" : string.Empty;
+                    var max = HistoryStats.GamesHistory.Max(x => x.New);
+
+                    <Label CssClass="@("span-2 " + background)" Style="height: 100%;" />
+                    <Label Text="@(new DateTime(monthGroup.Year, monthGroup.Month, 1).ToString("MMMM"))" CenterText="true" TextColor="TextColor.White" CssClass="@(background)" />
+                    <Label Text="@monthGroup.New.ToString()" CenterText="true" TextColor="TextColor.Green" CssClass="@(background)" />
+                    <AsyncPlayerProgressBar Value="monthGroup.New" MaxValue="max" TextColor="TextColor.Green" CssClass="@(background)" />
+                    <Label CssClass="@(background)" Style="height: 100%;" />
+
+                    _row++;
+                }
+            }
+
+            <VerticalSpace Height="20" CssClass="span-6" />
+
+            @{
+                _row = 0;
+            }
+
+        </GridLayout>
+
+        <VerticalSpace Height="20" />
+
+        <Label Text="@Strings.AsyncGames_PlayersHistoryTitle" FontSize="24" CenterText="true" />
+
+        <VerticalSpace Height="20" />
+
+        <GridLayout Columns="6" CssClass="background" Style="grid-template-columns: 5% 15% 15% 15% 45% 5%">
+
+            <VerticalSpace Height="20" CssClass="span-6" />
+
+            <Label />
+            <Label Text="@Strings.AsyncStats_Year" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_Month" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_Players" CenterText="true" />
+            <Label Style="span-2" />
+            <VerticalSpace Height="20" CssClass="span-6" />
+
+            @foreach (var yearGroup in HistoryStats.PlayersHistory.GroupBy(x => x.Year).OrderByDescending(x => x.Key))
+            {
+                var background = _row % 2 == 0 ? "background" : string.Empty;
+
+                <Label CssClass="@(background)" Style="height: 100%;" />
+                <Label Text="@yearGroup.Key.ToString()" CenterText="true" FontSize="20" TextColor="TextColor.White" CssClass="@(background)" />
+                <Label CssClass="@("span-4 " + background)" Style="height: 100%;" />
+
+                _row++;
+
+                @foreach (var monthGroup in yearGroup.OrderByDescending(x => x.Month))
+                {
+                    background = _row % 2 == 0 ? "background" : string.Empty;
+                    var max = HistoryStats.PlayersHistory.Max(x => x.Count);
+
+                    <Label CssClass="@("span-2 " + background)" Style="height: 100%;" />
+                    <Label Text="@(new DateTime(monthGroup.Year, monthGroup.Month, 1).ToString("MMMM"))" CenterText="true" TextColor="TextColor.White" CssClass="@(background)" />
+                    <Label Text="@monthGroup.Count.ToString()" CenterText="true" TextColor="TextColor.Yellow" CssClass="@(background)" />
+                    <AsyncPlayerProgressBar Value="monthGroup.Count" MaxValue="max" TextColor="TextColor.Yellow" CssClass="@(background)" />
+                    <Label CssClass="@(background)" />
+
+                    _row++;
+                }
+            }
+
+            <VerticalSpace Height="20" CssClass="span-6" />
+
+            @{
+                _row = 0;
+            }
+
+        </GridLayout>
+
+        <VerticalSpace Height="20" />
+
+        <VerticalSpace Height="20" />
+
+        <Label Text="@Strings.AsyncGames_NewPlayersHistoryTitle" FontSize="24" CenterText="true" />
+
+        <VerticalSpace Height="20" />
+
+        <GridLayout Columns="6" CssClass="background" Style="grid-template-columns: 5% 15% 15% 15% 45% 5%">
+
+            <VerticalSpace Height="20" CssClass="span-6" />
+
+            <Label />
+            <Label Text="@Strings.AsyncStats_Year" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_Month" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_Players" CenterText="true" />
+            <Label Style="span-2" />
+
+            <VerticalSpace Height="20" CssClass="span-6" />
+
+            @foreach (var yearGroup in HistoryStats.PlayersHistory.GroupBy(x => x.Year).OrderByDescending(x => x.Key))
+            {
+                var background = _row % 2 == 0 ? "background" : string.Empty;
+
+                <Label CssClass="@(background)" Style="height: 100%;" />
+                <Label Text="@yearGroup.Key.ToString()" CenterText="true" FontSize="20" TextColor="TextColor.White" CssClass="@(background)" />
+                <Label CssClass="@("span-4 " + background)" Style="height: 100%;" />
+
+                _row++;
+
+                @foreach (var monthGroup in yearGroup.OrderByDescending(x => x.Month))
+                {
+                    background = _row % 2 == 0 ? "background" : string.Empty;
+                    var max = HistoryStats.PlayersHistory.Max(x => x.Growth);
+
+                    <Label CssClass="@("span-2 " + background)" Style="height: 100%;" />
+                    <Label Text="@(new DateTime(monthGroup.Year, monthGroup.Month, 1).ToString("MMMM"))" CenterText="true" TextColor="TextColor.White" CssClass="@(background)" />
+                    <Label Text="@monthGroup.Growth.ToString()" CenterText="true" TextColor="TextColor.Green" CssClass="@(background)" />
+                    <AsyncPlayerProgressBar Value="monthGroup.Growth" MaxValue="max" TextColor="TextColor.Green" CssClass="@(background)" />
+                    <Label CssClass="@(background)" />
+
+                    _row++;
+                }
+            }
+
+            <VerticalSpace Height="20" CssClass="span-6" />
+
+            @{
+                _row = 0;
+            }
+
+        </GridLayout>
+
+        <VerticalSpace Height="20" />
+    }
+    else
+    {
+        <VerticalSpace Height="100" />
+        <Label Text="@Strings.Loading" FontSize="24" CenterText="true" />
+        <VerticalSpace Height="100" />
+    }
+
+    <VerticalSpace Height="20" />
+
+</FlexColumnContainer>

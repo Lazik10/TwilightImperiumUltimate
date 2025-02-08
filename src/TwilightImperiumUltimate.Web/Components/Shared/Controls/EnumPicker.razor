@@ -1,0 +1,13 @@
+﻿@using TwilightImperiumUltimate.Web.Helpers.Enums
+@typeparam TEnum
+
+<FlexRowContainer Width="@Width"
+                  JustifyContent="Enums.JustifyContent.FlexStart"
+                  CssClass="title handel white shadow">
+    <Label Text="@Label" FontSize="18" CenterText="CenterText" />
+    <FlexRowContainer JustifyContent="Enums.JustifyContent.Center">
+        <ArrowButton ArrowSymbol="@LeftArrowSymbol" OnArrowClick="PreviousValue" Width="@ButtonWidth" />
+        <Label Text="@CurrentValue.GetDisplayName()" FontSize="18" CenterText="true" TextColor="TextColor.Yellow" />
+        <ArrowButton ArrowSymbol="@RightArrowSymbol" OnArrowClick="NextValue" Width="@ButtonWidth"/>
+    </FlexRowContainer>
+</FlexRowContainer>

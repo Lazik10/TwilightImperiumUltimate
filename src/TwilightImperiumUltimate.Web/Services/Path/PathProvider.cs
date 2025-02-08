@@ -17,6 +17,11 @@ public class PathProvider : IPathProvider
         return $"{Paths.ResourcePath_FactionIconPath}{Strings.BackSlash}{factionName}{Strings.FileExtensionWebp}";
     }
 
+    public string GetAsyncFactionIconPath(AsyncFactionName factionName)
+    {
+        return $"{Paths.ResourcePath_FactionIconPath}{Strings.BackSlash}{factionName}{Strings.FileExtensionWebp}";
+    }
+
     public string GetCardTypeIconPath(string fileName)
     {
         return $"{Paths.ResourcePath_CardTypeIconPath}{Strings.BackSlash}{fileName}{Strings.FileExtensionWebp}";

@@ -1,0 +1,15 @@
+﻿<FlexColumnCenteredContainer>
+    <div class="async-navbar">
+        <FlexRowContainer Width="100" JustifyContent="Enums.JustifyContent.SpaceEvenly">
+            <div class="clickable" style="min-width: 33%;" @onclick="() => OnMenuItemClick.InvokeAsync(AsyncMenuItem.Statistics)">
+                <Label Text="@Strings.AsyncMenu_Statistics" FontSize="28" CenterText="true" />
+            </div>
+            <div class="clickable" style="width: 33%;" @onclick="() => OnMenuItemClick.InvokeAsync(AsyncMenuItem.Games)">
+                <Label Text="@Strings.AsyncMenu_Games" FontSize="28" CenterText="true" />
+            </div>
+            <div class="clickable" style="width: 33%;" @onclick="() => OnMenuItemClick.InvokeAsync(AsyncMenuItem.Players)">
+                <Label Text="@Strings.AsyncMenu_Players" FontSize="28" CenterText="true" />
+            </div>
+        </FlexRowContainer>
+    </div>
+</FlexColumnCenteredContainer>

@@ -20,5 +20,8 @@ public partial class TextButton
     [Parameter]
     public string Text { get; set; } = string.Empty;
 
+    [Parameter]
+    public string TextAlign { get; set; } = "center";
+
     private MarkupString MarkupString => (MarkupString)Text;
 }

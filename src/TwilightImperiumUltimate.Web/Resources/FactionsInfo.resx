@@ -7013,4 +7013,28 @@ Government:.None
   <data name="TheZelianPurifier_Title" xml:space="preserve">
     <value>The Zelian Purifier</value>
   </data>
+  <data name="Franken_Title" xml:space="preserve">
+    <value>Franken</value>
+  </data>
+  <data name="Homebrew_Title" xml:space="preserve">
+    <value>Homebrew</value>
+  </data>
+  <data name="TheKeleresCouncilMentak_Title" xml:space="preserve">
+    <value>Keleres - Mentak</value>
+  </data>
+  <data name="TheKeleresCouncilXxcha_Title" xml:space="preserve">
+    <value>Keleres - Xxcha</value>
+  </data>
+  <data name="TheKeleresCouncilArgent_Title" xml:space="preserve">
+    <value>Keleres - Argent</value>
+  </data>
+  <data name="TheCouncilKeleresMentak_Title" xml:space="preserve">
+    <value>The Council Keleres - Mentak</value>
+  </data>
+  <data name="TheCouncilKeleresArgent_Title" xml:space="preserve">
+    <value>The Council Keleres - Argent</value>
+  </data>
+  <data name="TheCouncilKeleresXxcha_Title" xml:space="preserve">
+    <value>The Council Keleres - Xxcha</value>
+  </data>
 </root>

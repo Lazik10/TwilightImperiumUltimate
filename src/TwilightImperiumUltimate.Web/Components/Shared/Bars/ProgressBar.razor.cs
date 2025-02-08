@@ -1,5 +1,3 @@
-using System;
-
 namespace TwilightImperiumUltimate.Web.Components.Shared.Bars;
 
 public partial class ProgressBar

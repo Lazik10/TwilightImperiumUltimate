@@ -1,0 +1,103 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Bars
+@using TwilightImperiumUltimate.Web.Helpers.Numbers
+
+<FlexColumnContainer AlignItems="Enums.AlignItems.Center">
+
+    <VerticalSpace Height="20" />
+
+    @if (_isDataLoaded && DurationsStats.FastestGames.Count > 0)
+    {
+        <Label Text="@Strings.AsyncGames_FastestGamesTitle" FontSize="24" CenterText="true" />
+        <HelpText Text="@Strings.AsyncGames_MinSixPlayers" CssClass="handel white shadow" />
+
+        <VerticalSpace Height="20" />
+
+        <GridLayout CssClass="background" Style="grid-template-columns: 5% 15% 30% 10% 10% 25% 5%">
+
+            <VerticalSpace Height="20" CssClass="span-7" />
+
+            <Label />
+            <Label Text="@Strings.AsyncStats_Game" PaddingLeft="20" />
+            <Label Text="@Strings.AsyncStats_FunGameName" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_Players" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_Vp" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_Duration" CenterText="true" />
+            <Label />
+
+            <VerticalSpace Height="20" CssClass="span-7" />
+
+            @foreach (var game in DurationsStats.FastestGames)
+            {
+                var background = _row % 2 == 0 ? "background" : string.Empty;
+                <Label />
+                <TextButton Text="@game.Id" TextAlign="left" FontSize="16" CssClass="@(background)" Style="height: 100%;" OnClick="@(async () => await RedirectToGameDetails(game.Id))" />
+                <TextButton Text="@game.FunName" TextAlign="left" FontSize="16" CssClass="@(GetCssStyle())" Style="height: 100%;" OnClick="@(async () => await RedirectToGameDetails(game.Id))" />
+                <Label Text="@game.PlayerCount.ToString()" CenterText="true" TextColor="TextColor.Yellow" CssClass="@(background)" />
+                <Label Text="@game.Scoreboard.ToString()" CenterText="true" TextColor="TextColor.Yellow" CssClass="@(background)" />
+                <Label Text="@GetDurationTime(game.Duration)" CenterText="true" TextColor="TextColor.Green" CssClass="@(background)" />
+                <Label />
+
+                _row++;
+            }
+
+            @{
+                _row = 0;
+            }
+
+            <VerticalSpace Height="20" CssClass="span-7" />
+
+        </GridLayout>
+
+        <VerticalSpace Height="20" />
+
+        <Label Text="@Strings.AsyncGames_LongestGamesTitle" FontSize="24" CenterText="true" />
+        <HelpText Text="@Strings.AsyncGames_MinSixPlayers" CssClass="handel white shadow" />
+
+        <VerticalSpace Height="20" />
+
+        <GridLayout CssClass="background" Style="grid-template-columns: 5% 15% 30% 10% 10% 25% 5%">
+
+            <VerticalSpace Height="20" CssClass="span-7" />
+
+            <Label />
+            <Label Text="@Strings.AsyncStats_Game" PaddingLeft="20" />
+            <Label Text="@Strings.AsyncStats_FunGameName" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_Players" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_Vp" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_Duration" CenterText="true" />
+            <Label />
+
+            <VerticalSpace Height="20" CssClass="span-7" />
+
+            @foreach (var game in DurationsStats.LongestGames)
+            {
+                var background = _row % 2 == 0 ? "background" : string.Empty;
+                <Label />
+                <TextButton Text="@game.Id" TextAlign="left" FontSize="16" CssClass="@(background)" Style="height: 100%;" OnClick="@(async () => await RedirectToGameDetails(game.Id))" />
+                <TextButton Text="@game.FunName" TextAlign="left" FontSize="16" CssClass="@(GetCssStyle())" Style="height: 100%;" OnClick="@(async () => await RedirectToGameDetails(game.Id))" />
+                <Label Text="@game.PlayerCount.ToString()" CenterText="true" TextColor="TextColor.Yellow" CssClass="@(background)" />
+                <Label Text="@game.Scoreboard.ToString()" CenterText="true" TextColor="TextColor.Yellow" CssClass="@(background)" />
+                <Label Text="@GetDurationTime(game.Duration)" CenterText="true" TextColor="TextColor.Red" CssClass="@(background)" />
+                <Label />
+
+                _row++;
+            }
+
+            @{
+                _row = 0;
+            }
+
+            <VerticalSpace Height="20" CssClass="span-7" />
+
+        </GridLayout>
+    }
+    else
+    {
+        <VerticalSpace Height="100" />
+        <Label Text="@Strings.Loading" FontSize="24" CenterText="true" />
+        <VerticalSpace Height="100" />
+    }
+
+    <VerticalSpace Height="20" />
+
+</FlexColumnContainer>

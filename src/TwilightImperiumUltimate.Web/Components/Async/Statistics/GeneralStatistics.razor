@@ -1,0 +1,229 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Bars
+@using TwilightImperiumUltimate.Web.Helpers.Numbers
+
+<FlexColumnContainer AlignItems="Enums.AlignItems.Center">
+
+    <VerticalSpace Height="20" />
+
+    @if(_isDataLoaded && GeneralStats.Games != 0)
+    {
+        <Label Text="@Strings.AsyncGames_GamesStatsTitle" FontSize="24" CenterText="true" />
+
+        <VerticalSpace Height="20" />
+
+        <GridLayout Columns="5" CssClass="background">
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+            <Label Text="@Strings.AsyncStats_Games" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_Active" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_Cancelled" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_Finished" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_Eliminations" CenterText="true" />
+
+            <VerticalSpace Height="20" CssClass="span-5"/>
+
+            <Label Text="@GeneralStats.Games.ToString()" CenterText="true" TextColor="TextColor.Yellow" />
+            <Label Text="@GeneralStats.Active.ToString()" CenterText="true" TextColor="TextColor.Green" />
+            <Label Text="@GeneralStats.Cancelled.ToString()" CenterText="true" TextColor="TextColor.Orange" />
+            <Label Text="@GeneralStats.Finished.ToString()" CenterText="true" TextColor="TextColor.Red" />
+            <Label Text="@GeneralStats.Eliminations.ToString()" CenterText="true" TextColor="TextColor.Red" />
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+        </GridLayout>
+
+        <VerticalSpace Height="20" />
+
+        <Label Text="@Strings.AsyncGames_PlayersStatsTitle" FontSize="24" CenterText="true" />
+
+        <VerticalSpace Height="20" />
+
+        <GridLayout Columns="5" CssClass="background">
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+            <Label Text="@Strings.AsyncStats_Total" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_Active" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_Inactive" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_InactiveLessThanThreeMonths" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_InactiveMoreThanThreeMonths" CenterText="true" />
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+            <Label Text="@GeneralStats.Players.ToString()" CenterText="true" TextColor="TextColor.Yellow" />
+            <Label Text="@GeneralStats.ActivePlayers.ToString()" CenterText="true" TextColor="TextColor.Green" />
+            <Label Text="@GeneralStats.InactivePlayers.ToString()" CenterText="true" TextColor="TextColor.Yellow" />
+            <Label Text="@GeneralStats.InactiveLessThanThreeMonths.ToString()" CenterText="true" TextColor="TextColor.Orange" />
+            <Label Text="@GeneralStats.InactiveMoreThanThreeMonths.ToString()" CenterText="true" TextColor="TextColor.Red" />
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+        </GridLayout>
+
+        <VerticalSpace Height="20" />
+
+        <Label Text="@Strings.AsyncGames_PlayersByAverageTimerDistributionTitle" FontSize="24" CenterText="true" />
+
+        <VerticalSpace Height="20" />
+
+        <GridLayout CssClass="background" Style="grid-template-columns: 5% 15% 10% 65% 5%">
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+            <Label />
+            <Label Text="@Strings.AsyncStats_TimerCategory" />
+            <Label Text="@Strings.AsyncStats_Players" CenterText="true" />
+            <Label CssClass="span-2" />
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+            @foreach (var timer in GeneralStats.DistributionByPlayerTimers.OrderBy(x => x.Timer))
+            {
+                var background = _row % 2 == 0 ? "background" : string.Empty;
+                var max = GeneralStats.DistributionByPlayerTimers.Max(x => x.Count);
+
+                <Label />
+                <Label Text="@(GetTimerString(timer.Timer))" TextColor="TextColor.White" CssClass="@(background)" />
+                <Label Text="@timer.Count.ToString()" CenterText="true" TextColor="TextColor.Yellow" CssClass="@(background)" />
+                <AsyncPlayerProgressBar Value="timer.Count" MaxValue="max" TextColor="GetAverageTurnColor(timer.Timer)" CssClass="@(background)" />
+                <Label />
+
+                _row++;
+            }
+
+            @{
+                _row = 0;
+            }
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+        </GridLayout>
+
+        <VerticalSpace Height="20" />
+
+        <Label Text="@Strings.AsyncGames_GameStatsVpDistribution" FontSize="24" CenterText="true" />
+
+        <VerticalSpace Height="20" />
+
+        <GridLayout CssClass="background" Style="grid-template-columns: 5% 15% 10% 65% 5%">
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+            <Label />
+            <Label Text="@Strings.AsyncStats_Vp" />
+            <Label Text="@Strings.AsyncStats_Games" CenterText="true" />
+            <Label CssClass="span-2"/>
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+            @foreach (var vpCategory in GeneralStats.DistributionByVp.Where(x => x.Vp != -1).OrderByDescending(x => x.Games))
+            {
+                var background = _row % 2 == 0 ? "background" : string.Empty;
+                var max = GeneralStats.DistributionByVp.Max(x => x.Games);
+
+                <Label />
+                <Label Text="@vpCategory.Vp.ToString()" TextColor="TextColor.White" CssClass="@(background)" />
+                <Label Text="@vpCategory.Games.ToString()" CenterText="true" TextColor="TextColor.Yellow" CssClass="@(background)" />
+                <AsyncPlayerProgressBar MinValue="1" Value="vpCategory.Games" MaxValue="max" TextColor="TextColor.Green" CssClass="@(background)" />
+                <Label />
+
+                _row++;
+            }
+
+            @{
+                _row = 0;
+            }
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+        </GridLayout>
+
+        <VerticalSpace Height="20" />
+
+        <Label Text="@Strings.AsyncGames_PlayerCountDistribution" FontSize="24" CenterText="true" />
+
+        <VerticalSpace Height="20" />
+
+        <GridLayout CssClass="background" Style="grid-template-columns: 5% 15% 10% 65% 5%">
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+            <Label />
+            <Label Text="@Strings.AsyncStats_Players" />
+            <Label Text="@Strings.AsyncStats_Games" CenterText="true" />
+            <Label CssClass="span-2" />
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+            @foreach (var vpCategory in GeneralStats.DistributionByPlayerCount.OrderByDescending(x => x.PlayerCount))
+            {
+                var background = _row % 2 == 0 ? "background" : string.Empty;
+                var max = GeneralStats.DistributionByPlayerCount.Max(x => x.Games);
+
+                <Label />
+                <Label Text="@(vpCategory.PlayerCount == -1 ? "Other" : vpCategory.PlayerCount.ToString())" TextColor="TextColor.White" CssClass="@(background)" />
+                <Label Text="@vpCategory.Games.ToString()" CenterText="true" TextColor="TextColor.Yellow" CssClass="@(background)" />
+                <AsyncPlayerProgressBar MinValue="1" Value="vpCategory.Games" MaxValue="max" TextColor="TextColor.Green" CssClass="@(background)" />
+                <Label />
+
+                _row++;
+            }
+
+            @{
+                _row = 0;
+            }
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+        </GridLayout>
+
+        <VerticalSpace Height="20" />
+
+        <Label Text="@Strings.AsyncGames_AverageEndTurnDistribution" FontSize="24" CenterText="true" />
+
+        <VerticalSpace Height="20" />
+
+        <GridLayout CssClass="background" Style="grid-template-columns: 5% 15% 10% 65% 5%">
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+            <Label />
+            <Label Text="@Strings.AsyncStats_Vp" />
+            <Label Text="@Strings.AsyncStats_AverageRounds" CenterText="true" />
+            <Label CssClass="span-2" />
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+            @foreach (var vpCategory in GeneralStats.DistributionByAverageTurnEnd.Where(x => x.Vp != -1).OrderByDescending(x => x.Vp))
+            {
+                var background = _row % 2 == 0 ? "background" : string.Empty;
+                var max = GeneralStats.DistributionByAverageTurnEnd.Where(x => x.Vp != -1).Max(x => x.AverageTurnEnd);
+
+                <Label />
+                <Label Text="@vpCategory.Vp.ToString()" TextColor="TextColor.White" CssClass="@(background)" />
+                <Label Text="@(((float)vpCategory.AverageTurnEnd).ToStringWithPrecision(3))" CenterText="true" TextColor="TextColor.Yellow" CssClass="@(background)" />
+                <AsyncPlayerProgressBar MinValue="1" Value="@((float)vpCategory.AverageTurnEnd)" MaxValue="@((float)max)" TextColor="TextColor.Green" CssClass="@(background)" />
+                <Label />
+
+                _row++;
+            }
+
+            @{
+                _row = 0;
+            }
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+        </GridLayout>
+    }
+    else
+    {
+        <VerticalSpace Height="100" />
+        <Label Text="@Strings.Loading" FontSize="24" CenterText="true" />
+        <VerticalSpace Height="100" />
+    }
+
+    <VerticalSpace Height="20" />
+
+</FlexColumnContainer>

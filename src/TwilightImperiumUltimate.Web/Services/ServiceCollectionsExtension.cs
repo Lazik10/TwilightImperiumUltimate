@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Radzen;
 using System.Reflection;
+using TwilightImperiumUltimate.Web.Services.Async;
 using TwilightImperiumUltimate.Web.Services.Authentication;
 using TwilightImperiumUltimate.Web.Services.Draft;
 using TwilightImperiumUltimate.Web.Services.GameTracker;
@@ -51,6 +52,10 @@ public static class ServiceCollectionsExtension
         services.AddScoped<IGameTrackerService, GameTrackerService>();
         services.AddScoped<IGameTrackerSettingsService, GameTrackerSettingsService>();
         services.AddScoped<IObjectiveCardTracker, ObjectiveCardTracker>();
+        services.AddScoped<IAsyncPlayerMinMaxStatsProvider, AsyncPlayerMinMaxStatsProvider>();
+        services.AddScoped<IAsyncFactionMinMaxStatsProvider, AsyncFactionMinMaxStatsProvider>();
+        services.AddScoped<IAsyncGamesProvider, AsyncGamesProvider>();
+        services.AddScoped<IAsyncStatsProvider, AsyncStatsProvider>();
 
         services.AddScoped<ITwilightImperiumApiHttpClient, TwilightImperiumApiHttpClient>();
 

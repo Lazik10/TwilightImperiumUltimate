@@ -1,0 +1,53 @@
+﻿@using TwilightImperiumUltimate.Web.Helpers.Numbers
+<FlexRowContainer>
+
+    <FlexColumnCenteredContainer Width="100">
+
+        @if (AsyncPlayerProfile is not null)
+        {
+            <Label Text="@Strings.VpStats_Title" FontSize="24" CenterText="true" />
+
+            <VerticalSpace Height="20" />
+
+            <GridLayout Columns="3" CssClass="background">
+
+                <VerticalSpace Height="20" Style="grid-column: span 3;" />
+
+                <Label Text="@Strings.VpStats_VictoryPoints" CenterText="true" />
+                <Label Text="@Strings.VpStats_AverageVp" CenterText="true" />
+                <Label Text="@Strings.VpStats_Games" CenterText="true" />
+
+                <VerticalSpace Height="20" Style="grid-column: span 3;" />
+
+                @if (AsyncPlayerProfile.Settings.ShowVpStats)
+                {
+                    <Label Text="@Strings.VpStats_10VP" CenterText="true" />
+                    <Label Text="@VpStats.AverageVp10VpGame.ToStringWithPrecision(2)" CenterText="true" TextColor="@VpStats.AverageVp10VpGame.GetAverageVpColor()" />
+                    <Label Text="@ShowGames(VpStats.Games10Vp)" CenterText="true" TextColor="TextColor.Yellow" />
+
+                    <Label Text="@Strings.VpStats_12VP" CenterText="true" />
+                    <Label Text="@VpStats.AverageVp12VpGame.ToStringWithPrecision(2)" CenterText="true" TextColor="@VpStats.AverageVp12VpGame.GetAverageVpColor()" />
+                    <Label Text="@ShowGames(VpStats.Games12Vp)" CenterText="true" TextColor="TextColor.Yellow" />
+
+                    <Label Text="@Strings.VpStats_14VP" CenterText="true" />
+                    <Label Text="@VpStats.AverageVp14VpGame.ToStringWithPrecision(2)" CenterText="true" TextColor="@VpStats.AverageVp14VpGame.GetAverageVpColor()" />
+                    <Label Text="@ShowGames(VpStats.Games14Vp)" CenterText="true" TextColor="TextColor.Yellow" />
+                }
+                else
+                {
+                    <VerticalSpace MinHeight="100" Style="grid-column: span 3;" />
+                    <Label Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" Style="grid-column: span 3;" />
+                    <VerticalSpace MinHeight="100" Style="grid-column: span 3;" />
+                }
+
+                <VerticalSpace Height="20" Style="grid-column: span 3;" />
+
+            </GridLayout>
+
+            <VerticalSpace Height="20" />
+        }
+
+    </FlexColumnCenteredContainer>
+    <FlexColumnCenteredContainer Width="20" />
+
+</FlexRowContainer>

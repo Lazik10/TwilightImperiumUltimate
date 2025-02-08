@@ -1,0 +1,102 @@
+﻿
+<VerticalSpace Height="50" />
+
+<StretchHeightContainer CssClass="background" >
+
+    <FlexColumnContainer>
+
+        <VerticalSpace Height="10" />
+
+        <FlexRowContainer JustifyContent="Enums.JustifyContent.Center" AlignItems="Enums.AlignItems.Center">
+            <HorizontalSpacer Width="33" />
+            <FlexColumnContainer AlignItems="Enums.AlignItems.Center">
+                <EnumPicker TEnum="PlayerStatisticsType"
+                        CurrentValue="@_selectedGamesType"
+                        CurrentValueChanged="@OnEnumChanged"
+                        Label="@Strings.AsyncStats_Filter"
+                        Width="50" />
+            </FlexColumnContainer>
+
+            <EnumPicker TEnum="QueryLimit"
+                        CurrentValue="@_selectedQueryLimit"
+                        CurrentValueChanged="@OnQueryLimitChanged"
+                        Width="33"
+                        ExcludeValues="_excludedQueryLimits"
+                        Label="@Strings.AsyncStats_QueryLimit" />
+        </FlexRowContainer>
+
+        <CascadingValue Value="_selectedGamesType" Name="Filter">
+
+            <CascadingValue Value="@GetQueryLimit()" Name="Limit">
+
+                <GridLayout Width="100" Style="grid-template-rows: auto; grid-template-columns: 15% 85%; align-items: start; justify-items: start; height: auto; min-height: 0;">
+
+                    <StatisticsMenu SelectedMenuITem="UpdateSelectedMenuItem" />
+
+                    @if(_selectedMenuItem == AsyncStatisticsTypeMenuItem.General)
+                    {
+                        <GeneralStatistics />
+                    }
+
+                    @if (_selectedMenuItem == AsyncStatisticsTypeMenuItem.Games)
+                    {
+                        <GamesStatistics />
+                    }
+
+                    @if (_selectedMenuItem == AsyncStatisticsTypeMenuItem.Wins)
+                    {
+                        <WinsStatistics />
+                    }
+
+                    @if(_selectedMenuItem == AsyncStatisticsTypeMenuItem.Vp)
+                    {
+                        <VpStatistics />
+                    }
+
+                    @if (_selectedMenuItem == AsyncStatisticsTypeMenuItem.Eliminations)
+                    {
+                        <EliminationsStatistics />
+                    }
+
+                    @if(_selectedMenuItem == AsyncStatisticsTypeMenuItem.Turns)
+                    {
+                        <TurnsStatistics />
+                    }
+
+                    @if (_selectedMenuItem == AsyncStatisticsTypeMenuItem.Durations)
+                    {
+                        <DurationStatistics />
+                    }
+
+                    @if (_selectedMenuItem == AsyncStatisticsTypeMenuItem.Combat)
+                    {
+                        <CombatStatistics />
+                    }
+
+                    @if (_selectedMenuItem == AsyncStatisticsTypeMenuItem.Factions)
+                    {
+                        <FactionStatistics />
+                    }
+
+                    @if (_selectedMenuItem == AsyncStatisticsTypeMenuItem.Opponents)
+                    {
+                        <OpponentsStatistics />
+                    }
+
+                    @if (_selectedMenuItem == AsyncStatisticsTypeMenuItem.History)
+                    {
+                        <HistoryStatistics />
+                    }
+
+                </GridLayout>
+
+            </CascadingValue>
+
+        </CascadingValue>
+
+    </FlexColumnContainer>
+
+</StretchHeightContainer>
+
+
+

@@ -1,0 +1,7 @@
+﻿
+<div class="alphabet-row">
+    @foreach (var letter in Alphabet)
+    {
+        <TextButton Text="@letter.ToString()" OnClick="() => SearchPlayer(letter)" FontSize="14" />
+    }
+</div>

@@ -29,6 +29,25 @@ public static class ResourceProvider
         }
     }
 
+    public static string GetFactionUIText(this AsyncFactionName factionName, FactionResourceType resourceType)
+    {
+        ArgumentNullException.ThrowIfNull(factionName);
+        ArgumentNullException.ThrowIfNull(resourceType);
+
+        var lookupString = $"{factionName}_{resourceType}";
+        var result = FactionResourceManager.GetString(lookupString, CultureInfo.CurrentCulture);
+
+        if (result is not null)
+        {
+            return result;
+        }
+        else
+        {
+            Log.Error("Could not find resource for {LookupString} in {FactionResourceManager}", lookupString, nameof(FactionResourceManager));
+            return string.Empty;
+        }
+    }
+
     public static string GetComponentNotesText(this string componentName)
     {
         ArgumentNullException.ThrowIfNull(componentName);

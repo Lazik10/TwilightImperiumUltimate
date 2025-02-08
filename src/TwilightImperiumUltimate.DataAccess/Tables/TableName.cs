@@ -2,6 +2,15 @@ namespace TwilightImperiumUltimate.DataAccess.Tables;
 
 internal static class TableName
 {
+    // Async TI4 stats
+    internal const string AsyncGameStats = "AsyncGameStats";
+
+    internal const string AsyncPlayerStats = "AsyncPlayerStats";
+
+    internal const string AsyncPlayerProfile = "AsyncPlayerProfile";
+
+    internal const string AsyncPlayerProfileSettings = "AsyncPlayerProfileSettings";
+
     // Cards
     internal const string ActionCards = "ActionCards";
 

@@ -1,0 +1,66 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Bars
+
+<FlexColumnContainer AlignItems="Enums.AlignItems.Center" >
+
+    <VerticalSpace Height="20" />
+
+    @if (_isDataLoaded && OpponentsStats.PlayersWithMostOpponents.Count > 0)
+    {
+        <Label Text="@Strings.AsyncGames_MostUniqueOpponentsTitle" FontSize="24" CenterText="true" />
+
+        <VerticalSpace Height="20" />
+
+        <GridLayout Columns="3" CssClass="background" Style="grid-template-columns: 5% 30% 15% 15% 30% 5%">
+
+            <VerticalSpace Height="20" CssClass="span-6" />
+
+            <Label />
+            <Label Text="@Strings.AsyncStats_Username" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_Games" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_UniqueOpponents" CenterText="true" />
+            <Label Style="span-2"/>
+
+            <VerticalSpace Height="20" CssClass="span-6"/>
+
+            @foreach (var user in OpponentsStats.PlayersWithMostOpponents)
+            {
+                var background = _row % 2 == 0 ? "background" : string.Empty;
+                var max = OpponentsStats.PlayersWithMostOpponents.Max(x => x.UniqueOpponents);
+
+                <Label />
+                if (user.Id == 0)
+                {
+                    <Label Text="@user.UserName" TextColor="TextColor.Red" CssClass="@(background)" />
+                }
+                else
+                {
+                    <TextButton Text="@user.UserName" FontSize="16" TextAlign="left" CssClass="@(background)" OnClick="@(() => RedirectToPlayerProfile(user.Id))" />
+                }
+                <Label Text="@user.Games.ToString()" CenterText="true" TextColor="TextColor.Yellow" CssClass="@(background)" />
+                <Label Text="@user.UniqueOpponents.ToString()" CenterText="true" TextColor="TextColor.Green" CssClass="@(background)" />
+                <AsyncPlayerProgressBar Value="user.UniqueOpponents" MaxValue="max" TextColor="TextColor.Green" CssClass="@(background)" />
+                <Label />
+
+                _row++;
+            }
+
+            @{
+                _row = 0;
+            }
+
+            <VerticalSpace Height="20" CssClass="span-6" />
+
+        </GridLayout>
+
+        <VerticalSpace Height="20" />
+    }
+    else
+    {
+        <VerticalSpace Height="100" />
+        <Label Text="@Strings.Loading" FontSize="24" CenterText="true" />
+        <VerticalSpace Height="100" />
+    }
+
+    <VerticalSpace Height="20" />
+
+</FlexColumnContainer>

@@ -1,0 +1,119 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Bars
+@using TwilightImperiumUltimate.Web.Helpers.Numbers
+
+<FlexColumnContainer AlignItems="Enums.AlignItems.Center">
+
+    <VerticalSpace Height="20" />
+
+    @if (_isDataLoaded && EliminationsStats.MostEliminationsPlayers.Count > 0 && EliminationsStats.MostEliminationsPercentagePlayers.Count > 0)
+    {
+        <Label Text="@Strings.AsyncGames_MostEliminationsPercentageTitle" FontSize="24" CenterText="true" />
+        <HelpText Text="@Strings.AsyncGames_MinGamesCount" CssClass="handel white shadow" />
+
+        <VerticalSpace Height="20" />
+
+        <GridLayout CssClass="background" Style="grid-template-columns: 5% 30% 7% 13% 10% 30% 5%">
+
+            <VerticalSpace Height="20" CssClass="span-7" />
+
+            <Label />
+            <Label Text="@Strings.AsyncStats_Username" PaddingLeft="20" />
+            <Label Text="@Strings.AsyncStats_Games" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_Eliminations" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_EliminationsPercentage" CenterText="true" />
+            <Label />
+
+            <VerticalSpace Height="20" CssClass="span-7" />
+
+            @foreach (var user in EliminationsStats.MostEliminationsPercentagePlayers)
+            {
+                var background = _row % 2 == 0 ? "background" : string.Empty;
+                var min = EliminationsStats.MostEliminationsPercentagePlayers.Min(x => x.EliminationsPercentage);
+                var max = EliminationsStats.MostEliminationsPercentagePlayers.Max(x => x.EliminationsPercentage);
+
+                <Label />
+                if (user.Id == 0)
+                {
+                    <Label Text="@user.UserName" TextColor="TextColor.Red" CssClass="@(background)" />
+                }
+                else
+                {
+                    <TextButton Text="@user.UserName" FontSize="16" TextAlign="left" CssClass="@(background)" OnClick="@(() => RedirectToPlayerProfile(user.Id))" />
+                }
+                <Label Text="@user.Games.ToString()" CenterText="true" TextColor="TextColor.Yellow" CssClass="@(background)" />
+                <Label Text="@user.Eliminations.ToString()" CenterText="true" TextColor="TextColor.Red" CssClass="@(background)" />
+                <Label Text="@user.EliminationsPercentage.ToStringWithPrecisionAndPercentage(2)" CenterText="true" TextColor="TextColor.Red" CssClass="@(background)" />
+                <AsyncPlayerProgressBar MinValue="min" Value="user.EliminationsPercentage" MaxValue="max" TextColor="TextColor.Red" CssClass="@(background)" />
+                <Label />
+
+                _row++;
+            }
+
+            @{
+                _row = 0;
+            }
+
+            <VerticalSpace Height="20" CssClass="span-7" />
+
+        </GridLayout>
+
+        <VerticalSpace Height="20" />
+
+        <Label Text="@Strings.AsyncGames_MostEliminationsTitle" FontSize="24" CenterText="true" />
+        <HelpText Text="@Strings.AsyncGames_MinGamesCount" CssClass="handel white shadow" />
+
+        <VerticalSpace Height="20" />
+
+        <GridLayout CssClass="background" Style="grid-template-columns: 5% 30% 10% 10% 40% 5%">
+
+            <VerticalSpace Height="20" CssClass="span-6" />
+
+            <Label />
+            <Label Text="@Strings.AsyncStats_Username" PaddingLeft="20" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_Games" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_Eliminations" CenterText="true" />
+            <Label CssClass="span-2" />
+
+            <VerticalSpace Height="20" CssClass="span-6" />
+
+            @foreach (var user in EliminationsStats.MostEliminationsPlayers)
+            {
+                var min = EliminationsStats.MostEliminationsPlayers.Min(x => x.Eliminations);
+                var max = EliminationsStats.MostEliminationsPlayers.Max(x => x.Eliminations);
+                var background = _row % 2 == 0 ? "background" : string.Empty;
+
+                <Label />
+                if (user.Id == 0)
+                {
+                    <Label Text="@user.UserName" TextColor="TextColor.Red" CssClass="@(background)" />
+                }
+                else
+                {
+                    <TextButton Text="@user.UserName" FontSize="16" TextAlign="left" CssClass="@(background)" OnClick="@(() => RedirectToPlayerProfile(user.Id))" />
+                }
+                <Label Text="@user.Games.ToString()" CenterText="true" TextColor="TextColor.Yellow" CssClass="@(background)" />
+                <Label Text="@user.Eliminations.ToString()" CenterText="true" TextColor="TextColor.Red" CssClass="@(background)" />
+                <AsyncPlayerProgressBar MinValue="min" Value="user.Eliminations" MaxValue="max" TextColor="TextColor.Red" CssClass="@(background)" />
+                <Label />
+
+                _row++;
+            }
+
+            @{
+                _row = 0;
+            }
+
+            <VerticalSpace Height="20" CssClass="span-6" />
+
+        </GridLayout>
+    }
+    else
+    {
+        <VerticalSpace Height="100" />
+        <Label Text="@Strings.Loading" FontSize="24" CenterText="true" />
+        <VerticalSpace Height="100" />
+    }
+
+    <VerticalSpace Height="20" />
+
+</FlexColumnContainer>

@@ -155,7 +155,7 @@ public class UserService(
 
     private async Task<(string Email, HttpStatusCode StatusCode)> GetLoginUserManageInfoAsync(CancellationToken cancellationToken)
     {
-        var (response, statusCode) = await _httpClient.GetAsync<ManageInfoResponse>(Paths.ApiPath_ManageInfo, cancellationToken);
+        var (response, statusCode) = await _httpClient.GetAsync<ManageInfoResponse>(Paths.ApiPath_ManageInfo, cancellationToken: cancellationToken);
         if (statusCode == HttpStatusCode.OK)
             return (response!.Email, statusCode);
 

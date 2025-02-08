@@ -1,0 +1,107 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Bars
+@using TwilightImperiumUltimate.Web.Helpers.Numbers
+
+<FlexColumnContainer AlignItems="Enums.AlignItems.Center">
+
+    <VerticalSpace Height="20" />
+
+    @if (_isDataLoaded && TurnsStats.AsyncMostTurnsPlayers.Count > 0)
+    {
+        <Label Text="@Strings.AsyncGames_FastestPlayersTitle" FontSize="24" CenterText="true" />
+        <HelpText Text="@Strings.AsyncGames_MinTurns" CssClass="handel white shadow" />
+
+        <VerticalSpace Height="20" />
+
+        <GridLayout CssClass="background" Style="grid-template-columns: 5% 30% 15% 45% 5%">
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+            <Label />
+            <Label Text="@Strings.AsyncStats_Username" PaddingLeft="20" />
+            <Label Text="@Strings.AsyncStats_AverageTurnTime" CenterText="true" />
+            <Label CssClass="span-2"/>
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+            @foreach (var user in TurnsStats.AsyncFastestPlayers)
+            {
+                var background = _row % 2 == 0 ? "background" : string.Empty;
+                var max = TurnsStats.AsyncFastestPlayers.Max(x => x.AverageTurnTime);
+
+                <Label />
+                if (user.Id == 0)
+                {
+                    <Label Text="@user.UserName" TextColor="TextColor.Red" CssClass="@(background)" />
+                }
+                else
+                {
+                    <TextButton Text="@user.UserName" FontSize="16" TextAlign="left" CssClass="@(background)" OnClick="@(() => RedirectToPlayerProfile(user.Id))" />
+                }
+                <Label Text="@(GetAverageTurn(user.AverageTurnTime))" CenterText="true" TextColor="@(GetAverageTurnColor(user.AverageTurnTime))" CssClass="@(background)" />
+                <AsyncPlayerProgressBar MinValue="1" Value="user.AverageTurnTime" MaxValue="max" TextColor="TextColor.Green" CssClass="@(background)" />
+                <Label />
+
+                _row++;
+            }
+
+            @{
+                _row = 0;
+            }
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+        </GridLayout>
+
+        <VerticalSpace Height="20" />
+
+        <Label Text="@Strings.AsyncGames_MostTurnsTitle" FontSize="24" CenterText="true" />
+
+        <VerticalSpace Height="20" />
+
+        <GridLayout Columns="2" CssClass="background" Style="grid-template-columns: 5% 30% 15% 45% 5%">
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+            <Label />
+            <Label Text="@Strings.AsyncStats_Username" PaddingLeft="20" />
+            <Label Text="@Strings.AsyncStats_Turns" CenterText="true" />
+            <Label CssClass="span-2" />
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+            @foreach (var user in TurnsStats.AsyncMostTurnsPlayers)
+            {
+                var background = _row % 2 == 0 ? "background" : string.Empty;
+                var max = TurnsStats.AsyncMostTurnsPlayers.Max(x => x.Turns);
+
+                <Label />
+                if (user.Id == 0)
+                {
+                    <Label Text="@user.UserName" TextColor="TextColor.Red" CssClass="@(background)" />
+                }
+                else
+                {
+                    <TextButton Text="@user.UserName" FontSize="16" TextAlign="left" CssClass="@(background)" OnClick="@(() => RedirectToPlayerProfile(user.Id))" />
+                }
+                <Label Text="@user.Turns.ToString()" CenterText="true" TextColor="TextColor.Yellow" CssClass="@(background)" />
+                <AsyncPlayerProgressBar MinValue="1" Value="user.Turns" MaxValue="max" TextColor="TextColor.Green" CssClass="@(background)" />
+                <Label />
+            }
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+        </GridLayout>
+
+        <VerticalSpace Height="20" />
+    }
+    else
+    {
+        <VerticalSpace Height="100" />
+        <Label Text="@Strings.Loading" FontSize="24" CenterText="true" />
+        <VerticalSpace Height="100" />
+    }
+
+    <VerticalSpace Height="20" />
+
+</FlexColumnContainer>
+

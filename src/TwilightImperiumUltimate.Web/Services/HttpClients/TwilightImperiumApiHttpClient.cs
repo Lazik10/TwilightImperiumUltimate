@@ -14,17 +14,25 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
     private readonly HttpClient _httpClient;
     private readonly JsonSerializerOptions _options;
     private readonly ILocalStorageService _localStorageService;
+    private readonly string _apiKey;
 
     public TwilightImperiumApiHttpClient(HttpClient httpClient, IConfiguration configuration, ILocalStorageService localStorageService)
     {
         ArgumentNullException.ThrowIfNull(configuration);
 
         var baseUrl = configuration.GetSection(nameof(TwilightImperiumApiOptions))[nameof(TwilightImperiumApiOptions.BaseUrl)];
+        _apiKey = configuration.GetSection(nameof(TwilightImperiumApiOptions))[nameof(TwilightImperiumApiOptions.ApiKey)] ?? string.Empty;
+
         _localStorageService = localStorageService;
 
         _httpClient = httpClient;
         _httpClient.BaseAddress = new Uri(baseUrl!);
         _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+        if (!string.IsNullOrEmpty(_apiKey))
+        {
+            _httpClient.DefaultRequestHeaders.Add("x-api-key", _apiKey);
+        }
 
         _options = new JsonSerializerOptions
         {
@@ -38,11 +46,14 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
         };
     }
 
-    public async Task<(TResponse? Response, HttpStatusCode StatusCode)> GetAsync<TResponse>(string endpointPath, CancellationToken cancellationToken = default)
+    public async Task<(TResponse? Response, HttpStatusCode StatusCode)> GetAsync<TResponse>(string endpointPath, string query = "", CancellationToken cancellationToken = default)
         where TResponse : class
     {
         try
         {
+            if (!string.IsNullOrEmpty(query) && query.Contains('?'))
+                endpointPath += query;
+
             Uri uri = new(string.Concat(_httpClient.BaseAddress, endpointPath));
             await SetAuthorizationHeaderAsync(cancellationToken);
 
@@ -205,6 +216,11 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
         else
         {
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+        }
+
+        if (!string.IsNullOrEmpty(_apiKey) && !_httpClient.DefaultRequestHeaders.Contains("x-api-key"))
+        {
+            _httpClient.DefaultRequestHeaders.Add("x-api-key", _apiKey);
         }
     }
 

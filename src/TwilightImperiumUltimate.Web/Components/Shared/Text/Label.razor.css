@@ -57,3 +57,19 @@
 .underline {
     text-decoration: underline;
 }
+
+.vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: sideways;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.invisible-text {
+    visibility: hidden;
+}

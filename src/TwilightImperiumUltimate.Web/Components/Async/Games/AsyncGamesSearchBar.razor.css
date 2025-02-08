@@ -1,0 +1,19 @@
+﻿input {
+    color: #333 !important;
+    font-size: 16px !important;
+    font-family: Handel, fallback, sans-serif !important;
+    border: 2px solid #007bff !important;
+    border-radius: 4px !important;
+    background-color: #f9f9f9 !important;
+    padding: 0px !important;
+}
+
+    .rz-autocomplete-input:hover {
+        border-color: #0056b3;
+    }
+
+    .rz-autocomplete-input:focus {
+        outline: none;
+        border-color: #003f7f;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }

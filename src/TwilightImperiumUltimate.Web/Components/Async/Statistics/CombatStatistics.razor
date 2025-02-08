@@ -1,0 +1,254 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Bars
+@using TwilightImperiumUltimate.Web.Helpers.Numbers
+
+<FlexColumnContainer AlignItems="Enums.AlignItems.Center">
+
+    <VerticalSpace Height="20" />
+
+    @if (_isDataLoaded && CombatStats.TotalHitsPlayers.Count > 0)
+    {
+        <Label Text="@Strings.AsyncGames_MostHitsTitle" FontSize="24" CenterText="true" />
+
+        <VerticalSpace Height="20" />
+
+        <GridLayout CssClass="background" Style="grid-template-columns: 5% 30% 7% 13% 10% 30% 5%">
+
+            <VerticalSpace Height="20" CssClass="span-7" />
+
+            <Label />
+            <Label Text="@Strings.AsyncStats_Username" PaddingLeft="20" />
+            <Label Text="@Strings.AsyncStats_Games" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_AverageHits" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_Hits" CenterText="true" />
+            <Label CssClass="span-2" />
+
+            <VerticalSpace Height="20" CssClass="span-7" />
+
+            @foreach (var user in CombatStats.TotalHitsPlayers)
+            {
+                var background = _row % 2 == 0 ? "background" : string.Empty;
+                var max = CombatStats.TotalHitsPlayers.Max(x => x.Hits);
+
+                <Label />
+                if (user.Id == 0)
+                {
+                    <Label Text="@user.UserName" TextColor="TextColor.Red" CssClass="@(background)" />
+                }
+                else
+                {
+                    <TextButton Text="@user.UserName" FontSize="16" TextAlign="left" CssClass="@(background)" OnClick="@(() => RedirectToPlayerProfile(user.Id))" />
+                }
+                <Label Text="@user.Games.ToString()" CenterText="true" TextColor="TextColor.Yellow" CssClass="@(background)" />
+                <Label Text="@user.AverageHits.ToStringWithPrecision(2)" CenterText="true" TextColor="TextColor.Green"CssClass="@(background)" />
+                <Label Text="@user.Hits.ToString()" CenterText="true" TextColor="TextColor.Green" CssClass="@(background)" />
+                <AsyncPlayerProgressBar Value="user.Hits" MaxValue="max" TextColor="TextColor.Green" CssClass="@(background)" />
+                <Label />
+
+                _row++;
+            }
+
+            @{
+                _row = 0;
+            }
+
+            <VerticalSpace Height="20" CssClass="span-7" />
+
+        </GridLayout>
+
+        <VerticalSpace Height="20" />
+
+        <Label Text="@Strings.AsyncGames_MaxHitsPerGameTitle" FontSize="24" CenterText="true" />
+
+        <VerticalSpace Height="20" />
+
+        <GridLayout CssClass="background" Style="grid-template-columns: 5% 30% 15% 45% 5%">
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+            <Label />
+            <Label Text="@Strings.AsyncStats_Username" PaddingLeft="20" />
+            <Label Text="@Strings.AsyncStats_MaxHits" CenterText="true" />
+            <Label CssClass="span-2" />
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+            @foreach (var user in CombatStats.MaxHitsPerGamePlayers)
+            {
+                var background = _row % 2 == 0 ? "background" : string.Empty;
+                var max = CombatStats.MaxHitsPerGamePlayers.Max(x => x.MaxHitPerGame);
+
+                <Label />
+                if (user.Id == 0)
+                {
+                    <Label Text="@user.UserName" TextColor="TextColor.Red" CssClass="@(background)" />
+                }
+                else
+                {
+                    <TextButton Text="@user.UserName" FontSize="16" TextAlign="left" CssClass="@(background)" OnClick="@(() => RedirectToPlayerProfile(user.Id))" />
+                }
+                <Label Text="@user.MaxHitPerGame.ToString()" CenterText="true" TextColor="TextColor.Green" CssClass="@(background)" />
+                <AsyncPlayerProgressBar Value="user.MaxHitPerGame" MaxValue="max" TextColor="TextColor.Green" CssClass="@(background)" />
+                <Label />
+
+                _row++;
+            }
+
+            @{
+                _row = 0;
+            }
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+        </GridLayout>
+
+        <VerticalSpace Height="20" />
+
+        <Label Text="@Strings.AsyncGames_MaxAverageHitsPerGameTitle" FontSize="24" CenterText="true" />
+
+        <VerticalSpace Height="20" />
+
+        <GridLayout CssClass="background" Style="grid-template-columns: 5% 30% 15% 45% 5%">
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+            <Label />
+            <Label Text="@Strings.AsyncStats_Username" PaddingLeft="20" />
+            <Label Text="@Strings.AsyncStats_AverageHits" CenterText="true" />
+            <Label CssClass="span-2" />
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+            @foreach (var user in CombatStats.MaxAverageHitsPerGamePlayers)
+            {
+                var background = _row % 2 == 0 ? "background" : string.Empty;
+                var min = CombatStats.MaxAverageHitsPerGamePlayers.Min(x => x.AverageHits);
+                var max = CombatStats.MaxAverageHitsPerGamePlayers.Max(x => x.AverageHits);
+
+                <Label />
+                if (user.Id == 0)
+                {
+                    <Label Text="@user.UserName" TextColor="TextColor.Red" CssClass="@(background)" />
+                }
+                else
+                {
+                    <TextButton Text="@user.UserName" FontSize="16" TextAlign="left" CssClass="@(background)" OnClick="@(() => RedirectToPlayerProfile(user.Id))" />
+                }
+                <Label Text="@user.AverageHits.ToStringWithPrecision(2)" CenterText="true" TextColor="TextColor.Green" CssClass="@(background)" />
+                <AsyncPlayerProgressBar MinValue="min" Value="user.AverageHits" MaxValue="max" TextColor="TextColor.Green" CssClass="@(background)" />
+                <Label />
+
+                _row++;
+            }
+
+            @{
+                _row = 0;
+            }
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+        </GridLayout>
+
+        <VerticalSpace Height="20" />
+
+        <Label Text="@Strings.AsyncGames_HighestHitsDeviationTitle" FontSize="24" CenterText="true" />
+
+        <VerticalSpace Height="20" />
+
+        <GridLayout Columns="2" CssClass="background" Style="grid-template-columns: 5% 30% 15% 45% 5%">
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+            <Label />
+            <Label Text="@Strings.AsyncStats_Username" PaddingLeft="20" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_HitsDeviation" CenterText="true" />
+            <Label CssClass="span-2" />
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+            @foreach (var user in CombatStats.BestHitsDeviationPlayers)
+            {
+                var background = _row % 2 == 0 ? "background" : string.Empty;
+                var min = CombatStats.BestHitsDeviationPlayers.Min(x => x.HitsDeviation);
+                var max = CombatStats.BestHitsDeviationPlayers.Max(x => x.HitsDeviation);
+
+                <Label />
+                if (user.Id == 0)
+                {
+                    <Label Text="@user.UserName" TextColor="TextColor.Red" CssClass="@(background)" />
+                }
+                else
+                {
+                    <TextButton Text="@user.UserName" FontSize="16" TextAlign="left" CssClass="@(background)" OnClick="@(() => RedirectToPlayerProfile(user.Id))" />
+                }
+                <Label Text="@user.HitsDeviation.ToStringWithPrecisionAndPercentage(4)" CenterText="true" TextColor="TextColor.Green" CssClass="@(background)" />
+                <AsyncPlayerProgressBar MinValue="min" Value="user.HitsDeviation" MaxValue="max" TextColor="TextColor.Green" CssClass="@(background)" />
+                <Label />
+
+                _row++;
+            }
+
+            @{
+                _row = 0;
+            }
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+        </GridLayout>
+
+        <VerticalSpace Height="20" />
+
+        <Label Text="@Strings.AsyncGames_LowestHitsDeviationTitle" FontSize="24" CenterText="true" />
+
+        <VerticalSpace Height="20" />
+
+        <GridLayout Columns="2" CssClass="background" Style="grid-template-columns: 5% 30% 15% 45% 5%">
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+            <Label />
+            <Label Text="@Strings.AsyncStats_Username" PaddingLeft="20" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_HitsDeviation" CenterText="true" />
+            <Label CssClass="span-2" />
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+            @foreach (var user in CombatStats.WorstHitsDeviationPlayers)
+            {
+                var background = _row % 2 == 0 ? "background" : string.Empty;
+                var min = Math.Abs(CombatStats.WorstHitsDeviationPlayers.Min(x => x.HitsDeviation));
+                var max = Math.Abs(CombatStats.WorstHitsDeviationPlayers.Max(x => x.HitsDeviation));
+                var userValue = Math.Abs(user.HitsDeviation);
+                <Label />
+                if (user.Id == 0)
+                {
+                    <Label Text="@user.UserName" TextColor="TextColor.Red" CssClass="@(background)" />
+                }
+                else
+                {
+                    <TextButton Text="@user.UserName" FontSize="16" TextAlign="left" CssClass="@(background)" OnClick="@(() => RedirectToPlayerProfile(user.Id))" />
+                }
+                <Label Text="@user.HitsDeviation.ToStringWithPrecisionAndPercentage(4)" CenterText="true" TextColor="TextColor.Red" CssClass="@(background)" />
+                <AsyncPlayerProgressBar MinValue="max" Value="userValue" MaxValue="min" TextColor="TextColor.Red" CssClass="@(background)" />
+                <Label />
+
+                _row++;
+            }
+
+            @{
+                _row = 0;
+            }
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+        </GridLayout>
+    }
+    else
+    {
+        <VerticalSpace Height="100" />
+        <Label Text="@Strings.Loading" FontSize="24" CenterText="true" />
+        <VerticalSpace Height="100" />
+    }
+
+    <VerticalSpace Height="20" />
+
+</FlexColumnContainer>

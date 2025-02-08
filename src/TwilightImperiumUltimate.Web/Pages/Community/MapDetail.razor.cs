@@ -1,6 +1,5 @@
 using Microsoft.JSInterop;
 using TwilightImperiumUltimate.Contracts.ApiContracts.Maps;
-using TwilightImperiumUltimate.Web.Components.Shared.Bars;
 using TwilightImperiumUltimate.Web.Helpers.Maps;
 using TwilightImperiumUltimate.Web.Models.Users;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;

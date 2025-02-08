@@ -67,6 +67,10 @@
     height: auto;
 }
 
+.padding {
+    padding: 2% 2% 2% 2%;
+}
+
 /* ====================== SCROLLBAR ========================= */
 html::-webkit-scrollbar {
     width: 12px;
@@ -163,6 +167,12 @@ html {
     word-break: break-all;
 }
 
+.text-no-overflow {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .white {
     color: white;
 }
@@ -183,6 +193,46 @@ html {
     margin-left: 15px;
 }
 
+.span-1 {
+    grid-column: span 1;
+}
+
+.span-2 {
+    grid-column: span 2;
+}
+
+.span-3 {
+    grid-column: span 3;
+}
+
+.span-4 {
+    grid-column: span 4;
+}
+
+.span-5 {
+    grid-column: span 5;
+}
+
+.span-6 {
+    grid-column: span 6;
+}
+
+.span-7 {
+    grid-column: span 7;
+}
+
+.span-8 {
+    grid-column: span 8;
+}
+
+.span-9 {
+    grid-column: span 9;
+}
+
+.span-10 {
+    grid-column: span 10;
+}
+
 /* ==================== GENERAL LAYOUT ====================== */
 body {
     width: 100%;
@@ -193,6 +243,7 @@ body {
     background-position: center center;
     background-size: cover;
     background-attachment: fixed;
+/*    font-size: clamp(12px, 1vw + 1rem, 16px);*/
 }
 
 #app {
@@ -206,11 +257,33 @@ main {
     height: 100%;
     width: 1920px;
     position: relative;
+/*    padding: 1%;*/
+    box-sizing: border-box;
 }
 
-.p {
-    line-height: 15px;
+/*@media (max-width: 768px) {
+    main {
+        padding: 0.5%;
+    }
 }
+
+h1, h2, h3, p, span {
+    font-size: clamp(1rem, 2vw, 2rem);
+    line-height: 1.5;
+    margin: 0;
+}
+
+h1 {
+    font-size: clamp(2rem, 3vw, 4rem);
+}
+
+h2 {
+    font-size: clamp(1.5rem, 2.5vw, 3rem);
+}
+
+p {
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
+}*/
 
 .clickable {
     cursor: pointer;
@@ -246,6 +319,7 @@ main {
     background-color: rgba(0, 0, 255, 0.3);
     transition: background-color 0.3s ease;
     padding: 10px;
+    box-sizing: border-box;
 }
 
 .button-disabled {
@@ -254,6 +328,7 @@ main {
     background-color: rgba(128, 128, 128, 0.3);
     transition: background-color 0.3s ease;
     padding: 10px;
+    box-sizing: border-box;
 }
 
 .button:hover {

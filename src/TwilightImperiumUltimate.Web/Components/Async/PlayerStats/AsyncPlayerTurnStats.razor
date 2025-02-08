@@ -1,0 +1,42 @@
+﻿<FlexRowContainer>
+
+    <FlexColumnCenteredContainer Width="100">
+
+        @if (AsyncPlayerProfile is not null)
+        {
+            <Label Text="Turn stats" FontSize="24" CenterText="true" />
+
+            <VerticalSpace Height="20" />
+
+            <GridLayout Columns="2" CssClass="background">
+
+                <VerticalSpace Height="20" Style="grid-column: span 2;" />
+
+                <Label Text="@Strings.TurnStats_NumberOfTurns" CenterText="true" />
+                <Label Text="@Strings.TurnStats_AverageTurnTime" CenterText="true" />
+
+                <VerticalSpace Height="20" Style="grid-column: span 2;" />
+
+                @if (AsyncPlayerProfile.Settings.ShowTurnStats)
+                {
+                    <Label Text="@TurnStats.TotalTurns.ToString()" CenterText="true" TextColor="TextColor.Yellow" />
+                    <Label Text="@GetAverageTurn()" CenterText="true" TextColor="@GetAverageTurnColor()" />
+                }
+                else
+                {
+                    <VerticalSpace Height="10" Style="grid-column: span 2;" />
+                    <Label Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" Style="grid-column: span 2;" />
+                    <VerticalSpace Height="10" Style="grid-column: span 2;" />
+                }
+
+                <VerticalSpace Height="20" Style="grid-column: span 2;" />
+
+            </GridLayout>
+
+            <VerticalSpace Height="20" />
+        }
+
+    </FlexColumnCenteredContainer>
+    <FlexColumnCenteredContainer Width="20" />
+
+</FlexRowContainer>

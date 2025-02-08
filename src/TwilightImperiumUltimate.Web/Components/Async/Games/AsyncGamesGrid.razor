@@ -1,0 +1,25 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Bars
+
+<VerticalSpace Height="50" />
+
+<StretchHeightContainer CssClass="background">
+
+    <AsyncGamesSearchBar GameNames="@_gameNames" OnGameSelect="OnGameSelect" />
+
+    <FlexColumnCenteredContainer>
+
+        <FlexRowContainer Width="70">
+
+            <EnumPicker TEnum="AsyncGameType" CurrentValue="@_asyncGameType" Label="@Strings.AsyncGameStats_GameType" Width="100" CurrentValueChanged="GameTypeChanged" />
+            <EnumPicker TEnum="AsyncGameStatusFilter" CurrentValue="@_gameStatus" Label="Status" Width="100" ButtonWidth="50" CurrentValueChanged="GameStatusChanged" />
+
+        </FlexRowContainer>
+
+    </FlexColumnCenteredContainer>
+
+    <AsyncGamesList GameDates="@_gameDates"
+        AsyncGameType="@_asyncGameType"
+        StatusFilter="@_gameStatus"
+        AsyncGameDiscordId="@_asyncGameDiscordId" />
+
+</StretchHeightContainer>

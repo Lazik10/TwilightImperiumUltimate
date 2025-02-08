@@ -387,4 +387,67 @@
   <data name="ApiPath_EndGameStatistics" xml:space="preserve">
     <value>api/game-statistics/game</value>
   </data>
+  <data name="ApiPath_AsyncPlayerProfiles" xml:space="preserve">
+    <value>api/async/player-profiles</value>
+  </data>
+  <data name="ApiPath_AsyncPlayerProfileByDiscordId" xml:space="preserve">
+    <value>api/async/player-profile</value>
+  </data>
+  <data name="ApiPath_AsyncPlayerProfile" xml:space="preserve">
+    <value>api/async/player-profile</value>
+  </data>
+  <data name="ApiPath_AsyncGames" xml:space="preserve">
+    <value>api/async/games</value>
+  </data>
+  <data name="ApiPath_AsyncGameDates" xml:space="preserve">
+    <value>api/async/game-dates</value>
+  </data>
+  <data name="ApiPath_AsyncGamesByDate" xml:space="preserve">
+    <value>api/async/games-by-date</value>
+  </data>
+  <data name="ApiPath_AsyncGameNames" xml:space="preserve">
+    <value>api/async/game-names</value>
+  </data>
+  <data name="ApiPath_AsyncGameByDiscordId" xml:space="preserve">
+    <value>api/async/game-by-discordId</value>
+  </data>
+  <data name="ApiPath_AsyncGeneralStats" xml:space="preserve">
+    <value>api/async/general-stats</value>
+  </data>
+  <data name="ApiPath_AsyncGamesStats" xml:space="preserve">
+    <value>api/async/games-stats</value>
+  </data>
+  <data name="ApiPath_AsyncWinsStats" xml:space="preserve">
+    <value>api/async/wins-stats</value>
+  </data>
+  <data name="ApiPath_AsyncVpStats" xml:space="preserve">
+    <value>api/async/vp-stats</value>
+  </data>
+  <data name="ApiPath_AsyncEliminationsStats" xml:space="preserve">
+    <value>api/async/eliminations-stats</value>
+  </data>
+  <data name="ApiPath_AsyncTurnsStats" xml:space="preserve">
+    <value>api/async/turns-stats</value>
+  </data>
+  <data name="ApiPath_AsyncCombatStats" xml:space="preserve">
+    <value>api/async/combat-stats</value>
+  </data>
+  <data name="AsyncGames_MostHitsTitle" xml:space="preserve">
+    <value>Total Hits</value>
+  </data>
+  <data name="AsyncStats_Hits" xml:space="preserve">
+    <value>Hits</value>
+  </data>
+  <data name="ApiPath_AsyncDurationsStats" xml:space="preserve">
+    <value>api/async/durations-stats</value>
+  </data>
+  <data name="ApiPath_AsyncFactionStats" xml:space="preserve">
+    <value>api/async/factions-stats</value>
+  </data>
+  <data name="ApiPath_AsyncOpponentsStats" xml:space="preserve">
+    <value>api/async/opponents-stats</value>
+  </data>
+  <data name="ApiPath_AsyncHistoryStats" xml:space="preserve">
+    <value>api/async/history-stats</value>
+  </data>
 </root>

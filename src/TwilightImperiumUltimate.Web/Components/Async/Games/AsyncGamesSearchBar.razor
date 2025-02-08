@@ -1,0 +1,19 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Bars
+
+<VerticalSpace Height="20" />
+
+<FlexColumnCenteredContainer>
+
+    <FlexRowContainer Width="50">
+
+        <Label Text="Search game: " CenterText="true" />
+
+        <AutoComplete Data=@GameNames ValueChanged="SelectGame" Value="@_selectedValue" />
+
+        <Button ButtonText="Clear" OnClick="ClearSelectedGame" />
+
+    </FlexRowContainer>
+
+</FlexColumnCenteredContainer>
+
+<VerticalSpace Height="20" />

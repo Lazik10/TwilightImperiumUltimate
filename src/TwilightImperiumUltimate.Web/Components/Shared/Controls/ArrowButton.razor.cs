@@ -10,4 +10,7 @@ public partial class ArrowButton
 
     [Parameter]
     public int FontSize { get; set; } = 46;
+
+    [Parameter]
+    public int Width { get; set; } = 100;
 }

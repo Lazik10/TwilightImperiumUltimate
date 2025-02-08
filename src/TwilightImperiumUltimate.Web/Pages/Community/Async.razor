@@ -1,0 +1,12 @@
+﻿@page "/community/async"
+@using TwilightImperiumUltimate.Web.Components.Async
+
+<Page>
+    <CascadingValue Value="_playerProfileNames" Name="AsyncPlayerProfileNames">
+        <CascadingValue Value="Category" Name="Category">
+            <CascadingValue Value="Letter" Name="Letter">
+                <AsyncMainGrid />
+            </CascadingValue>
+        </CascadingValue>
+    </CascadingValue>
+</Page>

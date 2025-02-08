@@ -1826,4 +1826,565 @@ Brandon Williams&lt;/p&gt;</value>
   <data name="SystemTileOverlay_MapPosition" xml:space="preserve">
     <value>Map position</value>
   </data>
+  <data name="Page_Async" xml:space="preserve">
+    <value>Async</value>
+  </data>
+  <data name="Page_Tigl" xml:space="preserve">
+    <value>TIGL</value>
+  </data>
+  <data name="AsyncMenu_Games" xml:space="preserve">
+    <value>GAMES</value>
+  </data>
+  <data name="AsyncMenu_Players" xml:space="preserve">
+    <value>PLAYERS</value>
+  </data>
+  <data name="PlayerStatisticsType_Picker" xml:space="preserve">
+    <value>Statistics:</value>
+  </data>
+  <data name="PlayerStatisticsType_All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="PlayerStatisticsType_Tigl" xml:space="preserve">
+    <value>TIGL</value>
+  </data>
+  <data name="PlayerStatisticsType_Custom" xml:space="preserve">
+    <value>Custom</value>
+  </data>
+  <data name="CombatStats_Title" xml:space="preserve">
+    <value>Combat Stats</value>
+  </data>
+  <data name="CombatStats_ExpectedHits" xml:space="preserve">
+    <value>Expected Hits</value>
+  </data>
+  <data name="CombatStats_ActualHits" xml:space="preserve">
+    <value>Actual Hits</value>
+  </data>
+  <data name="CombatStats_HitsDeviation" xml:space="preserve">
+    <value>Hits Deviation</value>
+  </data>
+  <data name="CombatStats_MinHits" xml:space="preserve">
+    <value>Min Hits</value>
+  </data>
+  <data name="CombatStats_AverageHits" xml:space="preserve">
+    <value>Average Hits</value>
+  </data>
+  <data name="CombatStats_MaxHits" xml:space="preserve">
+    <value>Max Hits</value>
+  </data>
+  <data name="AsyncGeneralStats_Title" xml:space="preserve">
+    <value>Game Stats</value>
+  </data>
+  <data name="AsyncStats_Games" xml:space="preserve">
+    <value>Games</value>
+  </data>
+  <data name="GameStats_Games" xml:space="preserve">
+    <value>Games</value>
+  </data>
+  <data name="AsyncStats_Wins" xml:space="preserve">
+    <value>Wins</value>
+  </data>
+  <data name="GameStats_Wins" xml:space="preserve">
+    <value>Wins</value>
+  </data>
+  <data name="AsyncStats_Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="GameStats_Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="AsyncStats_Finished" xml:space="preserve">
+    <value>Finished</value>
+  </data>
+  <data name="GameStats_Finished" xml:space="preserve">
+    <value>Finished</value>
+  </data>
+  <data name="AsyncStats_Eliminations" xml:space="preserve">
+    <value>Eliminations</value>
+  </data>
+  <data name="GameStats_Eliminations" xml:space="preserve">
+    <value>Eliminations</value>
+  </data>
+  <data name="TurnStats_NumberOfTurns" xml:space="preserve">
+    <value>Number of turns</value>
+  </data>
+  <data name="TurnStats_AverageTurnTime" xml:space="preserve">
+    <value>Average time</value>
+  </data>
+  <data name="VpStats_Title" xml:space="preserve">
+    <value>VP Stats</value>
+  </data>
+  <data name="VpStats_AverageVp" xml:space="preserve">
+    <value>Average VP</value>
+  </data>
+  <data name="VpStats_Games" xml:space="preserve">
+    <value>Games</value>
+  </data>
+  <data name="VpStats_10VP" xml:space="preserve">
+    <value>10 VP</value>
+  </data>
+  <data name="VpStats_12VP" xml:space="preserve">
+    <value>12 VP</value>
+  </data>
+  <data name="VpStats_14VP" xml:space="preserve">
+    <value>14 VP</value>
+  </data>
+  <data name="AsyncGameStats_GameType" xml:space="preserve">
+    <value>Games:</value>
+  </data>
+  <data name="AsyncStats_Winrate" xml:space="preserve">
+    <value>Winrate</value>
+  </data>
+  <data name="GameStats_Winrate" xml:space="preserve">
+    <value>Winrate</value>
+  </data>
+  <data name="VpStats_VictoryPoints" xml:space="preserve">
+    <value>VP</value>
+  </data>
+  <data name="AsyncStats_Filter" xml:space="preserve">
+    <value>Filter:</value>
+  </data>
+  <data name="FactionStats_Factions" xml:space="preserve">
+    <value>Factions:</value>
+  </data>
+  <data name="FactionStatisticsFilter_Official" xml:space="preserve">
+    <value>Base + PoK + Keleres</value>
+  </data>
+  <data name="FactionStatisticsFilter_DiscordantStars" xml:space="preserve">
+    <value>Discordant Stars</value>
+  </data>
+  <data name="FactionStatisticsFilter_Others" xml:space="preserve">
+    <value>Others</value>
+  </data>
+  <data name="AsyncMenu_Statistics" xml:space="preserve">
+    <value>STATISTICS</value>
+  </data>
+  <data name="AsyncPlayers_DiscordNameSearch" xml:space="preserve">
+    <value>Discord Name:</value>
+  </data>
+  <data name="FactionStatisticsVpFilter_All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="FactionStatisticsVpFilter_TenVp" xml:space="preserve">
+    <value>10 VP</value>
+  </data>
+  <data name="FactionStatisticsVpFilter_TwelveVp" xml:space="preserve">
+    <value>12 VP</value>
+  </data>
+  <data name="FactionStatisticsVpFilter_FourteenVp" xml:space="preserve">
+    <value>14 VP</value>
+  </data>
+  <data name="FactionStats_VpCount" xml:space="preserve">
+    <value>VP:</value>
+  </data>
+  <data name="OpponentStats_Opponents" xml:space="preserve">
+    <value>Top 20 opponents</value>
+  </data>
+  <data name="OpponentStats_DiscordUsername" xml:space="preserve">
+    <value>Discord Username</value>
+  </data>
+  <data name="OpponentStats_Games" xml:space="preserve">
+    <value>Games</value>
+  </data>
+  <data name="OpponentStats_Profile" xml:space="preserve">
+    <value>Async profile</value>
+  </data>
+  <data name="OpponentStats_ViewProfile" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="FactionStats_Statistics" xml:space="preserve">
+    <value>Statistics:</value>
+  </data>
+  <data name="FactionStats_Faction" xml:space="preserve">
+    <value>Faction</value>
+  </data>
+  <data name="FactionStats_Games" xml:space="preserve">
+    <value>Games</value>
+  </data>
+  <data name="FactionStats_Wins" xml:space="preserve">
+    <value>Wins</value>
+  </data>
+  <data name="FactionStats_WinPercentage" xml:space="preserve">
+    <value>Win %</value>
+  </data>
+  <data name="FactionStats_Eliminations" xml:space="preserve">
+    <value>Eliminations</value>
+  </data>
+  <data name="FactionStats_MinVp" xml:space="preserve">
+    <value>Min VP</value>
+  </data>
+  <data name="FactionStats_AverageVp" xml:space="preserve">
+    <value>Avg VP</value>
+  </data>
+  <data name="FactionStats_MaxVp" xml:space="preserve">
+    <value>Max VP</value>
+  </data>
+  <data name="FactionStats_AverageVpPercentage" xml:space="preserve">
+    <value>Avg VP %</value>
+  </data>
+  <data name="FactionStats_All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="FactionStatisticsSubstatsFilter_All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="FactionStatisticsSubstatsFilter_Games" xml:space="preserve">
+    <value>Games</value>
+  </data>
+  <data name="FactionStatisticsSubstatsFilter_Wins" xml:space="preserve">
+    <value>Wins</value>
+  </data>
+  <data name="FactionStatisticsSubstatsFilter_WinPercentage" xml:space="preserve">
+    <value>Win %</value>
+  </data>
+  <data name="FactionStatisticsSubstatsFilter_Eliminations" xml:space="preserve">
+    <value>Eliminations</value>
+  </data>
+  <data name="FactionStatisticsSubstatsFilter_MinVp" xml:space="preserve">
+    <value>Min VP</value>
+  </data>
+  <data name="FactionStatisticsSubstatsFilter_AverageVp" xml:space="preserve">
+    <value>Avgerage VP</value>
+  </data>
+  <data name="FactionStatisticsSubstatsFilter_MaxVp" xml:space="preserve">
+    <value>Max VP</value>
+  </data>
+  <data name="FactionStatisticsSubstatsFilter_AverageVpPercentage" xml:space="preserve">
+    <value>Avg VP %</value>
+  </data>
+  <data name="AsyncPlayer_Statistics_Private" xml:space="preserve">
+    <value>Statistics are unavailable due to the user's privacy preferences.</value>
+  </data>
+  <data name="AsyncPlayer_HiddenStat" xml:space="preserve">
+    <value>???</value>
+  </data>
+  <data name="AsyncPlayersList_NoPlayersFound" xml:space="preserve">
+    <value>... Searching for players ...</value>
+  </data>
+  <data name="AsyncPlayer_GamesStatsTitle" xml:space="preserve">
+    <value>Games</value>
+  </data>
+  <data name="AsyncPlayer_GamesStatsYear" xml:space="preserve">
+    <value>Year</value>
+  </data>
+  <data name="AsyncPlayer_GamesStatsMonth" xml:space="preserve">
+    <value>Month</value>
+  </data>
+  <data name="AsyncPlayer_GamesStatsVp" xml:space="preserve">
+    <value>VP</value>
+  </data>
+  <data name="AsyncPlayer_GamesStatsDuration" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="AsyncPlayer_GamesStatsGame" xml:space="preserve">
+    <value>Game</value>
+  </data>
+  <data name="AsyncPlayer_GamesStatsPlayerCount" xml:space="preserve">
+    <value>Players</value>
+  </data>
+  <data name="AsyncGameType_All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="AsyncGameType_Tigl" xml:space="preserve">
+    <value>TIGL</value>
+  </data>
+  <data name="AsyncGameType_Custom" xml:space="preserve">
+    <value>Custom</value>
+  </data>
+  <data name="AsyncPlayer_GamesStatsFaction" xml:space="preserve">
+    <value>Faction</value>
+  </data>
+  <data name="AsyncPlayer_GamesStatsFunGame" xml:space="preserve">
+    <value>Fun Game Name</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>... LOADING ...</value>
+  </data>
+  <data name="AsyncGameStats_GameStatus" xml:space="preserve">
+    <value>Status: </value>
+  </data>
+  <data name="AsyncGameStatusFilter_All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="AsyncGameStatusFilter_Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="AsyncGameStatusFilter_Finished" xml:space="preserve">
+    <value>Finished</value>
+  </data>
+  <data name="AsyncStatisticsTypeMenuItem_General" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="AsyncStatisticsTypeMenuItem_Turns" xml:space="preserve">
+    <value>Turns</value>
+  </data>
+  <data name="AsyncStatisticsTypeMenuItem_Combat" xml:space="preserve">
+    <value>Combat</value>
+  </data>
+  <data name="AsyncStatisticsTypeMenuItem_History" xml:space="preserve">
+    <value>History</value>
+  </data>
+  <data name="AsyncStatisticsTypeMenuItem_Factions" xml:space="preserve">
+    <value>Factions</value>
+  </data>
+  <data name="AsyncStatisticsTypeMenuItem_CategoryTitle" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="AsyncStatisticsTypeMenuItem_Vp" xml:space="preserve">
+    <value>Victory points</value>
+  </data>
+  <data name="AsyncGames_GamesStatsTitle" xml:space="preserve">
+    <value>Games</value>
+  </data>
+  <data name="AsyncGames_MostGamesTitle" xml:space="preserve">
+    <value>Most Games Played</value>
+  </data>
+  <data name="AsyncGames_MostActivePlayerActive" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="AsyncGames_MostActivePlayerEliminated" xml:space="preserve">
+    <value>Eliminated</value>
+  </data>
+  <data name="AsyncGames_MostActivePlayerFinished" xml:space="preserve">
+    <value>Finished</value>
+  </data>
+  <data name="AsyncGames_MostActivePlayerGames" xml:space="preserve">
+    <value>Games</value>
+  </data>
+  <data name="AsyncGames_MostActivePlayerName" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="AsyncGames_MostActiveGames" xml:space="preserve">
+    <value>Most Active Games</value>
+  </data>
+  <data name="AsyncGames_MostActiveGamesTitle" xml:space="preserve">
+    <value>Most Active Games</value>
+  </data>
+  <data name="AsyncGames_MostEliminationsTitle" xml:space="preserve">
+    <value>Most Eliminated Players</value>
+  </data>
+  <data name="AsyncGames_MostWinsTitle" xml:space="preserve">
+    <value>Most Total Wins</value>
+  </data>
+  <data name="AsyncGames_Wins" xml:space="preserve">
+    <value>Wins</value>
+  </data>
+  <data name="AsyncGames_WinsPercentage" xml:space="preserve">
+    <value>Win %</value>
+  </data>
+  <data name="AsyncStats_Players" xml:space="preserve">
+    <value>Players</value>
+  </data>
+  <data name="AsyncStats_ActivePlayers" xml:space="preserve">
+    <value>Active Players</value>
+  </data>
+  <data name="GameStats_Title" xml:space="preserve">
+    <value>Games</value>
+  </data>
+  <data name="AsyncStatisticsTypeMenuItem_Games" xml:space="preserve">
+    <value>Games</value>
+  </data>
+  <data name="AsyncStatisticsTypeMenuItem_Wins" xml:space="preserve">
+    <value>Wins</value>
+  </data>
+  <data name="AsyncStatisticsTypeMenuItem_Eliminations" xml:space="preserve">
+    <value>Eliminations</value>
+  </data>
+  <data name="AsyncGames_PlayersStatsTitle" xml:space="preserve">
+    <value>Players</value>
+  </data>
+  <data name="AsyncStats_Username" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="AsyncStats_MostGames" xml:space="preserve">
+    <value>Most games</value>
+  </data>
+  <data name="AsyncGames_MostWinPercentageTitle" xml:space="preserve">
+    <value>Win %</value>
+  </data>
+  <data name="AsyncGames_MostVpPercentageTitle" xml:space="preserve">
+    <value>VP %</value>
+  </data>
+  <data name="AsyncStats_VpPercentage" xml:space="preserve">
+    <value>VP %</value>
+  </data>
+  <data name="AsyncStats_VpPossibleTotal" xml:space="preserve">
+    <value>Possible VP</value>
+  </data>
+  <data name="AsyncStats_VpTotal" xml:space="preserve">
+    <value>Total VP</value>
+  </data>
+  <data name="AsyncGames_MostEliminationsPercentageTitle" xml:space="preserve">
+    <value>Players With Highest Eliminations %</value>
+  </data>
+  <data name="AsyncStats_EliminationsPercentage" xml:space="preserve">
+    <value>Eliminations %</value>
+  </data>
+  <data name="AsyncGames_MostWinsDeviationTitle" xml:space="preserve">
+    <value>Highest Win Deviation %</value>
+  </data>
+  <data name="AsyncStats_WinDeviation" xml:space="preserve">
+    <value>Win Deviation %</value>
+  </data>
+  <data name="AsyncGames_MostTurnsTitle" xml:space="preserve">
+    <value>Most Turns</value>
+  </data>
+  <data name="AsyncGames_FastestPlayersTitle" xml:space="preserve">
+    <value>Fastest Players</value>
+  </data>
+  <data name="AsyncStats_AverageTurnTime" xml:space="preserve">
+    <value>Average Turn Time</value>
+  </data>
+  <data name="AsyncStats_Turns" xml:space="preserve">
+    <value>Turns</value>
+  </data>
+  <data name="AsyncStats_Hits" xml:space="preserve">
+    <value>Hits</value>
+  </data>
+  <data name="AsyncGames_MostHitsTitle" xml:space="preserve">
+    <value>Total Hits</value>
+  </data>
+  <data name="AsyncGames_MostAverageHits" xml:space="preserve">
+    <value>Average Hits</value>
+  </data>
+  <data name="AsyncGames_MaxAverageHitsPerGameTitle" xml:space="preserve">
+    <value>Average Hits</value>
+  </data>
+  <data name="AsyncStats_AverageHits" xml:space="preserve">
+    <value>Average Hits</value>
+  </data>
+  <data name="AsyncGames_MaxHitsPerGameTitle" xml:space="preserve">
+    <value>Max Hits per Game</value>
+  </data>
+  <data name="AsyncStats_MaxHits" xml:space="preserve">
+    <value>Max Hits</value>
+  </data>
+  <data name="AsyncGames_HighestHitsDeviationTitle" xml:space="preserve">
+    <value>Highest Hits Deviation%</value>
+  </data>
+  <data name="AsyncStats_HitsDeviation" xml:space="preserve">
+    <value>Hits Deviation %</value>
+  </data>
+  <data name="AsyncGames_LowestHitsDeviationTitle" xml:space="preserve">
+    <value>Lowest Hits Deviation %</value>
+  </data>
+  <data name="AsyncGames_MinGamesCount" xml:space="preserve">
+    <value>(min. 20 games)</value>
+  </data>
+  <data name="AsyncGames_MinTurns" xml:space="preserve">
+    <value>(min. 500 turns)</value>
+  </data>
+  <data name="AsyncStatisticsTypeMenuItem_Durations" xml:space="preserve">
+    <value>Durations</value>
+  </data>
+  <data name="AsyncGames_FastestGamesTitle" xml:space="preserve">
+    <value>Fastest Games</value>
+  </data>
+  <data name="AsyncGames_MinSixPlayers" xml:space="preserve">
+    <value>(min. 6 players)</value>
+  </data>
+  <data name="AsyncStats_Game" xml:space="preserve">
+    <value>Game</value>
+  </data>
+  <data name="AsyncStats_FunGameName" xml:space="preserve">
+    <value>Fun Game Name</value>
+  </data>
+  <data name="AsyncStats_Vp" xml:space="preserve">
+    <value>VP</value>
+  </data>
+  <data name="AsyncStats_Duration" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="AsyncGames_FastestGames" xml:space="preserve">
+    <value>Fastest Games</value>
+  </data>
+  <data name="AsyncGames_LongestGamesTitle" xml:space="preserve">
+    <value>Longest Games</value>
+  </data>
+  <data name="AsyncGames_GameStatsVpDistribution" xml:space="preserve">
+    <value>Games By VP Distribution</value>
+  </data>
+  <data name="AsyncGames_PlayerCountDistribution" xml:space="preserve">
+    <value>Games By Player Count Distribution</value>
+  </data>
+  <data name="AsyncGames_AverageEndTurnDistribution" xml:space="preserve">
+    <value>Average End Round</value>
+  </data>
+  <data name="AsyncStats_QueryLimit" xml:space="preserve">
+    <value>Limit</value>
+  </data>
+  <data name="QueryLimit_Twenty" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="QueryLimit_Fifty" xml:space="preserve">
+    <value>50</value>
+  </data>
+  <data name="QueryLimit_Hundred" xml:space="preserve">
+    <value>100</value>
+  </data>
+  <data name="QueryLimit_TwoHundred" xml:space="preserve">
+    <value>200</value>
+  </data>
+  <data name="QueryLimit_None" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="AsyncStats_AverageRounds" xml:space="preserve">
+    <value>Avg Round</value>
+  </data>
+  <data name="AsyncStats_Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="AsyncPlayersList_NoPlayerMatch" xml:space="preserve">
+    <value>No player matches this filter.</value>
+  </data>
+  <data name="AsyncGames_MostVpTitle" xml:space="preserve">
+    <value>Players With Most VP</value>
+  </data>
+  <data name="AsyncGames_MostUniqueOpponentsTitle" xml:space="preserve">
+    <value>Most Unique Opponents</value>
+  </data>
+  <data name="AsyncStats_UniqueOpponents" xml:space="preserve">
+    <value>Opponents</value>
+  </data>
+  <data name="AsyncStatisticsTypeMenuItem_Opponents" xml:space="preserve">
+    <value>Opponents</value>
+  </data>
+  <data name="AsyncGames_GamesHistoryTitle" xml:space="preserve">
+    <value>Games Count History</value>
+  </data>
+  <data name="AsyncStats_Year" xml:space="preserve">
+    <value>Year</value>
+  </data>
+  <data name="AsyncStats_Month" xml:space="preserve">
+    <value>Month</value>
+  </data>
+  <data name="AsyncGames_PlayersHistoryTitle" xml:space="preserve">
+    <value>Player Count History</value>
+  </data>
+  <data name="AsyncGames_NewPlayersHistoryTitle" xml:space="preserve">
+    <value>New Players Growth Per Month</value>
+  </data>
+  <data name="AsyncGames_NewGamesPerMonthHistoryTitle" xml:space="preserve">
+    <value>New Games Per Month</value>
+  </data>
+  <data name="AsyncGameStatusFilter_Forfeited" xml:space="preserve">
+    <value>Forfeited</value>
+  </data>
+  <data name="AsyncStats_Inactive" xml:space="preserve">
+    <value>Inactive</value>
+  </data>
+  <data name="AsyncStats_InactiveMoreThanThreeMonths" xml:space="preserve">
+    <value>&gt; 3m Inactive</value>
+  </data>
+  <data name="AsyncStats_InactiveLessThanThreeMonths" xml:space="preserve">
+    <value>&lt; 3m Inactive</value>
+  </data>
+  <data name="AsyncStats_Cancelled" xml:space="preserve">
+    <value>Cancelled</value>
+  </data>
+  <data name="AsyncStats_TimerCategory" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="AsyncGames_PlayersByAverageTimerDistributionTitle" xml:space="preserve">
+    <value>Players By Average Timer Distribution</value>
+  </data>
 </root>

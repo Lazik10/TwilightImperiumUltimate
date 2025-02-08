@@ -175,6 +175,311 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Async.AsyncPlayerProfile", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<long>("DiscordUserId")
+                        .HasColumnType("bigint")
+                        .HasColumnName("DiscordUserId")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("DiscordUserName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("DiscordUserName")
+                        .HasColumnOrder(2);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DiscordUserId")
+                        .IsUnique();
+
+                    SqlServerIndexBuilderExtensions.IsClustered(b.HasIndex("DiscordUserId"), false);
+
+                    b.ToTable("AsyncPlayerProfile", "Statistics");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Async.AsyncPlayerProfileSettings", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AsyncPlayerProfileId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ExcludeFromAsyncStats")
+                        .IsRequired()
+                        .HasColumnType("varchar(5)")
+                        .HasColumnName("ExcludeFromAsyncStats")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("ShowCombatStats")
+                        .IsRequired()
+                        .HasColumnType("varchar(5)")
+                        .HasColumnName("ShowCombatStats")
+                        .HasColumnOrder(4);
+
+                    b.Property<string>("ShowFactionStats")
+                        .IsRequired()
+                        .HasColumnType("varchar(5)")
+                        .HasColumnName("ShowFactionStats")
+                        .HasColumnOrder(6);
+
+                    b.Property<string>("ShowGames")
+                        .IsRequired()
+                        .HasColumnType("varchar(5)")
+                        .HasColumnName("ShowGames")
+                        .HasColumnOrder(8);
+
+                    b.Property<string>("ShowOpponents")
+                        .IsRequired()
+                        .HasColumnType("varchar(5)")
+                        .HasColumnName("ShowOpponents")
+                        .HasColumnOrder(7);
+
+                    b.Property<string>("ShowTurnStats")
+                        .IsRequired()
+                        .HasColumnType("varchar(5)")
+                        .HasColumnName("ShowTurnStats")
+                        .HasColumnOrder(3);
+
+                    b.Property<string>("ShowVpStats")
+                        .IsRequired()
+                        .HasColumnType("varchar(5)")
+                        .HasColumnName("ShowVpStats")
+                        .HasColumnOrder(5);
+
+                    b.Property<string>("ShowWinRate")
+                        .IsRequired()
+                        .HasColumnType("varchar(5)")
+                        .HasColumnName("ShowWinRate")
+                        .HasColumnOrder(2);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AsyncPlayerProfileId")
+                        .IsUnique();
+
+                    b.ToTable("AsyncPlayerProfileSettings", "Statistics");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Async.GameStats", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AbsolMode")
+                        .IsRequired()
+                        .HasColumnType("varchar(5)")
+                        .HasColumnName("AbsolMode")
+                        .HasColumnOrder(13);
+
+                    b.Property<string>("AsyncFunGameName")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("varchar(200)")
+                        .HasColumnName("AsyncFunGameName")
+                        .HasColumnOrder(2);
+
+                    b.Property<string>("AsyncGameID")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("AsyncGameID")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("DiscordantStarsMode")
+                        .IsRequired()
+                        .HasColumnType("varchar(5)")
+                        .HasColumnName("DiscordantStarsMode")
+                        .HasColumnOrder(14);
+
+                    b.Property<long?>("EndedTimestamp")
+                        .HasColumnType("bigint")
+                        .HasColumnName("EndedTimestamp")
+                        .HasColumnOrder(6);
+
+                    b.Property<string>("FrankenGame")
+                        .IsRequired()
+                        .HasColumnType("varchar(5)")
+                        .HasColumnName("FrankenGame")
+                        .HasColumnOrder(15);
+
+                    b.Property<string>("HasWinner")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(5)")
+                        .HasColumnName("HasWinner")
+                        .HasColumnOrder(7);
+
+                    b.Property<string>("Homebrew")
+                        .IsRequired()
+                        .HasColumnType("varchar(5)")
+                        .HasColumnName("Homebrew")
+                        .HasColumnOrder(16);
+
+                    b.Property<string>("IsPoK")
+                        .IsRequired()
+                        .HasColumnType("varchar(5)")
+                        .HasColumnName("IsPoK")
+                        .HasColumnOrder(17);
+
+                    b.Property<bool>("IsTigl")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("MapString")
+                        .IsRequired()
+                        .HasColumnType("varchar(MAX)")
+                        .HasColumnName("MapString")
+                        .HasColumnOrder(12);
+
+                    b.Property<int>("NumberOfPlayers")
+                        .HasColumnType("integer")
+                        .HasColumnName("NumberOfPlayers")
+                        .HasColumnOrder(8);
+
+                    b.Property<string>("Platform")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("Platform")
+                        .HasColumnOrder(3);
+
+                    b.Property<int>("Round")
+                        .HasColumnType("integer")
+                        .HasColumnName("Round")
+                        .HasColumnOrder(9);
+
+                    b.Property<int>("Scoreboard")
+                        .HasColumnType("integer")
+                        .HasColumnName("Scoreboard")
+                        .HasColumnOrder(11);
+
+                    b.Property<long>("SetupTimestamp")
+                        .HasColumnType("bigint")
+                        .HasColumnName("SetupTimestamp")
+                        .HasColumnOrder(5);
+
+                    b.Property<long>("Timestamp")
+                        .HasColumnType("bigint")
+                        .HasColumnName("Timestamp")
+                        .HasColumnOrder(4);
+
+                    b.Property<string>("Turn")
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("Turn")
+                        .HasColumnOrder(10);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AsyncFunGameName");
+
+                    b.HasIndex("AsyncGameID");
+
+                    SqlServerIndexBuilderExtensions.IsClustered(b.HasIndex("AsyncGameID"), false);
+
+                    b.ToTable("AsyncGameStats", "Statistics");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Async.PlayerStats", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<float>("ActualHits")
+                        .HasColumnType("real")
+                        .HasColumnName("ActualHits")
+                        .HasColumnOrder(8);
+
+                    b.Property<string>("Color")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("Color")
+                        .HasColumnOrder(4);
+
+                    b.Property<string>("DiscordUserID")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("DiscordUserID")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("DiscordUserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Eliminated")
+                        .HasColumnType("bit");
+
+                    b.Property<float>("ExpectedHits")
+                        .HasColumnType("real")
+                        .HasColumnName("ExpectedHits")
+                        .HasColumnOrder(7);
+
+                    b.Property<string>("FactionName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("FactionName")
+                        .HasColumnOrder(2);
+
+                    b.Property<int>("GameStatsId")
+                        .HasColumnType("integer")
+                        .HasColumnName("GameStatsId")
+                        .HasColumnOrder(10);
+
+                    b.Property<int>("Score")
+                        .HasColumnType("integer")
+                        .HasColumnName("Score")
+                        .HasColumnOrder(3);
+
+                    b.Property<int>("TotalNumberOfTurns")
+                        .HasColumnType("integer")
+                        .HasColumnName("TotalNumberOfTurns")
+                        .HasColumnOrder(5);
+
+                    b.Property<long>("TotalTurnTime")
+                        .HasColumnType("bigint")
+                        .HasColumnName("TotalTurnTime")
+                        .HasColumnOrder(6);
+
+                    b.Property<string>("Winner")
+                        .IsRequired()
+                        .HasColumnType("varchar(5)")
+                        .HasColumnName("Winner")
+                        .HasColumnOrder(9);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DiscordUserID");
+
+                    SqlServerIndexBuilderExtensions.IsClustered(b.HasIndex("DiscordUserID"), false);
+
+                    b.HasIndex("GameStatsId");
+
+                    b.ToTable("AsyncPlayerStats", "Statistics");
+                });
+
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Cards.ActionCard", b =>
                 {
                     b.Property<int>("Id")
@@ -16736,6 +17041,29 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.ToTable("Players", "Player");
                 });
 
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.RelationshipEntities.AsyncPlayerProfileGameStats", b =>
+                {
+                    b.Property<int>("AsyncPlayerProfileId")
+                        .HasColumnType("integer")
+                        .HasColumnName("AsyncPlayerProfileId")
+                        .HasColumnOrder(1);
+
+                    b.Property<int>("GameStatsId")
+                        .HasColumnType("integer")
+                        .HasColumnName("GameStatsId")
+                        .HasColumnOrder(2);
+
+                    b.Property<int>("Id")
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    b.HasKey("AsyncPlayerProfileId", "GameStatsId");
+
+                    b.HasIndex("GameStatsId");
+
+                    b.ToTable("AsyncPlayerProfileGameStats", "Relationships");
+                });
+
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.RelationshipEntities.FactionTechnology", b =>
                 {
                     b.Property<string>("FactionName")
@@ -22790,6 +23118,28 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Async.AsyncPlayerProfileSettings", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Async.AsyncPlayerProfile", "AsyncPlayerProfile")
+                        .WithOne("ProfileSettings")
+                        .HasForeignKey("TwilightImperiumUltimate.Core.Entities.Async.AsyncPlayerProfileSettings", "AsyncPlayerProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AsyncPlayerProfile");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Async.PlayerStats", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Async.GameStats", "GameStatistics")
+                        .WithMany("PlayerStatistics")
+                        .HasForeignKey("GameStatsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("GameStatistics");
+                });
+
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Galaxy.Map", b =>
                 {
                     b.HasOne("TwilightImperiumUltimate.Core.Entities.Users.TwilightImperiumUser", "User")
@@ -22843,6 +23193,25 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.RelationshipEntities.AsyncPlayerProfileGameStats", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Async.AsyncPlayerProfile", "AsyncPlayerProfile")
+                        .WithMany("GameStatistics")
+                        .HasForeignKey("AsyncPlayerProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Async.GameStats", "GameStats")
+                        .WithMany("GameStatistics")
+                        .HasForeignKey("GameStatsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AsyncPlayerProfile");
+
+                    b.Navigation("GameStats");
                 });
 
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.RelationshipEntities.FactionTechnology", b =>
@@ -22919,6 +23288,20 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.Navigation("SliceDraft");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Async.AsyncPlayerProfile", b =>
+                {
+                    b.Navigation("GameStatistics");
+
+                    b.Navigation("ProfileSettings");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Async.GameStats", b =>
+                {
+                    b.Navigation("GameStatistics");
+
+                    b.Navigation("PlayerStatistics");
                 });
 
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Factions.Faction", b =>

@@ -1,0 +1,76 @@
+﻿
+<FlexRowContainer>
+
+    <FlexColumnCenteredContainer Width="100">
+
+        @if (AsyncPlayerProfile is not null)
+        {
+            <Label Text="@Strings.AsyncPlayer_GamesStatsTitle" FontSize="24" CenterText="true" />
+
+            <VerticalSpace Height="20" />
+
+            <GridLayout CssClass="background" Style="grid-template-columns: 5% 5% 11% 10% 22% 6% 2% 19% 15% 5%">
+
+                <VerticalSpace Height="20" Style="grid-column: 10" />
+
+                <Label />
+                <Label Text="@Strings.AsyncPlayer_GamesStatsYear" />
+                <Label Text="@Strings.AsyncPlayer_GamesStatsMonth" CenterText="true" />
+                <Label Text="@Strings.AsyncPlayer_GamesStatsGame" Style="grid-column: span 2;" />
+                <Label Text="@Strings.AsyncPlayer_GamesStatsVp" />
+                <Label Text="" />
+                <Label Text="@Strings.AsyncPlayer_GamesStatsFaction" />
+                <Label Text="@Strings.AsyncPlayer_GamesStatsDuration" />
+                <Label />
+
+                <VerticalSpace Height="20" Style="grid-column: 10" />
+
+                @if (AsyncPlayerProfile.Settings.ShowGames)
+                {
+                    @foreach(var year in GroupedGames)
+                    {
+                        <Label />
+                        <Label Text="@year.Year.ToString("yyyy")" Style="grid-column: span 9;" FontSize="12" />
+
+                        @foreach(var month in year.Months)
+                        {
+                            <Label />
+                            <Label />
+                            <Label Text="@month.Month.ToString("MMMM")" CenterText="true" FontSize="12"/>
+                            <Label Text="" Style="grid-column: span 7;" />
+
+                            @foreach(var game in month.Games.OrderByDescending(x => x.StartDate))
+                            {
+                                <Label Style="grid-column: span 3;" />
+                                <TextButton Text="@game.AsyncGameID" TextAlign="left" CssClass="text-no-overflow" Style="@(GetAsyncGameIdTextColor(game))" FontSize="14" OnClick="@(async () => await RedirectToGameDetails(game.AsyncGameID))" />
+                                <TextButton Text="@game.GameFunName" TextAlign="left" CssClass="text-no-overflow" Style="@(GetAsyncGameIdTextColor(game))" FontSize="14" OnClick="@(async () => await RedirectToGameDetails(game.AsyncGameID))" />
+                                <Label Text="@(ShowWins() ? $"{game.PlayerScore} / {game.Scoreboard}" : $"? / {game.Scoreboard}")" FontSize="12" />
+                                <Label Text="@(game.IsWinner && ShowWins() ? "W" : "")" FontSize="12" TextColor="TextColor.Yellow" />
+                                <Label Text="@(game.Faction.GetFactionUIText(FactionResourceType.Title))" FontSize="12" />
+                                <Label Text="@GetDurationTime(game)" FontSize="12" />
+                                <Label />
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    <VerticalSpace Height="100" Style="grid-column: span 10;" />
+                    <Label Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" Style="grid-column: span 10;" />
+                    <VerticalSpace Height="100" Style="grid-column: span 10;" />
+                }
+
+                <VerticalSpace Height="20" Style="grid-column: span 10;" />
+
+            </GridLayout>
+        }
+        else
+        {
+            <VerticalSpace Height="100" />
+        }
+
+    </FlexColumnCenteredContainer>
+
+    <FlexColumnCenteredContainer Width="20" />
+
+</FlexRowContainer>

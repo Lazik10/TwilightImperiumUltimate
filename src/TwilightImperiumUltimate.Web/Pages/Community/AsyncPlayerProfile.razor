@@ -1,0 +1,15 @@
+﻿@page "/community/async/player-profile"
+@using TwilightImperiumUltimate.Web.Components.Async
+@using TwilightImperiumUltimate.Web.Components.Async.Players
+
+<Page>
+    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" >
+        <TextButton Text="@Strings.ButtonBack" OnClick="RedirectBack" FontSize="24" Width="20" TextAlign="@(string.Empty)" />
+    </FlexRowContainer>
+
+    <VerticalSpace Height="20" />
+
+    <CascadingValue Value="PlayerProfile" Name="AsyncPlayerProfile">
+        <AsyncPlayerProfileGrid />
+    </CascadingValue>
+</Page>

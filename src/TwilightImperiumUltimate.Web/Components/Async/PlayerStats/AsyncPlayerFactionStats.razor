@@ -1,0 +1,150 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Factions
+@using TwilightImperiumUltimate.Web.Components.Shared.Bars
+@using TwilightImperiumUltimate.Web.Helpers.Numbers
+
+<FlexRowContainer>
+
+    <FlexColumnCenteredContainer Width="100">
+
+        @if (AsyncPlayerProfile is not null && FactionsForDisplay is not null && FactionsForDisplay.Count > 0)
+        {
+            <Label Text="Faction stats" FontSize="24" CenterText="true" />
+
+            <VerticalSpace Height="20" />
+
+            <FlexColumnCenteredContainer>
+                <EnumPicker TEnum="FactionStatisticsFilter" 
+                    CurrentValue="@_selectedFactionStatisticsFilter"
+                    CurrentValueChanged="OnFactionStatisticsFilterChanged"
+                    Label="@Strings.FactionStats_Factions"
+                    Width="60"
+                    CenterText="false"
+                    ButtonWidth="10" />
+            </FlexColumnCenteredContainer>
+
+            <FlexColumnCenteredContainer>
+                <EnumPicker TEnum="FactionStatisticsVpFilter"
+                            CurrentValue="@_selectedFactionVpStatisticsFilter"
+                            CurrentValueChanged="OnFactionStatisticsVpFilterChanged"
+                            Label="@Strings.FactionStats_VpCount"
+                            Width="60"
+                            ButtonWidth="10"
+                            CenterText="false" />
+            </FlexColumnCenteredContainer>
+
+            <FlexColumnCenteredContainer>
+                <EnumPicker TEnum="FactionStatisticsSubstatsFilter"
+                            CurrentValue="@_selectedFactionStatisticsSubstatsFilter"
+                            CurrentValueChanged="OnFactionStatisticsSubstatsFilterChanged"
+                            Label="@Strings.FactionStats_Statistics"
+                            Width="60"
+                            CenterText="false"
+                            ButtonWidth="10" />
+            </FlexColumnCenteredContainer>
+
+            <StretchHeightContainer CssClass="background">
+
+                <GridLayout Style="grid-template-columns: 5% 28% 9% 6% 9% 6% 6% 6% 6% 9% 5%;">
+
+                    <VerticalSpace Height="20" Style="grid-column: span 11;" />
+
+                    @if (AsyncPlayerProfile.Settings.ShowFactionStats)
+                    {
+                        <Label />
+                        <Label Text="@Strings.FactionStats_Faction" CenterText="true" />
+
+                        @if (_selectedFactionStatisticsSubstatsFilter == FactionStatisticsSubstatsFilter.All)
+                        {
+                            <Label Text="@Strings.FactionStats_Games" CenterText="true" Vertical="true" />
+                            <Label Text="@Strings.FactionStats_Wins" CenterText="true" Vertical="true" />
+                            <Label Text="@Strings.FactionStats_WinPercentage" CenterText="true" Vertical="true" />
+                            <Label Text="@Strings.FactionStats_Eliminations" CenterText="true" Vertical="true" />
+                            <Label Text="@Strings.FactionStats_MinVp" CenterText="true" Vertical="true" />
+                            <Label Text="@Strings.FactionStats_AverageVp" CenterText="true" Vertical="true" />
+                            <Label Text="@Strings.FactionStats_MaxVp" CenterText="true" Vertical="true" />
+                            <Label Text="@Strings.FactionStats_AverageVpPercentage" CenterText="true" Vertical="true" />
+                            <Label />
+                        }
+                        else
+                        {
+                            @* Dummy label to match heigh of the elimination column title, not visible *@
+                            <Label Text="@Strings.FactionStats_Eliminations" CenterText="true" Vertical="true" Visible="false"/>
+                            <Label Text="@GetCorrectLabelText()" CenterText="true" TextColor="@GetCorrectLabelColor()" Style="grid-column: span 7;" />
+                            <Label />
+                        }
+                    }
+                    else
+                    {
+                        <Label Text="@Strings.FactionStats_Eliminations" Vertical="true" Visible="false" CenterText="true" CssClass="background" Style="height: 100%; grid-column: span 1;" />
+                        <Label Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" Style="grid-column: span 10;" />
+                    }
+
+                    @foreach (var faction in GetSortedFactionsForDisplayByStatistics())
+                    {
+                        var factionStats = GetCorrectFactionStatsByVp(faction);
+                        var background = _row % 2 == 0 ? "background" : string.Empty;
+
+                        <Label CssClass="@(background)" />
+                        <FlexRowContainer>
+                            <AsyncFactionIconImg FactionName="@faction.FactionName" Height="20" />
+                            <Label Text="@faction.FactionName.GetFactionUIText(FactionResourceType.Title)" PaddingLeft="10" CssClass="@(background)" />
+                        </FlexRowContainer>
+
+                        if (factionStats.Games > 0 && AsyncPlayerProfile.Settings.ShowFactionStats)
+                        {
+                            if (_selectedFactionStatisticsSubstatsFilter == FactionStatisticsSubstatsFilter.All)
+                            {
+                                <Label Text="@factionStats.Games.ToString()" CenterText="true" TextColor="TextColor.Yellow" CssClass="@(background)" />
+                                <Label Text="@(IsWinrateEnabled() ? factionStats.Wins.ToString() : Strings.AsyncPlayer_HiddenStat)" CenterText="true" TextColor="@(GetWinColor(factionStats.Wins))" CssClass="@(background)" />
+                                <Label Text="@(IsWinrateEnabled() ? factionStats.WinRate.ToStringWithPrecisionAndPercentage(2) : Strings.AsyncPlayer_HiddenStat)" CenterText="true" TextColor="@(IsWinrateEnabled() ? factionStats.WinRate.GetWinrateColor() : TextColor.Red)" CssClass="@(background)" />
+                                <Label Text="@factionStats.Eliminations.ToString()" CenterText="true" TextColor="TextColor.Red" CssClass="@(background)" />
+                                <Label Text="@factionStats.MinVp.ToString()" CenterText="true" TextColor="TextColor.Red" CssClass="@(background)" />
+                                <Label Text="@factionStats.AverageVp.ToStringWithPrecision(1)" CenterText="true" TextColor="@factionStats.AverageVp.GetAverageVpColor()" CssClass="@(background)" />
+                                <Label Text="@factionStats.MaxVp.ToString()" CenterText="true" TextColor="TextColor.Green" CssClass="@(background)" />
+                                <Label Text="@factionStats.AverageVpPercentage.ToStringWithPrecisionAndPercentage(1)" CenterText="true" TextColor="@(factionStats.AverageVpPercentage.GetAverageVpPercentageColor())" CssClass="@(background)" />
+                                <Label CssClass="@(background)" Style="height: 100%;" />
+                            }
+                            else
+                            {
+                                var factionMinMaxStats = GetMinMaxStatsForFaction(factionStats);
+                                var value = ShowSubstatsWinrateValue() ? factionMinMaxStats.Value : 0;
+
+                                <Label Text="@(ShowSubstatsWinrateValue() ? ToFormatedString(factionMinMaxStats.Value) : Strings.AsyncPlayer_HiddenStat)" CssClass="@(background)" CenterText="true" Style="height: 100%;" TextColor="@(GetSubstatsCorrectColor(factionMinMaxStats.Value))" />
+                                <div style="grid-column: span 7; width:100%;">
+                                    <AsyncPlayerProgressBar TextColor="@GetCorrectProgressBarColor(factionMinMaxStats.Value)" 
+                                        MinValue="factionMinMaxStats.Min"
+                                        Value="value"
+                                        MaxValue="factionMinMaxStats.Max"
+                                        CssClass="@(background)" />
+                                </div>
+                                <Label CssClass="@(background)" />
+                            }
+                        }
+                        else
+                        {
+                            <Label CenterText="true" CssClass="@(background)" Style="height: 100%; grid-column: span 9;" />
+                        }
+
+                        if (_row == FactionsForDisplay.Count - 1)
+                        {
+                            _row = 0;
+                        }
+                        else
+                        {
+                            _row++;
+                        }
+                    }
+
+                    <VerticalSpace Height="20" Style="grid-column: span 11;" />
+
+                </GridLayout>
+
+            </StretchHeightContainer>
+
+            <VerticalSpace Height="20" />
+        }
+
+    </FlexColumnCenteredContainer>
+    <FlexColumnCenteredContainer Width="20" />
+
+</FlexRowContainer>

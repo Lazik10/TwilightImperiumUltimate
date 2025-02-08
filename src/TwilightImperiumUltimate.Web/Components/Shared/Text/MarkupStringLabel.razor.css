@@ -1,0 +1,59 @@
+﻿.label {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    display: block;
+    text-align: left;
+    line-height: 1.5;
+    margin-bottom: 0.0rem;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: lawngreen;
+}
+
+.white {
+    color: white;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.blue {
+    color: blue;
+}
+
+.orange {
+    color: orange;
+}
+
+.purple {
+    color: rebeccapurple;
+}
+
+.pink {
+    color: magenta;
+}
+
+.darkgreen {
+    color: green;
+}
+
+.grey {
+    color: grey;
+}
+
+.transparent {
+    color: transparent;
+}
+
+.underline {
+    text-decoration: underline;
+}

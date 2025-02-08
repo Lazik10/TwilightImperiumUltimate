@@ -66,6 +66,14 @@ public static class Pages
 
     public const string GalaxyMap = "/community/galaxy-map";
 
+    public const string Async = "/community/async";
+
+    public const string AsyncProfile = "/community/async/player-profile";
+
+    public const string AsyncGame = "/community/async/game";
+
+    public const string Tigl = "/community/tigl";
+
     // Rules
     public const string Rules = "/rules";
 

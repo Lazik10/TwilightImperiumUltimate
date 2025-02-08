@@ -53,6 +53,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IMapArchiveRepository, MapArchiveRepository>();
         services.AddScoped<ISlicesArchiveRepository, SlicesArchiveRepository>();
         services.AddScoped<IGameStatisticsRepository, GameStatisticsRepository>();
+        services.AddTransient<IAsyncStatsRepository, AsyncStatsRepository>();
 
         return services;
     }

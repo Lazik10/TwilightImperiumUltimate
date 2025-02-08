@@ -2,10 +2,10 @@ namespace TwilightImperiumUltimate.Web.Services.HttpClients;
 
 public interface ITwilightImperiumApiHttpClient
 {
-    Task<(TResponse? Response, HttpStatusCode StatusCode)> GetAsync<TResponse>(string endpointPath, CancellationToken cancellationToken = default)
+    Task<(TResponse? Response, HttpStatusCode StatusCode)> GetAsync<TResponse>(string endpointPath, string query = "", CancellationToken cancellationToken = default)
         where TResponse : class;
 
-    Task<bool> GetAsync(string query, string endpointPath, CancellationToken cancellationToken);
+    Task<bool> GetAsync(string query, string endpointPath, CancellationToken cancellationToken = default);
 
     Task<(TResponse Response, HttpStatusCode StatusCode)> PostAsync<TRequest, TResponse>(string endpointPath, TRequest request, CancellationToken cancellationToken = default)
         where TRequest : class

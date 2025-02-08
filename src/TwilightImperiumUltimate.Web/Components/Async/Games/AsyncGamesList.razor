@@ -1,0 +1,70 @@
+﻿<FlexColumnContainer AlignItems="Enums.AlignItems.FlexStart" >
+
+    <VerticalSpace Height="15" />
+
+    <GridLayout Style="grid-template-columns: 20% 80%" >
+
+        <FlexColumnContainer CssClass="background" Style="height: 100%">
+
+            <VerticalSpace Height="15" />
+            <Label Text="Date" CenterText="true" TextColor="TextColor.Yellow" />
+            <VerticalSpace Height="5" />
+
+        </FlexColumnContainer>
+
+        <GridLayout Gap="5" CssClass="background" Style="grid-template-columns: 20% 40% 7% 10% 17%; min-height: 100%;" Width="100">
+
+            <VerticalSpace Height="15" Style="grid-column: span 5;" />
+
+            <Label Text="@Strings.AsyncPlayer_GamesStatsGame" FontSize="18" TextColor="TextColor.Yellow" />
+            <Label Text="@Strings.AsyncPlayer_GamesStatsFunGame" FontSize="18" TextColor="TextColor.Yellow" />
+            <Label Text="@Strings.AsyncPlayer_GamesStatsVp" FontSize="18" CenterText="true" TextColor="TextColor.Yellow" />
+            <Label Text="@Strings.AsyncPlayer_GamesStatsPlayerCount" FontSize="18" CenterText="true" TextColor="TextColor.Yellow" />
+            <Label Text="@Strings.AsyncPlayer_GamesStatsDuration" FontSize="18" TextColor="TextColor.Yellow" />
+
+            <VerticalSpace Height="5" Style="grid-column: span 5;" />
+
+        </GridLayout>
+
+    </GridLayout>
+
+    <GridLayout Style="grid-template-columns: 20% 80%" AlignItems="start" >
+
+        @if (GameDates != null && GameDates.GameDates.Count > 0)
+        {
+            <AsyncGamesYearMonthMenu OnYearMonthSelected="HandleYearMonthSelected"
+                                     SelectedMonth="@_month"
+                                     SelectedYear="@_year"
+                                     GameDates="GameDates" />
+
+            <GridLayout Gap="5" Style="grid-template-rows: auto; grid-template-columns: 20% 40% 7% 10% 17%; align-items: start; justify-items: start; height: auto; min-height: 0;" AlignItems="start" Width="100">
+
+                <VerticalSpace Height="10" Style="grid-column: span 5;" />
+
+                @if (_isLoaded)
+                {
+                    @foreach (var game in _games)
+                    {
+                        <TextButton Text="@game.AsyncGameID" TextAlign="left" Style="@(GetAsyncGameIdTextColor(game))" FontSize="14" OnClick="@(() => RedirectToGameDetails(game.AsyncGameID))" />
+                        <TextButton Text="@game.AsyncFunGameName" TextAlign="left" Style="@(GetAsyncGameIdTextColor(game))" FontSize="14" OnClick="@(() => RedirectToGameDetails(game.AsyncGameID))" />
+                        <Label Text="@game.Scoreboard.ToString()" FontSize="14" CenterText="true" />
+                        <Label Text="@game.PlayerCount.ToString()" FontSize="14" CenterText="true" />
+                        <Label Text="@GetDurationTime(game)" FontSize="14" />
+                    }
+
+                    <VerticalSpace Height="20" Style="grid-column: span 5;" />
+                }
+                else
+                {
+                    <VerticalSpace Height="100" Style="grid-column: span 5; max-height: 50px;" />
+                    <Label Text="@Strings.Loading" CenterText="true" FontSize="20" Style="grid-column: span 5; align-self:flex-start !important; justify-self:  flex-start !important;" />
+                    <VerticalSpace Height="100" Style="grid-column: span 5;" />
+                }
+
+            </GridLayout>
+
+        }
+
+    </GridLayout>
+
+</FlexColumnContainer>

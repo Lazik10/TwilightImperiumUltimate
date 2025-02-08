@@ -1,0 +1,165 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Bars
+@using TwilightImperiumUltimate.Web.Helpers.Numbers
+
+<FlexColumnContainer AlignItems="Enums.AlignItems.Center">
+
+    <VerticalSpace Height="20" />
+
+    @if (_isDataLoaded && WinsStats.AsyncWinsPercentagePlayers.Count > 0)
+    {
+        <Label Text="@Strings.AsyncGames_MostWinsDeviationTitle" FontSize="24" CenterText="true" />
+        <HelpText Text="@Strings.AsyncGames_MinGamesCount" CssClass="handel white shadow" />
+
+        <VerticalSpace Height="20" />
+
+        <GridLayout CssClass="background" Style="grid-template-columns: 5% 30% 7% 13% 40% 5%">
+
+            <VerticalSpace Height="20" CssClass="span-6" />
+
+            <Label />
+            <Label Text="@Strings.AsyncStats_Username" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_Games" PaddingLeft="20" />
+            <Label Text="@Strings.AsyncStats_WinDeviation" CenterText="true" />
+            <Label CssClass="span-2" />
+
+            <VerticalSpace Height="20" CssClass="span-6" />
+
+            @foreach (var user in WinsStats.AsyncWinsDeviationPlayers)
+            {
+                var background = _row % 2 == 0 ? "background" : string.Empty;
+                var min = WinsStats.AsyncWinsDeviationPlayers.Min(x => x.WinDeviation);
+                var max = WinsStats.AsyncWinsDeviationPlayers.Max(x => x.WinDeviation);
+
+                <Label />
+                if (user.Id == 0)
+                {
+                    <Label Text="@user.UserName" TextColor="TextColor.Red" CssClass="@(background)" />
+                }
+                else
+                {
+                    <TextButton Text="@user.UserName" FontSize="16" TextAlign="left" CssClass="@(background)" OnClick="@(() => RedirectToPlayerProfile(user.Id))" />
+                }
+                <Label Text="@user.Games.ToString()" PaddingLeft="20" CenterText="true" TextColor="TextColor.Yellow" CssClass="@(background)" />
+                <Label Text="@(((float)user.WinDeviation).ToStringWithPrecisionAndPercentage(2))" CenterText="true" TextColor="TextColor.Green" CssClass="@(background)" />
+                <AsyncPlayerProgressBar MinValue="(float)min" Value="(float)user.WinDeviation" MaxValue="(float)max" TextColor="TextColor.Green" CssClass="@(background)" />
+                <Label />
+
+                _row++;
+            }
+
+            @{
+                _row = 0;
+            }
+
+            <VerticalSpace Height="20" CssClass="span-6" />
+
+        </GridLayout>
+
+        <VerticalSpace Height="20" />
+
+        <Label Text="@Strings.AsyncGames_MostWinPercentageTitle" FontSize="24" CenterText="true" />
+        <HelpText Text="@Strings.AsyncGames_MinGamesCount" CssClass="handel white shadow" />
+
+        <VerticalSpace Height="20" />
+
+        <GridLayout CssClass="background" Style="grid-template-columns: 5% 30% 10% 10% 40% 5%">
+
+            <VerticalSpace Height="20" CssClass="span-6" />
+
+            <Label />
+            <Label Text="@Strings.AsyncStats_Username" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_Games" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_Winrate" CenterText="true" />
+            <Label />
+
+            <VerticalSpace Height="20" CssClass="span-6" />
+
+            @foreach (var user in WinsStats.AsyncWinsPercentagePlayers)
+            {
+                var background = _row % 2 == 0 ? "background" : string.Empty;
+                var max = WinsStats.AsyncWinsPercentagePlayers.Max(x => x.WinPercentage);
+
+                <Label />
+                if (user.Id == 0)
+                {
+                    <Label Text="@user.UserName" TextColor="TextColor.Red" CssClass="@(background)" />
+                }
+                else
+                {
+                    <TextButton Text="@user.UserName" FontSize="16" TextAlign="left" CssClass="@(background)" OnClick="@(() => RedirectToPlayerProfile(user.Id))" />
+                }
+                <Label Text="@user.Games.ToString()" CenterText="true" TextColor="TextColor.Yellow" CssClass="@(background)" />
+                <Label Text="@user.WinPercentage.ToStringWithPrecisionAndPercentage(2)" CenterText="true" TextColor="TextColor.Green" CssClass="@(background)" />
+                <AsyncPlayerProgressBar MinValue="@(16.0f)" Value="user.WinPercentage" MaxValue="max" TextColor="TextColor.Green" CssClass="@(background)" />
+                <Label />
+
+                _row++;
+            }
+
+            @{
+                _row = 0;
+            }
+
+            <VerticalSpace Height="20" CssClass="span-6" />
+
+        </GridLayout>
+
+        <VerticalSpace Height="20" />
+
+        <Label Text="@Strings.AsyncGames_MostWinsTitle" FontSize="24" CenterText="true" />
+        <HelpText Text="@Strings.AsyncGames_MinGamesCount" CssClass="handel white shadow" />
+
+        <VerticalSpace Height="20" />
+
+        <GridLayout Columns="3" CssClass="background" Style="grid-template-columns: 5% 30% 10% 10% 40% 5%">
+
+            <VerticalSpace Height="20" CssClass="span-6" />
+
+            <Label />
+            <Label Text="@Strings.AsyncStats_Username" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_Games" CenterText="true" />
+            <Label Text="@Strings.AsyncStats_Wins" CenterText="true" />
+            <Label CssClass="span-2" />
+
+            <VerticalSpace Height="20" CssClass="span-6" />
+
+            @foreach (var user in WinsStats.AsyncWinsPlayers)
+            {
+                var background = _row % 2 == 0 ? "background" : string.Empty;
+                var max = WinsStats.AsyncWinsPlayers.Max(x => x.Wins);
+
+                <Label />
+                if (user.Id == 0)
+                {
+                    <Label Text="@user.UserName" TextColor="TextColor.Red" CssClass="@(background)" />
+                }
+                else
+                {
+                    <TextButton Text="@user.UserName" FontSize="16" TextAlign="left" CssClass="@(background)" OnClick="@(() => RedirectToPlayerProfile(user.Id))" />
+                }
+                <Label Text="@user.Games.ToString()" CenterText="true" TextColor="TextColor.Yellow" CssClass="@(background)" />
+                <Label Text="@user.Wins.ToString()" CenterText="true" TextColor="TextColor.Green" CssClass="@(background)" />
+                <AsyncPlayerProgressBar MinValue="1" Value="user.Wins" MaxValue="max" TextColor="TextColor.Green" CssClass="@(background)" />
+                <Label />
+
+                _row++;
+            }
+
+            @{
+                _row = 0;
+            }
+
+            <VerticalSpace Height="20" CssClass="span-6" />
+
+        </GridLayout>
+    }
+    else
+    {
+        <VerticalSpace Height="100" />
+        <Label Text="@Strings.Loading" FontSize="24" CenterText="true" />
+        <VerticalSpace Height="100" />
+    }
+
+    <VerticalSpace Height="20" />
+
+</FlexColumnContainer>

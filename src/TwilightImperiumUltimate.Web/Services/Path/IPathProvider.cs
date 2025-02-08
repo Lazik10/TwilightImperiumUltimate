@@ -6,6 +6,8 @@ public interface IPathProvider
 
     string GetFactionIconPath(FactionName factionName);
 
+    string GetAsyncFactionIconPath(AsyncFactionName factionName);
+
     string GetCardTypeIconPath(string fileName);
 
     string GetComplexityIconPath(ComplexityRating complexity);

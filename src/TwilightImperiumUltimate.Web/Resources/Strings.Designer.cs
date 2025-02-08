@@ -235,6 +235,1068 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Average End Round.
+        /// </summary>
+        public static string AsyncGames_AverageEndTurnDistribution {
+            get {
+                return ResourceManager.GetString("AsyncGames_AverageEndTurnDistribution", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fastest Games.
+        /// </summary>
+        public static string AsyncGames_FastestGames {
+            get {
+                return ResourceManager.GetString("AsyncGames_FastestGames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fastest Games.
+        /// </summary>
+        public static string AsyncGames_FastestGamesTitle {
+            get {
+                return ResourceManager.GetString("AsyncGames_FastestGamesTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fastest Players.
+        /// </summary>
+        public static string AsyncGames_FastestPlayersTitle {
+            get {
+                return ResourceManager.GetString("AsyncGames_FastestPlayersTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Games Count History.
+        /// </summary>
+        public static string AsyncGames_GamesHistoryTitle {
+            get {
+                return ResourceManager.GetString("AsyncGames_GamesHistoryTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Games.
+        /// </summary>
+        public static string AsyncGames_GamesStatsTitle {
+            get {
+                return ResourceManager.GetString("AsyncGames_GamesStatsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Games By VP Distribution.
+        /// </summary>
+        public static string AsyncGames_GameStatsVpDistribution {
+            get {
+                return ResourceManager.GetString("AsyncGames_GameStatsVpDistribution", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Highest Hits Deviation%.
+        /// </summary>
+        public static string AsyncGames_HighestHitsDeviationTitle {
+            get {
+                return ResourceManager.GetString("AsyncGames_HighestHitsDeviationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Longest Games.
+        /// </summary>
+        public static string AsyncGames_LongestGamesTitle {
+            get {
+                return ResourceManager.GetString("AsyncGames_LongestGamesTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lowest Hits Deviation %.
+        /// </summary>
+        public static string AsyncGames_LowestHitsDeviationTitle {
+            get {
+                return ResourceManager.GetString("AsyncGames_LowestHitsDeviationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Average Hits.
+        /// </summary>
+        public static string AsyncGames_MaxAverageHitsPerGameTitle {
+            get {
+                return ResourceManager.GetString("AsyncGames_MaxAverageHitsPerGameTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Max Hits per Game.
+        /// </summary>
+        public static string AsyncGames_MaxHitsPerGameTitle {
+            get {
+                return ResourceManager.GetString("AsyncGames_MaxHitsPerGameTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (min. 20 games).
+        /// </summary>
+        public static string AsyncGames_MinGamesCount {
+            get {
+                return ResourceManager.GetString("AsyncGames_MinGamesCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (min. 6 players).
+        /// </summary>
+        public static string AsyncGames_MinSixPlayers {
+            get {
+                return ResourceManager.GetString("AsyncGames_MinSixPlayers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (min. 500 turns).
+        /// </summary>
+        public static string AsyncGames_MinTurns {
+            get {
+                return ResourceManager.GetString("AsyncGames_MinTurns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Most Active Games.
+        /// </summary>
+        public static string AsyncGames_MostActiveGames {
+            get {
+                return ResourceManager.GetString("AsyncGames_MostActiveGames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Most Active Games.
+        /// </summary>
+        public static string AsyncGames_MostActiveGamesTitle {
+            get {
+                return ResourceManager.GetString("AsyncGames_MostActiveGamesTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active.
+        /// </summary>
+        public static string AsyncGames_MostActivePlayerActive {
+            get {
+                return ResourceManager.GetString("AsyncGames_MostActivePlayerActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Eliminated.
+        /// </summary>
+        public static string AsyncGames_MostActivePlayerEliminated {
+            get {
+                return ResourceManager.GetString("AsyncGames_MostActivePlayerEliminated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Finished.
+        /// </summary>
+        public static string AsyncGames_MostActivePlayerFinished {
+            get {
+                return ResourceManager.GetString("AsyncGames_MostActivePlayerFinished", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Games.
+        /// </summary>
+        public static string AsyncGames_MostActivePlayerGames {
+            get {
+                return ResourceManager.GetString("AsyncGames_MostActivePlayerGames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username.
+        /// </summary>
+        public static string AsyncGames_MostActivePlayerName {
+            get {
+                return ResourceManager.GetString("AsyncGames_MostActivePlayerName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Average Hits.
+        /// </summary>
+        public static string AsyncGames_MostAverageHits {
+            get {
+                return ResourceManager.GetString("AsyncGames_MostAverageHits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Players With Highest Eliminations %.
+        /// </summary>
+        public static string AsyncGames_MostEliminationsPercentageTitle {
+            get {
+                return ResourceManager.GetString("AsyncGames_MostEliminationsPercentageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Most Eliminated Players.
+        /// </summary>
+        public static string AsyncGames_MostEliminationsTitle {
+            get {
+                return ResourceManager.GetString("AsyncGames_MostEliminationsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Most Games Played.
+        /// </summary>
+        public static string AsyncGames_MostGamesTitle {
+            get {
+                return ResourceManager.GetString("AsyncGames_MostGamesTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Hits.
+        /// </summary>
+        public static string AsyncGames_MostHitsTitle {
+            get {
+                return ResourceManager.GetString("AsyncGames_MostHitsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Most Turns.
+        /// </summary>
+        public static string AsyncGames_MostTurnsTitle {
+            get {
+                return ResourceManager.GetString("AsyncGames_MostTurnsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Most Unique Opponents.
+        /// </summary>
+        public static string AsyncGames_MostUniqueOpponentsTitle {
+            get {
+                return ResourceManager.GetString("AsyncGames_MostUniqueOpponentsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VP %.
+        /// </summary>
+        public static string AsyncGames_MostVpPercentageTitle {
+            get {
+                return ResourceManager.GetString("AsyncGames_MostVpPercentageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Players With Most VP.
+        /// </summary>
+        public static string AsyncGames_MostVpTitle {
+            get {
+                return ResourceManager.GetString("AsyncGames_MostVpTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Win %.
+        /// </summary>
+        public static string AsyncGames_MostWinPercentageTitle {
+            get {
+                return ResourceManager.GetString("AsyncGames_MostWinPercentageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Highest Win Deviation %.
+        /// </summary>
+        public static string AsyncGames_MostWinsDeviationTitle {
+            get {
+                return ResourceManager.GetString("AsyncGames_MostWinsDeviationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Most Total Wins.
+        /// </summary>
+        public static string AsyncGames_MostWinsTitle {
+            get {
+                return ResourceManager.GetString("AsyncGames_MostWinsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Games Per Month.
+        /// </summary>
+        public static string AsyncGames_NewGamesPerMonthHistoryTitle {
+            get {
+                return ResourceManager.GetString("AsyncGames_NewGamesPerMonthHistoryTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Players Growth Per Month.
+        /// </summary>
+        public static string AsyncGames_NewPlayersHistoryTitle {
+            get {
+                return ResourceManager.GetString("AsyncGames_NewPlayersHistoryTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Games By Player Count Distribution.
+        /// </summary>
+        public static string AsyncGames_PlayerCountDistribution {
+            get {
+                return ResourceManager.GetString("AsyncGames_PlayerCountDistribution", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Players By Average Timer Distribution.
+        /// </summary>
+        public static string AsyncGames_PlayersByAverageTimerDistributionTitle {
+            get {
+                return ResourceManager.GetString("AsyncGames_PlayersByAverageTimerDistributionTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Player Count History.
+        /// </summary>
+        public static string AsyncGames_PlayersHistoryTitle {
+            get {
+                return ResourceManager.GetString("AsyncGames_PlayersHistoryTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Players.
+        /// </summary>
+        public static string AsyncGames_PlayersStatsTitle {
+            get {
+                return ResourceManager.GetString("AsyncGames_PlayersStatsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wins.
+        /// </summary>
+        public static string AsyncGames_Wins {
+            get {
+                return ResourceManager.GetString("AsyncGames_Wins", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Win %.
+        /// </summary>
+        public static string AsyncGames_WinsPercentage {
+            get {
+                return ResourceManager.GetString("AsyncGames_WinsPercentage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status: .
+        /// </summary>
+        public static string AsyncGameStats_GameStatus {
+            get {
+                return ResourceManager.GetString("AsyncGameStats_GameStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Games:.
+        /// </summary>
+        public static string AsyncGameStats_GameType {
+            get {
+                return ResourceManager.GetString("AsyncGameStats_GameType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active.
+        /// </summary>
+        public static string AsyncGameStatusFilter_Active {
+            get {
+                return ResourceManager.GetString("AsyncGameStatusFilter_Active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All.
+        /// </summary>
+        public static string AsyncGameStatusFilter_All {
+            get {
+                return ResourceManager.GetString("AsyncGameStatusFilter_All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Finished.
+        /// </summary>
+        public static string AsyncGameStatusFilter_Finished {
+            get {
+                return ResourceManager.GetString("AsyncGameStatusFilter_Finished", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forfeited.
+        /// </summary>
+        public static string AsyncGameStatusFilter_Forfeited {
+            get {
+                return ResourceManager.GetString("AsyncGameStatusFilter_Forfeited", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All.
+        /// </summary>
+        public static string AsyncGameType_All {
+            get {
+                return ResourceManager.GetString("AsyncGameType_All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom.
+        /// </summary>
+        public static string AsyncGameType_Custom {
+            get {
+                return ResourceManager.GetString("AsyncGameType_Custom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TIGL.
+        /// </summary>
+        public static string AsyncGameType_Tigl {
+            get {
+                return ResourceManager.GetString("AsyncGameType_Tigl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game Stats.
+        /// </summary>
+        public static string AsyncGeneralStats_Title {
+            get {
+                return ResourceManager.GetString("AsyncGeneralStats_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GAMES.
+        /// </summary>
+        public static string AsyncMenu_Games {
+            get {
+                return ResourceManager.GetString("AsyncMenu_Games", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PLAYERS.
+        /// </summary>
+        public static string AsyncMenu_Players {
+            get {
+                return ResourceManager.GetString("AsyncMenu_Players", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to STATISTICS.
+        /// </summary>
+        public static string AsyncMenu_Statistics {
+            get {
+                return ResourceManager.GetString("AsyncMenu_Statistics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Duration.
+        /// </summary>
+        public static string AsyncPlayer_GamesStatsDuration {
+            get {
+                return ResourceManager.GetString("AsyncPlayer_GamesStatsDuration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Faction.
+        /// </summary>
+        public static string AsyncPlayer_GamesStatsFaction {
+            get {
+                return ResourceManager.GetString("AsyncPlayer_GamesStatsFaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fun Game Name.
+        /// </summary>
+        public static string AsyncPlayer_GamesStatsFunGame {
+            get {
+                return ResourceManager.GetString("AsyncPlayer_GamesStatsFunGame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game.
+        /// </summary>
+        public static string AsyncPlayer_GamesStatsGame {
+            get {
+                return ResourceManager.GetString("AsyncPlayer_GamesStatsGame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Month.
+        /// </summary>
+        public static string AsyncPlayer_GamesStatsMonth {
+            get {
+                return ResourceManager.GetString("AsyncPlayer_GamesStatsMonth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Players.
+        /// </summary>
+        public static string AsyncPlayer_GamesStatsPlayerCount {
+            get {
+                return ResourceManager.GetString("AsyncPlayer_GamesStatsPlayerCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Games.
+        /// </summary>
+        public static string AsyncPlayer_GamesStatsTitle {
+            get {
+                return ResourceManager.GetString("AsyncPlayer_GamesStatsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VP.
+        /// </summary>
+        public static string AsyncPlayer_GamesStatsVp {
+            get {
+                return ResourceManager.GetString("AsyncPlayer_GamesStatsVp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Year.
+        /// </summary>
+        public static string AsyncPlayer_GamesStatsYear {
+            get {
+                return ResourceManager.GetString("AsyncPlayer_GamesStatsYear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ???.
+        /// </summary>
+        public static string AsyncPlayer_HiddenStat {
+            get {
+                return ResourceManager.GetString("AsyncPlayer_HiddenStat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Statistics are unavailable due to the user&apos;s privacy preferences..
+        /// </summary>
+        public static string AsyncPlayer_Statistics_Private {
+            get {
+                return ResourceManager.GetString("AsyncPlayer_Statistics_Private", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Discord Name:.
+        /// </summary>
+        public static string AsyncPlayers_DiscordNameSearch {
+            get {
+                return ResourceManager.GetString("AsyncPlayers_DiscordNameSearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No player matches this filter..
+        /// </summary>
+        public static string AsyncPlayersList_NoPlayerMatch {
+            get {
+                return ResourceManager.GetString("AsyncPlayersList_NoPlayerMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ... Searching for players ....
+        /// </summary>
+        public static string AsyncPlayersList_NoPlayersFound {
+            get {
+                return ResourceManager.GetString("AsyncPlayersList_NoPlayersFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Category.
+        /// </summary>
+        public static string AsyncStatisticsTypeMenuItem_CategoryTitle {
+            get {
+                return ResourceManager.GetString("AsyncStatisticsTypeMenuItem_CategoryTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Combat.
+        /// </summary>
+        public static string AsyncStatisticsTypeMenuItem_Combat {
+            get {
+                return ResourceManager.GetString("AsyncStatisticsTypeMenuItem_Combat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Durations.
+        /// </summary>
+        public static string AsyncStatisticsTypeMenuItem_Durations {
+            get {
+                return ResourceManager.GetString("AsyncStatisticsTypeMenuItem_Durations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Eliminations.
+        /// </summary>
+        public static string AsyncStatisticsTypeMenuItem_Eliminations {
+            get {
+                return ResourceManager.GetString("AsyncStatisticsTypeMenuItem_Eliminations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Factions.
+        /// </summary>
+        public static string AsyncStatisticsTypeMenuItem_Factions {
+            get {
+                return ResourceManager.GetString("AsyncStatisticsTypeMenuItem_Factions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Games.
+        /// </summary>
+        public static string AsyncStatisticsTypeMenuItem_Games {
+            get {
+                return ResourceManager.GetString("AsyncStatisticsTypeMenuItem_Games", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to General.
+        /// </summary>
+        public static string AsyncStatisticsTypeMenuItem_General {
+            get {
+                return ResourceManager.GetString("AsyncStatisticsTypeMenuItem_General", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to History.
+        /// </summary>
+        public static string AsyncStatisticsTypeMenuItem_History {
+            get {
+                return ResourceManager.GetString("AsyncStatisticsTypeMenuItem_History", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Opponents.
+        /// </summary>
+        public static string AsyncStatisticsTypeMenuItem_Opponents {
+            get {
+                return ResourceManager.GetString("AsyncStatisticsTypeMenuItem_Opponents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Turns.
+        /// </summary>
+        public static string AsyncStatisticsTypeMenuItem_Turns {
+            get {
+                return ResourceManager.GetString("AsyncStatisticsTypeMenuItem_Turns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Victory points.
+        /// </summary>
+        public static string AsyncStatisticsTypeMenuItem_Vp {
+            get {
+                return ResourceManager.GetString("AsyncStatisticsTypeMenuItem_Vp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wins.
+        /// </summary>
+        public static string AsyncStatisticsTypeMenuItem_Wins {
+            get {
+                return ResourceManager.GetString("AsyncStatisticsTypeMenuItem_Wins", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active.
+        /// </summary>
+        public static string AsyncStats_Active {
+            get {
+                return ResourceManager.GetString("AsyncStats_Active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active Players.
+        /// </summary>
+        public static string AsyncStats_ActivePlayers {
+            get {
+                return ResourceManager.GetString("AsyncStats_ActivePlayers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Average Hits.
+        /// </summary>
+        public static string AsyncStats_AverageHits {
+            get {
+                return ResourceManager.GetString("AsyncStats_AverageHits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Avg Round.
+        /// </summary>
+        public static string AsyncStats_AverageRounds {
+            get {
+                return ResourceManager.GetString("AsyncStats_AverageRounds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Average Turn Time.
+        /// </summary>
+        public static string AsyncStats_AverageTurnTime {
+            get {
+                return ResourceManager.GetString("AsyncStats_AverageTurnTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancelled.
+        /// </summary>
+        public static string AsyncStats_Cancelled {
+            get {
+                return ResourceManager.GetString("AsyncStats_Cancelled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Duration.
+        /// </summary>
+        public static string AsyncStats_Duration {
+            get {
+                return ResourceManager.GetString("AsyncStats_Duration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Eliminations.
+        /// </summary>
+        public static string AsyncStats_Eliminations {
+            get {
+                return ResourceManager.GetString("AsyncStats_Eliminations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Eliminations %.
+        /// </summary>
+        public static string AsyncStats_EliminationsPercentage {
+            get {
+                return ResourceManager.GetString("AsyncStats_EliminationsPercentage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filter:.
+        /// </summary>
+        public static string AsyncStats_Filter {
+            get {
+                return ResourceManager.GetString("AsyncStats_Filter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Finished.
+        /// </summary>
+        public static string AsyncStats_Finished {
+            get {
+                return ResourceManager.GetString("AsyncStats_Finished", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fun Game Name.
+        /// </summary>
+        public static string AsyncStats_FunGameName {
+            get {
+                return ResourceManager.GetString("AsyncStats_FunGameName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game.
+        /// </summary>
+        public static string AsyncStats_Game {
+            get {
+                return ResourceManager.GetString("AsyncStats_Game", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Games.
+        /// </summary>
+        public static string AsyncStats_Games {
+            get {
+                return ResourceManager.GetString("AsyncStats_Games", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hits.
+        /// </summary>
+        public static string AsyncStats_Hits {
+            get {
+                return ResourceManager.GetString("AsyncStats_Hits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hits Deviation %.
+        /// </summary>
+        public static string AsyncStats_HitsDeviation {
+            get {
+                return ResourceManager.GetString("AsyncStats_HitsDeviation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inactive.
+        /// </summary>
+        public static string AsyncStats_Inactive {
+            get {
+                return ResourceManager.GetString("AsyncStats_Inactive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt; 3m Inactive.
+        /// </summary>
+        public static string AsyncStats_InactiveLessThanThreeMonths {
+            get {
+                return ResourceManager.GetString("AsyncStats_InactiveLessThanThreeMonths", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &gt; 3m Inactive.
+        /// </summary>
+        public static string AsyncStats_InactiveMoreThanThreeMonths {
+            get {
+                return ResourceManager.GetString("AsyncStats_InactiveMoreThanThreeMonths", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Max Hits.
+        /// </summary>
+        public static string AsyncStats_MaxHits {
+            get {
+                return ResourceManager.GetString("AsyncStats_MaxHits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Month.
+        /// </summary>
+        public static string AsyncStats_Month {
+            get {
+                return ResourceManager.GetString("AsyncStats_Month", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Most games.
+        /// </summary>
+        public static string AsyncStats_MostGames {
+            get {
+                return ResourceManager.GetString("AsyncStats_MostGames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Players.
+        /// </summary>
+        public static string AsyncStats_Players {
+            get {
+                return ResourceManager.GetString("AsyncStats_Players", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Limit.
+        /// </summary>
+        public static string AsyncStats_QueryLimit {
+            get {
+                return ResourceManager.GetString("AsyncStats_QueryLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Category.
+        /// </summary>
+        public static string AsyncStats_TimerCategory {
+            get {
+                return ResourceManager.GetString("AsyncStats_TimerCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total.
+        /// </summary>
+        public static string AsyncStats_Total {
+            get {
+                return ResourceManager.GetString("AsyncStats_Total", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Turns.
+        /// </summary>
+        public static string AsyncStats_Turns {
+            get {
+                return ResourceManager.GetString("AsyncStats_Turns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Opponents.
+        /// </summary>
+        public static string AsyncStats_UniqueOpponents {
+            get {
+                return ResourceManager.GetString("AsyncStats_UniqueOpponents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username.
+        /// </summary>
+        public static string AsyncStats_Username {
+            get {
+                return ResourceManager.GetString("AsyncStats_Username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VP.
+        /// </summary>
+        public static string AsyncStats_Vp {
+            get {
+                return ResourceManager.GetString("AsyncStats_Vp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VP %.
+        /// </summary>
+        public static string AsyncStats_VpPercentage {
+            get {
+                return ResourceManager.GetString("AsyncStats_VpPercentage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Possible VP.
+        /// </summary>
+        public static string AsyncStats_VpPossibleTotal {
+            get {
+                return ResourceManager.GetString("AsyncStats_VpPossibleTotal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total VP.
+        /// </summary>
+        public static string AsyncStats_VpTotal {
+            get {
+                return ResourceManager.GetString("AsyncStats_VpTotal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Win Deviation %.
+        /// </summary>
+        public static string AsyncStats_WinDeviation {
+            get {
+                return ResourceManager.GetString("AsyncStats_WinDeviation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Winrate.
+        /// </summary>
+        public static string AsyncStats_Winrate {
+            get {
+                return ResourceManager.GetString("AsyncStats_Winrate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wins.
+        /// </summary>
+        public static string AsyncStats_Wins {
+            get {
+                return ResourceManager.GetString("AsyncStats_Wins", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Year.
+        /// </summary>
+        public static string AsyncStats_Year {
+            get {
+                return ResourceManager.GetString("AsyncStats_Year", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to \.
         /// </summary>
         public static string BackSlash {
@@ -654,6 +1716,69 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string ColorPickerButton_NotEnoughColors {
             get {
                 return ResourceManager.GetString("ColorPickerButton_NotEnoughColors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Actual Hits.
+        /// </summary>
+        public static string CombatStats_ActualHits {
+            get {
+                return ResourceManager.GetString("CombatStats_ActualHits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Average Hits.
+        /// </summary>
+        public static string CombatStats_AverageHits {
+            get {
+                return ResourceManager.GetString("CombatStats_AverageHits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expected Hits.
+        /// </summary>
+        public static string CombatStats_ExpectedHits {
+            get {
+                return ResourceManager.GetString("CombatStats_ExpectedHits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hits Deviation.
+        /// </summary>
+        public static string CombatStats_HitsDeviation {
+            get {
+                return ResourceManager.GetString("CombatStats_HitsDeviation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Max Hits.
+        /// </summary>
+        public static string CombatStats_MaxHits {
+            get {
+                return ResourceManager.GetString("CombatStats_MaxHits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Min Hits.
+        /// </summary>
+        public static string CombatStats_MinHits {
+            get {
+                return ResourceManager.GetString("CombatStats_MinHits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Combat Stats.
+        /// </summary>
+        public static string CombatStats_Title {
+            get {
+                return ResourceManager.GetString("CombatStats_Title", resourceCulture);
             }
         }
         
@@ -1162,6 +2287,267 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Discordant Stars.
+        /// </summary>
+        public static string FactionStatisticsFilter_DiscordantStars {
+            get {
+                return ResourceManager.GetString("FactionStatisticsFilter_DiscordantStars", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Base + PoK + Keleres.
+        /// </summary>
+        public static string FactionStatisticsFilter_Official {
+            get {
+                return ResourceManager.GetString("FactionStatisticsFilter_Official", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Others.
+        /// </summary>
+        public static string FactionStatisticsFilter_Others {
+            get {
+                return ResourceManager.GetString("FactionStatisticsFilter_Others", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All.
+        /// </summary>
+        public static string FactionStatisticsSubstatsFilter_All {
+            get {
+                return ResourceManager.GetString("FactionStatisticsSubstatsFilter_All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Avgerage VP.
+        /// </summary>
+        public static string FactionStatisticsSubstatsFilter_AverageVp {
+            get {
+                return ResourceManager.GetString("FactionStatisticsSubstatsFilter_AverageVp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Avg VP %.
+        /// </summary>
+        public static string FactionStatisticsSubstatsFilter_AverageVpPercentage {
+            get {
+                return ResourceManager.GetString("FactionStatisticsSubstatsFilter_AverageVpPercentage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Eliminations.
+        /// </summary>
+        public static string FactionStatisticsSubstatsFilter_Eliminations {
+            get {
+                return ResourceManager.GetString("FactionStatisticsSubstatsFilter_Eliminations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Games.
+        /// </summary>
+        public static string FactionStatisticsSubstatsFilter_Games {
+            get {
+                return ResourceManager.GetString("FactionStatisticsSubstatsFilter_Games", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Max VP.
+        /// </summary>
+        public static string FactionStatisticsSubstatsFilter_MaxVp {
+            get {
+                return ResourceManager.GetString("FactionStatisticsSubstatsFilter_MaxVp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Min VP.
+        /// </summary>
+        public static string FactionStatisticsSubstatsFilter_MinVp {
+            get {
+                return ResourceManager.GetString("FactionStatisticsSubstatsFilter_MinVp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Win %.
+        /// </summary>
+        public static string FactionStatisticsSubstatsFilter_WinPercentage {
+            get {
+                return ResourceManager.GetString("FactionStatisticsSubstatsFilter_WinPercentage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wins.
+        /// </summary>
+        public static string FactionStatisticsSubstatsFilter_Wins {
+            get {
+                return ResourceManager.GetString("FactionStatisticsSubstatsFilter_Wins", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All.
+        /// </summary>
+        public static string FactionStatisticsVpFilter_All {
+            get {
+                return ResourceManager.GetString("FactionStatisticsVpFilter_All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 14 VP.
+        /// </summary>
+        public static string FactionStatisticsVpFilter_FourteenVp {
+            get {
+                return ResourceManager.GetString("FactionStatisticsVpFilter_FourteenVp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 10 VP.
+        /// </summary>
+        public static string FactionStatisticsVpFilter_TenVp {
+            get {
+                return ResourceManager.GetString("FactionStatisticsVpFilter_TenVp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 12 VP.
+        /// </summary>
+        public static string FactionStatisticsVpFilter_TwelveVp {
+            get {
+                return ResourceManager.GetString("FactionStatisticsVpFilter_TwelveVp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All.
+        /// </summary>
+        public static string FactionStats_All {
+            get {
+                return ResourceManager.GetString("FactionStats_All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Avg VP.
+        /// </summary>
+        public static string FactionStats_AverageVp {
+            get {
+                return ResourceManager.GetString("FactionStats_AverageVp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Avg VP %.
+        /// </summary>
+        public static string FactionStats_AverageVpPercentage {
+            get {
+                return ResourceManager.GetString("FactionStats_AverageVpPercentage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Eliminations.
+        /// </summary>
+        public static string FactionStats_Eliminations {
+            get {
+                return ResourceManager.GetString("FactionStats_Eliminations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Faction.
+        /// </summary>
+        public static string FactionStats_Faction {
+            get {
+                return ResourceManager.GetString("FactionStats_Faction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Factions:.
+        /// </summary>
+        public static string FactionStats_Factions {
+            get {
+                return ResourceManager.GetString("FactionStats_Factions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Games.
+        /// </summary>
+        public static string FactionStats_Games {
+            get {
+                return ResourceManager.GetString("FactionStats_Games", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Max VP.
+        /// </summary>
+        public static string FactionStats_MaxVp {
+            get {
+                return ResourceManager.GetString("FactionStats_MaxVp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Min VP.
+        /// </summary>
+        public static string FactionStats_MinVp {
+            get {
+                return ResourceManager.GetString("FactionStats_MinVp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Statistics:.
+        /// </summary>
+        public static string FactionStats_Statistics {
+            get {
+                return ResourceManager.GetString("FactionStats_Statistics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VP:.
+        /// </summary>
+        public static string FactionStats_VpCount {
+            get {
+                return ResourceManager.GetString("FactionStats_VpCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Win %.
+        /// </summary>
+        public static string FactionStats_WinPercentage {
+            get {
+                return ResourceManager.GetString("FactionStats_WinPercentage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wins.
+        /// </summary>
+        public static string FactionStats_Wins {
+            get {
+                return ResourceManager.GetString("FactionStats_Wins", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Answer:.
         /// </summary>
         public static string Faq_Answer {
@@ -1293,6 +2679,69 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string FrontierCard {
             get {
                 return ResourceManager.GetString("FrontierCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active.
+        /// </summary>
+        public static string GameStats_Active {
+            get {
+                return ResourceManager.GetString("GameStats_Active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Eliminations.
+        /// </summary>
+        public static string GameStats_Eliminations {
+            get {
+                return ResourceManager.GetString("GameStats_Eliminations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Finished.
+        /// </summary>
+        public static string GameStats_Finished {
+            get {
+                return ResourceManager.GetString("GameStats_Finished", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Games.
+        /// </summary>
+        public static string GameStats_Games {
+            get {
+                return ResourceManager.GetString("GameStats_Games", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Games.
+        /// </summary>
+        public static string GameStats_Title {
+            get {
+                return ResourceManager.GetString("GameStats_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Winrate.
+        /// </summary>
+        public static string GameStats_Winrate {
+            get {
+                return ResourceManager.GetString("GameStats_Winrate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wins.
+        /// </summary>
+        public static string GameStats_Wins {
+            get {
+                return ResourceManager.GetString("GameStats_Wins", resourceCulture);
             }
         }
         
@@ -1635,6 +3084,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string LanguagePlaceholder {
             get {
                 return ResourceManager.GetString("LanguagePlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ... LOADING ....
+        /// </summary>
+        public static string Loading {
+            get {
+                return ResourceManager.GetString("Loading", resourceCulture);
             }
         }
         
@@ -3183,6 +4641,51 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Discord Username.
+        /// </summary>
+        public static string OpponentStats_DiscordUsername {
+            get {
+                return ResourceManager.GetString("OpponentStats_DiscordUsername", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Games.
+        /// </summary>
+        public static string OpponentStats_Games {
+            get {
+                return ResourceManager.GetString("OpponentStats_Games", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Top 20 opponents.
+        /// </summary>
+        public static string OpponentStats_Opponents {
+            get {
+                return ResourceManager.GetString("OpponentStats_Opponents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Async profile.
+        /// </summary>
+        public static string OpponentStats_Profile {
+            get {
+                return ResourceManager.GetString("OpponentStats_Profile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View.
+        /// </summary>
+        public static string OpponentStats_ViewProfile {
+            get {
+                return ResourceManager.GetString("OpponentStats_ViewProfile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to About.
         /// </summary>
         public static string Page_About {
@@ -3242,6 +4745,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string Page_Admin {
             get {
                 return ResourceManager.GetString("Page_Admin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Async.
+        /// </summary>
+        public static string Page_Async {
+            get {
+                return ResourceManager.GetString("Page_Async", resourceCulture);
             }
         }
         
@@ -3579,6 +5091,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TIGL.
+        /// </summary>
+        public static string Page_Tigl {
+            get {
+                return ResourceManager.GetString("Page_Tigl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tools.
         /// </summary>
         public static string Page_Tools {
@@ -3687,11 +5208,92 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All.
+        /// </summary>
+        public static string PlayerStatisticsType_All {
+            get {
+                return ResourceManager.GetString("PlayerStatisticsType_All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom.
+        /// </summary>
+        public static string PlayerStatisticsType_Custom {
+            get {
+                return ResourceManager.GetString("PlayerStatisticsType_Custom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Statistics:.
+        /// </summary>
+        public static string PlayerStatisticsType_Picker {
+            get {
+                return ResourceManager.GetString("PlayerStatisticsType_Picker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TIGL.
+        /// </summary>
+        public static string PlayerStatisticsType_Tigl {
+            get {
+                return ResourceManager.GetString("PlayerStatisticsType_Tigl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to promissorynote.
         /// </summary>
         public static string PromissoryNoteCard {
             get {
                 return ResourceManager.GetString("PromissoryNoteCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 50.
+        /// </summary>
+        public static string QueryLimit_Fifty {
+            get {
+                return ResourceManager.GetString("QueryLimit_Fifty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 100.
+        /// </summary>
+        public static string QueryLimit_Hundred {
+            get {
+                return ResourceManager.GetString("QueryLimit_Hundred", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -.
+        /// </summary>
+        public static string QueryLimit_None {
+            get {
+                return ResourceManager.GetString("QueryLimit_None", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 20.
+        /// </summary>
+        public static string QueryLimit_Twenty {
+            get {
+                return ResourceManager.GetString("QueryLimit_Twenty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 200.
+        /// </summary>
+        public static string QueryLimit_TwoHundred {
+            get {
+                return ResourceManager.GetString("QueryLimit_TwoHundred", resourceCulture);
             }
         }
         
@@ -4835,6 +6437,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Average time.
+        /// </summary>
+        public static string TurnStats_AverageTurnTime {
+            get {
+                return ResourceManager.GetString("TurnStats_AverageTurnTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of turns.
+        /// </summary>
+        public static string TurnStats_NumberOfTurns {
+            get {
+                return ResourceManager.GetString("TurnStats_NumberOfTurns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to There is newer version of the website app. Please update your version by clicking on this update button:.
         /// </summary>
         public static string Update_Notification {
@@ -4957,6 +6577,69 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string UserInfo_UpdateSuccess {
             get {
                 return ResourceManager.GetString("UserInfo_UpdateSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 10 VP.
+        /// </summary>
+        public static string VpStats_10VP {
+            get {
+                return ResourceManager.GetString("VpStats_10VP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 12 VP.
+        /// </summary>
+        public static string VpStats_12VP {
+            get {
+                return ResourceManager.GetString("VpStats_12VP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 14 VP.
+        /// </summary>
+        public static string VpStats_14VP {
+            get {
+                return ResourceManager.GetString("VpStats_14VP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Average VP.
+        /// </summary>
+        public static string VpStats_AverageVp {
+            get {
+                return ResourceManager.GetString("VpStats_AverageVp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Games.
+        /// </summary>
+        public static string VpStats_Games {
+            get {
+                return ResourceManager.GetString("VpStats_Games", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VP Stats.
+        /// </summary>
+        public static string VpStats_Title {
+            get {
+                return ResourceManager.GetString("VpStats_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VP.
+        /// </summary>
+        public static string VpStats_VictoryPoints {
+            get {
+                return ResourceManager.GetString("VpStats_VictoryPoints", resourceCulture);
             }
         }
         

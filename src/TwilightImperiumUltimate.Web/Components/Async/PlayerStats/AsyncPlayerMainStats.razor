@@ -1,0 +1,59 @@
+﻿@using TwilightImperiumUltimate.Web.Helpers.Numbers
+
+<FlexRowContainer>
+
+    <FlexColumnCenteredContainer Width="100">
+
+        @if (AsyncPlayerProfile is not null)
+        {
+            <FlexColumnCenteredContainer CssClass="padding" >
+                <MarkupStringLabel Text="@(ComposeGeneralStats())" FontSize="28" TextColor="@(AsyncPlayerProfile.Settings.ExcludeFromAsyncStats ? TextColor.White : GameStats.WinRate.GetWinrateColor())" CenterText="true" />
+            </FlexColumnCenteredContainer>
+
+            <VerticalSpace Height="50" />
+
+            <Label Text="@Strings.GameStats_Title" FontSize="24" CenterText="true" />
+
+            <VerticalSpace Height="20" />
+
+            <GridLayout Columns="6" CssClass="background">
+
+                <VerticalSpace Height="20" Style="grid-column: span 6;" />
+
+                <Label Text="@Strings.GameStats_Games" CenterText="true"/>
+                <Label Text="@Strings.GameStats_Active" CenterText="true" />
+                <Label Text="@Strings.GameStats_Finished" CenterText="true" />
+                <Label Text="@Strings.GameStats_Wins" CenterText="true" />
+                <Label Text="@Strings.GameStats_Winrate" CenterText="true" />
+                <Label Text="@Strings.GameStats_Eliminations" CenterText="true" />
+
+                <VerticalSpace Height="20" Style="grid-column: span 6;" />
+
+                @if (AsyncPlayerProfile.Settings.ShowGames)
+                {
+                    <Label Text="@GameStats.GamesCount.ToString()" CenterText="true" TextColor="TextColor.Yellow" />
+                    <Label Text="@GameStats.Active.ToString()" CenterText="true" TextColor="TextColor.Green" />
+                    <Label Text="@GameStats.Finished.ToString()" CenterText="true" TextColor="TextColor.Red" />
+                    <Label Text="@ShowWins()" CenterText="true" TextColor="TextColor.Green" />
+                    <Label Text="@ShowWinRate()" CenterText="true" TextColor="@(GameStats.WinRate.GetWinrateColor())" />
+                    <Label Text="@GameStats.Eliminations.ToString()" CenterText="true" TextColor="TextColor.Red" />
+                }
+                else
+                {
+                    <VerticalSpace Height="10" Style="grid-column: span 6;" />
+                    <Label Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" Style="grid-column: span 6;" />
+                    <VerticalSpace Height="10" Style="grid-column: span 6;" />
+                }
+
+                <VerticalSpace Height="20" Style="grid-column: span 6;" />
+
+            </GridLayout>
+
+            <VerticalSpace Height="20" />
+        }
+
+    </FlexColumnCenteredContainer>
+
+    <FlexColumnCenteredContainer Width="20" />
+
+</FlexRowContainer>
