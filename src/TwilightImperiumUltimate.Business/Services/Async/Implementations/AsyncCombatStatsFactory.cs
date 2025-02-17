@@ -20,8 +20,10 @@ public class AsyncCombatStatsFactory(
             .Where(x =>
                 x.EndedTimestamp != null
                 && x.HasWinner
-                && x.Scoreboard == 10
-                && x.NumberOfPlayers == 6
+                && x.Scoreboard >= 10
+                && x.Scoreboard <= 14
+                && x.NumberOfPlayers >= 6
+                && x.NumberOfPlayers <= 8
                 && !x.AbsolMode
                 && !x.FrankenGame)
             .ToList();

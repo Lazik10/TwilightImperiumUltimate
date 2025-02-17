@@ -370,6 +370,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to (min. 100 turns).
+        /// </summary>
+        public static string AsyncGames_MinTurns100 {
+            get {
+                return ResourceManager.GetString("AsyncGames_MinTurns100", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Most Active Games.
         /// </summary>
         public static string AsyncGames_MostActiveGames {
@@ -1176,6 +1185,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string AsyncStats_QueryLimit {
             get {
                 return ResourceManager.GetString("AsyncStats_QueryLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fun Name:.
+        /// </summary>
+        public static string AsyncStats_SearchByGameFunNameTitle {
+            get {
+                return ResourceManager.GetString("AsyncStats_SearchByGameFunNameTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game ID:.
+        /// </summary>
+        public static string AsyncStats_SearchByGameIdTitle {
+            get {
+                return ResourceManager.GetString("AsyncStats_SearchByGameIdTitle", resourceCulture);
             }
         }
         
@@ -6608,11 +6635,20 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Average VP.
+        ///   Looks up a localized string similar to Avg P/G.
         /// </summary>
         public static string VpStats_AverageVp {
             get {
                 return ResourceManager.GetString("VpStats_AverageVp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Avg % P/G.
+        /// </summary>
+        public static string VpStats_AverageVpPercentage {
+            get {
+                return ResourceManager.GetString("VpStats_AverageVpPercentage", resourceCulture);
             }
         }
         
@@ -6626,6 +6662,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Max Possible.
+        /// </summary>
+        public static string VpStats_MaxPossibleVp {
+            get {
+                return ResourceManager.GetString("VpStats_MaxPossibleVp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to VP Stats.
         /// </summary>
         public static string VpStats_Title {
@@ -6635,11 +6680,29 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VP.
+        ///   Looks up a localized string similar to Total.
+        /// </summary>
+        public static string VpStats_TotalVp {
+            get {
+                return ResourceManager.GetString("VpStats_TotalVp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Category.
         /// </summary>
         public static string VpStats_VictoryPoints {
             get {
                 return ResourceManager.GetString("VpStats_VictoryPoints", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to % of Total.
+        /// </summary>
+        public static string VpStats_VpPercentageOfTotal {
+            get {
+                return ResourceManager.GetString("VpStats_VpPercentageOfTotal", resourceCulture);
             }
         }
         

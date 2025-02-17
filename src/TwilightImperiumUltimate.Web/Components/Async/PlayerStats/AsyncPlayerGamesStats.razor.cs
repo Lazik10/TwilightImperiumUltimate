@@ -83,11 +83,11 @@ public partial class AsyncPlayerGamesStats
     private string GetAsyncGameIdTextColor(AsyncPlayerGameDto game)
     {
         if (game.Ended && game.ValidEnd)
-            return "color: red;";
+            return "color: red; justify-content: flex-start;";
         else if (game.Ended)
-            return "color: orange";
+            return "color: orange; justify-content: flex-start;";
         else
-            return "color: lawngreen;";
+            return "color: lawngreen; justify-content: flex-start;";
     }
 
     private bool ShowWins() => AsyncPlayerProfile.Settings.ShowWinRates;

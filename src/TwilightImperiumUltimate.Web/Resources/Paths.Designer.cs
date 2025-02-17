@@ -187,11 +187,29 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to api/async/game-by-fun-name.
+        /// </summary>
+        public static string ApiPath_AsyncGameByFunName {
+            get {
+                return ResourceManager.GetString("ApiPath_AsyncGameByFunName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to api/async/game-dates.
         /// </summary>
         public static string ApiPath_AsyncGameDates {
             get {
                 return ResourceManager.GetString("ApiPath_AsyncGameDates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/async/game-fun-names.
+        /// </summary>
+        public static string ApiPath_AsyncGameFunNames {
+            get {
+                return ResourceManager.GetString("ApiPath_AsyncGameFunNames", resourceCulture);
             }
         }
         

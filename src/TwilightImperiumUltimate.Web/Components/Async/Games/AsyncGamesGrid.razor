@@ -4,7 +4,14 @@
 
 <StretchHeightContainer CssClass="background">
 
-    <AsyncGamesSearchBar GameNames="@_gameNames" OnGameSelect="OnGameSelect" />
+    <VerticalSpace Height="10" />
+
+    <FlexColumnCenteredContainer>
+        <AsyncGamesSearchBar GameNames="@_gameNames" OnGameSelect="OnGameSelect" SearhTitle="@Strings.AsyncStats_SearchByGameIdTitle" Width="50" />
+        <AsyncGamesSearchBar GameNames="@_gameFunNames" OnGameSelect="OnGameFunNameSelect" SearhTitle="@Strings.AsyncStats_SearchByGameFunNameTitle" Width="50" />
+    </FlexColumnCenteredContainer>
+
+    <VerticalSpace Height="10" />
 
     <FlexColumnCenteredContainer>
 
@@ -20,6 +27,7 @@
     <AsyncGamesList GameDates="@_gameDates"
         AsyncGameType="@_asyncGameType"
         StatusFilter="@_gameStatus"
-        AsyncGameDiscordId="@_asyncGameDiscordId" />
+        AsyncGameDiscordId="@_asyncGameDiscordId"
+        AsyncGameFunName="@_asyncGameFunName" />
 
 </StretchHeightContainer>

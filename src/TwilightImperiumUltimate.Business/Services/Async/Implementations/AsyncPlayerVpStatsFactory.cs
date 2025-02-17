@@ -27,38 +27,67 @@ public class AsyncPlayerVpStatsFactory : IAsyncPlayerVpStatsFactory
 
     private static AsyncPlayerVpStatsDto CreateVpStatsForPlayer(List<GameStats> games, long discordUserId)
     {
-        return new AsyncPlayerVpStatsDto(
-            GetAverageGameScore(games, 10, discordUserId),
-            GetGamesCount(games, 10, discordUserId),
-            GetAverageGameScore(games, 12, discordUserId),
-            GetGamesCount(games, 12, discordUserId),
-            GetAverageGameScore(games, 14, discordUserId),
-            GetGamesCount(games, 14, discordUserId));
+        var playerGames = games.Where(x => x.PlayerStatistics.Any(x => x.DiscordUserID == discordUserId)).ToList();
+        var tenVpGames = playerGames.Where(x => x.Scoreboard == 10).ToList();
+        var twelveVpGames = playerGames.Where(x => x.Scoreboard == 12).ToList();
+        var fourteenVpGames = playerGames.Where(x => x.Scoreboard == 14).ToList();
+
+        var playerStats10Vp = tenVpGames.SelectMany(x => x.PlayerStatistics).Where(x => x.DiscordUserID == discordUserId).ToList();
+        var playerStats12Vp = twelveVpGames.SelectMany(x => x.PlayerStatistics).Where(x => x.DiscordUserID == discordUserId).ToList();
+        var playerStats14Vp = fourteenVpGames.SelectMany(x => x.PlayerStatistics).Where(x => x.DiscordUserID == discordUserId).ToList();
+
+        var tenVpStats = CalculateVpStatsByVpGame(tenVpGames, playerStats10Vp, 10);
+        var twelveVpStats = CalculateVpStatsByVpGame(twelveVpGames, playerStats12Vp, 12);
+        var fourteenVpStats = CalculateVpStatsByVpGame(fourteenVpGames, playerStats14Vp, 14);
+
+        var totalVp = playerStats10Vp.Sum(x => x.Score) + playerStats12Vp.Sum(x => x.Score) + playerStats14Vp.Sum(x => x.Score);
+        var maxPossibleVp = games.Sum(x => x.Scoreboard);
+        var averageVpPerGame = games.Count == 0 ? 0 : totalVp / (float)games.Count;
+        var weightedVpPercentage = CalculateWeightedVpPercentage(
+            tenVpGames.Count,
+            AvgVpPercentagePerGame(tenVpGames, playerStats10Vp, 10),
+            twelveVpGames.Count,
+            AvgVpPercentagePerGame(twelveVpGames, playerStats12Vp, 12),
+            fourteenVpGames.Count,
+            AvgVpPercentagePerGame(fourteenVpGames, playerStats14Vp, 14));
+
+        var vpStatsTotal = new AsyncPlayerVpStatsByVpGameDto(
+            -1,
+            totalVp,
+            maxPossibleVp,
+            averageVpPerGame,
+            weightedVpPercentage,
+            games.Count);
+
+        return new AsyncPlayerVpStatsDto(new List<AsyncPlayerVpStatsByVpGameDto>() { tenVpStats, twelveVpStats, fourteenVpStats }, vpStatsTotal);
     }
 
-    private static float GetAverageGameScore(List<GameStats> games, int victoryPoints, long discordId)
+    private static AsyncPlayerVpStatsByVpGameDto CalculateVpStatsByVpGame(List<GameStats> games, List<PlayerStats> playerStats, int vpCategory)
     {
-        var gamesWithCorrectVp = games.Where(x => x.Scoreboard == victoryPoints).ToList();
-        if (gamesWithCorrectVp.Count == 0)
-            return 0;
-
-        var statsWithCorrectVp = gamesWithCorrectVp
-            .SelectMany(x => x.PlayerStatistics.Where(x => x.DiscordUserID == discordId))
-            .ToList();
-
-        if (statsWithCorrectVp.Count == 0)
-            return 0;
-
-        return (float)statsWithCorrectVp
-            .Average(x => x.Score);
+        return new AsyncPlayerVpStatsByVpGameDto(
+            vpCategory,
+            playerStats.Sum(x => x.Score),
+            games.Sum(x => x.Scoreboard),
+            playerStats.Count == 0 ? 0 : (float)playerStats.Average(x => x.Score),
+            games.Count == 0 ? 0 : playerStats.Sum(x => x.Score) / ((float)games.Count * vpCategory) * 100,
+            games.Count);
     }
 
-    private static int GetGamesCount(List<GameStats> games, int victoryPoints, long discordId)
+    private static float CalculateWeightedVpPercentage(int games10, float vpPercentage10, int games12, float vpPercentage12, int games14, float vpPercentage14)
     {
-        var gamesWithCorrectVp = games.Where(x => x.Scoreboard == victoryPoints).ToList();
-        if (gamesWithCorrectVp.Count == 0)
-            return 0;
+        int totalGames = games10 + games12 + games14;
 
-        return gamesWithCorrectVp.Count(x => x.PlayerStatistics.Any(x => x.DiscordUserID == discordId));
+        if (totalGames == 0) return 0; // Avoid division by zero
+
+        float combinedVp = (vpPercentage10 * games10) +
+                           (vpPercentage12 * games12) +
+                           (vpPercentage14 * games14);
+
+        return combinedVp / totalGames;
+    }
+
+    private static float AvgVpPercentagePerGame(List<GameStats> games, List<PlayerStats> playerStats, int vpCategory)
+    {
+        return games.Count == 0 ? 0 : playerStats.Sum(x => x.Score) / ((float)games.Count * vpCategory) * 100;
     }
 }

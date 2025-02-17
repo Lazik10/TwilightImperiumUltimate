@@ -1914,7 +1914,7 @@ Brandon Williams&lt;/p&gt;</value>
     <value>VP Stats</value>
   </data>
   <data name="VpStats_AverageVp" xml:space="preserve">
-    <value>Average VP</value>
+    <value>Avg P/G</value>
   </data>
   <data name="VpStats_Games" xml:space="preserve">
     <value>Games</value>
@@ -1938,7 +1938,7 @@ Brandon Williams&lt;/p&gt;</value>
     <value>Winrate</value>
   </data>
   <data name="VpStats_VictoryPoints" xml:space="preserve">
-    <value>VP</value>
+    <value>Category</value>
   </data>
   <data name="AsyncStats_Filter" xml:space="preserve">
     <value>Filter:</value>
@@ -2386,5 +2386,26 @@ Brandon Williams&lt;/p&gt;</value>
   </data>
   <data name="AsyncGames_PlayersByAverageTimerDistributionTitle" xml:space="preserve">
     <value>Players By Average Timer Distribution</value>
+  </data>
+  <data name="VpStats_TotalVp" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="VpStats_MaxPossibleVp" xml:space="preserve">
+    <value>Max Possible</value>
+  </data>
+  <data name="VpStats_AverageVpPercentage" xml:space="preserve">
+    <value>Avg % P/G</value>
+  </data>
+  <data name="VpStats_VpPercentageOfTotal" xml:space="preserve">
+    <value>% of Total</value>
+  </data>
+  <data name="AsyncStats_SearchByGameIdTitle" xml:space="preserve">
+    <value>Game ID:</value>
+  </data>
+  <data name="AsyncStats_SearchByGameFunNameTitle" xml:space="preserve">
+    <value>Fun Name:</value>
+  </data>
+  <data name="AsyncGames_MinTurns100" xml:space="preserve">
+    <value>(min. 100 turns)</value>
   </data>
 </root>

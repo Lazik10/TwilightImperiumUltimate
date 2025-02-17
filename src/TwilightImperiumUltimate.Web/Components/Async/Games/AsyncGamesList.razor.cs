@@ -2,6 +2,7 @@ using Microsoft.JSInterop;
 using TwilightImperiumUltimate.Contracts.DTOs.Async;
 using TwilightImperiumUltimate.Contracts.DTOs.Async.Games;
 using TwilightImperiumUltimate.Web.Options.Async;
+using TwilightImperiumUltimate.Web.Pages.Community;
 using TwilightImperiumUltimate.Web.Services.Async;
 
 namespace TwilightImperiumUltimate.Web.Components.Async.Games;
@@ -26,6 +27,9 @@ public partial class AsyncGamesList
 
     [Parameter]
     public string AsyncGameDiscordId { get; set; } = string.Empty;
+
+    [Parameter]
+    public string AsyncGameFunName { get; set; } = string.Empty;
 
     [Inject]
     private NavigationManager NavigationManager { get; set; } = default!;
@@ -89,6 +93,7 @@ public partial class AsyncGamesList
         _month = date.Month;
 
         AsyncGameDiscordId = string.Empty;
+        AsyncGameFunName = string.Empty;
 
         await UpdateGameList();
 
@@ -111,7 +116,7 @@ public partial class AsyncGamesList
         _isLoaded = false;
         StateHasChanged();
 
-        if (_year != 0 && _month != 0 && string.IsNullOrEmpty(AsyncGameDiscordId))
+        if (_year != 0 && _month != 0 && string.IsNullOrEmpty(AsyncGameDiscordId) && string.IsNullOrEmpty(AsyncGameFunName))
         {
             var games = await AsyncGamesProvider.GetAsyncGamesFromYearAndMonth(_year, _month);
 
@@ -120,6 +125,14 @@ public partial class AsyncGamesList
         else if (!string.IsNullOrEmpty(AsyncGameDiscordId))
         {
             var game = await AsyncGamesProvider.GetAsyncGameByDiscordId(AsyncGameDiscordId);
+            var startDate = DateTimeOffset.FromUnixTimeSeconds(game.StartDate);
+            _year = startDate.Year;
+            _month = startDate.Month;
+            _games = new List<AsyncGameDto> { game };
+        }
+        else if (!string.IsNullOrEmpty(AsyncGameFunName))
+        {
+            var game = await AsyncGamesProvider.GetAsyncGameByFunName(AsyncGameFunName);
             var startDate = DateTimeOffset.FromUnixTimeSeconds(game.StartDate);
             _year = startDate.Year;
             _month = startDate.Month;
@@ -163,10 +176,10 @@ public partial class AsyncGamesList
     private string GetAsyncGameIdTextColor(AsyncGameDto game)
     {
         if (game.Finished && game.ValidEnd)
-            return "color: red;";
+            return "color: red; justify-content: flex-start;";
         else if (game.Finished)
-            return "color: orange";
+            return "color: orange; justify-content: flex-start;";
         else
-            return "color: lawngreen;";
+            return "color: lawngreen; justify-content: flex-start;";
     }
 }

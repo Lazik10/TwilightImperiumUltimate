@@ -1,4 +1,5 @@
 ﻿@using TwilightImperiumUltimate.Web.Helpers.Numbers
+
 <FlexRowContainer>
 
     <FlexColumnCenteredContainer Width="100">
@@ -9,38 +10,57 @@
 
             <VerticalSpace Height="20" />
 
-            <GridLayout Columns="3" CssClass="background">
+            <GridLayout Columns="6" CssClass="background">
 
-                <VerticalSpace Height="20" Style="grid-column: span 3;" />
+                <VerticalSpace Height="20" Style="grid-column: span 6;" />
 
                 <Label Text="@Strings.VpStats_VictoryPoints" CenterText="true" />
-                <Label Text="@Strings.VpStats_AverageVp" CenterText="true" />
                 <Label Text="@Strings.VpStats_Games" CenterText="true" />
+                <Label Text="@Strings.VpStats_TotalVp" CenterText="true" />
+                <Label Text="@Strings.VpStats_MaxPossibleVp" CenterText="true" />
+                <Label Text="@Strings.VpStats_AverageVp" CenterText="true" />
+                <Label Text="@Strings.VpStats_VpPercentageOfTotal" CenterText="true" />
 
-                <VerticalSpace Height="20" Style="grid-column: span 3;" />
+                <VerticalSpace Height="20" Style="grid-column: span 6;" />
 
                 @if (AsyncPlayerProfile.Settings.ShowVpStats)
                 {
-                    <Label Text="@Strings.VpStats_10VP" CenterText="true" />
-                    <Label Text="@VpStats.AverageVp10VpGame.ToStringWithPrecision(2)" CenterText="true" TextColor="@VpStats.AverageVp10VpGame.GetAverageVpColor()" />
-                    <Label Text="@ShowGames(VpStats.Games10Vp)" CenterText="true" TextColor="TextColor.Yellow" />
+                    foreach (var stats in VpStats.VpStatsByVpGame)
+                    {
+                        if (stats.Games == 0)
+                        {
+                            <Label Text="@stats.VpGameCategory.ToString()" CenterText="true" />
+                            <Label Text="@ShowGames(stats.Games)" CenterText="true" TextColor="TextColor.Yellow" />
+                            <Label CssClass="span-4" />
+                        }
+                        else
+                        {
+                            <Label Text="@stats.VpGameCategory.ToString()" CenterText="true" />
+                            <Label Text="@ShowGames(stats.Games)" CenterText="true" TextColor="TextColor.Yellow" />
+                            <Label Text="@stats.TotalVp.ToString()" CenterText="true" TextColor="TextColor.Yellow" />
+                            <Label Text="@stats.MaxPossibleVp.ToString()" CenterText="true" TextColor="TextColor.Yellow" />
+                            <Label Text="@stats.AverageVpPerGame.ToStringWithPrecision(2)" CenterText="true" TextColor="@stats.AverageVpPerGame.GetAverageVpColor()" />
+                            <Label Text="@stats.VpPercentageOfTotal.ToStringWithPrecisionAndPercentage(2)" CenterText="true" TextColor="@stats.VpPercentageOfTotal.GetAverageVpPercentageColor()" />
+                        }
+                    }
 
-                    <Label Text="@Strings.VpStats_12VP" CenterText="true" />
-                    <Label Text="@VpStats.AverageVp12VpGame.ToStringWithPrecision(2)" CenterText="true" TextColor="@VpStats.AverageVp12VpGame.GetAverageVpColor()" />
-                    <Label Text="@ShowGames(VpStats.Games12Vp)" CenterText="true" TextColor="TextColor.Yellow" />
+                    <VerticalSpace Height="20" Style="grid-column: span 6;" />
 
-                    <Label Text="@Strings.VpStats_14VP" CenterText="true" />
-                    <Label Text="@VpStats.AverageVp14VpGame.ToStringWithPrecision(2)" CenterText="true" TextColor="@VpStats.AverageVp14VpGame.GetAverageVpColor()" />
-                    <Label Text="@ShowGames(VpStats.Games14Vp)" CenterText="true" TextColor="TextColor.Yellow" />
+                    <Label Text="Total" CenterText="true" />
+                    <Label Text="@ShowGames(VpStats.VpStatsTotal.Games)" CenterText="true" TextColor="TextColor.Yellow" />
+                    <Label Text="@VpStats.VpStatsTotal.TotalVp.ToString()" CenterText="true" TextColor="TextColor.Yellow" />
+                    <Label Text="@VpStats.VpStatsTotal.MaxPossibleVp.ToString()" CenterText="true" TextColor="TextColor.Yellow" />
+                    <Label Text="@VpStats.VpStatsTotal.AverageVpPerGame.ToStringWithPrecision(2)" CenterText="true" TextColor="@VpStats.VpStatsTotal.AverageVpPerGame.GetAverageVpColor()" />
+                    <Label Text="@VpStats.VpStatsTotal.VpPercentageOfTotal.ToStringWithPrecisionAndPercentage(2)" CenterText="true" TextColor="@VpStats.VpStatsTotal.VpPercentageOfTotal.GetAverageVpPercentageColor()" />
                 }
                 else
                 {
-                    <VerticalSpace MinHeight="100" Style="grid-column: span 3;" />
-                    <Label Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" Style="grid-column: span 3;" />
-                    <VerticalSpace MinHeight="100" Style="grid-column: span 3;" />
+                    <VerticalSpace MinHeight="100" Style="grid-column: span 6;" />
+                    <Label Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" Style="grid-column: span 6;" />
+                    <VerticalSpace MinHeight="100" Style="grid-column: span 6;" />
                 }
 
-                <VerticalSpace Height="20" Style="grid-column: span 3;" />
+                <VerticalSpace Height="20" Style="grid-column: span 6;" />
 
             </GridLayout>
 

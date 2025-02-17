@@ -9,9 +9,11 @@ public interface IAsyncGamesProvider
 
     Task<IReadOnlyCollection<string>> GetAsyncGameNames();
 
-    Task<AsyncGameDto> GetAsyncGame(int gameId);
+    Task<IReadOnlyCollection<string>> GetAsyncGameFunNames();
 
     Task<AsyncGameDto> GetAsyncGameByDiscordId(string asyncGameDiscordId);
+
+    Task<AsyncGameDto> GetAsyncGameByFunName(string asyncGameFunName);
 
     Task<IReadOnlyCollection<AsyncGameDto>> GetAsyncGamesFromYearAndMonth(int year, int month);
 }

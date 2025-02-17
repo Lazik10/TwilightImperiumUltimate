@@ -4,7 +4,7 @@ namespace TwilightImperiumUltimate.Web.Components.Async.Players;
 
 public partial class AsyncPlayerProfileGrid
 {
-    public PlayerStatisticsType CurentStatisticsType { get; set; }
+    public PlayerStatisticsType CurentStatisticsType { get; set; } = PlayerStatisticsType.All;
 
     [CascadingParameter(Name = "AsyncPlayerProfile")]
     public AsyncPlayerProfileSummaryStatsDto AsyncPlayerProfile { get; set; } = default!;

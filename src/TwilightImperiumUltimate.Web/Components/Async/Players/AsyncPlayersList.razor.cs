@@ -19,7 +19,7 @@ public partial class AsyncPlayersList
     [Inject]
     private NavigationManager NavigationManager { get; set; } = default!;
 
-    private IEnumerable<IGrouping<char, AsyncPlayerProfileDto>> GroupedPlayers =>
+    private List<IGrouping<char, AsyncPlayerProfileDto>> GroupedPlayers =>
         PlayerProfileNames.GroupBy(x =>
         {
             var firstChar = x.DiscordUsername.ToUpperInvariant().First();
@@ -35,16 +35,21 @@ public partial class AsyncPlayersList
             {
                 return _othersGroup;
             }
-        });
+        })
+        .ToList();
 
     protected override void OnParametersSet()
     {
         if (!string.IsNullOrEmpty(Letter))
+        {
             _selectedLetter = Letter.ToUpper(CultureInfo.InvariantCulture)[0];
+        }
 
-        _filteredPlayerProfiles = GroupedPlayers
-            .FirstOrDefault(group => group.Key == _selectedLetter)
+        var playerGroup = GroupedPlayers
+            .Find(group => group.Key == _selectedLetter)
             ?.ToList();
+
+        _filteredPlayerProfiles = playerGroup is null ? PlayerProfileNames.ToList() : playerGroup;
 
         OrderPlayerList();
     }
@@ -54,7 +59,7 @@ public partial class AsyncPlayersList
         _selectedLetter = letter;
 
         _filteredPlayerProfiles = GroupedPlayers
-            .FirstOrDefault(group => group.Key == letter)
+            .Find(group => group.Key == letter)
             ?.ToList();
 
         OrderPlayerList();
@@ -65,16 +70,23 @@ public partial class AsyncPlayersList
         if (search.Length == 0)
         {
             _filteredPlayerProfiles = GroupedPlayers
-                .FirstOrDefault(group => group.Key == _selectedLetter)
+                .Find(group => group.Key == _selectedLetter)
                 ?.ToList();
+        }
+        else if (_selectedLetter != search[0])
+        {
+            _selectedLetter = search[0];
         }
 
         var group = GroupedPlayers
-            .FirstOrDefault(group => group.Key == _selectedLetter)
+            .Find(group => group.Key == _selectedLetter)
             ?.ToList();
 
         if (group is null)
+        {
+            _filteredPlayerProfiles = PlayerProfileNames.ToList();
             return;
+        }
 
         _filteredPlayerProfiles = group
             .Where(profile => profile.DiscordUsername.Contains(search, StringComparison.OrdinalIgnoreCase))

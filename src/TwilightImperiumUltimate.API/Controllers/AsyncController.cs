@@ -75,6 +75,15 @@ public class AsyncController(IMediator mediator) : ControllerBase
         return Ok(new ApiResponse<AsyncGameDto>() { Success = true, Data = response });
     }
 
+    // GET: api/async/game-by-fun-name
+    [Route("game-by-fun-name")]
+    [HttpGet]
+    public async Task<ActionResult<IApiResponse<AsyncGameDto>>> GetAsyncGameByFunName([FromQuery] string funName)
+    {
+        var response = await _mediator.Send(new GetGameByFunNameQuery(funName));
+        return Ok(new ApiResponse<AsyncGameDto>() { Success = true, Data = response });
+    }
+
     // GET: api/async/games-by-date
     [Route("games-by-date")]
     [HttpPost]
@@ -99,6 +108,17 @@ public class AsyncController(IMediator mediator) : ControllerBase
     public async Task<ActionResult<IApiResponse<AsyncGameNamesDto>>> GetAsyncGameNames()
     {
         var gameNames = await _mediator.Send(new GetAllAsyncGameNamesQuery());
+        var response = new AsyncGameNamesDto(gameNames);
+
+        return Ok(new ApiResponse<AsyncGameNamesDto>() { Success = true, Data = response });
+    }
+
+    // GET: api/async/game-fun-names
+    [Route("game-fun-names")]
+    [HttpGet]
+    public async Task<ActionResult<IApiResponse<AsyncGameNamesDto>>> GetAsyncGameFunNames()
+    {
+        var gameNames = await _mediator.Send(new GetAllAsyncGameFunNamesQuery());
         var response = new AsyncGameNamesDto(gameNames);
 
         return Ok(new ApiResponse<AsyncGameNamesDto>() { Success = true, Data = response });

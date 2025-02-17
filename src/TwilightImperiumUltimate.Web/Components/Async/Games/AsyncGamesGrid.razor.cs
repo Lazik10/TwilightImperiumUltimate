@@ -9,7 +9,11 @@ public partial class AsyncGamesGrid
 
     private IReadOnlyCollection<string> _gameNames = new List<string>();
 
+    private IReadOnlyCollection<string> _gameFunNames = new List<string>();
+
     private string _asyncGameDiscordId = string.Empty;
+
+    private string _asyncGameFunName = string.Empty;
 
     private AsyncGameStatusFilter _gameStatus = AsyncGameStatusFilter.All;
 
@@ -32,6 +36,11 @@ public partial class AsyncGamesGrid
         {
             _gameNames = await AsyncGamesProvider.GetAsyncGameNames();
         }
+
+        if (_gameFunNames.Count == 0)
+        {
+            _gameFunNames = await AsyncGamesProvider.GetAsyncGameFunNames();
+        }
     }
 
     private async Task GetAsyncGameDates()
@@ -42,12 +51,21 @@ public partial class AsyncGamesGrid
     private void OnGameSelect(string gameName)
     {
         _asyncGameDiscordId = gameName;
+        _asyncGameFunName = string.Empty;
+        StateHasChanged();
+    }
+
+    private void OnGameFunNameSelect(string gameFunName)
+    {
+        _asyncGameDiscordId = string.Empty;
+        _asyncGameFunName = gameFunName;
         StateHasChanged();
     }
 
     private void GameStatusChanged(AsyncGameStatusFilter status)
     {
         _asyncGameDiscordId = string.Empty;
+        _asyncGameFunName = string.Empty;
         _gameStatus = status;
         StateHasChanged();
     }
@@ -55,6 +73,7 @@ public partial class AsyncGamesGrid
     private void GameTypeChanged(AsyncGameType type)
     {
         _asyncGameDiscordId = string.Empty;
+        _asyncGameFunName = string.Empty;
         _asyncGameType = type;
         StateHasChanged();
     }

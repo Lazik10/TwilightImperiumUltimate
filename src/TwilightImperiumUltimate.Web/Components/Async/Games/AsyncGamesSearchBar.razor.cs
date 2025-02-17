@@ -10,6 +10,12 @@ public partial class AsyncGamesSearchBar
     [Parameter]
     public IReadOnlyCollection<string> GameNames { get; set; } = new List<string>();
 
+    [Parameter]
+    public int Width { get; set; } = 100;
+
+    [Parameter]
+    public string SearhTitle { get; set; } = "Search";
+
     private void SelectGame(string gameName)
     {
         _selectedValue = gameName;

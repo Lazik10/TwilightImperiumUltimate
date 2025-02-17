@@ -74,11 +74,24 @@ public class AsyncStatsRepository(
         return await dbContex.GameStats.Select(x => x.AsyncGameID).ToListAsync(cancellationToken);
     }
 
+    public async Task<IReadOnlyCollection<string>> GetAllAsyncFunGameNames(CancellationToken cancellationToken)
+    {
+        await using var dbContex = await _context.CreateDbContextAsync(cancellationToken);
+        return await dbContex.GameStats.Select(x => x.AsyncFunGameName).ToListAsync(cancellationToken);
+    }
+
     public async Task<GameStats?> GetAsyncGameByDiscordId(string asyncGameId, CancellationToken cancellationToken)
     {
         await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);
         return await dbContext.GameStats
             .FirstOrDefaultAsync(x => x.AsyncGameID == asyncGameId, cancellationToken);
+    }
+
+    public async Task<GameStats?> GetAsyncGameByFunName(string funName, CancellationToken cancellationToken)
+    {
+        await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);
+        return await dbContext.GameStats
+            .FirstOrDefaultAsync(x => x.AsyncFunGameName == funName && !string.IsNullOrEmpty(x.AsyncFunGameName), cancellationToken);
     }
 
     public async Task<bool> UpdateGameStats(GameStats gameStats, GameData gameData, CancellationToken cancellationToken)
@@ -384,7 +397,7 @@ public class AsyncStatsRepository(
     private GameStats UpdateGameStats(GameStats gameStats, GameData gameData)
     {
         gameStats.Platform = gameData.Platform;
-        gameStats.Timestamp = gameData.Timestamp;
+        gameStats.Timestamp = gameData.SetupTimestamp;
         gameStats.SetupTimestamp = gameData.SetupTimestamp;
         gameStats.EndedTimestamp = gameData.EndedTimestamp;
         gameStats.HasWinner = gameData.Players.Any(x => x.Score >= gameData.Scoreboard);

@@ -9,4 +9,5 @@
     height: 30px;
     min-height: 40px;
     align-self: center;
+    box-sizing: border-box;
 }

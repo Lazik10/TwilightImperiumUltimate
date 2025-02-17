@@ -17,7 +17,11 @@ public interface IAsyncStatsRepository
 
     Task<IReadOnlyCollection<string>> GetAllAsyncGameNames(CancellationToken cancellationToken);
 
+    Task<IReadOnlyCollection<string>> GetAllAsyncFunGameNames(CancellationToken cancellationToken);
+
     Task<GameStats?> GetAsyncGameByDiscordId(string asyncGameId, CancellationToken cancellationToken);
+
+    Task<GameStats?> GetAsyncGameByFunName(string funName, CancellationToken cancellationToken);
 
     Task<bool> UpdateGameStats(GameStats gameStats, GameData gameData, CancellationToken cancellationToken);
 

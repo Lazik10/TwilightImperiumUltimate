@@ -13,14 +13,20 @@ public class AsyncGamesProvider(
 
     private IReadOnlyCollection<string> _gameNames = new List<string>();
 
-    public Task<AsyncGameDto> GetAsyncGame(int gameId)
-    {
-        throw new NotImplementedException();
-    }
+    private IReadOnlyCollection<string> _gameFunNames = new List<string>();
 
     public async Task<AsyncGameDto> GetAsyncGameByDiscordId(string asyncGameDiscordId)
     {
         (var response, var statusCode) = await _httpClient.GetAsync<ApiResponse<AsyncGameDto>>(Paths.ApiPath_AsyncGameByDiscordId, $"?discordId={asyncGameDiscordId}");
+        if (statusCode == HttpStatusCode.OK)
+            return response!.Data!;
+
+        return new AsyncGameDto(-1, string.Empty, string.Empty, 0, 0, false, false, 0, 0, 0, false);
+    }
+
+    public async Task<AsyncGameDto> GetAsyncGameByFunName(string asyncGameFunName)
+    {
+        (var response, var statusCode) = await _httpClient.GetAsync<ApiResponse<AsyncGameDto>>(Paths.ApiPath_AsyncGameByFunName, $"?funName={asyncGameFunName}");
         if (statusCode == HttpStatusCode.OK)
             return response!.Data!;
 
@@ -34,6 +40,18 @@ public class AsyncGamesProvider(
             return response!.Data!;
 
         return new AsyncGameDatesDto(new List<AsyncGameYearMonthDto>());
+    }
+
+    public async Task<IReadOnlyCollection<string>> GetAsyncGameFunNames()
+    {
+        if (_gameFunNames.Count > 0)
+            return _gameFunNames;
+
+        (var response, var statusCode) = await _httpClient.GetAsync<ApiResponse<AsyncGameNamesDto>>(Paths.ApiPath_AsyncGameFunNames);
+        if (statusCode == HttpStatusCode.OK)
+            _gameFunNames = response!.Data!.GameNames;
+
+        return _gameFunNames;
     }
 
     public async Task<IReadOnlyCollection<string>> GetAsyncGameNames()

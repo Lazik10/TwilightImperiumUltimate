@@ -24,7 +24,7 @@ public class AsyncPlayerGamesFactory : IAsyncPlayerGamesFactory
                 game.AsyncFunGameName,
                 game.Scoreboard,
                 playerScore,
-                game.Timestamp,
+                game.SetupTimestamp,
                 game.EndedTimestamp ?? 0,
                 game.EndedTimestamp is not null,
                 game.HasWinner,

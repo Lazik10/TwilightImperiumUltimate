@@ -1,12 +1,10 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Shared.Bars
 
-<VerticalSpace Height="20" />
-
 <FlexColumnCenteredContainer>
 
-    <FlexRowContainer Width="50">
+    <FlexRowContainer Width="Width">
 
-        <Label Text="Search game: " CenterText="true" />
+        <Label Text="@SearhTitle" CenterText="true" />
 
         <AutoComplete Data=@GameNames ValueChanged="SelectGame" Value="@_selectedValue" />
 
@@ -15,5 +13,3 @@
     </FlexRowContainer>
 
 </FlexColumnCenteredContainer>
-
-<VerticalSpace Height="20" />

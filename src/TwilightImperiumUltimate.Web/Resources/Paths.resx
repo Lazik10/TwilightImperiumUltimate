@@ -450,4 +450,10 @@
   <data name="ApiPath_AsyncHistoryStats" xml:space="preserve">
     <value>api/async/history-stats</value>
   </data>
+  <data name="ApiPath_AsyncGameFunNames" xml:space="preserve">
+    <value>api/async/game-fun-names</value>
+  </data>
+  <data name="ApiPath_AsyncGameByFunName" xml:space="preserve">
+    <value>api/async/game-by-fun-name</value>
+  </data>
 </root>
