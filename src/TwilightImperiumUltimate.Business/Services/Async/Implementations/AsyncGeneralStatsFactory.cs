@@ -69,25 +69,25 @@ public class AsyncGeneralStatsFactory(
             .Distinct()
             .Count();
 
-        var playersByTime = games
-            .Where(x => x.EndedTimestamp != null && x.HasWinner)
-            .SelectMany(x => x.PlayerStatistics)
-            .GroupBy(x => x.DiscordUserID)
-            .Select(g =>
+        var distributionsByPlayerTime = games
+            .SelectMany(game => game.PlayerStatistics)
+            .GroupBy(stat => stat.DiscordUserID)
+            .Select(group =>
             {
+                int totalTurns = group.Sum(stat => stat.TotalNumberOfTurns);
+                double averageTimeHours = group.Sum(stat => stat.TotalTurnTime) / (totalTurns * 3600000.0);
+
                 return new
                 {
-                    Id = g.Key,
-                    Turns = g.Sum(x => x.TotalNumberOfTurns),
-                    AverageTime = ((float)g.Sum(x => x.TotalTurnTime)) / g.Sum(x => x.TotalNumberOfTurns),
+                    Id = group.Key,
+                    Turns = totalTurns,
+                    AverageTimeHours = averageTimeHours,
                 };
             })
-            .Where(x => x.Turns > 100)
-            .GroupBy(x => ConvertToTime(x.AverageTime))
-            .ToList();
-
-        var distributionsByPlayerTime = playersByTime
-            .Select(x => new PlayerDistributionByTimerDto(x.Key, x.Count()))
+            .Where(player => player.Turns > 100)
+            .GroupBy(player => CategorizeTime(player.AverageTimeHours))
+            .Select(group => new PlayerDistributionByTimerDto(group.Key, group.Count()))
+            .OrderBy(dist => dist.Timer)
             .ToList();
 
         var distributionByVp = games
@@ -122,23 +122,19 @@ public class AsyncGeneralStatsFactory(
             distributionByAverageTurnEnd);
     }
 
-    private int ConvertToTime(float averageTime)
+    private int CategorizeTime(double avgTimeHours)
     {
-        TimeSpan averageTurnTime = TimeSpan.FromMilliseconds(averageTime);
+        if (avgTimeHours >= 8) return 9; // 8+ hours grouped together
+        if (avgTimeHours >= 7) return 8;
+        if (avgTimeHours >= 6) return 7;
+        if (avgTimeHours >= 5) return 6;
+        if (avgTimeHours >= 4) return 5;
+        if (avgTimeHours >= 3) return 4;
+        if (avgTimeHours >= 2) return 3;
+        if (avgTimeHours >= 1) return 2;
 
-        return averageTurnTime.Hours switch
-        {
-            > 8 => 9,
-            > 7 => 8,
-            > 6 => 7,
-            > 5 => 6,
-            > 4 => 5,
-            > 3 => 4,
-            > 2 => 3,
-            > 1 => 2,
-            > 0 when averageTurnTime.Minutes > 30 => 1,
-            _ => 0,
-        };
+        // Less than 1 hour, split at 30 minutes
+        return avgTimeHours >= 0.5 ? 1 : 0;
     }
 
     private int GetVpDistributionKey(GameStats game)
