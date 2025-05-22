@@ -1902,7 +1902,7 @@ Brandon Williams&lt;/p&gt;</value>
     <value>Eliminations</value>
   </data>
   <data name="GameStats_Eliminations" xml:space="preserve">
-    <value>Eliminations</value>
+    <value>Eliminated</value>
   </data>
   <data name="TurnStats_NumberOfTurns" xml:space="preserve">
     <value>Number of turns</value>
@@ -1914,7 +1914,7 @@ Brandon Williams&lt;/p&gt;</value>
     <value>VP Stats</value>
   </data>
   <data name="VpStats_AverageVp" xml:space="preserve">
-    <value>Avg P/G</value>
+    <value>Avg VP/G</value>
   </data>
   <data name="VpStats_Games" xml:space="preserve">
     <value>Games</value>
@@ -2007,7 +2007,7 @@ Brandon Williams&lt;/p&gt;</value>
     <value>Win %</value>
   </data>
   <data name="FactionStats_Eliminations" xml:space="preserve">
-    <value>Eliminations</value>
+    <value>Eliminated</value>
   </data>
   <data name="FactionStats_MinVp" xml:space="preserve">
     <value>Min VP</value>
@@ -2037,13 +2037,13 @@ Brandon Williams&lt;/p&gt;</value>
     <value>Win %</value>
   </data>
   <data name="FactionStatisticsSubstatsFilter_Eliminations" xml:space="preserve">
-    <value>Eliminations</value>
+    <value>Eliminated</value>
   </data>
   <data name="FactionStatisticsSubstatsFilter_MinVp" xml:space="preserve">
     <value>Min VP</value>
   </data>
   <data name="FactionStatisticsSubstatsFilter_AverageVp" xml:space="preserve">
-    <value>Avgerage VP</value>
+    <value>Average VP</value>
   </data>
   <data name="FactionStatisticsSubstatsFilter_MaxVp" xml:space="preserve">
     <value>Max VP</value>
@@ -2214,10 +2214,10 @@ Brandon Williams&lt;/p&gt;</value>
     <value>Total VP</value>
   </data>
   <data name="AsyncGames_MostEliminationsPercentageTitle" xml:space="preserve">
-    <value>Players With Highest Eliminations %</value>
+    <value>Players With Highest Eliminated %</value>
   </data>
   <data name="AsyncStats_EliminationsPercentage" xml:space="preserve">
-    <value>Eliminations %</value>
+    <value>Eliminated %</value>
   </data>
   <data name="AsyncGames_MostWinsDeviationTitle" xml:space="preserve">
     <value>Highest Win Deviation %</value>
@@ -2394,7 +2394,7 @@ Brandon Williams&lt;/p&gt;</value>
     <value>Max Possible</value>
   </data>
   <data name="VpStats_AverageVpPercentage" xml:space="preserve">
-    <value>Avg % P/G</value>
+    <value>Avg VP%/G</value>
   </data>
   <data name="VpStats_VpPercentageOfTotal" xml:space="preserve">
     <value>% of Total</value>
