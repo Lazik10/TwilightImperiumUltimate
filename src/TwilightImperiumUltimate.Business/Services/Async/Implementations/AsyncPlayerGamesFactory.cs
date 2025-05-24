@@ -6,6 +6,8 @@ namespace TwilightImperiumUltimate.Business.Services.Async.Implementations;
 
 public class AsyncPlayerGamesFactory : IAsyncPlayerGamesFactory
 {
+    private const string FogOfWar = "fow";
+
     public Task<AsyncPlayerGamesSummaryDto> CreateAsyncPlayerGames(AsyncPlayerProfile playerProfile)
     {
         var games = playerProfile.GameStatistics.Select(x => x.GameStats).ToList();
@@ -19,8 +21,12 @@ public class AsyncPlayerGamesFactory : IAsyncPlayerGamesFactory
             var playerScore = playerStats?.Score ?? 0;
             var faction = playerStats?.FactionName ?? AsyncFactionName.Homebrew;
 
+            // Hide fow game Ids if the game is not finished yet.
+            var isFogGame = game.AsyncGameID.StartsWith(FogOfWar);
+            var asyncGameId = isFogGame ? FogOfWar : game.AsyncGameID;
+
             gamesDto.Add(new AsyncPlayerGameDto(
-                game.AsyncGameID,
+                asyncGameId,
                 game.AsyncFunGameName,
                 game.Scoreboard,
                 playerScore,
