@@ -71,6 +71,14 @@ public enum AsyncFactionName
     TheZealotsOfRhodun,
     TheZelianPurifier,
 
+    // BlueRiverie
+    UydaiConclave,
+    PharadnOrder,
+    QhetRepublic,
+    AtokeraLegacy,
+    BelkoseaAlliedStates,
+    ToldarConcordat,
+
     // Other
     Franken,
     Homebrew,
