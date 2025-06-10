@@ -20,6 +20,7 @@ public static class AsyncFactionParser
             "Sardakk Norr" => AsyncFactionName.SardakkNorr,
             "The Universities of Jol-Nar" => AsyncFactionName.TheUniversitiesOfJolNar,
             "The Winnu" => AsyncFactionName.TheWinnu,
+            "The Xxcha Kingdom" => AsyncFactionName.TheXxchaKingdom,
             "The Xxcha Kingdoms" => AsyncFactionName.TheXxchaKingdom,
             "The Yin Brotherhood" => AsyncFactionName.TheYinBrotherhood,
             "The Yssaril Tribes" => AsyncFactionName.TheYssarilTribes,
@@ -71,6 +72,13 @@ public static class AsyncFactionParser
             "The Council Keleres - Xxcha" => AsyncFactionName.TheCouncilKeleresXxcha,
             "The Council Keleres - Argent" => AsyncFactionName.TheCouncilKeleresArgent,
 
+            "Uydai Conclave" => AsyncFactionName.UydaiConclave,
+            "Pharadn Order" => AsyncFactionName.PharadnOrder,
+            "Qhet Republic" => AsyncFactionName.QhetRepublic,
+            "Atokera Legacy" => AsyncFactionName.AtokeraLegacy,
+            "Belkosea Allied States" => AsyncFactionName.BelkoseaAlliedStates,
+            "Toldar Concordat" => AsyncFactionName.ToldarConcordat,
+
             "Franken 1" => AsyncFactionName.Franken,
             "Franken 2" => AsyncFactionName.Franken,
             "Franken 3" => AsyncFactionName.Franken,
@@ -87,6 +95,16 @@ public static class AsyncFactionParser
             "Franken 14" => AsyncFactionName.Franken,
             "Franken 15" => AsyncFactionName.Franken,
             "Franken 16" => AsyncFactionName.Franken,
+            "Franken 17" => AsyncFactionName.Franken,
+            "Franken 18" => AsyncFactionName.Franken,
+            "Franken 19" => AsyncFactionName.Franken,
+            "Franken 20" => AsyncFactionName.Franken,
+            "Franken 21" => AsyncFactionName.Franken,
+            "Franken 22" => AsyncFactionName.Franken,
+            "Franken 23" => AsyncFactionName.Franken,
+            "Franken 24" => AsyncFactionName.Franken,
+            "Franken 25" => AsyncFactionName.Franken,
+            "Franken 26" => AsyncFactionName.Franken,
 
             _ => AsyncFactionName.Homebrew,
         };
