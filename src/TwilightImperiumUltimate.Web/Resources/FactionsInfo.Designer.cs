@@ -61,6 +61,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Atokera Legacy.
+        /// </summary>
+        internal static string AtokeraLegacy_Title {
+            get {
+                return ResourceManager.GetString("AtokeraLegacy_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Belkosea Allied States.
+        /// </summary>
+        internal static string BelkoseaAlliedStates_Title {
+            get {
+                return ResourceManager.GetString("BelkoseaAlliedStates_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Franken.
         /// </summary>
         internal static string Franken_Title {
@@ -147,6 +165,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string None_Title {
             get {
                 return ResourceManager.GetString("None_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pharadn Order.
+        /// </summary>
+        internal static string PharadnOrder_Title {
+            get {
+                return ResourceManager.GetString("PharadnOrder_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Qhet Republic.
+        /// </summary>
+        internal static string QhetRepublic_Title {
+            get {
+                return ResourceManager.GetString("QhetRepublic_Title", resourceCulture);
             }
         }
         
@@ -6269,6 +6305,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string TheZelianPurifier_Title {
             get {
                 return ResourceManager.GetString("TheZelianPurifier_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toldar Concordat.
+        /// </summary>
+        internal static string ToldarConcordat_Title {
+            get {
+                return ResourceManager.GetString("ToldarConcordat_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uydai Conclave.
+        /// </summary>
+        internal static string UydaiConclave_Title {
+            get {
+                return ResourceManager.GetString("UydaiConclave_Title", resourceCulture);
             }
         }
     }

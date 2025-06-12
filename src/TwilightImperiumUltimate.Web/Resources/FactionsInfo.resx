@@ -7037,4 +7037,22 @@ Government:.None
   <data name="TheCouncilKeleresXxcha_Title" xml:space="preserve">
     <value>The Council Keleres - Xxcha</value>
   </data>
+  <data name="UydaiConclave_Title" xml:space="preserve">
+    <value>Uydai Conclave</value>
+  </data>
+  <data name="PharadnOrder_Title" xml:space="preserve">
+    <value>Pharadn Order</value>
+  </data>
+  <data name="QhetRepublic_Title" xml:space="preserve">
+    <value>Qhet Republic</value>
+  </data>
+  <data name="AtokeraLegacy_Title" xml:space="preserve">
+    <value>Atokera Legacy</value>
+  </data>
+  <data name="BelkoseaAlliedStates_Title" xml:space="preserve">
+    <value>Belkosea Allied States</value>
+  </data>
+  <data name="ToldarConcordat_Title" xml:space="preserve">
+    <value>Toldar Concordat</value>
+  </data>
 </root>

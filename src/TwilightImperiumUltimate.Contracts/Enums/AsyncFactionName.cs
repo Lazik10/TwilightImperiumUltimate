@@ -82,4 +82,7 @@ public enum AsyncFactionName
     // Other
     Franken,
     Homebrew,
+
+    // Unknown
+    Unknown,
 }
