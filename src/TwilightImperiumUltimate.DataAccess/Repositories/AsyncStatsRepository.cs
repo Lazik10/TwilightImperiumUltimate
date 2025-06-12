@@ -145,7 +145,7 @@ public class AsyncStatsRepository(
     {
         await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);
         var oldPlayerStats = await dbContext.PlayerStats
-            .FirstOrDefaultAsync(x => x.FactionName == newPlayerStats.FactionName && x.GameStatsId == gameStats.Id, cancellationToken);
+            .FirstOrDefaultAsync(x => x.FactionName == newPlayerStats.FactionName && x.Color == newPlayerStats.Color && x.GameStatsId == gameStats.Id, cancellationToken);
 
         if (oldPlayerStats is not null)
         {
