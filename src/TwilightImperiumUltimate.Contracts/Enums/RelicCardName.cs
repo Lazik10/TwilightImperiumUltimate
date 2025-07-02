@@ -15,6 +15,9 @@ public enum RelicCardName
     TheCrownOfThalnos,
     TheObsidian,
     TheProphetsTears,
+    BookOfLatvinia, // Codex Volume 4: Liberation
+    CircletOfTheVoid, // Codex Volume 4: Liberation
+    Neuraloop, // Codex Volume 4: Liberation
 
     StarfallArray,
     AccretionEngine,
