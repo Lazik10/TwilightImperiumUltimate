@@ -451,7 +451,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Players With Highest Eliminations %.
+        ///   Looks up a localized string similar to Players With Highest Eliminated %.
         /// </summary>
         public static string AsyncGames_MostEliminationsPercentageTitle {
             get {
@@ -1045,7 +1045,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Eliminations %.
+        ///   Looks up a localized string similar to Eliminated %.
         /// </summary>
         public static string AsyncStats_EliminationsPercentage {
             get {
@@ -2350,7 +2350,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Avgerage VP.
+        ///   Looks up a localized string similar to Average VP.
         /// </summary>
         public static string FactionStatisticsSubstatsFilter_AverageVp {
             get {
@@ -2368,7 +2368,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Eliminations.
+        ///   Looks up a localized string similar to Eliminated.
         /// </summary>
         public static string FactionStatisticsSubstatsFilter_Eliminations {
             get {
@@ -2485,7 +2485,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Eliminations.
+        ///   Looks up a localized string similar to Eliminated.
         /// </summary>
         public static string FactionStats_Eliminations {
             get {
@@ -2719,7 +2719,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Eliminations.
+        ///   Looks up a localized string similar to Eliminated.
         /// </summary>
         public static string GameStats_Eliminations {
             get {
@@ -2967,6 +2967,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string GameVersion_CodexAffinity {
             get {
                 return ResourceManager.GetString("GameVersion_CodexAffinity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Codex Liberation.
+        /// </summary>
+        public static string GameVersion_CodexLiberation {
+            get {
+                return ResourceManager.GetString("GameVersion_CodexLiberation", resourceCulture);
             }
         }
         
@@ -6635,7 +6644,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Avg P/G.
+        ///   Looks up a localized string similar to Avg VP/G.
         /// </summary>
         public static string VpStats_AverageVp {
             get {
@@ -6644,7 +6653,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Avg % P/G.
+        ///   Looks up a localized string similar to Avg VP%/G.
         /// </summary>
         public static string VpStats_AverageVpPercentage {
             get {
