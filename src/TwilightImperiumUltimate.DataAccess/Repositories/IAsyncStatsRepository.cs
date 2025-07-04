@@ -25,6 +25,8 @@ public interface IAsyncStatsRepository
 
     Task<bool> UpdateGameStats(GameStats gameStats, GameData gameData, CancellationToken cancellationToken);
 
+    Task<bool> DeleteGameStats(GameStats gameStats, CancellationToken cancellationToken);
+
     Task<int> AddGameStats(GameStats gameStats, CancellationToken cancellationToken);
 
     Task<int> AddPlayerStats(PlayerStats playerStats, CancellationToken cancellationToken);
