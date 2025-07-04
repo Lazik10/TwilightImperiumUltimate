@@ -6318,6 +6318,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unknown.
+        /// </summary>
+        internal static string Unknown_Title {
+            get {
+                return ResourceManager.GetString("Unknown_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Uydai Conclave.
         /// </summary>
         internal static string UydaiConclave_Title {

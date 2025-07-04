@@ -15,15 +15,20 @@ public class AsyncPlayerGamesFactory : IAsyncPlayerGamesFactory
 
         foreach (var game in games)
         {
+            int playerScore = 0;
+            bool isWinner = false;
+            AsyncFactionName faction = AsyncFactionName.Unknown;
+
             var playerStats = game.PlayerStatistics.FirstOrDefault(x => x.DiscordUserID == playerProfile.DiscordUserId);
+            var isActiveFowGame = !game.HasWinner && game.EndedTimestamp is null && game.AsyncGameID.StartsWith(FogOfWar);
+            var asyncGameId = isActiveFowGame ? FogOfWar : game.AsyncGameID;
 
-            var isWinner = playerStats is not null && playerStats.Score >= game.Scoreboard;
-            var playerScore = playerStats?.Score ?? 0;
-            var faction = playerStats?.FactionName ?? AsyncFactionName.Homebrew;
-
-            // Hide fow game Ids if the game is not finished yet.
-            var isFogGame = game.AsyncGameID.StartsWith(FogOfWar);
-            var asyncGameId = isFogGame ? FogOfWar : game.AsyncGameID;
+            if (playerStats is not null)
+            {
+                isWinner = playerStats.Score >= game.Scoreboard;
+                playerScore = isActiveFowGame ? 0 : playerStats.Score;
+                faction = isActiveFowGame ? AsyncFactionName.Unknown : playerStats.FactionName;
+            }
 
             gamesDto.Add(new AsyncPlayerGameDto(
                 asyncGameId,
