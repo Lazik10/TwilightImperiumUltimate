@@ -119,6 +119,31 @@ public class AsyncStatsRepository(
         return false;
     }
 
+    public async Task<bool> DeleteGameStats(GameStats gameStats, CancellationToken cancellationToken)
+    {
+        await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);
+        var game = await dbContext.GameStats
+            .FirstOrDefaultAsync(x => x.AsyncGameID == gameStats.AsyncGameID, cancellationToken);
+
+        if (game is not null)
+        {
+            dbContext.GameStats.Remove(game);
+            try
+            {
+                await dbContext.SaveChangesAsync(cancellationToken);
+                _logger.LogInformation("Deleted GameStats for game with AsyncGameID: {AsyncGameID}", gameStats.AsyncGameID);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to delete GameStats for game with AsyncGameID: {AsyncGameID}", gameStats.AsyncGameID);
+                return false;
+            }
+        }
+
+        return false;
+    }
+
     public async Task<int> AddGameStats(GameStats gameStats, CancellationToken cancellationToken)
     {
         await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);

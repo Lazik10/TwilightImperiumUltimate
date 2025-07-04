@@ -50,12 +50,23 @@ public class UpdateAsyncGameDataCommandHandler(
                 var success = await _asyncStatsRepository.UpdateGameStats(gameStats, game, cancellationToken);
 
                 if (!success)
+                {
+                    // If the game stats could not be updated, remove the game from the database and parse it again in next cycle
+                    await _asyncStatsRepository.DeleteGameStats(gameStats, cancellationToken);
                     continue;
+                }
 
                 foreach (var player in game.Players)
                 {
                     var playerStats = MapPlayerDataToPlayerStats(player, gameStats, game.Scoreboard);
-                    await _asyncStatsRepository.UpdatePlayerStats(gameStats, playerStats, cancellationToken);
+                    var playerStatsUpdateSuccess = await _asyncStatsRepository.UpdatePlayerStats(gameStats, playerStats, cancellationToken);
+
+                    if (!playerStatsUpdateSuccess)
+                    {
+                        // If the player stats could not be updated, remove the game from the database and parse it again in next cycle
+                        await _asyncStatsRepository.DeleteGameStats(gameStats, cancellationToken);
+                        break;
+                    }
                 }
             }
         }
