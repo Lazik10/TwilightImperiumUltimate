@@ -90,7 +90,11 @@ public partial class AsyncPlayerGamesStats
             return "color: lawngreen; justify-content: flex-start;";
     }
 
-    private bool ShowWins() => AsyncPlayerProfile.Settings.ShowWinRates;
+    private bool ShowWins(AsyncPlayerGameDto game)
+    {
+        var isFowGame = game.AsyncGameID == "fow";
+        return !isFowGame && AsyncPlayerProfile.Settings.ShowWinRates;
+    }
 
     private async Task RedirectToGameDetails(string gameId)
     {

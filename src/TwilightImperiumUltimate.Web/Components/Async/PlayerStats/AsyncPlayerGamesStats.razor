@@ -44,8 +44,8 @@
                                 <Label Style="grid-column: span 3;" />
                                 <TextButton Text="@game.AsyncGameID" TextAlign="left" CssClass="text-no-overflow" Style="@(GetAsyncGameIdTextColor(game))" FontSize="14" OnClick="@(async () => await RedirectToGameDetails(game.AsyncGameID))" />
                                 <TextButton Text="@game.GameFunName" TextAlign="left" CssClass="text-no-overflow" Style="@(GetAsyncGameIdTextColor(game))" FontSize="14" OnClick="@(async () => await RedirectToGameDetails(game.AsyncGameID))" />
-                                <Label Text="@(ShowWins() ? $"{game.PlayerScore} / {game.Scoreboard}" : $"? / {game.Scoreboard}")" FontSize="12" />
-                                <Label Text="@(game.IsWinner && ShowWins() ? "W" : "")" FontSize="12" TextColor="TextColor.Yellow" />
+                                <Label Text="@(ShowWins(game) ? $"{game.PlayerScore} / {game.Scoreboard}" : $"? / {game.Scoreboard}")" FontSize="12" />
+                                <Label Text="@(game.IsWinner && ShowWins(game) ? "W" : "")" FontSize="12" TextColor="TextColor.Yellow" />
                                 <Label Text="@(game.Faction.GetFactionUIText(FactionResourceType.Title))" FontSize="12" />
                                 <Label Text="@GetDurationTime(game)" FontSize="12" />
                                 <Label />
