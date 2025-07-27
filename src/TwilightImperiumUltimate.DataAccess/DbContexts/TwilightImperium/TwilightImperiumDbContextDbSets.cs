@@ -1,6 +1,10 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using TwilightImperiumUltimate.Core.Entities.Async;
 using TwilightImperiumUltimate.Core.Entities.Statistics;
+using TwilightImperiumUltimate.Core.Entities.Tigl;
+using TwilightImperiumUltimate.Core.Entities.Tigl.History;
+using TwilightImperiumUltimate.Core.Entities.Tigl.Ratings;
+using TwilightImperiumUltimate.Core.Entities.Tigl.Stats;
 
 namespace TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium;
 
@@ -76,6 +80,35 @@ public partial class TwilightImperiumDbContext : IdentityDbContext<TwilightImper
 
     // Technologies
     public virtual DbSet<Technology> Technologies { get; set; }
+
+    // Tigl
+    public virtual DbSet<TiglUser> TiglUsers { get; set; }
+
+    public virtual DbSet<MatchReport> GameReports { get; set; }
+
+    public virtual DbSet<PlayerResult> PlayerResults { get; set; }
+
+    public virtual DbSet<AsyncStats> AsyncStats { get; set; }
+
+    public virtual DbSet<GlickoStats> GlickoStats { get; set; }
+
+    public virtual DbSet<TrueSkillStats> TrueSkillStats { get; set; }
+
+    public virtual DbSet<AsyncRating> AsyncRatings { get; set; }
+
+    public virtual DbSet<GlickoRating> GlickoRatings { get; set; }
+
+    public virtual DbSet<TrueSkillRating> TrueSkillRatings { get; set; }
+
+    public virtual DbSet<AsyncPlayerMatchStats> AsyncPlayerMatchStats { get; set; }
+
+    public virtual DbSet<GlickoPlayerMatchStats> GlickoPlayerMatchStats { get; set; }
+
+    public virtual DbSet<TrueSkillPlayerMatchStats> TrueSkillPlayerMatchStats { get; set; }
+
+    public virtual DbSet<Season> Seasons { get; set; }
+
+    public virtual DbSet<TiglParameter> TiglParameters { get; set; }
 
     // Units
     public virtual DbSet<Unit> Units { get; set; }

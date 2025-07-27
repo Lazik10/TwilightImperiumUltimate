@@ -16,7 +16,7 @@ public class GetAllAsyncGamesByYearAndMonthQueryHandler(
         var games = await _asyncStatsRepository.GetAllAsyncGamesByYearAndMonthQuery(request.Year, request.Month, cancellationToken);
 
         // Make sure active fow games stays hidden
-        foreach (var game in games.Where(game => game.AsyncGameID.StartsWith(FogOfWar)))
+        foreach (var game in games.Where(game => game.AsyncGameID.StartsWith(FogOfWar, StringComparison.InvariantCulture)))
         {
             game.AsyncGameID = FogOfWar;
         }

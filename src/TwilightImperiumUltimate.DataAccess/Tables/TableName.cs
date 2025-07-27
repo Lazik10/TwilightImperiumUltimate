@@ -83,4 +83,33 @@ internal static class TableName
 
     // Websites
     internal const string Websites = "Websites";
+
+    // Tigl
+    internal const string MatchReports = "MatchReports";
+
+    internal const string PlayerResults = "PlayerResults";
+
+    internal const string TiglUsers = "Users";
+
+    internal const string AsyncStats = "AsyncStats";
+
+    internal const string GlickoStats = "GlickoStats";
+
+    internal const string TrueSkillStats = "TrueSkillStats";
+
+    internal const string AsyncRatings = "AsyncRatings";
+
+    internal const string GlickoRatings = "GlickoRatings";
+
+    internal const string TrueSkillRatings = "TrueSkillRatings";
+
+    internal const string AsyncPlayerMatchStats = "AsyncPlayerMatchStats";
+
+    internal const string GlickoPlayerMatchStats = "GlickoPlayerMatchStats";
+
+    internal const string TrueSkillPlayerMatchStats = "TrueSkillPlayerMatchStats";
+
+    internal const string Seasons = "Seasons";
+
+    internal const string Parameters = "Parameters";
 }

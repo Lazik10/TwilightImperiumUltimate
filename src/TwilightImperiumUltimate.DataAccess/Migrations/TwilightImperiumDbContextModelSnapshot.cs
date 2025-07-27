@@ -17,7 +17,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.7")
+                .HasAnnotation("ProductVersion", "8.0.16")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -22619,6 +22619,830 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         });
                 });
 
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.History.AsyncPlayerMatchStats", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AsyncStatsId")
+                        .HasColumnType("int")
+                        .HasColumnName("AsyncStatsId")
+                        .HasColumnOrder(1);
+
+                    b.Property<decimal>("AussieScoreNew")
+                        .HasColumnType("decimal(18,10)")
+                        .HasColumnName("AussieScoreNew")
+                        .HasColumnOrder(11);
+
+                    b.Property<decimal>("AussieScoreOld")
+                        .HasColumnType("decimal(18,10)")
+                        .HasColumnName("AussieScoreOld")
+                        .HasColumnOrder(10);
+
+                    b.Property<long>("DiscordUserId")
+                        .HasColumnType("bigint")
+                        .HasColumnName("DiscordUserId")
+                        .HasColumnOrder(3);
+
+                    b.Property<decimal>("ExpectedWinPercentage")
+                        .HasColumnType("decimal(18,10)")
+                        .HasColumnName("ExpectedWinPercentage")
+                        .HasColumnOrder(7);
+
+                    b.Property<string>("Faction")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("Faction")
+                        .HasColumnOrder(14);
+
+                    b.Property<string>("IsRankUpGame")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("varchar(10)")
+                        .HasColumnName("IsRankUpGame")
+                        .HasColumnOrder(16);
+
+                    b.Property<int>("MatchId")
+                        .HasColumnType("int")
+                        .HasColumnName("MatchId")
+                        .HasColumnOrder(2);
+
+                    b.Property<string>("NewRank")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("NewRank")
+                        .HasColumnOrder(18);
+
+                    b.Property<string>("OldRank")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("OldRank")
+                        .HasColumnOrder(17);
+
+                    b.Property<decimal>("OpponentAvgRating")
+                        .HasColumnType("decimal(18,10)")
+                        .HasColumnName("OpponentAvgRating")
+                        .HasColumnOrder(12);
+
+                    b.Property<int>("Placement")
+                        .HasColumnType("int")
+                        .HasColumnName("Placement")
+                        .HasColumnOrder(6);
+
+                    b.Property<decimal>("RatingNew")
+                        .HasColumnType("decimal(18,10)")
+                        .HasColumnName("RatingNew")
+                        .HasColumnOrder(9);
+
+                    b.Property<decimal>("RatingOld")
+                        .HasColumnType("decimal(18,10)")
+                        .HasColumnName("RatingOld")
+                        .HasColumnOrder(8);
+
+                    b.Property<int>("Score")
+                        .HasColumnType("int")
+                        .HasColumnName("Score")
+                        .HasColumnOrder(5);
+
+                    b.Property<int>("Season")
+                        .HasColumnType("int")
+                        .HasColumnName("Season")
+                        .HasColumnOrder(13);
+
+                    b.Property<long>("Timestamp")
+                        .HasColumnType("bigint")
+                        .HasColumnName("Timestamp")
+                        .HasColumnOrder(15);
+
+                    b.Property<string>("Winner")
+                        .IsRequired()
+                        .HasColumnType("varchar(10)")
+                        .HasColumnName("Winner")
+                        .HasColumnOrder(4);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AsyncStatsId");
+
+                    b.HasIndex("MatchId");
+
+                    b.ToTable("AsyncPlayerMatchStats", "Tigl");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.History.GlickoPlayerMatchStats", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<long>("DiscordUserId")
+                        .HasColumnType("bigint")
+                        .HasColumnName("DiscordUserId")
+                        .HasColumnOrder(3);
+
+                    b.Property<string>("Faction")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("Faction")
+                        .HasColumnOrder(16);
+
+                    b.Property<int>("GlickoStatsId")
+                        .HasColumnType("int")
+                        .HasColumnName("GlickoStatsId")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("IsRankUpGame")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("varchar(10)")
+                        .HasColumnName("IsRankUpGame")
+                        .HasColumnOrder(18);
+
+                    b.Property<int>("MatchId")
+                        .HasColumnType("int")
+                        .HasColumnName("MatchId")
+                        .HasColumnOrder(2);
+
+                    b.Property<string>("NewRank")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("NewRank")
+                        .HasColumnOrder(20);
+
+                    b.Property<string>("OldRank")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("OldRank")
+                        .HasColumnOrder(19);
+
+                    b.Property<decimal>("OpponentAvgRating")
+                        .HasColumnType("decimal(18,10)")
+                        .HasColumnName("OpponentAvgRating")
+                        .HasColumnOrder(14);
+
+                    b.Property<decimal>("Performance")
+                        .HasColumnType("decimal(18,10)")
+                        .HasColumnName("Performance")
+                        .HasColumnOrder(7);
+
+                    b.Property<int>("Placement")
+                        .HasColumnType("int")
+                        .HasColumnName("Placement")
+                        .HasColumnOrder(6);
+
+                    b.Property<decimal>("RatingNew")
+                        .HasColumnType("decimal(18,10)")
+                        .HasColumnName("RatingNew")
+                        .HasColumnOrder(9);
+
+                    b.Property<decimal>("RatingOld")
+                        .HasColumnType("decimal(18,10)")
+                        .HasColumnName("RatingOld")
+                        .HasColumnOrder(8);
+
+                    b.Property<decimal>("RdNew")
+                        .HasColumnType("decimal(18,10)")
+                        .HasColumnName("RdNew")
+                        .HasColumnOrder(11);
+
+                    b.Property<decimal>("RdOld")
+                        .HasColumnType("decimal(18,10)")
+                        .HasColumnName("RdOld")
+                        .HasColumnOrder(10);
+
+                    b.Property<int>("Score")
+                        .HasColumnType("int")
+                        .HasColumnName("Score")
+                        .HasColumnOrder(5);
+
+                    b.Property<int>("Season")
+                        .HasColumnType("int")
+                        .HasColumnName("Season")
+                        .HasColumnOrder(15);
+
+                    b.Property<long>("Timestmap")
+                        .HasColumnType("bigint")
+                        .HasColumnName("Timestmap")
+                        .HasColumnOrder(17);
+
+                    b.Property<decimal>("VolatilityNew")
+                        .HasColumnType("decimal(18,10)")
+                        .HasColumnName("VolatilityNew")
+                        .HasColumnOrder(13);
+
+                    b.Property<decimal>("VolatilityOld")
+                        .HasColumnType("decimal(18,10)")
+                        .HasColumnName("VolatilityOld")
+                        .HasColumnOrder(12);
+
+                    b.Property<string>("Winner")
+                        .IsRequired()
+                        .HasColumnType("varchar(10)")
+                        .HasColumnName("Winner")
+                        .HasColumnOrder(4);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GlickoStatsId");
+
+                    b.HasIndex("MatchId");
+
+                    b.ToTable("GlickoPlayerMatchStats", "Tigl");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.History.TrueSkillPlayerMatchStats", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<long>("DiscordUserId")
+                        .HasColumnType("bigint")
+                        .HasColumnName("DiscordUserId")
+                        .HasColumnOrder(3);
+
+                    b.Property<string>("Faction")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("Faction")
+                        .HasColumnOrder(14);
+
+                    b.Property<string>("IsRankUpGame")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("varchar(10)")
+                        .HasColumnName("IsRankUpGame")
+                        .HasColumnOrder(16);
+
+                    b.Property<int>("MatchId")
+                        .HasColumnType("int")
+                        .HasColumnName("MatchId")
+                        .HasColumnOrder(2);
+
+                    b.Property<decimal>("MuNew")
+                        .HasColumnType("decimal(18,10)")
+                        .HasColumnName("MuNew")
+                        .HasColumnOrder(9);
+
+                    b.Property<decimal>("MuOld")
+                        .HasColumnType("decimal(18,10)")
+                        .HasColumnName("MuOld")
+                        .HasColumnOrder(8);
+
+                    b.Property<string>("NewRank")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("NewRank")
+                        .HasColumnOrder(18);
+
+                    b.Property<string>("OldRank")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("OldRank")
+                        .HasColumnOrder(17);
+
+                    b.Property<decimal>("OpponentAvgRating")
+                        .HasColumnType("decimal(18,10)")
+                        .HasColumnName("OpponentAvgRating")
+                        .HasColumnOrder(12);
+
+                    b.Property<decimal>("Performance")
+                        .HasColumnType("decimal(18,10)")
+                        .HasColumnName("Performance")
+                        .HasColumnOrder(7);
+
+                    b.Property<int>("Placement")
+                        .HasColumnType("int")
+                        .HasColumnName("Placement")
+                        .HasColumnOrder(6);
+
+                    b.Property<int>("Score")
+                        .HasColumnType("int")
+                        .HasColumnName("Score")
+                        .HasColumnOrder(5);
+
+                    b.Property<int>("Season")
+                        .HasColumnType("int")
+                        .HasColumnName("Season")
+                        .HasColumnOrder(13);
+
+                    b.Property<decimal>("SigmaNew")
+                        .HasColumnType("decimal(18,10)")
+                        .HasColumnName("SigmaNew")
+                        .HasColumnOrder(11);
+
+                    b.Property<decimal>("SigmaOld")
+                        .HasColumnType("decimal(18,10)")
+                        .HasColumnName("SigmaOld")
+                        .HasColumnOrder(10);
+
+                    b.Property<long>("Timestamp")
+                        .HasColumnType("bigint")
+                        .HasColumnName("Timestamp")
+                        .HasColumnOrder(15);
+
+                    b.Property<int>("TrueSkillStatsId")
+                        .HasColumnType("int")
+                        .HasColumnName("TrueSkillStatsId")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("Winner")
+                        .IsRequired()
+                        .HasColumnType("varchar(10)")
+                        .HasColumnName("Winner")
+                        .HasColumnOrder(4);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MatchId");
+
+                    b.HasIndex("TrueSkillStatsId");
+
+                    b.ToTable("TrueSkillPlayerMatchStats", "Tigl");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.MatchReport", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("GameId")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("GameId")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("Source")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("Source")
+                        .HasColumnOrder(2);
+
+                    b.Property<string>("State")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("State")
+                        .HasColumnOrder(4);
+
+                    b.Property<long>("Timestamp")
+                        .HasColumnType("bigint")
+                        .HasColumnName("Timestamp")
+                        .HasColumnOrder(3);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MatchReports", "Tigl");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.PlayerResult", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Faction")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("Faction")
+                        .HasColumnOrder(3);
+
+                    b.Property<int>("MatchReportId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Score")
+                        .HasColumnType("integer")
+                        .HasColumnName("Score")
+                        .HasColumnOrder(2);
+
+                    b.Property<int>("TiglUser")
+                        .HasColumnType("integer")
+                        .HasColumnName("TiglUser")
+                        .HasColumnOrder(1);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MatchReportId");
+
+                    b.ToTable("PlayerResults", "Tigl");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Ratings.AsyncRating", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AsyncStatsId")
+                        .HasColumnType("int")
+                        .HasColumnName("AsyncStatsId")
+                        .HasColumnOrder(1);
+
+                    b.Property<double>("AussieScore")
+                        .HasColumnType("float")
+                        .HasColumnName("AussieScore")
+                        .HasColumnOrder(3);
+
+                    b.Property<double>("Rating")
+                        .HasColumnType("float")
+                        .HasColumnName("Rating")
+                        .HasColumnOrder(2);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AsyncStatsId")
+                        .IsUnique();
+
+                    b.ToTable("AsyncRatings", "Tigl");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Ratings.GlickoRating", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("GlickoStatsId")
+                        .HasColumnType("int")
+                        .HasColumnName("GlickoStatsId")
+                        .HasColumnOrder(1);
+
+                    b.Property<double>("Rating")
+                        .HasColumnType("float")
+                        .HasColumnName("Rating")
+                        .HasColumnOrder(2);
+
+                    b.Property<double>("Rd")
+                        .HasColumnType("float")
+                        .HasColumnName("Rd")
+                        .HasColumnOrder(4);
+
+                    b.Property<double>("Volatility")
+                        .HasColumnType("float")
+                        .HasColumnName("Volatility")
+                        .HasColumnOrder(3);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("GlickoRatings", "Tigl");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Ratings.TrueSkillRating", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<double>("Mu")
+                        .HasColumnType("float")
+                        .HasColumnName("Mu")
+                        .HasColumnOrder(2);
+
+                    b.Property<double>("Sigma")
+                        .HasColumnType("float")
+                        .HasColumnName("Sigma")
+                        .HasColumnOrder(3);
+
+                    b.Property<int>("TrueSkillStatsId")
+                        .HasColumnType("int")
+                        .HasColumnName("TrueSkillStatsId")
+                        .HasColumnOrder(1);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TrueSkillStatsId")
+                        .IsUnique();
+
+                    b.ToTable("TrueSkillRatings", "Tigl");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Season", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("Id")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateOnly>("EndDate")
+                        .HasColumnType("date")
+                        .HasColumnName("EndDate")
+                        .HasColumnOrder(4);
+
+                    b.Property<string>("IsActive")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("varchar(10)")
+                        .HasColumnName("IsActive")
+                        .HasColumnOrder(5);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("Name")
+                        .HasColumnOrder(2);
+
+                    b.Property<int>("SeasonNumber")
+                        .HasColumnType("integer")
+                        .HasColumnName("SeasonNumber")
+                        .HasColumnOrder(1);
+
+                    b.Property<DateOnly>("StartDate")
+                        .HasColumnType("date")
+                        .HasColumnName("StartDate")
+                        .HasColumnOrder(3);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Seasons", "Tigl");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            EndDate = new DateOnly(2023, 12, 31),
+                            IsActive = "true",
+                            Name = "",
+                            SeasonNumber = 1,
+                            StartDate = new DateOnly(2023, 1, 1)
+                        });
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Stats.AsyncStats", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AsyncRatingId")
+                        .HasColumnType("integer")
+                        .HasColumnName("AsyncRatingId")
+                        .HasColumnOrder(2);
+
+                    b.Property<string>("League")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)")
+                        .HasColumnName("League")
+                        .HasColumnOrder(3);
+
+                    b.Property<string>("Rank")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("Rank")
+                        .HasColumnOrder(4);
+
+                    b.Property<int>("TiglUserId")
+                        .HasColumnType("integer")
+                        .HasColumnName("TiglUserId")
+                        .HasColumnOrder(1);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TiglUserId");
+
+                    b.ToTable("AsyncStats", "Tigl");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Stats.GlickoStats", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("GlickoRatingId")
+                        .HasColumnType("integer")
+                        .HasColumnName("GlickoRatingId")
+                        .HasColumnOrder(2);
+
+                    b.Property<string>("League")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)")
+                        .HasColumnName("League")
+                        .HasColumnOrder(3);
+
+                    b.Property<string>("Rank")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("Rank")
+                        .HasColumnOrder(4);
+
+                    b.Property<int>("TiglUserId")
+                        .HasColumnType("integer")
+                        .HasColumnName("TiglUserId")
+                        .HasColumnOrder(1);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GlickoRatingId")
+                        .IsUnique();
+
+                    b.HasIndex("TiglUserId");
+
+                    b.ToTable("GlickoStats", "Tigl");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Stats.TrueSkillStats", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("League")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)")
+                        .HasColumnName("League")
+                        .HasColumnOrder(3);
+
+                    b.Property<string>("Rank")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("Rank")
+                        .HasColumnOrder(4);
+
+                    b.Property<int>("TiglUserId")
+                        .HasColumnType("integer")
+                        .HasColumnName("TiglUserId")
+                        .HasColumnOrder(1);
+
+                    b.Property<int>("TrueSkillRatingId")
+                        .HasColumnType("integer")
+                        .HasColumnName("TrueSkillRatingId")
+                        .HasColumnOrder(2);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TiglUserId");
+
+                    b.ToTable("TrueSkillStats", "Tigl");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.TiglParameter", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id")
+                        .HasColumnOrder(1);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Enabled")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("varchar(10)")
+                        .HasColumnName("Enabled")
+                        .HasColumnOrder(3);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("Name")
+                        .HasColumnOrder(2);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("Parameters", "Tigl");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Enabled = "true",
+                            Name = "RankingUp"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Enabled = "true",
+                            Name = "EvaluateGames"
+                        });
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.TiglUser", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("BgaUserName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("BgaUserName")
+                        .HasColumnOrder(6);
+
+                    b.Property<long>("DiscordId")
+                        .HasColumnType("bigint")
+                        .HasColumnName("DiscordId")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("DiscordTag")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("DiscordTag")
+                        .HasColumnOrder(3);
+
+                    b.Property<DateOnly>("LastUserNameChange")
+                        .HasColumnType("date");
+
+                    b.Property<string>("TiglUserName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("TiglUserName")
+                        .HasColumnOrder(2);
+
+                    b.Property<bool>("TiglUserNameChanged")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("TtpgUserName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("TtpgUserName")
+                        .HasColumnOrder(5);
+
+                    b.Property<string>("TtsUserName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("TtsUserName")
+                        .HasColumnOrder(4);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DiscordId")
+                        .IsUnique()
+                        .HasDatabaseName("IX_TiglUser_DiscordId");
+
+                    b.HasIndex("TiglUserName")
+                        .IsUnique()
+                        .HasDatabaseName("IX_TiglUser_TiglUserName");
+
+                    b.ToTable("Users", "Tigl");
+                });
+
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Units.Unit", b =>
                 {
                     b.Property<string>("UnitName")
@@ -23290,6 +24114,137 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.History.AsyncPlayerMatchStats", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Tigl.Stats.AsyncStats", "AsyncStats")
+                        .WithMany("MatchStats")
+                        .HasForeignKey("AsyncStatsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Tigl.MatchReport", "Match")
+                        .WithMany("PlayerMatchStats")
+                        .HasForeignKey("MatchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AsyncStats");
+
+                    b.Navigation("Match");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.History.GlickoPlayerMatchStats", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Tigl.Stats.GlickoStats", "GlickoStats")
+                        .WithMany("MatchStats")
+                        .HasForeignKey("GlickoStatsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Tigl.MatchReport", "Match")
+                        .WithMany()
+                        .HasForeignKey("MatchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("GlickoStats");
+
+                    b.Navigation("Match");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.History.TrueSkillPlayerMatchStats", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Tigl.MatchReport", "Match")
+                        .WithMany()
+                        .HasForeignKey("MatchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Tigl.Stats.TrueSkillStats", "TrueSkillStats")
+                        .WithMany("MatchStats")
+                        .HasForeignKey("TrueSkillStatsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Match");
+
+                    b.Navigation("TrueSkillStats");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.PlayerResult", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Tigl.MatchReport", "MatchReport")
+                        .WithMany("PlayerResults")
+                        .HasForeignKey("MatchReportId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MatchReport");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Ratings.AsyncRating", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Tigl.Stats.AsyncStats", "AsyncStats")
+                        .WithOne("Rating")
+                        .HasForeignKey("TwilightImperiumUltimate.Core.Entities.Tigl.Ratings.AsyncRating", "AsyncStatsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AsyncStats");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Ratings.TrueSkillRating", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Tigl.Stats.TrueSkillStats", "TrueSkillStats")
+                        .WithOne("TrueSkillRating")
+                        .HasForeignKey("TwilightImperiumUltimate.Core.Entities.Tigl.Ratings.TrueSkillRating", "TrueSkillStatsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TrueSkillStats");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Stats.AsyncStats", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Tigl.TiglUser", "TiglUser")
+                        .WithMany("AsyncStats")
+                        .HasForeignKey("TiglUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TiglUser");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Stats.GlickoStats", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Tigl.Ratings.GlickoRating", "Rating")
+                        .WithOne("GlickoStats")
+                        .HasForeignKey("TwilightImperiumUltimate.Core.Entities.Tigl.Stats.GlickoStats", "GlickoRatingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Tigl.TiglUser", "TiglUser")
+                        .WithMany("GlickoStats")
+                        .HasForeignKey("TiglUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Rating");
+
+                    b.Navigation("TiglUser");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Stats.TrueSkillStats", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Tigl.TiglUser", "TiglUser")
+                        .WithMany("TrueSkillStats")
+                        .HasForeignKey("TiglUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TiglUser");
+                });
+
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Async.AsyncPlayerProfile", b =>
                 {
                     b.Navigation("GameStatistics");
@@ -23331,6 +24286,46 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Technologies.Technology", b =>
                 {
                     b.Navigation("FactionTechnologies");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.MatchReport", b =>
+                {
+                    b.Navigation("PlayerMatchStats");
+
+                    b.Navigation("PlayerResults");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Ratings.GlickoRating", b =>
+                {
+                    b.Navigation("GlickoStats");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Stats.AsyncStats", b =>
+                {
+                    b.Navigation("MatchStats");
+
+                    b.Navigation("Rating");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Stats.GlickoStats", b =>
+                {
+                    b.Navigation("MatchStats");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Stats.TrueSkillStats", b =>
+                {
+                    b.Navigation("MatchStats");
+
+                    b.Navigation("TrueSkillRating");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.TiglUser", b =>
+                {
+                    b.Navigation("AsyncStats");
+
+                    b.Navigation("GlickoStats");
+
+                    b.Navigation("TrueSkillStats");
                 });
 
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Units.Unit", b =>

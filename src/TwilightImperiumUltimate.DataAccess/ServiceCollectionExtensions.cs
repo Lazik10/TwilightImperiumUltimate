@@ -54,6 +54,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<ISlicesArchiveRepository, SlicesArchiveRepository>();
         services.AddScoped<IGameStatisticsRepository, GameStatisticsRepository>();
         services.AddTransient<IAsyncStatsRepository, AsyncStatsRepository>();
+        services.AddScoped<ITiglRepository, TiglRepository>();
 
         return services;
     }

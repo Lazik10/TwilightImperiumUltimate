@@ -5,6 +5,7 @@ using TwilightImperiumUltimate.Business.Services.Async.Implementations;
 using TwilightImperiumUltimate.Business.Services.Async.Interfaces;
 using TwilightImperiumUltimate.DataAccess;
 using TwilightImperiumUltimate.Draft;
+using TwilightImperiumUltimate.Tigl;
 
 namespace TwilightImperiumUltimate.Business;
 
@@ -14,14 +15,14 @@ public static class ServiceCollectionExtensions
         this IServiceCollection services,
         IConfiguration configuration)
     {
-        services.RegisterDataAccessLayer(configuration);
-        services.RegisterDraftServices();
+        services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
         services.AddMediatR(configuration =>
             configuration.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
-        services.AddAutoMapper(Assembly.GetExecutingAssembly());
-
+        services.RegisterDataAccessLayer(configuration);
+        services.RegisterDraftServices();
+        services.RegisterTiglServices();
         services.RegisterAsyncPlayerServices();
 
         return services;

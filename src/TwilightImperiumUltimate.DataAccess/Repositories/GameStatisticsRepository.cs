@@ -1,9 +1,11 @@
+using Microsoft.Extensions.Logging;
 using TwilightImperiumUltimate.Core.Entities.Statistics;
 
 namespace TwilightImperiumUltimate.DataAccess.Repositories;
 
-public class GameStatisticsRepository
-    (IDbContextFactory<TwilightImperiumDbContext> context)
+public class GameStatisticsRepository(
+    IDbContextFactory<TwilightImperiumDbContext> context,
+    ILogger<GameStatistics> logger)
     : IGameStatisticsRepository
 {
     private readonly IDbContextFactory<TwilightImperiumDbContext> _context = context;
@@ -82,8 +84,14 @@ public class GameStatisticsRepository
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);
             }
 
-            dbContext.Update(websiteStatistics);
-            await dbContext.SaveChangesAsync(cancellationToken);
+            try
+            {
+                await dbContext.SaveChangesAsync(cancellationToken);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "Unable to update website statistics");
+            }
         }
     }
 }

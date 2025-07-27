@@ -1,4 +1,5 @@
 using TwilightImperiumUltimate.Core.Entities.Statistics;
+using TwilightImperiumUltimate.Core.Entities.Tigl;
 using TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium.Data;
 
 namespace TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium;
@@ -45,5 +46,9 @@ public static class TwilightImperiumDbContextSeed
         modelBuilder.Entity<FactionTechnology>().HasData(FactionTechnologiesData.FactionTechnologies);
 
         modelBuilder.Entity<WebsiteStatistics>().HasData(WebsiteStatisticsData.WebsiteStatistics);
+
+        modelBuilder.Entity<Season>().HasData(SeasonsData.Seasons);
+
+        modelBuilder.Entity<TiglParameter>().HasData(TiglParametersData.TiglParameters);
     }
 }
