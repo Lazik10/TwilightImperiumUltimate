@@ -29,6 +29,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwilightImperiumUltimate.Dr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwilightImperiumUltimate.Contracts", "src\TwilightImperiumUltimate.Contracts\TwilightImperiumUltimate.Contracts.csproj", "{6D819268-E31A-4516-BCF3-6E32447B37D2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwilightImperiumUltimate.Tigl", "src\TwilightImperiumUltimate.Tigl\TwilightImperiumUltimate.Tigl.csproj", "{7817DA20-013A-492F-8692-1F3FE820A894}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,10 @@ Global
 		{6D819268-E31A-4516-BCF3-6E32447B37D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D819268-E31A-4516-BCF3-6E32447B37D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D819268-E31A-4516-BCF3-6E32447B37D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7817DA20-013A-492F-8692-1F3FE820A894}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7817DA20-013A-492F-8692-1F3FE820A894}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7817DA20-013A-492F-8692-1F3FE820A894}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7817DA20-013A-492F-8692-1F3FE820A894}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

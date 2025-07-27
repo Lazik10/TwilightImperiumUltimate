@@ -4,7 +4,7 @@ using TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium;
 
 namespace TwilightImperiumUltimate.API.Services;
 
-public static class AppExtensions
+internal static class AppExtensions
 {
     public static async Task CreateOrUpdateDbContextAsync(this WebApplication app)
     {

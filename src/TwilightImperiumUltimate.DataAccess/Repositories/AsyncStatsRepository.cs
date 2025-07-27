@@ -314,7 +314,6 @@ public class AsyncStatsRepository(
         return player;
     }
 
-
     public async Task<AsyncPlayerProfile?> GetPlayerIdByDiscordId(long discordId, CancellationToken cancellationToken)
     {
         await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);

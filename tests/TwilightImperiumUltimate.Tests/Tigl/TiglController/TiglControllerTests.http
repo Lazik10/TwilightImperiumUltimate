@@ -1,0 +1,42 @@
+@baseUrl = https://localhost:44307
+@discordId = 1
+
+POST {{baseUrl}}/api/tigl/register-user
+Content-Type: application/json
+{
+  "DiscordId": {{discordId}},
+  "DiscordTag": "Lazik",
+  "TiglUserName": "Ondra"
+}
+
+### Report Game
+POST {{baseUrl}}/api/tigl/report-game
+Content-Type: application/json
+{
+  "GameId": "game123",
+  "Score": 100,
+  "PlayerResults": [
+    {
+      "DiscordId": 123456789,
+      "DiscordTag": "TestUser#1234",
+      "Faction": "TheArborec",
+      "Score": 50
+    },
+    {
+      "DiscordId": 987654321,
+      "DiscordTag": "AnotherUser#5678",
+      "Faction": "TheBaronyOfLetnev",
+      "Score": 50
+    }
+  ],
+  "Source": "Async",
+  "Timestamp": 1697040000000
+}
+
+### Change Username
+POST {{baseUrl}}/api/tigl/change-username
+Content-Type: application/json
+{
+  "DiscordId": {{discordId}},
+  "NewTiglUserName": "Lazik10"
+}

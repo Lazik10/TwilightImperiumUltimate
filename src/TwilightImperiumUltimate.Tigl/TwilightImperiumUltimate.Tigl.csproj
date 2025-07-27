@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentResults" Version="4.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TwilightImperiumUltimate.Core\TwilightImperiumUltimate.Core.csproj" />
+    <ProjectReference Include="..\TwilightImperiumUltimate.DataAccess\TwilightImperiumUltimate.DataAccess.csproj" />
+    <ProjectReference Include="..\TwilightImperiumUltimate.Contracts\TwilightImperiumUltimate.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="SonarAnalyzer.CSharp" Version="10.10.0.116381" />
+  </ItemGroup>
+
+</Project>
