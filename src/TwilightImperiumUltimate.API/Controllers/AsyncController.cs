@@ -1,3 +1,4 @@
+using System.Text;
 using TwilightImperiumUltimate.API.Helpers;
 using TwilightImperiumUltimate.Business.Logic.Async;
 using TwilightImperiumUltimate.Contracts.ApiContracts.AsyncTI4;
@@ -129,11 +130,19 @@ public class AsyncController(IMediator mediator) : ControllerBase
     [HttpPost]
     public async Task<ActionResult<IApiResponse<AsyncPlayerSettingsResponseDto>>> UpdateAsyncUserSettings(AsyncPlayerSettingsRequestDto request)
     {
-        var success = await _mediator.Send(new UpdateAsyncPlayerSettingsCommand(request));
+        var result = await _mediator.Send(new UpdateAsyncPlayerSettingsCommand(request));
 
-        if (!success)
+        if (result.IsFailed)
         {
-            return BadRequest(new ApiResponse<AsyncPlayerSettingsResponseDto>() { Success = success, ProblemDetails = new ProblemDetailsDto() { Title = "Unable to update player settings!" } });
+            var sb = new StringBuilder();
+            foreach (var error in result.Errors)
+            {
+                sb.AppendLine(error.Message);
+            }
+
+            var errorMessage = sb.ToString().TrimEnd();
+
+            return BadRequest(new ApiResponse<AsyncPlayerSettingsResponseDto>() { Success = false, ProblemDetails = new ProblemDetailsDto() { Title = "Unable to update player settings!", Detail = errorMessage } });
         }
 
         var responseDto = new AsyncPlayerSettingsResponseDto(
@@ -147,7 +156,7 @@ public class AsyncController(IMediator mediator) : ControllerBase
             ShowOpponents: request.ShowOpponents,
             ShowGames: request.ShowGames);
 
-        return Ok(new ApiResponse<AsyncPlayerSettingsResponseDto>() { Success = success, Data = responseDto });
+        return Ok(new ApiResponse<AsyncPlayerSettingsResponseDto>() { Success = result.IsSuccess, Data = responseDto });
     }
 
     // GET: api/async/general-stats
