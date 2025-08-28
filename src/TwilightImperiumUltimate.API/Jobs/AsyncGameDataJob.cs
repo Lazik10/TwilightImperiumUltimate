@@ -27,6 +27,9 @@ public class AsyncGameDataJob(
         {
             using var client = _httpClientFactory.CreateClient();
             client.BaseAddress = _asyncOptions.Url;
+            client.DefaultRequestHeaders.UserAgent
+                .ParseAdd("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
+                                "(KHTML, like Gecko) Chrome/124.0 Safari/537.36");
 
             var response = await client.GetStringAsync(new Uri(_asyncOptions.Statistics, UriKind.Relative));
             var gameData = JsonSerializer.Deserialize<List<GameData>>(response);

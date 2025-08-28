@@ -1,9 +1,10 @@
+using FluentResults;
 using TwilightImperiumUltimate.Contracts.ApiContracts.AsyncTI4;
 using TwilightImperiumUltimate.Core.Entities.Async;
 
 namespace TwilightImperiumUltimate.Business.Logic.Async;
 
-public class UpdateAsyncPlayerSettingsCommand : IRequest<bool>
+public class UpdateAsyncPlayerSettingsCommand : IRequest<Result>
 {
     public UpdateAsyncPlayerSettingsCommand(AsyncPlayerSettingsRequestDto request)
     {

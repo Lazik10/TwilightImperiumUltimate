@@ -21,7 +21,6 @@ public static class AsyncFactionParser
             "The Universities of Jol-Nar" => AsyncFactionName.TheUniversitiesOfJolNar,
             "The Winnu" => AsyncFactionName.TheWinnu,
             "The Xxcha Kingdom" => AsyncFactionName.TheXxchaKingdom,
-            "The Xxcha Kingdoms" => AsyncFactionName.TheXxchaKingdom,
             "The Yin Brotherhood" => AsyncFactionName.TheYinBrotherhood,
             "The Yssaril Tribes" => AsyncFactionName.TheYssarilTribes,
 
