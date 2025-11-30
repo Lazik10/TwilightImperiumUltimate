@@ -1,3 +1,5 @@
+using TwilightImperiumUltimate.Web.Helpers.Enums;
+
 namespace TwilightImperiumUltimate.Web.Components.Shared.Controls;
 
 public partial class TextButton
@@ -23,5 +25,20 @@ public partial class TextButton
     [Parameter]
     public string TextAlign { get; set; } = "center";
 
+    [Parameter]
+    public JustifyContent JustifyContent { get; set; } = JustifyContent.SpaceEvenly;
+
+    [Parameter]
+    public AlignItems AlignItems { get; set; } = AlignItems.Center;
+
+    [Parameter]
+    public TextColor TextColor { get; set; } = TextColor.White;
+
     private MarkupString MarkupString => (MarkupString)Text;
+
+    private string SetColor() => TextColor.ConvertToString();
+
+    private string Justify => JustifyContent.GetJustifyString();
+
+    private string Align => AlignItems.GetAlignString();
 }

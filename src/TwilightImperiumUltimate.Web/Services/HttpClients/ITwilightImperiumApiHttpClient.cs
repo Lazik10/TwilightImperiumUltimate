@@ -11,7 +11,15 @@ public interface ITwilightImperiumApiHttpClient
         where TRequest : class
         where TResponse : class, new();
 
+    Task<(ApiResponse<TDto> Response, HttpStatusCode StatusCode)> PostApiAsync<TRequest, TDto>(string endpointPath, TRequest request, CancellationToken cancellationToken = default)
+        where TRequest : class
+        where TDto : class;
+
     Task<(TResponse Response, HttpStatusCode StatusCode)> PutAsync<TRequest, TResponse>(string endpointPath, TRequest request, CancellationToken cancellationToken)
+        where TRequest : class
+        where TResponse : class, new();
+
+    Task<(TResponse Response, HttpStatusCode StatusCode)> DeleteAsync<TRequest, TResponse>(string endpointPath, TRequest request, CancellationToken cancellationToken = default)
         where TRequest : class
         where TResponse : class, new();
 

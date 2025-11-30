@@ -1,7 +1,7 @@
 using TwilightImperiumUltimate.Contracts.Enums;
 using TwilightImperiumUltimate.Core.Entities.Tigl;
 using TwilightImperiumUltimate.Core.Entities.Tigl.History;
-using TwilightImperiumUltimate.Tigl.Helpers;
+using TwilightImperiumUltimate.Tigl.Extensions;
 
 namespace TwilightImperiumUltimate.Tigl.AsyncRating;
 

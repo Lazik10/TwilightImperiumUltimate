@@ -1,55 +1,63 @@
+using Moserware.Skills;
 using TwilightImperiumUltimate.Contracts.Enums;
 using TwilightImperiumUltimate.Core.Entities.Tigl;
 using TwilightImperiumUltimate.Core.Entities.Tigl.History;
-using TwilightImperiumUltimate.Tigl.Helpers;
+using TwilightImperiumUltimate.Tigl.Extensions;
 
 namespace TwilightImperiumUltimate.Tigl.TrueSkillRating;
 
 public class TrueSkillRatingCalculatorService : ITrueSkillRatingCalculatorService
 {
-    // Performance variance
-    private const double Beta = 4.1667;
+    private const double InitialMu = 25.0;
+    private const double InitialSigma = InitialMu / 3.0;
+    private const double Beta = 25.0 / 6.0;
+    private const double DynamicFactor = 0.083333;
 
-    // Dynamics factor
-    private const double Tau = 0.083333;
+    private readonly GameInfo _gameInfo = new GameInfo(InitialMu, InitialSigma , Beta, DynamicFactor, 0.1);
 
     public Task UpdatePlayerMatchStats(IReadOnlyCollection<TrueSkillPlayerMatchStats> matchStats, int season)
     {
         ArgumentNullException.ThrowIfNull(matchStats);
 
-        int count = matchStats.Count;
+        // FFA rule: each player is a separate 1-player team.
+        // Order by placement so 'teams' aligns with 'ranks'.
+        var ordered = matchStats
+            .OrderBy(p => p.Placement)
+            .ThenBy(p => p.DiscordUserId) // deterministic within same placement
+            .ToList();
 
-        CalculatePerformance(matchStats);
-        var resultSnapshot = matchStats.ToList();
+        var teams = new List<IDictionary<Player, Rating>>(ordered.Count);
+        var ranks = new List<int>(ordered.Count);
+        var playerMap = new Dictionary<long, Player>(ordered.Count);
 
-        for (int i = 0; i < count; i++)
+        foreach (var ps in ordered)
         {
-            var player = matchStats.ElementAt(i);
-            double deltaMu = 0;
-            double deltaSigma = 0;
+            var player = new Player(ps.DiscordUserId);
+            playerMap[ps.DiscordUserId] = player;
 
-            for (int j = 0; j < count; j++)
+            // 1-player "team"
+            teams.Add(new Dictionary<Player, Rating>
             {
-                if (i == j) continue;
-                var opponent = resultSnapshot[j];
-                double c = Math.Sqrt((2 * Beta * Beta) + (player.SigmaOld * player.SigmaOld) + (opponent.SigmaOld * opponent.SigmaOld));
-                double expectedScore = 1.0 / (1.0 + Math.Exp((opponent.MuOld - player.MuOld) / c));
+                [player] = new Rating(ps.MuOld, ps.SigmaOld),
+            });
 
-                double performanceA = player.Performance;
-                double performanceB = opponent.Performance;
-                double normalizedOutcome = performanceA / (performanceA + performanceB);
+            // Rank is the placement; ties are represented by equal numbers here
+            ranks.Add(ps.Placement);
+        }
 
-                double scoreDiff = normalizedOutcome - expectedScore;
+        // Calculate new ratings (returns IDictionary<Player, Rating>)
+        var newRatings = TrueSkillCalculator.CalculateNewRatings(_gameInfo, teams, ranks.ToArray());
 
-                deltaMu += scoreDiff * (Beta * Beta / c);
-                deltaSigma += (scoreDiff * scoreDiff) * (Beta * Beta / (c * c));
-            }
+        // Write back to the original collection
+        foreach (var ps in matchStats)
+        {
+            var player = playerMap[ps.DiscordUserId];
+            var rating = newRatings[player];
 
-            player.MuNew = player.MuOld + (deltaMu / (count - 1));
-            player.SigmaNew = Math.Sqrt(Math.Max(0.0001, (player.SigmaOld * player.SigmaOld) + (Tau * Tau) - (deltaSigma / (count - 1))));
-
-            player.OpponentAvgRating = CalculateAverageRating(matchStats, player.DiscordUserId);
-            player.Season = season;
+            ps.MuNew = rating.Mean;
+            ps.SigmaNew = rating.StandardDeviation;
+            ps.OpponentAvgRating = CalculateAverageRating(matchStats, ps.DiscordUserId);
+            ps.Season = season;
         }
 
         return Task.CompletedTask;
@@ -74,29 +82,6 @@ public class TrueSkillRatingCalculatorService : ITrueSkillRatingCalculatorServic
         }
 
         return Task.CompletedTask;
-    }
-
-    private static void CalculatePerformance(IReadOnlyCollection<TrueSkillPlayerMatchStats> matchStats)
-    {
-        var maxScore = matchStats.Max(s => s.Score);
-        var scores = matchStats.Select(s => (double)s.Score).ToArray();
-        var mean = scores.Average();
-        var stdDev = Math.Sqrt(scores.Select(s => Math.Pow(s - mean, 2)).Average());
-        var maxStdDev = maxScore / 2.0;
-        var closeness = 1.0 - Math.Min(stdDev / maxStdDev, 1.0);
-
-        foreach (var player in matchStats)
-        {
-            if (player.Score == maxScore)
-            {
-                player.Performance = 0.9 + (0.1 * (1.0 - closeness));
-            }
-            else
-            {
-                var basePerformance = Math.Pow((double)player.Score / maxScore, 2);
-                player.Performance = basePerformance * (0.7 + (0.3 * closeness));
-            }
-        }
     }
 
     private static double CalculateAverageRating(IEnumerable<TrueSkillPlayerMatchStats> opponents, long playerDiscordId)

@@ -9,3 +9,15 @@
     min-height: 40px;
     align-self: center;
 }
+
+@media (max-width: 1248px) {
+    .async-navbar {
+        font-size: 14px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .async-navbar {
+        font-size: 8px !important;
+    }
+}

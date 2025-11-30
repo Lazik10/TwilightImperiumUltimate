@@ -32,7 +32,9 @@ public partial class FactionComponents : FactionInfoComponentBase
 
     private async Task InitializeSystemTilesAsync()
     {
-        var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<SystemTileDto>>>(Paths.ApiPath_SystemTiles);
+        var result = await HttpClient.GetAsync<ApiResponse<ItemListDto<SystemTileDto>>>(Paths.ApiPath_SystemTiles);
+        var response = result.Response;
+        var statusCode = result.StatusCode;
         if (statusCode == HttpStatusCode.OK)
         {
             _systemTiles = Mapper.Map<List<SystemTileModel>>(response!.Data!.Items);
@@ -47,16 +49,18 @@ public partial class FactionComponents : FactionInfoComponentBase
 
     private async Task InitializeTechnologiesAsync()
     {
-        var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<TechnologyDto>>>(Paths.ApiPath_Technologies);
-        if (statusCode == HttpStatusCode.OK)
+        var result = await HttpClient.GetAsync<ApiResponse<ItemListDto<TechnologyDto>>>(Paths.ApiPath_Technologies);
+        if (result.StatusCode == HttpStatusCode.OK)
         {
-            _technologies = Mapper.Map<List<TechnologyModel>>(response!.Data!.Items!.Where(x => x.FactionName == Faction.FactionName).ToList());
+            _technologies = Mapper.Map<List<TechnologyModel>>(result.Response!.Data!.Items!.Where(x => x.FactionName == Faction.FactionName).ToList());
         }
     }
 
     private async Task InitializePromissoryNoteCardsAsync()
     {
-        var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<PromissoryNoteCardDto>>>(Paths.ApiPath_PromissoryNotes);
+        var result = await HttpClient.GetAsync<ApiResponse<ItemListDto<PromissoryNoteCardDto>>>(Paths.ApiPath_PromissoryNotes);
+        var response = result.Response;
+        var statusCode = result.StatusCode;
         if (statusCode == HttpStatusCode.OK)
         {
             _promissoryNotes = Mapper.Map<List<PromissoryNoteCardModel>>(response!.Data!.Items!.Where(x => x.FactionName == Faction.FactionName).ToList());

@@ -1,0 +1,18 @@
+<FlexColumnCenteredContainer>
+    <div class="tigl-admin-navbar">
+        <FlexRowContainer Width="100" JustifyContent="Enums.JustifyContent.SpaceEvenly">
+            <div class="clickable" style="min-width: 25%;" @onclick="() => OnMenuItemClick.InvokeAsync(AdminMenuItem.Parameters)">
+                <Label Text="Parameters" FontSize="28" CenterText="true" Style="font-size: 1rem;" />
+            </div>
+            <div class="clickable" style="min-width: 25%;" @onclick="() => OnMenuItemClick.InvokeAsync(AdminMenuItem.Seasons)">
+                <Label Text="Seasons" FontSize="28" CenterText="true" Style="font-size: 1rem;" />
+            </div>
+            <div class="clickable" style="min-width: 25%;" @onclick="() => OnMenuItemClick.InvokeAsync(AdminMenuItem.Players)">
+                <Label Text="Players" FontSize="28" CenterText="true" Style="font-size: 1rem;" />
+            </div>
+            <div class="clickable" style="min-width: 25%;" @onclick="() => OnMenuItemClick.InvokeAsync(AdminMenuItem.Games)">
+                <Label Text="Games" FontSize="28" CenterText="true" Style="font-size: 1rem;" />
+            </div>
+        </FlexRowContainer>
+    </div>
+</FlexColumnCenteredContainer>

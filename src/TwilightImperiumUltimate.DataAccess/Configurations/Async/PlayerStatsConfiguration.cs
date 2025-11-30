@@ -16,6 +16,9 @@ public class PlayerStatsConfiguration : IEntityTypeConfiguration<PlayerStats>
         builder.HasIndex(x => x.DiscordUserID)
             .IsClustered(false);
 
+        builder.HasIndex(x => x.FactionName)
+            .IsClustered(false);
+
         builder.Property(x => x.Id)
             .HasColumnOrder(0);
 

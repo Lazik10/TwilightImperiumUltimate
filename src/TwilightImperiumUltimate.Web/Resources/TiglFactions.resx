@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ASickeningLurch" xml:space="preserve">
+    <value>A Sickening Lurch</value>
+  </data>
+  <data name="AtokeraLegacy" xml:space="preserve">
+    <value>Atokera Legacy</value>
+  </data>
+  <data name="AvariceRex" xml:space="preserve">
+    <value>Avarice Rex</value>
+  </data>
+  <data name="BelkoseaAlliedStates" xml:space="preserve">
+    <value>Belkosea Allied States</value>
+  </data>
+  <data name="ElNenJanovet" xml:space="preserve">
+    <value>El Nen Janovet</value>
+  </data>
+  <data name="Franken" xml:space="preserve">
+    <value>Franken</value>
+  </data>
+  <data name="Homebrew" xml:space="preserve">
+    <value>Homebrew</value>
+  </data>
+  <data name="IlNaViroset" xml:space="preserve">
+    <value>Il Na Viroset</value>
+  </data>
+  <data name="IlSaiLakoeHeraldOfThorns" xml:space="preserve">
+    <value>Il Sai, Lakoe Herald Of Thorns</value>
+  </data>
+  <data name="LastBastion" xml:space="preserve">
+    <value>Last Bastion</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="PharadnOrder" xml:space="preserve">
+    <value>Pharadn Order</value>
+  </data>
+  <data name="QhetRepublic" xml:space="preserve">
+    <value>Qhet Republic</value>
+  </data>
+  <data name="RadiantAur" xml:space="preserve">
+    <value>Radiant Aur</value>
+  </data>
+  <data name="RohDhnaMechatronics" xml:space="preserve">
+    <value>Roh Dhna Mechatronics</value>
+  </data>
+  <data name="SardakkNorr" xml:space="preserve">
+    <value>Sardakk N'orr</value>
+  </data>
+  <data name="TheArborec" xml:space="preserve">
+    <value>The Arborec</value>
+  </data>
+  <data name="TheArgentFlight" xml:space="preserve">
+    <value>The Argent Flight</value>
+  </data>
+  <data name="TheAugursOfIlyxum" xml:space="preserve">
+    <value>The Augurs Of Ilyxum</value>
+  </data>
+  <data name="TheBaronyOfLetnev" xml:space="preserve">
+    <value>The Barony Of Letnev</value>
+  </data>
+  <data name="TheBentorConglomerate" xml:space="preserve">
+    <value>The Bentor Conglomerate</value>
+  </data>
+  <data name="TheBerserkersOfKjalengard" xml:space="preserve">
+    <value>The Berserkers Of Kjalengard</value>
+  </data>
+  <data name="TheCeldauriTradeConfederation" xml:space="preserve">
+    <value>The Celdauri Trade Confederation</value>
+  </data>
+  <data name="TheCheiranHordes" xml:space="preserve">
+    <value>The Cheiran Hordes</value>
+  </data>
+  <data name="TheClanOfSaar" xml:space="preserve">
+    <value>The Clan Of Saar</value>
+  </data>
+  <data name="TheCouncilKeleresArgent" xml:space="preserve">
+    <value>The Council Keleres - Argent</value>
+  </data>
+  <data name="TheCouncilKeleresMentak" xml:space="preserve">
+    <value>The Council Keleres - Mentak</value>
+  </data>
+  <data name="TheCouncilKeleresXxcha" xml:space="preserve">
+    <value>The Council Keleres - Xxcha</value>
+  </data>
+  <data name="TheCrimsonRebellion" xml:space="preserve">
+    <value>The Crimson Rebellion</value>
+  </data>
+  <data name="TheDeepwroughtScholarate" xml:space="preserve">
+    <value>The Deepwrought Scholarate</value>
+  </data>
+  <data name="TheDihMohnFlotilla" xml:space="preserve">
+    <value>The Dih Mohn Flotilla</value>
+  </data>
+  <data name="TheEdynMandate" xml:space="preserve">
+    <value>The Edyn Mandate</value>
+  </data>
+  <data name="TheEmbersOfMuaat" xml:space="preserve">
+    <value>The Embers Of Muaat</value>
+  </data>
+  <data name="TheEmiratesOfHacan" xml:space="preserve">
+    <value>The Emirates Of Hacan</value>
+  </data>
+  <data name="TheEmpyrean" xml:space="preserve">
+    <value>The Empyrean</value>
+  </data>
+  <data name="TheFederationOfSol" xml:space="preserve">
+    <value>The Federation Of Sol</value>
+  </data>
+  <data name="TheFirmamentTheObsidian" xml:space="preserve">
+    <value>The Firmament / The Obsidian</value>
+  </data>
+  <data name="TheFlorzenProfiteers" xml:space="preserve">
+    <value>The Florzen Profiteers</value>
+  </data>
+  <data name="TheFreeSystemsCompact" xml:space="preserve">
+    <value>The Free Systems Compact</value>
+  </data>
+  <data name="TheGheminaRaiders" xml:space="preserve">
+    <value>The Ghemina Raiders</value>
+  </data>
+  <data name="TheGhostsOfCreuss" xml:space="preserve">
+    <value>The Ghosts Of Creuss</value>
+  </data>
+  <data name="TheGhotiWayfarers" xml:space="preserve">
+    <value>The Ghoti Wayfarers</value>
+  </data>
+  <data name="TheGledgeUnion" xml:space="preserve">
+    <value>The Gledge Union</value>
+  </data>
+  <data name="TheGlimmerOfMortheus" xml:space="preserve">
+    <value>The Glimmer Of Mortheus</value>
+  </data>
+  <data name="TheKolleccSociety" xml:space="preserve">
+    <value>The Kollecc Society</value>
+  </data>
+  <data name="TheKortaliTribunal" xml:space="preserve">
+    <value>The Kortali Tribunal</value>
+  </data>
+  <data name="TheKyroSodality" xml:space="preserve">
+    <value>The Kyro Sodality</value>
+  </data>
+  <data name="TheL1z1xMindnet" xml:space="preserve">
+    <value>The L1z1x Mindnet</value>
+  </data>
+  <data name="TheLanefirRemnants" xml:space="preserve">
+    <value>The Lanefir Remnants</value>
+  </data>
+  <data name="TheLiZhoDynasty" xml:space="preserve">
+    <value>The Li-Zho Dynasty</value>
+  </data>
+  <data name="TheLTokkKhrask" xml:space="preserve">
+    <value>The L'tokk Khrask</value>
+  </data>
+  <data name="TheMahactGeneSorcerers" xml:space="preserve">
+    <value>The Mahact Gene Sorcerers</value>
+  </data>
+  <data name="TheMentakCoalition" xml:space="preserve">
+    <value>The Mentak Coalition</value>
+  </data>
+  <data name="TheMirvedaProtectorate" xml:space="preserve">
+    <value>The Mirveda Protectorate</value>
+  </data>
+  <data name="TheMonksOfKolume" xml:space="preserve">
+    <value>The Monks Of Kolume</value>
+  </data>
+  <data name="TheMykoMentori" xml:space="preserve">
+    <value>The Myko Mentori</value>
+  </data>
+  <data name="TheNaaluCollective" xml:space="preserve">
+    <value>The Naalu Collective</value>
+  </data>
+  <data name="TheNaazRokhaAlliance" xml:space="preserve">
+    <value>The Naaz-Rokha Alliance</value>
+  </data>
+  <data name="TheNekroVirus" xml:space="preserve">
+    <value>The Nekro Virus</value>
+  </data>
+  <data name="TheNivynStarKings" xml:space="preserve">
+    <value>The Nivyn Star Kings</value>
+  </data>
+  <data name="TheNokarSellships" xml:space="preserve">
+    <value>The Nokar Sellships</value>
+  </data>
+  <data name="TheNomad" xml:space="preserve">
+    <value>The Nomad</value>
+  </data>
+  <data name="TheOlradinLeague" xml:space="preserve">
+    <value>The Olradin League</value>
+  </data>
+  <data name="TheRalNelConsortium" xml:space="preserve">
+    <value>The Ral Nel Consortium</value>
+  </data>
+  <data name="TheRubyMonarch" xml:space="preserve">
+    <value>The Ruby Monarch</value>
+  </data>
+  <data name="TheSaintOfSwords" xml:space="preserve">
+    <value>The Saint Of Swords</value>
+  </data>
+  <data name="TheSavagesOfCymiae" xml:space="preserve">
+    <value>The Savages Of Cymiae</value>
+  </data>
+  <data name="TheShipwrightsofAxis" xml:space="preserve">
+    <value>The Shipwrights Of Axis</value>
+  </data>
+  <data name="TheTitansOfUl" xml:space="preserve">
+    <value>The Titans Of Ul</value>
+  </data>
+  <data name="TheTnelisSyndicate" xml:space="preserve">
+    <value>The Tnelis Syndicate</value>
+  </data>
+  <data name="TheUniversitiesOfJolNar" xml:space="preserve">
+    <value>The Universities Of Jol-Nar</value>
+  </data>
+  <data name="TheVadenBankingClans" xml:space="preserve">
+    <value>The Vaden Banking Clans</value>
+  </data>
+  <data name="TheVaylerianScourge" xml:space="preserve">
+    <value>The Vaylerian Scourge</value>
+  </data>
+  <data name="TheVeldyrSovereignty" xml:space="preserve">
+    <value>The Veldyr Sovereignty</value>
+  </data>
+  <data name="TheVuilRaithCabal" xml:space="preserve">
+    <value>The Vuil'raith Cabal</value>
+  </data>
+  <data name="TheWinnu" xml:space="preserve">
+    <value>The Winnu</value>
+  </data>
+  <data name="TheXxchaKingdom" xml:space="preserve">
+    <value>The Xxcha Kingdom</value>
+  </data>
+  <data name="TheYinBrotherhood" xml:space="preserve">
+    <value>The Yin Brotherhood</value>
+  </data>
+  <data name="TheYssarilTribes" xml:space="preserve">
+    <value>The Yssaril Tribes</value>
+  </data>
+  <data name="TheZealotsOfRhodun" xml:space="preserve">
+    <value>The Zealots Of Rhodun</value>
+  </data>
+  <data name="TheZelianPurifier" xml:space="preserve">
+    <value>The Zelian Purifier</value>
+  </data>
+  <data name="ToldarConcordat" xml:space="preserve">
+    <value>Toldar Concordat</value>
+  </data>
+  <data name="TwilightsFall" xml:space="preserve">
+    <value>Twilight's Fall</value>
+  </data>
+  <data name="UydaiConclave" xml:space="preserve">
+    <value>Uydai Conclave</value>
+  </data>
+</root>

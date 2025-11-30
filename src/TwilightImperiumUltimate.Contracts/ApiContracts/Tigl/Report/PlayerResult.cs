@@ -9,4 +9,6 @@ public class PlayerResult : IPlayerResult
     public long DiscordId { get; set; }
 
     public string DiscordTag { get; set; } = string.Empty;
+
+    public bool IsWinner { get; set; }
 }

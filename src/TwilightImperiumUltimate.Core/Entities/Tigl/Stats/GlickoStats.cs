@@ -18,7 +18,5 @@ public class GlickoStats
 
     public TiglLeague League { get; set; }
 
-    public TiglAsyncRank Rank { get; set; }
-
     public ICollection<GlickoPlayerMatchStats> MatchStats { get; } = new List<GlickoPlayerMatchStats>();
 }

@@ -4,10 +4,10 @@
 <FlexRowContainer Width="@Width"
                   JustifyContent="Enums.JustifyContent.FlexStart"
                   CssClass="title handel white shadow">
-    <Label Text="@Label" FontSize="18" CenterText="CenterText" />
-    <FlexRowContainer JustifyContent="Enums.JustifyContent.Center">
+    <Label Text="@Label" FontSize="18" CenterText="CenterText" Width="@(LabelWidth)" />
+    <FlexRowContainer JustifyContent="Enums.JustifyContent.Center" Width="@(PickerWidth)">
         <ArrowButton ArrowSymbol="@LeftArrowSymbol" OnArrowClick="PreviousValue" Width="@ButtonWidth" />
-        <Label Text="@CurrentValue.GetDisplayName()" FontSize="18" CenterText="true" TextColor="TextColor.Yellow" />
+        <Label Text="@CurrentValue.GetDisplayName()" FontSize="18" CenterText="true" TextColor="TextColor.Yellow" MinWidth="@MinChoiceWidth" Width="80" />
         <ArrowButton ArrowSymbol="@RightArrowSymbol" OnArrowClick="NextValue" Width="@ButtonWidth"/>
     </FlexRowContainer>
 </FlexRowContainer>

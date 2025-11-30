@@ -1738,6 +1738,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.16" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.16" PrivateAssets="all" />
     <PackageReference Include="Microsoft.Extensions.Localization" Version="8.0.16" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="8.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Radzen.Blazor" Version="7.0.8" />
     <PackageReference Include="Serilog" Version="4.3.0" />
@@ -1754,6 +1755,11 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>CardNames.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\Leaders.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Leaders.resx</DependentUpon>
     </Compile>
     <Compile Update="Resources\Paths.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -1780,6 +1786,11 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
+    <Compile Update="Resources\TiglFactions.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TiglFactions.resx</DependentUpon>
+    </Compile>
     <Compile Update="Resources\ValidationMessages.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -1791,6 +1802,10 @@
     <EmbeddedResource Update="Resources\CardNames.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>CardNames.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Leaders.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Leaders.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\Paths.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -1811,6 +1826,10 @@
     <EmbeddedResource Update="Resources\FactionsInfo.resx">
       <LastGenOutput>FactionsInfo.Designer.cs</LastGenOutput>
       <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\TiglFactions.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TiglFactions.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\ValidationMessages.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

@@ -1,0 +1,20 @@
+﻿@page "/account/tigl-admin"
+@using Microsoft.AspNetCore.Authorization
+@using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Season
+@using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Achievements
+@using TwilightImperiumUltimate.Contracts.Enums
+@using TwilightImperiumUltimate.Contracts.DTOs.Tigl
+@using TwilightImperiumUltimate.Web.Components.TiglAdmin
+
+@attribute [Authorize(Roles = "TiglAdmin")]
+
+<Page>
+    <Label Text="TIGL Administration" FontSize="30" CenterText="true" />
+    <VerticalSpace Height="30" />
+
+    <FlexColumnCenteredContainer>
+
+        <AdminMainGrid />
+
+    </FlexColumnCenteredContainer>
+</Page>

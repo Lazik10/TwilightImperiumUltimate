@@ -1,0 +1,114 @@
+@using TwilightImperiumUltimate.Contracts.Enums
+@using TwilightImperiumUltimate.Contracts.DTOs.Tigl
+@using TwilightImperiumUltimate.Web.Components.Ranking
+@using TwilightImperiumUltimate.Web.Helpers.Enums
+@using TwilightImperiumUltimate.Web.Helpers.Format
+@using TwilightImperiumUltimate.Web.Helpers.Time
+
+<VerticalSpace Height="20" />
+<Label Text="@Strings.TiglAdmin_GameReportsAdministration" FontSize="32" CenterText="true" />
+<VerticalSpace Height="20" />
+
+@if (_loading)
+{
+    <VerticalSpace Height="50" />
+    <Label Text="...Loading..." CenterText="true" />
+    <VerticalSpace Height="50" />
+}
+else if (!_detailedReports.Any())
+{
+    <VerticalSpace Height="50" />
+    <Label Text="No new game reports found." CenterText="true" />
+    <VerticalSpace Height="50" />
+}
+else
+{
+    @foreach (var report in _detailedReports.OrderByDescending(r => r.EndTimestamp))
+    {
+        var hasError = _evaluationErrors.TryGetValue(report.Id, out var errorInfo);
+
+        <VerticalSpace Height="25" />
+
+        <FlexColumnCenteredContainer CssClass="background" Style="width:100%;">
+
+            <VerticalSpace Height="20" />
+            <Label Text="@($"Game: {report.GameId}")" TextColor="TextColor.Yellow" CenterText="true" FontSize="24" />
+            <VerticalSpace Height="40" />
+
+            @if(report.Source == ResultSource.Async)
+            {
+                <TextButton Text="Show Game" TextColor="TextColor.Green" OnClick="@(() => RedirectToGameDetails(report.GameId))" />
+                <VerticalSpace Height="20" />
+            }
+
+            <GridLayout Columns="4">
+                <Label Text="League" TextColor="TextColor.Yellow" CenterText="true" />
+                <Label Text="Season" TextColor="TextColor.Yellow" CenterText="true" />
+                <Label Text="State" TextColor="TextColor.Yellow" CenterText="true" />
+                <Label Text="Duration" TextColor="TextColor.Yellow" CenterText="true" />
+
+                <Label Text="@report.League.GetDisplayName()" CenterText="true" />
+                <Label Text="@report.Season.ToString()" CenterText="true" />
+                <Label Text="@report.State.GetDisplayName()" CenterText="true" />
+                <Label Text="@((report.EndTimestamp - report.StartTimestamp).FormatToDaysDuration())" CenterText="true" />
+            </GridLayout>
+
+            <VerticalSpace Height="20" />
+
+            <GridLayout Columns="5" Style="grid-template-columns: 5% 30% 25% 20% 20%">
+                <VerticalSpace Height="20" CssClass="span-5" />
+                <Label />
+                <Label Text="Player" TextColor="TextColor.Yellow" />
+                <Label Text="Faction" TextColor="TextColor.Yellow" />
+                <Label Text="Score" TextColor="TextColor.Yellow" CenterText="true" />
+                <Label Text="Winner" TextColor="TextColor.Yellow" CenterText="true" />
+                <VerticalSpace Height="10" CssClass="span-5" />
+
+                @foreach (var pr in report.PlayerResults.OrderBy(x => !x.IsWinner).ThenByDescending(x => x.Score))
+                {
+                    var color = pr.IsWinner ? TextColor.Green : TextColor.White;
+                    <Label />
+                    <Label Text=@GetUserName(pr) TextColor=color />
+                    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+                        <TiglFactionImg Faction=@pr.Faction Height="28" />
+                        <Label Text=@pr.Faction.GetDisplayName() TextColor=color Width="70" />
+                    </FlexRowContainer>
+                    <Label Text=@pr.Score.ToString() CenterText="true" TextColor=color />
+                    <Label Text=@(pr.IsWinner ? "Yes" : "") CenterText="true" TextColor=color />
+                }
+
+                <VerticalSpace Height="20" CssClass="span-5" />
+            </GridLayout>
+
+            @if (report.League == TiglLeague.Fractured && report.GalacticEvents.Any())
+            {
+                <VerticalSpace Height="20" />
+                <Label Text="Galactic Events" CenterText="true" />
+                <VerticalSpace Height="20" />
+                <GridLayout Columns="3">
+                    @foreach (var ge in report.GalacticEvents)
+                    {
+                        <Label Text=@ge Style="margin-right:10px;" CenterText="true" />
+                    }
+                </GridLayout>
+            }
+
+            <VerticalSpace Height="20" />
+
+        </FlexColumnCenteredContainer>
+
+        @if (hasError)
+        {
+            <FlexColumnCenteredContainer>
+                <Label Text="@errorInfo.Title" TextColor="TextColor.Red" />
+                <Label Text="@errorInfo.Message" TextColor="TextColor.Red" />
+            </FlexColumnCenteredContainer>
+        }
+
+        <VerticalSpace Height="20" />
+
+        <FlexColumnCenteredContainer>
+            <Button ButtonText="Confirm" OnClick="() => ConfirmAsync(report.Id)" IsDisabled="_confirming" Width="50" />
+        </FlexColumnCenteredContainer>
+    }
+}

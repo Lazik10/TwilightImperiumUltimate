@@ -12,6 +12,10 @@ public class GlickoRatingConfiguration : IEntityTypeConfiguration<GlickoRating>
 
         builder.HasKey(p => p.Id);
 
+        builder.HasIndex(e => e.GlickoStatsId)
+            .IsUnique()
+            .HasDatabaseName("IX_GlickoRatings_GlickoStatsId");
+
         builder.Property(x => x.Id)
             .HasColumnOrder(0);
 

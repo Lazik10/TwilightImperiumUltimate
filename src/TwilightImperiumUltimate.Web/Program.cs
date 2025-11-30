@@ -18,7 +18,7 @@ builder.Services.AddLogging(loggingBuilder => loggingBuilder.AddSerilog(dispose:
 
 builder.Services.RegisterServices(builder);
 builder.Services.AddLocalization();
-builder.Configuration.RegisterOptions();
+builder.Services.RegisterOptions(builder.Configuration);
 
 var host = builder.Build();
 

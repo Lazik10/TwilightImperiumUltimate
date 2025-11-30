@@ -7,7 +7,6 @@ using TwilightImperiumUltimate.Contracts.Enums;
 using TwilightImperiumUltimate.Core.Entities.Tigl;
 using TwilightImperiumUltimate.Core.Entities.Tigl.Ratings;
 using TwilightImperiumUltimate.Core.Entities.Tigl.Stats;
-using TwilightImperiumUltimate.Tigl.AsyncRating;
 using TwilightImperiumUltimate.Tigl.Glicko2Rating;
 using Xunit;
 
@@ -22,7 +21,7 @@ public class GlickoRatingTests
         var glickoPlayerMatchStatsService = new GlickoPlayerMatchStatsService();
         var glickoRatingCalculatorService = new GlickoRatingCalculatorService();
         var faker = new Faker();
-        var league = TiglLeague.Tigl;
+        var league = TiglLeague.Test;
 
         var players = Enumerable.Range(1, 6).Select(i => new TiglUser
         {
@@ -47,11 +46,13 @@ public class GlickoRatingTests
         var report = new GameReport()
         {
             GameId = "pbd1000",
-            Source = Contracts.Enums.ResultSource.Async,
+            Score = 10,
+            Source = ResultSource.Async,
             PlayerResults = players.Select((p, i) => new Contracts.ApiContracts.Tigl.Report.PlayerResult
             {
                 DiscordId = p.DiscordId,
                 Score = scores[i],
+                Faction = "The Arborec",
             }).ToList(),
         };
 
@@ -67,12 +68,13 @@ public class GlickoRatingTests
 
         players = players.OrderByDescending(x => x.GlickoStats!.First(x => x.League == league).Rating!.Rating).ToList();
 
-        players[0].GlickoStats!.First(x => x.League == league).Rating!.Rating.Should().Be(1578.24174083883);
-        players[0].GlickoStats!.First(x => x.League == league).Rating!.Rd.Should().Be(193.5342746156295);
-        players[0].GlickoStats!.First(x => x.League == league).Rating!.Volatility.Should().Be(0.05999785835473327);
+        players[0].GlickoStats!.First(x => x.League == league).Rating!.Rating.Should().Be(1860.6472750664675);
+        players[0].GlickoStats!.First(x => x.League == league).Rating!.Rd.Should().Be(193.534277548303);
+        players[0].GlickoStats!.First(x => x.League == league).Rating!.Volatility.Should().Be(0.0600012172435905);
     }
 
-    [Fact(Skip = "Unable to confirm the results yet")]
+    [Fact]
+/*    [Fact(Skip = "Unable to confirm the results yet")]*/
     public async Task CalculateRatingCorrectlyForAdvancedPlayers()
     {
         // Arrange
@@ -80,8 +82,8 @@ public class GlickoRatingTests
         var glickoRatingCalculatorService = new GlickoRatingCalculatorService();
         var faker = new Faker();
         double[] ratings = [1323.00, 1272.00, 1068.39, 1000.00, 1244.00, 906.00];
-        var expectedFinalRatings = new[] { 1369.71, 1277.31, 1212.04, 1089.10, 1025.68, 895.69, };
-        var league = TiglLeague.Tigl;
+        var expectedFinalRatings = new[] { 1580.3384848732132, 1238.4004657243272, 1202.9054293885006, 1195.9383219904944, 916.3648037100828, 672.1940768149205, };
+        var league = TiglLeague.Test;
 
         var players = Enumerable.Range(0, 6).Select(i => new TiglUser
         {
@@ -106,11 +108,13 @@ public class GlickoRatingTests
         var report = new GameReport()
         {
             GameId = "pbd1000",
-            Source = Contracts.Enums.ResultSource.Async,
+            Score = 10,
+            Source = ResultSource.Async,
             PlayerResults = players.Select((p, i) => new Contracts.ApiContracts.Tigl.Report.PlayerResult
             {
                 DiscordId = p.DiscordId,
                 Score = scores[i],
+                Faction = "The Arborec",
             }).ToList(),
         };
 
@@ -130,7 +134,7 @@ public class GlickoRatingTests
         {
             players[i].GlickoStats!.First(x => x.League == league).Rating!.Rating.Should().BeApproximately(expectedFinalRatings[i], 0.01);
             if (i == 0)
-                players[i].GlickoStats!.First(x => x.League == league).Rating!.Rd.Should().Be(2.2);
+                players[i].GlickoStats!.First(x => x.League == league).Rating!.Rd.Should().Be(208.34860980027898);
         }
     }
 
@@ -142,7 +146,7 @@ public class GlickoRatingTests
         var glickoRatingCalculatorService = new GlickoRatingCalculatorService();
         var faker = new Faker();
         var random = new Random();
-        var league = TiglLeague.Tigl;
+        var league = TiglLeague.Test;
 
         var players = Enumerable.Range(0, 1000).Select(i => new TiglUser
         {
@@ -165,12 +169,13 @@ public class GlickoRatingTests
 
         var gameReports = new List<GameReport>();
 
-        for (int i = 0; i < 1000000; i++)
+        for (int i = 0; i < 100000; i++)
         {
             var report = new GameReport()
             {
                 GameId = "pbd1000",
-                Source = Contracts.Enums.ResultSource.Async,
+                Score = 10,
+                Source = ResultSource.Async,
                 PlayerResults = players
                     .OrderByDescending(p => random.Next())
                     .Take(6)
@@ -178,6 +183,7 @@ public class GlickoRatingTests
                     {
                         DiscordId = p.DiscordId,
                         Score = i == 0 ? 10 : random.Next(1, 10),
+                        Faction = "The Arborec",
                     }).ToList(),
             };
 

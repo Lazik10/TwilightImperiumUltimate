@@ -35,6 +35,13 @@ public enum FactionName
     // Codex Vigil - 1 faction
     TheCouncilKeleres,
 
+    // Thunder's Edge - 5(6) factions
+    TheCrimsonRebellion,
+    TheDeepwroughtScholarate,
+    TheFirmamentTheObsidian,
+    LastBastion,
+    TheRalNelConsortium,
+
     // Discordant Stars - 34 factions
     TheAugursOfIlyxum,
     TheCeldauriTradeConfederation,

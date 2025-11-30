@@ -1,0 +1,91 @@
+﻿@using TwilightImperiumUltimate.Contracts.DTOs.Tigl
+@using TwilightImperiumUltimate.Contracts.Enums
+@using TwilightImperiumUltimate.Web.Helpers.Enums
+@using TwilightImperiumUltimate.Web.Components.Shared.Controls
+
+<VerticalSpace Height="20" />
+
+<FlexColumnCenteredContainer>
+    <SeasonPicker Title="@Strings.TiglLeaderboard_Season"
+                  FontSize="18"
+                  SeasonNumber="@_selectedSeasonNumber"
+                  SeasonNumberChanged="UpdateSelectedSeason"
+                  Width="50" />
+</FlexColumnCenteredContainer>
+
+<VerticalSpace Height="20" />
+
+<FlexRowContainer>
+    <Label Text="@Strings.TiglGames_CategoryStandard" FontSize="24" CenterText="true" TextColor="TextColor.Yellow" />
+    <Label Text="@Strings.TiglGames_CategoryFractured" FontSize="24" CenterText="true" TextColor="TextColor.Yellow" />
+</FlexRowContainer>
+
+<VerticalSpace Height="20" />
+
+<GridLayout Columns="2" Width="100" CssClass="background">
+    <FlexColumnCenteredContainer>
+        <GridLayout Columns="4" CssClass="handel white shadow background" Style="grid-template-columns: 3% 30% 25% 15% 27%">
+            <VerticalSpace Height="10" CssClass="span-5" />
+            <Label />
+            <Label Text="@Strings.TiglGames_GameId" TextColor="TextColor.Green" />
+            <Label Text="@Strings.TiglGames_Status" />
+            <Label Text="@Strings.TiglGames_Source" />
+            <Label Text="@Strings.TiglGames_Ended" />
+            <VerticalSpace Height="10" CssClass="span-5" />
+        </GridLayout>
+    </FlexColumnCenteredContainer>
+
+    <FlexColumnCenteredContainer>
+        <GridLayout Columns="4" CssClass="handel white shadow background" Style="grid-template-columns: 3% 30% 25% 15% 27%">
+            <VerticalSpace Height="10" CssClass="span-5" />
+            <Label />
+            <Label Text="@Strings.TiglGames_GameId" TextColor="TextColor.Green" />
+            <Label Text="@Strings.TiglGames_Status" />
+            <Label Text="@Strings.TiglGames_Source" />
+            <Label Text="@Strings.TiglGames_Ended" />
+            <VerticalSpace Height="10" CssClass="span-5" />
+        </GridLayout>
+    </FlexColumnCenteredContainer>
+</GridLayout>
+
+<VerticalSpace Height="20" />
+
+
+@if (_loading)
+{
+    <VerticalSpace Height="50" />
+    <Label Text="@Strings.TiglGames_LoadingGames" CenterText="true" />
+    <VerticalSpace Height="50" />
+}
+else
+{
+    <GridLayout Columns="2" Width="100" AlignItems="flex-start">
+        <FlexColumnCenteredContainer Width="100" >
+            <GridLayout Columns="4" CssClass="handel white shadow" Style="grid-template-columns: 3% 30% 25% 15% 27%">
+                @foreach (var g in FilteredStandardGames)
+                {
+                    <Label />
+                    <TextButton Text="@g.GameId" JustifyContent="Enums.JustifyContent.FlexStart" TextColor="TextColor.Green" OnClick="() => RedirectToGameDetail(g.Id)" />
+                    <Label Text="@g.State.GetDisplayName()" />
+                    <Label Text="@g.Source.GetDisplayName()" />
+                    <Label Text="@FormatEndDate(g.EndTimestamp)" />
+                }
+            </GridLayout>
+        </FlexColumnCenteredContainer>
+        <FlexColumnCenteredContainer Width="100">
+            <GridLayout Columns="4" CssClass="handel white shadow" Style="grid-template-columns: 3% 30% 25% 15% 27%">
+                @foreach (var g in FilteredFracturedGames)
+                {
+                    <Label />
+                    <TextButton Text="@g.GameId" JustifyContent="Enums.JustifyContent.FlexStart" TextColor="TextColor.Green" OnClick="() => RedirectToGameDetail(g.Id)" />
+                    <Label Text="@g.State.GetDisplayName()" />
+                    <Label Text="@g.Source.GetDisplayName()" />
+                    <Label Text="@FormatEndDate(g.EndTimestamp)" />
+                }
+            </GridLayout>
+        </FlexColumnCenteredContainer>
+    </GridLayout>
+}
+
+<VerticalSpace Height="50" />
+

@@ -1,0 +1,47 @@
+﻿<StretchHeightContainer >
+
+    <VerticalSpace Height="20" />
+
+    <FlexRowContainer>
+        <EnumPicker TEnum="TiglStatisticsType"
+                    CurrentValue="@_selectedStatisticsType"
+                    CurrentValueChanged="@ChangeStatisticsType"
+                    Width="100"
+                    Label="@Strings.TiglStatistics_StatisticType" />
+    </FlexRowContainer>
+
+    <VerticalSpace Height="20" />
+
+    <FlexRowContainer>
+        <SeasonPicker FontSize="18"
+                      SeasonNumberChanged="OnSeasonChanged"
+                      Width="100" />
+    </FlexRowContainer>
+    
+    <VerticalSpace Height="20" />
+
+    <FlexRowContainer>
+        <EnumPicker Label="@Strings.TiglLeaderboard_League" TEnum="TiglLeague" CurrentValue="@_selectedLeague" CurrentValueChanged="@OnLeagueChanged" ExcludeValues="new List<TiglLeague> { TiglLeague.Test }" />
+    </FlexRowContainer>
+
+    <CascadingValue Value="_selectedSeasonNumber" Name="SelectedSeasonNumber">
+        <CascadingValue Value="_selectedLeague" Name="SelectedLeague">
+
+        @if(_selectedStatisticsType == TiglStatisticsType.Factions)
+        {
+                <TiglStatisticsFactionsGrid />
+            }
+            else if(_selectedStatisticsType == TiglStatisticsType.Players)
+            {
+                <TiglStatisticsPlayersGrid />
+            }
+            else if(_selectedStatisticsType == TiglStatisticsType.Games)
+            {
+                <TiglStatisticsGamesGrid />
+            }
+        }
+
+        </CascadingValue>
+    </CascadingValue>
+
+</StretchHeightContainer>

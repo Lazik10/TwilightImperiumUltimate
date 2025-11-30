@@ -18,6 +18,9 @@ public class GameStatsConfiguration : IEntityTypeConfiguration<GameStats>
 
         builder.HasIndex(x => x.AsyncFunGameName);
 
+        builder.HasIndex(x => new { x.SetupTimestamp, x.EndedTimestamp })
+            .HasDatabaseName("IX_AsyncGameStats_Setup_Ended");
+
         builder.Property(x => x.Id)
             .HasColumnOrder(0);
 

@@ -45,4 +45,8 @@ public interface IPathProvider
     string GetWebsitePreviewImagePath(string fileName);
 
     string GetGameVersionIconPath(GameVersion gameVersion);
+
+    string GetTiglFactionIconPath(TiglFactionName faction);
+
+    string GetLeaderIconPath(TiglFactionName faction, LeaderType type);
 }

@@ -12,6 +12,10 @@ public class AsyncRatingConfiguration : IEntityTypeConfiguration<AsyncRating>
 
         builder.HasKey(p => p.Id);
 
+        builder.HasIndex(p => p.AsyncStatsId)
+            .IsUnique()
+            .HasDatabaseName("IX_AsyncRatings_AsyncStatsId");
+
         builder.Property(x => x.Id)
             .HasColumnOrder(0);
 

@@ -16,6 +16,9 @@ public class AsyncStatsConfiguration : IEntityTypeConfiguration<AsyncStats>
         builder.Property(x => x.Id)
             .HasColumnOrder(0);
 
+        builder.HasIndex(e => new { e.TiglUserId, e.League })
+            .HasDatabaseName("IX_AsyncStats_TiglUserId_League");
+
         builder.Property(x => x.TiglUserId)
             .IsRequired()
             .HasColumnName(nameof(AsyncStats.TiglUserId))
@@ -35,14 +38,6 @@ public class AsyncStatsConfiguration : IEntityTypeConfiguration<AsyncStats>
             .HasColumnType("varchar(30)")
             .HasMaxLength(30)
             .HasColumnOrder(3);
-
-        builder.Property(e => e.Rank)
-            .IsRequired()
-            .HasColumnName(nameof(AsyncStats.Rank))
-            .HasConversion<string>()
-            .HasColumnType("varchar(50)")
-            .HasMaxLength(50)
-            .HasColumnOrder(4);
 
         builder.HasOne(a => a.TiglUser)
             .WithMany(u => u.AsyncStats)

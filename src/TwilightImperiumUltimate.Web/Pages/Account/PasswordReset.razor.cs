@@ -40,7 +40,8 @@ public partial class PasswordReset
             ResetCode = ResetPasswordModel.ResetCode,
         };
 
-        var (_, statusCode) = await HttpClient.PostAsync<ResetPasswordRequest, PasswordResetResponse>(Paths.ApiPath_ResetPassword, passwordRequest, default);
+        var result = await HttpClient.PostAsync<ResetPasswordRequest, PasswordResetResponse>(Paths.ApiPath_ResetPassword, passwordRequest, default);
+        var statusCode = result.StatusCode;
 
         if (statusCode == System.Net.HttpStatusCode.OK)
         {

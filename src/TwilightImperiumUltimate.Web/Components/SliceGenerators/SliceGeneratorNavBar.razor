@@ -2,13 +2,13 @@
     <div class="slice-generator-navbar">
         <FlexRowContainer Width="100" JustifyContent="Enums.JustifyContent.SpaceEvenly">
             <div class="clickable" style="min-width: 33%;" @onclick="() => OnMenuItemClick.InvokeAsync(SliceGeneratorMenuItem.SliceGenerator)">
-                <Label Text="@Strings.SliceGeneratorMenu_Slices" FontSize="28" CenterText="true" />
+                <Label Text="@Strings.SliceGeneratorMenu_Slices" FontSize="28" CenterText="true" Style="font-size: 1rem;" />
             </div>
             <div class="clickable" style="width: 33%;" @onclick="() => OnMenuItemClick.InvokeAsync(SliceGeneratorMenuItem.SliceEvaluation)">
-                <Label Text="@Strings.SliceGeneratorMenu_Stats" FontSize="28" CenterText="true" />
+                <Label Text="@Strings.SliceGeneratorMenu_Stats" FontSize="28" CenterText="true" Style="font-size: 1rem;" />
             </div>
             <div class="clickable" style="width: 33%;" @onclick="() => OnMenuItemClick.InvokeAsync(SliceGeneratorMenuItem.Settings)">
-                <Label Text="@Strings.SliceGeneratorMenu_Settings" FontSize="28" CenterText="true" />
+                <Label Text="@Strings.SliceGeneratorMenu_Settings" FontSize="28" CenterText="true" Style="font-size: 1rem;" />
             </div>
         </FlexRowContainer>
     </div>

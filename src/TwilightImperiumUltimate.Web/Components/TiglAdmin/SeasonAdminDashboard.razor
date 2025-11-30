@@ -1,0 +1,121 @@
+@using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Season
+@using Microsoft.AspNetCore.Components.Forms
+
+<VerticalSpace Height="20" />
+<Label Text="@Strings.TiglAdmin_SeasonAdministration" FontSize="32" CenterText="true" />
+<VerticalSpace Height="20" />
+
+@if (_loading)
+{
+    <VerticalSpace Height="50" />
+    <Label Text="@Strings.TiglAdmin_LoadingSeasons" CenterText="true" />
+    <VerticalSpace Height="50" />
+}
+else
+{
+    <FlexColumnCenteredContainer>
+        <Label Text="@GetActiveSeasonNumber()" CenterText="true" TextColor="TextColor.Green" FontSize="24" />
+    </FlexColumnCenteredContainer>
+
+    <VerticalSpace Height="20" />
+
+    <FlexColumnCenteredContainer>
+        <GridLayout CssClass="background" Style="grid-template-columns: 3% 5% 15% 10% 15% 15% 10% 27%">
+            <Label />
+            <Label Text="@Strings.TiglAdmin_SeasonId" />
+            <Label Text="@Strings.TiglAdmin_SeasonName" />
+            <Label Text="@Strings.TiglAdmin_Status" />
+            <Label Text="@Strings.TiglAdmin_StartDate" />
+            <Label Text="@Strings.TiglAdmin_EndDate" />
+            <Label Text="@Strings.TiglAdmin_Edit" CenterText="true" />
+            <Label Text="@Strings.TiglAdmin_Actions" CenterText="true" />
+        </GridLayout>
+        <VerticalSpace Height="10" />
+
+        @foreach (var s in _seasonEdits)
+        {
+            var isEditing = s.IsEditing;
+            <GridLayout CssClass="background" Style="grid-template-columns: 3% 5% 15% 10% 15% 15% 10% 27%">
+                <Label />
+                <Label Text="@s.SeasonNumber.ToString()" TextColor="@(s.IsActive? TextColor.Green: TextColor.Red)" />
+                
+                @if (isEditing)
+                {
+                    <input class="handel white" style="width:95%; color: black;" @bind="s.SeasonName" />
+                }
+                else
+                {
+                    <Label Text="@s.SeasonName" TextColor="@(s.IsActive? TextColor.Green: TextColor.Red)" />
+                }
+                <Label Text="@(s.IsActive ? Strings.TiglAdmin_ActiveYes : Strings.TiglAdmin_ActiveNo)" TextColor="@(s.IsActive ? TextColor.Green : TextColor.Red)" />
+                
+                @if (isEditing)
+                {
+                    <InputDate class="handel white" style="width:95%; color: black;" @bind-Value="s.StartDateValue" />
+                }
+                else
+                {
+                    <Label Text="@s.StartDate.ToString(Strings.DateTimeFormat_EU)" TextColor="@(s.IsActive? TextColor.Green: TextColor.Red)" />
+                }
+
+                @if (isEditing)
+                {
+                    <InputDate class="handel white" style="width:95%; color: black;" @bind-Value="s.EndDateValue" />
+                }
+                else
+                {
+                    <Label Text="@s.EndDate.ToString(Strings.DateTimeFormat_EU)" TextColor="@(s.IsActive? TextColor.Green: TextColor.Red)" />
+                }
+
+                @if (!isEditing)
+                {
+                    <Button ButtonText="Edit" OnClick="() => BeginEdit(s)" Width="70" IsDisabled="@_sendingRequest" />
+                }
+                else
+                {
+                    <Button ButtonText="Cancel" OnClick="() => CancelEdit(s)" Width="70" />
+                }
+
+                <FlexRowContainer Width="100" JustifyContent="Enums.JustifyContent.SpaceEvenly">
+                    @if (isEditing)
+                    {
+                        <Button ButtonText="@(Strings.TiglAdmin_Save)" OnClick="() => SaveSeasonAsync(s)" Width="50" IsDisabled="@_sendingRequest" />
+                    }
+                    else
+                    {
+                        @if (!s.IsActive)
+                        {
+                            <Button ButtonText="@(Strings.TiglAdmin_SetActive)" OnClick="() => SetActiveAsync(s.SeasonNumber)" Width="50" IsDisabled="@_sendingRequest" />
+                        }
+                        @if (s.IsActive)
+                        {
+                            <Button ButtonText="@(Strings.TiglAdmin_EndSeason)" OnClick="EndSeasonAsync" Width="50" IsDisabled="@_sendingRequest" />
+                        }
+                    }
+                </FlexRowContainer>
+            </GridLayout>
+            <VerticalSpace Height="5" />
+        }
+
+        <VerticalSpace Height="20" />
+        <Label Text="@(Strings.TiglAdmin_AddNewSeason)" FontSize="24" CenterText="true" />
+        <VerticalSpace Height="10" />
+        <GridLayout CssClass="background" Style="grid-template-columns: 15% 35% 25% 25%">
+            <Label Text="@Strings.TiglAdmin_SeasonId" CenterText="true" />
+            <Label Text="@Strings.TiglAdmin_SeasonName" CenterText="true" />
+            <Label Text="@Strings.TiglAdmin_StartDate" CenterText="true" />
+            <Label Text="@Strings.TiglAdmin_EndDate" CenterText="true" />
+        </GridLayout>
+        <VerticalSpace Height="5" />
+        <GridLayout CssClass="background" Style="grid-template-columns: 15% 35% 25% 25%">
+            <input type="number" class="handel white" style="width:95%; color: black;" @bind="_newSeasonNumber" />
+            <input class="handel white" style="width:95%; color: black;" @bind="_newSeasonName" />
+            <InputDate class="handel white" style="width:95%; color: black;" @bind-Value="_newSeasonStartValue" />
+            <InputDate class="handel white" style="width:95%; color: black;" @bind-Value="_newSeasonEndValue" />
+        </GridLayout>
+        <VerticalSpace Height="10" />
+        <Button ButtonText="@(Strings.TiglAdmin_AddSeasonButtonText)" OnClick="AddSeasonAsync" IsDisabled="@_sendingRequest" />
+    </FlexColumnCenteredContainer>
+}
+
+<VerticalSpace Height="30" />

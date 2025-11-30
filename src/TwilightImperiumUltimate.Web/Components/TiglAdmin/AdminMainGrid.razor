@@ -1,0 +1,26 @@
+@using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl
+
+<AdminMenu OnMenuItemClick="ChangeSegment" />
+
+<VerticalSpace Height="30" />
+
+<StretchHeightContainer CssClass="background">
+
+    @if (_selectedSegment == AdminMenuItem.Parameters)
+    {
+        <ParametersDashboard />
+    }
+    else if (_selectedSegment == AdminMenuItem.Seasons)
+    {
+        <SeasonAdminDashboard />
+    }
+    else if (_selectedSegment == AdminMenuItem.Players)
+    {
+        <PlayersDashboard />
+    }
+    else if (_selectedSegment == AdminMenuItem.Games)
+    {
+        <GameReportsDashboard />
+    }
+
+</StretchHeightContainer>

@@ -42,7 +42,9 @@ public partial class CardsGrid
     {
         await InitializeCards();
 
-        var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<FaqDto>>>(Paths.ApiPath_Faq, default);
+        var result = await HttpClient.GetAsync<ApiResponse<ItemListDto<FaqDto>>>(Paths.ApiPath_Faq);
+        var response = result.Response;
+        var statusCode = result.StatusCode;
         if (statusCode == System.Net.HttpStatusCode.OK)
         {
             var faqs = Mapper.Map<List<FaqModel>>(response!.Data!.Items);
@@ -98,7 +100,9 @@ public partial class CardsGrid
     private async Task InitializeCards()
     {
         var apiEndpoint = GetCorrectApiEndpoint();
-        var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<BaseCardDto>>>(apiEndpoint);
+        var result = await HttpClient.GetAsync<ApiResponse<ItemListDto<BaseCardDto>>>(apiEndpoint);
+        var response = result.Response;
+        var statusCode = result.StatusCode;
 
         if (statusCode == System.Net.HttpStatusCode.OK)
         {

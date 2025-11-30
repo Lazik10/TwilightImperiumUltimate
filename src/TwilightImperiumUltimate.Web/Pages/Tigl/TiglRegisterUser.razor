@@ -1,0 +1,119 @@
+﻿@page "/community/tigl/register"
+
+<Page>
+    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+        <TextButton Text="@Strings.ButtonBack" OnClick="RedirectBack" FontSize="24" Width="20" TextAlign="@(string.Empty)" />
+    </FlexRowContainer>
+
+    <VerticalSpace Height="20" />
+
+    <StretchHeightContainer CssClass="background">
+
+        <FlexColumnCenteredContainer CssClass="handel white shadow">
+            <Title Text="TIGL Registration" MarginTop="50" MarginBottom="20" />
+            <HelpText Text="(Twilight Imperium Global League)" />
+            <VerticalSpace Height="100" />
+            @if (IsRegistrationSuccessful())
+            {
+                <Label Text="Registration process succeeded!" CenterText="true" FontSize="28" TextColor="TextColor.Green" />
+
+                <VerticalSpace Height="50" />
+
+                <Label Text="You will be redirected shortly to your TIGL profile." />
+
+                <VerticalSpace Height="20" />
+            }
+            else if (IsRegistrationFailure())
+            {
+                <Label Text="Registration process failure!" CenterText="true" FontSize="28" TextColor="TextColor.Red" />
+
+                <VerticalSpace Height="50" />
+
+                <Label Text="@ErrorMessage" CenterText="true" TextColor="TextColor.Red" FontSize="24" />
+
+                <VerticalSpace Height="20" />
+
+                <HelpText Text="You will be redirected in 5s." />
+
+                <VerticalSpace Height="20" />
+            }
+            else
+            {
+                <FlexColumnCenteredContainer Width="70">
+
+                    <Title Text="TIGL Code of Conduct" MarginTop="10" MarginBottom="30" FontSize="26" TextColor="TextColor.Yellow" />
+
+                    <p>
+                        All players in the TIGL are to adhere to the code of conduct. By registering you agree to these terms.
+                    </p>
+
+                    <VerticalSpace Height="20" />
+
+                    <ul style="text-align:left; line-height:1.4;">
+                        <li>Respect each other and play with honor and dignity. Do not be rude, argumentative, vulgar or abusive.</li>
+                        <li>Sportsmanship is more important than winning. This includes no collusion outside the game in progress.</li>
+                        <li>Play within the spirit of the game; allow everyone to have fun and enjoy the game.</li>
+                        <li>In‑game (RAW) anything goes on the board, BUT above the table no abuse, discrimination, intimidation or other unacceptable behavior.</li>
+                        <li>Beyond the table: no collusion or attempt to subvert the league.</li>
+                        <li>Playing each week with the same 6 players is legal but discouraged; the league encourages mingling.</li>
+                        <li>All games are subject to Rules as Written (RAW).</li>
+                        <li>Players who sign up for a game and then no‑show or cancel last minute may be removed from the league.</li>
+                        <li>If at any time you feel unsafe or a player's conduct is unbecoming, contact an admin.</li>
+                        <li>Players may be removed from the league at the sole discretion of the TIGL admin team.</li>
+                        <li>By signing up you agree your Discord name and match results may be made public.</li>
+                    </ul>
+
+                    <VerticalSpace Height="40" />
+
+                    <p>
+                        To participate you must register with your Discord account so we can track game statistics and create your TIGL player profile.
+                    </p>
+
+                </FlexColumnCenteredContainer>
+
+                <VerticalSpace Height="100" />
+                <Button ButtonText="Register With Discord" OnClick="RegisterWithDiscord" />
+                <VerticalSpace Height="20" />
+
+                @if (_manualRegisterEnabled)
+                {
+                    <FlexColumnCenteredContainer Width="70">
+                        <VerticalSpace Height="30" />
+                        <Title Text="Test Registration (Manual)" MarginTop="10" MarginBottom="10" FontSize="22" TextColor="TextColor.Yellow" />
+                        <HelpText Text="This form is visible because 'Test Registrations' parameter is enabled." />
+                        <VerticalSpace Height="20" />
+
+                        @if (!string.IsNullOrWhiteSpace(_manualRegisterError))
+                        {
+                            <Label Text="@_manualRegisterError" TextColor="TextColor.Red" />
+                            <VerticalSpace Height="10" />
+                        }
+
+                        <GridLayout CssClass="background" Style="grid-template-columns: 25% 75%; row-gap:10px;">
+                            <Label Text="Discord ID" />
+                            <input class="handel white" style="width:95%; color:black;" @bind="_newUser.DiscordId" />
+
+                            <Label Text="Discord Tag (Username)" />
+                            <input class="handel white" style="width:95%; color:black;" @bind="_newUser.DiscordTag" />
+
+                            <Label Text="TIGL Username" />
+                            <input class="handel white" style="width:95%; color:black;" @bind="_newUser.TiglUserName" />
+                        </GridLayout>
+
+                        <VerticalSpace Height="20" />
+                        @if (_manualRegisterSuccess)
+                        {
+                            <Label Text="User registered successfully." TextColor="TextColor.Green" CenterText="true" />
+                            <VerticalSpace Height="10" />
+                        }
+                        <Button ButtonText="Register User" OnClick="ManualRegisterUser" IsDisabled="@_manualRegistering" />
+                        <VerticalSpace Height="20" />
+
+                    </FlexColumnCenteredContainer>
+                }
+            }
+
+        </FlexColumnCenteredContainer>
+
+    </StretchHeightContainer>
+</Page>

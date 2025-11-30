@@ -1,5 +1,5 @@
 ﻿<div class="handel white shadow @(CssClass)"
-     style="font-size: @(FontSize)px; text-align: @(TextAlign); display: flex; align-items: center; justify-content: center; cursor: pointer; width:@(Width)%; box-sizing: border-box; padding: 2px; height: 100%; @(Style)"
+     style="color:@(SetColor());font-size: @(FontSize)px; text-align: @(TextAlign); display: flex; align-items: @(Align); justify-content: @(Justify); cursor: pointer; width:@(Width)%; box-sizing: border-box; padding: 2px; height: 100%; @(Style)"
     @onclick="@(async () => await OnClick.InvokeAsync())">
     @MarkupString
 </div>

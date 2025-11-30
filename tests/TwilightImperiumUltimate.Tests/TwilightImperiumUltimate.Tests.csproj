@@ -34,4 +34,8 @@
     <PackageReference Update="StyleCop.Analyzers" Version="1.2.0-beta.507" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Tigl\SeasonImporter\SeasonResults\" />
+  </ItemGroup>
+
 </Project>

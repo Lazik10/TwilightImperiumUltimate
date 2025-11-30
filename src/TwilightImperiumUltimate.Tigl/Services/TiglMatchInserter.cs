@@ -1,5 +1,6 @@
 using FluentResults;
 using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Report;
+using TwilightImperiumUltimate.Contracts.Enums;
 using TwilightImperiumUltimate.Core.Entities.Tigl;
 using TwilightImperiumUltimate.DataAccess.Repositories;
 using TwilightImperiumUltimate.Tigl.Helpers;
@@ -8,35 +9,48 @@ using PlayerTiglResult = TwilightImperiumUltimate.Core.Entities.Tigl.PlayerResul
 namespace TwilightImperiumUltimate.Tigl.Services;
 
 public class TiglMatchInserter(
-    ITiglRepository tiglRepository)
+    ITiglRepository tiglRepository,
+    ISeasonRepository seasonRepository,
+    ITiglUserRepository tiglUserRepository)
     : ITiglMatchInserter
 {
     public async Task<IResult<MatchReport>> InsertGameReport(GameReport gameReport, CancellationToken cancellationToken)
     {
         var result = new Result<MatchReport>();
 
+        var currentSeason = await seasonRepository.GetCurrentSeason(cancellationToken);
+        var eventsFlag = TiglGalacticEventConverter.ConvertToFlags(gameReport.Events);
+
         var matchReport = new MatchReport
         {
             GameId = gameReport.GameId,
             Source = gameReport.Source,
-            Timestamp = gameReport.Timestamp > 0 ? gameReport.Timestamp : new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds(),
-            State = Contracts.Enums.MatchState.New,
+            StartTimestamp = gameReport.StartTimestamp > 0 ? gameReport.StartTimestamp : new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds(),
+            EndTimestamp = gameReport.EndTimestamp > 0 ? gameReport.EndTimestamp : new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds(),
+            Score = gameReport.Score,
+            Round = gameReport.Round,
+            PlayerCount = gameReport.PlayerCount,
+            Season = currentSeason,
+            League = gameReport.League,
+            Events = eventsFlag,
+            State = MatchState.New,
         };
 
         var playerResults = new List<PlayerTiglResult>();
 
         foreach (var playerResult in gameReport.PlayerResults)
         {
-            var tiglUser = await tiglRepository.FindTiglUserFromGameReportPlayerResult(playerResult, cancellationToken) ?? throw new InvalidOperationException($"TIGL user not found for Discord ID: {playerResult.DiscordId}");
+            var tiglUser = await tiglUserRepository.FindTiglUserFromGameReportPlayerResult(playerResult, cancellationToken) ?? throw new InvalidOperationException($"TIGL user not found for Discord ID: {playerResult.DiscordId}");
             var parsedFaction = Result.Try(() => TiglFactionParser.ParseFaction(playerResult.Faction));
 
             if (tiglUser is not null && parsedFaction.IsSuccess)
             {
                 playerResults.Add(new PlayerTiglResult
                 {
-                    TiglUser = tiglUser.Id,
+                    TiglUserId = tiglUser.Id,
                     Faction = parsedFaction.Value,
                     Score = playerResult.Score,
+                    IsWinner = playerResult.IsWinner,
                 });
 
                 result.WithSuccess($"Successfully created result for player: {playerResult.DiscordId} and faction {playerResult.Faction}");
@@ -47,7 +61,7 @@ public class TiglMatchInserter(
             }
         }
 
-        if (result.IsFailed || playerResults.Count != 6)
+        if (result.IsFailed)
             return result;
 
         matchReport.PlayerResults = playerResults;

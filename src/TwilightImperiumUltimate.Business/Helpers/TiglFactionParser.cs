@@ -1,0 +1,105 @@
+namespace TwilightImperiumUltimate.Business.Helpers;
+
+public static class TiglFactionParser
+{
+    public static string ToFactionString(TiglFactionName faction)
+    {
+        return faction switch
+        {
+            TiglFactionName.TheArborec => "The Arborec",
+            TiglFactionName.TheBaronyOfLetnev => "The Barony of Letnev",
+            TiglFactionName.TheClanOfSaar => "The Clan of Saar",
+            TiglFactionName.TheEmbersOfMuaat => "The Embers of Muaat",
+            TiglFactionName.TheEmiratesOfHacan => "The Emirates of Hacan",
+            TiglFactionName.TheFederationOfSol => "The Federation of Sol",
+            TiglFactionName.TheGhostsOfCreuss => "The Ghosts of Creuss",
+            TiglFactionName.TheL1z1xMindnet => "The L1Z1X Mindnet",
+            TiglFactionName.TheMentakCoalition => "The Mentak Coalition",
+            TiglFactionName.TheNaaluCollective => "The Naalu Collective",
+            TiglFactionName.TheNekroVirus => "The Nekro Virus",
+            TiglFactionName.SardakkNorr => "Sardakk Norr",
+            TiglFactionName.TheUniversitiesOfJolNar => "The Universities of Jol-Nar",
+            TiglFactionName.TheWinnu => "The Winnu",
+            TiglFactionName.TheXxchaKingdom => "The Xxcha Kingdom",
+            TiglFactionName.TheYinBrotherhood => "The Yin Brotherhood",
+            TiglFactionName.TheYssarilTribes => "The Yssaril Tribes",
+
+            TiglFactionName.TheArgentFlight => "The Argent Flight",
+            TiglFactionName.TheEmpyrean => "The Empyrean",
+            TiglFactionName.TheMahactGeneSorcerers => "The Mahact Gene-Sorcerers",
+            TiglFactionName.TheNaazRokhaAlliance => "The Naaz-Rokha Alliance",
+            TiglFactionName.TheNomad => "The Nomad",
+            TiglFactionName.TheTitansOfUl => "The Titans of Ul",
+            TiglFactionName.TheVuilRaithCabal => "The Vuil'raith Cabal",
+
+            TiglFactionName.TheCouncilKeleresMentak => "The Council Keleres - Mentak",
+            TiglFactionName.TheCouncilKeleresXxcha => "The Council Keleres - Xxcha",
+            TiglFactionName.TheCouncilKeleresArgent => "The Council Keleres - Argent",
+
+            TiglFactionName.TheCrimsonRebellion => "The Crimson Rebellion",
+            TiglFactionName.TheDeepwroughtScholarate => "The Deepwrought Scholarate",
+            TiglFactionName.TheFirmamentTheObsidian => "The Firmament",
+            TiglFactionName.LastBastion => "Last Bastion",
+            TiglFactionName.TheRalNelConsortium => "The Ral Nel Consortium",
+
+            TiglFactionName.TheRubyMonarch => "The Ruby Monarch",
+            TiglFactionName.RadiantAur => "Radiant Aur",
+            TiglFactionName.AvariceRex => "Avarice Rex",
+            TiglFactionName.IlSaiLakoeHeraldOfThorns => "Il Sai Lakoe, Herald of Thorns",
+            TiglFactionName.TheSaintOfSwords => "The Saint of Swords",
+            TiglFactionName.IlNaViroset => "Il Na Viroset",
+            TiglFactionName.ElNenJanovet => "El Nen Janovet",
+            TiglFactionName.ASickeningLurch => "A Sickening Lurch",
+
+            TiglFactionName.TheAugursOfIlyxum => "Augers of Ilyxum",
+            TiglFactionName.TheBentorConglomerate => "Bentor Conglomerate",
+            TiglFactionName.TheBerserkersOfKjalengard => "Berserkers of Kjalengard",
+            TiglFactionName.TheCeldauriTradeConfederation => "Celdauri Trade Confederation",
+            TiglFactionName.TheCheiranHordes => "Cheiran Hordes",
+            TiglFactionName.TheDihMohnFlotilla => "Dih-Mohn Flotilla",
+            TiglFactionName.TheEdynMandate => "Edyn Mandate",
+            TiglFactionName.TheFlorzenProfiteers => "Florzen Profiteers",
+            TiglFactionName.TheFreeSystemsCompact => "Free Systems Compact",
+            TiglFactionName.TheGheminaRaiders => "Ghemina Raiders",
+            TiglFactionName.TheGhotiWayfarers => "Ghoti Wayfarers",
+            TiglFactionName.TheGledgeUnion => "Gledge Union",
+            TiglFactionName.TheGlimmerOfMortheus => "Glimmer of Mortheus",
+            TiglFactionName.TheKolleccSociety => "Kollecc Society",
+            TiglFactionName.TheKortaliTribunal => "Kortali Tribunal",
+            TiglFactionName.TheKyroSodality => "Kyro Sodality",
+            TiglFactionName.TheLanefirRemnants => "Lanefir Remnants",
+            TiglFactionName.TheLiZhoDynasty => "Li-Zho Dynasty",
+            TiglFactionName.TheLTokkKhrask => "L'Tokk Khrask",
+            TiglFactionName.TheMirvedaProtectorate => "Mirveda Protectorate",
+            TiglFactionName.TheMonksOfKolume => "Monks of Kolume",
+            TiglFactionName.TheMykoMentori => "Myko-Mentori",
+            TiglFactionName.TheNivynStarKings => "Nivyn Star Kings",
+            TiglFactionName.TheNokarSellships => "Nokar Sellships",
+            TiglFactionName.TheOlradinLeague => "Olradin League",
+            TiglFactionName.RohDhnaMechatronics => "Roh'Dhna Mechatronics",
+            TiglFactionName.TheSavagesOfCymiae => "Savages of Cymiae",
+            TiglFactionName.TheShipwrightsofAxis => "Shipwrights of Axis",
+            TiglFactionName.TheTnelisSyndicate => "Tnelis Syndicate",
+            TiglFactionName.TheVadenBankingClans => "Vaden Banking Clans",
+            TiglFactionName.TheVaylerianScourge => "Vaylerian Scourge",
+            TiglFactionName.TheVeldyrSovereignty => "Veldyr Sovereignty",
+            TiglFactionName.TheZealotsOfRhodun => "Zealots of Rhodun",
+            TiglFactionName.TheZelianPurifier => "Zelian Purifier",
+
+            TiglFactionName.UydaiConclave => "Uydai Conclave",
+            TiglFactionName.PharadnOrder => "Pharadn Order",
+            TiglFactionName.QhetRepublic => "Qhet Republic",
+            TiglFactionName.AtokeraLegacy => "Atokera Legacy",
+            TiglFactionName.BelkoseaAlliedStates => "Belkosea Allied States",
+            TiglFactionName.ToldarConcordat => "Toldar Concordat",
+
+            TiglFactionName.Franken => "Franken",
+            TiglFactionName.Homebrew => "Homebrew",
+            TiglFactionName.TwilightsFall => "Twilight's Fall",
+
+            TiglFactionName.None => "None",
+
+            _ => throw new ArgumentOutOfRangeException(nameof(faction), $"Unknown faction enum: {faction}"),
+        };
+    }
+}

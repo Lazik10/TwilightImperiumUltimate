@@ -55,6 +55,12 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IGameStatisticsRepository, GameStatisticsRepository>();
         services.AddTransient<IAsyncStatsRepository, AsyncStatsRepository>();
         services.AddScoped<ITiglRepository, TiglRepository>();
+        services.AddScoped<ITiglUserRepository, TiglUserRepository>();
+        services.AddScoped<ISeasonRepository, SeasonRepository>();
+        services.AddScoped<IRatingDecayRepository, RatingDecayRepository>();
+        services.AddScoped<IRankRepository, RankRepository>();
+        services.AddScoped<IAchievementRepository, AchievementRepository>();
+        services.AddScoped<IRankingsRepository, RankingsRepository>();
 
         return services;
     }

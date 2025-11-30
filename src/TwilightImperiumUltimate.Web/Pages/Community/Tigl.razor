@@ -1,7 +1,12 @@
 ﻿@page "/community/tigl"
-
-<h3>Tigl</h3>
+@using TwilightImperiumUltimate.Web.Components.Tigl
 
 <Page>
-
+    <CascadingValue Value="_playerProfileNames" Name="AsyncPlayerProfileNames">
+        <CascadingValue Value="Category" Name="Category">
+            <CascadingValue Value="Letter" Name="Letter">
+                <TiglMainGrid />
+            </CascadingValue>
+        </CascadingValue>
+    </CascadingValue>
 </Page>

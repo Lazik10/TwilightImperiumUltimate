@@ -1,0 +1,20 @@
+@using TwilightImperiumUltimate.Web.Components.Factions
+@using TwilightImperiumUltimate.Web.Helpers.Enums
+@using TwilightImperiumUltimate.Web.Helpers.Time
+
+<Label />
+
+<FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+    <FlexRowContainer Width="30">
+        <TiglFactionImg Faction="@Leader.Faction" Height="40" />
+        <LeaderImg Faction="@Leader.Faction" Height="40" />
+    </FlexRowContainer>
+    <Label Text="@Leader.Name.GetDisplayName()" Width="70" TextColor="TextColor.White" />
+</FlexRowContainer>
+
+<Label Text="@Leader.UserName" TextColor="TextColor.Green" />
+<Label Text="@GetDurationTime(Leader.LastUpdate)" CenterText="true" />
+<Label Text="@Leader.ChangeCount.ToString()" CenterText="true" />
+<Label Text="@GetShortestDurationTime()" CenterText="true" FontSize="14" />
+<Label Text="@GetLongestDurationTime()" CenterText="true" FontSize="14" />
+<Label />

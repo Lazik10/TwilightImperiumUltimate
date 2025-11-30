@@ -7,59 +7,64 @@
 <PageTitle>@Strings.Page_AccountLogin</PageTitle>
 
 <Page>
-    <FlexRowContainer Width="40">
-        <Label Text="@Strings.Login_Title" FontSize="36" Width="50" CenterText="true" />
-    </FlexRowContainer>
+    <FlexColumnCenteredContainer CssClass="handel">
 
-    @if (_showLoginFailed)
-    {
+        <FlexRowContainer Width="40">
+            <Label Text="@Strings.Login_Title" FontSize="36" Width="50" CenterText="true" />
+        </FlexRowContainer>
+
+        @if (_showLoginFailed)
+        {
+            <VerticalSpace Height="20" />
+            <Label Text="@_reasonWhyLoginFailed" CenterText="true" FontSize="24" TextColor="TextColor.Red" />
+            <VerticalSpace Height="20" />
+        }
+        else
+        {
+            <VerticalSpace Height="50" />
+        }
+
+        <FlexRowContainer Width="40">
+            <Label Text="@Strings.Login_Username" Width="50" CenterText="true"/>
+        </FlexRowContainer>
+
         <VerticalSpace Height="20" />
-        <Label Text="@_reasonWhyLoginFailed" CenterText="true" FontSize="24" TextColor="TextColor.Red" />
-        <VerticalSpace Height="20" />
-    }
-    else
-    {
+
+        <FlexRowContainer Width="40">
+
+            <RadzenTextBox Placeholder="@Strings.Login_Username"
+                            @bind-Value="LoginModel.Email"
+                            class="w-20 flex-row title white handel" />
+        </FlexRowContainer>
+
         <VerticalSpace Height="50" />
-    }
 
-    <FlexRowContainer Width="40">
-        <Label Text="@Strings.Login_Username" Width="50" CenterText="true"/>
-    </FlexRowContainer>
+        <FlexRowContainer JustifyContent="Enums.JustifyContent.Center" Width="40">
+            <Label Text="@Strings.Login_Password" Width="50" CenterText="true" />
+        </FlexRowContainer>
 
-    <VerticalSpace Height="20" />
+        <VerticalSpace Height="20" />
 
-    <FlexRowContainer Width="40">
+        <FlexRowContainer JustifyContent="Enums.JustifyContent.Center" Width="40">
+            <RadzenPassword @bind-Value="LoginModel.Password"
+                        type="password"
+                        class="flex-row title white handel"
+                        placeholder="@Strings.Login_Password" />
+        </FlexRowContainer>
 
-        <RadzenTextBox Placeholder="@Strings.Login_Email"
-                        @bind-Value="LoginModel.Email"
-                        class="w-20 flex-row title white handel" />
-    </FlexRowContainer>
+        <VerticalSpace Height="50"/>
 
-    <VerticalSpace Height="50" />
+        <FlexRowContainer JustifyContent="Enums.JustifyContent.Center" Width="50">
+            <Button ButtonText="@Strings.Login_Login" OnClick="@(async () => await LoginUser(CancellationToken.None))" CssClass="button" IsDisabled="@GetDisabledState()"/>
+        </FlexRowContainer>
 
-    <FlexRowContainer JustifyContent="Enums.JustifyContent.Center" Width="40">
-        <Label Text="@Strings.Login_Password" Width="50" CenterText="true" />
-    </FlexRowContainer>
+        <VerticalSpace Height="50" />
 
-    <VerticalSpace Height="20" />
+        <FlexRowContainer >
+            <Button ButtonText="@Strings.Login_ConfirmationEmail" OnClick="@(() => NavigationManager.NavigateTo(Pages.ResendConfirmationEmail))" />
+            <Button ButtonText="@Strings.Login_ForgotPassword" OnClick="@(() => NavigationManager.NavigateTo(Pages.ResendPasswordRecoveryEmail))" />
+        </FlexRowContainer>
 
-    <FlexRowContainer JustifyContent="Enums.JustifyContent.Center" Width="40">
-        <RadzenPassword @bind-Value="LoginModel.Password"
-                    type="password"
-                    class="flex-row title white handel"
-                    placeholder="@Strings.Login_Password" />
-    </FlexRowContainer>
+    </FlexColumnCenteredContainer>
 
-    <VerticalSpace Height="50"/>
-
-    <FlexRowContainer JustifyContent="Enums.JustifyContent.Center" Width="50">
-        <Button ButtonText="@Strings.Login_Login" OnClick="@(async () => await LoginUser(CancellationToken.None))" CssClass="button" IsDisabled="@GetDisabledState()"/>
-    </FlexRowContainer>
-
-    <VerticalSpace Height="50" />
-
-    <FlexRowContainer >
-        <Button ButtonText="@Strings.Login_ConfirmationEmail" OnClick="@(() => NavigationManager.NavigateTo(Pages.ResendConfirmationEmail))" />
-        <Button ButtonText="@Strings.Login_ForgotPassword" OnClick="@(() => NavigationManager.NavigateTo(Pages.ResendPasswordRecoveryEmail))" />
-    </FlexRowContainer>
 </Page>

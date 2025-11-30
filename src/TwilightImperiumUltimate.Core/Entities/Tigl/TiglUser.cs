@@ -1,3 +1,6 @@
+using TwilightImperiumUltimate.Contracts.Enums;
+using TwilightImperiumUltimate.Core.Entities.RelationshipEntities;
+using TwilightImperiumUltimate.Core.Entities.Tigl.Ratings;
 using TwilightImperiumUltimate.Core.Entities.Tigl.Stats;
 using TwilightImperiumUltimate.Core.Interfaces;
 
@@ -28,4 +31,20 @@ public class TiglUser : IEntity
     public ICollection<GlickoStats>? GlickoStats { get; set; }
 
     public ICollection<TrueSkillStats>? TrueSkillStats { get; set; }
+
+    public ICollection<RatingDecay>? RatingDecays { get; }
+
+    public ICollection<Leader>? Leaders { get; }
+
+    public TiglRankName ProphecyOfKingsRank { get; set; }
+
+    public TiglRankName ThundersEdgeRank { get; set; }
+
+    public TiglRankName ShatteredRank { get; set; }
+
+    public ICollection<TiglRank>? TiglRanks { get; set; }
+
+    public ICollection<TiglUserPrestigeRank>? PrestigeRanks { get; }
+
+    public ICollection<TiglUserAchievement>? Achievements { get; }
 }

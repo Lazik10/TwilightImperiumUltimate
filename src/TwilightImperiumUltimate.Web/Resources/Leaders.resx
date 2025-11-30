@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AdjudicatorBaal" xml:space="preserve">
+    <value>Adjudicator Baal</value>
+  </data>
+  <data name="AhkSylSiven" xml:space="preserve">
+    <value>Ahk Syl Siven</value>
+  </data>
+  <data name="AiroShirAur" xml:space="preserve">
+    <value>Airo Shir Aur</value>
+  </data>
+  <data name="ASickeningLurch" xml:space="preserve">
+    <value>A Sickening Lurch</value>
+  </data>
+  <data name="AtrophaWeaver" xml:space="preserve">
+    <value>Atropha</value>
+  </data>
+  <data name="AuberonElyrinChairman" xml:space="preserve">
+    <value>Auberon Elyrin</value>
+  </data>
+  <data name="AvariceRex" xml:space="preserve">
+    <value>Avarice Rex</value>
+  </data>
+  <data name="BanuaGowenAdministratorOfMinds" xml:space="preserve">
+    <value>Banua Gowen</value>
+  </data>
+  <data name="BayanDeepMagenta" xml:space="preserve">
+    <value>Bayan Deep</value>
+  </data>
+  <data name="CadhAcamontConcordatMarshall" xml:space="preserve">
+    <value>Cadh Acamont</value>
+  </data>
+  <data name="CEOKenTuccVisionaryExplorer" xml:space="preserve">
+    <value>C.E.O. Ken Tucc</value>
+  </data>
+  <data name="ConservatorProcyon" xml:space="preserve">
+    <value>Conservator Procyon</value>
+  </data>
+  <data name="CoprinusComatusNecromancer" xml:space="preserve">
+    <value>Coprinus Comatus</value>
+  </data>
+  <data name="CountOttoPmayInspiringRhetorician" xml:space="preserve">
+    <value>Count Otto Pmay</value>
+  </data>
+  <data name="DannelOfTheTenth" xml:space="preserve">
+    <value>Dannel Of The Tenth</value>
+  </data>
+  <data name="DarktalonTreilla" xml:space="preserve">
+    <value>Darktalon Treilla</value>
+  </data>
+  <data name="DemiQueenMdckssskCommissionerOfProfits" xml:space="preserve">
+    <value>Demi-Queen Mdcksssk</value>
+  </data>
+  <data name="DeposedEmperor" xml:space="preserve">
+    <value>Deposed Emperor</value>
+  </data>
+  <data name="DirectorNel" xml:space="preserve">
+    <value>Director Nel</value>
+  </data>
+  <data name="DorrahnGriphynTheCollector" xml:space="preserve">
+    <value>Dorrahn Griphyn</value>
+  </data>
+  <data name="DylnHarthuulViceAdmiralOfFleetGroup15" xml:space="preserve">
+    <value>Dyln Harthuul</value>
+  </data>
+  <data name="ElNenJanovet" xml:space="preserve">
+    <value>El Nen Janovet</value>
+  </data>
+  <data name="Entity4X41AApollo" xml:space="preserve">
+    <value>Entity 4X41A Apollo</value>
+  </data>
+  <data name="Franken" xml:space="preserve">
+    <value>Franken</value>
+  </data>
+  <data name="GalacticThreat" xml:space="preserve">
+    <value>Galactic Threat</value>
+  </data>
+  <data name="GorthrimChiefOfExpeditions" xml:space="preserve">
+    <value>Gorthrim</value>
+  </data>
+  <data name="GurnoAggero" xml:space="preserve">
+    <value>Gurno Aggero</value>
+  </data>
+  <data name="HarkaLeeds" xml:space="preserve">
+    <value>Harka Leeds</value>
+  </data>
+  <data name="HarrughGefhara" xml:space="preserve">
+    <value>Harrugh Gefhara</value>
+  </data>
+  <data name="HeshAndPrit" xml:space="preserve">
+    <value>Hesh And Prit</value>
+  </data>
+  <data name="Homebrew" xml:space="preserve">
+    <value>Homebrew</value>
+  </data>
+  <data name="HomesickPhantom" xml:space="preserve">
+    <value>Homesick Phantom</value>
+  </data>
+  <data name="IlNaViroset" xml:space="preserve">
+    <value>Il Na Viroset</value>
+  </data>
+  <data name="IlSaiLakoeHeraldOfThorns" xml:space="preserve">
+    <value>Il Sai Lakoe Herald Of Thorns</value>
+  </data>
+  <data name="IpswitchLooseCannon" xml:space="preserve">
+    <value>Ipswitch Loose Cannon</value>
+  </data>
+  <data name="ItFeedsOnCarrion" xml:space="preserve">
+    <value>It Feeds On Carrion</value>
+  </data>
+  <data name="JaceX4thAirLegion" xml:space="preserve">
+    <value>JaceX 4th Air Legion</value>
+  </data>
+  <data name="KapokoVuiGreatSpirit" xml:space="preserve">
+    <value>Kapoko Vui</value>
+  </data>
+  <data name="KhazRinLiZhoEmpress" xml:space="preserve">
+    <value>Khaz Rin</value>
+  </data>
+  <data name="KorelaTheLadyAndKantrusTheLord" xml:space="preserve">
+    <value>Korela &amp; Kantrus</value>
+  </data>
+  <data name="KrillDrakkonStarCrownedKing" xml:space="preserve">
+    <value>Krill Drakkon</value>
+  </data>
+  <data name="KuuasiAunJalatai" xml:space="preserve">
+    <value>Kuuasi Aun Jalatai</value>
+  </data>
+  <data name="KyverBladeAndKey" xml:space="preserve">
+    <value>Kyver Blade And Key</value>
+  </data>
+  <data name="LetaniMiasmiala" xml:space="preserve">
+    <value>Letani Miasmiala</value>
+  </data>
+  <data name="LondorIIGodEmperor" xml:space="preserve">
+    <value>LondorII</value>
+  </data>
+  <data name="MathisMathinus" xml:space="preserve">
+    <value>Mathis Mathinus</value>
+  </data>
+  <data name="MidirLivingWill" xml:space="preserve">
+    <value>Midir</value>
+  </data>
+  <data name="MirikAunSissiri" xml:space="preserve">
+    <value>Mirik Aun Sissiri</value>
+  </data>
+  <data name="MobiusSpikeTheReaper" xml:space="preserve">
+    <value>Mobius Spike</value>
+  </data>
+  <data name="NmenmedeGhotiAllMother" xml:space="preserve">
+    <value>Nmenmede</value>
+  </data>
+  <data name="OdlynnMyrr" xml:space="preserve">
+    <value>Odlynn Myrr</value>
+  </data>
+  <data name="PahnSilverfurCouncilSpeaker" xml:space="preserve">
+    <value>Pahn Silverfur</value>
+  </data>
+  <data name="PaxMagnificaBellumGloriosum" xml:space="preserve">
+    <value>Pax Magnifica Bellum Gloriosum</value>
+  </data>
+  <data name="PharadnTheImmortalImperishableUnifier" xml:space="preserve">
+    <value>Pharadn</value>
+  </data>
+  <data name="PutrivSirvonskClanmasterPrime" xml:space="preserve">
+    <value>Putriv Sirvonsk</value>
+  </data>
+  <data name="QueenNadaliaLifeAndDeath" xml:space="preserve">
+    <value>Queen Nadalia</value>
+  </data>
+  <data name="RadiantAur" xml:space="preserve">
+    <value>Radiant Aur</value>
+  </data>
+  <data name="RiftwalkerMeian" xml:space="preserve">
+    <value>Riftwalker Meian</value>
+  </data>
+  <data name="RinTheMastersLegacy" xml:space="preserve">
+    <value>Rin The Masters Legacy</value>
+  </data>
+  <data name="RohVhinDhnaMK4RuthlessExecutive" xml:space="preserve">
+    <value>Roh Vhin Dhna MK4</value>
+  </data>
+  <data name="SaintBinalTheProphet" xml:space="preserve">
+    <value>Saint Binal</value>
+  </data>
+  <data name="Sharsiss" xml:space="preserve">
+    <value>Sharsiss</value>
+  </data>
+  <data name="ShvalHarbinger" xml:space="preserve">
+    <value>Shval Harbinger</value>
+  </data>
+  <data name="SpeyghBlightmaster" xml:space="preserve">
+    <value>Speygh</value>
+  </data>
+  <data name="StarsailsMercenaryKing" xml:space="preserve">
+    <value>Starsails</value>
+  </data>
+  <data name="TaZern" xml:space="preserve">
+    <value>Ta Zern</value>
+  </data>
+  <data name="ThaktClquaPolemarch" xml:space="preserve">
+    <value>Thakt Clqua</value>
+  </data>
+  <data name="TheHelmsman" xml:space="preserve">
+    <value>The Helmsman</value>
+  </data>
+  <data name="TheOracle" xml:space="preserve">
+    <value>The Oracle</value>
+  </data>
+  <data name="TheRubyMonarch" xml:space="preserve">
+    <value>The Ruby Monarch</value>
+  </data>
+  <data name="TheSaintOfSwords" xml:space="preserve">
+    <value>The Saint Of Swords</value>
+  </data>
+  <data name="TheVenerableKeeperOfMyths" xml:space="preserve">
+    <value>The Venerable</value>
+  </data>
+  <data name="TheVoiceUnitedPsionicMaelstrom" xml:space="preserve">
+    <value>The Voice United</value>
+  </data>
+  <data name="TitusFlaviusCouncilman" xml:space="preserve">
+    <value>Titus Flavius</value>
+  </data>
+  <data name="TurraSveyarShadowCouncilor" xml:space="preserve">
+    <value>Turra Sveyar</value>
+  </data>
+  <data name="TvorKhageShieldOfQhet" xml:space="preserve">
+    <value>Tvor Khage</value>
+  </data>
+  <data name="TwilightsFall" xml:space="preserve">
+    <value>Twilight's Fall</value>
+  </data>
+  <data name="Tyrant" xml:space="preserve">
+    <value>Tyrant</value>
+  </data>
+  <data name="UlTheProgenitor" xml:space="preserve">
+    <value>Ul The Progenitor</value>
+  </data>
+  <data name="UNITDSGNFLAYESH" xml:space="preserve">
+    <value>UNITDSGNFLAYESH</value>
+  </data>
+  <data name="VehlTikarArchDruid" xml:space="preserve">
+    <value>Vehl Tikar</value>
+  </data>
+  <data name="VerrisusYpruFormerAdmiralOfTheUnrelentingBattlegroup" xml:space="preserve">
+    <value>Verrisus Ypru</value>
+  </data>
+  <data name="WonellTheSilentGrandmasterOfTheOrder" xml:space="preserve">
+    <value>Wonell</value>
+  </data>
+  <data name="WrathMachinaAIMainframe" xml:space="preserve">
+    <value>Wrath Machina</value>
+  </data>
+  <data name="XxekirGrom" xml:space="preserve">
+    <value>Xxekir Grom</value>
+  </data>
+  <data name="YgegnadTheThunderHonorarySkald" xml:space="preserve">
+    <value>Ygegnad</value>
+  </data>
+  <data name="ZelianRTheDestroyer" xml:space="preserve">
+    <value>Zelian R</value>
+  </data>
+</root>

@@ -1,3 +1,5 @@
+using TwilightImperiumUltimate.Web.Helpers.Enums;
+
 namespace TwilightImperiumUltimate.Web.Components.Shared.Text;
 
 public partial class Title
@@ -16,4 +18,9 @@ public partial class Title
 
     [Parameter]
     public int MarginBottom { get; set; } = 0;
+
+    [Parameter]
+    public TextColor TextColor { get; set; }
+
+    private string GetTextColor() => TextColor.ConvertToString();
 }

@@ -23,7 +23,9 @@ public partial class EditFaq
 
     protected override async Task OnInitializedAsync()
     {
-        var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<FaqDto>>($"{Paths.ApiPath_Faq}/{Id}", default);
+        var result = await HttpClient.GetAsync<ApiResponse<FaqDto>>($"{Paths.ApiPath_Faq}/{Id}");
+        var response = result.Response;
+        var statusCode = result.StatusCode;
 
         if (statusCode == HttpStatusCode.OK)
         {
@@ -34,7 +36,8 @@ public partial class EditFaq
     private async Task Save()
     {
         var faqDto = Mapper.Map<FaqDto>(FaqModel);
-        var (_, statusCode) = await HttpClient.PutAsync<UpdateFaqRequest, ApiResponse<FaqDto>>(Paths.ApiPath_Faq, new UpdateFaqRequest(faqDto), default);
+        var result = await HttpClient.PutAsync<UpdateFaqRequest, ApiResponse<FaqDto>>(Paths.ApiPath_Faq, new UpdateFaqRequest(faqDto), default);
+        var statusCode = result.StatusCode;
 
         if (statusCode == HttpStatusCode.OK)
         {

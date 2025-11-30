@@ -1,0 +1,44 @@
+<VerticalSpace Height="20" />
+
+<TiglPlayerSearchbar OnSearchUpdate="SearchPlayers" />
+
+<VerticalSpace Height="20" />
+
+<TiglPlayerAlphabet OnLetterClick="FilterByLetter" />
+
+<VerticalSpace Height="20" />
+
+<StretchHeightContainer CssClass="background">
+
+    @if (Users is not null)
+    {
+        if (!Users.Any())
+        {
+            <VerticalSpace Height="100" />
+            <Label Text="@Strings.TiglPlayersList_NoPlayerMatch" FontSize="24" CenterText="true" TextColor="TextColor.White" />
+            <VerticalSpace Height="100" />
+        }
+        else if (_filteredUsers is not null && _filteredUsers.Any())
+        {
+            <div class="players-grid">
+                @foreach (var user in _filteredUsers)
+                {
+                    <TextButton Text="@(GetUserName(user))" FontSize="14" OnClick="() => RedirectToPlayer(user.Id)" />
+                }
+            </div>
+        }
+        else
+        {
+            <VerticalSpace Height="100" />
+            <Label Text="@Strings.TiglPlayersList_NoPlayerMatch" FontSize="24" CenterText="true" TextColor="TextColor.White" />
+            <VerticalSpace Height="100" />
+        }
+    }
+    else
+    {
+        <VerticalSpace Height="100" />
+        <Label Text="@Strings.TiglPlayersList_NoPlayersFound" FontSize="24" CenterText="true" TextColor="TextColor.White" />
+        <VerticalSpace Height="100" />
+    }
+
+</StretchHeightContainer>

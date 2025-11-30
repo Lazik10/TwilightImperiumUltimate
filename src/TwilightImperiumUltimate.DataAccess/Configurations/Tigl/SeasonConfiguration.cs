@@ -13,6 +13,9 @@ internal class SeasonConfiguration : IEntityTypeConfiguration<Season>
 
         builder.HasKey(p => p.Id);
 
+        builder.HasIndex(x => x.SeasonNumber)
+            .IsUnique();
+
         builder.Property(x => x.Id)
             .IsRequired()
             .HasColumnName(nameof(Season.Id))
@@ -52,5 +55,11 @@ internal class SeasonConfiguration : IEntityTypeConfiguration<Season>
             .HasColumnType("varchar(10)")
             .HasMaxLength(10)
             .HasColumnOrder(5);
+
+        builder.Property(x => x.EmperorId)
+            .IsRequired(false)
+            .HasColumnName(nameof(Season.EmperorId))
+            .HasColumnType("int")
+            .HasColumnOrder(6);
     }
 }

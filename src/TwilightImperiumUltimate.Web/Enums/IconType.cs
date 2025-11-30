@@ -20,4 +20,5 @@ public enum IconType
     ArchiveClicked,
     Custodians,
     WinnerTrophy,
+    Winner,
 }

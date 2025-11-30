@@ -1,3 +1,5 @@
+using TwilightImperiumUltimate.Web.Helpers.Enums;
+
 namespace TwilightImperiumUltimate.Web.Components.Shared.Layouts;
 
 public partial class FlexColumnContainer
@@ -23,33 +25,7 @@ public partial class FlexColumnContainer
     [Parameter]
     public AlignItems AlignItems { get; set; } = AlignItems.FlexStart;
 
-    private string Justify => GetJustifyString(JustifyContent);
+    private string Justify => JustifyContent.GetJustifyString();
 
-    private string Align => GetAlignString(AlignItems);
-
-    private static string GetAlignString(AlignItems alignItems)
-    {
-        return alignItems switch
-        {
-            AlignItems.Baseline => "baseline;",
-            AlignItems.Stretch => "stretch;",
-            AlignItems.Center => "center;",
-            AlignItems.FlexEnd => "flex-end;",
-            AlignItems.FlexStart => "flex-start;",
-            _ => "center;",
-        };
-    }
-
-    private static string GetJustifyString(JustifyContent justifyContent)
-    {
-        return justifyContent switch
-        {
-            JustifyContent.Center => "center;",
-            JustifyContent.FlexEnd => "flex-end;",
-            JustifyContent.SpaceAround => "space-around;",
-            JustifyContent.SpaceBetween => "space-between;",
-            JustifyContent.FlexStart => "flex-start;",
-            _ => "center;",
-        };
-    }
+    private string Align => AlignItems.GetAlignString();
 }

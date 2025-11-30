@@ -1,0 +1,266 @@
+﻿@page "/community/tigl/game-detail"
+@using TwilightImperiumUltimate.Web.Components.Ranking
+@using TwilightImperiumUltimate.Web.Helpers.Enums
+@using TwilightImperiumUltimate.Web.Helpers.Time
+@using TwilightImperiumUltimate.Web.Helpers.Format
+
+<Page>
+    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+        <TextButton Text="@Strings.ButtonBack" OnClick="RedirectBack" FontSize="24" Width="20" TextAlign="@(string.Empty)" />
+    </FlexRowContainer>
+
+    <VerticalSpace Height="20" />
+
+    <StretchHeightContainer CssClass="background">
+
+    @if (MatchReport is not null)
+    {
+        <FlexColumnCenteredContainer CssClass="background">
+
+            <Title Text="@MatchReport.GameId" TextColor="GetGameRank().GetRankColor()" MarginTop="20" MarginBottom="20" />
+
+
+            <FlexRowContainer>
+                <Label Text="@GetGameRankString()" CenterText=true TextColor="GetGameRank().GetRankColor()" FontSize="24" />
+                <Label Text="@GetGameLeagueString()" CenterText="true" TextColor="GetGameRank().GetRankColor()" FontSize="24" />
+            </FlexRowContainer>
+
+            <VerticalSpace Height="15" />
+
+            <TextButton Text="Show game" OnClick="(() => RedirectToGameDetails(MatchReport.GameId))" TextColor="TextColor.Green" />
+
+            <VerticalSpace Height="20" />
+
+        </FlexColumnCenteredContainer>
+
+        <VerticalSpace Height="40" />
+
+        <FlexColumnCenteredContainer CssClass="background">
+            <VerticalSpace Height="20" />
+            <FlexRowContainer>
+                <Label Text="Winner" TextColor="TextColor.Yellow" CenterText=true />
+                <Label Text="Faction" TextColor="TextColor.Yellow" CenterText=true />
+            </FlexRowContainer>
+            <VerticalSpace Height="10" />
+
+        @foreach(var winner in Winners)
+        {
+                <VerticalSpace Height="10" />
+                <FlexRowContainer>
+                    <FlexRowContainer>
+                        <WinnerImg />
+                        <Label Text="@GetUserName(winner)" CenterText=true FontSize="22" TextColor="TextColor.Green" Width="50" />
+                        <WinnerImg />
+                    </FlexRowContainer>
+                    <FlexRowContainer>
+                        <TiglFactionImg Faction="@winner.Faction" Height="40" />
+                        <Label Text="@winner.Faction.GetDisplayName()" CenterText=true FontSize="22" Width="50" />
+                    </FlexRowContainer>
+                </FlexRowContainer>
+                <VerticalSpace Height="10" />
+        }
+
+        <VerticalSpace Height="10" />
+        </FlexColumnCenteredContainer>
+
+        <VerticalSpace Height="40" />
+
+        <GridLayout Columns="3" CssClass="background">
+
+            <VerticalSpace Height="20" CssClass="span-3" />
+
+            <Label Text="Start Date" CenterText="true" TextColor="TextColor.Yellow" />
+
+            <Label Text="End Date" CenterText="true" TextColor="TextColor.Yellow" />
+
+            <Label Text="Duration" CenterText="true" TextColor="TextColor.Yellow" />
+
+            <VerticalSpace Height="20" CssClass="span-3" />
+
+            <Label Text="@MatchReport.StartTimestamp.FormatToDateString()" CenterText="true" />
+
+            <Label Text="@MatchReport.EndTimestamp.FormatToDateString()" CenterText="true"  />
+
+            <Label Text="@((MatchReport.EndTimestamp - MatchReport.StartTimestamp).FormatToDaysDuration())" CenterText="true" />
+
+            <VerticalSpace Height="20" CssClass="span-3" />
+
+        </GridLayout>
+
+        <VerticalSpace Height="40" />
+
+        <GridLayout Columns="3" CssClass="background" Style="grid-template-columns: 5% 30% 20% 20% 20% 5%">
+
+            <VerticalSpace Height="20" CssClass="span-6" />
+
+            <Label />
+            <Label Text="Player" TextColor="TextColor.Yellow" />
+            <Label Text="Faction" TextColor="TextColor.Yellow" />
+            <Label Text="Score" TextColor="TextColor.Yellow" CenterText="true" />
+            <Label Text="New Rank" TextColor="TextColor.Yellow" CenterText="true" />
+            <Label />
+
+            <VerticalSpace Height="20" CssClass="span-6" />
+
+            @foreach(var player in MatchReport.PlayerResults.OrderBy(x => !x.IsWinner).ThenByDescending(x => x.Score))
+            {
+                var color = player.IsWinner ? TextColor.Green : TextColor.White;
+                var playerStats = GetPlayersAsyncData(player.TiglUserId);
+                var newRank = playerStats.NewRank;
+                var oldRank = playerStats.OldRank;
+                var newRankText = newRank == oldRank ? string.Empty : newRank.GetDisplayName();
+                
+                <Label />
+                <Label Text="@GetUserName(player)" TextColor="@color" />
+                <FlexRowContainer>
+                    <TiglFactionImg Faction="@player.Faction" Height="30" />
+                    <Label Text="@player.Faction.GetDisplayName()" TextColor="@color" Width="80" />
+                </FlexRowContainer>
+                <Label Text="@player.Score.ToString()" CenterText="true" TextColor="@color" />
+                <Label Text="@newRankText" CenterText="true" TextColor="@newRank.GetRankColor()" />
+                <Label />
+            }
+
+            <VerticalSpace Height="20" CssClass="span-6" />
+
+        </GridLayout>
+
+        <VerticalSpace Height="20" />
+
+        <FlexColumnCenteredContainer>
+            <EnumPicker TEnum="RankingSystem" Label="Ranking Changes" Width="50" CurrentValue="_selectedRankingSystem" CurrentValueChanged="ChangeRankingSystem" />
+        </FlexColumnCenteredContainer>
+
+        <VerticalSpace Height="20" />
+
+        <GridLayout Columns="7" CssClass="handel white shadow background" Style="grid-template-columns: 5% 22% 23% 23% 22% 5%">
+
+            <VerticalSpace Height="20" CssClass="span-7" />
+            
+            <Label />
+            <Label Text="@Strings.TiglLeaderboard_Player" TextColor="TextColor.Yellow" />
+
+            @if (_selectedRankingSystem == RankingSystem.TrueSkill)
+            {
+                <Label Text="@Strings.TiglLeaderboard_TrueSkillConservativeRating" TextColor="TextColor.Yellow" />
+                <Label Text="@Strings.TiglLeaderboard_TrueSkillMu" TextColor="TextColor.Yellow" />
+                <Label Text="@Strings.TiglLeaderboard_TrueSkillSigma" TextColor="TextColor.Yellow" />
+            }
+            else if (_selectedRankingSystem == RankingSystem.Glicko2)
+            {
+                <Label Text="@Strings.TiglLeaderboard_GlickoRating" TextColor="TextColor.Yellow" />
+                <Label Text="@Strings.TiglLeaderboard_GlickoRd" TextColor="TextColor.Yellow" />
+                <Label Text="@Strings.TiglLeaderboard_GlickoVolatility" TextColor="TextColor.Yellow" />
+            }
+            else if (_selectedRankingSystem == RankingSystem.Async)
+            {
+                <Label Text="@Strings.TiglLeaderboard_AsyncRating" TextColor="TextColor.Yellow" />
+                <Label Text="@Strings.TiglLeaderboard_AussieScore" TextColor="TextColor.Yellow" />
+                <Label />
+            }
+
+            <Label />
+
+            <VerticalSpace Height="20" CssClass="span-7" />
+
+        </GridLayout>
+
+        <VerticalSpace Height="20" />
+
+        <GridLayout Style="grid-template-columns: 5% 22% 23% 23% 22% 5%">
+
+            @foreach (var playerResult in MatchReport.PlayerResults.OrderBy(x => !x.IsWinner).ThenByDescending(x => x.Score))
+            {
+                    var winnerColor = playerResult.IsWinner ? TextColor.Green : TextColor.White;
+                    _placement = 1;
+
+                <div style="align-self: stretch; justify-self: stretch;" class="background" />
+                <Label Text="@GetUserName(playerResult)" CssClass="background" TextColor="@winnerColor" />
+
+                if (_selectedRankingSystem == RankingSystem.TrueSkill)
+                {
+                    var trueSkillData = GetPlayersTrueSkillData(playerResult.TiglUserId);
+
+                    <FlexRowContainer CssClass="background">
+                        <Label Text="@trueSkillData.ConservativeRatingNew.ToString("F2")" TextColor="TextColor.Green" />
+                        <Label Text="@trueSkillData.ConservativeRatingChange.ToSignedFormat(2)" TextColor="@GetChangeColor(trueSkillData.ConservativeRatingChange)" />
+                    </FlexRowContainer>
+                    <FlexRowContainer CssClass="background">
+                        <Label Text="@trueSkillData.MuNew.ToString("F2")" TextColor="TextColor.Yellow" />
+                        <Label Text="@trueSkillData.MuChange.ToSignedFormat(2)" TextColor="@GetChangeColor(trueSkillData.MuChange)" />
+                    </FlexRowContainer>
+                    <FlexRowContainer CssClass="background">
+                        <Label Text="@trueSkillData.SigmaNew.ToString("F6")" TextColor="TextColor.Yellow" />
+                        <Label Text="@trueSkillData.SigmaChange.ToSignedFormat(6)" TextColor="@GetChangeColor(trueSkillData.SigmaChange)" />
+                    </FlexRowContainer>       
+                }
+                else if (_selectedRankingSystem == RankingSystem.Glicko2)
+                {
+                    var glickoData = GetPlayersGlickoData(playerResult.TiglUserId);
+
+                    <FlexRowContainer CssClass="background">
+                        <Label Text="@glickoData.RatingNew.ToString("F2")" TextColor="TextColor.Green" />
+                        <Label Text="@glickoData.RatingChange.ToSignedFormat(2)" TextColor="@GetChangeColor(glickoData.RatingChange)" />
+                    </FlexRowContainer>
+                    <FlexRowContainer CssClass="background">
+                        <Label Text="@glickoData.RdNew.ToString("F4")" TextColor="TextColor.Yellow" />
+                        <Label Text="@glickoData.RdChange.ToSignedFormat(4)" TextColor="@GetChangeColor(glickoData.RdChange)" />
+                    </FlexRowContainer>
+                    <FlexRowContainer CssClass="background">
+                        <Label Text="@glickoData.VolatilityNew.ToString("F6")" TextColor="TextColor.Yellow" />
+                        <Label Text="@glickoData.VolatilityChange.ToSignedFormat(6)" TextColor="@GetChangeColor(glickoData.VolatilityChange)" />
+                    </FlexRowContainer>
+                }
+                else if (_selectedRankingSystem == RankingSystem.Async)
+                {
+                    var asyncData = GetPlayersAsyncData(playerResult.TiglUserId);
+
+                    <FlexRowContainer CssClass="background">
+                        <Label Text="@asyncData.RatingNew.ToString("F2")" TextColor="TextColor.Green" />
+                        <Label Text="@asyncData.RatingChange.ToSignedFormat(2)" TextColor="@GetChangeColor(asyncData.RatingChange)" />
+                    </FlexRowContainer>
+                    <FlexRowContainer CssClass="background">
+                        <Label Text="@asyncData.AussieScoreNew.ToString("F2")" TextColor="TextColor.Yellow" />
+                        <Label Text="@asyncData.AussieScoreChange.ToSignedFormat(2)" TextColor="@GetChangeColor(asyncData.AussieScoreChange)" />
+                    </FlexRowContainer>
+
+                    <div style="align-self: stretch; justify-self: stretch;" class="background" />
+                }
+
+                <Label />
+
+                _placement++;
+
+                <VerticalSpace Height="10" CssClass="span-7" />
+            }
+
+        </GridLayout>
+
+        <VerticalSpace Height="20" />
+
+        @if(MatchReport.League == TiglLeague.Fractured)
+        {
+            <Label Text="Galactic Events" CenterText="true" />
+
+            <VerticalSpace Height="20" CssClass="span-3" />
+
+            <GridLayout CssClass="background" Columns="3" >
+
+            <VerticalSpace Height="20" CssClass="span-3" />
+
+            @foreach(var galacticEvent in MatchReport.GalacticEvents)
+            {
+                <Label Text="@galacticEvent" CenterText="true" />
+            }
+
+            <VerticalSpace Height="20" CssClass="span-3" />
+
+            </GridLayout>
+
+            <VerticalSpace Height="20" />
+        }
+    }
+
+    </StretchHeightContainer>
+
+</Page>

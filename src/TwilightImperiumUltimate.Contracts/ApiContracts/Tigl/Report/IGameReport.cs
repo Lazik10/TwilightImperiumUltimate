@@ -8,9 +8,19 @@ public interface IGameReport
 
     int Score { get; set; }
 
+    int Round { get; set; }
+
+    int PlayerCount { get; set; }
+
     IReadOnlyCollection<PlayerResult> PlayerResults { get; set; }
 
     ResultSource Source { get; set; }
 
-    long Timestamp { get; set; }
+    long StartTimestamp { get; set; }
+
+    long EndTimestamp { get; set; }
+
+    TiglLeague League { get; set; }
+
+    List<string> Events { get; set; }
 }

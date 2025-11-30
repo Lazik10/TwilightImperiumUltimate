@@ -66,6 +66,12 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = "5b2bee5c-e5ce-4472-a141-bff7e040ac78",
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
+                        },
+                        new
+                        {
+                            Id = "d3f1c4e2-3f4a-4e2b-8f4e-2c3b5e6d7f89",
+                            Name = "TiglAdmin",
+                            NormalizedName = "TIGLADMIN"
                         });
                 });
 
@@ -393,6 +399,9 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
 
                     SqlServerIndexBuilderExtensions.IsClustered(b.HasIndex("AsyncGameID"), false);
 
+                    b.HasIndex("SetupTimestamp", "EndedTimestamp")
+                        .HasDatabaseName("IX_AsyncGameStats_Setup_Ended");
+
                     b.ToTable("AsyncGameStats", "Statistics");
                 });
 
@@ -474,6 +483,10 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.HasIndex("DiscordUserID");
 
                     SqlServerIndexBuilderExtensions.IsClustered(b.HasIndex("DiscordUserID"), false);
+
+                    b.HasIndex("FactionName");
+
+                    SqlServerIndexBuilderExtensions.IsClustered(b.HasIndex("FactionName"), false);
 
                     b.HasIndex("GameStatsId");
 
@@ -16858,6 +16871,438 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         });
                 });
 
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Logging.AchievementLog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AchievementName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("AchievementName")
+                        .HasColumnOrder(2);
+
+                    b.Property<int>("Faction")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MatchId")
+                        .HasColumnType("int")
+                        .HasColumnName("MatchId")
+                        .HasColumnOrder(6);
+
+                    b.Property<string>("Published")
+                        .IsRequired()
+                        .HasColumnType("varchar(10)")
+                        .HasColumnName("Published")
+                        .HasColumnOrder(7);
+
+                    b.Property<string>("TiglUserDiscordId")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("TiglUserDiscordId")
+                        .HasColumnOrder(5);
+
+                    b.Property<int>("TiglUserId")
+                        .HasColumnType("int")
+                        .HasColumnName("TiglUserId")
+                        .HasColumnOrder(3);
+
+                    b.Property<string>("TiglUserName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("TiglUserName")
+                        .HasColumnOrder(4);
+
+                    b.Property<long>("Timestamp")
+                        .HasColumnType("bigint")
+                        .HasColumnName("Timestamp")
+                        .HasColumnOrder(1);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AchievementLogs", "Log");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Logging.DiscordRoleChangeLog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("GameId")
+                        .HasColumnType("int")
+                        .HasColumnName("GameId")
+                        .HasColumnOrder(6);
+
+                    b.Property<string>("Operation")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("Operation")
+                        .HasColumnOrder(3);
+
+                    b.Property<string>("Result")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("Result")
+                        .HasColumnOrder(7);
+
+                    b.Property<long>("RoleId")
+                        .HasColumnType("bigint")
+                        .HasColumnName("RoleId")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("RoleName")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("RoleName")
+                        .HasColumnOrder(2);
+
+                    b.Property<long>("Timestamp")
+                        .HasColumnType("bigint")
+                        .HasColumnName("Timestamp")
+                        .HasColumnOrder(4);
+
+                    b.Property<long>("UserId")
+                        .HasColumnType("bigint")
+                        .HasColumnName("UserId")
+                        .HasColumnOrder(5);
+
+                    b.Property<string>("UserTag")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DiscordRoleChangeLogs", "Log");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Logging.GamePublishLog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AchievementPublish")
+                        .IsRequired()
+                        .HasColumnType("varchar(10)")
+                        .HasColumnName("AchievementPublish")
+                        .HasColumnOrder(6);
+
+                    b.Property<string>("AchievementsEvaluated")
+                        .IsRequired()
+                        .HasColumnType("varchar(10)")
+                        .HasColumnName("AchievementsEvaluated")
+                        .HasColumnOrder(7);
+
+                    b.Property<long>("CreatedAt")
+                        .HasColumnType("bigint")
+                        .HasColumnName("CreatedAt")
+                        .HasColumnOrder(2);
+
+                    b.Property<string>("LeaderPublish")
+                        .IsRequired()
+                        .HasColumnType("varchar(10)")
+                        .HasColumnName("LeaderPublish")
+                        .HasColumnOrder(5);
+
+                    b.Property<int>("MatchId")
+                        .HasColumnType("int")
+                        .HasColumnName("MatchId")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("PrestigePublish")
+                        .IsRequired()
+                        .HasColumnType("varchar(10)")
+                        .HasColumnName("PrestigePublish")
+                        .HasColumnOrder(4);
+
+                    b.Property<string>("Published")
+                        .IsRequired()
+                        .HasColumnType("varchar(10)")
+                        .HasColumnName("Published")
+                        .HasColumnOrder(9);
+
+                    b.Property<string>("PublishingInProgress")
+                        .IsRequired()
+                        .HasColumnType("varchar(10)")
+                        .HasColumnName("PublishingInProgress")
+                        .HasColumnOrder(8);
+
+                    b.Property<string>("RankUpPublish")
+                        .IsRequired()
+                        .HasColumnType("varchar(10)")
+                        .HasColumnName("RankUpPublish")
+                        .HasColumnOrder(3);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Published", "CreatedAt")
+                        .HasDatabaseName("IX_GamePublish_Published_CreatedAt");
+
+                    b.ToTable("GamePublishLogs", "Log");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Logging.LeaderLog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<long>("Duration")
+                        .HasColumnType("bigint")
+                        .HasColumnName("Duration")
+                        .HasColumnOrder(11);
+
+                    b.Property<string>("Faction")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("Faction")
+                        .HasColumnOrder(3);
+
+                    b.Property<string>("League")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("League")
+                        .HasColumnOrder(4);
+
+                    b.Property<int>("MatchId")
+                        .HasColumnType("int")
+                        .HasColumnName("MatchId")
+                        .HasColumnOrder(12);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("Name")
+                        .HasColumnOrder(2);
+
+                    b.Property<string>("NewOwner")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("NewOwner")
+                        .HasColumnOrder(10);
+
+                    b.Property<long>("NewOwnerDiscordId")
+                        .HasColumnType("bigint")
+                        .HasColumnName("NewOwnerDiscordId")
+                        .HasColumnOrder(8);
+
+                    b.Property<int?>("NewOwnerId")
+                        .HasColumnType("integer")
+                        .HasColumnName("NewOwnerId")
+                        .HasColumnOrder(9);
+
+                    b.Property<string>("PreviousOwner")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("PreviousOwner")
+                        .HasColumnOrder(7);
+
+                    b.Property<long>("PreviousOwnerDiscordId")
+                        .HasColumnType("bigint")
+                        .HasColumnName("PreviousOwnerDiscordId")
+                        .HasColumnOrder(6);
+
+                    b.Property<int?>("PreviousOwnerId")
+                        .HasColumnType("integer")
+                        .HasColumnName("PreviousOwnerId")
+                        .HasColumnOrder(5);
+
+                    b.Property<string>("Published")
+                        .IsRequired()
+                        .HasColumnType("varchar(10)")
+                        .HasColumnName("Published")
+                        .HasColumnOrder(13);
+
+                    b.Property<long>("Timestamp")
+                        .HasColumnType("bigint")
+                        .HasColumnName("Timestamp")
+                        .HasColumnOrder(1);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NewOwnerId", "NewOwnerDiscordId", "PreviousOwnerId", "PreviousOwnerDiscordId")
+                        .HasDatabaseName("IX_LeaderLogs_NewOwnerId_NewOwnerDiscordId_PreviousOwnerId_PreviousOwnerDiscordId");
+
+                    b.HasIndex("League", "Faction", "Name", "Timestamp", "Duration")
+                        .HasDatabaseName("IX_LeaderLogs_League_Faction_Name_Timestamp_AfterDuration");
+
+                    b.ToTable("LeaderLogs", "Log");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Logging.PrestigeLog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("FactionName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("FactionName")
+                        .HasColumnOrder(3);
+
+                    b.Property<string>("League")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("League")
+                        .HasColumnOrder(4);
+
+                    b.Property<int>("MatchId")
+                        .HasColumnType("int")
+                        .HasColumnName("MatchId")
+                        .HasColumnOrder(9);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("Name")
+                        .HasColumnOrder(2);
+
+                    b.Property<string>("Published")
+                        .IsRequired()
+                        .HasColumnType("varchar(10)")
+                        .HasColumnName("Published")
+                        .HasColumnOrder(10);
+
+                    b.Property<int>("Rank")
+                        .HasColumnType("integer")
+                        .HasColumnName("Rank")
+                        .HasColumnOrder(5);
+
+                    b.Property<long>("TiglUserDiscordId")
+                        .HasColumnType("bigint")
+                        .HasColumnName("TiglUserDiscordId")
+                        .HasColumnOrder(7);
+
+                    b.Property<int?>("TiglUserId")
+                        .HasColumnType("integer")
+                        .HasColumnName("TiglUserId")
+                        .HasColumnOrder(6);
+
+                    b.Property<string>("TiglUserName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("TiglUserName")
+                        .HasColumnOrder(8);
+
+                    b.Property<long>("Timestamp")
+                        .HasColumnType("bigint")
+                        .HasColumnName("Timestamp")
+                        .HasColumnOrder(1);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("League", "TiglUserDiscordId", "FactionName", "Name", "Timestamp", "TiglUserId")
+                        .HasDatabaseName("IX_PrestigeLogs_League_TiglUserDiscordId_Faction_Name_Timestamp_TiglUserId");
+
+                    b.ToTable("PrestigeLogs", "Log");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Logging.RankUpLog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<long>("Duration")
+                        .HasColumnType("bigint")
+                        .HasColumnName("Duration")
+                        .HasColumnOrder(8);
+
+                    b.Property<string>("League")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("League")
+                        .HasColumnOrder(2);
+
+                    b.Property<int>("MatchId")
+                        .HasColumnType("int")
+                        .HasColumnName("MatchId")
+                        .HasColumnOrder(9);
+
+                    b.Property<string>("NewRank")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("NewRank")
+                        .HasColumnOrder(4);
+
+                    b.Property<string>("OldRank")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("OldRank")
+                        .HasColumnOrder(3);
+
+                    b.Property<string>("Published")
+                        .IsRequired()
+                        .HasColumnType("varchar(10)")
+                        .HasColumnName("Published")
+                        .HasColumnOrder(10);
+
+                    b.Property<long>("TiglUserDiscordId")
+                        .HasColumnType("bigint")
+                        .HasColumnName("TiglUserDiscordId")
+                        .HasColumnOrder(6);
+
+                    b.Property<int?>("TiglUserId")
+                        .HasColumnType("integer")
+                        .HasColumnName("TiglUserId")
+                        .HasColumnOrder(5);
+
+                    b.Property<string>("TiglUserName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("TiglUserName")
+                        .HasColumnOrder(7);
+
+                    b.Property<long>("Timestamp")
+                        .HasColumnType("bigint")
+                        .HasColumnName("Timestamp")
+                        .HasColumnOrder(1);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("League", "TiglUserDiscordId", "OldRank", "NewRank", "Timestamp", "Duration")
+                        .HasDatabaseName("IX_RankUpLogs_League_TiglUserDiscordId_OldRank_NewRank_Timestamp_Duration");
+
+                    b.ToTable("RankUpLogs", "Log");
+                });
+
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.News.NewsArticle", b =>
                 {
                     b.Property<int>("Id")
@@ -19984,6 +20429,99 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.ToTable("SliceDraftRating", "Relationships");
                 });
 
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.RelationshipEntities.TiglUserAchievement", b =>
+                {
+                    b.Property<int>("TiglUserId")
+                        .HasColumnType("integer")
+                        .HasColumnName("TiglUserId")
+                        .HasColumnOrder(0);
+
+                    b.Property<int>("AchievementId")
+                        .HasColumnType("integer")
+                        .HasColumnName("AchievementId")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("Faction")
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("Faction")
+                        .HasColumnOrder(4);
+
+                    b.Property<long>("AchievedAt")
+                        .HasColumnType("bigint")
+                        .HasColumnName("AchievedAt")
+                        .HasColumnOrder(5);
+
+                    b.Property<string>("AchievementName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("AchievementName")
+                        .HasColumnOrder(2);
+
+                    b.Property<int>("MatchId")
+                        .HasColumnType("integer")
+                        .HasColumnName("MatchId")
+                        .HasColumnOrder(6);
+
+                    b.Property<string>("MatchName")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("varchar(200)")
+                        .HasColumnName("MatchName")
+                        .HasColumnOrder(7);
+
+                    b.Property<int>("Rank")
+                        .HasColumnType("integer")
+                        .HasColumnName("Rank")
+                        .HasColumnOrder(3);
+
+                    b.HasKey("TiglUserId", "AchievementId", "Faction");
+
+                    b.HasIndex("AchievementId");
+
+                    b.ToTable("TiglUserAchievement", "Relationships");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.RelationshipEntities.TiglUserPrestigeRank", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<long>("AchievedAt")
+                        .HasColumnType("bigint")
+                        .HasColumnName("AchievedAt")
+                        .HasColumnOrder(4);
+
+                    b.Property<int>("PrestigeRankId")
+                        .HasColumnType("integer")
+                        .HasColumnName("PrestigeRankId")
+                        .HasColumnOrder(2);
+
+                    b.Property<int>("Rank")
+                        .HasColumnType("integer")
+                        .HasColumnName("Rank")
+                        .HasColumnOrder(3);
+
+                    b.Property<int>("TiglUserId")
+                        .HasColumnType("integer")
+                        .HasColumnName("TiglUserId")
+                        .HasColumnOrder(1);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PrestigeRankId");
+
+                    b.HasIndex("TiglUserId", "PrestigeRankId")
+                        .HasDatabaseName("IX_TiglUserPrestigeRank_TiglUserId_PrestigeRankId");
+
+                    b.ToTable("TiglUserPrestigeRank", "Relationships");
+                });
+
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Rules.Faq", b =>
                 {
                     b.Property<int>("Id")
@@ -22619,6 +23157,333 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         });
                 });
 
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Achievement", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Category")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("Category")
+                        .HasColumnOrder(3);
+
+                    b.Property<string>("Faction")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("Faction")
+                        .HasColumnOrder(2);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("Name")
+                        .HasColumnOrder(1);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Faction", "Category")
+                        .HasDatabaseName("IX_Achievements_Faction_Category");
+
+                    b.ToTable("Achievements", "Tigl");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Category = "Faction",
+                            Faction = "None",
+                            Name = "FactionAmateur"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Category = "Faction",
+                            Faction = "None",
+                            Name = "FactionEnthusiast"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Category = "Faction",
+                            Faction = "None",
+                            Name = "FactionExpert"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Category = "Faction",
+                            Faction = "None",
+                            Name = "FlauntingIt"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Category = "Wins",
+                            Faction = "None",
+                            Name = "IAmAnOG"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Category = "Wins",
+                            Faction = "None",
+                            Name = "BaseGameBoss"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Category = "Wins",
+                            Faction = "None",
+                            Name = "TheProphesiedKing"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Category = "Wins",
+                            Faction = "None",
+                            Name = "TheTribunii"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Category = "Wins",
+                            Faction = "None",
+                            Name = "BringTheThunder"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Category = "Wins",
+                            Faction = "None",
+                            Name = "ThirtyIsNotEnough"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Category = "Wins",
+                            Faction = "None",
+                            Name = "BlueDaBaDee"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Category = "Wins",
+                            Faction = "None",
+                            Name = "TyrantsGauntlet"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Category = "Wins",
+                            Faction = "None",
+                            Name = "DrFrankenstein"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Category = "Wins",
+                            Faction = "None",
+                            Name = "ICookedThisMyself"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Category = "Wins",
+                            Faction = "None",
+                            Name = "AllThatsSilverIsGold"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Category = "Wins",
+                            Faction = "None",
+                            Name = "HomeSystemWhoNeedsThat"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Category = "Wins",
+                            Faction = "None",
+                            Name = "GottaCatchEmAllPartOne"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Category = "Wins",
+                            Faction = "None",
+                            Name = "GottaCatchEmAllPartTwo"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Category = "Wins",
+                            Faction = "None",
+                            Name = "CrusherOfEnemies"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Category = "Wins",
+                            Faction = "None",
+                            Name = "MarrowEnjoyer"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Category = "Wins",
+                            Faction = "None",
+                            Name = "BlinkAndYouWillMissIt"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Category = "Wins",
+                            Faction = "None",
+                            Name = "LongHauler"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Category = "Wins",
+                            Faction = "None",
+                            Name = "IGotBetter"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Category = "Wins",
+                            Faction = "None",
+                            Name = "BackToBack"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            Category = "Wins",
+                            Faction = "None",
+                            Name = "Inconceivable"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            Category = "Wins",
+                            Faction = "None",
+                            Name = "UnderdogStory"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            Category = "GameMode",
+                            Faction = "None",
+                            Name = "LiveInInterestingTimes"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            Category = "Games",
+                            Faction = "None",
+                            Name = "FirstSteps"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            Category = "Games",
+                            Faction = "None",
+                            Name = "GettingWarmedUp"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            Category = "Games",
+                            Faction = "None",
+                            Name = "InTheGroove"
+                        },
+                        new
+                        {
+                            Id = 31,
+                            Category = "Games",
+                            Faction = "None",
+                            Name = "SeasonedVeteran"
+                        },
+                        new
+                        {
+                            Id = 32,
+                            Category = "Games",
+                            Faction = "None",
+                            Name = "Centurion"
+                        },
+                        new
+                        {
+                            Id = 33,
+                            Category = "Season",
+                            Faction = "None",
+                            Name = "SpeedDemon"
+                        },
+                        new
+                        {
+                            Id = 34,
+                            Category = "Season",
+                            Faction = "None",
+                            Name = "Marathoner"
+                        },
+                        new
+                        {
+                            Id = 35,
+                            Category = "Wins",
+                            Faction = "None",
+                            Name = "Decathlon"
+                        },
+                        new
+                        {
+                            Id = 36,
+                            Category = "Wins",
+                            Faction = "None",
+                            Name = "DozenDone"
+                        },
+                        new
+                        {
+                            Id = 37,
+                            Category = "Wins",
+                            Faction = "None",
+                            Name = "TheLongWar"
+                        },
+                        new
+                        {
+                            Id = 38,
+                            Category = "Wins",
+                            Faction = "None",
+                            Name = "Versatile"
+                        },
+                        new
+                        {
+                            Id = 39,
+                            Category = "Summary",
+                            Faction = "None",
+                            Name = "Collector"
+                        },
+                        new
+                        {
+                            Id = 40,
+                            Category = "Summary",
+                            Faction = "None",
+                            Name = "Overachiever"
+                        },
+                        new
+                        {
+                            Id = 41,
+                            Category = "Summary",
+                            Faction = "None",
+                            Name = "Completionist"
+                        });
+                });
+
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.History.AsyncPlayerMatchStats", b =>
                 {
                     b.Property<int>("Id")
@@ -22648,6 +23513,11 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         .HasColumnName("DiscordUserId")
                         .HasColumnOrder(3);
 
+                    b.Property<long>("EndTimestamp")
+                        .HasColumnType("bigint")
+                        .HasColumnName("EndTimestamp")
+                        .HasColumnOrder(16);
+
                     b.Property<decimal>("ExpectedWinPercentage")
                         .HasColumnType("decimal(18,10)")
                         .HasColumnName("ExpectedWinPercentage")
@@ -22660,12 +23530,19 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         .HasColumnName("Faction")
                         .HasColumnOrder(14);
 
+                    b.Property<string>("ForcedReset")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("varchar(10)")
+                        .HasColumnName("ForcedReset")
+                        .HasColumnOrder(20);
+
                     b.Property<string>("IsRankUpGame")
                         .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("varchar(10)")
                         .HasColumnName("IsRankUpGame")
-                        .HasColumnOrder(16);
+                        .HasColumnOrder(17);
 
                     b.Property<int>("MatchId")
                         .HasColumnType("int")
@@ -22677,14 +23554,14 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)")
                         .HasColumnName("NewRank")
-                        .HasColumnOrder(18);
+                        .HasColumnOrder(19);
 
                     b.Property<string>("OldRank")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)")
                         .HasColumnName("OldRank")
-                        .HasColumnOrder(17);
+                        .HasColumnOrder(18);
 
                     b.Property<decimal>("OpponentAvgRating")
                         .HasColumnType("decimal(18,10)")
@@ -22716,9 +23593,9 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         .HasColumnName("Season")
                         .HasColumnOrder(13);
 
-                    b.Property<long>("Timestamp")
+                    b.Property<long>("StartTimestamp")
                         .HasColumnType("bigint")
-                        .HasColumnName("Timestamp")
+                        .HasColumnName("StartTimestamp")
                         .HasColumnOrder(15);
 
                     b.Property<string>("Winner")
@@ -22731,7 +23608,26 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
 
                     b.HasIndex("AsyncStatsId");
 
-                    b.HasIndex("MatchId");
+                    b.HasIndex("DiscordUserId")
+                        .HasDatabaseName("IX_AsyncPlayerMatchStats_DiscordUserId");
+
+                    b.HasIndex("Faction")
+                        .HasDatabaseName("IX_AsyncPlayerMatchStats_Faction");
+
+                    b.HasIndex("IsRankUpGame")
+                        .HasDatabaseName("IX_AsyncPlayerMatchStats_IsRankUpGame");
+
+                    b.HasIndex("MatchId")
+                        .HasDatabaseName("IX_AsyncPlayerMatchStats_MatchId");
+
+                    b.HasIndex("Season")
+                        .HasDatabaseName("IX_AsyncPlayerMatchStats_Season");
+
+                    b.HasIndex("StartTimestamp")
+                        .HasDatabaseName("IX_AsyncPlayerMatchStats_StartTimestamp");
+
+                    b.HasIndex("Winner")
+                        .HasDatabaseName("IX_AsyncPlayerMatchStats_Winner");
 
                     b.ToTable("AsyncPlayerMatchStats", "Tigl");
                 });
@@ -22750,12 +23646,24 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         .HasColumnName("DiscordUserId")
                         .HasColumnOrder(3);
 
+                    b.Property<long>("EndTimestamp")
+                        .HasColumnType("bigint")
+                        .HasColumnName("EndTimestamp")
+                        .HasColumnOrder(17);
+
                     b.Property<string>("Faction")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)")
                         .HasColumnName("Faction")
-                        .HasColumnOrder(16);
+                        .HasColumnOrder(15);
+
+                    b.Property<string>("ForcedReset")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("varchar(10)")
+                        .HasColumnName("ForcedReset")
+                        .HasColumnOrder(21);
 
                     b.Property<int>("GlickoStatsId")
                         .HasColumnType("int")
@@ -22791,12 +23699,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.Property<decimal>("OpponentAvgRating")
                         .HasColumnType("decimal(18,10)")
                         .HasColumnName("OpponentAvgRating")
-                        .HasColumnOrder(14);
-
-                    b.Property<decimal>("Performance")
-                        .HasColumnType("decimal(18,10)")
-                        .HasColumnName("Performance")
-                        .HasColumnOrder(7);
+                        .HasColumnOrder(13);
 
                     b.Property<int>("Placement")
                         .HasColumnType("int")
@@ -22806,22 +23709,22 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.Property<decimal>("RatingNew")
                         .HasColumnType("decimal(18,10)")
                         .HasColumnName("RatingNew")
-                        .HasColumnOrder(9);
+                        .HasColumnOrder(8);
 
                     b.Property<decimal>("RatingOld")
                         .HasColumnType("decimal(18,10)")
                         .HasColumnName("RatingOld")
-                        .HasColumnOrder(8);
+                        .HasColumnOrder(7);
 
                     b.Property<decimal>("RdNew")
                         .HasColumnType("decimal(18,10)")
                         .HasColumnName("RdNew")
-                        .HasColumnOrder(11);
+                        .HasColumnOrder(10);
 
                     b.Property<decimal>("RdOld")
                         .HasColumnType("decimal(18,10)")
                         .HasColumnName("RdOld")
-                        .HasColumnOrder(10);
+                        .HasColumnOrder(9);
 
                     b.Property<int>("Score")
                         .HasColumnType("int")
@@ -22831,22 +23734,22 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.Property<int>("Season")
                         .HasColumnType("int")
                         .HasColumnName("Season")
-                        .HasColumnOrder(15);
+                        .HasColumnOrder(14);
 
-                    b.Property<long>("Timestmap")
+                    b.Property<long>("StartTimestamp")
                         .HasColumnType("bigint")
-                        .HasColumnName("Timestmap")
-                        .HasColumnOrder(17);
+                        .HasColumnName("StartTimestamp")
+                        .HasColumnOrder(16);
 
                     b.Property<decimal>("VolatilityNew")
                         .HasColumnType("decimal(18,10)")
                         .HasColumnName("VolatilityNew")
-                        .HasColumnOrder(13);
+                        .HasColumnOrder(12);
 
                     b.Property<decimal>("VolatilityOld")
                         .HasColumnType("decimal(18,10)")
                         .HasColumnName("VolatilityOld")
-                        .HasColumnOrder(12);
+                        .HasColumnOrder(11);
 
                     b.Property<string>("Winner")
                         .IsRequired()
@@ -22856,9 +23759,28 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("DiscordUserId")
+                        .HasDatabaseName("IX_GlickoPlayerMatchStats_DiscordUserId");
+
+                    b.HasIndex("Faction")
+                        .HasDatabaseName("IX_GlickoPlayerMatchStats_Faction");
+
                     b.HasIndex("GlickoStatsId");
 
-                    b.HasIndex("MatchId");
+                    b.HasIndex("IsRankUpGame")
+                        .HasDatabaseName("IX_GlickoPlayerMatchStats_IsRankUpGame");
+
+                    b.HasIndex("MatchId")
+                        .HasDatabaseName("IX_GlickoPlayerMatchStats_MatchId");
+
+                    b.HasIndex("Season")
+                        .HasDatabaseName("IX_GlickoPlayerMatchStats_Season");
+
+                    b.HasIndex("StartTimestamp")
+                        .HasDatabaseName("IX_GlickoPlayerMatchStats_StartTimestamp");
+
+                    b.HasIndex("Winner")
+                        .HasDatabaseName("IX_GlickoPlayerMatchStats_Winner");
 
                     b.ToTable("GlickoPlayerMatchStats", "Tigl");
                 });
@@ -22877,12 +23799,24 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         .HasColumnName("DiscordUserId")
                         .HasColumnOrder(3);
 
+                    b.Property<long>("EndTimestamp")
+                        .HasColumnType("bigint")
+                        .HasColumnName("EndTimestamp")
+                        .HasColumnOrder(15);
+
                     b.Property<string>("Faction")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)")
                         .HasColumnName("Faction")
-                        .HasColumnOrder(14);
+                        .HasColumnOrder(13);
+
+                    b.Property<string>("ForcedReset")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("varchar(10)")
+                        .HasColumnName("ForcedReset")
+                        .HasColumnOrder(19);
 
                     b.Property<string>("IsRankUpGame")
                         .IsRequired()
@@ -22899,12 +23833,12 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.Property<decimal>("MuNew")
                         .HasColumnType("decimal(18,10)")
                         .HasColumnName("MuNew")
-                        .HasColumnOrder(9);
+                        .HasColumnOrder(8);
 
                     b.Property<decimal>("MuOld")
                         .HasColumnType("decimal(18,10)")
                         .HasColumnName("MuOld")
-                        .HasColumnOrder(8);
+                        .HasColumnOrder(7);
 
                     b.Property<string>("NewRank")
                         .IsRequired()
@@ -22923,12 +23857,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.Property<decimal>("OpponentAvgRating")
                         .HasColumnType("decimal(18,10)")
                         .HasColumnName("OpponentAvgRating")
-                        .HasColumnOrder(12);
-
-                    b.Property<decimal>("Performance")
-                        .HasColumnType("decimal(18,10)")
-                        .HasColumnName("Performance")
-                        .HasColumnOrder(7);
+                        .HasColumnOrder(11);
 
                     b.Property<int>("Placement")
                         .HasColumnType("int")
@@ -22943,22 +23872,22 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.Property<int>("Season")
                         .HasColumnType("int")
                         .HasColumnName("Season")
-                        .HasColumnOrder(13);
+                        .HasColumnOrder(12);
 
                     b.Property<decimal>("SigmaNew")
                         .HasColumnType("decimal(18,10)")
                         .HasColumnName("SigmaNew")
-                        .HasColumnOrder(11);
+                        .HasColumnOrder(10);
 
                     b.Property<decimal>("SigmaOld")
                         .HasColumnType("decimal(18,10)")
                         .HasColumnName("SigmaOld")
-                        .HasColumnOrder(10);
+                        .HasColumnOrder(9);
 
-                    b.Property<long>("Timestamp")
+                    b.Property<long>("StartTimestamp")
                         .HasColumnType("bigint")
-                        .HasColumnName("Timestamp")
-                        .HasColumnOrder(15);
+                        .HasColumnName("StartTimestamp")
+                        .HasColumnOrder(14);
 
                     b.Property<int>("TrueSkillStatsId")
                         .HasColumnType("int")
@@ -22973,11 +23902,1048 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MatchId");
+                    b.HasIndex("DiscordUserId")
+                        .HasDatabaseName("IX_TrueSkillPlayerMatchStats_DiscordUserId");
+
+                    b.HasIndex("Faction")
+                        .HasDatabaseName("IX_TrueSkillPlayerMatchStats_Faction");
+
+                    b.HasIndex("IsRankUpGame")
+                        .HasDatabaseName("IX_TrueSkillPlayerMatchStats_IsRankUpGame");
+
+                    b.HasIndex("MatchId")
+                        .HasDatabaseName("IX_TrueSkillPlayerMatchStats_MatchId");
+
+                    b.HasIndex("Season")
+                        .HasDatabaseName("IX_TrueSkillPlayerMatchStats_Season");
+
+                    b.HasIndex("StartTimestamp")
+                        .HasDatabaseName("IX_TrueSkillPlayerMatchStats_StartTimestamp");
 
                     b.HasIndex("TrueSkillStatsId");
 
+                    b.HasIndex("Winner")
+                        .HasDatabaseName("IX_TrueSkillPlayerMatchStats_Winner");
+
                     b.ToTable("TrueSkillPlayerMatchStats", "Tigl");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Leader", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ChangeCount")
+                        .HasColumnType("int")
+                        .HasColumnName("ChangeCount")
+                        .HasColumnOrder(8);
+
+                    b.Property<int?>("CurrentOwnerId")
+                        .HasColumnType("int")
+                        .HasColumnName("CurrentOwnerId")
+                        .HasColumnOrder(11);
+
+                    b.Property<string>("Faction")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("Faction")
+                        .HasColumnOrder(2);
+
+                    b.Property<long?>("FirstUpdate")
+                        .HasColumnType("bigint")
+                        .HasColumnName("FirstUpdate")
+                        .HasColumnOrder(3);
+
+                    b.Property<long?>("LastUpdate")
+                        .HasColumnType("bigint")
+                        .HasColumnName("LastUpdate")
+                        .HasColumnOrder(4);
+
+                    b.Property<string>("League")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("League")
+                        .HasColumnOrder(9);
+
+                    b.Property<long?>("LongestDuration")
+                        .HasColumnType("bigint")
+                        .HasColumnName("LongestDuration")
+                        .HasColumnOrder(7);
+
+                    b.Property<int?>("LongestHolderId")
+                        .HasColumnType("int")
+                        .HasColumnName("LongestHolderId")
+                        .HasColumnOrder(13);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("Name")
+                        .HasColumnOrder(1);
+
+                    b.Property<int?>("PreviousOwnerId")
+                        .HasColumnType("int")
+                        .HasColumnName("PreviousOwnerId")
+                        .HasColumnOrder(10);
+
+                    b.Property<long?>("PreviousUpdate")
+                        .HasColumnType("bigint")
+                        .HasColumnName("PreviousUpdate")
+                        .HasColumnOrder(5);
+
+                    b.Property<long?>("ShortestDuration")
+                        .HasColumnType("bigint")
+                        .HasColumnName("ShortestDuration")
+                        .HasColumnOrder(6);
+
+                    b.Property<int?>("ShortestHolderId")
+                        .HasColumnType("int")
+                        .HasColumnName("ShortestHolderId")
+                        .HasColumnOrder(12);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CurrentOwnerId");
+
+                    b.HasIndex("LongestHolderId")
+                        .HasDatabaseName("IX_Leaders_LongestHolderId");
+
+                    b.HasIndex("ShortestHolderId")
+                        .HasDatabaseName("IX_Leaders_ShortestHolderId");
+
+                    b.HasIndex("Faction", "League")
+                        .HasDatabaseName("IX_Leaders_Faction_League");
+
+                    b.ToTable("Leaders", "Tigl");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ChangeCount = 0,
+                            Faction = "TheArborec",
+                            League = "ThundersEdge",
+                            Name = "LetaniMiasmiala"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ChangeCount = 0,
+                            Faction = "TheBaronyOfLetnev",
+                            League = "ThundersEdge",
+                            Name = "DarktalonTreilla"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ChangeCount = 0,
+                            Faction = "TheClanOfSaar",
+                            League = "ThundersEdge",
+                            Name = "GurnoAggero"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ChangeCount = 0,
+                            Faction = "TheEmbersOfMuaat",
+                            League = "ThundersEdge",
+                            Name = "AdjudicatorBaal"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ChangeCount = 0,
+                            Faction = "TheEmiratesOfHacan",
+                            League = "ThundersEdge",
+                            Name = "HarrughGefhara"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            ChangeCount = 0,
+                            Faction = "TheFederationOfSol",
+                            League = "ThundersEdge",
+                            Name = "JaceX4thAirLegion"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            ChangeCount = 0,
+                            Faction = "TheGhostsOfCreuss",
+                            League = "ThundersEdge",
+                            Name = "RiftwalkerMeian"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            ChangeCount = 0,
+                            Faction = "TheL1z1xMindnet",
+                            League = "ThundersEdge",
+                            Name = "TheHelmsman"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            ChangeCount = 0,
+                            Faction = "TheMentakCoalition",
+                            League = "ThundersEdge",
+                            Name = "IpswitchLooseCannon"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            ChangeCount = 0,
+                            Faction = "TheNaaluCollective",
+                            League = "ThundersEdge",
+                            Name = "TheOracle"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            ChangeCount = 0,
+                            Faction = "TheNekroVirus",
+                            League = "ThundersEdge",
+                            Name = "UNITDSGNFLAYESH"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            ChangeCount = 0,
+                            Faction = "SardakkNorr",
+                            League = "ThundersEdge",
+                            Name = "ShvalHarbinger"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            ChangeCount = 0,
+                            Faction = "TheUniversitiesOfJolNar",
+                            League = "ThundersEdge",
+                            Name = "RinTheMastersLegacy"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            ChangeCount = 0,
+                            Faction = "TheWinnu",
+                            League = "ThundersEdge",
+                            Name = "MathisMathinus"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            ChangeCount = 0,
+                            Faction = "TheXxchaKingdom",
+                            League = "ThundersEdge",
+                            Name = "XxekirGrom"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            ChangeCount = 0,
+                            Faction = "TheYinBrotherhood",
+                            League = "ThundersEdge",
+                            Name = "DannelOfTheTenth"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            ChangeCount = 0,
+                            Faction = "TheYssarilTribes",
+                            League = "ThundersEdge",
+                            Name = "KyverBladeAndKey"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            ChangeCount = 0,
+                            Faction = "TheArgentFlight",
+                            League = "ThundersEdge",
+                            Name = "MirikAunSissiri"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            ChangeCount = 0,
+                            Faction = "TheEmpyrean",
+                            League = "ThundersEdge",
+                            Name = "ConservatorProcyon"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            ChangeCount = 0,
+                            Faction = "TheMahactGeneSorcerers",
+                            League = "ThundersEdge",
+                            Name = "AiroShirAur"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            ChangeCount = 0,
+                            Faction = "TheNaazRokhaAlliance",
+                            League = "ThundersEdge",
+                            Name = "HeshAndPrit"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            ChangeCount = 0,
+                            Faction = "TheNomad",
+                            League = "ThundersEdge",
+                            Name = "AhkSylSiven"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            ChangeCount = 0,
+                            Faction = "TheTitansOfUl",
+                            League = "ThundersEdge",
+                            Name = "UlTheProgenitor"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            ChangeCount = 0,
+                            Faction = "TheVuilRaithCabal",
+                            League = "ThundersEdge",
+                            Name = "ItFeedsOnCarrion"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            ChangeCount = 0,
+                            Faction = "TheCouncilKeleresArgent",
+                            League = "ThundersEdge",
+                            Name = "KuuasiAunJalatai"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            ChangeCount = 0,
+                            Faction = "TheCouncilKeleresMentak",
+                            League = "ThundersEdge",
+                            Name = "HarkaLeeds"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            ChangeCount = 0,
+                            Faction = "TheCouncilKeleresXxcha",
+                            League = "ThundersEdge",
+                            Name = "OdlynnMyrr"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            ChangeCount = 0,
+                            Faction = "LastBastion",
+                            League = "ThundersEdge",
+                            Name = "Entity4X41AApollo"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            ChangeCount = 0,
+                            Faction = "TheRalNelConsortium",
+                            League = "ThundersEdge",
+                            Name = "DirectorNel"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            ChangeCount = 0,
+                            Faction = "TheDeepwroughtScholarate",
+                            League = "ThundersEdge",
+                            Name = "TaZern"
+                        },
+                        new
+                        {
+                            Id = 31,
+                            ChangeCount = 0,
+                            Faction = "TheCrimsonRebellion",
+                            League = "ThundersEdge",
+                            Name = "HomesickPhantom"
+                        },
+                        new
+                        {
+                            Id = 32,
+                            ChangeCount = 0,
+                            Faction = "TheFirmamentTheObsidian",
+                            League = "ThundersEdge",
+                            Name = "Sharsiss"
+                        },
+                        new
+                        {
+                            Id = 33,
+                            ChangeCount = 0,
+                            Faction = "TheArborec",
+                            League = "Fractured",
+                            Name = "LetaniMiasmiala"
+                        },
+                        new
+                        {
+                            Id = 34,
+                            ChangeCount = 0,
+                            Faction = "TheBaronyOfLetnev",
+                            League = "Fractured",
+                            Name = "DarktalonTreilla"
+                        },
+                        new
+                        {
+                            Id = 35,
+                            ChangeCount = 0,
+                            Faction = "TheClanOfSaar",
+                            League = "Fractured",
+                            Name = "GurnoAggero"
+                        },
+                        new
+                        {
+                            Id = 36,
+                            ChangeCount = 0,
+                            Faction = "TheEmbersOfMuaat",
+                            League = "Fractured",
+                            Name = "AdjudicatorBaal"
+                        },
+                        new
+                        {
+                            Id = 37,
+                            ChangeCount = 0,
+                            Faction = "TheEmiratesOfHacan",
+                            League = "Fractured",
+                            Name = "HarrughGefhara"
+                        },
+                        new
+                        {
+                            Id = 38,
+                            ChangeCount = 0,
+                            Faction = "TheFederationOfSol",
+                            League = "Fractured",
+                            Name = "JaceX4thAirLegion"
+                        },
+                        new
+                        {
+                            Id = 39,
+                            ChangeCount = 0,
+                            Faction = "TheGhostsOfCreuss",
+                            League = "Fractured",
+                            Name = "RiftwalkerMeian"
+                        },
+                        new
+                        {
+                            Id = 40,
+                            ChangeCount = 0,
+                            Faction = "TheL1z1xMindnet",
+                            League = "Fractured",
+                            Name = "TheHelmsman"
+                        },
+                        new
+                        {
+                            Id = 41,
+                            ChangeCount = 0,
+                            Faction = "TheMentakCoalition",
+                            League = "Fractured",
+                            Name = "IpswitchLooseCannon"
+                        },
+                        new
+                        {
+                            Id = 42,
+                            ChangeCount = 0,
+                            Faction = "TheNaaluCollective",
+                            League = "Fractured",
+                            Name = "TheOracle"
+                        },
+                        new
+                        {
+                            Id = 43,
+                            ChangeCount = 0,
+                            Faction = "TheNekroVirus",
+                            League = "Fractured",
+                            Name = "UNITDSGNFLAYESH"
+                        },
+                        new
+                        {
+                            Id = 44,
+                            ChangeCount = 0,
+                            Faction = "SardakkNorr",
+                            League = "Fractured",
+                            Name = "ShvalHarbinger"
+                        },
+                        new
+                        {
+                            Id = 45,
+                            ChangeCount = 0,
+                            Faction = "TheUniversitiesOfJolNar",
+                            League = "Fractured",
+                            Name = "RinTheMastersLegacy"
+                        },
+                        new
+                        {
+                            Id = 46,
+                            ChangeCount = 0,
+                            Faction = "TheWinnu",
+                            League = "Fractured",
+                            Name = "MathisMathinus"
+                        },
+                        new
+                        {
+                            Id = 47,
+                            ChangeCount = 0,
+                            Faction = "TheXxchaKingdom",
+                            League = "Fractured",
+                            Name = "XxekirGrom"
+                        },
+                        new
+                        {
+                            Id = 48,
+                            ChangeCount = 0,
+                            Faction = "TheYinBrotherhood",
+                            League = "Fractured",
+                            Name = "DannelOfTheTenth"
+                        },
+                        new
+                        {
+                            Id = 49,
+                            ChangeCount = 0,
+                            Faction = "TheYssarilTribes",
+                            League = "Fractured",
+                            Name = "KyverBladeAndKey"
+                        },
+                        new
+                        {
+                            Id = 50,
+                            ChangeCount = 0,
+                            Faction = "TheArgentFlight",
+                            League = "Fractured",
+                            Name = "MirikAunSissiri"
+                        },
+                        new
+                        {
+                            Id = 51,
+                            ChangeCount = 0,
+                            Faction = "TheEmpyrean",
+                            League = "Fractured",
+                            Name = "ConservatorProcyon"
+                        },
+                        new
+                        {
+                            Id = 52,
+                            ChangeCount = 0,
+                            Faction = "TheMahactGeneSorcerers",
+                            League = "Fractured",
+                            Name = "AiroShirAur"
+                        },
+                        new
+                        {
+                            Id = 53,
+                            ChangeCount = 0,
+                            Faction = "TheNaazRokhaAlliance",
+                            League = "Fractured",
+                            Name = "HeshAndPrit"
+                        },
+                        new
+                        {
+                            Id = 54,
+                            ChangeCount = 0,
+                            Faction = "TheNomad",
+                            League = "Fractured",
+                            Name = "AhkSylSiven"
+                        },
+                        new
+                        {
+                            Id = 55,
+                            ChangeCount = 0,
+                            Faction = "TheTitansOfUl",
+                            League = "Fractured",
+                            Name = "UlTheProgenitor"
+                        },
+                        new
+                        {
+                            Id = 56,
+                            ChangeCount = 0,
+                            Faction = "TheVuilRaithCabal",
+                            League = "Fractured",
+                            Name = "ItFeedsOnCarrion"
+                        },
+                        new
+                        {
+                            Id = 57,
+                            ChangeCount = 0,
+                            Faction = "TheCouncilKeleresArgent",
+                            League = "Fractured",
+                            Name = "KuuasiAunJalatai"
+                        },
+                        new
+                        {
+                            Id = 58,
+                            ChangeCount = 0,
+                            Faction = "TheCouncilKeleresMentak",
+                            League = "Fractured",
+                            Name = "HarkaLeeds"
+                        },
+                        new
+                        {
+                            Id = 59,
+                            ChangeCount = 0,
+                            Faction = "TheCouncilKeleresXxcha",
+                            League = "Fractured",
+                            Name = "OdlynnMyrr"
+                        },
+                        new
+                        {
+                            Id = 60,
+                            ChangeCount = 0,
+                            Faction = "LastBastion",
+                            League = "Fractured",
+                            Name = "Entity4X41AApollo"
+                        },
+                        new
+                        {
+                            Id = 61,
+                            ChangeCount = 0,
+                            Faction = "TheRalNelConsortium",
+                            League = "Fractured",
+                            Name = "DirectorNel"
+                        },
+                        new
+                        {
+                            Id = 62,
+                            ChangeCount = 0,
+                            Faction = "TheDeepwroughtScholarate",
+                            League = "Fractured",
+                            Name = "TaZern"
+                        },
+                        new
+                        {
+                            Id = 63,
+                            ChangeCount = 0,
+                            Faction = "TheCrimsonRebellion",
+                            League = "Fractured",
+                            Name = "HomesickPhantom"
+                        },
+                        new
+                        {
+                            Id = 64,
+                            ChangeCount = 0,
+                            Faction = "TheFirmamentTheObsidian",
+                            League = "Fractured",
+                            Name = "Sharsiss"
+                        },
+                        new
+                        {
+                            Id = 65,
+                            ChangeCount = 0,
+                            Faction = "TheRubyMonarch",
+                            League = "Fractured",
+                            Name = "TheRubyMonarch"
+                        },
+                        new
+                        {
+                            Id = 66,
+                            ChangeCount = 0,
+                            Faction = "RadiantAur",
+                            League = "Fractured",
+                            Name = "RadiantAur"
+                        },
+                        new
+                        {
+                            Id = 67,
+                            ChangeCount = 0,
+                            Faction = "AvariceRex",
+                            League = "Fractured",
+                            Name = "AvariceRex"
+                        },
+                        new
+                        {
+                            Id = 68,
+                            ChangeCount = 0,
+                            Faction = "IlSaiLakoeHeraldOfThorns",
+                            League = "Fractured",
+                            Name = "IlSaiLakoeHeraldOfThorns"
+                        },
+                        new
+                        {
+                            Id = 69,
+                            ChangeCount = 0,
+                            Faction = "TheSaintOfSwords",
+                            League = "Fractured",
+                            Name = "TheSaintOfSwords"
+                        },
+                        new
+                        {
+                            Id = 70,
+                            ChangeCount = 0,
+                            Faction = "IlNaViroset",
+                            League = "Fractured",
+                            Name = "IlNaViroset"
+                        },
+                        new
+                        {
+                            Id = 71,
+                            ChangeCount = 0,
+                            Faction = "ElNenJanovet",
+                            League = "Fractured",
+                            Name = "ElNenJanovet"
+                        },
+                        new
+                        {
+                            Id = 72,
+                            ChangeCount = 0,
+                            Faction = "ASickeningLurch",
+                            League = "Fractured",
+                            Name = "ASickeningLurch"
+                        },
+                        new
+                        {
+                            Id = 73,
+                            ChangeCount = 0,
+                            Faction = "TheAugursOfIlyxum",
+                            League = "Fractured",
+                            Name = "AtrophaWeaver"
+                        },
+                        new
+                        {
+                            Id = 74,
+                            ChangeCount = 0,
+                            Faction = "TheBentorConglomerate",
+                            League = "Fractured",
+                            Name = "CEOKenTuccVisionaryExplorer"
+                        },
+                        new
+                        {
+                            Id = 75,
+                            ChangeCount = 0,
+                            Faction = "TheBerserkersOfKjalengard",
+                            League = "Fractured",
+                            Name = "YgegnadTheThunderHonorarySkald"
+                        },
+                        new
+                        {
+                            Id = 76,
+                            ChangeCount = 0,
+                            Faction = "TheCeldauriTradeConfederation",
+                            League = "Fractured",
+                            Name = "TitusFlaviusCouncilman"
+                        },
+                        new
+                        {
+                            Id = 77,
+                            ChangeCount = 0,
+                            Faction = "TheCheiranHordes",
+                            League = "Fractured",
+                            Name = "ThaktClquaPolemarch"
+                        },
+                        new
+                        {
+                            Id = 78,
+                            ChangeCount = 0,
+                            Faction = "TheDihMohnFlotilla",
+                            League = "Fractured",
+                            Name = "VerrisusYpruFormerAdmiralOfTheUnrelentingBattlegroup"
+                        },
+                        new
+                        {
+                            Id = 79,
+                            ChangeCount = 0,
+                            Faction = "TheEdynMandate",
+                            League = "Fractured",
+                            Name = "MidirLivingWill"
+                        },
+                        new
+                        {
+                            Id = 80,
+                            ChangeCount = 0,
+                            Faction = "TheFlorzenProfiteers",
+                            League = "Fractured",
+                            Name = "BanuaGowenAdministratorOfMinds"
+                        },
+                        new
+                        {
+                            Id = 81,
+                            ChangeCount = 0,
+                            Faction = "TheFreeSystemsCompact",
+                            League = "Fractured",
+                            Name = "CountOttoPmayInspiringRhetorician"
+                        },
+                        new
+                        {
+                            Id = 82,
+                            ChangeCount = 0,
+                            Faction = "TheGheminaRaiders",
+                            League = "Fractured",
+                            Name = "KorelaTheLadyAndKantrusTheLord"
+                        },
+                        new
+                        {
+                            Id = 83,
+                            ChangeCount = 0,
+                            Faction = "TheGhotiWayfarers",
+                            League = "Fractured",
+                            Name = "NmenmedeGhotiAllMother"
+                        },
+                        new
+                        {
+                            Id = 84,
+                            ChangeCount = 0,
+                            Faction = "TheGledgeUnion",
+                            League = "Fractured",
+                            Name = "GorthrimChiefOfExpeditions"
+                        },
+                        new
+                        {
+                            Id = 85,
+                            ChangeCount = 0,
+                            Faction = "TheGlimmerOfMortheus",
+                            League = "Fractured",
+                            Name = "BayanDeepMagenta"
+                        },
+                        new
+                        {
+                            Id = 86,
+                            ChangeCount = 0,
+                            Faction = "TheKolleccSociety",
+                            League = "Fractured",
+                            Name = "DorrahnGriphynTheCollector"
+                        },
+                        new
+                        {
+                            Id = 87,
+                            ChangeCount = 0,
+                            Faction = "TheKortaliTribunal",
+                            League = "Fractured",
+                            Name = "QueenNadaliaLifeAndDeath"
+                        },
+                        new
+                        {
+                            Id = 88,
+                            ChangeCount = 0,
+                            Faction = "TheKyroSodality",
+                            League = "Fractured",
+                            Name = "SpeyghBlightmaster"
+                        },
+                        new
+                        {
+                            Id = 89,
+                            ChangeCount = 0,
+                            Faction = "TheLanefirRemnants",
+                            League = "Fractured",
+                            Name = "TheVenerableKeeperOfMyths"
+                        },
+                        new
+                        {
+                            Id = 90,
+                            ChangeCount = 0,
+                            Faction = "TheLiZhoDynasty",
+                            League = "Fractured",
+                            Name = "KhazRinLiZhoEmpress"
+                        },
+                        new
+                        {
+                            Id = 91,
+                            ChangeCount = 0,
+                            Faction = "TheLTokkKhrask",
+                            League = "Fractured",
+                            Name = "VehlTikarArchDruid"
+                        },
+                        new
+                        {
+                            Id = 92,
+                            ChangeCount = 0,
+                            Faction = "TheMirvedaProtectorate",
+                            League = "Fractured",
+                            Name = "WrathMachinaAIMainframe"
+                        },
+                        new
+                        {
+                            Id = 93,
+                            ChangeCount = 0,
+                            Faction = "TheMonksOfKolume",
+                            League = "Fractured",
+                            Name = "WonellTheSilentGrandmasterOfTheOrder"
+                        },
+                        new
+                        {
+                            Id = 94,
+                            ChangeCount = 0,
+                            Faction = "TheMykoMentori",
+                            League = "Fractured",
+                            Name = "CoprinusComatusNecromancer"
+                        },
+                        new
+                        {
+                            Id = 95,
+                            ChangeCount = 0,
+                            Faction = "TheNivynStarKings",
+                            League = "Fractured",
+                            Name = "KrillDrakkonStarCrownedKing"
+                        },
+                        new
+                        {
+                            Id = 96,
+                            ChangeCount = 0,
+                            Faction = "TheNokarSellships",
+                            League = "Fractured",
+                            Name = "StarsailsMercenaryKing"
+                        },
+                        new
+                        {
+                            Id = 97,
+                            ChangeCount = 0,
+                            Faction = "TheOlradinLeague",
+                            League = "Fractured",
+                            Name = "PahnSilverfurCouncilSpeaker"
+                        },
+                        new
+                        {
+                            Id = 98,
+                            ChangeCount = 0,
+                            Faction = "RohDhnaMechatronics",
+                            League = "Fractured",
+                            Name = "RohVhinDhnaMK4RuthlessExecutive"
+                        },
+                        new
+                        {
+                            Id = 99,
+                            ChangeCount = 0,
+                            Faction = "TheSavagesOfCymiae",
+                            League = "Fractured",
+                            Name = "TheVoiceUnitedPsionicMaelstrom"
+                        },
+                        new
+                        {
+                            Id = 100,
+                            ChangeCount = 0,
+                            Faction = "TheShipwrightsofAxis",
+                            League = "Fractured",
+                            Name = "DemiQueenMdckssskCommissionerOfProfits"
+                        },
+                        new
+                        {
+                            Id = 101,
+                            ChangeCount = 0,
+                            Faction = "TheTnelisSyndicate",
+                            League = "Fractured",
+                            Name = "TurraSveyarShadowCouncilor"
+                        },
+                        new
+                        {
+                            Id = 102,
+                            ChangeCount = 0,
+                            Faction = "TheVadenBankingClans",
+                            League = "Fractured",
+                            Name = "PutrivSirvonskClanmasterPrime"
+                        },
+                        new
+                        {
+                            Id = 103,
+                            ChangeCount = 0,
+                            Faction = "TheVaylerianScourge",
+                            League = "Fractured",
+                            Name = "DylnHarthuulViceAdmiralOfFleetGroup15"
+                        },
+                        new
+                        {
+                            Id = 104,
+                            ChangeCount = 0,
+                            Faction = "TheVeldyrSovereignty",
+                            League = "Fractured",
+                            Name = "AuberonElyrinChairman"
+                        },
+                        new
+                        {
+                            Id = 105,
+                            ChangeCount = 0,
+                            Faction = "TheZealotsOfRhodun",
+                            League = "Fractured",
+                            Name = "SaintBinalTheProphet"
+                        },
+                        new
+                        {
+                            Id = 106,
+                            ChangeCount = 0,
+                            Faction = "TheZelianPurifier",
+                            League = "Fractured",
+                            Name = "ZelianRTheDestroyer"
+                        },
+                        new
+                        {
+                            Id = 107,
+                            ChangeCount = 0,
+                            Faction = "AtokeraLegacy",
+                            League = "Fractured",
+                            Name = "KapokoVuiGreatSpirit"
+                        },
+                        new
+                        {
+                            Id = 108,
+                            ChangeCount = 0,
+                            Faction = "BelkoseaAlliedStates",
+                            League = "Fractured",
+                            Name = "MobiusSpikeTheReaper"
+                        },
+                        new
+                        {
+                            Id = 109,
+                            ChangeCount = 0,
+                            Faction = "PharadnOrder",
+                            League = "Fractured",
+                            Name = "PharadnTheImmortalImperishableUnifier"
+                        },
+                        new
+                        {
+                            Id = 110,
+                            ChangeCount = 0,
+                            Faction = "QhetRepublic",
+                            League = "Fractured",
+                            Name = "TvorKhageShieldOfQhet"
+                        },
+                        new
+                        {
+                            Id = 111,
+                            ChangeCount = 0,
+                            Faction = "ToldarConcordat",
+                            League = "Fractured",
+                            Name = "CadhAcamontConcordatMarshall"
+                        },
+                        new
+                        {
+                            Id = 112,
+                            ChangeCount = 0,
+                            Faction = "UydaiConclave",
+                            League = "Fractured",
+                            Name = "LondorIIGodEmperor"
+                        },
+                        new
+                        {
+                            Id = 113,
+                            ChangeCount = 0,
+                            Faction = "Franken",
+                            League = "Fractured",
+                            Name = "Franken"
+                        },
+                        new
+                        {
+                            Id = 114,
+                            ChangeCount = 0,
+                            Faction = "Homebrew",
+                            League = "Fractured",
+                            Name = "Homebrew"
+                        },
+                        new
+                        {
+                            Id = 115,
+                            ChangeCount = 0,
+                            Faction = "TwilightsFall",
+                            League = "Fractured",
+                            Name = "TwilightsFall"
+                        });
                 });
 
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.MatchReport", b =>
@@ -22989,11 +24955,48 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<long>("EndTimestamp")
+                        .HasColumnType("bigint")
+                        .HasColumnName("EndTimestamp")
+                        .HasColumnOrder(4);
+
+                    b.Property<long>("Events")
+                        .HasColumnType("bigint")
+                        .HasColumnName("Events")
+                        .HasColumnOrder(10);
+
                     b.Property<string>("GameId")
                         .IsRequired()
                         .HasColumnType("varchar(100)")
                         .HasColumnName("GameId")
                         .HasColumnOrder(1);
+
+                    b.Property<string>("League")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("League")
+                        .HasColumnOrder(9);
+
+                    b.Property<int>("PlayerCount")
+                        .HasColumnType("int")
+                        .HasColumnName("PlayerCount")
+                        .HasColumnOrder(7);
+
+                    b.Property<int>("Round")
+                        .HasColumnType("int")
+                        .HasColumnName("Round")
+                        .HasColumnOrder(6);
+
+                    b.Property<int>("Score")
+                        .HasColumnType("int")
+                        .HasColumnName("Score")
+                        .HasColumnOrder(5);
+
+                    b.Property<int>("Season")
+                        .HasColumnType("int")
+                        .HasColumnName("Season")
+                        .HasColumnOrder(8);
 
                     b.Property<string>("Source")
                         .IsRequired()
@@ -23002,19 +25005,26 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         .HasColumnName("Source")
                         .HasColumnOrder(2);
 
+                    b.Property<long>("StartTimestamp")
+                        .HasColumnType("bigint")
+                        .HasColumnName("StartTimestamp")
+                        .HasColumnOrder(3);
+
                     b.Property<string>("State")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)")
                         .HasColumnName("State")
-                        .HasColumnOrder(4);
-
-                    b.Property<long>("Timestamp")
-                        .HasColumnType("bigint")
-                        .HasColumnName("Timestamp")
-                        .HasColumnOrder(3);
+                        .HasColumnOrder(11);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("GameId", "Source")
+                        .IsUnique()
+                        .HasDatabaseName("IX_MatchReports_GameId_Source");
+
+                    b.HasIndex("League", "Season")
+                        .HasDatabaseName("IX_MatchReports_League_Season");
 
                     b.ToTable("MatchReports", "Tigl");
                 });
@@ -23033,6 +25043,13 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)")
                         .HasColumnName("Faction")
+                        .HasColumnOrder(4);
+
+                    b.Property<string>("IsWinner")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("varchar(10)")
+                        .HasColumnName("IsWinner")
                         .HasColumnOrder(3);
 
                     b.Property<int>("MatchReportId")
@@ -23043,16 +25060,1192 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         .HasColumnName("Score")
                         .HasColumnOrder(2);
 
-                    b.Property<int>("TiglUser")
+                    b.Property<int>("TiglUserId")
                         .HasColumnType("integer")
-                        .HasColumnName("TiglUser")
+                        .HasColumnName("TiglUserId")
                         .HasColumnOrder(1);
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MatchReportId");
+                    b.HasIndex("MatchReportId")
+                        .HasDatabaseName("IX_PlayerResults_MatchReportId");
+
+                    b.HasIndex("TiglUserId")
+                        .HasDatabaseName("IX_PlayerResults_TiglUser");
+
+                    b.HasIndex("Faction", "Score")
+                        .HasDatabaseName("IX_PlayerResults_Faction_Score");
 
                     b.ToTable("PlayerResults", "Tigl");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.PlayerSeasonResult", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<double>("AsyncRating")
+                        .HasColumnType("float");
+
+                    b.Property<double>("AussieScore")
+                        .HasColumnType("float");
+
+                    b.Property<long>("CreatedAt")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("GamesPlayed")
+                        .HasColumnType("int");
+
+                    b.Property<double>("GlickoRating")
+                        .HasColumnType("float");
+
+                    b.Property<double>("GlickoRd")
+                        .HasColumnType("float");
+
+                    b.Property<double>("GlickoVolatility")
+                        .HasColumnType("float");
+
+                    b.Property<string>("IsActive")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(1)");
+
+                    b.Property<string>("League")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int>("Season")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TiglDiscordTag")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TiglUserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TiglUserName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<double>("TrueSkillConservativeRating")
+                        .HasColumnType("float");
+
+                    b.Property<double>("TrueSkillMu")
+                        .HasColumnType("float");
+
+                    b.Property<double>("TrueSkillSigma")
+                        .HasColumnType("float");
+
+                    b.Property<double>("WinPercentage")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("League")
+                        .HasDatabaseName("IX_PlayerSeasonResults_League");
+
+                    b.HasIndex("Season")
+                        .HasDatabaseName("IX_PlayerSeasonResults_Season");
+
+                    b.HasIndex("TiglUserId")
+                        .HasDatabaseName("IX_PlayerSeasonResults_TiglUserId");
+
+                    b.ToTable("PlayerSeasonResults", "Tigl");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Ranks.PrestigeRank", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("FactionName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("FactionName")
+                        .HasColumnOrder(2);
+
+                    b.Property<string>("League")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("League")
+                        .HasColumnOrder(3);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("Name")
+                        .HasColumnOrder(1);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name", "FactionName", "League")
+                        .HasDatabaseName("IX_PrestigeRanks_Name_Faction_League");
+
+                    b.ToTable("PrestigeRanks", "Tigl");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            FactionName = "TheArborec",
+                            League = "ProphecyOfKings",
+                            Name = "LetaniMiasmiala"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            FactionName = "TheBaronyOfLetnev",
+                            League = "ProphecyOfKings",
+                            Name = "DarktalonTreilla"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            FactionName = "TheClanOfSaar",
+                            League = "ProphecyOfKings",
+                            Name = "GurnoAggero"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            FactionName = "TheEmbersOfMuaat",
+                            League = "ProphecyOfKings",
+                            Name = "AdjudicatorBaal"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            FactionName = "TheEmiratesOfHacan",
+                            League = "ProphecyOfKings",
+                            Name = "HarrughGefhara"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            FactionName = "TheFederationOfSol",
+                            League = "ProphecyOfKings",
+                            Name = "JaceX4thAirLegion"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            FactionName = "TheGhostsOfCreuss",
+                            League = "ProphecyOfKings",
+                            Name = "RiftwalkerMeian"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            FactionName = "TheL1z1xMindnet",
+                            League = "ProphecyOfKings",
+                            Name = "TheHelmsman"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            FactionName = "TheMentakCoalition",
+                            League = "ProphecyOfKings",
+                            Name = "IpswitchLooseCannon"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            FactionName = "TheNaaluCollective",
+                            League = "ProphecyOfKings",
+                            Name = "TheOracle"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            FactionName = "TheNekroVirus",
+                            League = "ProphecyOfKings",
+                            Name = "UNITDSGNFLAYESH"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            FactionName = "SardakkNorr",
+                            League = "ProphecyOfKings",
+                            Name = "ShvalHarbinger"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            FactionName = "TheUniversitiesOfJolNar",
+                            League = "ProphecyOfKings",
+                            Name = "RinTheMastersLegacy"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            FactionName = "TheWinnu",
+                            League = "ProphecyOfKings",
+                            Name = "MathisMathinus"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            FactionName = "TheXxchaKingdom",
+                            League = "ProphecyOfKings",
+                            Name = "XxekirGrom"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            FactionName = "TheYinBrotherhood",
+                            League = "ProphecyOfKings",
+                            Name = "DannelOfTheTenth"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            FactionName = "TheYssarilTribes",
+                            League = "ProphecyOfKings",
+                            Name = "KyverBladeAndKey"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            FactionName = "TheArgentFlight",
+                            League = "ProphecyOfKings",
+                            Name = "MirikAunSissiri"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            FactionName = "TheEmpyrean",
+                            League = "ProphecyOfKings",
+                            Name = "ConservatorProcyon"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            FactionName = "TheMahactGeneSorcerers",
+                            League = "ProphecyOfKings",
+                            Name = "AiroShirAur"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            FactionName = "TheNaazRokhaAlliance",
+                            League = "ProphecyOfKings",
+                            Name = "HeshAndPrit"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            FactionName = "TheNomad",
+                            League = "ProphecyOfKings",
+                            Name = "AhkSylSiven"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            FactionName = "TheTitansOfUl",
+                            League = "ProphecyOfKings",
+                            Name = "UlTheProgenitor"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            FactionName = "TheVuilRaithCabal",
+                            League = "ProphecyOfKings",
+                            Name = "ItFeedsOnCarrion"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            FactionName = "TheCouncilKeleresArgent",
+                            League = "ProphecyOfKings",
+                            Name = "KuuasiAunJalatai"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            FactionName = "TheCouncilKeleresMentak",
+                            League = "ProphecyOfKings",
+                            Name = "HarkaLeeds"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            FactionName = "TheCouncilKeleresXxcha",
+                            League = "ProphecyOfKings",
+                            Name = "OdlynnMyrr"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            FactionName = "TheArborec",
+                            League = "ThundersEdge",
+                            Name = "LetaniMiasmiala"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            FactionName = "TheBaronyOfLetnev",
+                            League = "ThundersEdge",
+                            Name = "DarktalonTreilla"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            FactionName = "TheClanOfSaar",
+                            League = "ThundersEdge",
+                            Name = "GurnoAggero"
+                        },
+                        new
+                        {
+                            Id = 31,
+                            FactionName = "TheEmbersOfMuaat",
+                            League = "ThundersEdge",
+                            Name = "AdjudicatorBaal"
+                        },
+                        new
+                        {
+                            Id = 32,
+                            FactionName = "TheEmiratesOfHacan",
+                            League = "ThundersEdge",
+                            Name = "HarrughGefhara"
+                        },
+                        new
+                        {
+                            Id = 33,
+                            FactionName = "TheFederationOfSol",
+                            League = "ThundersEdge",
+                            Name = "JaceX4thAirLegion"
+                        },
+                        new
+                        {
+                            Id = 34,
+                            FactionName = "TheGhostsOfCreuss",
+                            League = "ThundersEdge",
+                            Name = "RiftwalkerMeian"
+                        },
+                        new
+                        {
+                            Id = 35,
+                            FactionName = "TheL1z1xMindnet",
+                            League = "ThundersEdge",
+                            Name = "TheHelmsman"
+                        },
+                        new
+                        {
+                            Id = 36,
+                            FactionName = "TheMentakCoalition",
+                            League = "ThundersEdge",
+                            Name = "IpswitchLooseCannon"
+                        },
+                        new
+                        {
+                            Id = 37,
+                            FactionName = "TheNaaluCollective",
+                            League = "ThundersEdge",
+                            Name = "TheOracle"
+                        },
+                        new
+                        {
+                            Id = 38,
+                            FactionName = "TheNekroVirus",
+                            League = "ThundersEdge",
+                            Name = "UNITDSGNFLAYESH"
+                        },
+                        new
+                        {
+                            Id = 39,
+                            FactionName = "SardakkNorr",
+                            League = "ThundersEdge",
+                            Name = "ShvalHarbinger"
+                        },
+                        new
+                        {
+                            Id = 40,
+                            FactionName = "TheUniversitiesOfJolNar",
+                            League = "ThundersEdge",
+                            Name = "RinTheMastersLegacy"
+                        },
+                        new
+                        {
+                            Id = 41,
+                            FactionName = "TheWinnu",
+                            League = "ThundersEdge",
+                            Name = "MathisMathinus"
+                        },
+                        new
+                        {
+                            Id = 42,
+                            FactionName = "TheXxchaKingdom",
+                            League = "ThundersEdge",
+                            Name = "XxekirGrom"
+                        },
+                        new
+                        {
+                            Id = 43,
+                            FactionName = "TheYinBrotherhood",
+                            League = "ThundersEdge",
+                            Name = "DannelOfTheTenth"
+                        },
+                        new
+                        {
+                            Id = 44,
+                            FactionName = "TheYssarilTribes",
+                            League = "ThundersEdge",
+                            Name = "KyverBladeAndKey"
+                        },
+                        new
+                        {
+                            Id = 45,
+                            FactionName = "TheArgentFlight",
+                            League = "ThundersEdge",
+                            Name = "MirikAunSissiri"
+                        },
+                        new
+                        {
+                            Id = 46,
+                            FactionName = "TheEmpyrean",
+                            League = "ThundersEdge",
+                            Name = "ConservatorProcyon"
+                        },
+                        new
+                        {
+                            Id = 47,
+                            FactionName = "TheMahactGeneSorcerers",
+                            League = "ThundersEdge",
+                            Name = "AiroShirAur"
+                        },
+                        new
+                        {
+                            Id = 48,
+                            FactionName = "TheNaazRokhaAlliance",
+                            League = "ThundersEdge",
+                            Name = "HeshAndPrit"
+                        },
+                        new
+                        {
+                            Id = 49,
+                            FactionName = "TheNomad",
+                            League = "ThundersEdge",
+                            Name = "AhkSylSiven"
+                        },
+                        new
+                        {
+                            Id = 50,
+                            FactionName = "TheTitansOfUl",
+                            League = "ThundersEdge",
+                            Name = "UlTheProgenitor"
+                        },
+                        new
+                        {
+                            Id = 51,
+                            FactionName = "TheVuilRaithCabal",
+                            League = "ThundersEdge",
+                            Name = "ItFeedsOnCarrion"
+                        },
+                        new
+                        {
+                            Id = 52,
+                            FactionName = "TheCouncilKeleresArgent",
+                            League = "ThundersEdge",
+                            Name = "KuuasiAunJalatai"
+                        },
+                        new
+                        {
+                            Id = 53,
+                            FactionName = "TheCouncilKeleresMentak",
+                            League = "ThundersEdge",
+                            Name = "HarkaLeeds"
+                        },
+                        new
+                        {
+                            Id = 54,
+                            FactionName = "TheCouncilKeleresXxcha",
+                            League = "ThundersEdge",
+                            Name = "OdlynnMyrr"
+                        },
+                        new
+                        {
+                            Id = 55,
+                            FactionName = "LastBastion",
+                            League = "ThundersEdge",
+                            Name = "Entity4X41AApollo"
+                        },
+                        new
+                        {
+                            Id = 56,
+                            FactionName = "TheRalNelConsortium",
+                            League = "ThundersEdge",
+                            Name = "DirectorNel"
+                        },
+                        new
+                        {
+                            Id = 57,
+                            FactionName = "TheDeepwroughtScholarate",
+                            League = "ThundersEdge",
+                            Name = "TaZern"
+                        },
+                        new
+                        {
+                            Id = 58,
+                            FactionName = "TheCrimsonRebellion",
+                            League = "ThundersEdge",
+                            Name = "HomesickPhantom"
+                        },
+                        new
+                        {
+                            Id = 59,
+                            FactionName = "TheFirmamentTheObsidian",
+                            League = "ThundersEdge",
+                            Name = "Sharsiss"
+                        },
+                        new
+                        {
+                            Id = 60,
+                            FactionName = "TheArborec",
+                            League = "Fractured",
+                            Name = "LetaniMiasmiala"
+                        },
+                        new
+                        {
+                            Id = 61,
+                            FactionName = "TheBaronyOfLetnev",
+                            League = "Fractured",
+                            Name = "DarktalonTreilla"
+                        },
+                        new
+                        {
+                            Id = 62,
+                            FactionName = "TheClanOfSaar",
+                            League = "Fractured",
+                            Name = "GurnoAggero"
+                        },
+                        new
+                        {
+                            Id = 63,
+                            FactionName = "TheEmbersOfMuaat",
+                            League = "Fractured",
+                            Name = "AdjudicatorBaal"
+                        },
+                        new
+                        {
+                            Id = 64,
+                            FactionName = "TheEmiratesOfHacan",
+                            League = "Fractured",
+                            Name = "HarrughGefhara"
+                        },
+                        new
+                        {
+                            Id = 65,
+                            FactionName = "TheFederationOfSol",
+                            League = "Fractured",
+                            Name = "JaceX4thAirLegion"
+                        },
+                        new
+                        {
+                            Id = 66,
+                            FactionName = "TheGhostsOfCreuss",
+                            League = "Fractured",
+                            Name = "RiftwalkerMeian"
+                        },
+                        new
+                        {
+                            Id = 67,
+                            FactionName = "TheL1z1xMindnet",
+                            League = "Fractured",
+                            Name = "TheHelmsman"
+                        },
+                        new
+                        {
+                            Id = 68,
+                            FactionName = "TheMentakCoalition",
+                            League = "Fractured",
+                            Name = "IpswitchLooseCannon"
+                        },
+                        new
+                        {
+                            Id = 69,
+                            FactionName = "TheNaaluCollective",
+                            League = "Fractured",
+                            Name = "TheOracle"
+                        },
+                        new
+                        {
+                            Id = 70,
+                            FactionName = "TheNekroVirus",
+                            League = "Fractured",
+                            Name = "UNITDSGNFLAYESH"
+                        },
+                        new
+                        {
+                            Id = 71,
+                            FactionName = "SardakkNorr",
+                            League = "Fractured",
+                            Name = "ShvalHarbinger"
+                        },
+                        new
+                        {
+                            Id = 72,
+                            FactionName = "TheUniversitiesOfJolNar",
+                            League = "Fractured",
+                            Name = "RinTheMastersLegacy"
+                        },
+                        new
+                        {
+                            Id = 73,
+                            FactionName = "TheWinnu",
+                            League = "Fractured",
+                            Name = "MathisMathinus"
+                        },
+                        new
+                        {
+                            Id = 74,
+                            FactionName = "TheXxchaKingdom",
+                            League = "Fractured",
+                            Name = "XxekirGrom"
+                        },
+                        new
+                        {
+                            Id = 75,
+                            FactionName = "TheYinBrotherhood",
+                            League = "Fractured",
+                            Name = "DannelOfTheTenth"
+                        },
+                        new
+                        {
+                            Id = 76,
+                            FactionName = "TheYssarilTribes",
+                            League = "Fractured",
+                            Name = "KyverBladeAndKey"
+                        },
+                        new
+                        {
+                            Id = 77,
+                            FactionName = "TheArgentFlight",
+                            League = "Fractured",
+                            Name = "MirikAunSissiri"
+                        },
+                        new
+                        {
+                            Id = 78,
+                            FactionName = "TheEmpyrean",
+                            League = "Fractured",
+                            Name = "ConservatorProcyon"
+                        },
+                        new
+                        {
+                            Id = 79,
+                            FactionName = "TheMahactGeneSorcerers",
+                            League = "Fractured",
+                            Name = "AiroShirAur"
+                        },
+                        new
+                        {
+                            Id = 80,
+                            FactionName = "TheNaazRokhaAlliance",
+                            League = "Fractured",
+                            Name = "HeshAndPrit"
+                        },
+                        new
+                        {
+                            Id = 81,
+                            FactionName = "TheNomad",
+                            League = "Fractured",
+                            Name = "AhkSylSiven"
+                        },
+                        new
+                        {
+                            Id = 82,
+                            FactionName = "TheTitansOfUl",
+                            League = "Fractured",
+                            Name = "UlTheProgenitor"
+                        },
+                        new
+                        {
+                            Id = 83,
+                            FactionName = "TheVuilRaithCabal",
+                            League = "Fractured",
+                            Name = "ItFeedsOnCarrion"
+                        },
+                        new
+                        {
+                            Id = 84,
+                            FactionName = "TheCouncilKeleresArgent",
+                            League = "Fractured",
+                            Name = "KuuasiAunJalatai"
+                        },
+                        new
+                        {
+                            Id = 85,
+                            FactionName = "TheCouncilKeleresMentak",
+                            League = "Fractured",
+                            Name = "HarkaLeeds"
+                        },
+                        new
+                        {
+                            Id = 86,
+                            FactionName = "TheCouncilKeleresXxcha",
+                            League = "Fractured",
+                            Name = "OdlynnMyrr"
+                        },
+                        new
+                        {
+                            Id = 87,
+                            FactionName = "LastBastion",
+                            League = "Fractured",
+                            Name = "Entity4X41AApollo"
+                        },
+                        new
+                        {
+                            Id = 88,
+                            FactionName = "TheRalNelConsortium",
+                            League = "Fractured",
+                            Name = "DirectorNel"
+                        },
+                        new
+                        {
+                            Id = 89,
+                            FactionName = "TheDeepwroughtScholarate",
+                            League = "Fractured",
+                            Name = "TaZern"
+                        },
+                        new
+                        {
+                            Id = 90,
+                            FactionName = "TheCrimsonRebellion",
+                            League = "Fractured",
+                            Name = "HomesickPhantom"
+                        },
+                        new
+                        {
+                            Id = 91,
+                            FactionName = "TheFirmamentTheObsidian",
+                            League = "Fractured",
+                            Name = "Sharsiss"
+                        },
+                        new
+                        {
+                            Id = 92,
+                            FactionName = "TheRubyMonarch",
+                            League = "Fractured",
+                            Name = "TheRubyMonarch"
+                        },
+                        new
+                        {
+                            Id = 93,
+                            FactionName = "RadiantAur",
+                            League = "Fractured",
+                            Name = "RadiantAur"
+                        },
+                        new
+                        {
+                            Id = 94,
+                            FactionName = "AvariceRex",
+                            League = "Fractured",
+                            Name = "AvariceRex"
+                        },
+                        new
+                        {
+                            Id = 95,
+                            FactionName = "IlSaiLakoeHeraldOfThorns",
+                            League = "Fractured",
+                            Name = "IlSaiLakoeHeraldOfThorns"
+                        },
+                        new
+                        {
+                            Id = 96,
+                            FactionName = "TheSaintOfSwords",
+                            League = "Fractured",
+                            Name = "TheSaintOfSwords"
+                        },
+                        new
+                        {
+                            Id = 97,
+                            FactionName = "IlNaViroset",
+                            League = "Fractured",
+                            Name = "IlNaViroset"
+                        },
+                        new
+                        {
+                            Id = 98,
+                            FactionName = "ElNenJanovet",
+                            League = "Fractured",
+                            Name = "ElNenJanovet"
+                        },
+                        new
+                        {
+                            Id = 99,
+                            FactionName = "ASickeningLurch",
+                            League = "Fractured",
+                            Name = "ASickeningLurch"
+                        },
+                        new
+                        {
+                            Id = 100,
+                            FactionName = "TheAugursOfIlyxum",
+                            League = "Fractured",
+                            Name = "AtrophaWeaver"
+                        },
+                        new
+                        {
+                            Id = 101,
+                            FactionName = "TheBentorConglomerate",
+                            League = "Fractured",
+                            Name = "CEOKenTuccVisionaryExplorer"
+                        },
+                        new
+                        {
+                            Id = 102,
+                            FactionName = "TheBerserkersOfKjalengard",
+                            League = "Fractured",
+                            Name = "YgegnadTheThunderHonorarySkald"
+                        },
+                        new
+                        {
+                            Id = 103,
+                            FactionName = "TheCeldauriTradeConfederation",
+                            League = "Fractured",
+                            Name = "TitusFlaviusCouncilman"
+                        },
+                        new
+                        {
+                            Id = 104,
+                            FactionName = "TheCheiranHordes",
+                            League = "Fractured",
+                            Name = "ThaktClquaPolemarch"
+                        },
+                        new
+                        {
+                            Id = 105,
+                            FactionName = "TheDihMohnFlotilla",
+                            League = "Fractured",
+                            Name = "VerrisusYpruFormerAdmiralOfTheUnrelentingBattlegroup"
+                        },
+                        new
+                        {
+                            Id = 106,
+                            FactionName = "TheEdynMandate",
+                            League = "Fractured",
+                            Name = "MidirLivingWill"
+                        },
+                        new
+                        {
+                            Id = 107,
+                            FactionName = "TheFlorzenProfiteers",
+                            League = "Fractured",
+                            Name = "BanuaGowenAdministratorOfMinds"
+                        },
+                        new
+                        {
+                            Id = 108,
+                            FactionName = "TheFreeSystemsCompact",
+                            League = "Fractured",
+                            Name = "CountOttoPmayInspiringRhetorician"
+                        },
+                        new
+                        {
+                            Id = 109,
+                            FactionName = "TheGheminaRaiders",
+                            League = "Fractured",
+                            Name = "KorelaTheLadyAndKantrusTheLord"
+                        },
+                        new
+                        {
+                            Id = 110,
+                            FactionName = "TheGhotiWayfarers",
+                            League = "Fractured",
+                            Name = "NmenmedeGhotiAllMother"
+                        },
+                        new
+                        {
+                            Id = 111,
+                            FactionName = "TheGledgeUnion",
+                            League = "Fractured",
+                            Name = "GorthrimChiefOfExpeditions"
+                        },
+                        new
+                        {
+                            Id = 112,
+                            FactionName = "TheGlimmerOfMortheus",
+                            League = "Fractured",
+                            Name = "BayanDeepMagenta"
+                        },
+                        new
+                        {
+                            Id = 113,
+                            FactionName = "TheKolleccSociety",
+                            League = "Fractured",
+                            Name = "DorrahnGriphynTheCollector"
+                        },
+                        new
+                        {
+                            Id = 114,
+                            FactionName = "TheKortaliTribunal",
+                            League = "Fractured",
+                            Name = "QueenNadaliaLifeAndDeath"
+                        },
+                        new
+                        {
+                            Id = 115,
+                            FactionName = "TheKyroSodality",
+                            League = "Fractured",
+                            Name = "SpeyghBlightmaster"
+                        },
+                        new
+                        {
+                            Id = 116,
+                            FactionName = "TheLanefirRemnants",
+                            League = "Fractured",
+                            Name = "TheVenerableKeeperOfMyths"
+                        },
+                        new
+                        {
+                            Id = 117,
+                            FactionName = "TheLiZhoDynasty",
+                            League = "Fractured",
+                            Name = "KhazRinLiZhoEmpress"
+                        },
+                        new
+                        {
+                            Id = 118,
+                            FactionName = "TheLTokkKhrask",
+                            League = "Fractured",
+                            Name = "VehlTikarArchDruid"
+                        },
+                        new
+                        {
+                            Id = 119,
+                            FactionName = "TheMirvedaProtectorate",
+                            League = "Fractured",
+                            Name = "WrathMachinaAIMainframe"
+                        },
+                        new
+                        {
+                            Id = 120,
+                            FactionName = "TheMonksOfKolume",
+                            League = "Fractured",
+                            Name = "WonellTheSilentGrandmasterOfTheOrder"
+                        },
+                        new
+                        {
+                            Id = 121,
+                            FactionName = "TheMykoMentori",
+                            League = "Fractured",
+                            Name = "CoprinusComatusNecromancer"
+                        },
+                        new
+                        {
+                            Id = 122,
+                            FactionName = "TheNivynStarKings",
+                            League = "Fractured",
+                            Name = "KrillDrakkonStarCrownedKing"
+                        },
+                        new
+                        {
+                            Id = 123,
+                            FactionName = "TheNokarSellships",
+                            League = "Fractured",
+                            Name = "StarsailsMercenaryKing"
+                        },
+                        new
+                        {
+                            Id = 124,
+                            FactionName = "TheOlradinLeague",
+                            League = "Fractured",
+                            Name = "PahnSilverfurCouncilSpeaker"
+                        },
+                        new
+                        {
+                            Id = 125,
+                            FactionName = "RohDhnaMechatronics",
+                            League = "Fractured",
+                            Name = "RohVhinDhnaMK4RuthlessExecutive"
+                        },
+                        new
+                        {
+                            Id = 126,
+                            FactionName = "TheSavagesOfCymiae",
+                            League = "Fractured",
+                            Name = "TheVoiceUnitedPsionicMaelstrom"
+                        },
+                        new
+                        {
+                            Id = 127,
+                            FactionName = "TheShipwrightsofAxis",
+                            League = "Fractured",
+                            Name = "DemiQueenMdckssskCommissionerOfProfits"
+                        },
+                        new
+                        {
+                            Id = 128,
+                            FactionName = "TheTnelisSyndicate",
+                            League = "Fractured",
+                            Name = "TurraSveyarShadowCouncilor"
+                        },
+                        new
+                        {
+                            Id = 129,
+                            FactionName = "TheVadenBankingClans",
+                            League = "Fractured",
+                            Name = "PutrivSirvonskClanmasterPrime"
+                        },
+                        new
+                        {
+                            Id = 130,
+                            FactionName = "TheVaylerianScourge",
+                            League = "Fractured",
+                            Name = "DylnHarthuulViceAdmiralOfFleetGroup15"
+                        },
+                        new
+                        {
+                            Id = 131,
+                            FactionName = "TheVeldyrSovereignty",
+                            League = "Fractured",
+                            Name = "AuberonElyrinChairman"
+                        },
+                        new
+                        {
+                            Id = 132,
+                            FactionName = "TheZealotsOfRhodun",
+                            League = "Fractured",
+                            Name = "SaintBinalTheProphet"
+                        },
+                        new
+                        {
+                            Id = 133,
+                            FactionName = "TheZelianPurifier",
+                            League = "Fractured",
+                            Name = "ZelianRTheDestroyer"
+                        },
+                        new
+                        {
+                            Id = 134,
+                            FactionName = "AtokeraLegacy",
+                            League = "Fractured",
+                            Name = "KapokoVuiGreatSpirit"
+                        },
+                        new
+                        {
+                            Id = 135,
+                            FactionName = "BelkoseaAlliedStates",
+                            League = "Fractured",
+                            Name = "MobiusSpikeTheReaper"
+                        },
+                        new
+                        {
+                            Id = 136,
+                            FactionName = "PharadnOrder",
+                            League = "Fractured",
+                            Name = "PharadnTheImmortalImperishableUnifier"
+                        },
+                        new
+                        {
+                            Id = 137,
+                            FactionName = "QhetRepublic",
+                            League = "Fractured",
+                            Name = "TvorKhageShieldOfQhet"
+                        },
+                        new
+                        {
+                            Id = 138,
+                            FactionName = "ToldarConcordat",
+                            League = "Fractured",
+                            Name = "CadhAcamontConcordatMarshall"
+                        },
+                        new
+                        {
+                            Id = 139,
+                            FactionName = "UydaiConclave",
+                            League = "Fractured",
+                            Name = "LondorIIGodEmperor"
+                        },
+                        new
+                        {
+                            Id = 140,
+                            FactionName = "Franken",
+                            League = "Fractured",
+                            Name = "Franken"
+                        },
+                        new
+                        {
+                            Id = 141,
+                            FactionName = "Homebrew",
+                            League = "Fractured",
+                            Name = "Homebrew"
+                        },
+                        new
+                        {
+                            Id = 142,
+                            FactionName = "TwilightsFall",
+                            League = "Fractured",
+                            Name = "TwilightsFall"
+                        },
+                        new
+                        {
+                            Id = 143,
+                            FactionName = "None",
+                            League = "ProphecyOfKings",
+                            Name = "GalacticThreat"
+                        },
+                        new
+                        {
+                            Id = 144,
+                            FactionName = "None",
+                            League = "ProphecyOfKings",
+                            Name = "PaxMagnificaBellumGloriosum"
+                        },
+                        new
+                        {
+                            Id = 145,
+                            FactionName = "None",
+                            League = "ThundersEdge",
+                            Name = "GalacticThreat"
+                        },
+                        new
+                        {
+                            Id = 146,
+                            FactionName = "None",
+                            League = "ThundersEdge",
+                            Name = "PaxMagnificaBellumGloriosum"
+                        },
+                        new
+                        {
+                            Id = 147,
+                            FactionName = "None",
+                            League = "Fractured",
+                            Name = "Tyrant"
+                        },
+                        new
+                        {
+                            Id = 148,
+                            FactionName = "None",
+                            League = "ProphecyOfKings",
+                            Name = "DeposedEmperor"
+                        },
+                        new
+                        {
+                            Id = 149,
+                            FactionName = "None",
+                            League = "ThundersEdge",
+                            Name = "DeposedEmperor"
+                        },
+                        new
+                        {
+                            Id = 150,
+                            FactionName = "None",
+                            League = "Fractured",
+                            Name = "DeposedEmperor"
+                        });
                 });
 
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Ratings.AsyncRating", b =>
@@ -23082,7 +26275,8 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AsyncStatsId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasDatabaseName("IX_AsyncRatings_AsyncStatsId");
 
                     b.ToTable("AsyncRatings", "Tigl");
                 });
@@ -23118,7 +26312,61 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("GlickoStatsId")
+                        .IsUnique()
+                        .HasDatabaseName("IX_GlickoRatings_GlickoStatsId");
+
                     b.ToTable("GlickoRatings", "Tigl");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Ratings.RatingDecay", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<double>("Amount")
+                        .HasColumnType("float")
+                        .HasColumnName("Amount")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("League")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("League")
+                        .HasColumnOrder(4);
+
+                    b.Property<string>("RatingSystem")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("RatingSystem")
+                        .HasColumnOrder(6);
+
+                    b.Property<int>("Season")
+                        .HasColumnType("int")
+                        .HasColumnName("Season")
+                        .HasColumnOrder(5);
+
+                    b.Property<int>("TiglUserId")
+                        .HasColumnType("int")
+                        .HasColumnName("TiglUserId")
+                        .HasColumnOrder(2);
+
+                    b.Property<long>("Timestamp")
+                        .HasColumnType("bigint")
+                        .HasColumnName("Timestamp")
+                        .HasColumnOrder(3);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TiglUserId");
+
+                    b.ToTable("RatingDecays", "Tigl");
                 });
 
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Ratings.TrueSkillRating", b =>
@@ -23148,7 +26396,8 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("TrueSkillStatsId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasDatabaseName("IX_TrueSkillRatings_TrueSkillStatsId");
 
                     b.ToTable("TrueSkillRatings", "Tigl");
                 });
@@ -23162,6 +26411,11 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         .HasColumnOrder(0);
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("EmperorId")
+                        .HasColumnType("int")
+                        .HasColumnName("EmperorId")
+                        .HasColumnOrder(6);
 
                     b.Property<DateOnly>("EndDate")
                         .HasColumnType("date")
@@ -23194,17 +26448,22 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("EmperorId");
+
+                    b.HasIndex("SeasonNumber")
+                        .IsUnique();
+
                     b.ToTable("Seasons", "Tigl");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            EndDate = new DateOnly(2023, 12, 31),
+                            EndDate = new DateOnly(2025, 11, 30),
                             IsActive = "true",
-                            Name = "",
+                            Name = "Season 1",
                             SeasonNumber = 1,
-                            StartDate = new DateOnly(2023, 1, 1)
+                            StartDate = new DateOnly(2025, 11, 30)
                         });
                 });
 
@@ -23229,13 +26488,6 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         .HasColumnName("League")
                         .HasColumnOrder(3);
 
-                    b.Property<string>("Rank")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)")
-                        .HasColumnName("Rank")
-                        .HasColumnOrder(4);
-
                     b.Property<int>("TiglUserId")
                         .HasColumnType("integer")
                         .HasColumnName("TiglUserId")
@@ -23243,7 +26495,8 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TiglUserId");
+                    b.HasIndex("TiglUserId", "League")
+                        .HasDatabaseName("IX_AsyncStats_TiglUserId_League");
 
                     b.ToTable("AsyncStats", "Tigl");
                 });
@@ -23269,12 +26522,6 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         .HasColumnName("League")
                         .HasColumnOrder(3);
 
-                    b.Property<string>("Rank")
-                        .IsRequired()
-                        .HasColumnType("varchar(50)")
-                        .HasColumnName("Rank")
-                        .HasColumnOrder(4);
-
                     b.Property<int>("TiglUserId")
                         .HasColumnType("integer")
                         .HasColumnName("TiglUserId")
@@ -23282,10 +26529,8 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("GlickoRatingId")
-                        .IsUnique();
-
-                    b.HasIndex("TiglUserId");
+                    b.HasIndex("TiglUserId", "League")
+                        .HasDatabaseName("IX_GlickoStats_TiglUserId_League");
 
                     b.ToTable("GlickoStats", "Tigl");
                 });
@@ -23306,12 +26551,6 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         .HasColumnName("League")
                         .HasColumnOrder(3);
 
-                    b.Property<string>("Rank")
-                        .IsRequired()
-                        .HasColumnType("varchar(50)")
-                        .HasColumnName("Rank")
-                        .HasColumnOrder(4);
-
                     b.Property<int>("TiglUserId")
                         .HasColumnType("integer")
                         .HasColumnName("TiglUserId")
@@ -23324,7 +26563,8 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TiglUserId");
+                    b.HasIndex("TiglUserId", "League")
+                        .HasDatabaseName("IX_TrueSkillStats_TiglUserId_League");
 
                     b.ToTable("TrueSkillStats", "Tigl");
                 });
@@ -23363,16 +26603,120 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            Id = 10,
                             Enabled = "true",
-                            Name = "RankingUp"
+                            Name = "OnlyThundersEdgeEra"
                         },
                         new
                         {
                             Id = 2,
                             Enabled = "true",
                             Name = "EvaluateGames"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Enabled = "false",
+                            Name = "OnlyImportReports"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Enabled = "true",
+                            Name = "ManualGameReview"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Enabled = "false",
+                            Name = "TiglTestUserRegistrations"
+                        },
+                        new
+                        {
+                            Id = 1,
+                            Enabled = "true",
+                            Name = "RankingUp"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Enabled = "false",
+                            Name = "RankingUpProphecyOfKings"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Enabled = "false",
+                            Name = "AchievementsPublish"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Enabled = "false",
+                            Name = "HeroPublish"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Enabled = "false",
+                            Name = "RankUpPublish"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Enabled = "false",
+                            Name = "DiscordInteraction"
                         });
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.TiglRank", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<long>("AchievedAt")
+                        .HasColumnType("bigint")
+                        .HasColumnName("AchievedAt")
+                        .HasColumnOrder(2);
+
+                    b.Property<string>("League")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("League")
+                        .HasColumnOrder(3);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("Name")
+                        .HasColumnOrder(1);
+
+                    b.Property<int>("TiglUserId")
+                        .HasColumnType("integer")
+                        .HasColumnName("TiglUserId")
+                        .HasColumnOrder(4);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AchievedAt")
+                        .HasDatabaseName("IX_Ranks_AchievedAt");
+
+                    b.HasIndex("TiglUserId")
+                        .HasDatabaseName("IX_Ranks_TiglUserId");
+
+                    b.HasIndex("Name", "League")
+                        .HasDatabaseName("IX_Ranks_Name_League");
+
+                    b.HasIndex("TiglUserId", "League", "AchievedAt")
+                        .HasDatabaseName("IX_Ranks_User_League_AchievedAt");
+
+                    b.ToTable("Ranks", "Tigl");
                 });
 
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.TiglUser", b =>
@@ -23404,7 +26748,30 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         .HasColumnOrder(3);
 
                     b.Property<DateOnly>("LastUserNameChange")
-                        .HasColumnType("date");
+                        .HasColumnType("date")
+                        .HasColumnName("LastUserNameChange")
+                        .HasColumnOrder(8);
+
+                    b.Property<string>("ProphecyOfKingsRank")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("ProphecyOfKingsRank")
+                        .HasColumnOrder(9);
+
+                    b.Property<string>("ShatteredRank")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("ShatteredRank")
+                        .HasColumnOrder(11);
+
+                    b.Property<string>("ThundersEdgeRank")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("ThundersEdgeRank")
+                        .HasColumnOrder(10);
 
                     b.Property<string>("TiglUserName")
                         .IsRequired()
@@ -23413,8 +26780,12 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         .HasColumnName("TiglUserName")
                         .HasColumnOrder(2);
 
-                    b.Property<bool>("TiglUserNameChanged")
-                        .HasColumnType("bit");
+                    b.Property<string>("TiglUserNameChanged")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("varchar(10)")
+                        .HasColumnName("TiglUserNameChanged")
+                        .HasColumnOrder(7);
 
                     b.Property<string>("TtpgUserName")
                         .IsRequired()
@@ -24114,6 +27485,44 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.RelationshipEntities.TiglUserAchievement", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Tigl.Achievement", "Achievement")
+                        .WithMany("Achievements")
+                        .HasForeignKey("AchievementId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Tigl.TiglUser", "TiglUser")
+                        .WithMany("Achievements")
+                        .HasForeignKey("TiglUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Achievement");
+
+                    b.Navigation("TiglUser");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.RelationshipEntities.TiglUserPrestigeRank", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Tigl.Ranks.PrestigeRank", "PrestigeRank")
+                        .WithMany("PrestigeRanks")
+                        .HasForeignKey("PrestigeRankId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Tigl.TiglUser", "TiglUser")
+                        .WithMany("PrestigeRanks")
+                        .HasForeignKey("TiglUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PrestigeRank");
+
+                    b.Navigation("TiglUser");
+                });
+
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.History.AsyncPlayerMatchStats", b =>
                 {
                     b.HasOne("TwilightImperiumUltimate.Core.Entities.Tigl.Stats.AsyncStats", "AsyncStats")
@@ -24123,7 +27532,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         .IsRequired();
 
                     b.HasOne("TwilightImperiumUltimate.Core.Entities.Tigl.MatchReport", "Match")
-                        .WithMany("PlayerMatchStats")
+                        .WithMany("PlayerMatchAsyncStats")
                         .HasForeignKey("MatchId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -24142,7 +27551,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         .IsRequired();
 
                     b.HasOne("TwilightImperiumUltimate.Core.Entities.Tigl.MatchReport", "Match")
-                        .WithMany()
+                        .WithMany("PlayerMatchGlickoStats")
                         .HasForeignKey("MatchId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -24155,7 +27564,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.History.TrueSkillPlayerMatchStats", b =>
                 {
                     b.HasOne("TwilightImperiumUltimate.Core.Entities.Tigl.MatchReport", "Match")
-                        .WithMany()
+                        .WithMany("PlayerMatchTrueSkillStats")
                         .HasForeignKey("MatchId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -24169,6 +27578,32 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.Navigation("Match");
 
                     b.Navigation("TrueSkillStats");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Leader", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Tigl.TiglUser", "CurrentOwner")
+                        .WithMany("Leaders")
+                        .HasForeignKey("CurrentOwnerId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Tigl.TiglUser", "LongestHolder")
+                        .WithMany()
+                        .HasForeignKey("LongestHolderId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .HasConstraintName("FK_Leaders_Users_LongestHolderId");
+
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Tigl.TiglUser", "ShortestHolder")
+                        .WithMany()
+                        .HasForeignKey("ShortestHolderId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .HasConstraintName("FK_Leaders_Users_ShortestHolderId");
+
+                    b.Navigation("CurrentOwner");
+
+                    b.Navigation("LongestHolder");
+
+                    b.Navigation("ShortestHolder");
                 });
 
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.PlayerResult", b =>
@@ -24193,6 +27628,28 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.Navigation("AsyncStats");
                 });
 
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Ratings.GlickoRating", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Tigl.Stats.GlickoStats", "GlickoStats")
+                        .WithOne("Rating")
+                        .HasForeignKey("TwilightImperiumUltimate.Core.Entities.Tigl.Ratings.GlickoRating", "GlickoStatsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("GlickoStats");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Ratings.RatingDecay", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Tigl.TiglUser", "TiglUser")
+                        .WithMany("RatingDecays")
+                        .HasForeignKey("TiglUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TiglUser");
+                });
+
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Ratings.TrueSkillRating", b =>
                 {
                     b.HasOne("TwilightImperiumUltimate.Core.Entities.Tigl.Stats.TrueSkillStats", "TrueSkillStats")
@@ -24202,6 +27659,15 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         .IsRequired();
 
                     b.Navigation("TrueSkillStats");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Season", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Tigl.TiglUser", "Emperor")
+                        .WithMany()
+                        .HasForeignKey("EmperorId");
+
+                    b.Navigation("Emperor");
                 });
 
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Stats.AsyncStats", b =>
@@ -24217,19 +27683,11 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
 
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Stats.GlickoStats", b =>
                 {
-                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Tigl.Ratings.GlickoRating", "Rating")
-                        .WithOne("GlickoStats")
-                        .HasForeignKey("TwilightImperiumUltimate.Core.Entities.Tigl.Stats.GlickoStats", "GlickoRatingId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("TwilightImperiumUltimate.Core.Entities.Tigl.TiglUser", "TiglUser")
                         .WithMany("GlickoStats")
                         .HasForeignKey("TiglUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Rating");
 
                     b.Navigation("TiglUser");
                 });
@@ -24238,6 +27696,17 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                 {
                     b.HasOne("TwilightImperiumUltimate.Core.Entities.Tigl.TiglUser", "TiglUser")
                         .WithMany("TrueSkillStats")
+                        .HasForeignKey("TiglUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TiglUser");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.TiglRank", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Tigl.TiglUser", "TiglUser")
+                        .WithMany("TiglRanks")
                         .HasForeignKey("TiglUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -24288,16 +27757,25 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.Navigation("FactionTechnologies");
                 });
 
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Achievement", b =>
+                {
+                    b.Navigation("Achievements");
+                });
+
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.MatchReport", b =>
                 {
-                    b.Navigation("PlayerMatchStats");
+                    b.Navigation("PlayerMatchAsyncStats");
+
+                    b.Navigation("PlayerMatchGlickoStats");
+
+                    b.Navigation("PlayerMatchTrueSkillStats");
 
                     b.Navigation("PlayerResults");
                 });
 
-            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Ratings.GlickoRating", b =>
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Ranks.PrestigeRank", b =>
                 {
-                    b.Navigation("GlickoStats");
+                    b.Navigation("PrestigeRanks");
                 });
 
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Stats.AsyncStats", b =>
@@ -24310,6 +27788,8 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Stats.GlickoStats", b =>
                 {
                     b.Navigation("MatchStats");
+
+                    b.Navigation("Rating");
                 });
 
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.Stats.TrueSkillStats", b =>
@@ -24321,9 +27801,19 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
 
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Tigl.TiglUser", b =>
                 {
+                    b.Navigation("Achievements");
+
                     b.Navigation("AsyncStats");
 
                     b.Navigation("GlickoStats");
+
+                    b.Navigation("Leaders");
+
+                    b.Navigation("PrestigeRanks");
+
+                    b.Navigation("RatingDecays");
+
+                    b.Navigation("TiglRanks");
 
                     b.Navigation("TrueSkillStats");
                 });

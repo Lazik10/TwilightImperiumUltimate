@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Discord.Net" Version="3.18.0" />
     <PackageReference Include="MailKit" Version="4.12.1" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.16" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.16">
@@ -37,6 +38,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TwilightImperiumUltimate.Business\TwilightImperiumUltimate.Business.csproj" />
+    <ProjectReference Include="..\TwilightImperiumUltimate.Contracts\TwilightImperiumUltimate.Contracts.csproj" />
   </ItemGroup>
 
   <ItemGroup>

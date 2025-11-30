@@ -15,7 +15,9 @@ public partial class MapsArchive
 
     protected override async Task OnInitializedAsync()
     {
-        var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<MapDto>>>(Paths.ApiPath_MapArchiveMaps);
+        var result = await HttpClient.GetAsync<ApiResponse<ItemListDto<MapDto>>>(Paths.ApiPath_MapArchiveMaps);
+        var response = result.Response;
+        var statusCode = result.StatusCode;
 
         if (statusCode == HttpStatusCode.OK)
         {

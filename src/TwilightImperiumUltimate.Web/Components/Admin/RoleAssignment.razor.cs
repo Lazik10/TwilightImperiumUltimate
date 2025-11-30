@@ -32,7 +32,9 @@ public partial class RoleAssignment
 
     private async Task LoadUsers()
     {
-        var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<TwilightImperiumUserDto>>>(Paths.ApiPath_Users, default);
+        var result = await HttpClient.GetAsync<ApiResponse<ItemListDto<TwilightImperiumUserDto>>>(Paths.ApiPath_Users);
+        var response = result.Response;
+        var statusCode = result.StatusCode;
         if (statusCode == HttpStatusCode.OK)
         {
             _users = response!.Data!.Items;
@@ -43,7 +45,9 @@ public partial class RoleAssignment
 
     private async Task LoadRoles()
     {
-        var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<RoleDto>>>(Paths.ApiPath_Roles, default);
+        var result = await HttpClient.GetAsync<ApiResponse<ItemListDto<RoleDto>>>(Paths.ApiPath_Roles);
+        var response = result.Response;
+        var statusCode = result.StatusCode;
 
         if (statusCode == HttpStatusCode.OK)
         {
@@ -77,7 +81,8 @@ public partial class RoleAssignment
 
         var userId = _users.Where(x => x.Email == _selectedUserEmail).Select(x => x.Id).First();
         var request = new AddRoleToUserRequest() { RoleName = _selectedRole, UserId = userId! };
-        var (result, statusCode) = await HttpClient.PostAsync<AddRoleToUserRequest, AddRoleToUserResponse>(Paths.ApiPath_AddRole, request);
+        var result = await HttpClient.PostAsync<AddRoleToUserRequest, AddRoleToUserResponse>(Paths.ApiPath_AddRole, request);
+        var statusCode = result.StatusCode;
 
         if (statusCode == HttpStatusCode.OK)
         {
@@ -97,7 +102,8 @@ public partial class RoleAssignment
 
         var userId = _users.Where(x => x.Email == _selectedUserEmail).Select(x => x.Id).First();
         var request = new RemoveRoleFromUserRequest() { RoleName = _selectedRole, UserId = userId! };
-        var (_, statusCode) = await HttpClient.PostAsync<RemoveRoleFromUserRequest, RemoveRoleFromUserResponse>(Paths.ApiPath_RemoveRole, request);
+        var result = await HttpClient.PostAsync<RemoveRoleFromUserRequest, RemoveRoleFromUserResponse>(Paths.ApiPath_RemoveRole, request);
+        var statusCode = result.StatusCode;
 
         if (statusCode == HttpStatusCode.OK)
         {
@@ -115,11 +121,13 @@ public partial class RoleAssignment
 
         var userDto = _users.First(x => x.Email == _selectedUserEmail);
 
-        var (result, statusCode) = await HttpClient.PostAsync<TwilightImperiumUserDto, ApiResponse<ItemListDto<RoleDto>>>(Paths.ApiPath_SpecificUserRoles, userDto);
+        var result = await HttpClient.PostAsync<TwilightImperiumUserDto, ApiResponse<ItemListDto<RoleDto>>>(Paths.ApiPath_SpecificUserRoles, userDto);
+        var response = result.Response;
+        var statusCode = result.StatusCode;
 
         if (statusCode == HttpStatusCode.OK)
         {
-            _specificUserRoles = result!.Data!.Items;
+            _specificUserRoles = response!.Data!.Items;
         }
 
         StateHasChanged();

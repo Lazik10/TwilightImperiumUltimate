@@ -1,5 +1,6 @@
 using TwilightImperiumUltimate.Core.Entities.Statistics;
 using TwilightImperiumUltimate.Core.Entities.Tigl;
+using TwilightImperiumUltimate.Core.Entities.Tigl.Ranks;
 using TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium.Data;
 
 namespace TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium;
@@ -50,5 +51,11 @@ public static class TwilightImperiumDbContextSeed
         modelBuilder.Entity<Season>().HasData(SeasonsData.Seasons);
 
         modelBuilder.Entity<TiglParameter>().HasData(TiglParametersData.TiglParameters);
+
+        modelBuilder.Entity<Achievement>().HasData(AchievementsData.Achievements);
+
+        modelBuilder.Entity<PrestigeRank>().HasData(PrestigeRankData.PrestigeRanks);
+
+        modelBuilder.Entity<Leader>().HasData(LeadersData.Leaders);
     }
 }

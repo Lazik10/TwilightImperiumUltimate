@@ -38,7 +38,8 @@ public class TrueSkillPlayerMatchStatsService : ITrueSkillPlayerMatchStatsServic
                     MuOld = trueSkillStats?.TrueSkillRating?.Mu ?? 0,
                     SigmaOld = trueSkillStats?.TrueSkillRating?.Sigma ?? 0,
                     Faction = TiglFactionParser.ParseFaction(x.Faction),
-                    Timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds(),
+                    StartTimestamp = report.StartTimestamp,
+                    EndTimestamp = report.EndTimestamp,
                 };
             })];
     }

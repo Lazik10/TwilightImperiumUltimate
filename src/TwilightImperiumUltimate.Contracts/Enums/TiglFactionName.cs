@@ -2,6 +2,8 @@ namespace TwilightImperiumUltimate.Contracts.Enums;
 
 public enum TiglFactionName
 {
+    None,
+
     // Base game - 17 factions
     TheArborec,
     TheBaronyOfLetnev,
@@ -34,6 +36,23 @@ public enum TiglFactionName
     TheCouncilKeleresMentak,
     TheCouncilKeleresXxcha,
     TheCouncilKeleresArgent,
+
+    // Thunder's Edge - 5(6) factions
+    TheCrimsonRebellion,
+    TheDeepwroughtScholarate,
+    TheFirmamentTheObsidian,
+    LastBastion,
+    TheRalNelConsortium,
+
+    // Twilight's Fall
+    TheRubyMonarch,
+    RadiantAur,
+    AvariceRex,
+    IlSaiLakoeHeraldOfThorns,
+    TheSaintOfSwords,
+    IlNaViroset,
+    ElNenJanovet,
+    ASickeningLurch,
 
     // Discordant Stars - 34 factions
     TheAugursOfIlyxum,
@@ -78,4 +97,9 @@ public enum TiglFactionName
     AtokeraLegacy,
     BelkoseaAlliedStates,
     ToldarConcordat,
+
+    // Other
+    Franken,
+    Homebrew,
+    TwilightsFall,
 }

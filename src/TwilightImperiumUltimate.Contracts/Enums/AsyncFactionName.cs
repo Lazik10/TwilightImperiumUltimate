@@ -35,6 +35,13 @@ public enum AsyncFactionName
     TheCouncilKeleresXxcha,
     TheCouncilKeleresArgent,
 
+    // Thunder's Edge - 5(6) factions
+    TheCrimsonRebellion,
+    TheDeepwroughtScholarate,
+    TheFirmamentTheObsidian,
+    LastBastion,
+    TheRalNelConsortium,
+
     // Discordant Stars - 34 factions
     TheAugursOfIlyxum,
     TheBentorConglomerate,
@@ -71,7 +78,7 @@ public enum AsyncFactionName
     TheZealotsOfRhodun,
     TheZelianPurifier,
 
-    // BlueRiverie
+    // BlueRiverie - 6 factions
     UydaiConclave,
     PharadnOrder,
     QhetRepublic,
@@ -82,6 +89,17 @@ public enum AsyncFactionName
     // Other
     Franken,
     Homebrew,
+    TwilightsFall,
+
+    // Twilight's Fall
+    TheRubyMonarch,
+    RadiantAur,
+    AvariceRex,
+    IlSaiLakoeHeraldOfThorns,
+    TheSaintOfSwords,
+    IlNaViroset,
+    ElNenJanovet,
+    ASickeningLurch,
 
     // Unknown
     Unknown,

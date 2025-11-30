@@ -3,7 +3,7 @@ using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl;
 namespace TwilightImperiumUltimate.Business.Logic.Tigl;
 
 public class ChangeUserNameCommandHandler(
-    ITiglRepository tiglRepository)
+    ITiglUserRepository tiglUserRepository)
     : IRequestHandler<ChangeUserNameCommand, NewTiglUserResponse>
 {
     private readonly int minimumUserNameLength = 3;
@@ -11,7 +11,7 @@ public class ChangeUserNameCommandHandler(
 
     public async Task<NewTiglUserResponse> Handle(ChangeUserNameCommand request, CancellationToken cancellationToken)
     {
-        var tiglUser = await tiglRepository.GetTiglUserByDiscordId(request.DiscordId, cancellationToken);
+        var tiglUser = await tiglUserRepository.GetTiglUserByDiscordId(request.DiscordId, cancellationToken);
         if (tiglUser is null)
         {
             return new NewTiglUserResponse() { Success = false, ErrorTitle = "User not found", ErrorMessage = "The specified user does not exist in the TIGL system." };
@@ -24,7 +24,7 @@ public class ChangeUserNameCommandHandler(
 
         if (!tiglUser.TiglUserNameChanged || tiglUser.LastUserNameChange.AddDays(minimumDaysForUserNameChange).ToDateTime(TimeOnly.MinValue) <= DateTime.UtcNow)
         {
-            var result = await tiglRepository.ChangeTiglUserName(
+            var result = await tiglUserRepository.ChangeTiglUserName(
                 request.DiscordId,
                 request.NewTiglUserName,
                 cancellationToken);

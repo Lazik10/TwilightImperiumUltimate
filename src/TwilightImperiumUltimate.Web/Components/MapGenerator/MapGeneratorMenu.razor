@@ -2,13 +2,13 @@
     <div class="map-generator-navbar">
         <FlexRowContainer Width="100" JustifyContent="Enums.JustifyContent.SpaceEvenly">
             <div class="clickable" style="min-width: 33%;" @onclick="() => OnMenuItemClick.InvokeAsync(MapGeneratorMenuItem.MapGenerator)">
-                <Label Text="@Strings.MapGeneratorMenu_Map" FontSize="28" CenterText="true" />
+                <Label Text="@Strings.MapGeneratorMenu_Map" FontSize="28" CenterText="true" Style="font-size: 1rem;" />
             </div>
             <div class="clickable" style="width: 33%;" @onclick="() => OnMenuItemClick.InvokeAsync(MapGeneratorMenuItem.MapEvaluation)">
-                <Label Text="@Strings.MapGeneratorMenu_Stats" FontSize="28" CenterText="true" />
+                <Label Text="@Strings.MapGeneratorMenu_Stats" FontSize="28" CenterText="true" Style="font-size: 1rem;" />
             </div>
             <div class="clickable" style="width: 33%;" @onclick="() => OnMenuItemClick.InvokeAsync(MapGeneratorMenuItem.Settings)">
-                <Label Text="@Strings.MapGeneratorMenu_Settings" FontSize="28" CenterText="true" />
+                <Label Text="@Strings.MapGeneratorMenu_Settings" FontSize="28" CenterText="true" Style="font-size: 1rem;" />
             </div>
         </FlexRowContainer>
     </div>

@@ -1,0 +1,15 @@
+﻿<FlexColumnCenteredContainer>
+    <div class="ranking-navbar">
+        <FlexRowContainer Width="100" JustifyContent="Enums.JustifyContent.SpaceEvenly">
+            <div class="clickable" style="min-width: 33%;" @onclick="() => OnMenuItemClick.InvokeAsync(RankingsMenuItem.Ranks)">
+                <Label Text="@Strings.RankingsMenu_Ranks" FontSize="28" CenterText="true" Style="font-size: 1rem;" />
+            </div>
+            <div class="clickable" style="width: 33%;" @onclick="() => OnMenuItemClick.InvokeAsync(RankingsMenuItem.Leaders)">
+                <Label Text="@Strings.RankingsMenu_Leaders" FontSize="28" CenterText="true" Style="font-size: 1rem;" />
+            </div>
+            <div class="clickable" style="width: 33%;" @onclick="() => OnMenuItemClick.InvokeAsync(RankingsMenuItem.Achievements)">
+                <Label Text="@Strings.RankingsMenu_Achievements" FontSize="28" CenterText="true" Style="font-size: 1rem;"  />
+            </div>
+        </FlexRowContainer>
+    </div>
+</FlexColumnCenteredContainer>

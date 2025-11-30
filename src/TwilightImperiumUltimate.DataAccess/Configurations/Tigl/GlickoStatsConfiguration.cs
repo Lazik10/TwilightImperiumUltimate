@@ -16,6 +16,9 @@ public class GlickoStatsConfiguration : IEntityTypeConfiguration<GlickoStats>
         builder.Property(x => x.Id)
             .HasColumnOrder(0);
 
+        builder.HasIndex(e => new { e.TiglUserId, e.League })
+            .HasDatabaseName("IX_GlickoStats_TiglUserId_League");
+
         builder.Property(x => x.TiglUserId)
             .IsRequired()
             .HasColumnName(nameof(GlickoStats.TiglUserId))
@@ -36,13 +39,6 @@ public class GlickoStatsConfiguration : IEntityTypeConfiguration<GlickoStats>
             .HasMaxLength(30)
             .HasColumnOrder(3);
 
-        builder.Property(x => x.Rank)
-            .IsRequired()
-            .HasColumnName(nameof(TrueSkillStats.Rank))
-            .HasConversion<string>()
-            .HasColumnType("varchar(50)")
-            .HasColumnOrder(4);
-
         builder.HasOne(a => a.TiglUser)
             .WithMany(u => u.GlickoStats)
             .HasForeignKey(p => p.TiglUserId)
@@ -50,7 +46,7 @@ public class GlickoStatsConfiguration : IEntityTypeConfiguration<GlickoStats>
 
         builder.HasOne(a => a.Rating)
             .WithOne(u => u.GlickoStats)
-            .HasForeignKey<GlickoStats>(a => a.GlickoRatingId)
+            .HasForeignKey<GlickoRating>(a => a.GlickoStatsId)
             .OnDelete(DeleteBehavior.Cascade);
     }
 }

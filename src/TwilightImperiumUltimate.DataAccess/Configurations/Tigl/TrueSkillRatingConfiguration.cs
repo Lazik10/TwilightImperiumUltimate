@@ -12,6 +12,10 @@ public class TrueSkillRatingConfiguration : IEntityTypeConfiguration<TrueSkillRa
 
         builder.HasKey(p => p.Id);
 
+        builder.HasIndex(p => p.TrueSkillStatsId)
+            .IsUnique()
+            .HasDatabaseName("IX_TrueSkillRatings_TrueSkillStatsId");
+
         builder.Property(x => x.Id)
             .HasColumnOrder(0);
 

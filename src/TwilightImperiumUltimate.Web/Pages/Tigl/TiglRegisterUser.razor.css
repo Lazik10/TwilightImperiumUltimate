@@ -1,0 +1,30 @@
+﻿.position-badge {
+    background: #6c757d;
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.875rem;
+}
+
+.position-badge.winner {
+    background: linear-gradient(45deg, #ffd700, #ffed4e);
+    color: #333;
+    box-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);
+}
+
+.player-row {
+    transition: all 0.2s ease;
+}
+
+    .player-row:hover {
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+.border-warning {
+    background-color: rgba(255, 193, 7, 0.05);
+}

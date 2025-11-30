@@ -1,0 +1,13 @@
+@using TwilightImperiumUltimate.Web.Helpers.Enums
+
+<FlexRowContainer CssClass="background">
+
+    <Label Text="@Ranking.TiglUserName" PaddingLeft="50" Width="30" TextColor="@RankColor" />
+    <Label Text="@GetPrestigeRankText()" CenterText=true Width="30" TextColor="@RankColor" />
+    <Label Text="@GetRankText()" CenterText=true Width="30" TextColor="@RankColor" />
+    <Label Text="@Ranking.GamesPlayed.ToString()" CenterText=true Width="10" TextColor="@RankColor" />
+    <Label Text="@GetDurationTime()" CenterText=true Width="20" TextColor="@RankColor" />
+
+</FlexRowContainer>
+
+<VerticalSpace Height="5" />

@@ -1,0 +1,50 @@
+@using TwilightImperiumUltimate.Contracts.DTOs.Tigl
+@using TwilightImperiumUltimate.Contracts.Enums
+@using TwilightImperiumUltimate.Web.Helpers.Enums
+
+<FlexColumnCenteredContainer>
+
+    <VerticalSpace Height="20" />
+    <Label Text="@Strings.TiglAdmin_ParametersAdministration" FontSize="32" CenterText="true" />
+    <VerticalSpace Height="20" />
+
+    @if (_loading)
+    {
+        <VerticalSpace Height="50" />
+        <Label Text="...Loading parameters..." CenterText="true" />
+        <VerticalSpace Height="50" />
+    }
+    else if (_parameters.Count == 0)
+    {
+        <VerticalSpace Height="50" />
+        <Label Text="No parameters found." CenterText="true" />
+        <VerticalSpace Height="50" />
+    }
+    else
+    {
+        <GridLayout Columns="5" CssClass="handel white shadow background">
+            <VerticalSpace Height="20" CssClass="span-5" />
+            <Label />
+            <Label Text="Name" TextColor="TextColor.Yellow" />
+            <Label Text="Enabled" TextColor="TextColor.Yellow" Width="80" CenterText="true" />
+            <Label Text="Toggle" TextColor="TextColor.Yellow" Width="80" CenterText="true" />
+            <Label />
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+
+            @foreach (var p in _parameters.OrderBy(x => x.Name))
+            {
+                <Label />
+                <Label Text="@p.Name.GetDisplayName()" />
+                <Label Text="@(p.Enabled ? "Yes" : "No")" CenterText="true" TextColor="@(p.Enabled ? TextColor.Green : TextColor.Red)" />
+                <Button ButtonText="@(p.Enabled ? "Disable" : "Enable")" Width="90" OnClick="async () => await ToggleParameterAsync(p)" />
+                <Label />
+                <VerticalSpace Height="10" CssClass="span-5" />
+            }
+
+            <VerticalSpace Height="20" CssClass="span-5" />
+        </GridLayout>
+    }
+
+    <VerticalSpace Height="40" />
+</FlexColumnCenteredContainer>

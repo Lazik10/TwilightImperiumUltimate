@@ -16,6 +16,9 @@ public class TrueSkillStatsConfiguration : IEntityTypeConfiguration<TrueSkillSta
         builder.Property(x => x.Id)
             .HasColumnOrder(0);
 
+        builder.HasIndex(e => new { e.TiglUserId, e.League })
+            .HasDatabaseName("IX_TrueSkillStats_TiglUserId_League");
+
         builder.Property(x => x.TiglUserId)
             .IsRequired()
             .HasColumnName(nameof(TrueSkillStats.TiglUserId))
@@ -35,13 +38,6 @@ public class TrueSkillStatsConfiguration : IEntityTypeConfiguration<TrueSkillSta
             .HasColumnType("varchar(30)")
             .HasMaxLength(30)
             .HasColumnOrder(3);
-
-        builder.Property(x => x.Rank)
-            .IsRequired()
-            .HasColumnName(nameof(TrueSkillStats.Rank))
-            .HasConversion<string>()
-            .HasColumnType("varchar(50)")
-            .HasColumnOrder(4);
 
         builder.HasOne(a => a.TiglUser)
             .WithMany(u => u.TrueSkillStats)

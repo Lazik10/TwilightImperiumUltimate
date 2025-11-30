@@ -6,7 +6,7 @@
 @using TwilightImperiumUltimate.Web.Pages;
 
 <div id="account-menu">
-    <FlexRowContainer JustifyContent="Enums.JustifyContent.SpaceBetween" AlignItems="Enums.AlignItems.Center">
+    <FlexRowContainer AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.FlexEnd">
         @if(_user is null)
         {
             <a href="@Pages.Login" class="handel white shadow">@Strings.Page_AccountLogin</a>
@@ -25,6 +25,9 @@
                             <a href="@Pages.AccountInfo">@Strings.Page_AccountInfo</a>
                                 <AuthorizeView Roles="Admin">
                                     <a href="@Pages.Admin">@Strings.Page_Admin</a>
+                                </AuthorizeView>
+                                <AuthorizeView Roles="TiglAdmin">
+                                    <a href="@Pages.TiglAdmin">@Strings.Page_TiglAdmin</a>
                                 </AuthorizeView>
                             <a href="@Pages.ResendPasswordRecoveryEmail">@Strings.Page_AccountPasswordReset</a>
                             <a href="#" @onclick="Logout">@Strings.Login_Logout</a>

@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using TwilightImperiumUltimate.Core.Entities.Async;
+using TwilightImperiumUltimate.Core.Entities.Logging;
 using TwilightImperiumUltimate.Core.Entities.Statistics;
 using TwilightImperiumUltimate.Core.Entities.Tigl;
 using TwilightImperiumUltimate.Core.Entities.Tigl.History;
+using TwilightImperiumUltimate.Core.Entities.Tigl.Ranks;
 using TwilightImperiumUltimate.Core.Entities.Tigl.Ratings;
 using TwilightImperiumUltimate.Core.Entities.Tigl.Stats;
 
@@ -64,6 +66,17 @@ public partial class TwilightImperiumDbContext : IdentityDbContext<TwilightImper
 
     public virtual DbSet<FactionColorImportance> FactionColorImportances { get; set; }
 
+    // Logs
+    public virtual DbSet<RankUpLog> RankUpLogs { get; set; }
+
+    public virtual DbSet<LeaderLog> LeaderLogHistory { get; set; }
+
+    public virtual DbSet<PrestigeLog> PrestigeLogs { get; set; }
+
+    public virtual DbSet<AchievementLog> AchievementLogs { get; set; }
+
+    public virtual DbSet<GamePublishLog> GamePublishLogs { get; set; }
+
     // Relationships
     public virtual DbSet<FactionTechnology> FactionTechnology { get; set; }
 
@@ -72,6 +85,10 @@ public partial class TwilightImperiumDbContext : IdentityDbContext<TwilightImper
     public virtual DbSet<MapRating> MapRatings { get; set; }
 
     public virtual DbSet<AsyncPlayerProfileGameStats> AsyncPlayerProfileGameStats { get; set; }
+
+    public virtual DbSet<TiglUserPrestigeRank> TiglUserPrestigeRanks { get; set; }
+
+    public virtual DbSet<TiglUserAchievement> TiglUserAchievements { get; set; }
 
     // Rules
     public virtual DbSet<Rule> Rules { get; set; }
@@ -86,8 +103,6 @@ public partial class TwilightImperiumDbContext : IdentityDbContext<TwilightImper
 
     public virtual DbSet<MatchReport> GameReports { get; set; }
 
-    public virtual DbSet<PlayerResult> PlayerResults { get; set; }
-
     public virtual DbSet<AsyncStats> AsyncStats { get; set; }
 
     public virtual DbSet<GlickoStats> GlickoStats { get; set; }
@@ -100,6 +115,8 @@ public partial class TwilightImperiumDbContext : IdentityDbContext<TwilightImper
 
     public virtual DbSet<TrueSkillRating> TrueSkillRatings { get; set; }
 
+    public virtual DbSet<RatingDecay> RatingDecays { get; set; }
+
     public virtual DbSet<AsyncPlayerMatchStats> AsyncPlayerMatchStats { get; set; }
 
     public virtual DbSet<GlickoPlayerMatchStats> GlickoPlayerMatchStats { get; set; }
@@ -108,7 +125,17 @@ public partial class TwilightImperiumDbContext : IdentityDbContext<TwilightImper
 
     public virtual DbSet<Season> Seasons { get; set; }
 
+    public virtual DbSet<PlayerSeasonResult> SeasonLeaderboard { get; set; }
+
     public virtual DbSet<TiglParameter> TiglParameters { get; set; }
+
+    public virtual DbSet<Achievement> Achievements { get; set; }
+
+    public virtual DbSet<TiglRank> Ranks { get; set; }
+
+    public virtual DbSet<PrestigeRank> PrestigeRanks { get; set; }
+
+    public virtual DbSet<Leader> Leaders { get; set; }
 
     // Units
     public virtual DbSet<Unit> Units { get; set; }
