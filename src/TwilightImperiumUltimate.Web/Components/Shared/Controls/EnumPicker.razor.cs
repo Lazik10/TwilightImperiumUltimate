@@ -13,7 +13,10 @@ public partial class EnumPicker<TEnum>
     public int Width { get; set; } = 100;
 
     [Parameter]
-    public int ButtonWidth { get; set; } = 100;
+    public int MinChoiceWidth { get; set; } = 0;
+
+    [Parameter]
+    public int ButtonWidth { get; set; } = 10;
 
     [Parameter]
     public required TEnum CurrentValue { get; set; }
@@ -29,6 +32,11 @@ public partial class EnumPicker<TEnum>
 
     [Parameter]
     public bool CenterText { get; set; } = true;
+
+    [Parameter]
+    public int LabelWidth { get; set; } = 30;
+
+    private int PickerWidth => 100 - LabelWidth;
 
     private void NextValue()
     {

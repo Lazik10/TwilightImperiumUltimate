@@ -12,11 +12,29 @@ public class MatchReport : IEntity
 
     public ResultSource Source { get; set; }
 
-    public long Timestamp { get; set; }
+    public long StartTimestamp { get; set; }
+
+    public long EndTimestamp { get; set; }
+
+    public int Score { get; set; }
+
+    public int Round { get; set; }
+
+    public int PlayerCount { get; set; }
+
+    public int Season { get; set; }
+
+    public TiglLeague League { get; set; }
+
+    public long Events { get; set; }
 
     public MatchState State { get; set; } = MatchState.New;
 
     public IReadOnlyCollection<PlayerResult> PlayerResults { get; set; } = new List<PlayerResult>();
 
-    public ICollection<AsyncPlayerMatchStats>? PlayerMatchStats { get; }
+    public ICollection<AsyncPlayerMatchStats>? PlayerMatchAsyncStats { get; }
+
+    public ICollection<GlickoPlayerMatchStats>? PlayerMatchGlickoStats { get; }
+
+    public ICollection<TrueSkillPlayerMatchStats>? PlayerMatchTrueSkillStats { get; }
 }

@@ -1,5 +1,7 @@
+using FluentResults;
+
 namespace TwilightImperiumUltimate.Business.Logic.Tigl;
 
-public class EndSeasonCommand : IRequest<bool>
+public class EndSeasonCommand : IRequest<Result<bool>>
 {
 }

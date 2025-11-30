@@ -1,0 +1,12 @@
+@using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Season
+@using TwilightImperiumUltimate.Contracts.DTOs.Tigl
+@using TwilightImperiumUltimate.Web.Components.Shared.Controls
+
+<NumericPicker
+    Title="@Title"
+    Value="@SeasonNumber"
+    Width="@Width"
+    FontSize="@FontSize"
+    DisplayText="@GetDisplayText()"
+    OnDecrease="DecreaseAsync"
+    OnIncrease="IncreaseAsync" />

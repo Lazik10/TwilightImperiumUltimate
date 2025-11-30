@@ -1,5 +1,7 @@
 using System.Globalization;
 using System.Resources;
+using System.Runtime.CompilerServices;
+using TwilightImperiumUltimate.Web.Pages.Community;
 
 namespace TwilightImperiumUltimate.Web.Helpers.Enums;
 
@@ -7,6 +9,8 @@ public static class EnumExtensions
 {
     private static readonly ResourceManager StringsResourceManager = new(Paths.ResourceNamespace_Strings, typeof(Program).Assembly);
     private static readonly ResourceManager CardNameResourceManager = new(Paths.ResourceNamespace_CardNames, typeof(Program).Assembly);
+    private static readonly ResourceManager TiglFactionsResourceManager = new ResourceManager(Paths.ResourceNamespace_TiglFactions, typeof(Program).Assembly);
+    private static readonly ResourceManager LeadersResourceManager = new ResourceManager(Paths.ResourceNamespace_Leaders, typeof(Program).Assembly);
 
     public static string GetDisplayName<TEnum>(this TEnum enumValue)
     {
@@ -23,6 +27,20 @@ public static class EnumExtensions
 
         string key = $"{enumValue.GetType().Name}_{enumValue}";
         string? displayName = CardNameResourceManager.GetString(key, CultureInfo.InvariantCulture);
+        return displayName ?? string.Empty;
+    }
+
+    public static string GetDisplayName(this TiglPrestigeRank enumValue)
+    {
+        string key = enumValue.ToString();
+        string? displayName = LeadersResourceManager.GetString(key, CultureInfo.InvariantCulture);
+        return displayName ?? string.Empty;
+    }
+
+    public static string GetDisplayName(this TiglFactionName enumValue)
+    {
+        string key = enumValue.ToString();
+        string? displayName = TiglFactionsResourceManager.GetString(key, CultureInfo.InvariantCulture);
         return displayName ?? string.Empty;
     }
 
@@ -153,6 +171,74 @@ public static class EnumExtensions
             MapTemplateFilter.EightPlayersLargeWarpMap => MapTemplate.EightPlayersLargeWarpMap,
             MapTemplateFilter.All => MapTemplate.CustomMap,
             _ => MapTemplate.CustomMap,
+        };
+    }
+
+    public static string ConvertToString(this TextColor color)
+    {
+        return color switch
+        {
+            TextColor.White => "white",
+            TextColor.Red => "red",
+            TextColor.Green => "lawngreen",
+            TextColor.Blue => "blue",
+            TextColor.Yellow => "yellow",
+            TextColor.Deepskyblue => "deepskyblue",
+            TextColor.Purple => "purple",
+            TextColor.Pink => "magenta",
+            TextColor.Orange => "orange",
+            TextColor.Grey => "grey",
+            TextColor.DarkGreen => "darkgreen",
+            TextColor.Black => "black",
+
+            TextColor.Unranked => "white",
+            TextColor.Minister => "#3498db",
+            TextColor.Agent => "#206694",
+            TextColor.Commander => "#b2a8e4",
+            TextColor.Hero => "#816de6",
+            TextColor.GalacticThreat => "#e74c3c",
+            TextColor.Pmbg => "#f1c40f",
+
+            _ => "white",
+        };
+    }
+
+    public static string GetAlignString(this AlignItems alignItems)
+    {
+        return alignItems switch
+        {
+            AlignItems.Baseline => "baseline;",
+            AlignItems.Stretch => "stretch;",
+            AlignItems.Center => "center;",
+            AlignItems.FlexEnd => "flex-end;",
+            AlignItems.FlexStart => "flex-start;",
+            _ => "center;",
+        };
+    }
+
+    public static string GetJustifyString(this JustifyContent justifyContent)
+    {
+        return justifyContent switch
+        {
+            JustifyContent.Center => "center;",
+            JustifyContent.FlexEnd => "flex-end;",
+            JustifyContent.SpaceAround => "space-around;",
+            JustifyContent.SpaceBetween => "space-between;",
+            JustifyContent.FlexStart => "flex-start;",
+            _ => "center;",
+        };
+    }
+
+    public static TextColor GetRankColor(this TiglRankName rank)
+    {
+        return rank switch
+        {
+            TiglRankName.Unranked or TiglRankName.Thrall => TextColor.Unranked,
+            TiglRankName.Minister or TiglRankName.Acolyte => TextColor.Minister,
+            TiglRankName.Agent or TiglRankName.Legionnaire => TextColor.Agent,
+            TiglRankName.Commander or TiglRankName.Starlancer => TextColor.Commander,
+            TiglRankName.Hero or TiglRankName.GeneSorcerer or TiglRankName.IxthLord or TiglRankName.Archon => TextColor.Hero,
+            _ => TextColor.White,
         };
     }
 }

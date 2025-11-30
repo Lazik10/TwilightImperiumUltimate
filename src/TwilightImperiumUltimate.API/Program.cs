@@ -27,6 +27,7 @@ app.UseCors(builder => builder
           .AllowAnyHeader());
 
 app.UseRouting();
+app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseHttpsRedirection();

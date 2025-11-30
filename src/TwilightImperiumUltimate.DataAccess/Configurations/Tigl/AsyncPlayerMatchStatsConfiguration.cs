@@ -16,6 +16,27 @@ public class AsyncPlayerMatchStatsConfiguration : IEntityTypeConfiguration<Async
         builder.Property(x => x.Id)
             .HasColumnOrder(0);
 
+        builder.HasIndex(x => x.DiscordUserId)
+            .HasDatabaseName("IX_AsyncPlayerMatchStats_DiscordUserId");
+
+        builder.HasIndex(x => x.MatchId)
+            .HasDatabaseName("IX_AsyncPlayerMatchStats_MatchId");
+
+        builder.HasIndex(x => x.Faction)
+            .HasDatabaseName("IX_AsyncPlayerMatchStats_Faction");
+
+        builder.HasIndex(x => x.Season)
+            .HasDatabaseName("IX_AsyncPlayerMatchStats_Season");
+
+        builder.HasIndex(x => x.IsRankUpGame)
+            .HasDatabaseName("IX_AsyncPlayerMatchStats_IsRankUpGame");
+
+        builder.HasIndex(x => x.Winner)
+            .HasDatabaseName("IX_AsyncPlayerMatchStats_Winner");
+
+        builder.HasIndex(x => x.StartTimestamp)
+            .HasDatabaseName("IX_AsyncPlayerMatchStats_StartTimestamp");
+
         builder.Property(x => x.AsyncStatsId)
             .IsRequired()
             .HasColumnName(nameof(AsyncPlayerMatchStats.AsyncStatsId))
@@ -103,11 +124,17 @@ public class AsyncPlayerMatchStatsConfiguration : IEntityTypeConfiguration<Async
             .HasMaxLength(100)
             .HasColumnOrder(14);
 
-        builder.Property(x => x.Timestamp)
+        builder.Property(x => x.StartTimestamp)
             .IsRequired()
-            .HasColumnName(nameof(AsyncPlayerMatchStats.Timestamp))
+            .HasColumnName(nameof(AsyncPlayerMatchStats.StartTimestamp))
             .HasColumnType("bigint")
             .HasColumnOrder(15);
+
+        builder.Property(x => x.EndTimestamp)
+            .IsRequired()
+            .HasColumnName(nameof(AsyncPlayerMatchStats.EndTimestamp))
+            .HasColumnType("bigint")
+            .HasColumnOrder(16);
 
         builder.Property(x => x.IsRankUpGame)
             .IsRequired()
@@ -115,7 +142,7 @@ public class AsyncPlayerMatchStatsConfiguration : IEntityTypeConfiguration<Async
             .HasConversion(new BoolToStringConverter("false", "true"))
             .HasColumnType("varchar(10)")
             .HasMaxLength(10)
-            .HasColumnOrder(16);
+            .HasColumnOrder(17);
 
         builder.Property(x => x.OldRank)
             .IsRequired()
@@ -123,7 +150,7 @@ public class AsyncPlayerMatchStatsConfiguration : IEntityTypeConfiguration<Async
             .HasConversion<string>()
             .HasColumnType("varchar(50)")
             .HasMaxLength(50)
-            .HasColumnOrder(17);
+            .HasColumnOrder(18);
 
         builder.Property(x => x.NewRank)
             .IsRequired()
@@ -131,7 +158,15 @@ public class AsyncPlayerMatchStatsConfiguration : IEntityTypeConfiguration<Async
             .HasConversion<string>()
             .HasColumnType("varchar(50)")
             .HasMaxLength(50)
-            .HasColumnOrder(18);
+            .HasColumnOrder(19);
+
+        builder.Property(x => x.ForcedReset)
+            .IsRequired()
+            .HasColumnName(nameof(AsyncPlayerMatchStats.ForcedReset))
+            .HasConversion(new BoolToStringConverter("false", "true"))
+            .HasColumnType("varchar(10)")
+            .HasMaxLength(10)
+            .HasColumnOrder(20);
 
         builder.HasOne(x => x.AsyncStats)
             .WithMany(x => x.MatchStats)

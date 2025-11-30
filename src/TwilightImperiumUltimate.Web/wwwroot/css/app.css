@@ -91,6 +91,13 @@ html::-webkit-scrollbar-button {
 
 html {
     overflow-y: scroll;
+
+    background-image: url('/resources/images/shared/Twilight_imperium_ultimate_background.webp');
+    background-position: center center;
+    background-repeat: repeat-y;
+    background-size: cover; /* always cover viewport */
+    background-attachment: fixed; /* stays fixed across pages and scrolls */
+    background-color: #000; /* fallback */
 }
 
 /* ========================= TEXT =========================== */
@@ -135,11 +142,19 @@ html {
 }
 
 .loading-text {
+    position: fixed; /* stays in screen center */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    z-index: 9999;
+    pointer-events: none; /* avoid blocking clicks if Blazor loads slowly */
+
     font-family: Handel, fallback, sans-serif !important;
     font-size: 48px !important;
     font-weight: bold !important;
     color: white !important;
-    padding-top: 400px;
+
     text-align: center !important;
     text-transform: uppercase !important;
     text-shadow: 0px 2px 6px rgba(0, 0, 0, 1), 2px 0px 6px rgba(0, 0, 0, 1), 0px -2px 6px rgba(0, 0, 0, 1), -2px 0px 6px rgba(0, 0, 0, 1), 1px 1px 6px rgba(0, 0, 0, 1), 1px -1px 6px rgba(0, 0, 0, 1), -1px 1px 6px rgba(0, 0, 0, 1), -1px -1px 6px rgba(0, 0, 0, 1) !important;
@@ -233,57 +248,34 @@ html {
     grid-column: span 10;
 }
 
+.span-11 {
+    grid-column: span 11;
+}
+
+.span-12 {
+    grid-column: span 12;
+}
+
 /* ==================== GENERAL LAYOUT ====================== */
 body {
     width: 100%;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
-    background-image: url('/resources/images/shared/Twilight_imperium_ultimate_background.webp');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    background-attachment: fixed;
-/*    font-size: clamp(12px, 1vw + 1rem, 16px);*/
+    background: transparent;
 }
 
 #app {
     width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 main {
     height: 100%;
     width: 1920px;
     position: relative;
-/*    padding: 1%;*/
     box-sizing: border-box;
 }
-
-/*@media (max-width: 768px) {
-    main {
-        padding: 0.5%;
-    }
-}
-
-h1, h2, h3, p, span {
-    font-size: clamp(1rem, 2vw, 2rem);
-    line-height: 1.5;
-    margin: 0;
-}
-
-h1 {
-    font-size: clamp(2rem, 3vw, 4rem);
-}
-
-h2 {
-    font-size: clamp(1.5rem, 2.5vw, 3rem);
-}
-
-p {
-    font-size: clamp(1rem, 1.5vw, 1.5rem);
-}*/
 
 .clickable {
     cursor: pointer;

@@ -25,7 +25,8 @@ public partial class ResendConfirmationEmail
         _disableButton = true;
 
         var request = new ResendConfirmEmailRequest { Email = ConfirmationEmailModel.Email, };
-        var (_, statusCode) = await HttpClient.PostAsync<ResendConfirmEmailRequest, ResendConfirmEmailResponse>(Paths.ApiPath_ResendConfirmationEmail, request, default);
+        var result = await HttpClient.PostAsync<ResendConfirmEmailRequest, ResendConfirmEmailResponse>(Paths.ApiPath_ResendConfirmationEmail, request, default);
+        var statusCode = result.StatusCode;
 
         if (statusCode == System.Net.HttpStatusCode.OK)
         {

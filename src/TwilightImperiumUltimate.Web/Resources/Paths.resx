@@ -456,4 +456,94 @@
   <data name="ApiPath_AsyncGameByFunName" xml:space="preserve">
     <value>api/async/game-by-fun-name</value>
   </data>
+  <data name="ApiPath_TiglGameReports" xml:space="preserve">
+    <value>api/tigl/game-reports</value>
+  </data>
+  <data name="ApiPath_ReportGame" xml:space="preserve">
+    <value>api/tigl/report-game</value>
+  </data>
+  <data name="ApiPath_Rankings" xml:space="preserve">
+    <value>api/rankings/overview</value>
+  </data>
+  <data name="ApiPath_RankingsLeaders" xml:space="preserve">
+    <value>api/rankings/leaders</value>
+  </data>
+  <data name="ResourcePath_LeaderIconPath" xml:space="preserve">
+    <value>\resources\images\shared\leaders</value>
+  </data>
+  <data name="ResourceNamespace_TiglFactions" xml:space="preserve">
+    <value>TwilightImperiumUltimate.Web.Resources.TiglFactions</value>
+  </data>
+  <data name="ResourceNamespace_Leaders" xml:space="preserve">
+    <value>TwilightImperiumUltimate.Web.Resources.Leaders</value>
+  </data>
+  <data name="ApiPath_GameReports" xml:space="preserve">
+    <value>api/tigl/game-reports</value>
+  </data>
+  <data name="ApiPath_Seasons" xml:space="preserve">
+    <value>api/tigl/seasons</value>
+  </data>
+  <data name="ApiPath_GameReport" xml:space="preserve">
+    <value>api/tigl/game-report/</value>
+  </data>
+  <data name="ApiPath_RecentAchievements" xml:space="preserve">
+    <value>api/rankings/recent-achievements</value>
+  </data>
+  <data name="ApiPath_SeasonUpdate" xml:space="preserve">
+    <value>api/tigl/update-season</value>
+  </data>
+  <data name="ApiPath_SetActiveSeason" xml:space="preserve">
+    <value>api/tigl/set-active-season</value>
+  </data>
+  <data name="ApiPath_EndSeason" xml:space="preserve">
+    <value>api/tigl/end-season</value>
+  </data>
+  <data name="ApiPath_AddSeason" xml:space="preserve">
+    <value>api/tigl/add-season</value>
+  </data>
+  <data name="ApiPath_UpdateSeason" xml:space="preserve">
+    <value>api/tigl/update-season</value>
+  </data>
+  <data name="ApiPath_TiglUsers" xml:space="preserve">
+    <value>api/tigl/users</value>
+  </data>
+  <data name="ApiPath_ManualReportGame" xml:space="preserve">
+    <value>api/tigl/manual-report-game</value>
+  </data>
+  <data name="ApiPath_EvaluateGameReport" xml:space="preserve">
+    <value>api/tigl/evaluate-game-report</value>
+  </data>
+  <data name="ApiPath_RankingsUserOverview" xml:space="preserve">
+    <value>api/rankings/user-rank-overview/</value>
+  </data>
+  <data name="ApiPath_RankingsUserHistory" xml:space="preserve">
+    <value>api/rankings/user-rank-history/</value>
+  </data>
+  <data name="ApiPath_RankingsUserPrestigeHistory" xml:space="preserve">
+    <value>api/rankings/user-prestige-rank-history/</value>
+  </data>
+  <data name="ApiPath_AwardPrestigeRank" xml:space="preserve">
+    <value>api/rankings/award-prestige-rank</value>
+  </data>
+  <data name="ApiPath_RemovePrestigeRank" xml:space="preserve">
+    <value>api/rankings/remove-prestige-rank</value>
+  </data>
+  <data name="ApiPath_TiglParameters" xml:space="preserve">
+    <value>api/tigl/parameters</value>
+  </data>
+  <data name="ApiPath_UpdateTiglParameter" xml:space="preserve">
+    <value>api/tigl/update-parameter</value>
+  </data>
+  <data name="ApiPath_AddRankHistory" xml:space="preserve">
+    <value>api/rankings/add-rank-history</value>
+  </data>
+  <data name="ApiPath_RemoveRankHistory" xml:space="preserve">
+    <value>api/rankings/remove-rank-history</value>
+  </data>
+  <data name="ApiPath_TiglRegisterUser" xml:space="preserve">
+    <value>api/tigl/register-user</value>
+  </data>
+  <data name="ApiPath_SeasonLeaderboard" xml:space="preserve">
+    <value>api/tigl/season-leaderboard/</value>
+  </data>
 </root>

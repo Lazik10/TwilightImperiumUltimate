@@ -38,7 +38,8 @@ public class AsyncPlayerMatchStatsService : IAsyncPlayerMatchStatsService
                     RatingOld = asyncStats?.Rating?.Rating ?? 0,
                     AussieScoreOld = asyncStats?.Rating?.AussieScore ?? 0,
                     Faction = TiglFactionParser.ParseFaction(x.Faction),
-                    Timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds(),
+                    StartTimestamp = report.StartTimestamp,
+                    EndTimestamp = report.EndTimestamp,
                 };
             })];
     }

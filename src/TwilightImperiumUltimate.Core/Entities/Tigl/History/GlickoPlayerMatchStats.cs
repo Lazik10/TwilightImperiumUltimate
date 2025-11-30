@@ -25,8 +25,6 @@ public class GlickoPlayerMatchStats
 
     public TiglFactionName Faction { get; set; }
 
-    public double Performance { get; set; }
-
     public double RatingOld { get; set; }
 
     public double RatingNew { get; set; }
@@ -49,11 +47,15 @@ public class GlickoPlayerMatchStats
 
     public int Season { get; set; }
 
-    public long Timestmap { get; set; }
+    public long StartTimestamp { get; set; }
+
+    public long EndTimestamp { get; set; }
 
     public bool IsRankUpGame { get; set; }
 
-    public TiglAsyncRank OldRank { get; set; }
+    public bool ForcedReset { get; set; }
 
-    public TiglAsyncRank NewRank { get; set; }
+    public TiglRankName OldRank { get; set; }
+
+    public TiglRankName NewRank { get; set; }
 }

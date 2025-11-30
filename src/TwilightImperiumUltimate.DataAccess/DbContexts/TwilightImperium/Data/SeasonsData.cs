@@ -10,9 +10,9 @@ internal static class SeasonsData
         {
             Id = 1,
             SeasonNumber = 1,
-            Name = string.Empty,
-            StartDate = DateOnly.FromDateTime(new DateTime(2023, 1, 1, 0, 0, 0, DateTimeKind.Utc)),
-            EndDate = DateOnly.FromDateTime(new DateTime(2023, 12, 31, 23, 59, 59, DateTimeKind.Utc)),
+            Name = "Season 1",
+            StartDate = DateOnly.FromDateTime(DateTime.UtcNow),
+            EndDate = DateOnly.FromDateTime(DateTime.UtcNow),
             IsActive = true,
         },
     };

@@ -2,7 +2,6 @@ using Microsoft.JSInterop;
 using TwilightImperiumUltimate.Contracts.DTOs.Async;
 using TwilightImperiumUltimate.Contracts.DTOs.Async.Games;
 using TwilightImperiumUltimate.Web.Options.Async;
-using TwilightImperiumUltimate.Web.Pages.Community;
 using TwilightImperiumUltimate.Web.Services.Async;
 
 namespace TwilightImperiumUltimate.Web.Components.Async.Games;

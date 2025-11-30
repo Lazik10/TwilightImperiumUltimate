@@ -16,7 +16,6 @@ public class GlickoPlayerMatchStatsService : IGlickoPlayerMatchStatsService
 
         UpdatePlayerPlacements(playerMatchStats);
         AssignWinner(playerMatchStats);
-        CalculatePerformance(playerMatchStats);
 
         return Task.FromResult(playerMatchStats);
     }
@@ -40,7 +39,8 @@ public class GlickoPlayerMatchStatsService : IGlickoPlayerMatchStatsService
                     RdOld = glickoStats?.Rating?.Rd ?? 0,
                     VolatilityOld = glickoStats?.Rating?.Volatility ?? 0,
                     Faction = TiglFactionParser.ParseFaction(x.Faction),
-                    Timestmap = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds(),
+                    StartTimestamp = report.StartTimestamp,
+                    EndTimestamp = report.EndTimestamp,
                 };
             })];
     }
@@ -66,27 +66,4 @@ public class GlickoPlayerMatchStatsService : IGlickoPlayerMatchStatsService
     }
 
     private static void AssignWinner(List<GlickoPlayerMatchStats> playerMatchStats) => playerMatchStats[0].Winner = true;
-
-    private static void CalculatePerformance(List<GlickoPlayerMatchStats> playerMatchStats)
-    {
-        var maxScore = playerMatchStats.Max(s => s.Score);
-        var scores = playerMatchStats.Select(s => (double)s.Score).ToArray();
-        var mean = scores.Average();
-        var stdDev = Math.Sqrt(scores.Select(s => Math.Pow(s - mean, 2)).Average());
-        var maxStdDev = maxScore / 2.0;
-        var closeness = 1.0 - Math.Min(stdDev / maxStdDev, 1.0); // 1 = very close, 0 = very spread
-
-        foreach (var playerStats in playerMatchStats)
-        {
-            if (playerStats.Score == maxScore)
-            {
-                playerStats.Performance = 0.9 + (0.1 * (1.0 - closeness));
-            }
-            else
-            {
-                var basePerformance = Math.Pow((double)playerStats.Score / maxScore, 2);
-                playerStats.Performance = basePerformance * (0.7 + (0.3 * closeness));
-            }
-        }
-    }
 }

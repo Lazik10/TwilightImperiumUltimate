@@ -74,6 +74,16 @@ public static class Pages
 
     public const string Tigl = "/community/tigl";
 
+    public const string TiglRegister = "/community/tigl/register";
+
+    public const string TiglReportGame = "/community/tigl/report-game";
+
+    public const string TiglPlayerProfile = "/community/tigl/player-profile";
+
+    public const string TiglGameDetail = "/community/tigl/game-detail";
+
+    public const string Rankings = "/community/rankings";
+
     // Rules
     public const string Rules = "/rules";
 
@@ -102,6 +112,8 @@ public static class Pages
     public const string ResendPasswordRecoveryEmail = "/account/resend-password-recovery-email";
 
     public const string Admin = "account/admin";
+
+    public const string TiglAdmin = "account/tigl-admin";
 
     public const string Moderator = "account/moderator";
 }

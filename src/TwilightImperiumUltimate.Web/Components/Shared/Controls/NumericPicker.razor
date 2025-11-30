@@ -3,21 +3,25 @@
 <FlexRowContainer Width="@Width"
     JustifyContent="Enums.JustifyContent.SpaceEvenly"
     CssClass="title handel white shadow">
-    @if(HideTitle == false)
+    @if(!HideTitle)
     {
         if(CenteredText)
         {
-            <Title Text="@Title" FontSize="@FontSize" MarginTop="0" />
+            <Label Text="@Title" FontSize="@FontSize" CenterText="true" TextColor="@LabelColor" Width="@(LabelWidth)" />
         }
         else
         {
-            <Label Text="@Title" FontSize="@FontSize" />
+            <Label Text="@Title" FontSize="@FontSize" TextColor="@LabelColor" Width="@(LabelWidth)" />
         }
 
     }
-    <FlexRowContainer AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.FlexStart">
-        <ArrowButton ArrowSymbol="@LeftArrowSymbol" OnArrowClick="() => OnDecrease.InvokeAsync(null)" />
-        <Label Text="@Value.ToString()" FontSize="@FontSize" CenterText="true" />
-        <ArrowButton ArrowSymbol="@RightArrowSymbol" OnArrowClick="() => OnIncrease.InvokeAsync(null)" />
+    <FlexRowContainer AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.FlexStart" Width="@PickerWidth">
+        <ArrowButton ArrowSymbol="@LeftArrowSymbol" OnArrowClick="() => OnDecrease.InvokeAsync(null)" Width="@ButtonWidth" />
+        <Label Text="@GetDisplayText()" FontSize="@FontSize" CenterText="true" TextColor="@ValueColor" MinWidth="@MinChoiceWidth" Width="80" />
+        <ArrowButton ArrowSymbol="@RightArrowSymbol" OnArrowClick="() => OnIncrease.InvokeAsync(null)" Width="@ButtonWidth" />
     </FlexRowContainer>
 </FlexRowContainer>
+
+@code {
+    private string GetDisplayText() => string.IsNullOrEmpty(DisplayText) ? Value.ToString() : DisplayText!;
+}

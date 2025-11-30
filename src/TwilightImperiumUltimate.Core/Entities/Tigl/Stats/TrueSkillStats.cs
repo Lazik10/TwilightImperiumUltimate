@@ -19,7 +19,5 @@ public class TrueSkillStats : IEntity
 
     public TiglLeague League { get; set; }
 
-    public TiglAsyncRank Rank { get; set; }
-
     public ICollection<TrueSkillPlayerMatchStats> MatchStats { get; } = new List<TrueSkillPlayerMatchStats>();
 }

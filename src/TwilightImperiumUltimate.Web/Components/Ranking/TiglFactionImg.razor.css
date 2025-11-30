@@ -1,0 +1,11 @@
+﻿@media (max-width: 1248px) {
+    .tigl-faction-icon {
+        max-height: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .tigl-faction-icon {
+        max-height: 15px;
+    }
+}

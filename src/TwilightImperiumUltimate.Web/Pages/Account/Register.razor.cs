@@ -42,11 +42,14 @@ public partial class Register
                 Username = _userName,
             };
 
-            var (precheckResponse, precheckStatusCode) = await HttpClient.PostAsync<UserRegisterationPrecheckRequest, ApiResponse<UserRegistrationPrecheckResponse>>(Paths.ApiPath_PreRegistrationCheck, precheckRequest);
+            var precheck = await HttpClient.PostAsync<UserRegisterationPrecheckRequest, ApiResponse<UserRegistrationPrecheckResponse>>(Paths.ApiPath_PreRegistrationCheck, precheckRequest);
+            var precheckResponse = precheck.Response;
+            var precheckStatusCode = precheck.StatusCode;
 
             if (precheckStatusCode == HttpStatusCode.OK && !precheckResponse.Data!.UserNameNotAvailable && !precheckResponse.Data!.EmailNotAvailable)
             {
-                var (_, statusCode) = await HttpClient.PostAsync<RegistrationModel, RegistrationResponse>(Paths.ApiPath_AccountRegister, RegistrationUserModel, default);
+                var registerResult = await HttpClient.PostAsync<RegistrationModel, RegistrationResponse>(Paths.ApiPath_AccountRegister, RegistrationUserModel, default);
+                var statusCode = registerResult.StatusCode;
 
                 if (statusCode == HttpStatusCode.OK)
                 {
@@ -88,11 +91,14 @@ public partial class Register
     private async Task AddDefaultUserRole()
     {
         var accountInfoRequest = new AccountInfoRequest { Email = RegistrationUserModel.Email };
-        var (response, statusCode) = await HttpClient.PostAsync<AccountInfoRequest, ApiResponse<TwilightImperiumUserDto>>(Paths.ApiPath_UserByEmail, accountInfoRequest);
+        var userResult = await HttpClient.PostAsync<AccountInfoRequest, ApiResponse<TwilightImperiumUserDto>>(Paths.ApiPath_UserByEmail, accountInfoRequest);
+        var response = userResult.Response;
+        var statusCode = userResult.StatusCode;
         if (statusCode == HttpStatusCode.OK)
         {
             var roleRequest = new AddRoleToUserRequest() { RoleName = "User", UserId = response!.Data!.Id };
-            var (_, roleStatusCode) = await HttpClient.PostAsync<AddRoleToUserRequest, AddRoleToUserResponse>(Paths.ApiPath_AddRole, roleRequest);
+            var roleResult = await HttpClient.PostAsync<AddRoleToUserRequest, AddRoleToUserResponse>(Paths.ApiPath_AddRole, roleRequest);
+            var roleStatusCode = roleResult.StatusCode;
 
             if (roleStatusCode == HttpStatusCode.OK)
             {

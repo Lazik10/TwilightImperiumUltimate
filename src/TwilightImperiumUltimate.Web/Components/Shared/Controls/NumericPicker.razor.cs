@@ -31,4 +31,24 @@ public partial class NumericPicker
 
     [Parameter]
     public bool CenteredText { get; set; } = true;
+
+    [Parameter]
+    public string? DisplayText { get; set; }
+
+    [Parameter]
+    public TextColor LabelColor { get; set; } = TextColor.White;
+
+    [Parameter]
+    public TextColor ValueColor { get; set; } = TextColor.White;
+
+    [Parameter]
+    public int MinChoiceWidth { get; set; } = 0;
+
+    [Parameter]
+    public int LabelWidth { get; set; } = 30;
+
+    [Parameter]
+    public int ButtonWidth { get; set; } = 10;
+
+    private int PickerWidth => 100 - LabelWidth;
 }

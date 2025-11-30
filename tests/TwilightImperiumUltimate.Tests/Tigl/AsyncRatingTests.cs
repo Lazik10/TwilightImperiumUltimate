@@ -22,7 +22,7 @@ public class AsyncRatingTests
         var asyncPlayerMatchStatsService = new AsyncPlayerMatchStatsService();
         var asyncRatingCalculatorService = new AsyncRatingCalculatorService();
         var faker = new Faker();
-        var league = TiglLeague.Tigl;
+        var league = TiglLeague.Test;
 
         var players = Enumerable.Range(1, 6).Select(i => new TiglUser
         {
@@ -46,11 +46,13 @@ public class AsyncRatingTests
         var report = new GameReport()
         {
             GameId = "pbd1000",
-            Source = Contracts.Enums.ResultSource.Async,
+            Score = 10,
+            Source = ResultSource.Async,
             PlayerResults = players.Select((p, i) => new Contracts.ApiContracts.Tigl.Report.PlayerResult
             {
                 DiscordId = p.DiscordId,
                 Score = scores[i],
+                Faction = "The Arborec",
             }).ToList(),
         };
 
@@ -77,7 +79,7 @@ public class AsyncRatingTests
         var asyncPlayerMatchStatsService = new AsyncPlayerMatchStatsService();
         var asyncRatingCalculatorService = new AsyncRatingCalculatorService();
         var faker = new Faker();
-        var league = TiglLeague.Tigl;
+        var league = TiglLeague.Test;
 
         double[] ratings = [1323.00, 1272.00, 1068.39, 1000.00, 1244.00, 906.00];
         var expectedFinalRatings = new[] { 1369.71, 1277.31, 1212.04, 1089.10, 1025.68, 895.69, };
@@ -104,11 +106,13 @@ public class AsyncRatingTests
         var report = new GameReport()
         {
             GameId = "pbd1000",
-            Source = Contracts.Enums.ResultSource.Async,
+            Score = 10,
+            Source = ResultSource.Async,
             PlayerResults = players.Select((p, i) => new Contracts.ApiContracts.Tigl.Report.PlayerResult
             {
                 DiscordId = p.DiscordId,
                 Score = scores[i],
+                Faction = "The Arborec",
             }).ToList(),
         };
 
@@ -140,7 +144,7 @@ public class AsyncRatingTests
         var asyncRatingCalculatorService = new AsyncRatingCalculatorService();
         var faker = new Faker();
         var random = new Random();
-        var league = TiglLeague.Tigl;
+        var league = TiglLeague.Test;
 
         var players = Enumerable.Range(0, 1000)
             .Select(i => new TiglUser
@@ -168,7 +172,8 @@ public class AsyncRatingTests
             var report = new GameReport()
             {
                 GameId = "pbd1000",
-                Source = Contracts.Enums.ResultSource.Async,
+                Score = 10,
+                Source = ResultSource.Async,
                 PlayerResults = players
                     .OrderByDescending(p => random.Next())
                     .Take(6)
@@ -176,6 +181,7 @@ public class AsyncRatingTests
                     {
                         DiscordId = p.DiscordId,
                         Score = i == 0 ? 10 : random.Next(1, 10),
+                        Faction = "The Arborec",
                     }).ToList(),
             };
 

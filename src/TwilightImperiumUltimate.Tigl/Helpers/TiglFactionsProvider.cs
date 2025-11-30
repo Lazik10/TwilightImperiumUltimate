@@ -4,7 +4,7 @@ namespace TwilightImperiumUltimate.Tigl.Helpers;
 
 public static class TiglFactionsProvider
 {
-    public static IReadOnlyCollection<TiglFactionName> TiglFactions =>
+    public static IReadOnlyCollection<TiglFactionName> OfficialTiglFactions =>
         [
         TiglFactionName.TheArborec,
         TiglFactionName.TheBaronyOfLetnev,
@@ -35,10 +35,61 @@ public static class TiglFactionsProvider
         TiglFactionName.TheCouncilKeleresMentak,
         TiglFactionName.TheCouncilKeleresXxcha,
         TiglFactionName.TheCouncilKeleresArgent,
+
+        TiglFactionName.TheCrimsonRebellion,
+        TiglFactionName.TheDeepwroughtScholarate,
+        TiglFactionName.TheFirmamentTheObsidian,
+        TiglFactionName.LastBastion,
+        TiglFactionName.TheRalNelConsortium,
     ];
 
-    public static IReadOnlyCollection<TiglFactionName> DiscordantStarsFactions =>
+    public static IReadOnlyCollection<TiglFactionName> ShatteredLeagueFactions =>
     [
+        TiglFactionName.TheArborec,
+        TiglFactionName.TheBaronyOfLetnev,
+        TiglFactionName.TheClanOfSaar,
+        TiglFactionName.TheEmbersOfMuaat,
+        TiglFactionName.TheEmiratesOfHacan,
+        TiglFactionName.TheFederationOfSol,
+        TiglFactionName.TheGhostsOfCreuss,
+        TiglFactionName.TheL1z1xMindnet,
+        TiglFactionName.TheMentakCoalition,
+        TiglFactionName.TheNaaluCollective,
+        TiglFactionName.TheNekroVirus,
+        TiglFactionName.SardakkNorr,
+        TiglFactionName.TheUniversitiesOfJolNar,
+        TiglFactionName.TheWinnu,
+        TiglFactionName.TheXxchaKingdom,
+        TiglFactionName.TheYinBrotherhood,
+        TiglFactionName.TheYssarilTribes,
+
+        TiglFactionName.TheArgentFlight,
+        TiglFactionName.TheEmpyrean,
+        TiglFactionName.TheMahactGeneSorcerers,
+        TiglFactionName.TheNaazRokhaAlliance,
+        TiglFactionName.TheNomad,
+        TiglFactionName.TheTitansOfUl,
+        TiglFactionName.TheVuilRaithCabal,
+
+        TiglFactionName.TheCouncilKeleresMentak,
+        TiglFactionName.TheCouncilKeleresXxcha,
+        TiglFactionName.TheCouncilKeleresArgent,
+
+        TiglFactionName.TheCrimsonRebellion,
+        TiglFactionName.TheDeepwroughtScholarate,
+        TiglFactionName.TheFirmamentTheObsidian,
+        TiglFactionName.LastBastion,
+        TiglFactionName.TheRalNelConsortium,
+
+        TiglFactionName.TheRubyMonarch,
+        TiglFactionName.RadiantAur,
+        TiglFactionName.AvariceRex,
+        TiglFactionName.IlSaiLakoeHeraldOfThorns,
+        TiglFactionName.TheSaintOfSwords,
+        TiglFactionName.IlNaViroset,
+        TiglFactionName.ElNenJanovet,
+        TiglFactionName.ASickeningLurch,
+
         TiglFactionName.TheAugursOfIlyxum,
         TiglFactionName.TheBentorConglomerate,
         TiglFactionName.TheBerserkersOfKjalengard,

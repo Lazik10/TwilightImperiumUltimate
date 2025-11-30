@@ -1,0 +1,6 @@
+<div class="alphabet-row">
+    @foreach (var letter in Alphabet)
+    {
+        <TextButton Text="@letter.ToString()" OnClick="() => SelectLetter(letter)" FontSize="14" />
+    }
+</div>

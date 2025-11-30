@@ -1,6 +1,6 @@
 namespace TwilightImperiumUltimate.Contracts.Enums;
 
-internal enum RankingSystem
+public enum RankingSystem
 {
     Async,
     Glicko2,

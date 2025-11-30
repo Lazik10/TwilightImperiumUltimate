@@ -40,7 +40,7 @@
         <EditForm Model="@RegistrationUserModel" OnValidSubmit="RegisterUser" OnInvalidSubmit="RegisterUserFailed" style="width: 100%;">
             <FluentValidationValidator />
 
-            <FlexColumnCenteredContainer>
+            <FlexColumnCenteredContainer CssClass="handel">
 
                 @if (_emailExists)
                 {

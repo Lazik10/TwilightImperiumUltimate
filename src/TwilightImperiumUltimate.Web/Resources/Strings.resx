@@ -228,6 +228,9 @@
   <data name="Discord_Asynchronous" xml:space="preserve">
     <value>TI4 Asynchronous Hub</value>
   </data>
+  <data name="Discord_Asynchronous1" xml:space="preserve">
+    <value>TI4 Asynchronous Hub</value>
+  </data>
   <data name="Discord_AsynchronousInvite" xml:space="preserve">
     <value>https://discord.gg/VTFeYeg9bx</value>
   </data>
@@ -1516,7 +1519,7 @@ Brandon Williams&lt;/p&gt;</value>
     <value>Credits</value>
   </data>
   <data name="Footer_DevelopedBy" xml:space="preserve">
-    <value>Developed by "Lázik" (2023-2024)</value>
+    <value>Developed by "Lázik" (2023-2026)</value>
   </data>
   <data name="Footer_Disclaimer" xml:space="preserve">
     <value>TI4 Ultimate is not affiliated with or sponsored by Fantasy Flight Games®</value>
@@ -2410,5 +2413,494 @@ Brandon Williams&lt;/p&gt;</value>
   </data>
   <data name="GameVersion_CodexLiberation" xml:space="preserve">
     <value>Codex Liberation</value>
+  </data>
+  <data name="TiglMenu_Leaderboard" xml:space="preserve">
+    <value>LEADERBOARD</value>
+  </data>
+  <data name="RankingsMenu_Ranks" xml:space="preserve">
+    <value>RANKS</value>
+  </data>
+  <data name="RankingsMenu_Leaders" xml:space="preserve">
+    <value>LEADERS</value>
+  </data>
+  <data name="RankingsMenu_Achievements" xml:space="preserve">
+    <value>ACHIEVEMENTS</value>
+  </data>
+  <data name="TiglMenu_Players" xml:space="preserve">
+    <value>PLAYERS</value>
+  </data>
+  <data name="TiglMenu_Statistics" xml:space="preserve">
+    <value>STATISTICS</value>
+  </data>
+  <data name="Rankings_PrestigeRankCategory_Pmbg" xml:space="preserve">
+    <value>Pax Magnifica Bellum Gloriosum</value>
+  </data>
+  <data name="Rankings_PrestigeRankCategory_GalacticThreatOne" xml:space="preserve">
+    <value>Galactic Threat III</value>
+  </data>
+  <data name="Rankings_PrestigeRankCategory_GalacticThreatTwo" xml:space="preserve">
+    <value>Galactic Threat II</value>
+  </data>
+  <data name="Rankings_PrestigeRankCategory_GalacticThreatThree" xml:space="preserve">
+    <value>Galactic Threat III</value>
+  </data>
+  <data name="Rankings_PrestigeRankCategory_GalacticThreatFour" xml:space="preserve">
+    <value>Galactic Threat IV</value>
+  </data>
+  <data name="Rankings_PrestigeRankCategory_GalacticThreatFive" xml:space="preserve">
+    <value>Galactic Threat V</value>
+  </data>
+  <data name="Rankings_PrestigeRankCategory_Hero" xml:space="preserve">
+    <value>Hero</value>
+  </data>
+  <data name="Rankings_PrestigeRankCategory_Commander" xml:space="preserve">
+    <value>Commander</value>
+  </data>
+  <data name="Rankings_PrestigeRankCategory_Agent" xml:space="preserve">
+    <value>Agent</value>
+  </data>
+  <data name="Rankings_PrestigeRankCategory_Minister" xml:space="preserve">
+    <value>Minister</value>
+  </data>
+  <data name="Rankings_PrestigeRankCategory_Unranked" xml:space="preserve">
+    <value>Unranked</value>
+  </data>
+  <data name="TiglLeague_Fractured" xml:space="preserve">
+    <value>Fractured</value>
+  </data>
+  <data name="TiglLeague_ProphecyOfKings" xml:space="preserve">
+    <value>Prophecy of Kings</value>
+  </data>
+  <data name="TiglLeague_ThundersEdge" xml:space="preserve">
+    <value>Thunder's Edge (Standard)</value>
+  </data>
+  <data name="TiglLeague_League" xml:space="preserve">
+    <value>League</value>
+  </data>
+  <data name="TiglPrestigeRank_PaxMagnificaBellumGloriosum" xml:space="preserve">
+    <value>Pax Magnifica Bellum Gloriosum</value>
+  </data>
+  <data name="TiglPrestigeRank_Tyrant" xml:space="preserve">
+    <value>Tyrant</value>
+  </data>
+  <data name="TiglPrestigeRank_GalacticThreat" xml:space="preserve">
+    <value>Galactic Threat</value>
+  </data>
+  <data name="TiglRankName_Unranked" xml:space="preserve">
+    <value>Unranked</value>
+  </data>
+  <data name="TiglRankName_Minister" xml:space="preserve">
+    <value>Minister</value>
+  </data>
+  <data name="TiglRankName_Agent" xml:space="preserve">
+    <value>Agent</value>
+  </data>
+  <data name="Page_Rankings" xml:space="preserve">
+    <value>TIGL Ranks</value>
+  </data>
+  <data name="TiglRankName_Commander" xml:space="preserve">
+    <value>Commander</value>
+  </data>
+  <data name="TiglRankName_Hero" xml:space="preserve">
+    <value>Hero</value>
+  </data>
+  <data name="TiglRankName_Thrall" xml:space="preserve">
+    <value>Thrall</value>
+  </data>
+  <data name="TiglRankName_Acolyte" xml:space="preserve">
+    <value>Acolyte</value>
+  </data>
+  <data name="TiglRankName_Legionnaire" xml:space="preserve">
+    <value>Legionnaire</value>
+  </data>
+  <data name="TiglRankName_Starlancer" xml:space="preserve">
+    <value>Starlancer</value>
+  </data>
+  <data name="TiglRankName_GeneSorcerer" xml:space="preserve">
+    <value>Gene-Sorcerer</value>
+  </data>
+  <data name="TiglRankName_IxthLord" xml:space="preserve">
+    <value>Ixth-Lord</value>
+  </data>
+  <data name="TiglRankName_Archon" xml:space="preserve">
+    <value>Archon</value>
+  </data>
+  <data name="TiglMenu_GameReports" xml:space="preserve">
+    <value>GAMES</value>
+  </data>
+  <data name="TiglLeaderboard_Rank" xml:space="preserve">
+    <value># Rank</value>
+  </data>
+  <data name="TiglLeaderboard_Player" xml:space="preserve">
+    <value>Player</value>
+  </data>
+  <data name="TiglLeaderboard_GamesPlayed" xml:space="preserve">
+    <value>Games</value>
+  </data>
+  <data name="TiglLeaderboard_WinPercentage" xml:space="preserve">
+    <value>Win %</value>
+  </data>
+  <data name="TiglLeaderboard_Rating" xml:space="preserve">
+    <value>Rating</value>
+  </data>
+  <data name="TiglLeaderboard_Season" xml:space="preserve">
+    <value>Season</value>
+  </data>
+  <data name="TiglLeaderboard_League" xml:space="preserve">
+    <value>League</value>
+  </data>
+  <data name="TiglLeaderboard_RankingSystem" xml:space="preserve">
+    <value>Ranking system</value>
+  </data>
+  <data name="TiglLeaderboard_TrueSkillConservativeRating" xml:space="preserve">
+    <value>Conservative Rating</value>
+  </data>
+  <data name="TiglLeaderboard_TrueSkillMu" xml:space="preserve">
+    <value>Rating (Mu)</value>
+  </data>
+  <data name="TiglLeaderboard_TrueSkillSigma" xml:space="preserve">
+    <value>Sigma</value>
+  </data>
+  <data name="TiglLeaderboard_GlickoRating" xml:space="preserve">
+    <value>Rating</value>
+  </data>
+  <data name="TiglLeaderboard_GlickoRd" xml:space="preserve">
+    <value>RD</value>
+  </data>
+  <data name="TiglLeaderboard_GlickoVolatility" xml:space="preserve">
+    <value>Volatility</value>
+  </data>
+  <data name="TiglLeaderboard_AsyncRating" xml:space="preserve">
+    <value>Rating</value>
+  </data>
+  <data name="TiglLeaderboard_AussieScore" xml:space="preserve">
+    <value>Aussie Score</value>
+  </data>
+  <data name="RankingSystem_TrueSkill" xml:space="preserve">
+    <value>True Skill</value>
+  </data>
+  <data name="RankingSystem_Glicko2" xml:space="preserve">
+    <value>Glicko-2</value>
+  </data>
+  <data name="RankingSystem_Async" xml:space="preserve">
+    <value>Async</value>
+  </data>
+  <data name="TiglLeague_Test" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="TiglPlayersList_NoPlayersFound" xml:space="preserve">
+    <value>No players found.</value>
+  </data>
+  <data name="TiglPlayersList_NoPlayerMatch" xml:space="preserve">
+    <value>No players match this criteria.</value>
+  </data>
+  <data name="TiglGames_CategoryStandard" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="TiglGames_CategoryFractured" xml:space="preserve">
+    <value>Fractured</value>
+  </data>
+  <data name="TiglGames_GameId" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="TiglGames_Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="TiglGames_Source" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="TiglGames_Ended" xml:space="preserve">
+    <value>Ended</value>
+  </data>
+  <data name="TiglGames_LoadingGames" xml:space="preserve">
+    <value>...Loading match reports...</value>
+  </data>
+  <data name="MatchState_New" xml:space="preserve">
+    <value>Waiting for approval</value>
+  </data>
+  <data name="MatchState_AddedInQueue" xml:space="preserve">
+    <value>In queue</value>
+  </data>
+  <data name="MatchState_Evaluated" xml:space="preserve">
+    <value>Evaluated</value>
+  </data>
+  <data name="ResultSource_Async" xml:space="preserve">
+    <value>Async</value>
+  </data>
+  <data name="ResultSource_TTPG" xml:space="preserve">
+    <value>TTPG</value>
+  </data>
+  <data name="ResultSource_Test" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="ResultSource_IRL" xml:space="preserve">
+    <value>IRL</value>
+  </data>
+  <data name="ResultSource_Steam" xml:space="preserve">
+    <value>Steam</value>
+  </data>
+  <data name="ResultSource_TTS" xml:space="preserve">
+    <value>TTS</value>
+  </data>
+  <data name="ResultSource_BGA" xml:space="preserve">
+    <value>BGA</value>
+  </data>
+  <data name="TiglStatistics_StatisticType" xml:space="preserve">
+    <value>Statistics</value>
+  </data>
+  <data name="TiglStatistics_Season" xml:space="preserve">
+    <value>Season</value>
+  </data>
+  <data name="TiglStatisticsType_Factions" xml:space="preserve">
+    <value>Factions</value>
+  </data>
+  <data name="TiglStatisticsType_Games" xml:space="preserve">
+    <value>Games</value>
+  </data>
+  <data name="TiglStatisticsType_Players" xml:space="preserve">
+    <value>Players</value>
+  </data>
+  <data name="AchievementName_FactionAmateur" xml:space="preserve">
+    <value>Faction Amateur</value>
+  </data>
+  <data name="AchievementName_DrFrankenstein" xml:space="preserve">
+    <value>Dr. Frankenstein</value>
+  </data>
+  <data name="AchievementName_TyrantsGauntlet" xml:space="preserve">
+    <value>Tyrants Gauntlet</value>
+  </data>
+  <data name="AchievementName_TheLongWar" xml:space="preserve">
+    <value>The Long War</value>
+  </data>
+  <data name="AchievementName_DozenDone" xml:space="preserve">
+    <value>Dozen Done</value>
+  </data>
+  <data name="AchievementName_Centurion" xml:space="preserve">
+    <value>Centurion</value>
+  </data>
+  <data name="AchievementName_Decathlon" xml:space="preserve">
+    <value>Decathlon</value>
+  </data>
+  <data name="AchievementName_SpeedDemon" xml:space="preserve">
+    <value>Speed Demon</value>
+  </data>
+  <data name="AchievementName_SeasonedVeteran" xml:space="preserve">
+    <value>Seasoned Veteran</value>
+  </data>
+  <data name="AchievementName_InTheGroove" xml:space="preserve">
+    <value>In The Groove</value>
+  </data>
+  <data name="AchievementName_GettingWarmedUp" xml:space="preserve">
+    <value>Getting Warmed Up</value>
+  </data>
+  <data name="AchievementName_FirstSteps" xml:space="preserve">
+    <value>First Steps</value>
+  </data>
+  <data name="AchievementName_LiveInInterestingTimes" xml:space="preserve">
+    <value>Live In Interesting Times</value>
+  </data>
+  <data name="AchievementName_UnderdogStory" xml:space="preserve">
+    <value>Underdog Story</value>
+  </data>
+  <data name="AchievementName_Overachiever" xml:space="preserve">
+    <value>Overachiever</value>
+  </data>
+  <data name="AchievementName_Collector" xml:space="preserve">
+    <value>Collector</value>
+  </data>
+  <data name="AchievementName_Versatile" xml:space="preserve">
+    <value>Versatile</value>
+  </data>
+  <data name="AchievementName_Completionist" xml:space="preserve">
+    <value>Completionist</value>
+  </data>
+  <data name="AchievementName_Inconceivable" xml:space="preserve">
+    <value>Inconceivable</value>
+  </data>
+  <data name="AchievementName_BackToBack" xml:space="preserve">
+    <value>Back To Back</value>
+  </data>
+  <data name="AchievementName_IGotBetter" xml:space="preserve">
+    <value>I Got Better</value>
+  </data>
+  <data name="AchievementName_LongHauler" xml:space="preserve">
+    <value>Long Hauler</value>
+  </data>
+  <data name="AchievementName_BlinkAndYouWillMissIt" xml:space="preserve">
+    <value>Blink And You Will Miss It</value>
+  </data>
+  <data name="AchievementName_MarrowEnjoyer" xml:space="preserve">
+    <value>Marrow Enjoyer</value>
+  </data>
+  <data name="AchievementName_CrusherOfEnemies" xml:space="preserve">
+    <value>Crusher Of Enemies</value>
+  </data>
+  <data name="AchievementName_HomeSystemWhoNeedsThat" xml:space="preserve">
+    <value>Home System Who Needs That</value>
+  </data>
+  <data name="AchievementName_AllThatsSilverIsGold" xml:space="preserve">
+    <value>All Thats Silver Is Gold</value>
+  </data>
+  <data name="AchievementName_GottaCatchEmAllPartTwo" xml:space="preserve">
+    <value>Gotta Catch 'Em All (Part Two)</value>
+  </data>
+  <data name="AchievementName_GottaCatchEmAllPartOne" xml:space="preserve">
+    <value>Gotta Catch 'Em All (Part One)</value>
+  </data>
+  <data name="AchievementName_ICookedThisMyself" xml:space="preserve">
+    <value>I Cooked This Myself</value>
+  </data>
+  <data name="AchievementName_BlueDaBaDee" xml:space="preserve">
+    <value>Blue Da Ba Dee</value>
+  </data>
+  <data name="AchievementName_ThirtyIsNotEnough" xml:space="preserve">
+    <value>Thirty Is Not Enough</value>
+  </data>
+  <data name="AchievementName_BringTheThunder" xml:space="preserve">
+    <value>Bring The Thunder</value>
+  </data>
+  <data name="AchievementName_TheTribunii" xml:space="preserve">
+    <value>The Tribunii</value>
+  </data>
+  <data name="AchievementName_TheProphesiedKing" xml:space="preserve">
+    <value>The Prophesied King</value>
+  </data>
+  <data name="AchievementName_BaseGameBoss" xml:space="preserve">
+    <value>Base Game Boss</value>
+  </data>
+  <data name="AchievementName_IAmAnOG" xml:space="preserve">
+    <value>I Am An OG</value>
+  </data>
+  <data name="AchievementName_FlauntingIt" xml:space="preserve">
+    <value>Flaunting It</value>
+  </data>
+  <data name="AchievementName_FactionExpert" xml:space="preserve">
+    <value>Faction Expert</value>
+  </data>
+  <data name="AchievementName_FactionEnthusiast" xml:space="preserve">
+    <value>Faction Enthusiast</value>
+  </data>
+  <data name="AchievementName_Marathoner" xml:space="preserve">
+    <value>Marathoner</value>
+  </data>
+  <data name="Page_TiglAdmin" xml:space="preserve">
+    <value>TIGL</value>
+  </data>
+  <data name="TiglAdmin_SeasonName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="TiglAdmin_Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="TiglAdmin_EndDate" xml:space="preserve">
+    <value>End Date</value>
+  </data>
+  <data name="TiglAdmin_StartDate" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
+  <data name="TiglAdmin_Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="TiglAdmin_SeasonId" xml:space="preserve">
+    <value>#</value>
+  </data>
+  <data name="TiglAdmin_LoadingSeasons" xml:space="preserve">
+    <value>...Loading seasons...</value>
+  </data>
+  <data name="TiglAdmin_Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="DateTimeFormat_EU" xml:space="preserve">
+    <value>dd-MM-yyyy</value>
+  </data>
+  <data name="TiglAdmin_ActiveYes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="TiglAdmin_ActiveNo" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="TiglAdmin_SetActive" xml:space="preserve">
+    <value>Set Active</value>
+  </data>
+  <data name="TiglAdmin_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="TiglAdmin_EndSeason" xml:space="preserve">
+    <value>End Season</value>
+  </data>
+  <data name="TiglAdmin_AddNewSeason" xml:space="preserve">
+    <value>Add New Season</value>
+  </data>
+  <data name="TiglAdmin_AddSeasonButtonText" xml:space="preserve">
+    <value>Add Season</value>
+  </data>
+  <data name="TiglAdmin_SeasonAdministration" xml:space="preserve">
+    <value>Season Administration</value>
+  </data>
+  <data name="TiglAdmin_GameReportsAdministration" xml:space="preserve">
+    <value>Reported Games Administration</value>
+  </data>
+  <data name="TiglAdmin_PlayersAdministration" xml:space="preserve">
+    <value>Players Administration</value>
+  </data>
+  <data name="TiglAdmin_ParametersAdministration" xml:space="preserve">
+    <value>Parameters Administration</value>
+  </data>
+  <data name="TiglParameterName_RankingUp" xml:space="preserve">
+    <value>Allow ranking up</value>
+  </data>
+  <data name="TiglParameterName_ManualGameReview" xml:space="preserve">
+    <value>Allow forced manual game review</value>
+  </data>
+  <data name="TiglParameterName_EvaluateGames" xml:space="preserve">
+    <value>Allow games evaluation</value>
+  </data>
+  <data name="Rankings_PrestigeRankCategory_Tyrant" xml:space="preserve">
+    <value>Tyrant</value>
+  </data>
+  <data name="Rankings_PrestigeRankCategory_Thrall" xml:space="preserve">
+    <value>Thrall</value>
+  </data>
+  <data name="Rankings_PrestigeRankCategory_Acolyte" xml:space="preserve">
+    <value>Acolyte</value>
+  </data>
+  <data name="Rankings_PrestigeRankCategory_Legionnaire" xml:space="preserve">
+    <value>Legionnaire</value>
+  </data>
+  <data name="Rankings_PrestigeRankCategory_Starlancer" xml:space="preserve">
+    <value>Starlancer</value>
+  </data>
+  <data name="Rankings_PrestigeRankCategory_GeneSorcerer" xml:space="preserve">
+    <value>Gene-Sorcerer</value>
+  </data>
+  <data name="Rankings_PrestigeRankCategory_IxthLord" xml:space="preserve">
+    <value>Ixth Lord</value>
+  </data>
+  <data name="Rankings_PrestigeRankCategory_Archon" xml:space="preserve">
+    <value>Archon</value>
+  </data>
+  <data name="TiglParameterName_RankingUpProphecyOfKings" xml:space="preserve">
+    <value>Allow ranking up in PoK</value>
+  </data>
+  <data name="TiglParameterName_TiglTestUserRegistrations" xml:space="preserve">
+    <value>Allow test user registrations</value>
+  </data>
+  <data name="TiglParameterName_DiscordInteraction" xml:space="preserve">
+    <value>Allow discord interractions</value>
+  </data>
+  <data name="TiglParameterName_OnlyThundersEdgeEra" xml:space="preserve">
+    <value>Allow only game reports after 1.12.2025</value>
+  </data>
+  <data name="TiglParameterName_RankUpPublish" xml:space="preserve">
+    <value>Allow publish ranking up to Discord</value>
+  </data>
+  <data name="TiglParameterName_HeroPublish" xml:space="preserve">
+    <value>Allow publish hero changes to Discord</value>
+  </data>
+  <data name="TiglParameterName_AchievementsPublish" xml:space="preserve">
+    <value>Allow publish achievements to Discord</value>
+  </data>
+  <data name="TiglParameterName_OnlyImportReports" xml:space="preserve">
+    <value>Allow only imported games</value>
   </data>
 </root>

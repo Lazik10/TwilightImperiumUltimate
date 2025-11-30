@@ -21,7 +21,9 @@ public partial class FactionFaq : FactionInfoComponentBase
 
     protected override async Task OnParametersSetAsync()
     {
-        var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<FaqDto>>>(Paths.ApiPath_Faq, default);
+        var result = await HttpClient.GetAsync<ApiResponse<ItemListDto<FaqDto>>>(Paths.ApiPath_Faq);
+        var response = result.Response;
+        var statusCode = result.StatusCode;
 
         if (statusCode == HttpStatusCode.OK)
         {

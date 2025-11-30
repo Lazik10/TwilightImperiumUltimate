@@ -203,6 +203,46 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
         }
     }
 
+    public async Task<(TResponse Response, HttpStatusCode StatusCode)> DeleteAsync<TRequest, TResponse>(string endpointPath, TRequest request, CancellationToken cancellationToken = default)
+        where TRequest : class
+        where TResponse : class, new()
+    {
+        try
+        {
+            Uri uri = new(string.Concat(_httpClient.BaseAddress, endpointPath));
+            await SetAuthorizationHeaderAsync(cancellationToken);
+
+            using var httpRequest = new HttpRequestMessage(HttpMethod.Delete, uri)
+            {
+                Content = JsonContent.Create(request, options: _options),
+            };
+
+            HttpResponseMessage response = await _httpClient.SendAsync(httpRequest, cancellationToken);
+
+            if (response.IsSuccessStatusCode)
+            {
+                if (response.Content.Headers.ContentLength == 0)
+                {
+                    return (new TResponse(), response.StatusCode);
+                }
+
+                TResponse? result = await response.Content.ReadFromJsonAsync<TResponse>(_options, cancellationToken);
+                return (result ?? new TResponse(), response.StatusCode);
+            }
+            else
+            {
+                var errorResponse = await response.Content.ReadAsStringAsync(cancellationToken);
+                Log.Warning("Error while deleting data at endpoint: {EndpointPath}. Status Code: {StatusCode}. Error: {Error}", endpointPath, response.StatusCode, errorResponse);
+                return (new TResponse(), response.StatusCode);
+            }
+        }
+        catch (HttpRequestException ex)
+        {
+            Log.Warning(ex, "Error while deleting data at endpoint: {EndpointPath}", endpointPath);
+            return (new TResponse(), HttpStatusCode.InternalServerError);
+        }
+    }
+
     public async Task SetAuthorizationHeaderAsync(CancellationToken cancellationToken, string? token = null)
     {
         if (token is null)
@@ -235,6 +275,82 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
         else
         {
             return string.Empty;
+        }
+    }
+
+    public async Task<(ApiResponse<TDto> Response, HttpStatusCode StatusCode)> PostApiAsync<TRequest, TDto>(string endpointPath, TRequest request, CancellationToken cancellationToken = default)
+        where TRequest : class
+        where TDto : class
+    {
+        try
+        {
+            var uri = new Uri(string.Concat(_httpClient.BaseAddress, endpointPath));
+            await SetAuthorizationHeaderAsync(cancellationToken);
+
+            var httpResponse = await _httpClient.PostAsJsonAsync(uri, request, _options, cancellationToken);
+            var status = httpResponse.StatusCode;
+            var raw = string.Empty;
+            ApiResponse<TDto>? api = null;
+            ProblemDetailsDto? problem = null;
+
+            try { raw = await httpResponse.Content.ReadAsStringAsync(cancellationToken); } catch { raw = string.Empty; }
+
+            if (!string.IsNullOrWhiteSpace(raw))
+            {
+                try
+                {
+                    api = JsonSerializer.Deserialize<TwilightImperiumUltimate.Contracts.ApiContracts.ApiResponse<TDto>>(raw, _options);
+                }
+                catch { /* ignore and try problem details */ }
+
+                if (api is null)
+                {
+                    try
+                    {
+                        problem = JsonSerializer.Deserialize<ProblemDetailsDto>(raw, _options);
+                    }
+                    catch { /* ignore */ }
+                }
+            }
+
+            if (api is null)
+            {
+                api = new ApiResponse<TDto>();
+                if (problem is not null)
+                    api.ProblemDetails = problem;
+                api.Success = httpResponse.IsSuccessStatusCode;
+            }
+            else
+            {
+                // Ensure consistency with HTTP status
+                api.Success = api.Success && httpResponse.IsSuccessStatusCode;
+            }
+
+            if (!httpResponse.IsSuccessStatusCode)
+            {
+                if (api.ProblemDetails.Status is null)
+                    api.ProblemDetails.Status = (int)status;
+                if (string.IsNullOrWhiteSpace(api.ProblemDetails.Title))
+                    api.ProblemDetails.Title = $"HTTP {(int)status} {status}";
+                if (string.IsNullOrWhiteSpace(api.ProblemDetails.Detail))
+                    api.ProblemDetails.Detail = raw;
+            }
+
+            return (api, status);
+        }
+        catch (HttpRequestException ex)
+        {
+            Log.Warning(ex, "PostApiAsync request error: {EndpointPath}", endpointPath);
+            return (new ApiResponse<TDto>
+            {
+                Success = false,
+                ProblemDetails = new ProblemDetailsDto
+                {
+                    Title = "Request error",
+                    Detail = ex.Message,
+                    Status = (int)HttpStatusCode.InternalServerError,
+                },
+            }, HttpStatusCode.InternalServerError);
         }
     }
 }

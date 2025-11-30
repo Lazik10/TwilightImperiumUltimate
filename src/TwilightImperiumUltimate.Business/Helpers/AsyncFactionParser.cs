@@ -32,6 +32,26 @@ public static class AsyncFactionParser
             "The Titans of Ul" => AsyncFactionName.TheTitansOfUl,
             "The Vuil'raith Cabal" => AsyncFactionName.TheVuilRaithCabal,
 
+            "The Council Keleres - Mentak" => AsyncFactionName.TheCouncilKeleresMentak,
+            "The Council Keleres - Xxcha" => AsyncFactionName.TheCouncilKeleresXxcha,
+            "The Council Keleres - Argent" => AsyncFactionName.TheCouncilKeleresArgent,
+
+            "The Crimson Rebellion" => AsyncFactionName.TheCrimsonRebellion,
+            "The Deepwrought Scholarate" => AsyncFactionName.TheDeepwroughtScholarate,
+            "The Firmament" => AsyncFactionName.TheFirmamentTheObsidian,
+            "The Obsidian" => AsyncFactionName.TheFirmamentTheObsidian,
+            "Last Bastion" => AsyncFactionName.LastBastion,
+            "The Ral Nel Consortium" => AsyncFactionName.TheRalNelConsortium,
+
+            "The Ruby Monarch" => AsyncFactionName.TheRubyMonarch,
+            "Radiant Aur" => AsyncFactionName.RadiantAur,
+            "Avarice Rex" => AsyncFactionName.AvariceRex,
+            "Il Sai Lakoe, Herald of Thorns" => AsyncFactionName.IlSaiLakoeHeraldOfThorns,
+            "The Saint of Swords" => AsyncFactionName.TheSaintOfSwords,
+            "Il Na Viroset" => AsyncFactionName.IlNaViroset,
+            "El Nen Janovet" => AsyncFactionName.ElNenJanovet,
+            "A Sickening Lurch" => AsyncFactionName.ASickeningLurch,
+
             "Augers of Ilyxum" => AsyncFactionName.TheAugursOfIlyxum,
             "Celdauri Trade Confederation" => AsyncFactionName.TheCeldauriTradeConfederation,
             "Dih-Mohn Flotilla" => AsyncFactionName.TheDihMohnFlotilla,
@@ -66,10 +86,6 @@ public static class AsyncFactionParser
             "Kyro Sodality" => AsyncFactionName.TheKyroSodality,
             "Lanefir Remnants" => AsyncFactionName.TheLanefirRemnants,
             "Nokar Sellships" => AsyncFactionName.TheNokarSellships,
-
-            "The Council Keleres - Mentak" => AsyncFactionName.TheCouncilKeleresMentak,
-            "The Council Keleres - Xxcha" => AsyncFactionName.TheCouncilKeleresXxcha,
-            "The Council Keleres - Argent" => AsyncFactionName.TheCouncilKeleresArgent,
 
             "Uydai Conclave" => AsyncFactionName.UydaiConclave,
             "Pharadn Order" => AsyncFactionName.PharadnOrder,

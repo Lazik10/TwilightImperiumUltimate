@@ -19,7 +19,5 @@ public class AsyncStats : IEntity
 
     public TiglLeague League { get; set; }
 
-    public TiglAsyncRank Rank { get; set; }
-
     public ICollection<AsyncPlayerMatchStats> MatchStats { get; } = new List<AsyncPlayerMatchStats>();
 }

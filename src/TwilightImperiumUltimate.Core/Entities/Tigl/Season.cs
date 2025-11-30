@@ -15,4 +15,8 @@ public class Season : IEntity
     public DateOnly EndDate { get; set; } = DateOnly.MinValue;
 
     public bool IsActive { get; set; }
+
+    public int? EmperorId { get; set; }
+
+    public TiglUser? Emperor { get; set; }
 }

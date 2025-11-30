@@ -43,11 +43,15 @@ public class AsyncPlayerMatchStats
 
     public int Season { get; set; }
 
-    public long Timestamp { get; set; }
+    public long StartTimestamp { get; set; }
+
+    public long EndTimestamp { get; set; }
 
     public bool IsRankUpGame { get; set; }
 
-    public TiglAsyncRank OldRank { get; set; }
+    public bool ForcedReset { get; set; }
 
-    public TiglAsyncRank NewRank { get; set; }
+    public TiglRankName OldRank { get; set; }
+
+    public TiglRankName NewRank { get; set; }
 }

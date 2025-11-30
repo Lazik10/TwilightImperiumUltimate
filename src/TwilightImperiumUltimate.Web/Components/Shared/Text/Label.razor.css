@@ -54,6 +54,34 @@
     color: transparent;
 }
 
+.unranked {
+    color: white;
+}
+
+.minister {
+    color: #3498db;
+}
+
+.agent {
+    color: #206694;
+}
+
+.commander {
+    color: #b2a8e4;
+}
+
+.hero {
+    color: #816de6;
+}
+
+.galactic-threat {
+    color: #e74c3c;
+}
+
+.pmbg {
+    color: #f1c40f;
+}
+
 .underline {
     text-decoration: underline;
 }

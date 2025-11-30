@@ -163,6 +163,375 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All Thats Silver Is Gold.
+        /// </summary>
+        public static string AchievementName_AllThatsSilverIsGold {
+            get {
+                return ResourceManager.GetString("AchievementName_AllThatsSilverIsGold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Back To Back.
+        /// </summary>
+        public static string AchievementName_BackToBack {
+            get {
+                return ResourceManager.GetString("AchievementName_BackToBack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Base Game Boss.
+        /// </summary>
+        public static string AchievementName_BaseGameBoss {
+            get {
+                return ResourceManager.GetString("AchievementName_BaseGameBoss", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blink And You Will Miss It.
+        /// </summary>
+        public static string AchievementName_BlinkAndYouWillMissIt {
+            get {
+                return ResourceManager.GetString("AchievementName_BlinkAndYouWillMissIt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blue Da Ba Dee.
+        /// </summary>
+        public static string AchievementName_BlueDaBaDee {
+            get {
+                return ResourceManager.GetString("AchievementName_BlueDaBaDee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bring The Thunder.
+        /// </summary>
+        public static string AchievementName_BringTheThunder {
+            get {
+                return ResourceManager.GetString("AchievementName_BringTheThunder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Centurion.
+        /// </summary>
+        public static string AchievementName_Centurion {
+            get {
+                return ResourceManager.GetString("AchievementName_Centurion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Collector.
+        /// </summary>
+        public static string AchievementName_Collector {
+            get {
+                return ResourceManager.GetString("AchievementName_Collector", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Completionist.
+        /// </summary>
+        public static string AchievementName_Completionist {
+            get {
+                return ResourceManager.GetString("AchievementName_Completionist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Crusher Of Enemies.
+        /// </summary>
+        public static string AchievementName_CrusherOfEnemies {
+            get {
+                return ResourceManager.GetString("AchievementName_CrusherOfEnemies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Decathlon.
+        /// </summary>
+        public static string AchievementName_Decathlon {
+            get {
+                return ResourceManager.GetString("AchievementName_Decathlon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dozen Done.
+        /// </summary>
+        public static string AchievementName_DozenDone {
+            get {
+                return ResourceManager.GetString("AchievementName_DozenDone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dr. Frankenstein.
+        /// </summary>
+        public static string AchievementName_DrFrankenstein {
+            get {
+                return ResourceManager.GetString("AchievementName_DrFrankenstein", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Faction Amateur.
+        /// </summary>
+        public static string AchievementName_FactionAmateur {
+            get {
+                return ResourceManager.GetString("AchievementName_FactionAmateur", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Faction Enthusiast.
+        /// </summary>
+        public static string AchievementName_FactionEnthusiast {
+            get {
+                return ResourceManager.GetString("AchievementName_FactionEnthusiast", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Faction Expert.
+        /// </summary>
+        public static string AchievementName_FactionExpert {
+            get {
+                return ResourceManager.GetString("AchievementName_FactionExpert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to First Steps.
+        /// </summary>
+        public static string AchievementName_FirstSteps {
+            get {
+                return ResourceManager.GetString("AchievementName_FirstSteps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flaunting It.
+        /// </summary>
+        public static string AchievementName_FlauntingIt {
+            get {
+                return ResourceManager.GetString("AchievementName_FlauntingIt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Getting Warmed Up.
+        /// </summary>
+        public static string AchievementName_GettingWarmedUp {
+            get {
+                return ResourceManager.GetString("AchievementName_GettingWarmedUp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gotta Catch &apos;Em All (Part One).
+        /// </summary>
+        public static string AchievementName_GottaCatchEmAllPartOne {
+            get {
+                return ResourceManager.GetString("AchievementName_GottaCatchEmAllPartOne", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gotta Catch &apos;Em All (Part Two).
+        /// </summary>
+        public static string AchievementName_GottaCatchEmAllPartTwo {
+            get {
+                return ResourceManager.GetString("AchievementName_GottaCatchEmAllPartTwo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home System Who Needs That.
+        /// </summary>
+        public static string AchievementName_HomeSystemWhoNeedsThat {
+            get {
+                return ResourceManager.GetString("AchievementName_HomeSystemWhoNeedsThat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to I Am An OG.
+        /// </summary>
+        public static string AchievementName_IAmAnOG {
+            get {
+                return ResourceManager.GetString("AchievementName_IAmAnOG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to I Cooked This Myself.
+        /// </summary>
+        public static string AchievementName_ICookedThisMyself {
+            get {
+                return ResourceManager.GetString("AchievementName_ICookedThisMyself", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to I Got Better.
+        /// </summary>
+        public static string AchievementName_IGotBetter {
+            get {
+                return ResourceManager.GetString("AchievementName_IGotBetter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inconceivable.
+        /// </summary>
+        public static string AchievementName_Inconceivable {
+            get {
+                return ResourceManager.GetString("AchievementName_Inconceivable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In The Groove.
+        /// </summary>
+        public static string AchievementName_InTheGroove {
+            get {
+                return ResourceManager.GetString("AchievementName_InTheGroove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Live In Interesting Times.
+        /// </summary>
+        public static string AchievementName_LiveInInterestingTimes {
+            get {
+                return ResourceManager.GetString("AchievementName_LiveInInterestingTimes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Long Hauler.
+        /// </summary>
+        public static string AchievementName_LongHauler {
+            get {
+                return ResourceManager.GetString("AchievementName_LongHauler", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Marathoner.
+        /// </summary>
+        public static string AchievementName_Marathoner {
+            get {
+                return ResourceManager.GetString("AchievementName_Marathoner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Marrow Enjoyer.
+        /// </summary>
+        public static string AchievementName_MarrowEnjoyer {
+            get {
+                return ResourceManager.GetString("AchievementName_MarrowEnjoyer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overachiever.
+        /// </summary>
+        public static string AchievementName_Overachiever {
+            get {
+                return ResourceManager.GetString("AchievementName_Overachiever", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seasoned Veteran.
+        /// </summary>
+        public static string AchievementName_SeasonedVeteran {
+            get {
+                return ResourceManager.GetString("AchievementName_SeasonedVeteran", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Speed Demon.
+        /// </summary>
+        public static string AchievementName_SpeedDemon {
+            get {
+                return ResourceManager.GetString("AchievementName_SpeedDemon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Long War.
+        /// </summary>
+        public static string AchievementName_TheLongWar {
+            get {
+                return ResourceManager.GetString("AchievementName_TheLongWar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Prophesied King.
+        /// </summary>
+        public static string AchievementName_TheProphesiedKing {
+            get {
+                return ResourceManager.GetString("AchievementName_TheProphesiedKing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Tribunii.
+        /// </summary>
+        public static string AchievementName_TheTribunii {
+            get {
+                return ResourceManager.GetString("AchievementName_TheTribunii", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thirty Is Not Enough.
+        /// </summary>
+        public static string AchievementName_ThirtyIsNotEnough {
+            get {
+                return ResourceManager.GetString("AchievementName_ThirtyIsNotEnough", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tyrants Gauntlet.
+        /// </summary>
+        public static string AchievementName_TyrantsGauntlet {
+            get {
+                return ResourceManager.GetString("AchievementName_TyrantsGauntlet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Underdog Story.
+        /// </summary>
+        public static string AchievementName_UnderdogStory {
+            get {
+                return ResourceManager.GetString("AchievementName_UnderdogStory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Versatile.
+        /// </summary>
+        public static string AchievementName_Versatile {
+            get {
+                return ResourceManager.GetString("AchievementName_Versatile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to action.
         /// </summary>
         public static string ActionCard {
@@ -1864,11 +2233,29 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to dd-MM-yyyy.
+        /// </summary>
+        public static string DateTimeFormat_EU {
+            get {
+                return ResourceManager.GetString("DateTimeFormat_EU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TI4 Asynchronous Hub.
         /// </summary>
         public static string Discord_Asynchronous {
             get {
                 return ResourceManager.GetString("Discord_Asynchronous", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TI4 Asynchronous Hub.
+        /// </summary>
+        public static string Discord_Asynchronous1 {
+            get {
+                return ResourceManager.GetString("Discord_Asynchronous1", resourceCulture);
             }
         }
         
@@ -2665,7 +3052,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Developed by &quot;Lázik&quot; (2023-2024).
+        ///   Looks up a localized string similar to Developed by &quot;Lázik&quot; (2023-2026).
         /// </summary>
         public static string Footer_DevelopedBy {
             get {
@@ -4258,6 +4645,33 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to In queue.
+        /// </summary>
+        public static string MatchState_AddedInQueue {
+            get {
+                return ResourceManager.GetString("MatchState_AddedInQueue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Evaluated.
+        /// </summary>
+        public static string MatchState_Evaluated {
+            get {
+                return ResourceManager.GetString("MatchState_Evaluated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Waiting for approval.
+        /// </summary>
+        public static string MatchState_New {
+            get {
+                return ResourceManager.GetString("MatchState_New", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Medium.
         /// </summary>
         public static string Medium {
@@ -5055,6 +5469,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TIGL Ranks.
+        /// </summary>
+        public static string Page_Rankings {
+            get {
+                return ResourceManager.GetString("Page_Rankings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Resend confirmation email.
         /// </summary>
         public static string Page_ResendConfirmationEmail {
@@ -5132,6 +5555,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string Page_Tigl {
             get {
                 return ResourceManager.GetString("Page_Tigl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TIGL.
+        /// </summary>
+        public static string Page_TiglAdmin {
+            get {
+                return ResourceManager.GetString("Page_TiglAdmin", resourceCulture);
             }
         }
         
@@ -5334,6 +5766,231 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Acolyte.
+        /// </summary>
+        public static string Rankings_PrestigeRankCategory_Acolyte {
+            get {
+                return ResourceManager.GetString("Rankings_PrestigeRankCategory_Acolyte", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Agent.
+        /// </summary>
+        public static string Rankings_PrestigeRankCategory_Agent {
+            get {
+                return ResourceManager.GetString("Rankings_PrestigeRankCategory_Agent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Archon.
+        /// </summary>
+        public static string Rankings_PrestigeRankCategory_Archon {
+            get {
+                return ResourceManager.GetString("Rankings_PrestigeRankCategory_Archon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Commander.
+        /// </summary>
+        public static string Rankings_PrestigeRankCategory_Commander {
+            get {
+                return ResourceManager.GetString("Rankings_PrestigeRankCategory_Commander", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Galactic Threat V.
+        /// </summary>
+        public static string Rankings_PrestigeRankCategory_GalacticThreatFive {
+            get {
+                return ResourceManager.GetString("Rankings_PrestigeRankCategory_GalacticThreatFive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Galactic Threat IV.
+        /// </summary>
+        public static string Rankings_PrestigeRankCategory_GalacticThreatFour {
+            get {
+                return ResourceManager.GetString("Rankings_PrestigeRankCategory_GalacticThreatFour", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Galactic Threat III.
+        /// </summary>
+        public static string Rankings_PrestigeRankCategory_GalacticThreatOne {
+            get {
+                return ResourceManager.GetString("Rankings_PrestigeRankCategory_GalacticThreatOne", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Galactic Threat III.
+        /// </summary>
+        public static string Rankings_PrestigeRankCategory_GalacticThreatThree {
+            get {
+                return ResourceManager.GetString("Rankings_PrestigeRankCategory_GalacticThreatThree", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Galactic Threat II.
+        /// </summary>
+        public static string Rankings_PrestigeRankCategory_GalacticThreatTwo {
+            get {
+                return ResourceManager.GetString("Rankings_PrestigeRankCategory_GalacticThreatTwo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gene-Sorcerer.
+        /// </summary>
+        public static string Rankings_PrestigeRankCategory_GeneSorcerer {
+            get {
+                return ResourceManager.GetString("Rankings_PrestigeRankCategory_GeneSorcerer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hero.
+        /// </summary>
+        public static string Rankings_PrestigeRankCategory_Hero {
+            get {
+                return ResourceManager.GetString("Rankings_PrestigeRankCategory_Hero", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ixth Lord.
+        /// </summary>
+        public static string Rankings_PrestigeRankCategory_IxthLord {
+            get {
+                return ResourceManager.GetString("Rankings_PrestigeRankCategory_IxthLord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Legionnaire.
+        /// </summary>
+        public static string Rankings_PrestigeRankCategory_Legionnaire {
+            get {
+                return ResourceManager.GetString("Rankings_PrestigeRankCategory_Legionnaire", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minister.
+        /// </summary>
+        public static string Rankings_PrestigeRankCategory_Minister {
+            get {
+                return ResourceManager.GetString("Rankings_PrestigeRankCategory_Minister", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pax Magnifica Bellum Gloriosum.
+        /// </summary>
+        public static string Rankings_PrestigeRankCategory_Pmbg {
+            get {
+                return ResourceManager.GetString("Rankings_PrestigeRankCategory_Pmbg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Starlancer.
+        /// </summary>
+        public static string Rankings_PrestigeRankCategory_Starlancer {
+            get {
+                return ResourceManager.GetString("Rankings_PrestigeRankCategory_Starlancer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thrall.
+        /// </summary>
+        public static string Rankings_PrestigeRankCategory_Thrall {
+            get {
+                return ResourceManager.GetString("Rankings_PrestigeRankCategory_Thrall", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tyrant.
+        /// </summary>
+        public static string Rankings_PrestigeRankCategory_Tyrant {
+            get {
+                return ResourceManager.GetString("Rankings_PrestigeRankCategory_Tyrant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unranked.
+        /// </summary>
+        public static string Rankings_PrestigeRankCategory_Unranked {
+            get {
+                return ResourceManager.GetString("Rankings_PrestigeRankCategory_Unranked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ACHIEVEMENTS.
+        /// </summary>
+        public static string RankingsMenu_Achievements {
+            get {
+                return ResourceManager.GetString("RankingsMenu_Achievements", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LEADERS.
+        /// </summary>
+        public static string RankingsMenu_Leaders {
+            get {
+                return ResourceManager.GetString("RankingsMenu_Leaders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RANKS.
+        /// </summary>
+        public static string RankingsMenu_Ranks {
+            get {
+                return ResourceManager.GetString("RankingsMenu_Ranks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Async.
+        /// </summary>
+        public static string RankingSystem_Async {
+            get {
+                return ResourceManager.GetString("RankingSystem_Async", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Glicko-2.
+        /// </summary>
+        public static string RankingSystem_Glicko2 {
+            get {
+                return ResourceManager.GetString("RankingSystem_Glicko2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to True Skill.
+        /// </summary>
+        public static string RankingSystem_TrueSkill {
+            get {
+                return ResourceManager.GetString("RankingSystem_TrueSkill", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Confirm Password.
         /// </summary>
         public static string Register_ConfirmPassword {
@@ -5483,6 +6140,69 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string ResetPassword_NewPasswordPlaceholder {
             get {
                 return ResourceManager.GetString("ResetPassword_NewPasswordPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Async.
+        /// </summary>
+        public static string ResultSource_Async {
+            get {
+                return ResourceManager.GetString("ResultSource_Async", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BGA.
+        /// </summary>
+        public static string ResultSource_BGA {
+            get {
+                return ResourceManager.GetString("ResultSource_BGA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IRL.
+        /// </summary>
+        public static string ResultSource_IRL {
+            get {
+                return ResourceManager.GetString("ResultSource_IRL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Steam.
+        /// </summary>
+        public static string ResultSource_Steam {
+            get {
+                return ResourceManager.GetString("ResultSource_Steam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Test.
+        /// </summary>
+        public static string ResultSource_Test {
+            get {
+                return ResourceManager.GetString("ResultSource_Test", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TTPG.
+        /// </summary>
+        public static string ResultSource_TTPG {
+            get {
+                return ResourceManager.GetString("ResultSource_TTPG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TTS.
+        /// </summary>
+        public static string ResultSource_TTS {
+            get {
+                return ResourceManager.GetString("ResultSource_TTS", resourceCulture);
             }
         }
         
@@ -6469,6 +7189,762 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string TechnologyType_Warfare {
             get {
                 return ResourceManager.GetString("TechnologyType_Warfare", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Actions.
+        /// </summary>
+        public static string TiglAdmin_Actions {
+            get {
+                return ResourceManager.GetString("TiglAdmin_Actions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        public static string TiglAdmin_ActiveNo {
+            get {
+                return ResourceManager.GetString("TiglAdmin_ActiveNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        public static string TiglAdmin_ActiveYes {
+            get {
+                return ResourceManager.GetString("TiglAdmin_ActiveYes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add New Season.
+        /// </summary>
+        public static string TiglAdmin_AddNewSeason {
+            get {
+                return ResourceManager.GetString("TiglAdmin_AddNewSeason", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Season.
+        /// </summary>
+        public static string TiglAdmin_AddSeasonButtonText {
+            get {
+                return ResourceManager.GetString("TiglAdmin_AddSeasonButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string TiglAdmin_Edit {
+            get {
+                return ResourceManager.GetString("TiglAdmin_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to End Date.
+        /// </summary>
+        public static string TiglAdmin_EndDate {
+            get {
+                return ResourceManager.GetString("TiglAdmin_EndDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to End Season.
+        /// </summary>
+        public static string TiglAdmin_EndSeason {
+            get {
+                return ResourceManager.GetString("TiglAdmin_EndSeason", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reported Games Administration.
+        /// </summary>
+        public static string TiglAdmin_GameReportsAdministration {
+            get {
+                return ResourceManager.GetString("TiglAdmin_GameReportsAdministration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ...Loading seasons....
+        /// </summary>
+        public static string TiglAdmin_LoadingSeasons {
+            get {
+                return ResourceManager.GetString("TiglAdmin_LoadingSeasons", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parameters Administration.
+        /// </summary>
+        public static string TiglAdmin_ParametersAdministration {
+            get {
+                return ResourceManager.GetString("TiglAdmin_ParametersAdministration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Players Administration.
+        /// </summary>
+        public static string TiglAdmin_PlayersAdministration {
+            get {
+                return ResourceManager.GetString("TiglAdmin_PlayersAdministration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string TiglAdmin_Save {
+            get {
+                return ResourceManager.GetString("TiglAdmin_Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Season Administration.
+        /// </summary>
+        public static string TiglAdmin_SeasonAdministration {
+            get {
+                return ResourceManager.GetString("TiglAdmin_SeasonAdministration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to #.
+        /// </summary>
+        public static string TiglAdmin_SeasonId {
+            get {
+                return ResourceManager.GetString("TiglAdmin_SeasonId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string TiglAdmin_SeasonName {
+            get {
+                return ResourceManager.GetString("TiglAdmin_SeasonName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set Active.
+        /// </summary>
+        public static string TiglAdmin_SetActive {
+            get {
+                return ResourceManager.GetString("TiglAdmin_SetActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start Date.
+        /// </summary>
+        public static string TiglAdmin_StartDate {
+            get {
+                return ResourceManager.GetString("TiglAdmin_StartDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status.
+        /// </summary>
+        public static string TiglAdmin_Status {
+            get {
+                return ResourceManager.GetString("TiglAdmin_Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fractured.
+        /// </summary>
+        public static string TiglGames_CategoryFractured {
+            get {
+                return ResourceManager.GetString("TiglGames_CategoryFractured", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Standard.
+        /// </summary>
+        public static string TiglGames_CategoryStandard {
+            get {
+                return ResourceManager.GetString("TiglGames_CategoryStandard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ended.
+        /// </summary>
+        public static string TiglGames_Ended {
+            get {
+                return ResourceManager.GetString("TiglGames_Ended", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ID.
+        /// </summary>
+        public static string TiglGames_GameId {
+            get {
+                return ResourceManager.GetString("TiglGames_GameId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ...Loading match reports....
+        /// </summary>
+        public static string TiglGames_LoadingGames {
+            get {
+                return ResourceManager.GetString("TiglGames_LoadingGames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Source.
+        /// </summary>
+        public static string TiglGames_Source {
+            get {
+                return ResourceManager.GetString("TiglGames_Source", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status.
+        /// </summary>
+        public static string TiglGames_Status {
+            get {
+                return ResourceManager.GetString("TiglGames_Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rating.
+        /// </summary>
+        public static string TiglLeaderboard_AsyncRating {
+            get {
+                return ResourceManager.GetString("TiglLeaderboard_AsyncRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Aussie Score.
+        /// </summary>
+        public static string TiglLeaderboard_AussieScore {
+            get {
+                return ResourceManager.GetString("TiglLeaderboard_AussieScore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Games.
+        /// </summary>
+        public static string TiglLeaderboard_GamesPlayed {
+            get {
+                return ResourceManager.GetString("TiglLeaderboard_GamesPlayed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rating.
+        /// </summary>
+        public static string TiglLeaderboard_GlickoRating {
+            get {
+                return ResourceManager.GetString("TiglLeaderboard_GlickoRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RD.
+        /// </summary>
+        public static string TiglLeaderboard_GlickoRd {
+            get {
+                return ResourceManager.GetString("TiglLeaderboard_GlickoRd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Volatility.
+        /// </summary>
+        public static string TiglLeaderboard_GlickoVolatility {
+            get {
+                return ResourceManager.GetString("TiglLeaderboard_GlickoVolatility", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to League.
+        /// </summary>
+        public static string TiglLeaderboard_League {
+            get {
+                return ResourceManager.GetString("TiglLeaderboard_League", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Player.
+        /// </summary>
+        public static string TiglLeaderboard_Player {
+            get {
+                return ResourceManager.GetString("TiglLeaderboard_Player", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to # Rank.
+        /// </summary>
+        public static string TiglLeaderboard_Rank {
+            get {
+                return ResourceManager.GetString("TiglLeaderboard_Rank", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ranking system.
+        /// </summary>
+        public static string TiglLeaderboard_RankingSystem {
+            get {
+                return ResourceManager.GetString("TiglLeaderboard_RankingSystem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rating.
+        /// </summary>
+        public static string TiglLeaderboard_Rating {
+            get {
+                return ResourceManager.GetString("TiglLeaderboard_Rating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Season.
+        /// </summary>
+        public static string TiglLeaderboard_Season {
+            get {
+                return ResourceManager.GetString("TiglLeaderboard_Season", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Conservative Rating.
+        /// </summary>
+        public static string TiglLeaderboard_TrueSkillConservativeRating {
+            get {
+                return ResourceManager.GetString("TiglLeaderboard_TrueSkillConservativeRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rating (Mu).
+        /// </summary>
+        public static string TiglLeaderboard_TrueSkillMu {
+            get {
+                return ResourceManager.GetString("TiglLeaderboard_TrueSkillMu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sigma.
+        /// </summary>
+        public static string TiglLeaderboard_TrueSkillSigma {
+            get {
+                return ResourceManager.GetString("TiglLeaderboard_TrueSkillSigma", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Win %.
+        /// </summary>
+        public static string TiglLeaderboard_WinPercentage {
+            get {
+                return ResourceManager.GetString("TiglLeaderboard_WinPercentage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fractured.
+        /// </summary>
+        public static string TiglLeague_Fractured {
+            get {
+                return ResourceManager.GetString("TiglLeague_Fractured", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to League.
+        /// </summary>
+        public static string TiglLeague_League {
+            get {
+                return ResourceManager.GetString("TiglLeague_League", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prophecy of Kings.
+        /// </summary>
+        public static string TiglLeague_ProphecyOfKings {
+            get {
+                return ResourceManager.GetString("TiglLeague_ProphecyOfKings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Test.
+        /// </summary>
+        public static string TiglLeague_Test {
+            get {
+                return ResourceManager.GetString("TiglLeague_Test", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thunder&apos;s Edge (Standard).
+        /// </summary>
+        public static string TiglLeague_ThundersEdge {
+            get {
+                return ResourceManager.GetString("TiglLeague_ThundersEdge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GAMES.
+        /// </summary>
+        public static string TiglMenu_GameReports {
+            get {
+                return ResourceManager.GetString("TiglMenu_GameReports", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LEADERBOARD.
+        /// </summary>
+        public static string TiglMenu_Leaderboard {
+            get {
+                return ResourceManager.GetString("TiglMenu_Leaderboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PLAYERS.
+        /// </summary>
+        public static string TiglMenu_Players {
+            get {
+                return ResourceManager.GetString("TiglMenu_Players", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to STATISTICS.
+        /// </summary>
+        public static string TiglMenu_Statistics {
+            get {
+                return ResourceManager.GetString("TiglMenu_Statistics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allow publish achievements to Discord.
+        /// </summary>
+        public static string TiglParameterName_AchievementsPublish {
+            get {
+                return ResourceManager.GetString("TiglParameterName_AchievementsPublish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allow discord interractions.
+        /// </summary>
+        public static string TiglParameterName_DiscordInteraction {
+            get {
+                return ResourceManager.GetString("TiglParameterName_DiscordInteraction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allow games evaluation.
+        /// </summary>
+        public static string TiglParameterName_EvaluateGames {
+            get {
+                return ResourceManager.GetString("TiglParameterName_EvaluateGames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allow publish hero changes to Discord.
+        /// </summary>
+        public static string TiglParameterName_HeroPublish {
+            get {
+                return ResourceManager.GetString("TiglParameterName_HeroPublish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allow forced manual game review.
+        /// </summary>
+        public static string TiglParameterName_ManualGameReview {
+            get {
+                return ResourceManager.GetString("TiglParameterName_ManualGameReview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allow only imported games.
+        /// </summary>
+        public static string TiglParameterName_OnlyImportReports {
+            get {
+                return ResourceManager.GetString("TiglParameterName_OnlyImportReports", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allow only game reports after 1.12.2025.
+        /// </summary>
+        public static string TiglParameterName_OnlyThundersEdgeEra {
+            get {
+                return ResourceManager.GetString("TiglParameterName_OnlyThundersEdgeEra", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allow ranking up.
+        /// </summary>
+        public static string TiglParameterName_RankingUp {
+            get {
+                return ResourceManager.GetString("TiglParameterName_RankingUp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allow ranking up in PoK.
+        /// </summary>
+        public static string TiglParameterName_RankingUpProphecyOfKings {
+            get {
+                return ResourceManager.GetString("TiglParameterName_RankingUpProphecyOfKings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allow publish ranking up to Discord.
+        /// </summary>
+        public static string TiglParameterName_RankUpPublish {
+            get {
+                return ResourceManager.GetString("TiglParameterName_RankUpPublish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allow test user registrations.
+        /// </summary>
+        public static string TiglParameterName_TiglTestUserRegistrations {
+            get {
+                return ResourceManager.GetString("TiglParameterName_TiglTestUserRegistrations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No players match this criteria..
+        /// </summary>
+        public static string TiglPlayersList_NoPlayerMatch {
+            get {
+                return ResourceManager.GetString("TiglPlayersList_NoPlayerMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No players found..
+        /// </summary>
+        public static string TiglPlayersList_NoPlayersFound {
+            get {
+                return ResourceManager.GetString("TiglPlayersList_NoPlayersFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Galactic Threat.
+        /// </summary>
+        public static string TiglPrestigeRank_GalacticThreat {
+            get {
+                return ResourceManager.GetString("TiglPrestigeRank_GalacticThreat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pax Magnifica Bellum Gloriosum.
+        /// </summary>
+        public static string TiglPrestigeRank_PaxMagnificaBellumGloriosum {
+            get {
+                return ResourceManager.GetString("TiglPrestigeRank_PaxMagnificaBellumGloriosum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tyrant.
+        /// </summary>
+        public static string TiglPrestigeRank_Tyrant {
+            get {
+                return ResourceManager.GetString("TiglPrestigeRank_Tyrant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Acolyte.
+        /// </summary>
+        public static string TiglRankName_Acolyte {
+            get {
+                return ResourceManager.GetString("TiglRankName_Acolyte", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Agent.
+        /// </summary>
+        public static string TiglRankName_Agent {
+            get {
+                return ResourceManager.GetString("TiglRankName_Agent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Archon.
+        /// </summary>
+        public static string TiglRankName_Archon {
+            get {
+                return ResourceManager.GetString("TiglRankName_Archon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Commander.
+        /// </summary>
+        public static string TiglRankName_Commander {
+            get {
+                return ResourceManager.GetString("TiglRankName_Commander", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gene-Sorcerer.
+        /// </summary>
+        public static string TiglRankName_GeneSorcerer {
+            get {
+                return ResourceManager.GetString("TiglRankName_GeneSorcerer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hero.
+        /// </summary>
+        public static string TiglRankName_Hero {
+            get {
+                return ResourceManager.GetString("TiglRankName_Hero", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ixth-Lord.
+        /// </summary>
+        public static string TiglRankName_IxthLord {
+            get {
+                return ResourceManager.GetString("TiglRankName_IxthLord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Legionnaire.
+        /// </summary>
+        public static string TiglRankName_Legionnaire {
+            get {
+                return ResourceManager.GetString("TiglRankName_Legionnaire", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minister.
+        /// </summary>
+        public static string TiglRankName_Minister {
+            get {
+                return ResourceManager.GetString("TiglRankName_Minister", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Starlancer.
+        /// </summary>
+        public static string TiglRankName_Starlancer {
+            get {
+                return ResourceManager.GetString("TiglRankName_Starlancer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thrall.
+        /// </summary>
+        public static string TiglRankName_Thrall {
+            get {
+                return ResourceManager.GetString("TiglRankName_Thrall", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unranked.
+        /// </summary>
+        public static string TiglRankName_Unranked {
+            get {
+                return ResourceManager.GetString("TiglRankName_Unranked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Season.
+        /// </summary>
+        public static string TiglStatistics_Season {
+            get {
+                return ResourceManager.GetString("TiglStatistics_Season", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Statistics.
+        /// </summary>
+        public static string TiglStatistics_StatisticType {
+            get {
+                return ResourceManager.GetString("TiglStatistics_StatisticType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Factions.
+        /// </summary>
+        public static string TiglStatisticsType_Factions {
+            get {
+                return ResourceManager.GetString("TiglStatisticsType_Factions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Games.
+        /// </summary>
+        public static string TiglStatisticsType_Games {
+            get {
+                return ResourceManager.GetString("TiglStatisticsType_Games", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Players.
+        /// </summary>
+        public static string TiglStatisticsType_Players {
+            get {
+                return ResourceManager.GetString("TiglStatisticsType_Players", resourceCulture);
             }
         }
         

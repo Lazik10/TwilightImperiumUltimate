@@ -1,0 +1,97 @@
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Shapes
+
+<VerticalSpace Height="20" />
+<NumericPicker Title="@Strings.TiglLeaderboard_Season" FontSize="18" Value="@_selectedSeasonNumber" OnDecrease="DecreaseSeasonNumber" OnIncrease="IncreaseSeasonNumber" />
+
+<FlexRowContainer>
+    <EnumPicker Label="@Strings.TiglLeaderboard_League" TEnum="TiglLeague" CurrentValue="@_selectedLeague" CurrentValueChanged="@OnLeagueChanged" ExcludeValues="new List<TiglLeague> { TiglLeague.Test }" />
+</FlexRowContainer>
+
+<EnumPicker Label="@Strings.TiglLeaderboard_RankingSystem" TEnum="RankingSystem" CurrentValue="@_selectedRankingSystem" CurrentValueChanged="@OnRankingSystemChanged" />
+
+<VerticalSpace Height="20" />
+
+<GridLayout Columns="7" CssClass="handel white shadow background" Style="grid-template-columns: 10% 20% 20% 15% 15% 10% 10%">
+
+    <VerticalSpace Height="20" CssClass="span-7"/>
+
+    <Label Text="@Strings.TiglLeaderboard_Rank" CenterText="true" />
+    <Label Text="@Strings.TiglLeaderboard_Player" />
+
+    @if (_selectedRankingSystem == RankingSystem.TrueSkill)
+    {
+        <Label Text="@Strings.TiglLeaderboard_TrueSkillConservativeRating" CenterText="true" />
+        <Label Text="@Strings.TiglLeaderboard_TrueSkillMu" CenterText="true" />
+        <Label Text="@Strings.TiglLeaderboard_TrueSkillSigma" CenterText="true" />
+    }
+    else if (_selectedRankingSystem == RankingSystem.Glicko2)
+    {
+        <Label Text="@Strings.TiglLeaderboard_GlickoRating" CenterText="true" />
+        <Label Text="@Strings.TiglLeaderboard_GlickoRd" CenterText="true" />
+        <Label Text="@Strings.TiglLeaderboard_GlickoVolatility" CenterText="true" />
+    }
+    else if (_selectedRankingSystem == RankingSystem.Async)
+    {
+        <Label Text="@Strings.TiglLeaderboard_AsyncRating" CenterText="true" />
+        <Label Text="@Strings.TiglLeaderboard_AussieScore" CenterText="true" />
+        <Label />
+    }
+
+    <Label Text="@Strings.TiglLeaderboard_GamesPlayed" CenterText="true" />
+    <Label Text="@Strings.TiglLeaderboard_WinPercentage" CenterText="true" />
+
+    <VerticalSpace Height="20" CssClass="span-7" />
+
+</GridLayout>
+
+<VerticalSpace Height="20" />
+
+<GridLayout Columns="7" CssClass="handel white shadow" Style="grid-template-columns: 10% 20% 20% 15% 15% 10% 10%">
+
+    <VerticalSpace Height="20" CssClass="span-7" />
+
+    @if (!_loading)
+    {
+        _placement = 1;
+
+        @foreach (var playerResult in GetSortedRows())
+        {
+            <Label Text="@_placement.ToString()" CenterText=true CssClass="background" TextColor="TextColor.Yellow" />
+            <Label Text="@playerResult.TiglUserName" CssClass="background" />
+
+            if (_selectedRankingSystem == RankingSystem.TrueSkill)
+            {
+                <Label Text="@playerResult.TrueSkillConservativeRating.ToString("F2")" TextColor="TextColor.Green" CenterText="true" CssClass="background" />
+                <Label Text="@playerResult.TrueSkillMu.ToString("F2")" CenterText="true" CssClass="background" />
+                <Label Text="@playerResult.TrueSkillSigma.ToString("F6")" CenterText="true" CssClass="background" />
+            }
+            else if (_selectedRankingSystem == RankingSystem.Glicko2)
+            {
+                <Label Text="@playerResult.GlickoRating.ToString("F2")" TextColor="TextColor.Green" CenterText="true" CssClass="background" />
+                <Label Text="@playerResult.GlickoRd.ToString("F4")" CenterText="true" CssClass="background" />
+                <Label Text="@playerResult.GlickoVolatility.ToString("F6")" CenterText="true" CssClass="background" />
+            }
+            else if (_selectedRankingSystem == RankingSystem.Async)
+            {
+                <Label Text="@playerResult.AsyncRating.ToString("F2")" TextColor="TextColor.Green" CenterText="true" CssClass="background" />
+                <Label Text="@playerResult.AussieScore.ToString("F2")" CenterText="true" CssClass="background" />
+                <div style="align-self: stretch; justify-self: stretch;" class="background" />
+            }
+
+            <Label Text="@playerResult.GamesPlayed.ToString()" TextColor="TextColor.Yellow" CenterText="true" CssClass="background" />
+            <Label Text="@playerResult.WinPercentage.ToString("F2")" CenterText="true" TextColor="GetWinrateColor(playerResult.WinPercentage)" CssClass="background" />
+
+            _placement++;
+
+            <VerticalSpace Height="10" CssClass="span-7" />
+        }
+
+        _placement = 0;
+    }
+    else
+    {
+        <VerticalSpace Height="50" CssClass="span-7" />
+        <Label Text="Loading" CenterText="true" CssClass="span-7" />
+        <VerticalSpace Height="50" CssClass="span-7" />
+    }
+</GridLayout>

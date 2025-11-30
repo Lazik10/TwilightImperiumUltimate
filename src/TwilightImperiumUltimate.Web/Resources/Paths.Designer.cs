@@ -124,11 +124,29 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to api/rankings/add-rank-history.
+        /// </summary>
+        public static string ApiPath_AddRankHistory {
+            get {
+                return ResourceManager.GetString("ApiPath_AddRankHistory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to api/users/add-role.
         /// </summary>
         public static string ApiPath_AddRole {
             get {
                 return ResourceManager.GetString("ApiPath_AddRole", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/tigl/add-season.
+        /// </summary>
+        public static string ApiPath_AddSeason {
+            get {
+                return ResourceManager.GetString("ApiPath_AddSeason", resourceCulture);
             }
         }
         
@@ -331,6 +349,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to api/rankings/award-prestige-rank.
+        /// </summary>
+        public static string ApiPath_AwardPrestigeRank {
+            get {
+                return ResourceManager.GetString("ApiPath_AwardPrestigeRank", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to api/cards/.
         /// </summary>
         public static string ApiPath_Cards {
@@ -354,6 +381,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string ApiPath_EndGameStatistics {
             get {
                 return ResourceManager.GetString("ApiPath_EndGameStatistics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/tigl/end-season.
+        /// </summary>
+        public static string ApiPath_EndSeason {
+            get {
+                return ResourceManager.GetString("ApiPath_EndSeason", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/tigl/evaluate-game-report.
+        /// </summary>
+        public static string ApiPath_EvaluateGameReport {
+            get {
+                return ResourceManager.GetString("ApiPath_EvaluateGameReport", resourceCulture);
             }
         }
         
@@ -421,6 +466,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to api/tigl/game-report/.
+        /// </summary>
+        public static string ApiPath_GameReport {
+            get {
+                return ResourceManager.GetString("ApiPath_GameReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/tigl/game-reports.
+        /// </summary>
+        public static string ApiPath_GameReports {
+            get {
+                return ResourceManager.GetString("ApiPath_GameReports", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to api/map-generators/generate-map.
         /// </summary>
         public static string ApiPath_GenerateMap {
@@ -444,6 +507,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string ApiPath_ManageInfo {
             get {
                 return ResourceManager.GetString("ApiPath_ManageInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/tigl/manual-report-game.
+        /// </summary>
+        public static string ApiPath_ManualReportGame {
+            get {
+                return ResourceManager.GetString("ApiPath_ManualReportGame", resourceCulture);
             }
         }
         
@@ -520,6 +592,60 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to api/rankings/overview.
+        /// </summary>
+        public static string ApiPath_Rankings {
+            get {
+                return ResourceManager.GetString("ApiPath_Rankings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/rankings/leaders.
+        /// </summary>
+        public static string ApiPath_RankingsLeaders {
+            get {
+                return ResourceManager.GetString("ApiPath_RankingsLeaders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/rankings/user-rank-history/.
+        /// </summary>
+        public static string ApiPath_RankingsUserHistory {
+            get {
+                return ResourceManager.GetString("ApiPath_RankingsUserHistory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/rankings/user-rank-overview/.
+        /// </summary>
+        public static string ApiPath_RankingsUserOverview {
+            get {
+                return ResourceManager.GetString("ApiPath_RankingsUserOverview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/rankings/user-prestige-rank-history/.
+        /// </summary>
+        public static string ApiPath_RankingsUserPrestigeHistory {
+            get {
+                return ResourceManager.GetString("ApiPath_RankingsUserPrestigeHistory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/rankings/recent-achievements.
+        /// </summary>
+        public static string ApiPath_RecentAchievements {
+            get {
+                return ResourceManager.GetString("ApiPath_RecentAchievements", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to api/cards/relic.
         /// </summary>
         public static string ApiPath_RelicCards {
@@ -529,11 +655,38 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to api/rankings/remove-prestige-rank.
+        /// </summary>
+        public static string ApiPath_RemovePrestigeRank {
+            get {
+                return ResourceManager.GetString("ApiPath_RemovePrestigeRank", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/rankings/remove-rank-history.
+        /// </summary>
+        public static string ApiPath_RemoveRankHistory {
+            get {
+                return ResourceManager.GetString("ApiPath_RemoveRankHistory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to api/users/remove-role.
         /// </summary>
         public static string ApiPath_RemoveRole {
             get {
                 return ResourceManager.GetString("ApiPath_RemoveRole", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/tigl/report-game.
+        /// </summary>
+        public static string ApiPath_ReportGame {
+            get {
+                return ResourceManager.GetString("ApiPath_ReportGame", resourceCulture);
             }
         }
         
@@ -583,11 +736,47 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to api/tigl/season-leaderboard/.
+        /// </summary>
+        public static string ApiPath_SeasonLeaderboard {
+            get {
+                return ResourceManager.GetString("ApiPath_SeasonLeaderboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/tigl/seasons.
+        /// </summary>
+        public static string ApiPath_Seasons {
+            get {
+                return ResourceManager.GetString("ApiPath_Seasons", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/tigl/update-season.
+        /// </summary>
+        public static string ApiPath_SeasonUpdate {
+            get {
+                return ResourceManager.GetString("ApiPath_SeasonUpdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to api/cards/secret.
         /// </summary>
         public static string ApiPath_SecretObjectiveCards {
             get {
                 return ResourceManager.GetString("ApiPath_SecretObjectiveCards", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/tigl/set-active-season.
+        /// </summary>
+        public static string ApiPath_SetActiveSeason {
+            get {
+                return ResourceManager.GetString("ApiPath_SetActiveSeason", resourceCulture);
             }
         }
         
@@ -669,6 +858,60 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string ApiPath_Technologies {
             get {
                 return ResourceManager.GetString("ApiPath_Technologies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/tigl/game-reports.
+        /// </summary>
+        public static string ApiPath_TiglGameReports {
+            get {
+                return ResourceManager.GetString("ApiPath_TiglGameReports", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/tigl/parameters.
+        /// </summary>
+        public static string ApiPath_TiglParameters {
+            get {
+                return ResourceManager.GetString("ApiPath_TiglParameters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/tigl/register-user.
+        /// </summary>
+        public static string ApiPath_TiglRegisterUser {
+            get {
+                return ResourceManager.GetString("ApiPath_TiglRegisterUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/tigl/users.
+        /// </summary>
+        public static string ApiPath_TiglUsers {
+            get {
+                return ResourceManager.GetString("ApiPath_TiglUsers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/tigl/update-season.
+        /// </summary>
+        public static string ApiPath_UpdateSeason {
+            get {
+                return ResourceManager.GetString("ApiPath_UpdateSeason", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/tigl/update-parameter.
+        /// </summary>
+        public static string ApiPath_UpdateTiglParameter {
+            get {
+                return ResourceManager.GetString("ApiPath_UpdateTiglParameter", resourceCulture);
             }
         }
         
@@ -763,6 +1006,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TwilightImperiumUltimate.Web.Resources.Leaders.
+        /// </summary>
+        public static string ResourceNamespace_Leaders {
+            get {
+                return ResourceManager.GetString("ResourceNamespace_Leaders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TwilightImperiumUltimate.Web.Resources.RuleNotes.
         /// </summary>
         public static string ResourceNamespace_RuleNotes {
@@ -786,6 +1038,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string ResourceNamespace_Strings {
             get {
                 return ResourceManager.GetString("ResourceNamespace_Strings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TwilightImperiumUltimate.Web.Resources.TiglFactions.
+        /// </summary>
+        public static string ResourceNamespace_TiglFactions {
+            get {
+                return ResourceManager.GetString("ResourceNamespace_TiglFactions", resourceCulture);
             }
         }
         
@@ -930,6 +1191,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string ResourcePath_LargeTilePath {
             get {
                 return ResourceManager.GetString("ResourcePath_LargeTilePath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to \resources\images\shared\leaders.
+        /// </summary>
+        public static string ResourcePath_LeaderIconPath {
+            get {
+                return ResourceManager.GetString("ResourcePath_LeaderIconPath", resourceCulture);
             }
         }
         

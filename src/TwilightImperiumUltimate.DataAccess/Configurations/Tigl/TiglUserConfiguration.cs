@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TwilightImperiumUltimate.Core.Entities.Tigl;
 
 namespace TwilightImperiumUltimate.DataAccess.Configurations.Tigl;
@@ -64,6 +65,44 @@ public class TiglUserConfiguration : IEntityTypeConfiguration<TiglUser>
             .HasMaxLength(100)
             .HasColumnOrder(6);
 
+        builder.Property(e => e.TiglUserNameChanged)
+            .IsRequired()
+            .HasColumnName(nameof(TiglUser.TiglUserNameChanged))
+            .HasConversion(new BoolToStringConverter("false", "true"))
+            .HasColumnType("varchar(10)")
+            .HasMaxLength(10)
+            .HasColumnOrder(7);
+
+        builder.Property(x => x.LastUserNameChange)
+            .IsRequired()
+            .HasColumnName(nameof(TiglUser.LastUserNameChange))
+            .HasColumnType("date")
+            .HasColumnOrder(8);
+
+        builder.Property(e => e.ProphecyOfKingsRank)
+            .IsRequired()
+            .HasColumnName(nameof(TiglUser.ProphecyOfKingsRank))
+            .HasConversion<string>()
+            .HasColumnType("varchar(100)")
+            .HasMaxLength(100)
+            .HasColumnOrder(9);
+
+        builder.Property(e => e.ThundersEdgeRank)
+            .IsRequired()
+            .HasColumnName(nameof(TiglUser.ThundersEdgeRank))
+            .HasConversion<string>()
+            .HasColumnType("varchar(100)")
+            .HasMaxLength(100)
+            .HasColumnOrder(10);
+
+        builder.Property(e => e.ShatteredRank)
+            .IsRequired()
+            .HasColumnName(nameof(TiglUser.ShatteredRank))
+            .HasConversion<string>()
+            .HasColumnType("varchar(100)")
+            .HasMaxLength(100)
+            .HasColumnOrder(11);
+
         builder.HasMany(a => a.AsyncStats)
             .WithOne(u => u.TiglUser)
             .HasForeignKey(p => p.TiglUserId)
@@ -77,6 +116,21 @@ public class TiglUserConfiguration : IEntityTypeConfiguration<TiglUser>
         builder.HasMany(a => a.TrueSkillStats)
             .WithOne(u => u.TiglUser)
             .HasForeignKey(p => p.TiglUserId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.HasMany(a => a.RatingDecays)
+            .WithOne(u => u.TiglUser)
+            .HasForeignKey(p => p.TiglUserId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.HasMany(x => x.Leaders)
+            .WithOne(x => x.CurrentOwner)
+            .HasForeignKey(x => x.CurrentOwnerId)
+            .OnDelete(DeleteBehavior.SetNull);
+
+        builder.HasMany(x => x.TiglRanks)
+            .WithOne(x => x.TiglUser)
+            .HasForeignKey(x => x.TiglUserId)
             .OnDelete(DeleteBehavior.Cascade);
     }
 }

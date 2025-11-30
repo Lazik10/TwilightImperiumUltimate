@@ -52,7 +52,17 @@ internal static class TableName
     internal const string Games = "Games";
 
     // Logs
-    internal const string Logs = "Logs";
+    internal const string RankUpLogs = "RankUpLogs";
+
+    internal const string LeaderLogs = "LeaderLogs";
+
+    internal const string PrestigeLogs = "PrestigeLogs";
+
+    internal const string AchievementLogs = "AchievementLogs";
+
+    internal const string GamePublishLogs = "GamePublishLogs";
+
+   internal  const string DiscordRoleChangeLogs = "DiscordRoleChangeLogs";
 
     // News
     internal const string NewsArticles = "NewsArticles";
@@ -89,6 +99,8 @@ internal static class TableName
 
     internal const string PlayerResults = "PlayerResults";
 
+    internal const string PlayerSeasonResults = "PlayerSeasonResults";
+
     internal const string TiglUsers = "Users";
 
     internal const string AsyncStats = "AsyncStats";
@@ -103,6 +115,8 @@ internal static class TableName
 
     internal const string TrueSkillRatings = "TrueSkillRatings";
 
+    internal const string RatingDecays = "RatingDecays";
+
     internal const string AsyncPlayerMatchStats = "AsyncPlayerMatchStats";
 
     internal const string GlickoPlayerMatchStats = "GlickoPlayerMatchStats";
@@ -112,4 +126,12 @@ internal static class TableName
     internal const string Seasons = "Seasons";
 
     internal const string Parameters = "Parameters";
+
+    internal const string Achievements = "Achievements";
+
+    internal const string Ranks = "Ranks";
+
+    internal const string PrestigeRanks = "PrestigeRanks";
+
+    internal const string Leaders = "Leaders";
 }

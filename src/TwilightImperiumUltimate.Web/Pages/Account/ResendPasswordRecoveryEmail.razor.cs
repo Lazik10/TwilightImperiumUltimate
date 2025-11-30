@@ -25,7 +25,8 @@ public partial class ResendPasswordRecoveryEmail
         _recoveryEmailSend = false;
 
         var request = new ResendPasswordRecoveryEmailRequest { Email = PasswordRecoveryModel.Email, };
-        var (_, statusCode) = await HttpClient.PostAsync<ResendPasswordRecoveryEmailRequest, ResendPasswordRecoveryEmailResponse>(Paths.ApiPath_ForgotPassword, request, default);
+        var result = await HttpClient.PostAsync<ResendPasswordRecoveryEmailRequest, ResendPasswordRecoveryEmailResponse>(Paths.ApiPath_ForgotPassword, request, default);
+        var statusCode = result.StatusCode;
 
         if (statusCode == System.Net.HttpStatusCode.OK)
         {

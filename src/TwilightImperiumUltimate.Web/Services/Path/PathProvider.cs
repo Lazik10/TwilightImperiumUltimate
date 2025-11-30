@@ -6,6 +6,7 @@ public class PathProvider : IPathProvider
 {
     private const string _basePath = "resources\\images";
     private readonly string _language = CultureInfo.CurrentCulture.Name;
+    private static Random _random = new Random();
 
     public string GetCultureIconPath(string fileName)
     {
@@ -124,6 +125,30 @@ public class PathProvider : IPathProvider
     public string GetGameVersionIconPath(GameVersion gameVersion)
     {
         return $"{Paths.ResourcePath_GameVersionIconPath}{Strings.BackSlash}{gameVersion}{Strings.FileExtensionWebp}";
+    }
+
+    public string GetTiglFactionIconPath(TiglFactionName faction)
+    {
+        var factionString = faction.ToString();
+        if (faction == TiglFactionName.TheFirmamentTheObsidian)
+        {
+            var variants = new List<string> { "TheFirmament", "TheObsidian" };
+            factionString = variants[_random.Next(variants.Count)].ToString();
+        }
+
+        return $"{Paths.ResourcePath_FactionIconPath}{Strings.BackSlash}{factionString}{Strings.FileExtensionWebp}";
+    }
+
+    public string GetLeaderIconPath(TiglFactionName faction, LeaderType type)
+    {
+        var factionString = faction.ToString();
+        if (faction == TiglFactionName.TheGheminaRaiders)
+        {
+            var variants = new List<string> { "Lady", "Lord" };
+            factionString += variants[_random.Next(variants.Count)].ToString();
+        }
+
+        return $"{Paths.ResourcePath_LeaderIconPath}{Strings.BackSlash}{factionString}{type}{Strings.FileExtensionWebp}";
     }
 
     public string GetWebsitePreviewImagePath(string fileName)

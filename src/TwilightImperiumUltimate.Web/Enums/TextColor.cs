@@ -15,4 +15,12 @@ public enum TextColor
     Grey,
     DarkGreen,
     Black,
+
+    Unranked,
+    Minister,
+    Agent,
+    Commander,
+    Hero,
+    GalacticThreat,
+    Pmbg,
 }
