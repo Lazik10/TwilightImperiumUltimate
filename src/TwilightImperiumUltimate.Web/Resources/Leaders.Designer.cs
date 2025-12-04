@@ -59,5 +59,788 @@ namespace TwilightImperiumUltimate.Web.Resources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Adjudicator Baal.
+        /// </summary>
+        public static string AdjudicatorBaal {
+            get {
+                return ResourceManager.GetString("AdjudicatorBaal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ahk Syl Siven.
+        /// </summary>
+        public static string AhkSylSiven {
+            get {
+                return ResourceManager.GetString("AhkSylSiven", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Airo Shir Aur.
+        /// </summary>
+        public static string AiroShirAur {
+            get {
+                return ResourceManager.GetString("AiroShirAur", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A Sickening Lurch.
+        /// </summary>
+        public static string ASickeningLurch {
+            get {
+                return ResourceManager.GetString("ASickeningLurch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Atropha.
+        /// </summary>
+        public static string AtrophaWeaver {
+            get {
+                return ResourceManager.GetString("AtrophaWeaver", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auberon Elyrin.
+        /// </summary>
+        public static string AuberonElyrinChairman {
+            get {
+                return ResourceManager.GetString("AuberonElyrinChairman", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Avarice Rex.
+        /// </summary>
+        public static string AvariceRex {
+            get {
+                return ResourceManager.GetString("AvariceRex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Banua Gowen.
+        /// </summary>
+        public static string BanuaGowenAdministratorOfMinds {
+            get {
+                return ResourceManager.GetString("BanuaGowenAdministratorOfMinds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bayan Deep.
+        /// </summary>
+        public static string BayanDeepMagenta {
+            get {
+                return ResourceManager.GetString("BayanDeepMagenta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cadh Acamont.
+        /// </summary>
+        public static string CadhAcamontConcordatMarshall {
+            get {
+                return ResourceManager.GetString("CadhAcamontConcordatMarshall", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to C.E.O. Ken Tucc.
+        /// </summary>
+        public static string CEOKenTuccVisionaryExplorer {
+            get {
+                return ResourceManager.GetString("CEOKenTuccVisionaryExplorer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Conservator Procyon.
+        /// </summary>
+        public static string ConservatorProcyon {
+            get {
+                return ResourceManager.GetString("ConservatorProcyon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Coprinus Comatus.
+        /// </summary>
+        public static string CoprinusComatusNecromancer {
+            get {
+                return ResourceManager.GetString("CoprinusComatusNecromancer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Count Otto Pmay.
+        /// </summary>
+        public static string CountOttoPmayInspiringRhetorician {
+            get {
+                return ResourceManager.GetString("CountOttoPmayInspiringRhetorician", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dannel Of The Tenth.
+        /// </summary>
+        public static string DannelOfTheTenth {
+            get {
+                return ResourceManager.GetString("DannelOfTheTenth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Darktalon Treilla.
+        /// </summary>
+        public static string DarktalonTreilla {
+            get {
+                return ResourceManager.GetString("DarktalonTreilla", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Demi-Queen Mdcksssk.
+        /// </summary>
+        public static string DemiQueenMdckssskCommissionerOfProfits {
+            get {
+                return ResourceManager.GetString("DemiQueenMdckssskCommissionerOfProfits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deposed Emperor.
+        /// </summary>
+        public static string DeposedEmperor {
+            get {
+                return ResourceManager.GetString("DeposedEmperor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Director Nel.
+        /// </summary>
+        public static string DirectorNel {
+            get {
+                return ResourceManager.GetString("DirectorNel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dorrahn Griphyn.
+        /// </summary>
+        public static string DorrahnGriphynTheCollector {
+            get {
+                return ResourceManager.GetString("DorrahnGriphynTheCollector", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dyln Harthuul.
+        /// </summary>
+        public static string DylnHarthuulViceAdmiralOfFleetGroup15 {
+            get {
+                return ResourceManager.GetString("DylnHarthuulViceAdmiralOfFleetGroup15", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to El Nen Janovet.
+        /// </summary>
+        public static string ElNenJanovet {
+            get {
+                return ResourceManager.GetString("ElNenJanovet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Entity 4X41A Apollo.
+        /// </summary>
+        public static string Entity4X41AApollo {
+            get {
+                return ResourceManager.GetString("Entity4X41AApollo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Franken.
+        /// </summary>
+        public static string Franken {
+            get {
+                return ResourceManager.GetString("Franken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Galactic Threat.
+        /// </summary>
+        public static string GalacticThreat {
+            get {
+                return ResourceManager.GetString("GalacticThreat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gorthrim.
+        /// </summary>
+        public static string GorthrimChiefOfExpeditions {
+            get {
+                return ResourceManager.GetString("GorthrimChiefOfExpeditions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gurno Aggero.
+        /// </summary>
+        public static string GurnoAggero {
+            get {
+                return ResourceManager.GetString("GurnoAggero", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Harka Leeds.
+        /// </summary>
+        public static string HarkaLeeds {
+            get {
+                return ResourceManager.GetString("HarkaLeeds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Harrugh Gefhara.
+        /// </summary>
+        public static string HarrughGefhara {
+            get {
+                return ResourceManager.GetString("HarrughGefhara", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hesh And Prit.
+        /// </summary>
+        public static string HeshAndPrit {
+            get {
+                return ResourceManager.GetString("HeshAndPrit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Homebrew.
+        /// </summary>
+        public static string Homebrew {
+            get {
+                return ResourceManager.GetString("Homebrew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Homesick Phantom.
+        /// </summary>
+        public static string HomesickPhantom {
+            get {
+                return ResourceManager.GetString("HomesickPhantom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Il Na Viroset.
+        /// </summary>
+        public static string IlNaViroset {
+            get {
+                return ResourceManager.GetString("IlNaViroset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Il Sai Lakoe Herald Of Thorns.
+        /// </summary>
+        public static string IlSaiLakoeHeraldOfThorns {
+            get {
+                return ResourceManager.GetString("IlSaiLakoeHeraldOfThorns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ipswitch Loose Cannon.
+        /// </summary>
+        public static string IpswitchLooseCannon {
+            get {
+                return ResourceManager.GetString("IpswitchLooseCannon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It Feeds On Carrion.
+        /// </summary>
+        public static string ItFeedsOnCarrion {
+            get {
+                return ResourceManager.GetString("ItFeedsOnCarrion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to JaceX 4th Air Legion.
+        /// </summary>
+        public static string JaceX4thAirLegion {
+            get {
+                return ResourceManager.GetString("JaceX4thAirLegion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kapoko Vui.
+        /// </summary>
+        public static string KapokoVuiGreatSpirit {
+            get {
+                return ResourceManager.GetString("KapokoVuiGreatSpirit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Khaz Rin.
+        /// </summary>
+        public static string KhazRinLiZhoEmpress {
+            get {
+                return ResourceManager.GetString("KhazRinLiZhoEmpress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Korela &amp; Kantrus.
+        /// </summary>
+        public static string KorelaTheLadyAndKantrusTheLord {
+            get {
+                return ResourceManager.GetString("KorelaTheLadyAndKantrusTheLord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Krill Drakkon.
+        /// </summary>
+        public static string KrillDrakkonStarCrownedKing {
+            get {
+                return ResourceManager.GetString("KrillDrakkonStarCrownedKing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kuuasi Aun Jalatai.
+        /// </summary>
+        public static string KuuasiAunJalatai {
+            get {
+                return ResourceManager.GetString("KuuasiAunJalatai", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kyver Blade And Key.
+        /// </summary>
+        public static string KyverBladeAndKey {
+            get {
+                return ResourceManager.GetString("KyverBladeAndKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Letani Miasmiala.
+        /// </summary>
+        public static string LetaniMiasmiala {
+            get {
+                return ResourceManager.GetString("LetaniMiasmiala", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LondorII.
+        /// </summary>
+        public static string LondorIIGodEmperor {
+            get {
+                return ResourceManager.GetString("LondorIIGodEmperor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mathis Mathinus.
+        /// </summary>
+        public static string MathisMathinus {
+            get {
+                return ResourceManager.GetString("MathisMathinus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Midir.
+        /// </summary>
+        public static string MidirLivingWill {
+            get {
+                return ResourceManager.GetString("MidirLivingWill", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mirik Aun Sissiri.
+        /// </summary>
+        public static string MirikAunSissiri {
+            get {
+                return ResourceManager.GetString("MirikAunSissiri", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mobius Spike.
+        /// </summary>
+        public static string MobiusSpikeTheReaper {
+            get {
+                return ResourceManager.GetString("MobiusSpikeTheReaper", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nmenmede.
+        /// </summary>
+        public static string NmenmedeGhotiAllMother {
+            get {
+                return ResourceManager.GetString("NmenmedeGhotiAllMother", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Odlynn Myrr.
+        /// </summary>
+        public static string OdlynnMyrr {
+            get {
+                return ResourceManager.GetString("OdlynnMyrr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pahn Silverfur.
+        /// </summary>
+        public static string PahnSilverfurCouncilSpeaker {
+            get {
+                return ResourceManager.GetString("PahnSilverfurCouncilSpeaker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pax Magnifica Bellum Gloriosum.
+        /// </summary>
+        public static string PaxMagnificaBellumGloriosum {
+            get {
+                return ResourceManager.GetString("PaxMagnificaBellumGloriosum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pharadn.
+        /// </summary>
+        public static string PharadnTheImmortalImperishableUnifier {
+            get {
+                return ResourceManager.GetString("PharadnTheImmortalImperishableUnifier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Putriv Sirvonsk.
+        /// </summary>
+        public static string PutrivSirvonskClanmasterPrime {
+            get {
+                return ResourceManager.GetString("PutrivSirvonskClanmasterPrime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Queen Nadalia.
+        /// </summary>
+        public static string QueenNadaliaLifeAndDeath {
+            get {
+                return ResourceManager.GetString("QueenNadaliaLifeAndDeath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Radiant Aur.
+        /// </summary>
+        public static string RadiantAur {
+            get {
+                return ResourceManager.GetString("RadiantAur", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Riftwalker Meian.
+        /// </summary>
+        public static string RiftwalkerMeian {
+            get {
+                return ResourceManager.GetString("RiftwalkerMeian", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rin The Masters Legacy.
+        /// </summary>
+        public static string RinTheMastersLegacy {
+            get {
+                return ResourceManager.GetString("RinTheMastersLegacy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Roh Vhin Dhna MK4.
+        /// </summary>
+        public static string RohVhinDhnaMK4RuthlessExecutive {
+            get {
+                return ResourceManager.GetString("RohVhinDhnaMK4RuthlessExecutive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Saint Binal.
+        /// </summary>
+        public static string SaintBinalTheProphet {
+            get {
+                return ResourceManager.GetString("SaintBinalTheProphet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sharsiss.
+        /// </summary>
+        public static string Sharsiss {
+            get {
+                return ResourceManager.GetString("Sharsiss", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shval Harbinger.
+        /// </summary>
+        public static string ShvalHarbinger {
+            get {
+                return ResourceManager.GetString("ShvalHarbinger", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Speygh.
+        /// </summary>
+        public static string SpeyghBlightmaster {
+            get {
+                return ResourceManager.GetString("SpeyghBlightmaster", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Starsails.
+        /// </summary>
+        public static string StarsailsMercenaryKing {
+            get {
+                return ResourceManager.GetString("StarsailsMercenaryKing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ta Zern.
+        /// </summary>
+        public static string TaZern {
+            get {
+                return ResourceManager.GetString("TaZern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thakt Clqua.
+        /// </summary>
+        public static string ThaktClquaPolemarch {
+            get {
+                return ResourceManager.GetString("ThaktClquaPolemarch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Helmsman.
+        /// </summary>
+        public static string TheHelmsman {
+            get {
+                return ResourceManager.GetString("TheHelmsman", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Oracle.
+        /// </summary>
+        public static string TheOracle {
+            get {
+                return ResourceManager.GetString("TheOracle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Ruby Monarch.
+        /// </summary>
+        public static string TheRubyMonarch {
+            get {
+                return ResourceManager.GetString("TheRubyMonarch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Saint Of Swords.
+        /// </summary>
+        public static string TheSaintOfSwords {
+            get {
+                return ResourceManager.GetString("TheSaintOfSwords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Venerable.
+        /// </summary>
+        public static string TheVenerableKeeperOfMyths {
+            get {
+                return ResourceManager.GetString("TheVenerableKeeperOfMyths", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Voice United.
+        /// </summary>
+        public static string TheVoiceUnitedPsionicMaelstrom {
+            get {
+                return ResourceManager.GetString("TheVoiceUnitedPsionicMaelstrom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Titus Flavius.
+        /// </summary>
+        public static string TitusFlaviusCouncilman {
+            get {
+                return ResourceManager.GetString("TitusFlaviusCouncilman", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Turra Sveyar.
+        /// </summary>
+        public static string TurraSveyarShadowCouncilor {
+            get {
+                return ResourceManager.GetString("TurraSveyarShadowCouncilor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tvor Khage.
+        /// </summary>
+        public static string TvorKhageShieldOfQhet {
+            get {
+                return ResourceManager.GetString("TvorKhageShieldOfQhet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Twilight&apos;s Fall.
+        /// </summary>
+        public static string TwilightsFall {
+            get {
+                return ResourceManager.GetString("TwilightsFall", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tyrant.
+        /// </summary>
+        public static string Tyrant {
+            get {
+                return ResourceManager.GetString("Tyrant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ul The Progenitor.
+        /// </summary>
+        public static string UlTheProgenitor {
+            get {
+                return ResourceManager.GetString("UlTheProgenitor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UNITDSGNFLAYESH.
+        /// </summary>
+        public static string UNITDSGNFLAYESH {
+            get {
+                return ResourceManager.GetString("UNITDSGNFLAYESH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vehl Tikar.
+        /// </summary>
+        public static string VehlTikarArchDruid {
+            get {
+                return ResourceManager.GetString("VehlTikarArchDruid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Verrisus Ypru.
+        /// </summary>
+        public static string VerrisusYpruFormerAdmiralOfTheUnrelentingBattlegroup {
+            get {
+                return ResourceManager.GetString("VerrisusYpruFormerAdmiralOfTheUnrelentingBattlegroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wonell.
+        /// </summary>
+        public static string WonellTheSilentGrandmasterOfTheOrder {
+            get {
+                return ResourceManager.GetString("WonellTheSilentGrandmasterOfTheOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrath Machina.
+        /// </summary>
+        public static string WrathMachinaAIMainframe {
+            get {
+                return ResourceManager.GetString("WrathMachinaAIMainframe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Xxekir Grom.
+        /// </summary>
+        public static string XxekirGrom {
+            get {
+                return ResourceManager.GetString("XxekirGrom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ygegnad.
+        /// </summary>
+        public static string YgegnadTheThunderHonorarySkald {
+            get {
+                return ResourceManager.GetString("YgegnadTheThunderHonorarySkald", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zelian R.
+        /// </summary>
+        public static string ZelianRTheDestroyer {
+            get {
+                return ResourceManager.GetString("ZelianRTheDestroyer", resourceCulture);
+            }
+        }
     }
 }
