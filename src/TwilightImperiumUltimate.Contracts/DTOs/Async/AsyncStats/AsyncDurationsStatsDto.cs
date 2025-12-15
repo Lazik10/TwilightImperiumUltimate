@@ -17,5 +17,4 @@ public record AsyncDurationsStatsDto
     public IReadOnlyCollection<AsyncDurationDto> LongestGames { get; init; } = new List<AsyncDurationDto>();
 
     public IReadOnlyCollection<AsyncDurationDto> FastestGames { get; init; } = new List<AsyncDurationDto>();
-
 }

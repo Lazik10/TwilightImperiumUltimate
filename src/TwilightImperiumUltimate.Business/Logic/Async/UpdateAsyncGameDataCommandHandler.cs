@@ -32,7 +32,7 @@ public class UpdateAsyncGameDataCommandHandler(
                 {
                     var asyncPlayerProfile = await _asyncStatsRepository.GetOrCreateAsyncPlayerProfile(player.DiscordUserID, player.DiscordUserName, cancellationToken);
 
-                    var playerStats = MapPlayerDataToPlayerStats(player, gameStats, game.Scoreboard);
+                    var playerStats = MapPlayerDataToPlayerStats(player, gameStats, game.Scoreboard, game.Winners);
                     await _asyncStatsRepository.AddPlayerStats(playerStats, cancellationToken);
 
                     await _asyncStatsRepository.AddAsyncPlayerProfileGameStats(asyncPlayerProfile.Id, gameStats.Id, cancellationToken);
@@ -58,7 +58,7 @@ public class UpdateAsyncGameDataCommandHandler(
 
                 foreach (var player in game.Players)
                 {
-                    var playerStats = MapPlayerDataToPlayerStats(player, gameStats, game.Scoreboard);
+                    var playerStats = MapPlayerDataToPlayerStats(player, gameStats, game.Scoreboard, game.Winners);
                     var playerStatsUpdateSuccess = await _asyncStatsRepository.UpdatePlayerStats(gameStats, playerStats, cancellationToken);
 
                     if (!playerStatsUpdateSuccess)
@@ -77,6 +77,7 @@ public class UpdateAsyncGameDataCommandHandler(
     private static GameStats MapToGameStats(GameData game)
     {
         var hasWinner = game.Players.Any(x => x.Score >= game.Scoreboard);
+        var eventsFlag = TiglGalacticEventConverter.ConvertToFlags(game.Modes);
 
         var gameStats = new GameStats
         {
@@ -95,9 +96,14 @@ public class UpdateAsyncGameDataCommandHandler(
             AbsolMode = game.AbsolMode,
             DiscordantStarsMode = game.DiscordantStarsMode,
             FrankenGame = game.FrankenGame,
+            AllianceGame = game.AllianceMode,
             Homebrew = game.Homebrew,
             IsPoK = game.IsPoK,
             IsTigl = game.IsTigl,
+            CreationEpochTimestamp = game.CreationEpochTimestamp,
+            EndedEpochTimestamp = game.EndedEpochTimestamp,
+            Completed = game.Completed,
+            Events = eventsFlag,
             PlayerStatistics = [],
             GameStatistics = [],
         };
@@ -105,21 +111,23 @@ public class UpdateAsyncGameDataCommandHandler(
         return gameStats;
     }
 
-    private static PlayerStats MapPlayerDataToPlayerStats(PlayerData player, GameStats gameStats, int gameVp)
+    private static PlayerStats MapPlayerDataToPlayerStats(PlayerData player, GameStats gameStats, int gameVp, IReadOnlyCollection<string> winners)
     {
+        var isWinner = winners.Contains(player.DiscordUserID);
+
         var playerStats = new PlayerStats
         {
             DiscordUserID = long.Parse(player.DiscordUserID, NumberStyles.Number, CultureInfo.InvariantCulture),
             DiscordUserName = player.DiscordUserName,
             FactionName = AsyncFactionParser.ParseFaction(player.FactionName),
             Score = player.Score > gameVp ? gameVp : player.Score,
-            Color = player.Color,
+            Color = player.ColorActual,
             TotalNumberOfTurns = player.TotalNumberOfTurns,
             TotalTurnTime = player.TotalTurnTime,
             ExpectedHits = player.ExpectedHits,
             ActualHits = player.ActualHits,
             Eliminated = player.Eliminated,
-            Winner = player.Score >= gameVp,
+            Winner = isWinner,
             GameStatsId = gameStats.Id,
         };
 

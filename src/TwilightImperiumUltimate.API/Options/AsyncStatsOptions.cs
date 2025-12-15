@@ -5,4 +5,6 @@ public class AsyncStatsOptions
     public required Uri Url { get; set; }
 
     public required string Statistics { get; set; }
+
+    public required string RecentStatistics { get; set; }
 }

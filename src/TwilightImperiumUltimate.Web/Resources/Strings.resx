@@ -2637,10 +2637,13 @@ Brandon Williams&lt;/p&gt;</value>
     <value>IRL</value>
   </data>
   <data name="ResultSource_Steam" xml:space="preserve">
-    <value>Steam</value>
+    <value>TI Digital</value>
   </data>
   <data name="ResultSource_TTS" xml:space="preserve">
     <value>TTS</value>
+  </data>
+  <data name="ResultSource_TwilightWars" xml:space="preserve">
+    <value>Twilight Wars</value>
   </data>
   <data name="ResultSource_BGA" xml:space="preserve">
     <value>BGA</value>

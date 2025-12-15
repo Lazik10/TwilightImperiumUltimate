@@ -122,19 +122,50 @@ public class GameStatsConfiguration : IEntityTypeConfiguration<GameStats>
             .HasColumnType("varchar(5)")
             .HasColumnOrder(15);
 
+        builder.Property(e => e.AllianceGame)
+            .IsRequired()
+            .HasColumnName(nameof(GameStats.AllianceGame))
+            .HasConversion(new BoolToStringConverter("false", "true"))
+            .HasColumnType("varchar(5)")
+            .HasColumnOrder(16);
+
         builder.Property(e => e.Homebrew)
             .IsRequired()
             .HasColumnName(nameof(GameStats.Homebrew))
             .HasConversion(new BoolToStringConverter("false", "true"))
             .HasColumnType("varchar(5)")
-            .HasColumnOrder(16);
+            .HasColumnOrder(17);
 
         builder.Property(e => e.IsPoK)
             .IsRequired()
             .HasColumnName(nameof(GameStats.IsPoK))
             .HasConversion(new BoolToStringConverter("false", "true"))
             .HasColumnType("varchar(5)")
-            .HasColumnOrder(17);
+            .HasColumnOrder(18);
+
+        builder.Property(e => e.CreationEpochTimestamp)
+            .IsRequired()
+            .HasColumnName(nameof(GameStats.CreationEpochTimestamp))
+            .HasColumnType("bigint")
+            .HasColumnOrder(19);
+
+        builder.Property(e => e.EndedEpochTimestamp)
+            .HasColumnName(nameof(GameStats.EndedEpochTimestamp))
+            .HasColumnType("bigint")
+            .HasColumnOrder(20);
+
+        builder.Property(e => e.Completed)
+            .IsRequired()
+            .HasColumnName(nameof(GameStats.Completed))
+            .HasConversion(new BoolToStringConverter("false", "true"))
+            .HasColumnType("varchar(10)")
+            .HasColumnOrder(21);
+
+        builder.Property(e => e.Events)
+            .IsRequired()
+            .HasColumnName(nameof(GameStats.Events))
+            .HasColumnType("bigint")
+            .HasColumnOrder(22);
 
         builder.HasMany(g => g.GameStatistics)
             .WithOne(gs => gs.GameStats)

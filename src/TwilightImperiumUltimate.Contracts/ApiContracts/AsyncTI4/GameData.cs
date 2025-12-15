@@ -10,6 +10,15 @@ public class GameData
     [JsonPropertyName("players")]
     public IReadOnlyCollection<PlayerData> Players { get; set; } = new List<PlayerData>();
 
+    [JsonPropertyName("winners")]
+    public IReadOnlyCollection<string> Winners { get; set; } = new List<string>();
+
+    [JsonPropertyName("modes")]
+    public IReadOnlyCollection<string> Modes { get; set; } = new List<string>();
+
+    [JsonPropertyName("completed")]
+    public bool Completed { get; set; }
+
     [JsonPropertyName("round")]
     public int Round { get; set; }
 
@@ -46,6 +55,9 @@ public class GameData
     [JsonPropertyName("homebrew")]
     public bool Homebrew { get; set; }
 
+    [JsonPropertyName("allianceMode")]
+    public bool AllianceMode { get; set; }
+
     [JsonPropertyName("mapString")]
     public string MapString { get; set; } = string.Empty;
 
@@ -54,4 +66,10 @@ public class GameData
 
     [JsonPropertyName("tiglgame")]
     public bool IsTigl { get; set; }
+
+    [JsonPropertyName("creationEpochMilliseconds")]
+    public long CreationEpochTimestamp { get; set; }
+
+    [JsonPropertyName("endedEpochMilliseconds")]
+    public long? EndedEpochTimestamp { get; set; }
 }

@@ -36,4 +36,7 @@ public class PlayerData
 
     [JsonPropertyName("eliminated")]
     public bool Eliminated { get; set; }
+
+    [JsonPropertyName("teammateIDs")]
+    public IReadOnlyCollection<string> TeammateIDs { get; set; } = new List<string>();
 }

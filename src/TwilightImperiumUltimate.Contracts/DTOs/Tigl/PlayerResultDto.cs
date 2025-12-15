@@ -6,7 +6,7 @@ public class PlayerResultDto
 {
     public int TiglUserId { get; set; }
 
-    public string DiscordUserName { get; set; }
+    public string DiscordUserName { get; set; } = string.Empty;
 
     public string TiglUserName { get; set; } = string.Empty;
 

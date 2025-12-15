@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium;
 
@@ -11,9 +12,11 @@ using TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium;
 namespace TwilightImperiumUltimate.DataAccess.Migrations
 {
     [DbContext(typeof(TwilightImperiumDbContext))]
-    partial class TwilightImperiumDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251214234038_PayloadStatisticsUpdate")]
+    partial class PayloadStatisticsUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

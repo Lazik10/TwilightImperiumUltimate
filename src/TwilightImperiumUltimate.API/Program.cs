@@ -21,18 +21,19 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 }
 
 app.UseSerilogRequestLogging();
+app.UseRouting();
 app.UseCors(builder => builder
     .AllowAnyOrigin()
        .AllowAnyMethod()
           .AllowAnyHeader());
-
-app.UseRouting();
 app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseHttpsRedirection();
 app.MapControllers();
 app.MapIdentityApi<TwilightImperiumUser>();
+
+Console.WriteLine($"Environment: {app.Environment.EnvironmentName}");
 
 await app.CreateOrUpdateDbContextAsync();
 await app.AppRunAsync();
