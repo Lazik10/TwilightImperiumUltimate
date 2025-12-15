@@ -21,11 +21,22 @@ internal static class AppExtensions
         try
         {
             Log.Information("Starting Twilight Imperium Ultimate API");
+
+            // Register lifetime events to help diagnose unexpected shutdowns
+            var lifetime = app.Services.GetService<Microsoft.Extensions.Hosting.IHostApplicationLifetime>();
+            if (lifetime is not null)
+            {
+                lifetime.ApplicationStarted.Register(() => Log.Information("Host application started"));
+                lifetime.ApplicationStopping.Register(() => Log.Information("Host application stopping"));
+                lifetime.ApplicationStopped.Register(() => Log.Information("Host application stopped"));
+            }
+
             await app.RunAsync();
         }
-        catch (InvalidOperationException ex)
+        catch (Exception ex)
         {
             Log.Fatal(ex, "Application Twilight Imperium Ultimate API start-up failed");
+            throw;
         }
         finally
         {

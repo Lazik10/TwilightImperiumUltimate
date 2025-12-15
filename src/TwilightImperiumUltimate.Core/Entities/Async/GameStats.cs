@@ -37,11 +37,21 @@ public class GameStats : IEntity
 
     public bool FrankenGame { get; set; }
 
+    public bool AllianceGame { get; set; }
+
     public bool Homebrew { get; set; }
 
     public bool IsPoK { get; set; }
 
     public bool IsTigl { get; set; }
+
+    public long CreationEpochTimestamp { get; set; }
+
+    public long? EndedEpochTimestamp { get; set; }
+
+    public bool Completed { get; set; }
+
+    public long Events { get; set; }
 
     public ICollection<AsyncPlayerProfileGameStats> GameStatistics { get; set; } = new List<AsyncPlayerProfileGameStats>();
 

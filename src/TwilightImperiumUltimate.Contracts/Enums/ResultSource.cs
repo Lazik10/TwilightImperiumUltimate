@@ -9,4 +9,5 @@ public enum ResultSource
     IRL,
     BGA,
     Steam,
+    TwilightWars,
 }

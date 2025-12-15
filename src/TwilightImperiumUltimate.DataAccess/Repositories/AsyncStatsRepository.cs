@@ -286,6 +286,7 @@ public class AsyncStatsRepository(
     {
         await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);
         return await dbContext.AsyncPlayerProfiles
+            .AsSplitQuery()
             .Include(x => x.ProfileSettings)
             .Include(x => x.GameStatistics)
             .ThenInclude(x => x.GameStats)
@@ -298,6 +299,7 @@ public class AsyncStatsRepository(
         await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);
 
         var player = await dbContext.AsyncPlayerProfiles
+            .AsSplitQuery()
             .Include(x => x.ProfileSettings)
             .Include(x => x.GameStatistics)
             .ThenInclude(x => x.GameStats)
@@ -305,11 +307,12 @@ public class AsyncStatsRepository(
             .FirstOrDefaultAsync(x => x.DiscordUserId == discordUserID || x.DiscordUserName == playerUserName, cancellationToken);
 
         player ??= await dbContext.AsyncPlayerProfiles
-                .Include(x => x.ProfileSettings)
-                .Include(x => x.GameStatistics)
-                .ThenInclude(x => x.GameStats)
-                .ThenInclude(x => x.PlayerStatistics)
-                .FirstOrDefaultAsync(x => x.Id == playerId, cancellationToken);
+            .AsSplitQuery()
+            .Include(x => x.ProfileSettings)
+            .Include(x => x.GameStatistics)
+            .ThenInclude(x => x.GameStats)
+            .ThenInclude(x => x.PlayerStatistics)
+            .FirstOrDefaultAsync(x => x.Id == playerId, cancellationToken);
 
         return player;
     }

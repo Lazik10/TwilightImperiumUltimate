@@ -404,3 +404,6 @@ resources/images/
 .env
 /src/TwilightImperiumUltimate.API/Properties/ServiceDependencies/TwilightImperiumUltimateAPI - Zip Deploy/apis1.arm.json
 /src/TwilightImperiumUltimate.API/Properties/ServiceDependencies/TwilightImperiumUltimateAPI - Zip Deploy/profile.arm.json
+
+# Ignore all appsettings.Development.json files in the repo
+**/appsettings.Development.json

@@ -50,6 +50,7 @@ public class GameStatisticsRepository(
         await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);
 
         var websiteStatistics = await dbContext.WebsiteStatistics
+            .OrderBy(x => x.Id)
             .FirstOrDefaultAsync(cancellationToken);
 
         if (websiteStatistics is not null)

@@ -248,12 +248,15 @@ dotnet_diagnostic.SA1633.severity = none
 dotnet_diagnostic.CA1711.severity = none
 dotnet_diagnostic.CA1724.severity = none
 dotnet_diagnostic.CA5392.severity = none
+dotnet_diagnostic.CA1515.severity = none
 dotnet_diagnostic.SA1309.severity = silent
 dotnet_diagnostic.S1135.severity = suggestion
 
 # CS1591: Missing XML comment for publicly visible type or member
 dotnet_diagnostic.CS1591.severity = silent
 dotnet_diagnostic.SA1010.severity = none
+csharp_prefer_system_threading_lock = true:suggestion
+csharp_style_prefer_simple_property_accessors = true:suggestion
 
 [*.{cs,vb}]
 dotnet_style_operator_placement_when_wrapping = beginning_of_line

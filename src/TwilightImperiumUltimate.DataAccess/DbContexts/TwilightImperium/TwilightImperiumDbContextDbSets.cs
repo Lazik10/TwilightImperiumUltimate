@@ -77,6 +77,8 @@ public partial class TwilightImperiumDbContext : IdentityDbContext<TwilightImper
 
     public virtual DbSet<GamePublishLog> GamePublishLogs { get; set; }
 
+    public virtual DbSet<DiscordRoleChangeLog> DiscordRoleChangeLogs { get; set; }
+
     // Relationships
     public virtual DbSet<FactionTechnology> FactionTechnology { get; set; }
 

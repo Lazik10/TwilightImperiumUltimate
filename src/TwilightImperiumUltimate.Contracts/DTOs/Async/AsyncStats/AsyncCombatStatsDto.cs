@@ -18,7 +18,6 @@ public record AsyncCombatStatsDto
         MaxAverageHitsPerGamePlayers = maxAverageHitsPerGamePlayers;
         BestHitsDeviationPlayers = bestHitsDeviationPlayers;
         WorstHitsDeviationPlayers = worstHitsDeviationPlayers;
-
     }
 
     public IReadOnlyCollection<AsyncCombatPlayerDto> TotalHitsPlayers { get; init; } = new List<AsyncCombatPlayerDto>();

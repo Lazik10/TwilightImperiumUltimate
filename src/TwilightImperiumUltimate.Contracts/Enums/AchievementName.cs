@@ -18,7 +18,7 @@ public enum AchievementName
     DrFrankenstein, // Win a game as franken faction
     ICookedThisMyself, // Win a game as homebrew faction
     GottaCatchEmAllPartOne, // Win a game with all 30 factions
-    GottaCatchEmAllPartTwo, // Win a game with all 80 factions (30 official, 34 ds, 
+    GottaCatchEmAllPartTwo, // Win a game with all 80 factions (30 official, 34 ds,
     AllThatsSilverIsGold, // Win a game with Silver Flame relic roll
     HomeSystemWhoNeedsThat, // Win a game Win a game where you failed to gain VP with Silver Flame roll
 
