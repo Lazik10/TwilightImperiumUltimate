@@ -1,7 +1,9 @@
 using FluentResults;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Report;
+using TwilightImperiumUltimate.Contracts.Options;
 using TwilightImperiumUltimate.Core.Entities.Tigl;
 using TwilightImperiumUltimate.Core.Entities.Tigl.History;
 using TwilightImperiumUltimate.Core.Entities.Tigl.Ratings;
@@ -11,11 +13,13 @@ namespace TwilightImperiumUltimate.DataAccess.Repositories;
 
 public class TiglUserRepository(
     IDbContextFactory<TwilightImperiumDbContext> context,
-    ILogger<TiglUserRepository> logger)
+    ILogger<TiglUserRepository> logger,
+    IOptions<TiglOptions> tiglOptions)
     : ITiglUserRepository
 {
     private readonly IDbContextFactory<TwilightImperiumDbContext> _context = context;
     private readonly ILogger<TiglUserRepository> _logger = logger;
+    private readonly IOptions<TiglOptions> _tiglOptions = tiglOptions;
 
     public async Task<List<TiglUser>> GetUsersFromGameReport(IGameReport gameReport, CancellationToken cancellationToken)
     {
@@ -350,9 +354,11 @@ public class TiglUserRepository(
             new TrueSkillStats() { TiglUserId = id, League = TiglLeague.Fractured, TrueSkillRating = new TrueSkillRating() },
         };
 
-        var prophecyRank = new TiglRank() { TiglUserId = id, Name = TiglRankName.Unranked, League = TiglLeague.ProphecyOfKings, AchievedAt = startGameTimestamp - 1 };
-        var thundersEdgeRank = new TiglRank() { TiglUserId = id, Name = TiglRankName.Unranked, League = TiglLeague.ThundersEdge, AchievedAt = startGameTimestamp - 1 };
-        var shatteredRank = new TiglRank() { TiglUserId = id, Name = TiglRankName.Unranked, League = TiglLeague.Fractured, AchievedAt = startGameTimestamp - 1 };
+        var seasonStartTimestamp = _tiglOptions.Value.ThundersEdgeCutoffTimestamp;
+
+        var prophecyRank = new TiglRank() { TiglUserId = id, Name = TiglRankName.Unranked, League = TiglLeague.ProphecyOfKings, AchievedAt = seasonStartTimestamp };
+        var thundersEdgeRank = new TiglRank() { TiglUserId = id, Name = TiglRankName.Unranked, League = TiglLeague.ThundersEdge, AchievedAt = seasonStartTimestamp };
+        var shatteredRank = new TiglRank() { TiglUserId = id, Name = TiglRankName.Unranked, League = TiglLeague.Fractured, AchievedAt = seasonStartTimestamp };
 
         dbContext.AsyncStats.AddRange(asyncStats);
         dbContext.GlickoStats.AddRange(glickoStats);
