@@ -54,7 +54,7 @@ public class AsyncFactionStatsFactory(
     private static void UpdateOverallFactionStats(int scoreboard, AsyncFactionStatsByGameVpDto factionStats, PlayerStats playerStats)
     {
         factionStats.Games++;
-        factionStats.Wins += playerStats.Score >= scoreboard ? 1 : 0;
+        factionStats.Wins += playerStats.Winner ? 1 : 0;
         factionStats.Eliminations += playerStats.Eliminated ? 1 : 0;
         factionStats.Vp += playerStats.Score;
         factionStats.MaxVp += scoreboard;
@@ -73,7 +73,7 @@ public class AsyncFactionStatsFactory(
         if (correctfactionStats is not null)
         {
             correctfactionStats.Games++;
-            correctfactionStats.Wins += playerStats.Score >= scoreboard ? 1 : 0;
+            correctfactionStats.Wins += playerStats.Winner ? 1 : 0;
             correctfactionStats.Eliminations += playerStats.Eliminated ? 1 : 0;
             correctfactionStats.MaxVp += scoreboard;
             correctfactionStats.Vp += playerStats.Score;
@@ -84,7 +84,7 @@ public class AsyncFactionStatsFactory(
     {
         var factionStatsDict = new Dictionary<AsyncFactionName, AsyncFactionsStatsDto>();
 
-        foreach (AsyncFactionName faction in Enum.GetValues(typeof(AsyncFactionName)))
+        foreach (AsyncFactionName faction in Enum.GetValues<AsyncFactionName>())
         {
             factionStatsDict[faction] = new AsyncFactionsStatsDto() { FactionName = faction };
         }

@@ -1950,10 +1950,10 @@ Brandon Williams&lt;/p&gt;</value>
     <value>Factions:</value>
   </data>
   <data name="FactionStatisticsFilter_Official" xml:space="preserve">
-    <value>Base + PoK + Keleres</value>
+    <value>Official</value>
   </data>
   <data name="FactionStatisticsFilter_DiscordantStars" xml:space="preserve">
-    <value>Discordant Stars</value>
+    <value>Unofficial</value>
   </data>
   <data name="FactionStatisticsFilter_Others" xml:space="preserve">
     <value>Others</value>

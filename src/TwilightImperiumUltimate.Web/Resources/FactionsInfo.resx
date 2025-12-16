@@ -7058,4 +7058,43 @@ Government:.None
   <data name="Unknown_Title" xml:space="preserve">
     <value>Unknown</value>
   </data>
+  <data name="TheCrimsonRebellion_Title" xml:space="preserve">
+    <value>The Crimson Rebellion</value>
+  </data>
+  <data name="TheDeepwroughtScholarate_Title" xml:space="preserve">
+    <value>The Deepwrought Scholarate</value>
+  </data>
+  <data name="TheFirmamentTheObsidian_Title" xml:space="preserve">
+    <value>The Firmament / The Obsidian</value>
+  </data>
+  <data name="LastBastion_Title" xml:space="preserve">
+    <value>Last Bastion</value>
+  </data>
+  <data name="TheRalNelConsortium_Title" xml:space="preserve">
+    <value>The Ral Nel Consortium</value>
+  </data>
+  <data name="TheRubyMonarch_Title" xml:space="preserve">
+    <value>The Ruby Monarch</value>
+  </data>
+  <data name="RadiantAur_Title" xml:space="preserve">
+    <value>Radiant Aur</value>
+  </data>
+  <data name="AvariceRex_Title" xml:space="preserve">
+    <value>Avarice Rex</value>
+  </data>
+  <data name="IlSaiLakoeHeraldOfThorns_Title" xml:space="preserve">
+    <value>Il Sai Lakoe, Herald Of Thorns</value>
+  </data>
+  <data name="TheSaintOfSwords_Title" xml:space="preserve">
+    <value>The Saint Of Swords</value>
+  </data>
+  <data name="IlNaViroset_Title" xml:space="preserve">
+    <value>Il Na Viroset</value>
+  </data>
+  <data name="ElNenJanovet_Title" xml:space="preserve">
+    <value>El Nen Janovet</value>
+  </data>
+  <data name="ASickeningLurch_Title" xml:space="preserve">
+    <value>A Sickening Lurch</value>
+  </data>
 </root>

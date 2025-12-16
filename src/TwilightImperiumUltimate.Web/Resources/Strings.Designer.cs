@@ -2701,7 +2701,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Discordant Stars.
+        ///   Looks up a localized string similar to Unofficial.
         /// </summary>
         public static string FactionStatisticsFilter_DiscordantStars {
             get {
@@ -2710,7 +2710,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Base + PoK + Keleres.
+        ///   Looks up a localized string similar to Official.
         /// </summary>
         public static string FactionStatisticsFilter_Official {
             get {
