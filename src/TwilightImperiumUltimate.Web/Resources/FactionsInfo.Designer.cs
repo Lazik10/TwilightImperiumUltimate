@@ -19,7 +19,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class FactionsInfo {
@@ -61,6 +61,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A Sickening Lurch.
+        /// </summary>
+        internal static string ASickeningLurch_Title {
+            get {
+                return ResourceManager.GetString("ASickeningLurch_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Atokera Legacy.
         /// </summary>
         internal static string AtokeraLegacy_Title {
@@ -70,11 +79,29 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Avarice Rex.
+        /// </summary>
+        internal static string AvariceRex_Title {
+            get {
+                return ResourceManager.GetString("AvariceRex_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Belkosea Allied States.
         /// </summary>
         internal static string BelkoseaAlliedStates_Title {
             get {
                 return ResourceManager.GetString("BelkoseaAlliedStates_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to El Nen Janovet.
+        /// </summary>
+        internal static string ElNenJanovet_Title {
+            get {
+                return ResourceManager.GetString("ElNenJanovet_Title", resourceCulture);
             }
         }
         
@@ -93,6 +120,33 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string Homebrew_Title {
             get {
                 return ResourceManager.GetString("Homebrew_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Il Na Viroset.
+        /// </summary>
+        internal static string IlNaViroset_Title {
+            get {
+                return ResourceManager.GetString("IlNaViroset_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Il Sai Lakoe, Herald Of Thorns.
+        /// </summary>
+        internal static string IlSaiLakoeHeraldOfThorns_Title {
+            get {
+                return ResourceManager.GetString("IlSaiLakoeHeraldOfThorns_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last Bastion.
+        /// </summary>
+        internal static string LastBastion_Title {
+            get {
+                return ResourceManager.GetString("LastBastion_Title", resourceCulture);
             }
         }
         
@@ -183,6 +237,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string QhetRepublic_Title {
             get {
                 return ResourceManager.GetString("QhetRepublic_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Radiant Aur.
+        /// </summary>
+        internal static string RadiantAur_Title {
+            get {
+                return ResourceManager.GetString("RadiantAur_Title", resourceCulture);
             }
         }
         
@@ -1467,6 +1530,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Crimson Rebellion.
+        /// </summary>
+        internal static string TheCrimsonRebellion_Title {
+            get {
+                return ResourceManager.GetString("TheCrimsonRebellion_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Deepwrought Scholarate.
+        /// </summary>
+        internal static string TheDeepwroughtScholarate_Title {
+            get {
+                return ResourceManager.GetString("TheDeepwroughtScholarate_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;CAPITAL FLEET:&lt;/p&gt;
         ///&lt;p&gt;Destroyers count as 1/2 of a ship against your fleet pool.&lt;p&gt;
         ///&lt;/br&gt;
@@ -2144,6 +2225,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string TheFederationOfSol_Title {
             get {
                 return ResourceManager.GetString("TheFederationOfSol_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Firmament / The Obsidian.
+        /// </summary>
+        internal static string TheFirmamentTheObsidian_Title {
+            get {
+                return ResourceManager.GetString("TheFirmamentTheObsidian_Title", resourceCulture);
             }
         }
         
@@ -4728,6 +4818,33 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string TheOlradinLeague_Title {
             get {
                 return ResourceManager.GetString("TheOlradinLeague_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Ral Nel Consortium.
+        /// </summary>
+        internal static string TheRalNelConsortium_Title {
+            get {
+                return ResourceManager.GetString("TheRalNelConsortium_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Ruby Monarch.
+        /// </summary>
+        internal static string TheRubyMonarch_Title {
+            get {
+                return ResourceManager.GetString("TheRubyMonarch_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Saint Of Swords.
+        /// </summary>
+        internal static string TheSaintOfSwords_Title {
+            get {
+                return ResourceManager.GetString("TheSaintOfSwords_Title", resourceCulture);
             }
         }
         

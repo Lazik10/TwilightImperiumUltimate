@@ -16,6 +16,8 @@ Log.Logger = new LoggerConfiguration()
     .CreateLogger();
 builder.Services.AddLogging(loggingBuilder => loggingBuilder.AddSerilog(dispose: true));
 
+builder.ApplyCorrectAppsettingsFile();
+
 builder.Services.RegisterServices(builder);
 builder.Services.AddLocalization();
 builder.Services.RegisterOptions(builder.Configuration);

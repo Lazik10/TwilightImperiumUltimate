@@ -76,7 +76,7 @@ public class UpdateAsyncGameDataCommandHandler(
 
     private static GameStats MapToGameStats(GameData game)
     {
-        var hasWinner = game.Players.Any(x => x.Score >= game.Scoreboard);
+        var hasWinner = game.Winners.Count > 0;
         var eventsFlag = TiglGalacticEventConverter.ConvertToFlags(game.Modes);
 
         var gameStats = new GameStats

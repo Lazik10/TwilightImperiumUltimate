@@ -65,9 +65,9 @@ public partial class AsyncPlayerFactionStats
     {
         return _selectedFactionStatisticsFilter switch
         {
-            FactionStatisticsFilter.DiscordantStars => factionStats.Skip(27).Take(34).ToList(),
-            FactionStatisticsFilter.Others => factionStats.Skip(61).ToList(),
-            _ => factionStats.Take(27).ToList(),
+            FactionStatisticsFilter.DiscordantStars => factionStats.Skip(32).Take(40).ToList(),
+            FactionStatisticsFilter.Others => factionStats.Skip(72).Where(x => x.FactionName != AsyncFactionName.Unknown && x.FactionName != AsyncFactionName.TwilightsFall).ToList(),
+            _ => factionStats.Take(32).ToList(),
         };
     }
 

@@ -1,10 +1,11 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System.Text;
+using TwilightImperiumUltimate.Business.Helpers;
 using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl;
 using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Report;
 using TwilightImperiumUltimate.Contracts.Options;
-using TwilightImperiumUltimate.Core.Entities.Logging; // add GamePublishLog
+using TwilightImperiumUltimate.Core.Entities.Logging;
 using TwilightImperiumUltimate.Tigl.Achievements;
 using TwilightImperiumUltimate.Tigl.AsyncRating;
 using TwilightImperiumUltimate.Tigl.Glicko2Rating;
@@ -47,7 +48,7 @@ public class ReportGameCommandHandler(
             && gameReport.StartTimestamp < _tiglOptions.ThundersEdgeCutoffTimestamp)
         {
             _logger.LogWarning("Game {GameId} rejected due to start timestamp {Start} before cutoff {Cutoff}", gameReport.GameId, gameReport.StartTimestamp, _tiglOptions.ThundersEdgeCutoffTimestamp);
-            return new GameReportResult(false, "Game too old", "This game started before the allowed cutoff date of 1st December 2025 and cannot be reported.");
+            return new GameReportResult(false, "Game is too old", $"Game {gameReport.GameId} started on {gameReport.StartTimestamp.ToDateOnly()} before the allowed cutoff date of 1st December 2025 and cannot be reported.");
         }
 
         var onlyImportEnabled = await tiglRepository.GetTiglParameter(TiglParameterName.OnlyImportReports, cancellationToken);
@@ -124,7 +125,7 @@ public class ReportGameCommandHandler(
         if (matchUpdateResult.IsFailed)
         {
             _logger.LogError("Failed to update match for GameID: {GameId}", gameReport.GameId);
-            return new GameReportResult(false, "Failed to mark game as processed", "There was an error when marking game as processed in the database!");
+            return new GameReportResult(false, "Failed to mark game as processed", $"There was an error when marking game {gameReport.GameId} as processed in the database!");
         }
 
         try
@@ -160,7 +161,7 @@ public class ReportGameCommandHandler(
             return (true, new GameReportResult());
 
         _logger.LogError("Invalid player count for game report {GameReportId}", gameReport.GameId);
-        return (false, new GameReportResult(false, "Invalid Player Count", "Not enough player results in the game report. If one or more player(s) got eliminated please report this game manually!"));
+        return (false, new GameReportResult(false, "Invalid Player Count", $"Not enough player results in the game report for game {gameReport.GameId}. If one or more player(s) got eliminated please report this game manually!"));
     }
 
     private async Task<(bool NextValidation, GameReportResult Result)> IsEvaluationDisabled(string gameId, CancellationToken cancellationToken)

@@ -49,7 +49,7 @@ public class AsyncPlayerFactionStatsFactory : IAsyncPlayerFactionStatsFactory
     private static void UpdateOverallFactionStats(int scoreboard, AsyncPlayerFactionStatsByGameVp factionStats, PlayerStats playerStats)
     {
         factionStats.Games++;
-        factionStats.Wins += playerStats.Score >= scoreboard ? 1 : 0;
+        factionStats.Wins += playerStats.Winner ? 1 : 0;
         factionStats.Eliminations += playerStats.Eliminated ? 1 : 0;
         factionStats.MaxPossibleVp += scoreboard;
         factionStats.TotalScoredVp += playerStats.Score;
@@ -73,7 +73,7 @@ public class AsyncPlayerFactionStatsFactory : IAsyncPlayerFactionStatsFactory
         if (correctfactionStats is not null)
         {
             correctfactionStats.Games++;
-            correctfactionStats.Wins += playerStats.Score >= scoreboard ? 1 : 0;
+            correctfactionStats.Wins += playerStats.Winner ? 1 : 0;
             correctfactionStats.Eliminations += playerStats.Eliminated ? 1 : 0;
             correctfactionStats.MaxPossibleVp += scoreboard;
             correctfactionStats.TotalScoredVp += playerStats.Score;

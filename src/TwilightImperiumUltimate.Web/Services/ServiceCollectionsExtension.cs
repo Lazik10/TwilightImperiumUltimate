@@ -74,4 +74,15 @@ public static class ServiceCollectionsExtension
 
         return services;
     }
+
+    public static WebAssemblyHostBuilder ApplyCorrectAppsettingsFile(this WebAssemblyHostBuilder builder)
+    {
+        var environment = builder.HostEnvironment.Environment;
+
+        builder.Configuration
+            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+            .AddJsonFile($"appsettings.{environment}.json", optional: true, reloadOnChange: true);
+
+        return builder;
+    }
 }

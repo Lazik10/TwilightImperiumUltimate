@@ -26,7 +26,7 @@ public class AsyncPlayerGameStatsFactory : IAsyncPlayerGameStatsFactory
     private static AsyncPlayerMainStatsDto GetGameStats(List<GameStats> gameStats, long discordUserId)
     {
         var gamesCount = gameStats.Count;
-        var wins = gameStats.Count(x => x.PlayerStatistics.Any(y => y.DiscordUserID == discordUserId && y.Score >= x.Scoreboard));
+        var wins = gameStats.Count(x => x.PlayerStatistics.Any(y => y.DiscordUserID == discordUserId && y.Winner));
         var eliminations = gameStats.Count(x => x.PlayerStatistics.Any(y => y.DiscordUserID == discordUserId && y.Eliminated));
         var active = gameStats.Count(x => x.EndedTimestamp == null);
         var finished = gamesCount - active;

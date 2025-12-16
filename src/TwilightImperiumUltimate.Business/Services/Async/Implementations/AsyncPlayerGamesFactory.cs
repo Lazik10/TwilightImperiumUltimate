@@ -25,7 +25,7 @@ public class AsyncPlayerGamesFactory : IAsyncPlayerGamesFactory
 
             if (playerStats is not null)
             {
-                isWinner = playerStats.Score >= game.Scoreboard;
+                isWinner = playerStats.Winner;
                 playerScore = isActiveFowGame ? 0 : playerStats.Score;
                 faction = isActiveFowGame ? AsyncFactionName.Unknown : playerStats.FactionName;
             }
