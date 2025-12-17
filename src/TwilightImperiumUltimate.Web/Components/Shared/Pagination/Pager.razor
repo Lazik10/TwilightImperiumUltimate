@@ -1,0 +1,14 @@
+<FlexRowContainer JustifyContent="Enums.JustifyContent.Center" Width="Width">
+    
+    <Button ButtonText="&lt;&lt;" IsDisabled="@IsFirstPage" OnClick="MoveFirst" />
+    <Button ButtonText="&lt;" IsDisabled="@IsFirstPage" OnClick="MovePrevious" />
+
+    @foreach (var page in VisiblePages)
+    {
+        <Button ButtonText="@(page.ToString())" OnClick="() => ChangePage(page)" IsDisabled="(page == CurrentPage)" />
+    }
+
+    <Button ButtonText="&gt;" IsDisabled="@IsLastPage" OnClick="MoveNext" />
+    <Button ButtonText="&gt;&gt;" IsDisabled="@IsLastPage" OnClick="MoveLast" />
+
+</FlexRowContainer>

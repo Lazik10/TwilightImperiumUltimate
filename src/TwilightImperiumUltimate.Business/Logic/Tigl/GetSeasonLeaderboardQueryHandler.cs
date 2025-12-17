@@ -54,6 +54,7 @@ public class GetSeasonLeaderboardQueryHandler(
             TrueSkillMu = e.TrueSkillMu,
             TrueSkillSigma = e.TrueSkillSigma,
             TrueSkillConservativeRating = e.TrueSkillConservativeRating,
+            IsActive = e.IsActive,
         }).ToList();
 
         var result = new ItemListDto<PlayerSeasonResultDto>(dtos);

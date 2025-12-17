@@ -10,12 +10,12 @@ public partial class TiglGamesGrid
     private List<MatchReportDto> _allFractured = new();
     private bool _loading;
 
-    private List<MatchReportDto> FilteredStandardGames { get; set; }
-
-    private List<MatchReportDto> FilteredFracturedGames { get; set; }
-
     [CascadingParameter(Name = "Seasons")]
     public IReadOnlyCollection<SeasonDto> Seasons { get; set; } = Array.Empty<SeasonDto>();
+
+    private List<MatchReportDto> FilteredStandardGames { get; set; } = new List<MatchReportDto>();
+
+    private List<MatchReportDto> FilteredFracturedGames { get; set; } = new List<MatchReportDto>();
 
     [Inject]
     private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
@@ -27,7 +27,8 @@ public partial class TiglGamesGrid
     {
         _loading = true;
 
-        _selectedSeasonNumber = -1; // All by default
+        Seasons = Seasons.Where(x => x.SeasonNumber != -1).ToList();
+        _selectedSeasonNumber = Seasons.MaxBy(s => s.SeasonNumber)?.SeasonNumber ?? 1;
         await LoadGameReports();
 
         _loading = false;
@@ -46,6 +47,8 @@ public partial class TiglGamesGrid
             _allFractured = items.Where(m => m.League == TiglLeague.Fractured).ToList();
             FilteredStandardGames = _allStandard;
             FilteredFracturedGames = _allFractured;
+
+            UpdateSelectedGames();
         }
     }
 
@@ -54,7 +57,7 @@ public partial class TiglGamesGrid
         if (endTs <= 0)
             return "-";
 
-        var dt = DateTimeOffset.FromUnixTimeMilliseconds(endTs).ToLocalTime().DateTime;
+        var dt = DateTimeOffset.FromUnixTimeMilliseconds(endTs).ToUniversalTime().DateTime;
         return dt.ToString("dd/MM/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture);
     }
 

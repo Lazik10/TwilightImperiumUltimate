@@ -26,7 +26,6 @@ public partial class FactionStatistics
         _ => _factionsSummaryStats.All,
     };
 
-
     public IReadOnlyCollection<AsyncFactionsStatsDto> FactionsForDisplay { get; set; } = new List<AsyncFactionsStatsDto>();
 
     [Inject]

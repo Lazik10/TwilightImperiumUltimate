@@ -5,11 +5,18 @@ namespace TwilightImperiumUltimate.Web.Components.Tigl;
 
 public partial class TiglLeaderboardGrid
 {
+    private const int PageSize = 50;
+    private int _currentPage = 1;
+
     private bool _loading;
     private int _placement;
     private TiglLeague _selectedLeague = TiglLeague.ProphecyOfKings;
+    private TiglLeagueFilter _selectedLeagueFilter = TiglLeagueFilter.Standard;
     private RankingSystem _selectedRankingSystem = RankingSystem.TrueSkill;
     private IReadOnlyCollection<SeasonDto> _seasons = Array.Empty<SeasonDto>();
+
+    private bool _onlyActive = true;
+    private bool _onlyConfident = true;
 
     // Key: SeasonNumber => Value: League => List of results
     private readonly Dictionary<int, Dictionary<TiglLeague, List<PlayerSeasonResultDto>>> _seasonLeagueResults = [];
@@ -22,6 +29,14 @@ public partial class TiglLeaderboardGrid
 
     [Inject]
     private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
+
+    public static TextColor GetWinrateColor(double winrate)
+    {
+        if (winrate > 16.67f) return TextColor.Green;
+        if (winrate > 12.0f) return TextColor.Yellow;
+        if (winrate > 8.0f) return TextColor.Orange;
+        return TextColor.Red;
+    }
 
     protected override async Task OnInitializedAsync()
     {
@@ -92,20 +107,29 @@ public partial class TiglLeaderboardGrid
         }
     }
 
-    private void OnLeagueChanged(TiglLeague league)
+    private void OnLeagueChanged(TiglLeagueFilter leagueFilter)
     {
-        _selectedLeague = league;
+        if (leagueFilter == TiglLeagueFilter.Standard)
+            _selectedLeague = TiglLeague.ProphecyOfKings;
+        else
+            _selectedLeague = TiglLeague.Fractured;
+
+        _selectedLeagueFilter = leagueFilter;
+
         UpdateCurrentRows();
     }
 
     private void OnRankingSystemChanged(RankingSystem rankingSystem)
     {
         _selectedRankingSystem = rankingSystem;
+        _currentPage = 1; // reset page when ranking system changes
         StateHasChanged();
     }
 
     private void UpdateCurrentRows()
     {
+        _loading = true;
+
         if (_seasonLeagueResults.TryGetValue(_selectedSeasonNumber, out var leagueDict) && leagueDict.TryGetValue(_selectedLeague, out var rows))
         {
             _currentRows = rows;
@@ -114,6 +138,9 @@ public partial class TiglLeaderboardGrid
         {
             _currentRows = [];
         }
+
+        _currentPage = 1;
+        _loading = false;
     }
 
     private async Task DecreaseSeasonNumber()
@@ -158,7 +185,30 @@ public partial class TiglLeaderboardGrid
 
     private List<PlayerSeasonResultDto> GetSortedRows()
     {
-        return _currentRows
+        var query = _currentRows.AsEnumerable();
+
+        if (_onlyActive)
+        {
+            query = query.Where(r => r.IsActive);
+        }
+
+        if (_onlyConfident)
+        {
+            if (_selectedRankingSystem == RankingSystem.Glicko2)
+            {
+                query = query.Where(r => r.GlickoRd < 42.0);
+            }
+            else if (_selectedRankingSystem == RankingSystem.TrueSkill)
+            {
+                query = query.Where(r => r.TrueSkillSigma < 0.8);
+            }
+            else if (_selectedRankingSystem == RankingSystem.Async)
+            {
+                query = query.Where(r => r.GamesPlayed >= 40);
+            }
+        }
+
+        return query
             .OrderByDescending(r =>
             {
                 if (_selectedRankingSystem == RankingSystem.Async)
@@ -167,14 +217,53 @@ public partial class TiglLeaderboardGrid
                     return r.GlickoRating;
                 return r.TrueSkillConservativeRating;
             })
+            .Skip((_currentPage - 1) * PageSize)
+            .Take(PageSize)
             .ToList();
     }
 
-    public static TextColor GetWinrateColor(double winrate)
+    private void OnPageChanged(int newPage)
     {
-        if (winrate > 16.67f) return TextColor.Green;
-        if (winrate > 12.0f) return TextColor.Yellow;
-        if (winrate > 8.0f) return TextColor.Orange;
-        return TextColor.Red;
+        _currentPage = newPage;
+    }
+
+    private int GetTotalFilteredCount()
+    {
+        var query = _currentRows.AsEnumerable();
+
+        if (_onlyActive)
+        {
+            query = query.Where(r => r.IsActive);
+        }
+
+        if (_onlyConfident)
+        {
+            if (_selectedRankingSystem == RankingSystem.Glicko2)
+            {
+                query = query.Where(r => r.GlickoRd < 42.0);
+            }
+            else if (_selectedRankingSystem == RankingSystem.TrueSkill)
+            {
+                query = query.Where(r => r.TrueSkillSigma < 0.8);
+            }
+            else if (_selectedRankingSystem == RankingSystem.Async)
+            {
+                query = query.Where(r => r.GamesPlayed >= 40);
+            }
+        }
+
+        return query.Count();
+    }
+
+    private void OnOnlyActiveChanged(bool value)
+    {
+        _onlyActive = value;
+        _currentPage = 1;
+    }
+
+    private void OnOnlyConfidentChanged(bool value)
+    {
+        _onlyConfident = value;
+        _currentPage = 1;
     }
 }
