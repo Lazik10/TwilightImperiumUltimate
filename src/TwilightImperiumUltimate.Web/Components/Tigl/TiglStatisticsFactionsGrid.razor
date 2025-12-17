@@ -7,6 +7,21 @@
 
 <VerticalSpace Height="20" />
 
+<GridLayout Columns="6" CssClass="handel white shadow background" Style="grid-template-columns: 5% 35% 12% 12% 18% 18%">
+
+    <VerticalSpace Height="20" CssClass="span-6" />
+    <Label />
+    <Label Text="Faction" TextColor="TextColor.Yellow" />
+    <Label Text="Games" TextColor="TextColor.Yellow" CenterText="true" />
+    <Label Text="Wins" TextColor="TextColor.Yellow" CenterText="true" />
+    <Label Text="Win Rate" TextColor="TextColor.Yellow" CenterText="true" />
+    <Label Text="Avg Score" TextColor="TextColor.Yellow" CenterText="true" />
+    <VerticalSpace Height="15" CssClass="span-6" />
+
+</GridLayout>
+
+<VerticalSpace Height="20" />
+
 @if (_loading)
 {
     <VerticalSpace Height="50" />
@@ -21,21 +36,6 @@ else if (_rows.Count == 0)
 }
 else
 {
-    <GridLayout Columns="6" CssClass="handel white shadow background" Style="grid-template-columns: 5% 35% 12% 12% 18% 18%">
-
-        <VerticalSpace Height="20" CssClass="span-6" />
-        <Label />
-        <Label Text="Faction" TextColor="TextColor.Yellow" />
-        <Label Text="Games" TextColor="TextColor.Yellow" CenterText="true" />
-        <Label Text="Wins" TextColor="TextColor.Yellow" CenterText="true" />
-        <Label Text="Win Rate" TextColor="TextColor.Yellow" CenterText="true" />
-        <Label Text="Avg Score" TextColor="TextColor.Yellow" CenterText="true" />
-        <VerticalSpace Height="15" CssClass="span-6" />
-
-    </GridLayout>
-
-    <VerticalSpace Height="20" />
-
     <GridLayout Columns="6" CssClass="handel white shadow background" Style="grid-template-columns: 5% 35% 12% 12% 18% 18%">
 
         <VerticalSpace Height="20" CssClass="span-6" />

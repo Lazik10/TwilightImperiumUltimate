@@ -7616,11 +7616,29 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Thunder&apos;s Edge (Standard).
+        ///   Looks up a localized string similar to Standard.
         /// </summary>
         public static string TiglLeague_ThundersEdge {
             get {
                 return ResourceManager.GetString("TiglLeague_ThundersEdge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fractured.
+        /// </summary>
+        public static string TiglLeagueFilter_Fractured {
+            get {
+                return ResourceManager.GetString("TiglLeagueFilter_Fractured", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Standard.
+        /// </summary>
+        public static string TiglLeagueFilter_Standard {
+            get {
+                return ResourceManager.GetString("TiglLeagueFilter_Standard", resourceCulture);
             }
         }
         

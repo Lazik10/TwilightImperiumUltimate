@@ -34,19 +34,5 @@ public class PlayerSeasonResultDto
 
     public double TrueSkillConservativeRating { get; set; }
 
-    public IReadOnlyList<double> AsyncRatingDeltas { get; set; } = Array.Empty<double>();
-
-    public IReadOnlyList<double> AussieScoreDeltas { get; set; } = Array.Empty<double>();
-
-    public IReadOnlyList<double> GlickoRatingDeltas { get; set; } = Array.Empty<double>();
-
-    public IReadOnlyList<double> GlickoRdDeltas { get; set; } = Array.Empty<double>();
-
-    public IReadOnlyList<double> GlickoVolatilityDeltas { get; set; } = Array.Empty<double>();
-
-    public IReadOnlyList<double> TrueSkillMuDeltas { get; set; } = Array.Empty<double>();
-
-    public IReadOnlyList<double> TrueSkillSigmaDeltas { get; set; } = Array.Empty<double>();
-
-    public IReadOnlyList<double> TrueSkillConservativeDeltas { get; set; } = Array.Empty<double>();
+    public bool IsActive { get; set; }
 }

@@ -2472,7 +2472,7 @@ Brandon Williams&lt;/p&gt;</value>
     <value>Prophecy of Kings</value>
   </data>
   <data name="TiglLeague_ThundersEdge" xml:space="preserve">
-    <value>Thunder's Edge (Standard)</value>
+    <value>Standard</value>
   </data>
   <data name="TiglLeague_League" xml:space="preserve">
     <value>League</value>
@@ -2905,5 +2905,11 @@ Brandon Williams&lt;/p&gt;</value>
   </data>
   <data name="TiglParameterName_OnlyImportReports" xml:space="preserve">
     <value>Allow only imported games</value>
+  </data>
+  <data name="TiglLeagueFilter_Standard" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="TiglLeagueFilter_Fractured" xml:space="preserve">
+    <value>Fractured</value>
   </data>
 </root>

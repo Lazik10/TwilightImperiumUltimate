@@ -1,15 +1,26 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Shared.Shapes
+@using TwilightImperiumUltimate.Web.Components.Shared.Pagination
 
 <VerticalSpace Height="20" />
 <NumericPicker Title="@Strings.TiglLeaderboard_Season" FontSize="18" Value="@_selectedSeasonNumber" OnDecrease="DecreaseSeasonNumber" OnIncrease="IncreaseSeasonNumber" />
 
 <FlexRowContainer>
-    <EnumPicker Label="@Strings.TiglLeaderboard_League" TEnum="TiglLeague" CurrentValue="@_selectedLeague" CurrentValueChanged="@OnLeagueChanged" ExcludeValues="new List<TiglLeague> { TiglLeague.Test }" />
+    <EnumPicker Label="@Strings.TiglLeaderboard_League" TEnum="TiglLeagueFilter" CurrentValue="@_selectedLeagueFilter" CurrentValueChanged="@OnLeagueChanged" />
 </FlexRowContainer>
 
 <EnumPicker Label="@Strings.TiglLeaderboard_RankingSystem" TEnum="RankingSystem" CurrentValue="@_selectedRankingSystem" CurrentValueChanged="@OnRankingSystemChanged" />
 
 <VerticalSpace Height="20" />
+    
+<GridLayout Columns="7" CssClass="handel white shadow" Style="grid-template-columns: 10% 20% 20% 15% 15% 10% 10%">
+
+    <div class="span-7">
+        <Pager TotalCount="@GetTotalFilteredCount()" PageSize="50" CurrentPage="_currentPage" CurrentPageChanged="OnPageChanged" />
+    </div>
+
+</GridLayout>
+
+<VerticalSpace Height="10" />
 
 <GridLayout Columns="7" CssClass="handel white shadow background" Style="grid-template-columns: 10% 20% 20% 15% 15% 10% 10%">
 
@@ -17,6 +28,7 @@
 
     <Label Text="@Strings.TiglLeaderboard_Rank" CenterText="true" />
     <Label Text="@Strings.TiglLeaderboard_Player" />
+
 
     @if (_selectedRankingSystem == RankingSystem.TrueSkill)
     {
@@ -44,20 +56,33 @@
 
 </GridLayout>
 
-<VerticalSpace Height="20" />
-
 <GridLayout Columns="7" CssClass="handel white shadow" Style="grid-template-columns: 10% 20% 20% 15% 15% 10% 10%">
 
-    <VerticalSpace Height="20" CssClass="span-7" />
+    <VerticalSpace Height="10" CssClass="span-7" />
+
+    <FlexRowContainer CssClass="span-7" JustifyContent="Enums.JustifyContent.FlexEnd" Style="justify-self: right;" Width="30">
+        <RadzenCheckBox Value="_onlyActive" ValueChanged="OnOnlyActiveChanged" TValue="bool" />
+        <HorizontalSpace Width="20" />
+        <Label Text="Only active" />
+
+        <HorizontalSpace Width="20" />
+
+        <RadzenCheckBox Value="_onlyConfident" ValueChanged="OnOnlyConfidentChanged" TValue="bool" />
+        <HorizontalSpace Width="20" />
+        <Label Text="Only confident ratings" />
+    </FlexRowContainer>
+
+    <VerticalSpace Height="10" CssClass="span-7" />
 
     @if (!_loading)
     {
-        _placement = 1;
+        _placement = 1 + ((_currentPage - 1) * 50);
 
         @foreach (var playerResult in GetSortedRows())
         {
             <Label Text="@_placement.ToString()" CenterText=true CssClass="background" TextColor="TextColor.Yellow" />
             <Label Text="@playerResult.TiglUserName" CssClass="background" />
+
 
             if (_selectedRankingSystem == RankingSystem.TrueSkill)
             {
@@ -87,6 +112,14 @@
         }
 
         _placement = 0;
+
+        <VerticalSpace Height="10" CssClass="span-7" />
+
+        <div class="span-7">
+            <Pager TotalCount="@GetTotalFilteredCount()" PageSize="50" CurrentPage="_currentPage" CurrentPageChanged="OnPageChanged" />
+        </div>
+
+        <VerticalSpace Height="20" CssClass="span-7" />
     }
     else
     {
