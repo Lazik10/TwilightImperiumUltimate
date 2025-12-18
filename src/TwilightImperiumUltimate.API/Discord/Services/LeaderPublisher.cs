@@ -38,6 +38,10 @@ internal sealed class LeaderPublisher(IDiscordClient discordClient, ILogger<Lead
         if (!notificationPublished)
             logger.LogWarning("Failed to publish leader change log with ID: {LogId}", log.Id);
 
+        // Not enough space for additional roles on the discord server to support all fractured heroes so promote only the standard league heroes
+        if (log.League == TiglLeague.Fractured)
+            return notificationPublished;
+
         var removeRolesSuccess = await RemoveRolesAsync(log, cancellationToken);
         if (!removeRolesSuccess)
             logger.LogWarning("Failed to remove hero role for user {UserId}", log.PreviousOwnerDiscordId);
