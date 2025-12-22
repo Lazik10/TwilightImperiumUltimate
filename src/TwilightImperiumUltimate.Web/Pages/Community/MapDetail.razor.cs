@@ -95,7 +95,7 @@ public partial class MapDetail
         if (_user is not null)
         {
             var request = new UserMapRatingRequest() { UserId = _user.Id, MapId = MapId, Rating = newRating };
-            var (response, statusCode) = await HttpClient.PutAsync<UserMapRatingRequest, ApiResponse<MapRatingDto>>(Paths.ApiPath_MapRatingsUser, request, default);
+            var (response, statusCode) = await HttpClient.PutAsync<UserMapRatingRequest, MapRatingDto>(Paths.ApiPath_MapRatingsUser, request, default);
 
             if (statusCode == HttpStatusCode.OK)
             {

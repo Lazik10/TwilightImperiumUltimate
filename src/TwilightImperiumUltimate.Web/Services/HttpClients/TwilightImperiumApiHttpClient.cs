@@ -1,4 +1,5 @@
 using Blazored.LocalStorage;
+using Newtonsoft.Json.Linq;
 using Serilog;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
@@ -154,9 +155,9 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
         }
     }
 
-    public async Task<(TResponse Response, HttpStatusCode StatusCode)> PutAsync<TRequest, TResponse>(string endpointPath, TRequest request, CancellationToken cancellationToken)
+    public async Task<(ApiResponse<TResponse> Response, HttpStatusCode StatusCode)> PutAsync<TRequest, TResponse>(string endpointPath, TRequest request, CancellationToken cancellationToken)
         where TRequest : class
-        where TResponse : class, new()
+        where TResponse : class
     {
         try
         {
@@ -164,42 +165,83 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
             await SetAuthorizationHeaderAsync(cancellationToken);
 
             HttpResponseMessage response = await _httpClient.PutAsJsonAsync(uri, request, cancellationToken);
+            var status = response.StatusCode;
+            var raw = string.Empty;
+            ApiResponse<TResponse>? api = null;
+            ProblemDetailsDto? problem = null;
 
-            if (response.IsSuccessStatusCode)
+            try
             {
-                TResponse? result = await response.Content.ReadFromJsonAsync<TResponse>(_options, cancellationToken);
-                return (result ?? new TResponse(), response.StatusCode);
+                raw = await response.Content.ReadAsStringAsync(cancellationToken);
+            }
+            catch
+            {
+                raw = string.Empty;
+            }
+
+            if (!string.IsNullOrWhiteSpace(raw))
+            {
+                try
+                {
+                    api = JsonSerializer.Deserialize<ApiResponse<TResponse>>(raw, _options);
+                }
+                catch
+                {
+                    /* ignore and try problem details */
+                }
+
+                if (api is null)
+                {
+                    try
+                    {
+                        problem = JsonSerializer.Deserialize<ProblemDetailsDto>(raw, _options);
+                    }
+                    catch
+                    {
+                        /* ignore */
+                    }
+                }
+            }
+
+            if (api is null)
+            {
+                api = new ApiResponse<TResponse>();
+                if (problem is not null)
+                    api.ProblemDetails = problem;
+                api.Success = response.IsSuccessStatusCode;
             }
             else
             {
-                switch (response.StatusCode)
-                {
-                    case HttpStatusCode.Unauthorized:
-                        Log.Warning("Unauthorized access to endpoint: {EndpointPath}", endpointPath);
-                        break;
-                    case HttpStatusCode.NotFound:
-                        Log.Warning("Endpoint not found: {EndpointPath}", endpointPath);
-                        break;
-                    case HttpStatusCode.InternalServerError:
-                        Log.Warning("Server error while accessing endpoint: {EndpointPath}", endpointPath);
-                        break;
-                    default:
-                        Log.Warning("Error while putting data to endpoint: {EndpointPath}. Status Code: {StatusCode}", endpointPath, response.StatusCode);
-                        break;
-                }
-
-                return (new TResponse(), response.StatusCode);
+                // Ensure consistency with HTTP status
+                api.Success = api.Success && response.IsSuccessStatusCode;
             }
+
+            if (!response.IsSuccessStatusCode)
+            {
+                if (api.ProblemDetails.Status is null)
+                    api.ProblemDetails.Status = (int)status;
+                if (string.IsNullOrWhiteSpace(api.ProblemDetails.Title))
+                    api.ProblemDetails.Title = $"HTTP {(int)status} {status}";
+                if (string.IsNullOrWhiteSpace(api.ProblemDetails.Detail))
+                    api.ProblemDetails.Detail = raw;
+            }
+
+            return (api, status);
         }
         catch (HttpRequestException ex)
         {
-            Log.Warning(ex, "Error while putting data to endpoint: {EndpointPath}", endpointPath);
-            return (new TResponse(), HttpStatusCode.InternalServerError);
-        }
-        catch (OperationCanceledException ex)
-        {
-            Log.Warning(ex, "Operation canceled for endpoint: {EndpointPath}", endpointPath);
-            return (new TResponse(), HttpStatusCode.RequestTimeout);
+            Log.Warning(ex, "PostApiAsync request error: {EndpointPath}", endpointPath);
+            return (new ApiResponse<TResponse>
+            {
+                Success = false,
+                ProblemDetails = new ProblemDetailsDto
+                {
+                    Title = "Request error",
+                    Detail = ex.Message,
+                    Status = (int)HttpStatusCode.InternalServerError,
+                },
+            },
+            HttpStatusCode.InternalServerError);
         }
     }
 
@@ -299,7 +341,7 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
             {
                 try
                 {
-                    api = JsonSerializer.Deserialize<TwilightImperiumUltimate.Contracts.ApiContracts.ApiResponse<TDto>>(raw, _options);
+                    api = JsonSerializer.Deserialize<ApiResponse<TDto>>(raw, _options);
                 }
                 catch { /* ignore and try problem details */ }
 
@@ -350,7 +392,8 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
                     Detail = ex.Message,
                     Status = (int)HttpStatusCode.InternalServerError,
                 },
-            }, HttpStatusCode.InternalServerError);
+            },
+            HttpStatusCode.InternalServerError);
         }
     }
 }

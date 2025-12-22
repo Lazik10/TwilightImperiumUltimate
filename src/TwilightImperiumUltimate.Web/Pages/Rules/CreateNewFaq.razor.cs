@@ -32,7 +32,7 @@ public partial class CreateNewFaq
     {
         FaqModel.ComponentName = ComponentName;
         var faqDto = Mapper.Map<FaqDto>(FaqModel);
-        var result = await HttpClient.PutAsync<InsertFaqRequest, ApiResponse<FaqDto>>(Paths.ApiPath_Faq, new InsertFaqRequest(faqDto), default);
+        var result = await HttpClient.PutAsync<InsertFaqRequest, FaqDto>(Paths.ApiPath_Faq, new InsertFaqRequest(faqDto), default);
         var statusCode = result.StatusCode;
 
         if (statusCode == HttpStatusCode.OK)

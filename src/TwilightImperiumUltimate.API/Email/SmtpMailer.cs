@@ -73,7 +73,8 @@ public class SmtpMailer(
     private Uri CreateResetPasswordEmailLinkUrl(string resetCode)
     {
         var newUrlBase = _frontendOptions.Url;
-        var newUrlPath = $"account/password-reset/{resetCode}";
+        var encoded = Uri.EscapeDataString(resetCode);
+        var newUrlPath = $"account/password-reset?code={encoded}";
         var newUri = new Uri(newUrlBase!, newUrlPath);
 
         return newUri;

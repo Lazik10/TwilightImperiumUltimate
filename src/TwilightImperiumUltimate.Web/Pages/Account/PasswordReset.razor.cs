@@ -1,7 +1,4 @@
-using Microsoft.AspNetCore.Components;
 using TwilightImperiumUltimate.Web.Models.Account;
-using TwilightImperiumUltimate.Web.Resources;
-using TwilightImperiumUltimate.Web.Services.HttpClients;
 
 namespace TwilightImperiumUltimate.Web.Pages.Account;
 
@@ -12,6 +9,7 @@ public partial class PasswordReset
     private string _errorMessage = string.Empty;
 
     [Parameter]
+    [SupplyParameterFromQuery(Name = "code")]
     public string? Code { get; set; }
 
     [Inject]
@@ -22,9 +20,12 @@ public partial class PasswordReset
 
     private ResetPasswordModel ResetPasswordModel { get; set; } = new ResetPasswordModel();
 
-    protected override void OnInitialized()
+    protected override void OnParametersSet()
     {
-        ResetPasswordModel.ResetCode = Code;
+        if (!string.IsNullOrEmpty(Code))
+        {
+            ResetPasswordModel.ResetCode = Code;
+        }
     }
 
     private async Task ResetPassword()
@@ -43,7 +44,7 @@ public partial class PasswordReset
         var result = await HttpClient.PostAsync<ResetPasswordRequest, PasswordResetResponse>(Paths.ApiPath_ResetPassword, passwordRequest, default);
         var statusCode = result.StatusCode;
 
-        if (statusCode == System.Net.HttpStatusCode.OK)
+        if (statusCode == HttpStatusCode.OK)
         {
             _passwordResetFailed = false;
             ResetPasswordModel = new ResetPasswordModel();

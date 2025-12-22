@@ -63,13 +63,15 @@ public partial class Info
 
     private async Task SaveInfo()
     {
-        _infoSaved = false;
         _updateSend = false;
+        _infoSaved = false;
 
         if (User is not null)
             User.FavoriteFaction = FavoriteFaction;
 
+        var result = await UserService.UpdateUserInfoAsync(User, default);
+
+        _infoSaved = result;
         _updateSend = true;
-        _infoSaved = await UserService.UpdateUserInfoAsync(User, default);
     }
 }

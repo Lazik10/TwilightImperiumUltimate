@@ -1,7 +1,4 @@
-using Microsoft.AspNetCore.Components;
 using TwilightImperiumUltimate.Web.Models.Account;
-using TwilightImperiumUltimate.Web.Resources;
-using TwilightImperiumUltimate.Web.Services.HttpClients;
 
 namespace TwilightImperiumUltimate.Web.Pages.Account;
 
@@ -28,7 +25,7 @@ public partial class ResendConfirmationEmail
         var result = await HttpClient.PostAsync<ResendConfirmEmailRequest, ResendConfirmEmailResponse>(Paths.ApiPath_ResendConfirmationEmail, request, default);
         var statusCode = result.StatusCode;
 
-        if (statusCode == System.Net.HttpStatusCode.OK)
+        if (statusCode == HttpStatusCode.OK)
         {
             _confirmationEmailSendSuccess = true;
             _confirmationEmailSend = true;

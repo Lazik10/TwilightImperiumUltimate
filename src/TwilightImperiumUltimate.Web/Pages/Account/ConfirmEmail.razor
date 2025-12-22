@@ -13,15 +13,16 @@
 
     <VerticalSpace Height="100" />
 
-    @if(_confirmSuccess)
+    @if (_confirmFinished)
     {
-        <Label Text="@Strings.ConfirmEmail_UserEmailValidationSuccess" FontSize="26" CenterText="true" TextColor="TextColor.Green"/>
-    }
-    else
-    {
-        <Label Text="@Strings.ConfirmEmail_UserEmailValidationFailed" FontSize="26" CenterText="true" TextColor="TextColor.Red" />
+        @if (_confirmSuccess)
+        {
+            <Label Text="@Strings.ConfirmEmail_UserEmailValidationSuccess" FontSize="26" CenterText="true" TextColor="TextColor.Green"/>
+        }
+        else
+        {
+            <Label Text="@Strings.ConfirmEmail_UserEmailValidationFailed" FontSize="26" CenterText="true" TextColor="TextColor.Red" />
+        }
     }
 
 </Page>
-
-
