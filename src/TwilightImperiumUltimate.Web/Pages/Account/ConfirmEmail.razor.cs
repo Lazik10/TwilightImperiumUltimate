@@ -1,7 +1,5 @@
-using Microsoft.AspNetCore.Components;
 using System.Globalization;
 using System.Text;
-using TwilightImperiumUltimate.Web.Resources;
 using TwilightImperiumUltimate.Web.Services.User;
 
 namespace TwilightImperiumUltimate.Web.Pages.Account;
@@ -9,6 +7,7 @@ namespace TwilightImperiumUltimate.Web.Pages.Account;
 public partial class ConfirmEmail
 {
     private bool _confirmSuccess;
+    private bool _confirmFinished;
 
     [Parameter]
     [SupplyParameterFromQuery(Name = "userId")]
@@ -26,7 +25,14 @@ public partial class ConfirmEmail
 
     protected override async Task OnInitializedAsync()
     {
-        _confirmSuccess = await UserService.ConfirmEmailAsync(Id, Code);
+        _confirmSuccess = false;
+        _confirmFinished = false;
+
+        var result = await UserService.ConfirmEmailAsync(Id, Code);
+
+        _confirmSuccess = result;
+        _confirmFinished = true;
+
         StateHasChanged();
 
         if (_confirmSuccess)

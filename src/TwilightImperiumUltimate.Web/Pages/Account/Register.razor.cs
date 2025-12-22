@@ -115,7 +115,7 @@ public partial class Register
                     string.Empty,
                     string.Empty);
 
-                await HttpClient.PutAsync<TwilightImperiumUserDto, ApiResponse<TwilightImperiumUserDto>>(Paths.ApiPath_UpdateUserName, request, default);
+                await HttpClient.PutAsync<TwilightImperiumUserDto, TwilightImperiumUserDto>(Paths.ApiPath_UpdateUserName, request, default);
             }
         }
     }

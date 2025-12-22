@@ -3,36 +3,42 @@
 <PageTitle>@Strings.Page_ResendConfirmationEmail</PageTitle>
 
 <Page>
-    <Label Text="@Strings.Login_ConfirmationEmail" FontSize="36" Width="50" CenterText="true" />
 
-    <VerticalSpace Height="50" />
+    <FlexColumnCenteredContainer>
 
-    @if (_confirmationEmailSendSuccess && _confirmationEmailSend)
-    {
-        <Label Text="@Strings.Login_ConfirmationEmailSent" FontSize="24" CenterText="true" TextColor="TextColor.Green" />
+        <Label Text="@Strings.Login_ConfirmationEmail" FontSize="36" Width="50" CenterText="true" />
+
         <VerticalSpace Height="50" />
-    }
-    else if (!_confirmationEmailSendSuccess && _confirmationEmailSend)
-    {
-        <Label Text="@Strings.Login_ConfirmationEmailSentFail" FontSize="24" CenterText="true" TextColor="TextColor.Red" />
+
+        @if (_confirmationEmailSendSuccess && _confirmationEmailSend)
+        {
+            <Label Text="@Strings.Login_ConfirmationEmailSent" FontSize="24" CenterText="true" TextColor="TextColor.Green" />
+            <VerticalSpace Height="50" />
+        }
+        else if (!_confirmationEmailSendSuccess && _confirmationEmailSend)
+        {
+            <Label Text="@Strings.Login_ConfirmationEmailSentFail" FontSize="24" CenterText="true" TextColor="TextColor.Red" />
+            <VerticalSpace Height="50" />
+        }
+
+         <Label Text="@Strings.Login_Email" Width="50" CenterText="true" />
+
+        <VerticalSpace Height="20" />
+
+        <FlexRowContainer Width="40">
+            <RadzenTextBox Placeholder="@Strings.Login_Email"
+                            @bind-Value="ConfirmationEmailModel.Email"
+                            class="w-20 flex-row title white handel" />
+        </FlexRowContainer>
+
         <VerticalSpace Height="50" />
-    }
 
-     <Label Text="@Strings.Login_Email" Width="50" CenterText="true" />
+        <FlexRowContainer JustifyContent="Enums.JustifyContent.Center">
+            <Button ButtonText="@Strings.Login_ResendConfirmationEmail" OnClick="@(async () => await ResendConfirmationEmailCode())" CssClass="button" IsDisabled="GetDisabledState()" />
+        </FlexRowContainer>
 
-    <VerticalSpace Height="20" />
+    </FlexColumnCenteredContainer>
 
-    <FlexRowContainer Width="40">
-        <RadzenTextBox Placeholder="@Strings.Login_Email"
-                        @bind-Value="ConfirmationEmailModel.Email"
-                        class="w-20 flex-row title white handel" />
-    </FlexRowContainer>
-
-    <VerticalSpace Height="50" />
-
-    <FlexRowContainer JustifyContent="Enums.JustifyContent.Center">
-        <Button ButtonText="@Strings.Login_ResendConfirmationEmail" OnClick="@(async () => await ResendConfirmationEmailCode())" CssClass="button" IsDisabled="GetDisabledState()" />
-    </FlexRowContainer>
 </Page>
 
 

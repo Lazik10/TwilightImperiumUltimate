@@ -119,7 +119,7 @@ public class UserService(
             var (response, statusCode) = await _httpClient.PutAsync<TwilightImperiumUserDto, TwilightImperiumUser>(Paths.ApiPath_UserUpdate, userDto, cancellationToken);
             if (statusCode == HttpStatusCode.OK)
             {
-                await SetCurrentUserAsync(response);
+                await SetCurrentUserAsync(response.Data);
                 return true;
             }
         }

@@ -101,7 +101,7 @@ public partial class SliceDraftDetail
         if (_user is not null)
         {
             var request = new UserSliceDraftRatingRequest() { UserId = _user.Id, SliceDraftId = SliceDraft.Id, Rating = newRating };
-            var (response, statusCode) = await HttpClient.PutAsync<UserSliceDraftRatingRequest, ApiResponse<SliceDraftRatingDto>>(Paths.ApiPath_SliceDraftRatingsUser, request, default);
+            var (response, statusCode) = await HttpClient.PutAsync<UserSliceDraftRatingRequest, SliceDraftRatingDto>(Paths.ApiPath_SliceDraftRatingsUser, request, default);
 
             if (statusCode == HttpStatusCode.OK)
             {

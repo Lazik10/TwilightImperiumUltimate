@@ -30,7 +30,7 @@ public partial class Faq
     {
         faq.FaqStatus = FaqStatus.Approved;
         var apporveFaqRequest = new UpdateFaqRequest(Mapper.Map<FaqDto>(faq));
-        await HttpClient.PutAsync<UpdateFaqRequest, ApiResponse<FaqDto>>(Paths.ApiPath_Faq, apporveFaqRequest, default);
+        await HttpClient.PutAsync<UpdateFaqRequest, FaqDto>(Paths.ApiPath_Faq, apporveFaqRequest, default);
         Faqs = Faqs.Where(x => x.FaqStatus == FaqStatus.Submitted).ToList();
         StateHasChanged();
     }
@@ -39,7 +39,7 @@ public partial class Faq
     {
         faq.FaqStatus = FaqStatus.Rejected;
         var rejectFaqRequest = new UpdateFaqRequest(Mapper.Map<FaqDto>(faq));
-        await HttpClient.PutAsync<UpdateFaqRequest, ApiResponse<FaqDto>>(Paths.ApiPath_Faq, rejectFaqRequest, default);
+        await HttpClient.PutAsync<UpdateFaqRequest, FaqDto>(Paths.ApiPath_Faq, rejectFaqRequest, default);
         Faqs = Faqs.Where(x => x.FaqStatus == FaqStatus.Submitted).ToList();
         StateHasChanged();
     }

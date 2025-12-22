@@ -1,7 +1,4 @@
-using Microsoft.AspNetCore.Components;
 using TwilightImperiumUltimate.Web.Models.Account;
-using TwilightImperiumUltimate.Web.Resources;
-using TwilightImperiumUltimate.Web.Services.HttpClients;
 
 namespace TwilightImperiumUltimate.Web.Pages.Account;
 
