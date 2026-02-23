@@ -26,4 +26,12 @@ public enum RelicCardName
     TwilightMirror,
     ESixGoNetwork,
     FotgottenThrone,
+
+    MetaliVoidArmaments,
+    TheQuantumcore,
+    TheSilverFlame,
+    LightrailOrdnance,
+    MetaliVoidShielding,
+    TheTriad,
+    HeartOfIxth,
 }

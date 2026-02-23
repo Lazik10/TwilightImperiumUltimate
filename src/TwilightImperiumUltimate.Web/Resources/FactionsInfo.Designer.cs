@@ -142,6 +142,94 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;LIBERATE:&lt;/p&gt;
+        ///&lt;p&gt;When you gain control of a planet, ready that planet if it contains a number of your infantry equal to or greater than that planet&apos;s resource value; otherwise, place 1 infantry on that planet.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;GALVANIZE:&lt;/p&gt;
+        ///&lt;p&gt;When a game effect instructs a player to galvanize a unit, they place a galvanize token beneath it, if it does not have one. Galvanized units roll 1 additional die for combat rolls and unit abilities.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;PHOENIX STANDARD:&lt;/p&gt;
+        ///&lt;p&gt;At the end of combat,  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string LastBastion_Ability {
+            get {
+                return ResourceManager.GetString("LastBastion_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are 3 galvanized units on the game board..
+        /// </summary>
+        internal static string LastBastion_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("LastBastion_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;It started as a joint military expedition into the Lysantis Cluster to liberate a handful of independent worlds captured by the L1Z1X. Binding together the Xxcha Kingdom and the Federation of Sol, the endeavor, dubbed the Salient Sun Joint Task Force, would demonstrate that the Kingdom could be a potent fighting force and the Federation could be heroic rescuers. Most importantly, it would bind the two militaries together in a short, victorious war that would, hopefully, help to ease the ancient trauma of [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string LastBastion_Lore {
+            get {
+                return ResourceManager.GetString("LastBastion_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h1&gt;Liberate&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;If the Bastion player gains control of an uncontrolled planet, they may choose if they resolve &lt;sc&gt;Liberate&lt;/sc&gt; before or after they explore that planet.&lt;/li&gt;
+        ///    &lt;ol&gt;&lt;li&gt;If they explore first, and the number of infantry or the resource value of the planet changes while resolving the exploration, then the new values will be used when resolving &lt;sc&gt;Liberate&lt;/sc&gt;.&lt;/li&gt;&lt;/ol&gt;
+        ///    &lt;li&gt;The number of mechs is irrelevant for determining which effect to resolve.&lt;/ [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string LastBastion_Notes {
+            get {
+                return ResourceManager.GetString("LastBastion_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LastBastion_PromissoryNote.
+        /// </summary>
+        internal static string LastBastion_PromissoryNote {
+            get {
+                return ResourceManager.GetString("LastBastion_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;There is no sacrifice I would not make to see this through. No choice but forward, no option but victory. Go. We will handle this.&quot; - Lyra Keen, Shield of the Reef.
+        /// </summary>
+        internal static string LastBastion_Quote {
+            get {
+                return ResourceManager.GetString("LastBastion_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Once loyal soldiers of an allied Sol/Xxcha military task force, Last Bastion has grown to be something more: a symbol of hope on a frontier abandoned by the Council that was meant to protect them..
+        /// </summary>
+        internal static string LastBastion_SystemInfo {
+            get {
+                return ResourceManager.GetString("LastBastion_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TAXIS SYSTEM:;
+        ///✧Population:.2,100,000;
+        ///✧Government:.Command Authority;
+        ///✧Leadership:.Harrugh Gefhara;
+        ///✧Disposition:.Stoic;
+        ///✧Tendencies:.Military.
+        /// </summary>
+        internal static string LastBastion_SystemStats {
+            get {
+                return ResourceManager.GetString("LastBastion_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Last Bastion.
         /// </summary>
         internal static string LastBastion_Title {
@@ -1530,11 +1618,223 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;SUNDERED:&lt;/p&gt;
+        ///&lt;p&gt;You cannot use wormholes other than epsilon wormholes. Other players&apos; units that move or are placed into your home system are destroyed.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;INCURSION:&lt;/p&gt;
+        ///&lt;p&gt;When you activate a system that contains a breach, you may flip that breach; systems that contain active breaches are adjacent. At the end of the status phase, any player with ships in a system that contain an active breach may remove that breach.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;THE SORROW:&lt;/p&gt;
+        ///&lt;p&gt;When you create the game board, place [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheCrimsonRebellion_Ability {
+            get {
+                return ResourceManager.GetString("TheCrimsonRebellion_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Place a breach token in a system that contains another player&apos;s unit..
+        /// </summary>
+        internal static string TheCrimsonRebellion_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheCrimsonRebellion_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;When the Creuss discovered the records leading to the ancient world of Ixth, they saw their chance to unearth a galactic monomyth and use the resulting glory to step to the forefront of all other major civilizations. Instead, they uncovered the homeworld of the dreaded Mahact gene-sorcerers.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;When the Mahact awoke, they dominated the entire armada the Creuss had sent to Ixth. With the high technology of their homeworld, they rewrote the frequency of the Creuss’ energistic structure as one mig [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheCrimsonRebellion_Lore {
+            get {
+                return ResourceManager.GetString("TheCrimsonRebellion_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h1&gt;Sundered&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;/ol&gt;
+        ///
+        ///&lt;h1&gt;Incursion&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;Breaches are not wormholes.&lt;/li&gt;
+        ///    &lt;li&gt;A system may have any number of breaches in it.&lt;/li&gt;
+        ///    &lt;ol&gt;&lt;li&gt;If a player has a ship in a system containing multiple breaches at the end of the status phase, they may remove any or all of them.&lt;/li&gt;&lt;/ol&gt;
+        ///    &lt;li&gt;If the Rebellion player has no more breach tokens in their reinforcements, and an ability instructs them to place a breach, they may remove an inac [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheCrimsonRebellion_Notes {
+            get {
+                return ResourceManager.GetString("TheCrimsonRebellion_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TheCrimsonRebellion_PromissoryNote.
+        /// </summary>
+        internal static string TheCrimsonRebellion_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheCrimsonRebellion_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Whatever afflicts them, it is beyond my experience. Pain unending. Rage consuming. Hope unknowing.&quot; - Ahk-Syl Siven.
+        /// </summary>
+        internal static string TheCrimsonRebellion_Quote {
+            get {
+                return ResourceManager.GetString("TheCrimsonRebellion_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Liberated from Mahact control but unable to return to the lives they once knew, the Crimson Rebellion may never be what they once were. They must now forge a new path in a galaxy that rejects them..
+        /// </summary>
+        internal static string TheCrimsonRebellion_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheCrimsonRebellion_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UNKNOWN DIMENSION
+        ///:;
+        ///✦
+        ///Population:.10 Million
+        ///;
+        ///✦ Government:.Communal Anarchy
+        ///;
+        ///✦ Leadership:.None
+        ///;
+        ///✦ Disposition:.Despairing
+        ///;
+        ///✦ Tendencies:.Military.
+        /// </summary>
+        internal static string TheCrimsonRebellion_SystemStats {
+            get {
+                return ResourceManager.GetString("TheCrimsonRebellion_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The Crimson Rebellion.
         /// </summary>
         internal static string TheCrimsonRebellion_Title {
             get {
                 return ResourceManager.GetString("TheCrimsonRebellion_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;RESEARCH TEAM:&lt;/p&gt; 
+        ///&lt;p&gt;When ground forces are committed, if your units on the planet are not already coexisting, you may choose for your units to coexist.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;OCEANBOUND:&lt;/p&gt; 
+        ///&lt;p&gt;When your units begin coexisting on a planet, gain an ocean card and ready it. Any time you have more ocean cards than there are planets that have your coexisting units, discard ocean cards until you do not.&lt;/p&gt;.
+        /// </summary>
+        internal static string TheDeepwroughtScholarate_Ability {
+            get {
+                return ResourceManager.GetString("TheDeepwroughtScholarate_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have an ocean card in play..
+        /// </summary>
+        internal static string TheDeepwroughtScholarate_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheDeepwroughtScholarate_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;Facing grave threats to the galaxy, some factions within the great powers sought to work together, creating the Keleres and striving for better relations between all.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;One of these factions was the Universities of Jol-Nar. They sought a way to break the domination of the Mahact’s most dangerous thralls, the infamous Crimson Legionnaires—and most importantly to prevent similar mind-control from affecting any Hylar victims. The newly developed Waveform Arbitrator could shatter the Mahact contro [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheDeepwroughtScholarate_Lore {
+            get {
+                return ResourceManager.GetString("TheDeepwroughtScholarate_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h1&gt;Research Team&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;/ol&gt;
+        ///
+        ///&lt;h1&gt;Oceanbound&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;/ol&gt;
+        ///
+        ///&lt;h1&gt;Share Knowledge &lt;sub&gt;(Promissory Note)&lt;/sub&gt;&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;If a player gains then loses the &lt;i&gt;Antimass Deflectors&lt;/i&gt; technology, their units may remain in and move out of any asteroid fields they are currently in, but cannot move additional units into or through.&lt;/li&gt;
+        ///    &lt;/ol&gt;
+        ///
+        ///&lt;h1&gt;Hydrothermal Mining &lt;sub&gt;(Technology)&lt;/sub&gt;&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;/ [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheDeepwroughtScholarate_Notes {
+            get {
+                return ResourceManager.GetString("TheDeepwroughtScholarate_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Deepwrought Scholarate_PromissoryNote.
+        /// </summary>
+        internal static string TheDeepwroughtScholarate_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheDeepwroughtScholarate_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;~Together~sing~one~
+        ///~together~sing~deep~
+        ///~together~ends~suffering~
+        ///~life~triumphs~death~&quot; - Aello, Kieros.
+        /// </summary>
+        internal static string TheDeepwroughtScholarate_Quote {
+            get {
+                return ResourceManager.GetString("TheDeepwroughtScholarate_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to After the Deepwrought defied the will of the Universities, they created an alliance with the newly liberated Kieros of Ikatena. Unable to return to the Hylar homeworld, they seek alliances and peaceful coexistence in the oceans of the galaxy..
+        /// </summary>
+        internal static string TheDeepwroughtScholarate_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheDeepwroughtScholarate_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IKATOL SYSTEM:
+        ///;
+        ///✦
+        ///Population:.9,1 billion
+        ///;
+        ///✦
+        ///Government:.Conclave of Singers
+        ///;
+        ///✦
+        ///Leadership:.Ta Zern
+        ///;
+        ///✦
+        ///Disposition:.Cooperative
+        ///;
+        ///✦
+        ///Tendencies:.Scientific.
+        /// </summary>
+        internal static string TheDeepwroughtScholarate_SystemStats {
+            get {
+                return ResourceManager.GetString("TheDeepwroughtScholarate_SystemStats", resourceCulture);
             }
         }
         
@@ -1611,8 +1911,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to NEW REST
         ///:;
-        ///✧ 
-        ///Population:.5,22 Billion
+        ///✧ Population:.5,22 Billion
         ///;
         ///✧ Government:.Admiralty
         ///;
@@ -1710,7 +2009,8 @@ namespace TwilightImperiumUltimate.Web.Resources {
         ///;
         ///✧ Leadership:.Living Will
         ///;
-        ///✧ Disposition:.Graceful;
+        ///✧ Disposition:.Graceful
+        ///;
         ///✧ 
         ///Tendencies:.Objective.
         /// </summary>
@@ -2225,6 +2525,98 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string TheFederationOfSol_Title {
             get {
                 return ResourceManager.GetString("TheFederationOfSol_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h1&gt;The Firmament&lt;/h1&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;PLOTS WITHIN PLOTS:&lt;/p&gt;
+        ///&lt;p&gt;You can score secret objectives already scored by other players, if you fulfill their requirements; This does not count against your secret objective limit or the number you can score in a round. When you score another player&apos;s secret objective do not score a victory point. Instead, place a face down plot card into your play area with that player&apos;s control token on it.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;PUPPETS OF THE BLADE:&lt;/p&gt;
+        ///&lt;p&gt;If you have at least one plot car [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheFirmamentTheObsidian_Ability {
+            get {
+                return ResourceManager.GetString("TheFirmamentTheObsidian_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have one plot card in play..
+        /// </summary>
+        internal static string TheFirmamentTheObsidian_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheFirmamentTheObsidian_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;Whether the Firmament is a collection of revolutionary idealists or a sprawling and secretive criminal empire is a matter of perspective. To the Great Powers, the important question is: who will be the next to inherit the Imperial throne? But the founders of the Firmament dared to ask: Why should there be an Imperial throne at all?&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;To these philosophers, diplomats, and soldiers, assuming that empire was the galaxy’s natural state was a monumental folly. After all, twenty-four millennia of th [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheFirmamentTheObsidian_Lore {
+            get {
+                return ResourceManager.GetString("TheFirmamentTheObsidian_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h1&gt;Plots Within Plots&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;If the Firmament player scores a secret objective that has been made into a public objective by a game effect, such as the &lt;i&gt;Classified Document Leaks&lt;/i&gt; agenda, they will gain a victory point as normal.&lt;/li&gt;
+        ///    &lt;/ol&gt;
+        ///
+        ///&lt;h1&gt;Puppets of the Blade&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;When the Firmament player flips their home system, the Obsidian player places any units that were on Cronos onto Cronos Hollow, and places any units on Tallin onto T [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheFirmamentTheObsidian_Notes {
+            get {
+                return ResourceManager.GetString("TheFirmamentTheObsidian_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TheFirmamentTheObsidian_PromissoryNote.
+        /// </summary>
+        internal static string TheFirmamentTheObsidian_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheFirmamentTheObsidian_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Asking &apos;Who should rule us?&apos; is overlooking a more important question: &apos;Why have rulers at all?&apos;&quot; - Sharsiss of Druaa.
+        /// </summary>
+        internal static string TheFirmamentTheObsidian_Quote {
+            get {
+                return ResourceManager.GetString("TheFirmamentTheObsidian_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In a galaxy where every great power struggles to claim an obsolete throne, it sometimes feels like no one has bothered to ask the real questions. Questions like “why have a throne at all?”.
+        /// </summary>
+        internal static string TheFirmamentTheObsidian_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheFirmamentTheObsidian_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HEAVENSFALL COMMAND:;
+        ///✧ Location:.Nepheme System;
+        ///✧ Leadership:.The Constellation;
+        ///✧ Agents:.Est: 250,000~;
+        ///✧ Threat Level:.Epsilon;
+        ///✧ Priority:.Alpha.
+        /// </summary>
+        internal static string TheFirmamentTheObsidian_SystemStats {
+            get {
+                return ResourceManager.GetString("TheFirmamentTheObsidian_SystemStats", resourceCulture);
             }
         }
         
@@ -4818,6 +5210,101 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string TheOlradinLeague_Title {
             get {
                 return ResourceManager.GetString("TheOlradinLeague_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;SURVIVAL INSTINCT:&lt;/p&gt;
+        ///&lt;p&gt;After a player activates a system that contains your ships, you may move up to 2 of your ships into the active system from adjacent systems that do not contain your command tokens.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;MINIATURIZATION:&lt;/p&gt;
+        ///&lt;p&gt;Your structures can be transported by any ships; this does not require or count against capacity. While your structures are in the space area, they cannot use their unit abilities. At the end of your tactical action, you may place your structures that are in sp [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheRalNelConsortium_Ability {
+            get {
+                return ResourceManager.GetString("TheRalNelConsortium_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Be the last person to pass during the Action Phase.
+        /// </summary>
+        internal static string TheRalNelConsortium_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheRalNelConsortium_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;The Ral Nel are known for their fast ships, their advanced microprocessor technology, and their frustrating refusal to share either with the galaxy at large, except on their own terms, for cash in hand. After all, the rest of the galaxy can’t be trusted to honor their debts, and the twin worlds of Ral Nel run on a system of finely balanced obligation.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;p&gt;Mez Lo Orz Fei Zsha is the more heavily populated world. From orbit, one can spot the huge circular cities scattered across the surface and th [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheRalNelConsortium_Lore {
+            get {
+                return ResourceManager.GetString("TheRalNelConsortium_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h1&gt;Survival Instinct&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;If the moved ships were in a gravity rift, they must roll for removal.&lt;/li&gt;
+        ///    &lt;/ol&gt;
+        ///
+        ///&lt;h1&gt;Miniaturization&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///    &lt;li&gt;Structures will be placed at the end of the tactical action. This will be after the production step, and so any space docks placed cannot use their &lt;sc&gt;Production&lt;/sc&gt; ability during the same action.&lt;/li&gt;
+        ///    &lt;/ol&gt;
+        ///
+        ///&lt;h1&gt;Nano&amp;ndash;Link Permit &lt;sub&gt;(Promissory Note)&lt;/sub&gt;&lt;/h1&gt;
+        ///    &lt;ol class=&quot;note&quot;&gt;
+        ///   [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheRalNelConsortium_Notes {
+            get {
+                return ResourceManager.GetString("TheRalNelConsortium_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TheRalNelConsortium_PromissoryNote.
+        /// </summary>
+        internal static string TheRalNelConsortium_PromissoryNote {
+            get {
+                return ResourceManager.GetString("TheRalNelConsortium_PromissoryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;The great web of obligation binfs us all as surely as gravity. Those who would cheat us would cheat the galaxy of its right to exist.&quot; - Actuary General &quot;Watchful&quot; Ojz.
+        /// </summary>
+        internal static string TheRalNelConsortium_Quote {
+            get {
+                return ResourceManager.GetString("TheRalNelConsortium_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Ral Nel’s distrust of outsiders’ ability to understand their fractally complex society of contracts and obligations has recently been tested, thanks to positive dealings with foreign powers, launching the Ral Nel onto the galactic stage..
+        /// </summary>
+        internal static string TheRalNelConsortium_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheRalNelConsortium_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IRK TRO KESH SYSTEM:;
+        ///✧ Population:.6,5 billion;
+        ///✧ Government:.Corporate Oligarchy;
+        ///✧ Leadership:.The Zio;
+        ///✧ Disposition:.Paranoid;
+        ///✧ Tendencies:.Economic.
+        /// </summary>
+        internal static string TheRalNelConsortium_SystemStats {
+            get {
+                return ResourceManager.GetString("TheRalNelConsortium_SystemStats", resourceCulture);
             }
         }
         

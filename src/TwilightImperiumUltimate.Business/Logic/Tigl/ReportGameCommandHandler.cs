@@ -56,7 +56,7 @@ public class ReportGameCommandHandler(
         {
             return new GameReportResult(false, "Only Import Reports Enabled", "The system is currently set that only imported reports can be evaluated. Please contact @lazik2110 for help.");
         }
-        else
+        else if (onlyImportEnabled is not null && onlyImportEnabled.Enabled && gameReport.Source == ResultSource.Test)
         {
             gameReport.Source = ResultSource.Async;
         }

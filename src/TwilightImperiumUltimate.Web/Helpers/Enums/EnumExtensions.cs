@@ -1,7 +1,5 @@
 using System.Globalization;
 using System.Resources;
-using System.Runtime.CompilerServices;
-using TwilightImperiumUltimate.Web.Pages.Community;
 
 namespace TwilightImperiumUltimate.Web.Helpers.Enums;
 
@@ -192,11 +190,22 @@ public static class EnumExtensions
             TextColor.Black => "black",
 
             TextColor.Unranked => "white",
+
             TextColor.Minister => "#3498db",
             TextColor.Agent => "#206694",
             TextColor.Commander => "#b2a8e4",
             TextColor.Hero => "#816de6",
-            TextColor.GalacticThreat => "#e74c3c",
+
+            TextColor.Thrall => "#df966e",
+            TextColor.Acolyte => "#ce8863",
+            TextColor.Legionnaire => "#c3764c",
+            TextColor.Starlancer => "#c26b3d",
+            TextColor.GeneSorcerer => "#d6682d",
+            TextColor.IxthLord => "#d66223",
+            TextColor.Archon => "#ec651c",
+
+            TextColor.Tyrant => "#f65904",
+            TextColor.GalacticThreat => "#ba6de6",
             TextColor.Pmbg => "#f1c40f",
 
             _ => "white",
@@ -233,11 +242,21 @@ public static class EnumExtensions
     {
         return rank switch
         {
-            TiglRankName.Unranked or TiglRankName.Thrall => TextColor.Unranked,
-            TiglRankName.Minister or TiglRankName.Acolyte => TextColor.Minister,
-            TiglRankName.Agent or TiglRankName.Legionnaire => TextColor.Agent,
-            TiglRankName.Commander or TiglRankName.Starlancer => TextColor.Commander,
-            TiglRankName.Hero or TiglRankName.GeneSorcerer or TiglRankName.IxthLord or TiglRankName.Archon => TextColor.Hero,
+            TiglRankName.Unranked => TextColor.Unranked,
+
+            TiglRankName.Minister => TextColor.Minister,
+            TiglRankName.Agent => TextColor.Agent,
+            TiglRankName.Commander => TextColor.Commander,
+            TiglRankName.Hero => TextColor.Hero,
+
+            TiglRankName.Thrall => TextColor.Thrall,
+            TiglRankName.Acolyte => TextColor.Acolyte,
+            TiglRankName.Legionnaire => TextColor.Legionnaire,
+            TiglRankName.Starlancer => TextColor.Starlancer,
+            TiglRankName.GeneSorcerer => TextColor.GeneSorcerer,
+            TiglRankName.IxthLord => TextColor.IxthLord,
+            TiglRankName.Archon => TextColor.Archon,
+
             _ => TextColor.White,
         };
     }

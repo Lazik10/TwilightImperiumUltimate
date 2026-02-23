@@ -79,5 +79,12 @@ internal static class PromissaryNoteCardsData
         new() { Id = 71, EnumName = PromissoryNoteCardName.BranchOfficeReserveBank, Faction = FactionName.TheVeldyrSovereignty, GameVersion = GameVersion.DiscordantStars },
         new() { Id = 72, EnumName = PromissoryNoteCardName.BranchOfficeOrbitalShipyard, Faction = FactionName.TheVeldyrSovereignty, GameVersion = GameVersion.DiscordantStars },
         new() { Id = 73, EnumName = PromissoryNoteCardName.HyperkineticOrdinance, Faction = FactionName.TheZelianPurifier, GameVersion = GameVersion.DiscordantStars },
+
+        new() { Id = 74, EnumName = PromissoryNoteCardName.RaiseTheStandard, Faction = FactionName.LastBastion, GameVersion = GameVersion.ThundersEdge },
+        new() { Id = 75, EnumName = PromissoryNoteCardName.NanoLinkPermit, Faction = FactionName.TheRalNelConsortium, GameVersion = GameVersion.ThundersEdge },
+        new() { Id = 76, EnumName = PromissoryNoteCardName.Sever, Faction = FactionName.TheCrimsonRebellion, GameVersion = GameVersion.ThundersEdge },
+        new() { Id = 77, EnumName = PromissoryNoteCardName.BlackOps, Faction = FactionName.TheFirmamentTheObsidian, GameVersion = GameVersion.ThundersEdge },
+        new() { Id = 78, EnumName = PromissoryNoteCardName.Malevolency, Faction = FactionName.TheFirmamentTheObsidian, GameVersion = GameVersion.ThundersEdge },
+        new() { Id = 79, EnumName = PromissoryNoteCardName.ShareKnowledge, Faction = FactionName.TheDeepwroughtScholarate, GameVersion = GameVersion.ThundersEdge },
     };
 }

@@ -4265,7 +4265,7 @@ internal static class GalaxyData
             FactionName = FactionName.None,
 
             // Also Nebula, but I would need to implement flags and it doesn't really matter
-            // in druft, it is picked randomly from red tiles not based on AnomalyType
+            // in draft, it is picked randomly from red tiles not based on AnomalyType
             Anomaly = AnomalyName.GravityRift,
             TileCategory = SystemTileCategory.Red,
             Planets = [],
@@ -4315,6 +4315,1062 @@ internal static class GalaxyData
                 },
             ],
             GameVersion = GameVersion.UnchartedSpace,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE92,
+            SystemTileCode = "92",
+            FactionName = FactionName.LastBastion,
+            Anomaly = AnomalyName.Nebula,
+            TileCategory = SystemTileCategory.Green,
+            Planets =
+            [
+                new Planet()
+                {
+                    PlanetName = PlanetName.Ordinian,
+                    PlanetTrait = PlanetTrait.Legendary,
+                    SystemTileName = SystemTileName.TileTE92,
+                    Resources = 0,
+                    Influence = 0,
+                    IsLegendary = true,
+                    TechnologySkip = TechnologyType.None,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+                new Planet()
+                {
+                    PlanetName = PlanetName.Revelation,
+                    PlanetTrait = PlanetTrait.SpaceStation,
+                    SystemTileName = SystemTileName.TileTE92,
+                    Resources = 1,
+                    Influence = 2,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.None,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+            ],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE93,
+            SystemTileCode = "93",
+            FactionName = FactionName.TheRalNelConsortium,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Green,
+            Planets =
+            [
+                new Planet()
+                {
+                    PlanetName = PlanetName.MezLoOrzPeiZsha,
+                    PlanetTrait = PlanetTrait.None,
+                    SystemTileName = SystemTileName.TileTE93,
+                    Resources = 2,
+                    Influence = 1,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.None,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+                new Planet()
+                {
+                    PlanetName = PlanetName.RepLoOrzQet,
+                    PlanetTrait = PlanetTrait.None,
+                    SystemTileName = SystemTileName.TileTE93,
+                    Resources = 1,
+                    Influence = 3,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.None,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+            ],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE94,
+            SystemTileCode = "94",
+            FactionName = FactionName.TheCrimsonRebellion,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Green,
+            Planets = [],
+            Wormholes =
+            [
+                new Wormhole()
+                {
+                    SystemTileName = SystemTileName.TileTE94,
+                    WormholeName = WormholeName.Epsilon,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+            ],
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE95,
+            SystemTileCode = "95",
+            FactionName = FactionName.TheDeepwroughtScholarate,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Green,
+            Planets =
+            [
+                new Planet()
+                {
+                    PlanetName = PlanetName.Ikatena,
+                    PlanetTrait = PlanetTrait.None,
+                    SystemTileName = SystemTileName.TileTE95,
+                    Resources = 4,
+                    Influence = 4,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.None,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+            ],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE96A,
+            SystemTileCode = "96A",
+            FactionName = FactionName.TheFirmamentTheObsidian,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Green,
+            Planets =
+            [
+                new Planet()
+                {
+                    PlanetName = PlanetName.Cronos,
+                    PlanetTrait = PlanetTrait.None,
+                    SystemTileName = SystemTileName.TileTE96A,
+                    Resources = 2,
+                    Influence = 1,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.None,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+                new Planet()
+                {
+                    PlanetName = PlanetName.Tallin,
+                    PlanetTrait = PlanetTrait.None,
+                    SystemTileName = SystemTileName.TileTE96A,
+                    Resources = 1,
+                    Influence = 2,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.None,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+            ],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE96B,
+            SystemTileCode = "96B",
+            FactionName = FactionName.TheFirmamentTheObsidian,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.ExternalMapTile,
+            Planets =
+            [
+                new Planet()
+                {
+                    PlanetName = PlanetName.CronosHollow,
+                    PlanetTrait = PlanetTrait.None,
+                    SystemTileName = SystemTileName.TileTE96B,
+                    Resources = 3,
+                    Influence = 0,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.None,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+                new Planet()
+                {
+                    PlanetName = PlanetName.TallinHollow,
+                    PlanetTrait = PlanetTrait.None,
+                    SystemTileName = SystemTileName.TileTE96B,
+                    Resources = 3,
+                    Influence = 0,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.None,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+            ],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE97,
+            SystemTileCode = "97",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            Planets =
+            [
+                new Planet()
+                {
+                    PlanetName = PlanetName.Faunus,
+                    PlanetTrait = PlanetTrait.Industrial,
+                    SystemTileName = SystemTileName.TileTE97,
+                    Resources = 1,
+                    Influence = 3,
+                    IsLegendary = true,
+                    TechnologySkip = TechnologyType.Biotic,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+            ],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE98,
+            SystemTileCode = "98",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            Planets =
+            [
+                new Planet()
+                {
+                    PlanetName = PlanetName.Garbozia,
+                    PlanetTrait = PlanetTrait.Hazardous,
+                    SystemTileName = SystemTileName.TileTE98,
+                    Resources = 2,
+                    Influence = 1,
+                    IsLegendary = true,
+                    TechnologySkip = TechnologyType.None,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+            ],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE99,
+            SystemTileCode = "99",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            Planets =
+            [
+                new Planet()
+                {
+                    PlanetName = PlanetName.Emelpar,
+                    PlanetTrait = PlanetTrait.Cultural,
+                    SystemTileName = SystemTileName.TileTE99,
+                    Resources = 0,
+                    Influence = 2,
+                    IsLegendary = true,
+                    TechnologySkip = TechnologyType.None,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+            ],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE100,
+            SystemTileCode = "100",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            Planets =
+            [
+                new Planet()
+                {
+                    PlanetName = PlanetName.Tempesta,
+                    PlanetTrait = PlanetTrait.Hazardous,
+                    SystemTileName = SystemTileName.TileTE100,
+                    Resources = 1,
+                    Influence = 1,
+                    IsLegendary = true,
+                    TechnologySkip = TechnologyType.Propulsion,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+            ],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE101,
+            SystemTileCode = "101",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            Planets =
+            [
+                new Planet()
+                {
+                    PlanetName = PlanetName.Olergodt,
+                    PlanetTrait = PlanetTrait.CulturalHazardous,
+                    SystemTileName = SystemTileName.TileTE101,
+                    Resources = 2,
+                    Influence = 1,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.CyberneticWarfare,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+            ],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE102,
+            SystemTileCode = "102",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            Planets =
+            [
+                new Planet()
+                {
+                    PlanetName = PlanetName.Andeara,
+                    PlanetTrait = PlanetTrait.Industrial,
+                    SystemTileName = SystemTileName.TileTE102,
+                    Resources = 1,
+                    Influence = 1,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.Propulsion,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+            ],
+            Wormholes =
+            [
+                new Wormhole()
+                {
+                    WormholeName = WormholeName.Alpha,
+                    SystemTileName = SystemTileName.TileTE102,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+            ],
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE103,
+            SystemTileCode = "103",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            Planets =
+            [
+                new Planet()
+                {
+                    PlanetName = PlanetName.ViraPicsThree,
+                    PlanetTrait = PlanetTrait.CulturalHazardous,
+                    SystemTileName = SystemTileName.TileTE103,
+                    Resources = 2,
+                    Influence = 3,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.None,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+            ],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE104,
+            SystemTileCode = "104",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            Planets =
+            [
+                new Planet()
+                {
+                    PlanetName = PlanetName.Lesab,
+                    PlanetTrait = PlanetTrait.HazardousIndustrial,
+                    SystemTileName = SystemTileName.TileTE104,
+                    Resources = 2,
+                    Influence = 1,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.None,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+            ],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE105,
+            SystemTileCode = "105",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            Planets =
+            [
+                new Planet()
+                {
+                    PlanetName = PlanetName.NewTerra,
+                    PlanetTrait = PlanetTrait.Industrial,
+                    SystemTileName = SystemTileName.TileTE105,
+                    Resources = 1,
+                    Influence = 1,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.Biotic,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+                new Planet()
+                {
+                    PlanetName = PlanetName.Tinnes,
+                    PlanetTrait = PlanetTrait.HazardousIndustrial,
+                    SystemTileName = SystemTileName.TileTE105,
+                    Resources = 2,
+                    Influence = 1,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.Biotic,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+            ],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE106,
+            SystemTileCode = "106",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            Planets =
+            [
+                new Planet()
+                {
+                    PlanetName = PlanetName.Cresius,
+                    PlanetTrait = PlanetTrait.Hazardous,
+                    SystemTileName = SystemTileName.TileTE106,
+                    Resources = 0,
+                    Influence = 1,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.None,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+                new Planet()
+                {
+                    PlanetName = PlanetName.LazulRex,
+                    PlanetTrait = PlanetTrait.IndustrialCultural,
+                    SystemTileName = SystemTileName.TileTE106,
+                    Resources = 2,
+                    Influence = 2,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.None,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+            ],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE107,
+            SystemTileCode = "107",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            Planets =
+            [
+                new Planet()
+                {
+                    PlanetName = PlanetName.Tiamat,
+                    PlanetTrait = PlanetTrait.Cultural,
+                    SystemTileName = SystemTileName.TileTE107,
+                    Resources = 1,
+                    Influence = 2,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.CyberneticCybernetic,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+                new Planet()
+                {
+                    PlanetName = PlanetName.Hercalor,
+                    PlanetTrait = PlanetTrait.Industrial,
+                    SystemTileName = SystemTileName.TileTE107,
+                    Resources = 1,
+                    Influence = 0,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.None,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+            ],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE108,
+            SystemTileCode = "108",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            Planets =
+            [
+                new Planet()
+                {
+                    PlanetName = PlanetName.Kostboth,
+                    PlanetTrait = PlanetTrait.Cultural,
+                    SystemTileName = SystemTileName.TileTE108,
+                    Resources = 0,
+                    Influence = 1,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.None,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+                new Planet()
+                {
+                    PlanetName = PlanetName.Capha,
+                    PlanetTrait = PlanetTrait.Hazardous,
+                    SystemTileName = SystemTileName.TileTE108,
+                    Resources = 3,
+                    Influence = 0,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.None,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+            ],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE109,
+            SystemTileCode = "109",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            Planets =
+            [
+                new Planet()
+                {
+                    PlanetName = PlanetName.Bellatrix,
+                    PlanetTrait = PlanetTrait.Cultural,
+                    SystemTileName = SystemTileName.TileTE109,
+                    Resources = 1,
+                    Influence = 2,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.None,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+                new Planet()
+                {
+                    PlanetName = PlanetName.TsionStation,
+                    PlanetTrait = PlanetTrait.SpaceStation,
+                    SystemTileName = SystemTileName.TileTE109,
+                    Resources = 1,
+                    Influence = 1,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.None,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+            ],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE110,
+            SystemTileCode = "110",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            Planets =
+            [
+                new Planet()
+                {
+                    PlanetName = PlanetName.Horizon,
+                    PlanetTrait = PlanetTrait.Cultural,
+                    SystemTileName = SystemTileName.TileTE110,
+                    Resources = 1,
+                    Influence = 2,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.None,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+                new Planet()
+                {
+                    PlanetName = PlanetName.Elnath,
+                    PlanetTrait = PlanetTrait.Hazardous,
+                    SystemTileName = SystemTileName.TileTE110,
+                    Resources = 2,
+                    Influence = 0,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.None,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+                new Planet()
+                {
+                    PlanetName = PlanetName.LuthienSix,
+                    PlanetTrait = PlanetTrait.Hazardous,
+                    SystemTileName = SystemTileName.TileTE110,
+                    Resources = 3,
+                    Influence = 1,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.None,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+            ],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE111,
+            SystemTileCode = "111",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            Planets =
+            [
+                new Planet()
+                {
+                    PlanetName = PlanetName.Tarana,
+                    PlanetTrait = PlanetTrait.IndustrialCultural,
+                    SystemTileName = SystemTileName.TileTE111,
+                    Resources = 1,
+                    Influence = 2,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.None,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+                new Planet()
+                {
+                    PlanetName = PlanetName.OluzStation,
+                    PlanetTrait = PlanetTrait.SpaceStation,
+                    SystemTileName = SystemTileName.TileTE111,
+                    Resources = 1,
+                    Influence = 1,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.None,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+            ],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE112,
+            SystemTileCode = "112",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.MecatolRex,
+            Planets =
+            [
+                new Planet()
+                {
+                    PlanetName = PlanetName.MecatolRexLegendary,
+                    PlanetTrait = PlanetTrait.Legendary,
+                    SystemTileName = SystemTileName.TileTE112,
+                    Resources = 1,
+                    Influence = 6,
+                    IsLegendary = true,
+                    TechnologySkip = TechnologyType.None,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+            ],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE113,
+            SystemTileCode = "113",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.GravityRift,
+            TileCategory = SystemTileCategory.Red,
+            Planets = [],
+            Wormholes =
+            [
+                new Wormhole()
+                {
+                    SystemTileName = SystemTileName.TileTE113,
+                    WormholeName = WormholeName.Beta,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+            ],
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE114,
+            SystemTileCode = "114",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.EntropicScar,
+            TileCategory = SystemTileCategory.Red,
+            Planets = [],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE115,
+            SystemTileCode = "115",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.AsteroidField,
+            TileCategory = SystemTileCategory.Red,
+            Planets =
+            [
+                new Planet()
+                {
+                    PlanetName = PlanetName.Industrex,
+                    PlanetTrait = PlanetTrait.Industrial,
+                    SystemTileName = SystemTileName.TileTE115,
+                    Resources = 2,
+                    Influence = 0,
+                    IsLegendary = true,
+                    TechnologySkip = TechnologyType.Warfare,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+            ],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE116,
+            SystemTileCode = "116",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.EntropicScar,
+            TileCategory = SystemTileCategory.Red,
+            Planets =
+            [
+                new Planet()
+                {
+                    PlanetName = PlanetName.Lemox,
+                    PlanetTrait = PlanetTrait.Industrial,
+                    SystemTileName = SystemTileName.TileTE116,
+                    Resources = 0,
+                    Influence = 3,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.None,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+            ],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE117,
+            SystemTileCode = "117",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.AsteroidField, // Also gravity rift
+            TileCategory = SystemTileCategory.Red,
+            Planets =
+            [
+                new Planet()
+                {
+                    PlanetName = PlanetName.TheWatchtower,
+                    PlanetTrait = PlanetTrait.SpaceStation,
+                    SystemTileName = SystemTileName.TileTE117,
+                    Resources = 1,
+                    Influence = 1,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.None,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+            ],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE118,
+            SystemTileCode = "118",
+            FactionName = FactionName.TheCrimsonRebellion,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.ExternalMapTile,
+            Planets =
+            [
+                new Planet()
+                {
+                    PlanetName = PlanetName.AhkCreuxx,
+                    PlanetTrait = PlanetTrait.None,
+                    SystemTileName = SystemTileName.TileTE118,
+                    Resources = 4,
+                    Influence = 2,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.None,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+            ],
+            Wormholes =
+            [
+                new Wormhole()
+                {
+                    SystemTileName = SystemTileName.TileTE118,
+                    WormholeName = WormholeName.Epsilon,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+            ],
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE119A,
+            SystemTileCode = "119A",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            Planets = [],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE119B,
+            SystemTileCode = "119B",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            Planets = [],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE120A,
+            SystemTileCode = "120A",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            Planets = [],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE120B,
+            SystemTileCode = "120B",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            Planets = [],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE121A,
+            SystemTileCode = "121A",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            Planets = [],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE121B,
+            SystemTileCode = "121B",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            Planets = [],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE122A,
+            SystemTileCode = "122A",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            Planets = [],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE122B,
+            SystemTileCode = "122B",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            Planets = [],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE123A,
+            SystemTileCode = "123A",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            Planets = [],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE123B,
+            SystemTileCode = "123B",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            Planets = [],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE124A,
+            SystemTileCode = "124A",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            Planets = [],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE124B,
+            SystemTileCode = "124B",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            Planets = [],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE125A,
+            SystemTileCode = "Fracture1",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.ExternalMapTile,
+            Planets =
+            [
+                new Planet()
+                {
+                    PlanetName = PlanetName.Cocytus,
+                    PlanetTrait = PlanetTrait.Relic,
+                    SystemTileName = SystemTileName.TileTE125A,
+                    Resources = 3,
+                    Influence = 0,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.None,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+            ],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE125B,
+            SystemTileCode = "Fracture2",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.ExternalMapTile,
+            Planets = [],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE126A,
+            SystemTileCode = "Fracture3",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.ExternalMapTile,
+            Planets = [],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE126B,
+            SystemTileCode = "Fracture4",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.ExternalMapTile,
+            Planets =
+            [
+                new Planet()
+                {
+                    PlanetName = PlanetName.Styx,
+                    PlanetTrait = PlanetTrait.Relic,
+                    SystemTileName = SystemTileName.TileTE126B,
+                    Resources = 4,
+                    Influence = 0,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.None,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+            ],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE126C,
+            SystemTileCode = "Fracture5",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.ExternalMapTile,
+            Planets = [],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE127A,
+            SystemTileCode = "Fracture6",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.ExternalMapTile,
+            Planets = [],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            SystemTileName = SystemTileName.TileTE127B,
+            SystemTileCode = "Fracture7",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.ExternalMapTile,
+            Planets =
+            [
+                new Planet()
+                {
+                    PlanetName = PlanetName.Lethe,
+                    PlanetTrait = PlanetTrait.Relic,
+                    SystemTileName = SystemTileName.TileTE127B,
+                    Resources = 0,
+                    Influence = 2,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.None,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+                new Planet()
+                {
+                    PlanetName = PlanetName.Phlegethon,
+                    PlanetTrait = PlanetTrait.Relic,
+                    SystemTileName = SystemTileName.TileTE127B,
+                    Resources = 1,
+                    Influence = 2,
+                    IsLegendary = false,
+                    TechnologySkip = TechnologyType.None,
+                    GameVersion = GameVersion.ThundersEdge,
+                },
+            ],
+            Wormholes = default!,
+            GameVersion = GameVersion.ThundersEdge,
         },
     };
 }

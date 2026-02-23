@@ -20,6 +20,9 @@ public static class TwilightImperiumDbContextSeed
         modelBuilder.Entity<RelicCard>().HasData(RelicCardsData.RelicCards);
         modelBuilder.Entity<StrategyCard>().HasData(StrategyCardsData.StrategyCards);
         modelBuilder.Entity<PromissoryNoteCard>().HasData(PromissaryNoteCardsData.PromissaryNoteCards);
+        modelBuilder.Entity<BreakthroughCard>().HasData(BreakthroughCardsData.BreakthroughCards);
+        modelBuilder.Entity<FlagshipCard>().HasData(FlagshipCardsData.FlagshipCards);
+        modelBuilder.Entity<SpecialComponentCard>().HasData(SpecialComponentCardsData.SpecialComponentCards);
 
         modelBuilder.Entity<Faction>().HasData(FactionsData.Factions);
         modelBuilder.Entity<Unit>().HasData(UnitsData.Units);

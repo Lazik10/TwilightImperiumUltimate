@@ -8,9 +8,15 @@
 @inject IPathProvider PathProvider
 
 @* TODO: Create leader API endpoint for this or include them in faction response *@
-@if (Faction.FactionName != FactionName.TheNomad && Faction.FactionName != FactionName.TheCouncilKeleres && Faction.FactionName != FactionName.TheGheminaRaiders)
+@if (Faction.FactionName != FactionName.TheNomad 
+    && Faction.FactionName != FactionName.TheCouncilKeleres 
+    && Faction.FactionName != FactionName.TheGheminaRaiders)
 {
     <div class="handel white shadow leaders-grid">
+        @if (Faction.FactionName == FactionName.TheFirmamentTheObsidian)
+        {
+            <Label Text="The Firmament" CenterText="true" FontSize="24" CssClass="span-3" />
+        }
         <FlexColumnCenteredContainer>
             <div>@Strings.Faction_Agent</div>
             <VerticalSpace Height="10"/>
@@ -47,6 +53,46 @@
             </div>
         </FlexColumnCenteredContainer>
 
+        @if (Faction.FactionName == FactionName.TheFirmamentTheObsidian)
+        {
+            <Label Text="The Obsidian" CenterText="true" FontSize="24" CssClass="span-3" />
+
+            <FlexColumnCenteredContainer>
+                <div>@Strings.Faction_Agent</div>
+                <VerticalSpace Height="10" />
+                <div>@Strings.Faction_AgentRequirement</div>
+            </FlexColumnCenteredContainer>
+
+            <FlexColumnCenteredContainer>
+                <div>@Strings.Faction_Commander</div>
+                <VerticalSpace Height="10" />
+                <div>@(Faction.FactionName.GetFactionUIText(FactionResourceType.CommanderRequirement))</div>
+            </FlexColumnCenteredContainer>
+
+            <FlexColumnCenteredContainer>
+                <div>@Strings.Faction_Hero</div>
+                <VerticalSpace Height="10" />
+                <div>@Strings.Faction_HeroRequirement</div>
+            </FlexColumnCenteredContainer>
+
+            <FlexColumnCenteredContainer>
+                <div class="margin">
+                    <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.AgentObsidian))" />
+                </div>
+            </FlexColumnCenteredContainer>
+
+            <FlexColumnCenteredContainer>
+                <div class="margin">
+                    <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.CommanderObsidian))" />
+                </div>
+            </FlexColumnCenteredContainer>
+
+            <FlexColumnCenteredContainer>
+                <div class="margin">
+                    <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.HeroObsidian))" />
+                </div>
+            </FlexColumnCenteredContainer>
+        }
     </div>
 }
 
@@ -235,6 +281,3 @@
         </FlexColumnCenteredContainer>
     </div>
 }
-
-
-

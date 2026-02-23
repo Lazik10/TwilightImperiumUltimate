@@ -185,7 +185,7 @@ public partial class RanksGrid
         var prestigeBuckets = new (string Title, int Min, int Max)[]
         {
             (Strings.Rankings_PrestigeRankCategory_GalacticThreatFive, 25, 31),
-            (Strings.Rankings_PrestigeRankCategory_GalacticThreatFour, 20, 55),
+            (Strings.Rankings_PrestigeRankCategory_GalacticThreatFour, 20, 24),
             (Strings.Rankings_PrestigeRankCategory_GalacticThreatThree, 15, 19),
             (Strings.Rankings_PrestigeRankCategory_GalacticThreatTwo, 10, 14),
             (Strings.Rankings_PrestigeRankCategory_GalacticThreatOne, 5, 9),
@@ -193,7 +193,8 @@ public partial class RanksGrid
 
         foreach (var (title, min, max) in prestigeBuckets)
         {
-            AddGroup(title,
+            AddGroup(
+                title,
                 withPrestige
                     .Where(x => x.Prestige != TiglPrestigeRank.PaxMagnificaBellumGloriosum
                              && x.FactionPrestigeRankCount >= min && x.FactionPrestigeRankCount <= max)
@@ -205,7 +206,8 @@ public partial class RanksGrid
         // Hero (non-prestige)
         AddGroup(Strings.Rankings_PrestigeRankCategory_Hero, withoutPrestige
             .Where(x => x.Rank == TiglRankName.Hero)
-            .OrderBy(x => x.GamesPlayed)
+            .OrderByDescending(x => x.FactionPrestigeRankCount)
+            .ThenBy(x => x.GamesPlayed)
             .ThenBy(x => x.LastAchievedAt));
 
         // Commander, Agent, Minister (non-prestige) as separate groups

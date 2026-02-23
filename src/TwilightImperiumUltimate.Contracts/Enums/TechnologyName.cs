@@ -166,4 +166,20 @@ public enum TechnologyName
     AtsArmaments,
     LocalContracts,
     SabreTwo, // F
+
+    RadicalAdvancement,
+    HydrothermalMining,
+    SubatomicSplicer,
+    ExileTwo, // F
+    ProximaTargetingSix,
+    FourXFourOneCHELIOSVTwo, // F
+    Nanomachines,
+    LinkshipTwo, // F
+    PlanesplitterFirmament,
+    NeuralParasiteFirmament,
+    PlanesplitterObsidian,
+    NeuralParasiteObsidian,
+
+    ExecutiveOrder,
+    AgencySupplyNetworkThundersEdge,
 }

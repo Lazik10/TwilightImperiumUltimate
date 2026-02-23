@@ -78,4 +78,25 @@ public enum FactionName
     TheKyroSodality,
     TheLanefirRemnants,
     TheNokarSellships,
+
+    // Blue Riverie
+    AtokeraLegacy,
+    BelkoseaAlliedStates,
+    PrincipalityOfKaltrim,
+    PharadnOrder,
+    QhetRepublic,
+    SarcosaDrift,
+    ToldarConcordat,
+    UydaiConclave,
+    XinCourt,
+
+    // Twilights Fall
+    TheRubyMonarch,
+    RadiantAur,
+    AvariceRex,
+    IlSaiLakoeHeraldOfThorns,
+    TheSaintOfSwords,
+    IlNaViroset,
+    ElNenJanovet,
+    ASickeningLurch,
 }

@@ -76,5 +76,12 @@ public enum PromissoryNoteCardName
     BranchOfficeReserveBank,
     BranchOfficeOrbitalShipyard,
     HyperkineticOrdinance,
+
+    RaiseTheStandard,
+    NanoLinkPermit,
+    Sever,
+    BlackOps,
+    Malevolency,
+    ShareKnowledge,
 }
 

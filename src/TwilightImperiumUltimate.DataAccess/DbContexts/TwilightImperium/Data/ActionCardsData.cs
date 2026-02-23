@@ -126,5 +126,23 @@ internal static class ActionCardsData
         new() { Id = 119, EnumName = ActionCardName.SecuredTrove, TimingWindow = TimingWindow.Action, GameVersion = GameVersion.UnchartedSpace },
         new() { Id = 120, EnumName = ActionCardName.SingularityCharge, TimingWindow = TimingWindow.Combat, GameVersion = GameVersion.UnchartedSpace },
         new() { Id = 121, EnumName = ActionCardName.SpecialSession, TimingWindow = TimingWindow.AgendaPhase, GameVersion = GameVersion.UnchartedSpace },
+
+        new() { Id = 122, EnumName = ActionCardName.Salvage, TimingWindow = TimingWindow.Combat, GameVersion = GameVersion.BaseGame },
+        new() { Id = 123, EnumName = ActionCardName.WarEffort, TimingWindow = TimingWindow.Action, GameVersion = GameVersion.BaseGame },
+
+        new() { Id = 124, EnumName = ActionCardName.BlackMarketDealings, TimingWindow = TimingWindow.Transaction, GameVersion = GameVersion.ThundersEdge },
+        new() { Id = 125, EnumName = ActionCardName.Brilliance, TimingWindow = TimingWindow.Action, GameVersion = GameVersion.ThundersEdge },
+        new() { Id = 126, EnumName = ActionCardName.CrashLanding, TimingWindow = TimingWindow.Combat, GameVersion = GameVersion.ThundersEdge },
+        new() { Id = 127, EnumName = ActionCardName.Crisis, TimingWindow = TimingWindow.Anytime, GameVersion = GameVersion.ThundersEdge },
+        new() { Id = 128, EnumName = ActionCardName.ExchangeProgram, TimingWindow = TimingWindow.Action, GameVersion = GameVersion.ThundersEdge },
+        new() { Id = 129, EnumName = ActionCardName.ExtremeDuress, TimingWindow = TimingWindow.TurnStart, GameVersion = GameVersion.ThundersEdge },
+        new() { Id = 130, EnumName = ActionCardName.LieInWait, TimingWindow = TimingWindow.Transaction, GameVersion = GameVersion.ThundersEdge },
+        new() { Id = 131, EnumName = ActionCardName.MercenaryContract, TimingWindow = TimingWindow.Action, GameVersion = GameVersion.ThundersEdge },
+        new() { Id = 132, EnumName = ActionCardName.PirateContract, TimingWindow = TimingWindow.Action, GameVersion = GameVersion.ThundersEdge },
+        new() { Id = 133, EnumName = ActionCardName.PirateFleet, TimingWindow = TimingWindow.Action, GameVersion = GameVersion.ThundersEdge },
+        new() { Id = 134, EnumName = ActionCardName.PuppetsOnAString, TimingWindow = TimingWindow.TurnEnd, GameVersion = GameVersion.ThundersEdge },
+        new() { Id = 135, EnumName = ActionCardName.Rescue, TimingWindow = TimingWindow.Anytime, GameVersion = GameVersion.ThundersEdge },
+        new() { Id = 136, EnumName = ActionCardName.Strategize, TimingWindow = TimingWindow.Action, GameVersion = GameVersion.ThundersEdge },
+        new() { Id = 137, EnumName = ActionCardName.Overrule, TimingWindow = TimingWindow.Action, GameVersion = GameVersion.ThundersEdge },
     };
 }

@@ -16,6 +16,12 @@ public interface ICardRepository
 
     Task<List<PromissoryNoteCard>> GetAllPromissoryNoteCards(CancellationToken ct);
 
+    Task<List<BreakthroughCard>> GetAllBreakthroughCards(CancellationToken ct);
+
+    Task<List<FlagshipCard>> GetAllFlagshipCards(CancellationToken ct);
+
+    Task<List<SpecialComponentCard>> GetAllSpecialComponentCards(CancellationToken ct);
+
     Task<List<RelicCard>> GetAllRelicCards(CancellationToken ct);
 
     Task<List<StrategyCard>> GetAllStrategyCards(CancellationToken ct);

@@ -401,5 +401,40 @@ internal static class FactionUnitsData
         new() { FactionName = FactionName.TheVaylerianScourge, UnitName = UnitName.Carrier, Count = 1 },
         new() { FactionName = FactionName.TheVaylerianScourge, UnitName = UnitName.Cruiser, Count = 1 },
         new() { FactionName = FactionName.TheVaylerianScourge, UnitName = UnitName.Destroyer, Count = 1 },
+
+        new() { FactionName = FactionName.TheCrimsonRebellion, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheCrimsonRebellion, UnitName = UnitName.Pds, Count = 1 },
+        new() { FactionName = FactionName.TheCrimsonRebellion, UnitName = UnitName.Infantry, Count = 4 },
+        new() { FactionName = FactionName.TheCrimsonRebellion, UnitName = UnitName.Fighter, Count = 3 },
+        new() { FactionName = FactionName.TheCrimsonRebellion, UnitName = UnitName.Carrier, Count = 1 },
+        new() { FactionName = FactionName.TheCrimsonRebellion, UnitName = UnitName.Destroyer, Count = 2 },
+
+        new() { FactionName = FactionName.TheDeepwroughtScholarate, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheDeepwroughtScholarate, UnitName = UnitName.Infantry, Count = 3 },
+        new() { FactionName = FactionName.TheDeepwroughtScholarate, UnitName = UnitName.Fighter, Count = 4 },
+        new() { FactionName = FactionName.TheDeepwroughtScholarate, UnitName = UnitName.Carrier, Count = 1 },
+        new() { FactionName = FactionName.TheDeepwroughtScholarate, UnitName = UnitName.Dreadnought, Count = 1 },
+
+        new() { FactionName = FactionName.TheFirmamentTheObsidian, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheFirmamentTheObsidian, UnitName = UnitName.Infantry, Count = 3 },
+        new() { FactionName = FactionName.TheFirmamentTheObsidian, UnitName = UnitName.Fighter, Count = 3 },
+        new() { FactionName = FactionName.TheFirmamentTheObsidian, UnitName = UnitName.Carrier, Count = 1 },
+        new() { FactionName = FactionName.TheFirmamentTheObsidian, UnitName = UnitName.Cruiser, Count = 1 },
+        new() { FactionName = FactionName.TheFirmamentTheObsidian, UnitName = UnitName.Destroyer, Count = 1 },
+
+        new() { FactionName = FactionName.LastBastion, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.LastBastion, UnitName = UnitName.Infantry, Count = 3 },
+        new() { FactionName = FactionName.LastBastion, UnitName = UnitName.Fighter, Count = 2 },
+        new() { FactionName = FactionName.LastBastion, UnitName = UnitName.Carrier, Count = 1 },
+        new() { FactionName = FactionName.LastBastion, UnitName = UnitName.Cruiser, Count = 1 },
+        new() { FactionName = FactionName.LastBastion, UnitName = UnitName.Dreadnought, Count = 1 },
+
+        new() { FactionName = FactionName.TheRalNelConsortium, UnitName = UnitName.SpaceDock, Count = 1 },
+        new() { FactionName = FactionName.TheRalNelConsortium, UnitName = UnitName.Pds, Count = 2 },
+        new() { FactionName = FactionName.TheRalNelConsortium, UnitName = UnitName.Infantry, Count = 4 },
+        new() { FactionName = FactionName.TheRalNelConsortium, UnitName = UnitName.Fighter, Count = 2 },
+        new() { FactionName = FactionName.TheRalNelConsortium, UnitName = UnitName.Carrier, Count = 1 },
+        new() { FactionName = FactionName.TheRalNelConsortium, UnitName = UnitName.Destroyer, Count = 1 },
+        new() { FactionName = FactionName.TheRalNelConsortium, UnitName = UnitName.Dreadnought, Count = 1 },
     };
 }

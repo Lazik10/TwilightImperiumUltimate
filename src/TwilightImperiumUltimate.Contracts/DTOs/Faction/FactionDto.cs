@@ -18,4 +18,5 @@ public record FactionDto(
     GameVersion GameVersion,
     IReadOnlyCollection<UnitWithCountDto> StartingUnits,
     IReadOnlyCollection<TechnologyDto> StartingTechnologies,
-    IReadOnlyCollection<PromissoryNoteCardName> PromissaryNotes);
+    IReadOnlyCollection<PromissoryNoteCardName> PromissaryNotes,
+    IReadOnlyCollection<BreakthroughName> Breakthroughs);

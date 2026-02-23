@@ -51,11 +51,20 @@ public partial class FactionInfoGrid
         return infoType;
     }
 
-    private void ShowBigImage(bool front)
+    private void ShowBigImage(bool front, bool isObsidian)
     {
         if (_selectedFaction is not null)
         {
-            currentBigImageSrc = PathProvider.GetFactionSheetPath(_selectedFaction.FactionName.ToString(), front);
+            var factionName = _selectedFaction.FactionName.ToString();
+            if (_selectedFaction.FactionName == FactionName.TheFirmamentTheObsidian)
+            {
+                if (isObsidian)
+                    factionName = "TheObsidian";
+                else
+                    factionName = "TheFirmament";
+            }
+
+            currentBigImageSrc = PathProvider.GetFactionSheetPath(factionName, front);
             showBigImage = true;
         }
     }

@@ -1,0 +1,13 @@
+.token-item {
+    position: relative;
+    display: inline-block;
+    flex-shrink: 1;
+    width: 100%;
+    max-width: 256px;
+}
+
+    .token-item img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }

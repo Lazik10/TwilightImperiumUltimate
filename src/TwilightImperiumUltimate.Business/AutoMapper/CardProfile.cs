@@ -64,6 +64,38 @@ internal class CardProfile : Profile
                 pnc.EnumName,
                 pnc.Faction));
 
+        CreateMap<BreakthroughCard, BreakthroughCardDto>()
+            .ConstructUsing(bc => new BreakthroughCardDto(
+                bc.Id,
+                bc.Name,
+                bc.Text,
+                bc.Type,
+                bc.GameVersion,
+                bc.EnumName,
+                bc.FactionName));
+
+        CreateMap<FlagshipCard, FlagshipCardDto>()
+            .ConstructUsing(fc => new FlagshipCardDto(
+                fc.Id,
+                fc.Name,
+                fc.Text,
+                fc.Type,
+                fc.GameVersion,
+                fc.EnumName,
+                fc.FactionName));
+
+        CreateMap<SpecialComponentCard, SpecialComponentCardDto>()
+            .ConstructUsing(sc => new SpecialComponentCardDto(
+                sc.Id,
+                sc.Name,
+                sc.Text,
+                sc.Type,
+                sc.GameVersion,
+                sc.EnumName,
+                sc.FactionName,
+                sc.Count,
+                sc.SpecialType));
+
         CreateMap<RelicCard, RelicCardDto>()
             .ConstructUsing(rc => new RelicCardDto(
                 rc.Id,

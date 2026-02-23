@@ -135,6 +135,9 @@
   <data name="ApiPath_AgendaCards" xml:space="preserve">
     <value>api/cards/agenda</value>
   </data>
+  <data name="ApiPath_BreakthroughCards" xml:space="preserve">
+    <value>api/cards/breakthrough</value>
+  </data>
   <data name="ApiPath_Cards" xml:space="preserve">
     <value>api/cards/</value>
   </data>
@@ -242,6 +245,12 @@
   </data>
   <data name="ResourcePath_AgendaCard" xml:space="preserve">
     <value>agenda</value>
+  </data>
+  <data name="ResourcePath_BreakthroughCard" xml:space="preserve">
+    <value>breakthroughs</value>
+  </data>
+  <data name="ResourcePath_BreakthroughPath" xml:space="preserve">
+    <value>\resources\images\{language}\cards\breakthroughs</value>
   </data>
   <data name="ResourcePath_CardGeneratorPath" xml:space="preserve">
     <value>/resources/images/{language}/cardgenerator</value>
@@ -545,5 +554,17 @@
   </data>
   <data name="ApiPath_SeasonLeaderboard" xml:space="preserve">
     <value>api/tigl/season-leaderboard/</value>
+  </data>
+  <data name="ApiPath_FlagshipCards" xml:space="preserve">
+    <value>api/cards/flagship</value>
+  </data>
+  <data name="ApiPath_SpecialComponentCards" xml:space="preserve">
+    <value>api/cards/special-component</value>
+  </data>
+  <data name="ResourcePath_FlagshipPath" xml:space="preserve">
+    <value>\resources\images\{language}\flagships</value>
+  </data>
+  <data name="ResourcePath_SpecialComponentPath" xml:space="preserve">
+    <value>\resources\images\{language}\specialcomponents</value>
   </data>
 </root>

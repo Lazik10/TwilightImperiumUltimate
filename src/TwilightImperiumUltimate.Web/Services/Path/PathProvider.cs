@@ -185,6 +185,26 @@ public class PathProvider : IPathProvider
         return $"{Paths.ResourcePath_WebsitePreviewPath}{Strings.BackSlash}{websitePath}{Strings.FileExtensionWebp}";
     }
 
+    public string GetBreakthroughImagePath(BreakthroughName breakthroughName)
+    {
+        return $"{GetCorrectLanguagePath(Paths.ResourcePath_BreakthroughPath)}{Strings.BackSlash}{breakthroughName}{Strings.FileExtensionWebp}";
+    }
+
+    public string GetBreakthroughImagePath(string breakthroughName)
+    {
+        return $"{GetCorrectLanguagePath(Paths.ResourcePath_BreakthroughPath)}{Strings.BackSlash}{breakthroughName}{Strings.FileExtensionWebp}";
+    }
+
+    public string GetFlagshipImagePath(FlagshipName flagshipName)
+    {
+        return $"{GetCorrectLanguagePath(Paths.ResourcePath_FlagshipPath)}{Strings.BackSlash}{flagshipName}{Strings.FileExtensionWebp}";
+    }
+
+    public string GetSpecialComponentImagePath(SpecialComponentName specialComponentName)
+    {
+        return $"{GetCorrectLanguagePath(Paths.ResourcePath_SpecialComponentPath)}{Strings.BackSlash}{specialComponentName}{Strings.FileExtensionWebp}";
+    }
+
     private string GetCorrectLanguagePath(string path)
     {
         return path.Replace(Strings.LanguagePlaceholder, _language);

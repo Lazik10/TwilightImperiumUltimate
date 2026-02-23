@@ -92,12 +92,17 @@ internal static class FactionColorImportancesData
             { FactionName.TheKyroSodality, CreateColorMapping(1, 2, 7, 9, 3, 0, 0, 0) },
             { FactionName.TheLanefirRemnants, CreateColorMapping(0, 8, 1, 9, 4, 0, 0, 2) },
             { FactionName.TheNokarSellships, CreateColorMapping(0, 9, 2, 5, 8, 0, 0, 0) },
+            { FactionName.TheCrimsonRebellion, CreateColorMapping(9, 3, 0, 0, 2, 0, 0, 8) },
+            { FactionName.LastBastion, CreateColorMapping(2, 9, 3, 0, 6, 0, 1, 0) },
+            { FactionName.TheFirmamentTheObsidian, CreateColorMapping(0, 7, 1, 0, 0, 4, 5, 6) },
+            { FactionName.TheDeepwroughtScholarate, CreateColorMapping(0, 0, 3, 0, 9, 7, 0, 6) },
+            { FactionName.TheRalNelConsortium, CreateColorMapping(0, 1, 5, 9, 4, 0, 0, 0) },
         };
     }
 
     private static Dictionary<PlayerColor, int> CreateColorMapping(params int[] importances)
     {
-        var colors = (PlayerColor[])Enum.GetValues(typeof(PlayerColor));
+        var colors = Enum.GetValues<PlayerColor>();
         return colors.Zip(importances, (color, importance) => new { color, importance })
                         .ToDictionary(x => x.color, x => x.importance);
     }

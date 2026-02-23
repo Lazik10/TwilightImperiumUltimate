@@ -2503,6 +2503,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Back Sheet (Firmament).
+        /// </summary>
+        public static string Faction_BackSheetFirmament {
+            get {
+                return ResourceManager.GetString("Faction_BackSheetFirmament", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Back Sheet (Obsidian).
+        /// </summary>
+        public static string Faction_BackSheetObsidian {
+            get {
+                return ResourceManager.GetString("Faction_BackSheetObsidian", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Commander.
         /// </summary>
         public static string Faction_Commander {
@@ -2553,6 +2571,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string Faction_FrontSheet {
             get {
                 return ResourceManager.GetString("Faction_FrontSheet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Front Sheet (Firmament).
+        /// </summary>
+        public static string Faction_FrontSheetFirmament {
+            get {
+                return ResourceManager.GetString("Faction_FrontSheetFirmament", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Front Sheet (Obsidian).
+        /// </summary>
+        public static string Faction_FrontSheetObsidian {
+            get {
+                return ResourceManager.GetString("Faction_FrontSheetObsidian", resourceCulture);
             }
         }
         
@@ -2620,11 +2656,47 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Choose 1 blue or yellow technology with no prerequisites..
+        /// </summary>
+        public static string Faction_SetupChooseBastionTechnologies {
+            get {
+                return ResourceManager.GetString("Faction_SetupChooseBastionTechnologies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose 1 blue or red technology with no prerequisites..
+        /// </summary>
+        public static string Faction_SetupChooseCrimsonTechnologies {
+            get {
+                return ResourceManager.GetString("Faction_SetupChooseCrimsonTechnologies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to During setup, research technology twice..
+        /// </summary>
+        public static string Faction_SetupChooseDeepwroughtTechnologies {
+            get {
+                return ResourceManager.GetString("Faction_SetupChooseDeepwroughtTechnologies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Choose any three technologies that have different colors..
         /// </summary>
         public static string Faction_SetupChooseEdynTechnologies {
             get {
                 return ResourceManager.GetString("Faction_SetupChooseEdynTechnologies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose 1 green or yellow technology with no prerequisites..
+        /// </summary>
+        public static string Faction_SetupChooseFirmamentTechnologies {
+            get {
+                return ResourceManager.GetString("Faction_SetupChooseFirmamentTechnologies", resourceCulture);
             }
         }
         
@@ -2643,6 +2715,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string Faction_SetupChooseOneTechnology {
             get {
                 return ResourceManager.GetString("Faction_SetupChooseOneTechnology", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose 1 green or red technology with no prerequisites..
+        /// </summary>
+        public static string Faction_SetupChooseRalNelTechnologies {
+            get {
+                return ResourceManager.GetString("Faction_SetupChooseRalNelTechnologies", resourceCulture);
             }
         }
         
@@ -3435,6 +3516,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string GameVersion_SelectVersion {
             get {
                 return ResourceManager.GetString("GameVersion_SelectVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thunder&apos;s Edge.
+        /// </summary>
+        public static string GameVersion_ThundersEdge {
+            get {
+                return ResourceManager.GetString("GameVersion_ThundersEdge", resourceCulture);
             }
         }
         
@@ -5820,7 +5910,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Galactic Threat III.
+        ///   Looks up a localized string similar to Galactic Threat I.
         /// </summary>
         public static string Rankings_PrestigeRankCategory_GalacticThreatOne {
             get {

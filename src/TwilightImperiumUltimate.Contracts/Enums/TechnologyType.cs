@@ -36,4 +36,14 @@ public enum TechnologyType
     /// Faction.
     /// </summary>
     Faction,
+
+    /// <summary>
+    /// Yellow / Red.
+    /// </summary>
+    CyberneticWarfare,
+
+    /// <summary>
+    /// Yellow / Yellow.
+    /// </summary>
+    CyberneticCybernetic,
 }

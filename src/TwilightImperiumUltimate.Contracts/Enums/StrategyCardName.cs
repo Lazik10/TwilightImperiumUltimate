@@ -5,12 +5,15 @@ public enum StrategyCardName
     Leadership,
     DiplomacyCodexOrdinian,
     Politics,
-    ConstructionProphecyOfKings,
+    ConstructionThundersEdge,
     Trade,
-    Warfare,
+    WarfareThundersEdge,
     Technology,
     Imperial,
 
+    // Deprecated
     Diplomacy,
     Construction,
+    Warfare,
+    ConstructionProphecyOfKings,
 }

@@ -9,6 +9,7 @@ public enum GameVersion
     CodexAffinity,
     CodexVigil,
     CodexLiberation,
+    ThundersEdge,
     DiscordantStars,
     UnchartedSpace,
     AscendantSun,

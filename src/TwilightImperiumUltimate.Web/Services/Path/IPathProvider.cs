@@ -49,4 +49,12 @@ public interface IPathProvider
     string GetTiglFactionIconPath(TiglFactionName faction);
 
     string GetLeaderIconPath(TiglFactionName faction, LeaderType type);
+
+    string GetBreakthroughImagePath(BreakthroughName breakthroughName);
+
+    string GetBreakthroughImagePath(string breakthroughName);
+
+    string GetFlagshipImagePath(FlagshipName flagshipName);
+
+    string GetSpecialComponentImagePath(SpecialComponentName specialComponentName);
 }
