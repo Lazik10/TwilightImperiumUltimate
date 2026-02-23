@@ -87,6 +87,33 @@ public class CardsController(IMediator mediator) : ControllerBase
         return Ok(new ApiResponse<ItemListDto<PromissoryNoteCardDto>>() { Success = true, Data = promissoryNoteCards });
     }
 
+    // GET: api/cards/breakthrough
+    [Route("breakthrough")]
+    [HttpGet]
+    public async Task<ActionResult<IApiResponse<ItemListDto<BreakthroughCardDto>>>> GetAllBreakthroughCards(CancellationToken ct)
+    {
+        var breakthroughCards = await _mediator.Send(new GetAllBreakthroughCardsQuery(), ct);
+        return Ok(new ApiResponse<ItemListDto<BreakthroughCardDto>>() { Success = true, Data = breakthroughCards });
+    }
+
+    // GET: api/cards/flagship
+    [Route("flagship")]
+    [HttpGet]
+    public async Task<ActionResult<IApiResponse<ItemListDto<FlagshipCardDto>>>> GetAllFlagshipCards(CancellationToken ct)
+    {
+        var flagshipCards = await _mediator.Send(new GetAllFlagshipCardsQuery(), ct);
+        return Ok(new ApiResponse<ItemListDto<FlagshipCardDto>>() { Success = true, Data = flagshipCards });
+    }
+
+    // GET: api/cards/special-component
+    [Route("special-component")]
+    [HttpGet]
+    public async Task<ActionResult<IApiResponse<ItemListDto<SpecialComponentCardDto>>>> GetAllSpecialComponentCards(CancellationToken ct)
+    {
+        var specialComponentCards = await _mediator.Send(new GetAllSpecialComponentCardsQuery(), ct);
+        return Ok(new ApiResponse<ItemListDto<SpecialComponentCardDto>>() { Success = true, Data = specialComponentCards });
+    }
+
     // GET: api/cards/relic
     [Route("relic")]
     [HttpGet]

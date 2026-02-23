@@ -53,7 +53,8 @@ public class FactionProfile : Profile
                 f.GameVersion,
                 units,
                 technologies,
-                new List<PromissoryNoteCardName>());
+                new List<PromissoryNoteCardName>(),
+                new List<BreakthroughName>());
             });
     }
 }

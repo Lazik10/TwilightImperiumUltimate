@@ -74,5 +74,9 @@ internal static class WormholesData
         new() { Id = 68, SystemTileName = SystemTileName.TileEronous127, WormholeName = WormholeName.Eta, GameVersion = GameVersion.AscendantSun },
         new() { Id = 69, SystemTileName = SystemTileName.TileEronous128, WormholeName = WormholeName.Iota, GameVersion = GameVersion.AscendantSun },
         new() { Id = 70, SystemTileName = SystemTileName.TileEronous128, WormholeName = WormholeName.Kappa, GameVersion = GameVersion.AscendantSun },
+        new() { Id = 71, SystemTileName = SystemTileName.TileTE94, WormholeName = WormholeName.Epsilon, GameVersion = GameVersion.ThundersEdge },
+        new() { Id = 72, SystemTileName = SystemTileName.TileTE102, WormholeName = WormholeName.Alpha, GameVersion = GameVersion.ThundersEdge },
+        new() { Id = 73, SystemTileName = SystemTileName.TileTE113, WormholeName = WormholeName.Beta, GameVersion = GameVersion.ThundersEdge },
+        new() { Id = 74, SystemTileName = SystemTileName.TileTE118, WormholeName = WormholeName.Epsilon, GameVersion = GameVersion.ThundersEdge },
     };
 }

@@ -10,4 +10,9 @@ public enum CardType
     Frontier,
     Relic,
     Promissary,
+    Breakthrough,
+    LegendaryPlanet,
+    GalacticEvent,
+    Flagship,
+    SpecialComponent,
 }

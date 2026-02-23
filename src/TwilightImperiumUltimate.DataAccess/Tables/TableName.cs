@@ -28,6 +28,14 @@ internal static class TableName
 
     internal const string PromissaryNoteCards = "PromissaryNoteCards";
 
+    internal const string BreakthroughCards = "BreakthroughCards";
+
+    internal const string FlagshipCards = "FlagshipCards";
+
+    internal const string SpecialComponentCards = "SpecialComponentCards";
+
+    internal const string LegendaryPlanetCards = "LegendaryPlanetCards";
+
     // Faction
     internal const string Factions = "Factions";
 

@@ -1713,8 +1713,7 @@ expensive construction process.</value>
   <data name="TheDihMohnFlotilla_SystemStats" xml:space="preserve">
     <value>NEW REST
 :;
-✧ 
-Population:.5,22 Billion
+✧ Population:.5,22 Billion
 ;
 ✧ Government:.Admiralty
 ;
@@ -1778,7 +1777,8 @@ Population:.5,22 Billion
 ;
 ✧ Leadership:.Living Will
 ;
-✧ Disposition:.Graceful;
+✧ Disposition:.Graceful
+;
 ✧ 
 Tendencies:.Objective</value>
   </data>
@@ -7064,11 +7064,450 @@ Government:.None
   <data name="TheDeepwroughtScholarate_Title" xml:space="preserve">
     <value>The Deepwrought Scholarate</value>
   </data>
+  <data name="TheDeepwroughtScholarate_SystemInfo" xml:space="preserve">
+    <value>After the Deepwrought defied the will of the Universities, they created an alliance with the newly liberated Kieros of Ikatena. Unable to return to the Hylar homeworld, they seek alliances and peaceful coexistence in the oceans of the galaxy.</value>
+  </data>
+  <data name="TheDeepwroughtScholarate_CommanderRequirement" xml:space="preserve">
+    <value>Have an ocean card in play.</value>
+  </data>
+  <data name="TheDeepwroughtScholarate_Notes" xml:space="preserve">
+    <value>&lt;h1&gt;Research Team&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Oceanbound&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Share Knowledge &lt;sub&gt;(Promissory Note)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;If a player gains then loses the &lt;i&gt;Antimass Deflectors&lt;/i&gt; technology, their units may remain in and move out of any asteroid fields they are currently in, but cannot move additional units into or through.&lt;/li&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Hydrothermal Mining &lt;sub&gt;(Technology)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Radical Advancement &lt;sub&gt;(Technology)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;If the Deepwrought player replaces the &lt;i&gt;Antimass Deflectors&lt;/i&gt; technology, their units may remain in and move out of any asteroid fields they are currently in, but cannot move additional units into or through.&lt;/li&gt;
+    &lt;li&gt;The Deepwrought player may replace &lt;i&gt;Radical Advancement&lt;/i&gt; itself for a biotic technology with two prerequisites.&lt;/li&gt;
+    &lt;li&gt;If the Deepwrought player has the Nekro player&amp;rsquo;s &lt;i&gt;Alliance&lt;/i&gt; promissory note in their play area, they will not draw an action card from the ability of the Nekro Acidos commander when they resolve &lt;i&gt;Radical Advancement&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;D.W.S. Luminous &lt;sub&gt;(Flagship)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Doctor Carrina &lt;sub&gt;(Agent)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Aello &lt;sub&gt;(Commander)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;Say a player is researching a technology, and they use the ability of Doctor Carrina, which results in the Deepwrought player placing their first ocean into play, unlocking Aello. Should this happen, then the researching player will be unable to use Aello to pay for the resource cost of the researched technology.&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;If this were to happen when the active player researches their first (zero resource cost) technology when resolving the primary ability of the &lt;i&gt;Technology&lt;/i&gt; strategy card, they will be able to use Aello if/when they research their second (six resource cost) technology with that primary ability.&lt;/li&gt;
+        &lt;li&gt;If this were to happen when any player researches a technology when resolving the primary or secondary ability of the &lt;i&gt;Technology&lt;/i&gt; strategy card, the other players clockwise of that player will be able to use Aello if/when they research a technology with the secondary ability. The player that used Doctor Carrina, and any players widdershins of them, will be unable to use Aello during this strategic action.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;li&gt;The Deepwrought player does not have the capability to prevent other players from using the ability of Aello.&lt;/li&gt;
+    &lt;li&gt;Aello cannot be used reduce a cost paid with trade goods, influence, or any other currency.&lt;/li&gt; 
+    &lt;li&gt;If a player has the Deepwrought player&amp;rsquo;s &lt;i&gt;Alliance&lt;/i&gt; promissory note, then other players may use the ability of either or both (or neither):&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;Another player may use the ability from both for a two resource discount, triggering the commodity ability for both the Deepwrought player and the player with their &lt;i&gt;Alliance&lt;/i&gt; promissory note.&lt;/li&gt;
+        &lt;li&gt;Another player may use the ability from only the Deepwrought player for a one resource discount, triggering the commodity ability for just the Deepwrought player.&lt;/li&gt;
+        &lt;li&gt;Another player may use the ability from only the player with the &lt;i&gt;Alliance&lt;/i&gt; promissory note for a one resource discount, triggering the commodity ability for just the player with the &lt;i&gt;Alliance&lt;/i&gt; promissory note.&lt;/li&gt;
+        &lt;li&gt;Another player may use the ability from neither player, and receive no discount; the commodity ability will trigger for neither the Deepwrought player nor the player with their &lt;i&gt;Alliance&lt;/i&gt; promissory note.&lt;/li&gt;
+        &lt;li&gt;The Deepwrought player and the player with their &lt;i&gt;Alliance&lt;/i&gt; promissory note may each use the ability of the other for a one resource discount, triggering the commodity ability for that other player.&lt;/li&gt;
+        &lt;li&gt;If the Mahact player has the Deepwrought player&amp;rsquo;s command token in their fleet pool, then this gives each other player the option of another discount. The Deepwrought player, the player with their &lt;i&gt;Alliance&lt;/i&gt; promissory note, and the Mahact player may choose up to two of the other players with the ability, triggering their commodity ability, and resulting in a corresponding discount of up to two resources. All other players may choose up to three of the players with the ability, triggering their commodity ability, and resulting in a corresponding discount of up to three resources.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Ta Zern &amp;mdash; Wave Function Collapse &lt;sub&gt;(Hero)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;If they also owned the purged technology, the Deepwrought player too will research another technology.&lt;/li&gt;
+    &lt;li&gt;If the Nekro player purges a technology, they will gain three command tokens instead of researching another technology.&lt;/li&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Eanautic &lt;sub&gt;(Mech)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Visionaria Select &lt;sub&gt;(Breakthrough)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;When &lt;i&gt;Visionaria Select&lt;/i&gt; is exhausted, all other players have the opportunity to participate; the Deepwrought player does not choose which players will participate.&lt;/li&gt;
+    &lt;li&gt;The researching player chooses which promissory note they give to the Deepwrought player.&lt;/li&gt;
+    &lt;li&gt;Giving a promissory note because of &lt;i&gt;Visionaria Select&lt;/i&gt; is not resolving a transaction.&lt;/li&gt;
+    &lt;li&gt;If the Deepwrought player already owns a technology that a participating player researches, then the Deepwrought player will not gain a technology.&lt;/li&gt;
+    &lt;li&gt;If the Nekro player participates, they will gain three command tokens. The Deepwrought player will not gain a technology this way.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="TheDeepwroughtScholarate_SystemStats" xml:space="preserve">
+    <value>IKATOL SYSTEM:
+;
+✦
+Population:.9,1 billion
+;
+✦
+Government:.Conclave of Singers
+;
+✦
+Leadership:.Ta Zern
+;
+✦
+Disposition:.Cooperative
+;
+✦
+Tendencies:.Scientific</value>
+  </data>
+  <data name="TheDeepwroughtScholarate_Quote" xml:space="preserve">
+    <value>"~Together~sing~one~
+~together~sing~deep~
+~together~ends~suffering~
+~life~triumphs~death~" - Aello, Kieros</value>
+  </data>
+  <data name="TheDeepwroughtScholarate_PromissoryNote" xml:space="preserve">
+    <value>The Deepwrought Scholarate_PromissoryNote</value>
+  </data>
+  <data name="TheDeepwroughtScholarate_Lore" xml:space="preserve">
+    <value>&lt;p&gt;Facing grave threats to the galaxy, some factions within the great powers sought to work together, creating the Keleres and striving for better relations between all.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;One of these factions was the Universities of Jol-Nar. They sought a way to break the domination of the Mahact’s most dangerous thralls, the infamous Crimson Legionnaires—and most importantly to prevent similar mind-control from affecting any Hylar victims. The newly developed Waveform Arbitrator could shatter the Mahact control of any Crimson Legionnaires—or others—within a million kilometers. At least in theory.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;This breakthrough was developed by the Deepwrought Scholarate, a prominent school within Jol-Nar’s universities. The Deepwrought, led by Ta Zern and known for their desire to propagate knowledge throughout the galaxy, wanted to give the blueprints to each of the Great Civilizations. The rest of the Universities disagreed. Furthermore, they refused to risk using it themselves.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;The frustrated Deepwrought secretly contracted the Ral Nel Consortium, whose microprocessors were advanced enough to run the quintillion calculations necessary to track, override, and break the Mahact dominance signals. Together, they constructed the first Arbitrator in secret.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;Next, the Deepwrought sought a place to deploy their weapon. They had to engage the Mahact in a major battle, which would risk losing a sizable portion of the Jol-Nar fleet. The Headmaster and Circle of Regents would never approve such a gamble, so Ta Zern lied. He convinced the Universities that the oceanic world of Ikatena, recently captured by King Zel Tol Mosin, was weakly defended.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;Meanwhile, agents leaked plans of the attack to Mosin, convincing him to reinforce his position with every Crimson Legionnaire at his disposal.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;When the Universities’ fleet attacked, both sides thought they were springing a trap. The Jol-Nar pummeled the orbital defenses while their allies, resistance cells of the native Kieros people, sabotaged the ocean world’s floating PDS platforms. But even as the Universities’ ships settled into orbit, a massive Crimson Legionnaire fleet emerged from the dark side of Ikatena’s largest moon. The Jol-Nar were trapped at the bottom of a planetary gravity well, and their ships began to burn.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;Then, Ta Zern deployed the Arbitrator. Suddenly, the various Creuss vessels flashed with a rainbow of colors, before settling to a dull red glow. They began to scatter in all directions, some accelerating for deep space while others attacked the Mahact. Deserted by his former thralls, Zel Tol Mosin could only rage helplessly until beam cannons chopped his flagship apart.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;In the aftermath of the “Ikatena Incident,” Ta Zern and the Deepwrought expected to be celebrated as heroes. However, the Waveform Arbitrator was imperfectly effective at liberating the Mahact’s flesh-and-blood genetic thralls, and Ikatena itself was still largely under Mahact loyalist control. As Jol-Nar soldiers joined the Kieros in liberating their planet, casualties mounted.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;Meanwhile, University leadership knew that the Deepwrought had illegally shared the Arbitrator blueprints and duped their fleet into a dangerous battle. They cried treason and demanded Ta Zern’s head.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;Instead, the Deepwrought Scholarate declared itself independent and allied to the Ikatena Conclave of Singers. The Kieros were more than willing to welcome Ta Zern’s rebels, and together they began establishing a new home shared by both Kieros and Hylar. New ships began to drift from orbital grav-slips, developed from cutting-edge Deepwrought designs and crewed by eager Kieros enlistees.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;Although the Deepwrought had not expected to become a military force, they knew a strong navy was one of the few means to keep the Universities from exacting vengeance.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;The other was to make as many friends as possible. Since the Deepwrought mostly consisted of two aquatic species, they began approaching various civilizations with a proposal: allow the Scholarate to establish enclaves in the otherwise unused depths of their planet’s oceans, and in exchange those enclaves would share their bounty of research and discoveries. Already, many civilizations have jumped at the chance to gain access to Deepwrought technology, and every day more and more Deepwrought citizens settle in the pelagic depths of far-off worlds.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;To the surprise of everyone involved, the Deepwrought Scholarate found itself propelled from a collection of eclectic scientists and researchers to some of the founding members of a civilization. Even as they frantically work with their newfound Kieros allies to build and maintain a working alliance, some have begun to take interest in the discoveries coming from the strange world of Thunder’s Edge. Perhaps that planet’s secrets can catapult the Deepwrought Scholarate from struggling newcomer to a major player on the galactic stage.&lt;/p&gt;</value>
+  </data>
+  <data name="TheDeepwroughtScholarate_Ability" xml:space="preserve">
+    <value>&lt;p&gt;RESEARCH TEAM:&lt;/p&gt; 
+&lt;p&gt;When ground forces are committed, if your units on the planet are not already coexisting, you may choose for your units to coexist.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;OCEANBOUND:&lt;/p&gt; 
+&lt;p&gt;When your units begin coexisting on a planet, gain an ocean card and ready it. Any time you have more ocean cards than there are planets that have your coexisting units, discard ocean cards until you do not.&lt;/p&gt;</value>
+  </data>
   <data name="TheFirmamentTheObsidian_Title" xml:space="preserve">
     <value>The Firmament / The Obsidian</value>
   </data>
+  <data name="TheFirmamentTheObsidian_CommanderRequirement" xml:space="preserve">
+    <value>Have one plot card in play.</value>
+  </data>
+  <data name="TheFirmamentTheObsidian_Notes" xml:space="preserve">
+    <value>&lt;h1&gt;Plots Within Plots&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;If the Firmament player scores a secret objective that has been made into a public objective by a game effect, such as the &lt;i&gt;Classified Document Leaks&lt;/i&gt; agenda, they will gain a victory point as normal.&lt;/li&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Puppets of the Blade&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;When the Firmament player flips their home system, the Obsidian player places any units that were on Cronos onto Cronos Hollow, and places any units on Tallin onto Tallin Hollow. Any units that were in the space area pre&amp;ndash;flip are placed in the space area post&amp;ndash;flip.&lt;/li&gt;
+    &lt;li&gt;The Obsidian player will always gain Sharsiss Hollow, regardless of whether or not they purged Sharsiss as the Firmament.&lt;/li&gt;
+    &lt;li&gt;Upon resolving &lt;sc&gt;Puppets of the Blade&lt;/sc&gt; and gaining their leaders, the Obsidian player immediately unlocks their commander and hero, should they meet the corresponding conditions.&lt;/li&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Nocturne&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;The Blade&amp;rsquo;s Orchestra&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Marionettes&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Black Ops &lt;sub&gt;(Promissory Note)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Malevolency &lt;sub&gt;(Promissory Note)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Neural Parasite &lt;sub&gt;(Technology)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Neural Parasite &lt;sub&gt;(Technology)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Planesplitter &lt;sub&gt;(Technology)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;If The Fracture is already in play when the Firmament player gains &lt;i&gt;Planesplitter&lt;/i&gt;, it will have no immediate effect.
+    &lt;/ol&gt;
+
+&lt;h1&gt;Planesplitter &lt;sub&gt;(Technology)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;The ingress token must be moved when the Obsidian player performs the primary ability of their strategy card, before any other players decide if they wish to perform the secondary ability.&lt;/li&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Heaven&amp;rsquo;s Eye &lt;sub&gt;(Flagship)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Heaven&amp;rsquo;s Hollow &lt;sub&gt;(Flagship)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Myru Vos &lt;sub&gt;(Agent)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Vos Hollow &lt;sub&gt;(Agent)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Captain Aroz &lt;sub&gt;(Commander)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;Captain Aroz does not assist in scoring secret objectives that do not require controlling planets, such as the &lt;i&gt;Mechanize the Military&lt;/i&gt; or &lt;i&gt;Occupy the Fringe&lt;/i&gt; secret objectives.&lt;/li&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Aroz Hollow &lt;sub&gt;(Commander)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Sharsiss &amp;mdash; The Blade Beckons &lt;sub&gt;(Hero)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Sharsiss Hollow &amp;mdash; The Blade Revealed &lt;sub&gt;(Hero)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Viper EX&amp;ndash;23 &lt;sub&gt;(Mech)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Viper Hollow &lt;sub&gt;(Mech)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;The Sowing &lt;sub&gt;(Breakthrough)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;The Reaping &lt;sub&gt;(Breakthrough)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;Any trade goods that were on &lt;i&gt;The Sowing&lt;/i&gt; are transferred to &lt;i&gt;The Reaping&lt;/i&gt; when it flips.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="TheFirmamentTheObsidian_PromissoryNote" xml:space="preserve">
+    <value>TheFirmamentTheObsidian_PromissoryNote</value>
+  </data>
+  <data name="TheFirmamentTheObsidian_SystemInfo" xml:space="preserve">
+    <value>In a galaxy where every great power struggles to claim an obsolete throne, it sometimes feels like no one has bothered to ask the real questions. Questions like “why have a throne at all?”</value>
+  </data>
+  <data name="TheFirmamentTheObsidian_SystemStats" xml:space="preserve">
+    <value>HEAVENSFALL COMMAND:;
+✧ Location:.Nepheme System;
+✧ Leadership:.The Constellation;
+✧ Agents:.Est: 250,000~;
+✧ Threat Level:.Epsilon;
+✧ Priority:.Alpha</value>
+  </data>
+  <data name="TheFirmamentTheObsidian_Quote" xml:space="preserve">
+    <value>"Asking 'Who should rule us?' is overlooking a more important question: 'Why have rulers at all?'" - Sharsiss of Druaa</value>
+  </data>
+  <data name="TheFirmamentTheObsidian_Lore" xml:space="preserve">
+    <value>&lt;p&gt;Whether the Firmament is a collection of revolutionary idealists or a sprawling and secretive criminal empire is a matter of perspective. To the Great Powers, the important question is: who will be the next to inherit the Imperial throne? But the founders of the Firmament dared to ask: Why should there be an Imperial throne at all?&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;To these philosophers, diplomats, and soldiers, assuming that empire was the galaxy’s natural state was a monumental folly. After all, twenty-four millennia of the Lazax Imperium had led to stagnation, repression, and exploitation. The more the Lazax Emperors had attempted to control their subjects, the greater the resentment. Eventually, this resentment created the Twilight Wars, and how many trillions had died as a result? For over three thousand years the galaxy had been in the grip of the worst dark ages in recorded history, and now with that age overcome, was the best plan really Imperium again, but with someone else in charge?&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;These individuals spoke out against the course they saw their various governments taking. They wrote treaties, published holo-docs, and engaged in fiery debates in the halls of power across the galaxy. They proposed a single, pan-galactic society, without any of the divisions of the Great Civilizations or the rule of an Emperor. And they were almost universally ignored.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;So, they reached out to one another in search of kindred spirits. They began to meet, and eventually, they began to organize. They chose a name for themselves, the “Firmament,” and pledged loyalty to their new cause.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;At first, the Firmament avoided direct action. Instead they amassed soft power through projects such as restoring lost galactic maps. They hoped to persuade so many people to join their cause that the Great Civilizations would be forced to listen. But when the Great Civilizations did, their response was framed in terms of mass arrests and “peacekeepers” in riot gear.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;Then a young Druaa dissident uncovered an ancient artifact on a forgotten world. Shariss grew up on Druaa, consigned to the lowest roles in his society. He grew sick of the “equality” of the Naalu Collective and left as soon as he was able. Shariss rose to become a prominent player in the Firmament’s dispersed leadership, and became an obvious choice to lead the latest expedition searching for fragments of the Lazax maps.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;On distant Oranth XI, Shariss found a crashed vault ship. Deep in its hold, the young Druaa uncovered the ship’s only cargo: a massive sword called the Obsidian. The blade seemed perfectly black, though Shariss thought he could make out something stirring in its inky depths. Then he grasped the hilt.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;Shariss returned to the Firmament changed. He had been ambitious, but now he was driven. He gathered the cadre leaders and proclaimed that if they wanted to see their dream realized, they would have to take action. The Great Powers already considered them criminals. Why not prove them right? The leadership would form an action committee, with as many members as stars in the sky. And with that power at their disposal, they would become a force to rival the Great Civilizations.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;The first step to power was on Cronos. Firmament members emigrated there in large numbers and took on roles as political and business leaders. They crafted a message to their fellow citizens that portrayed Cronos as the key to a bright galactic future with wealth and prosperity for all. The Firmament never needed to fire a shot; the next election cycle saw Firmament members elected to every leadership role in the government.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;Since then, covert and overt Firmament sympathizers have spread to dozens of nearby systems. Shariss himself orchestrated a slightly less peaceful takeover of Tallin, which had long been a haven for criminals and pirates from across the galaxy. In addition to strengthening the Firmament’s control over various criminal concerns, Tallin’s leaders have also begun a rapid armament program. New warships leave the spacedocks every week, and hordes of eager volunteers flock to the army recruitment centers on both Cronos and Tallin.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;Some of the Firmament’s founding members quietly worry about this new militarism, just as they worry that Shariss has amassed too much power around himself, and that he never goes anywhere without his blade. They have researched the Obsidian, and found obscure references to a blade that drives its bearers to conquest and destruction. But that does not explain why Shariss has begun to take an interest in Thunder’s Edge, or why he has begun to retask assets from the eventual populist uprising on Mecatol Rex to take the newly discovered world. What is so compelling about that strange world when there’s an entire imperium to overthrow?&lt;/p&gt;</value>
+  </data>
+  <data name="TheFirmamentTheObsidian_Ability" xml:space="preserve">
+    <value>&lt;h1&gt;The Firmament&lt;/h1&gt;
+&lt;/br&gt;
+&lt;p&gt;PLOTS WITHIN PLOTS:&lt;/p&gt;
+&lt;p&gt;You can score secret objectives already scored by other players, if you fulfill their requirements; This does not count against your secret objective limit or the number you can score in a round. When you score another player's secret objective do not score a victory point. Instead, place a face down plot card into your play area with that player's control token on it.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;PUPPETS OF THE BLADE:&lt;/p&gt;
+&lt;p&gt;If you have at least one plot card in your play area, gain the following ability: ACTION: Purge the Firmaments faction sheet, leaders, planet card, and promissory note, then gain all of the faction components for The Obsidian.&lt;/p&gt;
+&lt;/br&gt;
+&lt;h1&gt;The Obsidian&lt;/h1&gt;
+&lt;/br&gt;
+&lt;p&gt;NOCTURNE:&lt;/p&gt;
+&lt;p&gt;This faction cannot be chosen during setup.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;THE BLADE'S ORCHESTRA:&lt;/p&gt;
+&lt;p&gt;When this faction comes into play, flip your home system, double sided faction components and all of your in-play plot cards. Then, ready Cronos Hollow and Tallin Hollow if you control them.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;MARIONETTES:&lt;/p&gt;
+&lt;p&gt;The player or players whose control tokens are on each plot card are the puppeted players for that plot.&lt;/p&gt;</value>
+  </data>
   <data name="LastBastion_Title" xml:space="preserve">
     <value>Last Bastion</value>
+  </data>
+  <data name="LastBastion_CommanderRequirement" xml:space="preserve">
+    <value>There are 3 galvanized units on the game board.</value>
+  </data>
+  <data name="LastBastion_SystemStats" xml:space="preserve">
+    <value>TAXIS SYSTEM:;
+✧Population:.2,100,000;
+✧Government:.Command Authority;
+✧Leadership:.Harrugh Gefhara;
+✧Disposition:.Stoic;
+✧Tendencies:.Military</value>
+  </data>
+  <data name="LastBastion_SystemInfo" xml:space="preserve">
+    <value>Once loyal soldiers of an allied Sol/Xxcha military task force, Last Bastion has grown to be something more: a symbol of hope on a frontier abandoned by the Council that was meant to protect them.</value>
+  </data>
+  <data name="LastBastion_PromissoryNote" xml:space="preserve">
+    <value>LastBastion_PromissoryNote</value>
+  </data>
+  <data name="LastBastion_Notes" xml:space="preserve">
+    <value>&lt;h1&gt;Liberate&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;If the Bastion player gains control of an uncontrolled planet, they may choose if they resolve &lt;sc&gt;Liberate&lt;/sc&gt; before or after they explore that planet.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;If they explore first, and the number of infantry or the resource value of the planet changes while resolving the exploration, then the new values will be used when resolving &lt;sc&gt;Liberate&lt;/sc&gt;.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;The number of mechs is irrelevant for determining which effect to resolve.&lt;/li&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Galvanize&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Phoenix Standard&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Ordinian &amp;mdash; 4X41D &amp;ldquo;Hyperion&amp;rdquo; VI  &lt;sub&gt;(Legendary Planet)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Raise the Standard &lt;sub&gt;(Promissory Note)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Proxima Targeting VI &lt;sub&gt;(Technology)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;When the Bastion player makes the &lt;sc&gt;Bombardment&lt;/sc&gt; roll against their own units, they will be able to cancel a hit for each of their present galvanized units.&lt;/li&gt;
+    &lt;li&gt;Other players with galvanised units cannot cancel the &lt;sc&gt;Bombardment&lt;/sc&gt; hits produced by &lt;i&gt;Proxima Targeting VI&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;4X31C &amp;ldquo;Helios&amp;rdquo; &lt;sub&gt;(Unit)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;The &lt;sc&gt;Production&lt;/sc&gt; value of the 4X31C &amp;ldquo;Helios&amp;rdquo; will be calculated from the modified resource value of the planet, after the increase from the 4X31C &amp;ldquo;Helios&amp;rdquo; present.&lt;/li&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;The Egeiro &lt;sub&gt;(Flagship)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;If the Bastion player controls multiple planets in a system, &lt;i&gt;The Egeiro&lt;/i&gt; will apply +1 to its combat rolls just once.&lt;/li&gt;
+    &lt;li&gt;If the Bastion player controls a planet in a system, and other players control other planets in that system, &lt;i&gt;The Egeiro&lt;/i&gt; will still apply +1 to its combat rolls from that system.&lt;/li&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Dame Briar &lt;sub&gt;(Agent)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;Any type of unit in the same system may be galvanized; it need not match the type of the destroyed unit.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;A structure may be galvanized this way.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Nip and Tuck &lt;sub&gt;(Commander)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;The Bastion player&amp;rsquo;s action cards may still be cancelled by other game effects.&lt;/li&gt;
+    &lt;li&gt;If the Nekro player already has a Valefar Assimilator token on one of the Bastion player&amp;rsquo;s components, it will remain there when Nip and Tuck are unlocked.&lt;/li&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Lura Keen &amp;mdash; Entity 4X41A &amp;ldquo;Apollo&amp;rdquo; &lt;sub&gt;(Hero)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;Any combat roll modifiers will not apply to the dice roll for &lt;i&gt;Entity 4X41A &amp;ldquo;Apollo&amp;rdquo;&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;Units can only be destroyed by the dice specifically allocated to it.&lt;/li&gt;
+    &lt;li&gt;Effects that cancel hits, such as &lt;sc&gt;Sustain Damage&lt;/sc&gt;, cannot be used to prevent units from being destroyed.&lt;/li&gt;
+    &lt;li&gt;All units belonging to other players in the system may be destroyed, including structures.&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;If &lt;i&gt;Entity 4X41A &amp;ldquo;Apollo&amp;rdquo;&lt;/i&gt; is resolved during combat, units that belong to another player other than the Bastion player&amp;rsquo;s opponent could be destroyed.&lt;/li&gt;
+        &lt;li&gt;If &lt;i&gt;Entity 4X41A &amp;ldquo;Apollo&amp;rdquo;&lt;/i&gt; is resolved during a space combat, ground forces on planets or being transported in that system could be destroyed.&lt;/li&gt;
+        &lt;li&gt;If &lt;i&gt;Entity 4X41A &amp;ldquo;Apollo&amp;rdquo;&lt;/i&gt; is resolved during a ground combat, ground forces on other planets or units in the space area of that system could be destroyed.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;li&gt;During combat, both players assign hits simultaneously. If the Bastion player wishes to use &lt;i&gt;Entity 4X41A &amp;ldquo;Apollo&amp;rdquo;&lt;/i&gt; after destroying one of their units by assigning a hit to it, their opponent would first finish assigning the hits produced by the Bastion player. Only then could the Bastion player resolve &lt;i&gt;Entity 4X41A &amp;ldquo;Apollo&amp;rdquo;&lt;/i&gt;, rolling for just their opponent&amp;rsquo;s units that were not destroyed by the assigned hits.&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;Before assigning hits, players may cancel the produced hits by using the &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability of their units in the combat, one at a time, starting with the active player (intermixed with any other abilities either player wishes to resolve during the same window). Should any of the Bastion player&amp;rsquo;s units be destroyed by a &lt;i&gt;Direct Hit&lt;/i&gt; action card, then they can immediately trigger &lt;i&gt;Entity 4X41A &amp;ldquo;Apollo&amp;rdquo;&lt;/i&gt;. They will roll dice for all of their opponent&amp;rsquo;s remaining units in the system, which may include some units that their opponent would have otherwise gone on to cancel a hit with by using its &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability. Once &lt;i&gt;Entity 4X41A &amp;ldquo;Apollo&amp;rdquo;&lt;/i&gt; has finished resolving, both players must assign any remaining hits; they may cancel some number of these by using the &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability of any surviving units in the combat.&lt;/li&gt;
+        &lt;li&gt;During the &lt;b&gt;Space Cannon Offense&lt;/b&gt; step of a tactical action, players resolve the &lt;sc&gt;Space Cannon&lt;/sc&gt; ability of their eligible units starting with the active player, and going around the table in a clockwise order. Each player will make their space cannon roll and have the hits assigned, likely destroying some units, before the next player begins their own space cannon roll. Should the Bastion player have one of their units destroyed by another player&amp;rsquo;s space cannon roll, and choose to use the ability of &lt;i&gt;Entity 4X41A &amp;ldquo;Apollo&amp;rdquo;&lt;/i&gt;, then in doing so they destroy a unit with the &lt;sc&gt;Space Cannon&lt;/sc&gt; ability, that unit will not perform a space cannon roll if the player that owns that unit has not yet made their space cannon roll.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;A3 Valiance &lt;sub&gt;(Mech)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;The Icon &lt;sub&gt;(Breakthrough)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="LastBastion_Quote" xml:space="preserve">
+    <value>"There is no sacrifice I would not make to see this through. No choice but forward, no option but victory. Go. We will handle this." - Lyra Keen, Shield of the Reef</value>
+  </data>
+  <data name="LastBastion_Ability" xml:space="preserve">
+    <value>&lt;p&gt;LIBERATE:&lt;/p&gt;
+&lt;p&gt;When you gain control of a planet, ready that planet if it contains a number of your infantry equal to or greater than that planet's resource value; otherwise, place 1 infantry on that planet.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;GALVANIZE:&lt;/p&gt;
+&lt;p&gt;When a game effect instructs a player to galvanize a unit, they place a galvanize token beneath it, if it does not have one. Galvanized units roll 1 additional die for combat rolls and unit abilities.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;PHOENIX STANDARD:&lt;/p&gt;
+&lt;p&gt;At the end of combat, you may galvanize 1 of your units that participated.&lt;/p&gt;</value>
+  </data>
+  <data name="LastBastion_Lore" xml:space="preserve">
+    <value>&lt;p&gt;It started as a joint military expedition into the Lysantis Cluster to liberate a handful of independent worlds captured by the L1Z1X. Binding together the Xxcha Kingdom and the Federation of Sol, the endeavor, dubbed the Salient Sun Joint Task Force, would demonstrate that the Kingdom could be a potent fighting force and the Federation could be heroic rescuers. Most importantly, it would bind the two militaries together in a short, victorious war that would, hopefully, help to ease the ancient trauma of Archon Tau.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;Unfortunately, the expedition encountered the Nekro Virus. The fighting transformed into a desperate struggle to hold back the endless onslaught of homicidal machines. The task force fell back again and again, fighting hopeless rearguard actions while whole planets evacuated and fled deeper into the galactic core.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;The Kingdom and the Federation grew weary of supporting these hopeless efforts. This was not the propaganda coup they had been expecting and the worlds they were defending weren’t even theirs. Eventually, both civilizations ordered their respective forces to withdraw. But those orders were not followed.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;Over years of fighting, the Xxcha and Human soldiers had become more devoted to each other than to their distant superiors, a bond forged in the bitter crucible of a hopeless cause. Subtly, at first, blaming miscommunication or the challenges of a dynamic situation on the war front, the Salient Sun ceased all communication with their superiors. Even as they were declared renegades, forces rallied to Salient Sun’s cause. Civilian volunteers, soldiers of fortune, and even survivors from other failed military offensives all helped swell the depleted ranks. Soon, what once was an efficiently organized joint military venture had morphed into a ragtag band of resistance fighters whose allegiance was to their comrades in arms.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;But no matter how dedicated they were, they were still losing.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;In desperation, their council of military commanders decided they had to take back at least one world to prove that they weren’t fighting a hopeless war. The council picked Ordinian. The Naaz-Rokha colony was invaded relatively recently, many of its survivors filled the ranks of the Salient Sun already, and its location at the mouth of a nebula isolated it from the Nekro fleet.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;At first, the liberation went well. The fleet swept aside the orbital defenses, landing troops on formidable highlands in the middle of Ordinian’s largest continent. But soon the ground forces found themselves surrounded by a planet of hostile machines. Hour by hour, more mechanical horrors arrived, pushing the troops back to their last defensive bastion in an isolated mountain valley.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;As Salient Sun began to retreat, a lone warship arrived in-system. FSS Orlando, thought lost in a previous battle, decelerated from superluminal speeds and raced toward the planet. Its captain demanded that the Bastion’s Red Chivalry fleet clear a path for them to attack the heart of the Nekro forces. They had an Apollo-priority weapon aboard, taken from the frontier world of Thunder’s Edge.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;The cruiser smashed into the heart of the Nekro swarms in a barely-controlled aerobraking maneuver, blasting a landing zone in the last possible moment. As the Nekro rallied to attack the crashed warship, the Orlando’s cargo bays blew open and it deployed its payload.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;It’s not clear what happened next. All the battered soldiers of Salient Sun knew was that in less than an hour, all traces of the Nekro virus vanished. Instead, drifting silently over the piles of dead machines were a pair of massive, hovering guardians of ragged metal who searched ceaselessly for more of the Nekro virus to expunge. The awestruck troops called them “seraphs,” concluding they were remnants of Orlando’s weapon.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;In the wake of the liberation, a new banner was raised over the blackened landscape of Ordinian. The Salient Sun declared themselves an independent state—a bulwark against the destructive forces menacing planets on the rim; a Last Bastion. Tirelessly, they work to rebuild what they can on Ordinian, clearing the junk-strewn wastes one kilometer at a time. The wreck of the Orlando is a monument to their victory and hub of their new capital city.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;Over Ordinian, a massive orbital shipyard, the Fortress Revelation, is being constructed with the aid of the Seraphs, Helios and Hyperion, and backed by the personal funding of one of the Galaxy’s most enigmatic personas—Harrugh Gefhara, ex-Querion of the Hacan—who has become the public face of the Bastion. As each spacedock is completed, it fills with ships from across the galaxy. After a decade of defeats, the Salient Sun has finally earned its victory. Now, even as the galaxy hails them as heroes and their former masters quietly rage, the Command Authority of the Bastion maneuvers their fleets in defense of Thunder’s Edge. Whatever the weapon was that was found there, they do not mean to share it.&lt;/p&gt;</value>
   </data>
   <data name="TheRalNelConsortium_Title" xml:space="preserve">
     <value>The Ral Nel Consortium</value>
@@ -7096,5 +7535,257 @@ Government:.None
   </data>
   <data name="ASickeningLurch_Title" xml:space="preserve">
     <value>A Sickening Lurch</value>
+  </data>
+  <data name="TheCrimsonRebellion_Ability" xml:space="preserve">
+    <value>&lt;p&gt;SUNDERED:&lt;/p&gt;
+&lt;p&gt;You cannot use wormholes other than epsilon wormholes. Other players' units that move or are placed into your home system are destroyed.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;INCURSION:&lt;/p&gt;
+&lt;p&gt;When you activate a system that contains a breach, you may flip that breach; systems that contain active breaches are adjacent. At the end of the status phase, any player with ships in a system that contain an active breach may remove that breach.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;THE SORROW:&lt;/p&gt;
+&lt;p&gt;When you create the game board, place the Sorrow (tile 94) where your home system would normally be placed, then place a inactive breach there. The Sorrow is not a home system. Then, place your home system (tile 118) in your play area.&lt;/p&gt;</value>
+  </data>
+  <data name="TheCrimsonRebellion_CommanderRequirement" xml:space="preserve">
+    <value>Place a breach token in a system that contains another player's unit.</value>
+  </data>
+  <data name="TheCrimsonRebellion_Lore" xml:space="preserve">
+    <value>&lt;p&gt;When the Creuss discovered the records leading to the ancient world of Ixth, they saw their chance to unearth a galactic monomyth and use the resulting glory to step to the forefront of all other major civilizations. Instead, they uncovered the homeworld of the dreaded Mahact gene-sorcerers.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;When the Mahact awoke, they dominated the entire armada the Creuss had sent to Ixth. With the high technology of their homeworld, they rewrote the frequency of the Creuss’ energistic structure as one might rewrite the ending of a book. In a matter of moments they reduced each individual Creuss to an obedient thrall. As the Creuss succumbed, their blue glow shifted to an ominous red, leading to their new moniker, the “Crimson Legion.”&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;The fate of their fleet horrified the undominated Creuss. Their desire to rescue their enslaved kin was arrested by the fear that the Mahact could do this again. Instead, the Creuss devoted themselves to ensuring the Mahact could never breach the Shaleri anomaly and enter the Creuss Gate. The Crimson Legionnaires were lost, their fate a tragedy.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;Then, the Ikatena Incident occurred.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;In the wake of the Deepwrought Scholarate deploying their Waveform Arbitrator, a significant portion of the Legion found itself unexpectedly freed of Mahact domination. Confused and disoriented, the Crimson Legionnaires turned on their former masters or fled the battle. Over the next few weeks, they slowly began to regroup in out-of-the-way corners of the galaxy and take stock of their situation.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;The Arbitrator had broken the Mahact hold over the Crimson Legionnaires, but it had not reversed the changes done to them on a fundamental level. In fact, it may have changed them even further. Now the Creuss could sense just how wrong they felt. It was as though the very photons of their being were trying to tear themselves apart, restrained only by the suits of armor they wore.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;The one desire every former Crimson Legionnaire shared was to return home, so the remnants of the armada made for the Creuss Gate. But when they first entered Shaleri space they were intercepted by their former kin. Hasty explanations avoided outright combat, but the Creuss refused to allow the former Legionnaires passage. Even across the gulf of space, the Creuss could sense the fundamental changes and feared the frequency alterations made by the Mahact could still cascade to untainted Creuss—or even their home dimension&lt;/p&gt;.
+&lt;/br&gt;
+&lt;p&gt;Angered, saddened, and betrayed, the crimson Creuss attempted to open a new wormhole gate into the Creuss dimension with the drives aboard their largest ships. They successfully opened a new wormhole, but when they passed through it they found themselves in a strange alternate realm. It was brimming with the same energies as their old home, but on a different phase. While they could survive there without their suits, to the Creuss this new dimension was like a barren desert in comparison to the lush complexity of their home.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;Unfortunately, they were stuck. They could travel back to the known galaxy, and would eventually establish a truce with the rest of the Creuss, but when a delegation finally traveled through the Creuss Gate, the energy patterns of their old home obliterated the crimson Creuss in an instant. It turned out that only in this new realm, which they dubbed Ahk Creussx, could the crimson Creuss live.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;In the time since the Ikatena Incident, the Crimson Rebellion has worked to make the best of its new life. The parallel realm of Ahk Creussx has also begun to “birth” new crimson Creuss in the same manner as their old universe, so the population of the Rebellion has begun to grow. But even new crimson Creuss are plagued with the same sense of wrongness as their kin, and the entire species still longs for a true homecoming.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;Despair has swept through the population. It is entirely possible that the Crimson Rebellion would have launched itself on a self-destructive war of vengeance against the Mahact in hopes of obliterating both itself and its former oppressors. However, even as the Crimson Rebellion established contact with the known galaxy, they learned of the events at Ordinian and the strange power at the heart of the world called Thunder’s Edge.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;The Crimson Rebellion has no ruler. After years under enslavement, none of the crimson Creuss wish to be controlled by another ever again. But among the ranks of the Rebellion two schools of thought have taken hold. Some of the crimson Creuss wish to seat themselves in the Galactic Council or even claim the Imperial Throne. With the might of the galaxy behind them, they can avenge themselves against the Mahact. Others look to the marvelous power of Thunder’s Edge, and wonder. Perhaps the crimson Creuss can wield it to repair their broken people, and to finally feel the peace of a true home.&lt;/p&gt;</value>
+  </data>
+  <data name="TheCrimsonRebellion_PromissoryNote" xml:space="preserve">
+    <value>TheCrimsonRebellion_PromissoryNote</value>
+  </data>
+  <data name="TheCrimsonRebellion_Notes" xml:space="preserve">
+    <value>&lt;h1&gt;Sundered&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Incursion&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;Breaches are not wormholes.&lt;/li&gt;
+    &lt;li&gt;A system may have any number of breaches in it.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;If a player has a ship in a system containing multiple breaches at the end of the status phase, they may remove any or all of them.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;If the Rebellion player has no more breach tokens in their reinforcements, and an ability instructs them to place a breach, they may remove an inactive breach from the game board and place that.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;Active breaches cannot be removed in this manner. If every breach token is on the game board as an active breach, the Rebellion player cannot resolve abilities that would place additional breach tokens.&lt;/li&gt;&lt;/ol&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;The Sorrow&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Sever &lt;sub&gt;(Promissory Note)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Subatomic Splicer &lt;sub&gt;(Technology)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;During a space combat in the Rebellion player&amp;rsquo;s home system, they cannot produce ships there while another player&amp;rsquo;s ships are present.&lt;/li&gt;
+    &lt;li&gt;The produced ships must still be paid for.&lt;/li&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Exile &lt;sub&gt;(Unit)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;The destroyer must be on the game board when the combat ends in order to place the breach. If the destroyer was in the active system, and was destroyed in the space combat, it cannot be used to place a breach.&lt;/li&gt;
+    &lt;li&gt;A breach may be placed after a space combat and/or a ground combat.&lt;/li&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Quietus &lt;sub&gt;(Flagship)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;The &lt;i&gt;Quietus&lt;/i&gt; removes only the unit abilities from other players&amp;rsquo; units; any text abilities are unaffected.&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;Text abilities that rely on unit abilities, such as the space dock II text ability that defines &amp;ldquo;X&amp;rdquo; in that unit&amp;rsquo;s &lt;sc&gt;Production X&lt;/sc&gt; ability, will have no effect.&lt;/li&gt;
+        &lt;li&gt;If a unit loses its &lt;sc&gt;Deploy&lt;/sc&gt; ability, then the text that describes how that unit&amp;rsquo;s &lt;sc&gt;Deploy&lt;/sc&gt; ability is used will have no effect.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Ahk Ravin &lt;sub&gt;(Agent)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;If the Rebellion player transports ground forces during the swap, those ground forces will be placed in the space area of their destination system. They cannot be committed to planets in that system until and unless a tactical action is resolved in that system.&lt;/li&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Ahk Siever &lt;sub&gt;(Commander)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;If Ahk Siever is unlocked by placing a breach token into a system containing another player&amp;rsquo;s unit at the end of a combat with the ability of an Exile, the Rebellion player will not resolve the commodity ability of Ahk Siever from that same combat.&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;If they place the breach token at the end of a space combat, they may resolve the commodity ability of Ahk Siever at the end of any ground combats during the same tactical action.&lt;/li&gt;
+        &lt;li&gt;If they place the breach token at the end of a ground combat in a system with multiple planets, they may resolve the commodity ability of Ahk Siever at the end of any later ground combats on different planets during the same tactical action.&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;li&gt;The Rebellion player does not have to be a participant in the combat to gain or convert commodities.&lt;/li&gt;
+    &lt;li&gt;If there are multiple combats in one turn, the Rebellion player may gain or convert a commodity for each. This includes for each ground combat on a separate planet.&lt;/li&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Homesick Phantom &amp;mdash; Fragment Reality &lt;sub&gt;(Hero)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;The Rebellion player may only start placing ships on Homesick Phantom once the hero has been unlocked.&lt;/li&gt;
+    &lt;li&gt;When &lt;i&gt;Fragment Reality&lt;/i&gt; is purged and the ships are placed in a system, the Rebellion player must remove ships, if required, to meet their fleet pool limit.&lt;/li&gt;
+    &lt;li&gt;Capacity is not checked during space combat. If the Rebellion player purges &lt;i&gt;Fragment Reality&lt;/i&gt; and places fighters and/or ground forces in a system, they will not need to remove any fighters or ground forces from the space area to satisfy their capacity limit until after the combat has been resolved.&lt;/li&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Revenant &lt;sub&gt;(Mech)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;The Rebellion player may only &lt;sc&gt;Deploy&lt;/sc&gt; one mech per tactical action, regardless of the number of planets in the active system.&lt;/li&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Resonance Generator &lt;sub&gt;(Breakthrough)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;The passive, movement ability of &lt;i&gt;Resonance Generator&lt;/i&gt; is still in effect when the card is exhausted.&lt;/li&gt;
+    &lt;/ol&gt;</value>
+  </data>
+  <data name="TheCrimsonRebellion_Quote" xml:space="preserve">
+    <value>"Whatever afflicts them, it is beyond my experience. Pain unending. Rage consuming. Hope unknowing." - Ahk-Syl Siven</value>
+  </data>
+  <data name="TheCrimsonRebellion_SystemInfo" xml:space="preserve">
+    <value>Liberated from Mahact control but unable to return to the lives they once knew, the Crimson Rebellion may never be what they once were. They must now forge a new path in a galaxy that rejects them.</value>
+  </data>
+  <data name="TheCrimsonRebellion_SystemStats" xml:space="preserve">
+    <value>UNKNOWN DIMENSION
+:;
+✦
+Population:.10 Million
+;
+✦ Government:.Communal Anarchy
+;
+✦ Leadership:.None
+;
+✦ Disposition:.Despairing
+;
+✦ Tendencies:.Military</value>
+  </data>
+  <data name="TheRalNelConsortium_CommanderRequirement" xml:space="preserve">
+    <value>Be the last person to pass during the Action Phase</value>
+  </data>
+  <data name="TheRalNelConsortium_PromissoryNote" xml:space="preserve">
+    <value>TheRalNelConsortium_PromissoryNote</value>
+  </data>
+  <data name="TheRalNelConsortium_Notes" xml:space="preserve">
+    <value>&lt;h1&gt;Survival Instinct&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;If the moved ships were in a gravity rift, they must roll for removal.&lt;/li&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Miniaturization&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;Structures will be placed at the end of the tactical action. This will be after the production step, and so any space docks placed cannot use their &lt;sc&gt;Production&lt;/sc&gt; ability during the same action.&lt;/li&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Nano&amp;ndash;Link Permit &lt;sub&gt;(Promissory Note)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;The moved structures may use their unit abilities during the tactical action that they are moved.&lt;/li&gt;
+    &lt;li&gt;The structures are moved directly to the planet; they are not transported.&lt;/li&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Nanomachines &lt;sub&gt;(Technology)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;When the Ral Nel player exhausts &lt;i&gt;Nanomachines&lt;/i&gt;, they perform only one of the three component actions listed on the card.&lt;/li&gt;
+    &lt;li&gt;If the Ral Nel player has no PDS in their reinforcements when performing the first ability, they may remove one from a system that does not contain one of their command tokens to place it on a planet they control.&lt;/li&gt;
+    &lt;li&gt;The Ral Nel player may perform the second ability even if they have no damaged units, or even if they have no units with the &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability on the game board.&lt;/li&gt;
+    &lt;li&gt;The Ral Nel player must have at least one action card in their hand to perform the third ability.&lt;/li&gt;
+    &lt;li&gt;When performing the third ability, the Ral Nel player chooses which card they will discard before seeing which card they will draw.&lt;/li&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Linkship &lt;sub&gt;(Unit)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Last Dispatch &lt;sub&gt;(Flagship)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;A unit with &lt;sc&gt;Sustain Damage&lt;/sc&gt; cannot be destroyed, even if it is damaged.&lt;/li&gt;
+    &lt;ol&gt;&lt;li&gt;If a unit loses the &lt;sc&gt;Sustain Damage&lt;/sc&gt; ability, such as a war sun by the effect of the &lt;i&gt;Publicize Weapon Schematics&lt;/i&gt; agenda, then that unit may be destroyed with the ability of the &lt;i&gt;Last Dispatch&lt;/i&gt;.&lt;/li&gt;&lt;/ol&gt;
+    &lt;li&gt;The Ral Nel player chooses which ship is destroyed.&lt;/li&gt;
+    &lt;li&gt;If the Ral Nel player plays the &lt;i&gt;Skilled Retreat&lt;/i&gt; action card, they cannot resolve the ability of the &lt;i&gt;Last Dispatch&lt;/i&gt;.&lt;/li&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Kan Kip Rel &lt;sub&gt;(Agent)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;The action card that the Ral Nel player gives to another player must be one of the two that they drew, and not another action card from their hand.&lt;/li&gt;
+    &lt;li&gt;If the Yssaril player duplicates the effect of Kan Kip Rel with Ssruu, their agent, they will trigger &lt;sc&gt;Scheming&lt;/sc&gt;. They will draw three action cards, and give one of those three to another player. They will then add the remaining two to their hand, and then discard any action card from their hand.&lt;/li&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Watchful Ojz &lt;sub&gt;(Commander)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;If the Ral Nel player moves all their remaining ships, the combat ends immediately.&lt;/li&gt;
+    &lt;li&gt;The Ral Nel player may transport fighters and ground forces if they move a ship with capacity.&lt;/li&gt;
+    &lt;li&gt;The destination system may contain a planet controlled by another player, which may also have that player&amp;rsquo;s ground forces on it.&lt;/li&gt;
+    &lt;li&gt;If the active system is a gravity rift, the moved ships must roll for removal.&lt;/li&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Director Nel &amp;mdash; Signal Intrusion &lt;sub&gt;(Hero)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;&lt;i&gt;Signal Intrusion&lt;/i&gt; may be triggered by the Ral Nel player themself passing.&lt;/li&gt;
+    &lt;li&gt;The Ral Nel player may take any number of turns after unpassing, before they pass again, which will end the action phase.&lt;/li&gt;
+    &lt;li&gt;When the Ral Nel player passes again, they may score the &lt;i&gt;Prove Endurance&lt;/i&gt; secret objective.&lt;/li&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Alarum &lt;sub&gt;(Mech)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;/ol&gt;
+
+&lt;h1&gt;Data Skimmer &lt;sub&gt;(Breakthrough)&lt;/sub&gt;&lt;/h1&gt;
+    &lt;ol class="note"&gt;
+    &lt;li&gt;Action cards discarded by the Ral Nel player are placed in the action card discard pile, and not on &lt;i&gt;Data Skimmer&lt;/i&gt;.&lt;/li&gt;
+    &lt;li&gt;An action card will be placed on &lt;i&gt;Data Skimmer&lt;/i&gt; if it is discarded after being played or cancelled, if it is discarded due to hand size limits, or if it is discarded for another game effect.&lt;/li&gt;
+    &lt;li&gt;Action cards on &lt;i&gt;Data Skimmer&lt;/i&gt; are not in the discard pile. They cannot be retrieved by abilities such as that of &lt;i&gt;The Codex&lt;/i&gt; relic.&lt;/li&gt;
+    &lt;/ol&gt;
+</value>
+  </data>
+  <data name="TheRalNelConsortium_Quote" xml:space="preserve">
+    <value>"The great web of obligation binfs us all as surely as gravity. Those who would cheat us would cheat the galaxy of its right to exist." - Actuary General "Watchful" Ojz</value>
+  </data>
+  <data name="TheRalNelConsortium_SystemInfo" xml:space="preserve">
+    <value>The Ral Nel’s distrust of outsiders’ ability to understand their fractally complex society of contracts and obligations has recently been tested, thanks to positive dealings with foreign powers, launching the Ral Nel onto the galactic stage.</value>
+  </data>
+  <data name="TheRalNelConsortium_SystemStats" xml:space="preserve">
+    <value>IRK TRO KESH SYSTEM:;
+✧ Population:.6,5 billion;
+✧ Government:.Corporate Oligarchy;
+✧ Leadership:.The Zio;
+✧ Disposition:.Paranoid;
+✧ Tendencies:.Economic</value>
+  </data>
+  <data name="TheRalNelConsortium_Lore" xml:space="preserve">
+    <value>&lt;p&gt;The Ral Nel are known for their fast ships, their advanced microprocessor technology, and their frustrating refusal to share either with the galaxy at large, except on their own terms, for cash in hand. After all, the rest of the galaxy can’t be trusted to honor their debts, and the twin worlds of Ral Nel run on a system of finely balanced obligation.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;Mez Lo Orz Fei Zsha is the more heavily populated world. From orbit, one can spot the huge circular cities scattered across the surface and the constant stream of shuttle traffic. Fei Zsha is extremely developed, and each city is the home and stronghold of a different zio qen. The closest translation is “corporation,” but to the Ral Nel, zio qen are far more complex. They are vertically integrated conglomerates comprising hundreds of smaller businesses, and also serve as governments and provide civic services for their millions of employees. Sun-drenched Rep Lo Orz Oet, its hemispherical deserts bisected by a tropical equatorial sea, is also completely controlled by dozens of zio qen.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;These mega-corporations are born from the culture and psychology of the Ral Nel, specifically their need to frame everything in the form of a transaction. Whatever a Ral Nel does is either to repay a debt they owe or in anticipation of receiving something in the future. This mercenary outlook is tempered by the Ral Nel’s practice of inter-generational debt. Ral Nel consider the rearing of children to create a debt that the children fulfill by supporting their elders, to be supported in turn by their own children. Scaled over the long term and the breadth of their society, Ral Nel zio qen are reluctant to pursue short-term gains at the expense of the long-term debts from their future society that they may need to survive. It has also spared their original homeworld, Oet, some of the worst excesses of corporate exploitation; such actions are limited by the Ral Nel’s debts to the biosphere that evolved them. Instead, the majority of development has taken place on neighboring Fei Zsha.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;This attitude only goes so far in reigning in internecine conflict, however. Nearly all Ral Nel work for a zio qen, and their transactional loyalty is first and foremost to that zio qen, not to the Ral Nel as a whole. In fact, all zio qen are cooperatively owned by their employees, which reinforces those bonds of loyalty. Conflict between zio qen is common enough as to be mundane, ranging from malicious trade deals and hostile takeovers to actual armed incursions by corporate strike teams. Only the potential debts that can be incurred by hostile action keep the fights from rising above the level of surgical strikes.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;These quirks of Ral Nel society mean their planetary government is merely a consortium of the zio qen who happen to have the most political and economic power, overseen by a board of zio leaders appointed by their zio qen shareholders. Because power depends largely on favors owed and given, the zio who run the consortium can change at any time. Other civilizations who maintain diplomatic relations with the Ral Nel Consortium have grown used to dealing with a new set of representatives with no warning at all.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;The larger obstacle to dealing with the Consortium, however, is that the Ral Nel have learned from hard experience that outsiders have little incentive to engage in their system of debts and credit. While the Consortium has had quite a bit of success running various courier, logistic, and technology concerns across the galaxy, they only do so for immediate payment and rarely consent to long-term contracts that they don’t believe outsiders will honor.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;The Deepwrought and their Waveform Arbitrator caused the Consortium to set aside their isolationist attitudes. The Arbitrator was too powerful a defense for the zios to ignore, and twenty of the largest zio qen formed the most powerful Consortium in Ral Nel history in order to build it. Most baffling to the zios, the Deepwrought Scholarate appeared to be motivated not by the typical short-sighted greed the Ral Nel expect from outsiders, but by a keen awareness of the mutual debts that would reasonably exist between great powers were sane (that is to say, behaving like proper Ral Nel). Since the Arbitrator’s successful deployment, the current Consortium has remained stable, and has been tentatively making deals with other civilizations as well. Ral Nel microprocessors and courier services are in high demand, and the recent thawing of galactic relations has created a bit of a run on Ral Nel goods and services.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;Meanwhile, the goal of the Consortium’s zio is simple: to guarantee the Ral Nel’s place in the galaxy, the rest of the galaxy needs to owe them debts it can never repay. If the Ral Nel can use their unrivaled microprocessor technologies to take control of the strange forces within the world of Thunder’s Edge, they can use that power to save the galaxy from the forces that threaten to destroy it. And that salvation would create the biggest debt of all.&lt;/p&gt;</value>
+  </data>
+  <data name="TheRalNelConsortium_Ability" xml:space="preserve">
+    <value>&lt;p&gt;SURVIVAL INSTINCT:&lt;/p&gt;
+&lt;p&gt;After a player activates a system that contains your ships, you may move up to 2 of your ships into the active system from adjacent systems that do not contain your command tokens.&lt;/p&gt;
+&lt;/br&gt;
+&lt;p&gt;MINIATURIZATION:&lt;/p&gt;
+&lt;p&gt;Your structures can be transported by any ships; this does not require or count against capacity. While your structures are in the space area, they cannot use their unit abilities. At the end of your tactical action, you may place your structures that are in space areas onto planets you control in their respective systems.&lt;/p&gt;</value>
   </data>
 </root>

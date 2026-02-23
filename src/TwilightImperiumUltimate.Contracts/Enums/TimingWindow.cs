@@ -11,4 +11,7 @@ public enum TimingWindow
     Reaction,
     StrategyPhase,
     StatusPhase,
+    TurnStart,
+    TurnEnd,
+    Transaction,
 }

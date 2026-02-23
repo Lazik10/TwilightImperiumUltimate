@@ -72,6 +72,13 @@ internal static class FactionsData
             new() { Id = 57, FactionName = FactionName.TheVeldyrSovereignty, HomeSystem = SystemTileName.Tile1032, Commodities = 4, ComplexityRating = ComplexityRating.Low, GameVersion = GameVersion.DiscordantStars },
             new() { Id = 58, FactionName = FactionName.TheZealotsOfRhodun, HomeSystem = SystemTileName.Tile1033, Commodities = 3, ComplexityRating = ComplexityRating.High, GameVersion = GameVersion.DiscordantStars },
             new() { Id = 59, FactionName = FactionName.TheZelianPurifier, HomeSystem = SystemTileName.Tile1034, Commodities = 2, ComplexityRating = ComplexityRating.Medium, GameVersion = GameVersion.DiscordantStars },
+
+            new() { Id = 60, FactionName = FactionName.TheCrimsonRebellion, HomeSystem = SystemTileName.TileTE94, Commodities = 2, ComplexityRating = ComplexityRating.High, GameVersion = GameVersion.ThundersEdge },
+            new() { Id = 61, FactionName = FactionName.TheDeepwroughtScholarate, HomeSystem = SystemTileName.TileTE95, Commodities = 3, ComplexityRating = ComplexityRating.Medium, GameVersion = GameVersion.ThundersEdge },
+            new() { Id = 62, FactionName = FactionName.TheFirmamentTheObsidian, HomeSystem = SystemTileName.TileTE96A, Commodities = 3, ComplexityRating = ComplexityRating.High, GameVersion = GameVersion.ThundersEdge },
+            new() { Id = 63, FactionName = FactionName.LastBastion, HomeSystem = SystemTileName.TileTE92, Commodities = 1, ComplexityRating = ComplexityRating.Low, GameVersion = GameVersion.ThundersEdge },
+            new() { Id = 64, FactionName = FactionName.TheRalNelConsortium, HomeSystem = SystemTileName.TileTE93, Commodities = 4, ComplexityRating = ComplexityRating.Low, GameVersion = GameVersion.ThundersEdge },
+
         };
 
         var updatedFactions = factions.Select((faction, i) =>

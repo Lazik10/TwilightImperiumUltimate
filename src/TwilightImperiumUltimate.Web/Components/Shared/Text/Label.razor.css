@@ -74,8 +74,40 @@
     color: #816de6;
 }
 
+.thrall {
+    color: #df966e;
+}
+
+.acolyte {
+    color: #ce8863;
+}
+
+.legionnaire {
+    color: #c3764c;
+}
+
+.starlancer {
+    color: #c26b3d;
+}
+
+.gene-sorcerer {
+    color: #d6682d;
+}
+
+.ixth-lord {
+    color: #d66223;
+}
+
+.archon {
+    color: #ec651c;
+}
+
+.tyrant {
+    color: #f65904;
+}
+
 .galactic-threat {
-    color: #e74c3c;
+    color: #ba6de6;
 }
 
 .pmbg {

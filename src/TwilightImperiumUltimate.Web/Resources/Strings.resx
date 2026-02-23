@@ -2436,7 +2436,7 @@ Brandon Williams&lt;/p&gt;</value>
     <value>Pax Magnifica Bellum Gloriosum</value>
   </data>
   <data name="Rankings_PrestigeRankCategory_GalacticThreatOne" xml:space="preserve">
-    <value>Galactic Threat III</value>
+    <value>Galactic Threat I</value>
   </data>
   <data name="Rankings_PrestigeRankCategory_GalacticThreatTwo" xml:space="preserve">
     <value>Galactic Threat II</value>
@@ -2911,5 +2911,35 @@ Brandon Williams&lt;/p&gt;</value>
   </data>
   <data name="TiglLeagueFilter_Fractured" xml:space="preserve">
     <value>Fractured</value>
+  </data>
+  <data name="GameVersion_ThundersEdge" xml:space="preserve">
+    <value>Thunder's Edge</value>
+  </data>
+  <data name="Faction_SetupChooseDeepwroughtTechnologies" xml:space="preserve">
+    <value>During setup, research technology twice.</value>
+  </data>
+  <data name="Faction_SetupChooseCrimsonTechnologies" xml:space="preserve">
+    <value>Choose 1 blue or red technology with no prerequisites.</value>
+  </data>
+  <data name="Faction_SetupChooseBastionTechnologies" xml:space="preserve">
+    <value>Choose 1 blue or yellow technology with no prerequisites.</value>
+  </data>
+  <data name="Faction_SetupChooseFirmamentTechnologies" xml:space="preserve">
+    <value>Choose 1 green or yellow technology with no prerequisites.</value>
+  </data>
+  <data name="Faction_SetupChooseRalNelTechnologies" xml:space="preserve">
+    <value>Choose 1 green or red technology with no prerequisites.</value>
+  </data>
+  <data name="Faction_FrontSheetFirmament" xml:space="preserve">
+    <value>Front Sheet (Firmament)</value>
+  </data>
+  <data name="Faction_BackSheetFirmament" xml:space="preserve">
+    <value>Back Sheet (Firmament)</value>
+  </data>
+  <data name="Faction_FrontSheetObsidian" xml:space="preserve">
+    <value>Front Sheet (Obsidian)</value>
+  </data>
+  <data name="Faction_BackSheetObsidian" xml:space="preserve">
+    <value>Back Sheet (Obsidian)</value>
   </data>
 </root>

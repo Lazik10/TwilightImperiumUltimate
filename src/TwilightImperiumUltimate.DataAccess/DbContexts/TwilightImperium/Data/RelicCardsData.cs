@@ -26,5 +26,17 @@ internal static class RelicCardsData
         new() { Id = 18, EnumName = RelicCardName.TwilightMirror, GameVersion = GameVersion.UnchartedSpace },
         new() { Id = 19, EnumName = RelicCardName.ESixGoNetwork, GameVersion = GameVersion.UnchartedSpace },
         new() { Id = 20, EnumName = RelicCardName.FotgottenThrone, GameVersion = GameVersion.UnchartedSpace },
+
+        new() { Id = 21, EnumName = RelicCardName.CircletOfTheVoid, GameVersion = GameVersion.CodexLiberation },
+        new() { Id = 22, EnumName = RelicCardName.BookOfLatvinia, GameVersion = GameVersion.CodexLiberation },
+        new() { Id = 23, EnumName = RelicCardName.Neuraloop, GameVersion = GameVersion.CodexLiberation },
+
+        new() { Id = 24, EnumName = RelicCardName.MetaliVoidArmaments, GameVersion = GameVersion.ThundersEdge },
+        new() { Id = 25, EnumName = RelicCardName.TheQuantumcore, GameVersion = GameVersion.ThundersEdge },
+        new() { Id = 26, EnumName = RelicCardName.TheSilverFlame, GameVersion = GameVersion.ThundersEdge },
+        new() { Id = 27, EnumName = RelicCardName.LightrailOrdnance, GameVersion = GameVersion.ThundersEdge },
+        new() { Id = 28, EnumName = RelicCardName.MetaliVoidShielding, GameVersion = GameVersion.ThundersEdge },
+        new() { Id = 29, EnumName = RelicCardName.TheTriad, GameVersion = GameVersion.ThundersEdge },
+        new() { Id = 30, EnumName = RelicCardName.HeartOfIxth, GameVersion = GameVersion.ThundersEdge },
     };
 }

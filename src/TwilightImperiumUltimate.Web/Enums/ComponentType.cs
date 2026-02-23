@@ -16,13 +16,18 @@ public enum ComponentType
     // Flagships
     Flagship,
 
-    // Nomad
+    // Nomad and Firmament / Obsidian
     AgentOne,
     AgentTwo,
     AgentThree,
 
-    // Keleres and Ghemina Raiders
+    // Keleres and Ghemina Raiders and Firmament / Obsidian
     HeroOne,
     HeroTwo,
     HeroThree,
+
+    // The Firmament / Obsidian
+    AgentObsidian,
+    CommanderObsidian,
+    HeroObsidian,
 }

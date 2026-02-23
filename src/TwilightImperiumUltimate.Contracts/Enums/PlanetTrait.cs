@@ -10,4 +10,11 @@ public enum PlanetTrait
     AlphaWormhole,
     BetaWormhole,
     GammaWormhole,
+    SpaceStation,
+
+    CulturalHazardous,
+    HazardousIndustrial,
+    IndustrialCultural,
+
+    Relic,
 }

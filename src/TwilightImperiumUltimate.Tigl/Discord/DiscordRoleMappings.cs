@@ -42,10 +42,10 @@ public static class DiscordRoleMappings
             { TiglPrestigeRank.OdlynnMyrr, Make("TIGL - Odlynn Myrr", "1288169690094506005", "#816de6", "OdlynnMyrr:1443393126109544539") },
 
             // Thunder's Edge (partial mapping entries available)
-            { TiglPrestigeRank.Entity4X41AApollo, Make("TIGL - Entity 4X41A Apollo", "1441205182540021781", "#816de6", string.Empty) },
+            { TiglPrestigeRank.Entity4X41AApollo, Make("TIGL - Entity 4X41A Apollo", "1441463763441291426", "#816de6", string.Empty) },
             { TiglPrestigeRank.DirectorNel, Make("TIGL - Director Nel", "1441206005253017630", "#816de6", string.Empty) },
-            { TiglPrestigeRank.TaZern, Make("TIGL - Ta Zern", "1441463759490121959", "#816de6", string.Empty) },
-            { TiglPrestigeRank.HomesickPhantom, Make("TIGL - Homesick Phantom", "1441463763441291426", "#816de6", string.Empty) },
+            { TiglPrestigeRank.TaZern, Make("TIGL - Ta Zern", "1441205182540021781", "#816de6", string.Empty) },
+            { TiglPrestigeRank.HomesickPhantom, Make("TIGL - Homesick Phantom", "1441463759490121959", "#816de6", string.Empty) },
             { TiglPrestigeRank.Sharsiss, Make("TIGL - Sharsiss", "1441463524416163982", "#816de6", string.Empty) },
 
             // Twilight's Fall

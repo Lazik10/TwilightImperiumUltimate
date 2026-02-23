@@ -37,16 +37,43 @@
 
             <VerticalSpace Height="50" />
 
-            <FlexRowContainer>
+            @if (_selectedFaction.FactionName != FactionName.TheFirmamentTheObsidian)
+            {
+                <FlexRowContainer>
 
-                <div class="faction-sheet-button clickable" @onclick="() => ShowBigImage(true)">
-                    @Strings.Faction_FrontSheet
-                </div>
-                <div class="faction-sheet-button clickable" @onclick="() => ShowBigImage(false)">
-                    @Strings.Faction_BackSheet
-                </div>
+                    <div class="faction-sheet-button clickable" @onclick="() => ShowBigImage(true, false)">
+                        @Strings.Faction_FrontSheet
+                    </div>
+                    <div class="faction-sheet-button clickable" @onclick="() => ShowBigImage(false, false)">
+                        @Strings.Faction_BackSheet
+                    </div>
 
-            </FlexRowContainer>
+                </FlexRowContainer>
+            }
+            else
+            {
+                <FlexRowContainer>
+
+                    <div class="faction-sheet-button clickable" @onclick="() => ShowBigImage(true, false)">
+                        @Strings.Faction_FrontSheetFirmament
+                    </div>
+                    <div class="faction-sheet-button clickable" @onclick="() => ShowBigImage(false, false)">
+                        @Strings.Faction_BackSheetFirmament
+                    </div>
+
+                </FlexRowContainer>
+                <VerticalSpace Height="20" />
+                <FlexRowContainer>
+
+                    <div class="faction-sheet-button clickable" @onclick="() => ShowBigImage(true, true)">
+                        @Strings.Faction_FrontSheetObsidian
+                    </div>
+                    <div class="faction-sheet-button clickable" @onclick="() => ShowBigImage(false, true)">
+                        @Strings.Faction_BackSheetObsidian
+                    </div>
+
+                </FlexRowContainer>
+            }
 
         </FlexColumnContainer>
 

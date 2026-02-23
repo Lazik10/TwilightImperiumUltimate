@@ -134,5 +134,22 @@ internal static class FactionTechnologiesData
         new() { FactionName = FactionName.TheNokarSellships, TechnologyName = TechnologyName.Psychoarchaeology, StartingTechnology = true },
         new() { FactionName = FactionName.TheNokarSellships, TechnologyName = TechnologyName.DarkEnergyTap, StartingTechnology = true },
         new() { FactionName = FactionName.TheNokarSellships, TechnologyName = TechnologyName.AIDevelopmentAlgorithm, StartingTechnology = true },
+
+        new() { FactionName = FactionName.TheCrimsonRebellion, TechnologyName = TechnologyName.AntimassDeflectors, StartingTechnology = true },
+        new() { FactionName = FactionName.TheCrimsonRebellion, TechnologyName = TechnologyName.DarkEnergyTap, StartingTechnology = true },
+        new() { FactionName = FactionName.TheCrimsonRebellion, TechnologyName = TechnologyName.AIDevelopmentAlgorithm, StartingTechnology = true },
+        new() { FactionName = FactionName.TheCrimsonRebellion, TechnologyName = TechnologyName.PlasmaScoring, StartingTechnology = true },
+        new() { FactionName = FactionName.TheFirmamentTheObsidian, TechnologyName = TechnologyName.SarweenTools, StartingTechnology = true },
+        new() { FactionName = FactionName.TheFirmamentTheObsidian, TechnologyName = TechnologyName.ScanlinkDroneNetwork, StartingTechnology = true },
+        new() { FactionName = FactionName.TheFirmamentTheObsidian, TechnologyName = TechnologyName.Psychoarchaeology, StartingTechnology = true },
+        new() { FactionName = FactionName.TheFirmamentTheObsidian, TechnologyName = TechnologyName.NeuralMotivator, StartingTechnology = true },
+        new() { FactionName = FactionName.LastBastion, TechnologyName = TechnologyName.AntimassDeflectors, StartingTechnology = true },
+        new() { FactionName = FactionName.LastBastion, TechnologyName = TechnologyName.DarkEnergyTap, StartingTechnology = true },
+        new() { FactionName = FactionName.LastBastion, TechnologyName = TechnologyName.SarweenTools, StartingTechnology = true },
+        new() { FactionName = FactionName.LastBastion, TechnologyName = TechnologyName.ScanlinkDroneNetwork, StartingTechnology = true },
+        new() { FactionName = FactionName.TheRalNelConsortium, TechnologyName = TechnologyName.AIDevelopmentAlgorithm, StartingTechnology = true },
+        new() { FactionName = FactionName.TheRalNelConsortium, TechnologyName = TechnologyName.PlasmaScoring, StartingTechnology = true },
+        new() { FactionName = FactionName.TheRalNelConsortium, TechnologyName = TechnologyName.Psychoarchaeology, StartingTechnology = true },
+        new() { FactionName = FactionName.TheRalNelConsortium, TechnologyName = TechnologyName.NeuralMotivator, StartingTechnology = true },
     };
 }

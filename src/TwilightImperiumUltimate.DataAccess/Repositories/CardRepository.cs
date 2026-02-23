@@ -50,6 +50,24 @@ public class CardRepository(
         return await dbContext.PromissoryNoteCards.ToListAsync(ct);
     }
 
+    public async Task<List<BreakthroughCard>> GetAllBreakthroughCards(CancellationToken ct)
+    {
+        await using var dbContext = await _context.CreateDbContextAsync(ct);
+        return await dbContext.BreakthroughCards.ToListAsync(ct);
+    }
+
+    public async Task<List<FlagshipCard>> GetAllFlagshipCards(CancellationToken ct)
+    {
+        await using var dbContext = await _context.CreateDbContextAsync(ct);
+        return await dbContext.FlagshipCards.ToListAsync(ct);
+    }
+
+    public async Task<List<SpecialComponentCard>> GetAllSpecialComponentCards(CancellationToken ct)
+    {
+        await using var dbContext = await _context.CreateDbContextAsync(ct);
+        return await dbContext.SpecialComponentCards.ToListAsync(ct);
+    }
+
     public async Task<List<RelicCard>> GetAllRelicCards(CancellationToken ct)
     {
         await using var dbContext = await _context.CreateDbContextAsync(ct);

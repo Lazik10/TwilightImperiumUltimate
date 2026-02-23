@@ -3196,5 +3196,475 @@ internal static class SystemTilesData
             TileCategory = SystemTileCategory.Red,
             GameVersion = GameVersion.AscendantSun,
         },
+        new SystemTile()
+        {
+            Id = 319,
+            SystemTileName = SystemTileName.TileTE92,
+            SystemTileCode = "92",
+            FactionName = FactionName.LastBastion,
+            Anomaly = AnomalyName.Nebula,
+            TileCategory = SystemTileCategory.Green,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 320,
+            SystemTileName = SystemTileName.TileTE93,
+            SystemTileCode = "93",
+            FactionName = FactionName.TheRalNelConsortium,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Green,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 321,
+            SystemTileName = SystemTileName.TileTE94,
+            SystemTileCode = "94",
+            FactionName = FactionName.TheCrimsonRebellion,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Green,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 322,
+            SystemTileName = SystemTileName.TileTE95,
+            SystemTileCode = "95",
+            FactionName = FactionName.TheDeepwroughtScholarate,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Green,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 323,
+            SystemTileName = SystemTileName.TileTE96A,
+            SystemTileCode = "96A",
+            FactionName = FactionName.TheFirmamentTheObsidian,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Green,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 324,
+            SystemTileName = SystemTileName.TileTE96B,
+            SystemTileCode = "96B",
+            FactionName = FactionName.TheFirmamentTheObsidian,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.ExternalMapTile,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 325,
+            SystemTileName = SystemTileName.TileTE97,
+            SystemTileCode = "97",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 326,
+            SystemTileName = SystemTileName.TileTE98,
+            SystemTileCode = "98",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 327,
+            SystemTileName = SystemTileName.TileTE99,
+            SystemTileCode = "99",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 328,
+            SystemTileName = SystemTileName.TileTE100,
+            SystemTileCode = "100",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 329,
+            SystemTileName = SystemTileName.TileTE101,
+            SystemTileCode = "101",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 330,
+            SystemTileName = SystemTileName.TileTE102,
+            SystemTileCode = "102",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 331,
+            SystemTileName = SystemTileName.TileTE103,
+            SystemTileCode = "103",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 332,
+            SystemTileName = SystemTileName.TileTE104,
+            SystemTileCode = "104",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 333,
+            SystemTileName = SystemTileName.TileTE105,
+            SystemTileCode = "105",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 334,
+            SystemTileName = SystemTileName.TileTE106,
+            SystemTileCode = "106",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 335,
+            SystemTileName = SystemTileName.TileTE107,
+            SystemTileCode = "107",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 336,
+            SystemTileName = SystemTileName.TileTE108,
+            SystemTileCode = "108",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 337,
+            SystemTileName = SystemTileName.TileTE109,
+            SystemTileCode = "109",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 338,
+            SystemTileName = SystemTileName.TileTE110,
+            SystemTileCode = "110",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 339,
+            SystemTileName = SystemTileName.TileTE111,
+            SystemTileCode = "111",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Blue,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 340,
+            SystemTileName = SystemTileName.TileTE112,
+            SystemTileCode = "112",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.MecatolRex,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 341,
+            SystemTileName = SystemTileName.TileTE113,
+            SystemTileCode = "113",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.GravityRift,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 342,
+            SystemTileName = SystemTileName.TileTE114,
+            SystemTileCode = "114",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.EntropicScar,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 343,
+            SystemTileName = SystemTileName.TileTE115,
+            SystemTileCode = "115",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.AsteroidField,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 344,
+            SystemTileName = SystemTileName.TileTE116,
+            SystemTileCode = "116",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.EntropicScar,
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 345,
+            SystemTileName = SystemTileName.TileTE117,
+            SystemTileCode = "117",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.AsteroidField, // Also gravity rift
+            TileCategory = SystemTileCategory.Red,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 346,
+            SystemTileName = SystemTileName.TileTE118,
+            SystemTileCode = "118",
+            FactionName = FactionName.TheCrimsonRebellion,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.ExternalMapTile,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 347,
+            SystemTileName = SystemTileName.TileTE119A,
+            SystemTileCode = "119A",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 348,
+            SystemTileName = SystemTileName.TileTE119B,
+            SystemTileCode = "119B",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 349,
+            SystemTileName = SystemTileName.TileTE120A,
+            SystemTileCode = "120A",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 350,
+            SystemTileName = SystemTileName.TileTE120B,
+            SystemTileCode = "120B",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 351,
+            SystemTileName = SystemTileName.TileTE121A,
+            SystemTileCode = "121A",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 352,
+            SystemTileName = SystemTileName.TileTE121B,
+            SystemTileCode = "121B",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 353,
+            SystemTileName = SystemTileName.TileTE122A,
+            SystemTileCode = "122A",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 354,
+            SystemTileName = SystemTileName.TileTE122B,
+            SystemTileCode = "122B",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 355,
+            SystemTileName = SystemTileName.TileTE123A,
+            SystemTileCode = "123A",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 356,
+            SystemTileName = SystemTileName.TileTE123B,
+            SystemTileCode = "123B",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 357,
+            SystemTileName = SystemTileName.TileTE124A,
+            SystemTileCode = "124A",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 358,
+            SystemTileName = SystemTileName.TileTE124B,
+            SystemTileCode = "124B",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Hyperlane,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 359,
+            SystemTileName = SystemTileName.TileTE125A,
+            SystemTileCode = "Fracture1",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.ExternalMapTile,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 360,
+            SystemTileName = SystemTileName.TileTE125B,
+            SystemTileCode = "Fracture2",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.ExternalMapTile,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 361,
+            SystemTileName = SystemTileName.TileTE126A,
+            SystemTileCode = "Fracture3",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.ExternalMapTile,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 362,
+            SystemTileName = SystemTileName.TileTE126B,
+            SystemTileCode = "Fracture4",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.ExternalMapTile,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 363,
+            SystemTileName = SystemTileName.TileTE126C,
+            SystemTileCode = "Fracture5",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.ExternalMapTile,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 364,
+            SystemTileName = SystemTileName.TileTE127A,
+            SystemTileCode = "Fracture6",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.ExternalMapTile,
+            GameVersion = GameVersion.ThundersEdge,
+        },
+        new SystemTile()
+        {
+            Id = 365,
+            SystemTileName = SystemTileName.TileTE127B,
+            SystemTileCode = "Fracture7",
+            FactionName = FactionName.None,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.ExternalMapTile,
+            GameVersion = GameVersion.ThundersEdge,
+        },
     };
 }

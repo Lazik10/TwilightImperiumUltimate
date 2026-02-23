@@ -38,6 +38,12 @@ public partial class TwilightImperiumDbContext : IdentityDbContext<TwilightImper
 
     public virtual DbSet<PromissoryNoteCard> PromissoryNoteCards { get; set; }
 
+    public virtual DbSet<BreakthroughCard> BreakthroughCards { get; set; }
+
+    public virtual DbSet<FlagshipCard> FlagshipCards { get; set; }
+
+    public virtual DbSet<SpecialComponentCard> SpecialComponentCards { get; set; }
+
     // Galaxy
     public virtual DbSet<Planet> Planets { get; set; }
 

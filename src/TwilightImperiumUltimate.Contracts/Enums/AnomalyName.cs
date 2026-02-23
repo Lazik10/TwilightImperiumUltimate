@@ -7,4 +7,5 @@ public enum AnomalyName
     Nebula,
     Supernova,
     GravityRift,
+    EntropicScar,
 }

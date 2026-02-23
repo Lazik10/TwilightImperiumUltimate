@@ -54,16 +54,12 @@ public partial class RankRow
 
         var duration = endDate - startDate;
 
-        List<string> parts = new List<string>();
+        if (duration.Days == 0)
+            return "< 24 hours";
+        if (duration.Days == 1)
+            return "1 day";
 
-        if (duration.Days > 0)
-            parts.Add($"{duration.Days:D2} d");
-        if (duration.Hours > 0)
-            parts.Add($"{duration.Hours:D2} h");
-        if (duration.Minutes > 0)
-            parts.Add($"{duration.Minutes:D2} m");
-
-        return parts.Count > 0 ? string.Join(" ", parts) : "0s";
+        return $"{duration.Days:D2} days";
     }
 
     private TextColor GetPrestigeColor()
@@ -71,7 +67,8 @@ public partial class RankRow
         return Ranking.Prestige switch
         {
             TiglPrestigeRank.PaxMagnificaBellumGloriosum => TextColor.Pmbg,
-            TiglPrestigeRank.GalacticThreat or TiglPrestigeRank.Tyrant => TextColor.GalacticThreat,
+            TiglPrestigeRank.GalacticThreat => TextColor.GalacticThreat,
+            TiglPrestigeRank.Tyrant => TextColor.Tyrant,
             _ => TextColor.White,
         };
     }

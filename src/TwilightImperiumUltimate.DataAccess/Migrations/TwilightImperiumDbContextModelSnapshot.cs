@@ -1655,6 +1655,150 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Text = "",
                             TimingWindow = "AgendaPhase",
                             Type = "Action"
+                        },
+                        new
+                        {
+                            Id = 122,
+                            EnumName = "Salvage",
+                            GameVersion = "BaseGame",
+                            Text = "",
+                            TimingWindow = "Combat",
+                            Type = "Action"
+                        },
+                        new
+                        {
+                            Id = 123,
+                            EnumName = "WarEffort",
+                            GameVersion = "BaseGame",
+                            Text = "",
+                            TimingWindow = "Action",
+                            Type = "Action"
+                        },
+                        new
+                        {
+                            Id = 124,
+                            EnumName = "BlackMarketDealings",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            TimingWindow = "Transaction",
+                            Type = "Action"
+                        },
+                        new
+                        {
+                            Id = 125,
+                            EnumName = "Brilliance",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            TimingWindow = "Action",
+                            Type = "Action"
+                        },
+                        new
+                        {
+                            Id = 126,
+                            EnumName = "CrashLanding",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            TimingWindow = "Combat",
+                            Type = "Action"
+                        },
+                        new
+                        {
+                            Id = 127,
+                            EnumName = "Crisis",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            TimingWindow = "Anytime",
+                            Type = "Action"
+                        },
+                        new
+                        {
+                            Id = 128,
+                            EnumName = "ExchangeProgram",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            TimingWindow = "Action",
+                            Type = "Action"
+                        },
+                        new
+                        {
+                            Id = 129,
+                            EnumName = "ExtremeDuress",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            TimingWindow = "TurnStart",
+                            Type = "Action"
+                        },
+                        new
+                        {
+                            Id = 130,
+                            EnumName = "LieInWait",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            TimingWindow = "Transaction",
+                            Type = "Action"
+                        },
+                        new
+                        {
+                            Id = 131,
+                            EnumName = "MercenaryContract",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            TimingWindow = "Action",
+                            Type = "Action"
+                        },
+                        new
+                        {
+                            Id = 132,
+                            EnumName = "PirateContract",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            TimingWindow = "Action",
+                            Type = "Action"
+                        },
+                        new
+                        {
+                            Id = 133,
+                            EnumName = "PirateFleet",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            TimingWindow = "Action",
+                            Type = "Action"
+                        },
+                        new
+                        {
+                            Id = 134,
+                            EnumName = "PuppetsOnAString",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            TimingWindow = "TurnEnd",
+                            Type = "Action"
+                        },
+                        new
+                        {
+                            Id = 135,
+                            EnumName = "Rescue",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            TimingWindow = "Anytime",
+                            Type = "Action"
+                        },
+                        new
+                        {
+                            Id = 136,
+                            EnumName = "Strategize",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            TimingWindow = "Action",
+                            Type = "Action"
+                        },
+                        new
+                        {
+                            Id = 137,
+                            EnumName = "Overrule",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            TimingWindow = "Action",
+                            Type = "Action"
                         });
                 });
 
@@ -2275,6 +2419,658 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         });
                 });
 
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Cards.BreakthroughCard", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("EnumName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("EnumName")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("FactionName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("FactionName")
+                        .HasColumnOrder(2);
+
+                    b.Property<string>("GameVersion")
+                        .IsRequired()
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("GameVersion")
+                        .HasColumnOrder(5);
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("Text")
+                        .HasColumnOrder(4);
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("Type")
+                        .HasColumnOrder(3);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BreakthroughCards", "Card");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            EnumName = "Psychospore",
+                            FactionName = "TheArborec",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            EnumName = "WingTransfer",
+                            FactionName = "TheArgentFlight",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            EnumName = "GravleashManeuvers",
+                            FactionName = "TheBaronyOfLetnev",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            EnumName = "DeorbitBarrage",
+                            FactionName = "TheClanOfSaar",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            EnumName = "IIHQModernization",
+                            FactionName = "TheCouncilKeleres",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            EnumName = "ResonanceGenerator",
+                            FactionName = "TheCrimsonRebellion",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            EnumName = "VisionariaSelect",
+                            FactionName = "TheDeepwroughtScholarate",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            EnumName = "StellarGenesis",
+                            FactionName = "TheEmbersOfMuaat",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            EnumName = "AutoFactories",
+                            FactionName = "TheEmiratesOfHacan",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            EnumName = "VoidTether",
+                            FactionName = "TheEmpyrean",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            EnumName = "BellumGloriosum",
+                            FactionName = "TheFederationOfSol",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            EnumName = "TheSowing",
+                            FactionName = "TheFirmamentTheObsidian",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            EnumName = "TheReaping",
+                            FactionName = "TheFirmamentTheObsidian",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            EnumName = "ParticleSynthesis",
+                            FactionName = "TheGhostsOfCreuss",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            EnumName = "FealtyUplink",
+                            FactionName = "TheL1z1xMindnet",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            EnumName = "TheIcon",
+                            FactionName = "LastBastion",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            EnumName = "VaultsOfTheHeir",
+                            FactionName = "TheMahactGeneSorcerers",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            EnumName = "TheTablesGrace",
+                            FactionName = "TheMentakCoalition",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            EnumName = "Corsair",
+                            FactionName = "TheMentakCoalition",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            EnumName = "Mindsieve",
+                            FactionName = "TheNaaluCollective",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            EnumName = "AbsoluteSynergy",
+                            FactionName = "TheNaazRokhaAlliance",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            EnumName = "EidolonMaximum",
+                            FactionName = "TheNaazRokhaAlliance",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            EnumName = "ValefarAssimilatorZ",
+                            FactionName = "TheNekroVirus",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            EnumName = "ThundersParadox",
+                            FactionName = "TheNomad",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            EnumName = "DataSkimmer",
+                            FactionName = "TheRalNelConsortium",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            EnumName = "NorrSupremacy",
+                            FactionName = "SardakkNorr",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            EnumName = "SlumberstateComputing",
+                            FactionName = "TheTitansOfUl",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            EnumName = "SpecializedCompounds",
+                            FactionName = "TheUniversitiesOfJolNar",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            EnumName = "AlRaithIxIanovar",
+                            FactionName = "TheVuilRaithCabal",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            EnumName = "Imperator",
+                            FactionName = "TheWinnu",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 31,
+                            EnumName = "ArchonsGift",
+                            FactionName = "TheXxchaKingdom",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 32,
+                            EnumName = "YinAscendant",
+                            FactionName = "TheYinBrotherhood",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 33,
+                            EnumName = "DeepgloomExecutable",
+                            FactionName = "TheYssarilTribes",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 34,
+                            EnumName = "ArmsBrokerage",
+                            FactionName = "TheShipwrightsofAxis",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 35,
+                            EnumName = "TradeProtectorate",
+                            FactionName = "TheCeldauriTradeConfederation",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 36,
+                            EnumName = "CyberneticArmoring",
+                            FactionName = "TheSavagesOfCymiae",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 37,
+                            EnumName = "ExodusEngineering",
+                            FactionName = "TheDihMohnFlotilla",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 38,
+                            EnumName = "ReverieImplants",
+                            FactionName = "TheFlorzenProfiteers",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 39,
+                            EnumName = "GalacticMovement",
+                            FactionName = "TheFreeSystemsCompact",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 40,
+                            EnumName = "RaidingParties",
+                            FactionName = "TheGheminaRaiders",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 41,
+                            EnumName = "CrypticInsights",
+                            FactionName = "TheAugursOfIlyxum",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 42,
+                            EnumName = "TheCollectorsMuseum",
+                            FactionName = "TheKolleccSociety",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 43,
+                            EnumName = "TheQueensWrath",
+                            FactionName = "TheKortaliTribunal",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 44,
+                            EnumName = "ProfessionalIntrigue",
+                            FactionName = "TheLiZhoDynasty",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 45,
+                            EnumName = "MendedGrove",
+                            FactionName = "TheLTokkKhrask",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 46,
+                            EnumName = "StabilizationArrays",
+                            FactionName = "TheMirvedaProtectorate",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 47,
+                            EnumName = "MirageCraf",
+                            FactionName = "TheGlimmerOfMortheus",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 48,
+                            EnumName = "Dreamwalkers",
+                            FactionName = "TheMykoMentori",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 49,
+                            EnumName = "AnomalyStabilization",
+                            FactionName = "TheNivynStarKings",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 50,
+                            EnumName = "InsurrectionistNetworking",
+                            FactionName = "TheOlradinLeague",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 51,
+                            EnumName = "RhodunsReliquary",
+                            FactionName = "TheZealotsOfRhodun",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 52,
+                            EnumName = "TheProdigysTriumph",
+                            FactionName = "RohDhnaMechatronics",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 53,
+                            EnumName = "HiddenHardpoints",
+                            FactionName = "TheTnelisSyndicate",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 54,
+                            EnumName = "StrongarmBanking",
+                            FactionName = "TheVadenBankingClans",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 55,
+                            EnumName = "GraviticDisruption",
+                            FactionName = "TheVaylerianScourge",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 56,
+                            EnumName = "AuroraResearchBase",
+                            FactionName = "TheVeldyrSovereignty",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 57,
+                            EnumName = "AwakenedPlanetoids",
+                            FactionName = "TheZelianPurifier",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 58,
+                            EnumName = "HistorianConclave",
+                            FactionName = "TheBentorConglomerate",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 59,
+                            EnumName = "Matriphagy",
+                            FactionName = "TheCheiranHordes",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 60,
+                            EnumName = "CelestialAmbassadors",
+                            FactionName = "TheEdynMandate",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 61,
+                            EnumName = "CultOfTheAllMother",
+                            FactionName = "TheGhotiWayfarers",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 62,
+                            EnumName = "DhonrazInstallations",
+                            FactionName = "TheGledgeUnion",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 63,
+                            EnumName = "Bannerhalls",
+                            FactionName = "TheBerserkersOfKjalengard",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 64,
+                            EnumName = "SynchronicitySix",
+                            FactionName = "TheMonksOfKolume",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 65,
+                            EnumName = "StrainDispersa",
+                            FactionName = "TheKyroSodality",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 66,
+                            EnumName = "ErasureCorps",
+                            FactionName = "TheLanefirRemnants",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 67,
+                            EnumName = "MercenaryCaptains",
+                            FactionName = "TheNokarSellships",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Breakthrough"
+                        });
+                });
+
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Cards.ExplorationCard", b =>
                 {
                     b.Property<int>("Id")
@@ -2637,6 +3433,730 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             GameVersion = "UnchartedSpace",
                             Text = "",
                             Type = "Exploration"
+                        });
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Cards.FlagshipCard", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("EnumName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("EnumName")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("FactionName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("FactionName")
+                        .HasColumnOrder(2);
+
+                    b.Property<string>("GameVersion")
+                        .IsRequired()
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("GameVersion")
+                        .HasColumnOrder(5);
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("Text")
+                        .HasColumnOrder(4);
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("Type")
+                        .HasColumnOrder(3);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FlagshipCards", "Card");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            EnumName = "DuhaMenaimon",
+                            FactionName = "TheArborec",
+                            GameVersion = "BaseGame",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            EnumName = "ArcSecundus",
+                            FactionName = "TheBaronyOfLetnev",
+                            GameVersion = "BaseGame",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            EnumName = "SonOfRagh",
+                            FactionName = "TheClanOfSaar",
+                            GameVersion = "BaseGame",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            EnumName = "TheInferno",
+                            FactionName = "TheEmbersOfMuaat",
+                            GameVersion = "BaseGame",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            EnumName = "WrathOfKenara",
+                            FactionName = "TheEmiratesOfHacan",
+                            GameVersion = "BaseGame",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            EnumName = "Genesis",
+                            FactionName = "TheFederationOfSol",
+                            GameVersion = "BaseGame",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            EnumName = "HilColish",
+                            FactionName = "TheGhostsOfCreuss",
+                            GameVersion = "BaseGame",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            EnumName = "ZeroZeroOne",
+                            FactionName = "TheL1z1xMindnet",
+                            GameVersion = "BaseGame",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            EnumName = "FourthMoon",
+                            FactionName = "TheMentakCoalition",
+                            GameVersion = "BaseGame",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            EnumName = "Matriarch",
+                            FactionName = "TheNaaluCollective",
+                            GameVersion = "BaseGame",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            EnumName = "TheAlastor",
+                            FactionName = "TheNekroVirus",
+                            GameVersion = "BaseGame",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            EnumName = "CMorranNorr",
+                            FactionName = "SardakkNorr",
+                            GameVersion = "BaseGame",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            EnumName = "JNSHylarim",
+                            FactionName = "TheUniversitiesOfJolNar",
+                            GameVersion = "BaseGame",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            EnumName = "SalaiSaiCorian",
+                            FactionName = "TheWinnu",
+                            GameVersion = "BaseGame",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            EnumName = "LoncarraSsodu",
+                            FactionName = "TheXxchaKingdom",
+                            GameVersion = "BaseGame",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            EnumName = "VanHauge",
+                            FactionName = "TheYinBrotherhood",
+                            GameVersion = "BaseGame",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            EnumName = "YsiaYssrila",
+                            FactionName = "TheYssarilTribes",
+                            GameVersion = "BaseGame",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            EnumName = "Quetzecoatl",
+                            FactionName = "TheArgentFlight",
+                            GameVersion = "ProphecyOfKings",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            EnumName = "Dynamo",
+                            FactionName = "TheEmpyrean",
+                            GameVersion = "ProphecyOfKings",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            EnumName = "ArviconRex",
+                            FactionName = "TheMahactGeneSorcerers",
+                            GameVersion = "ProphecyOfKings",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            EnumName = "ViszElVir",
+                            FactionName = "TheNaazRokhaAlliance",
+                            GameVersion = "ProphecyOfKings",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            EnumName = "Memoria",
+                            FactionName = "TheNomad",
+                            GameVersion = "ProphecyOfKings",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            EnumName = "Ouranos",
+                            FactionName = "TheTitansOfUl",
+                            GameVersion = "ProphecyOfKings",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            EnumName = "TheTerrorBetween",
+                            FactionName = "TheVuilRaithCabal",
+                            GameVersion = "ProphecyOfKings",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            EnumName = "Artemiris",
+                            FactionName = "TheCouncilKeleres",
+                            GameVersion = "CodexVigil",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            EnumName = "Quietus",
+                            FactionName = "TheCrimsonRebellion",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            EnumName = "DWSLuminous",
+                            FactionName = "TheDeepwroughtScholarate",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            EnumName = "HeavensEye",
+                            FactionName = "TheFirmamentTheObsidian",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            EnumName = "HeavensHollow",
+                            FactionName = "TheFirmamentTheObsidian",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            EnumName = "TheEgeiro",
+                            FactionName = "LastBastion",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 31,
+                            EnumName = "LastDispatch",
+                            FactionName = "TheRalNelConsortium",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 32,
+                            EnumName = "TheScarletKnife",
+                            FactionName = "TheRubyMonarch",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 33,
+                            EnumName = "AiroShirRex",
+                            FactionName = "RadiantAur",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 34,
+                            EnumName = "Scintillia",
+                            FactionName = "AvariceRex",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 35,
+                            EnumName = "Nightbloom",
+                            FactionName = "IlSaiLakoeHeraldOfThorns",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 36,
+                            EnumName = "Tizona",
+                            FactionName = "TheSaintOfSwords",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 37,
+                            EnumName = "Enigma",
+                            FactionName = "IlNaViroset",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 38,
+                            EnumName = "TheFaceOfJanovet",
+                            FactionName = "ElNenJanovet",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 39,
+                            EnumName = "AStrangledWhisper",
+                            FactionName = "ASickeningLurch",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 40,
+                            EnumName = "BearerOfHeavens",
+                            FactionName = "TheShipwrightsofAxis",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 41,
+                            EnumName = "Supremacy",
+                            FactionName = "TheCeldauriTradeConfederation",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 42,
+                            EnumName = "Celagrom",
+                            FactionName = "TheCeldauriTradeConfederation",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 43,
+                            EnumName = "ReprocessorAlpha",
+                            FactionName = "TheSavagesOfCymiae",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 44,
+                            EnumName = "Maximus",
+                            FactionName = "TheDihMohnFlotilla",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 45,
+                            EnumName = "ManOWar",
+                            FactionName = "TheFlorzenProfiteers",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 46,
+                            EnumName = "Vox",
+                            FactionName = "TheFreeSystemsCompact",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 47,
+                            EnumName = "TheLady",
+                            FactionName = "TheGheminaRaiders",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 48,
+                            EnumName = "TheLord",
+                            FactionName = "TheGheminaRaiders",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 49,
+                            EnumName = "Nemsys",
+                            FactionName = "TheAugursOfIlyxum",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 50,
+                            EnumName = "NightingaleV",
+                            FactionName = "TheKolleccSociety",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 51,
+                            EnumName = "Magistrate",
+                            FactionName = "TheKortaliTribunal",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 52,
+                            EnumName = "SilenceOfStars",
+                            FactionName = "TheLiZhoDynasty",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 53,
+                            EnumName = "SplinteringGale",
+                            FactionName = "TheLTokkKhrask",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 54,
+                            EnumName = "Nexus",
+                            FactionName = "TheMirvedaProtectorate",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 55,
+                            EnumName = "ParticleSieve",
+                            FactionName = "TheGlimmerOfMortheus",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 56,
+                            EnumName = "PsyclobeaQarnyx",
+                            FactionName = "TheMykoMentori",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 57,
+                            EnumName = "Eradica",
+                            FactionName = "TheNivynStarKings",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 58,
+                            EnumName = "Rallypoint",
+                            FactionName = "TheOlradinLeague",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 59,
+                            EnumName = "Reckoning",
+                            FactionName = "TheZealotsOfRhodun",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 60,
+                            EnumName = "Kyvir",
+                            FactionName = "RohDhnaMechatronics",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 61,
+                            EnumName = "PrincipiaAneris",
+                            FactionName = "TheTnelisSyndicate",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 62,
+                            EnumName = "AurumVadra",
+                            FactionName = "TheVadenBankingClans",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 63,
+                            EnumName = "LostCause",
+                            FactionName = "TheVaylerianScourge",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 64,
+                            EnumName = "Richtyrian",
+                            FactionName = "TheVeldyrSovereignty",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 65,
+                            EnumName = "WorldCracker",
+                            FactionName = "TheZelianPurifier",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 66,
+                            EnumName = "Wayfinder",
+                            FactionName = "TheBentorConglomerate",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 67,
+                            EnumName = "Lithodax",
+                            FactionName = "TheCheiranHordes",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 68,
+                            EnumName = "Kaliburn",
+                            FactionName = "TheEdynMandate",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 69,
+                            EnumName = "AllMother",
+                            FactionName = "TheGhotiWayfarers",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 70,
+                            EnumName = "BegBersha",
+                            FactionName = "TheGledgeUnion",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 71,
+                            EnumName = "HulgadesHammer",
+                            FactionName = "TheBerserkersOfKjalengard",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 72,
+                            EnumName = "Halberd",
+                            FactionName = "TheMonksOfKolume",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 73,
+                            EnumName = "Auriga",
+                            FactionName = "TheKyroSodality",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 74,
+                            EnumName = "MemoryOfDusk",
+                            FactionName = "TheLanefirRemnants",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 75,
+                            EnumName = "AnnahRegia",
+                            FactionName = "TheNokarSellships",
+                            GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
                         });
                 });
 
@@ -4410,6 +5930,60 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             GameVersion = "DiscordantStars",
                             Text = "",
                             Type = "Promissary"
+                        },
+                        new
+                        {
+                            Id = 74,
+                            EnumName = "RaiseTheStandard",
+                            Faction = "LastBastion",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Promissary"
+                        },
+                        new
+                        {
+                            Id = 75,
+                            EnumName = "NanoLinkPermit",
+                            Faction = "TheRalNelConsortium",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Promissary"
+                        },
+                        new
+                        {
+                            Id = 76,
+                            EnumName = "Sever",
+                            Faction = "TheCrimsonRebellion",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Promissary"
+                        },
+                        new
+                        {
+                            Id = 77,
+                            EnumName = "BlackOps",
+                            Faction = "TheFirmamentTheObsidian",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Promissary"
+                        },
+                        new
+                        {
+                            Id = 78,
+                            EnumName = "Malevolency",
+                            Faction = "TheFirmamentTheObsidian",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Promissary"
+                        },
+                        new
+                        {
+                            Id = 79,
+                            EnumName = "ShareKnowledge",
+                            Faction = "TheDeepwroughtScholarate",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Promissary"
                         });
                 });
 
@@ -4613,6 +6187,1632 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             GameVersion = "UnchartedSpace",
                             Text = "",
                             Type = "Relic"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            EnumName = "CircletOfTheVoid",
+                            GameVersion = "CodexLiberation",
+                            Text = "",
+                            Type = "Relic"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            EnumName = "BookOfLatvinia",
+                            GameVersion = "CodexLiberation",
+                            Text = "",
+                            Type = "Relic"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            EnumName = "Neuraloop",
+                            GameVersion = "CodexLiberation",
+                            Text = "",
+                            Type = "Relic"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            EnumName = "MetaliVoidArmaments",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Relic"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            EnumName = "TheQuantumcore",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Relic"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            EnumName = "TheSilverFlame",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Relic"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            EnumName = "LightrailOrdnance",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Relic"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            EnumName = "MetaliVoidShielding",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Relic"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            EnumName = "TheTriad",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Relic"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            EnumName = "HeartOfIxth",
+                            GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Relic"
+                        });
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Cards.SpecialComponentCard", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int")
+                        .HasColumnName("Count")
+                        .HasColumnOrder(6);
+
+                    b.Property<string>("EnumName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("EnumName")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("FactionName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("FactionName")
+                        .HasColumnOrder(2);
+
+                    b.Property<string>("GameVersion")
+                        .IsRequired()
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("GameVersion")
+                        .HasColumnOrder(5);
+
+                    b.Property<string>("SpecialType")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("SpecialType")
+                        .HasColumnOrder(7);
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("Text")
+                        .HasColumnOrder(4);
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
+                        .HasColumnName("Type")
+                        .HasColumnOrder(3);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SpecialComponentCards", "Card");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Count = 1,
+                            EnumName = "LetaniWarrior",
+                            FactionName = "TheArborec",
+                            GameVersion = "BaseGame",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Count = 1,
+                            EnumName = "FloatingFactory",
+                            FactionName = "TheClanOfSaar",
+                            GameVersion = "BaseGame",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Count = 1,
+                            EnumName = "PrototypeWarSun",
+                            FactionName = "TheEmbersOfMuaat",
+                            GameVersion = "BaseGame",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Count = 1,
+                            EnumName = "AvernusCard",
+                            FactionName = "TheEmbersOfMuaat",
+                            GameVersion = "BaseGame",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Count = 1,
+                            EnumName = "AvernusCardAbility",
+                            FactionName = "TheEmbersOfMuaat",
+                            GameVersion = "BaseGame",
+                            SpecialType = "HorizontalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Count = 1,
+                            EnumName = "AvernusToken",
+                            FactionName = "TheEmbersOfMuaat",
+                            GameVersion = "BaseGame",
+                            SpecialType = "PlanetToken",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Count = 1,
+                            EnumName = "AdvancedCarrier",
+                            FactionName = "TheFederationOfSol",
+                            GameVersion = "BaseGame",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Count = 1,
+                            EnumName = "SpecOps",
+                            FactionName = "TheFederationOfSol",
+                            GameVersion = "BaseGame",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Count = 1,
+                            EnumName = "AlphaCreussToken",
+                            FactionName = "TheGhostsOfCreuss",
+                            GameVersion = "BaseGame",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Count = 1,
+                            EnumName = "BetaCreussToken",
+                            FactionName = "TheGhostsOfCreuss",
+                            GameVersion = "BaseGame",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Count = 1,
+                            EnumName = "GammaCreussToken",
+                            FactionName = "TheGhostsOfCreuss",
+                            GameVersion = "BaseGame",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Count = 1,
+                            EnumName = "Corsair",
+                            FactionName = "TheMentakCoalition",
+                            GameVersion = "ThundersEdge",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Count = 1,
+                            EnumName = "HybridCrystalFighter",
+                            FactionName = "TheNaaluCollective",
+                            GameVersion = "BaseGame",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Count = 1,
+                            EnumName = "NaaluZeroToken",
+                            FactionName = "TheNaaluCollective",
+                            GameVersion = "BaseGame",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Count = 1,
+                            EnumName = "SuperDreadnought",
+                            FactionName = "TheL1z1xMindnet",
+                            GameVersion = "BaseGame",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Count = 1,
+                            EnumName = "AssimilationTokenX",
+                            FactionName = "TheNekroVirus",
+                            GameVersion = "BaseGame",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Count = 1,
+                            EnumName = "AssimilationTokenY",
+                            FactionName = "TheNekroVirus",
+                            GameVersion = "BaseGame",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Count = 1,
+                            EnumName = "AssimilationTokenZ",
+                            FactionName = "TheNekroVirus",
+                            GameVersion = "BaseGame",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Count = 3,
+                            EnumName = "DimensionalTearTokenNekro",
+                            FactionName = "TheNekroVirus",
+                            GameVersion = "ProphecyOfKings",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Count = 3,
+                            EnumName = "HeliosTokenNekro",
+                            FactionName = "TheNekroVirus",
+                            GameVersion = "ThundersEdge",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Count = 1,
+                            EnumName = "Exotrireme",
+                            FactionName = "SardakkNorr",
+                            GameVersion = "BaseGame",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Count = 1,
+                            EnumName = "StrikeWingAlpha",
+                            FactionName = "TheArgentFlight",
+                            GameVersion = "ProphecyOfKings",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Count = 2,
+                            EnumName = "VoidTetherToken",
+                            FactionName = "TheEmpyrean",
+                            GameVersion = "ProphecyOfKings",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Count = 2,
+                            EnumName = "CrimsonLegionnaire",
+                            FactionName = "TheMahactGeneSorcerers",
+                            GameVersion = "ProphecyOfKings",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            Count = 1,
+                            EnumName = "EidolonMaximum",
+                            FactionName = "TheNaazRokhaAlliance",
+                            GameVersion = "ThundersEdge",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            Count = 1,
+                            EnumName = "HellTitan",
+                            FactionName = "TheTitansOfUl",
+                            GameVersion = "ProphecyOfKings",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            Count = 1,
+                            EnumName = "SaturnEngine",
+                            FactionName = "TheTitansOfUl",
+                            GameVersion = "ProphecyOfKings",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            Count = 5,
+                            EnumName = "SleeperToken",
+                            FactionName = "TheTitansOfUl",
+                            GameVersion = "ProphecyOfKings",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            Count = 1,
+                            EnumName = "TerraformToken",
+                            FactionName = "TheTitansOfUl",
+                            GameVersion = "ProphecyOfKings",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            Count = 1,
+                            EnumName = "GeoformToken",
+                            FactionName = "TheTitansOfUl",
+                            GameVersion = "ProphecyOfKings",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 31,
+                            Count = 3,
+                            EnumName = "DimensionalTear",
+                            FactionName = "TheVuilRaithCabal",
+                            GameVersion = "ProphecyOfKings",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 32,
+                            Count = 3,
+                            EnumName = "DimensionalTearToken",
+                            FactionName = "TheVuilRaithCabal",
+                            GameVersion = "ProphecyOfKings",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 33,
+                            Count = 1,
+                            EnumName = "CustodiaVigiliaCard",
+                            FactionName = "TheCouncilKeleres",
+                            GameVersion = "CodexVigil",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 34,
+                            Count = 1,
+                            EnumName = "CustodiaVigiliaCardAbility",
+                            FactionName = "TheCouncilKeleres",
+                            GameVersion = "CodexVigil",
+                            SpecialType = "HorizontalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 35,
+                            Count = 1,
+                            EnumName = "CustodiaVigiliaToken",
+                            FactionName = "TheCouncilKeleres",
+                            GameVersion = "CodexVigil",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 36,
+                            Count = 1,
+                            EnumName = "Exile",
+                            FactionName = "TheCrimsonRebellion",
+                            GameVersion = "ThundersEdge",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 37,
+                            Count = 7,
+                            EnumName = "BreachToken",
+                            FactionName = "TheCrimsonRebellion",
+                            GameVersion = "ThundersEdge",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 38,
+                            Count = 1,
+                            EnumName = "SeverToken",
+                            FactionName = "TheCrimsonRebellion",
+                            GameVersion = "ThundersEdge",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 39,
+                            Count = 1,
+                            EnumName = "DeepAbyss",
+                            FactionName = "TheDeepwroughtScholarate",
+                            GameVersion = "ThundersEdge",
+                            SpecialType = "Ocean",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 40,
+                            Count = 1,
+                            EnumName = "BrinePool",
+                            FactionName = "TheDeepwroughtScholarate",
+                            GameVersion = "ThundersEdge",
+                            SpecialType = "Ocean",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 41,
+                            Count = 1,
+                            EnumName = "CoralReef",
+                            FactionName = "TheDeepwroughtScholarate",
+                            GameVersion = "ThundersEdge",
+                            SpecialType = "Ocean",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 42,
+                            Count = 1,
+                            EnumName = "IceShelf",
+                            FactionName = "TheDeepwroughtScholarate",
+                            GameVersion = "ThundersEdge",
+                            SpecialType = "Ocean",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 43,
+                            Count = 1,
+                            EnumName = "LostFleet",
+                            FactionName = "TheDeepwroughtScholarate",
+                            GameVersion = "ThundersEdge",
+                            SpecialType = "Ocean",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 44,
+                            Count = 1,
+                            EnumName = "EnervatePlot",
+                            FactionName = "TheFirmamentTheObsidian",
+                            GameVersion = "ThundersEdge",
+                            SpecialType = "Plot",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 45,
+                            Count = 1,
+                            EnumName = "SyphonPlot",
+                            FactionName = "TheFirmamentTheObsidian",
+                            GameVersion = "ThundersEdge",
+                            SpecialType = "Plot",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 46,
+                            Count = 1,
+                            EnumName = "SeethePlot",
+                            FactionName = "TheFirmamentTheObsidian",
+                            GameVersion = "ThundersEdge",
+                            SpecialType = "Plot",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 47,
+                            Count = 1,
+                            EnumName = "AssailPlot",
+                            FactionName = "TheFirmamentTheObsidian",
+                            GameVersion = "ThundersEdge",
+                            SpecialType = "Plot",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 48,
+                            Count = 1,
+                            EnumName = "ExtractPlot",
+                            FactionName = "TheFirmamentTheObsidian",
+                            GameVersion = "ThundersEdge",
+                            SpecialType = "Plot",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 49,
+                            Count = 1,
+                            EnumName = "FourXFourOneCHeliosSix",
+                            FactionName = "LastBastion",
+                            GameVersion = "ThundersEdge",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 50,
+                            Count = 1,
+                            EnumName = "OrdinianCard",
+                            FactionName = "LastBastion",
+                            GameVersion = "ThundersEdge",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 51,
+                            Count = 1,
+                            EnumName = "OrdinianCardAbility",
+                            FactionName = "LastBastion",
+                            GameVersion = "ThundersEdge",
+                            SpecialType = "HorizontalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 52,
+                            Count = 3,
+                            EnumName = "HeliosOneCard",
+                            FactionName = "LastBastion",
+                            GameVersion = "ThundersEdge",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 53,
+                            Count = 3,
+                            EnumName = "HeliosTwoCard",
+                            FactionName = "LastBastion",
+                            GameVersion = "ThundersEdge",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 54,
+                            Count = 3,
+                            EnumName = "HeliosThreeCard",
+                            FactionName = "LastBastion",
+                            GameVersion = "ThundersEdge",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 55,
+                            Count = 3,
+                            EnumName = "HeliosToken",
+                            FactionName = "LastBastion",
+                            GameVersion = "ThundersEdge",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 56,
+                            Count = 7,
+                            EnumName = "GalvanizeToken",
+                            FactionName = "LastBastion",
+                            GameVersion = "ThundersEdge",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 57,
+                            Count = 1,
+                            EnumName = "Linkship",
+                            FactionName = "TheRalNelConsortium",
+                            GameVersion = "ThundersEdge",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 58,
+                            Count = 1,
+                            EnumName = "TradePort",
+                            FactionName = "TheCeldauriTradeConfederation",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 59,
+                            Count = 1,
+                            EnumName = "CeldauriDockToken",
+                            FactionName = "TheCeldauriTradeConfederation",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 60,
+                            Count = 1,
+                            EnumName = "CelagromToken",
+                            FactionName = "TheCeldauriTradeConfederation",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 61,
+                            Count = 1,
+                            EnumName = "Aegis",
+                            FactionName = "TheDihMohnFlotilla",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 62,
+                            Count = 1,
+                            EnumName = "CorsairFlorzen",
+                            FactionName = "TheFlorzenProfiteers",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 63,
+                            Count = 1,
+                            EnumName = "HeartOfRebellionToken",
+                            FactionName = "TheFreeSystemsCompact",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 64,
+                            Count = 1,
+                            EnumName = "CombatTransport",
+                            FactionName = "TheGheminaRaiders",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 65,
+                            Count = 1,
+                            EnumName = "GeminaRaidersAdditionalFlagshipToken",
+                            FactionName = "TheGheminaRaiders",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 66,
+                            Count = 1,
+                            EnumName = "Tribune",
+                            FactionName = "TheKortaliTribunal",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 67,
+                            Count = 1,
+                            EnumName = "HeavyBomber",
+                            FactionName = "TheLiZhoDynasty",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 68,
+                            Count = 1,
+                            EnumName = "TrapInterferenceGrid",
+                            FactionName = "TheLiZhoDynasty",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 69,
+                            Count = 1,
+                            EnumName = "TrapMinefields",
+                            FactionName = "TheLiZhoDynasty",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 70,
+                            Count = 1,
+                            EnumName = "TrapAccountSiphon",
+                            FactionName = "TheLiZhoDynasty",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 71,
+                            Count = 1,
+                            EnumName = "TrapGraviticInhibitor",
+                            FactionName = "TheLiZhoDynasty",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 72,
+                            Count = 1,
+                            EnumName = "TrapFeint",
+                            FactionName = "TheLiZhoDynasty",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 73,
+                            Count = 1,
+                            EnumName = "TrapSaboteurs",
+                            FactionName = "TheLiZhoDynasty",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 74,
+                            Count = 1,
+                            EnumName = "CardInterferenceGrid",
+                            FactionName = "TheLiZhoDynasty",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 75,
+                            Count = 1,
+                            EnumName = "CardMinefields",
+                            FactionName = "TheLiZhoDynasty",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 76,
+                            Count = 1,
+                            EnumName = "CardAccountSiphon",
+                            FactionName = "TheLiZhoDynasty",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 77,
+                            Count = 1,
+                            EnumName = "CardGraviticInhibitor",
+                            FactionName = "TheLiZhoDynasty",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 78,
+                            Count = 1,
+                            EnumName = "CardFeint",
+                            FactionName = "TheLiZhoDynasty",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 79,
+                            Count = 1,
+                            EnumName = "CardSaboteurs",
+                            FactionName = "TheLiZhoDynasty",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 80,
+                            Count = 1,
+                            EnumName = "ShatteredSky",
+                            FactionName = "TheLTokkKhrask",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 81,
+                            Count = 1,
+                            EnumName = "Grove",
+                            FactionName = "TheLTokkKhrask",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 82,
+                            Count = 1,
+                            EnumName = "GaussCannon",
+                            FactionName = "TheMirvedaProtectorate",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 83,
+                            Count = 1,
+                            EnumName = "MyceliumRing",
+                            FactionName = "TheMykoMentori",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 84,
+                            Count = 1,
+                            EnumName = "MykoMentoriCommodityTwo",
+                            FactionName = "TheMykoMentori",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "HorizontalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 85,
+                            Count = 1,
+                            EnumName = "MykoMentoriCommodityThree",
+                            FactionName = "TheMykoMentori",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "HorizontalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 86,
+                            Count = 1,
+                            EnumName = "MykoMentoriCommodityFour",
+                            FactionName = "TheMykoMentori",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "HorizontalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 87,
+                            Count = 1,
+                            EnumName = "WoundToken",
+                            FactionName = "TheNivynStarKings",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 88,
+                            Count = 1,
+                            EnumName = "OlradinMechBack",
+                            FactionName = "TheOlradinLeague",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 89,
+                            Count = 1,
+                            EnumName = "PolicyThePeopleConnect",
+                            FactionName = "TheOlradinLeague",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "HorizontalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 90,
+                            Count = 1,
+                            EnumName = "PolicyThePeopleControl",
+                            FactionName = "TheOlradinLeague",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "HorizontalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 91,
+                            Count = 1,
+                            EnumName = "PolicyTheEnvironmentPreserve",
+                            FactionName = "TheOlradinLeague",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "HorizontalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 92,
+                            Count = 1,
+                            EnumName = "PolicyTheEnvironmentPlunder",
+                            FactionName = "TheOlradinLeague",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "HorizontalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 93,
+                            Count = 1,
+                            EnumName = "PolicyTheEconomyEmpower",
+                            FactionName = "TheOlradinLeague",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "HorizontalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 94,
+                            Count = 1,
+                            EnumName = "PolicyTheEconomyExploit",
+                            FactionName = "TheOlradinLeague",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "HorizontalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 95,
+                            Count = 1,
+                            EnumName = "OlradinLeagueCommodityTwo",
+                            FactionName = "TheOlradinLeague",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "HorizontalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 96,
+                            Count = 1,
+                            EnumName = "Terrafactory",
+                            FactionName = "RohDhnaMechatronics",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 97,
+                            Count = 1,
+                            EnumName = "OmniForgeWorld",
+                            FactionName = "RohDhnaMechatronics",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 98,
+                            Count = 1,
+                            EnumName = "AutomatonsToken",
+                            FactionName = "RohDhnaMechatronics",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 99,
+                            Count = 1,
+                            EnumName = "UnholyAbomination",
+                            FactionName = "TheSavagesOfCymiae",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 100,
+                            Count = 2,
+                            EnumName = "AxisOrderDestroyer",
+                            FactionName = "TheShipwrightsofAxis",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "HorizontalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 101,
+                            Count = 2,
+                            EnumName = "AxisOrderCruiser",
+                            FactionName = "TheShipwrightsofAxis",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "HorizontalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 102,
+                            Count = 2,
+                            EnumName = "AxisOrderCarrier",
+                            FactionName = "TheShipwrightsofAxis",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "HorizontalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 103,
+                            Count = 2,
+                            EnumName = "AxisOrderDreadnought",
+                            FactionName = "TheShipwrightsofAxis",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "HorizontalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 104,
+                            Count = 1,
+                            EnumName = "BlockadeRunner",
+                            FactionName = "TheTnelisSyndicate",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 105,
+                            Count = 1,
+                            EnumName = "Raider",
+                            FactionName = "TheVaylerianScourge",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 106,
+                            Count = 1,
+                            EnumName = "LancerDreadnought",
+                            FactionName = "TheVeldyrSovereignty",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 107,
+                            Count = 2,
+                            EnumName = "BranchOfficeInfluenceToken",
+                            FactionName = "TheVeldyrSovereignty",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 108,
+                            Count = 2,
+                            EnumName = "BranchOfficeResourcesToken",
+                            FactionName = "TheVeldyrSovereignty",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 109,
+                            Count = 1,
+                            EnumName = "AuroraResearchBaseToken",
+                            FactionName = "TheVeldyrSovereignty",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 110,
+                            Count = 1,
+                            EnumName = "Impactor",
+                            FactionName = "TheZelianPurifier",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 111,
+                            Count = 1,
+                            EnumName = "CulturalFragmentToken",
+                            FactionName = "TheBentorConglomerate",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 112,
+                            Count = 1,
+                            EnumName = "IndustrialFragmentToken",
+                            FactionName = "TheBentorConglomerate",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 113,
+                            Count = 1,
+                            EnumName = "HazardousFragmentToken",
+                            FactionName = "TheBentorConglomerate",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 114,
+                            Count = 1,
+                            EnumName = "UnknownFragmentToken",
+                            FactionName = "TheBentorConglomerate",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 115,
+                            Count = 1,
+                            EnumName = "EncryptionKeyToken",
+                            FactionName = "TheBentorConglomerate",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 116,
+                            Count = 1,
+                            EnumName = "CmoRancToken",
+                            FactionName = "TheBentorConglomerate",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 117,
+                            Count = 1,
+                            EnumName = "ChitinHulk",
+                            FactionName = "TheCheiranHordes",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 118,
+                            Count = 2,
+                            EnumName = "CheiranAdditionalDreadnoughtToken",
+                            FactionName = "TheCheiranHordes",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 119,
+                            Count = 1,
+                            EnumName = "CheiranAdditionalMechToken",
+                            FactionName = "TheCheiranHordes",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 120,
+                            Count = 4,
+                            EnumName = "EdynSigilToken",
+                            FactionName = "TheEdynMandate",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 121,
+                            Count = 1,
+                            EnumName = "GhotiCard",
+                            FactionName = "TheGhotiWayfarers",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 122,
+                            Count = 1,
+                            EnumName = "GhotiCardAbility",
+                            FactionName = "TheGhotiWayfarers",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "HorizontalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 123,
+                            Count = 1,
+                            EnumName = "OrionPlatform",
+                            FactionName = "TheGledgeUnion",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 124,
+                            Count = 1,
+                            EnumName = "GledgeDhonrazOne",
+                            FactionName = "TheGledgeUnion",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 125,
+                            Count = 1,
+                            EnumName = "GledgeDhonrazTwo",
+                            FactionName = "TheGledgeUnion",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 126,
+                            Count = 1,
+                            EnumName = "GledgeDhonrazThree",
+                            FactionName = "TheGledgeUnion",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 127,
+                            Count = 3,
+                            EnumName = "GLEdgeCoreToken",
+                            FactionName = "TheGledgeUnion",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 128,
+                            Count = 1,
+                            EnumName = "GLEdgeBaseToken",
+                            FactionName = "TheGledgeUnion",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 129,
+                            Count = 1,
+                            EnumName = "StarDragon",
+                            FactionName = "TheBerserkersOfKjalengard",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 130,
+                            Count = 1,
+                            EnumName = "BannerhallOne",
+                            FactionName = "TheBerserkersOfKjalengard",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 131,
+                            Count = 1,
+                            EnumName = "BannerhallTwo",
+                            FactionName = "TheBerserkersOfKjalengard",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 132,
+                            Count = 1,
+                            EnumName = "BannerhallThree",
+                            FactionName = "TheBerserkersOfKjalengard",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 133,
+                            Count = 1,
+                            EnumName = "KjalengardGloryToken",
+                            FactionName = "TheBerserkersOfKjalengard",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 134,
+                            Count = 1,
+                            EnumName = "Sabre",
+                            FactionName = "TheNokarSellships",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 135,
+                            Count = 4,
+                            EnumName = "NokarAdditionalDestroyerToken",
+                            FactionName = "TheNokarSellships",
+                            GameVersion = "DiscordantStars",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
                         });
                 });
 
@@ -4735,7 +7935,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             Id = 6,
                             EnumName = "Warfare",
-                            GameVersion = "BaseGame",
+                            GameVersion = "Deprecated",
                             InitiativeOrder = "Sixth",
                             PrimaryAbilityText = "",
                             SecondaryAbilityText = "",
@@ -4779,8 +7979,30 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             Id = 10,
                             EnumName = "ConstructionProphecyOfKings",
-                            GameVersion = "ProphecyOfKings",
+                            GameVersion = "Deprecated",
                             InitiativeOrder = "Fourth",
+                            PrimaryAbilityText = "",
+                            SecondaryAbilityText = "",
+                            Text = "",
+                            Type = "Strategy"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            EnumName = "ConstructionThundersEdge",
+                            GameVersion = "ThundersEdge",
+                            InitiativeOrder = "Fourth",
+                            PrimaryAbilityText = "",
+                            SecondaryAbilityText = "",
+                            Text = "",
+                            Type = "Strategy"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            EnumName = "WarfareThundersEdge",
+                            GameVersion = "ThundersEdge",
+                            InitiativeOrder = "Sixth",
                             PrimaryAbilityText = "",
                             SecondaryAbilityText = "",
                             Text = "",
@@ -5686,6 +8908,76 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Quote = "TheZelianPurifier_Quote",
                             SystemInfo = "TheZelianPurifier_SystemInfo",
                             SystemStats = "TheZelianPurifier_SystemStats"
+                        },
+                        new
+                        {
+                            FactionName = "TheCrimsonRebellion",
+                            Action = "TheCrimsonRebellion_Action",
+                            Commodities = 2,
+                            ComplexityRating = "High",
+                            GameVersion = "ThundersEdge",
+                            History = "TheCrimsonRebellion_History",
+                            HomeSystem = "TileTE94",
+                            Id = 60,
+                            Quote = "TheCrimsonRebellion_Quote",
+                            SystemInfo = "TheCrimsonRebellion_SystemInfo",
+                            SystemStats = "TheCrimsonRebellion_SystemStats"
+                        },
+                        new
+                        {
+                            FactionName = "TheDeepwroughtScholarate",
+                            Action = "TheDeepwroughtScholarate_Action",
+                            Commodities = 3,
+                            ComplexityRating = "Medium",
+                            GameVersion = "ThundersEdge",
+                            History = "TheDeepwroughtScholarate_History",
+                            HomeSystem = "TileTE95",
+                            Id = 61,
+                            Quote = "TheDeepwroughtScholarate_Quote",
+                            SystemInfo = "TheDeepwroughtScholarate_SystemInfo",
+                            SystemStats = "TheDeepwroughtScholarate_SystemStats"
+                        },
+                        new
+                        {
+                            FactionName = "TheFirmamentTheObsidian",
+                            Action = "TheFirmamentTheObsidian_Action",
+                            Commodities = 3,
+                            ComplexityRating = "High",
+                            GameVersion = "ThundersEdge",
+                            History = "TheFirmamentTheObsidian_History",
+                            HomeSystem = "TileTE96A",
+                            Id = 62,
+                            Quote = "TheFirmamentTheObsidian_Quote",
+                            SystemInfo = "TheFirmamentTheObsidian_SystemInfo",
+                            SystemStats = "TheFirmamentTheObsidian_SystemStats"
+                        },
+                        new
+                        {
+                            FactionName = "LastBastion",
+                            Action = "LastBastion_Action",
+                            Commodities = 1,
+                            ComplexityRating = "Low",
+                            GameVersion = "ThundersEdge",
+                            History = "LastBastion_History",
+                            HomeSystem = "TileTE92",
+                            Id = 63,
+                            Quote = "LastBastion_Quote",
+                            SystemInfo = "LastBastion_SystemInfo",
+                            SystemStats = "LastBastion_SystemStats"
+                        },
+                        new
+                        {
+                            FactionName = "TheRalNelConsortium",
+                            Action = "TheRalNelConsortium_Action",
+                            Commodities = 4,
+                            ComplexityRating = "Low",
+                            GameVersion = "ThundersEdge",
+                            History = "TheRalNelConsortium_History",
+                            HomeSystem = "TileTE93",
+                            Id = 64,
+                            Quote = "TheRalNelConsortium_Quote",
+                            SystemInfo = "TheRalNelConsortium_SystemInfo",
+                            SystemStats = "TheRalNelConsortium_SystemStats"
                         });
                 });
 
@@ -9022,6 +12314,286 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 472,
                             Color = "Black",
                             FactionName = "TheNokarSellships",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 473,
+                            Color = "Red",
+                            FactionName = "TheCrimsonRebellion",
+                            Importance = 9
+                        },
+                        new
+                        {
+                            Id = 474,
+                            Color = "Orange",
+                            FactionName = "TheCrimsonRebellion",
+                            Importance = 3
+                        },
+                        new
+                        {
+                            Id = 475,
+                            Color = "Yellow",
+                            FactionName = "TheCrimsonRebellion",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 476,
+                            Color = "Green",
+                            FactionName = "TheCrimsonRebellion",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 477,
+                            Color = "Blue",
+                            FactionName = "TheCrimsonRebellion",
+                            Importance = 2
+                        },
+                        new
+                        {
+                            Id = 478,
+                            Color = "Purple",
+                            FactionName = "TheCrimsonRebellion",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 479,
+                            Color = "Pink",
+                            FactionName = "TheCrimsonRebellion",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 480,
+                            Color = "Black",
+                            FactionName = "TheCrimsonRebellion",
+                            Importance = 8
+                        },
+                        new
+                        {
+                            Id = 481,
+                            Color = "Red",
+                            FactionName = "LastBastion",
+                            Importance = 2
+                        },
+                        new
+                        {
+                            Id = 482,
+                            Color = "Orange",
+                            FactionName = "LastBastion",
+                            Importance = 9
+                        },
+                        new
+                        {
+                            Id = 483,
+                            Color = "Yellow",
+                            FactionName = "LastBastion",
+                            Importance = 3
+                        },
+                        new
+                        {
+                            Id = 484,
+                            Color = "Green",
+                            FactionName = "LastBastion",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 485,
+                            Color = "Blue",
+                            FactionName = "LastBastion",
+                            Importance = 6
+                        },
+                        new
+                        {
+                            Id = 486,
+                            Color = "Purple",
+                            FactionName = "LastBastion",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 487,
+                            Color = "Pink",
+                            FactionName = "LastBastion",
+                            Importance = 1
+                        },
+                        new
+                        {
+                            Id = 488,
+                            Color = "Black",
+                            FactionName = "LastBastion",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 489,
+                            Color = "Red",
+                            FactionName = "TheFirmamentTheObsidian",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 490,
+                            Color = "Orange",
+                            FactionName = "TheFirmamentTheObsidian",
+                            Importance = 7
+                        },
+                        new
+                        {
+                            Id = 491,
+                            Color = "Yellow",
+                            FactionName = "TheFirmamentTheObsidian",
+                            Importance = 1
+                        },
+                        new
+                        {
+                            Id = 492,
+                            Color = "Green",
+                            FactionName = "TheFirmamentTheObsidian",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 493,
+                            Color = "Blue",
+                            FactionName = "TheFirmamentTheObsidian",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 494,
+                            Color = "Purple",
+                            FactionName = "TheFirmamentTheObsidian",
+                            Importance = 4
+                        },
+                        new
+                        {
+                            Id = 495,
+                            Color = "Pink",
+                            FactionName = "TheFirmamentTheObsidian",
+                            Importance = 5
+                        },
+                        new
+                        {
+                            Id = 496,
+                            Color = "Black",
+                            FactionName = "TheFirmamentTheObsidian",
+                            Importance = 6
+                        },
+                        new
+                        {
+                            Id = 497,
+                            Color = "Red",
+                            FactionName = "TheDeepwroughtScholarate",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 498,
+                            Color = "Orange",
+                            FactionName = "TheDeepwroughtScholarate",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 499,
+                            Color = "Yellow",
+                            FactionName = "TheDeepwroughtScholarate",
+                            Importance = 3
+                        },
+                        new
+                        {
+                            Id = 500,
+                            Color = "Green",
+                            FactionName = "TheDeepwroughtScholarate",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 501,
+                            Color = "Blue",
+                            FactionName = "TheDeepwroughtScholarate",
+                            Importance = 9
+                        },
+                        new
+                        {
+                            Id = 502,
+                            Color = "Purple",
+                            FactionName = "TheDeepwroughtScholarate",
+                            Importance = 7
+                        },
+                        new
+                        {
+                            Id = 503,
+                            Color = "Pink",
+                            FactionName = "TheDeepwroughtScholarate",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 504,
+                            Color = "Black",
+                            FactionName = "TheDeepwroughtScholarate",
+                            Importance = 6
+                        },
+                        new
+                        {
+                            Id = 505,
+                            Color = "Red",
+                            FactionName = "TheRalNelConsortium",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 506,
+                            Color = "Orange",
+                            FactionName = "TheRalNelConsortium",
+                            Importance = 1
+                        },
+                        new
+                        {
+                            Id = 507,
+                            Color = "Yellow",
+                            FactionName = "TheRalNelConsortium",
+                            Importance = 5
+                        },
+                        new
+                        {
+                            Id = 508,
+                            Color = "Green",
+                            FactionName = "TheRalNelConsortium",
+                            Importance = 9
+                        },
+                        new
+                        {
+                            Id = 509,
+                            Color = "Blue",
+                            FactionName = "TheRalNelConsortium",
+                            Importance = 4
+                        },
+                        new
+                        {
+                            Id = 510,
+                            Color = "Purple",
+                            FactionName = "TheRalNelConsortium",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 511,
+                            Color = "Pink",
+                            FactionName = "TheRalNelConsortium",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 512,
+                            Color = "Black",
+                            FactionName = "TheRalNelConsortium",
                             Importance = 0
                         });
                 });
@@ -12877,6 +16449,534 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Resources = 2,
                             SystemTileName = "TileEronous47",
                             TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Ordinian",
+                            GameVersion = "ThundersEdge",
+                            Id = 297,
+                            Influence = 0,
+                            IsLegendary = "true",
+                            PlanetTrait = "Legendary",
+                            Resources = 0,
+                            SystemTileName = "TileTE92",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Revelation",
+                            GameVersion = "ThundersEdge",
+                            Id = 298,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "SpaceStation",
+                            Resources = 1,
+                            SystemTileName = "TileTE92",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "MezLoOrzPeiZsha",
+                            GameVersion = "ThundersEdge",
+                            Id = 299,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 2,
+                            SystemTileName = "TileTE93",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "RepLoOrzQet",
+                            GameVersion = "ThundersEdge",
+                            Id = 300,
+                            Influence = 3,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 1,
+                            SystemTileName = "TileTE93",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Ikatena",
+                            GameVersion = "ThundersEdge",
+                            Id = 301,
+                            Influence = 4,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 4,
+                            SystemTileName = "TileTE95",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Cronos",
+                            GameVersion = "ThundersEdge",
+                            Id = 302,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 2,
+                            SystemTileName = "TileTE96A",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Tallin",
+                            GameVersion = "ThundersEdge",
+                            Id = 303,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 1,
+                            SystemTileName = "TileTE96A",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "CronosHollow",
+                            GameVersion = "ThundersEdge",
+                            Id = 304,
+                            Influence = 0,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 3,
+                            SystemTileName = "TileTE96B",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "TallinHollow",
+                            GameVersion = "ThundersEdge",
+                            Id = 305,
+                            Influence = 0,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 3,
+                            SystemTileName = "TileTE96B",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Faunus",
+                            GameVersion = "ThundersEdge",
+                            Id = 306,
+                            Influence = 3,
+                            IsLegendary = "true",
+                            PlanetTrait = "Industrial",
+                            Resources = 1,
+                            SystemTileName = "TileTE97",
+                            TechnologySkip = "Biotic"
+                        },
+                        new
+                        {
+                            PlanetName = "Garbozia",
+                            GameVersion = "ThundersEdge",
+                            Id = 307,
+                            Influence = 1,
+                            IsLegendary = "true",
+                            PlanetTrait = "Hazardous",
+                            Resources = 2,
+                            SystemTileName = "TileTE98",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Emelpar",
+                            GameVersion = "ThundersEdge",
+                            Id = 308,
+                            Influence = 2,
+                            IsLegendary = "true",
+                            PlanetTrait = "Cultural",
+                            Resources = 0,
+                            SystemTileName = "TileTE99",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Tempesta",
+                            GameVersion = "ThundersEdge",
+                            Id = 309,
+                            Influence = 1,
+                            IsLegendary = "true",
+                            PlanetTrait = "Hazardous",
+                            Resources = 1,
+                            SystemTileName = "TileTE100",
+                            TechnologySkip = "Propulsion"
+                        },
+                        new
+                        {
+                            PlanetName = "Olergodt",
+                            GameVersion = "ThundersEdge",
+                            Id = 310,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "CulturalHazardous",
+                            Resources = 2,
+                            SystemTileName = "TileTE101",
+                            TechnologySkip = "CyberneticWarfare"
+                        },
+                        new
+                        {
+                            PlanetName = "Andeara",
+                            GameVersion = "ThundersEdge",
+                            Id = 311,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 1,
+                            SystemTileName = "TileTE102",
+                            TechnologySkip = "Propulsion"
+                        },
+                        new
+                        {
+                            PlanetName = "ViraPicsThree",
+                            GameVersion = "ThundersEdge",
+                            Id = 312,
+                            Influence = 3,
+                            IsLegendary = "false",
+                            PlanetTrait = "CulturalHazardous",
+                            Resources = 2,
+                            SystemTileName = "TileTE103",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Lesab",
+                            GameVersion = "ThundersEdge",
+                            Id = 313,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "HazardousIndustrial",
+                            Resources = 2,
+                            SystemTileName = "TileTE104",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "NewTerra",
+                            GameVersion = "ThundersEdge",
+                            Id = 314,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 1,
+                            SystemTileName = "TileTE105",
+                            TechnologySkip = "Biotic"
+                        },
+                        new
+                        {
+                            PlanetName = "Tinnes",
+                            GameVersion = "ThundersEdge",
+                            Id = 315,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "HazardousIndustrial",
+                            Resources = 2,
+                            SystemTileName = "TileTE105",
+                            TechnologySkip = "Biotic"
+                        },
+                        new
+                        {
+                            PlanetName = "Cresius",
+                            GameVersion = "ThundersEdge",
+                            Id = 316,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 0,
+                            SystemTileName = "TileTE106",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "LazulRex",
+                            GameVersion = "ThundersEdge",
+                            Id = 317,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "IndustrialCultural",
+                            Resources = 2,
+                            SystemTileName = "TileTE106",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Tiamat",
+                            GameVersion = "ThundersEdge",
+                            Id = 318,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Cultural",
+                            Resources = 1,
+                            SystemTileName = "TileTE107",
+                            TechnologySkip = "CyberneticCybernetic"
+                        },
+                        new
+                        {
+                            PlanetName = "Hercalor",
+                            GameVersion = "ThundersEdge",
+                            Id = 319,
+                            Influence = 0,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 1,
+                            SystemTileName = "TileTE107",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Kostboth",
+                            GameVersion = "ThundersEdge",
+                            Id = 320,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Cultural",
+                            Resources = 0,
+                            SystemTileName = "TileTE108",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Capha",
+                            GameVersion = "ThundersEdge",
+                            Id = 321,
+                            Influence = 0,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 3,
+                            SystemTileName = "TileTE108",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Bellatrix",
+                            GameVersion = "ThundersEdge",
+                            Id = 322,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Cultural",
+                            Resources = 1,
+                            SystemTileName = "TileTE109",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "TsionStation",
+                            GameVersion = "ThundersEdge",
+                            Id = 323,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "SpaceStation",
+                            Resources = 1,
+                            SystemTileName = "TileTE109",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Horizon",
+                            GameVersion = "ThundersEdge",
+                            Id = 324,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Cultural",
+                            Resources = 1,
+                            SystemTileName = "TileTE110",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Elnath",
+                            GameVersion = "ThundersEdge",
+                            Id = 325,
+                            Influence = 0,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 2,
+                            SystemTileName = "TileTE110",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "LuthienSix",
+                            GameVersion = "ThundersEdge",
+                            Id = 326,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "Hazardous",
+                            Resources = 3,
+                            SystemTileName = "TileTE110",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Tarana",
+                            GameVersion = "ThundersEdge",
+                            Id = 327,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "IndustrialCultural",
+                            Resources = 1,
+                            SystemTileName = "TileTE111",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "OluzStation",
+                            GameVersion = "ThundersEdge",
+                            Id = 328,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "SpaceStation",
+                            Resources = 1,
+                            SystemTileName = "TileTE111",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "MecatolRexLegendary",
+                            GameVersion = "ThundersEdge",
+                            Id = 329,
+                            Influence = 6,
+                            IsLegendary = "true",
+                            PlanetTrait = "Legendary",
+                            Resources = 1,
+                            SystemTileName = "TileTE112",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Industrex",
+                            GameVersion = "ThundersEdge",
+                            Id = 330,
+                            Influence = 0,
+                            IsLegendary = "true",
+                            PlanetTrait = "Industrial",
+                            Resources = 2,
+                            SystemTileName = "TileTE115",
+                            TechnologySkip = "Warfare"
+                        },
+                        new
+                        {
+                            PlanetName = "Lemox",
+                            GameVersion = "ThundersEdge",
+                            Id = 331,
+                            Influence = 3,
+                            IsLegendary = "false",
+                            PlanetTrait = "Industrial",
+                            Resources = 0,
+                            SystemTileName = "TileTE116",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "TheWatchtower",
+                            GameVersion = "ThundersEdge",
+                            Id = 332,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "SpaceStation",
+                            Resources = 1,
+                            SystemTileName = "TileTE117",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "AhkCreuxx",
+                            GameVersion = "ThundersEdge",
+                            Id = 333,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 4,
+                            SystemTileName = "TileTE118",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Cocytus",
+                            GameVersion = "ThundersEdge",
+                            Id = 334,
+                            Influence = 0,
+                            IsLegendary = "false",
+                            PlanetTrait = "Relic",
+                            Resources = 3,
+                            SystemTileName = "TileTE125A",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Styx",
+                            GameVersion = "ThundersEdge",
+                            Id = 335,
+                            Influence = 0,
+                            IsLegendary = "false",
+                            PlanetTrait = "Relic",
+                            Resources = 4,
+                            SystemTileName = "TileTE126B",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Lethe",
+                            GameVersion = "ThundersEdge",
+                            Id = 336,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Relic",
+                            Resources = 0,
+                            SystemTileName = "TileTE127B",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Phlegethon",
+                            GameVersion = "ThundersEdge",
+                            Id = 337,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "Relic",
+                            Resources = 1,
+                            SystemTileName = "TileTE127B",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Mirage",
+                            GameVersion = "ProphecyOfKings",
+                            Id = 338,
+                            Influence = 2,
+                            IsLegendary = "true",
+                            PlanetTrait = "Cultural",
+                            Resources = 1,
+                            SystemTileName = "TileEmpty",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "ThundersEdge",
+                            GameVersion = "ThundersEdge",
+                            Id = 338,
+                            Influence = 0,
+                            IsLegendary = "true",
+                            PlanetTrait = "Legendary",
+                            Resources = 5,
+                            SystemTileName = "TileEmpty",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Avernus",
+                            GameVersion = "ThundersEdge",
+                            Id = 338,
+                            Influence = 0,
+                            IsLegendary = "true",
+                            PlanetTrait = "Legendary",
+                            Resources = 2,
+                            SystemTileName = "TileEmpty",
+                            TechnologySkip = "None"
                         });
                 });
 
@@ -16366,6 +20466,476 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 318,
                             SystemTileCode = "Er128",
                             TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE92",
+                            Anomaly = "Nebula",
+                            FactionName = "LastBastion",
+                            GameVersion = "ThundersEdge",
+                            Id = 319,
+                            SystemTileCode = "92",
+                            TileCategory = "Green"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE93",
+                            Anomaly = "None",
+                            FactionName = "TheRalNelConsortium",
+                            GameVersion = "ThundersEdge",
+                            Id = 320,
+                            SystemTileCode = "93",
+                            TileCategory = "Green"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE94",
+                            Anomaly = "None",
+                            FactionName = "TheCrimsonRebellion",
+                            GameVersion = "ThundersEdge",
+                            Id = 321,
+                            SystemTileCode = "94",
+                            TileCategory = "Green"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE95",
+                            Anomaly = "None",
+                            FactionName = "TheDeepwroughtScholarate",
+                            GameVersion = "ThundersEdge",
+                            Id = 322,
+                            SystemTileCode = "95",
+                            TileCategory = "Green"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE96A",
+                            Anomaly = "None",
+                            FactionName = "TheFirmamentTheObsidian",
+                            GameVersion = "ThundersEdge",
+                            Id = 323,
+                            SystemTileCode = "96A",
+                            TileCategory = "Green"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE96B",
+                            Anomaly = "None",
+                            FactionName = "TheFirmamentTheObsidian",
+                            GameVersion = "ThundersEdge",
+                            Id = 324,
+                            SystemTileCode = "96B",
+                            TileCategory = "ExternalMapTile"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE97",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 325,
+                            SystemTileCode = "97",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE98",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 326,
+                            SystemTileCode = "98",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE99",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 327,
+                            SystemTileCode = "99",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE100",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 328,
+                            SystemTileCode = "100",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE101",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 329,
+                            SystemTileCode = "101",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE102",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 330,
+                            SystemTileCode = "102",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE103",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 331,
+                            SystemTileCode = "103",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE104",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 332,
+                            SystemTileCode = "104",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE105",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 333,
+                            SystemTileCode = "105",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE106",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 334,
+                            SystemTileCode = "106",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE107",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 335,
+                            SystemTileCode = "107",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE108",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 336,
+                            SystemTileCode = "108",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE109",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 337,
+                            SystemTileCode = "109",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE110",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 338,
+                            SystemTileCode = "110",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE111",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 339,
+                            SystemTileCode = "111",
+                            TileCategory = "Blue"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE112",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 340,
+                            SystemTileCode = "112",
+                            TileCategory = "MecatolRex"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE113",
+                            Anomaly = "GravityRift",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 341,
+                            SystemTileCode = "113",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE114",
+                            Anomaly = "EntropicScar",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 342,
+                            SystemTileCode = "114",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE115",
+                            Anomaly = "AsteroidField",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 343,
+                            SystemTileCode = "115",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE116",
+                            Anomaly = "EntropicScar",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 344,
+                            SystemTileCode = "116",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE117",
+                            Anomaly = "AsteroidField",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 345,
+                            SystemTileCode = "117",
+                            TileCategory = "Red"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE118",
+                            Anomaly = "None",
+                            FactionName = "TheCrimsonRebellion",
+                            GameVersion = "ThundersEdge",
+                            Id = 346,
+                            SystemTileCode = "118",
+                            TileCategory = "ExternalMapTile"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE119A",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 347,
+                            SystemTileCode = "119A",
+                            TileCategory = "Hyperlane"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE119B",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 348,
+                            SystemTileCode = "119B",
+                            TileCategory = "Hyperlane"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE120A",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 349,
+                            SystemTileCode = "120A",
+                            TileCategory = "Hyperlane"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE120B",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 350,
+                            SystemTileCode = "120B",
+                            TileCategory = "Hyperlane"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE121A",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 351,
+                            SystemTileCode = "121A",
+                            TileCategory = "Hyperlane"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE121B",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 352,
+                            SystemTileCode = "121B",
+                            TileCategory = "Hyperlane"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE122A",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 353,
+                            SystemTileCode = "122A",
+                            TileCategory = "Hyperlane"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE122B",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 354,
+                            SystemTileCode = "122B",
+                            TileCategory = "Hyperlane"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE123A",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 355,
+                            SystemTileCode = "123A",
+                            TileCategory = "Hyperlane"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE123B",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 356,
+                            SystemTileCode = "123B",
+                            TileCategory = "Hyperlane"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE124A",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 357,
+                            SystemTileCode = "124A",
+                            TileCategory = "Hyperlane"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE124B",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 358,
+                            SystemTileCode = "124B",
+                            TileCategory = "Hyperlane"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE125A",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 359,
+                            SystemTileCode = "Fracture1",
+                            TileCategory = "ExternalMapTile"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE125B",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 360,
+                            SystemTileCode = "Fracture2",
+                            TileCategory = "ExternalMapTile"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE126A",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 361,
+                            SystemTileCode = "Fracture3",
+                            TileCategory = "ExternalMapTile"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE126B",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 362,
+                            SystemTileCode = "Fracture4",
+                            TileCategory = "ExternalMapTile"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE126C",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 363,
+                            SystemTileCode = "Fracture5",
+                            TileCategory = "ExternalMapTile"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE127A",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 364,
+                            SystemTileCode = "Fracture6",
+                            TileCategory = "ExternalMapTile"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileTE127B",
+                            Anomaly = "None",
+                            FactionName = "None",
+                            GameVersion = "ThundersEdge",
+                            Id = 365,
+                            SystemTileCode = "Fracture7",
+                            TileCategory = "ExternalMapTile"
                         });
                 });
 
@@ -16895,6 +21465,34 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             GameVersion = "AscendantSun",
                             SystemTileName = "TileEronous128",
                             WormholeName = "Kappa"
+                        },
+                        new
+                        {
+                            Id = 71,
+                            GameVersion = "ThundersEdge",
+                            SystemTileName = "TileTE94",
+                            WormholeName = "Epsilon"
+                        },
+                        new
+                        {
+                            Id = 72,
+                            GameVersion = "ThundersEdge",
+                            SystemTileName = "TileTE102",
+                            WormholeName = "Alpha"
+                        },
+                        new
+                        {
+                            Id = 73,
+                            GameVersion = "ThundersEdge",
+                            SystemTileName = "TileTE113",
+                            WormholeName = "Beta"
+                        },
+                        new
+                        {
+                            Id = 74,
+                            GameVersion = "ThundersEdge",
+                            SystemTileName = "TileTE118",
+                            WormholeName = "Epsilon"
                         });
                 });
 
@@ -18329,6 +22927,102 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             FactionName = "TheNokarSellships",
                             TechnologyName = "AIDevelopmentAlgorithm",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "TheCrimsonRebellion",
+                            TechnologyName = "AntimassDeflectors",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "TheCrimsonRebellion",
+                            TechnologyName = "DarkEnergyTap",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "TheCrimsonRebellion",
+                            TechnologyName = "AIDevelopmentAlgorithm",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "TheCrimsonRebellion",
+                            TechnologyName = "PlasmaScoring",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "TheFirmamentTheObsidian",
+                            TechnologyName = "SarweenTools",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "TheFirmamentTheObsidian",
+                            TechnologyName = "ScanlinkDroneNetwork",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "TheFirmamentTheObsidian",
+                            TechnologyName = "Psychoarchaeology",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "TheFirmamentTheObsidian",
+                            TechnologyName = "NeuralMotivator",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "LastBastion",
+                            TechnologyName = "AntimassDeflectors",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "LastBastion",
+                            TechnologyName = "DarkEnergyTap",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "LastBastion",
+                            TechnologyName = "SarweenTools",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "LastBastion",
+                            TechnologyName = "ScanlinkDroneNetwork",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "TheRalNelConsortium",
+                            TechnologyName = "AIDevelopmentAlgorithm",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "TheRalNelConsortium",
+                            TechnologyName = "PlasmaScoring",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "TheRalNelConsortium",
+                            TechnologyName = "Psychoarchaeology",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "TheRalNelConsortium",
+                            TechnologyName = "NeuralMotivator",
                             StartingTechnology = "true"
                         });
                 });
@@ -20388,6 +25082,186 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             FactionName = "TheVaylerianScourge",
                             UnitName = "Destroyer",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheCrimsonRebellion",
+                            UnitName = "SpaceDock",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheCrimsonRebellion",
+                            UnitName = "Pds",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheCrimsonRebellion",
+                            UnitName = "Infantry",
+                            Count = 4
+                        },
+                        new
+                        {
+                            FactionName = "TheCrimsonRebellion",
+                            UnitName = "Fighter",
+                            Count = 3
+                        },
+                        new
+                        {
+                            FactionName = "TheCrimsonRebellion",
+                            UnitName = "Carrier",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheCrimsonRebellion",
+                            UnitName = "Destroyer",
+                            Count = 2
+                        },
+                        new
+                        {
+                            FactionName = "TheDeepwroughtScholarate",
+                            UnitName = "SpaceDock",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheDeepwroughtScholarate",
+                            UnitName = "Infantry",
+                            Count = 3
+                        },
+                        new
+                        {
+                            FactionName = "TheDeepwroughtScholarate",
+                            UnitName = "Fighter",
+                            Count = 4
+                        },
+                        new
+                        {
+                            FactionName = "TheDeepwroughtScholarate",
+                            UnitName = "Carrier",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheDeepwroughtScholarate",
+                            UnitName = "Dreadnought",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheFirmamentTheObsidian",
+                            UnitName = "SpaceDock",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheFirmamentTheObsidian",
+                            UnitName = "Infantry",
+                            Count = 3
+                        },
+                        new
+                        {
+                            FactionName = "TheFirmamentTheObsidian",
+                            UnitName = "Fighter",
+                            Count = 3
+                        },
+                        new
+                        {
+                            FactionName = "TheFirmamentTheObsidian",
+                            UnitName = "Carrier",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheFirmamentTheObsidian",
+                            UnitName = "Cruiser",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheFirmamentTheObsidian",
+                            UnitName = "Destroyer",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "LastBastion",
+                            UnitName = "SpaceDock",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "LastBastion",
+                            UnitName = "Infantry",
+                            Count = 3
+                        },
+                        new
+                        {
+                            FactionName = "LastBastion",
+                            UnitName = "Fighter",
+                            Count = 2
+                        },
+                        new
+                        {
+                            FactionName = "LastBastion",
+                            UnitName = "Carrier",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "LastBastion",
+                            UnitName = "Cruiser",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "LastBastion",
+                            UnitName = "Dreadnought",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheRalNelConsortium",
+                            UnitName = "SpaceDock",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheRalNelConsortium",
+                            UnitName = "Pds",
+                            Count = 2
+                        },
+                        new
+                        {
+                            FactionName = "TheRalNelConsortium",
+                            UnitName = "Infantry",
+                            Count = 4
+                        },
+                        new
+                        {
+                            FactionName = "TheRalNelConsortium",
+                            UnitName = "Fighter",
+                            Count = 2
+                        },
+                        new
+                        {
+                            FactionName = "TheRalNelConsortium",
+                            UnitName = "Carrier",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheRalNelConsortium",
+                            UnitName = "Destroyer",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheRalNelConsortium",
+                            UnitName = "Dreadnought",
                             Count = 1
                         });
                 });
@@ -23181,6 +28055,160 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Level = "Level2",
                             Text = "",
                             Type = "UnitUpgrade"
+                        },
+                        new
+                        {
+                            TechnologyName = "RadicalAdvancement",
+                            FactionName = "TheDeepwroughtScholarate",
+                            GameVersion = "ThundersEdge",
+                            Id = 157,
+                            IsFactionTechnology = "true",
+                            Level = "Level1",
+                            Text = "",
+                            Type = "Biotic"
+                        },
+                        new
+                        {
+                            TechnologyName = "HydrothermalMining",
+                            FactionName = "TheDeepwroughtScholarate",
+                            GameVersion = "ThundersEdge",
+                            Id = 158,
+                            IsFactionTechnology = "true",
+                            Level = "Level1",
+                            Text = "",
+                            Type = "Biotic"
+                        },
+                        new
+                        {
+                            TechnologyName = "SubatomicSplicer",
+                            FactionName = "TheCrimsonRebellion",
+                            GameVersion = "ThundersEdge",
+                            Id = 159,
+                            IsFactionTechnology = "true",
+                            Level = "Level1",
+                            Text = "",
+                            Type = "Cybernetic"
+                        },
+                        new
+                        {
+                            TechnologyName = "ExileTwo",
+                            FactionName = "TheCrimsonRebellion",
+                            GameVersion = "ThundersEdge",
+                            Id = 160,
+                            IsFactionTechnology = "true",
+                            Level = "Level2",
+                            Text = "",
+                            Type = "UnitUpgrade"
+                        },
+                        new
+                        {
+                            TechnologyName = "ProximaTargetingSix",
+                            FactionName = "LastBastion",
+                            GameVersion = "ThundersEdge",
+                            Id = 161,
+                            IsFactionTechnology = "true",
+                            Level = "Level1",
+                            Text = "",
+                            Type = "Warfare"
+                        },
+                        new
+                        {
+                            TechnologyName = "FourXFourOneCHELIOSVTwo",
+                            FactionName = "LastBastion",
+                            GameVersion = "ThundersEdge",
+                            Id = 162,
+                            IsFactionTechnology = "true",
+                            Level = "Level2",
+                            Text = "",
+                            Type = "UnitUpgrade"
+                        },
+                        new
+                        {
+                            TechnologyName = "Nanomachines",
+                            FactionName = "TheRalNelConsortium",
+                            GameVersion = "ThundersEdge",
+                            Id = 163,
+                            IsFactionTechnology = "true",
+                            Level = "Level1",
+                            Text = "",
+                            Type = "Warfare"
+                        },
+                        new
+                        {
+                            TechnologyName = "LinkshipTwo",
+                            FactionName = "TheRalNelConsortium",
+                            GameVersion = "ThundersEdge",
+                            Id = 164,
+                            IsFactionTechnology = "true",
+                            Level = "Level2",
+                            Text = "",
+                            Type = "UnitUpgrade"
+                        },
+                        new
+                        {
+                            TechnologyName = "PlanesplitterFirmament",
+                            FactionName = "TheFirmamentTheObsidian",
+                            GameVersion = "ThundersEdge",
+                            Id = 165,
+                            IsFactionTechnology = "true",
+                            Level = "Level2",
+                            Text = "",
+                            Type = "Cybernetic"
+                        },
+                        new
+                        {
+                            TechnologyName = "NeuralParasiteFirmament",
+                            FactionName = "TheFirmamentTheObsidian",
+                            GameVersion = "ThundersEdge",
+                            Id = 166,
+                            IsFactionTechnology = "true",
+                            Level = "Level2",
+                            Text = "",
+                            Type = "Biotic"
+                        },
+                        new
+                        {
+                            TechnologyName = "PlanesplitterObsidian",
+                            FactionName = "TheFirmamentTheObsidian",
+                            GameVersion = "ThundersEdge",
+                            Id = 165,
+                            IsFactionTechnology = "true",
+                            Level = "Level2",
+                            Text = "",
+                            Type = "Cybernetic"
+                        },
+                        new
+                        {
+                            TechnologyName = "NeuralParasiteObsidian",
+                            FactionName = "TheFirmamentTheObsidian",
+                            GameVersion = "ThundersEdge",
+                            Id = 166,
+                            IsFactionTechnology = "true",
+                            Level = "Level2",
+                            Text = "",
+                            Type = "Biotic"
+                        },
+                        new
+                        {
+                            TechnologyName = "ExecutiveOrder",
+                            FactionName = "TheCouncilKeleres",
+                            GameVersion = "ThundersEdge",
+                            Id = 166,
+                            IsFactionTechnology = "true",
+                            Level = "Level1",
+                            Text = "",
+                            Type = "Cybernetic"
+                        },
+                        new
+                        {
+                            TechnologyName = "AgencySupplyNetworkThundersEdge",
+                            FactionName = "TheCouncilKeleres",
+                            GameVersion = "ThundersEdge",
+                            Id = 167,
+                            IsFactionTechnology = "true",
+                            Level = "Level2",
+                            Text = "",
+                            Type = "Cybernetic"
                         });
                 });
 
@@ -26486,11 +31514,11 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            EndDate = new DateOnly(2025, 12, 14),
+                            EndDate = new DateOnly(2026, 2, 23),
                             IsActive = "true",
                             Name = "Season 1",
                             SeasonNumber = 1,
-                            StartDate = new DateOnly(2025, 12, 14)
+                            StartDate = new DateOnly(2026, 2, 23)
                         });
                 });
 

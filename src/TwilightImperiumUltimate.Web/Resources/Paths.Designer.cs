@@ -19,7 +19,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Paths {
@@ -358,6 +358,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to api/cards/breakthrough.
+        /// </summary>
+        public static string ApiPath_BreakthroughCards {
+            get {
+                return ResourceManager.GetString("ApiPath_BreakthroughCards", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to api/cards/.
         /// </summary>
         public static string ApiPath_Cards {
@@ -444,6 +453,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string ApiPath_FirstFaction {
             get {
                 return ResourceManager.GetString("ApiPath_FirstFaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/cards/flagship.
+        /// </summary>
+        public static string ApiPath_FlagshipCards {
+            get {
+                return ResourceManager.GetString("ApiPath_FlagshipCards", resourceCulture);
             }
         }
         
@@ -808,6 +826,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to api/cards/special-component.
+        /// </summary>
+        public static string ApiPath_SpecialComponentCards {
+            get {
+                return ResourceManager.GetString("ApiPath_SpecialComponentCards", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to api/users/user-roles.
         /// </summary>
         public static string ApiPath_SpecificUserRoles {
@@ -1069,6 +1096,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to breakthroughs.
+        /// </summary>
+        public static string ResourcePath_BreakthroughCard {
+            get {
+                return ResourceManager.GetString("ResourcePath_BreakthroughCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to \resources\images\{language}\cards\breakthroughs.
+        /// </summary>
+        public static string ResourcePath_BreakthroughPath {
+            get {
+                return ResourceManager.GetString("ResourcePath_BreakthroughPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to /resources/images/{language}/cardgenerator.
         /// </summary>
         public static string ResourcePath_CardGeneratorPath {
@@ -1146,6 +1191,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string ResourcePath_FactionSheetPath {
             get {
                 return ResourceManager.GetString("ResourcePath_FactionSheetPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to \resources\images\{language}\flagships.
+        /// </summary>
+        public static string ResourcePath_FlagshipPath {
+            get {
+                return ResourceManager.GetString("ResourcePath_FlagshipPath", resourceCulture);
             }
         }
         
@@ -1272,6 +1326,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string ResourcePath_RelicCard {
             get {
                 return ResourceManager.GetString("ResourcePath_RelicCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to \resources\images\{language}\specialcomponents.
+        /// </summary>
+        public static string ResourcePath_SpecialComponentPath {
+            get {
+                return ResourceManager.GetString("ResourcePath_SpecialComponentPath", resourceCulture);
             }
         }
         

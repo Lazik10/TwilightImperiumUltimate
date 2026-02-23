@@ -44,6 +44,21 @@ public partial class FactionSetup : FactionInfoComponentBase
             FactionName.TheEdynMandate
             => (true, Strings.Faction_SetupChooseEdynTechnologies),
 
+            FactionName.TheDeepwroughtScholarate
+            => (true, Strings.Faction_SetupChooseDeepwroughtTechnologies),
+
+            FactionName.TheCrimsonRebellion
+            => (true, Strings.Faction_SetupChooseCrimsonTechnologies),
+
+            FactionName.TheRalNelConsortium
+            => (true, Strings.Faction_SetupChooseRalNelTechnologies),
+
+            FactionName.LastBastion
+            => (true, Strings.Faction_SetupChooseBastionTechnologies),
+
+            FactionName.TheFirmamentTheObsidian
+            => (true, Strings.Faction_SetupChooseFirmamentTechnologies),
+
             _ => (false, string.Empty),
         };
 
