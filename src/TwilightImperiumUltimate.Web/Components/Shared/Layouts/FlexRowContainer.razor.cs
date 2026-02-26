@@ -22,6 +22,9 @@ public partial class FlexRowContainer
     [Parameter]
     public AlignItems AlignItems { get; set; } = AlignItems.Center;
 
+    [Parameter]
+    public EventCallback OnClick { get; set; }
+
     private string Justify => JustifyContent.GetJustifyString();
 
     private string Align => AlignItems.GetAlignString();

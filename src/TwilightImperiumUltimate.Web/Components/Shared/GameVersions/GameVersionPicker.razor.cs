@@ -15,6 +15,7 @@ public partial class GameVersionPicker : TwilightImperiumBaseComponenet
                 GameVersion.CodexOrdinian,
                 GameVersion.CodexAffinity,
                 GameVersion.CodexRecolo,
+                GameVersion.CodexLiberation,
                 GameVersion.UnchartedSpace,
                 GameVersion.AscendantSun,
                 GameVersion.TtsHyperlines,

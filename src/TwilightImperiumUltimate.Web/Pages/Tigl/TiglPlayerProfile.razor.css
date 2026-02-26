@@ -1,30 +1,83 @@
-﻿.position-badge {
-    background: #6c757d;
-    color: white;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
+﻿::deep .ratings-section {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
     justify-content: center;
-    font-weight: bold;
-    font-size: 0.875rem;
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
 }
 
-.position-badge.winner {
-    background: linear-gradient(45deg, #ffd700, #ffed4e);
-    color: #333;
-    box-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);
+::deep .rating-card {
+    flex: 1 1 280px;
+    max-width: 350px;
+    min-width: 250px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.2);
 }
 
-.player-row {
-    transition: all 0.2s ease;
+::deep .rating-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 0;
 }
 
-    .player-row:hover {
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+::deep .section-container {
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+::deep .section-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+}
+
+::deep .chart-container {
+    width: 100%;
+    min-height: 300px;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+::deep .rank-history-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+::deep .rank-history-row:last-child {
+    border-bottom: none;
+}
+
+::deep .prestige-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+::deep .prestige-row:last-child {
+    border-bottom: none;
+}
+
+@media (max-width: 768px) {
+    ::deep .rating-card {
+        flex: 1 1 100%;
+        max-width: 100%;
     }
 
-.border-warning {
-    background-color: rgba(255, 193, 7, 0.05);
+    ::deep .chart-container {
+        min-height: 250px;
+        padding: 8px;
+    }
 }

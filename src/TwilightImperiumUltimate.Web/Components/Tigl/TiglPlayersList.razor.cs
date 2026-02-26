@@ -12,6 +12,9 @@ public partial class TiglPlayersList
     [Parameter]
     public IReadOnlyCollection<TiglUserLiteDto> Users { get; set; } = new List<TiglUserLiteDto>();
 
+    [Parameter]
+    public bool Loading { get; set; }
+
     [Inject]
     private NavigationManager NavigationManager { get; set; } = default!;
 
@@ -80,6 +83,7 @@ public partial class TiglPlayersList
 
     private void RedirectToPlayer(int id)
     {
-        NavigationManager.NavigateTo($"{Pages.Pages.TiglPlayerProfile}?playerId={id}");
+        var returnUrl = Uri.EscapeDataString(Pages.Pages.TiglPlayers);
+        NavigationManager.NavigateTo($"{Pages.Pages.TiglPlayerProfile}?playerId={id}&returnUrl={returnUrl}");
     }
 }

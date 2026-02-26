@@ -1,18 +1,28 @@
 using MediatR;
+using Microsoft.Extensions.Caching.Memory;
 using TwilightImperiumUltimate.Contracts.DTOs;
 using TwilightImperiumUltimate.Contracts.DTOs.Rankings;
 using TwilightImperiumUltimate.DataAccess.Repositories;
 
 namespace TwilightImperiumUltimate.Business.Logic.Rankings;
 
-public class GetTiglRankingsOverviewQueryHandler(IRankingsRepository rankingsRepository)
+public class GetTiglRankingsOverviewQueryHandler(
+    IRankingsRepository rankingsRepository,
+    IMemoryCache memoryCache)
     : IRequestHandler<GetTiglRankingsOverviewQuery, ItemListDto<RankingsUserDto>>
 {
+    private const string CacheKey = "rankings:overview";
+    private static readonly TimeSpan CacheDuration = TimeSpan.FromHours(1);
+
     private readonly IRankingsRepository _repo = rankingsRepository;
+    private readonly IMemoryCache _memoryCache = memoryCache;
 
     public async Task<ItemListDto<RankingsUserDto>> Handle(GetTiglRankingsOverviewQuery request, CancellationToken cancellationToken)
     {
         ArgumentNullException.ThrowIfNull(request);
+
+        if (_memoryCache.TryGetValue(CacheKey, out ItemListDto<RankingsUserDto>? cached) && cached is not null)
+            return cached;
 
         var rows = await _repo.GetUsersRankingsOverview(cancellationToken);
 
@@ -36,6 +46,9 @@ public class GetTiglRankingsOverviewQueryHandler(IRankingsRepository rankingsRep
             .OrderBy(u => u.TiglUserName)
             .ToList();
 
-        return new ItemListDto<RankingsUserDto>(grouped);
+        var result = new ItemListDto<RankingsUserDto>(grouped);
+        _memoryCache.Set(CacheKey, result, CacheDuration);
+
+        return result;
     }
 }

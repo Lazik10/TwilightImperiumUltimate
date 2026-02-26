@@ -907,6 +907,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to api/tigl/tigl-player-profile/.
+        /// </summary>
+        public static string ApiPath_TiglPlayerProfile {
+            get {
+                return ResourceManager.GetString("ApiPath_TiglPlayerProfile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to api/tigl/register-user.
         /// </summary>
         public static string ApiPath_TiglRegisterUser {

@@ -1,0 +1,85 @@
+.achievement-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.5);
+    border-left: 3px solid rgba(255, 255, 255, 0.2);
+    transition: background 0.2s ease;
+}
+
+    .achievement-row:hover {
+        background: rgba(0, 0, 0, 0.6);
+    }
+
+.achievement-unearned {
+    opacity: 0.45;
+}
+
+.achievement-info {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.achievement-name-label {
+    font-weight: 600;
+}
+
+.achievement-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    white-space: nowrap;
+    min-width: 20%;
+}
+
+/* ── Rarity: Legendary (<0.1%) ── pink */
+.rarity-legendary {
+    border-left-color: #ff69b4;
+}
+
+/* ── Rarity: Epic (<0.5%) ── orange */
+.rarity-epic {
+    border-left-color: #ff8c00;
+}
+
+/* ── Rarity: Rare (<5%) ── purple */
+.rarity-rare {
+    border-left-color: #a855f7;
+}
+
+/* ── Rarity: Uncommon (<15%) ── blue */
+.rarity-uncommon {
+    border-left-color: #3b82f6;
+}
+
+/* ── Rarity: Common (<30%) ── green */
+.rarity-common {
+    border-left-color: #22c55e;
+}
+
+/* ── Rarity: Default (>30%) ── grey */
+.rarity-default {
+    border-left-color: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+    .achievement-row {
+        flex-wrap: wrap;
+        gap: 6px;
+        padding: 8px 10px;
+    }
+
+    .achievement-meta {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+}

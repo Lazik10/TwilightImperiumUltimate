@@ -25,6 +25,9 @@ public partial class FlexColumnContainer
     [Parameter]
     public AlignItems AlignItems { get; set; } = AlignItems.FlexStart;
 
+    [Parameter]
+    public EventCallback OnClick { get; set; }
+
     private string Justify => JustifyContent.GetJustifyString();
 
     private string Align => AlignItems.GetAlignString();

@@ -9,18 +9,15 @@ public partial class TiglStatisticsGrid
     private void ChangeStatisticsType(TiglStatisticsType statisticType)
     {
         _selectedStatisticsType = statisticType;
-        StateHasChanged();
     }
 
     private void OnSeasonChanged(int seasonNumber)
     {
         _selectedSeasonNumber = seasonNumber;
-        StateHasChanged();
     }
 
     private void OnLeagueChanged(TiglLeague league)
     {
         _selectedLeague = league;
-        StateHasChanged();
     }
 }

@@ -15,6 +15,7 @@ public enum TextColor
     Grey,
     DarkGreen,
     Black,
+    LightBlue,
 
     Unranked,
     Minister,

@@ -28,6 +28,8 @@ internal class TiglThundersEdgeRankUpResolver : RankUpResolverBase, ITiglRankUpR
 
         await InitializePlayers(cancellationToken);
 
+        var isHeroOnlyGameAtStart = PreMatchRanks.Count > 0 && PreMatchRanks.Values.All(rank => rank == TiglRankName.Hero);
+
         foreach (var player in TiglUsers)
         {
             var playerMatchStats = player.GetPlayerGameMatchStats(MatchReport.Id, MatchReport.League);
@@ -56,8 +58,8 @@ internal class TiglThundersEdgeRankUpResolver : RankUpResolverBase, ITiglRankUpR
                     // Get next rank based on the rank before the game, not the current rank
                     newRank = GetNewRank(rankBeforeGame, player.ThundersEdgeRank);
 
-                    // Steal leader from current holder
-                    if (newRank == TiglRankName.Hero || player.ThundersEdgeRank == TiglRankName.Hero)
+                    // Steal leader only in games where all players started as Hero
+                    if (isHeroOnlyGameAtStart)
                         await LeaderUpdateService.UpdateLeader(player, MatchReport, faction, cancellationToken);
 
                     if (newRank > player.ThundersEdgeRank)
@@ -74,8 +76,8 @@ internal class TiglThundersEdgeRankUpResolver : RankUpResolverBase, ITiglRankUpR
                         updatePlayerRank = false;
                     }
 
-                    // If player is already at Hero rank, evaluate prestige ranks
-                    if (player.ThundersEdgeRank == TiglRankName.Hero)
+                    // Evaluate prestige ranks only in games where all players started as Hero
+                    if (isHeroOnlyGameAtStart && rankBeforeGame == TiglRankName.Hero)
                     {
                         await EvaluatePrestigeRanks(player.Id, MatchReport, faction, MatchReport.League, cancellationToken);
 

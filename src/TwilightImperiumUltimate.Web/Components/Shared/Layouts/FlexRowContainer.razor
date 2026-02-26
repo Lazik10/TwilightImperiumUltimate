@@ -1,7 +1,9 @@
-﻿<div class="flex-row @(CssClass)" 
+﻿<div class="flex-row @(CssClass)"
+     @onclick="OnClick"
      style="justify-content: @(Justify)
             align-items: @(Align)
             width: @($"{Width}%");
+            @(OnClick.HasDelegate ? "cursor: pointer;" : string.Empty)
             @(Style)">
     @ChildContent
 </div>

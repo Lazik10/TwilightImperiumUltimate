@@ -18,13 +18,13 @@ public partial class TiglPlayersGrid
     private async Task LoadUsersAsync()
     {
         _loading = true;
-        StateHasChanged();
-        var (response, status) = await HttpClient.GetAsync<ApiResponse<ItemListDto<TiglUserLiteDto>>>("api/tigl/users");
+
+        var (response, status) = await HttpClient.GetAsync<ApiResponse<ItemListDto<TiglUserLiteDto>>>(Paths.ApiPath_TiglUsers);
         if (status == HttpStatusCode.OK && response?.Data?.Items is not null)
         {
             _users = response.Data.Items;
         }
+
         _loading = false;
-        StateHasChanged();
     }
 }

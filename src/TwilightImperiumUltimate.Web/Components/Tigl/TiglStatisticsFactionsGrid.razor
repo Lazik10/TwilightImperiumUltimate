@@ -1,9 +1,53 @@
 ﻿@using TwilightImperiumUltimate.Contracts.DTOs.Tigl
-@using TwilightImperiumUltimate.Web.Components.Ranking
+@using TwilightImperiumUltimate.Web.Components.Tigl
 @using TwilightImperiumUltimate.Web.Components.Shared
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @using TwilightImperiumUltimate.Web.Helpers.Enums
 @using TwilightImperiumUltimate.Web.Helpers.Numbers
+
+<FlexRowContainer>
+    <EnumPicker TEnum="TiglFactionStatsShowBy"
+                Label="Filter By"
+                CurrentValue="_showBy"
+                CurrentValueChanged="OnShowByChanged"
+                Width="100" />
+</FlexRowContainer>
+
+@if (_showBy == TiglFactionStatsShowBy.Era)
+{
+    <FlexRowContainer>
+        <EnumPicker TEnum="TiglFactionStatsEra"
+                    Label="Expansion"
+                    CurrentValue="_era"
+                    CurrentValueChanged="OnEraChanged"
+                    Width="100" />
+    </FlexRowContainer>
+}
+else
+{
+    <FlexRowContainer>
+        <SeasonPicker FontSize="18"
+                      SeasonNumberChanged="OnSeasonChanged"
+                      Width="100" />
+    </FlexRowContainer>
+}
+
+@if (ShouldShowLeagueFilter)
+{
+    <FlexRowContainer>
+        <EnumPicker TEnum="TiglFactionStatsLeague"
+                    Label="League"
+                    CurrentValue="_leagueFilter"
+                    CurrentValueChanged="OnLeagueFilterChanged"
+                    Width="100" />
+    </FlexRowContainer>
+}
+else
+{
+    <FlexRowContainer>
+        <Label Text="" Width="100" />
+    </FlexRowContainer>
+}
 
 <VerticalSpace Height="20" />
 
@@ -24,15 +68,23 @@
 
 @if (_loading)
 {
-    <VerticalSpace Height="50" />
-    <Label Text="...Loading faction stats..." CenterText="true" />
-    <VerticalSpace Height="50" />
+    <GridLayout Columns="1" CssClass="handel white shadow background">
+        <StretchHeightContainer>
+        <VerticalSpace Height="50" CssClass="span-1" />
+        <Label Text="...Loading faction stats..." CenterText="true" />
+        <VerticalSpace Height="50" CssClass="span-1" />
+        </StretchHeightContainer>
+    </GridLayout>
 }
 else if (_rows.Count == 0)
 {
-    <VerticalSpace Height="50" />
-    <Label Text="No data" CenterText="true" />
-    <VerticalSpace Height="50" />
+    <GridLayout Columns="1" CssClass="handel white shadow background">
+        <StretchHeightContainer>
+        <VerticalSpace Height="50" CssClass="span-1" />
+        <Label Text="No data" CenterText="true" />
+        <VerticalSpace Height="50" CssClass="span-1" />
+        </StretchHeightContainer>
+    </GridLayout>
 }
 else
 {

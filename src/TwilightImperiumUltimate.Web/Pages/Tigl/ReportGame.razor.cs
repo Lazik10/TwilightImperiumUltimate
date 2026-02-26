@@ -36,7 +36,9 @@ public partial class ReportGame
     private int _currentPlayerIndex;
     private List<RowViewMode> _rowModes = new();
 
-    private IReadOnlyCollection<TiglUserLiteDto> _users = Array.Empty<TiglUserLiteDto>();
+    private bool _loading = true;
+    private IList<TiglUserLiteDto> _users = Array.Empty<TiglUserLiteDto>();
+    private Dictionary<long, TiglUserLiteDto> _usersById = new();
     private List<string> _availableFactionNames = new();
 
     private enum RowViewMode
@@ -81,11 +83,13 @@ public partial class ReportGame
     [Inject]
     private IJSRuntime JSRuntime { get; set; } = default!;
 
-    protected override async void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        await LoadUsersAsync();
+        _loading = true;
         InitializeForm();
         UpdateFactionList();
+        await LoadUsersAsync();
+        _loading = false;
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -137,16 +141,21 @@ public partial class ReportGame
         }
 
         ClearMessages();
-        StateHasChanged();
     }
 
     private async Task LoadUsersAsync()
     {
         var (response, status) = await HttpClient.GetAsync<ApiResponse<ItemListDto<TiglUserLiteDto>>>(Paths.ApiPath_TiglUsers);
         if (status == HttpStatusCode.OK && response?.Data?.Items is not null)
-            _users = response.Data.Items;
+        {
+            _users = response.Data.Items as IList<TiglUserLiteDto> ?? response.Data.Items.ToList();
+            _usersById = _users.ToDictionary(u => u.DiscordUserId);
+        }
         else
+        {
             _users = Array.Empty<TiglUserLiteDto>();
+            _usersById = new();
+        }
     }
 
     private void UpdateFactionList()
@@ -164,8 +173,6 @@ public partial class ReportGame
             .Select(f => TiglFactionParser.ToFactionString(f))
             .Distinct()
             .ToList();
-
-        StateHasChanged();
     }
 
     private void ChangeLeague(TiglLeague league)
@@ -184,7 +191,7 @@ public partial class ReportGame
     }
 
     private TiglUserLiteDto? FindUser(long discordUserId)
-        => _users.FirstOrDefault(u => u.DiscordUserId == discordUserId);
+        => _usersById.GetValueOrDefault(discordUserId);
 
     private string GetDiscordTag(long discordUserId)
     {
@@ -272,6 +279,7 @@ public partial class ReportGame
         try
         {
             // Use currently selected values
+            gameReportRequest.GameId = gameReportRequest.GameId.ToLowerInvariant();
             gameReportRequest.PlayerResults = playerResults.ToList();
             gameReportRequest.PlayerCount = playerResults.Count;
             gameReportRequest.Events = _selectedEvents.ToList();
@@ -296,7 +304,7 @@ public partial class ReportGame
                 successMessage = $"Game report for '{gameReportRequest.GameId}' has been successfully submitted and processed!";
                 ResetForm();
                 await Task.Delay(1000);
-                NavigationManager.NavigateTo($"{Pages.Tigl}?category=games");
+                NavigationManager.NavigateTo(Pages.TiglGames);
             }
             else
             {
@@ -447,12 +455,11 @@ public partial class ReportGame
             _round--;
     }
 
-    private void RedirectBack() => NavigationManager.NavigateTo(Pages.Tigl);
+    private void RedirectBack() => NavigationManager.NavigateTo(Pages.TiglLeaderboard);
 
     private void ChangeSource(ResultSource source)
     {
         gameReportRequest.Source = source;
-        StateHasChanged();
     }
 
     private void SetGameTimestampsFromClientTimeZone()

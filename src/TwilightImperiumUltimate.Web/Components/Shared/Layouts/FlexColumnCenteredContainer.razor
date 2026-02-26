@@ -1,5 +1,5 @@
 ﻿@inherits TwilightImperiumBaseComponenet
 
-<div class="flex-column-center @(CssClass)" style="width: @(Width)%; @(Style)">
+<div class="flex-column-center @(CssClass)" @onclick="OnClick" style="width: @(Width)%; @(OnClick.HasDelegate ? "cursor: pointer;" : string.Empty) @(Style)">
     @ChildContent
 </div>

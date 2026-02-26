@@ -142,10 +142,17 @@ public class PathProvider : IPathProvider
     public string GetLeaderIconPath(TiglFactionName faction, LeaderType type)
     {
         var factionString = faction.ToString();
+
         if (faction == TiglFactionName.TheGheminaRaiders)
         {
             var variants = new List<string> { "Lady", "Lord" };
             factionString += variants[_random.Next(variants.Count)].ToString();
+        }
+
+        if (faction == TiglFactionName.TheFirmamentTheObsidian)
+        {
+            var variants = new List<string> { "TheFirmament", "TheObsidian" };
+            factionString = variants[_random.Next(variants.Count)].ToString();
         }
 
         return $"{Paths.ResourcePath_LeaderIconPath}{Strings.BackSlash}{factionString}{type}{Strings.FileExtensionWebp}";

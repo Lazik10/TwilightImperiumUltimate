@@ -84,7 +84,7 @@ public partial class TiglRegisterUser
                 await Task.Delay(5000);
 
                 // navigate to player profile page with query playerId
-                var target = $"{Pages.Tigl}";
+                var target = $"{Pages.TiglLeaderboard}";
                 await InvokeAsync(() => NavigationManager.NavigateTo(target));
             });
         }
@@ -100,7 +100,7 @@ public partial class TiglRegisterUser
         return PlayerId == -1 && !string.IsNullOrEmpty(ErrorMessage);
     }
 
-    private void RedirectBack() => NavigationManager.NavigateTo(Pages.Tigl);
+    private void RedirectBack() => NavigationManager.NavigateTo(Pages.TiglLeaderboard);
 
     private void RegisterWithDiscord()
     {

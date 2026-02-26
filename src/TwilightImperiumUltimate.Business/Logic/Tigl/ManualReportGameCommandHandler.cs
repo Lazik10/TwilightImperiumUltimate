@@ -69,7 +69,7 @@ public class ManualReportGameCommandHandler(
                 stringBuilder.AppendLine(error.Message);
             }
 
-            return new GameReportResult(false, "Invalid Factions", stringBuilder.ToString());
+            return new GameReportResult(false, $"Invalid Factions for game {gameReport.GameId}", stringBuilder.ToString());
         }
 
         // Validate that all users exist in the database
@@ -85,7 +85,7 @@ public class ManualReportGameCommandHandler(
                     stringBuilder.AppendLine(error.Message);
                 }
 
-                return new GameReportResult(false, "Failed to register player(s)", stringBuilder.ToString());
+                return new GameReportResult(false, $"Failed to register player(s) for game {gameReport.GameId}", stringBuilder.ToString());
             }
         }
 

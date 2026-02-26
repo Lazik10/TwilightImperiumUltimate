@@ -1,14 +1,5 @@
 ﻿<VerticalSpace Height="20" />
 
 <StretchHeightContainer>
-    @if (_loading)
-    {
-        <VerticalSpace Height="100" />
-        <Label Text="Loading..." CenterText="true" />
-        <VerticalSpace Height="100" />
-    }
-    else
-    {
-        <TiglPlayersList Users="_users" />
-    }
+    <TiglPlayersList Users="_users" Loading="_loading" />
 </StretchHeightContainer>
