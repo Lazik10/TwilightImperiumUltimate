@@ -15,6 +15,10 @@ public partial class TiglGameReportDetail
     [SupplyParameterFromQuery(Name = "id")]
     public int Id { get; set; }
 
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "returnUrl")]
+    public string? ReturnUrl { get; set; }
+
     private MatchReportDto? MatchReport { get; set; }
 
     private List<PlayerResultDto> Winners => GetWinners();
@@ -110,7 +114,17 @@ public partial class TiglGameReportDetail
 
     private string GetGameLeagueString() => $"League: {MatchReport!.League.GetDisplayName()}";
 
-    private void RedirectBack() => NavigationManager.NavigateTo($"{Pages.Tigl}?category=games");
+    private void RedirectBack()
+    {
+        if (!string.IsNullOrEmpty(ReturnUrl))
+        {
+            NavigationManager.NavigateTo(ReturnUrl);
+        }
+        else
+        {
+            NavigationManager.NavigateTo(Pages.TiglGames);
+        }
+    }
 
     private TextColor GetChangeColor(double value)
     {

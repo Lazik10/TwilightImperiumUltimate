@@ -188,6 +188,7 @@ public static class EnumExtensions
             TextColor.Grey => "grey",
             TextColor.DarkGreen => "darkgreen",
             TextColor.Black => "black",
+            TextColor.LightBlue => "#3b82f6",
 
             TextColor.Unranked => "white",
 

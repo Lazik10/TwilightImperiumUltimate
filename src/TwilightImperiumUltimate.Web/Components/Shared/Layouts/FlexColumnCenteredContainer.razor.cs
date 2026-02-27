@@ -10,4 +10,7 @@ public partial class FlexColumnCenteredContainer : TwilightImperiumBaseComponene
 
     [Parameter]
     public string Style { get; set; } = string.Empty;
+
+    [Parameter]
+    public EventCallback OnClick { get; set; }
 }

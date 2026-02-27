@@ -9,9 +9,7 @@ public partial class TiglGamesGrid
     private List<MatchReportDto> _allStandard = new();
     private List<MatchReportDto> _allFractured = new();
     private bool _loading;
-
-    [CascadingParameter(Name = "Seasons")]
-    public IReadOnlyCollection<SeasonDto> Seasons { get; set; } = Array.Empty<SeasonDto>();
+    private IReadOnlyCollection<SeasonDto> _seasons = Array.Empty<SeasonDto>();
 
     private List<MatchReportDto> FilteredStandardGames { get; set; } = new List<MatchReportDto>();
 
@@ -27,11 +25,27 @@ public partial class TiglGamesGrid
     {
         _loading = true;
 
-        Seasons = Seasons.Where(x => x.SeasonNumber != -1).ToList();
-        _selectedSeasonNumber = Seasons.MaxBy(s => s.SeasonNumber)?.SeasonNumber ?? 1;
-        await LoadGameReports();
+        var seasonsTask = LoadSeasons();
+        var gamesTask = LoadGameReports();
+        await Task.WhenAll(seasonsTask, gamesTask);
+
+        _selectedSeasonNumber = _seasons.Count > 0 ? _seasons.Max(s => s.SeasonNumber) : 0;
+        UpdateSelectedGames();
 
         _loading = false;
+    }
+
+    private async Task LoadSeasons()
+    {
+        var (resp, status) = await HttpClient.GetAsync<ApiResponse<ItemListDto<SeasonDto>>>(Paths.ApiPath_Seasons);
+        if (status == HttpStatusCode.OK && resp?.Data?.Items is not null)
+        {
+            _seasons = resp.Data.Items;
+        }
+        else
+        {
+            _seasons = Array.Empty<SeasonDto>();
+        }
     }
 
     private async Task LoadGameReports()
@@ -45,10 +59,6 @@ public partial class TiglGamesGrid
 
             _allStandard = items.Where(m => m.League == TiglLeague.ThundersEdge || m.League == TiglLeague.ProphecyOfKings).ToList();
             _allFractured = items.Where(m => m.League == TiglLeague.Fractured).ToList();
-            FilteredStandardGames = _allStandard;
-            FilteredFracturedGames = _allFractured;
-
-            UpdateSelectedGames();
         }
     }
 
@@ -61,12 +71,52 @@ public partial class TiglGamesGrid
         return dt.ToString("dd/MM/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture);
     }
 
-    private void UpdateSelectedSeason(int seasonNumber)
+    private void DecreaseSeasonNumber()
     {
-        _selectedSeasonNumber = seasonNumber;
-        _loading = true;
+        if (_seasons.Count == 0)
+            return;
+
+        var maxSeason = _seasons.Max(x => x.SeasonNumber);
+        var minSeason = _seasons.Min(x => x.SeasonNumber);
+
+        if (_selectedSeasonNumber > minSeason)
+            _selectedSeasonNumber--;
+        else if (_selectedSeasonNumber == minSeason)
+            _selectedSeasonNumber = maxSeason;
+
         UpdateSelectedGames();
-        _loading = false;
+    }
+
+    private void IncreaseSeasonNumber()
+    {
+        if (_seasons.Count == 0)
+            return;
+
+        var maxSeason = _seasons.Max(x => x.SeasonNumber);
+        var minSeason = _seasons.Min(x => x.SeasonNumber);
+
+        if (_selectedSeasonNumber < maxSeason)
+            _selectedSeasonNumber++;
+        else if (_selectedSeasonNumber == maxSeason)
+            _selectedSeasonNumber = minSeason;
+
+        UpdateSelectedGames();
+    }
+
+    private string GetStandardTitle()
+    {
+        var count = FilteredStandardGames.Count;
+        return count > 0
+            ? $"{Strings.TiglGames_CategoryStandard} ({count})"
+            : Strings.TiglGames_CategoryStandard;
+    }
+
+    private string GetFracturedTitle()
+    {
+        var count = FilteredFracturedGames.Count;
+        return count > 0
+            ? $"{Strings.TiglGames_CategoryFractured} ({count})"
+            : Strings.TiglGames_CategoryFractured;
     }
 
     private void UpdateSelectedGames()
@@ -75,5 +125,9 @@ public partial class TiglGamesGrid
         FilteredFracturedGames = _allFractured.Where(x => x.Season == _selectedSeasonNumber).ToList();
     }
 
-    private void RedirectToGameDetail(int id) => NavigationManager.NavigateTo(Pages.Pages.TiglGameDetail + $"?id={id}");
+    private void RedirectToGameDetail(int id)
+    {
+        var returnUrl = Uri.EscapeDataString(Pages.Pages.TiglGames);
+        NavigationManager.NavigateTo($"{Pages.Pages.TiglGameDetail}?id={id}&returnUrl={returnUrl}");
+    }
 }

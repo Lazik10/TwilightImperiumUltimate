@@ -1,15 +1,29 @@
 ﻿@page "/community/tigl/player-profile"
+@using TwilightImperiumUltimate.Web.Components.TiglProfile
 
 <Page>
+    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+        <TextButton Text="@Strings.ButtonBack" OnClick="RedirectBack" FontSize="24" Width="20" TextAlign="@(string.Empty)" />
+    </FlexRowContainer>
 
-    <FlexColumnCenteredContainer>
+    <VerticalSpace Height="20" />
 
-        <VerticalSpace Height="100" />
+    @if (_loading)
+    {
+        <FlexColumnCenteredContainer>
+            <StretchHeightContainer CssClass="background">
 
-        <Label Text="Profile pages will be available during early December." CenterText="true" FontSize="32" />
+            <VerticalSpace Height="100" />
+            <Label Text="@Strings.Loading" CenterText="true" FontSize="32" />
+            <VerticalSpace Height="100" />
 
-        <VerticalSpace Height="100" />
-
-    </FlexColumnCenteredContainer>
-
+            </StretchHeightContainer>
+        </FlexColumnCenteredContainer>
+    }
+    else
+    {
+        <CascadingValue Value="PlayerProfile" Name="TiglPlayerProfile">
+            <TiglProfileGrid />
+        </CascadingValue>
+    }
 </Page>

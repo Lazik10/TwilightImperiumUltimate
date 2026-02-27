@@ -1,0 +1,1054 @@
+@using TwilightImperiumUltimate.Web.Components.TiglProfile
+@using TwilightImperiumUltimate.Web.Components.Factions
+@using TwilightImperiumUltimate.Web.Helpers.Enums
+@using TwilightImperiumUltimate.Web.Helpers.Numbers
+@using TwilightImperiumUltimate.Contracts.DTOs.Tigl
+@using TwilightImperiumUltimate.Contracts.DTOs.Rankings
+
+<FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" AlignItems="Enums.AlignItems.FlexStart" CssClass="background padding">
+
+    @if (Profile is not null && !string.IsNullOrEmpty(Profile.TiglUserName))
+    {
+        <TitleTexture Width="15" Texture="Enums.Texture.TopLeft" />
+
+        <FlexColumnCenteredContainer>
+
+            @* Player Name *@
+            <VerticalSpace Height="10" />
+            <TitleLine TransformX="-10" Width="115" MaxWidth="115" />
+            <FlexColumnCenteredContainer CssClass="title handel white shadow">
+                <Label Text="@Profile.TiglUserName.ToUpper()" CenterText="true" FontSize="36" />
+            </FlexColumnCenteredContainer>
+            <TitleLine TransformX="-10" Width="115" MaxWidth="115" />
+
+            @if (!string.IsNullOrEmpty(Profile.DiscordTag))
+            {
+                <VerticalSpace Height="5" />
+                <Label Text="@($"Discord Tag: {Profile.DiscordTag}")" CenterText="true" FontSize="18" TextColor="TextColor.Yellow" />
+            }
+
+            <VerticalSpace Height="20" />
+
+            @* Category Picker *@
+            <FlexRowContainer JustifyContent="Enums.JustifyContent.Center">
+                <EnumPicker TEnum="TiglProfileCategory"
+                            CurrentValue="@CurrentCategory"
+                            CurrentValueChanged="@OnCategoryChanged"
+                            Width="50"
+                            MinChoiceWidth="70"
+                            Label="League" />
+            </FlexRowContainer>
+
+            <VerticalSpace Height="30" />
+
+            @* ─── OVERVIEW ─── *@
+            <div class="section-container">
+                <Label Text="OVERVIEW" CenterText="true" FontSize="22" TextColor="TextColor.Yellow" />
+                <VerticalSpace Height="15" />
+
+                <div class="ratings-section">
+                    @foreach (var league in FilteredLeagueProfiles)
+                    {
+                        @if (CurrentCategory == TiglProfileCategory.All)
+                        {
+                            <div class="rating-card handel shadow">
+                                <Label Text="@league.League.GetDisplayName()" CenterText="true" FontSize="20" TextColor="TextColor.Yellow" />
+                                <VerticalSpace Height="8" />
+
+                                <div class="rating-row">
+                                    <Label Text="Rank" FontSize="14" Width="50" />
+                                    <Label Text="@league.CurrentRank.GetDisplayName()" FontSize="18" TextColor="@league.CurrentRank.GetRankColor()" Width="50" Style="text-align: right;" />
+                                </div>
+                                @{
+                                    var prestigeTitle = GetLeaguePrestigeTitle(league.League);
+                                }
+                                <div class="rating-row">
+                                    <Label Text="Prestige Rank" FontSize="14" Width="50" />
+                                    @if (prestigeTitle is not null)
+                                    {
+                                        <Label Text="@GetPrestigeDisplayText(prestigeTitle)" FontSize="16" TextColor="@GetPrestigeColor(prestigeTitle.PrestigeRank)" Width="50" Style="text-align: right;" />
+                                    }
+                                    else
+                                    {
+                                        <Label Text="" FontSize="14" Width="50" Style="text-align: right;" />
+                                    }
+                                </div>
+                                <div class="rating-row">
+                                    <Label Text="Games Played" FontSize="14" Width="50" />
+                                    <Label Text="@league.GamesPlayed.ToString()" FontSize="16" TextColor="TextColor.Yellow" Width="50" Style="text-align: right;" />
+                                </div>
+                                <div class="rating-row">
+                                    <Label Text="Win%" FontSize="14" Width="50" />
+                                    @{
+                                        var winRate = GetLeagueWinRate(league);
+                                    }
+                                    <Label Text="@($"{winRate:F1}%")" FontSize="16" TextColor="@winRate.GetWinrateColor()" Width="50" Style="text-align: right;" />
+                                </div>
+
+                                <VerticalSpace Height="8" />
+                                <div class="rating-divider"></div>
+                                <VerticalSpace Height="8" />
+
+                                <Label Text="TrueSkill" CenterText="true" FontSize="16" TextColor="TextColor.Yellow" />
+                                <VerticalSpace Height="6" />
+                                <div class="rating-row">
+                                    <Label Text="Conservative Peak" FontSize="14" Width="50" />
+                                    <Label Text="@GetHighestTrueSkillConservative(league).ToString("F2")" FontSize="14" TextColor="TextColor.Green" Width="50" Style="text-align: right;" />
+                                </div>
+                                <div class="rating-row">
+                                    <Label Text="Conservative Current" FontSize="14" Width="50" />
+                                    <Label Text="@league.TrueSkillConservative.ToString("F2")" FontSize="14" TextColor="TextColor.Yellow" Width="50" Style="text-align: right;" />
+                                </div>
+                                <div class="rating-row">
+                                    <Label Text="Sigma" FontSize="14" Width="50" />
+                                    <Label Text="@league.TrueSkillSigma.ToString("F2")" FontSize="14" Width="50" Style="text-align: right;" />
+                                </div>
+                                <div class="rating-row">
+                                    <Label Text="Rating" FontSize="14" Width="50" />
+                                    <Label Text="@league.TrueSkillMu.ToString("F2")" FontSize="14" Width="50" Style="text-align: right;" />
+                                </div>
+
+                                <VerticalSpace Height="8" />
+                                <div class="rating-divider"></div>
+                                <VerticalSpace Height="8" />
+
+                                <Label Text="Glicko-2" CenterText="true" FontSize="16" TextColor="TextColor.Yellow" />
+                                <VerticalSpace Height="6" />
+                                <div class="rating-row">
+                                    <Label Text="Peak" FontSize="14" Width="50" />
+                                    <Label Text="@GetHighestGlickoRating(league).ToString("F0")" FontSize="14" TextColor="TextColor.Green" Width="50" Style="text-align: right;" />
+                                </div>
+                                <div class="rating-row">
+                                    <Label Text="Current" FontSize="14" Width="50" />
+                                    <Label Text="@league.GlickoRating.ToString("F0")" FontSize="14" TextColor="TextColor.Yellow" Width="50" Style="text-align: right;" />
+                                </div>
+                                <div class="rating-row">
+                                    <Label Text="RD" FontSize="14" Width="50" />
+                                    <Label Text="@league.GlickoRd.ToString("F1")" FontSize="14" Width="50" Style="text-align: right;" />
+                                </div>
+
+                                <VerticalSpace Height="8" />
+                                <div class="rating-divider"></div>
+                                <VerticalSpace Height="8" />
+
+                                <Label Text="Async" CenterText="true" FontSize="16" TextColor="TextColor.Yellow" />
+                                <VerticalSpace Height="6" />
+                                <div class="rating-row">
+                                    <Label Text="Peak" FontSize="14" Width="50" />
+                                    <Label Text="@GetHighestAsyncRating(league).ToString("F1")" FontSize="14" TextColor="TextColor.Green" Width="50" Style="text-align: right;" />
+                                </div>
+                                <div class="rating-row">
+                                    <Label Text="Current" FontSize="14" Width="50" />
+                                    <Label Text="@league.AsyncRating.ToString("F1")" FontSize="14" TextColor="TextColor.Yellow" Width="50" Style="text-align: right;" />
+                                </div>
+                                <div class="rating-row">
+                                    <Label Text="Aussie Score" FontSize="14" Width="50" />
+                                    <Label Text="@league.AsyncAussieScore.ToString("F1")" FontSize="14" Width="50" Style="text-align: right;" />
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="overview-compact handel shadow">
+                                @{
+                                    var prestigeTitleCompact = GetLeaguePrestigeTitle(league.League);
+                                    var winRateCompact = GetLeagueWinRate(league);
+                                }
+                                <div class="overview-top-row">
+                                    <div class="overview-stat">
+                                        <Label Text="Rank" FontSize="13" TextColor="TextColor.Yellow" />
+                                        <Label Text="@league.CurrentRank.GetDisplayName()" FontSize="18" TextColor="@league.CurrentRank.GetRankColor()" />
+                                    </div>
+                                    <div class="overview-stat">
+                                        <Label Text="Prestige Rank" FontSize="13" TextColor="TextColor.Yellow" />
+                                        @if (prestigeTitleCompact is not null)
+                                        {
+                                            <Label Text="@GetPrestigeDisplayText(prestigeTitleCompact)" FontSize="18" TextColor="@GetPrestigeColor(prestigeTitleCompact.PrestigeRank)" />
+                                        }
+                                        else
+                                        {
+                                            <Label Text="—" FontSize="18" />
+                                        }
+                                    </div>
+                                    <div class="overview-stat">
+                                        <Label Text="Games" FontSize="13" TextColor="TextColor.Yellow" />
+                                        <Label Text="@league.GamesPlayed.ToString()" FontSize="18" TextColor="TextColor.Green" />
+                                    </div>
+                                    <div class="overview-stat">
+                                        <Label Text="Win%" FontSize="13" TextColor="TextColor.Yellow" />
+                                        <Label Text="@($"{winRateCompact:F1}%")" FontSize="18" TextColor="@winRateCompact.GetWinrateColor()" />
+                                    </div>
+                                </div>
+
+                                <VerticalSpace Height="8" />
+                                <div class="rating-divider"></div>
+                                <VerticalSpace Height="8" />
+
+                                <div class="overview-ratings-grid">
+                                    <div class="overview-rating-col">
+                                        <Label Text="TrueSkill" CenterText="true" FontSize="16" TextColor="TextColor.Yellow" />
+                                        <VerticalSpace Height="6" />
+                                        <div class="rating-row">
+                                            <Label Text="Conservative Peak" FontSize="13" Width="50" />
+                                            <Label Text="@GetHighestTrueSkillConservative(league).ToString("F2")" FontSize="13" TextColor="TextColor.Green" Width="50" Style="text-align: right;" />
+                                        </div>
+                                        <div class="rating-row">
+                                            <Label Text="Conservative Current" FontSize="13" Width="50" />
+                                            <Label Text="@league.TrueSkillConservative.ToString("F2")" FontSize="13" TextColor="TextColor.Yellow" Width="50" Style="text-align: right;" />
+                                        </div>
+                                        <div class="rating-row">
+                                            <Label Text="Sigma" FontSize="13" Width="50" />
+                                            <Label Text="@league.TrueSkillSigma.ToString("F2")" FontSize="13" Width="50" Style="text-align: right;" />
+                                        </div>
+                                        <div class="rating-row">
+                                            <Label Text="Rating" FontSize="13" Width="50" />
+                                            <Label Text="@league.TrueSkillMu.ToString("F2")" FontSize="13" Width="50" Style="text-align: right;" />
+                                        </div>
+                                    </div>
+                                    <div class="overview-rating-col">
+                                        <Label Text="Glicko-2" CenterText="true" FontSize="16" TextColor="TextColor.Yellow" />
+                                        <VerticalSpace Height="6" />
+                                        <div class="rating-row">
+                                            <Label Text="Peak" FontSize="13" Width="50" />
+                                            <Label Text="@GetHighestGlickoRating(league).ToString("F0")" FontSize="13" TextColor="TextColor.Green" Width="50" Style="text-align: right;" />
+                                        </div>
+                                        <div class="rating-row">
+                                            <Label Text="Current" FontSize="13" Width="50" />
+                                            <Label Text="@league.GlickoRating.ToString("F0")" FontSize="13" TextColor="TextColor.Yellow" Width="50" Style="text-align: right;" />
+                                        </div>
+                                        <div class="rating-row">
+                                            <Label Text="RD" FontSize="13" Width="50" />
+                                            <Label Text="@league.GlickoRd.ToString("F1")" FontSize="13" Width="50" Style="text-align: right;" />
+                                        </div>
+                                        <div class="rating-row overview-empty-row"></div>
+                                    </div>
+                                    <div class="overview-rating-col">
+                                        <Label Text="Async" CenterText="true" FontSize="16" TextColor="TextColor.Yellow" />
+                                        <VerticalSpace Height="6" />
+                                        <div class="rating-row">
+                                            <Label Text="Peak" FontSize="13" Width="50" />
+                                            <Label Text="@GetHighestAsyncRating(league).ToString("F1")" FontSize="13" TextColor="TextColor.Green" Width="50" Style="text-align: right;" />
+                                        </div>
+                                        <div class="rating-row">
+                                            <Label Text="Current" FontSize="13" Width="50" />
+                                            <Label Text="@league.AsyncRating.ToString("F1")" FontSize="13" TextColor="TextColor.Yellow" Width="50" Style="text-align: right;" />
+                                        </div>
+                                        <div class="rating-row">
+                                            <Label Text="Aussie Score" FontSize="13" Width="50" />
+                                            <Label Text="@league.AsyncAussieScore.ToString("F1")" FontSize="13" Width="50" Style="text-align: right;" />
+                                        </div>
+                                        <div class="rating-row overview-empty-row"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+
+            <VerticalSpace Height="40" />
+
+            @* ─── RATING PROGRESSION CHARTS ─── *@
+            <div class="section-container">
+                <Label Text="RATING PROGRESSION" CenterText="true" FontSize="22" TextColor="TextColor.Yellow" />
+                <VerticalSpace Height="15" />
+
+                @if (AsyncChartSeries.Count > 0)
+                {
+                    var asyncBounds = GetChartAxisBounds(AsyncChartSeries);
+                    <Label Text="Async Rating" CenterText="true" FontSize="16" />
+                    <VerticalSpace Height="5" />
+                    <div class="chart-container">
+                        <RadzenChart @key="CurrentCategory">
+                            @foreach (var series in AsyncChartSeries)
+                            {
+                                <RadzenLineSeries Data="@series.Points" CategoryProperty="Game" ValueProperty="Rating"
+                                                  Title="@series.Title" Smooth="true" StrokeWidth="2" />
+                            }
+                            <RadzenCategoryAxis Stroke="white" StrokeWidth="2">
+                                <RadzenAxisTitle Text="Game #" />
+                            </RadzenCategoryAxis>
+                            <RadzenValueAxis Min="@asyncBounds.Min" Max="@asyncBounds.Max" Step="@asyncBounds.Step" Stroke="white" StrokeWidth="2">
+                                <RadzenAxisTitle Text="Rating" />
+                            </RadzenValueAxis>
+                            <RadzenLegend Visible="true" Position="LegendPosition.Bottom" />
+                        </RadzenChart>
+                    </div>
+                    <VerticalSpace Height="20" />
+                }
+
+                @if (GlickoChartSeries.Count > 0)
+                {
+                    var glickoBounds = GetChartAxisBounds(GlickoChartSeries);
+                    <Label Text="Glicko-2 Rating" CenterText="true" FontSize="16" />
+                    <VerticalSpace Height="5" />
+                    <div class="chart-container">
+                        <RadzenChart @key="CurrentCategory">
+                            @foreach (var series in GlickoChartSeries)
+                            {
+                                <RadzenLineSeries Data="@series.Points" CategoryProperty="Game" ValueProperty="Rating"
+                                                  Title="@series.Title" Smooth="true" StrokeWidth="2" />
+                            }
+                            <RadzenCategoryAxis Stroke="white" StrokeWidth="2">
+                                <RadzenAxisTitle Text="Game #" />
+                            </RadzenCategoryAxis>
+                            <RadzenValueAxis Min="@glickoBounds.Min" Max="@glickoBounds.Max" Step="@glickoBounds.Step" Stroke="white" StrokeWidth="2">
+                                <RadzenAxisTitle Text="Rating" />
+                            </RadzenValueAxis>
+                            <RadzenLegend Visible="true" Position="LegendPosition.Bottom" />
+                        </RadzenChart>
+                    </div>
+                    <VerticalSpace Height="20" />
+                }
+
+                @if (TrueSkillChartSeries.Count > 0)
+                {
+                    var trueSkillBounds = GetChartAxisBounds(TrueSkillChartSeries);
+                    <Label Text="TrueSkill Rating" CenterText="true" FontSize="16" />
+                    <VerticalSpace Height="5" />
+                    <div class="chart-container">
+                        <RadzenChart @key="CurrentCategory">
+                            @foreach (var series in TrueSkillChartSeries)
+                            {
+                                <RadzenLineSeries Data="@series.Points" CategoryProperty="Game" ValueProperty="Rating"
+                                                  Title="@series.Title" Smooth="true" StrokeWidth="2" />
+                            }
+                            <RadzenCategoryAxis Stroke="white" StrokeWidth="2">
+                                <RadzenAxisTitle Text="Game #" />
+                            </RadzenCategoryAxis>
+                            <RadzenValueAxis Min="@trueSkillBounds.Min" Max="@trueSkillBounds.Max" Step="@trueSkillBounds.Step" Stroke="white" StrokeWidth="2">
+                                <RadzenAxisTitle Text="Rating" />
+                            </RadzenValueAxis>
+                            <RadzenLegend Visible="true" Position="LegendPosition.Bottom" />
+                        </RadzenChart>
+                    </div>
+                }
+
+                @if (AsyncChartSeries.Count == 0 && GlickoChartSeries.Count == 0 && TrueSkillChartSeries.Count == 0)
+                {
+                    <Label Text="No match history available." CenterText="true" FontSize="16" TextColor="TextColor.Grey" />
+                }
+            </div>
+
+            <VerticalSpace Height="40" />
+
+            @* ─── RANK HISTORY ─── *@
+            <div class="section-container">
+                <Label Text="RANK HISTORY" CenterText="true" FontSize="22" TextColor="TextColor.Yellow" />
+                <VerticalSpace Height="15" />
+
+                @{
+                    var standardRanks = FilteredRankHistory.Where(r => r.League == TiglLeague.ThundersEdge).ToList();
+                    var fracturedRanks = FilteredRankHistory.Where(r => r.League == TiglLeague.Fractured).ToList();
+                    var legacyRanks = FilteredRankHistory.Where(r => r.League == TiglLeague.ProphecyOfKings).ToList();
+                }
+
+                @if (standardRanks.Any() || fracturedRanks.Any() || legacyRanks.Any())
+                {
+                    @if (standardRanks.Any())
+                    {
+                        <div class="history-list">
+                            @for (var i = 0; i < standardRanks.Count; i++)
+                            {
+                                var idx = i;
+                                var rank = standardRanks[idx];
+                                <VerticalSpace Height="10" />
+                                <FlexRowContainer>
+                                    <Label Text="@rank.League.GetDisplayName()" FontSize="12" TextColor="TextColor.Yellow" CssClass="rank-league-badge" Width="35" CenterText="true" />
+                                    <FlexRowContainer>
+                                        <Label Text="@rank.Rank.GetDisplayName()" FontSize="14" TextColor="@rank.Rank.GetRankColor()" />
+                                    </FlexRowContainer>
+                                    <Label Text="@FormatTimestamp(rank.AchievedAt)" FontSize="12" Width="20" />
+                                    <Label Text="@GetRankUpTime(standardRanks, idx)" FontSize="12" Width="20" />
+                                </FlexRowContainer>
+                                <VerticalSpace Height="10" />
+                            }
+                        </div>
+                    }
+
+                    @if (standardRanks.Any() && (fracturedRanks.Any() || legacyRanks.Any()))
+                    {
+                        <VerticalSpace Height="40" />
+                    }
+
+                    @if (fracturedRanks.Any())
+                    {
+                        <div class="history-list">
+                            @for (var i = 0; i < fracturedRanks.Count; i++)
+                            {
+                                var idx = i;
+                                var rank = fracturedRanks[idx];
+                                <VerticalSpace Height="10" />
+                                <FlexRowContainer>
+                                    <Label Text="@rank.League.GetDisplayName()" FontSize="12" TextColor="TextColor.Yellow" CssClass="rank-league-badge" Width="35" CenterText="true" />
+                                    <FlexRowContainer>
+                                        <Label Text="@rank.Rank.GetDisplayName()" FontSize="14" TextColor="@rank.Rank.GetRankColor()" />
+                                    </FlexRowContainer>
+                                    <Label Text="@FormatTimestamp(rank.AchievedAt)" FontSize="12" Width="20" />
+                                    <Label Text="@GetRankUpTime(fracturedRanks, idx)" FontSize="12" Width="20" />
+                                </FlexRowContainer>
+                                <VerticalSpace Height="10" />
+                            }
+                        </div>
+                    }
+
+                    @if (fracturedRanks.Any() && legacyRanks.Any())
+                    {
+                        <VerticalSpace Height="40" />
+                    }
+
+                    @if (legacyRanks.Any())
+                    {
+                        <div class="history-list">
+                            @for (var i = 0; i < legacyRanks.Count; i++)
+                            {
+                                var idx = i;
+                                var rank = legacyRanks[idx];
+                                <VerticalSpace Height="10" />
+                                <FlexRowContainer>
+                                    <Label Text="@rank.League.GetDisplayName()" FontSize="12" TextColor="TextColor.Yellow" CssClass="rank-league-badge" Width="35" CenterText="true" />
+                                    <FlexRowContainer>
+                                        <Label Text="@rank.Rank.GetDisplayName()" FontSize="14" TextColor="@rank.Rank.GetRankColor()" />
+                                    </FlexRowContainer>
+                                    <Label Text="@FormatTimestamp(rank.AchievedAt)" FontSize="12" Width="20" />
+                                    <Label Text="@GetRankUpTime(legacyRanks, idx)" FontSize="12" Width="20" />
+                                </FlexRowContainer>
+                                <VerticalSpace Height="10" />
+                            }
+                        </div>
+                    }
+                }
+                else
+                {
+                    <Label Text="No rank history." CenterText="true" FontSize="16" TextColor="TextColor.Grey" />
+                }
+            </div>
+
+            <VerticalSpace Height="40" />
+
+            @* ─── PRESTIGE RANK HISTORY ─── *@
+            <div class="section-container">
+                <Label Text="PRESTIGE RANK HISTORY" CenterText="true" FontSize="22" TextColor="TextColor.Yellow" />
+                <VerticalSpace Height="15" />
+
+                @{
+                    var standardPrestige = FilteredPrestigeRanks.Where(p => p.League == TiglLeague.ThundersEdge).ToList();
+                    var fracturedPrestige = FilteredPrestigeRanks.Where(p => p.League == TiglLeague.Fractured).ToList();
+                    var legacyPrestige = FilteredPrestigeRanks.Where(p => p.League == TiglLeague.ProphecyOfKings).ToList();
+                }
+
+                @if (standardPrestige.Any() || fracturedPrestige.Any() || legacyPrestige.Any())
+                {
+                    @if (standardPrestige.Any())
+                    {
+                        <div class="history-list">
+                            @for (var i = 0; i < standardPrestige.Count; i++)
+                            {
+                                var idx = i;
+                                var prestige = standardPrestige[idx];
+                                <VerticalSpace Height="10" />
+                                <FlexRowContainer>
+                                    <Label Text="@prestige.League.GetDisplayName()" FontSize="12" TextColor="TextColor.Yellow" CssClass="rank-league-badge" Width="35" CenterText="true" />
+                                    @if (prestige.Faction != TiglFactionName.None)
+                                    {
+                                        <FlexRowContainer>
+                                            <FlexRowContainer Width="50">
+                                                <img src="@GetHeroIconPath(prestige.Faction)" alt="hero" class="prestige-icon" />
+                                                <HorizontalSpace Width="10" />
+                                                <Label Text="@GetPrestigeDisplayText(prestige)" FontSize="14" TextColor="TextColor.Hero"/>
+                                            </FlexRowContainer>
+                                            <FlexRowContainer Width="50">
+                                                <TiglFactionIconImg FactionName="@prestige.Faction" Height="20" />
+                                                <HorizontalSpace Width="10" />
+                                                <Label Text="@prestige.Faction.GetDisplayName()" FontSize="13" />
+                                            </FlexRowContainer>
+                                        </FlexRowContainer>
+                                    }
+                                    else
+                                    {
+                                        <FlexRowContainer>
+                                            <Label Text="@GetPrestigeDisplayText(prestige)" FontSize="14" TextColor="GetPrestigeColor(prestige.PrestigeRank)" />
+                                        </FlexRowContainer>
+                                    }
+                                    <Label Text="@FormatTimestamp(prestige.AchievedAt)" FontSize="12" Width="20" />
+                                    <Label Text="@(prestige.Faction != TiglFactionName.None ? GetPrestigeRankUpTime(standardPrestige, idx, TiglLeague.ThundersEdge) : string.Empty)" FontSize="12" Width="20" />
+                                </FlexRowContainer>
+                                <VerticalSpace Height="10" />
+                            }
+                        </div>
+                    }
+
+                    @if (standardPrestige.Any() && (fracturedPrestige.Any() || legacyPrestige.Any()))
+                    {
+                        <VerticalSpace Height="40" />
+                    }
+
+                    @if (fracturedPrestige.Any())
+                    {
+                        <div class="history-list">
+                            @for (var i = 0; i < fracturedPrestige.Count; i++)
+                            {
+                                var idx = i;
+                                var prestige = fracturedPrestige[idx];
+                                <VerticalSpace Height="10" />
+                                <FlexRowContainer>
+                                    <Label Text="@prestige.League.GetDisplayName()" FontSize="12" TextColor="TextColor.Yellow" CssClass="rank-league-badge" Width="35" CenterText="true" />
+                                    @if (prestige.Faction != TiglFactionName.None)
+                                    {
+                                        <FlexRowContainer>
+                                            <FlexRowContainer Width="50">
+                                                <img src="@GetHeroIconPath(prestige.Faction)" alt="hero" class="prestige-icon" />
+                                                <HorizontalSpace Width="10" />
+                                                <Label Text="@GetPrestigeDisplayText(prestige)" FontSize="14" TextColor="TextColor.Hero"/>
+                                            </FlexRowContainer>
+                                            <FlexRowContainer Width="50">
+                                                <TiglFactionIconImg FactionName="@prestige.Faction" Height="20" />
+                                                <HorizontalSpace Width="10" />
+                                                <Label Text="@prestige.Faction.GetDisplayName()" FontSize="13" />
+                                            </FlexRowContainer>
+                                        </FlexRowContainer>
+                                    }
+                                    else
+                                    {
+                                        <FlexRowContainer>
+                                            <Label Text="@GetPrestigeDisplayText(prestige)" FontSize="14" TextColor="GetPrestigeColor(prestige.PrestigeRank)" />
+                                        </FlexRowContainer>
+                                    }
+                                    <Label Text="@FormatTimestamp(prestige.AchievedAt)" FontSize="12" Width="20" />
+                                    <Label Text="@(prestige.Faction != TiglFactionName.None ? GetPrestigeRankUpTime(fracturedPrestige, idx, TiglLeague.Fractured) : string.Empty)" FontSize="12" Width="20" />
+                                </FlexRowContainer>
+                                <VerticalSpace Height="10" />
+                            }
+                        </div>
+                    }
+
+                    @if (fracturedPrestige.Any() && legacyPrestige.Any())
+                    {
+                        <VerticalSpace Height="40" />
+                    }
+
+                    @if (legacyPrestige.Any())
+                    {
+                        <div class="history-list">
+                            @for (var i = 0; i < legacyPrestige.Count; i++)
+                            {
+                                var idx = i;
+                                var prestige = legacyPrestige[idx];
+                                <VerticalSpace Height="10" />
+                                <FlexRowContainer>
+                                    <Label Text="@prestige.League.GetDisplayName()" FontSize="12" TextColor="TextColor.Yellow" CssClass="rank-league-badge" Width="35" CenterText="true" />
+                                    @if (prestige.Faction != TiglFactionName.None)
+                                    {
+                                        <FlexRowContainer>
+                                            <FlexRowContainer Width="50">
+                                                <img src="@GetHeroIconPath(prestige.Faction)" alt="hero" class="prestige-icon" />
+                                                <HorizontalSpace Width="10" />
+                                                <Label Text="@GetPrestigeDisplayText(prestige)" FontSize="14" TextColor="TextColor.Hero"/>
+                                            </FlexRowContainer>
+                                            <FlexRowContainer Width="50">
+                                                <TiglFactionIconImg FactionName="@prestige.Faction" Height="20" />
+                                                <HorizontalSpace Width="10" />
+                                                <Label Text="@prestige.Faction.GetDisplayName()" FontSize="13" />
+                                            </FlexRowContainer>
+                                        </FlexRowContainer>
+                                    }
+                                    else
+                                    {
+                                        <FlexRowContainer>
+                                            <Label Text="@GetPrestigeDisplayText(prestige)" FontSize="14" TextColor="GetPrestigeColor(prestige.PrestigeRank)" />
+                                        </FlexRowContainer>
+                                    }
+                                    <Label Text="@FormatTimestamp(prestige.AchievedAt)" FontSize="12" Width="20" />
+                                    <Label Text="@(prestige.Faction != TiglFactionName.None ? GetPrestigeRankUpTime(legacyPrestige, idx, TiglLeague.ProphecyOfKings) : string.Empty)" FontSize="12" Width="20" />
+                                </FlexRowContainer>
+                                <VerticalSpace Height="10" />
+                            }
+                        </div>
+                    }
+                }
+                else
+                {
+                    <Label Text="No prestige ranks." CenterText="true" FontSize="16" TextColor="TextColor.Grey" />
+                }
+            </div>
+
+            <VerticalSpace Height="40" />
+
+            @* ─── FACTION STATISTICS ─── *@
+            <div class="section-container">
+                <Label Text="FACTION STATISTICS" CenterText="true" FontSize="22" TextColor="TextColor.Yellow" />
+
+                <VerticalSpace Height="10" />
+
+                @if (IsFactionFilterVisible)
+                {
+                    <FlexColumnCenteredContainer>
+                        <EnumPicker TEnum="FactionStatisticsFilter"
+                                    CurrentValue="@_selectedFactionFilter"
+                                    CurrentValueChanged="OnFactionFilterChanged"
+                                    Label="@Strings.FactionStats_Factions"
+                                    Width="50"
+                                    MinChoiceWidth="70" />
+                    </FlexColumnCenteredContainer>
+                }
+
+                <VerticalSpace Height="10" />
+
+                <FlexColumnCenteredContainer>
+                    <EnumPicker TEnum="FactionStatisticsVpFilter"
+                                CurrentValue="@_selectedScoreFilter"
+                                CurrentValueChanged="OnScoreFilterChanged"
+                                Label="VP"
+                                Width="50"
+                                MinChoiceWidth="70" />
+                </FlexColumnCenteredContainer>
+
+                <VerticalSpace Height="10" />
+
+                @if (FilteredFactionStats.Any())
+                {
+                    <GridLayout CssClass="background" Style="grid-template-columns: 5% 28% 9% 8% 10% 8% 8% 8% 10% 6%;">
+
+                        <VerticalSpace Height="20" Style="grid-column: span 10;" />
+
+                        <Label />
+                        <Label Text="@Strings.FactionStats_Faction" CenterText="true" />
+                        <Label Text="@Strings.FactionStats_Games" CenterText="true" Vertical="true" />
+                        <Label Text="@Strings.FactionStats_Wins" CenterText="true" Vertical="true" />
+                        <Label Text="@Strings.FactionStats_WinPercentage" CenterText="true" Vertical="true" />
+                        <Label Text="@Strings.FactionStats_MinVp" CenterText="true" Vertical="true" />
+                        <Label Text="@Strings.FactionStats_AverageVp" CenterText="true" Vertical="true" />
+                        <Label Text="@Strings.FactionStats_MaxVp" CenterText="true" Vertical="true" />
+                        <Label Text="@Strings.FactionStats_AverageVpPercentage" CenterText="true" Vertical="true" />
+                        <Label />
+
+                        @{ _factionRow = 0; }
+                        @foreach (var faction in FilteredFactionStats)
+                        {
+                            var bg = _factionRow % 2 == 0 ? "background" : string.Empty;
+
+                            <Label CssClass="@bg" />
+                            <FlexRowContainer>
+                                <TiglFactionIconImg FactionName="@faction.Faction" Height="20" />
+                                <Label Text="@faction.Faction.GetDisplayName()" PaddingLeft="10" CssClass="@bg" />
+                            </FlexRowContainer>
+
+                            @if (faction.Games > 0)
+                            {
+                                <Label Text="@faction.Games.ToString()" CenterText="true" TextColor="TextColor.Yellow" CssClass="@bg" />
+                                <Label Text="@faction.Wins.ToString()" CenterText="true" TextColor="@(faction.Wins > 0 ? TextColor.Green : TextColor.Red)" CssClass="@bg" />
+                                <Label Text="@faction.WinRate.ToStringWithPrecisionAndPercentage(2)" CenterText="true" TextColor="@faction.WinRate.GetWinrateColor()" CssClass="@bg" />
+                                <Label Text="@faction.MinVp.ToString()" CenterText="true" TextColor="TextColor.Red" CssClass="@bg" />
+                                <Label Text="@faction.AverageVp.ToStringWithPrecision(1)" CenterText="true" TextColor="@faction.AverageVp.GetAverageVpColor()" CssClass="@bg" />
+                                <Label Text="@faction.MaxVp.ToString()" CenterText="true" TextColor="TextColor.Green" CssClass="@bg" />
+                                <Label Text="@faction.AverageVpPercentage.ToStringWithPrecisionAndPercentage(1)" CenterText="true" TextColor="@faction.AverageVpPercentage.GetAverageVpPercentageColor()" CssClass="@bg" />
+                                <Label CssClass="@bg" Style="height: 100%;" />
+                            }
+                            else
+                            {
+                                <Label CenterText="true" CssClass="@bg" Style="height: 100%; grid-column: span 8;" />
+                            }
+
+                            _factionRow++;
+                        }
+
+                        <VerticalSpace Height="20" Style="grid-column: span 10;" />
+
+                    </GridLayout>
+                }
+                else
+                {
+                    <Label Text="No faction statistics." CenterText="true" FontSize="16" TextColor="TextColor.Grey" />
+                }
+            </div>
+
+            <VerticalSpace Height="40" />
+
+            @* ─── SEASONS ─── *@
+            <div class="section-container">
+                <Label Text="SEASONS" CenterText="true" FontSize="22" TextColor="TextColor.Yellow" />
+                <VerticalSpace Height="8" />
+                <GridLayout Columns="5">
+                    <Label Text="A — async rating" FontSize="12" CenterText="true" />
+                    <Label Text="T — true skill rating" FontSize="12" CenterText="true" />
+                    <Label Text="G2 — glicko-2 rating" FontSize="12" CenterText="true" />
+                    <Label Text="G — games" FontSize="12" CenterText="true" />
+                    <Label Text="WR — win rate" FontSize="12" CenterText="true" />
+                </GridLayout>
+
+                <VerticalSpace Height="15" />
+
+                @{
+                    var standardSeasons = FilteredSeasons.Where(s => s.League is TiglLeague.ThundersEdge or TiglLeague.ProphecyOfKings).ToList();
+                    var fracturedSeasons = FilteredSeasons.Where(s => s.League == TiglLeague.Fractured).ToList();
+                }
+
+                @if (standardSeasons.Any() || fracturedSeasons.Any())
+                {
+                    @if (standardSeasons.Any())
+                    {
+                        <Label Text="Standard" FontSize="18" TextColor="TextColor.Yellow" />
+                        <VerticalSpace Height="8" />
+                        <div class="history-list">
+                            @foreach (var season in standardSeasons)
+                            {
+                                var ss = GetSeasonRatingSummary(season);
+                                <div class="season-header-row handel shadow" @onclick="() => ToggleSeason(season)">
+                                    <Label Text="@($"Season {season.Season}")" FontSize="14" Width="30" />
+
+                                    <GridLayout CssClass="season-stats"
+                                                Columns="5"
+                                                Style="justify-items: flex-start;"
+                                                Gap="6"
+                                                AlignItems="center">
+                                        @if (ss.HasTrueSkill)
+                                        {
+                                            <Label Text="@($"T: {ss.TrueSkillEnd:F2} {GetDeltaArrow(ss.TrueSkillDelta)}{FormatDelta(ss.TrueSkillDelta, "F2")}")" FontSize="13" TextColor="@GetDeltaColor(ss.TrueSkillDelta)" />
+                                        }
+                                        else
+                                        {
+                                            <Label />
+                                        }
+                                        @if (ss.HasGlicko)
+                                        {
+                                            <Label Text="@($"G2: {ss.GlickoEnd:F0} {GetDeltaArrow(ss.GlickoDelta)}{FormatDelta(ss.GlickoDelta, "F0")}")" FontSize="13" TextColor="@GetDeltaColor(ss.GlickoDelta)" />
+                                        }
+                                        else
+                                        {
+                                            <Label />
+                                        }
+                                        @if (ss.HasAsync)
+                                        {
+                                            <Label Text="@($"A: {ss.AsyncEnd:F1} {GetDeltaArrow(ss.AsyncDelta)}{FormatDelta(ss.AsyncDelta)}")" FontSize="13" TextColor="@GetDeltaColor(ss.AsyncDelta)" />
+                                        }
+                                        else
+                                        {
+                                            <Label />
+                                        }
+                                        <Label Text="@($"G: {season.GamesPlayed}")" FontSize="13" TextColor="TextColor.Yellow" />
+                                        <Label Text="@($"WR: {season.WinRate:F1}%")" FontSize="13" TextColor="@season.WinRate.GetWinrateColor()" />
+                                    </GridLayout>
+                                    <Label Text="@(IsSeasonExpanded(season) ? "▲" : "▶")" FontSize="12" Width="5" TextColor="TextColor.White" Style="text-align: right;" />
+                                </div>
+                                @if (IsSeasonExpanded(season))
+                                {
+                                    <VerticalSpace Height="10"/>
+                                    <div class="season-games">
+                                        @foreach (var game in season.Games)
+                                        {
+                                            var gd = GetGameRatingDeltas(game);
+                                            <VerticalSpace Height="10"/>
+                                            <GridLayout CssClass="season-game-row" Columns="8" Gap="8" AlignItems="center">
+                                                <TextButton Text="@game.GameId" TextAlign="left" CssClass="text-no-overflow" FontSize="13" OnClick="@(() => NavigateToGameDetail(game.MatchReportId))" Style="color: lawngreen; justify-content: flex-start;" />
+                                                @if (gd.HasTrueSkill)
+                                                {
+                                                    <Label Text="@($"T: {GetDeltaArrow(gd.TrueSkillDelta)}{FormatDelta(gd.TrueSkillDelta, "F2")}")" FontSize="12" TextColor="@GetDeltaColor(gd.TrueSkillDelta)" />
+                                                }
+                                                else
+                                                {
+                                                    <Label />
+                                                }
+                                                @if (gd.HasGlicko)
+                                                {
+                                                    <Label Text="@($"G2: {GetDeltaArrow(gd.GlickoDelta)}{FormatDelta(gd.GlickoDelta, "F0")}")" FontSize="12" TextColor="@GetDeltaColor(gd.GlickoDelta)" />
+                                                }
+                                                else
+                                                {
+                                                    <Label />
+                                                }
+                                                @if (gd.HasAsync)
+                                                {
+                                                    <Label Text="@($"A: {GetDeltaArrow(gd.AsyncDelta)}{FormatDelta(gd.AsyncDelta)}")" FontSize="12" TextColor="@GetDeltaColor(gd.AsyncDelta)" />
+                                                }
+                                                else
+                                                {
+                                                    <Label />
+                                                }
+                                                <Label Text="@($"{game.Score} / {game.MaxScore}")" FontSize="12" />
+                                                <Label Text="@(game.IsWinner ? "W" : string.Empty)" FontSize="12" TextColor="TextColor.Yellow" CenterText="true" />
+                                                <Label Text="@game.Faction.GetDisplayName()" FontSize="10" />
+                                                <Label Text="@GetDurationTime(game)" FontSize="12" Style="text-align: right;" />
+                                            </GridLayout>
+                                        }
+                                    </div>
+                                    <VerticalSpace Height="10"/>
+                                }
+                            }
+                        </div>
+                        <VerticalSpace Height="20" />
+                    }
+
+                    @if (fracturedSeasons.Any())
+                    {
+                        <Label Text="Fractured" FontSize="18" TextColor="TextColor.Yellow" />
+                        <VerticalSpace Height="8" />
+                        <div class="history-list">
+                            @foreach (var season in fracturedSeasons)
+                            {
+                                var ssf = GetSeasonRatingSummary(season);
+                                <div class="season-header-row handel shadow" @onclick="() => ToggleSeason(season)">
+                                    <Label Text="@($"Season {season.Season}")" FontSize="14" Width="30" />
+                                    <GridLayout CssClass="season-stats"
+                                                Columns="5"
+                                                Style="justify-items: flex-start;"
+                                                Gap="6"
+                                                AlignItems="center">
+                                        @if (ssf.HasTrueSkill)
+                                        {
+                                            <Label Text="@($"T: {ssf.TrueSkillEnd:F2} {GetDeltaArrow(ssf.TrueSkillDelta)}{FormatDelta(ssf.TrueSkillDelta, "F2")}")" FontSize="13" TextColor="@GetDeltaColor(ssf.TrueSkillDelta)" />
+                                        }
+                                        else
+                                        {
+                                            <Label />
+                                        }
+                                        @if (ssf.HasGlicko)
+                                        {
+                                            <Label Text="@($"G2: {ssf.GlickoEnd:F0} {GetDeltaArrow(ssf.GlickoDelta)}{FormatDelta(ssf.GlickoDelta, "F0")}")" FontSize="13" TextColor="@GetDeltaColor(ssf.GlickoDelta)" />
+                                        }
+                                        else
+                                        {
+                                            <Label />
+                                        }
+                                        @if (ssf.HasAsync)
+                                        {
+                                            <Label Text="@($"A: {ssf.AsyncEnd:F1} {GetDeltaArrow(ssf.AsyncDelta)}{FormatDelta(ssf.AsyncDelta)}")" FontSize="13" TextColor="@GetDeltaColor(ssf.AsyncDelta)" />
+                                        }
+                                        else
+                                        {
+                                            <Label />
+                                        }
+                                        <Label Text="@($"G: {season.GamesPlayed}")" FontSize="13" TextColor="TextColor.Yellow" />
+                                        <Label Text="@($"WR: {season.WinRate:F1}%")" FontSize="13" TextColor="@season.WinRate.GetWinrateColor()" />
+                                    </GridLayout>
+                                    <Label Text="@(IsSeasonExpanded(season) ? "▲" : "▶")" FontSize="12" Width="5" TextColor="TextColor.White" Style="text-align: right;" />
+                                </div>
+                                @if (IsSeasonExpanded(season))
+                                {
+                                    <VerticalSpace Height="10"/>
+                                    <div class="season-games">
+                                        @foreach (var game in season.Games)
+                                        {
+                                            var gdf = GetGameRatingDeltas(game);
+                                            <VerticalSpace Height="10"/>
+                                            <GridLayout CssClass="season-game-row" Columns="8" Gap="8" AlignItems="center">
+                                                <TextButton Text="@game.GameId" TextAlign="left" CssClass="text-no-overflow" FontSize="13" OnClick="@(() => NavigateToGameDetail(game.MatchReportId))" Style="color: lawngreen; justify-content: flex-start;" />
+                                                @if (gdf.HasTrueSkill)
+                                                {
+                                                    <Label Text="@($"T: {GetDeltaArrow(gdf.TrueSkillDelta)}{FormatDelta(gdf.TrueSkillDelta, "F2")}")" FontSize="12" TextColor="@GetDeltaColor(gdf.TrueSkillDelta)" />
+                                                }
+                                                else
+                                                {
+                                                    <Label />
+                                                }
+                                                @if (gdf.HasGlicko)
+                                                {
+                                                    <Label Text="@($"G2: {GetDeltaArrow(gdf.GlickoDelta)}{FormatDelta(gdf.GlickoDelta, "F0")}")" FontSize="12" TextColor="@GetDeltaColor(gdf.GlickoDelta)" />
+                                                }
+                                                else
+                                                {
+                                                    <Label />
+                                                }
+                                                @if (gdf.HasAsync)
+                                                {
+                                                    <Label Text="@($"A: {GetDeltaArrow(gdf.AsyncDelta)}{FormatDelta(gdf.AsyncDelta)}")" FontSize="12" TextColor="@GetDeltaColor(gdf.AsyncDelta)" />
+                                                }
+                                                else
+                                                {
+                                                    <Label />
+                                                }
+                                                <Label Text="@($"{game.Score} / {game.MaxScore}")" FontSize="12" />
+                                                <Label Text="@(game.IsWinner ? "W" : string.Empty)" FontSize="12" TextColor="TextColor.Yellow" CenterText="true" />
+                                                <Label Text="@game.Faction.GetDisplayName()" FontSize="10" />
+                                                <Label Text="@GetDurationTime(game)" FontSize="12" Style="text-align: right;" />
+                                            </GridLayout>
+                                        }
+                                    </div>
+                                    <VerticalSpace Height="10"/>
+                                }
+                            }
+                        </div>
+                    }
+                }
+                else
+                {
+                    <Label Text="No season data." CenterText="true" FontSize="16" TextColor="TextColor.Grey" />
+                }
+            </div>
+
+            <VerticalSpace Height="40" />
+
+            @* ─── GAME HISTORY ─── *@
+            <div class="section-container">
+                <Label Text="GAME HISTORY" CenterText="true" FontSize="22" TextColor="TextColor.Yellow" />
+
+                <VerticalSpace Height="20" />
+
+                @if (FilteredGameHistory.Any())
+                {
+                    <GridLayout CssClass="background" Style="grid-template-columns: 5% 5% 11% 25% 10% 4% 25% 10% 5%;">
+
+                        <VerticalSpace Height="20" Style="grid-column: span 9;" />
+
+                        <Label />
+                        <Label Text="@Strings.AsyncPlayer_GamesStatsYear" />
+                        <Label Text="@Strings.AsyncPlayer_GamesStatsMonth" CenterText="true" />
+                        <Label Text="@Strings.AsyncPlayer_GamesStatsGame" />
+                        <Label Text="@Strings.AsyncPlayer_GamesStatsVp" />
+                        <Label Text="" />
+                        <Label Text="@Strings.AsyncPlayer_GamesStatsFaction" />
+                        <Label Text="@Strings.AsyncPlayer_GamesStatsDuration" />
+                        <Label />
+
+                        <VerticalSpace Height="20" Style="grid-column: span 9;" />
+
+                        @foreach (var year in GroupedFilteredGames)
+                        {
+                            <Label />
+                            <Label Text="@year.Year.ToString("yyyy")" Style="grid-column: span 8;" FontSize="12" />
+
+                            @foreach (var month in year.Months)
+                            {
+                                <Label />
+                                <Label />
+                                <Label Text="@month.Month.ToString("MMMM")" CenterText="true" FontSize="12" />
+                                <Label Text="" Style="grid-column: span 6;" />
+
+                                @foreach (var game in month.Games)
+                                {
+                                    <Label Style="grid-column: span 3;" />
+                                    <TextButton Text="@game.GameId" TextAlign="left" CssClass="text-no-overflow" FontSize="14" OnClick="@(() => NavigateToGameDetail(game.MatchReportId))" Style="color: lawngreen; justify-content: flex-start;" />
+                                    <Label Text="@($"{game.Score} / {game.MaxScore}")" FontSize="12" />
+                                    <Label Text="@(game.IsWinner ? "W" : string.Empty)" FontSize="12" TextColor="TextColor.Yellow" />
+                                    <Label Text="@game.Faction.GetDisplayName()" FontSize="12" />
+                                    <Label Text="@GetDurationTime(game)" FontSize="12" />
+                                    <Label />
+                                }
+                            }
+                        }
+
+                        <VerticalSpace Height="20" Style="grid-column: span 9;" />
+
+                    </GridLayout>
+                }
+                else
+                {
+                    <Label Text="No games played." CenterText="true" FontSize="16" TextColor="TextColor.Grey" />
+                }
+            </div>
+
+            <VerticalSpace Height="40" />
+
+            @* ─── TOP OPPONENTS ─── *@
+            <div class="section-container">
+                <Label Text="TOP OPPONENTS" CenterText="true" FontSize="22" TextColor="TextColor.Yellow" />
+                <VerticalSpace Height="15" />
+
+                @if (FilteredTopOpponents.Any())
+                {
+                    var opponents = FilteredTopOpponents;
+                    var halfCount = (opponents.Count + 1) / 2;
+                    var leftOpponents = opponents.Take(halfCount).ToList();
+                    var rightOpponents = opponents.Skip(halfCount).ToList();
+
+                    <div class="opponents-columns">
+                        <div class="history-list opponents-table">
+                            <div class="opponent-header-row handel shadow">
+                                <Label Text="#" FontSize="13" TextColor="TextColor.Yellow" Width="10" CenterText="true" />
+                                <Label Text="Player" FontSize="13" TextColor="TextColor.Yellow" Width="60" />
+                                <Label Text="Games" FontSize="13" TextColor="TextColor.Yellow" Width="30" Style="text-align: right;" />
+                            </div>
+                            @for (var i = 0; i < 10; i++)
+                            {
+                                if (i < leftOpponents.Count)
+                                {
+                                    var opponent = leftOpponents[i];
+                                    var rank = i + 1;
+                                    <div class="opponent-row handel shadow">
+                                        <Label Text="@rank.ToString()" FontSize="13" TextColor="TextColor.Yellow" Width="10" CenterText="true" />
+                                        <TextButton Text="@opponent.TiglUserName" FontSize="13" Width="60" OnClick="@(() => NavigateToPlayerProfile(opponent.TiglUserId))" Style="justify-content: flex-start;" />
+                                        <Label Text="@opponent.GamesPlayed.ToString()" FontSize="13" Width="30" Style="text-align: right;" />
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="opponent-row handel shadow opponent-empty">
+                                        <Label Text="" FontSize="13" Width="100" />
+                                    </div>
+                                }
+                            }
+                        </div>
+                        <div class="history-list opponents-table">
+                            <div class="opponent-header-row handel shadow">
+                                <Label Text="#" FontSize="13" TextColor="TextColor.Yellow" Width="10" CenterText="true" />
+                                <Label Text="Player" FontSize="13" TextColor="TextColor.Yellow" Width="60" />
+                                <Label Text="Games" FontSize="13" TextColor="TextColor.Yellow" Width="30" Style="text-align: right;" />
+                            </div>
+                            @for (var i = 0; i < 10; i++)
+                            {
+                                if (i < rightOpponents.Count)
+                                {
+                                    var opponent = rightOpponents[i];
+                                    var rank = halfCount + i + 1;
+                                    <div class="opponent-row handel shadow">
+                                        <Label Text="@rank.ToString()" FontSize="13" TextColor="TextColor.Yellow" Width="10" CenterText="true" />
+                                        <TextButton Text="@opponent.TiglUserName" FontSize="13" Width="60" OnClick="@(() => NavigateToPlayerProfile(opponent.TiglUserId))" Style="justify-content: flex-start;" />
+                                        <Label Text="@opponent.GamesPlayed.ToString()" FontSize="13" Width="30" Style="text-align: right;" />
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="opponent-row handel shadow opponent-empty">
+                                        <Label Text="" FontSize="13" Width="100" />
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <Label Text="No opponents found." CenterText="true" FontSize="16" TextColor="TextColor.Grey" />
+                }
+            </div>
+
+            <VerticalSpace Height="40" />
+
+            @* ─── ACHIEVEMENTS ─── *@
+            <div class="section-container">
+                <div class="achievement-title-row">
+                    <Label Text="ACHIEVEMENTS" CenterText="true" FontSize="22" TextColor="TextColor.Yellow" />
+                    <label class="achievement-checkbox-label handel shadow">
+                        <input type="checkbox" checked="@_showAllAchievements" @onchange="OnShowAllAchievementsChanged" />
+                        <span>Show all</span>
+                    </label>
+                </div>
+
+                <VerticalSpace Height="15" />
+
+                @if (DisplayedAchievements.Any())
+                {
+                    <div class="achievements-list">
+                        @foreach (var entry in DisplayedAchievements)
+                        {
+                            <TiglProfileAchievementRow Achievement="entry.Achievement"
+                                                       RarityPercent="entry.RarityPercent"
+                                                       IsEarned="entry.IsEarned" />
+                        }
+                    </div>
+                }
+                else
+                {
+                    <Label Text="No achievements yet." CenterText="true" FontSize="16" TextColor="TextColor.Grey" />
+                }
+            </div>
+
+            <VerticalSpace Height="100" />
+
+        </FlexColumnCenteredContainer>
+    }
+    else
+    {
+        <StretchHeightContainer />
+    }
+
+</FlexRowContainer>

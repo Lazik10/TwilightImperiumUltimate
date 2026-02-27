@@ -6,18 +6,21 @@
 <VerticalSpace Height="20" />
 
 <FlexColumnCenteredContainer>
-    <SeasonPicker Title="@Strings.TiglLeaderboard_Season"
-                  FontSize="18"
-                  SeasonNumber="@_selectedSeasonNumber"
-                  SeasonNumberChanged="UpdateSelectedSeason"
-                  Width="50" />
+
+<NumericPicker Title="@Strings.TiglLeaderboard_Season"
+              FontSize="18"
+              Value="@_selectedSeasonNumber"
+              OnDecrease="DecreaseSeasonNumber"
+              OnIncrease="IncreaseSeasonNumber"
+              Width="30" />
+
 </FlexColumnCenteredContainer>
 
 <VerticalSpace Height="20" />
 
 <FlexRowContainer>
-    <Label Text="@Strings.TiglGames_CategoryStandard" FontSize="24" CenterText="true" TextColor="TextColor.Yellow" />
-    <Label Text="@Strings.TiglGames_CategoryFractured" FontSize="24" CenterText="true" TextColor="TextColor.Yellow" />
+    <Label Text="@GetStandardTitle()" FontSize="24" CenterText="true" TextColor="TextColor.Yellow" />
+    <Label Text="@GetFracturedTitle()" FontSize="24" CenterText="true" TextColor="TextColor.Yellow" />
 </FlexRowContainer>
 
 <VerticalSpace Height="20" />

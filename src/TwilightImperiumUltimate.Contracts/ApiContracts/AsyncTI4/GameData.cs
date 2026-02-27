@@ -64,7 +64,7 @@ public class GameData
     [JsonPropertyName("isPoK")]
     public bool IsPoK { get; set; }
 
-    [JsonPropertyName("tiglgame")]
+    [JsonPropertyName("tiglGame")]
     public bool IsTigl { get; set; }
 
     [JsonPropertyName("creationEpochMilliseconds")]

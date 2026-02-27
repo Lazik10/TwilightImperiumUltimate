@@ -1835,6 +1835,12 @@ Brandon Williams&lt;/p&gt;</value>
   <data name="Page_Tigl" xml:space="preserve">
     <value>TIGL</value>
   </data>
+  <data name="Page_TiglReportGame" xml:space="preserve">
+    <value>Report Game</value>
+  </data>
+  <data name="Page_TiglRegister" xml:space="preserve">
+    <value>Register</value>
+  </data>
   <data name="AsyncMenu_Games" xml:space="preserve">
     <value>GAMES</value>
   </data>
@@ -2469,7 +2475,7 @@ Brandon Williams&lt;/p&gt;</value>
     <value>Fractured</value>
   </data>
   <data name="TiglLeague_ProphecyOfKings" xml:space="preserve">
-    <value>Prophecy of Kings</value>
+    <value>Legacy</value>
   </data>
   <data name="TiglLeague_ThundersEdge" xml:space="preserve">
     <value>Standard</value>
@@ -2588,6 +2594,18 @@ Brandon Williams&lt;/p&gt;</value>
   <data name="TiglLeague_Test" xml:space="preserve">
     <value>Test</value>
   </data>
+  <data name="TiglProfileCategory_All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="TiglProfileCategory_ProphecyOfKings" xml:space="preserve">
+    <value>Legacy</value>
+  </data>
+  <data name="TiglProfileCategory_ThundersEdge" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="TiglProfileCategory_Fractured" xml:space="preserve">
+    <value>Fractured</value>
+  </data>
   <data name="TiglPlayersList_NoPlayersFound" xml:space="preserve">
     <value>No players found.</value>
   </data>
@@ -2662,6 +2680,27 @@ Brandon Williams&lt;/p&gt;</value>
   </data>
   <data name="TiglStatisticsType_Players" xml:space="preserve">
     <value>Players</value>
+  </data>
+  <data name="TiglFactionStatsShowBy_Era" xml:space="preserve">
+    <value>Expansion</value>
+  </data>
+  <data name="TiglFactionStatsShowBy_Seasons" xml:space="preserve">
+    <value>Seasons</value>
+  </data>
+  <data name="TiglFactionStatsEra_All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="TiglFactionStatsEra_ThundersEdge" xml:space="preserve">
+    <value>Thunder's Edge</value>
+  </data>
+  <data name="TiglFactionStatsEra_ProphecyOfKings" xml:space="preserve">
+    <value>PoK</value>
+  </data>
+  <data name="TiglFactionStatsLeague_Standard" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="TiglFactionStatsLeague_Fractured" xml:space="preserve">
+    <value>Fractured</value>
   </data>
   <data name="AchievementName_FactionAmateur" xml:space="preserve">
     <value>Faction Amateur</value>
@@ -2787,7 +2826,7 @@ Brandon Williams&lt;/p&gt;</value>
     <value>Marathoner</value>
   </data>
   <data name="Page_TiglAdmin" xml:space="preserve">
-    <value>TIGL</value>
+    <value>TIGL Admin</value>
   </data>
   <data name="TiglAdmin_SeasonName" xml:space="preserve">
     <value>Name</value>
@@ -2941,5 +2980,8 @@ Brandon Williams&lt;/p&gt;</value>
   </data>
   <data name="Faction_BackSheetObsidian" xml:space="preserve">
     <value>Back Sheet (Obsidian)</value>
+  </data>
+  <data name="Page_TiglInfo" xml:space="preserve">
+    <value>Info</value>
   </data>
 </root>

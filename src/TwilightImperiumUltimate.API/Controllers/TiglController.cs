@@ -1,6 +1,7 @@
 using System.Text;
 using TwilightImperiumUltimate.API.Discord;
 using TwilightImperiumUltimate.API.Helpers;
+using TwilightImperiumUltimate.Business.Logic.Rankings;
 using TwilightImperiumUltimate.Business.Logic.Tigl;
 using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl;
 using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Parameters;
@@ -275,5 +276,14 @@ public class TiglController(
         }
 
         return Ok(new ApiResponse<UpdateTiglParameterResponse>() { Success = true, Data = new UpdateTiglParameterResponse() { Success = true } });
+    }
+
+    // GET: api/tigl/tigl-player-profile/{tiglUserId}
+    [Route("tigl-player-profile/{tiglUserId}")]
+    [HttpGet]
+    public async Task<ActionResult<IApiResponse<TiglPlayerProfileDto>>> GetTiglPlayerProfile(int tiglUserId, CancellationToken cancellationToken)
+    {
+        var data = await _mediator.Send(new GetTiglPlayerProfileQuery(tiglUserId), cancellationToken);
+        return Ok(new ApiResponse<TiglPlayerProfileDto>() { Success = true, Data = data });
     }
 }

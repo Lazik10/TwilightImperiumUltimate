@@ -10,7 +10,13 @@
 
 <StretchHeightContainer CssClass="background">
 
-    @if (Users is not null)
+    @if (Loading)
+    {
+        <VerticalSpace Height="100" />
+        <Label Text="@Strings.Loading" FontSize="24" CenterText="true" TextColor="TextColor.White" />
+        <VerticalSpace Height="100" />
+    }
+    else if (Users is not null)
     {
         if (!Users.Any())
         {

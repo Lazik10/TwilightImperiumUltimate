@@ -10,15 +10,18 @@
                     Label="@Strings.TiglStatistics_StatisticType" />
     </FlexRowContainer>
 
-    <FlexRowContainer>
-        <SeasonPicker FontSize="18"
-                      SeasonNumberChanged="OnSeasonChanged"
-                      Width="100" />
-    </FlexRowContainer>
+    @if (_selectedStatisticsType != TiglStatisticsType.Factions)
+    {
+        <FlexRowContainer>
+            <SeasonPicker FontSize="18"
+                          SeasonNumberChanged="OnSeasonChanged"
+                          Width="100" />
+        </FlexRowContainer>
 
-    <FlexRowContainer>
-        <EnumPicker Label="@Strings.TiglLeaderboard_League" TEnum="TiglLeague" CurrentValue="@_selectedLeague" CurrentValueChanged="@OnLeagueChanged" ExcludeValues="new List<TiglLeague> { TiglLeague.Test }" />
-    </FlexRowContainer>
+        <FlexRowContainer>
+            <EnumPicker Label="@Strings.TiglLeaderboard_League" TEnum="TiglLeague" CurrentValue="@_selectedLeague" CurrentValueChanged="@OnLeagueChanged" ExcludeValues="new List<TiglLeague> { TiglLeague.Test }" />
+        </FlexRowContainer>
+    }
 
     <VerticalSpace Height="20" />
 

@@ -14,7 +14,9 @@ using TwilightImperiumUltimate.Web.Services.GameTracker;
 using TwilightImperiumUltimate.Web.Services.Language;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
 using TwilightImperiumUltimate.Web.Services.MiltyDraft;
+using TwilightImperiumUltimate.Web.Services.Rankings;
 using TwilightImperiumUltimate.Web.Services.SliceGenerators;
+using TwilightImperiumUltimate.Web.Services.Tigl;
 using TwilightImperiumUltimate.Web.Services.User;
 
 namespace TwilightImperiumUltimate.Web.Services;
@@ -37,6 +39,8 @@ public static class ServiceCollectionsExtension
 
         services.AddScoped<ICultureProvider, CultureProvider>();
         services.AddScoped<IPathProvider, PathProvider>();
+        services.AddSingleton<IRankingsDataCache, RankingsDataCache>();
+        services.AddSingleton<ITiglDataCache, TiglDataCache>();
         services.AddScoped<IFactionDraftService, FactionDraftService>();
         services.AddScoped<IColorPickerService, ColorPickerService>();
         services.AddScoped<IMapGeneratorService, MapGeneratorService>();

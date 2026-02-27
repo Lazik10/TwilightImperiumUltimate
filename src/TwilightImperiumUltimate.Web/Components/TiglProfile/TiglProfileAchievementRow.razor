@@ -1,0 +1,19 @@
+@using TwilightImperiumUltimate.Web.Helpers.Tigl
+@using TwilightImperiumUltimate.Web.Helpers.Enums
+
+<div class="achievement-row handel shadow @RarityClass @(IsEarned ? string.Empty : "achievement-unearned")">
+    <div class="achievement-info">
+        <Label Text="@TiglAchievementDescriptions.GetDisplayName(Achievement.AchievementName)" FontSize="15" TextColor="EffectiveTextColor" CssClass="achievement-name-label" />
+        <FlexRowContainer>
+            <Label Text="@TiglAchievementDescriptions.GetDescription(Achievement.AchievementName)" FontSize="12" CssClass="achievement-desc-label" />
+            @if (Achievement.Faction != TiglFactionName.None)
+            {
+                <Label Text="@Achievement.Faction.GetDisplayName()" FontSize="12" Width="100" />
+            }
+        </FlexRowContainer>
+    </div>
+    <div class="achievement-meta">
+        <Label Text="@($"{RarityPercent:F1}% of players")" FontSize="11" Width="100" />
+        <Label Text="@(IsEarned ? FormatDate(Achievement.AchievedAt) : string.Empty)" FontSize="12" Width="100" />
+    </div>
+</div>

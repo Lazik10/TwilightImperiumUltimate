@@ -115,9 +115,12 @@ public class RankingsRepository(
 
         var leaders = await db.Leaders
             .Include(x => x.CurrentOwner)
+            .Include(x => x.ShortestHolder)
+            .Include(x => x.LongestHolder)
             .AsNoTracking()
             .Select(l => new RankingsLeaderDto
             {
+                TiglUserId = l.CurrentOwnerId ?? 0,
                 Name = l.Name,
                 Faction = l.Faction,
                 League = l.League,
@@ -126,6 +129,8 @@ public class RankingsRepository(
                 ChangeCount = l.ChangeCount,
                 ShortestDuration = l.ShortestDuration,
                 LongestDuration = l.LongestDuration,
+                ShortestHolderName = l.ShortestHolder != null ? l.ShortestHolder.TiglUserName : string.Empty,
+                LongestHolderName = l.LongestHolder != null ? l.LongestHolder.TiglUserName : string.Empty,
             })
             .ToListAsync(cancellationToken);
 

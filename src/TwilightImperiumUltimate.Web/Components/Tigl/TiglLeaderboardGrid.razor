@@ -81,7 +81,9 @@
         @foreach (var playerResult in GetSortedRows())
         {
             <Label Text="@_placement.ToString()" CenterText=true CssClass="background" TextColor="TextColor.Yellow" />
-            <Label Text="@playerResult.TiglUserName" CssClass="background" />
+            <div class="background" style="cursor: pointer; width: 100%;" @onclick="() => RedirectToPlayer(playerResult.TiglUserId)">
+                <Label Text="@playerResult.TiglUserName" />
+            </div>
 
 
             if (_selectedRankingSystem == RankingSystem.TrueSkill)

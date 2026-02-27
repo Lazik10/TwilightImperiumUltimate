@@ -72,6 +72,8 @@ public static class Pages
 
     public const string AsyncGame = "/community/async/game";
 
+    public const string TiglLeaderboard = "/community/tigl/leaderboard";
+
     public const string Tigl = "/community/tigl";
 
     public const string TiglRegister = "/community/tigl/register";
@@ -82,7 +84,17 @@ public static class Pages
 
     public const string TiglGameDetail = "/community/tigl/game-detail";
 
-    public const string Rankings = "/community/rankings";
+    public const string TiglStatistics = "/community/tigl/statistics";
+
+    public const string TiglPlayers = "/community/tigl/players";
+
+    public const string TiglGames = "/community/tigl/games";
+
+    public const string TiglLeaders = "/community/tigl/leaders";
+
+    public const string TiglAchievements = "/community/tigl/achievements";
+
+    public const string TiglRankings = "/community/tigl/rankings";
 
     // Rules
     public const string Rules = "/rules";

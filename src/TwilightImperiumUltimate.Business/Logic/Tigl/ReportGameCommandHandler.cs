@@ -48,7 +48,7 @@ public class ReportGameCommandHandler(
             && gameReport.StartTimestamp < _tiglOptions.ThundersEdgeCutoffTimestamp)
         {
             _logger.LogWarning("Game {GameId} rejected due to start timestamp {Start} before cutoff {Cutoff}", gameReport.GameId, gameReport.StartTimestamp, _tiglOptions.ThundersEdgeCutoffTimestamp);
-            return new GameReportResult(false, "Game is too old", $"Game {gameReport.GameId} started on {gameReport.StartTimestamp.ToDateOnly()} before the allowed cutoff date of 1st December 2025 and cannot be reported.");
+            return new GameReportResult(false, "Game is too old", $"Game {gameReport.GameId} started on {gameReport.StartTimestamp.ToDateOnly():yyyy-MM-dd} before the allowed cutoff date of 1st December 2025 and cannot be reported.");
         }
 
         var onlyImportEnabled = await tiglRepository.GetTiglParameter(TiglParameterName.OnlyImportReports, cancellationToken);
@@ -80,7 +80,7 @@ public class ReportGameCommandHandler(
             foreach (var error in factionValidationResult.Errors)
                 stringBuilder.AppendLine(error.Message);
 
-            return new GameReportResult(false, "Invalid Factions", stringBuilder.ToString());
+            return new GameReportResult(false, "Invalid Factions for game " + gameReport.GameId, stringBuilder.ToString());
         }
 
         var usersExist = await tiglMatchUserValidator.AllTiglUsersExists(gameReport, cancellationToken);
@@ -92,7 +92,7 @@ public class ReportGameCommandHandler(
                 var stringBuilder = new StringBuilder();
                 foreach (var error in registerNewUsersResult.Errors)
                     stringBuilder.AppendLine(error.Message);
-                return new GameReportResult(false, "Failed to register player(s)", stringBuilder.ToString());
+                return new GameReportResult(false, "Failed to register player(s) for game " + gameReport.GameId, stringBuilder.ToString());
             }
         }
 

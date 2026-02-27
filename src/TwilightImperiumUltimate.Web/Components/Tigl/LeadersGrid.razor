@@ -1,0 +1,71 @@
+@using TwilightImperiumUltimate.Contracts.DTOs.Rankings
+@using TwilightImperiumUltimate.Contracts.Enums
+@using TwilightImperiumUltimate.Web.Helpers.Enums
+
+<VerticalSpace Height="20" />
+
+<FlexColumnCenteredContainer>
+
+    <EnumPicker TEnum="TiglLeague"
+                Label="@Strings.TiglLeague_League"
+                CenterText=true CurrentValue="_league"
+                ExcludeValues="new List<TiglLeague>() { TiglLeague.Test, TiglLeague.ProphecyOfKings }"
+                CurrentValueChanged="ChangeLeague"
+                Width="50"
+                MinChoiceWidth="70" />
+
+</FlexColumnCenteredContainer>
+
+@if (_loading)
+{
+    <VerticalSpace Height="50" />
+    <Label Text="@Strings.Loading" CenterText="true" />
+    <VerticalSpace Height="50" />
+}
+else if (CurrentLeagueLeaders.Count == 0)
+{
+    <VerticalSpace Height="20" />
+    <Label Text="No leaders found." CenterText />
+    <VerticalSpace Height="20" />
+}
+else
+{
+    <FlexColumnCenteredContainer>
+
+        <VerticalSpace Height="20" />
+
+        <GridLayout CssClass="background" Style="grid-template-columns: 5% 30% 15% 15% 6% 12% 12% 5%">
+
+            <VerticalSpace Height="20" CssClass="span-8" />
+
+            <Label />
+            <Label Text="Leader" CenterText="true" />
+            <Label Text="User" CenterText="true" />
+            <Label Text="Duration" CenterText="true" />
+            <Label Text="# Owner" CenterText="true" />
+            <Label Text="Shortest" CenterText="true" />
+            <Label Text="Longest" CenterText="true" />
+            <Label />
+
+            <VerticalSpace Height="20" CssClass="span-8" />
+
+        </GridLayout>
+
+        <VerticalSpace Height="50" />
+
+        @foreach (var leader in CurrentLeagueLeaders)
+        {
+            <FlexColumnCenteredContainer CssClass="span-8" OnClick="@(() => NavigateToProfile(leader.TiglUserId))">
+                <GridLayout CssClass="background" Style="grid-template-columns: 5% 30% 15% 15% 6% 12% 12% 5%">
+                    <VerticalSpace Height="10" CssClass="span-8"/>
+                    <LeaderRow Leader="leader" />
+                    <VerticalSpace Height="10" CssClass="span-8" />
+                </GridLayout>
+            </FlexColumnCenteredContainer>
+            <VerticalSpace Height="10" />
+        }
+
+    </FlexColumnCenteredContainer>
+
+    <VerticalSpace Height="20" />
+}

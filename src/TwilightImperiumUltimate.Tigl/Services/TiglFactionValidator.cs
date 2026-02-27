@@ -23,7 +23,7 @@ public class TiglFactionValidator : ITiglFactionValidator
             catch (ArgumentException ex)
             {
                 allParsedSuccessfully = false;
-                result.WithError($"Cannot parse faction: {playerResult.Faction} for player {playerResult.DiscordTag}.\n Exception: {ex}");
+                result.WithError($"Cannot parse faction: {playerResult.Faction} for player {playerResult.DiscordTag}.");
             }
         }
 

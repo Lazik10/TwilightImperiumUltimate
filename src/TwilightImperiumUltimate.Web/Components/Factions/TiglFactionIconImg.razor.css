@@ -1,0 +1,11 @@
+@media (max-width: 1248px) {
+    .faction-icon {
+        max-height: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .faction-icon {
+        max-height: 15px;
+    }
+}

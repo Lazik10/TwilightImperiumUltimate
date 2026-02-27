@@ -14,287 +14,300 @@
 <Page>
     <PageTitle>Report TIGL Game</PageTitle>
 
-    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
-        <TextButton Text="@Strings.ButtonBack" OnClick="RedirectBack" FontSize="24" Width="20" TextAlign="@(string.Empty)" />
-    </FlexRowContainer>
-
-    <VerticalSpace Height="20" />
-
     <FlexColumnCenteredContainer CssClass="background">
 
-        @if (!string.IsNullOrEmpty(successMessage))
+        <StretchHeightContainer>
+
+        @if (_loading)
         {
-            <Label Text="@successMessage" TextColor="TextColor.Green" CenterText="true" />
-            <VerticalSpace Height="10" />
+            <VerticalSpace Height="50" />
+            <Label Text="...Loading..." CenterText="true" FontSize="24" />
+            <VerticalSpace Height="50" />
         }
-
-        <Title Text="Report TIGL Game" MarginTop="50" MarginBottom="50" />
-
-        <FlexColumnCenteredContainer CssClass="handel white shadow background">
-            <VerticalSpace Height="20" />
-            <Label Text="Game ID" CenterText="true" Width="25" FontSize="22" />
-            <VerticalSpace Height="20" />
-            <RadzenTextBox @bind-Value="gameReportRequest.GameId" Style="width: 40%;" />
-            <VerticalSpace Height="20" />
-            <HelpText Text="(Your game name / pbdXXXXX for async games)" />
-            <VerticalSpace Height="20" />
-        </FlexColumnCenteredContainer>
-
-        <VerticalSpace Height="40" CssClass="span-4" />
-
-        <GridLayout CssClass="handel white shadow" Style="grid-template-columns: 25% 25% 25% 25%">
-            <VerticalSpace Height="20" CssClass="span-4" />
-
-            <FlexColumnCenteredContainer CssClass="span-4 background">
-                <EnumPicker Label="League"
-                            CenterText="true"
-                            TEnum="TiglLeague"
-                            CurrentValue="@gameReportRequest.League"
-                            CurrentValueChanged="ChangeLeague"
-                            ExcludeValues="new List<TiglLeague> { TiglLeague.ProphecyOfKings, TiglLeague.Test }"
-                            Width="50" />
-            </FlexColumnCenteredContainer>
-
-            <VerticalSpace Height="20" CssClass="span-4" />
-
-            <FlexColumnCenteredContainer CssClass="span-4 background">
-                <EnumPicker Label="Source"
-                            CenterText="true"
-                            TEnum="ResultSource"
-                            CurrentValue="@gameReportRequest.Source"
-                            CurrentValueChanged="ChangeSource"
-                            Width="50" />
-            </FlexColumnCenteredContainer>
-
-            <VerticalSpace Height="20" CssClass="span-4" />
-
-            <FlexRowContainer CssClass="span-4 background">
-                <NumericPicker Title="VP" Value="@_selectedVpCount" OnIncrease="@(() => OnVpIncrease(_selectedVpCount))" OnDecrease="@(() => OnVpDecrease(_selectedVpCount))" Width="50" FontSize="16" ValueColor="TextColor.Yellow"  />
-            </FlexRowContainer>
-
-            <VerticalSpace Height="20" CssClass="span-4" />
-
-            <FlexRowContainer CssClass="span-4 background">
-                <NumericPicker Title="Round" Value="@_round" OnIncrease="OnRoundIncrease" OnDecrease="OnRoundDecrease" Width="50" FontSize="16" ValueColor="TextColor.Yellow" />
-            </FlexRowContainer>
-
-            <VerticalSpace Height="60" CssClass="span-4" />
-
-            <FlexColumnCenteredContainer CssClass="span-4 background">
-                <VerticalSpace Height="10" />
-                <FlexRowContainer Width="50">
-                    <Label Text="Start Date" Width="30" CenterText="true" />
-                    <FlexColumnCenteredContainer Width="70">
-                        <RadzenDatePicker TValue="DateTime" @bind-Value="startGame" ShowTime="true" ShowSeconds="false" DateFormat="dd/MM/yyyy HH:mm" />
-                    </FlexColumnCenteredContainer>
-                </FlexRowContainer>
-                <VerticalSpace Height="10" />
-            </FlexColumnCenteredContainer>
-
-            <VerticalSpace Height="20" CssClass="span-4" />
-
-            <FlexColumnCenteredContainer CssClass="span-4 background">
-                <VerticalSpace Height="10" />
-                <FlexRowContainer Width="50">
-                    <Label Text="End Date" Width="30" CenterText="true" />
-                    <FlexColumnCenteredContainer Width="70">
-                        <RadzenDatePicker TValue="DateTime" @bind-Value="endGame" ShowTime="true" ShowSeconds="false" DateFormat="dd/MM/yyyy HH:mm" />
-                    </FlexColumnCenteredContainer>
-                </FlexRowContainer>
-                <VerticalSpace Height="10" />
-            </FlexColumnCenteredContainer>
-
-            <VerticalSpace Height="20" CssClass="span-4" />
-
-        </GridLayout>
-
-        <VerticalSpace Height="60" />
-
-        <GridLayout Columns="4" CssClass="background">
-            <VerticalSpace Height="40" CssClass="span-4" />
-            <Label Text="Players" FontSize="32" CenterText="true" CssClass="span-4" />
-            <VerticalSpace Height="40" CssClass="span-4" />
-        </GridLayout>
-
-        <VerticalSpace Height="20" />
-
-        @for (var i = 0; i < playerResults.Count; i++)
+        else
         {
-            var index = i;
-            <GridLayout Columns="8" CssClass="handel background">
-                <VerticalSpace Height="20" CssClass="span-8" />
 
-                @if (_rowModes.Count > index && _rowModes[index] == RowViewMode.Search)
-                {
-                    <FlexColumnCenteredContainer CssClass="span-8">
-                        <VerticalSpace Height="20" CssClass="span-8" />
-                        <Label Text="@($"Find Player {index + 1}:")" CssClass="span-2" CenterText="true" FontSize="24" TextColor="TextColor.Green" />
-                        <VerticalSpace Height="20" CssClass="span-8" />
+            @if (!string.IsNullOrEmpty(successMessage))
+            {
+                <Label Text="@successMessage" TextColor="TextColor.Green" CenterText="true" />
+                <VerticalSpace Height="10" />
+            }
 
-                        <Label Text="By TIGL Name: " TextColor="TextColor.Yellow" Width="50" />
-                        <RadzenDropDown Data="@_users"
-                                    TValue="long"
-                                    TextProperty="TiglUserName"
-                                    ValueProperty="DiscordUserId"
-                                    Value="@playerResults[index].DiscordId"
-                                    AllowFiltering="true"
-                                    FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
-                                    Placeholder="Type TIGL name..."
-                                    ValueChanged="@((long v) => OnUserSelected(index, v))"
-                                    Style="width: 50%;"
-                                        />
+            <Title Text="Report TIGL Game" MarginTop="50" MarginBottom="50" />
 
-                        <VerticalSpace Height="20" />
-                        <Label Text="By Discord Name: " TextColor="TextColor.Yellow" Width="50" />
-                        <RadzenDropDown Data="@_users"
+            <FlexColumnCenteredContainer CssClass="handel white shadow background">
+                <VerticalSpace Height="20" />
+                <Label Text="Game ID" CenterText="true" Width="25" FontSize="22" />
+                <VerticalSpace Height="20" />
+                <RadzenTextBox @bind-Value="gameReportRequest.GameId" Style="width: 40%;" />
+                <VerticalSpace Height="20" />
+                <HelpText Text="For Async games: pbdXXXXX" />
+                <HelpText Text="For Other platforms: your custom name" />
+                <VerticalSpace Height="20" />
+            </FlexColumnCenteredContainer>
+
+            <VerticalSpace Height="40" CssClass="span-4" />
+
+            <GridLayout CssClass="handel white shadow" Style="grid-template-columns: 25% 25% 25% 25%">
+                <VerticalSpace Height="20" CssClass="span-4" />
+
+                <FlexColumnCenteredContainer CssClass="span-4 background">
+                    <EnumPicker Label="League"
+                                CenterText="true"
+                                TEnum="TiglLeague"
+                                CurrentValue="@gameReportRequest.League"
+                                CurrentValueChanged="ChangeLeague"
+                                ExcludeValues="new List<TiglLeague> { TiglLeague.ProphecyOfKings, TiglLeague.Test }"
+                                Width="50" />
+                </FlexColumnCenteredContainer>
+
+                <VerticalSpace Height="20" CssClass="span-4" />
+
+                <FlexColumnCenteredContainer CssClass="span-4 background">
+                    <EnumPicker Label="Source"
+                                CenterText="true"
+                                TEnum="ResultSource"
+                                CurrentValue="@gameReportRequest.Source"
+                                CurrentValueChanged="ChangeSource"
+                                Width="50" />
+                </FlexColumnCenteredContainer>
+
+                <VerticalSpace Height="20" CssClass="span-4" />
+
+                <FlexRowContainer CssClass="span-4 background">
+                    <NumericPicker Title="VP" Value="@_selectedVpCount" OnIncrease="@(() => OnVpIncrease(_selectedVpCount))" OnDecrease="@(() => OnVpDecrease(_selectedVpCount))" Width="50" FontSize="16" ValueColor="TextColor.Yellow"  />
+                </FlexRowContainer>
+
+                <VerticalSpace Height="20" CssClass="span-4" />
+
+                <FlexRowContainer CssClass="span-4 background">
+                    <NumericPicker Title="Round" Value="@_round" OnIncrease="OnRoundIncrease" OnDecrease="OnRoundDecrease" Width="50" FontSize="16" ValueColor="TextColor.Yellow" />
+                </FlexRowContainer>
+
+                <VerticalSpace Height="60" CssClass="span-4" />
+
+                <FlexColumnCenteredContainer CssClass="span-4 background">
+                    <VerticalSpace Height="10" />
+                    <FlexRowContainer Width="50">
+                        <Label Text="Start Date" Width="30" CenterText="true" />
+                        <FlexColumnCenteredContainer Width="70">
+                            <RadzenDatePicker TValue="DateTime" @bind-Value="startGame" ShowTime="true" ShowSeconds="false" DateFormat="dd/MM/yyyy HH:mm" />
+                        </FlexColumnCenteredContainer>
+                    </FlexRowContainer>
+                    <VerticalSpace Height="10" />
+                </FlexColumnCenteredContainer>
+
+                <VerticalSpace Height="20" CssClass="span-4" />
+
+                <FlexColumnCenteredContainer CssClass="span-4 background">
+                    <VerticalSpace Height="10" />
+                    <FlexRowContainer Width="50">
+                        <Label Text="End Date" Width="30" CenterText="true" />
+                        <FlexColumnCenteredContainer Width="70">
+                            <RadzenDatePicker TValue="DateTime" @bind-Value="endGame" ShowTime="true" ShowSeconds="false" DateFormat="dd/MM/yyyy HH:mm" />
+                        </FlexColumnCenteredContainer>
+                    </FlexRowContainer>
+                    <VerticalSpace Height="10" />
+                </FlexColumnCenteredContainer>
+
+                <VerticalSpace Height="20" CssClass="span-4" />
+
+            </GridLayout>
+
+            <VerticalSpace Height="60" />
+
+            <GridLayout Columns="4" CssClass="background">
+                <VerticalSpace Height="40" CssClass="span-4" />
+                <Label Text="Players" FontSize="32" CenterText="true" CssClass="span-4" />
+                <VerticalSpace Height="40" CssClass="span-4" />
+            </GridLayout>
+
+            <VerticalSpace Height="20" />
+
+            @for (var i = 0; i < playerResults.Count; i++)
+            {
+                var index = i;
+                <GridLayout Columns="8" CssClass="handel background">
+                    <VerticalSpace Height="20" CssClass="span-8" />
+
+                    @if (_rowModes.Count > index && _rowModes[index] == RowViewMode.Search)
+                    {
+                        <FlexColumnCenteredContainer CssClass="span-8">
+                            <VerticalSpace Height="20" CssClass="span-8" />
+                            <Label Text="@($"Find Player {index + 1}:")" CssClass="span-2" CenterText="true" FontSize="24" TextColor="TextColor.Green" />
+                            <VerticalSpace Height="20" CssClass="span-8" />
+
+                            <Label Text="By TIGL Name: " TextColor="TextColor.Yellow" Width="50" />
+                            <RadzenDropDown Data="@_users"
                                         TValue="long"
-                                        TextProperty="DiscordUserName"
+                                        TextProperty="TiglUserName"
                                         ValueProperty="DiscordUserId"
                                         Value="@playerResults[index].DiscordId"
                                         AllowFiltering="true"
+                                        AllowVirtualization="true"
                                         FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
-                                        Placeholder="Type Discord Tag..."
+                                        Placeholder="Type TIGL name..."
                                         ValueChanged="@((long v) => OnUserSelected(index, v))"
-                                        Style="width: 50%;"/>
-                    </FlexColumnCenteredContainer>
-                }
-                else
-                {
-                    <GridLayout Columns="8" CssClass="span-8">
-                        <VerticalSpace Height="20" CssClass="span-8" />
-                        <Label Text="@($"Player {index + 1}")" CenterText="true" CssClass="span-8" FontSize="24" TextColor="TextColor.Green" />
-                        <VerticalSpace Height="20" CssClass="span-8" />
+                                        Style="width: 50%;"
+                                            />
 
-                        <Label Text="Tigl Username" CenterText="true" TextColor="TextColor.Yellow" CssClass="span-8" />
-                        <Label Text="@GetTiglUserName(playerResults[index].DiscordId)" CssClass="span-8" CenterText="true" FontSize="24" />
+                            <VerticalSpace Height="20" />
+                            <Label Text="By Discord Name: " TextColor="TextColor.Yellow" Width="50" />
+                            <RadzenDropDown Data="@_users"
+                                            TValue="long"
+                                            TextProperty="DiscordUserName"
+                                            ValueProperty="DiscordUserId"
+                                            Value="@playerResults[index].DiscordId"
+                                            AllowFiltering="true"
+                                            AllowVirtualization="true"
+                                            FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+                                            Placeholder="Type Discord Tag..."
+                                            ValueChanged="@((long v) => OnUserSelected(index, v))"
+                                            Style="width: 50%;"/>
+                        </FlexColumnCenteredContainer>
+                    }
+                    else
+                    {
+                        <GridLayout Columns="8" CssClass="span-8">
+                            <VerticalSpace Height="20" CssClass="span-8" />
+                            <Label Text="@($"Player {index + 1}")" CenterText="true" CssClass="span-8" FontSize="24" TextColor="TextColor.Green" />
+                            <VerticalSpace Height="20" CssClass="span-8" />
 
-                        <VerticalSpace Height="20" CssClass="span-8" />
+                            <Label Text="Tigl Username" CenterText="true" TextColor="TextColor.Yellow" CssClass="span-8" />
+                            <Label Text="@GetTiglUserName(playerResults[index].DiscordId)" CssClass="span-8" CenterText="true" FontSize="24" />
 
-                        <Label Text="Discord Tag" CenterText="true" TextColor="TextColor.Yellow" CssClass="span-8" />
-                        <Label Text="@GetDiscordTag(playerResults[index].DiscordId)" CssClass="span-8" CenterText="true" FontSize="24" />
+                            <VerticalSpace Height="20" CssClass="span-8" />
 
-                        <VerticalSpace Height="20" CssClass="span-8" />
+                            <Label Text="Discord Tag" CenterText="true" TextColor="TextColor.Yellow" CssClass="span-8" />
+                            <Label Text="@GetDiscordTag(playerResults[index].DiscordId)" CssClass="span-8" CenterText="true" FontSize="24" />
 
-                        <Label />
-                        <FlexRowContainer CssClass="span-6" JustifyContent="Enums.JustifyContent.FlexStart">
-                            <Label Text="Score" Width="30" />
-                            <FlexColumnCenteredContainer Width="70">
-                                <RadzenNumeric TValue="int" @bind-Value="playerResults[index].Score" Style="width: 100%;" Min="0" Max="@_selectedVpCount" />
-                            </FlexColumnCenteredContainer>
-                        </FlexRowContainer>
-                        <Label />
+                            <VerticalSpace Height="20" CssClass="span-8" />
 
-                        <VerticalSpace Height="20" CssClass="span-8"/>
-
-                        <Label />
-                        <FlexRowContainer CssClass="span-6" JustifyContent="Enums.JustifyContent.FlexStart">
-                            <Label Text="Winner" Width="30" />
-                            <FlexRowContainer Width="70">
-                                <RadzenCheckBox @bind-Value="playerResults[index].IsWinner" />
+                            <Label />
+                            <FlexRowContainer CssClass="span-6" JustifyContent="Enums.JustifyContent.FlexStart">
+                                <Label Text="Score" Width="30" />
+                                <FlexColumnCenteredContainer Width="70">
+                                    <RadzenNumeric TValue="int" @bind-Value="playerResults[index].Score" Style="width: 100%;" Min="0" Max="@_selectedVpCount" />
+                                </FlexColumnCenteredContainer>
                             </FlexRowContainer>
-                        </FlexRowContainer>
-                        <Label />
+                            <Label />
 
+                            <VerticalSpace Height="20" CssClass="span-8"/>
+
+                            <Label />
+                            <FlexRowContainer CssClass="span-6" JustifyContent="Enums.JustifyContent.FlexStart">
+                                <Label Text="Winner" Width="30" />
+                                <FlexRowContainer Width="70">
+                                    <RadzenCheckBox @bind-Value="playerResults[index].IsWinner" />
+                                </FlexRowContainer>
+                            </FlexRowContainer>
+                            <Label />
+
+                            <VerticalSpace Height="20" CssClass="span-8" />
+
+                            <Label />
+                            <FlexRowContainer CssClass="span-6" JustifyContent="Enums.JustifyContent.FlexStart">
+                                <Label Text="Faction" Width="30" />
+                                <FlexColumnCenteredContainer Width="70">
+                                    <RadzenDropDown Data="@_availableFactionNames"
+                                                    @bind-Value="playerResults[index].Faction"
+                                                    AllowFiltering="true"
+                                                    FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+                                                    Placeholder="Select faction"
+                                                    Style="min-width: 100%; max-width: 100%; width: 100%;"/>
+                                </FlexColumnCenteredContainer>
+                            </FlexRowContainer>
+                            <Label />
+
+                        </GridLayout>
+
+                        <VerticalSpace Height="40" CssClass="span-8" />
+                        <TextButton Text="X - Clear Player" TextColor="TextColor.Red" OnClick="() => ClearPlayer(index)" CssClass="span-8" />
                         <VerticalSpace Height="20" CssClass="span-8" />
+                    }
 
-                        <Label />
-                        <FlexRowContainer CssClass="span-6" JustifyContent="Enums.JustifyContent.FlexStart">
-                            <Label Text="Faction" Width="30" />
-                            <FlexColumnCenteredContainer Width="70">
-                                <RadzenDropDown Data="@_availableFactionNames"
-                                                @bind-Value="playerResults[index].Faction"
-                                                AllowFiltering="true"
-                                                FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
-                                                Placeholder="Select faction"
-                                                Style="min-width: 100%; max-width: 100%; width: 100%;"/>
-                            </FlexColumnCenteredContainer>
-                        </FlexRowContainer>
-                        <Label />
+                    <VerticalSpace Height="10" CssClass="span-8" />
+                 </GridLayout>
 
-                    </GridLayout>
+                <VerticalSpace Height="40" />
+            }
 
-                    <VerticalSpace Height="40" CssClass="span-8" />
-                    <TextButton Text="X - Clear Player" TextColor="TextColor.Red" OnClick="() => ClearPlayer(index)" CssClass="span-8" />
-                    <VerticalSpace Height="20" CssClass="span-8" />
-                }
-
-                <VerticalSpace Height="10" CssClass="span-8" />
-             </GridLayout>
-
-            <VerticalSpace Height="40" />
-        }
-
-        <FlexColumnCenteredContainer CssClass="background">
-            <VerticalSpace Height="20" />
-            <FlexRowContainer JustifyContent="Enums.JustifyContent.SpaceBetween">
-                @if (_selectedLeague == TiglLeague.Fractured && playerResults.Count < MaxNumberOfPlayers)
-                {
-                    <TextButton Text="+ Add Player Slot" TextColor="TextColor.Green" OnClick="AddPlayer" />
-                }
-                @if (playerResults.Count > MinNumberOfPlayers)
-                {
-                    <TextButton Text="- Remove Player Slot" TextColor="TextColor.Red" OnClick="RemovePlayer" />
-                }
-            </FlexRowContainer>
-            <VerticalSpace Height="20" />
-        </FlexColumnCenteredContainer>
-
-        <VerticalSpace Height="50" />
-
-        @if (gameReportRequest.League == TiglLeague.Fractured)
-        {
             <FlexColumnCenteredContainer CssClass="background">
                 <VerticalSpace Height="20" />
-                <Label Text="Galactic Events (Fractured Only)" FontSize="24" CenterText="true" TextColor="TextColor.Yellow" />
+                <FlexRowContainer JustifyContent="Enums.JustifyContent.SpaceBetween">
+                    @if (_selectedLeague == TiglLeague.Fractured && playerResults.Count < MaxNumberOfPlayers)
+                    {
+                        <TextButton Text="+ Add Player Slot" TextColor="TextColor.Green" OnClick="AddPlayer" />
+                    }
+                    @if (playerResults.Count > MinNumberOfPlayers)
+                    {
+                        <TextButton Text="- Remove Player Slot" TextColor="TextColor.Red" OnClick="RemovePlayer" />
+                    }
+                </FlexRowContainer>
                 <VerticalSpace Height="20" />
             </FlexColumnCenteredContainer>
 
-            <VerticalSpace Height="20" />
-            
-            <FlexColumnCenteredContainer CssClass="background">
+            <VerticalSpace Height="50" />
+
+            @if (gameReportRequest.League == TiglLeague.Fractured)
+            {
+                <FlexColumnCenteredContainer CssClass="background">
+                    <VerticalSpace Height="20" />
+                    <Label Text="Galactic Events (Fractured Only)" FontSize="24" CenterText="true" TextColor="TextColor.Yellow" />
+                    <VerticalSpace Height="20" />
+                </FlexColumnCenteredContainer>
 
                 <VerticalSpace Height="20" />
+            
+                <FlexColumnCenteredContainer CssClass="background">
 
-                @foreach (var e in _allGalacticEvents)
-                {
-                    <FlexRowContainer>
-                        <FlexRowContainer Width="45" JustifyContent="Enums.JustifyContent.FlexEnd">
-                            <RadzenCheckBox ValueChanged="@((bool value) => ToggleEvent(e, value))" />
+                    <VerticalSpace Height="20" />
+
+                    @foreach (var e in _allGalacticEvents)
+                    {
+                        <FlexRowContainer>
+                            <FlexRowContainer Width="45" JustifyContent="Enums.JustifyContent.FlexEnd">
+                                <RadzenCheckBox ValueChanged="@((bool value) => ToggleEvent(e, value))" />
+                            </FlexRowContainer>
+                            <Label Text="@e" Width="55" PaddingLeft="20" />
                         </FlexRowContainer>
-                        <Label Text="@e" Width="55" PaddingLeft="20" />
-                    </FlexRowContainer>
+                        <VerticalSpace Height="10" />
+                    }
+
+                    <VerticalSpace Height="20" />
+
+                </FlexColumnCenteredContainer>
+            }
+
+            <VerticalSpace Height="50" />
+
+            @if (validationErrors.Count > 0)
+            {
+                foreach(var err in validationErrors)
+                {
+                    <Label Text="@($"• {err}")" TextColor="TextColor.Red" CenterText="true" />
                     <VerticalSpace Height="10" />
                 }
-
+            }
+            @if (!string.IsNullOrEmpty(errorMessage))
+            {
+                <Label Text="@errorMessage" TextColor="TextColor.Red" CenterText="true" />
                 <VerticalSpace Height="20" />
+                @if (!string.IsNullOrEmpty(errorDetails))
+                {
+                    <Label Text="@errorDetails" TextColor="TextColor.Orange" CenterText="true" />
+                    <VerticalSpace Height="20" />
+                }
+            }
 
+            <FlexColumnCenteredContainer>
+                <Button ButtonText="Submit Game Report" Width="30" IsDisabled="@isSubmitting" OnClick="async () => await SubmitGameReport()" />
             </FlexColumnCenteredContainer>
+
+            <VerticalSpace Height="50" />
         }
 
-        <VerticalSpace Height="50" />
-
-        @if (validationErrors.Count > 0)
-        {
-            foreach(var err in validationErrors)
-            {
-                <Label Text="@($"• {err}")" TextColor="TextColor.Red" CenterText="true" />
-                <VerticalSpace Height="10" />
-            }
-        }
-        @if (!string.IsNullOrEmpty(errorMessage))
-        {
-            <Label Text="@errorMessage" TextColor="TextColor.Red" CenterText="true" />
-            <VerticalSpace Height="20" />
-            @if (!string.IsNullOrEmpty(errorDetails))
-            {
-                <Label Text="@errorDetails" TextColor="TextColor.Orange" CenterText="true" />
-                <VerticalSpace Height="20" />
-            }
-        }
-
-        <Button ButtonText="Submit Game Report" Width="30" IsDisabled="@isSubmitting" OnClick="async () => await SubmitGameReport()" />
-
-        <VerticalSpace Height="50" />
+        </StretchHeightContainer>
 
     </FlexColumnCenteredContainer>
 

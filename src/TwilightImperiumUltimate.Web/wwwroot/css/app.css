@@ -327,6 +327,46 @@ main {
     background-color: white;
 }
 
+/* ========== RADZEN CHART OVERRIDES ========== */
+.rz-tick-text,
+.rz-chart svg .rz-tick-text {
+    fill: white !important;
+    color: white !important;
+    font-family: 'Handel Gothic', Handel, fallback, sans-serif !important;
+    font-size: 11px !important;
+}
+
+.rz-legend-item-text,
+.rz-chart svg .rz-legend-item-text {
+    fill: white !important;
+    color: white !important;
+    font-family: 'Handel Gothic', Handel, fallback, sans-serif !important;
+}
+
+.rz-axis-title,
+.rz-chart svg .rz-axis-title {
+    fill: white !important;
+    color: white !important;
+    font-family: 'Handel Gothic', Handel, fallback, sans-serif !important;
+    font-size: 13px !important;
+}
+
+.rz-axis-title text,
+.rz-tick text,
+.rz-chart svg text {
+    fill: white !important;
+    color: white !important;
+    font-family: 'Handel Gothic', Handel, fallback, sans-serif !important;
+}
+
+.rz-category-axis path,
+.rz-value-axis path,
+.rz-category-axis line,
+.rz-value-axis line {
+    stroke: white !important;
+    stroke-width: 2 !important;
+}
+
 /* ========== BLAZOR CSS ========== */
 #blazor-error-ui {
     background: lightyellow;
