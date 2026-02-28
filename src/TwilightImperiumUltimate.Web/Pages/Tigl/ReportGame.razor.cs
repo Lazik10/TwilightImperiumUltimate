@@ -221,6 +221,15 @@ public partial class ReportGame
         playerResults[index].DiscordId = discordUserId;
         if (index >= 0 && index < _rowModes.Count)
             _rowModes[index] = RowViewMode.Edit;
+
+        var nextSearchIndex = _rowModes.FindIndex(x => x == RowViewMode.Search);
+        _currentPlayerIndex = nextSearchIndex >= 0 ? nextSearchIndex : index;
+    }
+
+    private void OpenPlayerSearch(int index)
+    {
+        if (index >= 0 && index < _rowModes.Count)
+            _currentPlayerIndex = index;
     }
 
     private void ToggleEvent(string name, bool enabled)

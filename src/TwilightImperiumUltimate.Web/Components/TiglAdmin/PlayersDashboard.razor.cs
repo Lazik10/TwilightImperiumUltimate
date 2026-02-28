@@ -22,6 +22,7 @@ public partial class PlayersDashboard
 
     private TiglPrestigeRank _newPrestigeRank = TiglPrestigeRank.GalacticThreat;
     private int _newPrestigeLevel;
+    private DateTime _newPrestigeRankDate = DateTime.UtcNow;
 
     private IReadOnlyList<PrestigeRankOption> _prestigeRankOptions = Array.Empty<PrestigeRankOption>();
 
@@ -144,7 +145,7 @@ public partial class PlayersDashboard
         StateHasChanged();
     }
 
-    private async Task AwardPrestigeRankAsync(TiglPrestigeRank rank, TiglFactionName faction = TiglFactionName.None, int level = 0)
+    private async Task AwardPrestigeRankAsync(TiglPrestigeRank rank, TiglFactionName faction = TiglFactionName.None, int level = 0, long achievedAt = 0)
     {
         if (_selectedUser is null)
             return;
@@ -156,6 +157,7 @@ public partial class PlayersDashboard
             League = _selectedLeague,
             Faction = faction,
             Level = level,
+            AchievedAt = achievedAt,
         };
 
         var awardResult = await HttpClient.PostAsync<AwardPrestigeRankRequest, ApiResponse<AwardPrestigeRankResponse>>(Paths.ApiPath_AwardPrestigeRank, req);
@@ -171,7 +173,8 @@ public partial class PlayersDashboard
         if (_selectedUser is null)
             return;
 
-        await AwardPrestigeRankAsync(_newPrestigeRank, TiglFactionName.None, _newPrestigeLevel);
+        var achievedAt = new DateTimeOffset(_newPrestigeRankDate).ToUnixTimeMilliseconds();
+        await AwardPrestigeRankAsync(_newPrestigeRank, TiglFactionName.None, _newPrestigeLevel, achievedAt);
     }
 
     private async Task RemovePrestigeRankAsync(PrestigeRankHistoryDto prestigeEntry)

@@ -36,12 +36,7 @@ public class SeasonLeaderboardRefreshJob(
 
             _logger.LogInformation("Season leaderboard refresh started for season {Season}", activeSeason);
 
-            // Remove existing snapshot rows for current active season
-            var existing = db.SeasonLeaderboard.Where(r => r.Season == activeSeason);
-            db.SeasonLeaderboard.RemoveRange(existing);
-            await db.SaveChangesAsync(context.CancellationToken);
-
-            // Recreate snapshot (service will insert rows)
+            // Recreate snapshot (service does transactional replace for the season)
             await _seasonLeaderboardService.CreateLeaderboard(activeSeason, context.CancellationToken);
 
             // Invalidate cache so next request rebuilds it

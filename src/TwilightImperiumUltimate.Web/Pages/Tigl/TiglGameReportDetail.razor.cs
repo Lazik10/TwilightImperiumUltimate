@@ -126,6 +126,13 @@ public partial class TiglGameReportDetail
         }
     }
 
+    private void NavigateToPlayerProfile(int tiglUserId)
+    {
+        var currentPath = $"/{NavigationManager.ToBaseRelativePath(NavigationManager.Uri)}";
+        var targetUrl = $"{Pages.TiglPlayerProfile}?playerId={tiglUserId}&returnUrl={Uri.EscapeDataString(currentPath)}";
+        NavigationManager.NavigateTo(targetUrl);
+    }
+
     private TextColor GetChangeColor(double value)
     {
         return value switch

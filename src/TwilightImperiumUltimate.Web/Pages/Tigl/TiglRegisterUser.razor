@@ -69,43 +69,6 @@
                 <VerticalSpace Height="100" />
                 <Button ButtonText="Register With Discord" OnClick="RegisterWithDiscord" />
                 <VerticalSpace Height="20" />
-
-                @if (_manualRegisterEnabled)
-                {
-                    <FlexColumnCenteredContainer Width="70">
-                        <VerticalSpace Height="30" />
-                        <Title Text="Test Registration (Manual)" MarginTop="10" MarginBottom="10" FontSize="22" TextColor="TextColor.Yellow" />
-                        <HelpText Text="This form is visible because 'Test Registrations' parameter is enabled." />
-                        <VerticalSpace Height="20" />
-
-                        @if (!string.IsNullOrWhiteSpace(_manualRegisterError))
-                        {
-                            <Label Text="@_manualRegisterError" TextColor="TextColor.Red" />
-                            <VerticalSpace Height="10" />
-                        }
-
-                        <GridLayout CssClass="background" Style="grid-template-columns: 25% 75%; row-gap:10px;">
-                            <Label Text="Discord ID" />
-                            <input class="handel white" style="width:95%; color:black;" @bind="_newUser.DiscordId" />
-
-                            <Label Text="Discord Tag (Username)" />
-                            <input class="handel white" style="width:95%; color:black;" @bind="_newUser.DiscordTag" />
-
-                            <Label Text="TIGL Username" />
-                            <input class="handel white" style="width:95%; color:black;" @bind="_newUser.TiglUserName" />
-                        </GridLayout>
-
-                        <VerticalSpace Height="20" />
-                        @if (_manualRegisterSuccess)
-                        {
-                            <Label Text="User registered successfully." TextColor="TextColor.Green" CenterText="true" />
-                            <VerticalSpace Height="10" />
-                        }
-                        <Button ButtonText="Register User" OnClick="ManualRegisterUser" IsDisabled="@_manualRegistering" />
-                        <VerticalSpace Height="20" />
-
-                    </FlexColumnCenteredContainer>
-                }
             }
 
         </FlexColumnCenteredContainer>

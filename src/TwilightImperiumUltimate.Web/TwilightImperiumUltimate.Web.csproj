@@ -1852,8 +1852,4 @@
     </Content>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Components\Ranking\" />
-  </ItemGroup>
-
 </Project>
