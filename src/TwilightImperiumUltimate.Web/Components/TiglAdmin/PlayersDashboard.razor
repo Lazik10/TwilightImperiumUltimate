@@ -22,6 +22,7 @@
                             TextProperty="TiglUserName"
                             ValueProperty="Id"
                             AllowFiltering="true"
+                            AllowVirtualization="true"
                             FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
                             Placeholder="Type TIGL Name..."
                             Change="@(async (object? v) => { if (v is int id) await OnUserSelected(id); })"
@@ -35,6 +36,7 @@
                             TextProperty="DiscordUserName"
                             ValueProperty="Id"
                             AllowFiltering="true"
+                            AllowVirtualization="true"
                             FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
                             Placeholder="Type Discord Tag..."
                             Change="@(async (object? v) => { if (v is int id) await OnUserSelected(id); })"
@@ -181,7 +183,7 @@
             <VerticalSpace Height="10" CssClass="span-8" />
 
             <FlexRowContainer CssClass="span-8" JustifyContent="Enums.JustifyContent.Center">
-                <FlexColumnCenteredContainer Width="40">
+                <FlexColumnCenteredContainer Width="30">
                     <RadzenDropDown Data="@_prestigeRankOptions"
                                     TValue="TiglPrestigeRank"
                                     ValueProperty="Value"
@@ -191,7 +193,11 @@
                 </FlexColumnCenteredContainer>
                 <Label Text="Level" Width="10" CenterText="true" />
                 <RadzenNumeric style="width:10%" @bind-Value="_newPrestigeLevel" Min="0" Max="7" />
-                <FlexColumnCenteredContainer Width="40">
+                <Label Text="Date" Width="10" CenterText="true" />
+                <FlexColumnCenteredContainer Width="20">
+                    <RadzenDatePicker @bind-Value="_newPrestigeRankDate" Style="width: 90%;" />
+                </FlexColumnCenteredContainer>
+                <FlexColumnCenteredContainer Width="30">
                     <Button ButtonText="Add" OnClick="async () => await AddPrestigeRankAsync()" Width="80" />
                 </FlexColumnCenteredContainer>
             </FlexRowContainer>

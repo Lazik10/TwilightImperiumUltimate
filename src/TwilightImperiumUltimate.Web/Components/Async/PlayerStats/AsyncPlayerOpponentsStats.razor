@@ -41,42 +41,44 @@
                         {
                             if (opponentsFirstColumn[index].Id == 0)
                             {
-                                <Label />
+                                <Label Text="@(orderLeft.ToString() + ". ")" CenterText="true" />
                                 <Label Text="@(opponentsFirstColumn[index].DiscordUserName)" TextColor="TextColor.Red" FontSize="14" />
                                 <Label Text="@(opponentsFirstColumn[index].Games.ToString())" CenterText="true" TextColor="TextColor.Yellow" />
                             }
                             else
                             {
                                 <Label Text="@(orderLeft.ToString() + ". ")" CenterText="true" />
-                                <TextButton Text="@(opponentsFirstColumn[index].DiscordUserName)" TextAlign="left" FontSize="14" Style="color: lawngreen;" OnClick="@(() => ViewProfile(opponentsFirstColumn[index].Id))" />
+                                <TextButton Text="@(opponentsFirstColumn[index].DiscordUserName)" TextAlign="left" FontSize="14" Style="color: lawngreen;" OnClick="@(() => ViewProfile(opponentsFirstColumn[index].Id))" JustifyContent="Enums.JustifyContent.FlexStart" />
                                 <Label Text="@(opponentsFirstColumn[index].Games.ToString())" CenterText="true" TextColor="TextColor.Yellow" />
-                                orderLeft++;
                             }
+                            orderLeft++;
                         }
                         else
                         {
-                            <Label Text="" Style="grid-column: span 3;" />
+                            <Label Text="@(orderLeft.ToString() + ". ")" CenterText="true" />
+                            <Label Text="" Style="grid-column: span 2;" />
                         }
 
                         if (index < opponentsSecondColumn.Count)
                         {
                             if (opponentsSecondColumn[index].Id == 0)
                             {
-                                <Label />
+                                <Label Text="@(orderRight.ToString() + ". ")" CenterText="true" />
                                 <Label Text="@(opponentsSecondColumn[index].DiscordUserName)" TextColor="TextColor.Red" FontSize="14" />
                                 <Label Text="@(opponentsSecondColumn[index].Games.ToString())" CenterText="true" TextColor="TextColor.Yellow" />
                             }
                             else
                             {
                                 <Label Text="@(orderRight.ToString() + ". ")" CenterText="true" />
-                                <TextButton Text="@(opponentsSecondColumn[index].DiscordUserName)" TextAlign="left" FontSize="14" Style="color: lawngreen;" OnClick="@(() => ViewProfile(opponentsSecondColumn[index].Id))" />
+                                <TextButton Text="@(opponentsSecondColumn[index].DiscordUserName)" TextAlign="left" FontSize="14" Style="color: lawngreen;" OnClick="@(() => ViewProfile(opponentsSecondColumn[index].Id))" JustifyContent="Enums.JustifyContent.FlexStart" />
                                 <Label Text="@(opponentsSecondColumn[index].Games.ToString())" CenterText="true" TextColor="TextColor.Yellow" />
-                                orderRight++;
                             }
+                            orderRight++;
                         }
                         else
                         {
-                            <Label Text="" Style="grid-column: span 3;"/>
+                            <Label Text="@(orderLeft.ToString() + ". ")" CenterText="true" />
+                            <Label Text="" Style="grid-column: span 2;"/>
                         }
                     }
                 }

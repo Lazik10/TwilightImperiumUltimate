@@ -49,7 +49,7 @@
                 <FlexRowContainer>
                     <FlexRowContainer>
                         <WinnerImg />
-                        <Label Text="@GetUserName(winner)" CenterText=true FontSize="22" TextColor="TextColor.Green" Width="50" />
+                        <TextButton Text="@GetUserName(winner)" OnClick="(() => NavigateToPlayerProfile(winner.TiglUserId))" TextAlign="center" FontSize="22" TextColor="TextColor.Green" Width="50" />
                         <WinnerImg />
                     </FlexRowContainer>
                     <FlexRowContainer>
@@ -111,7 +111,7 @@
                 var newRankText = newRank == oldRank ? string.Empty : newRank.GetDisplayName();
                 
                 <Label />
-                <Label Text="@GetUserName(player)" TextColor="@color" />
+                    <TextButton Text="@GetUserName(player)" OnClick="(() => NavigateToPlayerProfile(player.TiglUserId))" JustifyContent="Enums.JustifyContent.FlexStart" TextColor="@color" />
                 <FlexRowContainer>
                     <TiglFactionImg Faction="@player.Faction" Height="30" />
                     <Label Text="@player.Faction.GetDisplayName()" TextColor="@color" Width="80" />
@@ -175,7 +175,7 @@
                     _placement = 1;
 
                 <div style="align-self: stretch; justify-self: stretch;" class="background" />
-                <Label Text="@GetUserName(playerResult)" CssClass="background" TextColor="@winnerColor" />
+                <TextButton Text="@GetUserName(playerResult)" OnClick="(() => NavigateToPlayerProfile(playerResult.TiglUserId))" CssClass="background" JustifyContent="Enums.JustifyContent.FlexStart" TextColor="@winnerColor" />
 
                 if (_selectedRankingSystem == RankingSystem.TrueSkill)
                 {

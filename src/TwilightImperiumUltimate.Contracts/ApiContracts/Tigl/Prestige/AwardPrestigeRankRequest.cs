@@ -13,4 +13,6 @@ public class AwardPrestigeRankRequest
     public TiglFactionName Faction { get; set; } = TiglFactionName.None;
 
     public int Level { get; set; }
+
+    public long AchievedAt { get; set; }
 }

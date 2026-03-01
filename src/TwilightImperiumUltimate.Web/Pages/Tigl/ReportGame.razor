@@ -137,33 +137,40 @@
                             <Label Text="@($"Find Player {index + 1}:")" CssClass="span-2" CenterText="true" FontSize="24" TextColor="TextColor.Green" />
                             <VerticalSpace Height="20" CssClass="span-8" />
 
-                            <Label Text="By TIGL Name: " TextColor="TextColor.Yellow" Width="50" />
-                            <RadzenDropDown Data="@_users"
-                                        TValue="long"
-                                        TextProperty="TiglUserName"
-                                        ValueProperty="DiscordUserId"
-                                        Value="@playerResults[index].DiscordId"
-                                        AllowFiltering="true"
-                                        AllowVirtualization="true"
-                                        FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
-                                        Placeholder="Type TIGL name..."
-                                        ValueChanged="@((long v) => OnUserSelected(index, v))"
-                                        Style="width: 50%;"
-                                            />
-
-                            <VerticalSpace Height="20" />
-                            <Label Text="By Discord Name: " TextColor="TextColor.Yellow" Width="50" />
-                            <RadzenDropDown Data="@_users"
+                            @if (_currentPlayerIndex != index)
+                            {
+                                <TextButton Text="Open Search" TextColor="TextColor.Green" OnClick="(() => OpenPlayerSearch(index))" Width="30" />
+                            }
+                            else
+                            {
+                                <Label Text="By TIGL Name: " TextColor="TextColor.Yellow" Width="50" />
+                                <RadzenDropDown Data="@_users"
                                             TValue="long"
-                                            TextProperty="DiscordUserName"
+                                            TextProperty="TiglUserName"
                                             ValueProperty="DiscordUserId"
                                             Value="@playerResults[index].DiscordId"
                                             AllowFiltering="true"
                                             AllowVirtualization="true"
                                             FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
-                                            Placeholder="Type Discord Tag..."
+                                            Placeholder="Type TIGL name..."
                                             ValueChanged="@((long v) => OnUserSelected(index, v))"
-                                            Style="width: 50%;"/>
+                                            Style="width: 50%;"
+                                                />
+
+                                <VerticalSpace Height="20" />
+                                <Label Text="By Discord Name: " TextColor="TextColor.Yellow" Width="50" />
+                                <RadzenDropDown Data="@_users"
+                                                TValue="long"
+                                                TextProperty="DiscordUserName"
+                                                ValueProperty="DiscordUserId"
+                                                Value="@playerResults[index].DiscordId"
+                                                AllowFiltering="true"
+                                                AllowVirtualization="true"
+                                                FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+                                                Placeholder="Type Discord Tag..."
+                                                ValueChanged="@((long v) => OnUserSelected(index, v))"
+                                                Style="width: 50%;"/>
+                            }
                         </FlexColumnCenteredContainer>
                     }
                     else

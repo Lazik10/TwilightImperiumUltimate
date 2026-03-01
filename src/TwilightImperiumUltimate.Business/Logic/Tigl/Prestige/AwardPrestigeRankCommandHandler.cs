@@ -1,4 +1,5 @@
 using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Prestige;
+using TwilightImperiumUltimate.Contracts.Enums;
 using TwilightImperiumUltimate.Core.Entities.RelationshipEntities;
 using TwilightImperiumUltimate.Core.Entities.Tigl.Ranks;
 using TwilightImperiumUltimate.DataAccess.DbContexts;
@@ -13,19 +14,46 @@ public class AwardPrestigeRankCommandHandler(IDbContextFactory<TwilightImperiumD
         await using var db = await dbFactory.CreateDbContextAsync(cancellationToken);
         var r = request.Request;
 
-        var prestigeRank = await db.PrestigeRanks
-            .Where(p => p.Name == r.PrestigeRank && p.League == r.League && p.FactionName == r.Faction)
-            .FirstOrDefaultAsync(cancellationToken);
+        var rankCandidates = await db.PrestigeRanks
+            .Where(p => p.Name == r.PrestigeRank && p.League == r.League)
+            .OrderBy(p => p.Id)
+            .ToListAsync(cancellationToken);
+
+        PrestigeRank? prestigeRank = null;
+
+        if (r.Faction != TiglFactionName.None)
+        {
+            prestigeRank = rankCandidates.FirstOrDefault(p => p.FactionName == r.Faction);
+        }
+        else
+        {
+            if (rankCandidates.Count == 1)
+            {
+                prestigeRank = rankCandidates[0];
+            }
+            else
+            {
+                var nonDefaultFactionCandidates = rankCandidates.Where(p => p.FactionName != TiglFactionName.None).ToList();
+                if (nonDefaultFactionCandidates.Count == 1)
+                    prestigeRank = nonDefaultFactionCandidates[0];
+            }
+        }
+
         if (prestigeRank is null)
         {
-            prestigeRank = new PrestigeRank
+            return new AwardPrestigeRankResponse
             {
-                Name = r.PrestigeRank,
+                Success = false,
+                ErrorTitle = "NotFound",
+                ErrorMessage = rankCandidates.Count > 1
+                    ? "Prestige rank definition is ambiguous for this league. Specify faction explicitly."
+                    : "Prestige rank definition not found.",
+                TiglUserId = r.TiglUserId,
+                PrestigeRank = r.PrestigeRank,
                 League = r.League,
-                FactionName = r.Faction,
+                Faction = r.Faction,
+                Level = r.Level,
             };
-            db.PrestigeRanks.Add(prestigeRank);
-            await db.SaveChangesAsync(cancellationToken);
         }
 
         // Prevent duplicate same level entries
@@ -45,13 +73,13 @@ public class AwardPrestigeRankCommandHandler(IDbContextFactory<TwilightImperiumD
             };
         }
 
-        var now = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+        var achievedAt = r.AchievedAt > 0 ? r.AchievedAt : DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
         var userPrestige = new TiglUserPrestigeRank
         {
             TiglUserId = r.TiglUserId,
             PrestigeRankId = prestigeRank.Id,
             Rank = r.Level,
-            AchievedAt = now,
+            AchievedAt = achievedAt,
         };
         db.TiglUserPrestigeRanks.Add(userPrestige);
         await db.SaveChangesAsync(cancellationToken);
@@ -64,7 +92,7 @@ public class AwardPrestigeRankCommandHandler(IDbContextFactory<TwilightImperiumD
             League = r.League,
             Faction = r.Faction,
             Level = r.Level,
-            AchievedAt = now,
+            AchievedAt = achievedAt,
         };
     }
 }

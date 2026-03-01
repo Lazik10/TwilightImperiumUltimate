@@ -4,6 +4,7 @@ public enum AdminMenuItem
 {
     Parameters,
     Seasons,
+    Register,
     Players,
     Games,
 }
