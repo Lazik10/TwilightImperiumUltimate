@@ -2981,6 +2981,15 @@ Brandon Williams&lt;/p&gt;</value>
   <data name="Faction_BackSheetObsidian" xml:space="preserve">
     <value>Back Sheet (Obsidian)</value>
   </data>
+  <data name="News_AuthorLabel" xml:space="preserve">
+    <value>Author:</value>
+  </data>
+  <data name="News_DateLabel" xml:space="preserve">
+    <value>Date:</value>
+  </data>
+  <data name="News_Loading" xml:space="preserve">
+    <value>...LOADING...</value>
+  </data>
   <data name="Page_TiglInfo" xml:space="preserve">
     <value>Info</value>
   </data>

@@ -1,23 +1,21 @@
 ﻿@page "/"
-@using TwilightImperiumUltimate.Web.Components.Shared
-@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
-@using TwilightImperiumUltimate.Web.Components.Shared.Text
-@using TwilightImperiumUltimate.Web.Resources;
 @using TwilightImperiumUltimate.Web.Components.News;
 
 <PageTitle>@Strings.Page_News</PageTitle>
 
 <Page>
+    <ResponsiveLabel Text="@Strings.Page_News" CssClass="news-page-title handel white shadow" FontSize="2xl" CenterText="true" />
+
     @if (_newsArticles?.Count > 0)
     {
         foreach (var article in _newsArticles)
         {
             <NewsArticleSegment NewsArticle="@article" />
-            <VerticalSpace Height="50" />
+            <ResponsiveVerticalSpacer Size="2xl" />
         }
     }
     else
     {
-        <div class="loading-text-section">...LOADING...</div>
+        <div class="loading-text-section">@Strings.News_Loading</div>
     }
 </Page>

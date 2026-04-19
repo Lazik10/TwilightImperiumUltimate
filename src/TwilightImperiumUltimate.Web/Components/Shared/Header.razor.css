@@ -8,16 +8,33 @@
     flex-direction: column;
 }
 
-img {
+.header-logo {
     object-fit: contain;
     display: block;
     width: 100%;
-    max-width: 600px;
+    max-width: 37.5rem;
     align-self: center;
 }
 
-a {
+.header-logo-link {
     align-self: center;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-md);
+}
+
+@media (max-width: 768px) {
+    .header-logo {
+        max-width: 32rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .header-logo {
+        max-width: 26rem;
+    }
+
+    .header-logo-link {
+        margin-top: var(--space-sm);
+        margin-bottom: var(--space-sm);
+    }
 }

@@ -1,0 +1,22 @@
+.responsive-grid-container {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+    gap: var(--grid-gap);
+    place-items: center;
+    align-content: center;
+    padding-top: var(--space-xs);
+    padding-bottom: var(--space-xs);
+    box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+    .responsive-grid-container {
+        grid-template-columns: repeat(var(--grid-columns-tablet), minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .responsive-grid-container {
+        grid-template-columns: repeat(var(--grid-columns-mobile), minmax(0, 1fr));
+    }
+}

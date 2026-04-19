@@ -1,0 +1,36 @@
+.card-type-navbar {
+    background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.5) 10%, rgba(0,0,0,0.5) 90%, rgba(0,0,0,0));
+    width: 80%;
+    min-height: 3.125rem;
+    align-self: center;
+    justify-self: center;
+}
+
+.card-type-navbar-grid {
+    align-items: center;
+}
+
+.card-type-row-break {
+    display: none;
+    grid-column: span 5;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .card-type-row-break {
+        display: block;
+    }
+}
+
+@media (max-width: 1024px) {
+    .card-type-navbar {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .card-type-navbar {
+        width: 100%;
+        min-height: 2.75rem;
+    }
+}

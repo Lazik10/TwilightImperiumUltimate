@@ -1,6 +1,6 @@
-namespace TwilightImperiumUltimate.Web.Components.Shared.GameVersions;
+﻿namespace TwilightImperiumUltimate.Web.Components.Shared.GameVersions;
 
-public partial class GameVersionIcon : TwilightImperiumBaseComponenet
+public partial class GameVersionIcon : TwilightImperiumBaseComponent
 {
     [Parameter]
     public GameVersion Version { get; set; }

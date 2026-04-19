@@ -1,0 +1,28 @@
+.responsive-button {
+    display: inline-flex;
+    box-sizing: border-box;
+    padding: var(--space-sm) var(--space-xl);
+    background-color: rgba(0, 0, 255, 0.3);
+    border: 2px solid black;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.responsive-button:hover {
+    background-color: white;
+    color: black;
+}
+
+.responsive-button:disabled {
+    background-color: rgba(128, 128, 128, 0.3);
+    cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+    .responsive-button {
+        /*padding: var(--space-xs) var(--space-sm);*/
+        font-size: var(--font-size-sm) !important;
+    }
+}

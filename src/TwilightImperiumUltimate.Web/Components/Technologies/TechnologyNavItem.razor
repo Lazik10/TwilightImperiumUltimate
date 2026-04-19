@@ -1,13 +1,12 @@
-﻿@inherits TwilightImperiumBaseComponenet
+﻿@inherits TwilightImperiumBaseComponent
 
-<div class="tech-nav-item clickable" @onclick="OnClick">
-    <FlexRowContainer JustifyContent="Enums.JustifyContent.Center">
-        @if(TechnologyType != TechnologyType.UnitUpgrade && TechnologyType != TechnologyType.Faction)
-        {
-            <img src="@ImagePath" class="max-height" />
-        }
-        <div class="handel @ColorClass shadow">
-            @TechnologyName
-        </div>
-    </FlexRowContainer>
+<div class="tech-nav-item clickable @(IsSelected ? "tech-nav-item-selected" : string.Empty)" @onclick="OnClick">
+    @if (TechnologyType != TechnologyType.Faction)
+    {
+        <img src="@ImagePath" class="tech-nav-icon" alt="@TechnologyName" />
+    }
+    <div class="handel @ColorClass shadow tech-nav-label @(TechnologyType == TechnologyType.Faction ? "tech-nav-label-faction" : string.Empty)">
+        @TechnologyName
+    </div>
 </div>
+

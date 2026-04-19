@@ -1,10 +1,10 @@
-using Serilog;
+﻿using Serilog;
 using System.Globalization;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
 
 namespace TwilightImperiumUltimate.Web.Components.MapGenerator;
 
-public partial class MapHexTile : TwilightImperiumBaseComponenet
+public partial class MapHexTile : TwilightImperiumBaseComponent
 {
     private TileRotation _tileRotation;
 
@@ -145,3 +145,4 @@ public partial class MapHexTile : TwilightImperiumBaseComponenet
         };
     }
 }
+

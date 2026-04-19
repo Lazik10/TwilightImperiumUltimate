@@ -1,0 +1,17 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Controls
+@inherits TwilightImperiumUltimate.Web.Components.TwilightImperiumBaseComponent
+
+<button class="@ComputedCssClass"
+        style="@ComputedStyle"
+        type="@GetButtonType()"
+        @onclick="OnClickHandler"
+        disabled="@IsActuallyDisabled">
+    @if (ChildContent is not null)
+    {
+        @ChildContent
+    }
+    else
+    {
+        @((MarkupString)DisplayText)
+    }
+</button>

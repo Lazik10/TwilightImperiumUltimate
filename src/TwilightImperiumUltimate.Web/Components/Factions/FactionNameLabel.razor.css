@@ -8,12 +8,18 @@
 
 @media (max-width: 1248px) {
     .title {
-        font-size: 18px;
+        font-size: 22px;
     }
 }
 
 @media (max-width: 768px) {
+    .faction-title-line ::deep img {
+        width: 100% !important;
+        max-width: 100% !important;
+        transform: translate(0%, 0%) !important;
+    }
+
     .title {
-        font-size: 14px;
+        font-size: 18px;
     }
 }

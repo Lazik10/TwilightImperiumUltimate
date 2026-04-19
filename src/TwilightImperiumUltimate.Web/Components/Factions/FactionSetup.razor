@@ -7,52 +7,44 @@
 
 <StretchHeightContainer>
 
-    <FlexRowContainer>
+    @{ 
+        var startingUnits = GetStartingUnits();
+        var startingTechnologies = GetStartingTechnologies();
+        var startingUnitMaxWidth = GetStartingUnitMaxWidth(startingUnits);
+    }
 
-        @foreach (var unit in GetStartingUnits())
+    <ResponsiveContainer Type="fluid" Padding="none" Style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center;">
+
+        @foreach (var unit in startingUnits)
         {
             for (var i = 0; i < unit.Count; i++)
             {
-                <UnitImage UnitName="unit.UnitName" MaxWidth="5"/>
+                <UnitImage UnitName="unit.UnitName" MaxWidth="@startingUnitMaxWidth"/>
             }
         }
 
-    </FlexRowContainer>
+    </ResponsiveContainer>
 
-    <VerticalSpace Height="50" />
+    <ResponsiveVerticalSpacer Size="xs" />
 
     @if(_showTechnologyPickMessage)
     {
-        <Label Text="@(_technologyPickMessage)" CenterText="true" FontSize="24"/>
+        <ResponsiveText Text="@_technologyPickMessage" CenterText="true" />
     }
 
     <FlexColumnCenteredContainer>
-
-        @if(NumberOfStartingTechnologies % 3 == 1 && NumberOfStartingTechnologies < 3)
+        @if (startingTechnologies.Count > 0)
         {
-            <FlexColumnCenteredContainer>
-                <TechnologyCard TechnologyName="GetStartingTechnologies().First().TechnologyName" Width="25"/>
-            </FlexColumnCenteredContainer>
-        }
-        else if (NumberOfStartingTechnologies % 3 == 2 || NumberOfStartingTechnologies == 4)
-        {
-            <FlexColumnCenteredContainer>
-                <GridLayout Columns="2" Gap="10" Width="50">
-                    @foreach (var startingTechnology in GetStartingTechnologies())
+            <div class="faction-technologies-grid-shell">
+                <ResponsiveGridContainer Columns="GetTechnologyColumns(startingTechnologies.Count)" TabletColumns="GetTechnologyColumns(startingTechnologies.Count)" MobileColumns="1" Width="100" Gap="10px">
+                    @foreach (var startingTechnology in startingTechnologies)
                     {
-                        <TechnologyCard TechnologyName="startingTechnology.TechnologyName" Width="90" />
+                        <div class="faction-technology-image-container">
+                            <TechnologyCard TechnologyName="startingTechnology.TechnologyName" Width="100"/>
+                        </div>
                     }
-                </GridLayout>
-            </FlexColumnCenteredContainer>
-        }
-        else if (NumberOfStartingTechnologies >= 3)
-        {
-            <GridLayout Columns="3" Gap="10" Width="80">
-                @foreach (var startingTechnology in GetStartingTechnologies())
-                {
-                    <TechnologyCard TechnologyName="startingTechnology.TechnologyName" Width="100"/>
-                }
-            </GridLayout>
+                </ResponsiveGridContainer>
+            </div>
         }
 
     </FlexColumnCenteredContainer>

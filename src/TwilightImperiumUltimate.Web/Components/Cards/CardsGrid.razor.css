@@ -4,17 +4,75 @@
     align-items: center;
 }
 
-.image-grid {
-    display: grid;
-    grid-template-columns: 30% 30% 30%;
-    grid-column-gap: 5%;
-    place-items: center;
-    padding: 0% 10%;
+.cards-grid-shell {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 1024px) {
+    .cards-grid-shell {
+        width: 92%;
+    }
+}
+
+@media (max-width: 768px) {
+    .cards-grid-shell {
+        width: 98%;
+    }
+}
+
+.cards-filter-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--space-md);
 }
 
 .image-container {
-    max-width: 500px;
-    max-height: 750px;
+    width: min(100%, 31.25rem);
+    height: min(75vh, 46.875rem);
+    max-width: 100%;
+    max-height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.big-image-content-row {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    gap: var(--space-lg);
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.big-image-content-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.notes-faq-container {
+    display: flex;
+    justify-content: center;
+}
+
+.faq-panel-container,
+.notes-panel-container {
+    display: flex;
+    justify-content: center;
+}
+
+.faq-action-row {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .big-image-overlay {
@@ -29,7 +87,6 @@
     background-position: center center;
     background-size: cover;
     background-attachment: fixed;
-    display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1;
@@ -37,30 +94,63 @@
     flex-direction: column;
 }
 
-    .big-image-overlay img {
-        position: relative;
-        max-width: 100%;
-        max-height: 100%;
-        cursor: pointer;
-        border-radius: 20px;
+@media (max-width: 1024px) {
+    .big-image-content-row {
+        width: 90% !important;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .big-image-overlay {
+        justify-content: flex-start;
+        padding-top: var(--space-sm);
+        padding-bottom: var(--space-sm);
+        overflow-y: auto;
     }
 
-        .big-image-overlay img::before {
-            content: "";
-            position: absolute;
-            flex-grow: 1;
-            flex-shrink: 1;
-            width: 100%;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            box-shadow: inset 0 0 0 5px #000;
-            pointer-events: none;
-            margin-bottom: 20px;
-            border-radius: 20px;
-            z-index: 999;
-        }
+    .big-image-content-row {
+        width: 95% !important;
+        grid-template-columns: minmax(0, 1fr);
+        align-items: center;
+        justify-items: center;
+        gap: var(--space-sm);
+    }
+
+    .image-container {
+        width: min(92vw, 19rem);
+        height: min(42vh, 20rem);
+        max-height: 42vh;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .big-image-content-column {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+.big-image-overlay .image-container > img {
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    cursor: pointer;
+    border-radius: 1.25rem;
+}
+
+@media (max-width: 768px) {
+    .big-image-overlay .image-container > img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+    }
+}
 
 .clickable {
     cursor: pointer;
@@ -69,8 +159,39 @@
 .language-menu {
     display: flex;
     flex-direction: row;
-    height: 30px;
+    justify-content: center;
+    gap: var(--space-sm);
     z-index: 999;
+}
+
+.language-flag {
+    transition: filter 0.2s ease;
+}
+
+.language-flag-active {
+    filter: grayscale(0%);
+}
+
+.language-flag-inactive {
+    filter: grayscale(100%);
+}
+
+.language-menu-mobile {
+    display: none;
+}
+
+.language-menu-desktop {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .language-menu-mobile {
+        display: flex;
+    }
+
+    .language-menu-desktop {
+        display: none;
+    }
 }
 
 .scrollable-element::-webkit-scrollbar {

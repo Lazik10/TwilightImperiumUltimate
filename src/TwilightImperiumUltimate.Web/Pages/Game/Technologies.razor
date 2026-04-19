@@ -1,6 +1,5 @@
 ﻿@page "/game/technologies"
 @using TwilightImperiumUltimate.Web.Components.Shared
-@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @using TwilightImperiumUltimate.Web.Components.Shared.Text
 @using TwilightImperiumUltimate.Web.Resources;
 @using TwilightImperiumUltimate.Web.Components.Technologies
@@ -8,7 +7,13 @@
 <PageTitle>@Strings.Page_Technologies</PageTitle>
 
 <Page>
-    <TechnologyGrid />
+    <ResponsiveLabel Text="@Strings.Page_Technologies" FontSize="2xl" CenterText="true" />
+    
+    <ResponsiveVerticalSpacer Size="2xl" />
+    <TechnologyNavbar SelectedTechnologyType="@_selectedTechnologyType" OnTechnologyTypeChange="TechnologyTypeChange" />
+    <ResponsiveVerticalSpacer Size="2xl" />
+
+    <TechnologyGrid SelectedTechnologyType="@_selectedTechnologyType" />
 </Page>
 
 

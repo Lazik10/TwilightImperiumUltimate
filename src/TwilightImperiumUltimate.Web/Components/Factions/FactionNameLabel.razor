@@ -3,26 +3,30 @@
 
 <FlexColumnCenteredContainer>
 
-    <VerticalSpace Height="50" />
+    <ResponsiveVerticalSpacer Size="2xl" ShowOnMobile="false" />
 
-    <TitleLine TransformX="-15" Width="125" MaxWidth="125" />
+    <div class="faction-title-line">
+        <TitleLine TransformX="-15" WidthCss="125%" MaxWidthCss="125%" />
+    </div>
 
     <FlexColumnCenteredContainer CssClass="title handel white shadow">
 
-        <FlexRowContainer JustifyContent="Enums.JustifyContent.SpaceBetween">
+        <ResponsiveContainer Type="fluid" Padding="none" Style="display:flex; justify-content:space-between; align-items:center;">
 
-            <FactionIconImg FactionName="@(FactionName)" Height="50" />
+            <FactionIconImg FactionName="@(FactionName)" ResponsiveHeight="clamp(1.25rem, 3vw, 3.125rem)" />
 
             <div class="title">
                 @FactionName.GetFactionUIText(FactionResourceType.Title)
             </div>
 
-            <FactionIconImg FactionName="@(FactionName)" Height="50" />
+            <FactionIconImg FactionName="@(FactionName)" ResponsiveHeight="clamp(1.25rem, 3vw, 3.125rem)" />
 
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
     </FlexColumnCenteredContainer>
 
-    <TitleLine TransformX="-15" Width="125" MaxWidth="125"/>
+    <div class="faction-title-line">
+        <TitleLine TransformX="-15" WidthCss="125%" MaxWidthCss="125%" />
+    </div>
 
 </FlexColumnCenteredContainer>

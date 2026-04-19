@@ -19,19 +19,19 @@
         }
         <FlexColumnCenteredContainer>
             <div>@Strings.Faction_Agent</div>
-            <VerticalSpace Height="10"/>
+            <ResponsiveVerticalSpacer CustomHeight="10px" />
             <div>@Strings.Faction_AgentRequirement</div>
         </FlexColumnCenteredContainer>
 
         <FlexColumnCenteredContainer>
             <div>@Strings.Faction_Commander</div>
-            <VerticalSpace Height="10" />
+            <ResponsiveVerticalSpacer CustomHeight="10px" />
             <div>@(Faction.FactionName.GetFactionUIText(FactionResourceType.CommanderRequirement))</div>
         </FlexColumnCenteredContainer>
 
         <FlexColumnCenteredContainer>
             <div>@Strings.Faction_Hero</div>
-            <VerticalSpace Height="10" />
+            <ResponsiveVerticalSpacer CustomHeight="10px" />
             <div>@Strings.Faction_HeroRequirement</div>
         </FlexColumnCenteredContainer>
 
@@ -59,19 +59,19 @@
 
             <FlexColumnCenteredContainer>
                 <div>@Strings.Faction_Agent</div>
-                <VerticalSpace Height="10" />
+                <ResponsiveVerticalSpacer CustomHeight="10px" />
                 <div>@Strings.Faction_AgentRequirement</div>
             </FlexColumnCenteredContainer>
 
             <FlexColumnCenteredContainer>
                 <div>@Strings.Faction_Commander</div>
-                <VerticalSpace Height="10" />
+                <ResponsiveVerticalSpacer CustomHeight="10px" />
                 <div>@(Faction.FactionName.GetFactionUIText(FactionResourceType.CommanderRequirement))</div>
             </FlexColumnCenteredContainer>
 
             <FlexColumnCenteredContainer>
                 <div>@Strings.Faction_Hero</div>
-                <VerticalSpace Height="10" />
+                <ResponsiveVerticalSpacer CustomHeight="10px" />
                 <div>@Strings.Faction_HeroRequirement</div>
             </FlexColumnCenteredContainer>
 
@@ -95,6 +95,7 @@
         }
     </div>
 }
+
 
 @if(Faction.FactionName == FactionName.TheNomad)
 {
@@ -162,7 +163,7 @@
     <div class="handel white shadow">
         <FlexColumnCenteredContainer>
 
-            <GridLayout Columns="2" Gap="20" Width="66">
+            <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Width="66" Gap="20px">
                 <FlexColumnCenteredContainer>
                     <div>@Strings.Faction_Agent</div>
                     <div>@Strings.Faction_AgentRequirement</div>
@@ -184,9 +185,9 @@
                         <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.Commander))" />
                     </div>
                 </FlexColumnCenteredContainer>
-            </GridLayout>
+            </ResponsiveGridContainer>
 
-            <GridLayout Columns="3" Gap="20" Width="100">
+            <ResponsiveGridContainer Columns="3" TabletColumns="2" MobileColumns="1" Width="100" Gap="20px">
                 <FlexColumnCenteredContainer>
                     <div>@Strings.Faction_Hero</div>
                     <div>@Strings.Faction_HeroRequirement</div>
@@ -219,7 +220,7 @@
                         <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.HeroThree))" />
                     </div>
                 </FlexColumnCenteredContainer>
-            </GridLayout>
+            </ResponsiveGridContainer>
 
         </FlexColumnCenteredContainer>
     </div>
@@ -230,7 +231,7 @@
     <div class="handel white shadow">
         <FlexColumnCenteredContainer>
 
-            <GridLayout Columns="2" Gap="20" Width="66">
+            <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Width="66" Gap="20px">
                 <FlexColumnCenteredContainer>
                     <div>@Strings.Faction_Agent</div>
                     <div>@Strings.Faction_AgentRequirement</div>
@@ -252,9 +253,9 @@
                         <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.Commander))" />
                     </div>
                 </FlexColumnCenteredContainer>
-            </GridLayout>
+            </ResponsiveGridContainer>
 
-            <GridLayout Columns="2" Gap="20" Width="66">
+            <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Width="66" Gap="20px">
                 <FlexColumnCenteredContainer>
                     <div>@Strings.Faction_Hero</div>
                     <div>@Strings.Faction_HeroRequirement</div>
@@ -276,7 +277,7 @@
                         <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.HeroTwo))" />
                     </div>
                 </FlexColumnCenteredContainer>
-            </GridLayout>
+            </ResponsiveGridContainer>
 
         </FlexColumnCenteredContainer>
     </div>

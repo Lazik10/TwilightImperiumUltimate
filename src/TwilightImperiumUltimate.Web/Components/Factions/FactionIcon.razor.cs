@@ -1,6 +1,6 @@
 namespace TwilightImperiumUltimate.Web.Components.Factions;
 
-public partial class FactionIcon : TwilightImperiumBaseComponenet
+public partial class FactionIcon : TwilightImperiumBaseComponent
 {
     [Parameter]
     public required FactionModel Faction { get; set; }
@@ -10,6 +10,9 @@ public partial class FactionIcon : TwilightImperiumBaseComponenet
 
     [Parameter]
     public EventCallback<FactionModel> OnClick { get; set; }
+
+    [Parameter]
+    public bool NoPadding { get; set; }
 
     public string Name => Faction.FactionName.ToString();
 

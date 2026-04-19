@@ -2,7 +2,7 @@ using TwilightImperiumUltimate.Web.Services.MapGenerators;
 
 namespace TwilightImperiumUltimate.Web.Components.Factions;
 
-public partial class FactionIconRow : TwilightImperiumBaseComponenet
+public partial class FactionIconRow : TwilightImperiumBaseComponent
 {
     private List<FactionModel>? _factions = new List<FactionModel>();
 
@@ -122,4 +122,160 @@ public partial class FactionIconRow : TwilightImperiumBaseComponenet
     {
         return _factions?.Where(x => x.GameVersion == GameVersion.DiscordantStars).ToList() ?? new List<FactionModel>();
     }
+
+    private bool UseSplitRowsLayout
+    {
+        get
+        {
+            var factions = GetBaseGameFactions();
+            return ShowBaseGame && !ShowDiscordantStars && factions.Count >= 24;
+        }
+    }
+
+    private IReadOnlyCollection<FactionModel> GetCompactFirstRowFactions()
+    {
+        var factions = GetBaseGameFactions();
+
+        var firstRow = factions
+            .Where(x => x.GameVersion == GameVersion.BaseGame)
+            .Take(17)
+            .ToList();
+
+        if (firstRow.Count < 17)
+        {
+            var remainder = factions
+                .Where(x => !firstRow.Contains(x))
+                .Take(17 - firstRow.Count)
+                .ToList();
+
+            firstRow.AddRange(remainder);
+        }
+
+        return firstRow;
+    }
+
+    private IReadOnlyCollection<FactionModel?> GetCompactSecondRowWithPlaceholders()
+    {
+        var row = new List<FactionModel?>();
+        var factions = GetBaseGameFactions();
+        var firstRow = GetCompactFirstRowFactions().ToHashSet();
+
+        var expansionFactions = factions
+            .Where(x => x.GameVersion == GameVersion.ProphecyOfKings && !firstRow.Contains(x))
+            .Take(7)
+            .Cast<FactionModel?>()
+            .ToList();
+
+        var codexFaction = factions
+            .Where(x => IsCodexVersion(x.GameVersion) && !firstRow.Contains(x))
+            .Take(1)
+            .Cast<FactionModel?>()
+            .ToList();
+
+        var lastExpansionFactions = factions
+            .Where(x => x.GameVersion == GameVersion.ThundersEdge && !firstRow.Contains(x))
+            .Take(5)
+            .Cast<FactionModel?>()
+            .ToList();
+
+        var picked = expansionFactions
+            .Concat(codexFaction)
+            .Concat(lastExpansionFactions)
+            .Where(x => x is not null)
+            .Select(x => x!)
+            .ToHashSet();
+
+        var fallback = factions
+            .Where(x => !firstRow.Contains(x) && !picked.Contains(x))
+            .Cast<FactionModel?>()
+            .ToList();
+
+        while (expansionFactions.Count < 7 && fallback.Count > 0)
+        {
+            expansionFactions.Add(fallback[0]);
+            fallback.RemoveAt(0);
+        }
+
+        while (codexFaction.Count < 1 && fallback.Count > 0)
+        {
+            codexFaction.Add(fallback[0]);
+            fallback.RemoveAt(0);
+        }
+
+        while (lastExpansionFactions.Count < 5 && fallback.Count > 0)
+        {
+            lastExpansionFactions.Add(fallback[0]);
+            fallback.RemoveAt(0);
+        }
+
+        if (expansionFactions.Count < 7 || codexFaction.Count < 1 || lastExpansionFactions.Count < 5)
+        {
+            return factions
+                .Where(x => !firstRow.Contains(x))
+                .Take(17)
+                .Cast<FactionModel?>()
+                .ToList();
+        }
+
+        row.Add(null);
+        row.AddRange(expansionFactions);
+        row.Add(null);
+        row.AddRange(codexFaction);
+        row.Add(null);
+        row.AddRange(lastExpansionFactions);
+        row.Add(null);
+
+        return row;
+    }
+
+    private static bool IsCodexVersion(GameVersion gameVersion)
+    {
+        return gameVersion == GameVersion.CodexRecolo
+            || gameVersion == GameVersion.CodexOrdinian
+            || gameVersion == GameVersion.CodexAffinity
+            || gameVersion == GameVersion.CodexVigil
+            || gameVersion == GameVersion.CodexLiberation;
+    }
+
+    private IReadOnlyCollection<FactionModel> GetMobileRow1Factions()
+    {
+        return GetBaseGameFactions().Take(9).ToList();
+    }
+
+    private IReadOnlyCollection<FactionModel> GetMobileRow2Factions()
+    {
+        return GetBaseGameFactions().Skip(9).Take(8).ToList();
+    }
+
+    private IReadOnlyCollection<FactionModel?> GetMobileRow3FactionsWithPlaceholders()
+    {
+        var row = new List<FactionModel?>();
+        var rowFactions = GetBaseGameFactions().Skip(17).Take(7).Cast<FactionModel?>().ToList();
+
+        row.Add(null);
+        row.AddRange(rowFactions);
+        row.Add(null);
+
+        return row;
+    }
+
+    private IReadOnlyCollection<FactionModel?> GetMobileRow4FactionsWithPlaceholder()
+    {
+        var row = new List<FactionModel?>();
+        var rowFactions = GetBaseGameFactions().Skip(24).Take(6).Cast<FactionModel?>().ToList();
+
+        if (rowFactions.Count == 0)
+        {
+            return row;
+        }
+
+        row.Add(null);
+        row.Add(rowFactions[0]);
+        row.Add(null);
+        row.AddRange(rowFactions.Skip(1));
+        row.Add(null);
+
+        return row;
+    }
 }
+

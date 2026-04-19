@@ -1,6 +1,12 @@
 ﻿@using TwilightImperiumUltimate.Web.Helpers.Resources;
 @inherits FactionInfoComponentBase
 
-<div class="abilities handel white shadow">
-    @Ability
-</div>
+<StretchHeightContainer>
+    <ResponsiveContainer Type="fluid" Padding="none">
+        <div class="abilities-shell">
+            <div class="abilities handel white shadow">
+                @Ability
+            </div>
+        </div>
+    </ResponsiveContainer>
+</StretchHeightContainer>

@@ -1,0 +1,87 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Layouts
+
+@*
+    Responsive vertical spacer component for creating consistent vertical spacing.
+    Uses CSS custom properties for semantic sizing.
+*@
+
+<div class="responsive-spacer @(GetVisibilityClass()) @CssClass" style="height: @GetSpacingStyle()"></div>
+
+@code {
+    /// <summary>
+    /// Gets or sets the spacing size using CSS custom properties.
+    /// Options: xs (4px), sm (8px), md (16px), lg (24px), xl (32px), 2xl (48px), 3xl (64px).
+    /// </summary>
+    [Parameter]
+    public string Size { get; set; } = "md";
+
+    /// <summary>
+    /// Gets or sets the custom height in rem units (overrides Size parameter).
+    /// </summary>
+    [Parameter]
+    public string? CustomHeight { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether the spacer should be shown on mobile devices.
+    /// </summary>
+    [Parameter]
+    public bool ShowOnMobile { get; set; } = true;
+
+    /// <summary>
+    /// Gets or sets a value indicating whether the spacer should be shown on desktop devices.
+    /// </summary>
+    [Parameter]
+    public bool ShowOnDesktop { get; set; } = true;
+
+    /// <summary>
+    /// Gets or sets additional CSS classes for the spacer element.
+    /// </summary>
+    [Parameter]
+    public string CssClass { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Gets the spacing style value based on Size or CustomHeight.
+    /// </summary>
+    /// <returns>The CSS height value as a string.</returns>
+    private string GetSpacingStyle()
+    {
+        if (!string.IsNullOrEmpty(CustomHeight))
+        {
+            return CustomHeight.EndsWith("rem") || CustomHeight.EndsWith("px") || CustomHeight.EndsWith("em")
+                ? CustomHeight
+                : $"{CustomHeight}rem";
+        }
+
+        return Size switch
+        {
+            "xs" => "var(--space-xs)",
+            "sm" => "var(--space-sm)",
+            "md" => "var(--space-md)",
+            "lg" => "var(--space-lg)",
+            "xl" => "var(--space-xl)",
+            "2xl" => "var(--space-2xl)",
+            "3xl" => "var(--space-3xl)",
+            _ => "var(--space-md)",
+        };
+    }
+
+    private string GetVisibilityClass()
+    {
+        if (!ShowOnDesktop && !ShowOnMobile)
+        {
+            return "responsive-spacer-hidden";
+        }
+
+        if (!ShowOnDesktop)
+        {
+            return "responsive-spacer-desktop-hidden";
+        }
+
+        if (!ShowOnMobile)
+        {
+            return "responsive-spacer-mobile-hidden";
+        }
+
+        return string.Empty;
+    }
+}

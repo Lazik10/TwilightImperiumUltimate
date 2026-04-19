@@ -3,12 +3,16 @@
     display: inline-block;
     flex-shrink: 1;
     width: 100%;
+    max-width: 100%;
     height: 100%;
+    box-sizing: border-box;
 }
 
     .image-item img {
         display: block;
         width: 100%;
+        max-width: 100%;
+        height: auto;
         border-radius: 20px;
     }
 

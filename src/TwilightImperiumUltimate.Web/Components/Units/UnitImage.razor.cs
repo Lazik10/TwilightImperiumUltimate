@@ -1,6 +1,6 @@
-namespace TwilightImperiumUltimate.Web.Components.Units;
+﻿namespace TwilightImperiumUltimate.Web.Components.Units;
 
-public partial class UnitImage : TwilightImperiumBaseComponenet
+public partial class UnitImage : TwilightImperiumBaseComponent
 {
     [Parameter]
     public UnitName UnitName { get; set; }

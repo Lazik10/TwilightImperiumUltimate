@@ -1,0 +1,12 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Text
+@inherits ResponsiveTextBase
+
+@*
+    Responsive label component for displaying text with fluid typography.
+    Inherits from ResponsiveTextBase for consistent text styling across the application.
+*@
+
+<div class="@ComputedCssClass @(CenterText ? "centered-text" : string.Empty)"
+     style="@ComputedStyle">
+    @Text
+</div>

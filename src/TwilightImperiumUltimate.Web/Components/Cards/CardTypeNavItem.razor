@@ -1,0 +1,7 @@
+<div class="card-type-nav-item @(IsSelected ? "selected" : string.Empty) @(NoBorder ? "no-border" : string.Empty)"
+     @onclick="HandleClick">
+    <img class="card-type-nav-icon"
+         src="@IconPath"
+         alt="@AltText"
+         title="@Title" />
+</div>

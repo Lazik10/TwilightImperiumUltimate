@@ -3,46 +3,50 @@
 @using TwilightImperiumUltimate.Web.Components.Rules
 @inherits FactionInfoComponentBase
 
-<FlexColumnCenteredContainer Width="80">
-    <FlexRowContainer Width="50">
-        <div class="faction-faq-navbar">
-            <FlexRowContainer Width="40" JustifyContent="Enums.JustifyContent.SpaceBetween">
-                <div class="menu-item clickable" @onclick="() => ShowNotes()">
-                    @Strings.Faction_Notes
+<StretchHeightContainer>
+    <ResponsiveContainer Type="fluid" Padding="none">
+        <div class="faq-content-shell">
+            <ResponsiveContainer Type="fluid" Padding="none" Width="100">
+                <div class="faction-faq-navbar">
+                    <ResponsiveContainer Type="fluid" Padding="none" Width="50" Style="display:flex; justify-content:space-between; align-items:center; margin-left: auto; margin-right: auto;">
+                        <div class="menu-item clickable" @onclick="() => ShowNotes()">
+                            @Strings.Faction_Notes
+                        </div>
+                        <div class="menu-item clickable" @onclick="() => ShowFaq()">
+                            @Strings.Faction_Faq
+                        </div>
+                    </ResponsiveContainer>
                 </div>
-                <div class="menu-item clickable" @onclick="() => ShowFaq()">
-                    @Strings.Faction_Faq
-                </div>
-            </FlexRowContainer>
+            </ResponsiveContainer>
+
+            @if (_showFaq)
+            {
+                <ResponsiveContainer Type="fluid" Padding="none" Width="100" Style="display:flex; justify-content:flex-end;">
+                    <AuthorizeView>
+                        <Authorized>
+                            <ResponsiveContainer Type="fluid" Padding="none" Width="35">
+                                <Button ButtonText="@Strings.Faction_AddFaq" OnClick="AddFaq" Width="100" />
+                            </ResponsiveContainer>
+                        </Authorized>
+                    </AuthorizeView>
+
+                </ResponsiveContainer>
+
+                <ResponsiveVerticalSpacer CustomHeight="20px" />
+
+                @foreach (var faq in Faqs)
+                {
+                    <FaqRow Faq="@faq" Culture="@(CultureInfo.CurrentCulture.Name)" />
+                    <ResponsiveVerticalSpacer CustomHeight="50px" />
+                }
+            }
+            else if (_showNotes)
+            {
+                <ResponsiveContainer Type="fluid" Padding="none" CssClass="white shadow handel">
+                    @(FactionNotes)
+                </ResponsiveContainer>
+            }
         </div>
-    </FlexRowContainer>
-
-    @if (_showFaq)
-    {
-        <FlexRowContainer Width="100" JustifyContent="Enums.JustifyContent.FlexEnd">
-            <AuthorizeView>
-                <Authorized>
-                    <FlexRowContainer Width="35">
-                        <Button ButtonText="@Strings.Faction_AddFaq" OnClick="AddFaq" Width="100" />
-                    </FlexRowContainer>
-                </Authorized>
-            </AuthorizeView>
-
-        </FlexRowContainer>
-
-        <VerticalSpace Height="20" />
-
-        @foreach (var faq in Faqs)
-        {
-            <FaqRow Faq="@faq" Culture="@(CultureInfo.CurrentCulture.Name)" />
-            <VerticalSpace Height="50" />
-        }
-    }
-    else if (_showNotes)
-    {
-        <FlexColumnContainer CssClass="white shadow handel">
-            @(FactionNotes)
-        </FlexColumnContainer>
-    }
-</FlexColumnCenteredContainer>
+    </ResponsiveContainer>
+</StretchHeightContainer>
 

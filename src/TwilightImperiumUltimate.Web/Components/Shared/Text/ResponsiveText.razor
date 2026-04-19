@@ -1,0 +1,24 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Text
+@using Radzen
+@inherits ResponsiveTextBase
+
+@*
+    Responsive text component for sentence-length and paragraph content.
+    Wraps RadzenText and supports responsive typography with line wrapping.
+*@
+
+<RadzenText TextStyle="@TextStyle"
+            TagName="@TagName"
+            class="@ComputedCssClass"
+            Style="@ComputedStyle">
+    @if (ChildContent is not null)
+    {
+        @ChildContent
+    }
+    else
+    {
+        @Text
+    }
+</RadzenText>
+
+

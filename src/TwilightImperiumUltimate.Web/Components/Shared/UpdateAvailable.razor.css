@@ -1,42 +1,54 @@
-﻿.update-notify {
-    background-color: deepskyblue;
-    color: white;
+﻿.update-notify-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 2000;
+    width: 100%;
+    background-color: black;
 }
 
-.button {
-    border-radius: 10px !important;
-    border: 2px solid black !important;
+.update-notify-content {
+    width: 100%;
+    align-items: center;
+}
+
+.update-notify-text {
+    width: 100%;
+    max-width: 70rem;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    text-align: center;
+}
+
+.update-notify-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-sm) var(--space-xl);
     background-color: rgba(0, 0, 255, 0.3) !important;
-    transition: background-color 0.3s ease !important;
-    padding: 10px 30px !important;
+    color: white;
+    border: 2px solid black;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: var(--font-size-base);
+    margin: 0 auto;
+    transition: background-color 0.3s ease;
 }
 
-.button-disabled {
-    border-radius: 10px !important;
-    border: 2px solid black !important;
-    background-color: rgba(128, 128, 128, 0.3) !important;
-    transition: background-color 0.3s ease !important;
-    padding: 10px 30px !important;
+.update-notify-button:hover {
+    background-color: white;
+    color: black;
 }
 
-.button:hover {
-    background-color: white !important;
-}
-
-.div-like-button {
-    display: block !important;
-    padding: 10px 30px !important;
-    background-color: rgba(0, 0, 255, 0.3);
-    color: white !important;
-    border: 2px solid black !important;
-    border-radius: 10px !important;
-    cursor: pointer !important;
-    text-align: center !important;
-    text-decoration: none !important;
-    font-size: 16px;
-    margin-bottom: 0px !important;
-}
-
-    .div-like-button:hover {
-        background-color: white !important;
+@media (max-width: 768px) {
+    .update-notify-text {
+        font-size: var(--font-size-xs) !important;
     }
+
+    .update-notify-button {
+        width: 100%;
+        max-width: 16rem;
+    }
+}

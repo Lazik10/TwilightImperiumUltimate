@@ -8,26 +8,27 @@
     justify-content: center; /*main-axis*/
     justify-items: center; /*main-axis*/
     align-items: center; /*cross-axis*/
+    width: 100%;
 }
 
 .page-template-width {
-    width: 80% !important;
+    width: 80%;
 }
 
 @media (max-width: 1024px) {
     .page-template-width {
-        width: 100% !important;
+        width: 100%;
     }
 }
 
 @media (max-width: 768px) {
     .page-template-width {
-        width: 100% !important;
+        width: 100%;
     }
 }
 
 @media (max-width: 576px) {
     .page-template-width {
-        width: 100% !important;
+        width: 100%;
     }
 }

@@ -1,8 +1,9 @@
-﻿@inherits TwilightImperiumBaseComponenet
+﻿@inherits TwilightImperiumBaseComponent
 
-<div class="link responsive-icon" @onclick="() => OnClick.InvokeAsync(Faction)">
+<div class="link responsive-icon @(NoPadding ? "responsive-icon-no-padding" : string.Empty)" @onclick="() => OnClick.InvokeAsync(Faction)">
     <img class="icon @GetBanIconState()"
          src="@GetFactionIconPath()"
          alt="icon for @Name"
          title="@Name">
 </div>
+

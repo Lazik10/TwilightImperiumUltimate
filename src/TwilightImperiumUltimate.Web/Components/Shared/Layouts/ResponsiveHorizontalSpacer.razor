@@ -1,0 +1,49 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Layouts
+
+@*
+    Responsive horizontal spacer component for creating consistent horizontal spacing.
+    Uses CSS custom properties for semantic sizing.
+*@
+
+<div class="responsive-spacer" style="width: @GetSpacingStyle(); display: inline-block;"></div>
+
+@code {
+    /// <summary>
+    /// Gets or sets the spacing size using CSS custom properties.
+    /// Options: xs (4px), sm (8px), md (16px), lg (24px), xl (32px), 2xl (48px), 3xl (64px).
+    /// </summary>
+    [Parameter]
+    public string Size { get; set; } = "md";
+
+    /// <summary>
+    /// Gets or sets the custom width in rem units (overrides Size parameter).
+    /// </summary>
+    [Parameter]
+    public string? CustomWidth { get; set; }
+
+    /// <summary>
+    /// Gets the spacing style value based on Size or CustomWidth.
+    /// </summary>
+    /// <returns>The CSS width value as a string.</returns>
+    private string GetSpacingStyle()
+    {
+        if (!string.IsNullOrEmpty(CustomWidth))
+        {
+            return CustomWidth.EndsWith("rem") || CustomWidth.EndsWith("px") || CustomWidth.EndsWith("em")
+                ? CustomWidth
+                : $"{CustomWidth}rem";
+        }
+
+        return Size switch
+        {
+            "xs" => "var(--space-xs)",
+            "sm" => "var(--space-sm)",
+            "md" => "var(--space-md)",
+            "lg" => "var(--space-lg)",
+            "xl" => "var(--space-xl)",
+            "2xl" => "var(--space-2xl)",
+            "3xl" => "var(--space-3xl)",
+            _ => "var(--space-md)",
+        };
+    }
+}

@@ -1,4 +1,10 @@
-﻿.faction-faq-navbar {
+﻿.faq-content-shell {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.faction-faq-navbar {
     background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.5) 10%, rgba(0,0,0,0.5) 90%, rgba(0,0,0,0));
     display: flex;
     align-items: center;
@@ -21,7 +27,11 @@
     text-shadow: 0px 2px 6px rgba(0, 0, 0, 1), 2px 0px 6px rgba(0, 0, 0, 1), 0px -2px 6px rgba(0, 0, 0, 1), -2px 0px 6px rgba(0, 0, 0, 1), 1px 1px 6px rgba(0, 0, 0, 1), 1px -1px 6px rgba(0, 0, 0, 1), -1px 1px 6px rgba(0, 0, 0, 1), -1px -1px 6px rgba(0, 0, 0, 1);
 }
 
-@media (max-width: 1248px) {
+@media (max-width: 1024px) {
+    .faq-content-shell {
+        width: 92%;
+    }
+
     .menu-item {
         font-size: 14px;
     }
@@ -32,6 +42,10 @@
 }
 
 @media (max-width: 768px) {
+    .faq-content-shell {
+        width: 98%;
+    }
+
     .menu-item {
         font-size: 8px;
     }

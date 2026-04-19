@@ -1,25 +1,48 @@
-﻿.tech-tree-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(1px, auto));
-    grid-template-rows: repeat(auto, auto);
-    grid-column-gap: 5%;
+﻿.technology-grid-shell {
     width: 80%;
-    padding: 0% 10%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .image-container {
     position: relative;
-    max-width: 100%;
-    max-height: 100%;
-    padding: 2% 0%;
+    width: 100%;
 }
 
-.container > :nth-child(5) {
-
+.image-container-single {
+    max-width: 34%;
 }
 
-.container > :nth-child(6) {
-    
+.technology-two-column-row .image-container {
+    max-width: 68%;
+}
+
+@media (max-width: 1024px) {
+    .technology-grid-shell {
+        width: 92%;
+    }
+
+    .image-container-single {
+        max-width: 50%;
+    }
+
+    .technology-two-column-row .image-container {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .technology-grid-shell {
+        width: 98%;
+    }
+
+    .image-container-single {
+        max-width: 100%;
+    }
+
+    .technology-two-column-row .image-container {
+        max-width: 100%;
+    }
 }
 
 .big-image-overlay {

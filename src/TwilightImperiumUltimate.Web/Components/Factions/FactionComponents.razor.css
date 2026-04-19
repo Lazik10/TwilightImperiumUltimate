@@ -2,11 +2,98 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: fit-content() fit-content();
-    grid-gap: 10px;
+    gap: 10px;
     height: 100%;
     place-items: center;
 }
 
-.height {
-    height: 50%;
+.faction-section-title {
+    grid-column: span 2;
+    width: 100%;
+}
+
+.faction-grid-full-width {
+    grid-column: span 2;
+    width: 100%;
+}
+
+.faction-component-half {
+    width: 68%;
+}
+
+.faction-component-vertical {
+    width: 50%;
+    max-height: 100%;
+}
+
+.faction-system-tile-image {
+    width: 68%;
+}
+
+.faction-planets-container {
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.faction-planet-card {
+    width: 33%;
+}
+
+.faction-promissory-container {
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+@media (max-width: 1248px) {
+    .faction-component-half {
+        width: 82%;
+    }
+
+    .faction-component-vertical {
+        width: 62%;
+    }
+
+    .faction-system-tile-image {
+        width: 82%;
+    }
+
+    .faction-planet-card {
+        width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .faction-components-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .faction-section-title {
+        grid-column: span 1;
+    }
+
+    .faction-grid-full-width {
+        grid-column: span 1;
+    }
+
+    .faction-component-half {
+        width: 96%;
+    }
+
+    .faction-component-vertical {
+        width: 76%;
+    }
+
+    .faction-system-tile-image {
+        width: 96%;
+    }
+
+    .faction-planets-container,
+    .faction-promissory-container {
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    .faction-planet-card {
+        width: 76%;
+    }
 }

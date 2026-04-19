@@ -5521,6 +5521,33 @@ namespace TwilightImperiumUltimate.Web.Resources {
                 return ResourceManager.GetString("Page_News", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Author:.
+        /// </summary>
+        public static string News_AuthorLabel {
+            get {
+                return ResourceManager.GetString("News_AuthorLabel", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Date:.
+        /// </summary>
+        public static string News_DateLabel {
+            get {
+                return ResourceManager.GetString("News_DateLabel", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to ...LOADING....
+        /// </summary>
+        public static string News_Loading {
+            get {
+                return ResourceManager.GetString("News_Loading", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Other Websites.

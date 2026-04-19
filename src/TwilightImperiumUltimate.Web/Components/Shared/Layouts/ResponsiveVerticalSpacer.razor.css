@@ -1,0 +1,18 @@
+.responsive-spacer-mobile-hidden {
+    display: block;
+}
+
+.responsive-spacer-desktop-hidden,
+.responsive-spacer-hidden {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .responsive-spacer-mobile-hidden {
+        display: none;
+    }
+
+    .responsive-spacer-desktop-hidden {
+        display: block;
+    }
+}

@@ -1,28 +1,27 @@
 namespace TwilightImperiumUltimate.Web.Components.Technologies;
 
-public partial class TechnologyGrid : TwilightImperiumBaseComponenet
+public partial class TechnologyGrid : TwilightImperiumBaseComponent
 {
     private IReadOnlyCollection<TechnologyModel> _technologies = new List<TechnologyModel>();
 
-    private TechnologyType _selectedTechnologyType = TechnologyType.Biotic;
+    [Parameter]
+    public TechnologyType SelectedTechnologyType { get; set; } = TechnologyType.Biotic;
 
     protected override async Task OnInitializedAsync()
     {
         await InitializeTechnologies();
     }
 
-    private void TechnologyTypeChange(TechnologyType technologyType) => _selectedTechnologyType = technologyType;
-
     private List<TechnologyModel> TechnologiesToShow()
     {
-        if (_selectedTechnologyType == TechnologyType.Faction)
+        if (SelectedTechnologyType == TechnologyType.Faction)
         {
             return _technologies
                 .Where(x => x.IsFactionTechnology)
                 .OrderBy(x => x.FactionName)
                 .ToList();
         }
-        else if (_selectedTechnologyType == TechnologyType.UnitUpgrade)
+        else if (SelectedTechnologyType == TechnologyType.UnitUpgrade)
         {
             return _technologies
                 .Where(x => x.Type == TechnologyType.UnitUpgrade)
@@ -34,7 +33,7 @@ public partial class TechnologyGrid : TwilightImperiumBaseComponenet
         else
         {
             return _technologies
-                .Where(x => x.Type == _selectedTechnologyType)
+                .Where(x => x.Type == SelectedTechnologyType)
                 .Where(x => !x.IsFactionTechnology)
                 .OrderBy(x => x.Level)
                 .ToList();
@@ -51,3 +50,4 @@ public partial class TechnologyGrid : TwilightImperiumBaseComponenet
         }
     }
 }
+

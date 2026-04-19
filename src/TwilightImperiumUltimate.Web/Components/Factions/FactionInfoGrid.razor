@@ -8,106 +8,97 @@
 
 @if (_selectedFaction is not null)
 {
-    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" Width="100" AlignItems="Enums.AlignItems.FlexStart">
+    <ResponsiveContainer Type="fluid" Padding="none">
+        <div class="faction-overview-shell">
+            <div class="faction-overview-layout">
+                <div class="faction-overview-texture">
+                    <TitleTexture Width="100" Texture="Enums.Texture.TopLeft" />
+                </div>
 
-        <TitleTexture Width="15" Texture="Enums.Texture.TopLeft" />
-
-        <FlexColumnContainer>
-            <FlexRowContainer>
-                <FactionNameLabel FactionName="@(_selectedFaction.FactionName)" />
-            </FlexRowContainer>
-
-            <VerticalSpace Height="50" />
-
-            <FlexRowContainer>
-                <FactionQuote FactionName="@(_selectedFaction.FactionName)" />
-            </FlexRowContainer>
-
-            <VerticalSpace Height="50" />
-
-            <FlexColumnContainer>
-                <FactionSystemStats FactionName="@(_selectedFaction.FactionName)" />
-            </FlexColumnContainer>
-
-            <VerticalSpace Height="50" />
-
-            <FlexRowContainer>
-                <FactionSystemInfo FactionName="@(_selectedFaction.FactionName)" />
-            </FlexRowContainer>
-
-            <VerticalSpace Height="50" />
-
-            @if (_selectedFaction.FactionName != FactionName.TheFirmamentTheObsidian)
-            {
-                <FlexRowContainer>
-
-                    <div class="faction-sheet-button clickable" @onclick="() => ShowBigImage(true, false)">
-                        @Strings.Faction_FrontSheet
-                    </div>
-                    <div class="faction-sheet-button clickable" @onclick="() => ShowBigImage(false, false)">
-                        @Strings.Faction_BackSheet
+                <div class="faction-overview-grid">
+                    <div class="faction-title-block">
+                        <FactionNameLabel FactionName="@(_selectedFaction.FactionName)" />
                     </div>
 
-                </FlexRowContainer>
-            }
-            else
-            {
-                <FlexRowContainer>
+                    <div class="faction-hero-block">
+                        <ResponsiveVerticalSpacer Size="2xl" ShowOnMobile="false" />
+                        <div class="race-image-container">
+                            <img src="@PathProvider.GetFactionImagePath(_selectedFaction.FactionName.ToString())" />
+                        </div>
 
-                    <div class="faction-sheet-button clickable" @onclick="() => ShowBigImage(true, false)">
-                        @Strings.Faction_FrontSheetFirmament
-                    </div>
-                    <div class="faction-sheet-button clickable" @onclick="() => ShowBigImage(false, false)">
-                        @Strings.Faction_BackSheetFirmament
-                    </div>
+                        <div class="complexity-rating-container complexity-text">
+                            <p>@Strings.Faction_ComplexityRating</p>
+                            <img src="@(PathProvider.GetComplexityIconPath(_selectedFaction.ComplexityRating))" />
+                        </div>
 
-                </FlexRowContainer>
-                <VerticalSpace Height="20" />
-                <FlexRowContainer>
-
-                    <div class="faction-sheet-button clickable" @onclick="() => ShowBigImage(true, true)">
-                        @Strings.Faction_FrontSheetObsidian
-                    </div>
-                    <div class="faction-sheet-button clickable" @onclick="() => ShowBigImage(false, true)">
-                        @Strings.Faction_BackSheetObsidian
+                        <div class="commodities-container">
+                            <div class="handel white shadow commodities-value">@_selectedFaction.Commodities</div>
+                            <img class="commodity-icon" src="@(PathProvider.GetIconPath(IconType.Commodities))" />
+                        </div>
                     </div>
 
-                </FlexRowContainer>
-            }
+                    <div class="faction-quote-block">
+                        <FactionQuote FactionName="@(_selectedFaction.FactionName)" />
+                    </div>
 
-        </FlexColumnContainer>
+                    <div class="faction-system-block">
+                        <FactionSystemStats FactionName="@(_selectedFaction.FactionName)" />
+                        <FactionSystemInfo FactionName="@(_selectedFaction.FactionName)" />
+                    </div>
 
-        <FlexColumnCenteredContainer>
-            <div class="race-image-container">
-                <img src="@PathProvider.GetFactionImagePath(_selectedFaction.FactionName.ToString())" />
+                    <div class="faction-sheets-block">
+                        @if (_selectedFaction.FactionName != FactionName.TheFirmamentTheObsidian)
+                        {
+                            <div class="faction-sheets-row">
+                                <div class="faction-sheet-button clickable" @onclick="() => ShowBigImage(true, false)">
+                                    @Strings.Faction_FrontSheet
+                                </div>
+                                <div class="faction-sheet-button clickable" @onclick="() => ShowBigImage(false, false)">
+                                    @Strings.Faction_BackSheet
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="faction-sheets-row">
+                                <div class="faction-sheet-button clickable" @onclick="() => ShowBigImage(true, false)">
+                                    @Strings.Faction_FrontSheetFirmament
+                                </div>
+                                <div class="faction-sheet-button clickable" @onclick="() => ShowBigImage(false, false)">
+                                    @Strings.Faction_BackSheetFirmament
+                                </div>
+                            </div>
+
+                            <div class="firmament-sheet-row-spacer">
+                                <ResponsiveVerticalSpacer Size="xl" />
+                            </div>
+
+                            <div class="faction-sheets-row">
+                                <div class="faction-sheet-button clickable" @onclick="() => ShowBigImage(true, true)">
+                                    @Strings.Faction_FrontSheetObsidian
+                                </div>
+                                <div class="faction-sheet-button clickable" @onclick="() => ShowBigImage(false, true)">
+                                    @Strings.Faction_BackSheetObsidian
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
             </div>
+        </div>
 
-            <div class="complexity-rating-container complexity-text">
-                <p>@Strings.Faction_ComplexityRating</p>
-                <img src="@(PathProvider.GetComplexityIconPath(_selectedFaction.ComplexityRating))" />
-            </div>
+        <ResponsiveVerticalSpacer Size="2xl" />
 
-            <VerticalSpace Height="20" />
+        <FactionInfoRow OnFactionInfoTypeChange="SetFactionInfoType" />
 
-            <FlexRowContainer Width="50" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.Center">
-                <div class="handel white shadow" style="font-size: 56px">@_selectedFaction.Commodities</div>
-                <HorizontalSpace Width="10"/>
-                <img src="@(PathProvider.GetIconPath(IconType.Commodities))" style="max-height: 100px;"/>
-            </FlexRowContainer>
-                
-        </FlexColumnCenteredContainer>
+        <ResponsiveVerticalSpacer Size="2xl" ShowOnMobile="false" />
 
-    </FlexRowContainer>
-
-    <VerticalSpace Height="50" />
-
-    <FactionInfoRow OnFactionInfoTypeChange="SetFactionInfoType"/>
-
-    <StretchHeightContainer>
-        <FlexRowContainer>
-            @DynamicComponent
-        </FlexRowContainer>
-    </StretchHeightContainer>
+        <div class="faction-dynamic-content-shell">
+            <StretchHeightContainer>
+                @DynamicComponent
+            </StretchHeightContainer>
+        </div>
+    </ResponsiveContainer>
 
     @if (showBigImage)
     {

@@ -1,6 +1,6 @@
-namespace TwilightImperiumUltimate.Web.Components.Websites;
+﻿namespace TwilightImperiumUltimate.Web.Components.Websites;
 
-public partial class WebsiteCard : TwilightImperiumBaseComponenet
+public partial class WebsiteCard : TwilightImperiumBaseComponent
 {
     [Parameter]
     public string Title { get; set; } = string.Empty;

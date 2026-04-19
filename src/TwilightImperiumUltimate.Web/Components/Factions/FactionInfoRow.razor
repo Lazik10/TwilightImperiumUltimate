@@ -1,27 +1,34 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @using TwilightImperiumUltimate.Web.Resources
 
-<FlexColumnCenteredContainer>
-    <div class="factioninfo-navbar">
-        <FlexRowContainer Width="80" JustifyContent="Enums.JustifyContent.SpaceBetween">
-            <div class="menu-item clickable" @onclick="() => OnInfoTypeClick(FactionInfoType.Ability)">
-                @Strings.Faction_Ability
-            </div>
-            <div class="menu-item clickable" @onclick="() => OnInfoTypeClick(FactionInfoType.Setup)">
-                @Strings.Faction_Setup
-            </div>
-            <div class="menu-item clickable" @onclick="() => OnInfoTypeClick(FactionInfoType.Components)">
-                @Strings.Faction_FactionComponents
-            </div>
-            <div class="menu-item clickable" @onclick="() => OnInfoTypeClick(FactionInfoType.Leaders)">
-                @Strings.Faction_Leaders
-            </div>
-            <div class="menu-item clickable" @onclick="() => OnInfoTypeClick(FactionInfoType.History)">
-                @Strings.Faction_Lore
-            </div>
-            <div class="menu-item clickable" @onclick="() => OnInfoTypeClick(FactionInfoType.Faq)">
-                @Strings.Faction_Faq
-            </div>
-        </FlexRowContainer>
+<ResponsiveContainer Type="fluid" Padding="none">
+    <div class="factioninfo-navbar-shell">
+        <div class="factioninfo-navbar">
+            <ResponsiveGridContainer Columns="6" TabletColumns="3" MobileColumns="3" Width="100" Gap="var(--space-xs)" CssClass="factioninfo-navbar-grid">
+
+                <ResponsiveVerticalSpacer Size="xs" ShowOnDesktop="false" ShowOnMobile="true" CssClass="factioninfo-mobile-menu-row-spacer span-3" />
+                <div class="menu-item clickable" @onclick="() => OnInfoTypeClick(FactionInfoType.Ability)">
+                    @Strings.Faction_Ability
+                </div>
+                <div class="menu-item clickable" @onclick="() => OnInfoTypeClick(FactionInfoType.Setup)">
+                    @Strings.Faction_Setup
+                </div>
+                <div class="menu-item menu-item-components clickable" @onclick="() => OnInfoTypeClick(FactionInfoType.Components)">
+                    @Strings.Faction_FactionComponents
+                </div>
+                <ResponsiveVerticalSpacer Size="sm" ShowOnDesktop="false" ShowOnMobile="true" CssClass="factioninfo-mobile-menu-row-spacer span-3" />
+                <div class="menu-item clickable" @onclick="() => OnInfoTypeClick(FactionInfoType.Leaders)">
+                    @Strings.Faction_Leaders
+                </div>
+                <div class="menu-item clickable" @onclick="() => OnInfoTypeClick(FactionInfoType.History)">
+                    @Strings.Faction_Lore
+                </div>
+                <div class="menu-item clickable" @onclick="() => OnInfoTypeClick(FactionInfoType.Faq)">
+                    @Strings.Faction_Faq
+                </div>
+                <ResponsiveVerticalSpacer Size="xs" ShowOnDesktop="false" ShowOnMobile="true" CssClass="factioninfo-mobile-menu-row-spacer span-3" />
+
+            </ResponsiveGridContainer>
+        </div>
     </div>
-</FlexColumnCenteredContainer>
+</ResponsiveContainer>

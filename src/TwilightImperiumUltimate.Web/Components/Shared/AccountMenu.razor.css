@@ -92,3 +92,9 @@
         opacity: 1;
         visibility: visible;
     }
+
+@media (max-width: 768px) {
+    #account-menu {
+        display: none !important;
+    }
+}

@@ -6,16 +6,35 @@
 @inject ICultureProvider CultureProvider
 @inject IPathProvider PathProvider
 
-<div @onclick="ToggleMenu">
-    <img src="@(GetCultureIconPath(CultureInfo.CurrentCulture.Name))"
-         alt="Selected Country">
-    <div id="country-menu" style="@(_isMenuVisible ? "" : "display:none")">
-        <img src="@(GetCultureIconPath(Strings.EnglishCulture))"
+@if (InlineMode)
+{
+    <div class="culture-menu-inline @CssClass">
+        <img class="culture-flag @GetCultureFlagClass(Strings.EnglishCulture)"
+             src="@(GetCultureIconPath(Strings.EnglishCulture))"
              alt="English"
-        @onclick="@(() =>SetCulture(Strings.EnglishCulture))" />
-        <img src="@(GetCultureIconPath(Strings.CzechCulture))"
+             @onclick="@(() => SetCulture(Strings.EnglishCulture))" />
+        <img class="culture-flag @GetCultureFlagClass(Strings.CzechCulture)"
+             src="@(GetCultureIconPath(Strings.CzechCulture))"
              alt="Czech"
-        @onclick="@(() => SetCulture(Strings.CzechCulture))" />
+             @onclick="@(() => SetCulture(Strings.CzechCulture))" />
     </div>
-</div>
+}
+else
+{
+    <div @onclick="ToggleMenu">
+        <img class="culture-flag active-culture-flag"
+             src="@(GetCultureIconPath(CultureInfo.CurrentCulture.Name))"
+             alt="Selected Country">
+        <div id="country-menu" style="@(_isMenuVisible ? "" : "display:none")">
+            <img class="culture-flag @GetCultureFlagClass(Strings.EnglishCulture)"
+                 src="@(GetCultureIconPath(Strings.EnglishCulture))"
+                 alt="English"
+                 @onclick="@(() =>SetCulture(Strings.EnglishCulture))" />
+            <img class="culture-flag @GetCultureFlagClass(Strings.CzechCulture)"
+                 src="@(GetCultureIconPath(Strings.CzechCulture))"
+                 alt="Czech"
+                 @onclick="@(() => SetCulture(Strings.CzechCulture))" />
+        </div>
+    </div>
+}
 
