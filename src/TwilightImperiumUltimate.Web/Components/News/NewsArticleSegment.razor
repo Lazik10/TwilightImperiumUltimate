@@ -1,67 +1,54 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @using TwilightImperiumUltimate.Web.Components.Shared.Text
 
-<FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" Width="100" AlignItems="Enums.AlignItems.FlexStart">
+<div class="news-article-segment">
+    <div class="news-article-segment__texture" aria-hidden="true">
+        <TitleTexture Width="100" Texture="Enums.Texture.TopLeft" />
+    </div>
 
-    <TitleTexture Width="15" Texture="Enums.Texture.TopLeft" />
+    <div class="news-article-segment__content">
+        <ResponsiveVerticalSpacer Size="2xl" />
 
-    <div style="width: 70%;">
+        <div class="article-title-line" aria-hidden="true">
+            <TitleLine />
+        </div>
 
-        <VerticalSpace Height="50" />
+        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" Width="100" AlignItems="Enums.AlignItems.FlexStart">
+            <div class="article-title handel-cz white shadow">
+                @(NewsArticle.Title)
+            </div>
+        </FlexRowContainer>
 
-        <TitleLine TransformX="@(-20)"/>
+        <div class="article-title-line" aria-hidden="true">
+            <TitleLine />
+        </div>
 
-            <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" Width="100" AlignItems="Enums.AlignItems.FlexStart">
-
-                <div class="article-title handel-cz white shadow">
-                    @(NewsArticle.Title)
-                </div>
-
-            </FlexRowContainer>
-
-        <TitleLine TransformX="@(-20)" />
-
-        <VerticalSpace Height="50" />
+        <ResponsiveVerticalSpacer Size="2xl" />
 
         <FlexColumnCenteredContainer>
-
             <div class="white shadow handel markup-text">
                 @(_markupString)
             </div>
 
-            <VerticalSpace Height="50" />
+            <ResponsiveVerticalSpacer Size="2xl" />
 
-            <FlexColumnCenteredContainer>
+            <div class="article-meta width-100">
+                <FlexRowContainer JustifyContent="Enums.JustifyContent.SpaceEvenly" CssClass="article-meta-row">
+                    <FlexColumnCenteredContainer>
+                        <div class="author width handel white shadow">
+                            @(string.Concat(Strings.News_AuthorLabel, " ", NewsArticle.User?.UserName))
+                        </div>
+                    </FlexColumnCenteredContainer>
 
-                <div class="margin-right-10 width-100">
+                    <FlexColumnCenteredContainer>
+                        <div class="author width handel white shadow">
+                            @(string.Concat(Strings.News_DateLabel, " ", FormattedCreatedAt))
+                        </div>
+                    </FlexColumnCenteredContainer>
+                </FlexRowContainer>
+            </div>
 
-                    <FlexRowContainer JustifyContent="Enums.JustifyContent.SpaceEvenly">
-
-                        <FlexColumnCenteredContainer>
-
-                            <div class="author width handel white shadow">
-                                @("Author: " + NewsArticle.User?.UserName)
-                            </div>
-
-                        </FlexColumnCenteredContainer>
-
-                        <FlexColumnCenteredContainer>
-
-                            <div class="author width handel white shadow">
-                                @("Date: " + NewsArticle.CreatedAt.ToString("dd.  MMMM  yyyy"))
-                            </div>
-
-                        </FlexColumnCenteredContainer>
-
-                    </FlexRowContainer>
-                </div>
-
-            </FlexColumnCenteredContainer>
-
+            <ResponsiveVerticalSpacer Size="2xl" />
         </FlexColumnCenteredContainer>
-
     </div>
-
-    <div class="width-10"></div>
-
-</FlexRowContainer>
+</div>

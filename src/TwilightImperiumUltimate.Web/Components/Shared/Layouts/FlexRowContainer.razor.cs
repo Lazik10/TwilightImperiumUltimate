@@ -2,30 +2,17 @@ using TwilightImperiumUltimate.Web.Helpers.Enums;
 
 namespace TwilightImperiumUltimate.Web.Components.Shared.Layouts;
 
-public partial class FlexRowContainer
+public partial class FlexRowContainer : LayoutContainerBase
 {
-    [Parameter]
-    public RenderFragment? ChildContent { get; set; }
-
-    [Parameter]
-    public string CssClass { get; set; } = string.Empty;
-
-    [Parameter]
-    public string Style { get; set; } = string.Empty;
-
-    [Parameter]
-    public int Width { get; set; } = 100;
-
     [Parameter]
     public JustifyContent JustifyContent { get; set; } = JustifyContent.SpaceEvenly;
 
     [Parameter]
     public AlignItems AlignItems { get; set; } = AlignItems.Center;
 
-    [Parameter]
-    public EventCallback OnClick { get; set; }
-
     private string Justify => JustifyContent.GetJustifyString();
 
     private string Align => AlignItems.GetAlignString();
+
+    private string GetContainerStyle() => $"justify-content: {Justify}; align-items: {Align}; {Style}";
 }

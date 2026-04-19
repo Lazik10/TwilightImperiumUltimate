@@ -1,11 +1,11 @@
-using Serilog;
+﻿using Serilog;
 using System.Globalization;
 using TwilightImperiumUltimate.Web.Pages.Tools;
 using TwilightImperiumUltimate.Web.Services.SliceGenerators;
 
 namespace TwilightImperiumUltimate.Web.Components.SliceGenerators;
 
-public partial class SliceHexTile : TwilightImperiumBaseComponenet
+public partial class SliceHexTile : TwilightImperiumBaseComponent
 {
     private TileRotation _tileRotation;
 
@@ -145,3 +145,4 @@ public partial class SliceHexTile : TwilightImperiumBaseComponenet
         };
     }
 }
+

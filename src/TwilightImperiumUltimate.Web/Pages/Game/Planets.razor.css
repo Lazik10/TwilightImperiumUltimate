@@ -6,11 +6,71 @@
     width: 80%;
 }
 
+.planet-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .planet {
     flex-shrink: 1;
     flex-grow: 1;
     max-height: 200px;
     max-width: 100%;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.planets-grid-shell {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 1024px) {
+    .planets-grid-shell {
+        width: 92%;
+    }
+}
+
+@media (max-width: 768px) {
+    .planets-grid-shell {
+        width: 98%;
+    }
+}
+
+.planets-filters-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+}
+
+.planets-filter-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.planets-filter-label {
+    font-size: 1.125rem;
+    text-align: center;
+}
+
+.planets-filter-dropdown {
+    min-width: 14rem;
+}
+
+@media (max-width: 768px) {
+    .planets-filters-container {
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
 }
 
 .big-image-overlay {
@@ -19,8 +79,12 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
+    background-color: rgba(0, 0, 0, 0.9);
+    background-image: url('/resources/images/shared/Twilight_imperium_ultimate_background.webp');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
     justify-content: center;
     align-items: center;
     z-index: 1;
@@ -28,23 +92,52 @@
     flex-direction: column;
 }
 
-    .big-image-overlay img {
-        position: relative;
+.image-container {
+    width: min(100%, 31.25rem);
+    height: min(75vh, 46.875rem);
+    max-width: 100%;
+    max-height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+    .image-container img {
         max-width: 100%;
         max-height: 100%;
+        object-fit: contain;
         cursor: pointer;
         border-radius: 20px;
     }
 
-        .big-image-overlay img::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            box-shadow: inset 0 0 0 5px #000;
-            pointer-events: none;
-            border-radius: 20px;
-            z-index: 999;
-        }
+.language-menu {
+    display: flex;
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
+    justify-content: center;
+    align-items: center;
+}
+
+.language-flag {
+    cursor: pointer;
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+    border-radius: 0.25rem;
+}
+
+    .language-flag:hover {
+        transform: scale(1.1);
+    }
+
+.language-flag-active {
+    opacity: 1;
+    border: 2px solid #fff;
+}
+
+.language-flag-inactive {
+    opacity: 0.5;
+}
+
+    .language-flag-inactive:hover {
+        opacity: 0.8;
+    }

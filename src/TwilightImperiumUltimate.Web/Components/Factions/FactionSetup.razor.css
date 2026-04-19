@@ -1,1 +1,26 @@
-﻿
+﻿.faction-technologies-grid-shell {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.faction-technology-image-container {
+    width: 100%;
+    max-width: 21rem;
+}
+
+@media (max-width: 1248px) {
+    .faction-technologies-grid-shell {
+        width: 92%;
+    }
+}
+
+@media (max-width: 768px) {
+    .faction-technologies-grid-shell {
+        width: 98%;
+    }
+
+    .faction-technology-image-container {
+        max-width: 18rem;
+    }
+}

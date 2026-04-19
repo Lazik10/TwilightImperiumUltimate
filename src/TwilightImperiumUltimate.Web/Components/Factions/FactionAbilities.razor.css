@@ -1,16 +1,30 @@
-﻿.abilities {
-    font-size: 20px;
-    text-align: justify;
-    width: 80%
+﻿.abilities-shell {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-@media (max-width: 1248px) {
+.abilities {
+    font-size: 20px;
+    text-align: justify;
+    width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .abilities-shell {
+        width: 92%;
+    }
+
     .abilities {
         font-size: 14px;
     }
 }
 
 @media (max-width: 768px) {
+    .abilities-shell {
+        width: 98%;
+    }
+
     .abilities {
         font-size: 10px;
     }

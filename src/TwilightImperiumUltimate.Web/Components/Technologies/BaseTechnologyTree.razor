@@ -1,24 +1,69 @@
 ﻿@using Microsoft.AspNetCore.Components.Authorization
+@using TwilightImperiumUltimate.Contracts.Enums
 @using TwilightImperiumUltimate.Web.Components.Cards
 @using TwilightImperiumUltimate.Web.Components.Rules
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @using TwilightImperiumUltimate.Web.Resources
-@using TwilightImperiumUltimate.Web.Services.Path
 
-@inherits TwilightImperiumBaseComponenet
+@inherits TwilightImperiumBaseComponent
 
-<FlexColumnCenteredContainer>
+<ResponsiveContainer Type="fluid" Padding="none">
+    @if (SelectedTechnologyType == TechnologyType.Biotic
+        || SelectedTechnologyType == TechnologyType.Propulsion
+        || SelectedTechnologyType == TechnologyType.Cybernetic
+        || SelectedTechnologyType == TechnologyType.Warfare)
+    {
+        <div class="technology-grid-shell">
+            <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Width="100" Gap="0.625rem" CssClass="technology-two-column-row">
+                @foreach (var technology in GetTechnologiesByLevel(TechnologyLevel.Level0))
+                {
+                    <div class="image-container clickable" @onclick="@(() => ShowBigImage(technology))">
+                        <TechnologyCard TechnologyName="technology.TechnologyName" />
+                    </div>
+                }
+            </ResponsiveGridContainer>
 
-    <GridLayout Columns="GetCorrectNumberOFColumns()" Width="80" Gap="10">
+            <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Width="100" Gap="0.625rem" CssClass="technology-two-column-row">
+                @foreach (var technology in GetTechnologiesByLevel(TechnologyLevel.Level1))
+                {
+                    <div class="image-container clickable" @onclick="@(() => ShowBigImage(technology))">
+                        <TechnologyCard TechnologyName="technology.TechnologyName" />
+                    </div>
+                }
+            </ResponsiveGridContainer>
 
-        @foreach (var technology in Technologies)
-        {
-            <div class="image-container clickable" @onclick="@(()=> ShowBigImage(technology))">
-                <TechnologyCard TechnologyName="technology.TechnologyName" />
-            </div>
-        }
+            <ResponsiveGridContainer Columns="1" TabletColumns="1" MobileColumns="1" Width="100" Gap="0.625rem">
+                @foreach (var technology in GetTechnologiesByLevel(TechnologyLevel.Level2))
+                {
+                    <div class="image-container image-container-single clickable" @onclick="@(() => ShowBigImage(technology))">
+                        <TechnologyCard TechnologyName="technology.TechnologyName" />
+                    </div>
+                }
+            </ResponsiveGridContainer>
 
-    </GridLayout>
+            <ResponsiveGridContainer Columns="1" TabletColumns="1" MobileColumns="1" Width="100" Gap="0.625rem">
+                @foreach (var technology in GetTechnologiesByLevel(TechnologyLevel.Level3))
+                {
+                    <div class="image-container image-container-single clickable" @onclick="@(() => ShowBigImage(technology))">
+                        <TechnologyCard TechnologyName="technology.TechnologyName" />
+                    </div>
+                }
+            </ResponsiveGridContainer>
+        </div>
+    }
+    else
+    {
+        <div class="technology-grid-shell">
+            <ResponsiveGridContainer Columns="GetCorrectNumberOfColumns()" TabletColumns="2" MobileColumns="1" Width="100" Gap="0.625rem">
+                @foreach (var technology in Technologies)
+                {
+                    <div class="image-container clickable" @onclick="@(() => ShowBigImage(technology))">
+                        <TechnologyCard TechnologyName="technology.TechnologyName" />
+                    </div>
+                }
+            </ResponsiveGridContainer>
+        </div>
+    }
 
     @if (_showBigImage)
     {
@@ -95,6 +140,4 @@
         </div>
     </div>
     }
-
-</FlexColumnCenteredContainer>
-
+</ResponsiveContainer>

@@ -1,9 +1,10 @@
-﻿<div class="flex-row @(CssClass)"
-     @onclick="OnClick"
-     style="justify-content: @(Justify)
-            align-items: @(Align)
-            width: @($"{Width}%");
-            @(OnClick.HasDelegate ? "cursor: pointer;" : string.Empty)
-            @(Style)">
+﻿@inherits LayoutContainerBase
+
+<ResponsiveContainer Type="fluid"
+                     Padding="none"
+                     CssClass="@($"flex-row {CssClass}")"
+                     Width="@Width"
+                     OnClick="OnClick"
+                     Style="@GetContainerStyle()">
     @ChildContent
-</div>
+</ResponsiveContainer>

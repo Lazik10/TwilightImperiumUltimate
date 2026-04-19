@@ -1,9 +1,12 @@
-﻿@if(_newVersionAvailable)
+﻿@if (_newVersionAvailable)
 {
-    <FlexRowContainer CssClass="update-notify" Width="50" JustifyContent="Enums.JustifyContent.FlexStart">
-        <Label Text="@Strings.Update_Notification" />
-        <button type="button" onclick="window.location.reload()" class="div-like-button clickable white handel shadow">
-            @Strings.ButtonText_Reload
-        </button>
-    </FlexRowContainer>
+    <section class="update-notify-wrapper" role="status" aria-live="polite">
+        <ResponsiveContainer Type="fluid" Padding="sm">
+            <FlexColumnCenteredContainer CssClass="update-notify-content" Width="100">
+                <ResponsiveText Text="@Strings.Update_Notification" CssClass="update-notify-text handel white shadow" FontSize="sm" CenterText="true" />
+                <ResponsiveVerticalSpacer Size="sm" />
+                <ResponsiveButton Text="@Strings.ButtonText_Reload" CssClass="update-notify-button" OnClickMouse="ReloadPage" />
+            </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
+    </section>
 }

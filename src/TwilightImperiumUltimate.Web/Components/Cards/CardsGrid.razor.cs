@@ -4,9 +4,6 @@ namespace TwilightImperiumUltimate.Web.Components.Cards;
 
 public partial class CardsGrid
 {
-    private bool _showNotes = true;
-    private bool _showFaq;
-
     private IReadOnlyCollection<CardModel> _listOfCards = new List<CardModel>();
 
     private IReadOnlyCollection<CardModel> _listOfDeprecatedCards = new List<CardModel>();
@@ -19,7 +16,7 @@ public partial class CardsGrid
 
     private string currentBigImageCulture = string.Empty;
 
-    private GameVersion? _currentGameVersion;
+    private GameVersion? _selectedGameVersion;
 
     [Parameter]
     public string TypeOfCard { get; set; } = Paths.ResourcePath_StrategyCard;
@@ -41,6 +38,7 @@ public partial class CardsGrid
     protected override async Task OnParametersSetAsync()
     {
         await InitializeCards();
+        EnsureValidGameVersionSelection();
 
         var result = await HttpClient.GetAsync<ApiResponse<ItemListDto<FaqDto>>>(Paths.ApiPath_Faq);
         var response = result.Response;
@@ -79,6 +77,13 @@ public partial class CardsGrid
         StateHasChanged();
     }
 
+    private string GetLanguageFlagClass(string culture)
+    {
+        return string.Equals(currentBigImageCulture, culture, StringComparison.OrdinalIgnoreCase)
+            ? "language-flag-active"
+            : "language-flag-inactive";
+    }
+
     private string GetCorrectApiEndpoint()
     {
         return TypeOfCard switch
@@ -104,7 +109,7 @@ public partial class CardsGrid
         var response = result.Response;
         var statusCode = result.StatusCode;
 
-        if (statusCode == System.Net.HttpStatusCode.OK)
+        if (statusCode == HttpStatusCode.OK)
         {
             var cards = Mapper.Map<List<CardModel>>(response!.Data!.Items);
             _listOfCards = cards.Where(x => x.GameVersion != GameVersion.Deprecated).ToList();
@@ -116,22 +121,43 @@ public partial class CardsGrid
 
     private IEnumerable<IGrouping<GameVersion, CardModel>> GetSortedCards()
     {
-        return _listOfCards
+        return GetFilteredCards()
             .OrderBy(x => x.GameVersion)
-            .ThenBy(x => x.Id)
+            .ThenBy(x => x.Name)
             .GroupBy(x => x.GameVersion);
     }
 
-    private void ShowFaq()
+    private IEnumerable<CardModel> GetFilteredCards()
     {
-        _showNotes = false;
-        _showFaq = true;
+        return _selectedGameVersion.HasValue
+            ? _listOfCards.Where(x => x.GameVersion == _selectedGameVersion.Value)
+            : _listOfCards;
     }
 
-    private void ShowNotes()
+    private IEnumerable<GameVersion> GetAvailableGameVersions()
     {
-        _showFaq = false;
-        _showNotes = true;
+        return _listOfCards
+            .Select(x => x.GameVersion)
+            .Where(x => x != GameVersion.Deprecated)
+            .Distinct()
+            .OrderBy(x => x);
+    }
+
+    private void EnsureValidGameVersionSelection()
+    {
+        if (!_selectedGameVersion.HasValue)
+            return;
+
+        var availableVersions = GetAvailableGameVersions();
+        if (!availableVersions.Contains(_selectedGameVersion.Value))
+            _selectedGameVersion = null;
+    }
+
+    private Task OnGameVersionFilterChanged(GameVersion? gameVersion)
+    {
+        _selectedGameVersion = gameVersion;
+        StateHasChanged();
+        return Task.CompletedTask;
     }
 
     private List<FaqModel> GetSpecificCardFaqs()

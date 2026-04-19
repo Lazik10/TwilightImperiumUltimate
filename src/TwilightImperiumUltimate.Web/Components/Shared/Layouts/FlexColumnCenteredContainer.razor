@@ -1,5 +1,10 @@
-﻿@inherits TwilightImperiumBaseComponenet
+﻿@inherits LayoutContainerBase
 
-<div class="flex-column-center @(CssClass)" @onclick="OnClick" style="width: @(Width)%; @(OnClick.HasDelegate ? "cursor: pointer;" : string.Empty) @(Style)">
+<ResponsiveContainer Type="fluid"
+                     Padding="none"
+                     CssClass="@($"flex-column-center {CssClass}")"
+                     Width="@Width"
+                     OnClick="OnClick"
+                     Style="@Style">
     @ChildContent
-</div>
+</ResponsiveContainer>

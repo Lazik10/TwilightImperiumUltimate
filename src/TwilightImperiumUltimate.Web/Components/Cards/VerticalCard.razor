@@ -1,6 +1,18 @@
 ﻿@using TwilightImperiumUltimate.Web.Resources;
 
-<div class="@(TypeOfCard == Strings.StrategyCard ? "strategy-image-item" : "image-item")">
-    <img src="@GetCardImagePath()" alt="@Name">
+<div class="@GetContainerClass()">
+    @if (!_isImageLoaded)
+    {
+        <div class="card-image-placeholder" aria-hidden="true"></div>
+    }
+
+    <img src="@CardImagePath"
+         alt="@Name"
+         class="card-image"
+         style="@GetImageStyle()"
+         loading="lazy"
+         decoding="async"
+         @onload="OnImageLoaded"
+         @onerror="OnImageError">
 </div>
 

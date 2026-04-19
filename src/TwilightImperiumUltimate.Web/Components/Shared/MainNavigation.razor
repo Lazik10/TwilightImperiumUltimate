@@ -1,80 +1,194 @@
-﻿@using TwilightImperiumUltimate.Web.Resources;
-@using TwilightImperiumUltimate.Web.Pages;
+﻿@using Microsoft.AspNetCore.Components.Authorization
+@using TwilightImperiumUltimate.Web.Resources
+@using TwilightImperiumUltimate.Web.Pages
 
-<div id="main-navbar">
-    <div class="menu-item">
-        <div class="menu-container">
-            <a href="@Pages.Index">@Strings.Page_News</a>
+<div id="main-navbar" class="main-navbar-desktop">
+    <div class="menu-item" @onmouseenter='() => OnMainMenuHoverStart("news")' @onmouseleave='OnDesktopHoverEnd'>
+        <div class="menu-container" @onmouseenter='() => OnMainMenuHoverStart("news")' @onmouseleave='OnDesktopHoverEnd'>
+            <a href="@Pages.Index" class='@GetDesktopMainMenuClass("news")' @onclick='() => SelectMenu("news")'>@Strings.Page_News</a>
         </div>
     </div>
-    <div class="menu-item">
-        <div class="menu-container">
-        <a href="#">@Strings.Page_Game</a>
-            <div class="dropdown">
-                <a href="@Pages.Factions">@Strings.Page_Factions</a>
-                <a href="@Pages.FactionsDS">@Strings.Page_FactionsDS</a>
-                <a href="@Pages.Technologies">@Strings.Page_Technologies</a>
-                <a href="@Pages.Cards">@Strings.Page_Cards</a>
-                <a href="@Pages.SystemTiles">@Strings.Page_SystemTiles</a>
-                <a href="@Pages.Planets">@Strings.Page_Planets</a>
+    <div class="menu-item" @onmouseenter='() => OnMainMenuHoverStart("game")' @onmouseleave='OnDesktopHoverEnd'>
+        <div class="menu-container" @onmouseenter='() => OnMainMenuHoverStart("game")' @onmouseleave='OnDesktopHoverEnd'>
+            <a href="#" class='@GetDesktopMainMenuClass("game")' @onclick='() => SelectMenu("game")'>@Strings.Page_Game</a>
+            <div class="dropdown" @onmouseenter='() => OnMainMenuHoverStart("game")' @onmouseleave='OnDesktopHoverEnd'>
+                <a href="@Pages.Factions" class='@GetDesktopSubMenuClass("factions")' @onmouseenter='() => OnSubMenuHoverStart("game", "factions")' @onclick='() => SelectSubMenuAndClose("game", "factions")'>@Strings.Page_Factions</a>
+                <a href="@Pages.FactionsDS" class='@GetDesktopSubMenuClass("factionsds")' @onmouseenter='() => OnSubMenuHoverStart("game", "factionsds")' @onclick='() => SelectSubMenuAndClose("game", "factionsds")'>@Strings.Page_FactionsDS</a>
+                <a href="@Pages.Technologies" class='@GetDesktopSubMenuClass("technologies")' @onmouseenter='() => OnSubMenuHoverStart("game", "technologies")' @onclick='() => SelectSubMenuAndClose("game", "technologies")'>@Strings.Page_Technologies</a>
+                <a href="@Pages.Cards" class='@GetDesktopSubMenuClass("cards")' @onmouseenter='() => OnSubMenuHoverStart("game", "cards")' @onclick='() => SelectSubMenuAndClose("game", "cards")'>@Strings.Page_Cards</a>
+                <a href="@Pages.SystemTiles" class='@GetDesktopSubMenuClass("systemtiles")' @onmouseenter='() => OnSubMenuHoverStart("game", "systemtiles")' @onclick='() => SelectSubMenuAndClose("game", "systemtiles")'>@Strings.Page_SystemTiles</a>
+                <a href="@Pages.Planets" class='@GetDesktopSubMenuClass("planets")' @onmouseenter='() => OnSubMenuHoverStart("game", "planets")' @onclick='() => SelectSubMenuAndClose("game", "planets")'>@Strings.Page_Planets</a>
             </div>
         </div>
     </div>
-    <div class="menu-item">
-        <div class="menu-container">
-            <a href="#">@Strings.Page_Community</a>
-            <div class="dropdown">
-                <a href="@Pages.GalaxyMap">@Strings.Page_GalaxyMap</a>
-                <a href="@Pages.MapsArchive">@Strings.Page_MapArchive</a>
-                <a href="@Pages.SlicesArchive">@Strings.Page_SlicesArchive</a>
-                <a href="@Pages.Discord">@Strings.Page_Discord</a>
-                <a href="@Pages.Async">@Strings.Page_Async</a>
-                <a href="@Pages.Websites">@Strings.Page_OtherWebsites</a>
+    <div class="menu-item" @onmouseenter='() => OnMainMenuHoverStart("community")' @onmouseleave='OnDesktopHoverEnd'>
+        <div class="menu-container" @onmouseenter='() => OnMainMenuHoverStart("community")' @onmouseleave='OnDesktopHoverEnd'>
+            <a href="#" class='@GetDesktopMainMenuClass("community")' @onclick='() => SelectMenu("community")'>@Strings.Page_Community</a>
+            <div class="dropdown" @onmouseenter='() => OnMainMenuHoverStart("community")' @onmouseleave='OnDesktopHoverEnd'>
+                <a href="@Pages.GalaxyMap" class='@GetDesktopSubMenuClass("galaxymap")' @onmouseenter='() => OnSubMenuHoverStart("community", "galaxymap")' @onclick='() => SelectSubMenuAndClose("community", "galaxymap")'>@Strings.Page_GalaxyMap</a>
+                <a href="@Pages.MapsArchive" class='@GetDesktopSubMenuClass("mapsarchive")' @onmouseenter='() => OnSubMenuHoverStart("community", "mapsarchive")' @onclick='() => SelectSubMenuAndClose("community", "mapsarchive")'>@Strings.Page_MapArchive</a>
+                <a href="@Pages.SlicesArchive" class='@GetDesktopSubMenuClass("slicesarchive")' @onmouseenter='() => OnSubMenuHoverStart("community", "slicesarchive")' @onclick='() => SelectSubMenuAndClose("community", "slicesarchive")'>@Strings.Page_SlicesArchive</a>
+                <a href="@Pages.Discord" class='@GetDesktopSubMenuClass("discord")' @onmouseenter='() => OnSubMenuHoverStart("community", "discord")' @onclick='() => SelectSubMenuAndClose("community", "discord")'>@Strings.Page_Discord</a>
+                <a href="@Pages.Async" class='@GetDesktopSubMenuClass("async")' @onmouseenter='() => OnSubMenuHoverStart("community", "async")' @onclick='() => SelectSubMenuAndClose("community", "async")'>@Strings.Page_Async</a>
+                <a href="@Pages.Websites" class='@GetDesktopSubMenuClass("websites")' @onmouseenter='() => OnSubMenuHoverStart("community", "websites")' @onclick='() => SelectSubMenuAndClose("community", "websites")'>@Strings.Page_OtherWebsites</a>
             </div>
         </div>
     </div>
-    <div class="menu-item">
-        <div class="menu-container">
-            <a href="#">@Strings.Page_Tigl</a>
-            <div class="dropdown">
-                <a href="@Pages.Tigl">@Strings.Page_TiglInfo</a>
-                <a href="@Pages.TiglRegister">@Strings.Page_TiglRegister</a>
-                <a href="@Pages.TiglReportGame">@Strings.Page_TiglReportGame</a>
-                <a href="@Pages.TiglLeaderboard">@Strings.TiglMenu_Leaderboard</a>
-                <a href="@Pages.TiglStatistics">@Strings.TiglMenu_Statistics</a>
-                <a href="@Pages.TiglPlayers">@Strings.TiglMenu_Players</a>
-                <a href="@Pages.TiglGames">@Strings.TiglMenu_GameReports</a>
-                <a href="@Pages.TiglRankings">@Strings.RankingsMenu_Ranks</a>
-                <a href="@Pages.TiglLeaders">@Strings.RankingsMenu_Leaders</a>
-                <a href="@Pages.TiglAchievements">@Strings.RankingsMenu_Achievements</a>
-
+    <div class="menu-item" @onmouseenter='() => OnMainMenuHoverStart("tigl")' @onmouseleave='OnDesktopHoverEnd'>
+        <div class="menu-container" @onmouseenter='() => OnMainMenuHoverStart("tigl")' @onmouseleave='OnDesktopHoverEnd'>
+            <a href="#" class='@GetDesktopMainMenuClass("tigl")' @onclick='() => SelectMenu("tigl")'>@Strings.Page_Tigl</a>
+            <div class="dropdown" @onmouseenter='() => OnMainMenuHoverStart("tigl")' @onmouseleave='OnDesktopHoverEnd'>
+                <a href="@Pages.Tigl" class='@GetDesktopSubMenuClass("tiglinfo")' @onmouseenter='() => OnSubMenuHoverStart("tigl", "tiglinfo")' @onclick='() => SelectSubMenuAndClose("tigl", "tiglinfo")'>@Strings.Page_TiglInfo</a>
+                <a href="@Pages.TiglRegister" class='@GetDesktopSubMenuClass("tiglregister")' @onmouseenter='() => OnSubMenuHoverStart("tigl", "tiglregister")' @onclick='() => SelectSubMenuAndClose("tigl", "tiglregister")'>@Strings.Page_TiglRegister</a>
+                <a href="@Pages.TiglReportGame" class='@GetDesktopSubMenuClass("tiglreport")' @onmouseenter='() => OnSubMenuHoverStart("tigl", "tiglreport")' @onclick='() => SelectSubMenuAndClose("tigl", "tiglreport")'>@Strings.Page_TiglReportGame</a>
+                <a href="@Pages.TiglLeaderboard" class='@GetDesktopSubMenuClass("tiglleaderboard")' @onmouseenter='() => OnSubMenuHoverStart("tigl", "tiglleaderboard")' @onclick='() => SelectSubMenuAndClose("tigl", "tiglleaderboard")'>@Strings.TiglMenu_Leaderboard</a>
+                <a href="@Pages.TiglStatistics" class='@GetDesktopSubMenuClass("tiglstatistics")' @onmouseenter='() => OnSubMenuHoverStart("tigl", "tiglstatistics")' @onclick='() => SelectSubMenuAndClose("tigl", "tiglstatistics")'>@Strings.TiglMenu_Statistics</a>
+                <a href="@Pages.TiglPlayers" class='@GetDesktopSubMenuClass("tiglplayers")' @onmouseenter='() => OnSubMenuHoverStart("tigl", "tiglplayers")' @onclick='() => SelectSubMenuAndClose("tigl", "tiglplayers")'>@Strings.TiglMenu_Players</a>
+                <a href="@Pages.TiglGames" class='@GetDesktopSubMenuClass("tiglgames")' @onmouseenter='() => OnSubMenuHoverStart("tigl", "tiglgames")' @onclick='() => SelectSubMenuAndClose("tigl", "tiglgames")'>@Strings.TiglMenu_GameReports</a>
+                <a href="@Pages.TiglRankings" class='@GetDesktopSubMenuClass("tiglranks")' @onmouseenter='() => OnSubMenuHoverStart("tigl", "tiglranks")' @onclick='() => SelectSubMenuAndClose("tigl", "tiglranks")'>@Strings.RankingsMenu_Ranks</a>
+                <a href="@Pages.TiglLeaders" class='@GetDesktopSubMenuClass("tiglleaders")' @onmouseenter='() => OnSubMenuHoverStart("tigl", "tiglleaders")' @onclick='() => SelectSubMenuAndClose("tigl", "tiglleaders")'>@Strings.RankingsMenu_Leaders</a>
+                <a href="@Pages.TiglAchievements" class='@GetDesktopSubMenuClass("tiglachievements")' @onmouseenter='() => OnSubMenuHoverStart("tigl", "tiglachievements")' @onclick='() => SelectSubMenuAndClose("tigl", "tiglachievements")'>@Strings.RankingsMenu_Achievements</a>
             </div>
         </div>
     </div>
-    <div class="menu-item">
-        <div class="menu-container">
-        <a href="#">@Strings.Page_Tools</a>
-            <div class="dropdown">
-@*              <a href="@Pages.DraftRooms">@Strings.Page_DraftRooms</a> *@
-                <a href="@Pages.GameTracker" target="_blank">@Strings.Page_GameTracker</a>
-                <a href="@Pages.ColorPicker">@Strings.Page_ColorPicker</a>
-                <a href="@Pages.FactionDraft">@Strings.Page_FactionDraft</a>
-                <a href="@Pages.MiltyDraft">@Strings.Page_MiltyDraft</a>
-                <a href="@Pages.SliceGenerator">@Strings.Page_SliceGenerator</a>
-                <a href="@Pages.MapGenerator">@Strings.Page_MapGenerator</a>
-                <a href="@Pages.CardGenerator">@Strings.Page_CardGenerator</a>
-@*              <a href="@Pages.BattleCalculator">@Strings.Page_BattleCalculator</a> *@
+    <div class="menu-item" @onmouseenter='() => OnMainMenuHoverStart("tools")' @onmouseleave='OnDesktopHoverEnd'>
+        <div class="menu-container" @onmouseenter='() => OnMainMenuHoverStart("tools")' @onmouseleave='OnDesktopHoverEnd'>
+            <a href="#" class='@GetDesktopMainMenuClass("tools")' @onclick='() => SelectMenu("tools")'>@Strings.Page_Tools</a>
+            <div class="dropdown" @onmouseenter='() => OnMainMenuHoverStart("tools")' @onmouseleave='OnDesktopHoverEnd'>
+                <a href="@Pages.GameTracker" target="_blank" class='@GetDesktopSubMenuClass("gametracker")' @onmouseenter='() => OnSubMenuHoverStart("tools", "gametracker")' @onclick='() => SelectSubMenuAndClose("tools", "gametracker")'>@Strings.Page_GameTracker</a>
+                <a href="@Pages.ColorPicker" class='@GetDesktopSubMenuClass("colorpicker")' @onmouseenter='() => OnSubMenuHoverStart("tools", "colorpicker")' @onclick='() => SelectSubMenuAndClose("tools", "colorpicker")'>@Strings.Page_ColorPicker</a>
+                <a href="@Pages.FactionDraft" class='@GetDesktopSubMenuClass("factiondraft")' @onmouseenter='() => OnSubMenuHoverStart("tools", "factiondraft")' @onclick='() => SelectSubMenuAndClose("tools", "factiondraft")'>@Strings.Page_FactionDraft</a>
+                <a href="@Pages.MiltyDraft" class='@GetDesktopSubMenuClass("miltydraft")' @onmouseenter='() => OnSubMenuHoverStart("tools", "miltydraft")' @onclick='() => SelectSubMenuAndClose("tools", "miltydraft")'>@Strings.Page_MiltyDraft</a>
+                <a href="@Pages.SliceGenerator" class='@GetDesktopSubMenuClass("slicegenerator")' @onmouseenter='() => OnSubMenuHoverStart("tools", "slicegenerator")' @onclick='() => SelectSubMenuAndClose("tools", "slicegenerator")'>@Strings.Page_SliceGenerator</a>
+                <a href="@Pages.MapGenerator" class='@GetDesktopSubMenuClass("mapgenerator")' @onmouseenter='() => OnSubMenuHoverStart("tools", "mapgenerator")' @onclick='() => SelectSubMenuAndClose("tools", "mapgenerator")'>@Strings.Page_MapGenerator</a>
+                <a href="@Pages.CardGenerator" class='@GetDesktopSubMenuClass("cardgenerator")' @onmouseenter='() => OnSubMenuHoverStart("tools", "cardgenerator")' @onclick='() => SelectSubMenuAndClose("tools", "cardgenerator")'>@Strings.Page_CardGenerator</a>
             </div>
         </div>
     </div>
-    <div class="menu-item">
-        <div class="menu-container">
-        <a href="#">@Strings.Page_Rules</a>
-            <div class="dropdown">
-                <a href="@Pages.Rules">@Strings.Page_Rules</a>
-                <a href="@Pages.Faq">@Strings.Page_Faq</a>
-                <a href="@Pages.Resources">@Strings.Page_Resources</a>
+    <div class="menu-item" @onmouseenter='() => OnMainMenuHoverStart("rules")' @onmouseleave='OnDesktopHoverEnd'>
+        <div class="menu-container" @onmouseenter='() => OnMainMenuHoverStart("rules")' @onmouseleave='OnDesktopHoverEnd'>
+            <a href="#" class='@GetDesktopMainMenuClass("rules")' @onclick='() => SelectMenu("rules")'>@Strings.Page_Rules</a>
+            <div class="dropdown" @onmouseenter='() => OnMainMenuHoverStart("rules")' @onmouseleave='OnDesktopHoverEnd'>
+                <a href="@Pages.Rules" class='@GetDesktopSubMenuClass("rulespage")' @onmouseenter='() => OnSubMenuHoverStart("rules", "rulespage")' @onclick='() => SelectSubMenuAndClose("rules", "rulespage")'>@Strings.Page_Rules</a>
+                <a href="@Pages.Faq" class='@GetDesktopSubMenuClass("faq")' @onmouseenter='() => OnSubMenuHoverStart("rules", "faq")' @onclick='() => SelectSubMenuAndClose("rules", "faq")'>@Strings.Page_Faq</a>
+                <a href="@Pages.Resources" class='@GetDesktopSubMenuClass("resources")' @onmouseenter='() => OnSubMenuHoverStart("rules", "resources")' @onclick='() => SelectSubMenuAndClose("rules", "resources")'>@Strings.Page_Resources</a>
             </div>
         </div>
     </div>
 </div>
+
+<div class="mobile-nav-shell">
+    <button type="button" class="mobile-nav-toggle handel white shadow" @onclick="ToggleMobileMenu">
+        ☰
+    </button>
+
+    @if (_isMobileMenuVisible)
+    {
+        <div class="mobile-nav-panel">
+            <div class="mobile-nav-account-row">
+                <button type="button" class='mobile-nav-row mobile-nav-row--account @GetMainMenuClass("account")' @onclick="ToggleAccountSection">
+                    @GetAccountHeaderText()
+                </button>
+                <div class="mobile-nav-account-tools">
+                    <CultureMenu InlineMode="true" CssClass="mobile-nav-culture-inline" />
+                    <InfoIcon MaxWidth="36" />
+                </div>
+            </div>
+            @if (_isAccountSectionVisible)
+            {
+                <div class="mobile-nav-submenu">
+                    @if (_user is null)
+                    {
+                        <a href="@Pages.Login" class='@GetSubMenuClass("login")' @onclick='() => SelectSubMenuAndClose("account", "login")'>@Strings.Page_AccountLogin</a>
+                        <a href="@Pages.Register" class='@GetSubMenuClass("register")' @onclick='() => SelectSubMenuAndClose("account", "register")'>@Strings.Page_AccountRegister</a>
+                    }
+                    else
+                    {
+                        <a href="@Pages.AccountInfo" class='@GetSubMenuClass("accountinfo")' @onclick='() => SelectSubMenuAndClose("account", "accountinfo")'>@Strings.Page_AccountInfo</a>
+                        <AuthorizeView Roles="Admin">
+                            <a href="@Pages.Admin" class='@GetSubMenuClass("admin")' @onclick='() => SelectSubMenuAndClose("account", "admin")'>@Strings.Page_Admin</a>
+                        </AuthorizeView>
+                        <AuthorizeView Roles="TiglAdmin">
+                            <a href="@Pages.TiglAdmin" class='@GetSubMenuClass("tigladmin")' @onclick='() => SelectSubMenuAndClose("account", "tigladmin")'>@Strings.Page_TiglAdmin</a>
+                        </AuthorizeView>
+                        <a href="@Pages.ResendPasswordRecoveryEmail" class='@GetSubMenuClass("passwordreset")' @onclick='() => SelectSubMenuAndClose("account", "passwordreset")'>@Strings.Page_AccountPasswordReset</a>
+                        <a href="#" @onclick="Logout">@Strings.Login_Logout</a>
+                    }
+                </div>
+            }
+
+            <div class="mobile-nav-divider"></div>
+
+            <a class='mobile-nav-row-link @GetMainMenuClass("news")' href="@Pages.Index" @onclick='() => SelectMenuAndClose("news")'>@Strings.Page_News</a>
+
+            <button type="button" class='mobile-nav-row @GetMainMenuClass("game")' @onclick="ToggleGameSection">@Strings.Page_Game</button>
+            @if (_isGameSectionVisible)
+            {
+                <div class="mobile-nav-submenu">
+                    <a href="@Pages.Factions" class='@GetSubMenuClass("factions")' @onclick='() => SelectSubMenuAndClose("game", "factions")'>@Strings.Page_Factions</a>
+                    <a href="@Pages.FactionsDS" class='@GetSubMenuClass("factionsds")' @onclick='() => SelectSubMenuAndClose("game", "factionsds")'>@Strings.Page_FactionsDS</a>
+                    <a href="@Pages.Technologies" class='@GetSubMenuClass("technologies")' @onclick='() => SelectSubMenuAndClose("game", "technologies")'>@Strings.Page_Technologies</a>
+                    <a href="@Pages.Cards" class='@GetSubMenuClass("cards")' @onclick='() => SelectSubMenuAndClose("game", "cards")'>@Strings.Page_Cards</a>
+                    <a href="@Pages.SystemTiles" class='@GetSubMenuClass("systemtiles")' @onclick='() => SelectSubMenuAndClose("game", "systemtiles")'>@Strings.Page_SystemTiles</a>
+                    <a href="@Pages.Planets" class='@GetSubMenuClass("planets")' @onclick='() => SelectSubMenuAndClose("game", "planets")'>@Strings.Page_Planets</a>
+                </div>
+            }
+
+            <button type="button" class='mobile-nav-row @GetMainMenuClass("community")' @onclick="ToggleCommunitySection">@Strings.Page_Community</button>
+            @if (_isCommunitySectionVisible)
+            {
+                <div class="mobile-nav-submenu">
+                    <a href="@Pages.GalaxyMap" class='@GetSubMenuClass("galaxymap")' @onclick='() => SelectSubMenuAndClose("community", "galaxymap")'>@Strings.Page_GalaxyMap</a>
+                    <a href="@Pages.MapsArchive" class='@GetSubMenuClass("mapsarchive")' @onclick='() => SelectSubMenuAndClose("community", "mapsarchive")'>@Strings.Page_MapArchive</a>
+                    <a href="@Pages.SlicesArchive" class='@GetSubMenuClass("slicesarchive")' @onclick='() => SelectSubMenuAndClose("community", "slicesarchive")'>@Strings.Page_SlicesArchive</a>
+                    <a href="@Pages.Discord" class='@GetSubMenuClass("discord")' @onclick='() => SelectSubMenuAndClose("community", "discord")'>@Strings.Page_Discord</a>
+                    <a href="@Pages.Async" class='@GetSubMenuClass("async")' @onclick='() => SelectSubMenuAndClose("community", "async")'>@Strings.Page_Async</a>
+                    <a href="@Pages.Websites" class='@GetSubMenuClass("websites")' @onclick='() => SelectSubMenuAndClose("community", "websites")'>@Strings.Page_OtherWebsites</a>
+                </div>
+            }
+
+            <button type="button" class='mobile-nav-row @GetMainMenuClass("tigl")' @onclick="ToggleTiglSection">@Strings.Page_Tigl</button>
+            @if (_isTiglSectionVisible)
+            {
+                <div class="mobile-nav-submenu">
+                    <a href="@Pages.Tigl" class='@GetSubMenuClass("tiglinfo")' @onclick='() => SelectSubMenuAndClose("tigl", "tiglinfo")'>@Strings.Page_TiglInfo</a>
+                    <a href="@Pages.TiglRegister" class='@GetSubMenuClass("tiglregister")' @onclick='() => SelectSubMenuAndClose("tigl", "tiglregister")'>@Strings.Page_TiglRegister</a>
+                    <a href="@Pages.TiglReportGame" class='@GetSubMenuClass("tiglreport")' @onclick='() => SelectSubMenuAndClose("tigl", "tiglreport")'>@Strings.Page_TiglReportGame</a>
+                    <a href="@Pages.TiglLeaderboard" class='@GetSubMenuClass("tiglleaderboard")' @onclick='() => SelectSubMenuAndClose("tigl", "tiglleaderboard")'>@Strings.TiglMenu_Leaderboard</a>
+                    <a href="@Pages.TiglStatistics" class='@GetSubMenuClass("tiglstatistics")' @onclick='() => SelectSubMenuAndClose("tigl", "tiglstatistics")'>@Strings.TiglMenu_Statistics</a>
+                    <a href="@Pages.TiglPlayers" class='@GetSubMenuClass("tiglplayers")' @onclick='() => SelectSubMenuAndClose("tigl", "tiglplayers")'>@Strings.TiglMenu_Players</a>
+                    <a href="@Pages.TiglGames" class='@GetSubMenuClass("tiglgames")' @onclick='() => SelectSubMenuAndClose("tigl", "tiglgames")'>@Strings.TiglMenu_GameReports</a>
+                    <a href="@Pages.TiglRankings" class='@GetSubMenuClass("tiglranks")' @onclick='() => SelectSubMenuAndClose("tigl", "tiglranks")'>@Strings.RankingsMenu_Ranks</a>
+                    <a href="@Pages.TiglLeaders" class='@GetSubMenuClass("tiglleaders")' @onclick='() => SelectSubMenuAndClose("tigl", "tiglleaders")'>@Strings.RankingsMenu_Leaders</a>
+                    <a href="@Pages.TiglAchievements" class='@GetSubMenuClass("tiglachievements")' @onclick='() => SelectSubMenuAndClose("tigl", "tiglachievements")'>@Strings.RankingsMenu_Achievements</a>
+                </div>
+            }
+
+            <button type="button" class='mobile-nav-row @GetMainMenuClass("tools")' @onclick="ToggleToolsSection">@Strings.Page_Tools</button>
+            @if (_isToolsSectionVisible)
+            {
+                <div class="mobile-nav-submenu">
+                    <a href="@Pages.GameTracker" target="_blank" class='@GetSubMenuClass("gametracker")' @onclick='() => SelectSubMenuAndClose("tools", "gametracker")'>@Strings.Page_GameTracker</a>
+                    <a href="@Pages.ColorPicker" class='@GetSubMenuClass("colorpicker")' @onclick='() => SelectSubMenuAndClose("tools", "colorpicker")'>@Strings.Page_ColorPicker</a>
+                    <a href="@Pages.FactionDraft" class='@GetSubMenuClass("factiondraft")' @onclick='() => SelectSubMenuAndClose("tools", "factiondraft")'>@Strings.Page_FactionDraft</a>
+                    <a href="@Pages.MiltyDraft" class='@GetSubMenuClass("miltydraft")' @onclick='() => SelectSubMenuAndClose("tools", "miltydraft")'>@Strings.Page_MiltyDraft</a>
+                    <a href="@Pages.SliceGenerator" class='@GetSubMenuClass("slicegenerator")' @onclick='() => SelectSubMenuAndClose("tools", "slicegenerator")'>@Strings.Page_SliceGenerator</a>
+                    <a href="@Pages.MapGenerator" class='@GetSubMenuClass("mapgenerator")' @onclick='() => SelectSubMenuAndClose("tools", "mapgenerator")'>@Strings.Page_MapGenerator</a>
+                    <a href="@Pages.CardGenerator" class='@GetSubMenuClass("cardgenerator")' @onclick='() => SelectSubMenuAndClose("tools", "cardgenerator")'>@Strings.Page_CardGenerator</a>
+                </div>
+            }
+
+            <button type="button" class='mobile-nav-row @GetMainMenuClass("rules")' @onclick="ToggleRulesSection">@Strings.Page_Rules</button>
+            @if (_isRulesSectionVisible)
+            {
+                <div class="mobile-nav-submenu">
+                    <a href="@Pages.Rules" class='@GetSubMenuClass("rulespage")' @onclick='() => SelectSubMenuAndClose("rules", "rulespage")'>@Strings.Page_Rules</a>
+                    <a href="@Pages.Faq" class='@GetSubMenuClass("faq")' @onclick='() => SelectSubMenuAndClose("rules", "faq")'>@Strings.Page_Faq</a>
+                    <a href="@Pages.Resources" class='@GetSubMenuClass("resources")' @onclick='() => SelectSubMenuAndClose("rules", "resources")'>@Strings.Page_Resources</a>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+

@@ -1,0 +1,95 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Controls
+@using Radzen
+@using Radzen.Blazor
+@typeparam TItem
+
+@*
+    Responsive DataGrid component wrapping RadzenDataGrid.
+    Provides a responsive data table with consistent styling and fluid column sizing.
+*@
+
+<RadzenDataGrid 
+    TItem="TItem"
+    Data="@Data"
+    AllowFiltering="@AllowFiltering"
+    AllowPaging="@AllowPaging"
+    AllowSorting="@AllowSorting"
+    PageSize="@PageSize"
+    PagerHorizontalAlign="@PagerHorizontalAlign"
+    class="@GetGridClass()"
+    Style="@Style"
+    AllowColumnResize="true"
+    ColumnWidth="@ColumnWidth">
+    @Columns
+</RadzenDataGrid>
+
+@code {
+    /// <summary>
+    /// Gets or sets the data collection to display in the grid.
+    /// </summary>
+    [Parameter]
+    public IEnumerable<TItem> Data { get; set; } = Enumerable.Empty<TItem>();
+
+    /// <summary>
+    /// Gets or sets the column definitions for the grid.
+    /// </summary>
+    [Parameter]
+    public RenderFragment? Columns { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether filtering is enabled.
+    /// </summary>
+    [Parameter]
+    public bool AllowFiltering { get; set; } = false;
+
+    /// <summary>
+    /// Gets or sets a value indicating whether paging is enabled.
+    /// </summary>
+    [Parameter]
+    public bool AllowPaging { get; set; } = true;
+
+    /// <summary>
+    /// Gets or sets a value indicating whether sorting is enabled.
+    /// </summary>
+    [Parameter]
+    public bool AllowSorting { get; set; } = true;
+
+    /// <summary>
+    /// Gets or sets the number of items per page.
+    /// </summary>
+    [Parameter]
+    public int PageSize { get; set; } = 10;
+
+    /// <summary>
+    /// Gets or sets the horizontal alignment of the pager.
+    /// </summary>
+    [Parameter]
+    public HorizontalAlign PagerHorizontalAlign { get; set; } = HorizontalAlign.Left;
+
+    /// <summary>
+    /// Gets or sets additional CSS classes.
+    /// </summary>
+    [Parameter]
+    public string CssClass { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Gets or sets additional inline styles.
+    /// </summary>
+    [Parameter]
+    public string Style { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Gets or sets the default column width. Responsive by default.
+    /// </summary>
+    [Parameter]
+    public string ColumnWidth { get; set; } = "auto";
+
+    /// <summary>
+    /// Gets the combined CSS class string for the grid.
+    /// </summary>
+    /// <returns>The CSS class string.</returns>
+    private string GetGridClass()
+    {
+        return $"responsive-radzen-grid {CssClass}";
+    }
+}

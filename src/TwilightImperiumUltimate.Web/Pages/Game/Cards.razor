@@ -1,78 +1,15 @@
 ﻿@page "/game/cards"
-@using TwilightImperiumUltimate.Web.Components.Shared
 @using TwilightImperiumUltimate.Web.Components.Cards;
-@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
-@using TwilightImperiumUltimate.Web.Components.Shared.Text
-@using TwilightImperiumUltimate.Web.Models.Cards;
 @using TwilightImperiumUltimate.Web.Resources;
-@using TwilightImperiumUltimate.Web.Services.Path;
-@inject IPathProvider PathProvider
 
 <PageTitle>@Strings.Page_Cards</PageTitle>
 
 <Page>
-    <div id="main-navbar">
-        <div class="menu-item" @onclick="() => SetCurrentTypeOfCard(Paths.ResourcePath_StrategyCard)">
-            <img class="icon link"
-                 src="@PathProvider.GetCardTypeIconPath(nameof(Strings.StrategyCard))"
-                 alt="icon for @Strings.CardTitle_Strategy"
-                 title="@Strings.CardTitle_Strategy" />
-        </div>
-        <div class="menu-item" @onclick="() => SetCurrentTypeOfCard(Paths.ResourcePath_ActionCard)">
-            <img class="icon link"
-                 src="@PathProvider.GetCardTypeIconPath(nameof(Strings.ActionCard))"
-                 alt="icon for @Strings.CardTitle_Action"
-                 title="@Strings.CardTitle_Action" />
-        </div>
-        <div class="menu-item" @onclick="() => SetCurrentTypeOfCard(Paths.ResourcePath_AgendaCard)">
-            <img class="icon link"
-                 src="@PathProvider.GetCardTypeIconPath(nameof(Strings.AgendaCard))"
-                 alt="icon for @Strings.CardTitle_Agenda"
-                 title="@Strings.CardTitle_Agenda" />
-        </div>
-        <div class="menu-item" @onclick="() => SetCurrentTypeOfCard(Paths.ResourcePath_ObjectiveSecret)">
-            <img class="icon link"
-                 src="@PathProvider.GetCardTypeIconPath(nameof(Strings.ObjectiveCardSecret))"
-                 alt="icon for @Strings.CardTitle_Secret"
-                 title="@Strings.CardTitle_Secret" />
-        </div>
-        <div class="menu-item" @onclick="() => SetCurrentTypeOfCard(Paths.ResourcePath_ObjectiveStageOne)">
-            <img class="icon link"
-                 src="@PathProvider.GetCardTypeIconPath(nameof(Strings.ObjectiveCardStageOne))"
-                 alt="icon for @Strings.CardTitle_ObjectiveOne"
-                 title="@Strings.CardTitle_ObjectiveOne" />
-        </div>
-        <div class="menu-item" @onclick="() => SetCurrentTypeOfCard(Paths.ResourcePath_ObjectiveStageTwo)">
-            <img class="icon link"
-                 src="@PathProvider.GetCardTypeIconPath(nameof(Strings.ObjectiveCardStageTwo))"
-                 alt="icon for @Strings.CardTitle_ObjectiveTwo"
-                 title="@Strings.CardTitle_ObjectiveTwo" />
-        </div>
-        <div class="menu-item" @onclick="() => SetCurrentTypeOfCard(Paths.ResourcePath_ExplorationCard)">
-            <img class="icon link"
-                 src="@PathProvider.GetCardTypeIconPath(nameof(Strings.ExplorationCard))"
-                 alt="icon for @Strings.CardTitle_Exploration"
-                 title="@Strings.CardTitle_Exploration" />
-        </div>
-        <div class="menu-item img-border" @onclick="() => SetCurrentTypeOfCard(Paths.ResourcePath_RelicCard)">
-            <img class="icon link"
-                 src="@PathProvider.GetCardTypeIconPath(nameof(Strings.RelicCard))"
-                 alt="icon for @Strings.CardTitle_Relic"
-                 title="@Strings.CardTitle_Relic" />
-        </div>
-        <div class="menu-item" @onclick="() => SetCurrentTypeOfCard(Paths.ResourcePath_FrontierCard)">
-            <img class="icon link"
-                 src="@PathProvider.GetCardTypeIconPath(nameof(Strings.FrontierCard))"
-                 alt="icon for @Strings.CardTitle_Frontier"
-                 title="@Strings.CardTitle_Frontier" />
-        </div>
-        <div class="menu-item" @onclick="() => SetCurrentTypeOfCard(Paths.ResourcePath_PromissoryCard)">
-            <img class="icon link"
-                    src="@PathProvider.GetCardTypeIconPath(nameof(Strings.PromissoryNoteCard))"
-                    alt="icon for @Strings.CardTitle_PromissoryNote"
-                    title="@Strings.CardTitle_PromissoryNote" />
-        </div>
-    </div>
+    <ResponsiveLabel Text="@Strings.Page_Cards" FontSize="2xl" CenterText="true" />
+    
+    <ResponsiveVerticalSpacer Size="2xl" />
+    <CardTypeNavBar SelectedTypeOfCard="@_currentTypeOfCard" OnTypeSelected="SetCurrentTypeOfCard" />
+    <ResponsiveVerticalSpacer Size="2xl" />
 
     <CardsGrid TypeOfCard="@_currentTypeOfCard" />
 </Page>

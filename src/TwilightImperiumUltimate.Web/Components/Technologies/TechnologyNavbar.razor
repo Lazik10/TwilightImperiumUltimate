@@ -1,16 +1,17 @@
 ﻿@using TwilightImperiumUltimate.Contracts.Enums
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
-@using TwilightImperiumUltimate.Web.Resources
 
-<FlexColumnCenteredContainer>
-    <div class="technology-navbar">
-        <FlexRowContainer Width="80" JustifyContent="Enums.JustifyContent.SpaceBetween">
-            <TechnologyNavItem TechnologyType="TechnologyType.Biotic" OnClick="() => OnTechnologyTypeClick(TechnologyType.Biotic)" ColorClass="green" />
-            <TechnologyNavItem TechnologyType="TechnologyType.Propulsion" OnClick="() => OnTechnologyTypeClick(TechnologyType.Propulsion)" ColorClass="blue" />
-            <TechnologyNavItem TechnologyType="TechnologyType.Cybernetic" OnClick="() => OnTechnologyTypeClick(TechnologyType.Cybernetic)" ColorClass="yellow" />
-            <TechnologyNavItem TechnologyType="TechnologyType.Warfare" OnClick="() => OnTechnologyTypeClick(TechnologyType.Warfare)" ColorClass="red" />
-            <TechnologyNavItem TechnologyType="TechnologyType.UnitUpgrade" OnClick="() => OnTechnologyTypeClick(TechnologyType.UnitUpgrade)" ColorClass="white" />
-            <TechnologyNavItem TechnologyType="TechnologyType.Faction" OnClick="() => OnTechnologyTypeClick(TechnologyType.Faction)" ColorClass="purple" />
-        </FlexRowContainer>
+<ResponsiveContainer Type="fluid" Padding="none">
+    <div class="technology-navbar-shell">
+        <div class="technology-navbar">
+            <ResponsiveGridContainer Columns="6" TabletColumns="6" MobileColumns="6" Width="100" Gap="var(--space-xs)" CssClass="technology-navbar-grid">
+                <TechnologyNavItem TechnologyType="TechnologyType.Biotic" OnClick="() => OnTechnologyTypeClick(TechnologyType.Biotic)" ColorClass="green" IsSelected="@(SelectedTechnologyType == TechnologyType.Biotic)" />
+                <TechnologyNavItem TechnologyType="TechnologyType.Propulsion" OnClick="() => OnTechnologyTypeClick(TechnologyType.Propulsion)" ColorClass="blue" IsSelected="@(SelectedTechnologyType == TechnologyType.Propulsion)" />
+                <TechnologyNavItem TechnologyType="TechnologyType.Cybernetic" OnClick="() => OnTechnologyTypeClick(TechnologyType.Cybernetic)" ColorClass="yellow" IsSelected="@(SelectedTechnologyType == TechnologyType.Cybernetic)" />
+                <TechnologyNavItem TechnologyType="TechnologyType.Warfare" OnClick="() => OnTechnologyTypeClick(TechnologyType.Warfare)" ColorClass="red" IsSelected="@(SelectedTechnologyType == TechnologyType.Warfare)" />
+                <TechnologyNavItem TechnologyType="TechnologyType.UnitUpgrade" OnClick="() => OnTechnologyTypeClick(TechnologyType.UnitUpgrade)" ColorClass="white" IsSelected="@(SelectedTechnologyType == TechnologyType.UnitUpgrade)" />
+                <TechnologyNavItem TechnologyType="TechnologyType.Faction" OnClick="() => OnTechnologyTypeClick(TechnologyType.Faction)" ColorClass="purple" IsSelected="@(SelectedTechnologyType == TechnologyType.Faction)" />
+            </ResponsiveGridContainer>
+        </div>
     </div>
-</FlexColumnCenteredContainer>
+</ResponsiveContainer>

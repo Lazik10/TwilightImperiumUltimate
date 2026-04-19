@@ -14,6 +14,7 @@ using TwilightImperiumUltimate.Web.Services.GameTracker;
 using TwilightImperiumUltimate.Web.Services.Language;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
 using TwilightImperiumUltimate.Web.Services.MiltyDraft;
+using TwilightImperiumUltimate.Web.Services.Navigation;
 using TwilightImperiumUltimate.Web.Services.Rankings;
 using TwilightImperiumUltimate.Web.Services.SliceGenerators;
 using TwilightImperiumUltimate.Web.Services.Tigl;
@@ -38,6 +39,7 @@ public static class ServiceCollectionsExtension
         });
 
         services.AddScoped<ICultureProvider, CultureProvider>();
+        services.AddScoped<IMenuSelectionState, MenuSelectionState>();
         services.AddScoped<IPathProvider, PathProvider>();
         services.AddSingleton<IRankingsDataCache, RankingsDataCache>();
         services.AddSingleton<ITiglDataCache, TiglDataCache>();

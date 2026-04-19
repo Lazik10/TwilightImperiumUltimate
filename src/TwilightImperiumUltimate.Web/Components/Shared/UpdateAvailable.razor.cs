@@ -1,4 +1,5 @@
 using Microsoft.JSInterop;
+using Microsoft.AspNetCore.Components.Web;
 
 namespace TwilightImperiumUltimate.Web.Components.Shared;
 
@@ -30,5 +31,10 @@ public partial class UpdateAvailable
             identifier: "registerForUpdateAvailableNotification",
             DotNetObjectReference.Create(this),
             nameof(OnUpdateAvailable));
+    }
+
+    private async Task ReloadPage(MouseEventArgs _)
+    {
+        await JSRuntime.InvokeVoidAsync("window.location.reload");
     }
 }

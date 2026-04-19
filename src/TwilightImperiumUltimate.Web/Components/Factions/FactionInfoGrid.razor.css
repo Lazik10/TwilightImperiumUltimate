@@ -1,41 +1,83 @@
-﻿.grid-container {
+﻿.faction-overview-shell,
+.faction-dynamic-content-shell {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.faction-overview-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto auto;
-    gap: 10px;
-    font-size: 22px;
-    font-family: Myriad, fallback, sans-serif;
-    font-style: italic;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    grid-template-areas:
+        "title hero"
+        "quote hero"
+        "system hero"
+        "sheets hero";
+    gap: var(--space-md);
+    align-items: start;
 }
 
-.grid-item {
+.faction-overview-layout {
+    display: grid;
+    grid-template-columns: 15% minmax(0, 1fr);
+    gap: var(--space-sm);
+    align-items: start;
+}
+
+.faction-overview-texture {
+    display: block;
+    width: 100%;
+}
+
+.faction-title-block {
+    grid-area: title;
+}
+
+.faction-hero-block {
+    grid-area: hero;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    gap: var(--space-sm);
 }
 
-.grid-item-title {
-    padding-top: 67px;
+.faction-quote-block {
+    grid-area: quote;
+    align-self: start;
+    justify-self: start;
+    width: 100%;
     display: flex;
-    flex-direction: row;
+    justify-content: flex-start;
 }
 
-.grid-item-title img {
-    height: 40px;
-    margin-right: 15px;
+.faction-quote-block ::deep .faction-quote {
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: left;
 }
 
-.grid-item-history {
-    grid-column: span 3;
+.faction-system-block {
+    grid-area: system;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
 }
 
-.grid-item-ability {
-    grid-column: span 3;
+.faction-sheets-block {
+    grid-area: sheets;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
 }
 
-h3 {
-    font-size: 24px;
-    color: white;
+.faction-sheets-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-sm);
+}
+
+.firmament-sheet-row-spacer {
+    display: none;
 }
 
 .complexity-rating-container {
@@ -43,13 +85,12 @@ h3 {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-left: 10%;
+    gap: var(--space-sm);
 }
 
 .complexity-rating-container img {
-    padding-left: 15px;
-    width: 50%;
-    height: 20%;
+    width: min(50%, 12rem);
+    height: auto;
 }
 
 .complexity-text {
@@ -60,21 +101,8 @@ h3 {
     text-shadow: 0px 2px 6px rgba(0, 0, 0, 1), 2px 0px 6px rgba(0, 0, 0, 1), 0px -2px 6px rgba(0, 0, 0, 1), -2px 0px 6px rgba(0, 0, 0, 1), 1px 1px 6px rgba(0, 0, 0, 1), 1px -1px 6px rgba(0, 0, 0, 1), -1px 1px 6px rgba(0, 0, 0, 1), -1px -1px 6px rgba(0, 0, 0, 1);
 }
 
-.faction-info-text {
-    color: white;
-    align-content: start;
-    justify-content: left;
-}
-
-.faction-sheet-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
 .faction-sheet-button {
-    width: 50%;
+    width: 100%;
     align-self: center;
     justify-self: center;
     text-align: center;
@@ -150,8 +178,8 @@ h3 {
 .race-image-container {
     position: relative;
     display: inline-block;
-    max-width: 100%;
-    margin: 10% 0% 0% 10%;
+    width: 100%;
+    max-width: 34rem;
 }
 
     .race-image-container img {
@@ -172,6 +200,48 @@ h3 {
         pointer-events: none;
     }
 
+.commodities-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+}
+
+.commodities-value {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1;
+}
+
+.commodity-icon {
+    width: clamp(2rem, 7vw, 6rem);
+    height: auto;
+}
+
+@media (max-width: 1024px) {
+    .faction-overview-shell,
+    .faction-dynamic-content-shell {
+        width: 92%;
+    }
+
+    .faction-overview-grid {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+            "title"
+            "hero"
+            "quote"
+            "system"
+            "sheets";
+    }
+
+    .faction-overview-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .faction-overview-texture {
+        display: none;
+    }
+}
+
 @media (max-width: 1248px) {
     .faction-sheet-button, .complexity-rating-container {
         font-size: 16px;
@@ -179,7 +249,17 @@ h3 {
 }
 
 @media (max-width: 768px) {
+    .faction-overview-shell,
+    .faction-dynamic-content-shell {
+        width: 98%;
+    }
+
     .faction-sheet-button, .complexity-rating-container {
         font-size: 10px;
     }
+
+    .firmament-sheet-row-spacer {
+        display: block;
+    }
+
 }

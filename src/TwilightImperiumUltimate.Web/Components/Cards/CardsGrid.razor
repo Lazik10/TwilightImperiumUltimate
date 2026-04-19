@@ -1,6 +1,7 @@
 ﻿@using System.Globalization;
 @using Microsoft.AspNetCore.Components.Authorization
 @using TwilightImperiumUltimate.Web.Components.Rules
+@using TwilightImperiumUltimate.Web.Components.Shared.Controls
 @using TwilightImperiumUltimate.Web.Helpers.Enums
 @using TwilightImperiumUltimate.Web.Models.Cards;
 @using TwilightImperiumUltimate.Web.Resources;
@@ -10,136 +11,154 @@
 
 @if (_listOfCards is not null)
 {
-    <FlexColumnCenteredContainer>
+    <ResponsiveContainer Type="fluid" Padding="none">
+
+        @if (TypeOfCard != Paths.ResourcePath_StrategyCard)
+        {
+            <div class="cards-filter-row">
+                <GameVersionFilterDropdown GameVersions="GetAvailableGameVersions()"
+                                           SelectedGameVersion="@_selectedGameVersion"
+                                           SelectedGameVersionChanged="OnGameVersionFilterChanged" />
+            </div>
+        }
 
         @if (TypeOfCard == Paths.ResourcePath_StrategyCard)
         {
-            <GridLayout Columns="GetNumberOfColumns()" Width="80" Gap="10">
-                @foreach(var card in _listOfCards)
-                {
-                <div class="clickable align-center" @onclick="@(() => ShowBigImage(@card, CultureInfo.CurrentCulture.Name))">
-                    <VerticalCard Name="@card.Name" TypeOfCard="@TypeOfCard" />
-                </div>
-                }
-            </GridLayout>
-        }
-        else
-        {
-            _currentGameVersion = null;
-
-            @foreach (var gameVersion in GetSortedCards())
-            {
-                if (_currentGameVersion != gameVersion.Key)
-                {
-                    _currentGameVersion = gameVersion.Key;
-                    <Label Text="@_currentGameVersion.GetDisplayName()" FontSize="24" CenterText="true" />
-                }
-
-                <GridLayout Columns="GetNumberOfColumns()" Width="80" Gap="10">
-                    @foreach (var card in gameVersion)
+            <div class="cards-grid-shell">
+                <ResponsiveGridContainer Columns="GetNumberOfColumns()" TabletColumns="2" MobileColumns="1" Width="100" Gap="0.625rem">
+                    @foreach(var card in GetFilteredCards())
                     {
                         <div class="clickable align-center" @onclick="@(() => ShowBigImage(@card, CultureInfo.CurrentCulture.Name))">
                             <VerticalCard Name="@card.Name" TypeOfCard="@TypeOfCard" />
                         </div>
                     }
-                </GridLayout>
+                </ResponsiveGridContainer>
+            </div>
+        }
+        else
+        {
+            @foreach (var gameVersionGroup in GetSortedCards())
+            {
+                @if (!_selectedGameVersion.HasValue)
+                {
+                    <ResponsiveText Text="@gameVersionGroup.Key.GetDisplayName()" FontSize="xl" CenterText="true" CssClass="handel white shadow" />
+                }
 
-                <VerticalSpace Height="50" />
+                <div class="cards-grid-shell">
+                    <ResponsiveGridContainer Columns="GetNumberOfColumns()" TabletColumns="3" MobileColumns="2" Width="100" Gap="0.625rem">
+                        @foreach (var card in gameVersionGroup)
+                        {
+                            <div class="clickable align-center" @onclick="@(() => ShowBigImage(@card, CultureInfo.CurrentCulture.Name))">
+                                <VerticalCard Name="@card.Name" TypeOfCard="@TypeOfCard" />
+                            </div>
+                        }
+                    </ResponsiveGridContainer>
+                </div>
+
+                <ResponsiveVerticalSpacer Size="2xl" />
             }
         }
 
-    </FlexColumnCenteredContainer>
+    </ResponsiveContainer>
 
 
-    <VerticalSpace Height="50" />
+    <ResponsiveVerticalSpacer Size="2xl" />
 
-    @if (_listOfDeprecatedCards is not null && _listOfDeprecatedCards.Count > 0)
+    @if (_listOfDeprecatedCards is not null && _listOfDeprecatedCards.Count > 0 && !_selectedGameVersion.HasValue)
     {
-        <FlexColumnCenteredContainer>
-            <Label Text="@Strings.Card_DeprecatedCategory" FontSize="24" CenterText="true" />
+        <ResponsiveContainer Type="fluid" Padding="none">
+            <ResponsiveText Text="@Strings.Card_DeprecatedCategory" FontSize="xl" CenterText="true" CssClass="handel white shadow" />
 
-            <GridLayout Columns="GetNumberOfColumns()" Width="80" Gap="10">
+            <div class="cards-grid-shell">
+                <ResponsiveGridContainer Columns="GetNumberOfColumns()" TabletColumns="2" MobileColumns="1" Width="100" Gap="0.625rem">
 
-                @foreach (var card in _listOfDeprecatedCards)
-                {
-                    <div class="clickable align-center" @onclick="@(() => ShowBigImage(@card, CultureInfo.CurrentCulture.Name))">
-                        <VerticalCard Name="@card.Name" TypeOfCard="@TypeOfCard" />
-                    </div>
-                }
+                    @foreach (var card in _listOfDeprecatedCards)
+                    {
+                        <div class="clickable align-center" @onclick="@(() => ShowBigImage(@card, CultureInfo.CurrentCulture.Name))">
+                            <VerticalCard Name="@card.Name" TypeOfCard="@TypeOfCard" />
+                        </div>
+                    }
 
-            </GridLayout>
-        </FlexColumnCenteredContainer>
+                </ResponsiveGridContainer>
+            </div>
+        </ResponsiveContainer>
     }
 }
 
 @if (showBigImage)
 {
     <div class="big-image-overlay" @onclick="HideBigImage">
-        <FlexRowContainer Width="80" AlignItems="Enums.AlignItems.Center">
+        <div class="big-image-content-row">
             <div class="image-container">
                 <img src="@currentBigImageSrc" @onclick="HideBigImage" />
             </div>
-            <FlexColumnContainer JustifyContent="Enums.JustifyContent.SpaceBetween">
-                <FlexColumnCenteredContainer>
-                    <FlexRowContainer Width="40" JustifyContent="Enums.JustifyContent.SpaceBetween">
-                        <div class="handel white shadow clickable"
-                                style="font-size: 24px;"
-                                @onclick="() => ShowNotes()"
-                                @onclick:stopPropagation="true">
-                            @Strings.Faction_Notes
-                        </div>
-                        <div class=" handel white shadow clickable"
-                                style="font-size: 24px;"
-                                @onclick="() => ShowFaq()"
-                                @onclick:stopPropagation="true">
-                            @Strings.Faction_Faq
-                        </div>
-                    </FlexRowContainer>
-                </FlexColumnCenteredContainer>
 
-                <VerticalSpace Height="40" />
+            <div class="language-menu language-menu-mobile" @onclick:stopPropagation="true">
+                <img class="language-flag @GetLanguageFlagClass(Strings.EnglishCulture)"
+                        src="@(GetCultureIconPath(Strings.EnglishCulture))"
+                        alt="English"
+                        height="50"
+                        @onclick="@(() =>SetBigImageAddress(Strings.EnglishCulture))"
+                        @onclick:stopPropagation="true" />
+                <img class="language-flag @GetLanguageFlagClass(Strings.CzechCulture)"
+                        src="@(GetCultureIconPath(Strings.CzechCulture))"
+                        alt="Czech"
+                        height="50"
+                        @onclick="@(() =>SetBigImageAddress(Strings.CzechCulture))"
+                        @onclick:stopPropagation="true" />
+            </div>
 
-                @if (_showFaq)
-                {
-                    <FlexColumnCenteredContainer>
-                        <div class="scrollable-element"
-                            style="overflow: auto; max-height: 60vh; min-height: 60vh; width: 80%;">
-                            <FlexRowContainer Width="100" JustifyContent="Enums.JustifyContent.FlexEnd">
-                                <AuthorizeView>
-                                    <Authorized>
-                                        <Button ButtonText="@Strings.Faction_AddFaq" OnClick="AddFaq" Width="100"/>
-                                    </Authorized>
-                                </AuthorizeView>
-                            </FlexRowContainer>
-                            @foreach (var faq in GetSpecificCardFaqs())
-                            {
-                                <FaqRow Faq="@faq" Culture="@(currentBigImageCulture)" Width="100" />
-                                <VerticalSpace Height="50" />
-                            }
+            <div class="big-image-content-column">
+                <div class="handel white shadow" style="font-size: 24px;" @onclick:stopPropagation="true">
+                    @Strings.Faction_Notes
+                </div>
+
+                <ResponsiveVerticalSpacer Size="sm" />
+
+                <div class="white shadow handel notes-panel-container">
+                    <div>
+                        <div class="scrollable-element">
+                            @(GetSelectedCardNotes())
                         </div>
-                    </FlexColumnCenteredContainer>
-                }
-                else if (_showNotes)
-                {
-                    <FlexColumnCenteredContainer CssClass="white shadow handel">
-                        <FlexRowContainer Width="100">
-                            <div class="scrollable-element"
-                                style="line-height: 1.5rem; overflow: auto; min-height: 60vh; max-height: 60vh;">
-                                @(GetSelectedCardNotes())
-                            </div>
-                        </FlexRowContainer>
-                    </FlexColumnCenteredContainer>
-                }
+                    </div>
+                </div>
 
-            </FlexColumnContainer>
-        </FlexRowContainer>
-        <div id="language-menu">
-            <img src="@(GetCultureIconPath(Strings.EnglishCulture))"
+                <ResponsiveVerticalSpacer Size="md" />
+
+                <div class="handel white shadow" style="font-size: 24px;" @onclick:stopPropagation="true">
+                    @Strings.Faction_Faq
+                </div>
+
+                <ResponsiveVerticalSpacer Size="sm" />
+
+                <div class="faq-panel-container">
+                    <div class="scrollable-element">
+                        <div class="faq-action-row">
+                            <AuthorizeView>
+                                <Authorized>
+                                    <Button ButtonText="@Strings.Faction_AddFaq" OnClick="AddFaq" Width="100"/>
+                                </Authorized>
+                            </AuthorizeView>
+                        </div>
+                        @foreach (var faq in GetSpecificCardFaqs())
+                        {
+                            <FaqRow Faq="@faq" Culture="@(currentBigImageCulture)" Width="100" />
+                            <ResponsiveVerticalSpacer Size="2xl" />
+                        }
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="language-menu language-menu-desktop" @onclick:stopPropagation="true">
+            <img class="language-flag @GetLanguageFlagClass(Strings.EnglishCulture)"
+                    src="@(GetCultureIconPath(Strings.EnglishCulture))"
                     alt="English"
                     height="50"
                     @onclick="@(() =>SetBigImageAddress(Strings.EnglishCulture))"
                     @onclick:stopPropagation="true" />
-            <img src="@(GetCultureIconPath(Strings.CzechCulture))"
+            <img class="language-flag @GetLanguageFlagClass(Strings.CzechCulture)"
+                    src="@(GetCultureIconPath(Strings.CzechCulture))"
                     alt="Czech"
                     height="50"
                     @onclick="@(() =>SetBigImageAddress(Strings.CzechCulture))"

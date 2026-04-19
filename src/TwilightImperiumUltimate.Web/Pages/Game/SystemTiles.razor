@@ -1,36 +1,50 @@
 ﻿@page "/game/systemtiles"
 @using TwilightImperiumUltimate.Web.Components.Shared
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Components.Shared.Text
+@using TwilightImperiumUltimate.Web.Components.Shared.Controls
 @using TwilightImperiumUltimate.Web.Helpers.Enums
+@using TwilightImperiumUltimate.Web.Resources
+
+<PageTitle>@Strings.Page_SystemTiles</PageTitle>
 
 <Page>
-    @{
-        _currentGameVersion = null;
-    }
-    @foreach (var gameVersion in _systemTiles.GroupBy(x => x.GameVersion))
-    {
-        if (_currentGameVersion != gameVersion.Key)
+    <ResponsiveText Text="@Strings.Page_SystemTiles" CssClass="news-page-title handel white shadow" FontSize="2xl" CenterText="true" />
+    <ResponsiveVerticalSpacer Size="2xl" />
+
+    <div class="systemtiles-filter-row">
+        <GameVersionFilterDropdown GameVersions="GetAvailableGameVersions()"
+                                   SelectedGameVersion="@_selectedGameVersion"
+                                   SelectedGameVersionChanged="OnGameVersionFilterChanged" />
+    </div>
+
+    <ResponsiveContainer Type="fluid" Padding="none">
+        @foreach (var gameVersion in GetFilteredSystemTiles())
         {
-            _currentGameVersion = gameVersion.Key;
-            <Label Text="@_currentGameVersion.GetDisplayName()" FontSize="24" CenterText="true" />
-        }
-        <GridLayout Columns="5" Gap="10">
-            @foreach (var systemtile in gameVersion)
+            @if (!_selectedGameVersion.HasValue)
             {
-                <div>
-                    <FlexColumnCenteredContainer>
-                        <div class="handel shadow white size">
-                            @(systemtile.SystemTileCode)
-                        </div>
-                    </FlexColumnCenteredContainer>
-                        <div class="clickable" @onclick="(() => ShowBigImage(systemtile))">
-                            <img class=" systemtile" src="@GetSystemTileImagePath(systemtile)" alt="@systemtile.SystemTileName">
-                        </div>
-                    <VerticalSpace Height="50" />
-                </div>
+                <ResponsiveText Text="@gameVersion.Key.GetDisplayName()" FontSize="xl" CenterText="true" CssClass="handel white shadow" />
             }
-        </GridLayout>
-    }
+
+            <div class="systemtiles-grid-shell">
+                <ResponsiveGridContainer Columns="5" TabletColumns="3" MobileColumns="1" Width="100" Gap="0.625rem">
+                    @foreach (var systemtile in gameVersion)
+                    {
+                        <div class="systemtile-item">
+                            <div class="clickable" @onclick="(() => ShowBigImage(systemtile))">
+                                <img class="systemtile" src="@GetSystemTileImagePath(systemtile)" alt="@systemtile.SystemTileName">
+                            </div>
+                            <div class="systemtile-code handel shadow white">
+                                @(systemtile.SystemTileCode)
+                            </div>
+                        </div>
+                    }
+                </ResponsiveGridContainer>
+            </div>
+
+            <ResponsiveVerticalSpacer Size="2xl" />
+        }
+    </ResponsiveContainer>
 
     @if (_showBigImage)
     {

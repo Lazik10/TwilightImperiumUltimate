@@ -6,8 +6,6 @@ public partial class FactionSetup : FactionInfoComponentBase
 
     private string _technologyPickMessage = string.Empty;
 
-    private int NumberOfStartingTechnologies => Faction.StartingTechnologies.Count;
-
     protected override void OnParametersSet()
     {
          GetStartingTechnologyString();
@@ -21,6 +19,22 @@ public partial class FactionSetup : FactionInfoComponentBase
     private List<TechnologyModel> GetStartingTechnologies()
     {
         return Faction.StartingTechnologies.OrderBy(x => x.Type).ToList();
+    }
+
+    private int GetStartingUnitMaxWidth(IReadOnlyCollection<UnitModel> startingUnits)
+    {
+        var totalStartingUnitCount = startingUnits.Sum(x => x.Count);
+        return totalStartingUnitCount > 0 ? Math.Min(100 / 12, 100 / totalStartingUnitCount) : 100;
+    }
+
+    private static int GetTechnologyColumns(int technologyCount)
+    {
+        return technologyCount switch
+        {
+            <= 0 => 1,
+            1 => 1,
+            _ => 2,
+        };
     }
 
     private void GetStartingTechnologyString()

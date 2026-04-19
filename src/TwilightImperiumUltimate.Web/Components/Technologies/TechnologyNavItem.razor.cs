@@ -2,7 +2,7 @@ using TwilightImperiumUltimate.Web.Helpers.Enums;
 
 namespace TwilightImperiumUltimate.Web.Components.Technologies;
 
-public partial class TechnologyNavItem : TwilightImperiumBaseComponenet
+public partial class TechnologyNavItem : TwilightImperiumBaseComponent
 {
     [Parameter]
     public TechnologyType TechnologyType { get; set; } = TechnologyType.None;
@@ -12,6 +12,9 @@ public partial class TechnologyNavItem : TwilightImperiumBaseComponenet
 
     [Parameter]
     public EventCallback OnClick { get; set; }
+
+    [Parameter]
+    public bool IsSelected { get; set; }
 
     private string TechnologyName => TechnologyType.GetDisplayName();
 

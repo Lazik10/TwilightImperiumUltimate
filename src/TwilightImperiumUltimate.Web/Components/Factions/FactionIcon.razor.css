@@ -10,6 +10,10 @@
     align-items: center;
 }
 
+.responsive-icon-no-padding {
+    padding: 0;
+}
+
 .link {
     cursor: pointer;
 }

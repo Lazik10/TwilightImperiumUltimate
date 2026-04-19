@@ -10,88 +10,84 @@
 {
     <div class="faction-components-grid">
 
-        <Label Text="Home System & Planets" CenterText="true" CssClass="span-2" />
+        <div class="faction-section-title">
+            <ResponsiveLabel Text="Home System &amp; Planets" CenterText="true" FontSize="sm" />
+        </div>
 
-        <FlexRowContainer>
+        <ResponsiveContainer Type="fluid" Padding="none" CenteredItems="true">
             @if (_systemTiles.Count > 0)
             {
-                <img src="@(PathProvider.GetLargeTileImagePath(_systemTile.SystemTileName))" style="width: 50%;"/>
+                <img src="@(PathProvider.GetLargeTileImagePath(_systemTile.SystemTileName))" class="faction-system-tile-image" />
             }
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
         @if (Faction.FactionName == FactionName.TheFirmamentTheObsidian)
         {
-            <FlexRowContainer>
+            <ResponsiveContainer Type="fluid" Padding="none" CenteredItems="true">
                 @if (_systemTiles.Count > 0)
                 {
                     var _specialSystemTile = _systemTiles.Single(x => x.SystemTileName == SystemTileName.TileTE96B);
-                    <img src="@(PathProvider.GetLargeTileImagePath(_specialSystemTile.SystemTileName))" style="width: 50%;" />
+                    <img src="@(PathProvider.GetLargeTileImagePath(_specialSystemTile.SystemTileName))" class="faction-system-tile-image" />
                 }
-            </FlexRowContainer>
+            </ResponsiveContainer>
         }
 
         @if (Faction.FactionName != FactionName.TheFirmamentTheObsidian)
         {
-            <FlexRowContainer JustifyContent="Enums.JustifyContent.Center">
+            <ResponsiveGridContainer Columns="@(_planets.Count >= 3 ? 3 : Math.Max(1, _planets.Count))" TabletColumns="2" MobileColumns="1" Width="100" Gap="10px">
                 @foreach (var planet in _planets)
                 {
-                    <FlexRowContainer JustifyContent="Enums.JustifyContent.Center">
-
-                        @{
-                            var percentage = 33 * _planets.Count;
-                        }
-
-                        <div style="width: @(percentage)%">
-                            <PlanetCard Name="@(planet.PlanetName.ToString())" />
-                        </div>
-
-                    </FlexRowContainer>
+                    <div class="faction-planet-card">
+                        <PlanetCard Name="@(planet.PlanetName.ToString())" />
+                    </div>
                 }
-            </FlexRowContainer>
+            </ResponsiveGridContainer>
         }
         else if (Faction.FactionName == FactionName.TheFirmamentTheObsidian)
         {
-            <FlexRowContainer JustifyContent="Enums.JustifyContent.Center">
+            <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Width="100" Gap="10px">
                 
                 @foreach (var planet in _planets.Where(x => x.PlanetName == PlanetName.Cronos || x.PlanetName == PlanetName.Tallin))
                 {
-                    <div style="width: 33%">
+                    <div class="faction-planet-card">
                         <PlanetCard Name="@(planet.PlanetName.ToString())" />
                     </div>
                 }
 
-            </FlexRowContainer>
+            </ResponsiveGridContainer>
 
-            <FlexRowContainer JustifyContent="Enums.JustifyContent.Center">
+            <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Width="100" Gap="10px">
 
                 @foreach (var planet in _planets.Where(x => x.PlanetName == PlanetName.CronosHollow || x.PlanetName == PlanetName.TallinHollow))
                 {
-                    <div style="width: 33%">
+                    <div class="faction-planet-card">
                         <PlanetCard Name="@(planet.PlanetName.ToString())" />
                     </div>
                 }
 
-            </FlexRowContainer>
+            </ResponsiveGridContainer>
         }
 
-        <Label Text="Faction specific units" CenterText="true" CssClass="span-2" />
+        <div class="faction-section-title">
+            <ResponsiveLabel Text="Faction specific units" CenterText="true" FontSize="sm" />
+        </div>
 
         @if (Faction.FactionName != FactionName.TheFirmamentTheObsidian)
         {
-            <div style="width: 50%">
-                <VerticalSpace Height="20" />
+            <div class="faction-component-half">
+                <ResponsiveVerticalSpacer CustomHeight="20px" />
                 <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.Mech))" />
             </div>
         }
         else
         {
-            <div style="width: 50%">
-                <VerticalSpace Height="20" />
+            <div class="faction-component-half">
+                <ResponsiveVerticalSpacer CustomHeight="20px" />
                 <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath("TheFirmament", ComponentType.Mech))" />
             </div>
 
-            <div style="width: 50%">
-                <VerticalSpace Height="20" />
+            <div class="faction-component-half">
+                <ResponsiveVerticalSpacer CustomHeight="20px" />
                 <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath("TheObsidian", ComponentType.Mech))" />
             </div>
         }
@@ -100,8 +96,8 @@
         {
             @foreach (var flagship in _flagshipCards)
             {
-                <div style="width: 50%;">
-                    <VerticalSpace Height="20" />
+                <div class="faction-component-half">
+                    <ResponsiveVerticalSpacer CustomHeight="20px" />
                     <HorizontalCard ImagePath="@(PathProvider.GetFlagshipImagePath(flagship.FlagshipName))" />
                 </div>
             }
@@ -111,8 +107,8 @@
         {
             @foreach (var specialComponent in _specialComponentCards.Where(x => x.SpecialType == SpecialComponentType.FactionUnit))
             {
-                <div style="width: 50%;">
-                    <VerticalSpace Height="20" />
+                <div class="faction-component-half">
+                    <ResponsiveVerticalSpacer CustomHeight="20px" />
                     <HorizontalCard ImagePath="@(PathProvider.GetSpecialComponentImagePath(specialComponent.SpecialComponentName))" />
                 </div>
             }
@@ -123,41 +119,45 @@
             }
         }
 
-        <Label Text="Technologies" CenterText="true" CssClass="span-2" />
+        <div class="faction-section-title">
+            <ResponsiveLabel Text="Technologies" CenterText="true" FontSize="sm" />
+        </div>
 
         @if (_technologies.Count > 0)
         {
             @foreach (var technology in _technologies)
             {
-                <div style="width: 50%">
+                <div class="faction-component-half">
 
-                    <FlexRowContainer>
+                    <ResponsiveContainer Type="fluid" Padding="none" CenteredItems="true">
                         <TechnologyCard TechnologyName="technology.TechnologyName" />
-                    </FlexRowContainer>
+                    </ResponsiveContainer>
                 </div>
             }
         }
 
-        <Label Text="Faction Promissory Note and Breakthrough" CenterText="true" CssClass="span-2" />
+        <div class="faction-section-title">
+            <ResponsiveLabel Text="Faction Promissory Note and Breakthrough" CenterText="true" FontSize="sm" />
+        </div>
 
         @if (Faction.FactionName != FactionName.TheFirmamentTheObsidian)
         {
-            <FlexRowContainer>
+            <ResponsiveGridContainer Columns="@(_promissoryNotes.Count > 1 ? 2 : 1)" TabletColumns="2" MobileColumns="1" Width="100" Gap="10px">
                 @foreach (var promissoryNote in _promissoryNotes)
                 {
-                    <div style="width: 35%; max-height: 100%">
-                        <VerticalSpace Height="20" />
+                    <div class="faction-component-vertical">
+                        <ResponsiveVerticalSpacer CustomHeight="20px" />
                         <VerticalCard Name="@promissoryNote.PromissoryNoteCardName.ToString()" TypeOfCard="@Paths.ResourcePath_PromissoryCard" />
                     </div>
                 }
-            </FlexRowContainer>
+            </ResponsiveGridContainer>
         }
         else
         {
             @foreach (var promissoryNote in _promissoryNotes)
             {
-                <div style="width: 35%; max-height: 100%">
-                    <VerticalSpace Height="20" />
+                <div class="faction-component-vertical">
+                    <ResponsiveVerticalSpacer CustomHeight="20px" />
                     <VerticalCard Name="@promissoryNote.PromissoryNoteCardName.ToString()" TypeOfCard="@Paths.ResourcePath_PromissoryCard" />
                 </div>
             }
@@ -165,26 +165,28 @@
 
         @if (Faction.FactionName != FactionName.TheFirmamentTheObsidian)
         {
-            <div style="width: 50%;">
-                <VerticalSpace Height="20" />
+            <div class="faction-component-half">
+                <ResponsiveVerticalSpacer CustomHeight="20px" />
                 <HorizontalCard  ImagePath="@GetBreakthroughPath()" />
             </div>
         }
         else
         {
-            <div style="width: 50%;">
-                <VerticalSpace Height="20" />
+            <div class="faction-component-half">
+                <ResponsiveVerticalSpacer CustomHeight="20px" />
                 <HorizontalCard ImagePath="@GetSpecificBreakthroughPath("TheSowing")" />
             </div>
-            <div style="width: 50%;">
-                <VerticalSpace Height="20" />
+            <div class="faction-component-half">
+                <ResponsiveVerticalSpacer CustomHeight="20px" />
                 <HorizontalCard ImagePath="@GetSpecificBreakthroughPath("TheReaping")" />
             </div>
         }
 
         @if (_specialComponentCards.Count(x => x.SpecialType != SpecialComponentType.FactionUnit) > 0)
         {
-            <Label Text="Other unique components" CenterText="true" CssClass="span-2" />
+            <div class="faction-section-title">
+                <ResponsiveLabel Text="Other unique components" CenterText="true" FontSize="sm" />
+            </div>
                 @foreach (var specialComponent in _specialComponentCards.Where(
                     x => x.SpecialType != SpecialComponentType.Token
                         && x.SpecialType != SpecialComponentType.PlanetToken
@@ -194,22 +196,22 @@
                 {
                     @if (specialComponent.SpecialType == SpecialComponentType.VerticalCard)
                     {
-                        <div style="width: 35%; max-height: 100%">
-                            <VerticalSpace Height="20" />
+                        <div class="faction-component-vertical">
+                            <ResponsiveVerticalSpacer CustomHeight="20px" />
                             <VerticalCard Name="@specialComponent.SpecialComponentName.ToString()" TypeOfCard="specialcomponents" />
                         </div>
                     }
                     else if (specialComponent.SpecialType == SpecialComponentType.HorizontalCard)
                     {
-                        <div style="width: 50%;">
-                            <VerticalSpace Height="20" />
+                        <div class="faction-component-half">
+                            <ResponsiveVerticalSpacer CustomHeight="20px" />
                             <HorizontalCard ImagePath="@(PathProvider.GetSpecialComponentImagePath(specialComponent.SpecialComponentName))" />
                         </div>
                     }
                     else
                     {
-                        <div style="width: 50%;">
-                            <VerticalSpace Height="20" />
+                        <div class="faction-component-half">
+                            <ResponsiveVerticalSpacer CustomHeight="20px" />
                             <TokenCard ImagePath="@(PathProvider.GetSpecialComponentImagePath(specialComponent.SpecialComponentName))" />
                         </div>
                     }
@@ -225,43 +227,49 @@
                 <div></div>
             }
 
-            <VerticalSpace Height="20" CssClass="span-2" />
+            <div class="faction-grid-full-width">
+                <ResponsiveVerticalSpacer CustomHeight="20px" />
+            </div>
 
             @foreach (var specialComponent in _specialComponentCards.Where(x => x.SpecialType == SpecialComponentType.Plot || x.SpecialType == SpecialComponentType.Ocean))
             {
-                <div style="width: 35%; max-height: 100%">
-                    <VerticalSpace Height="20" />
+                <div class="faction-component-vertical">
+                    <ResponsiveVerticalSpacer CustomHeight="20px" />
                     <VerticalCard Name="@specialComponent.SpecialComponentName.ToString()" TypeOfCard="specialcomponents" />
                 </div>
             }
 
-            <VerticalSpace Height="20" CssClass="span-2" />
+            <div class="faction-grid-full-width">
+                <ResponsiveVerticalSpacer CustomHeight="20px" />
+            </div>
 
-            <FlexRowContainer JustifyContent="Enums.JustifyContent.Center" CssClass="span-2">
+            <ResponsiveContainer Type="fluid" Padding="none" CssClass="faction-grid-full-width" Style="display:flex; justify-content:center; align-items:center;">
                 @foreach (var specialComponent in _specialComponentCards.Where(x => x.SpecialType == SpecialComponentType.Token || x.SpecialType == SpecialComponentType.PlanetToken))
                 {
                     var width = specialComponent.SpecialType == SpecialComponentType.Token ? 25 : 35;
-                    <FlexRowContainer Width="@width">
+                    <ResponsiveContainer Type="fluid" Padding="none" Width="@width" CenteredItems="true">
                         <TokenCard ImagePath="@(PathProvider.GetSpecialComponentImagePath(specialComponent.SpecialComponentName))" />
-                        <HorizontalSpace Width="30" />
-                        <Label Text="@(specialComponent.Count.ToString() + "x")" Width="35" FontSize="26" />
-                    </FlexRowContainer>
+                        <ResponsiveHorizontalSpacer Size="md" />
+                        <ResponsiveLabel Text="@(specialComponent.Count.ToString() + "x")" FontSize="sm"  />
+                    </ResponsiveContainer>
                 }
-            </FlexRowContainer>
+            </ResponsiveContainer>
         }
 
         @if (Faction.FactionName == FactionName.TheGhostsOfCreuss || Faction.FactionName == FactionName.TheEmbersOfMuaat)
         {
-            <Label Text="Extra system tiles" CenterText="true" CssClass="span-2" />
+            <div class="faction-section-title">
+                <ResponsiveLabel Text="Extra system tiles" CenterText="true" FontSize="sm" />
+            </div>
 
-            <FlexRowContainer>
+            <ResponsiveContainer Type="fluid" Padding="none" CenteredItems="true">
                 @if (_systemTiles.Count > 0)
                 {
                     var _tile = Faction.FactionName == FactionName.TheGhostsOfCreuss ? SystemTileName.Tile51 : SystemTileName.Tile81;
                     var _specialSystemTile = _systemTiles.Single(x => x.SystemTileName == _tile);
-                    <img src="@(PathProvider.GetLargeTileImagePath(_specialSystemTile.SystemTileName))" style="width: 50%;" />
+                    <img src="@(PathProvider.GetLargeTileImagePath(_specialSystemTile.SystemTileName))" class="faction-system-tile-image" />
                 }
-            </FlexRowContainer>
+            </ResponsiveContainer>
         }
     </div>
 }

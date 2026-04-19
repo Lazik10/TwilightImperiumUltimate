@@ -2,3 +2,9 @@
     width: 100%;
     min-height: 100vh;
 }
+
+@media (max-width: 1024px) {
+    .stretch-height-container {
+        min-height: 50vh;
+    }
+}

@@ -2,7 +2,7 @@ using System.Globalization;
 
 namespace TwilightImperiumUltimate.Web.Components.Technologies;
 
-public partial class BaseTechnologyTree : TwilightImperiumBaseComponenet
+public partial class BaseTechnologyTree : TwilightImperiumBaseComponent
 {
     private bool _showNotes = true;
     private bool _showFaq;
@@ -57,7 +57,15 @@ public partial class BaseTechnologyTree : TwilightImperiumBaseComponenet
         StateHasChanged();
     }
 
-    private int GetCorrectNumberOFColumns() => SelectedTechnologyType == TechnologyType.Faction ? 4 : 3;
+    private IReadOnlyCollection<TechnologyModel> GetTechnologiesByLevel(TechnologyLevel level)
+    {
+        return Technologies
+            .Where(x => x.Level == level)
+            .OrderBy(x => x.TechnologyName)
+            .ToList();
+    }
+
+    private int GetCorrectNumberOfColumns() => SelectedTechnologyType == TechnologyType.Faction ? 4 : 3;
 
     private void ShowFaq()
     {
@@ -86,3 +94,4 @@ public partial class BaseTechnologyTree : TwilightImperiumBaseComponenet
         return (MarkupString)_selectedTechnologyModel.TechnologyName.ToString().GetComponentNotesText();
     }
 }
+

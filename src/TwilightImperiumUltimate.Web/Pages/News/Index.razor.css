@@ -1,52 +1,11 @@
-﻿p {
+﻿.loading-text-section {
+    font-family: Handel, fallback, sans-serif;
     color: white;
-    font-family: 'Handel', fallback, sans-serif;
-    font-display: block;
-    font-size: 24px;
-    text-indent: 2em;
-    text-align: justify;
-}
-
-.text-handel {
-    font-family: 'Handel', fallback, sans-serif;
-    font-display: block;
-    font-size: 24px;
-    text-indent: 2em;
-    text-align: justify;
-}
-
-.text-bodoni {
-    font-family: 'Bodoni', fallback, sans-serif;
-    font-display: block;
-    font-size: 24px;
-    text-indent: 2em;
-    text-align: justify;
-}
-
-.text-miryad {
-    font-family: 'Myriad', fallback, sans-serif;
-    font-display: block;
-    font-size: 24px;
-    text-indent: 2em;
-    text-align: justify;
-}
-
-.text-slider {
-    font-family: 'Slider', fallback, sans-serif;
-    font-display: block;
-    font-size: 24px;
-    text-indent: 2em;
-    text-align: justify;
-}
-
-.loading-text-section {
-    font-family: Handel, fallback, sans-serif !important;
-    color: white;
-    font-size: 36px !important;
+    font-size: clamp(1.5rem, 1.2rem + 1.5vw, 2.25rem);
     font-weight: bold !important;
     color: white !important;
-    padding-top: 100px;
+    padding-top: var(--space-3xl);
     text-align: center !important;
     text-transform: uppercase !important;
-    text-shadow: 0px 2px 6px rgba(0, 0, 0, 1), 2px 0px 6px rgba(0, 0, 0, 1), 0px -2px 6px rgba(0, 0, 0, 1), -2px 0px 6px rgba(0, 0, 0, 1), 1px 1px 6px rgba(0, 0, 0, 1), 1px -1px 6px rgba(0, 0, 0, 1), -1px 1px 6px rgba(0, 0, 0, 1), -1px -1px 6px rgba(0, 0, 0, 1) !important;
+    text-shadow: var(--shadow-text) !important;
 }

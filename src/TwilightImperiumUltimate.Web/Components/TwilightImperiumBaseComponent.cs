@@ -2,7 +2,7 @@ using Blazored.LocalStorage;
 
 namespace TwilightImperiumUltimate.Web.Components;
 
-public class TwilightImperiumBaseComponenet : ComponentBase
+public class TwilightImperiumBaseComponent : ComponentBase
 {
     [Parameter]
     public int Width { get; set; } = 100;

@@ -1,6 +1,19 @@
 ﻿@using TwilightImperiumUltimate.Web.Helpers.Resources;
+@using TwilightImperiumUltimate.Web.Resources
 @inherits FactionInfoComponentBase
 
-<div class="lore handel shadow">
-    @Lore
-</div>
+<StretchHeightContainer>
+    <ResponsiveContainer Type="fluid" Padding="none">
+        <div class="lore-preview-shell">
+            <div class="lore handel shadow @(_isExpanded ? "lore-expanded" : "lore-collapsed")">
+                @Lore
+            </div>
+
+            <div class="lore-toggle-row">
+                <button class="lore-toggle-button" @onclick="ToggleLore" title="@Strings.Faction_Lore">
+                    @(_isExpanded ? "▲" : "▼")
+                </button>
+            </div>
+        </div>
+    </ResponsiveContainer>
+</StretchHeightContainer>

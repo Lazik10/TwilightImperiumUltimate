@@ -1,0 +1,12 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Controls
+@using TwilightImperiumUltimate.Web.Helpers.Enums
+@using Radzen
+
+<RadzenDropDown TValue="string"
+                Data="@GetDropdownItems()"
+                TextProperty="Label"
+                ValueProperty="Value"
+                Value="@GetSelectedValue()"
+                Change="@OnRadzenSelectionChanged"
+                class="@GetCssClass()"
+                Style="@(GetStyle() + "font-family: Handel, fallback, sans-serif")"/>

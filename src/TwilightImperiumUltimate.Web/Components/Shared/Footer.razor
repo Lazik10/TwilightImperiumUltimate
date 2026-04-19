@@ -1,12 +1,14 @@
 ﻿@using TwilightImperiumUltimate.Web.Resources
 
-<footer>
-    <FlexColumnCenteredContainer>
-        <Label Text="@Strings.Footer_DevelopedBy" CssClass="miriad-pro-bold" FontSize="16" CenterText="true" />
-        <VerticalSpace Height="10" />
-        <Label Text="@Strings.Footer_Disclaimer" CssClass="miriad-pro-bold" FontSize="12" CenterText="true" />
-        <VerticalSpace Height="5" />
-        <Label Text="@Strings.Footer_Property" CssClass="miriad-pro-bold" FontSize="12" CenterText="true" />
-        <VerticalSpace Height="10" />
-    </FlexColumnCenteredContainer>
+<footer class="footer">
+    <ResponsiveContainer Type="centered" Padding="sm">
+        <FlexColumnCenteredContainer>
+            <ResponsiveLabel Text="@Strings.Footer_DevelopedBy" CssClass="myriad-pro-bold" FontSize="sm" CenterText="true" />
+            <ResponsiveVerticalSpacer CustomHeight="0.625rem" />
+            <ResponsiveText Text="@Strings.Footer_Disclaimer" CssClass="myriad-pro-bold footer-legal-text" FontSize="xs" CenterText="true" />
+            <ResponsiveVerticalSpacer CustomHeight="0.3125rem" />
+            <ResponsiveText Text="@Strings.Footer_Property" CssClass="myriad-pro-bold footer-legal-text" FontSize="xs" CenterText="true" />
+            <ResponsiveVerticalSpacer CustomHeight="0.625rem" />
+        </FlexColumnCenteredContainer>
+    </ResponsiveContainer>
 </footer>

@@ -4,35 +4,64 @@
 @using TwilightImperiumUltimate.Web.Components.Galaxy
 @using TwilightImperiumUltimate.Web.Components.Shared
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Components.Shared.Text
+@using TwilightImperiumUltimate.Web.Components.Shared.Controls
 @using TwilightImperiumUltimate.Web.Helpers.Enums
 @using TwilightImperiumUltimate.Web.Resources
+@using Radzen
+
+<PageTitle>@Strings.Page_Planets</PageTitle>
 
 <Page>
-    @{
-        _currentGameVersion = null;
-    }
-    @foreach (var gameVersion in _planets.GroupBy(x => x.GameVersion))
-    {
-        if (_currentGameVersion != gameVersion.Key)
+    <ResponsiveText Text="@Strings.Page_Planets" CssClass="news-page-title handel white shadow" FontSize="2xl" CenterText="true" />
+    <ResponsiveVerticalSpacer Size="2xl" />
+
+    <div class="planets-filters-container">
+        <div class="planets-filter-group">
+            <div class="planets-filter-label handel white shadow">By Expansion:</div>
+            <GameVersionFilterDropdown GameVersions="GetAvailableGameVersions()"
+                                       SelectedGameVersion="@_selectedGameVersion"
+                                       SelectedGameVersionChanged="OnGameVersionFilterChanged"
+                                       CssClass="planets-filter-dropdown" />
+        </div>
+
+        <div class="planets-filter-group">
+            <div class="planets-filter-label handel white shadow">By Trait:</div>
+            <RadzenDropDown TValue="string"
+                            Data="@GetPlanetFilterOptions()"
+                            TextProperty="Label"
+                            ValueProperty="Value"
+                            Value="@_selectedPlanetFilter"
+                            Change="OnPlanetFilterChanged"
+                            class="planets-filter-dropdown"
+                            Style="font-family: Handel, fallback, sans-serif" />
+        </div>
+    </div>
+
+    <ResponsiveContainer Type="fluid" Padding="none">
+        @foreach (var gameVersion in GetFilteredPlanets())
         {
-            _currentGameVersion = gameVersion.Key;
-            <Label Text="@_currentGameVersion.GetDisplayName()" FontSize="24" CenterText="true" />
-        }
-
-        <GridLayout Columns="5" Gap="10">
-            @foreach (var planet in gameVersion)
+            @if (!_selectedGameVersion.HasValue)
             {
-                <FlexColumnCenteredContainer>
-                    <div class="clickable" @onclick="@(() => ShowBigImage(planet, CultureInfo.CurrentCulture.Name))">
-                        <PlanetCard Name="@planet.PlanetName.ToString()" />
-                    </div>
-                    <VerticalSpace Height="50" />
-                </FlexColumnCenteredContainer>
+                <ResponsiveText Text="@gameVersion.Key.GetDisplayName()" FontSize="xl" CenterText="true" CssClass="handel white shadow" />
             }
-        </GridLayout>
 
-        <VerticalSpace Height="50" />
-    }
+            <div class="planets-grid-shell">
+                <ResponsiveGridContainer Columns="5" TabletColumns="3" MobileColumns="2" Width="100" Gap="0.625rem">
+                    @foreach (var planet in gameVersion)
+                    {
+                        <div class="planet-item">
+                            <div class="clickable" @onclick="@(() => ShowBigImage(planet, CultureInfo.CurrentCulture.Name))">
+                                <PlanetCard Name="@planet.PlanetName.ToString()" />
+                            </div>
+                        </div>
+                    }
+                </ResponsiveGridContainer>
+            </div>
+
+            <ResponsiveVerticalSpacer Size="2xl" />
+        }
+    </ResponsiveContainer>
 
     @if (_showBigImage)
     {
@@ -40,13 +69,15 @@
             <div class="image-container">
                 <img src="@_currentBigImageSrc" @onclick="HideBigImage" />
             </div>
-            <div id="language-menu">
-                <img src="@(GetCultureIconPath(Strings.EnglishCulture))"
+            <div class="language-menu">
+                <img class="language-flag @GetLanguageFlagClass(Strings.EnglishCulture)"
+                        src="@(GetCultureIconPath(Strings.EnglishCulture))"
                         alt="English"
                         height="50"
                         @onclick="@(() => SetBigImageAddress(Strings.EnglishCulture))"
                         @onclick:stopPropagation="true" />
-                <img src="@(GetCultureIconPath(Strings.CzechCulture))"
+                <img class="language-flag @GetLanguageFlagClass(Strings.CzechCulture)"
+                        src="@(GetCultureIconPath(Strings.CzechCulture))"
                         alt="Czech"
                         height="50"
                         @onclick="@(() => SetBigImageAddress(Strings.CzechCulture))"

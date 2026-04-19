@@ -1,0 +1,8 @@
+.responsive-label {
+    box-sizing: border-box;
+}
+
+.responsive-label.centered-text {
+    width: 100%;
+    display: block;
+}

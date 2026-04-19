@@ -1,0 +1,31 @@
+@inject IPathProvider PathProvider
+
+<div class="card-type-navbar">
+    <ResponsiveGridContainer Columns="10" TabletColumns="10" MobileColumns="5" Width="100" Gap="var(--space-xs)" CssClass="card-type-navbar-grid">
+        @foreach (var item in FirstRowCardTypes)
+        {
+            <CardTypeNavItem TypeOfCard="@item.TypePath"
+                             IconPath="@PathProvider.GetCardTypeIconPath(item.IconName)"
+                             AltText="@item.AltText"
+                             Title="@item.Title"
+                             NoBorder="@item.NoBorder"
+                             IsSelected="@string.Equals(item.TypePath, SelectedTypeOfCard, StringComparison.Ordinal)"
+                             OnSelect="HandleSelection" />
+        }
+
+        <div class="span-5 card-type-row-break">
+            <ResponsiveVerticalSpacer Size="sm" />
+        </div>
+
+        @foreach (var item in SecondRowCardTypes)
+        {
+            <CardTypeNavItem TypeOfCard="@item.TypePath"
+                             IconPath="@PathProvider.GetCardTypeIconPath(item.IconName)"
+                             AltText="@item.AltText"
+                             Title="@item.Title"
+                             NoBorder="@item.NoBorder"
+                             IsSelected="@string.Equals(item.TypePath, SelectedTypeOfCard, StringComparison.Ordinal)"
+                             OnSelect="HandleSelection" />
+        }
+    </ResponsiveGridContainer>
+</div>

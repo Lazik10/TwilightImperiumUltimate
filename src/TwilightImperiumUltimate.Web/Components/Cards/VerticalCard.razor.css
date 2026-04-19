@@ -1,21 +1,41 @@
 ﻿.image-item {
     position: relative;
     display: inline-block;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
     flex-grow: 1;
     flex-shrink: 1;
     width: 100%;
 }
 
-    .image-item img {
+.card-image {
+    display: block;
+    border-radius: 1.25rem;
+    flex-grow: 1;
+    flex-shrink: 1;
+    width: 100%;
+    transition: opacity 0.2s ease;
+}
+
+.image-item img {
         display: block;
-        border-radius: 20px;
+        border-radius: 1.25rem;
         flex-grow: 1;
         flex-shrink: 1;
         width: 100%;
     }
 
-    .image-item::before {
+.card-image-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 1.25rem;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.08));
+    animation: image-placeholder-pulse 1.2s ease-in-out infinite;
+}
+
+.image-item.image-ready::before {
         content: "";
         position: absolute;
         flex-grow: 1;
@@ -25,9 +45,9 @@
         left: 0;
         right: 0;
         bottom: 0;
-        box-shadow: inset 0 0 0 5px #000;
+        box-shadow: inset 0 0 0 0.3125rem #000;
         pointer-events: none;
-        border-radius: 20px;
+        border-radius: 1.25rem;
     }
 
 .strategy-image-item {
@@ -35,45 +55,69 @@
     display: inline-block;
     flex-grow: 1;
     flex-shrink: 1;
-    max-height: 300px;
-    max-width: 80%;
-    margin-bottom: 20px;
+    max-width: 100%;
+    margin-bottom: 1.25rem;
 }
 
-    .strategy-image-item img {
-        display: block;
-        flex-grow: 1;
-        flex-shrink: 1;
-        max-height: 300px;
-    }
+.strategy-image-item .card-image,
+.strategy-image-item img {
+    display: block;
+    flex-grow: 1;
+    flex-shrink: 1;
+    width: 100%;
+    height: auto;
+    max-height: 18.75rem;
+    object-fit: contain;
+}
 
 @media (max-width: 1280px) {
-    .strategy-image-item, .strategy-image-item img {
-        max-height: 200px;
+    .strategy-image-item .card-image,
+    .strategy-image-item img {
+        max-height: 12.5rem;
     }
 
-    .image-item img {
-        border-radius: 10px;
+    .card-image,
+    .image-item img,
+    .card-image-placeholder {
+        border-radius: 0.625rem;
     }
 
-    .image-item::before {
-        border-radius: 10px;
-        box-shadow: inset 0 0 0 3px #000;
+    .image-item.image-ready::before {
+        border-radius: 0.625rem;
+        box-shadow: inset 0 0 0 0.1875rem #000;
     }
 
 }
 
 @media (max-width: 768px) {
-    .strategy-image-item, .strategy-image-item img {
-        max-height: 100px;
+    .strategy-image-item .card-image,
+    .strategy-image-item img {
+        max-height: 46.875rem;
+        max-width: 100%;
     }
 
-    .image-item img {
-        border-radius: 5px;
+    .card-image,
+    .image-item img,
+    .card-image-placeholder {
+        border-radius: 0.3125rem;
     }
 
-    .image-item::before {
-        border-radius: 5px;
-        box-shadow: inset 0 0 0 2px #000;
+    .image-item.image-ready::before {
+        border-radius: 0.3125rem;
+        box-shadow: inset 0 0 0 0.125rem #000;
+    }
+}
+
+@keyframes image-placeholder-pulse {
+    0% {
+        opacity: 0.45;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 0.45;
     }
 }

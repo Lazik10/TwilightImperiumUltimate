@@ -4,7 +4,7 @@ public partial class SystemTiles
 {
     private List<SystemTileModel> _systemTiles = new();
 
-    private GameVersion? _currentGameVersion;
+    private GameVersion? _selectedGameVersion;
 
     private bool _showBigImage;
 
@@ -40,6 +40,33 @@ public partial class SystemTiles
                 .ThenBy(x => x.SystemTileName)
                 .ToList();
         }
+    }
+
+    private IEnumerable<IGrouping<GameVersion, SystemTileModel>> GetFilteredSystemTiles()
+    {
+        var filteredTiles = _selectedGameVersion.HasValue
+            ? _systemTiles.Where(x => x.GameVersion == _selectedGameVersion.Value)
+            : _systemTiles;
+
+        return filteredTiles
+            .OrderBy(x => x.GameVersion)
+            .ThenBy(x => x.SystemTileName)
+            .GroupBy(x => x.GameVersion);
+    }
+
+    private IEnumerable<GameVersion> GetAvailableGameVersions()
+    {
+        return _systemTiles
+            .Select(x => x.GameVersion)
+            .Distinct()
+            .OrderBy(x => x);
+    }
+
+    private Task OnGameVersionFilterChanged(GameVersion? gameVersion)
+    {
+        _selectedGameVersion = gameVersion;
+        StateHasChanged();
+        return Task.CompletedTask;
     }
 
     private void ShowBigImage(SystemTileModel systemTile)
