@@ -1,6 +1,7 @@
 using System.Text;
 using TwilightImperiumUltimate.API.Discord;
 using TwilightImperiumUltimate.API.Helpers;
+using TwilightImperiumUltimate.API.Options;
 using TwilightImperiumUltimate.Business.Logic.Rankings;
 using TwilightImperiumUltimate.Business.Logic.Tigl;
 using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl;
@@ -9,6 +10,7 @@ using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Report;
 using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Season;
 using TwilightImperiumUltimate.Contracts.DTOs.Tigl;
 using TwilightImperiumUltimate.DataAccess.Repositories;
+using Microsoft.Extensions.Options;
 
 namespace TwilightImperiumUltimate.API.Controllers;
 
@@ -18,11 +20,13 @@ namespace TwilightImperiumUltimate.API.Controllers;
 public class TiglController(
     IMediator mediator,
     IDiscordClient discordClient,
-    ITiglRepository tiglRepository)
+    ITiglRepository tiglRepository,
+    IOptions<FrontendOptions> frontendOptions)
     : ControllerBase
 {
     private readonly IMediator _mediator = mediator;
     private readonly ITiglRepository _tiglRepository = tiglRepository;
+    private readonly FrontendOptions _frontendOptions = frontendOptions.Value;
 
     // POST: api/tigl/report-game
     [Route("report-game")]
@@ -285,5 +289,40 @@ public class TiglController(
     {
         var data = await _mediator.Send(new GetTiglPlayerProfileQuery(tiglUserId), cancellationToken);
         return Ok(new ApiResponse<TiglPlayerProfileDto>() { Success = true, Data = data });
+    }
+
+    // GET: api/tigl/tigl-player-profile-link
+    [Route("tigl-player-profile-link")]
+    [HttpGet]
+    public async Task<ActionResult<IApiResponse<TiglPlayerProfileLinkDto>>> GetTiglPlayerProfileLink([FromQuery] long discordId, CancellationToken cancellationToken)
+    {
+        var data = await _mediator.Send(new GetTiglPlayerProfileLinkQuery(discordId), cancellationToken);
+        if (data.TiglUserId == -1)
+        {
+            return BadRequest(new ApiResponse<TiglPlayerProfileLinkDto>()
+            {
+                Success = false,
+                Data = data,
+                ProblemDetails = new ProblemDetailsDto() { Title = "TIGL user not found", Detail = $"No TIGL user found for Discord ID {discordId}" },
+            });
+        }
+
+        data = new TiglPlayerProfileLinkDto
+        {
+            DiscordUserId = data.DiscordUserId,
+            TiglUserId = data.TiglUserId,
+            Url = new Uri(_frontendOptions.Url, data.Url).ToString(),
+        };
+
+        return Ok(new ApiResponse<TiglPlayerProfileLinkDto>() { Success = true, Data = data });
+    }
+
+    // POST: api/tigl/tigl-player-rank-history
+    [Route("tigl-player-rank-history")]
+    [HttpPost]
+    public async Task<ActionResult<IApiResponse<ItemListDto<TiglPlayerRankHistoryDto>>>> GetPlayerRankHistory(PlayerRankHistoryRequest request, CancellationToken cancellationToken)
+    {
+        var data = await _mediator.Send(new GetPlayerRankHistoryQuery(request.DiscordUserIds), cancellationToken);
+        return Ok(new ApiResponse<ItemListDto<TiglPlayerRankHistoryDto>>() { Success = true, Data = data });
     }
 }
