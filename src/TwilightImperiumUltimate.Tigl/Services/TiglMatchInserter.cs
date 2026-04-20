@@ -21,8 +21,9 @@ public class TiglMatchInserter(
         var currentSeason = await seasonRepository.GetCurrentSeason(cancellationToken);
         var eventsFlag = TiglGalacticEventConverter.ConvertToFlags(gameReport.Events);
 
+        // Update to fractured league if the game has any galactic events and is currently marked as Thunder's Edge
         if (gameReport.League == TiglLeague.ThundersEdge && eventsFlag != 0)
-            return Result.Fail<MatchReport>($"Game {gameReport.GameId}: Thunders Edge league should not have any galactic events enabled, if this was game should have been marked as Fractured instead please report it manually.");
+            gameReport.League = TiglLeague.Fractured;
 
         var matchReport = new MatchReport
         {

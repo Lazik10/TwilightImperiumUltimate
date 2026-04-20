@@ -101,7 +101,7 @@ public partial class RanksGrid
             .OrderBy(x => x.GamesPlayed)
             .ThenBy(x => x.LastAchievedAt));
 
-        AddGroup(Strings.Rankings_PrestigeRankCategory_Minister, withoutPrestige
+        AddGroup(Strings.Rankings_PrestigeRankCategory_Thrall, withoutPrestige
             .Where(x => x.Rank == TiglRankName.Thrall)
             .OrderBy(x => x.GamesPlayed)
             .ThenBy(x => x.LastAchievedAt));
