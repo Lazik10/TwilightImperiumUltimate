@@ -215,6 +215,21 @@ internal class PrestigeRankService(
                 cancellationToken);
     }
 
+    public async Task<bool> HasFactionPrestigeRankExcludingCurrentMatch(int userId, MatchReport matchReport, TiglFactionName faction, TiglLeague league, CancellationToken cancellationToken)
+    {
+        using var dbContext = await context.CreateDbContextAsync(cancellationToken);
+
+        return await dbContext.TiglUserPrestigeRanks
+            .Include(x => x.PrestigeRank)
+            .AnyAsync(
+                x => x.TiglUserId == userId
+                && x.PrestigeRank.FactionName == faction
+                && x.PrestigeRank.League == league
+                && x.AchievedAt <= matchReport.EndTimestamp
+                && x.AchievedAt != matchReport.EndTimestamp,
+                cancellationToken);
+    }
+
     public async Task<bool> HasGalacticThreatRank(int userId, MatchReport matchReport, int rank, TiglLeague league, CancellationToken cancellationToken)
     {
         using var dbContext = await context.CreateDbContextAsync(cancellationToken);

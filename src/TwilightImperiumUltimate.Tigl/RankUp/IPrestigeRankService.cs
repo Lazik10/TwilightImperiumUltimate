@@ -7,6 +7,8 @@ public interface IPrestigeRankService
 {
     Task<bool> HasFactionPrestigeRank(int userId, MatchReport matchReport, TiglFactionName faction, TiglLeague league, CancellationToken cancellationToken);
 
+    Task<bool> HasFactionPrestigeRankExcludingCurrentMatch(int userId, MatchReport matchReport, TiglFactionName faction, TiglLeague league, CancellationToken cancellationToken);
+
     Task<bool> HasGalacticThreatRank(int userId, MatchReport matchReport, int rank, TiglLeague league, CancellationToken cancellationToken);
 
     Task<int> AddFactionPrestigeRank(int userId, MatchReport matchReport, TiglFactionName faction, TiglLeague league, CancellationToken cancellationToken);

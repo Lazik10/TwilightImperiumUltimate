@@ -31,6 +31,7 @@ public class RankRepository(
         };
 
         var currentRank = await GetCurrentRank(tiglUserId, league, cancellationToken);
+        var duration = await CalculateRankUpDuration(tiglUserId, rankName, league, timestamp, currentRank, dbContext, cancellationToken);
 
         dbContext.Ranks.Add(newRank);
         dbContext.RankUpLogs.Add(CreateRankUpLog(
@@ -41,7 +42,7 @@ public class RankRepository(
             currentRank.Value.Name,
             rankName,
             league,
-            currentRank.IsSuccess ? timestamp - currentRank.Value.AchievedAt : 0,
+            duration,
             matchId));
 
         try
@@ -109,6 +110,47 @@ public class RankRepository(
         }
 
         return Result.Ok(true);
+    }
+
+    private static async Task<long> CalculateRankUpDuration(
+        int tiglUserId,
+        TiglRankName newRank,
+        TiglLeague league,
+        long timestamp,
+        Result<TiglRank> currentRank,
+        TwilightImperiumDbContext dbContext,
+        CancellationToken cancellationToken)
+    {
+        if (!currentRank.IsSuccess)
+            return 0;
+
+        var isFirstBasePromotion = currentRank.Value.Name == TiglRankName.Unranked
+            && (newRank == TiglRankName.Minister || newRank == TiglRankName.Thrall)
+            && !await dbContext.Ranks.AnyAsync(
+                r => r.TiglUserId == tiglUserId
+                    && r.League == league
+                    && r.Name == newRank,
+                cancellationToken);
+
+        long startTimestamp;
+
+        if (isFirstBasePromotion)
+        {
+            var firstGameStartTimestamp = await dbContext.GameReports
+                .Where(gr => gr.League == league)
+                .Where(gr => gr.PlayerResults.Any(pr => pr.TiglUserId == tiglUserId))
+                .OrderBy(gr => gr.StartTimestamp)
+                .Select(gr => (long?)gr.StartTimestamp)
+                .FirstOrDefaultAsync(cancellationToken);
+
+            startTimestamp = firstGameStartTimestamp ?? currentRank.Value.AchievedAt;
+        }
+        else
+        {
+            startTimestamp = currentRank.Value.AchievedAt;
+        }
+
+        return Math.Max(0, timestamp - startTimestamp);
     }
 
     private RankUpLog CreateRankUpLog(int tiglUserId, long timestamp, long tiglUserDiscordId, string tiglUserName, TiglRankName oldRank, TiglRankName newRank, TiglLeague league, long duration, int matchId)

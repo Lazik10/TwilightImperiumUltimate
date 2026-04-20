@@ -126,7 +126,7 @@ public static class TiglFactionParser
 
             "Homebrew" => TiglFactionName.Homebrew,
 
-            _ => throw new ArgumentOutOfRangeException(nameof(faction), $"Unknown faction: {faction}"),
+            _ => TiglFactionName.Homebrew,
         };
     }
 }

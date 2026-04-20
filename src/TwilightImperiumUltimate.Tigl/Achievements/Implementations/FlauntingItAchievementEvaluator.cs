@@ -20,7 +20,7 @@ public sealed class FlauntingItAchievementEvaluator(
     {
         ArgumentNullException.ThrowIfNull(matchReport);
 
-        // This echievement can only be scored in official leage
+        // This achievement can only be scored in official league
         if (matchReport.League == TiglLeague.ThundersEdge)
         {
             var winnersWithoutThisAchievement = matchReport.PlayerResults
@@ -29,7 +29,7 @@ public sealed class FlauntingItAchievementEvaluator(
 
             foreach (var winner in winnersWithoutThisAchievement)
             {
-                var hasRank = await prestigeRankService.HasFactionPrestigeRank(winner.TiglUserId, matchReport, winner.Faction, TiglLeague.ThundersEdge, cancellationToken);
+                var hasRank = await prestigeRankService.HasFactionPrestigeRankExcludingCurrentMatch(winner.TiglUserId, matchReport, winner.Faction, TiglLeague.ThundersEdge, cancellationToken);
 
                 if (hasRank)
                 {

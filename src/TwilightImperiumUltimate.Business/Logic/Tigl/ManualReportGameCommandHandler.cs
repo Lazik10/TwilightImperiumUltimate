@@ -61,15 +61,25 @@ public class ManualReportGameCommandHandler(
             return playerCountValidation.Result;
 
         var factionValidationResult = await tiglFactionValidator.AllTiglFactionsAreValid(gameReport);
+        if (factionValidationResult.IsFailed && gameReport.League == TiglLeague.ThundersEdge)
+        {
+            _logger.LogWarning(
+                "Game {GameId} submitted as {League} contains unsupported official factions. Auto-switching to {FallbackLeague}.",
+                gameReport.GameId,
+                TiglLeague.ThundersEdge,
+                TiglLeague.Fractured);
+
+            gameReport.League = TiglLeague.Fractured;
+            factionValidationResult = await tiglFactionValidator.AllTiglFactionsAreValid(gameReport);
+        }
+
         if (factionValidationResult.IsFailed)
         {
-            StringBuilder stringBuilder = new StringBuilder();
+            var stringBuilder = new StringBuilder();
             foreach (var error in factionValidationResult.Errors)
-            {
                 stringBuilder.AppendLine(error.Message);
-            }
 
-            return new GameReportResult(false, $"Invalid Factions for game {gameReport.GameId}", stringBuilder.ToString());
+            return new GameReportResult(false, "Invalid Factions for game " + gameReport.GameId, stringBuilder.ToString());
         }
 
         // Validate that all users exist in the database
