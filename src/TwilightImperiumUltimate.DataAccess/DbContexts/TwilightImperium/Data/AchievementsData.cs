@@ -55,5 +55,8 @@ internal static class AchievementsData
         new Achievement() { Id = 39, Name = AchievementName.Collector, Category = AchievementCategory.Summary },
         new Achievement() { Id = 40, Name = AchievementName.Overachiever, Category = AchievementCategory.Summary },
         new Achievement() { Id = 41, Name = AchievementName.Completionist, Category = AchievementCategory.Summary },
+
+        new Achievement() { Id = 42, Name = AchievementName.Mythical, Category = AchievementCategory.Wins },
+        new Achievement() { Id = 43, Name = AchievementName.Icarus, Category = AchievementCategory.Wins },
     };
 }
