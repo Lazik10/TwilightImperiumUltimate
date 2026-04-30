@@ -29,6 +29,8 @@ public enum AchievementName
     IGotBetter, // Win a game as a faction you have 5 losses with
     BackToBack, // Win 2 games in a row as the same faction (games not as that faction can be played in between)
     Inconceivable, // Win 5 games in a row
+    Mythical, // Win 10 games in a row
+    Icarus, // Loose a game in which you would gained Inconceivable or Mythical
     UnderdogStory, // Win against 3+ players with higher ranks than you
 
     LiveInInterestingTimes, // Win games that collectively included all Galactic Events (not currently possible to log, but once it is, should work retroactively
