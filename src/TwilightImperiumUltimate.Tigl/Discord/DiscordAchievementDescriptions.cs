@@ -48,6 +48,8 @@ public static class DiscordAchievementDescriptions
             [AchievementName.Collector] = new("Collector", "Earn 5 different achievements"),
             [AchievementName.Overachiever] = new("Overachiever", "Earn 15 different achievements"),
             [AchievementName.Completionist] = new("Completionist", "Earn 30 different achievements"),
+            [AchievementName.Mythical] = new("Mythical", "Win 10 games in a row"),
+            [AchievementName.Icarus] = new("Icarus", "Lose a game in which you would gained Inconceivable (5 wins in a row) or Mythical (10 wins in a row)"),
         };
 
     public static string GetDetail(this AchievementName name)
