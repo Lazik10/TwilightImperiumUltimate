@@ -11,8 +11,8 @@ internal static class SeasonsData
             Id = 1,
             SeasonNumber = 1,
             Name = "Season 1",
-            StartDate = DateOnly.FromDateTime(DateTime.UtcNow),
-            EndDate = DateOnly.FromDateTime(DateTime.UtcNow),
+            StartDate = new DateOnly(2025, 12, 1),
+            EndDate = new DateOnly(2025, 12, 1),
             IsActive = true,
         },
     };

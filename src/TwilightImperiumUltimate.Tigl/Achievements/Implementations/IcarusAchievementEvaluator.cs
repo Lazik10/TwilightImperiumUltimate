@@ -15,8 +15,8 @@ public sealed class IcarusAchievementEvaluator(
     ITiglUserRepository tiglUserRepository)
     : IAchievementEvaluator
 {
-    private const int MaxStreakToCheck = 15;
-    private static readonly HashSet<int> RequiredStreaks = [4, 9, 14];
+    private const int MaxStreakToCheck = 10;
+    private static readonly HashSet<int> RequiredStreaks = [4, 9];
 
     public async Task EvaluateAsync(MatchReport matchReport, AchievementName achievementName, IReadOnlyCollection<TiglUserAchievement> usersAchievements, CancellationToken cancellationToken = default)
     {

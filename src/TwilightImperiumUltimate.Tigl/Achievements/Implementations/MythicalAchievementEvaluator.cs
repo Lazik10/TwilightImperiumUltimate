@@ -28,10 +28,9 @@ public sealed class MythicalAchievementEvaluator(
 
         foreach (var winner in winners)
         {
-            var factionResults = await tiglUserRepository.GetTiglUserMatchReports(winner.TiglUserId, matchReport.EndTimestamp, cancellationToken, false);
+            var factionResults = await tiglUserRepository.GetTiglUserMatchReports(winner.TiglUserId, matchReport.EndTimestamp, cancellationToken, false, null, LastNineGameResults);
             var lastNineResults = factionResults
                 .OrderByDescending(gr => gr.EndTimestamp)
-                .Take(LastNineGameResults)
                 .ToList();
 
             if (lastNineResults is null || lastNineResults.Count < LastNineGameResults)
