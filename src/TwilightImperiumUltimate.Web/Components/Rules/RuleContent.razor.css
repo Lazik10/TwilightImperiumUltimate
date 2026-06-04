@@ -1,3 +1,75 @@
-﻿.markup-text {
+﻿.rule-card {
+    width: 100%;
+    padding: 18px 20px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 8px;
+    background: linear-gradient(180deg, rgba(9, 24, 43, 0.86), rgba(3, 8, 16, 0.82));
+    scroll-margin-top: 110px;
+}
+
+.rule-card-header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px;
+    align-items: baseline;
+    margin-bottom: 12px;
+}
+
+.rule-number {
+    color: #9fd4ff;
+    font-size: 18px;
+}
+
+.rule-card h2 {
+    margin: 0;
+    font-size: 25px;
+    line-height: 1.15;
+}
+
+.markup-text {
     line-height: 1.7;
+}
+
+.rule-body {
+    font-size: 17px;
+}
+
+.rule-notes {
+    margin-top: 16px;
+    padding: 14px 16px;
+    border-left: 3px solid rgba(159, 212, 255, 0.82);
+    border-radius: 0 6px 6px 0;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.rule-notes-title {
+    margin-bottom: 6px;
+    color: #9fd4ff;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .rule-card {
+        padding: 15px 13px;
+        scroll-margin-top: 18px;
+    }
+
+    .rule-card-header {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+
+    .rule-card h2 {
+        font-size: 22px;
+    }
+
+    .rule-body {
+        font-size: 16px;
+    }
+
+    .rule-notes {
+        padding: 12px;
+    }
 }

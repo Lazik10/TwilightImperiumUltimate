@@ -5,4 +5,7 @@ public partial class Rules
     [Parameter]
     [SupplyParameterFromQuery(Name = "search")]
     public string SearchWord { get; set; } = string.Empty;
+
+    [Parameter]
+    public int? RuleId { get; set; }
 }

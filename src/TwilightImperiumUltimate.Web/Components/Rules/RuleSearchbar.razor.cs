@@ -1,6 +1,6 @@
 namespace TwilightImperiumUltimate.Web.Components.Rules;
 
-public partial class RuleSearchBar
+public partial class RuleSearchbar
 {
     [Parameter]
     public EventCallback<string> OnSearchChange { get; set; }
@@ -11,9 +11,6 @@ public partial class RuleSearchBar
 
     private async Task SearchRules(string? text)
     {
-        if (string.IsNullOrEmpty(text) || string.IsNullOrWhiteSpace(text))
-            return;
-
-        await OnSearchChange.InvokeAsync(text);
+        await OnSearchChange.InvokeAsync(text ?? string.Empty);
     }
 }

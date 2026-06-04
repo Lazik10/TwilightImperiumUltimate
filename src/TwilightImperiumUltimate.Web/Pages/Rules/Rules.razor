@@ -1,4 +1,5 @@
 ﻿@page "/rules"
+@page "/rules/{RuleId:int}"
 @using TwilightImperiumUltimate.Web.Components.Rules
 @using TwilightImperiumUltimate.Web.Components.Shared
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
@@ -8,5 +9,5 @@
 <PageTitle>@Strings.Page_Rules</PageTitle>
 
 <Page>
-    <RuleGrid SearchWord="@SearchWord" />
+    <RuleGrid SearchWord="@SearchWord" RuleId="@RuleId" />
 </Page>

@@ -1,3 +1,29 @@
-﻿.radzen-textbox {
-    background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.5) 10%, rgba(0,0,0,0.5) 90%, rgba(0,0,0,0));
+﻿.rules-search {
+    display: grid;
+    grid-template-columns: auto minmax(220px, 1fr);
+    gap: 14px;
+    align-items: center;
+    width: 100%;
+}
+
+.rules-search span {
+    font-size: 22px;
+}
+
+.rules-search-input {
+    width: 100%;
+    min-height: 42px;
+    border-color: rgba(255, 255, 255, 0.24) !important;
+    background: rgba(0, 0, 0, 0.42) !important;
+}
+
+@media (max-width: 576px) {
+    .rules-search {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .rules-search span {
+        font-size: 18px;
+    }
 }

@@ -1,14 +1,18 @@
 ﻿@using TwilightImperiumUltimate.Web.Helpers.Resources
 
-<div class="handel white shadow" style="width: 100%;">
-    <h1>@GetTransformedRuleId() - @TransformedRuleTitle</h1>
-    <br />
-    <div class="markup-text">@TransformedRuleContent</div>
-    <br />
-    @if(ShowNotes)
-    {
-        <Label Text="@Strings.Rules_Notes" />
-        <div class="markup-text">@TransformedNoteContent</div>
-    }
-</div>
+<article class="rule-card handel white shadow" id="@GetTransformedRuleAnchor()">
+    <header class="rule-card-header">
+        <span class="rule-number">@GetTransformedRuleId()</span>
+        <h2>@TransformedRuleTitle</h2>
+    </header>
 
+    <div class="markup-text rule-body">@TransformedRuleContent</div>
+
+    @if (ShowNotes && !string.IsNullOrWhiteSpace(TransformedRule.NotesContent))
+    {
+        <aside class="rule-notes">
+            <div class="rule-notes-title">@Strings.Rules_Notes</div>
+            <div class="markup-text">@TransformedNoteContent</div>
+        </aside>
+    }
+</article>
