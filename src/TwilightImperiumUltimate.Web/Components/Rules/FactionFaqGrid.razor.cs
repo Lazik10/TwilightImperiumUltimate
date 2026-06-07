@@ -270,7 +270,9 @@ public partial class FactionFaqGrid : IAsyncDisposable
     private string GetCatalogPath() => BuildPath("/rules/factions");
 
     private string GetFactionPath(FactionEntry faction) =>
-        BuildPath($"/rules/factions/{Uri.EscapeDataString(faction.Key)}");
+        CompactSearchResults
+            ? $"/rules/factions/{Uri.EscapeDataString(faction.Key)}"
+            : BuildPath($"/rules/factions/{Uri.EscapeDataString(faction.Key)}");
 
     private static string GetFactionIconPath(FactionEntry faction) =>
         $"/resources/images/shared/factionicons/{faction.Key}.webp";
