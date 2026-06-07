@@ -43,6 +43,24 @@ public sealed partial class Rules : IDisposable
         NavigationManager.LocationChanged += OnLocationChanged;
     }
 
+    protected override void OnParametersSet()
+    {
+        if (string.IsNullOrWhiteSpace(SearchWord)
+            || (Letter is null && Category is null && Source is null && Version is null))
+        {
+            return;
+        }
+
+        var uri = NavigationManager.GetUriWithQueryParameters(new Dictionary<string, object?>
+        {
+            ["letter"] = null,
+            ["category"] = null,
+            ["source"] = null,
+            ["version"] = null,
+        });
+        NavigationManager.NavigateTo(uri, replace: true);
+    }
+
     private void OnLocationChanged(object? sender, LocationChangedEventArgs args)
     {
         var section = GetSection(args.Location);
