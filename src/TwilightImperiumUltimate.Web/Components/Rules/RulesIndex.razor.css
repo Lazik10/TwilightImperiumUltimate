@@ -15,9 +15,14 @@
 }
 
 .rules-index-line {
+    height: 1px;
     margin: 6px 0 14px;
-    overflow: hidden;
-    line-height: 0;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255, 255, 255, 0.45) 12%,
+        rgba(255, 255, 255, 0.45) 88%,
+        transparent);
 }
 
 .rules-index-links {

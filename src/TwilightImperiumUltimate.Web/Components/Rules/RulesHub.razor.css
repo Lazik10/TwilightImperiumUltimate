@@ -62,9 +62,14 @@
 }
 
 .rules-hub ::deep .faq-title-line {
+    height: 1px;
     margin: 10px 0 18px;
-    overflow: hidden;
-    line-height: 0;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255, 255, 255, 0.45) 12%,
+        rgba(255, 255, 255, 0.45) 88%,
+        transparent);
 }
 
 .rules-hub ::deep .faq-link-list {
