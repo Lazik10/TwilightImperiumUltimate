@@ -32,6 +32,20 @@
                         No rule topics match <strong>@_searchTerm</strong>.
                     </div>
                 }
+                else if (CompactSearchResults)
+                {
+                    <div class="rules-topic-list rules-global-link-list">
+                        @foreach (var transformedRule in RuleSections.SelectMany(section => section.Rules))
+                        {
+                            <a class="rules-topic-link handel white shadow"
+                               href="@GetRulePath(transformedRule)"
+                               @key="transformedRule.RuleCategory">
+                                <span class="rules-topic-number">@GetRuleId(transformedRule)</span>
+                                <span>@((MarkupString)transformedRule.RuleTitle)</span>
+                            </a>
+                        }
+                    </div>
+                }
                 else
                 {
                     <div class="rules-topic-sections">

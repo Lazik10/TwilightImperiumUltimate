@@ -14,13 +14,25 @@
     gap: 16px;
 }
 
-.rules-global-results > section > h2 {
+.rules-global-heading {
     width: 80%;
     max-width: 1180px;
-    margin: 0 auto 6px;
+    box-sizing: border-box;
+    margin: 0 auto 8px;
+    padding: 8px 7%;
     color: white;
     font-size: 24px;
     text-transform: uppercase;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(0, 0, 0, 0.62) 10%,
+        rgba(0, 0, 0, 0.62) 90%,
+        transparent);
+}
+
+.rules-hub ::deep .rules-global-link-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .rules-hub ::deep .rules-visually-hidden {

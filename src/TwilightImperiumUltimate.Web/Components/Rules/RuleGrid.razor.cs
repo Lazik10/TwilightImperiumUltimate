@@ -22,6 +22,9 @@ public partial class RuleGrid
     [Parameter]
     public int? RuleId { get; set; }
 
+    [Parameter]
+    public bool CompactSearchResults { get; set; }
+
     private IReadOnlyCollection<RuleSection> RuleSections { get; set; } = [];
 
     private IReadOnlyCollection<RulesIndexItem> LetterFilterItems { get; set; } = [];

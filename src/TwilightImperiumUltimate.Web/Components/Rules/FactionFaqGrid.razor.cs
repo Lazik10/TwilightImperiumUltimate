@@ -41,6 +41,9 @@ public partial class FactionFaqGrid : IAsyncDisposable
     [Parameter]
     public string? ItemKey { get; set; }
 
+    [Parameter]
+    public bool CompactSearchResults { get; set; }
+
     [Inject]
     private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
 

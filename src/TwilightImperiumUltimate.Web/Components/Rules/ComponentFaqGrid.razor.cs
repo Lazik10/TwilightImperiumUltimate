@@ -73,6 +73,9 @@ public partial class ComponentFaqGrid
     [Parameter]
     public string? ItemKey { get; set; }
 
+    [Parameter]
+    public bool CompactSearchResults { get; set; }
+
     [Inject]
     private IApprovedFaqCache FaqCache { get; set; } = default!;
 

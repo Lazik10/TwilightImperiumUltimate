@@ -54,6 +54,18 @@
                     No components match the current search and category.
                 </div>
             }
+            else if (CompactSearchResults)
+            {
+                <div class="faq-link-list component-link-list rules-global-link-list">
+                    @foreach (var component in ComponentGroups.SelectMany(group => group.Items))
+                    {
+                        <a href="@GetComponentPath(component)" @key="component.Key">
+                            <small>@component.Category</small>
+                            <span>@component.Title</span>
+                        </a>
+                    }
+                </div>
+            }
             else
             {
                 <div class="component-groups">

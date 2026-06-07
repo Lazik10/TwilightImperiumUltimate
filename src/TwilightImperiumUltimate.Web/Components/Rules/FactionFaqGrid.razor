@@ -41,6 +41,20 @@
                     No factions match <strong>@SearchTerm</strong>.
                 </div>
             }
+            else if (CompactSearchResults)
+            {
+                <div class="faq-link-list rules-global-link-list">
+                    @foreach (var faction in FactionSections.SelectMany(section => section.Items))
+                    {
+                        <a href="@GetFactionPath(faction)" @key="faction.Key">
+                            <img class="faq-faction-icon"
+                                 src="@GetFactionIconPath(faction)"
+                                 alt="" />
+                            <span>@faction.Title</span>
+                        </a>
+                    }
+                </div>
+            }
             else
             {
                 @if (string.IsNullOrWhiteSpace(SearchTerm))
