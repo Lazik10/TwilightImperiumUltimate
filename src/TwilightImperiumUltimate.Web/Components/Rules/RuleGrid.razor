@@ -11,13 +11,6 @@
     }
     else
     {
-        <section class="rules-search-shell">
-            <RuleSearchbar Value="@_searchTerm"
-                           Placeholder="Search rule titles, text, and notes..."
-                           ResultCount="@FilteredRuleCount"
-                           OnSearchChange="SearchRules" />
-        </section>
-
         @if (string.IsNullOrWhiteSpace(_searchTerm))
         {
             <RulesFilterBar Items="@LetterFilterItems"

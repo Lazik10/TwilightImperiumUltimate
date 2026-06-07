@@ -139,16 +139,6 @@ public partial class ComponentFaqGrid
         SetSelectedComponent();
     }
 
-    private void SearchComponents(string search)
-    {
-        SearchTerm = search;
-        ActiveCategory = AllCategory;
-        ActiveLetter = string.Empty;
-        ApplyFilters();
-        UpdateQuery(returnToCatalog:
-            SelectedComponent is not null && !string.IsNullOrWhiteSpace(SearchTerm));
-    }
-
     private void SelectCategory(string category)
     {
         ActiveCategory = NormalizeCategory(category);
@@ -277,11 +267,7 @@ public partial class ComponentFaqGrid
     {
         var query = new Dictionary<string, object?>
         {
-            ["search"] = string.IsNullOrWhiteSpace(SearchTerm) ? null : SearchTerm,
-            ["category"] = string.IsNullOrWhiteSpace(SearchTerm)
-                && ActiveCategory != AllCategory
-                    ? ActiveCategory
-                    : null,
+            ["category"] = ActiveCategory == AllCategory ? null : ActiveCategory,
             ["letter"] = null,
         };
         var uri = returnToCatalog

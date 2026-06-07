@@ -45,19 +45,18 @@ public sealed partial class Rules : IDisposable
 
     protected override void OnParametersSet()
     {
-        if (string.IsNullOrWhiteSpace(SearchWord)
-            || (Letter is null && Category is null && Source is null && Version is null))
-        {
+        if (string.IsNullOrWhiteSpace(SearchWord))
             return;
-        }
 
-        var uri = NavigationManager.GetUriWithQueryParameters(new Dictionary<string, object?>
-        {
-            ["letter"] = null,
-            ["category"] = null,
-            ["source"] = null,
-            ["version"] = null,
-        });
+        var uri = NavigationManager.GetUriWithQueryParameters(
+            NavigationManager.ToAbsoluteUri("/rules").ToString(),
+            new Dictionary<string, object?>
+            {
+                ["search"] = SearchWord,
+            });
+        if (NavigationManager.Uri.Equals(uri, StringComparison.Ordinal))
+            return;
+
         NavigationManager.NavigateTo(uri, replace: true);
     }
 

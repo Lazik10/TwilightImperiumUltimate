@@ -185,17 +185,6 @@ public partial class FactionFaqGrid : IAsyncDisposable
             notesHtml);
     }
 
-    private void SearchFactions(string search)
-    {
-        SearchTerm = search;
-        ActiveSourceFilter = OfficialSources;
-        ActiveGameVersion = string.Empty;
-        BuildVersionFilterItems();
-        ApplySearch();
-        UpdateQuery(returnToCatalog:
-            SelectedFaction is not null && !string.IsNullOrWhiteSpace(SearchTerm));
-    }
-
     private void SelectSourceFilter(string source)
     {
         ActiveSourceFilter = NormalizeSourceFilter(source);
@@ -264,22 +253,14 @@ public partial class FactionFaqGrid : IAsyncDisposable
                 faction.Key.Equals(ItemKey, StringComparison.OrdinalIgnoreCase));
     }
 
-    private void UpdateQuery(bool returnToCatalog = false)
+    private void UpdateQuery()
     {
         var query = new Dictionary<string, object?>
         {
-            ["search"] = string.IsNullOrWhiteSpace(SearchTerm) ? null : SearchTerm,
-            ["source"] = string.IsNullOrWhiteSpace(SearchTerm) ? ActiveSourceFilter : null,
-            ["version"] = string.IsNullOrWhiteSpace(SearchTerm)
-                && !string.IsNullOrEmpty(ActiveGameVersion)
-                    ? ActiveGameVersion
-                    : null,
+            ["source"] = ActiveSourceFilter,
+            ["version"] = string.IsNullOrEmpty(ActiveGameVersion) ? null : ActiveGameVersion,
         };
-        var uri = returnToCatalog
-            ? NavigationManager.GetUriWithQueryParameters(
-                NavigationManager.ToAbsoluteUri("/rules/factions").ToString(),
-                query)
-            : NavigationManager.GetUriWithQueryParameters(query);
+        var uri = NavigationManager.GetUriWithQueryParameters(query);
         NavigationManager.NavigateTo(uri, replace: true);
     }
 

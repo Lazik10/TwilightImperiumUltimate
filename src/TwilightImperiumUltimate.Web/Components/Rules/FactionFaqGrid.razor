@@ -15,13 +15,6 @@
     }
     else
     {
-        <div class="rules-search-shell">
-            <RuleSearchbar Value="@SearchTerm"
-                           Placeholder="Search factions, notes, and FAQ..."
-                           ResultCount="@FilteredFactionCount"
-                           OnSearchChange="SearchFactions" />
-        </div>
-
         @if (!string.IsNullOrWhiteSpace(ItemKey) && SelectedFaction is null)
         {
             <div class="rules-status rules-status-error">

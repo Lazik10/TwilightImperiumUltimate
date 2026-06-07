@@ -20,13 +20,6 @@
             <h1 class="rules-visually-hidden">Components</h1>
         }
 
-        <div class="rules-search-shell">
-            <RuleSearchbar Value="@SearchTerm"
-                           Placeholder="Search cards, technologies, notes, and FAQ..."
-                           ResultCount="@FilteredComponentCount"
-                           OnSearchChange="SearchComponents" />
-        </div>
-
         @if (string.IsNullOrWhiteSpace(SearchTerm))
         {
             <RulesFilterBar Items="@ComponentFilterItems"

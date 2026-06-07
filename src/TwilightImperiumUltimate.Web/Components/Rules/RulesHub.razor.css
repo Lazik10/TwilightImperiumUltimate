@@ -3,6 +3,26 @@
     padding: 8px 0 56px;
 }
 
+.rules-global-search {
+    width: 80%;
+    max-width: 1180px;
+    margin: 0 auto 14px;
+}
+
+.rules-global-results {
+    display: grid;
+    gap: 16px;
+}
+
+.rules-global-results > section > h2 {
+    width: 80%;
+    max-width: 1180px;
+    margin: 0 auto 6px;
+    color: white;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
 .rules-hub ::deep .rules-visually-hidden {
     position: absolute;
     width: 1px;

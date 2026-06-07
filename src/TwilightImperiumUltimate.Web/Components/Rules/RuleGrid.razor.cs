@@ -172,14 +172,6 @@ public partial class RuleGrid
 
     private string GetNotesToggleText() => _showNotes ? "On" : "Off";
 
-    private void SearchRules(string search)
-    {
-        _searchTerm = search;
-        ApplyFilters(null);
-        UpdateQuery(returnToCatalog:
-            SelectedRule is not null && !string.IsNullOrWhiteSpace(_searchTerm));
-    }
-
     private void SelectLetter(string letter)
     {
         ApplyFilters(letter);
@@ -204,21 +196,13 @@ public partial class RuleGrid
         NavigationManager.NavigateTo(uri);
     }
 
-    private void UpdateQuery(bool returnToCatalog = false)
+    private void UpdateQuery()
     {
         var query = new Dictionary<string, object?>
         {
-            ["search"] = string.IsNullOrWhiteSpace(_searchTerm) ? null : _searchTerm,
-            ["letter"] = string.IsNullOrWhiteSpace(_searchTerm)
-                && !string.IsNullOrEmpty(ActiveLetter)
-                    ? ActiveLetter
-                    : null,
+            ["letter"] = string.IsNullOrEmpty(ActiveLetter) ? null : ActiveLetter,
         };
-        var uri = returnToCatalog
-            ? NavigationManager.GetUriWithQueryParameters(
-                NavigationManager.ToAbsoluteUri(GetRulesCatalogPath()).ToString(),
-                query)
-            : NavigationManager.GetUriWithQueryParameters(query);
+        var uri = NavigationManager.GetUriWithQueryParameters(query);
         NavigationManager.NavigateTo(uri, replace: true);
     }
 
