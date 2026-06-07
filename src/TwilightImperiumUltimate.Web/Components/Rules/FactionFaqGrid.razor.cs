@@ -143,7 +143,9 @@ public partial class FactionFaqGrid : IAsyncDisposable
     {
         SearchTerm = SearchWord;
         ActiveSourceFilter = NormalizeSourceFilter(Source);
-        ActiveGameVersion = NormalizeGameVersion(Version);
+        ActiveGameVersion = string.IsNullOrWhiteSpace(SearchTerm)
+            ? NormalizeGameVersion(Version)
+            : string.Empty;
         SyncSourceWithGameVersion();
         BuildVersionFilterItems();
         ApplySearch();
@@ -186,6 +188,9 @@ public partial class FactionFaqGrid : IAsyncDisposable
     private void SearchFactions(string search)
     {
         SearchTerm = search;
+        ActiveSourceFilter = OfficialSources;
+        ActiveGameVersion = string.Empty;
+        BuildVersionFilterItems();
         ApplySearch();
         UpdateQuery(returnToCatalog:
             SelectedFaction is not null && !string.IsNullOrWhiteSpace(SearchTerm));
@@ -217,8 +222,10 @@ public partial class FactionFaqGrid : IAsyncDisposable
 
     private void ApplySearch()
     {
-        var filteredFactions = Factions
-            .Where(MatchesSourceFilter)
+        var sourceMatches = string.IsNullOrWhiteSpace(SearchTerm)
+            ? Factions.Where(MatchesSourceFilter)
+            : Factions;
+        var filteredFactions = sourceMatches
             .Where(faction => string.IsNullOrEmpty(ActiveGameVersion)
                 || faction.Version.ToString() == ActiveGameVersion)
             .Where(faction => string.IsNullOrWhiteSpace(SearchTerm)
@@ -262,8 +269,11 @@ public partial class FactionFaqGrid : IAsyncDisposable
         var query = new Dictionary<string, object?>
         {
             ["search"] = string.IsNullOrWhiteSpace(SearchTerm) ? null : SearchTerm,
-            ["source"] = ActiveSourceFilter,
-            ["version"] = string.IsNullOrEmpty(ActiveGameVersion) ? null : ActiveGameVersion,
+            ["source"] = string.IsNullOrWhiteSpace(SearchTerm) ? ActiveSourceFilter : null,
+            ["version"] = string.IsNullOrWhiteSpace(SearchTerm)
+                && !string.IsNullOrEmpty(ActiveGameVersion)
+                    ? ActiveGameVersion
+                    : null,
         };
         var uri = returnToCatalog
             ? NavigationManager.GetUriWithQueryParameters(

@@ -27,19 +27,22 @@
                            OnSearchChange="SearchComponents" />
         </div>
 
-        <RulesFilterBar Items="@ComponentFilterItems"
-                        ActiveValue="@ActiveCategory"
-                        AriaLabel="Component category filters"
-                        OnSelected="SelectCategory" />
-
-        @if (SelectedComponent is null)
+        @if (string.IsNullOrWhiteSpace(SearchTerm))
         {
-            <RulesFilterBar Items="@LetterFilterItems"
-                            ActiveValue="@ActiveLetter"
-                            AriaLabel="Component letter filters"
-                            Compact="true"
-                            Dense="true"
-                            OnSelected="SelectLetter" />
+            <RulesFilterBar Items="@ComponentFilterItems"
+                            ActiveValue="@ActiveCategory"
+                            AriaLabel="Component category filters"
+                            OnSelected="SelectCategory" />
+
+            @if (SelectedComponent is null)
+            {
+                <RulesFilterBar Items="@LetterFilterItems"
+                                ActiveValue="@ActiveLetter"
+                                AriaLabel="Component letter filters"
+                                Compact="true"
+                                Dense="true"
+                                OnSelected="SelectLetter" />
+            }
         }
 
         @if (!string.IsNullOrWhiteSpace(ItemKey) && SelectedComponent is null)

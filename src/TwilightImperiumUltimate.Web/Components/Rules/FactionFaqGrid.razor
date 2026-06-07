@@ -34,10 +34,13 @@
         {
             <h1 class="rules-visually-hidden">Factions</h1>
 
-            <RulesFilterBar Items="@SourceFilters"
-                            ActiveValue="@ActiveSourceFilter"
-                            AriaLabel="Faction source filters"
-                            OnSelected="SelectSourceFilter" />
+            @if (string.IsNullOrWhiteSpace(SearchTerm))
+            {
+                <RulesFilterBar Items="@SourceFilters"
+                                ActiveValue="@ActiveSourceFilter"
+                                AriaLabel="Faction source filters"
+                                OnSelected="SelectSourceFilter" />
+            }
 
             @if (FilteredFactionCount == 0)
             {
@@ -47,11 +50,14 @@
             }
             else
             {
-                <RulesFilterBar Items="@VersionFilterItems"
-                                ActiveValue="@ActiveGameVersion"
-                                AriaLabel="Faction game version filters"
-                                Compact="true"
-                                OnSelected="SelectGameVersion" />
+                @if (string.IsNullOrWhiteSpace(SearchTerm))
+                {
+                    <RulesFilterBar Items="@VersionFilterItems"
+                                    ActiveValue="@ActiveGameVersion"
+                                    AriaLabel="Faction game version filters"
+                                    Compact="true"
+                                    OnSelected="SelectGameVersion" />
+                }
 
                 <div class="faction-sections">
                     @foreach (var factionGroup in FactionSections)

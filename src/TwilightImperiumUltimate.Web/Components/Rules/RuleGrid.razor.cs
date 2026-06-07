@@ -53,7 +53,7 @@ public partial class RuleGrid
     protected override void OnParametersSet()
     {
         _searchTerm = SearchWord ?? string.Empty;
-        ApplyFilters(Letter);
+        ApplyFilters(string.IsNullOrWhiteSpace(_searchTerm) ? Letter : null);
         SetSelectedRule();
     }
 
@@ -175,8 +175,9 @@ public partial class RuleGrid
     private void SearchRules(string search)
     {
         _searchTerm = search;
-        ApplyFilters(ActiveLetter);
-        UpdateQuery();
+        ApplyFilters(null);
+        UpdateQuery(returnToCatalog:
+            SelectedRule is not null && !string.IsNullOrWhiteSpace(_searchTerm));
     }
 
     private void SelectLetter(string letter)
@@ -203,13 +204,21 @@ public partial class RuleGrid
         NavigationManager.NavigateTo(uri);
     }
 
-    private void UpdateQuery()
+    private void UpdateQuery(bool returnToCatalog = false)
     {
-        var uri = NavigationManager.GetUriWithQueryParameters(new Dictionary<string, object?>
+        var query = new Dictionary<string, object?>
         {
             ["search"] = string.IsNullOrWhiteSpace(_searchTerm) ? null : _searchTerm,
-            ["letter"] = string.IsNullOrEmpty(ActiveLetter) ? null : ActiveLetter,
-        });
+            ["letter"] = string.IsNullOrWhiteSpace(_searchTerm)
+                && !string.IsNullOrEmpty(ActiveLetter)
+                    ? ActiveLetter
+                    : null,
+        };
+        var uri = returnToCatalog
+            ? NavigationManager.GetUriWithQueryParameters(
+                NavigationManager.ToAbsoluteUri(GetRulesCatalogPath()).ToString(),
+                query)
+            : NavigationManager.GetUriWithQueryParameters(query);
         NavigationManager.NavigateTo(uri, replace: true);
     }
 

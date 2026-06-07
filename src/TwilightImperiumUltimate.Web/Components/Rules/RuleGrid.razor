@@ -18,12 +18,15 @@
                            OnSearchChange="SearchRules" />
         </section>
 
-        <RulesFilterBar Items="@LetterFilterItems"
-                        ActiveValue="@ActiveLetter"
-                        AriaLabel="Rule topic letter filters"
-                        Compact="true"
-                        Dense="true"
-                        OnSelected="SelectLetter" />
+        @if (string.IsNullOrWhiteSpace(_searchTerm))
+        {
+            <RulesFilterBar Items="@LetterFilterItems"
+                            ActiveValue="@ActiveLetter"
+                            AriaLabel="Rule topic letter filters"
+                            Compact="true"
+                            Dense="true"
+                            OnSelected="SelectLetter" />
+        }
 
         @if (SelectedRule is null)
         {

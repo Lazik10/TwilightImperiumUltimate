@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Globalization;
 using System.Net;
+using System.Resources;
 using System.Text.RegularExpressions;
 using TwilightImperiumUltimate.Web.Helpers.Enums;
 using TwilightImperiumUltimate.Web.Services.Rules;
@@ -15,6 +16,9 @@ public partial class ComponentFaqGrid
     private const string TechnologiesCategory = "Technologies";
     private const string RelicsCategory = "Relics";
     private const string OtherCategory = "Other";
+
+    private static readonly ResourceManager CardNameResourceManager =
+        new(Paths.ResourceNamespace_CardNames, typeof(Program).Assembly);
 
     private static readonly IReadOnlyList<string> CategoryOrder =
         [CardsCategory, ObjectivesCategory, TechnologiesCategory, RelicsCategory, OtherCategory];
@@ -127,7 +131,9 @@ public partial class ComponentFaqGrid
     private void SyncParameters()
     {
         SearchTerm = SearchWord;
-        ActiveCategory = NormalizeCategory(Category ?? AllCategory);
+        ActiveCategory = string.IsNullOrWhiteSpace(SearchTerm)
+            ? NormalizeCategory(Category ?? AllCategory)
+            : AllCategory;
         ActiveLetter = string.Empty;
         ApplyFilters();
         SetSelectedComponent();
@@ -136,6 +142,7 @@ public partial class ComponentFaqGrid
     private void SearchComponents(string search)
     {
         SearchTerm = search;
+        ActiveCategory = AllCategory;
         ActiveLetter = string.Empty;
         ApplyFilters();
         UpdateQuery(returnToCatalog:
@@ -271,7 +278,10 @@ public partial class ComponentFaqGrid
         var query = new Dictionary<string, object?>
         {
             ["search"] = string.IsNullOrWhiteSpace(SearchTerm) ? null : SearchTerm,
-            ["category"] = ActiveCategory == AllCategory ? null : ActiveCategory,
+            ["category"] = string.IsNullOrWhiteSpace(SearchTerm)
+                && ActiveCategory != AllCategory
+                    ? ActiveCategory
+                    : null,
             ["letter"] = null,
         };
         var uri = returnToCatalog
@@ -328,7 +338,10 @@ public partial class ComponentFaqGrid
     {
         if (Enum.TryParse<TEnum>(key, ignoreCase: true, out var value))
         {
-            title = value.GetCardDisplayName();
+            var resourceKey = $"{typeof(TEnum).Name}_{value}";
+            title = CardNameResourceManager.GetString(
+                resourceKey,
+                CultureInfo.CurrentUICulture) ?? string.Empty;
             if (!string.IsNullOrWhiteSpace(title))
                 return true;
         }

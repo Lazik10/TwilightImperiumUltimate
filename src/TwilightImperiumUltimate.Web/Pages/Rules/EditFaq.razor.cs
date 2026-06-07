@@ -1,5 +1,4 @@
 using TwilightImperiumUltimate.Contracts.ApiContracts.Faqs;
-using TwilightImperiumUltimate.Web.Services.Rules;
 
 namespace TwilightImperiumUltimate.Web.Pages.Rules;
 
@@ -22,9 +21,6 @@ public partial class EditFaq
     [Inject]
     private NavigationManager NavigationManager { get; set; } = default!;
 
-    [Inject]
-    private IApprovedFaqCache FaqCache { get; set; } = default!;
-
     protected override async Task OnInitializedAsync()
     {
         var result = await HttpClient.GetAsync<ApiResponse<FaqDto>>($"{Paths.ApiPath_Faq}/{Id}");
@@ -45,7 +41,6 @@ public partial class EditFaq
 
         if (statusCode == HttpStatusCode.OK)
         {
-            FaqCache.Invalidate();
             NavigationManager.NavigateTo(Pages.Faq);
         }
     }

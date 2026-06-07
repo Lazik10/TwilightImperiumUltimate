@@ -16,7 +16,7 @@
 
     @foreach (var faq in Faqs)
     {
-        <FaqRow Faq="@faq" Culture="@(CultureInfo.CurrentCulture.Name)" />
+        <FaqRow Faq="@faq" Culture="@(CultureInfo.CurrentCulture.Name)" Width="80"/>
         <VerticalSpace Height="20" />
         <FlexRowContainer>
             <AuthorizeView Roles="Admin">
