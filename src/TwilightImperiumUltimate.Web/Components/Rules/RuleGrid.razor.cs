@@ -1,21 +1,34 @@
+using System.Collections.Immutable;
+using System.Globalization;
+using System.Net;
+using TwilightImperiumUltimate.Web.Services.Rules;
+
 namespace TwilightImperiumUltimate.Web.Components.Rules;
 
 public partial class RuleGrid
 {
-    private const string _highlightColor = "yellow";
-    private const int _minimumSearchLength = 3;
+    private const string HighlightColor = "yellow";
+
+    private ImmutableArray<RuleDocument> _documents = [];
+    private string _searchTerm = string.Empty;
     private bool _showNotes = true;
-    private IReadOnlyCollection<RuleModel> _rules = new List<RuleModel>();
 
     [Parameter]
     public string SearchWord { get; set; } = string.Empty;
 
     [Parameter]
+    public string? Letter { get; set; }
+
+    [Parameter]
     public int? RuleId { get; set; }
 
-    private IReadOnlyCollection<TransformedRule> FilteredAndTransformedRules { get; set; } = [];
-
     private IReadOnlyCollection<RuleSection> RuleSections { get; set; } = [];
+
+    private IReadOnlyCollection<RulesIndexItem> LetterFilterItems { get; set; } = [];
+
+    private int FilteredRuleCount { get; set; }
+
+    private string ActiveLetter { get; set; } = string.Empty;
 
     private TransformedRule? SelectedRule { get; set; }
 
@@ -24,104 +37,64 @@ public partial class RuleGrid
     private TransformedRule? NextRule { get; set; }
 
     [Inject]
-    private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
-
-    [Inject]
-    private IMapper Mapper { get; set; } = default!;
-
-    [Inject]
     private NavigationManager NavigationManager { get; set; } = default!;
 
-    protected override async Task OnInitializedAsync()
+    [Inject]
+    private IRulesCatalogCache<ImmutableArray<RuleDocument>> CatalogCache { get; set; } = default!;
+
+    protected override void OnInitialized()
     {
-        await InitializeRules();
-
-        if (!string.IsNullOrEmpty(SearchWord))
-        {
-            GetFilteredRulesAndNotes(SearchWord);
-        }
-
-        SetSelectedRule();
+        _documents = CatalogCache.GetOrCreate(
+            CultureInfo.CurrentUICulture.Name,
+            dependencyVersion: 0,
+            BuildRuleIndex);
     }
 
     protected override void OnParametersSet()
     {
-        if (_rules.Count > 0)
-        {
-            SetSelectedRule();
-        }
+        _searchTerm = SearchWord ?? string.Empty;
+        ApplyFilters(Letter);
+        SetSelectedRule();
     }
 
-    private void GetFilteredRulesAndNotes(string search)
+    private void ApplyFilters(string? requestedLetter)
     {
-        if (string.IsNullOrWhiteSpace(search) || search.Length < _minimumSearchLength)
-        {
-            FilteredAndTransformedRules = GetTransformedRules();
-        }
-        else
-        {
-            var transformedRules = GetRulesWithHighlightedSearchWord(search);
+        var searchMatches = string.IsNullOrWhiteSpace(_searchTerm)
+            ? _documents
+            : _documents
+                .Where(document => document.SearchText.Contains(
+                    _searchTerm,
+                    StringComparison.CurrentCultureIgnoreCase))
+                .ToImmutableArray();
 
-            FilteredAndTransformedRules = transformedRules
-                .Where(x =>
-                    x.RuleTitle.Contains(search, StringComparison.CurrentCultureIgnoreCase)
-                    || x.Content.Contains(search, StringComparison.CurrentCultureIgnoreCase)
-                    || x.NotesContent.Contains(search, StringComparison.CurrentCultureIgnoreCase))
-                .ToList();
-        }
+        var availableLetters = searchMatches.Select(document => document.Letter).ToHashSet();
+        LetterFilterItems = RulesAlphabet.Build(availableLetters);
+        ActiveLetter = RulesAlphabet.Normalize(requestedLetter, availableLetters);
 
-        RuleSections = GetRuleSections();
-    }
+        var filteredDocuments = string.IsNullOrEmpty(ActiveLetter)
+            ? searchMatches
+            : searchMatches
+                .Where(document => document.Letter == ActiveLetter)
+                .ToImmutableArray();
 
-    private List<TransformedRule> GetTransformedRules()
-    {
-        return _rules.Select(x =>
-            new TransformedRule(
-                x.RuleCategory,
-                x.RuleCategory.GetRuleTitleUIText(),
-                x.RuleCategory.GetRuleUIText(),
-                x.RuleCategory.GetRuleUINoteText()))
-            .ToList();
-    }
+        var transformedRules = filteredDocuments
+            .Select(document => new TransformedRuleDocument(
+                document.Letter,
+                ToDisplayRule(document)))
+            .ToImmutableArray();
 
-    private List<TransformedRule> GetRulesWithHighlightedSearchWord(string search)
-    {
-        return _rules.Select(x => new TransformedRule(
-            x.RuleCategory,
-            x.RuleCategory.GetRuleTitleUIText().HighlightSearchWord(search, _highlightColor, false),
-            x.RuleCategory.GetRuleUIText().HighlightSearchWord(search, _highlightColor, true),
-            x.RuleCategory.GetRuleUINoteText().HighlightSearchWord(search, _highlightColor, true)))
-            .ToList();
-    }
+        FilteredRuleCount = transformedRules.Length;
 
-    private async Task InitializeRules()
-    {
-        var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<RuleDto>>>(Paths.ApiPath_Rules, default);
-        if (statusCode == HttpStatusCode.OK)
-        {
-            _rules = Mapper.Map<List<RuleModel>>(response!.Data!.Items);
-            FilteredAndTransformedRules = GetTransformedRules();
-            RuleSections = GetRuleSections();
-        }
-    }
-
-    private void ToggleNotes()
-    {
-        _showNotes = !_showNotes;
-        StateHasChanged();
-    }
-
-    private List<RuleSection> GetRuleSections()
-    {
-        return FilteredAndTransformedRules
-            .GroupBy(rule => GetSectionTitle(rule.RuleTitle))
-            .Select(group => new RuleSection(group.Key, group.ToList()))
-            .ToList();
+        RuleSections = transformedRules
+            .GroupBy(document => document.Letter)
+            .Select(group => new RuleSection(
+                group.Key,
+                group.Select(document => document.Rule).ToImmutableArray()))
+            .ToImmutableArray();
     }
 
     private void SetSelectedRule()
     {
-        var rules = GetTransformedRules();
         if (RuleId is null)
         {
             SelectedRule = null;
@@ -130,29 +103,68 @@ public partial class RuleGrid
             return;
         }
 
-        SelectedRule = rules.FirstOrDefault(rule => GetRuleId(rule) == RuleId);
-        if (SelectedRule is null)
+        var selectedDocument = _documents.FirstOrDefault(document => document.Id == RuleId);
+        if (selectedDocument is null)
         {
+            SelectedRule = null;
             PreviousRule = null;
             NextRule = null;
             return;
         }
 
-        var selectedIndex = rules.FindIndex(rule => rule.RuleCategory == SelectedRule.RuleCategory);
-        PreviousRule = selectedIndex > 0 ? rules[selectedIndex - 1] : null;
-        NextRule = selectedIndex >= 0 && selectedIndex < rules.Count - 1 ? rules[selectedIndex + 1] : null;
+        var selectedIndex = _documents.IndexOf(selectedDocument);
+        SelectedRule = selectedDocument.Rule;
+        PreviousRule = selectedIndex > 0 ? _documents[selectedIndex - 1].Rule : null;
+        NextRule = selectedIndex < _documents.Length - 1 ? _documents[selectedIndex + 1].Rule : null;
     }
 
-    private static string GetSectionTitle(string title)
+    private void ToggleNotes()
     {
-        var plainTitle = StripMarkup(title);
+        _showNotes = !_showNotes;
+    }
+
+    private static RuleDocument CreateDocument(RuleCategory category)
+    {
+        var title = category.GetRuleTitleUIText();
+        var content = category.GetRuleUIText();
+        var notes = TwilightImperiumUltimate.Web.Resources.Rules.ResourceManager.GetString(
+            $"RuleCategory_{category}_Notes",
+            CultureInfo.CurrentUICulture) ?? string.Empty;
+        var plainTitle = ToPlainText(title);
         var firstLetter = plainTitle.FirstOrDefault(char.IsLetterOrDigit);
-        return firstLetter == default ? "#" : char.ToUpperInvariant(firstLetter).ToString();
+        var letter = firstLetter == default ? "#" : char.ToUpperInvariant(firstLetter).ToString();
+        var searchText = ToPlainText($"{title} {content} {notes}");
+
+        return new RuleDocument(
+            (int)category,
+            letter,
+            plainTitle,
+            searchText,
+            new TransformedRule(category, title, content, notes));
+    }
+
+    private static ImmutableArray<RuleDocument> BuildRuleIndex() =>
+        Enum.GetValues<RuleCategory>()
+            .Where(category => category != RuleCategory.None)
+            .Select(CreateDocument)
+            .ToImmutableArray();
+
+    private TransformedRule ToDisplayRule(RuleDocument document)
+    {
+        if (string.IsNullOrWhiteSpace(_searchTerm))
+            return document.Rule;
+
+        return new TransformedRule(
+            document.Rule.RuleCategory,
+            document.Rule.RuleTitle.HighlightSearchWord(_searchTerm, HighlightColor, false),
+            document.Rule.Content,
+            document.Rule.NotesContent);
     }
 
     private static int GetRuleId(TransformedRule rule) => (int)rule.RuleCategory;
 
-    private static string GetRulePath(TransformedRule rule) => $"/rules/{GetRuleId(rule)}";
+    private string GetRulePath(TransformedRule rule) =>
+        $"/rules/reference/{GetRuleId(rule)}";
 
     private string GetNotesToggleClass() => _showNotes
         ? "rules-notes-toggle rules-notes-toggle-on handel"
@@ -160,23 +172,63 @@ public partial class RuleGrid
 
     private string GetNotesToggleText() => _showNotes ? "On" : "Off";
 
-    private void NavigateToSearch(string search)
+    private void SearchRules(string search)
     {
-        if (string.IsNullOrWhiteSpace(search))
+        _searchTerm = search;
+        ApplyFilters(ActiveLetter);
+        UpdateQuery();
+    }
+
+    private void SelectLetter(string letter)
+    {
+        ApplyFilters(letter);
+
+        if (SelectedRule is not null)
         {
-            NavigationManager.NavigateTo("/rules");
+            NavigateToCatalog();
             return;
         }
 
-        NavigationManager.NavigateTo($"/rules?search={Uri.EscapeDataString(search)}");
+        UpdateQuery();
     }
 
-    private static string StripMarkup(string text)
+    private void NavigateToCatalog()
     {
-        return System.Text.RegularExpressions.Regex.Replace(text, "<.*?>", string.Empty);
+        var uri = NavigationManager.GetUriWithQueryParameters(
+            NavigationManager.ToAbsoluteUri(GetRulesCatalogPath()).ToString(),
+            new Dictionary<string, object?>
+            {
+                ["letter"] = string.IsNullOrEmpty(ActiveLetter) ? null : ActiveLetter,
+            });
+        NavigationManager.NavigateTo(uri);
     }
 
-    private static string GetPlainTitle(string title) => StripMarkup(title);
+    private void UpdateQuery()
+    {
+        var uri = NavigationManager.GetUriWithQueryParameters(new Dictionary<string, object?>
+        {
+            ["search"] = string.IsNullOrWhiteSpace(_searchTerm) ? null : _searchTerm,
+            ["letter"] = string.IsNullOrEmpty(ActiveLetter) ? null : ActiveLetter,
+        });
+        NavigationManager.NavigateTo(uri, replace: true);
+    }
+
+    private static string GetRulesCatalogPath() => "/rules/reference";
+
+    private static string ToPlainText(string text) =>
+        WebUtility.HtmlDecode(System.Text.RegularExpressions.Regex.Replace(text, "<.*?>", " "));
+
+    private string GetPlainTitle(TransformedRule rule) =>
+        _documents.First(document => document.Rule.RuleCategory == rule.RuleCategory).PlainTitle;
+
+    private sealed record RuleDocument(
+        int Id,
+        string Letter,
+        string PlainTitle,
+        string SearchText,
+        TransformedRule Rule);
+
+    private sealed record TransformedRuleDocument(string Letter, TransformedRule Rule);
 
     private sealed record RuleSection(string Title, IReadOnlyCollection<TransformedRule> Rules);
 }

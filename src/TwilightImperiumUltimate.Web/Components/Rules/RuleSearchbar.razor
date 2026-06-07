@@ -1,10 +1,22 @@
-﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
-@using TwilightImperiumUltimate.Web.Resources
-
-<label class="rules-search handel white shadow">
-    <span>@Strings.SearchForKeyword</span>
-    <RadzenTextBox Placeholder="@SearchPlaceholder"
-                   @bind-Value="SearchTerm"
-                   @oninput="@(args => SearchRules(args.Value?.ToString()!))"
-                   class="rules-search-input white handel" />
-</label>
+﻿<div class="rules-search handel white shadow" role="search">
+    <label for="@InputId">@Label</label>
+    <div class="rules-search-control">
+        <input id="@InputId"
+               value="@SearchTerm"
+               @oninput="OnInput"
+               @onkeydown="OnKeyDown"
+               placeholder="@Placeholder"
+               class="rules-search-input"
+               autocomplete="off" />
+        @if (!string.IsNullOrWhiteSpace(SearchTerm))
+        {
+            <button type="button" class="rules-search-clear handel" @onclick="ClearSearch" aria-label="Clear search">
+                Clear
+            </button>
+        }
+    </div>
+    @if (ResultCount is not null)
+    {
+        <span class="rules-search-count" aria-live="polite">@ResultCount results</span>
+    }
+</div>

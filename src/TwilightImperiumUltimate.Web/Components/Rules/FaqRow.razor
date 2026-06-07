@@ -1,26 +1,14 @@
-﻿@using System.Globalization
-
-@if(Culture == Strings.EnglishCulture)
+﻿@if (Culture == Strings.CzechCulture)
 {
-    <FlexColumnContainer Width="Width">
-        <div class="handel white shadow" style="font-size: 24px;">
-            @Faq.QuestionEnglish
-        </div>
-        <VerticalSpace Height="10" />
-        <div class="text-handel white shadow" style="font-size: 18px;">
-            @Faq.AnswerEnglish
-        </div>
-    </FlexColumnContainer>
+    <article class="faq-entry">
+        <h3 class="handel white shadow">@Faq.QuestionCzech</h3>
+        <p class="myriad-pro-regular white">@Faq.AnswerCzech</p>
+    </article>
 }
-else if (Culture == Strings.CzechCulture)
+else
 {
-    <FlexColumnContainer Width="Width">
-        <div class="handel white shadow" style="font-size: 24px;">
-            @Faq.QuestionCzech
-        </div>
-        <VerticalSpace Height="10" />
-        <div class="text-handel white shadow" style="font-size: 18px;">
-            @Faq.AnswerCzech
-        </div>
-    </FlexColumnContainer>
+    <article class="faq-entry">
+        <h3 class="handel white shadow">@Faq.QuestionEnglish</h3>
+        <p class="myriad-pro-regular white">@Faq.AnswerEnglish</p>
+    </article>
 }

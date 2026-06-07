@@ -1,0 +1,90 @@
+.faq-link-list a {
+    grid-template-columns: 52px 1fr;
+}
+
+.faction-sections {
+    display: grid;
+    gap: 24px;
+}
+
+.faq-faction-icon {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.9));
+    transition: transform 0.2s ease;
+}
+
+.faq-link-list a:hover .faq-faction-icon {
+    transform: scale(1.15);
+}
+
+.faq-faction-icon-large {
+    width: 58px;
+    height: 58px;
+}
+
+.faction-detail-index {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 4px;
+    margin: 12px 7% 20px;
+    padding: 6px;
+    background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.52) 10%, rgba(0, 0, 0, 0.52) 90%, transparent);
+}
+
+.faction-detail-index[hidden] {
+    display: none;
+}
+
+.faction-detail-index ::deep a {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 6px 9px;
+    border: 1px solid rgba(142, 207, 255, 0.2);
+    box-sizing: border-box;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    background: rgba(0, 0, 0, 0.28);
+}
+
+.faction-detail-index ::deep a:hover,
+.faction-detail-index ::deep a:focus-visible {
+    border-color: #8ecfff;
+    color: #8ecfff;
+    outline: none;
+    background: rgba(18, 57, 87, 0.72);
+}
+
+.faq-markup ::deep h1[id],
+#faction-faq {
+    scroll-margin-top: 24px;
+}
+
+@media (max-width: 768px) {
+    .faction-sections {
+        gap: 18px;
+    }
+
+    .faq-faction-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .faq-faction-icon-large {
+        width: 44px;
+        height: 44px;
+    }
+
+    .faction-detail-index {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        margin-right: 0;
+        margin-left: 0;
+    }
+}

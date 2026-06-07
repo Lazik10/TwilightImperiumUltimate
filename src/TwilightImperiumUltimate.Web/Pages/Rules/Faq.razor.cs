@@ -1,4 +1,5 @@
 using TwilightImperiumUltimate.Contracts.ApiContracts.Faqs;
+using TwilightImperiumUltimate.Web.Services.Rules;
 
 namespace TwilightImperiumUltimate.Web.Pages.Rules;
 
@@ -15,6 +16,9 @@ public partial class Faq
     [Inject]
     private NavigationManager NavigationManager { get; set; } = default!;
 
+    [Inject]
+    private IApprovedFaqCache FaqCache { get; set; } = default!;
+
     protected override async Task OnInitializedAsync()
     {
         var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<FaqDto>>>(Paths.ApiPath_Faq, default);
@@ -28,20 +32,30 @@ public partial class Faq
 
     private async Task ApproveFaq(FaqModel faq)
     {
-        faq.FaqStatus = FaqStatus.Approved;
-        var apporveFaqRequest = new UpdateFaqRequest(Mapper.Map<FaqDto>(faq));
-        await HttpClient.PutAsync<UpdateFaqRequest, FaqDto>(Paths.ApiPath_Faq, apporveFaqRequest, default);
-        Faqs = Faqs.Where(x => x.FaqStatus == FaqStatus.Submitted).ToList();
-        StateHasChanged();
+        await SetFaqStatus(faq, FaqStatus.Approved);
     }
 
     private async Task RejectFaq(FaqModel faq)
     {
-        faq.FaqStatus = FaqStatus.Rejected;
-        var rejectFaqRequest = new UpdateFaqRequest(Mapper.Map<FaqDto>(faq));
-        await HttpClient.PutAsync<UpdateFaqRequest, FaqDto>(Paths.ApiPath_Faq, rejectFaqRequest, default);
+        await SetFaqStatus(faq, FaqStatus.Rejected);
+    }
+
+    private async Task SetFaqStatus(FaqModel faq, FaqStatus status)
+    {
+        faq.FaqStatus = status;
+        var request = new UpdateFaqRequest(Mapper.Map<FaqDto>(faq));
+        var result = await HttpClient.PutAsync<UpdateFaqRequest, FaqDto>(
+            Paths.ApiPath_Faq,
+            request,
+            default);
+        if (result.StatusCode != HttpStatusCode.OK)
+        {
+            faq.FaqStatus = FaqStatus.Submitted;
+            return;
+        }
+
+        FaqCache.Invalidate();
         Faqs = Faqs.Where(x => x.FaqStatus == FaqStatus.Submitted).ToList();
-        StateHasChanged();
     }
 
     private Task EditFaq(int id)

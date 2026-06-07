@@ -1,0 +1,27 @@
+﻿<div class="rules-hub">
+    <RulesNavigation ActiveSection="@Section" />
+
+    @switch (Section)
+    {
+        case "rules":
+            <RuleGrid SearchWord="@SearchWord" Letter="@Letter" RuleId="@RuleId" />
+            break;
+        case "factions":
+            <FactionFaqGrid SearchWord="@SearchWord"
+                            Source="@Source"
+                            Version="@Version"
+                            ItemKey="@ItemKey" />
+            break;
+        case "components":
+            <ComponentFaqGrid SearchWord="@SearchWord"
+                              Category="@Category"
+                              ItemKey="@ItemKey" />
+            break;
+        case "resources":
+            <RulesResources />
+            break;
+        default:
+            <RulesIndex />
+            break;
+    }
+</div>

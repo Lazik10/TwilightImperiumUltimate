@@ -15,6 +15,7 @@ using TwilightImperiumUltimate.Web.Services.Language;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
 using TwilightImperiumUltimate.Web.Services.MiltyDraft;
 using TwilightImperiumUltimate.Web.Services.Rankings;
+using TwilightImperiumUltimate.Web.Services.Rules;
 using TwilightImperiumUltimate.Web.Services.SliceGenerators;
 using TwilightImperiumUltimate.Web.Services.Tigl;
 using TwilightImperiumUltimate.Web.Services.User;
@@ -65,6 +66,8 @@ public static class ServiceCollectionsExtension
         services.AddScoped<IAsyncStatsProvider, AsyncStatsProvider>();
 
         services.AddScoped<ITwilightImperiumApiHttpClient, TwilightImperiumApiHttpClient>();
+        services.AddScoped<IApprovedFaqCache, ApprovedFaqCache>();
+        services.AddScoped(typeof(IRulesCatalogCache<>), typeof(RulesCatalogCache<>));
 
         services.AddScoped<TwilightImperiumAuthenticationStateProvider>();
         services.AddScoped<AuthenticationStateProvider>(serviceProvider =>

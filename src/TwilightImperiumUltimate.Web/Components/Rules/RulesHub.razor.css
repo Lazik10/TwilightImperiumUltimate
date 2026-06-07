@@ -1,0 +1,389 @@
+.rules-hub {
+    width: 100%;
+    padding: 8px 0 56px;
+}
+
+.rules-hub ::deep .rules-visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.rules-hub ::deep .rules-status,
+.rules-hub ::deep .rules-empty {
+    padding: 26px 7%;
+    color: white;
+    font-family: Myriad Pro Regular, fallback, sans-serif;
+    font-size: 17px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.52);
+}
+
+.rules-hub ::deep .rules-status h1,
+.rules-hub ::deep .rules-status h2 {
+    margin: 0 0 8px;
+    color: white;
+    font-family: Handel, fallback, sans-serif;
+    text-transform: uppercase;
+}
+
+.rules-hub ::deep .rules-action-button {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    margin-top: 8px;
+    padding: 0 16px;
+    border: 1px solid rgba(142, 207, 255, 0.6);
+    color: white;
+    text-decoration: none;
+    background: rgba(12, 44, 70, 0.72);
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.rules-hub ::deep .rules-action-button:hover,
+.rules-hub ::deep .rules-action-button:focus-visible {
+    border-color: #8ecfff;
+    color: #8ecfff;
+    outline: none;
+    background: rgba(18, 57, 87, 0.88);
+}
+
+.rules-hub ::deep .faq-catalog {
+    width: 80%;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.rules-hub ::deep .faq-title-line {
+    margin: 10px 0 18px;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.rules-hub ::deep .faq-link-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px 30px;
+}
+
+.rules-hub ::deep .faq-link-list a {
+    display: grid;
+    align-items: center;
+    min-width: 0;
+    min-height: 54px;
+    padding: 7px 16px;
+    color: white;
+    text-decoration: none;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.18) 84%, transparent);
+    transition: color 0.18s ease, background 0.18s ease;
+}
+
+.rules-hub ::deep .faq-link-list a:hover,
+.rules-hub ::deep .faq-link-list a:focus-visible {
+    color: #8ecfff;
+    outline: none;
+    background: linear-gradient(to right, rgba(14, 55, 86, 0.78), rgba(6, 22, 36, 0.3) 84%, transparent);
+}
+
+.rules-hub ::deep .faq-detail-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px 18px;
+    margin-bottom: 16px;
+}
+
+.rules-hub ::deep .faq-detail-nav a {
+    color: #8ecfff;
+    font-size: 13px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.rules-hub ::deep .faq-detail-nav a:hover,
+.rules-hub ::deep .faq-detail-nav a:focus-visible {
+    color: white;
+}
+
+.rules-hub ::deep .faq-detail-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+}
+
+.rules-hub ::deep .faq-detail-title h1 {
+    margin: 0;
+    font-size: 32px;
+    line-height: 1.1;
+    overflow-wrap: anywhere;
+    text-transform: uppercase;
+}
+
+.rules-hub ::deep .faq-detail-title > span {
+    order: -1;
+    color: #8ecfff;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.rules-hub ::deep .faq-faction-title {
+    flex-direction: row;
+}
+
+.rules-hub ::deep .faq-detail-section {
+    margin-top: 18px;
+    padding: 18px 7%;
+    background: linear-gradient(to right, transparent, rgba(0, 10, 30, 0.7) 8%, rgba(0, 10, 30, 0.7) 92%, transparent);
+}
+
+.rules-hub ::deep .faq-detail-section h2 {
+    margin: 0 0 14px;
+    color: white;
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+.rules-hub ::deep .faq-markup {
+    max-width: 76ch;
+    font-family: Myriad Pro Regular, fallback, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+}
+
+.rules-hub ::deep .faq-answer + .faq-answer {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.rules-hub ::deep .rules-search-shell {
+    max-width: 100%;
+    margin-bottom: 18px;
+    padding: 8px 7%;
+    box-sizing: border-box;
+    background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.52) 10%, rgba(0, 0, 0, 0.52) 90%, transparent);
+}
+
+.rules-hub ::deep .rules-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+    max-width: 100%;
+    margin: 0 0 20px;
+    padding: 0 7%;
+    box-sizing: border-box;
+    background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.52) 10%, rgba(0, 0, 0, 0.52) 90%, transparent);
+}
+
+.rules-hub ::deep .rules-filter-bar button {
+    position: relative;
+    flex: 1 1 130px;
+    min-width: 110px;
+    min-height: 44px;
+    padding: 8px 10px;
+    border: 0;
+    color: white;
+    font-family: Handel, fallback, sans-serif;
+    font-size: 13px;
+    background: transparent;
+    cursor: pointer;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+.rules-hub ::deep .rules-filter-bar button::after {
+    content: "";
+    position: absolute;
+    right: 24%;
+    bottom: 5px;
+    left: 24%;
+    height: 1px;
+    background: #8ecfff;
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.rules-hub ::deep .rules-filter-bar button:hover,
+.rules-hub ::deep .rules-filter-bar button:focus-visible,
+.rules-hub ::deep .rules-filter-bar button[aria-pressed="true"] {
+    color: #8ecfff;
+    outline: none;
+    background: linear-gradient(to right, transparent, rgba(18, 57, 87, 0.55), transparent);
+}
+
+.rules-hub ::deep .rules-filter-bar button:focus-visible {
+    outline: 1px solid rgba(142, 207, 255, 0.7);
+    outline-offset: -3px;
+}
+
+.rules-hub ::deep .rules-filter-bar button[aria-pressed="true"]::after {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+.rules-hub ::deep .rules-filter-bar button:disabled {
+    color: rgba(255, 255, 255, 0.3);
+    cursor: default;
+    background: transparent;
+}
+
+.rules-hub ::deep .rules-filter-bar button:disabled::after {
+    display: none;
+}
+
+.rules-hub ::deep .rules-sub-filter {
+    justify-content: flex-start;
+    margin-top: -10px;
+    padding: 0 7%;
+    background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.42) 10%, rgba(0, 0, 0, 0.42) 90%, transparent);
+}
+
+.rules-hub ::deep .rules-sub-filter button {
+    flex: 1 1 135px;
+    min-width: 105px;
+    min-height: 34px;
+    font-size: 11px;
+    white-space: normal;
+}
+
+.rules-hub ::deep .rules-dense-filter {
+    display: grid;
+    grid-template-columns: repeat(13, minmax(36px, 1fr));
+    gap: 4px;
+    justify-content: stretch;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.rules-hub ::deep .rules-dense-filter button {
+    min-width: 0;
+    max-width: none;
+    min-height: 38px;
+    padding: 0;
+    border: 1px solid rgba(142, 207, 255, 0.38);
+    color: white;
+    font-weight: 700;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.95);
+    background: rgba(0, 8, 20, 0.52);
+    white-space: nowrap;
+}
+
+.rules-hub ::deep .rules-dense-filter button:hover,
+.rules-hub ::deep .rules-dense-filter button:focus-visible,
+.rules-hub ::deep .rules-dense-filter button[aria-pressed="true"] {
+    border-color: #8ecfff;
+    background: rgba(18, 57, 87, 0.78);
+}
+
+.rules-hub ::deep .rules-dense-filter button:hover,
+.rules-hub ::deep .rules-dense-filter button:focus-visible {
+    border-color: rgba(142, 207, 255, 0.75);
+    color: white;
+    background: rgba(18, 57, 87, 0.72);
+}
+
+.rules-hub ::deep .rules-dense-filter button[aria-pressed="true"] {
+    border-color: #8ecfff;
+    color: #8ecfff;
+    background: rgba(10, 40, 64, 0.82);
+}
+
+.rules-hub ::deep .rules-dense-filter button:disabled {
+    border-color: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.24);
+    background: rgba(0, 0, 0, 0.12);
+}
+
+.rules-hub ::deep .faq-index-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 8px;
+    padding: 5px 12px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.12) 70%, transparent);
+}
+
+.rules-hub ::deep .faq-index-heading h2 {
+    margin: 0;
+    color: white;
+    font-size: 21px;
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .rules-hub {
+        padding: 4px 0 36px;
+    }
+
+    .rules-hub ::deep .faq-catalog {
+        width: calc(100vw - 24px);
+        max-width: calc(100vw - 24px);
+    }
+
+    .rules-hub ::deep .faq-link-list {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+
+    .rules-hub ::deep .faq-detail-title h1 {
+        font-size: 26px;
+    }
+
+    .rules-hub ::deep .faq-detail-section {
+        padding: 16px 5%;
+    }
+
+    .rules-hub ::deep .rules-filter-bar {
+        justify-content: flex-start;
+        padding: 0;
+    }
+
+    .rules-hub ::deep .rules-filter-bar button {
+        flex: 1 1 135px;
+        min-width: 120px;
+    }
+
+    .rules-hub ::deep .rules-sub-filter {
+        padding: 0;
+    }
+
+    .rules-hub ::deep .rules-sub-filter button {
+        flex: 1 1 135px;
+        min-width: 120px;
+    }
+
+    .rules-hub ::deep .rules-dense-filter button {
+        min-width: 0;
+        max-width: none;
+        min-height: 38px;
+    }
+
+    .rules-hub ::deep .faq-index-heading h2 {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 576px) {
+    .rules-hub ::deep .rules-dense-filter {
+        grid-template-columns: repeat(7, minmax(36px, 1fr));
+        gap: 3px;
+    }
+}
+
+@media (max-width: 360px) {
+    .rules-hub ::deep .rules-dense-filter {
+        grid-template-columns: repeat(6, minmax(34px, 1fr));
+    }
+}

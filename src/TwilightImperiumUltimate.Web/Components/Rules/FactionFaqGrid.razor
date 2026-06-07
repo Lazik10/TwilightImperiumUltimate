@@ -1,0 +1,127 @@
+@using System.Globalization
+
+<section class="faq-catalog handel white shadow">
+    @if (_isLoading)
+    {
+        <div class="rules-status" aria-live="polite">Loading factions...</div>
+    }
+    else if (_loadFailed)
+    {
+        <div class="rules-status rules-status-error">
+            <h2>Factions could not be loaded</h2>
+            <p>Check the API connection and try again.</p>
+            <button type="button" class="rules-action-button handel" @onclick="RetryLoad">Retry</button>
+        </div>
+    }
+    else
+    {
+        <div class="rules-search-shell">
+            <RuleSearchbar Value="@SearchTerm"
+                           Placeholder="Search factions, notes, and FAQ..."
+                           ResultCount="@FilteredFactionCount"
+                           OnSearchChange="SearchFactions" />
+        </div>
+
+        @if (!string.IsNullOrWhiteSpace(ItemKey) && SelectedFaction is null)
+        {
+            <div class="rules-status rules-status-error">
+                <h2>Faction not found</h2>
+                <p>The requested faction does not exist.</p>
+                <a class="rules-action-button handel" href="@GetCatalogPath()">Back to Factions</a>
+            </div>
+        }
+        else if (SelectedFaction is null)
+        {
+            <h1 class="rules-visually-hidden">Factions</h1>
+
+            <RulesFilterBar Items="@SourceFilters"
+                            ActiveValue="@ActiveSourceFilter"
+                            AriaLabel="Faction source filters"
+                            OnSelected="SelectSourceFilter" />
+
+            @if (FilteredFactionCount == 0)
+            {
+                <div class="rules-empty" aria-live="polite">
+                    No factions match <strong>@SearchTerm</strong>.
+                </div>
+            }
+            else
+            {
+                <RulesFilterBar Items="@VersionFilterItems"
+                                ActiveValue="@ActiveGameVersion"
+                                AriaLabel="Faction game version filters"
+                                Compact="true"
+                                OnSelected="SelectGameVersion" />
+
+                <div class="faction-sections">
+                    @foreach (var factionGroup in FactionSections)
+                    {
+                        <section class="faction-section" @key="factionGroup.GameVersion">
+                            <header class="faq-index-heading">
+                                <h2>@factionGroup.Title</h2>
+                            </header>
+                            <div class="faq-link-list">
+                                @foreach (var faction in factionGroup.Items)
+                                {
+                                    <a href="@GetFactionPath(faction)" @key="faction.Key">
+                                        <img class="faq-faction-icon"
+                                             src="@GetFactionIconPath(faction)"
+                                             alt="" />
+                                        <span>@faction.Title</span>
+                                    </a>
+                                }
+                            </div>
+                        </section>
+                    }
+                </div>
+            }
+        }
+        else
+        {
+            <div class="faction-detail-content" @ref="_detailElement">
+                <div class="faq-detail-nav">
+                    <a href="@GetCatalogPath()">&lsaquo; Back to Factions</a>
+                    @if (!string.IsNullOrWhiteSpace(SearchTerm))
+                    {
+                        <a href="@GetCatalogPath()">View search results</a>
+                    }
+                </div>
+
+                <div class="faq-detail-title faq-faction-title">
+                    <img class="faq-faction-icon faq-faction-icon-large"
+                         src="@GetFactionIconPath(SelectedFaction)"
+                         alt="" />
+                    <h1>@SelectedFaction.Title</h1>
+                </div>
+                <div class="faq-title-line"><TitleLine Width="100" MaxWidth="100" /></div>
+
+                <nav class="faction-detail-index"
+                     data-faction-index
+                     aria-label="Faction notes sections"
+                     hidden></nav>
+
+                <section class="faq-detail-section" data-faction-notes>
+                    <h2>Notes</h2>
+                    <div class="faq-markup">@((MarkupString)SelectedFaction.DetailNotesHtml)</div>
+                </section>
+
+                <section id="faction-faq" class="faq-detail-section" data-faction-faq>
+                    <h2>FAQ</h2>
+                    @if (SelectedFaction.Faqs.Count == 0)
+                    {
+                        <p class="faq-empty-copy">No FAQ entries for this faction.</p>
+                    }
+                    else
+                    {
+                        @foreach (var faq in SelectedFaction.Faqs)
+                        {
+                            <div class="faq-answer" @key="faq.Id">
+                                <FaqRow Faq="@faq" Culture="@CultureInfo.CurrentCulture.Name" />
+                            </div>
+                        }
+                    }
+                </section>
+            </div>
+        }
+    }
+</section>

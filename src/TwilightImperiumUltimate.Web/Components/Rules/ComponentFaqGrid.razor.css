@@ -1,0 +1,29 @@
+.faq-link-list a {
+    grid-template-columns: minmax(118px, 0.42fr) 1fr;
+}
+
+.faq-link-list small,
+.faq-detail-title > span {
+    color: #8ecfff;
+    font-size: 12px;
+    line-height: 1.15;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.component-groups {
+    display: grid;
+    gap: 24px;
+}
+
+@media (max-width: 576px) {
+    .component-groups {
+        gap: 18px;
+    }
+
+    .faq-link-list a {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+
+}

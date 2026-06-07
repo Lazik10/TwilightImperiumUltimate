@@ -1,69 +1,106 @@
 ﻿@using TwilightImperiumUltimate.Web.Helpers.Resources
 
 <div class="rules-shell">
-    <section class="rules-header handel white shadow">
-        <div>
-            <p class="rules-kicker">Twilight Imperium 4th Edition</p>
-            <h1>Rules Reference</h1>
-        </div>
-        <div class="rules-count">@FilteredAndTransformedRules.Count topics</div>
-    </section>
-
-    @if (SelectedRule is null)
+    @if (RuleId is not null && SelectedRule is null)
     {
-        <section class="rules-toolbar">
-            <RuleSearchbar OnSearchChange="GetFilteredRulesAndNotes" />
-        </section>
-
-        <section class="rules-topic-panel">
-            <div class="rules-topic-panel-header handel white shadow">
-                <h2>Rule Topics</h2>
-                <span>Open a topic to read the full rule text and notes.</span>
-            </div>
-
-            <div class="rules-topic-sections">
-                @foreach (var ruleSection in RuleSections)
-                {
-                    <section class="rules-topic-section">
-                        <div class="rules-topic-letter handel white shadow">@ruleSection.Title</div>
-                        <div class="rules-topic-list">
-                            @foreach (var transformedRule in ruleSection.Rules)
-                            {
-                                <a class="rules-topic-link handel white shadow" href="@GetRulePath(transformedRule)">
-                                    <span class="rules-topic-number">@GetRuleId(transformedRule)</span>
-                                    <span>@GetPlainTitle(transformedRule.RuleTitle)</span>
-                                </a>
-                            }
-                        </div>
-                    </section>
-                }
-            </div>
+        <section class="rules-status rules-status-error" aria-live="polite">
+            <h1>Rule not found</h1>
+            <p>The requested rule topic does not exist.</p>
+            <a class="rules-action-button handel" href="@GetRulesCatalogPath()">Back to Reference</a>
         </section>
     }
     else
     {
-        <section class="rules-detail-toolbar handel white shadow">
-            <a class="rules-back-link" href="/rules">Rule Topics</a>
-            <div class="rules-detail-actions">
-                <a href="/rules">Back to Rules</a>
+        <section class="rules-search-shell">
+            <RuleSearchbar Value="@_searchTerm"
+                           Placeholder="Search rule titles, text, and notes..."
+                           ResultCount="@FilteredRuleCount"
+                           OnSearchChange="SearchRules" />
+        </section>
+
+        <RulesFilterBar Items="@LetterFilterItems"
+                        ActiveValue="@ActiveLetter"
+                        AriaLabel="Rule topic letter filters"
+                        Compact="true"
+                        Dense="true"
+                        OnSelected="SelectLetter" />
+
+        @if (SelectedRule is null)
+        {
+            <section class="rules-topic-panel">
+                <h1 class="rules-visually-hidden">Reference</h1>
+
+                @if (FilteredRuleCount == 0)
+                {
+                    <div class="rules-empty" aria-live="polite">
+                        No rule topics match <strong>@_searchTerm</strong>.
+                    </div>
+                }
+                else
+                {
+                    <div class="rules-topic-sections">
+                        @foreach (var ruleSection in RuleSections)
+                        {
+                            <section class="rules-topic-section" @key="ruleSection.Title">
+                                <div class="rules-topic-letter handel white shadow">@ruleSection.Title</div>
+                                <div class="rules-topic-list">
+                                    @foreach (var transformedRule in ruleSection.Rules)
+                                    {
+                                        <a class="rules-topic-link handel white shadow"
+                                           href="@GetRulePath(transformedRule)"
+                                           @key="transformedRule.RuleCategory">
+                                            <span class="rules-topic-number">@GetRuleId(transformedRule)</span>
+                                            <span>@((MarkupString)transformedRule.RuleTitle)</span>
+                                        </a>
+                                    }
+                                </div>
+                            </section>
+                        }
+                    </div>
+                }
+            </section>
+        }
+        else
+        {
+            <section class="rules-detail-toolbar handel white shadow">
+                <a class="rules-back-link" href="@GetRulesCatalogPath()">&lsaquo; Back to Rule Topics</a>
+                <button class="@GetNotesToggleClass()"
+                        type="button"
+                        aria-pressed="@_showNotes.ToString().ToLowerInvariant()"
+                        @onclick="ToggleNotes">
+                    @Strings.Rules_ShowNotes @GetNotesToggleText()
+                </button>
+            </section>
+
+            @if (!string.IsNullOrWhiteSpace(_searchTerm))
+            {
+                <a class="rules-search-results-link handel shadow" href="@GetRulesCatalogPath()">
+                    View matching rule topics
+                </a>
+            }
+
+            <RuleContent @key="SelectedRule.RuleCategory"
+                         TransformedRule="@SelectedRule"
+                         ShowNotes="_showNotes" />
+
+            <nav class="rules-adjacent-navigation handel shadow" aria-label="Adjacent rules">
                 @if (PreviousRule is not null)
                 {
-                    <a href="@GetRulePath(PreviousRule)">Previous</a>
+                    <a href="@GetRulePath(PreviousRule)" @key="PreviousRule.RuleCategory">
+                        <small>Previous</small>
+                        <span>@GetPlainTitle(PreviousRule)</span>
+                    </a>
                 }
                 @if (NextRule is not null)
                 {
-                    <a href="@GetRulePath(NextRule)">Next</a>
+                    <a class="rules-next-link"
+                       href="@GetRulePath(NextRule)"
+                       @key="NextRule.RuleCategory">
+                        <small>Next</small>
+                        <span>@GetPlainTitle(NextRule)</span>
+                    </a>
                 }
-                <button class="@GetNotesToggleClass()" type="button" @onclick="ToggleNotes">
-                    @Strings.Rules_ShowNotes @GetNotesToggleText()
-                </button>
-            </div>
-        </section>
-
-        <section class="rules-toolbar">
-            <RuleSearchbar OnSearchChange="NavigateToSearch" />
-        </section>
-
-        <RuleContent TransformedRule="@SelectedRule" ShowNotes="_showNotes" />
+            </nav>
+        }
     }
 </div>
