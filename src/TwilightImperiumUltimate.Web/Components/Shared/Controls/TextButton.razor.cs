@@ -17,6 +17,15 @@ public partial class TextButton
     public string CssClass { get; set; } = string.Empty;
 
     [Parameter]
+    public string Href { get; set; } = string.Empty;
+
+    [Parameter]
+    public string Target { get; set; } = string.Empty;
+
+    [Parameter]
+    public string Rel { get; set; } = string.Empty;
+
+    [Parameter]
     public EventCallback OnClick { get; set; }
 
     [Parameter]
@@ -41,4 +50,16 @@ public partial class TextButton
     private string Justify => JustifyContent.GetJustifyString();
 
     private string Align => AlignItems.GetAlignString();
+
+    private bool HasHref => !string.IsNullOrWhiteSpace(Href);
+
+    private string ComponentStyle => $"--text-button-font-size:{FontSize}px; color:{SetColor()}; text-align:{TextAlign}; align-items:{Align}; justify-content:{Justify}; cursor:pointer; width:{Width}%; box-sizing:border-box; padding:2px; height:100%; {Style}";
+
+    private async Task HandleClickAsync()
+    {
+        if (OnClick.HasDelegate)
+        {
+            await OnClick.InvokeAsync();
+        }
+    }
 }

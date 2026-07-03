@@ -1,0 +1,57 @@
+{
+  "version": "0.2.0",
+  "compounds": [
+    {
+      "name": "API + Web",
+      "configurations": [
+        "API (Swagger)",
+        "Web (Blazor)"
+      ],
+      "stopAll": true
+    }
+  ],
+  "configurations": [
+    {
+      "name": "API (Swagger)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-api",
+      "program": "${workspaceFolder}/src/TwilightImperiumUltimate.API/bin/Debug/net8.0/TwilightImperiumUltimate.API.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/src/TwilightImperiumUltimate.API",
+      "console": "internalConsole",
+      "stopAtEntry": false,
+      "serverReadyAction": {
+        "action": "openExternally",
+        "pattern": "Host application started",
+        "uriFormat": "https://localhost:7292/swagger/index.html"
+      },
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "https://localhost:7292;http://localhost:5178"
+      }
+    },
+    {
+      "name": "Web (Blazor)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-web",
+      "program": "C:\\Program Files\\dotnet\\dotnet.exe",
+      "args": [
+        "run",
+        "--project",
+        "${workspaceFolder}/src/TwilightImperiumUltimate.Web/TwilightImperiumUltimate.Web.csproj",
+        "--launch-profile",
+        "https"
+      ],
+      "cwd": "${workspaceFolder}/src/TwilightImperiumUltimate.Web",
+      "console": "internalConsole",
+      "stopAtEntry": false,
+      "serverReadyAction": {
+        "action": "openExternally",
+        "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
+        "uriFormat": "%s"
+      }
+    }
+  ]
+}

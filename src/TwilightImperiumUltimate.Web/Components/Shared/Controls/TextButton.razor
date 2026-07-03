@@ -1,5 +1,20 @@
-﻿<div class="handel white shadow @(CssClass)"
-     style="color:@(SetColor());font-size: @(FontSize)px; text-align: @(TextAlign); display: flex; align-items: @(Align); justify-content: @(Justify); cursor: pointer; width:@(Width)%; box-sizing: border-box; padding: 2px; height: 100%; @(Style)"
-    @onclick="@(async () => await OnClick.InvokeAsync())">
-    @MarkupString
-</div>
+﻿@if (HasHref)
+{
+    <a class="text-button handel white shadow @(CssClass)"
+       href="@Href"
+       target="@Target"
+       rel="@Rel"
+       style="@ComponentStyle"
+       @onclick="HandleClickAsync">
+        <span class="text-button-content">@MarkupString</span>
+    </a>
+}
+else
+{
+    <button class="text-button handel white shadow @(CssClass)"
+            type="button"
+            style="@ComponentStyle"
+            @onclick="HandleClickAsync">
+        <span class="text-button-content">@MarkupString</span>
+    </button>
+}

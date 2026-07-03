@@ -158,7 +158,7 @@ internal static class ServiceCollectionExtensions
                 .WithIdentity($"{nameof(AsyncGameDataJob)}-trigger")
                 .WithCronSchedule(croneExpression ?? defaultCroneExpression));
 
-            // Season leaderboard refresh: run immediately at startup, then every 5 minutes
+            // Season leaderboard refresh: run immediately at startup, then every 1 hour
             var seasonLeaderboardJobKey = new JobKey(nameof(SeasonLeaderboardRefreshJob));
             q.AddJob<SeasonLeaderboardRefreshJob>(opts => opts.WithIdentity(seasonLeaderboardJobKey));
             q.AddTrigger(opts => opts
