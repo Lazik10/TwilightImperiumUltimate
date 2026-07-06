@@ -38,6 +38,8 @@ public static class GraphExtensions
 
     public static string GetMapLayoutLog(this Dictionary<(int X, int Y), Hex> universe, int n, int m)
     {
+        ArgumentNullException.ThrowIfNull(universe);
+
         var logString = "\nGenerated Map Layout: \n";
 
         for (int x = 0; x < n; x++)

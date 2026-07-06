@@ -8,6 +8,8 @@ public static class SliceExtensions
 {
     public static float SliceEvaluation(this Slice slice, SystemWeight systemWeight)
     {
+        ArgumentNullException.ThrowIfNull(slice);
+
         float evaluation = 0.0f;
         evaluation = slice.Positions.Sum(pos => pos.SystemTile switch
         {
@@ -22,11 +24,15 @@ public static class SliceExtensions
 
     public static bool HasAnomaly(this Slice slice)
     {
+        ArgumentNullException.ThrowIfNull(slice);
+
         return slice.Positions.Any(pos => pos.SystemTile != null && pos.SystemTile.HasAnomaly);
     }
 
     public static string GetSliceLog(this Slice slice)
     {
+        ArgumentNullException.ThrowIfNull(slice);
+
         var idText = $"Slice {slice.Id}";
         var numberOfAssignedPositions = $"{slice.Positions.Count(x => x.SystemTile is not null)} assigned positions";
         var assignedSystemTiles = string.Join(", ", slice.Positions.Where(x => x.SystemTile is not null).Select(x => $"[{x.X},{x.Y}]:{x.SystemTile!.SystemTileCode}"));
@@ -48,6 +54,8 @@ public static class SliceExtensions
 
     public static int GetNumberOfRedTilesOrWormholeTiles(this Slice slice)
     {
+        ArgumentNullException.ThrowIfNull(slice);
+
         return slice.DraftedSystemTiles.Count(x => x.TileCategory == SystemTileCategory.Red || x.HasWormholes)
             + slice.Positions.Count(pos =>
                 pos.SystemTile is not null
@@ -56,6 +64,8 @@ public static class SliceExtensions
 
     public static int GetNumberOfRedTiles(this Slice slice)
     {
+        ArgumentNullException.ThrowIfNull(slice);
+
         return slice.DraftedSystemTiles.Count(x => x.TileCategory == SystemTileCategory.Red)
             + slice.Positions.Count(pos =>
                 pos.SystemTile is not null
@@ -64,6 +74,8 @@ public static class SliceExtensions
 
     public static int GetNumberOfWormholeTiles(this Slice slice)
     {
+        ArgumentNullException.ThrowIfNull(slice);
+
         return slice.DraftedSystemTiles.Count(x => x.HasWormholes)
             + slice.Positions.Count(pos =>
                 pos.SystemTile is not null

@@ -12,6 +12,9 @@ public class MiltyDraftMapPositionSetter(
         MiltyDraftInitiative miltyDraftInitiative,
         Dictionary<int, SystemTileModel> generatedMapPositionsWithSystemTiles)
     {
+        ArgumentNullException.ThrowIfNull(slice);
+        ArgumentNullException.ThrowIfNull(generatedMapPositionsWithSystemTiles);
+
         var specificMapPositions = await _miltyDraftSpecificMapPositionProvider.GetSpecificMapPositions(mapTemplate);
         var mapPositions = specificMapPositions.SlicePositions[miltyDraftInitiative];
 
@@ -27,6 +30,8 @@ public class MiltyDraftMapPositionSetter(
         MiltyDraftInitiative miltyDraftInitiative,
         Dictionary<int, SystemTileModel> generatedMapPositionsWithSystemTiles)
     {
+        ArgumentNullException.ThrowIfNull(generatedMapPositionsWithSystemTiles);
+
         var specificMapHomePositions = await _miltyDraftSpecificMapPositionProvider.GetSpecificMapPositions(mapTemplate);
         var homePosition = specificMapHomePositions.HomePositions[miltyDraftInitiative];
 

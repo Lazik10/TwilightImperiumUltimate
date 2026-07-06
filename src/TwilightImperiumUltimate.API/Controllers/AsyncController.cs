@@ -90,6 +90,8 @@ public class AsyncController(IMediator mediator) : ControllerBase
     [HttpPost]
     public async Task<ActionResult<IApiResponse<ItemListDto<AsyncGameDto>>>> GetAsyncGamesByYearAndMonth(AsyncGamesByYearAndMonthRequest request)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var response = await _mediator.Send(new GetAllAsyncGamesByYearAndMonthQuery(request.Year, request.Month));
         return Ok(new ApiResponse<ItemListDto<AsyncGameDto>>() { Success = true, Data = new ItemListDto<AsyncGameDto>(response) });
     }
@@ -130,6 +132,8 @@ public class AsyncController(IMediator mediator) : ControllerBase
     [HttpPost]
     public async Task<ActionResult<IApiResponse<AsyncPlayerSettingsResponseDto>>> UpdateAsyncUserSettings(AsyncPlayerSettingsRequestDto request)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var result = await _mediator.Send(new UpdateAsyncPlayerSettingsCommand(request));
 
         if (result.IsFailed)

@@ -9,6 +9,8 @@ public class TiglFactionValidator : ITiglFactionValidator
 {
     public Task<Result<bool>> AllTiglFactionsAreValid(IGameReport gameReport)
     {
+        ArgumentNullException.ThrowIfNull(gameReport);
+
         var result = new Result<bool>();
         var validFactions = new List<TiglFactionName>();
         var allParsedSuccessfully = true;

@@ -74,6 +74,8 @@ public class RankingsController(IMediator mediator) : ControllerBase
     [HttpPost]
     public async Task<ActionResult<IApiResponse<AddRankHistoryResponse>>> AddRankHistory(AddRankHistoryRequest request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var result = await _mediator.Send(new AddRankHistoryCommand(request.TiglUserId, request.League, request.Rank, request.AchievedAt), cancellationToken);
         if (!result.Success)
         {
@@ -88,6 +90,8 @@ public class RankingsController(IMediator mediator) : ControllerBase
     [HttpDelete]
     public async Task<ActionResult<IApiResponse<RemoveRankHistoryResponse>>> RemoveRankHistory([FromBody] RemoveRankHistoryRequest request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var result = await _mediator.Send(new RemoveRankHistoryCommand(request.RankHistoryId), cancellationToken);
         if (!result.Success)
         {
@@ -111,6 +115,8 @@ public class RankingsController(IMediator mediator) : ControllerBase
     [HttpPost]
     public async Task<ActionResult<IApiResponse<AddUserAchievementResponse>>> AddAchievement(AddUserAchievementRequest request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var result = await _mediator.Send(new AddTiglUserAchievementCommand(request.TiglUserId, request.AchievementName, request.Faction), cancellationToken);
         if (!result.Success)
         {
@@ -125,6 +131,8 @@ public class RankingsController(IMediator mediator) : ControllerBase
     [HttpDelete]
     public async Task<ActionResult<IApiResponse<RemoveUserAchievementResponse>>> RemoveAchievement([FromBody] RemoveUserAchievementRequest request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var result = await _mediator.Send(new RemoveTiglUserAchievementCommand(request.TiglUserId, request.AchievementName, request.Faction), cancellationToken);
         if (!result.Success)
         {

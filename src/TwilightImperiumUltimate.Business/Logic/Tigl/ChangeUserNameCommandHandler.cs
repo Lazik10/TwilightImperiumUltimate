@@ -11,6 +11,8 @@ public class ChangeUserNameCommandHandler(
 
     public async Task<NewTiglUserResponse> Handle(ChangeUserNameCommand request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var tiglUser = await tiglUserRepository.GetTiglUserByDiscordId(request.DiscordId, cancellationToken);
         if (tiglUser is null)
         {

@@ -8,6 +8,8 @@ public class UpdateAsyncPlayerSettingsCommand : IRequest<Result>
 {
     public UpdateAsyncPlayerSettingsCommand(AsyncPlayerSettingsRequestDto request)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         PlayerDiscordId = request.PlayerDiscordId;
         PlayerProfileSettings = new AsyncPlayerProfileSettings
         {

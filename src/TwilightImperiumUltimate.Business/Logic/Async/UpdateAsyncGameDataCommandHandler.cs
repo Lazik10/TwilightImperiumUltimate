@@ -13,6 +13,8 @@ public class UpdateAsyncGameDataCommandHandler(
 
     public async Task<bool> Handle(UpdateAsyncGameDataCommand request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var gameData = request.GameData;
         var gameIds = await _asyncStatsRepository.GetAsyncGameIds(cancellationToken);
         var finishedGameIds = await _asyncStatsRepository.GetAsyncFinishedGameIds(cancellationToken);

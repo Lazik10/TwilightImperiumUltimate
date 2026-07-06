@@ -10,6 +10,8 @@ public class GetTiglPlayerProfileQueryHandler(IDbContextFactory<TwilightImperium
 
     public async Task<TiglPlayerProfileDto> Handle(GetTiglPlayerProfileQuery request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         await using var db = await dbFactory.CreateDbContextAsync(cancellationToken);
 
         var userId = request.TiglUserId;

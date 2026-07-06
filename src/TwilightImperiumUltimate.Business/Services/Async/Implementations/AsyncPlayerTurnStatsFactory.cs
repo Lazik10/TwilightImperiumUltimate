@@ -8,6 +8,8 @@ public class AsyncPlayerTurnStatsFactory : IAsyncPlayerTurnStatsFactory
 {
     public Task<AsyncPlayerTurnStatsSummaryDto> CreateAsyncPlayerTurnStats(AsyncPlayerProfile playerProfile)
     {
+        ArgumentNullException.ThrowIfNull(playerProfile);
+
         var games = playerProfile.GameStatistics.Select(x => x.GameStats).ToList();
         var tiglGames = games.Where(x => x.IsTigl).ToList();
         var customGames = games.Where(x => !x.IsTigl).ToList();

@@ -16,6 +16,8 @@ public sealed class SpeedDemonAchievementEvaluator(
 {
     public async Task EvaluateAsync(Season season, AchievementName achievementName, CancellationToken cancellationToken = default)
     {
+        ArgumentNullException.ThrowIfNull(season);
+
         var fastestGameThundersEdge = await seasonRepository.GetFastestGameInSeason(season.SeasonNumber, TiglLeague.ThundersEdge, cancellationToken);
         var fastestGameFractured = await seasonRepository.GetFastestGameInSeason(season.SeasonNumber, TiglLeague.Fractured, cancellationToken);
 

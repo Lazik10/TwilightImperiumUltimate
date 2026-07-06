@@ -7,6 +7,8 @@ public static class GalaxyExtensions
 {
     public static IReadOnlyCollection<string> GetWormholeTileCodes(this Dictionary<(int X, int Y), Hex> galaxy, WormholeName wormholeName)
     {
+        ArgumentNullException.ThrowIfNull(galaxy);
+
         return galaxy.Values
             .Where(hex => hex.SystemTile is not null
                 && hex.SystemTile.Wormholes.Any(x => x.WormholeName == wormholeName))
@@ -16,6 +18,8 @@ public static class GalaxyExtensions
 
     public static IReadOnlyCollection<string> GetLegendaryTileCodes(this Dictionary<(int X, int Y), Hex> galaxy)
     {
+        ArgumentNullException.ThrowIfNull(galaxy);
+
         return galaxy.Values
             .Where(hex => hex.SystemTile is not null && hex.SystemTile.HasLegendaryPlanet)
             .Select(x => x.SystemTile!.SystemTileCode)
@@ -24,6 +28,8 @@ public static class GalaxyExtensions
 
     public static IReadOnlyCollection<string> GetRedTileCodes(this Dictionary<(int X, int Y), Hex> galaxy)
     {
+        ArgumentNullException.ThrowIfNull(galaxy);
+
         return galaxy.Values
             .Where(hex => hex.SystemTile is not null && hex.SystemTile.TileCategory == SystemTileCategory.Red)
             .Select(x => x.SystemTile!.SystemTileCode)
@@ -32,6 +38,8 @@ public static class GalaxyExtensions
 
     public static int GetNumberOfEmptyPositions(this Dictionary<(int X, int Y), Hex> galaxy)
     {
+        ArgumentNullException.ThrowIfNull(galaxy);
+
         return galaxy.Values.Count(x => x.SystemTile is null && x.Name != PositionName.Empty);
     }
 }

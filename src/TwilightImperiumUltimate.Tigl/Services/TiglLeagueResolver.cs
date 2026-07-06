@@ -7,6 +7,8 @@ public class TiglLeagueResolver : ITiglLeagueResolver
 {
     public TiglLeague Resolve(IGameReport gameReport)
     {
+        ArgumentNullException.ThrowIfNull(gameReport);
+
         return gameReport.League;
     }
 }

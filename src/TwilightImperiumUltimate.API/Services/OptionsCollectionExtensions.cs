@@ -8,6 +8,8 @@ public static class OptionsCollectionExtensions
     public static IServiceCollection RegisterOptions(
         this IServiceCollection services, IConfiguration configuration)
     {
+        ArgumentNullException.ThrowIfNull(configuration);
+
         services.Configure<SmtpOptions>(configuration.GetSection("Smtp"));
         services.Configure<FrontendOptions>(configuration.GetSection("Frontend"));
         services.Configure<AsyncStatsOptions>(configuration.GetSection("AsyncStats"));

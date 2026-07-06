@@ -13,6 +13,8 @@ public class MiltyDraftSystemTileSetter(
 
     public Task<List<Slice>> SetSystemTilesForSlices(SystemTilesForSlices preparedSystemTiles, List<Slice> slices)
     {
+        ArgumentNullException.ThrowIfNull(slices);
+
         for (int i = 0; i < slices.Count; i++)
         {
             slices[i] = ReorderSystemTilesToComplyWithRedTilesPlacement(slices[i]);

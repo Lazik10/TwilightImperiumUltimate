@@ -11,6 +11,8 @@ public class GetAsyncDurationsStatsSummaryQueryHandler(
 
     public async Task<AsyncDurationsSummaryStatsDto> Handle(GetAsyncDurationsStatsSummaryQuery request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         return await _asyncDurationsStatsFactory.CreateAsyncDurationsStatsSummary(request.Limit, cancellationToken);
     }
 }

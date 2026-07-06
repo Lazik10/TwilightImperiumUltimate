@@ -13,6 +13,8 @@ public class GetFactionSeasonStatsQueryHandler(
 
     public async Task<ItemListDto<FactionSeasonStatsDto>> Handle(GetFactionSeasonStatsQuery request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var cacheKey = $"factionStats:{request.Season}:{request.League}";
         if (_cache.TryGetValue(cacheKey, out ItemListDto<FactionSeasonStatsDto>? cached))
             return cached!;

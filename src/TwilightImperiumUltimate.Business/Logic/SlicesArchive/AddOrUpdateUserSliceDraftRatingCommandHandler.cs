@@ -12,6 +12,8 @@ public class AddOrUpdateUserSliceDraftRatingCommandHandler(
 
     public async Task<ApiResponse<SliceDraftRatingDto>> Handle(AddOrUpdateUserSliceDraftRatingCommand request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var userRating = await _slicesArchiveRepository.AddOrUpdateUserSliceDraftRating(request.UserId, request.SliceDraftId, request.Rating, cancellationToken);
 
         var sliceDraftRatingDto = _mapper.Map<SliceDraftRatingDto>(userRating);

@@ -22,6 +22,11 @@ public class SystemTileSetter(
         IMapSettings mapSettings,
         GenerateMapRequest request)
     {
+        ArgumentNullException.ThrowIfNull(galaxy);
+        ArgumentNullException.ThrowIfNull(systemTilesForMapSetup);
+        ArgumentNullException.ThrowIfNull(mapSettings);
+        ArgumentNullException.ThrowIfNull(request);
+
         var redTiles = systemTilesForMapSetup.RedTiles.ToList();
         _logger.LogInformation("Available red tiles: {RedTiles}", redTiles.GetSystemTileCodes());
 
@@ -171,6 +176,11 @@ public class SystemTileSetter(
         IReadOnlyCollection<FactionName> factions,
         IReadOnlyCollection<string> playerNames)
     {
+        ArgumentNullException.ThrowIfNull(galaxy);
+        ArgumentNullException.ThrowIfNull(systemTilesForMapSetup);
+        ArgumentNullException.ThrowIfNull(mapSettings);
+        ArgumentNullException.ThrowIfNull(playerNames);
+
         if (homeSystemDraftType == HomeSystemDraftType.Placeholders)
         {
             var homeSystemPlaceholder = systemTilesForMapSetup.EmptyHomeSystemPlaceholder;
@@ -215,11 +225,18 @@ public class SystemTileSetter(
 
     public void SetMecatolSystemTile(Dictionary<(int X, int Y), Hex> galaxy, IMapSettings mapSettings, SystemTile mecatolRexSystemTile)
     {
+        ArgumentNullException.ThrowIfNull(galaxy);
+        ArgumentNullException.ThrowIfNull(mapSettings);
+
         galaxy[mapSettings.MecatolRexPosition].SystemTile = mecatolRexSystemTile;
     }
 
     public void SetLegendarySystemTiles(Dictionary<(int X, int Y), Hex> galaxy, SystemTilesForGalaxyDistribution remainingSystemTiles, IMapSettings mapSettings)
     {
+        ArgumentNullException.ThrowIfNull(galaxy);
+        ArgumentNullException.ThrowIfNull(remainingSystemTiles);
+        ArgumentNullException.ThrowIfNull(mapSettings);
+
         if (!remainingSystemTiles.BlueTiles.Exists(x => x.HasLegendaryPlanet))
             return;
 
@@ -251,6 +268,11 @@ public class SystemTileSetter(
 
     public void SetRemainingSystemTiles(Dictionary<(int X, int Y), Hex> galaxy, IMapSettings mapSettings, GenerateMapRequest request, IReadOnlyCollection<Slice> balancedSlices)
     {
+        ArgumentNullException.ThrowIfNull(galaxy);
+        ArgumentNullException.ThrowIfNull(mapSettings);
+        ArgumentNullException.ThrowIfNull(request);
+        ArgumentNullException.ThrowIfNull(balancedSlices);
+
         _ = request.PlacementStyle switch
         {
             PlacementStyle.Random => SetRemainingSystemTilesByRandomPlacement(galaxy, balancedSlices),
@@ -263,6 +285,10 @@ public class SystemTileSetter(
 
     public void SetHyperlines(Dictionary<(int X, int Y), Hex> galaxy, IHyperlineSettings hyperlineSettings, SystemTilesForMapSetup systemTilesForMapSetup)
     {
+        ArgumentNullException.ThrowIfNull(galaxy);
+        ArgumentNullException.ThrowIfNull(hyperlineSettings);
+        ArgumentNullException.ThrowIfNull(systemTilesForMapSetup);
+
         if (hyperlineSettings.Hyperlines.Count == 0)
             return;
 
@@ -280,6 +306,8 @@ public class SystemTileSetter(
 
     public void SetFrameTiles(Dictionary<(int X, int Y), Hex> galaxy, SystemTile frameSystemPlaceholder)
     {
+        ArgumentNullException.ThrowIfNull(galaxy);
+
         foreach (var hex in galaxy.Values)
         {
             if (galaxy.TryGetValue((hex.X, hex.Y), out Hex? galaxyHex) && galaxyHex is not null)

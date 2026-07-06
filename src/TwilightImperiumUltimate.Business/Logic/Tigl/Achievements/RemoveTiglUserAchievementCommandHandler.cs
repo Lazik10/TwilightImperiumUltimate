@@ -7,6 +7,8 @@ public class RemoveTiglUserAchievementCommandHandler(IAchievementRepository achi
 {
     public async Task<RemoveUserAchievementResponse> Handle(RemoveTiglUserAchievementCommand request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var success = await achievementRepository.RemoveAchievement(request.TiglUserId, request.AchievementName, request.Faction, cancellationToken);
         if (!success)
             return new RemoveUserAchievementResponse { Success = false, TiglUserId = request.TiglUserId, AchievementName = request.AchievementName, Faction = request.Faction, ErrorTitle = "Remove Achievement Failed", ErrorMessage = "Unable to remove achievement." };

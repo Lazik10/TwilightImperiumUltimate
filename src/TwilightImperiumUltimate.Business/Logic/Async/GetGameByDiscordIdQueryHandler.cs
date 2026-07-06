@@ -13,6 +13,8 @@ public class GetGameByDiscordIdQueryHandler(
 
     public async Task<AsyncGameDto> Handle(GetGameByDiscordIdQuery request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var game = await _asyncStatsRepository.GetAsyncGameByDiscordId(request.GameDiscordId, cancellationToken);
 
         if (game is not null)

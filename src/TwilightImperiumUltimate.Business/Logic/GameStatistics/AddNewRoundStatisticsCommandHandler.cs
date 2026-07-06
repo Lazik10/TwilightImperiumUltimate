@@ -8,6 +8,8 @@ public class AddNewRoundStatisticsCommandHandler(
 
     public async Task<bool> Handle(AddNewRoundStatisticsCommand request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         foreach (var factionStats in request.RoundStatistics.FactionStats)
         {
             await _gameStatisticsRepository.AddNewRoundFactionStatistics(

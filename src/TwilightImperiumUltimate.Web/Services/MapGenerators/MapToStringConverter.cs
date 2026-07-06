@@ -63,6 +63,8 @@ public class MapToStringConverter(
 
     public Task<string> ConvertMapToTtsString(MapTemplate mapTemplate, IReadOnlyDictionary<int, SystemTileModel> map)
     {
+        ArgumentNullException.ThrowIfNull(map);
+
         var ttsPositions = TiUltimatePositionsFromTtsPositions(mapTemplate);
         string ttsString = GenerateTtsString(ttsPositions, map);
 
@@ -71,6 +73,8 @@ public class MapToStringConverter(
 
     public async Task ConvertTtsStringToMap(MapTemplate mapTemplate, string ttsString)
     {
+        ArgumentNullException.ThrowIfNull(ttsString);
+
         var ttsPositions = TiUltimatePositionsFromTtsPositions(mapTemplate);
         var importedTtsSystemTileCodes = ttsString.Split(' ').ToList();
 

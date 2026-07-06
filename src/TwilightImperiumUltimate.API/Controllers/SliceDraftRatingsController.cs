@@ -16,6 +16,8 @@ public class SliceDraftRatingsController(
     [HttpPost]
     public async Task<ActionResult<SliceDraftRatingDto>> GetUserSliceDraftRating(UserSliceDraftRatingRequest request)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var response = await _mediator.Send(new GetUserSliceDraftRatingQuery(request.UserId, request.SliceDraftId));
 
         if (!response.Success)
@@ -29,6 +31,8 @@ public class SliceDraftRatingsController(
     [HttpPut]
     public async Task<ActionResult<SliceDraftRatingDto>> UpdateUserSliceDraftRating(UserSliceDraftRatingRequest request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var response = await _mediator.Send(
             new AddOrUpdateUserSliceDraftRatingCommand(request.UserId, request.SliceDraftId, request.Rating), cancellationToken);
 

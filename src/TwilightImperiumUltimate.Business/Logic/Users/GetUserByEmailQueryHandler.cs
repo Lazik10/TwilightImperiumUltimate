@@ -10,7 +10,9 @@ public class GetUserByEmailQueryHandler(
 
     public async Task<TwilightImperiumUserDto> Handle(GetUserByEmailQuery request, CancellationToken cancellationToken)
     {
-        var user = await _userRepository.GetUserByEmail(request.Email);
+        ArgumentNullException.ThrowIfNull(request);
+
+        var user = await _userRepository.GetUserByEmail(request.Email).ConfigureAwait(false);
         return _mapper.Map<TwilightImperiumUserDto>(user);
     }
 }

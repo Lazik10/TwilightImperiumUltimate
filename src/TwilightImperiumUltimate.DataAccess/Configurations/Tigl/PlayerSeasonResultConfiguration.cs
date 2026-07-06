@@ -6,6 +6,8 @@ public class PlayerSeasonResultConfiguration : IEntityTypeConfiguration<PlayerSe
 {
     public void Configure(EntityTypeBuilder<PlayerSeasonResult> builder)
     {
+        ArgumentNullException.ThrowIfNull(builder);
+
         builder.ToTable(TableName.PlayerSeasonResults, Schema.Tigl);
 
         builder.HasKey(x => x.Id);

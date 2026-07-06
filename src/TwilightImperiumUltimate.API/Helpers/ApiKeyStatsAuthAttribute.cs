@@ -12,6 +12,8 @@ public sealed class ApiKeyStatsAuthAttribute : Attribute, IAuthorizationFilter
 
     public void OnAuthorization(AuthorizationFilterContext context)
     {
+        ArgumentNullException.ThrowIfNull(context);
+
         var request = context.HttpContext.Request;
         var serviceProvider = context.HttpContext.RequestServices;
 

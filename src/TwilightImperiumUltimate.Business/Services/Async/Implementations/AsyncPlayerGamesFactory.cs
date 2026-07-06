@@ -10,6 +10,8 @@ public class AsyncPlayerGamesFactory : IAsyncPlayerGamesFactory
 
     public Task<AsyncPlayerGamesSummaryDto> CreateAsyncPlayerGames(AsyncPlayerProfile playerProfile)
     {
+        ArgumentNullException.ThrowIfNull(playerProfile);
+
         var games = playerProfile.GameStatistics.Select(x => x.GameStats).ToList();
         var gamesDto = new List<AsyncPlayerGameDto>();
 

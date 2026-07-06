@@ -49,6 +49,8 @@ public static class SystemTileExtensions
 
     public static float GetValue(this SystemTile systemTile, SystemWeight systemWeight)
     {
+        ArgumentNullException.ThrowIfNull(systemTile);
+
         return systemWeight switch
         {
             SystemWeight.Balanced => systemTile.Planets.Sum(planet =>
@@ -79,6 +81,8 @@ public static class SystemTileExtensions
 
     public static float GetOptimalResourceValue(this SystemTile systemTile)
     {
+        ArgumentNullException.ThrowIfNull(systemTile);
+
         return systemTile.Planets.Sum(planet =>
             planet.Resources switch
             {
@@ -90,6 +94,8 @@ public static class SystemTileExtensions
 
     public static float GetOptimalInfluenceValue(this SystemTile systemTile)
     {
+        ArgumentNullException.ThrowIfNull(systemTile);
+
         return systemTile.Planets.Sum(planet =>
             planet.Influence switch
             {

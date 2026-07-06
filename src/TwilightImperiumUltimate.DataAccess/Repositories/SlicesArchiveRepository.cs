@@ -12,6 +12,8 @@ public class SlicesArchiveRepository(
 
     public async Task<bool> AddNewSliceDraft(SliceDraft sliceDraft, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(sliceDraft);
+
         await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);
 
         try

@@ -13,6 +13,8 @@ public class GetAllAsyncGamesByYearAndMonthQueryHandler(
 
     public async Task<List<AsyncGameDto>> Handle(GetAllAsyncGamesByYearAndMonthQuery request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var games = await _asyncStatsRepository.GetAllAsyncGamesByYearAndMonthQuery(request.Year, request.Month, cancellationToken);
 
         // Make sure active fow games stays hidden

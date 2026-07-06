@@ -8,6 +8,8 @@ public class AddRankHistoryCommandHandler(IDbContextFactory<TwilightImperiumDbCo
 {
     public async Task<AddRankHistoryResponse> Handle(AddRankHistoryCommand request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         await using var db = await dbFactory.CreateDbContextAsync(cancellationToken);
 
         var entity = new TiglRank

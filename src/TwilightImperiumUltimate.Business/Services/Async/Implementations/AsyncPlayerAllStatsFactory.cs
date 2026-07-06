@@ -27,6 +27,8 @@ public class AsyncPlayerAllStatsFactory(
 {
     public async Task<AsyncPlayerProfileSummaryStatsDto> CreateAsyncPlayerStats(AsyncPlayerProfile playerProfile)
     {
+        ArgumentNullException.ThrowIfNull(playerProfile);
+
         var playerInfo = await asyncPlayerInfoFactory.CreateAsyncPlayerInfoAsync(playerProfile);
         var profileSettings = mapper.Map<AsyncPlayerProfileSettingsDto>(playerProfile.ProfileSettings);
         var gameStats = await asyncPlayerGameStatsFactory.CreateAsyncPlayerGameStats(playerProfile);

@@ -13,6 +13,8 @@ public class GetGameByFunNameQueryHandler(
 
     public async Task<AsyncGameDto> Handle(GetGameByFunNameQuery request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var game = await _asyncStatsRepository.GetAsyncGameByFunName(request.FunName, cancellationToken);
 
         if (game is not null)

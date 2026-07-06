@@ -8,6 +8,8 @@ public class AddNewGameStatisticsCommandHandler(
 
     public async Task<bool> Handle(AddNewGameStatisticsCommand request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         await _gameStatisticsRepository.UpdateWebsiteStatistics(StatisticsType.GamesPlayed, cancellationToken);
 
         await _gameStatisticsRepository.AddNewGameStatistics(

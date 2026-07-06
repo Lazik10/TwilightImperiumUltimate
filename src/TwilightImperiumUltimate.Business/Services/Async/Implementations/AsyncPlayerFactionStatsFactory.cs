@@ -8,6 +8,8 @@ public class AsyncPlayerFactionStatsFactory : IAsyncPlayerFactionStatsFactory
 {
     public Task<AsyncPlayerFactionStatsSummaryDto> CreateAsyncPlayerFactionStats(AsyncPlayerProfile playerProfile)
     {
+        ArgumentNullException.ThrowIfNull(playerProfile);
+
         var endedGames = playerProfile.GameStatistics
             .Select(x => x.GameStats)
             .Where(x => x.EndedTimestamp != null && x.HasWinner)

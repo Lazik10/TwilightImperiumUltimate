@@ -12,6 +12,9 @@ public class AsyncPlayerMinMaxStatsProvider : IAsyncPlayerMinMaxStatsProvider
         AsyncPlayerFactionStatsByGameVp factionStats,
         FactionStatisticsSubstatsFilter statsFilter)
     {
+        ArgumentNullException.ThrowIfNull(maxStats);
+        ArgumentNullException.ThrowIfNull(factionStats);
+
         AsyncPlayerFactionMinMaxValues result = statsFilter switch
         {
             FactionStatisticsSubstatsFilter.Games => new(factionStats.GetFloatValue(x => x.Games), maxStats.Games < 1 ? 1 : maxStats.Games),

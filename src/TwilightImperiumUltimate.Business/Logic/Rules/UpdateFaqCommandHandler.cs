@@ -12,6 +12,8 @@ public class UpdateFaqCommandHandler(
 
     public async Task<FaqDto> Handle(UpdateFaqCommand request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var newFaq = _mapper.Map<Faq>(request.Faq);
         var updatedFaq = await _faqRepository.UpdateFaq(newFaq, cancellationToken);
         return _mapper.Map<FaqDto>(updatedFaq);

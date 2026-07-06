@@ -11,6 +11,8 @@ public class GetAsyncEliminationsStatsSummaryQueryHandler(
 
     public async Task<AsyncEliminationsSummaryStatsDto> Handle(GetAsyncEliminationsStatsSummaryQuery request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         return await _asyncEliminationsStatsFactory.CreateAsyncEliminationsStatsSummary(request.Limit, cancellationToken);
     }
 }

@@ -16,6 +16,8 @@ public class TiglMatchInserter(
 {
     public async Task<IResult<MatchReport>> InsertGameReport(GameReport gameReport, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(gameReport);
+
         var result = new Result<MatchReport>();
 
         var currentSeason = await seasonRepository.GetCurrentSeason(cancellationToken);

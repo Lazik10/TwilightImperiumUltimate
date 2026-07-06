@@ -6,8 +6,8 @@ public class AddUserToRoleCommandHandler(
 {
     private readonly IUserRepository _userRepository = userRepository;
 
-    public async Task<bool> Handle(AddUserToRoleCommand request, CancellationToken cancellationToken)
-    {
-        return await _userRepository.AddUserToRole(request.UserId, request.RoleName);
-    }
+    public Task<bool> Handle(AddUserToRoleCommand request, CancellationToken cancellationToken)
+        => request is null
+            ? throw new ArgumentNullException(nameof(request))
+            : _userRepository.AddUserToRole(request.UserId, request.RoleName);
 }

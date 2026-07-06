@@ -11,6 +11,8 @@ public class GetAsyncVpStatsSummaryQueryHandler(
 
     public async Task<AsyncVpSummaryStatsDto> Handle(GetAsyncVpStatsSummaryQuery request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         return await _asyncVpStatsFactory.CreateAsyncVpStatsSummary(request.Limit, cancellationToken);
     }
 }

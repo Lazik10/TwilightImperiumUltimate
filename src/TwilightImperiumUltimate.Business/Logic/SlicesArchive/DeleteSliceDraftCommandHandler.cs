@@ -8,6 +8,8 @@ public class DeleteSliceDraftCommandHandler(
 
     public async Task<bool> Handle(DeleteSliceDraftCommand request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         return await _slicesArchiveRepository.DeleteSliceDraft(request.Id, cancellationToken);
     }
 }

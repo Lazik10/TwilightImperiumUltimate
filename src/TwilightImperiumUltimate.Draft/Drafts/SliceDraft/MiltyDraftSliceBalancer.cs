@@ -12,6 +12,8 @@ public class MiltyDraftSliceBalancer(
 
     public Task<List<Slice>> BalanceSlices(SystemTilesForSlices systemTilesForSlices, List<Slice> slices)
     {
+        ArgumentNullException.ThrowIfNull(systemTilesForSlices);
+
         slices = RedistributeWormholeTiles(slices, systemTilesForSlices.WormholeSystemTiles.ToList());
         slices = RedistributeLegendaryTiles(slices, systemTilesForSlices.LegendarySystemTiles.ToList());
         slices = RedistributeRedTiles(slices, systemTilesForSlices.RedSystemTiles.ToList());

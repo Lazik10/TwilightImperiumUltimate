@@ -91,6 +91,9 @@ public class RankRepository(
 
     public async Task<Result<bool>> UpdateUserAndMatchStats(MatchReport matchReport, TiglUser player, AsyncPlayerMatchStats asyncPlayerMatchStats, GlickoPlayerMatchStats glickoPlayerMatchStats, TrueSkillPlayerMatchStats trueSkillMatchStats, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(matchReport);
+        ArgumentNullException.ThrowIfNull(player);
+
         var dbContext = await context.CreateDbContextAsync(cancellationToken);
 
         dbContext.TiglUsers.Update(player);

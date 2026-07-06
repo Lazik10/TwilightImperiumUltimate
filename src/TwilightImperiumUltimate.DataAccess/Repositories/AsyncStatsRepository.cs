@@ -96,6 +96,9 @@ public class AsyncStatsRepository(
 
     public async Task<bool> UpdateGameStats(GameStats gameStats, GameData gameData, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(gameStats);
+        ArgumentNullException.ThrowIfNull(gameData);
+
         await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);
         var game = await dbContext.GameStats
             .FirstOrDefaultAsync(x => x.AsyncGameID == gameStats.AsyncGameID, cancellationToken);
@@ -121,6 +124,8 @@ public class AsyncStatsRepository(
 
     public async Task<bool> DeleteGameStats(GameStats gameStats, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(gameStats);
+
         await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);
         var game = await dbContext.GameStats
             .FirstOrDefaultAsync(x => x.AsyncGameID == gameStats.AsyncGameID, cancellationToken);
@@ -168,6 +173,9 @@ public class AsyncStatsRepository(
 
     public async Task<bool> UpdatePlayerStats(GameStats gameStats, PlayerStats newPlayerStats, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(gameStats);
+        ArgumentNullException.ThrowIfNull(newPlayerStats);
+
         await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);
         var oldPlayerStats = await dbContext.PlayerStats
             .FirstOrDefaultAsync(x => x.FactionName == newPlayerStats.FactionName && x.Color == newPlayerStats.Color && x.GameStatsId == gameStats.Id, cancellationToken);
@@ -378,6 +386,7 @@ public class AsyncStatsRepository(
 
     public async Task<bool> UpdateAsyncPlayerProfileSettings(long asyncPlayerDiscordId, AsyncPlayerProfileSettings settings, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(settings);
         await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);
 
         var playerProfile = await dbContext.AsyncPlayerProfiles

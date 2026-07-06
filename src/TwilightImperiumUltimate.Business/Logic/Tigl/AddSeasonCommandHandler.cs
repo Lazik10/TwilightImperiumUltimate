@@ -8,6 +8,8 @@ public class AddSeasonCommandHandler(
 {
     public async Task<AddSeasonResponse> Handle(AddSeasonCommand request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var result = await seasonRepository.AddNewSeason(request.SeasonNumber, request.SeasonName, cancellationToken);
         if (result.IsFailed)
         {

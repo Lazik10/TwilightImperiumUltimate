@@ -27,6 +27,8 @@ public partial class EvaluateGameReportCommandHandler(
 
     public async Task<GameReportResult> Handle(EvaluateGameReportCommand request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var matchReport = await tiglRepository.GetMatchReportWithPlayerResults(request.MatchReportId, cancellationToken);
         if (matchReport is null)
         {

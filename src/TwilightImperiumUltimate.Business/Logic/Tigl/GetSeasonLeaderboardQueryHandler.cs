@@ -13,6 +13,8 @@ public class GetSeasonLeaderboardQueryHandler(
 
     public async Task<ItemListDto<PlayerSeasonResultDto>> Handle(GetSeasonLeaderboardQuery request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         using var db = await contextFactory.CreateDbContextAsync(cancellationToken);
 
         // Determine current active season number

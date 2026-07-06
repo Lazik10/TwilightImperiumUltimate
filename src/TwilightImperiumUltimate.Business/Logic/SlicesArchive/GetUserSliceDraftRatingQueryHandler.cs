@@ -12,6 +12,8 @@ public class GetUserSliceDraftRatingQueryHandler(
 
     public async Task<ApiResponse<SliceDraftRatingDto>> Handle(GetUserSliceDraftRatingQuery request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var userRating = await _slicesArchiveRepository.GetSliceDraftRatingFromUser(request.UserId, request.SliceDraftId, cancellationToken);
 
         if (userRating is null)

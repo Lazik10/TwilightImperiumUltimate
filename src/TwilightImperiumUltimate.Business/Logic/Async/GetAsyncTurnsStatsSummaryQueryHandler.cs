@@ -11,6 +11,8 @@ public class GetAsyncTurnsStatsSummaryQueryHandler(
 
     public async Task<AsyncTurnsSummaryStatsDto> Handle(GetAsyncTurnsStatsSummaryQuery request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         return await _asyncTurnsStatsFactory.CreateAsyncTurnsStatsSummary(request.Limit, cancellationToken);
     }
 }

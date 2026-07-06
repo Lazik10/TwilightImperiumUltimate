@@ -13,6 +13,8 @@ public class GetAsyncPlayerInfoByIdQueryHandler(
 
     public async Task<AsyncPlayerProfileSummaryStatsDto> Handle(GetAsyncPlayerInfoByIdQuery request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var asyncPlayerProfile = await _asyncStatsRepository.GetAsyncPlayerProfileByDiscordId(request.DiscordUserId, cancellationToken);
         if (asyncPlayerProfile is null)
         {

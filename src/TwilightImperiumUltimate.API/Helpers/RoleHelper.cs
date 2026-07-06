@@ -4,6 +4,8 @@ public static class RoleHelper
 {
     public static IReadOnlyCollection<UserRole> GetValidUserRoles(IReadOnlyCollection<string> roles)
     {
+        ArgumentNullException.ThrowIfNull(roles);
+
         var userRoles = new List<UserRole>();
 
         foreach (var role in roles)

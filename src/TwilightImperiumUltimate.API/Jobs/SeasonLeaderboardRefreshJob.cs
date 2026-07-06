@@ -20,6 +20,8 @@ public class SeasonLeaderboardRefreshJob(
 
     public async Task Execute(IJobExecutionContext context)
     {
+        ArgumentNullException.ThrowIfNull(context);
+
         try
         {
             using var db = await _contextFactory.CreateDbContextAsync(context.CancellationToken);

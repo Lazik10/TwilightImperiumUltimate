@@ -11,6 +11,8 @@ public class GetAsyncOpponentsStatsQueryHandler(
 
     public async Task<AsyncOpponentsSummaryStatsDto> Handle(GetAsyncOpponentsStatsQuery request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         return await _asyncOpponentsStatsFactory.CreateAsyncOpponentsStatsSummary(request.Limit, cancellationToken);
     }
 }

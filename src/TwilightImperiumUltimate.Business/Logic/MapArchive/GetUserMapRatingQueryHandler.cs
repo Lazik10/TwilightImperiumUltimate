@@ -12,6 +12,8 @@ public class GetUserMapRatingQueryHandler(
 
     public async Task<ApiResponse<MapRatingDto>> Handle(GetUserMapRatingQuery request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var userRating = await _mapArchiveRepository.GetMapRatingFromUser(request.UserId, request.MapId, cancellationToken);
 
         if (userRating is null)

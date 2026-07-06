@@ -59,6 +59,8 @@ public class TiglController(
     [HttpPost]
     public async Task<ActionResult<IApiResponse<GameReportResult>>> ManualReportGame(GameReport gameReport, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(gameReport);
+
         var manualReportValidation = await _tiglRepository.GetTiglParameter(TiglParameterName.ManualGameReview, cancellationToken);
 
         GameReportResult result;
@@ -129,6 +131,8 @@ public class TiglController(
     [HttpPost]
     public async Task<ActionResult<IApiResponse<AddSeasonResponse>>> AddSeason(AddSeasonRequest request)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var result = await _mediator.Send(new AddSeasonCommand(request.SeasonNumber, request.SeasonName));
         if (!result.Success)
         {
@@ -145,6 +149,8 @@ public class TiglController(
     [HttpPost]
     public async Task<ActionResult<IApiResponse<UpdateSeasonResponse>>> UpdateSeason(UpdateSeasonRequest request)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var result = await _mediator.Send(new UpdateSeasonCommand(request.SeasonNumber, request.SeasonName, request.StartDate, request.EndDate));
         if (!result.Success)
         {
@@ -176,6 +182,8 @@ public class TiglController(
     [HttpPost]
     public async Task<ActionResult<IApiResponse<SetActiveSeasonResponse>>> SetActiveSeason(SetActiveSeasonRequest request)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var result = await _mediator.Send(new SetActiveSeasonCommand(request.SeasonNumber));
         if (!result.Success)
         {
@@ -244,6 +252,8 @@ public class TiglController(
     [HttpPost]
     public async Task<ActionResult<IApiResponse<GameReportResult>>> EvaluateGameReport(EvaluateGameReportRequest request)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var evalResult = await _mediator.Send(new EvaluateGameReportCommand(request.MatchReportId));
         if (!evalResult.Success)
         {
@@ -273,6 +283,8 @@ public class TiglController(
     [HttpPost]
     public async Task<ActionResult<IApiResponse<UpdateTiglParameterResponse>>> UpdateParameter(UpdateTiglParameterRequest request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var result = await _tiglRepository.UpdateTiglParameter(request.Name, request.Enabled, cancellationToken);
         if (result.IsFailed)
         {
@@ -322,6 +334,8 @@ public class TiglController(
     [HttpPost]
     public async Task<ActionResult<IApiResponse<ItemListDto<TiglPlayerRankHistoryDto>>>> GetPlayerRankHistory(PlayerRankHistoryRequest request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var data = await _mediator.Send(new GetPlayerRankHistoryQuery(request.DiscordUserIds), cancellationToken);
         return Ok(new ApiResponse<ItemListDto<TiglPlayerRankHistoryDto>>() { Success = true, Data = data });
     }

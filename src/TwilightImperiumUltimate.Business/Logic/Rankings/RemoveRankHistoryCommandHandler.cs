@@ -7,6 +7,8 @@ public class RemoveRankHistoryCommandHandler(IDbContextFactory<TwilightImperiumD
 {
     public async Task<RemoveRankHistoryResponse> Handle(RemoveRankHistoryCommand request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         await using var db = await dbFactory.CreateDbContextAsync(cancellationToken);
 
         var entity = await db.Ranks.FindAsync(new object?[] { request.RankHistoryId }, cancellationToken);

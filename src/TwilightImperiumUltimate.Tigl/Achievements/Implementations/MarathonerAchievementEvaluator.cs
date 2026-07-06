@@ -17,6 +17,8 @@ public sealed class MarathonerAchievementEvaluator(
 {
     public async Task EvaluateAsync(Season season, AchievementName achievementName, CancellationToken cancellationToken = default)
     {
+        ArgumentNullException.ThrowIfNull(season);
+
         var slowestGameThundersEdge = await seasonRepository.GetSlowestGameInSeason(season.SeasonNumber, TiglLeague.ThundersEdge, cancellationToken);
         var slowestGameFractured = await seasonRepository.GetSlowestGameInSeason(season.SeasonNumber, TiglLeague.Fractured, cancellationToken);
 

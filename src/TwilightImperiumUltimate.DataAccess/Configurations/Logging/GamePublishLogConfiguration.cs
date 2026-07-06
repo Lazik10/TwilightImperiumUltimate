@@ -7,6 +7,8 @@ public class GamePublishLogConfiguration : IEntityTypeConfiguration<GamePublishL
 {
     public void Configure(EntityTypeBuilder<GamePublishLog> builder)
     {
+        ArgumentNullException.ThrowIfNull(builder);
+
         builder.ToTable(TableName.GamePublishLogs, Schema.Log);
 
         builder.HasKey(x => x.Id);

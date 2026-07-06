@@ -12,6 +12,8 @@ public class AchievementRepository(
 {
     public async Task AwardFactionAchievement(int tiglUserId, MatchReport matchReport, AchievementName achievementName, TiglFactionName faction, int minWins, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(matchReport);
+
         await using var dbContext = await context.CreateDbContextAsync(cancellationToken);
 
         var achievement = await dbContext.Achievements
@@ -84,6 +86,8 @@ public class AchievementRepository(
 
     public async Task AwardAchievement(int tiglUserId, MatchReport matchReport, AchievementName achievementName, CancellationToken cancellationToken, TiglFactionName faction = TiglFactionName.None)
     {
+        ArgumentNullException.ThrowIfNull(matchReport);
+
         await using var dbContext = await context.CreateDbContextAsync(cancellationToken);
 
         var achievement = await dbContext.Achievements

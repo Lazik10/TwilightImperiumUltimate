@@ -13,6 +13,8 @@ public class AsyncPlayerOpponentsInfoFactory(
 
     public async Task<AsyncPlayerOpponentsSummaryDto> CreateAsyncPlayerOpponentsInfo(AsyncPlayerProfile playerProfile)
     {
+        ArgumentNullException.ThrowIfNull(playerProfile);
+
         var games = playerProfile.GameStatistics.Select(x => x.GameStats).ToList();
 
         var tiglGames = games.Where(x => x.IsTigl).ToList();

@@ -83,6 +83,8 @@ public static class ServiceCollectionsExtension
 
     public static WebAssemblyHostBuilder ApplyCorrectAppsettingsFile(this WebAssemblyHostBuilder builder)
     {
+        ArgumentNullException.ThrowIfNull(builder);
+
         var environment = builder.HostEnvironment.Environment;
 
         builder.Configuration

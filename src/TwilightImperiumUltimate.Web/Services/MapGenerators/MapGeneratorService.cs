@@ -157,6 +157,8 @@ public class MapGeneratorService(
 
     public void SetDraggingSystemTile(SystemTileModel systemTile)
     {
+        ArgumentNullException.ThrowIfNull(systemTile);
+
         DraggedSystemTile = systemTile.Copy();
     }
 

@@ -12,6 +12,8 @@ public class MapArchiveRepository(
 
     public async Task<bool> AddNewMap(Map map, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(map);
+
         await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);
 
         try

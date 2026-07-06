@@ -20,6 +20,8 @@ public class AsyncGameDataJob(
 
     public async Task Execute(IJobExecutionContext context)
     {
+        ArgumentNullException.ThrowIfNull(context);
+
         _logger.LogInformation("Data sync job started at: {Time}", DateTime.Now);
 
         try

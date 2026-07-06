@@ -54,6 +54,8 @@ public class GameTrackerService(
 
     public Task ResetPlayersScoreForSpecificObjective(GameTrackerObjectiveCardModel objectiveCard)
     {
+        ArgumentNullException.ThrowIfNull(objectiveCard);
+
         foreach (var player in Players.Where(player => player.ScoredObjectives.Select(x => x.ObjectiveCardName).Contains(objectiveCard.ObjectiveCard.ObjectiveCardName)))
         {
             player.Score -= objectiveCard.ScorePoints;
@@ -65,6 +67,9 @@ public class GameTrackerService(
 
     public Task ScoreObjective(GameTrackerObjectiveCardModel objectiveCard, GameTrackerPlayerModel player)
     {
+        ArgumentNullException.ThrowIfNull(player);
+        ArgumentNullException.ThrowIfNull(objectiveCard);
+
         var playerModel = Players.FirstOrDefault(x => x.FactionName == player.FactionName);
         if (playerModel is not null)
         {

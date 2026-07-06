@@ -7,6 +7,8 @@ public class DiscordRoleChangeLogConfiguration : IEntityTypeConfiguration<Discor
 {
     public void Configure(EntityTypeBuilder<DiscordRoleChangeLog> builder)
     {
+        ArgumentNullException.ThrowIfNull(builder);
+
         builder.ToTable(TableName.DiscordRoleChangeLogs, Schema.Log);
 
         builder.HasKey(x => x.Id);

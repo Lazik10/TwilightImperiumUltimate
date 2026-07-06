@@ -12,6 +12,8 @@ public class GetSliceDraftByIdQueryHandler(
 
     public async Task<ApiResponse<SliceDraftDto>> Handle(GetSliceDraftByIdQuery request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var map = await _slicesArchiveRepository.GetSliceDraftById(request.Id, cancellationToken);
         if (map == null)
         {

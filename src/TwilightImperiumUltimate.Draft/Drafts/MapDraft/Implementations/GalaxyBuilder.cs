@@ -9,6 +9,8 @@ public class GalaxyBuilder : IGalaxyBuilder
 {
     public Task<Dictionary<(int X, int Y), Hex>> GenerateGalaxy(IMapSettings mapSettings)
     {
+        ArgumentNullException.ThrowIfNull(mapSettings);
+
         var galaxy = new Dictionary<(int, int), Hex>();
 
         for (int x = 0; x < mapSettings.DimensionX; x += 2)

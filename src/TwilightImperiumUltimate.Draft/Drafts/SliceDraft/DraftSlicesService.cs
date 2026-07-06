@@ -22,6 +22,8 @@ public class DraftSlicesService(
         SliceDraftRequest request,
         CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var systemTilesForSlices = await _systemTilesForMapSetupProvider.GetSystemTilesForSlices(request.GameVersions, cancellationToken);
         var systemTilesForSliceRedistribution = new SystemTilesForSlices();
 

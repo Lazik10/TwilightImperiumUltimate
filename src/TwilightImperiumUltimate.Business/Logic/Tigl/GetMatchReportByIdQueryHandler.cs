@@ -11,6 +11,8 @@ public class GetMatchReportByIdQueryHandler(
 {
     public async Task<MatchReportDto?> Handle(GetMatchReportByIdQuery request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var matchReport = await tiglRepository.GetMatchReportWithPlayerResults(request.Id, cancellationToken);
         var tiglUsers = await tiglUserRepository.GetTiglUsersBaseInfoById(
             matchReport?.PlayerResults?.Select(pr => pr.TiglUserId).ToList() ?? new List<int>(),

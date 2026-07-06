@@ -33,6 +33,8 @@ public static class TiglGalacticEventConverter
 
     public static long ConvertToFlags(IEnumerable<string> eventNames)
     {
+        ArgumentNullException.ThrowIfNull(eventNames);
+
         GalacticEvent result = GalacticEvent.None;
 
         foreach (var name in eventNames)

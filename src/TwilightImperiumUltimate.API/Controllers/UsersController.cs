@@ -26,6 +26,8 @@ public class UsersController(
     [Route("id")]
     public async Task<ActionResult<IApiResponse<TwilightImperiumUserDto>>> GetUserInfoById(TwilightImperiumUserDto user, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(user);
+
         var dbUser = await _mediator.Send(new GetUserByIdQuery(user.Id), cancellationToken);
 
         if (string.IsNullOrEmpty(dbUser.Id))
@@ -40,6 +42,8 @@ public class UsersController(
     [AllowAnonymous]
     public async Task<ActionResult<IApiResponse<TwilightImperiumUserDto>>> GetUserInfoByEmail(UserByEmailRequest request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var user = await _mediator.Send(new GetUserByEmailQuery(request.Email), cancellationToken);
         return Ok(new ApiResponse<TwilightImperiumUserDto>() { Success = true, Data = user });
     }
@@ -50,6 +54,8 @@ public class UsersController(
     [AllowAnonymous]
     public async Task<ActionResult<IApiResponse<UserRegistrationPrecheckResponse>>> CheckRegistrationInformation(UserRegisterationPrecheckRequest request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var response = await _mediator.Send(new CheckRegistrationInfoQuery(request.Email, request.Username), cancellationToken);
         return Ok(new ApiResponse<UserRegistrationPrecheckResponse>() { Success = true, Data = response });
     }
@@ -73,6 +79,8 @@ public class UsersController(
     [AllowAnonymous]
     public async Task<ActionResult<IApiResponse<TwilightImperiumUserDto>>> UpdateUserName(TwilightImperiumUserDto user, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(user);
+
         var dbUser = await _mediator.Send(new UpdateUserNameCommand(user.Email ?? string.Empty, user.UserName ?? string.Empty), cancellationToken);
         return Ok(new ApiResponse<TwilightImperiumUserDto>() { Success = true, Data = dbUser });
     }
@@ -91,6 +99,8 @@ public class UsersController(
     [Route("user-roles")]
     public async Task<ActionResult<IApiResponse<ItemListDto<RoleDto>>>> GetAllSpecificUserRoles(TwilightImperiumUserDto twilightImperiumUserDto, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(twilightImperiumUserDto);
+
         var roles = await _mediator.Send(new GetAllUserRolesQuery(twilightImperiumUserDto.Id), cancellationToken);
         return Ok(new ApiResponse<ItemListDto<RoleDto>>() { Success = true, Data = roles });
     }
@@ -101,6 +111,8 @@ public class UsersController(
     [AllowAnonymous]
     public async Task<ActionResult<IApiResponse<AddRoleToUserResponse>>> AddRoleToUser(AddRoleToUserRequest addUserRoleRequest, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(addUserRoleRequest);
+
         var success = await _mediator.Send(new AddUserToRoleCommand(addUserRoleRequest.UserId, addUserRoleRequest.RoleName), cancellationToken);
         return Ok(new ApiResponse<AddRoleToUserResponse>() { Success = success, Data = new AddRoleToUserResponse() { Success = success } });
     }
@@ -110,6 +122,8 @@ public class UsersController(
     [Route("remove-role")]
     public async Task<ActionResult<IApiResponse<RemoveRoleFromUserResponse>>> RemoveRoleFromUser(RemoveRoleFromUserRequest removeRoleFromUser, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(removeRoleFromUser);
+
         var success = await _mediator.Send(new RemoveRoleFromUserCommand(removeRoleFromUser.UserId, removeRoleFromUser.RoleName), cancellationToken);
         return Ok(new ApiResponse<RemoveRoleFromUserResponse>() { Success = success, Data = new RemoveRoleFromUserResponse() { Success = success } });
     }
