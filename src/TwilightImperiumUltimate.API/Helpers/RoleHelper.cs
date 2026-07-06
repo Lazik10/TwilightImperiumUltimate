@@ -1,4 +1,4 @@
-namespace TwilightImperiumUltimate.API.Helpers;
+﻿namespace TwilightImperiumUltimate.API.Helpers;
 
 public static class RoleHelper
 {

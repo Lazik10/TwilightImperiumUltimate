@@ -1,14 +1,14 @@
-using Microsoft.Extensions.DependencyInjection;
-using System.Reflection;
-using TwilightImperiumUltimate.Contracts.Enums;
-using TwilightImperiumUltimate.Tigl.AsyncRating;
-using TwilightImperiumUltimate.Tigl.Glicko2Rating;
-using TwilightImperiumUltimate.Tigl.Services;
-using TwilightImperiumUltimate.Tigl.TrueSkillRating;
 using System.Linq;
+using System.Reflection;
+using Microsoft.Extensions.DependencyInjection;
+using TwilightImperiumUltimate.Contracts.Enums;
 using TwilightImperiumUltimate.Tigl.Achievements;
 using TwilightImperiumUltimate.Tigl.Achievements.Attributes;
+using TwilightImperiumUltimate.Tigl.AsyncRating;
+using TwilightImperiumUltimate.Tigl.Glicko2Rating;
 using TwilightImperiumUltimate.Tigl.RankUp;
+using TwilightImperiumUltimate.Tigl.Services;
+using TwilightImperiumUltimate.Tigl.TrueSkillRating;
 
 namespace TwilightImperiumUltimate.Tigl;
 

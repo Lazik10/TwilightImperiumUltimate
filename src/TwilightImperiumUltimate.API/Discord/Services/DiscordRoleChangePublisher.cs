@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using TwilightImperiumUltimate.Core.Entities.Logging;
 using TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium;
 

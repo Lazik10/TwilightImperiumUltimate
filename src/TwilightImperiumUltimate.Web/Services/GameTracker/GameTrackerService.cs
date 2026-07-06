@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Contracts.DTOs.Draft;
+﻿using TwilightImperiumUltimate.Contracts.DTOs.Draft;
 using TwilightImperiumUltimate.Web.Models.GameTracker;
 
 namespace TwilightImperiumUltimate.Web.Services.GameTracker;

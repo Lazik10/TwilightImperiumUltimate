@@ -15,9 +15,6 @@ public partial class VpStatistics
     [CascadingParameter(Name = "Limit")]
     public int QueryLimit { get; set; }
 
-    [Inject]
-    private NavigationManager NavigationManager { get; set; } = default!;
-
     public AsyncVpStatsDto VpStats => Filter switch
     {
         PlayerStatisticsType.All => _vpSummaryStats.All,
@@ -25,6 +22,9 @@ public partial class VpStatistics
         PlayerStatisticsType.Custom => _vpSummaryStats.Custom,
         _ => _vpSummaryStats.All,
     };
+
+    [Inject]
+    private NavigationManager NavigationManager { get; set; } = default!;
 
     [Inject]
     private IAsyncStatsProvider AsyncStatsProvider { get; set; } = default!;

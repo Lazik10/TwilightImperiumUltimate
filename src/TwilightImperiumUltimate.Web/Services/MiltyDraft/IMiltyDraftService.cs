@@ -60,5 +60,5 @@ public interface IMiltyDraftService
 
     Task RegenerateFactions();
 
-    public Task<bool> IsValidImportSlicesString();
+    Task<bool> IsValidImportSlicesString();
 }

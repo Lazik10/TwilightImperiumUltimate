@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Contracts.DTOs.Rankings;
+﻿using TwilightImperiumUltimate.Contracts.DTOs.Rankings;
 using TwilightImperiumUltimate.Contracts.DTOs.Tigl;
 
 namespace TwilightImperiumUltimate.Business.Logic.Rankings;
@@ -185,7 +185,6 @@ public class GetTiglPlayerProfileQueryHandler(IDbContextFactory<TwilightImperium
             .ToListAsync(cancellationToken);
 
         var matchIdSet = matchIdsWithUser.Select(m => m.Id).ToHashSet();
-        var matchLeagueMap = matchIdsWithUser.ToDictionary(m => m.Id, m => m.League);
 
         var opponentResults = await db.GameReports
             .AsNoTracking()

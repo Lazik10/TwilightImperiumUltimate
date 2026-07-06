@@ -1,4 +1,4 @@
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using TwilightImperiumUltimate.Draft.Drafts.MapDraft.Extensions;
 using TwilightImperiumUltimate.Draft.ValueObjects;
 

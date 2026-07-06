@@ -19,7 +19,7 @@ public partial class SystemTiles
     [Inject]
     private IMapper Mapper { get; set; } = default!;
 
-    protected async override Task OnInitializedAsync()
+    protected override async Task OnInitializedAsync()
     {
         await InitializeSystemTiles();
     }

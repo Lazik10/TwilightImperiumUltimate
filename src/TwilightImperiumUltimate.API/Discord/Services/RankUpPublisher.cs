@@ -1,6 +1,6 @@
-using FluentResults;
 using System.Globalization;
 using System.Text;
+using FluentResults;
 using TwilightImperiumUltimate.Core.Entities.Logging;
 using TwilightImperiumUltimate.Tigl.Discord;
 

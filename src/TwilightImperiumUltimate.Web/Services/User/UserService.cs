@@ -1,5 +1,5 @@
-using Blazored.LocalStorage;
 using System.Security.Claims;
+using Blazored.LocalStorage;
 using TwilightImperiumUltimate.Contracts.ApiContracts.Account;
 using TwilightImperiumUltimate.Contracts.DTOs.User;
 using TwilightImperiumUltimate.Web.Models.Account;

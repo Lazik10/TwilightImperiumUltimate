@@ -1,4 +1,4 @@
-namespace TwilightImperiumUltimate.Business.Logic.MapArchive;
+﻿namespace TwilightImperiumUltimate.Business.Logic.MapArchive;
 
 public class DeleteMapCommandHandler(
     IMapArchiveRepository mapArchiveRepository)

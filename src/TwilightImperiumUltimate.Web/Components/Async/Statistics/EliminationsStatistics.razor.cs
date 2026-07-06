@@ -15,9 +15,6 @@ public partial class EliminationsStatistics
     [CascadingParameter(Name = "Limit")]
     public int QueryLimit { get; set; }
 
-    [Inject]
-    private NavigationManager NavigationManager { get; set; } = default!;
-
     public AsyncEliminationsStatsDto EliminationsStats => Filter switch
     {
         PlayerStatisticsType.All => _eliminationsSummaryStats.All,
@@ -25,6 +22,9 @@ public partial class EliminationsStatistics
         PlayerStatisticsType.Custom => _eliminationsSummaryStats.Custom,
         _ => _eliminationsSummaryStats.All,
     };
+
+    [Inject]
+    private NavigationManager NavigationManager { get; set; } = default!;
 
     [Inject]
     private IAsyncStatsProvider AsyncStatsProvider { get; set; } = default!;

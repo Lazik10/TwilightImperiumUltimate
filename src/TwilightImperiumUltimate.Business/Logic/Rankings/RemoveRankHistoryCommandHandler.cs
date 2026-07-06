@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Contracts.ApiContracts.Rankings;
+﻿using TwilightImperiumUltimate.Contracts.ApiContracts.Rankings;
 
 namespace TwilightImperiumUltimate.Business.Logic.Rankings;
 

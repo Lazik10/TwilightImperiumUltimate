@@ -1,4 +1,4 @@
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using TwilightImperiumUltimate.Business.Helpers;
 using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl;
 using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Report;

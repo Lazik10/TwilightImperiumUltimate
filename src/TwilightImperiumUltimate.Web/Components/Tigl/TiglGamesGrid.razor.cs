@@ -21,6 +21,15 @@ public partial class TiglGamesGrid
     [Inject]
     private NavigationManager NavigationManager { get; set; } = default!;
 
+    private static string FormatEndDate(long endTs)
+    {
+        if (endTs <= 0)
+            return "-";
+
+        var dt = DateTimeOffset.FromUnixTimeMilliseconds(endTs).ToUniversalTime().DateTime;
+        return dt.ToString("dd/MM/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture);
+    }
+
     protected override async Task OnInitializedAsync()
     {
         _loading = true;
@@ -60,15 +69,6 @@ public partial class TiglGamesGrid
             _allStandard = items.Where(m => m.League == TiglLeague.ThundersEdge || m.League == TiglLeague.ProphecyOfKings).ToList();
             _allFractured = items.Where(m => m.League == TiglLeague.Fractured).ToList();
         }
-    }
-
-    private static string FormatEndDate(long endTs)
-    {
-        if (endTs <= 0)
-            return "-";
-
-        var dt = DateTimeOffset.FromUnixTimeMilliseconds(endTs).ToUniversalTime().DateTime;
-        return dt.ToString("dd/MM/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture);
     }
 
     private void DecreaseSeasonNumber()

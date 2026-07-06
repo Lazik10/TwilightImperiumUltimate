@@ -1,6 +1,6 @@
+using System.Net;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
-using System.Net;
 using TwilightImperiumUltimate.Web.Models.Account;
 using TwilightImperiumUltimate.Web.Resources;
 using TwilightImperiumUltimate.Web.Services.Authentication;

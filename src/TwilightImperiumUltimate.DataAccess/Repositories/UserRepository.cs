@@ -1,5 +1,5 @@
-using Microsoft.Extensions.Logging;
 using System.Globalization;
+using Microsoft.Extensions.Logging;
 
 namespace TwilightImperiumUltimate.DataAccess.Repositories;
 

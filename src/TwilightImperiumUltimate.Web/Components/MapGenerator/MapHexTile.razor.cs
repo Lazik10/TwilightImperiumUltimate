@@ -1,5 +1,5 @@
-using Serilog;
 using System.Globalization;
+using Serilog;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
 
 namespace TwilightImperiumUltimate.Web.Components.MapGenerator;

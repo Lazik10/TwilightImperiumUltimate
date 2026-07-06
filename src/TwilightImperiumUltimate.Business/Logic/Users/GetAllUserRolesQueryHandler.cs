@@ -1,4 +1,4 @@
-namespace TwilightImperiumUltimate.Business.Logic.Users;
+﻿namespace TwilightImperiumUltimate.Business.Logic.Users;
 
 public class GetAllUserRolesQueryHandler(
     IUserRepository userRepository)

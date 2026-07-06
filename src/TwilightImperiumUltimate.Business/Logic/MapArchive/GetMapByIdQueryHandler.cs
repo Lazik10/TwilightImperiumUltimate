@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Contracts.ApiContracts;
+﻿using TwilightImperiumUltimate.Contracts.ApiContracts;
 
 namespace TwilightImperiumUltimate.Business.Logic.MapArchive;
 

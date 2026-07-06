@@ -7,7 +7,7 @@ public partial class Index
     [Inject]
     private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
 
-    protected async override Task OnInitializedAsync()
+    protected override async Task OnInitializedAsync()
     {
         await InitializeNewsAsync();
     }

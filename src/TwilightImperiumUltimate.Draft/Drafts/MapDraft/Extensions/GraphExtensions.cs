@@ -1,4 +1,4 @@
-using QuickGraph;
+﻿using QuickGraph;
 using TwilightImperiumUltimate.Draft.ValueObjects;
 
 namespace TwilightImperiumUltimate.Draft.Drafts.MapDraft.Extensions;

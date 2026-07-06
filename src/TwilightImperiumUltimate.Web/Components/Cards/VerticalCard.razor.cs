@@ -13,6 +13,11 @@ public partial class VerticalCard
     [Inject]
     private IPathProvider PathProvider { get; set; } = default!;
 
+    protected override void OnParametersSet()
+    {
+        _isImageLoaded = false;
+    }
+
     private string CardImagePath => PathProvider.GetCardImagePath(Name, TypeOfCard);
 
     private string GetContainerClass()
@@ -24,11 +29,6 @@ public partial class VerticalCard
     private string GetImageStyle() => _isImageLoaded
         ? "visibility: visible; opacity: 1;"
         : "visibility: hidden; opacity: 0;";
-
-    protected override void OnParametersSet()
-    {
-        _isImageLoaded = false;
-    }
 
     private void OnImageLoaded()
     {

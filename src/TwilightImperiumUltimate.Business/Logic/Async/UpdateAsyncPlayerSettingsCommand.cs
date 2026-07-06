@@ -1,4 +1,4 @@
-using FluentResults;
+﻿using FluentResults;
 using TwilightImperiumUltimate.Contracts.ApiContracts.AsyncTI4;
 using TwilightImperiumUltimate.Core.Entities.Async;
 

@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Contracts.Enums;
+﻿using TwilightImperiumUltimate.Contracts.Enums;
 using TwilightImperiumUltimate.Core.Entities.Galaxy;
 using TwilightImperiumUltimate.Draft.Drafts.MapDraft.Constants;
 using TwilightImperiumUltimate.Draft.Drafts.MapDraft.Extensions;

@@ -1,4 +1,4 @@
-namespace TwilightImperiumUltimate.Business.Logic.SlicesArchive;
+﻿namespace TwilightImperiumUltimate.Business.Logic.SlicesArchive;
 
 public class AddNewSliceDraftCommandHandler(
     ISlicesArchiveRepository slicesArchiveRepository,

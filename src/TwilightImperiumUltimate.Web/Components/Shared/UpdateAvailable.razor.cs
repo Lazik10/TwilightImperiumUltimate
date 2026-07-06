@@ -1,5 +1,5 @@
-using Microsoft.JSInterop;
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.JSInterop;
 
 namespace TwilightImperiumUltimate.Web.Components.Shared;
 

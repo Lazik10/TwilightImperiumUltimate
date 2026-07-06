@@ -17,6 +17,15 @@ public partial class TiglProfileAchievementRow
     [Parameter]
     public bool IsEarned { get; set; } = true;
 
+    private static string FormatDate(long unixTimestamp)
+    {
+        if (unixTimestamp <= 0)
+            return "N/A";
+
+        var dt = DateTimeOffset.FromUnixTimeMilliseconds(unixTimestamp).UtcDateTime;
+        return dt.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+    }
+
     private string RarityClass => GetRarityClass();
 
     private TextColor EffectiveTextColor => IsEarned ? GetRarityTextColor() : TextColor.Grey;
@@ -47,12 +56,4 @@ public partial class TiglProfileAchievementRow
         };
     }
 
-    private static string FormatDate(long unixTimestamp)
-    {
-        if (unixTimestamp <= 0)
-            return "N/A";
-
-        var dt = DateTimeOffset.FromUnixTimeMilliseconds(unixTimestamp).UtcDateTime;
-        return dt.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
-    }
 }

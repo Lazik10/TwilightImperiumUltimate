@@ -1,7 +1,7 @@
+using System.Security.Claims;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Serilog;
-using System.Security.Claims;
 
 namespace TwilightImperiumUltimate.Web.Pages.Account;
 

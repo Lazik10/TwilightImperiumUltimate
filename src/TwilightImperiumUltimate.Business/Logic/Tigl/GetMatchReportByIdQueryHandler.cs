@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Contracts.DTOs.Tigl;
+﻿using TwilightImperiumUltimate.Contracts.DTOs.Tigl;
 using TwilightImperiumUltimate.Tigl.Helpers;
 
 namespace TwilightImperiumUltimate.Business.Logic.Tigl;

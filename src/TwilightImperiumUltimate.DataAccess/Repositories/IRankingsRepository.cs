@@ -1,5 +1,5 @@
-using TwilightImperiumUltimate.DataAccess.DTOs;
 using TwilightImperiumUltimate.Contracts.DTOs.Rankings;
+using TwilightImperiumUltimate.DataAccess.DTOs;
 
 namespace TwilightImperiumUltimate.DataAccess.Repositories;
 

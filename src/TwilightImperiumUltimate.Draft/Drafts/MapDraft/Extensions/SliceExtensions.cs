@@ -1,4 +1,4 @@
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using TwilightImperiumUltimate.Core.Entities.Galaxy;
 using TwilightImperiumUltimate.Draft.ValueObjects;
 

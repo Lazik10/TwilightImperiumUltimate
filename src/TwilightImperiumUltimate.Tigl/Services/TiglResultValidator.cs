@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Report;
+﻿using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Report;
 
 namespace TwilightImperiumUltimate.Tigl.Services;
 

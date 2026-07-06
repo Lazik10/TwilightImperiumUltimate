@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Core.Entities.Galaxy;
+﻿using TwilightImperiumUltimate.Core.Entities.Galaxy;
 using TwilightImperiumUltimate.Draft.Drafts.MapDraft.Interfaces;
 using TwilightImperiumUltimate.Draft.ValueObjects;
 

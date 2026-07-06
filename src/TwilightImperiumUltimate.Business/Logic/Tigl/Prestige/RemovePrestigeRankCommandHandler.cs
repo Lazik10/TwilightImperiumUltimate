@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Prestige;
+﻿using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Prestige;
 
 namespace TwilightImperiumUltimate.Business.Logic.Tigl.Prestige;
 

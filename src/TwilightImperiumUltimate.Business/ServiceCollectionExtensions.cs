@@ -1,6 +1,6 @@
+using System.Reflection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System.Reflection;
 using TwilightImperiumUltimate.Business.Services.Async.Implementations;
 using TwilightImperiumUltimate.Business.Services.Async.Interfaces;
 using TwilightImperiumUltimate.DataAccess;

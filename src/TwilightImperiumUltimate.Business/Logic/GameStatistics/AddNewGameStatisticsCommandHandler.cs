@@ -1,4 +1,4 @@
-namespace TwilightImperiumUltimate.Business.Logic.GameStatistics;
+﻿namespace TwilightImperiumUltimate.Business.Logic.GameStatistics;
 
 public class AddNewGameStatisticsCommandHandler(
     IGameStatisticsRepository gameStatisticsRepository)

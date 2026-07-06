@@ -1,7 +1,7 @@
+﻿using System.Net;
+using System.Text.Json;
 using Microsoft.Extensions.Options;
 using Quartz;
-using System.Net;
-using System.Text.Json;
 using TwilightImperiumUltimate.API.Options;
 using TwilightImperiumUltimate.Business.Logic.Async;
 using TwilightImperiumUltimate.Contracts.ApiContracts.AsyncTI4;

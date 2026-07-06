@@ -1,4 +1,4 @@
-using System.Text;
+﻿using System.Text;
 using TwilightImperiumUltimate.API.Helpers;
 using TwilightImperiumUltimate.Business.Logic.Async;
 using TwilightImperiumUltimate.Contracts.ApiContracts.AsyncTI4;

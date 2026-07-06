@@ -1,5 +1,5 @@
-using Microsoft.AspNetCore.Components;
 using System.Globalization;
+using Microsoft.AspNetCore.Components;
 
 namespace TwilightImperiumUltimate.Web.Components.Shared;
 

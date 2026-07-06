@@ -1,4 +1,4 @@
-using Azure.Core;
+﻿using Azure.Core;
 using TwilightImperiumUltimate.Core.Entities.Galaxy;
 using TwilightImperiumUltimate.Draft.ValueObjects;
 

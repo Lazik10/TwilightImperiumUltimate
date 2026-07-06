@@ -1,5 +1,5 @@
-using Microsoft.AspNetCore.Components.Authorization;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Components.Authorization;
 using TwilightImperiumUltimate.Web.Services.User;
 
 namespace TwilightImperiumUltimate.Web.Services.Authentication;
@@ -10,7 +10,7 @@ public class TwilightImperiumAuthenticationStateProvider(IUserService userServic
     private readonly ClaimsPrincipal _anonymous = new(new ClaimsIdentity());
     private readonly IUserService _userService = userService;
 
-    public async override Task<AuthenticationState> GetAuthenticationStateAsync()
+    public override async Task<AuthenticationState> GetAuthenticationStateAsync()
     {
         var principal = await _userService.GetCurrentUserClaimsPrincipalAsync();
         NotifyAuthenticationStateChanged(Task.FromResult(new AuthenticationState(principal)));

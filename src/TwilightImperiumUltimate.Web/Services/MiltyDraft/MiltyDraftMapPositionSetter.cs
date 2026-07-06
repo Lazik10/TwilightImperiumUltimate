@@ -1,4 +1,4 @@
-namespace TwilightImperiumUltimate.Web.Services.MiltyDraft;
+﻿namespace TwilightImperiumUltimate.Web.Services.MiltyDraft;
 
 public class MiltyDraftMapPositionSetter(
     IMiltyDraftSpecificMapPositionProvider miltyDraftSpecificMapPositionProvider)

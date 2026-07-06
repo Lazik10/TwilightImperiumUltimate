@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Core.Entities.Rules;
+﻿using TwilightImperiumUltimate.Core.Entities.Rules;
 
 namespace TwilightImperiumUltimate.Business.Logic.Rules;
 

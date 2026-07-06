@@ -1,5 +1,5 @@
-using Microsoft.AspNetCore.Components;
 using System;
+using Microsoft.AspNetCore.Components;
 using TwilightImperiumUltimate.Web.Enums;
 using TwilightImperiumUltimate.Web.Helpers.Enums;
 

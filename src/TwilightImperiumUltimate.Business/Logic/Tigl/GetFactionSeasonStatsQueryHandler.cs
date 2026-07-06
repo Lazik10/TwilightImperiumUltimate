@@ -1,4 +1,4 @@
-using Microsoft.Extensions.Caching.Memory;
+﻿using Microsoft.Extensions.Caching.Memory;
 using TwilightImperiumUltimate.Contracts.DTOs.Tigl;
 
 namespace TwilightImperiumUltimate.Business.Logic.Tigl;

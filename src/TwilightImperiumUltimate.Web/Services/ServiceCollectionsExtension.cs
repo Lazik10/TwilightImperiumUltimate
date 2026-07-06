@@ -1,10 +1,10 @@
+﻿using System.Reflection;
 using Blazored.LocalStorage;
 using FluentValidation;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
 using Radzen;
-using System.Reflection;
 using TwilightImperiumUltimate.Web.Options.Api;
 using TwilightImperiumUltimate.Web.Options.Async;
 using TwilightImperiumUltimate.Web.Services.Async;

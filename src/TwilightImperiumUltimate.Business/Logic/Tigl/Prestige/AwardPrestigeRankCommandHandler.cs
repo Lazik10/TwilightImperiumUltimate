@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Prestige;
+﻿using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Prestige;
 using TwilightImperiumUltimate.Contracts.Enums;
 using TwilightImperiumUltimate.Core.Entities.RelationshipEntities;
 using TwilightImperiumUltimate.Core.Entities.Tigl.Ranks;

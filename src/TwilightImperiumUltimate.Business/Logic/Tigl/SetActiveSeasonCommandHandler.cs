@@ -1,5 +1,5 @@
+﻿using Microsoft.Extensions.Caching.Memory;
 using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Season;
-using Microsoft.Extensions.Caching.Memory;
 
 namespace TwilightImperiumUltimate.Business.Logic.Tigl;
 

@@ -1,8 +1,8 @@
-using FluentResults;
-using Microsoft.Extensions.Options;
 using System.Globalization;
 using System.Net.Http.Headers;
 using System.Text.Json;
+using FluentResults;
+using Microsoft.Extensions.Options;
 using TwilightImperiumUltimate.API.Options;
 using TwilightImperiumUltimate.Business.Logic.Tigl;
 using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl;

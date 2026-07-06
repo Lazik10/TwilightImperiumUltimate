@@ -1,9 +1,9 @@
+using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.OpenApi;
 using Quartz;
 using Quartz.Simpl;
-using System.Text.Json.Serialization;
 using TwilightImperiumUltimate.API.Discord;
 using TwilightImperiumUltimate.API.Discord.Services;
 using TwilightImperiumUltimate.API.Email;

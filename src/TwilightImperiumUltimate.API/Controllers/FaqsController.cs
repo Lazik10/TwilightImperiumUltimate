@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Contracts.ApiContracts.Faqs;
+﻿using TwilightImperiumUltimate.Contracts.ApiContracts.Faqs;
 
 namespace TwilightImperiumUltimate.API.Controllers;
 

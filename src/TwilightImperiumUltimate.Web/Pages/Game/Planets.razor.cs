@@ -2,8 +2,6 @@ namespace TwilightImperiumUltimate.Web.Pages.Game;
 
 public partial class Planets
 {
-    private sealed record PlanetFilterOption(string Value, string Label);
-
     private const string ResourceFilterPrefix = "resource:";
 
     private const string InfluenceFilterPrefix = "influence:";
@@ -34,6 +32,57 @@ public partial class Planets
 
     [Inject]
     private IMapper Mapper { get; set; } = default!;
+
+    private static string GetPlanetTraitDisplayName(PlanetTrait trait)
+    {
+        return trait switch
+        {
+            PlanetTrait.SpaceStation => "Space Station",
+            _ => trait.ToString(),
+        };
+    }
+
+    private static string GetTechnologyDisplayName(TechnologyType technologyType)
+    {
+        return technologyType switch
+        {
+            TechnologyType.Biotic => "Biotic",
+            TechnologyType.Warfare => "Warfare",
+            TechnologyType.Cybernetic => "Cybernetic",
+            TechnologyType.Propulsion => "Propulsion",
+            _ => technologyType.ToString(),
+        };
+    }
+
+    private static bool MatchesTechnologyFilter(TechnologyType actualTechnology, TechnologyType selectedTechnology)
+    {
+        return selectedTechnology switch
+        {
+            TechnologyType.Cybernetic => actualTechnology == TechnologyType.Cybernetic
+                || actualTechnology == TechnologyType.CyberneticWarfare
+                || actualTechnology == TechnologyType.CyberneticCybernetic,
+            TechnologyType.Warfare => actualTechnology == TechnologyType.Warfare
+                || actualTechnology == TechnologyType.CyberneticWarfare,
+            _ => actualTechnology == selectedTechnology,
+        };
+    }
+
+    private static bool MatchesPlanetTraitFilter(PlanetTrait actualTrait, PlanetTrait selectedTrait)
+    {
+        return selectedTrait switch
+        {
+            PlanetTrait.Cultural => actualTrait == PlanetTrait.Cultural
+                || actualTrait == PlanetTrait.CulturalHazardous
+                || actualTrait == PlanetTrait.IndustrialCultural,
+            PlanetTrait.Hazardous => actualTrait == PlanetTrait.Hazardous
+                || actualTrait == PlanetTrait.CulturalHazardous
+                || actualTrait == PlanetTrait.HazardousIndustrial,
+            PlanetTrait.Industrial => actualTrait == PlanetTrait.Industrial
+                || actualTrait == PlanetTrait.HazardousIndustrial
+                || actualTrait == PlanetTrait.IndustrialCultural,
+            _ => actualTrait == selectedTrait,
+        };
+    }
 
     protected override async Task OnInitializedAsync()
     {
@@ -172,56 +221,6 @@ public partial class Planets
         return planets;
     }
 
-    private static string GetPlanetTraitDisplayName(PlanetTrait trait)
-    {
-        return trait switch
-        {
-            PlanetTrait.SpaceStation => "Space Station",
-            _ => trait.ToString(),
-        };
-    }
-
-    private static string GetTechnologyDisplayName(TechnologyType technologyType)
-    {
-        return technologyType switch
-        {
-            TechnologyType.Biotic => "Biotic",
-            TechnologyType.Warfare => "Warfare",
-            TechnologyType.Cybernetic => "Cybernetic",
-            TechnologyType.Propulsion => "Propulsion",
-            _ => technologyType.ToString(),
-        };
-    }
-
-    private static bool MatchesTechnologyFilter(TechnologyType actualTechnology, TechnologyType selectedTechnology)
-    {
-        return selectedTechnology switch
-        {
-            TechnologyType.Cybernetic => actualTechnology == TechnologyType.Cybernetic
-                || actualTechnology == TechnologyType.CyberneticWarfare
-                || actualTechnology == TechnologyType.CyberneticCybernetic,
-            TechnologyType.Warfare => actualTechnology == TechnologyType.Warfare
-                || actualTechnology == TechnologyType.CyberneticWarfare,
-            _ => actualTechnology == selectedTechnology,
-        };
-    }
-
-    private static bool MatchesPlanetTraitFilter(PlanetTrait actualTrait, PlanetTrait selectedTrait)
-    {
-        return selectedTrait switch
-        {
-            PlanetTrait.Cultural => actualTrait == PlanetTrait.Cultural
-                || actualTrait == PlanetTrait.CulturalHazardous
-                || actualTrait == PlanetTrait.IndustrialCultural,
-            PlanetTrait.Hazardous => actualTrait == PlanetTrait.Hazardous
-                || actualTrait == PlanetTrait.CulturalHazardous
-                || actualTrait == PlanetTrait.HazardousIndustrial,
-            PlanetTrait.Industrial => actualTrait == PlanetTrait.Industrial
-                || actualTrait == PlanetTrait.HazardousIndustrial
-                || actualTrait == PlanetTrait.IndustrialCultural,
-            _ => actualTrait == selectedTrait,
-        };
-    }
 
     private void ShowBigImage(PlanetModel planet, string culture)
     {
@@ -267,4 +266,6 @@ public partial class Planets
                 .ToList();
         }
     }
+
+    private sealed record PlanetFilterOption(string Value, string Label);
 }

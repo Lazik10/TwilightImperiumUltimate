@@ -1,5 +1,5 @@
-using Serilog;
 using System.Globalization;
+using Serilog;
 using TwilightImperiumUltimate.Web.Pages.Tools;
 using TwilightImperiumUltimate.Web.Services.SliceGenerators;
 

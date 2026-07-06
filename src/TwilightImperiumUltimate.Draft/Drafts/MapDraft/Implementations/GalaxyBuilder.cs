@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Draft.Drafts.MapDraft.Constants;
+﻿using TwilightImperiumUltimate.Draft.Drafts.MapDraft.Constants;
 using TwilightImperiumUltimate.Draft.Drafts.MapDraft.Interfaces;
 using TwilightImperiumUltimate.Draft.Drafts.MapDraft.MapSettings;
 using TwilightImperiumUltimate.Draft.ValueObjects;

@@ -4,5 +4,5 @@ public interface IMapData
 {
     MapTemplate MapTemplate { get; }
 
-    public Dictionary<int, List<int>> SlicePositions { get; }
+    Dictionary<int, List<int>> SlicePositions { get; }
 }

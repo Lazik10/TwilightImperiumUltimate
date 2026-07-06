@@ -1,4 +1,4 @@
-using System.Globalization;
+﻿using System.Globalization;
 using TwilightImperiumUltimate.Business.Helpers;
 using TwilightImperiumUltimate.Contracts.ApiContracts.AsyncTI4;
 using TwilightImperiumUltimate.Core.Entities.Async;

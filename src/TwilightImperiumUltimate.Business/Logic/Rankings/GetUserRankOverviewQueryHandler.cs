@@ -1,4 +1,4 @@
-using MediatR;
+﻿using MediatR;
 using TwilightImperiumUltimate.Contracts.DTOs.Rankings;
 using TwilightImperiumUltimate.DataAccess.Repositories;
 

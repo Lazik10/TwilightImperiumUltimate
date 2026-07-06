@@ -1,5 +1,5 @@
-using Microsoft.Extensions.Logging;
 using System.Globalization;
+using Microsoft.Extensions.Logging;
 using TwilightImperiumUltimate.Contracts.ApiContracts.AsyncTI4;
 using TwilightImperiumUltimate.Core.Entities.Async;
 

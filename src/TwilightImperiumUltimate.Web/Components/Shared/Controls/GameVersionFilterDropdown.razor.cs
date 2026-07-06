@@ -4,8 +4,6 @@ namespace TwilightImperiumUltimate.Web.Components.Shared.Controls;
 
 public partial class GameVersionFilterDropdown
 {
-    private sealed record GameVersionDropdownItem(string Value, string Label);
-
     [Parameter]
     public IEnumerable<GameVersion> GameVersions { get; set; } = Enumerable.Empty<GameVersion>();
 
@@ -65,4 +63,6 @@ public partial class GameVersionFilterDropdown
 
         await SelectedGameVersionChanged.InvokeAsync(null);
     }
+
+    private sealed record GameVersionDropdownItem(string Value, string Label);
 }

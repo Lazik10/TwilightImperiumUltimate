@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Season;
+﻿using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Season;
 
 namespace TwilightImperiumUltimate.Business.Logic.Tigl;
 

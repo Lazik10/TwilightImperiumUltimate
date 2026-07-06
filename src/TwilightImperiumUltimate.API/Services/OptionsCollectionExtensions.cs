@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.API.Options;
+﻿using TwilightImperiumUltimate.API.Options;
 using TwilightImperiumUltimate.Contracts.Options;
 
 namespace TwilightImperiumUltimate.API.Services;

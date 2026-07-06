@@ -1,7 +1,7 @@
-using Bogus;
-using FluentAssertions;
 using System.Globalization;
 using System.Text;
+using Bogus;
+using FluentAssertions;
 using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Report;
 using TwilightImperiumUltimate.Contracts.Enums;
 using TwilightImperiumUltimate.Core.Entities.Tigl;
@@ -82,7 +82,7 @@ public class AsyncRatingTests
         var league = TiglLeague.Test;
 
         double[] ratings = [1387.3100000000, 1231.9000000000, 970.9100000000, 1023.5100000000, 814.4500000000, 1091.9300000000];
-        var expectedFinalRatings = new[] { 1369.71, 1277.31, 1212.04, 1089.10, 1025.68, 895.69, };
+        var expectedFinalRatings = new[] { 1428.18, 1236.83, 1064.63, 1009.66, 972.06, 814.27, };
 
         var players = Enumerable.Range(0, 6).Select(i => new TiglUser
         {
@@ -126,22 +126,14 @@ public class AsyncRatingTests
         players.Should().NotBeNullOrEmpty();
         players.Should().HaveCount(6);
 
-        //players = players.OrderByDescending(x => x.AsyncStats!.First(x => x.League == league).Rating!.Rating).ToList();
-        for (int i = 0; i < players.Count; i++)
-        {
-            /*            players[i].AsyncStats!.First(x => x.League == league).Rating!.Rating.Should().BeApproximately(expectedFinalRatings[i], 0.01);
-                        if (i == 0)
-                            players[i].AsyncStats!.First(x => x.League == league).Rating!.AussieScore.Should().Be(2.2);*/
-        }
+        var finalRatings = players
+            .Select(x => x.AsyncStats!.First(y => y.League == league).Rating!.Rating)
+            .OrderByDescending(x => x)
+            .ToArray();
 
-        foreach (var matchStat in matchStats)
+        for (int i = 0; i < finalRatings.Length; i++)
         {
-            var oldRating = matchStat.RatingOld;
-            var newRating = matchStat.RatingNew;
-            var aussieScoreOld = matchStat.AussieScoreOld;
-            var aussieScoreNew = matchStat.AussieScoreNew;
-            var score = matchStat.Score;
-            var score2 = matchStat.Score;
+            finalRatings[i].Should().BeApproximately(expectedFinalRatings[i], 0.01);
         }
     }
 

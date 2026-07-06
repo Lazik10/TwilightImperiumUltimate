@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Contracts.Enums;
+﻿using TwilightImperiumUltimate.Contracts.Enums;
 using TwilightImperiumUltimate.Core.Entities.RelationshipEntities;
 using TwilightImperiumUltimate.Core.Entities.Tigl;
 using TwilightImperiumUltimate.DataAccess.Repositories;

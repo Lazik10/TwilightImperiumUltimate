@@ -15,9 +15,6 @@ public partial class WinsStatistics
     [CascadingParameter(Name = "Limit")]
     public int QueryLimit { get; set; }
 
-    [Inject]
-    private NavigationManager NavigationManager { get; set; } = default!;
-
     public AsyncWinsStatsDto WinsStats => Filter switch
     {
         PlayerStatisticsType.All => _winsSummaryStats.All,
@@ -25,6 +22,9 @@ public partial class WinsStatistics
         PlayerStatisticsType.Custom => _winsSummaryStats.Custom,
         _ => _winsSummaryStats.All,
     };
+
+    [Inject]
+    private NavigationManager NavigationManager { get; set; } = default!;
 
     [Inject]
     private IAsyncStatsProvider AsyncStatsProvider { get; set; } = default!;

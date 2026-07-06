@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Core.Entities.Tigl;
+﻿using TwilightImperiumUltimate.Core.Entities.Tigl;
 
 namespace TwilightImperiumUltimate.Business.Helpers;
 

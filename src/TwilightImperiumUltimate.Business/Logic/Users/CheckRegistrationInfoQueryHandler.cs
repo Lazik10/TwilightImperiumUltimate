@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Contracts.ApiContracts.User;
+﻿using TwilightImperiumUltimate.Contracts.ApiContracts.User;
 
 namespace TwilightImperiumUltimate.Business.Logic.Users;
 

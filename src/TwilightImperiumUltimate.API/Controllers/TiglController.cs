@@ -1,5 +1,5 @@
+﻿using System.Text;
 using Microsoft.Extensions.Options;
-using System.Text;
 using TwilightImperiumUltimate.API.Discord;
 using TwilightImperiumUltimate.API.Helpers;
 using TwilightImperiumUltimate.API.Options;

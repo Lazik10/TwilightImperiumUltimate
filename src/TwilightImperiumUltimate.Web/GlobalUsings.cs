@@ -1,6 +1,6 @@
+global using System.Net;
 global using AutoMapper;
 global using Microsoft.AspNetCore.Components;
-global using System.Net;
 global using TwilightImperiumUltimate.Contracts.ApiContracts;
 global using TwilightImperiumUltimate.Contracts.DTOs;
 global using TwilightImperiumUltimate.Contracts.DTOs.Faction;

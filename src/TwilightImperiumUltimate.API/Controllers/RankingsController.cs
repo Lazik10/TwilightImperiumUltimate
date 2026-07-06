@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Business.Logic.Rankings;
+﻿using TwilightImperiumUltimate.Business.Logic.Rankings;
 using TwilightImperiumUltimate.Business.Logic.Tigl.Achievements;
 using TwilightImperiumUltimate.Business.Logic.Tigl.Prestige;
 using TwilightImperiumUltimate.Contracts.ApiContracts.Rankings;

@@ -388,7 +388,7 @@ dotnet_diagnostic.S6966.severity = suggestion
 #----------------------------------   SA - diagnostics   ---------------------------------#
 
 # SA1101: Prefix local calls with this
-dotnet_diagnostic.SA1101.severity = suggestion
+dotnet_diagnostic.SA1101.severity = none
 # SA1208: System using directives should be placed before other using directives
 dotnet_diagnostic.SA1208.severity = suggestion
 # SA1300: Element names (types, methods, etc.) must begin with an upper-case letter.

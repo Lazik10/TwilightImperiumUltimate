@@ -25,6 +25,14 @@ public partial class GameReportsDashboard
     [Inject]
     private IConfiguration Configuration { get; set; } = default!;
 
+    private static string GetUserName(PlayerResultDto player)
+    {
+        if (player.TiglUserName == player.DiscordUserName)
+            return player.TiglUserName;
+
+        return $"{player.TiglUserName} ({player.DiscordUserName})";
+    }
+
     protected override async Task OnInitializedAsync()
     {
         await LoadReportsAsync();
@@ -52,14 +60,6 @@ public partial class GameReportsDashboard
         }
 
         _loading = false;
-    }
-
-    private static string GetUserName(PlayerResultDto player)
-    {
-        if (player.TiglUserName == player.DiscordUserName)
-            return player.TiglUserName;
-
-        return $"{player.TiglUserName} ({player.DiscordUserName})";
     }
 
     private async Task ConfirmAsync(int matchReportId)

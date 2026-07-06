@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Contracts.ApiContracts.Draft;
+﻿using TwilightImperiumUltimate.Contracts.ApiContracts.Draft;
 using TwilightImperiumUltimate.Contracts.DTOs.MapGeneration;
 
 namespace TwilightImperiumUltimate.Web.Services.MapGenerators;

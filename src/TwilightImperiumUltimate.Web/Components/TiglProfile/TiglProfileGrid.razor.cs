@@ -679,9 +679,23 @@ public partial class TiglProfileGrid
         foreach (var game in season.Games)
         {
             var d = GetGameRatingDeltas(game);
-            if (d.HasAsync) { asyncSum += d.AsyncDelta; hasAsync = true; }
-            if (d.HasGlicko) { glickoSum += d.GlickoDelta; hasGlicko = true; }
-            if (d.HasTrueSkill) { tsSum += d.TrueSkillDelta; hasTs = true; }
+            if (d.HasAsync)
+            {
+                asyncSum += d.AsyncDelta;
+                hasAsync = true;
+            }
+
+            if (d.HasGlicko)
+            {
+                glickoSum += d.GlickoDelta;
+                hasGlicko = true;
+            }
+
+            if (d.HasTrueSkill)
+            {
+                tsSum += d.TrueSkillDelta;
+                hasTs = true;
+            }
         }
 
         return new GameRatingDeltas(asyncSum, hasAsync, glickoSum, hasGlicko, tsSum, hasTs);
@@ -710,9 +724,23 @@ public partial class TiglProfileGrid
         foreach (var game in season.Games)
         {
             var d = GetGameRatingDeltas(game);
-            if (d.HasAsync) { asyncSum += d.AsyncDelta; hasAsync = true; }
-            if (d.HasGlicko) { glickoSum += d.GlickoDelta; hasGlicko = true; }
-            if (d.HasTrueSkill) { tsSum += d.TrueSkillDelta; hasTs = true; }
+            if (d.HasAsync)
+            {
+                asyncSum += d.AsyncDelta;
+                hasAsync = true;
+            }
+
+            if (d.HasGlicko)
+            {
+                glickoSum += d.GlickoDelta;
+                hasGlicko = true;
+            }
+
+            if (d.HasTrueSkill)
+            {
+                tsSum += d.TrueSkillDelta;
+                hasTs = true;
+            }
         }
 
         return new SeasonRatingSummary(
