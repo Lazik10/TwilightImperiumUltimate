@@ -84,4 +84,3 @@ public enum PromissoryNoteCardName
     Malevolency,
     ShareKnowledge,
 }
-

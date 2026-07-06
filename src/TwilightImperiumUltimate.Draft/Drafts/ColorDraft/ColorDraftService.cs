@@ -30,7 +30,7 @@ public class ColorDraftService(
             .ToDictionary(pair => pair.Key, pair => new Dictionary<PlayerColor, int>(pair.Value));
     }
 
-    private Dictionary<FactionName, PlayerColor> PerformColorDraft(
+    private static Dictionary<FactionName, PlayerColor> PerformColorDraft(
         Dictionary<FactionName, Dictionary<PlayerColor, int>> factionColorImportances,
         IReadOnlyCollection<PlayerColor> possibleColors)
     {

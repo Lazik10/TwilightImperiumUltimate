@@ -36,5 +36,4 @@ public partial class AutoComplete
         Suggestions = Enumerable.Empty<string>();
         await ValueChanged.InvokeAsync(suggestion);
     }
-
 }

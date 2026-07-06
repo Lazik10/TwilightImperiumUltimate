@@ -94,4 +94,3 @@ public partial class BaseTechnologyTree : TwilightImperiumBaseComponent
         return (MarkupString)_selectedTechnologyModel.TechnologyName.ToString().GetComponentNotesText();
     }
 }
-

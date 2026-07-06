@@ -84,6 +84,7 @@ public class GlickoRatingCalculatorService : IGlickoRatingCalculatorService
 
             double sigmaPrime = SolveVolatility(sigma_i, phi_i, delta, v);
             if (!double.IsFinite(sigmaPrime) || sigmaPrime <= 0) sigmaPrime = sigma_i;
+
             // Limit per-update growth to prevent runaway explosion on adversarial data
             double sigmaMaxThisUpdate = Math.Max(SigmaMin, sigma_i * SigmaGrowthCap);
             if (sigmaPrime > sigmaMaxThisUpdate) sigmaPrime = sigmaMaxThisUpdate;

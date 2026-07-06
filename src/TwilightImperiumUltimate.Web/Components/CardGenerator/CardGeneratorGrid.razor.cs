@@ -1,4 +1,4 @@
-﻿using TwilightImperiumUltimate.Web.Enums;
+using TwilightImperiumUltimate.Web.Enums;
 
 namespace TwilightImperiumUltimate.Web.Components.CardGenerator;
 

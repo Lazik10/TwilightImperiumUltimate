@@ -33,6 +33,5 @@ public partial class StatisticsGrid
             QueryLimit.TwoHundred => 200,
             _ => 20,
         };
-
     }
 }

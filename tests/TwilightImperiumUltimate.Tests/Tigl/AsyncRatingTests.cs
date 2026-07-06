@@ -127,7 +127,6 @@ public class AsyncRatingTests
         players.Should().HaveCount(6);
 
         //players = players.OrderByDescending(x => x.AsyncStats!.First(x => x.League == league).Rating!.Rating).ToList();
-
         for (int i = 0; i < players.Count; i++)
         {
             /*            players[i].AsyncStats!.First(x => x.League == league).Rating!.Rating.Should().BeApproximately(expectedFinalRatings[i], 0.01);

@@ -22,4 +22,3 @@ public record AsyncWinsStatsDto
 
     public IReadOnlyCollection<AsyncWinsPlayerDto> AsyncWinsDeviationPlayers { get; init; } = new List<AsyncWinsPlayerDto>();
 }
-

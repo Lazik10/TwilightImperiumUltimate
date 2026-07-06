@@ -119,12 +119,10 @@ public static class DiscordRoleMappings
         new Dictionary<TiglRankName, DiscordRoleInfo>
         {
             { TiglRankName.Unranked, Make("TIGL - Unranked", "0", "#000000", string.Empty) },
-
             { TiglRankName.Minister, Make("TIGL - Minister", "1171907111110844416", "#3498db", string.Empty) },
             { TiglRankName.Agent, Make("TIGL - Agent", "1171907881096970271", "#206694", string.Empty) },
             { TiglRankName.Commander, Make("TIGL - Commander", "1199486443928686592", "#b2a8e4", string.Empty) },
             { TiglRankName.Hero, Make("TIGL - Hero", "1234988242391273603", "#816de6", string.Empty) },
-
             { TiglRankName.Thrall, Make("TIGL - Thrall", "1441466188688261181", "#df966e", string.Empty) },
             { TiglRankName.Acolyte, Make("TIGL - Acolyte", "1441466159554887831", "#ce8863", string.Empty) },
             { TiglRankName.Legionnaire, Make("TIGL - Legionnaire", "1441466181679583303", "#c3764c", string.Empty) },

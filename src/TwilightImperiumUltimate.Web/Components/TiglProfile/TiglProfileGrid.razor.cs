@@ -80,9 +80,11 @@ public partial class TiglProfileGrid
             return Array.Empty<TiglLeagueProfileDto>();
 
         if (CurrentCategory == TiglProfileCategory.All)
+        {
             return Profile.LeagueProfiles
                 .OrderBy(l => Array.IndexOf(LeagueDisplayOrder, l.League))
                 .ToList();
+        }
 
         var league = MapCategoryToLeague(CurrentCategory);
         return Profile.LeagueProfiles.Where(l => l.League == league).ToList();

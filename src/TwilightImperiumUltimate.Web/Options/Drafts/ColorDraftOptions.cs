@@ -1,4 +1,4 @@
-﻿namespace TwilightImperiumUltimate.Web.Options.Drafts;
+namespace TwilightImperiumUltimate.Web.Options.Drafts;
 
 public static class ColorDraftOptions
 {

@@ -439,7 +439,7 @@ public class SystemTileSetter(
 
             _logger.LogInformation("Slice empty positions: {EmptyPositions}", string.Join(",", sliceEmptyPositions.Select(x => $"[{x.X},{x.Y}]")));
 
-            _logger.LogInformation("Drafted system tiles: {Count} {DraftedSystemTiles}", slice.DraftedSystemTiles.Count,  string.Join(" ", slice.DraftedSystemTiles.Select(x => x.SystemTileCode)));
+            _logger.LogInformation("Drafted system tiles: {Count} {DraftedSystemTiles}", slice.DraftedSystemTiles.Count, string.Join(" ", slice.DraftedSystemTiles.Select(x => x.SystemTileCode)));
 
             var slicePositionsInPriorityOrder = new List<(int X, int Y)>();
 

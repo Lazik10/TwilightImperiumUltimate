@@ -278,4 +278,3 @@ public partial class FactionIconRow : TwilightImperiumBaseComponent
         return row;
     }
 }
-

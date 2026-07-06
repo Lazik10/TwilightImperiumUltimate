@@ -32,4 +32,3 @@ public record AsyncPlayerMainStatsDto
 
     public float WinRate => Finished == 0 ? 0 : (float)Wins / Finished * 100;
 }
-

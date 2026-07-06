@@ -74,4 +74,3 @@ internal static class BreakthroughCardsData
         new BreakthroughCard() { Id = 67, EnumName = BreakthroughName.MercenaryCaptains, FactionName = FactionName.TheNokarSellships, Type = CardType.Breakthrough, GameVersion = GameVersion.ThundersEdge },
     };
 }
-

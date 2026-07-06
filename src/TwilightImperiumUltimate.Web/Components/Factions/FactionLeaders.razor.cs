@@ -1,4 +1,4 @@
-﻿namespace TwilightImperiumUltimate.Web.Components.Factions;
+namespace TwilightImperiumUltimate.Web.Components.Factions;
 
 public partial class FactionLeaders : FactionInfoComponentBase
 {

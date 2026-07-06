@@ -1,4 +1,4 @@
-﻿namespace TwilightImperiumUltimate.Web.Components.Shared.GameVersions;
+namespace TwilightImperiumUltimate.Web.Components.Shared.GameVersions;
 
 public partial class GameVersionPicker : TwilightImperiumBaseComponent
 {

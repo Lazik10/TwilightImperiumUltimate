@@ -22,8 +22,7 @@ public partial class AsyncPlayerMainStats
     };
 
     private string GetWinratePercentage() =>
-        $"Win rate:\u2003\u2003{
-            (AsyncPlayerProfile.Settings.ShowWinRates ?
+        $"Win rate:\u2003\u2003{(AsyncPlayerProfile.Settings.ShowWinRates ?
             GameStats.WinRate.ToStringWithPrecisionAndPercentage(3)
             : Strings.AsyncPlayer_HiddenStat)}";
 

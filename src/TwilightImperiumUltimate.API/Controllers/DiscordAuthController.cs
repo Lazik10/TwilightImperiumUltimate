@@ -33,7 +33,7 @@ public partial class DiscordAuthController(
 
         // raw state value only
         var stateValue = Guid.NewGuid().ToString("N");
-        HttpContext.Session.SetString("discord_oauth_state", stateValue );
+        HttpContext.Session.SetString("discord_oauth_state", stateValue);
         HttpContext.Session.SetString("discord_return_url", returnUrl);
 
         var qs =

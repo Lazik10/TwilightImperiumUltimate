@@ -1,6 +1,7 @@
 using System.Globalization;
 
 namespace TwilightImperiumUltimate.Web.Components.MiltyDraft;
+
 public partial class MiltyDraftSliceEvaluationStats
 {
     [Parameter]

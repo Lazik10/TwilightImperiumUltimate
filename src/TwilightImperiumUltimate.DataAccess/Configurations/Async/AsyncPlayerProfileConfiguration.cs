@@ -40,4 +40,3 @@ public class AsyncPlayerProfileConfiguration : IEntityTypeConfiguration<AsyncPla
             .HasForeignKey<AsyncPlayerProfileSettings>(s => s.AsyncPlayerProfileId);
     }
 }
-

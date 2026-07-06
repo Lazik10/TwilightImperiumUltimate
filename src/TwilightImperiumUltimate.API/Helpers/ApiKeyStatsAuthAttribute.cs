@@ -33,4 +33,3 @@ public sealed class ApiKeyStatsAuthAttribute : Attribute, IAuthorizationFilter
         }
     }
 }
-

@@ -267,5 +267,4 @@ public partial class Planets
                 .ToList();
         }
     }
-
 }

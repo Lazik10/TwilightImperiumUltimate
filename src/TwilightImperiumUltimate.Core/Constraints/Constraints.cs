@@ -1,4 +1,4 @@
-﻿namespace TwilightImperiumUltimate.Core.Constraints;
+namespace TwilightImperiumUltimate.Core.Constraints;
 
 public static class Constraints
 {

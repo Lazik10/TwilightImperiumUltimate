@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components;
 using TwilightImperiumUltimate.Web.Helpers.Text;
 using TwilightImperiumUltimate.Web.Resources;
 

@@ -133,9 +133,9 @@ public class GlickoRatingTests
 
         for (int i = 0; i < players.Count; i++)
         {
-/*            players[i].GlickoStats!.First(x => x.League == league).Rating!.Rating.Should().BeApproximately(expectedFinalRatings[i], 0.01);
-            if (i == 0)
-                players[i].GlickoStats!.First(x => x.League == league).Rating!.Rd.Should().Be(208.34860980027898);*/
+            /*            players[i].GlickoStats!.First(x => x.League == league).Rating!.Rating.Should().BeApproximately(expectedFinalRatings[i], 0.01);
+                        if (i == 0)
+                            players[i].GlickoStats!.First(x => x.League == league).Rating!.Rd.Should().Be(208.34860980027898);*/
         }
 
         foreach (var matchStat in matchStats)

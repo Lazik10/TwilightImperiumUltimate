@@ -18,5 +18,3 @@ public record AsyncPlayerInfoDto
 
     public string DiscordUserName { get; set; }
 }
-
-

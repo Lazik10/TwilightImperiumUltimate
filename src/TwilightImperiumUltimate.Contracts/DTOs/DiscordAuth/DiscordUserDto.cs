@@ -22,4 +22,3 @@ public class DiscordUserDto
     [JsonPropertyName("public_flags")]
     public int? PublicFlags { get; set; }
 }
-

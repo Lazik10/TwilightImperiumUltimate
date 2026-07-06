@@ -13,7 +13,7 @@ public class TrueSkillRatingCalculatorService : ITrueSkillRatingCalculatorServic
     private const double Beta = 25.0 / 6.0;
     private const double DynamicFactor = 0.083333;
 
-    private readonly GameInfo _gameInfo = new GameInfo(InitialMu, InitialSigma , Beta, DynamicFactor, 0.1);
+    private readonly GameInfo _gameInfo = new GameInfo(InitialMu, InitialSigma, Beta, DynamicFactor, 0.1);
 
     public Task UpdatePlayerMatchStats(IReadOnlyCollection<TrueSkillPlayerMatchStats> matchStats, int season)
     {

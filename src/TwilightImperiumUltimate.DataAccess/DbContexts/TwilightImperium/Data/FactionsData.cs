@@ -78,7 +78,6 @@ internal static class FactionsData
             new() { Id = 62, FactionName = FactionName.TheFirmamentTheObsidian, HomeSystem = SystemTileName.TileTE96A, Commodities = 3, ComplexityRating = ComplexityRating.High, GameVersion = GameVersion.ThundersEdge },
             new() { Id = 63, FactionName = FactionName.LastBastion, HomeSystem = SystemTileName.TileTE92, Commodities = 1, ComplexityRating = ComplexityRating.Low, GameVersion = GameVersion.ThundersEdge },
             new() { Id = 64, FactionName = FactionName.TheRalNelConsortium, HomeSystem = SystemTileName.TileTE93, Commodities = 4, ComplexityRating = ComplexityRating.Low, GameVersion = GameVersion.ThundersEdge },
-
         };
 
         var updatedFactions = factions.Select((faction, i) =>

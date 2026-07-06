@@ -70,7 +70,7 @@ internal static class TableName
 
     internal const string GamePublishLogs = "GamePublishLogs";
 
-   internal  const string DiscordRoleChangeLogs = "DiscordRoleChangeLogs";
+    internal const string DiscordRoleChangeLogs = "DiscordRoleChangeLogs";
 
     // News
     internal const string NewsArticles = "NewsArticles";

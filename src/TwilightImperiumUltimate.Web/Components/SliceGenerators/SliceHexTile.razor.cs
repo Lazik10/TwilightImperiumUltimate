@@ -1,4 +1,4 @@
-﻿using Serilog;
+using Serilog;
 using System.Globalization;
 using TwilightImperiumUltimate.Web.Pages.Tools;
 using TwilightImperiumUltimate.Web.Services.SliceGenerators;
@@ -145,4 +145,3 @@ public partial class SliceHexTile : TwilightImperiumBaseComponent
         };
     }
 }
-

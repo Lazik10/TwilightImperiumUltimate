@@ -1,4 +1,4 @@
-﻿namespace TwilightImperiumUltimate.Web.Components.Technologies;
+namespace TwilightImperiumUltimate.Web.Components.Technologies;
 
 public partial class TechnologyCard : TwilightImperiumBaseComponent
 {
@@ -10,4 +10,3 @@ public partial class TechnologyCard : TwilightImperiumBaseComponent
         return PathProvider.GetTechnologyImagePath(TechnologyName);
     }
 }
-

@@ -1,4 +1,4 @@
-﻿namespace TwilightImperiumUltimate.Web.Components.Websites;
+namespace TwilightImperiumUltimate.Web.Components.Websites;
 
 public partial class WebsiteGrid : TwilightImperiumBaseComponent
 {

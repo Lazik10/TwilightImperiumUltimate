@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components;
 
 namespace TwilightImperiumUltimate.Web.Components.Shared.Text.CardGenerator.ObjectiveStageTwoCard;
 

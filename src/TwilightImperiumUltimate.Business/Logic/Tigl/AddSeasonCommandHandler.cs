@@ -19,6 +19,6 @@ public class AddSeasonCommandHandler(
             };
         }
 
-        return new AddSeasonResponse{ Success = true, SeasonNumber = result.Value.SeasonNumber, SeasonName = result.Value.Name };
+        return new AddSeasonResponse { Success = true, SeasonNumber = result.Value.SeasonNumber, SeasonName = result.Value.Name };
     }
 }

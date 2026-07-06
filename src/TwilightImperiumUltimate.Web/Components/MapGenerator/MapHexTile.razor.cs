@@ -1,4 +1,4 @@
-﻿using Serilog;
+using Serilog;
 using System.Globalization;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
 
@@ -145,4 +145,3 @@ public partial class MapHexTile : TwilightImperiumBaseComponent
         };
     }
 }
-

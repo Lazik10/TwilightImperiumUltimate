@@ -1,4 +1,4 @@
-﻿namespace TwilightImperiumUltimate.Web.Components.Units;
+namespace TwilightImperiumUltimate.Web.Components.Units;
 
 public partial class UnitImage : TwilightImperiumBaseComponent
 {

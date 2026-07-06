@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Options;
 using System.Text;
 using TwilightImperiumUltimate.API.Discord;
 using TwilightImperiumUltimate.API.Helpers;
@@ -10,7 +11,6 @@ using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Report;
 using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Season;
 using TwilightImperiumUltimate.Contracts.DTOs.Tigl;
 using TwilightImperiumUltimate.DataAccess.Repositories;
-using Microsoft.Extensions.Options;
 
 namespace TwilightImperiumUltimate.API.Controllers;
 

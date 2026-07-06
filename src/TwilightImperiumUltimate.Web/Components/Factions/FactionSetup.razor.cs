@@ -8,7 +8,7 @@ public partial class FactionSetup : FactionInfoComponentBase
 
     protected override void OnParametersSet()
     {
-         GetStartingTechnologyString();
+        GetStartingTechnologyString();
     }
 
     private List<UnitModel> GetStartingUnits()

@@ -1,4 +1,4 @@
-﻿namespace TwilightImperiumUltimate.Web.Services.Language;
+namespace TwilightImperiumUltimate.Web.Services.Language;
 
 public interface ICultureProvider
 {

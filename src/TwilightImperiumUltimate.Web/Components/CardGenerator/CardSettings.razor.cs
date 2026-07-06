@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components;
 using TwilightImperiumUltimate.Web.Enums;
 
 namespace TwilightImperiumUltimate.Web.Components.CardGenerator;
