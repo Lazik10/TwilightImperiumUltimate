@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Update="SonarAnalyzer.CSharp" Version="10.10.0.116381" />
+    <PackageReference Update="SonarAnalyzer.CSharp" Version="10.28.0.143324" />
     <PackageReference Update="StyleCop.Analyzers" Version="1.2.0-beta.507" />
   </ItemGroup>
 
