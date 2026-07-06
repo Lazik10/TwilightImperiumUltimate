@@ -1,6 +1,6 @@
+﻿using System.Globalization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.JSInterop;
-using System.Globalization;
 using TwilightImperiumUltimate.Web.Resources;
 
 namespace TwilightImperiumUltimate.Web.Helpers.Culture;

@@ -1,9 +1,9 @@
-using Blazored.LocalStorage;
-using Serilog;
-using System.Net.Http.Headers;
+﻿using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Blazored.LocalStorage;
+using Serilog;
 using TwilightImperiumUltimate.Web.Models.Account;
 using TwilightImperiumUltimate.Web.Options.Api;
 
@@ -305,20 +305,6 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
         }
     }
 
-    private async Task<string> GetAccessTokenAsync(CancellationToken cancellationToken)
-    {
-        var loginResponse = await _localStorageService.GetItemAsync<LoginResponse>("authentication", cancellationToken);
-
-        if (loginResponse is not null && loginResponse.AccessToken is not null)
-        {
-            return loginResponse.AccessToken;
-        }
-        else
-        {
-            return string.Empty;
-        }
-    }
-
     public async Task<(ApiResponse<TDto> Response, HttpStatusCode StatusCode)> PostApiAsync<TRequest, TDto>(string endpointPath, TRequest request, CancellationToken cancellationToken = default)
         where TRequest : class
         where TDto : class
@@ -334,7 +320,14 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
             ApiResponse<TDto>? api = null;
             ProblemDetailsDto? problem = null;
 
-            try { raw = await httpResponse.Content.ReadAsStringAsync(cancellationToken); } catch { raw = string.Empty; }
+            try
+            {
+                raw = await httpResponse.Content.ReadAsStringAsync(cancellationToken);
+            }
+            catch
+            {
+                raw = string.Empty;
+            }
 
             if (!string.IsNullOrWhiteSpace(raw))
             {
@@ -342,7 +335,10 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
                 {
                     api = JsonSerializer.Deserialize<ApiResponse<TDto>>(raw, _options);
                 }
-                catch { /* ignore and try problem details */ }
+                catch
+                {
+                    // ignore and try problem details
+                }
 
                 if (api is null)
                 {
@@ -350,7 +346,10 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
                     {
                         problem = JsonSerializer.Deserialize<ProblemDetailsDto>(raw, _options);
                     }
-                    catch { /* ignore */ }
+                    catch
+                    {
+                        // ignore
+                    }
                 }
             }
 
@@ -358,7 +357,10 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
             {
                 api = new ApiResponse<TDto>();
                 if (problem is not null)
+                {
                     api.ProblemDetails = problem;
+                }
+
                 api.Success = httpResponse.IsSuccessStatusCode;
             }
             else
@@ -393,6 +395,20 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
                 },
             },
             HttpStatusCode.InternalServerError);
+        }
+    }
+
+    private async Task<string> GetAccessTokenAsync(CancellationToken cancellationToken)
+    {
+        var loginResponse = await _localStorageService.GetItemAsync<LoginResponse>("authentication", cancellationToken);
+
+        if (loginResponse is not null && loginResponse.AccessToken is not null)
+        {
+            return loginResponse.AccessToken;
+        }
+        else
+        {
+            return string.Empty;
         }
     }
 }

@@ -1,7 +1,7 @@
+﻿using System.Web;
 using MailKit.Net.Smtp;
 using Microsoft.Extensions.Options;
 using MimeKit;
-using System.Web;
 using TwilightImperiumUltimate.API.Options;
 using TwilightImperiumUltimate.Core.Entities.Users;
 
