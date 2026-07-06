@@ -20,23 +20,7 @@ This repository uses:
 
 ## Repository context
 
-Follow:
-
-```text
-.github/copilot-instructions.md
-.github/instructions/testing.instructions.md
-.github/instructions/blazor.instructions.md
-.github/instructions/html.instructions.md
-.github/instructions/accessibility.instructions.md
-```
-
-Use:
-
-```text
-docs/build-and-test.md
-docs/project-structure.md
-docs/architecture.md
-```
+Follow `.github/copilot-instructions.md` and `.github/instructions/testing.instructions.md` (plus the `blazor`, `html`, and `accessibility` instructions — they auto-apply by file type). Reference `docs/build-and-test.md`, `docs/project-structure.md`, and `docs/architecture.md`.
 
 ---
 
@@ -290,39 +274,7 @@ CustomerForm_WhenSaveFails_ShouldShowErrorMessage
 
 ## Testing project-owned wrappers
 
-Reusable wrapper components should be tested.
-
-Test wrappers such as:
-
-```text
-AppButton
-AppTextInput
-AppSelect
-AppCheckbox
-AppDialog
-AppConfirmDialog
-AppAlert
-AppCard
-AppDataGrid
-LoadingPanel
-EmptyState
-ErrorPanel
-```
-
-Test the wrapper contract:
-
-- Parameters
-- Events
-- Disabled/loading states
-- Child content
-- Accessible names
-- Important ARIA attributes
-- Label/input relationship
-- Validation display
-- Empty/error/loading states
-- Radzen integration assumptions only when visible through wrapper behavior
-
-Do not test Radzen internals.
+Reusable wrapper components (see the list in `.github/instructions/blazor.instructions.md`) should be tested for their contract: parameters, events, disabled/loading states, child content, accessible names/ARIA, label/input relationship, and validation/empty/error display. Do not test Radzen internals.
 
 ---
 
@@ -351,48 +303,13 @@ Assert AppButton renders child content and invokes OnClick.
 
 ## Accessibility-sensitive tests
 
-Where practical, test:
-
-- Real buttons are rendered for actions.
-- Links are rendered for navigation.
-- Inputs have labels.
-- Icon-only buttons have accessible names.
-- Error messages render.
-- Required validation messages render.
-- Dialog title renders.
-- Important ARIA state is synchronized.
-
-Automated tests do not replace manual keyboard testing.
-
-Recommend manual checks for complex UI:
-
-```text
-Keyboard-only navigation
-Visible focus
-Dialog focus management
-Lighthouse
-axe DevTools
-Accessibility Insights
-Screen reader smoke test
-```
+Where practical, assert accessible names, labels, ARIA state, and validation message rendering — see `.github/instructions/accessibility.instructions.md`. Automated tests do not replace manual keyboard/screen-reader testing; recommend it for complex UI.
 
 ---
 
 ## Mocking rules
 
-Preferred:
-
-- Simple fake for simple dependency
-- NSubstitute or Moq for interaction-based tests
-- Bogus for readable generated data when helpful
-
-Rules:
-
-- Do not mock the system under test.
-- Do not over-mock.
-- Do not verify every internal call.
-- Verify interactions only when the interaction is the behavior.
-- Use existing repository mocking library before adding a new one.
+Follow the mocking guidance in `.github/instructions/testing.instructions.md` (`## Mocking`) — use the existing repository mocking library, don't mock the system under test, and verify interactions only when the interaction is the behavior.
 
 ---
 

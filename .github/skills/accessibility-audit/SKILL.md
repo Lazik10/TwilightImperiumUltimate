@@ -13,25 +13,7 @@ Accessibility should be treated as a normal quality requirement. Use **WCAG 2.2 
 
 ## Repository context
 
-Follow:
-
-```text
-.github/copilot-instructions.md
-.github/instructions/accessibility.instructions.md
-.github/instructions/html.instructions.md
-.github/instructions/css.instructions.md
-.github/instructions/blazor.instructions.md
-.github/instructions/testing.instructions.md
-```
-
-Use:
-
-```text
-docs/solution-overview.md
-docs/project-structure.md
-docs/architecture.md
-docs/build-and-test.md
-```
+Follow `.github/copilot-instructions.md` and `.github/instructions/accessibility.instructions.md` (plus the `html`, `css`, `blazor`, and `testing` instructions — they auto-apply by file type). Reference `docs/*.md` for architecture and build/test commands.
 
 ---
 
@@ -148,32 +130,9 @@ Good:
 
 ## Blazor and wrapper rules
 
-Prefer project-owned accessible wrapper components for repeated UI:
+Prefer project-owned accessible wrapper components for repeated UI — see the full list in `.github/instructions/blazor.instructions.md` (`## Project-owned component wrappers`). If a repeated UI pattern lacks a wrapper, consider creating one.
 
-```text
-AppButton
-AppTextInput
-AppSelect
-AppCheckbox
-AppDialog
-AppConfirmDialog
-AppAlert
-AppCard
-AppTabs
-AppDataGrid
-LoadingPanel
-EmptyState
-ErrorPanel
-```
-
-If a repeated UI pattern lacks a wrapper, consider creating one.
-
-For Radzen:
-
-- Direct Radzen usage is acceptable for simple one-off UI.
-- Wrap repeated, styled, behavior-rich, or accessibility-sensitive Radzen usage.
-- Do not scatter Radzen accessibility fixes across unrelated pages.
-- Do not test Radzen internals.
+For Radzen: direct usage is fine for simple one-off UI; wrap repeated, styled, behavior-rich, or accessibility-sensitive usage. Do not test Radzen internals.
 
 ---
 

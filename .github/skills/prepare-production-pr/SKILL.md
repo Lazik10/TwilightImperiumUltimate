@@ -13,27 +13,7 @@ The goal is to make sure the change is ready for a production-quality repository
 
 ## Repository context
 
-Follow:
-
-```text
-.github/copilot-instructions.md
-.github/instructions/blazor.instructions.md
-.github/instructions/html.instructions.md
-.github/instructions/css.instructions.md
-.github/instructions/accessibility.instructions.md
-.github/instructions/testing.instructions.md
-```
-
-Use:
-
-```text
-docs/solution-overview.md
-docs/project-structure.md
-docs/architecture.md
-docs/build-and-test.md
-```
-
-Use `docs/build-and-test.md` as the source of truth for validation commands.
+Follow `.github/copilot-instructions.md` and the relevant `.github/instructions/*.instructions.md` files (they auto-apply by file type). Use `docs/build-and-test.md` as the source of truth for validation commands, and `docs/*.md` for architecture/structure context.
 
 ---
 

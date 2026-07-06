@@ -8,25 +8,7 @@ Create a complete feature based on the user's request.
 
 This prompt is for multi-file work. For a single component, use `create-blazor-component.prompt.md`. For a single page, use `create-blazor-page.prompt.md`.
 
-Follow:
-
-```text
-.github/copilot-instructions.md
-.github/instructions/blazor.instructions.md
-.github/instructions/html.instructions.md
-.github/instructions/css.instructions.md
-.github/instructions/accessibility.instructions.md
-.github/instructions/testing.instructions.md
-```
-
-Review:
-
-```text
-docs/solution-overview.md
-docs/project-structure.md
-docs/architecture.md
-docs/build-and-test.md
-```
+Follow `.github/copilot-instructions.md` and the auto-applying `.github/instructions/*.instructions.md` files for `.razor`/`.razor.cs`/`.css` (`blazor`, `html`, `css`, `accessibility`, `testing`) — do not restate their rules here. Review `docs/*.md` before non-trivial changes.
 
 ---
 
@@ -88,93 +70,23 @@ Do not create files that are not needed.
 
 ---
 
-## Component and page rules
+## Cross-cutting rules
 
-- Every component/page uses `.razor` and `.razor.cs`.
-- Add `.razor.css` when styling is needed.
-- Keep markup in `.razor`.
-- Keep logic in `.razor.cs`.
-- Keep reusable business logic in services.
-- Use typed services for API communication.
-- Prefer local component state.
-- Use scoped services for shared state.
-- Use project-owned wrappers for repeated/styled UI and Radzen usage.
-- Use direct Radzen only for simple one-off UI.
+Apply the rules already defined in the repository instructions instead of restating them here:
 
----
+- Component/page structure, typed services, state, project-owned wrappers, Radzen usage — `.github/instructions/blazor.instructions.md`
+- Semantic HTML and forms — `.github/instructions/html.instructions.md`
+- Accessibility (keyboard, focus, ARIA, labels) — `.github/instructions/accessibility.instructions.md`
+- Component-scoped CSS and design tokens — `.github/instructions/css.instructions.md`
+- Test stack and naming (`MethodName_WhenCondition_ShouldExpectedResult`) — `.github/instructions/testing.instructions.md`
 
-## UI states
-
-For data-driven UI, include relevant states:
-
-```text
-Loading
-Empty
-Error
-Success
-Validation
-Permission denied, if applicable
-```
-
-Use project-owned components where available:
-
-```text
-LoadingPanel
-EmptyState
-ErrorPanel
-AppAlert
-AppButton
-AppDialog
-AppDataGrid
-```
-
----
-
-## Testing
-
-Behavior changes should normally include tests.
-
-Use:
-
-- xUnit
-- bUnit
-- FluentAssertions
-- NSubstitute or Moq
-- Bogus when helpful
-- Playwright only for critical end-to-end flows
-
-Test naming:
-
-```text
-MethodName_WhenCondition_ShouldExpectedResult
-```
-
-Test behavior, not implementation details.
-
-For wrapper components, test the project-owned wrapper contract, not Radzen internals.
-
----
-
-## Accessibility
-
-Ensure:
-
-- Semantic HTML
-- Keyboard-accessible interactions
-- Visible focus states
-- Labels for fields
-- Accessible names for icon-only controls
-- Dialog focus behavior, if dialogs are used
-- Loading/error messages accessible to users
-- Color is not the only state indicator
+Include relevant UI states (loading/empty/error/success/validation) using project-owned components (`LoadingPanel`, `EmptyState`, `ErrorPanel`, etc.) where available.
 
 ---
 
 ## Validation
 
 Use `docs/build-and-test.md`.
-
-Typical commands:
 
 ```bash
 dotnet build
@@ -202,3 +114,4 @@ Notes:
 - [risks]
 - [follow-up work]
 ```
+

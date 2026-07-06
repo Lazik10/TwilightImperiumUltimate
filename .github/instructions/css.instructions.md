@@ -287,14 +287,7 @@ Preferred strategy:
 4. Avoid deep overrides of Radzen internal classes unless necessary.
 5. Keep unavoidable Radzen overrides isolated and documented.
 
-Recommended wrapper example:
-
-```text
-Components/
-  AppButton.razor
-  AppButton.razor.cs
-  AppButton.razor.css
-```
+Style the project-owned wrapper (see the wrapper list in `.github/instructions/blazor.instructions.md`) rather than Radzen internals:
 
 Prefer styling:
 

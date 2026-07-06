@@ -13,28 +13,7 @@ This skill focuses on **small, safe fixes**. Do not rewrite large areas of code 
 
 ## Repository context
 
-Follow:
-
-```text
-.github/copilot-instructions.md
-.github/instructions/blazor.instructions.md
-.github/instructions/csharp.instructions.md
-.github/instructions/html.instructions.md
-.github/instructions/css.instructions.md
-.github/instructions/accessibility.instructions.md
-.github/instructions/testing.instructions.md
-```
-
-Use:
-
-```text
-docs/solution-overview.md
-docs/project-structure.md
-docs/architecture.md
-docs/build-and-test.md
-```
-
-Use `docs/build-and-test.md` as the source of truth for build, test, and validation commands.
+Follow `.github/copilot-instructions.md` and the relevant `.github/instructions/*.instructions.md` files (`blazor`, `csharp`, `html`, `css`, `accessibility`, `testing` — they auto-apply by file type). Use `docs/build-and-test.md` as the source of truth for build, test, and validation commands.
 
 ---
 

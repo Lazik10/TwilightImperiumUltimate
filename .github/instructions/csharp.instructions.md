@@ -31,14 +31,6 @@ applyTo: '**/*.cs'
 - Use `nameof` instead of string literals when referring to member names.
 - Ensure that XML doc comments are created for any public APIs. When applicable, include `<example>` and `<code>` documentation in the comments.
 
-## Project Setup and Structure
-
-- Guide users through creating a new .NET project with the appropriate templates.
-- Explain the purpose of each generated file and folder to build understanding of the project structure.
-- Demonstrate how to organize code using feature folders or domain-driven design principles.
-- Show proper separation of concerns with models, services, and data access layers.
-- Explain the Program.cs and configuration system in ASP.NET Core 10 including environment-specific settings.
-
 ## Nullable Reference Types
 
 - Declare variables non-nullable, and check for `null` at entry points.
@@ -47,68 +39,40 @@ applyTo: '**/*.cs'
 
 ## Data Access Patterns
 
-- Guide the implementation of a data access layer using Entity Framework Core.
-- Explain different options (SQL Server, SQLite, In-Memory) for development and production.
-- Demonstrate repository pattern implementation and when it's beneficial.
-- Show how to implement database migrations and data seeding.
-- Explain efficient query patterns to avoid common performance issues.
+- Use Entity Framework Core following the repository's existing data-access pattern; don't introduce a new one.
+- Keep migrations and seed data consistent with `TwilightImperiumUltimate.DataAccess` conventions.
+- Write efficient, async query patterns and avoid N+1 queries.
 
 ## Authentication and Authorization
 
-- Guide users through implementing authentication using JWT Bearer tokens.
-- Explain OAuth 2.0 and OpenID Connect concepts as they relate to ASP.NET Core.
-- Show how to implement role-based and policy-based authorization.
-- Demonstrate integration with Microsoft Entra ID (formerly Azure AD).
-- Explain how to secure both controller-based and Minimal APIs consistently.
+- Enforce authentication and authorization consistently across controllers and Minimal APIs.
+- Use role/policy-based authorization matching existing policies; never rely on client-side checks alone.
 
 ## Validation and Error Handling
 
-- Guide the implementation of model validation using data annotations and FluentValidation.
-- Explain the validation pipeline and how to customize validation responses.
-- Demonstrate a global exception handling strategy using middleware.
-- Show how to create consistent error responses across the API.
-- Explain problem details (RFC 9457) implementation for standardized error responses.
-
-## API Versioning and Documentation
-
-- Guide users through implementing and explaining API versioning strategies.
-- Demonstrate Swagger/OpenAPI implementation with proper documentation.
-- Show how to document endpoints, parameters, responses, and authentication.
-- Explain versioning in both controller-based and Minimal APIs.
-- Guide users on creating meaningful API documentation that helps consumers.
+- Validate models using data annotations or FluentValidation, matching the existing project convention.
+- Use a centralized exception-handling middleware and return RFC 9457 Problem Details for API errors.
+- Never leak stack traces or internal exception details to callers.
 
 ## Logging and Monitoring
 
-- Guide the implementation of structured logging using Serilog or other providers.
-- Explain the logging levels and when to use each.
-- Demonstrate integration with Application Insights for telemetry collection.
-- Show how to implement custom telemetry and correlation IDs for request tracking.
-- Explain how to monitor API performance, errors, and usage patterns.
+- Use the project's existing structured logging provider (see `Program.cs`/`GlobalUsings.cs` for current setup).
+- Do not log secrets, tokens, connection strings, or PII.
 
 ## Testing
 
 - Always include test cases for critical paths of the application.
-- Guide users through creating unit tests.
 - Do not emit "Act", "Arrange" or "Assert" comments.
 - Copy existing style in nearby files for test method names and capitalization.
-- Explain integration testing approaches for API endpoints.
-- Demonstrate how to mock dependencies for effective testing.
-- Show how to test authentication and authorization logic.
-- Explain test-driven development principles as applied to API development.
+- Mock dependencies rather than hitting real databases/network calls in unit tests.
 
 ## Performance Optimization
 
-- Guide users on implementing caching strategies (in-memory, distributed, response caching).
-- Explain asynchronous programming patterns and why they matter for API performance.
-- Demonstrate pagination, filtering, and sorting for large data sets.
-- Show how to implement compression and other performance optimizations.
-- Explain how to measure and benchmark API performance.
+- Use asynchronous programming for I/O-bound work.
+- Paginate, filter, and sort large data sets instead of returning full result sets.
+- Use caching (in-memory or distributed) where it clearly helps and is already part of the project's pattern.
 
 ## Deployment and DevOps
 
-- Guide users through containerizing their API using .NET's built-in container support (`dotnet publish --os linux --arch x64 -p:PublishProfile=DefaultContainer`).
-- Explain the differences between manual Dockerfile creation and .NET's container publishing features.
-- Explain CI/CD pipelines for NET applications.
-- Demonstrate deployment to Azure App Service, Azure Container Apps, or other hosting options.
-- Show how to implement health checks and readiness probes.
-- Explain environment-specific configurations for different deployment stages.
+- Follow `docs/build-and-test.md` for build, test, run, and publish commands.
+- See `.github/skills/containerize-aspnetcore/SKILL.md` before adding or changing container support.

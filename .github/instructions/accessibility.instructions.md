@@ -31,56 +31,9 @@ These instructions are intentionally practical and project-focused. They should 
 
 ## Project-owned accessible wrapper components
 
-This project prefers wrapping repeated styled HTML elements and repeated third-party UI components in repository-owned Blazor components.
+This project prefers wrapping repeated styled HTML elements and third-party UI components (`AppButton`, `AppTextInput`, `AppDialog`, `AppDataGrid`, etc.) in repository-owned Blazor components. See the full wrapper list, examples, and rationale in `.github/instructions/blazor.instructions.md` (`## Project-owned component wrappers`) — do not duplicate that list here.
 
-Use project-owned wrappers for accessibility-sensitive UI such as:
-
-- Buttons
-- Links styled as buttons
-- Text inputs
-- Selects and dropdowns
-- Checkboxes and radio groups
-- Dialogs and modals
-- Toasts and alerts
-- Tabs
-- Menus
-- Tooltips
-- Data grids and tables
-- Cards and panels with actions
-- Loading indicators
-- Empty states
-- Error states
-
-Recommended examples:
-
-```text
-Components/
-  AppButton.razor
-  AppButton.razor.cs
-  AppButton.razor.css
-
-  AppTextInput.razor
-  AppTextInput.razor.cs
-  AppTextInput.razor.css
-
-  AppDialog.razor
-  AppDialog.razor.cs
-  AppDialog.razor.css
-
-  AppDataGrid.razor
-  AppDataGrid.razor.cs
-  AppDataGrid.razor.css
-```
-
-Why this matters:
-
-- Accessibility behavior can be fixed in one place.
-- Radzen or another UI library can be replaced more easily.
-- Labels, validation, focus, ARIA, and keyboard behavior can be standardized.
-- Repeated patterns become easier to test.
-- Pages stay simpler and more consistent.
-
-When using Radzen components repeatedly, prefer a project-owned wrapper unless the usage is clearly one-off and simple.
+Accessibility-specific reason to wrap: labels, validation, focus, ARIA, and keyboard behavior can be standardized and fixed in one place instead of re-implemented per page.
 
 ---
 

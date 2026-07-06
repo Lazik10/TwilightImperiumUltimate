@@ -6,25 +6,7 @@ description: Create a routable Blazor page following this repository's C# / Blaz
 
 Create a routable Blazor page for the requested feature or screen.
 
-Follow these repository instructions:
-
-```text
-.github/copilot-instructions.md
-.github/instructions/blazor.instructions.md
-.github/instructions/html.instructions.md
-.github/instructions/css.instructions.md
-.github/instructions/accessibility.instructions.md
-.github/instructions/testing.instructions.md
-```
-
-Review relevant docs before non-trivial changes:
-
-```text
-docs/solution-overview.md
-docs/project-structure.md
-docs/architecture.md
-docs/build-and-test.md
-```
+Follow `.github/copilot-instructions.md` and the auto-applying `.github/instructions/*.instructions.md` files for `.razor`/`.razor.cs`/`.css` (`blazor`, `html`, `css`, `accessibility`, `testing`) — do not restate their rules here. Review `docs/*.md` before non-trivial changes.
 
 ---
 
@@ -135,66 +117,24 @@ HttpClient
 API endpoint or external service
 ```
 
-Include:
-
-- Loading state
-- Empty state
-- Error state
-- Retry behavior when appropriate
-- User-friendly error messages
+Include a loading state, empty state, error state (with retry when appropriate), and user-friendly error messages.
 
 ---
 
-## UI rules
+## Cross-cutting rules
 
-- Prefer project-owned wrapper components.
-- Wrap repeated or styled Radzen usage.
-- Use direct Radzen only for simple one-off UI.
-- Use semantic HTML.
-- Use buttons for actions.
-- Use links for navigation.
-- Use labels for form fields.
-- Include accessible names for icon-only actions.
-- Do not rely only on color to show state.
-- Use `@key` when rendering lists where identity matters.
+Apply the rules already defined in the repository instructions instead of restating them here:
 
----
-
-## Tests
-
-Add or update tests when the page has meaningful behavior.
-
-Use:
-
-- xUnit
-- bUnit
-- FluentAssertions
-- NSubstitute or Moq when useful
-
-Test naming:
-
-```text
-MethodName_WhenCondition_ShouldExpectedResult
-```
-
-Test:
-
-- Loading state
-- Successful data load
-- Empty state
-- Error state
-- Main actions
-- Event callbacks
-- Navigation behavior, if relevant
-- Validation behavior, if relevant
+- Project-owned wrapper components and Radzen usage — `.github/instructions/blazor.instructions.md`
+- Semantic HTML, forms, buttons vs. links — `.github/instructions/html.instructions.md`
+- Accessibility (keyboard, focus, ARIA, labels) — `.github/instructions/accessibility.instructions.md`
+- Test stack and naming (`MethodName_WhenCondition_ShouldExpectedResult`) — `.github/instructions/testing.instructions.md`; for pages, test loading/empty/error states, main actions, event callbacks, and navigation behavior.
 
 ---
 
 ## Validation
 
 Use `docs/build-and-test.md`.
-
-Typical commands:
 
 ```bash
 dotnet build

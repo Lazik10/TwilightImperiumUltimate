@@ -73,61 +73,9 @@ Use:
 
 ## Project-owned wrapper components
 
-This project prefers wrapping styled HTML elements and third-party UI components in repository-owned Blazor components when the element is reused, styled, behavior-rich, or part of the design system.
+Wrap styled/reused HTML elements and third-party (Radzen) components in repository-owned Blazor components instead of repeating markup. See the full wrapper list, naming, and rules in `.github/instructions/blazor.instructions.md` (`## Project-owned component wrappers`) — do not duplicate that list here.
 
-Recommended pattern:
-
-```text
-Components/
-  AppButton.razor
-  AppButton.razor.cs
-  AppButton.razor.css
-```
-
-Use wrapper components for:
-
-- Styled buttons.
-- Styled links.
-- Reusable form fields.
-- Inputs with labels and validation.
-- Cards, panels, dialogs, tabs, tables, and grids.
-- Repeated Radzen components.
-- Repeated layout patterns.
-- Components that may need to be replaced later.
-
-Reason:
-
-- Third-party components can be replaced in one place.
-- Styling stays consistent.
-- Markup stays cleaner.
-- Accessibility behavior can be centralized.
-- Repeated UI patterns are easier to test.
-
-Example:
-
-```razor
-<AppButton ButtonStyle="ButtonStyle.Primary"
-           OnClick="SaveAsync">
-    Save
-</AppButton>
-```
-
-Instead of repeating Radzen usage everywhere:
-
-```razor
-<RadzenButton Text="Save"
-              ButtonStyle="ButtonStyle.Primary"
-              Click="SaveAsync" />
-```
-
-### Wrapper component rules
-
-- Keep wrappers thin unless shared behavior is needed.
-- Do not create unnecessary wrappers for one-off static layout.
-- Preserve access to important parameters through wrapper parameters.
-- Use clear names such as `AppButton`, `AppTextInput`, `AppDialog`, `AppCard`, or project-specific names.
-- Document any wrapper that intentionally hides third-party component functionality.
-- Avoid leaking third-party component details into many unrelated pages.
+Markup-specific reminder: prefer `<AppButton OnClick="SaveAsync">Save</AppButton>` over repeating raw `<RadzenButton ... />` markup across pages.
 
 ---
 
