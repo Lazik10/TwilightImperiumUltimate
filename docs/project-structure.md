@@ -10,7 +10,7 @@ Keep this file updated whenever folders, naming conventions, project responsibil
 
 ```text
 TwilightImperiumUltimate/
-  TwilightImperiumUltimate.sln
+  TwilightImperiumUltimate.slnx
   Directory.Build.props
   README.md
   LICENSE
@@ -196,7 +196,7 @@ Should not contain:
 | `Services` | Client-side services | Use DI and typed HTTP abstractions. |
 | `Models` | Client UI models | Do not duplicate shared contracts unless UI-only. |
 | `Resources` | Localized/front-end resource files | Keep localization assets organized by feature/domain. |
-| `Validators` | Client validators | Works with FluentValidation/Blazored.FluentValidation. |
+| `Validators` | Client validators | Works with FluentValidation/Blazilla. |
 | `wwwroot` | Static assets | Includes `resources/images` with language-aware folders. |
 
 ### Shared contracts project (`TwilightImperiumUltimate.Contracts`)

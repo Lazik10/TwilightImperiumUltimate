@@ -15,7 +15,7 @@ public static class ServiceCollectionExtensions
         this IServiceCollection services,
         IConfiguration configuration)
     {
-        services.AddAutoMapper(Assembly.GetExecutingAssembly());
+        services.AddAutoMapper(cfg => cfg.AddMaps(Assembly.GetExecutingAssembly()));
 
         services.AddMediatR(configuration =>
             configuration.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));

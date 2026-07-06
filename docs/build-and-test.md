@@ -31,7 +31,7 @@ Blazor WebAssembly frontend with a separate API backend:
 | `TwilightImperiumUltimate.API` | ASP.NET Core backend/API |
 | `TwilightImperiumUltimate.Tests` | Current automated tests |
 
-Main solution file: `TwilightImperiumUltimate.sln`
+Main solution file: `TwilightImperiumUltimate.slnx`
 
 ---
 
@@ -73,7 +73,7 @@ From repository root:
 ```bash
 git clone <repository-url>
 cd TwilightImperiumUltimate
-dotnet restore TwilightImperiumUltimate.sln
+dotnet restore TwilightImperiumUltimate.slnx
 ```
 
 Restore local tools (EF Core CLI manifest is under `src/.config`):
@@ -175,7 +175,7 @@ dotnet ef migrations remove \
 Restore NuGet packages for the whole solution:
 
 ```bash
-dotnet restore TwilightImperiumUltimate.sln
+dotnet restore TwilightImperiumUltimate.slnx
 ```
 
 Restore local tools (if needed):
@@ -191,8 +191,8 @@ dotnet tool restore --tool-manifest src/.config/dotnet-tools.json
 ### Build whole solution
 
 ```bash
-dotnet build TwilightImperiumUltimate.sln
-dotnet build TwilightImperiumUltimate.sln --configuration Release
+dotnet build TwilightImperiumUltimate.slnx
+dotnet build TwilightImperiumUltimate.slnx --configuration Release
 ```
 
 ### Build key projects only
@@ -254,9 +254,9 @@ dotnet watch --project src/TwilightImperiumUltimate.API/TwilightImperiumUltimate
 Use this when builds behave strangely or generated files appear stale:
 
 ```bash
-dotnet clean TwilightImperiumUltimate.sln
-dotnet restore TwilightImperiumUltimate.sln
-dotnet build TwilightImperiumUltimate.sln
+dotnet clean TwilightImperiumUltimate.slnx
+dotnet restore TwilightImperiumUltimate.slnx
+dotnet build TwilightImperiumUltimate.slnx
 ```
 
 ---
@@ -358,13 +358,13 @@ dotnet test tests/TwilightImperiumUltimate.Tests/TwilightImperiumUltimate.Tests.
 Format entire solution:
 
 ```bash
-dotnet format TwilightImperiumUltimate.sln
+dotnet format TwilightImperiumUltimate.slnx
 ```
 
 Verify formatting without changing files:
 
 ```bash
-dotnet format TwilightImperiumUltimate.sln --verify-no-changes
+dotnet format TwilightImperiumUltimate.slnx --verify-no-changes
 ```
 
 ## 17. Static analysis and warnings
@@ -372,8 +372,8 @@ dotnet format TwilightImperiumUltimate.sln --verify-no-changes
 Primary analyzer/compile validation:
 
 ```bash
-dotnet build TwilightImperiumUltimate.sln
-dotnet build TwilightImperiumUltimate.sln --configuration Release
+dotnet build TwilightImperiumUltimate.slnx
+dotnet build TwilightImperiumUltimate.slnx --configuration Release
 ```
 
 Guidance:
@@ -426,10 +426,10 @@ For UI-impacting changes, validate:
 Use this full baseline before merging significant changes:
 
 ```bash
-dotnet restore TwilightImperiumUltimate.sln
-dotnet build TwilightImperiumUltimate.sln
+dotnet restore TwilightImperiumUltimate.slnx
+dotnet build TwilightImperiumUltimate.slnx
 dotnet test tests/TwilightImperiumUltimate.Tests/TwilightImperiumUltimate.Tests.csproj
-dotnet format TwilightImperiumUltimate.sln --verify-no-changes
+dotnet format TwilightImperiumUltimate.slnx --verify-no-changes
 ```
 
 For UI changes, also run API and Web locally and validate affected flows in the browser.
@@ -510,9 +510,9 @@ dotnet dev-certs https --trust
 ### Stale build artifacts
 
 ```bash
-dotnet clean TwilightImperiumUltimate.sln
-dotnet restore TwilightImperiumUltimate.sln
-dotnet build TwilightImperiumUltimate.sln
+dotnet clean TwilightImperiumUltimate.slnx
+dotnet restore TwilightImperiumUltimate.slnx
+dotnet build TwilightImperiumUltimate.slnx
 ```
 
 ## 26. Guidance for AI agents and Copilot

@@ -76,7 +76,7 @@ public static class ServiceCollectionsExtension
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<ILoginService, LoginService>();
 
-        services.AddAutoMapper(Assembly.GetExecutingAssembly());
+        services.AddAutoMapper(cfg => cfg.AddMaps(Assembly.GetExecutingAssembly()));
 
         return services;
     }

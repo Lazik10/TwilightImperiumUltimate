@@ -36,7 +36,7 @@ Keep this document short and practical. Its purpose is to help developers and AI
 - Logging: Serilog (API file/console, web browser console)
 - External integrations: Discord.Net, SMTP (MailKit/MimeKit), AsyncTI4 data pull
 - UI component library: Radzen Blazor
-- Validation: FluentValidation + Blazored.FluentValidation
+- Validation: FluentValidation + Blazilla
 - Mapping and messaging: AutoMapper, MediatR
 
 ---
@@ -319,10 +319,10 @@ When adding or changing features:
 Before considering a change complete, run or consider:
 
 ```bash
-dotnet restore TwilightImperiumUltimate.sln
-dotnet build TwilightImperiumUltimate.sln
+dotnet restore TwilightImperiumUltimate.slnx
+dotnet build TwilightImperiumUltimate.slnx
 dotnet test tests/TwilightImperiumUltimate.Tests/TwilightImperiumUltimate.Tests.csproj
-dotnet format TwilightImperiumUltimate.sln --verify-no-changes
+dotnet format TwilightImperiumUltimate.slnx --verify-no-changes
 ```
 
 Common focused builds:
@@ -339,13 +339,13 @@ dotnet build src/TwilightImperiumUltimate.Web/TwilightImperiumUltimate.Web.cspro
 Restore packages:
 
 ```bash
-dotnet restore TwilightImperiumUltimate.sln
+dotnet restore TwilightImperiumUltimate.slnx
 ```
 
 Build solution:
 
 ```bash
-dotnet build TwilightImperiumUltimate.sln
+dotnet build TwilightImperiumUltimate.slnx
 ```
 
 Run tests:

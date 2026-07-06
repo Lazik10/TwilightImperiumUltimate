@@ -1,0 +1,19 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".dockerignore" />
+    <File Path=".editorconfig" />
+    <File Path=".gitignore" />
+    <File Path="Directory.Build.props" />
+    <File Path="LICENSE" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="src/TwilightImperiumUltimate.API/TwilightImperiumUltimate.API.csproj" />
+  <Project Path="src/TwilightImperiumUltimate.Business/TwilightImperiumUltimate.Business.csproj" />
+  <Project Path="src/TwilightImperiumUltimate.Contracts/TwilightImperiumUltimate.Contracts.csproj" />
+  <Project Path="src/TwilightImperiumUltimate.Core/TwilightImperiumUltimate.Core.csproj" />
+  <Project Path="src/TwilightImperiumUltimate.DataAccess/TwilightImperiumUltimate.DataAccess.csproj" />
+  <Project Path="src/TwilightImperiumUltimate.Draft/TwilightImperiumUltimate.Draft.csproj" />
+  <Project Path="src/TwilightImperiumUltimate.Tigl/TwilightImperiumUltimate.Tigl.csproj" />
+  <Project Path="src/TwilightImperiumUltimate.Web/TwilightImperiumUltimate.Web.csproj" />
+  <Project Path="tests/TwilightImperiumUltimate.Tests/TwilightImperiumUltimate.Tests.csproj" />
+</Solution>

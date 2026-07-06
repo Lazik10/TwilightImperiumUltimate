@@ -1,5 +1,5 @@
 ﻿@page "/account/register"
-@using Blazored.FluentValidation
+@using Blazilla
 @using Microsoft.AspNetCore.Components.Forms
 @using TwilightImperiumUltimate.Web.Components.Shared
 @using TwilightImperiumUltimate.Web.Components.Shared.Controls
@@ -38,7 +38,7 @@
         }
 
         <EditForm Model="@RegistrationUserModel" OnValidSubmit="RegisterUser" OnInvalidSubmit="RegisterUserFailed" style="width: 100%;">
-            <FluentValidationValidator />
+            <FluentValidator />
 
             <FlexColumnCenteredContainer CssClass="handel">
 

@@ -146,7 +146,7 @@ public class AsyncRatingTests
         }
     }
 
-    [Fact]
+    [Fact(Skip = "This test is for simulating a season and generating a report. It takes a long time to run.")]
     public async Task SimulateSeasonResults()
     {
         // Arrange

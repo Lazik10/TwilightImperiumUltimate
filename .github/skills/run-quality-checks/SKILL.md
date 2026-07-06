@@ -12,8 +12,8 @@ Run the repository's standard validation commands and report the results plainly
 Use `docs/build-and-test.md` as the source of truth. Typical commands:
 
 ```bash
-dotnet restore TwilightImperiumUltimate.sln
-dotnet build TwilightImperiumUltimate.sln
+dotnet restore TwilightImperiumUltimate.slnx
+dotnet build TwilightImperiumUltimate.slnx
 dotnet test tests/TwilightImperiumUltimate.Tests/TwilightImperiumUltimate.Tests.csproj
 dotnet format --verify-no-changes
 ```

@@ -74,7 +74,6 @@ public class GlickoRatingTests
     }
 
     [Fact]
-/*    [Fact(Skip = "Unable to confirm the results yet")]*/
     public async Task CalculateRatingCorrectlyForAdvancedPlayers()
     {
         // Arrange
@@ -152,7 +151,7 @@ public class GlickoRatingTests
         }
     }
 
-    [Fact]
+    [Fact(Skip = "This test is for simulating a season and generating a report. It takes a long time to run.")]
     public async Task SimulateSeasonResults()
     {
         // Arrange

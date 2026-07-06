@@ -47,7 +47,7 @@ The application provides rules/reference browsing and game support capabilities 
 | Background processing | Quartz.NET scheduled jobs + hosted services |
 | Logging | Serilog (API request logging + browser console sink in Web) |
 | UI libraries | Radzen Blazor components |
-| Validation | FluentValidation + Blazored.FluentValidation |
+| Validation | FluentValidation + Blazilla |
 | Mapping/mediator | AutoMapper + MediatR |
 | Testing | xUnit + FluentAssertions + Moq + Bogus + coverlet |
 | Package management | NuGet |
@@ -282,7 +282,7 @@ Rules:
 
 Current approach:
 
-- Client-side validation via FluentValidation + Blazored.FluentValidation.
+- Client-side validation via FluentValidation + Blazilla.
 - Server-side validation at API/service trust boundaries.
 
 ### Error handling rules
