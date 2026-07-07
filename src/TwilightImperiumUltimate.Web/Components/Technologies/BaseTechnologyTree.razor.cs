@@ -52,7 +52,7 @@ public partial class BaseTechnologyTree : TwilightImperiumBaseComponent
 
     private void SetBigImageAddress(string culture)
     {
-        _currentBigImageSrc = _currentBigImageSrc.Replace(_currentBigImageCulture, culture);
+        _currentBigImageSrc = _currentBigImageSrc.Replace(_currentBigImageCulture, culture, StringComparison.Ordinal);
         _currentBigImageCulture = culture;
         StateHasChanged();
     }

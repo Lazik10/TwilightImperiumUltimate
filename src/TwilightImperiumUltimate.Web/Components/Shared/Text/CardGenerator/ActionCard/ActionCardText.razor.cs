@@ -24,7 +24,7 @@ public partial class ActionCardText
     private string[]? Keywords => GetKeywords();
 
     private bool HasActionWindow => Text is not null
-        && Text.Contains(Strings.Keyword_KeywordSplit)
+        && Text.Contains(Strings.Keyword_KeywordSplit, StringComparison.Ordinal)
         && !Text.StartsWith(Strings.Keyword_EnglishAction, StringComparison.InvariantCultureIgnoreCase)
         && !Text.StartsWith(Strings.Keyword_CzechAction, StringComparison.InvariantCultureIgnoreCase);
 

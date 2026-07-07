@@ -278,10 +278,10 @@ public class MapToStringConverter(
                     var stringNumber = systemTileCodes[i];
                     _logger.LogInformation("Handling hyperlane: {Hyperlane}", stringNumber);
 
-                    if (stringNumber.Contains('A') || stringNumber.Contains('B'))
+                    if (stringNumber.Contains('A', StringComparison.Ordinal) || stringNumber.Contains('B', StringComparison.Ordinal))
                     {
-                        int startIndexA = stringNumber.IndexOf('A') + 1;
-                        int startIndexB = stringNumber.IndexOf('B') + 1;
+                        int startIndexA = stringNumber.IndexOf('A', StringComparison.Ordinal) + 1;
+                        int startIndexB = stringNumber.IndexOf('B', StringComparison.Ordinal) + 1;
 
                         var index = startIndexA != 0 ? startIndexA : startIndexB;
 

@@ -5,7 +5,7 @@ namespace TwilightImperiumUltimate.DataAccess.Repositories;
 
 public class GameStatisticsRepository(
     IDbContextFactory<TwilightImperiumDbContext> context,
-    ILogger<GameStatistics> logger)
+    ILogger<GameStatisticsRepository> logger)
     : IGameStatisticsRepository
 {
     private readonly IDbContextFactory<TwilightImperiumDbContext> _context = context;

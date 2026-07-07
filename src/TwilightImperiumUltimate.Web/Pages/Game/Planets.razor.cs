@@ -241,7 +241,7 @@ public partial class Planets
 
     private void SetBigImageAddress(string culture)
     {
-        _currentBigImageSrc = _currentBigImageSrc.Replace(_currentBigImageCulture, culture);
+        _currentBigImageSrc = _currentBigImageSrc.Replace(_currentBigImageCulture, culture, StringComparison.Ordinal);
         _currentBigImageCulture = culture;
         StateHasChanged();
     }

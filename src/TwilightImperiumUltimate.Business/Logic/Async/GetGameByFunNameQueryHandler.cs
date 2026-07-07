@@ -20,7 +20,7 @@ public class GetGameByFunNameQueryHandler(
         if (game is not null)
         {
             // Make sure active fow games stays hidden
-            if (game.AsyncGameID.Contains(FogOfWar))
+            if (game.AsyncGameID.Contains(FogOfWar, StringComparison.Ordinal))
             {
                 game.AsyncGameID = FogOfWar;
             }

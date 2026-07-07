@@ -67,7 +67,7 @@ public partial class RoleAssignment
         if (email.Length < 3)
             _filteredUsers = _users;
 
-        _filteredUsers = _users.Where(u => u.Email!.Contains(email)).ToList();
+        _filteredUsers = _users.Where(u => u.Email!.Contains(email, StringComparison.Ordinal)).ToList();
         _selectedUserEmail = _filteredUsers.Select(x => x.Email).First() ?? string.Empty;
         return Task.CompletedTask;
     }

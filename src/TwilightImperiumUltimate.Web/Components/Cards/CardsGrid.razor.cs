@@ -72,7 +72,7 @@ public partial class CardsGrid
 
     private void SetBigImageAddress(string culture)
     {
-        currentBigImageSrc = currentBigImageSrc.Replace(currentBigImageCulture, culture);
+        currentBigImageSrc = currentBigImageSrc.Replace(currentBigImageCulture, culture, StringComparison.Ordinal);
         currentBigImageCulture = culture;
         StateHasChanged();
     }

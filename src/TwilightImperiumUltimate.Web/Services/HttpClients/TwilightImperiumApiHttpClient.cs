@@ -51,7 +51,7 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
     {
         try
         {
-            if (!string.IsNullOrEmpty(query) && query.Contains('?'))
+            if (!string.IsNullOrEmpty(query) && query.Contains('?', StringComparison.Ordinal))
                 endpointPath += query;
 
             Uri uri = new(string.Concat(_httpClient.BaseAddress, endpointPath));

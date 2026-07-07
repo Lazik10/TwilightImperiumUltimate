@@ -24,11 +24,11 @@ public partial class PreviewMapHex
     {
         _tileRotation = SystemTile!.SystemTileCode switch
         {
-            string code when code.Contains("A1") || code.Contains("B1") => TileRotation.Rotation60,
-            string code when code.Contains("A2") || code.Contains("B2") => TileRotation.Rotation120,
-            string code when code.Contains("A3") || code.Contains("B3") => TileRotation.Rotation180,
-            string code when code.Contains("A4") || code.Contains("B4") => TileRotation.Rotation240,
-            string code when code.Contains("A5") || code.Contains("B5") => TileRotation.Rotation300,
+            string code when code.Contains("A1", StringComparison.Ordinal) || code.Contains("B1", StringComparison.Ordinal) => TileRotation.Rotation60,
+            string code when code.Contains("A2", StringComparison.Ordinal) || code.Contains("B2", StringComparison.Ordinal) => TileRotation.Rotation120,
+            string code when code.Contains("A3", StringComparison.Ordinal) || code.Contains("B3", StringComparison.Ordinal) => TileRotation.Rotation180,
+            string code when code.Contains("A4", StringComparison.Ordinal) || code.Contains("B4", StringComparison.Ordinal) => TileRotation.Rotation240,
+            string code when code.Contains("A5", StringComparison.Ordinal) || code.Contains("B5", StringComparison.Ordinal) => TileRotation.Rotation300,
             _ => TileRotation.Rotation0,
         };
 

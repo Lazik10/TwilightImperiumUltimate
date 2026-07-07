@@ -51,7 +51,7 @@ public partial class SliceDraftDetail
 
     private MarkupString CreatePreviewSlicesString()
     {
-        var slices = SliceDraft.SliceDraftString.Replace("\n", "<br/>");
+        var slices = SliceDraft.SliceDraftString.Replace("\n", "<br/>", StringComparison.Ordinal);
         return (MarkupString)slices;
     }
 

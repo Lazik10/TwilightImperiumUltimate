@@ -214,6 +214,6 @@ public class PathProvider : IPathProvider
 
     private string GetCorrectLanguagePath(string path)
     {
-        return path.Replace(Strings.LanguagePlaceholder, _language);
+        return path.Replace(Strings.LanguagePlaceholder, _language, StringComparison.Ordinal);
     }
 }

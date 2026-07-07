@@ -60,11 +60,11 @@ public partial class MapHexTile : TwilightImperiumBaseComponent
     {
         _tileRotation = SystemTile!.SystemTileCode switch
         {
-            string code when code.Contains("A1") || code.Contains("B1") => TileRotation.Rotation60,
-            string code when code.Contains("A2") || code.Contains("B2") => TileRotation.Rotation120,
-            string code when code.Contains("A3") || code.Contains("B3") => TileRotation.Rotation180,
-            string code when code.Contains("A4") || code.Contains("B4") => TileRotation.Rotation240,
-            string code when code.Contains("A5") || code.Contains("B5") => TileRotation.Rotation300,
+            string code when code.Contains("A1", StringComparison.Ordinal) || code.Contains("B1", StringComparison.Ordinal) => TileRotation.Rotation60,
+            string code when code.Contains("A2", StringComparison.Ordinal) || code.Contains("B2", StringComparison.Ordinal) => TileRotation.Rotation120,
+            string code when code.Contains("A3", StringComparison.Ordinal) || code.Contains("B3", StringComparison.Ordinal) => TileRotation.Rotation180,
+            string code when code.Contains("A4", StringComparison.Ordinal) || code.Contains("B4", StringComparison.Ordinal) => TileRotation.Rotation240,
+            string code when code.Contains("A5", StringComparison.Ordinal) || code.Contains("B5", StringComparison.Ordinal) => TileRotation.Rotation300,
             _ => TileRotation.Rotation0,
         };
 
@@ -127,20 +127,20 @@ public partial class MapHexTile : TwilightImperiumBaseComponent
 
         SystemTile.SystemTileCode = SystemTile.SystemTileCode switch
         {
-            string code when code.Contains('A') && code.Length == 3 => code.Replace("A", "A1"),
-            string code when code.Contains("A0") => code.Replace("A0", "A1"),
-            string code when code.Contains("A1") => code.Replace("A1", "A2"),
-            string code when code.Contains("A2") => code.Replace("A2", "A3"),
-            string code when code.Contains("A3") => code.Replace("A3", "A4"),
-            string code when code.Contains("A4") => code.Replace("A4", "A5"),
-            string code when code.Contains("A5") => code.Replace("A5", "A0"),
-            string code when code.Contains('B') && code.Length == 3 => code.Replace("B", "B1"),
-            string code when code.Contains("B0") => code.Replace("B0", "B1"),
-            string code when code.Contains("B1") => code.Replace("B1", "B2"),
-            string code when code.Contains("B2") => code.Replace("B2", "B3"),
-            string code when code.Contains("B3") => code.Replace("B3", "B4"),
-            string code when code.Contains("B4") => code.Replace("B4", "B5"),
-            string code when code.Contains("B5") => code.Replace("B5", "B0"),
+            string code when code.Contains('A', StringComparison.Ordinal) && code.Length == 3 => code.Replace("A", "A1", StringComparison.Ordinal),
+            string code when code.Contains("A0", StringComparison.Ordinal) => code.Replace("A0", "A1", StringComparison.Ordinal),
+            string code when code.Contains("A1", StringComparison.Ordinal) => code.Replace("A1", "A2", StringComparison.Ordinal),
+            string code when code.Contains("A2", StringComparison.Ordinal) => code.Replace("A2", "A3", StringComparison.Ordinal),
+            string code when code.Contains("A3", StringComparison.Ordinal) => code.Replace("A3", "A4", StringComparison.Ordinal),
+            string code when code.Contains("A4", StringComparison.Ordinal) => code.Replace("A4", "A5", StringComparison.Ordinal),
+            string code when code.Contains("A5", StringComparison.Ordinal) => code.Replace("A5", "A0", StringComparison.Ordinal),
+            string code when code.Contains('B', StringComparison.Ordinal) && code.Length == 3 => code.Replace("B", "B1", StringComparison.Ordinal),
+            string code when code.Contains("B0", StringComparison.Ordinal) => code.Replace("B0", "B1", StringComparison.Ordinal),
+            string code when code.Contains("B1", StringComparison.Ordinal) => code.Replace("B1", "B2", StringComparison.Ordinal),
+            string code when code.Contains("B2", StringComparison.Ordinal) => code.Replace("B2", "B3", StringComparison.Ordinal),
+            string code when code.Contains("B3", StringComparison.Ordinal) => code.Replace("B3", "B4", StringComparison.Ordinal),
+            string code when code.Contains("B4", StringComparison.Ordinal) => code.Replace("B4", "B5", StringComparison.Ordinal),
+            string code when code.Contains("B5", StringComparison.Ordinal) => code.Replace("B5", "B0", StringComparison.Ordinal),
             _ => string.Empty,
         };
     }
