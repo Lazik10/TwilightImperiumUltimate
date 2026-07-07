@@ -17,7 +17,7 @@ public class GetAllAsyncGamesQueryHandler(
         var games = await _asyncStatsRepository.GetAllAsyncGames(cancellationToken);
 
         // Make sure active fow games stays hidden
-        foreach (var game in games.Where(game => game.AsyncGameID.StartsWith(FogOfWar)))
+        foreach (var game in games.Where(game => game.AsyncGameID.StartsWith(FogOfWar, StringComparison.Ordinal)))
         {
             game.AsyncGameID = FogOfWar;
         }

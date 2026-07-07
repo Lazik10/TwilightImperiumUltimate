@@ -171,8 +171,7 @@
 
             @foreach (var playerResult in MatchReport.PlayerResults.OrderBy(x => !x.IsWinner).ThenByDescending(x => x.Score))
             {
-                    var winnerColor = playerResult.IsWinner ? TextColor.Green : TextColor.White;
-                    _placement = 1;
+                var winnerColor = playerResult.IsWinner ? TextColor.Green : TextColor.White;
 
                 <div style="align-self: stretch; justify-self: stretch;" class="background" />
                 <TextButton Text="@GetUserName(playerResult)" OnClick="(() => NavigateToPlayerProfile(playerResult.TiglUserId))" CssClass="background" JustifyContent="Enums.JustifyContent.FlexStart" TextColor="@winnerColor" />
@@ -228,8 +227,6 @@
                 }
 
                 <Label />
-
-                _placement++;
 
                 <VerticalSpace Height="10" CssClass="span-7" />
             }

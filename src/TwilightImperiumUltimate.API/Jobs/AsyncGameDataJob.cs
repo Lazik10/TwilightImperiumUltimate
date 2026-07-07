@@ -30,6 +30,7 @@ public class AsyncGameDataJob(
             {
                 AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate,
             };
+
             using var client = new HttpClient(handler)
             {
                 BaseAddress = _asyncOptions.Url,

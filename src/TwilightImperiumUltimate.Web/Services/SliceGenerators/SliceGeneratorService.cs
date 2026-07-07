@@ -69,7 +69,7 @@ public class SliceGeneratorService(
                     new SystemTileModel() { SystemTileName = SystemTileName.TileHome },
                     new SystemTileModel() { SystemTileName = SystemTileName.TileEmpty, GameVersion = GameVersion.Custom },
                     new SystemTileModel() { SystemTileName = SystemTileName.TileEmpty, GameVersion = GameVersion.Custom },
-                    new SystemTileModel() { SystemTileName = SystemTileName.TileEmpty, GameVersion = GameVersion.Custom},
+                    new SystemTileModel() { SystemTileName = SystemTileName.TileEmpty, GameVersion = GameVersion.Custom },
                     new SystemTileModel() { SystemTileName = SystemTileName.TileEmpty, GameVersion = GameVersion.Custom },
                     new SystemTileModel() { SystemTileName = SystemTileName.TileEmpty, GameVersion = GameVersion.Custom },
                 },

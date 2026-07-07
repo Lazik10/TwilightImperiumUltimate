@@ -73,55 +73,49 @@ public abstract class ResponsiveTextBase : ComponentBase
     /// Gets the CSS color class based on the TextColor property.
     /// </summary>
     /// <returns>The CSS color value as a string.</returns>
-    protected string GetColorClass()
+    protected string GetColorClass => TextColor switch
     {
-        return TextColor switch
-        {
-            TextColor.White => "white",
-            TextColor.Red => "red",
-            TextColor.Green => "lawngreen",
-            TextColor.Blue => "blue",
-            TextColor.Yellow => "yellow",
-            TextColor.Deepskyblue => "deepskyblue",
-            TextColor.Purple => "purple",
-            TextColor.Pink => "magenta",
-            TextColor.Orange => "orange",
-            TextColor.Grey => "grey",
-            TextColor.DarkGreen => "darkgreen",
-            TextColor.Black => "black",
-            _ => "white",
-        };
-    }
+        TextColor.White => "white",
+        TextColor.Red => "red",
+        TextColor.Green => "lawngreen",
+        TextColor.Blue => "blue",
+        TextColor.Yellow => "yellow",
+        TextColor.Deepskyblue => "deepskyblue",
+        TextColor.Purple => "purple",
+        TextColor.Pink => "magenta",
+        TextColor.Orange => "orange",
+        TextColor.Grey => "grey",
+        TextColor.DarkGreen => "darkgreen",
+        TextColor.Black => "black",
+        _ => "white",
+    };
 
     /// <summary>
     /// Gets the CSS custom property value for the font size.
     /// </summary>
     /// <returns>The CSS variable reference for the specified font size.</returns>
-    protected string GetFontSizeStyle()
+    protected string FontSizeStyle => FontSize switch
     {
-        return FontSize switch
-        {
-            "xs" => "var(--font-size-xs)",
-            "sm" => "var(--font-size-sm)",
-            "base" => "var(--font-size-base)",
-            "md" => "var(--font-size-md)",
-            "lg" => "var(--font-size-lg)",
-            "xl" => "var(--font-size-xl)",
-            "2xl" => "var(--font-size-2xl)",
-            "3xl" => "var(--font-size-3xl)",
-            _ => "var(--font-size-base)",
-        };
-    }
+        "xs" => "var(--font-size-xs)",
+        "sm" => "var(--font-size-sm)",
+        "base" => "var(--font-size-base)",
+        "md" => "var(--font-size-md)",
+        "lg" => "var(--font-size-lg)",
+        "xl" => "var(--font-size-xl)",
+        "2xl" => "var(--font-size-2xl)",
+        "3xl" => "var(--font-size-3xl)",
+        _ => "var(--font-size-base)",
+    };
 
     /// <summary>
     /// Gets the visibility CSS class based on the Visible property.
     /// </summary>
     /// <returns>An empty string if visible, otherwise 'invisible-text'.</returns>
-    protected string GetVisibilityClass() => Visible ? string.Empty : "invisible-text";
+    protected string GetVisibilityClass => Visible ? string.Empty : "invisible-text";
 
     /// <summary>
     /// Gets the text alignment inline style based on the CenterText property.
     /// </summary>
     /// <returns>The text-align CSS property if centered, otherwise empty string.</returns>
-    protected string GetTextAlignmentStyle() => CenterText ? "text-align: center;" : string.Empty;
+    protected string GetTextAlignmentStyle => CenterText ? "text-align: center;" : string.Empty;
 }

@@ -91,7 +91,7 @@ public class AsyncPlayerFactionStatsFactory : IAsyncPlayerFactionStatsFactory
     {
         var factionStatsDict = new Dictionary<AsyncFactionName, AsyncPlayerFactionStatsDto>();
 
-        foreach (AsyncFactionName faction in Enum.GetValues(typeof(AsyncFactionName)))
+        foreach (AsyncFactionName faction in Enum.GetValues<AsyncFactionName>())
         {
             factionStatsDict[faction] = new AsyncPlayerFactionStatsDto() { FactionName = faction };
         }

@@ -23,9 +23,8 @@ public partial class CardTypeSelector
 
     protected override void OnInitialized()
     {
-        CardTypes = Enum.GetValues(typeof(CardGenerationType))
-                           .Cast<CardGenerationType>()
-                           .Select(x => new KeyValuePair<CardGenerationType, string>(x, x.GetDisplayName()))
-                           .ToList();
+        CardTypes = Enum.GetValues<CardGenerationType>()
+            .Select(x => new KeyValuePair<CardGenerationType, string>(x, x.GetDisplayName()))
+            .ToList();
     }
 }

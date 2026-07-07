@@ -37,7 +37,7 @@
                     var max = HistoryStats.GamesHistory.Max(x => x.Count);
 
                     <Label CssClass="@("span-2 " + background)" Style="height: 100%;" />
-                    <Label Text="@(new DateTime(monthGroup.Year, monthGroup.Month, 1).ToString("MMMM"))" CenterText="true" TextColor="TextColor.White" CssClass="@(background)" />
+                    <Label Text="@(new DateTime(monthGroup.Year, monthGroup.Month, 1, 0, 0, 0, DateTimeKind.Utc).ToString("MMMM"))" CenterText="true" TextColor="TextColor.White" CssClass="@(background)" />
                     <Label Text="@monthGroup.Count.ToString()" CenterText="true" TextColor="TextColor.Yellow" CssClass="@(background)" />
                     <AsyncPlayerProgressBar Value="monthGroup.Count" MaxValue="max" TextColor="TextColor.Yellow" CssClass="@(background)" />
                     <Label CssClass="@(background)" Style="height: 100%;" />
@@ -87,7 +87,7 @@
                     var max = HistoryStats.GamesHistory.Max(x => x.New);
 
                     <Label CssClass="@("span-2 " + background)" Style="height: 100%;" />
-                    <Label Text="@(new DateTime(monthGroup.Year, monthGroup.Month, 1).ToString("MMMM"))" CenterText="true" TextColor="TextColor.White" CssClass="@(background)" />
+                    <Label Text="@(new DateTime(monthGroup.Year, monthGroup.Month, 1, 0, 0, 0, DateTimeKind.Utc).ToString("MMMM"))" CenterText="true" TextColor="TextColor.White" CssClass="@(background)" />
                     <Label Text="@monthGroup.New.ToString()" CenterText="true" TextColor="TextColor.Green" CssClass="@(background)" />
                     <AsyncPlayerProgressBar Value="monthGroup.New" MaxValue="max" TextColor="TextColor.Green" CssClass="@(background)" />
                     <Label CssClass="@(background)" Style="height: 100%;" />
@@ -137,7 +137,7 @@
                     var max = HistoryStats.PlayersHistory.Max(x => x.Count);
 
                     <Label CssClass="@("span-2 " + background)" Style="height: 100%;" />
-                    <Label Text="@(new DateTime(monthGroup.Year, monthGroup.Month, 1).ToString("MMMM"))" CenterText="true" TextColor="TextColor.White" CssClass="@(background)" />
+                    <Label Text="@(new DateTime(monthGroup.Year, monthGroup.Month, 1, 0, 0, 0, DateTimeKind.Utc).ToString("MMMM"))" CenterText="true" TextColor="TextColor.White" CssClass="@(background)" />
                     <Label Text="@monthGroup.Count.ToString()" CenterText="true" TextColor="TextColor.Yellow" CssClass="@(background)" />
                     <AsyncPlayerProgressBar Value="monthGroup.Count" MaxValue="max" TextColor="TextColor.Yellow" CssClass="@(background)" />
                     <Label CssClass="@(background)" />
@@ -190,7 +190,7 @@
                     var max = HistoryStats.PlayersHistory.Max(x => x.Growth);
 
                     <Label CssClass="@("span-2 " + background)" Style="height: 100%;" />
-                    <Label Text="@(new DateTime(monthGroup.Year, monthGroup.Month, 1).ToString("MMMM"))" CenterText="true" TextColor="TextColor.White" CssClass="@(background)" />
+                    <Label Text="@(new DateTime(monthGroup.Year, monthGroup.Month, 1, 0, 0, 0, DateTimeKind.Utc).ToString("MMMM"))" CenterText="true" TextColor="TextColor.White" CssClass="@(background)" />
                     <Label Text="@monthGroup.Growth.ToString()" CenterText="true" TextColor="TextColor.Green" CssClass="@(background)" />
                     <AsyncPlayerProgressBar Value="monthGroup.Growth" MaxValue="max" TextColor="TextColor.Green" CssClass="@(background)" />
                     <Label CssClass="@(background)" />

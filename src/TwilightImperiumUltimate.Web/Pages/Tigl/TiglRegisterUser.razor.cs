@@ -70,8 +70,6 @@ public partial class TiglRegisterUser
         return PlayerId == -1 && !string.IsNullOrEmpty(ErrorMessage);
     }
 
-    private void RedirectBack() => NavigationManager.NavigateTo(Pages.TiglLeaderboard);
-
     private void RegisterWithDiscord()
     {
         var currentUrl = NavigationManager.Uri;

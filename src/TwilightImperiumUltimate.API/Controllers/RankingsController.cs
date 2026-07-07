@@ -79,7 +79,7 @@ public class RankingsController(IMediator mediator) : ControllerBase
         var result = await _mediator.Send(new AddRankHistoryCommand(request.TiglUserId, request.League, request.Rank, request.AchievedAt), cancellationToken);
         if (!result.Success)
         {
-            return BadRequest(new ApiResponse<AddRankHistoryResponse>() { Success = false, Data = result, ProblemDetails = new ProblemDetailsDto() { Title = result.ErrorTitle, Detail = result.ErrorMessage } });
+            return BadRequest(new ApiResponse<AddRankHistoryResponse>() { Success = false, Data = result, ProblemDetails = new ProblemDetailsDto() { Title = result?.ErrorTitle ?? string.Empty, Detail = result?.ErrorMessage ?? string.Empty } });
         }
 
         return Ok(new ApiResponse<AddRankHistoryResponse>() { Success = true, Data = result });

@@ -4,10 +4,10 @@ namespace TwilightImperiumUltimate.Web.Components.Tigl;
 
 public partial class TiglPlayersList
 {
-    private List<TiglUserLiteDto>? _filteredUsers = new();
-    private char _selectedLetter = 'A';
     private readonly char _digitGroup = '1';
     private readonly char _othersGroup = '*';
+    private List<TiglUserLiteDto>? _filteredUsers = new();
+    private char _selectedLetter = 'A';
 
     [Parameter]
     public IReadOnlyCollection<TiglUserLiteDto> Users { get; set; } = new List<TiglUserLiteDto>();
@@ -18,7 +18,22 @@ public partial class TiglPlayersList
     [Inject]
     private NavigationManager NavigationManager { get; set; } = default!;
 
-    private List<IGrouping<char, TiglUserLiteDto>> GroupedUsers =>
+    protected override void OnParametersSet()
+    {
+        var group = GroupedUsers().Find(g => g.Key == _selectedLetter)?.ToList();
+        _filteredUsers = group is null ? Users.ToList() : group;
+        OrderList();
+    }
+
+    private static string GetUserName(TiglUserLiteDto player)
+    {
+        if (player.TiglUserName == player.DiscordUserName)
+            return player.TiglUserName;
+
+        return $"{player.TiglUserName} ({player.DiscordUserName})";
+    }
+
+    private List<IGrouping<char, TiglUserLiteDto>> GroupedUsers() =>
         Users.GroupBy(x =>
         {
             if (string.IsNullOrWhiteSpace(x.TiglUserName))
@@ -36,17 +51,10 @@ public partial class TiglPlayersList
         })
         .ToList();
 
-    protected override void OnParametersSet()
-    {
-        var group = GroupedUsers.Find(g => g.Key == _selectedLetter)?.ToList();
-        _filteredUsers = group is null ? Users.ToList() : group;
-        OrderList();
-    }
-
     private void FilterByLetter(char letter)
     {
         _selectedLetter = letter;
-        _filteredUsers = GroupedUsers.Find(g => g.Key == letter)?.ToList() ?? new List<TiglUserLiteDto>();
+        _filteredUsers = GroupedUsers().Find(g => g.Key == letter)?.ToList() ?? new List<TiglUserLiteDto>();
         OrderList();
     }
 
@@ -54,13 +62,13 @@ public partial class TiglPlayersList
     {
         if (string.IsNullOrWhiteSpace(search))
         {
-            _filteredUsers = GroupedUsers.Find(g => g.Key == _selectedLetter)?.ToList() ?? Users.ToList();
+            _filteredUsers = GroupedUsers().Find(g => g.Key == _selectedLetter)?.ToList() ?? Users.ToList();
             OrderList();
             return;
         }
 
         _selectedLetter = char.ToUpperInvariant(search[0]);
-        var group = GroupedUsers.Find(g => g.Key == _selectedLetter)?.ToList() ?? Users.ToList();
+        var group = GroupedUsers().Find(g => g.Key == _selectedLetter)?.ToList() ?? Users.ToList();
         _filteredUsers = group
             .Where(u => u.TiglUserName.Contains(search, StringComparison.OrdinalIgnoreCase))
             .ToList();
@@ -71,14 +79,6 @@ public partial class TiglPlayersList
     {
         _filteredUsers = _filteredUsers?.OrderBy(u => u.TiglUserName).ToList();
         StateHasChanged();
-    }
-
-    private static string GetUserName(TiglUserLiteDto player)
-    {
-        if (player.TiglUserName == player.DiscordUserName)
-            return player.TiglUserName;
-
-        return $"{player.TiglUserName} ({player.DiscordUserName})";
     }
 
     private void RedirectToPlayer(int id)

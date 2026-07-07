@@ -33,6 +33,11 @@ public partial class Planets
     [Inject]
     private IMapper Mapper { get; set; } = default!;
 
+    protected override async Task OnInitializedAsync()
+    {
+        await InititalizePlanets();
+    }
+
     private static string GetPlanetTraitDisplayName(PlanetTrait trait)
     {
         return trait switch
@@ -84,11 +89,6 @@ public partial class Planets
         };
     }
 
-    protected override async Task OnInitializedAsync()
-    {
-        await InititalizePlanets();
-    }
-
     private string GetPlanetImagePath(PlanetModel planet)
     {
         return PathProvider.GetPlanetImagePath(planet.PlanetName.ToString());
@@ -122,7 +122,7 @@ public partial class Planets
         return Task.CompletedTask;
     }
 
-    private IEnumerable<PlanetFilterOption> GetPlanetFilterOptions()
+    private List<PlanetFilterOption> GetPlanetFilterOptions()
     {
         var options = new List<PlanetFilterOption>
         {

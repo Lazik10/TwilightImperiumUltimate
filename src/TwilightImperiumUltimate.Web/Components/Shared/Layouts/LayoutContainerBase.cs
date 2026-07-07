@@ -39,5 +39,5 @@ public abstract class LayoutContainerBase : ComponentBase
     /// Gets the cursor style based on click handler availability.
     /// </summary>
     /// <returns>The cursor style segment.</returns>
-    protected string GetCursorStyle() => OnClick.HasDelegate ? "cursor: pointer;" : string.Empty;
+    protected string GetCursorStyle => OnClick.HasDelegate ? "cursor: pointer;" : string.Empty;
 }

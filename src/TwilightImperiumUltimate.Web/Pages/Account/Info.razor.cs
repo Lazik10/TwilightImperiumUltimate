@@ -14,7 +14,7 @@ public partial class Info
 
     private FactionName FavoriteFaction { get; set; }
 
-    private IReadOnlyCollection<FactionName> FactionNames { get; set; } = new List<FactionName>();
+    private List<FactionName> FactionNames { get; set; } = new List<FactionName>();
 
     [Inject]
     private IUserService UserService { get; set; } = default!;

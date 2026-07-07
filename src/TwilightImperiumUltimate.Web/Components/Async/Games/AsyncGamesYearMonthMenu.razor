@@ -5,7 +5,7 @@
     {
         @foreach (var year in SortedGameDates())
         {
-            var yearDt = new DateTime(year.Year, 1, 1);
+            var yearDt = new DateTime(year.Year, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
             <VerticalSpace Height="50" />
             <Label FontSize="20" CenterText="true" TextColor="GetYearColor(yearDt)" Text="@(yearDt.ToString("yyyy"))" />
@@ -13,7 +13,7 @@
 
             @foreach (var month in year.Months.OrderByDescending(m => m))
             {
-                var monthDt = new DateTime(year.Year, month, 1);
+                var monthDt = new DateTime(year.Year, month, 1, 0, 0, 0, DateTimeKind.Utc);
 
                 <TextButton FontSize="16" Style="@GetMonthColor(monthDt)" Text="@(monthDt.ToString("MMMM"))" OnClick="() => OnMonthSelected(yearDt.Year, month)" />
                 <VerticalSpace Height="10" />

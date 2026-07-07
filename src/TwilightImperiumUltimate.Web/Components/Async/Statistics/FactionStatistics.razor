@@ -88,8 +88,8 @@
                         if (_selectedFactionStatisticsSubstatsFilter == FactionStatisticsSubstatsFilter.All)
                         {
                             <Label Text="@factionStats.Games.ToString()" CenterText="true" TextColor="TextColor.Yellow" CssClass="@(background)" />
-                            <Label Text="@(IsWinrateEnabled() ? factionStats.Wins.ToString() : Strings.AsyncPlayer_HiddenStat)" CenterText="true" TextColor="@(GetWinColor(factionStats.Wins))" CssClass="@(background)" />
-                            <Label Text="@(IsWinrateEnabled() ? factionStats.WinsPercentage.ToStringWithPrecisionAndPercentage(2) : Strings.AsyncPlayer_HiddenStat)" CenterText="true" TextColor="@(IsWinrateEnabled() ? factionStats.WinsPercentage.GetWinrateColor() : TextColor.Red)" CssClass="@(background)" />
+                            <Label Text="@factionStats.Wins.ToString()" CenterText="true" TextColor="@(GetWinColor(factionStats.Wins))" CssClass="@(background)" />
+                            <Label Text="@factionStats.WinsPercentage.ToStringWithPrecisionAndPercentage(2)" CenterText="true" TextColor="@(factionStats.WinsPercentage.GetWinrateColor())" CssClass="@(background)" />
                             <Label Text="@factionStats.Eliminations.ToString()" CenterText="true" TextColor="TextColor.Red" CssClass="@(background)" />
                             <Label Text="@(((float)factionStats.Vp / factionStats.Games).ToStringWithPrecision(2))" CenterText="true" TextColor="TextColor.Green" CssClass="@(background)" />
                             <Label Text="@factionStats.VpPercentage.ToStringWithPrecisionAndPercentage(1)" CenterText="true" TextColor="@(factionStats.VpPercentage.GetAverageVpPercentageColor())" CssClass="@(background)" />

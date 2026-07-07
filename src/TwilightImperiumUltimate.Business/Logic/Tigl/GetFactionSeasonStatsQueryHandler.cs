@@ -31,7 +31,7 @@ public class GetFactionSeasonStatsQueryHandler(
                 Faction = g.Key,
                 GamesPlayed = g.Count(),
                 Wins = g.Count(x => x.IsWinner),
-                WinRate = g.Count(x => x.IsWinner) == 0 ? 0 : (double)g.Count(x => x.IsWinner) / g.Count() * 100,
+                WinRate = g.Any(x => x.IsWinner) ? (double)g.Count(x => x.IsWinner) / g.Count() * 100 : 0,
                 TotalScore = g.Sum(x => x.Score),
                 AverageScore = g.Average(x => x.Score),
             })

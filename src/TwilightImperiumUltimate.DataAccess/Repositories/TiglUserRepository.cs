@@ -138,7 +138,7 @@ public class TiglUserRepository(
             return Result.Fail<int>("Failed to register new Tigl user.");
         }
 
-        var result = await CreateNewStatsForUser(newUser.Id, startGameTimestamp);
+        var result = await CreateNewStatsForUser(newUser.Id);
         if (!result)
         {
             _logger.LogError("Failed to create new stats for Tigl user with ID: {Id}", newUser.Id);
@@ -326,7 +326,7 @@ public class TiglUserRepository(
         return users;
     }
 
-    private async Task<bool> CreateNewStatsForUser(int id, long startGameTimestamp)
+    private async Task<bool> CreateNewStatsForUser(int id)
     {
         await using var dbContext = await _context.CreateDbContextAsync();
 

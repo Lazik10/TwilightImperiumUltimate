@@ -142,27 +142,16 @@ public class SystemTileSetter(
         }
 
         // Replace one random red tile with legendary one if it is not present already to satisfy 7 legendary planets request
-        if (request.NumberOfLegendaries == 7 && redTilesWithAnomalyAndLegendaryPlanet.Count > 0)
+        if ((request.NumberOfLegendaries == 7 && redTilesWithAnomalyAndLegendaryPlanet.Count > 0)
+
+            // Sometimes replace red tile with legendary one if we need legendaries already (but only if we have Uncharted Space)
+            || (request.NumberOfLegendaries > 1 && request.GameVersions.Contains(GameVersion.UnchartedSpace) && Random.Next(0, 100) < request.NumberOfLegendaries / 7.0f * 100))
         {
             var position = galaxy.Keys.Where(x => galaxy[x].Name == PositionName.Red && galaxy[x].SystemTile is not null)
                 .OrderBy(x => Random.Next())
                 .First();
 
             galaxy[position].SystemTile = redTilesWithAnomalyAndLegendaryPlanet.FirstOrDefault();
-        }
-        else
-        {
-            // Sometimes replace red tile with legendary one if we need legendaries already (but only if we have Uncharted Space)
-            if (request.NumberOfLegendaries > 1
-                && request.GameVersions.Contains(GameVersion.UnchartedSpace)
-                && Random.Next(0, 100) < request.NumberOfLegendaries / 7.0f * 100)
-            {
-                var position = galaxy.Keys.Where(x => galaxy[x].Name == PositionName.Red && galaxy[x].SystemTile is not null)
-                    .OrderBy(x => Random.Next())
-                    .First();
-
-                galaxy[position].SystemTile = redTilesWithAnomalyAndLegendaryPlanet.FirstOrDefault();
-            }
         }
 
         _logger.LogInformation("Assigned red tile codes in galaxy: {RedTilesCount}", galaxy.GetRedTileCodes());

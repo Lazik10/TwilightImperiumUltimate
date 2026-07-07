@@ -380,6 +380,8 @@ dotnet_diagnostic.SA1601.documentation_culture = en-US
 dotnet_diagnostic.S101.severity = suggestion
 # S107: Methods should not have too many parameters; consider grouping them into an object.
 dotnet_diagnostic.S107.severity = suggestion
+# S2245: Use cryptographically strong random number generator
+dotnet_diagnostic.S2245.severity = suggestion
 # S2325: Methods and properties that don’t access instance data should be static
 dotnet_diagnostic.S2325.severity = suggestion
 # S3267: Loops should be simplified with "LINQ" expressions
@@ -391,6 +393,8 @@ dotnet_diagnostic.S6966.severity = suggestion
 
 #----------------------------------   SA - diagnostics   ---------------------------------#
 
+# SA0001: XML comment analysis is disabled (disabled; team does not use XML comments).
+dotnet_diagnostic.SA0001.severity = none
 # SA1101: Prefix local calls with this
 dotnet_diagnostic.SA1101.severity = none
 # SA1208: System using directives should be placed before other using directives
@@ -420,6 +424,8 @@ dotnet_diagnostic.CA1019.severity = suggestion
 dotnet_diagnostic.CA1031.severity = suggestion
 # CA1036: Override comparison operators and methods (Equals, CompareTo) for types implementing IComparable.
 dotnet_diagnostic.CA1036.severity = suggestion
+# CA1054: Uri parameters should be of type System.Uri instead of string for correctness and safety.
+dotnet_diagnostic.CA1054.severity = suggestion
 # CA1056: URI properties should use System.Uri type instead of string for correctness and safety.
 dotnet_diagnostic.CA1056.severity = suggestion
 # CA1508: Avoid redundant conditions (e.g., unnecessary null checks or boolean comparisons).
@@ -428,6 +434,8 @@ dotnet_diagnostic.CA1508.severity = suggestion
 dotnet_diagnostic.CA1515.severity = suggestion
 # CA1305: Specify IFormatProvider when formatting strings or numbers to ensure culture correctness.
 dotnet_diagnostic.CA1305.severity = suggestion
+# CA1308: Normalize strings to uppercase
+dotnet_diagnostic.CA1308.severity = none
 # CA1711: Identifiers should not have incorrect suffix (e.g., avoid naming enums with 'Enum' suffix).
 dotnet_diagnostic.CA1711.severity = suggestion
 # CA1724: Type Names Should Not Match Namespaces
@@ -620,6 +628,8 @@ dotnet_diagnostic.VSTHRD100.severity = warning
 dotnet_diagnostic.VSTHRD111.severity = suggestion
 # VSTHRD200: Use "Async" suffix for async methods to follow naming conventions.
 dotnet_diagnostic.VSTHRD200.severity = suggestion
+# IDE0011: Add braces to if/else/for/while statements for clarity and maintainability.
+dotnet_diagnostic.IDE0011.severity = none
 # IDE0035: Remove unreachable code.
 dotnet_diagnostic.IDE0035.severity = warning
 # IDE0036: Order modifiers in the canonical sequence (public, private, static, etc.).

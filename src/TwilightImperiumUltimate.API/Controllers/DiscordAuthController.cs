@@ -53,14 +53,14 @@ public partial class DiscordAuthController(
     {
         if (string.IsNullOrEmpty(code) || string.IsNullOrEmpty(state))
         {
-            logger.LogWarning("Callback missing code or state. code={Code}, state={State}", code, state);
+            _logger.LogWarning("Callback missing code or state. code={Code}, state={State}", code, state);
             return BadRequest("Missing code or state.");
         }
 
         var expectedState = HttpContext.Session.GetString("discord_oauth_state");
         if (expectedState is null || !string.Equals(expectedState, state, StringComparison.Ordinal))
         {
-            logger.LogWarning("State mismatch. expected={Expected}, received={Received}", expectedState, state);
+            _logger.LogWarning("State mismatch. expected={Expected}, received={Received}", expectedState, state);
             return BadRequest("Invalid OAuth state.");
         }
 
@@ -85,18 +85,18 @@ public partial class DiscordAuthController(
 
         var tokenResponse = await httpClient.SendAsync(tokenRequest);
         var tokenJson = await tokenResponse.Content.ReadAsStringAsync();
-        logger.LogInformation("Discord token raw response: {Json}", tokenJson);
+        _logger.LogInformation("Discord token raw response: {Json}", tokenJson);
 
         if (!tokenResponse.IsSuccessStatusCode)
         {
-            logger.LogWarning("Token exchange failed. Status={Status}", tokenResponse.StatusCode);
+            _logger.LogWarning("Token exchange failed. Status={Status}", tokenResponse.StatusCode);
             return BadRequest("Failed to get Discord token.");
         }
 
         var tokenData = JsonSerializer.Deserialize<DiscordTokenResponse>(tokenJson);
         if (tokenData?.AccessToken is null)
         {
-            logger.LogWarning("Token response missing access_token field. Parsed object: {@TokenData}", tokenData);
+            _logger.LogWarning("Token response missing access_token field. Parsed object: {@TokenData}", tokenData);
             return BadRequest("Discord token missing access token.");
         }
 
@@ -106,18 +106,18 @@ public partial class DiscordAuthController(
 
         var userResponse = await httpClient.SendAsync(userRequest);
         var userJson = await userResponse.Content.ReadAsStringAsync();
-        logger.LogInformation("Discord user raw response: {Json}", userJson);
+        _logger.LogInformation("Discord user raw response: {Json}", userJson);
 
         if (!userResponse.IsSuccessStatusCode)
         {
-            logger.LogWarning("User fetch failed. Status={Status}", userResponse.StatusCode);
+            _logger.LogWarning("User fetch failed. Status={Status}", userResponse.StatusCode);
             return BadRequest("Failed to get Discord user.");
         }
 
         var discordUser = JsonSerializer.Deserialize<DiscordUserDto>(userJson);
         if (discordUser is null)
         {
-            logger.LogWarning("Failed to deserialize Discord user.");
+            _logger.LogWarning("Failed to deserialize Discord user.");
             return BadRequest("Unable to parse Discord user.");
         }
 
@@ -133,7 +133,7 @@ public partial class DiscordAuthController(
         if (registerResult.IsFailed)
         {
             var errors = string.Join(", ", registerResult.Errors.Select(e => e.Message));
-            logger.LogWarning("Failed to register Tigl user for DiscordId={DiscordId}. Errors: {Errors}", discordUser.Id, string.Join(", ", errors));
+            _logger.LogWarning("Failed to register Tigl user for DiscordId={DiscordId}. Errors: {Errors}", discordUser.Id, string.Join(", ", errors));
 
             var redirectFailure = $"{returnUrl}?errorMessage={Uri.EscapeDataString(errors)}&playerId=-1";
             return Redirect(redirectFailure);
@@ -141,7 +141,7 @@ public partial class DiscordAuthController(
 
         var redirectSuccess = $"{returnUrl}?name={Uri.EscapeDataString(discordUser.Username!)}&playerId={registerResult.Value}";
 
-        logger.LogInformation("Redirecting back to frontend: {ReturnUrl} for DiscordId={DiscordId}", redirectSuccess, discordUser.Id);
+        _logger.LogInformation("Redirecting back to frontend: {ReturnUrl} for DiscordId={DiscordId}", redirectSuccess, discordUser.Id);
         return Redirect(redirectSuccess);
     }
 

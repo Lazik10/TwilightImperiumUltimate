@@ -9,7 +9,7 @@ namespace TwilightImperiumUltimate.Tigl.RankUp;
 
 internal class LeaderUpdateService(
     IDbContextFactory<TwilightImperiumDbContext> context,
-    ILogger<PrestigeRankService> logger)
+    ILogger<LeaderUpdateService> logger)
     : ILeaderUpdateService
 {
     public async Task<bool> UpdateLeader(TiglUser player, MatchReport matchReport, TiglFactionName faction, CancellationToken cancellationToken)

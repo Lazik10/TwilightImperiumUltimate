@@ -42,6 +42,28 @@ public partial class TiglStatisticsFactionsGrid
         await LoadAsync();
     }
 
+    private static List<FactionSeasonStatsDto> MergeStats(List<FactionSeasonStatsDto> items)
+    {
+        return items
+            .GroupBy(x => x.Faction)
+            .Select(g =>
+            {
+                var totalGames = g.Sum(x => x.GamesPlayed);
+                var totalWins = g.Sum(x => x.Wins);
+                var totalScore = g.Sum(x => x.TotalScore);
+                return new FactionSeasonStatsDto
+                {
+                    Faction = g.Key,
+                    GamesPlayed = totalGames,
+                    Wins = totalWins,
+                    TotalScore = totalScore,
+                    WinRate = totalGames > 0 ? (double)totalWins / totalGames * 100 : 0,
+                    AverageScore = totalGames > 0 ? (double)totalScore / totalGames : 0,
+                };
+            })
+            .ToList();
+    }
+
     private async Task OnShowByChanged(TiglFactionStatsShowBy value)
     {
         _showBy = value;
@@ -174,27 +196,5 @@ public partial class TiglStatisticsFactionsGrid
         }
 
         return new List<FactionSeasonStatsDto>();
-    }
-
-    private static List<FactionSeasonStatsDto> MergeStats(List<FactionSeasonStatsDto> items)
-    {
-        return items
-            .GroupBy(x => x.Faction)
-            .Select(g =>
-            {
-                var totalGames = g.Sum(x => x.GamesPlayed);
-                var totalWins = g.Sum(x => x.Wins);
-                var totalScore = g.Sum(x => x.TotalScore);
-                return new FactionSeasonStatsDto
-                {
-                    Faction = g.Key,
-                    GamesPlayed = totalGames,
-                    Wins = totalWins,
-                    TotalScore = totalScore,
-                    WinRate = totalGames > 0 ? (double)totalWins / totalGames * 100 : 0,
-                    AverageScore = totalGames > 0 ? (double)totalScore / totalGames : 0,
-                };
-            })
-            .ToList();
     }
 }

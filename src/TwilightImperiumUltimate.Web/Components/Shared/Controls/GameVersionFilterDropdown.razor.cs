@@ -31,7 +31,7 @@ public partial class GameVersionFilterDropdown
             .Distinct()
             .OrderBy(x => x);
 
-    private IEnumerable<GameVersionDropdownItem> GetDropdownItems()
+    private List<GameVersionDropdownItem> GetDropdownItems()
     {
         var items = new List<GameVersionDropdownItem>
         {

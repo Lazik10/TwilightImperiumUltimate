@@ -101,7 +101,7 @@
             }
         }
 
-        @if (_specialComponentCards.Count(x => x.SpecialType == SpecialComponentType.FactionUnit) > 0)
+        @if (_specialComponentCards.Any(x => x.SpecialType == SpecialComponentType.FactionUnit))
         {
             @foreach (var specialComponent in _specialComponentCards.Where(x => x.SpecialType == SpecialComponentType.FactionUnit))
             {
@@ -180,7 +180,7 @@
             </div>
         }
 
-        @if (_specialComponentCards.Count(x => x.SpecialType != SpecialComponentType.FactionUnit) > 0)
+        @if (_specialComponentCards.Any(x => x.SpecialType != SpecialComponentType.FactionUnit))
         {
             <div class="faction-section-title">
                 <ResponsiveLabel Text="Other unique components" CenterText="true" FontSize="sm" />

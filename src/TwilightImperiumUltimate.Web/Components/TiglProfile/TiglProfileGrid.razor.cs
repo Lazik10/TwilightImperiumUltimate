@@ -51,6 +51,122 @@ public partial class TiglProfileGrid
 
     private List<ChartSeries> TrueSkillChartSeries => BuildTrueSkillChartSeries();
 
+    private static (double Min, double Max, double Step) GetChartAxisBounds(List<ChartSeries> seriesList)
+    {
+        var allRatings = seriesList.SelectMany(s => s.Points).Select(p => p.Rating).ToList();
+        if (allRatings.Count == 0)
+            return (0, 10, 2);
+
+        var min = allRatings.Min();
+        var max = allRatings.Max();
+
+        var axisMin = Math.Floor(min) - 1;
+        var axisMax = Math.Ceiling(max) + 1;
+
+        var range = axisMax - axisMin;
+        if (range < 5)
+        {
+            var mid = (axisMin + axisMax) / 2.0;
+            axisMin = mid - 2.5;
+            axisMax = mid + 2.5;
+            range = 5;
+        }
+
+        var step = range / 5.0;
+
+        var niceSteps = new[] { 0.1, 0.2, 0.25, 0.5, 1.0, 2.0, 5.0, 10.0, 20.0, 25.0, 50.0, 100.0, 200.0, 250.0, 500.0 };
+        var niceStep = niceSteps.FirstOrDefault(s => s >= step);
+        if (niceStep == 0)
+            niceStep = step;
+
+        axisMin = Math.Floor(axisMin / niceStep) * niceStep;
+        axisMax = Math.Ceiling(axisMax / niceStep) * niceStep;
+
+        return (axisMin, axisMax, niceStep);
+    }
+
+    private static string GetDurationTime(TiglProfileGameDto game)
+    {
+        if (game.StartTimestamp <= 0 || game.EndTimestamp <= 0)
+            return "N/A";
+
+        var start = DateTimeOffset.FromUnixTimeMilliseconds(game.StartTimestamp);
+        var end = DateTimeOffset.FromUnixTimeMilliseconds(game.EndTimestamp);
+        var duration = end - start;
+
+        var parts = new List<string>();
+        if (duration.Days > 0)
+            parts.Add($"{duration.Days:D2} d");
+        if (duration.Hours > 0 || duration.Days > 0)
+            parts.Add($"{duration.Hours:D2} h");
+
+        return parts.Count > 0 ? string.Join(" ", parts) : string.Empty;
+    }
+
+    private static string FormatDelta(double delta, string precision = "F1")
+    {
+        return delta >= 0 ? $"+{delta.ToString(precision)}" : delta.ToString(precision);
+    }
+
+    private static TextColor GetDeltaColor(double delta) =>
+        delta >= 0 ? TextColor.Green : TextColor.Red;
+
+    private static string GetDeltaArrow(double delta) =>
+        delta >= 0 ? "\u25b2" : "\u25bc";
+
+    private static string GetPrestigeDisplayText(PrestigeRankHistoryDto prestige)
+    {
+        var name = prestige.PrestigeRank.GetDisplayName();
+        if (prestige.PrestigeRank is TiglPrestigeRank.GalacticThreat or TiglPrestigeRank.Tyrant && prestige.Level > 0)
+        {
+            var roman = prestige.Level switch
+            {
+                1 => "I",
+                2 => "II",
+                3 => "III",
+                4 => "IV",
+                5 => "V",
+                _ => prestige.Level.ToString(),
+            };
+            return $"{name} {roman}";
+        }
+
+        return name;
+    }
+
+    private static string FormatRankUpDuration(long fromTimestamp, long toTimestamp)
+    {
+        if (fromTimestamp <= 0 || toTimestamp <= 0)
+            return string.Empty;
+
+        var from = DateTimeOffset.FromUnixTimeMilliseconds(fromTimestamp);
+        var to = DateTimeOffset.FromUnixTimeMilliseconds(toTimestamp);
+        var duration = to - from;
+
+        if (duration.TotalDays < 1)
+            return "<24h";
+
+        var totalDays = (int)duration.TotalDays;
+        if (totalDays >= 365)
+        {
+            var years = totalDays / 365;
+            var remainingDays = totalDays % 365;
+            if (remainingDays > 0)
+                return $"{years} {(years == 1 ? "year" : "years")} {remainingDays} {(remainingDays == 1 ? "day" : "days")}";
+            return $"{years} {(years == 1 ? "year" : "years")}";
+        }
+
+        return $"{totalDays} {(totalDays == 1 ? "day" : "days")}";
+    }
+
+    private static string GetRankUpTime(IList<RankHistoryDto> ranks, int index)
+    {
+        if (index >= ranks.Count - 1)
+            return string.Empty;
+
+        return FormatRankUpDuration(ranks[index + 1].AchievedAt, ranks[index].AchievedAt);
+    }
+
     private static IReadOnlyList<TiglFactionName> GetFactionsByFilter(FactionStatisticsFilter filter)
     {
         return filter switch
@@ -361,13 +477,6 @@ public partial class TiglProfileGrid
         return Math.Max(league.GlickoRating, league.GlickoMatchHistory.Max(m => m.RatingNew));
     }
 
-    private double GetHighestTrueSkillRating(TiglLeagueProfileDto league)
-    {
-        if (league.TrueSkillMatchHistory.Count == 0)
-            return league.TrueSkillMu;
-        return Math.Max(league.TrueSkillMu, league.TrueSkillMatchHistory.Max(m => m.MuNew));
-    }
-
     private double GetHighestTrueSkillConservative(TiglLeagueProfileDto league)
     {
         if (league.TrueSkillMatchHistory.Count == 0)
@@ -546,108 +655,30 @@ public partial class TiglProfileGrid
         StateHasChanged();
     }
 
-    public class ChartDataPoint
+    private string GetPrestigeRankUpTime(IList<PrestigeRankHistoryDto> prestiges, int index, TiglLeague league)
     {
-        public int Game { get; set; }
-
-        public double Rating { get; set; }
-    }
-
-    public class ChartSeries
-    {
-        public string Title { get; set; } = string.Empty;
-
-        public List<ChartDataPoint> Points { get; set; } = new();
-    }
-
-    private static (double Min, double Max, double Step) GetChartAxisBounds(List<ChartSeries> seriesList)
-    {
-        var allRatings = seriesList.SelectMany(s => s.Points).Select(p => p.Rating).ToList();
-        if (allRatings.Count == 0)
-            return (0, 10, 2);
-
-        var min = allRatings.Min();
-        var max = allRatings.Max();
-
-        var axisMin = Math.Floor(min) - 1;
-        var axisMax = Math.Ceiling(max) + 1;
-
-        var range = axisMax - axisMin;
-        if (range < 5)
+        if (index < prestiges.Count - 1)
         {
-            var mid = (axisMin + axisMax) / 2.0;
-            axisMin = mid - 2.5;
-            axisMax = mid + 2.5;
-            range = 5;
+            // Compute from previous prestige rank
+            return FormatRankUpDuration(prestiges[index + 1].AchievedAt, prestiges[index].AchievedAt);
         }
 
-        var step = range / 5.0;
+        // First prestige rank — for ProphecyOfKings the Hero rank is achieved at the same time
+        // as the 1st prestige rank, so compute from the Commander rank instead.
+        var referenceRank = league == TiglLeague.ProphecyOfKings
+            ? Profile?.RankHistory?
+                .Where(r => r.League == league && r.Rank == TiglRankName.Commander)
+                .OrderByDescending(r => r.AchievedAt)
+                .FirstOrDefault()
+            : Profile?.RankHistory?
+                .Where(r => r.League == league)
+                .OrderByDescending(r => r.AchievedAt)
+                .FirstOrDefault();
 
-        var niceSteps = new[] { 0.1, 0.2, 0.25, 0.5, 1.0, 2.0, 5.0, 10.0, 20.0, 25.0, 50.0, 100.0, 200.0, 250.0, 500.0 };
-        var niceStep = niceSteps.FirstOrDefault(s => s >= step);
-        if (niceStep == 0)
-            niceStep = step;
+        if (referenceRank is not null)
+            return FormatRankUpDuration(referenceRank.AchievedAt, prestiges[index].AchievedAt);
 
-        axisMin = Math.Floor(axisMin / niceStep) * niceStep;
-        axisMax = Math.Ceiling(axisMax / niceStep) * niceStep;
-
-        return (axisMin, axisMax, niceStep);
-    }
-
-    private static string GetDurationTime(TiglProfileGameDto game)
-    {
-        if (game.StartTimestamp <= 0 || game.EndTimestamp <= 0)
-            return "N/A";
-
-        var start = DateTimeOffset.FromUnixTimeMilliseconds(game.StartTimestamp);
-        var end = DateTimeOffset.FromUnixTimeMilliseconds(game.EndTimestamp);
-        var duration = end - start;
-
-        var parts = new List<string>();
-        if (duration.Days > 0)
-            parts.Add($"{duration.Days:D2} d");
-        if (duration.Hours > 0 || duration.Days > 0)
-            parts.Add($"{duration.Hours:D2} h");
-
-        return parts.Count > 0 ? string.Join(" ", parts) : string.Empty;
-    }
-
-    public class TiglGamesByYear
-    {
-        public DateOnly Year { get; set; }
-
-        public IEnumerable<TiglGamesByMonth> Months { get; set; } = new List<TiglGamesByMonth>();
-    }
-
-    public class TiglGamesByMonth
-    {
-        public DateOnly Month { get; set; }
-
-        public IEnumerable<TiglProfileGameDto> Games { get; set; } = new List<TiglProfileGameDto>();
-    }
-
-    public class AchievementDisplayEntry
-    {
-        public TiglUserAchievementDto Achievement { get; set; } = default!;
-
-        public double RarityPercent { get; set; }
-
-        public bool IsEarned { get; set; }
-    }
-
-    public class SeasonSummary
-    {
-        public TiglLeague League { get; set; }
-
-        public int Season { get; set; }
-
-        public int GamesPlayed { get; set; }
-
-        public int Wins { get; set; }
-
-        public double WinRate => GamesPlayed > 0 ? (double)Wins / GamesPlayed * 100 : 0;
-
-        public List<TiglProfileGameDto> Games { get; set; } = new();
+        return string.Empty;
     }
 
     private GameRatingDeltas GetGameRatingDeltas(TiglProfileGameDto game)
@@ -664,39 +695,12 @@ public partial class TiglProfileGrid
         var tsMatch = lp.TrueSkillMatchHistory.FirstOrDefault(m => m.EndTimestamp == game.EndTimestamp);
 
         return new GameRatingDeltas(
-            asyncMatch?.RatingChange ?? 0, asyncMatch is not null,
-            glickoMatch?.RatingChange ?? 0, glickoMatch is not null,
-            tsMatch?.MuChange ?? 0, tsMatch is not null);
-    }
-
-    private GameRatingDeltas GetSeasonRatingDeltas(SeasonSummary season)
-    {
-        double asyncSum = 0, glickoSum = 0, tsSum = 0;
-        bool hasAsync = false, hasGlicko = false, hasTs = false;
-
-        foreach (var game in season.Games)
-        {
-            var d = GetGameRatingDeltas(game);
-            if (d.HasAsync)
-            {
-                asyncSum += d.AsyncDelta;
-                hasAsync = true;
-            }
-
-            if (d.HasGlicko)
-            {
-                glickoSum += d.GlickoDelta;
-                hasGlicko = true;
-            }
-
-            if (d.HasTrueSkill)
-            {
-                tsSum += d.TrueSkillDelta;
-                hasTs = true;
-            }
-        }
-
-        return new GameRatingDeltas(asyncSum, hasAsync, glickoSum, hasGlicko, tsSum, hasTs);
+            asyncMatch?.RatingChange ?? 0,
+            asyncMatch is not null,
+            glickoMatch?.RatingChange ?? 0,
+            glickoMatch is not null,
+            tsMatch?.MuChange ?? 0,
+            tsMatch is not null);
     }
 
     private SeasonRatingSummary GetSeasonRatingSummary(SeasonSummary season)
@@ -742,99 +746,15 @@ public partial class TiglProfileGrid
         }
 
         return new SeasonRatingSummary(
-            lastAsync?.RatingNew ?? 0, asyncSum, hasAsync,
-            lastGlicko?.RatingNew ?? 0, glickoSum, hasGlicko,
-            lastTs?.MuNew ?? 0, tsSum, hasTs);
-    }
-
-    private static string FormatDelta(double delta, string precision = "F1")
-    {
-        return delta >= 0 ? $"+{delta.ToString(precision)}" : delta.ToString(precision);
-    }
-
-    private static TextColor GetDeltaColor(double delta) =>
-        delta >= 0 ? TextColor.Green : TextColor.Red;
-
-    private static string GetDeltaArrow(double delta) =>
-        delta >= 0 ? "\u25b2" : "\u25bc";
-
-    private static string GetPrestigeDisplayText(PrestigeRankHistoryDto prestige)
-    {
-        var name = prestige.PrestigeRank.GetDisplayName();
-        if (prestige.PrestigeRank is TiglPrestigeRank.GalacticThreat or TiglPrestigeRank.Tyrant && prestige.Level > 0)
-        {
-            var roman = prestige.Level switch
-            {
-                1 => "I",
-                2 => "II",
-                3 => "III",
-                4 => "IV",
-                5 => "V",
-                _ => prestige.Level.ToString(),
-            };
-            return $"{name} {roman}";
-        }
-
-        return name;
-    }
-
-    private static string FormatRankUpDuration(long fromTimestamp, long toTimestamp)
-    {
-        if (fromTimestamp <= 0 || toTimestamp <= 0)
-            return string.Empty;
-
-        var from = DateTimeOffset.FromUnixTimeMilliseconds(fromTimestamp);
-        var to = DateTimeOffset.FromUnixTimeMilliseconds(toTimestamp);
-        var duration = to - from;
-
-        if (duration.TotalDays < 1)
-            return "<24h";
-
-        var totalDays = (int)duration.TotalDays;
-        if (totalDays >= 365)
-        {
-            var years = totalDays / 365;
-            var remainingDays = totalDays % 365;
-            if (remainingDays > 0)
-                return $"{years} {(years == 1 ? "year" : "years")} {remainingDays} {(remainingDays == 1 ? "day" : "days")}";
-            return $"{years} {(years == 1 ? "year" : "years")}";
-        }
-
-        return $"{totalDays} {(totalDays == 1 ? "day" : "days")}";
-    }
-
-    private static string GetRankUpTime(IList<RankHistoryDto> ranks, int index)
-    {
-        if (index >= ranks.Count - 1)
-            return string.Empty;
-
-        return FormatRankUpDuration(ranks[index + 1].AchievedAt, ranks[index].AchievedAt);
-    }
-
-    private string GetPrestigeRankUpTime(IList<PrestigeRankHistoryDto> prestiges, int index, TiglLeague league)
-    {
-        if (index < prestiges.Count - 1)
-        {
-            // Compute from previous prestige rank
-            return FormatRankUpDuration(prestiges[index + 1].AchievedAt, prestiges[index].AchievedAt);
-        }
-
-        // First prestige rank — for ProphecyOfKings the Hero rank is achieved at the same time
-        // as the 1st prestige rank, so compute from the Commander rank instead.
-        var referenceRank = league == TiglLeague.ProphecyOfKings
-            ? Profile?.RankHistory?
-                .Where(r => r.League == league && r.Rank == TiglRankName.Commander)
-                .OrderByDescending(r => r.AchievedAt)
-                .FirstOrDefault()
-            : Profile?.RankHistory?
-                .Where(r => r.League == league)
-                .OrderByDescending(r => r.AchievedAt)
-                .FirstOrDefault();
-
-        if (referenceRank is not null)
-            return FormatRankUpDuration(referenceRank.AchievedAt, prestiges[index].AchievedAt);
-
-        return string.Empty;
+            lastAsync?.RatingNew ?? 0,
+            asyncSum, 
+            hasAsync,
+            lastGlicko?.RatingNew ?? 0,
+            glickoSum, 
+            hasGlicko,
+            lastTs?.MuNew ?? 0,
+            tsSum, 
+            hasTs);
     }
 
     private string GetHeroIconPath(TiglFactionName faction) => PathProvider.GetLeaderIconPath(faction, LeaderType.Hero);
@@ -842,4 +762,56 @@ public partial class TiglProfileGrid
     private readonly record struct GameRatingDeltas(double AsyncDelta, bool HasAsync, double GlickoDelta, bool HasGlicko, double TrueSkillDelta, bool HasTrueSkill);
 
     private readonly record struct SeasonRatingSummary(double AsyncEnd, double AsyncDelta, bool HasAsync, double GlickoEnd, double GlickoDelta, bool HasGlicko, double TrueSkillEnd, double TrueSkillDelta, bool HasTrueSkill);
+
+    private sealed class ChartDataPoint
+    {
+        public int Game { get; set; }
+
+        public double Rating { get; set; }
+    }
+
+    private sealed class TiglGamesByYear
+    {
+        public DateOnly Year { get; set; }
+
+        public IEnumerable<TiglGamesByMonth> Months { get; set; } = new List<TiglGamesByMonth>();
+    }
+
+    private sealed class TiglGamesByMonth
+    {
+        public DateOnly Month { get; set; }
+
+        public IEnumerable<TiglProfileGameDto> Games { get; set; } = new List<TiglProfileGameDto>();
+    }
+
+    private sealed class AchievementDisplayEntry
+    {
+        public TiglUserAchievementDto Achievement { get; set; } = default!;
+
+        public double RarityPercent { get; set; }
+
+        public bool IsEarned { get; set; }
+    }
+
+    private sealed class SeasonSummary
+    {
+        public TiglLeague League { get; set; }
+
+        public int Season { get; set; }
+
+        public int GamesPlayed { get; set; }
+
+        public int Wins { get; set; }
+
+        public double WinRate => GamesPlayed > 0 ? (double)Wins / GamesPlayed * 100 : 0;
+
+        public List<TiglProfileGameDto> Games { get; set; } = new();
+    }
+
+    private sealed class ChartSeries
+    {
+        public string Title { get; set; } = string.Empty;
+
+        public List<ChartDataPoint> Points { get; set; } = new();
+    }
 }

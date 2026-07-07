@@ -141,7 +141,7 @@ public partial class FactionIconRow : TwilightImperiumBaseComponent
         return _factions?.Where(x => x.GameVersion == GameVersion.DiscordantStars).ToList() ?? new List<FactionModel>();
     }
 
-    private IReadOnlyCollection<FactionModel> GetCompactFirstRowFactions()
+    private List<FactionModel> GetCompactFirstRowFactions()
     {
         var factions = GetBaseGameFactions();
 
@@ -163,7 +163,7 @@ public partial class FactionIconRow : TwilightImperiumBaseComponent
         return firstRow;
     }
 
-    private IReadOnlyCollection<FactionModel?> GetCompactSecondRowWithPlaceholders()
+    private List<FactionModel?> GetCompactSecondRowWithPlaceholders()
     {
         var row = new List<FactionModel?>();
         var factions = GetBaseGameFactions();
@@ -237,17 +237,17 @@ public partial class FactionIconRow : TwilightImperiumBaseComponent
         return row;
     }
 
-    private IReadOnlyCollection<FactionModel> GetMobileRow1Factions()
+    private List<FactionModel> GetMobileRow1Factions()
     {
         return GetBaseGameFactions().Take(9).ToList();
     }
 
-    private IReadOnlyCollection<FactionModel> GetMobileRow2Factions()
+    private List<FactionModel> GetMobileRow2Factions()
     {
         return GetBaseGameFactions().Skip(9).Take(8).ToList();
     }
 
-    private IReadOnlyCollection<FactionModel?> GetMobileRow3FactionsWithPlaceholders()
+    private List<FactionModel?> GetMobileRow3FactionsWithPlaceholders()
     {
         var row = new List<FactionModel?>();
         var rowFactions = GetBaseGameFactions().Skip(17).Take(7).Cast<FactionModel?>().ToList();
@@ -259,7 +259,7 @@ public partial class FactionIconRow : TwilightImperiumBaseComponent
         return row;
     }
 
-    private IReadOnlyCollection<FactionModel?> GetMobileRow4FactionsWithPlaceholder()
+    private List<FactionModel?> GetMobileRow4FactionsWithPlaceholder()
     {
         var row = new List<FactionModel?>();
         var rowFactions = GetBaseGameFactions().Skip(24).Take(6).Cast<FactionModel?>().ToList();

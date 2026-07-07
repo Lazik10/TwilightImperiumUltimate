@@ -51,9 +51,9 @@ public partial class TextButton
 
     private bool HasHref => !string.IsNullOrWhiteSpace(Href);
 
-    private string SetColor() => TextColor.ConvertToString();
-
     private string ComponentStyle => $"--text-button-font-size:{FontSize}px; color:{SetColor()}; text-align:{TextAlign}; align-items:{Align}; justify-content:{Justify}; cursor:pointer; width:{Width}%; box-sizing:border-box; padding:2px; height:100%; {Style}";
+
+    private string SetColor() => TextColor.ConvertToString();
 
     private async Task HandleClickAsync()
     {

@@ -31,14 +31,6 @@ public static class NumberFormatExtensions
         return TextColor.Red;
     }
 
-    public static TextColor GetAverageVpColor(this float winrate)
-    {
-        if (winrate >= 8.0f) return TextColor.Green;
-        if (winrate >= 6.0f) return TextColor.Yellow;
-        if (winrate >= 4.0f) return TextColor.Orange;
-        return TextColor.Red;
-    }
-
     public static TextColor GetAverageVpPercentageColor(this float winrate)
     {
         if (winrate >= 80.0f) return TextColor.Green;
@@ -60,6 +52,14 @@ public static class NumberFormatExtensions
         if (winrate >= 8.0) return TextColor.Green;
         if (winrate >= 6.0) return TextColor.Yellow;
         if (winrate >= 4.0) return TextColor.Orange;
+        return TextColor.Red;
+    }
+
+    public static TextColor GetAverageVpColor(this float winrate)
+    {
+        if (winrate >= 8.0f) return TextColor.Green;
+        if (winrate >= 6.0f) return TextColor.Yellow;
+        if (winrate >= 4.0f) return TextColor.Orange;
         return TextColor.Red;
     }
 }

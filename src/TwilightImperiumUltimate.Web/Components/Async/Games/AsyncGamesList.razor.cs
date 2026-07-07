@@ -79,10 +79,6 @@ public partial class AsyncGamesList
         if (duration.Hours > 0)
             parts.Add($"{duration.Hours:D2} h");
 
-        // if (duration.Minutes > 0)
-        //    parts.Add($"{duration.Minutes:D2} m");
-        // if (duration.Seconds > 0)
-        //    parts.Add($"{duration.Seconds:D2} s");
         return parts.Count > 0 ? string.Join(" ", parts) : "0s";
     }
 

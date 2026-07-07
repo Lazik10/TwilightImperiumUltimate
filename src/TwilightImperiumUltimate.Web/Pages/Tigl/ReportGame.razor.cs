@@ -16,6 +16,34 @@ public partial class ReportGame
     private const int MaxVictoryPoints = 20;
     private const int VictoryPointStandardStep = 2;
     private const int VictoryPointFracturedStep = 1;
+
+    // Keep names in sync with TiglGalacticEventConverter map keys
+    private static readonly List<string> _allGalacticEvents = new()
+    {
+        "Age of Commerce",
+        "Call of the Void",
+        "Dangerous Wilds",
+        "Hidden Agenda",
+        "Age of Exploration",
+        "Civilized Society",
+        "Minor Factions",
+        "Stellar Atomics",
+        "Age of Fighters",
+        "Total War",
+        "Wild Wild Galaxy",
+        "Weird Wormholes",
+        "Monuments to the Ages",
+        "Cosmic Phenomenae",
+        "Cultural Exchange Program",
+        "Mercenaries for Hire",
+        "Rapid Mobilization",
+        "Zealous Orthodoxy",
+        "Advent of the War Sun",
+        "Conventions of War Abandoned",
+    };
+
+    private readonly HashSet<string> _selectedEvents = new(StringComparer.OrdinalIgnoreCase);
+
     private int _selectedVpCount = MinVictoryPoints;
     private TiglLeague _selectedLeague = TiglLeague.ThundersEdge;
     private int _round = 5;
@@ -46,33 +74,6 @@ public partial class ReportGame
         Search,
         Edit,
     }
-
-    // Keep names in sync with TiglGalacticEventConverter map keys
-    private static readonly List<string> _allGalacticEvents = new()
-    {
-        "Age of Commerce",
-        "Call of the Void",
-        "Dangerous Wilds",
-        "Hidden Agenda",
-        "Age of Exploration",
-        "Civilized Society",
-        "Minor Factions",
-        "Stellar Atomics",
-        "Age of Fighters",
-        "Total War",
-        "Wild Wild Galaxy",
-        "Weird Wormholes",
-        "Monuments to the Ages",
-        "Cosmic Phenomenae",
-        "Cultural Exchange Program",
-        "Mercenaries for Hire",
-        "Rapid Mobilization",
-        "Zealous Orthodoxy",
-        "Advent of the War Sun",
-        "Conventions of War Abandoned",
-    };
-
-    private readonly HashSet<string> _selectedEvents = new(StringComparer.OrdinalIgnoreCase);
 
     [Inject]
     private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;

@@ -19,7 +19,23 @@ public partial class AsyncPlayersList
     [Inject]
     private NavigationManager NavigationManager { get; set; } = default!;
 
-    private List<IGrouping<char, AsyncPlayerProfileDto>> GroupedPlayers =>
+    protected override void OnParametersSet()
+    {
+        if (!string.IsNullOrEmpty(Letter))
+        {
+            _selectedLetter = Letter.ToUpper(CultureInfo.InvariantCulture)[0];
+        }
+
+        var playerGroup = GroupedPlayers()
+            .Find(group => group.Key == _selectedLetter)
+            ?.ToList();
+
+        _filteredPlayerProfiles = playerGroup is null ? PlayerProfileNames.ToList() : playerGroup;
+
+        OrderPlayerList();
+    }
+
+    private List<IGrouping<char, AsyncPlayerProfileDto>> GroupedPlayers() =>
         PlayerProfileNames.GroupBy(x =>
         {
             var firstChar = x.DiscordUsername.ToUpperInvariant().First();
@@ -38,27 +54,11 @@ public partial class AsyncPlayersList
         })
         .ToList();
 
-    protected override void OnParametersSet()
-    {
-        if (!string.IsNullOrEmpty(Letter))
-        {
-            _selectedLetter = Letter.ToUpper(CultureInfo.InvariantCulture)[0];
-        }
-
-        var playerGroup = GroupedPlayers
-            .Find(group => group.Key == _selectedLetter)
-            ?.ToList();
-
-        _filteredPlayerProfiles = playerGroup is null ? PlayerProfileNames.ToList() : playerGroup;
-
-        OrderPlayerList();
-    }
-
     private void SearchPlayerGroup(char letter)
     {
         _selectedLetter = letter;
 
-        _filteredPlayerProfiles = GroupedPlayers
+        _filteredPlayerProfiles = GroupedPlayers()
             .Find(group => group.Key == letter)
             ?.ToList();
 
@@ -69,7 +69,7 @@ public partial class AsyncPlayersList
     {
         if (search.Length == 0)
         {
-            _filteredPlayerProfiles = GroupedPlayers
+            _filteredPlayerProfiles = GroupedPlayers()
                 .Find(group => group.Key == _selectedLetter)
                 ?.ToList();
         }
@@ -78,7 +78,7 @@ public partial class AsyncPlayersList
             _selectedLetter = search[0];
         }
 
-        var group = GroupedPlayers
+        var group = GroupedPlayers()
             .Find(group => group.Key == _selectedLetter)
             ?.ToList();
 

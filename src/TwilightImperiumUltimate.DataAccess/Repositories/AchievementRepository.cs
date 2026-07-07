@@ -1,13 +1,12 @@
 using Microsoft.Extensions.Logging;
 using TwilightImperiumUltimate.Core.Entities.Logging;
-using TwilightImperiumUltimate.Core.Entities.Statistics;
 using TwilightImperiumUltimate.Core.Entities.Tigl;
 
 namespace TwilightImperiumUltimate.DataAccess.Repositories;
 
 public class AchievementRepository(
     IDbContextFactory<TwilightImperiumDbContext> context,
-    ILogger<GameStatistics> logger)
+    ILogger<AchievementRepository> logger)
     : IAchievementRepository
 {
     public async Task AwardFactionAchievement(int tiglUserId, MatchReport matchReport, AchievementName achievementName, TiglFactionName faction, int minWins, CancellationToken cancellationToken)
@@ -67,21 +66,6 @@ public class AchievementRepository(
         {
             logger.LogInformation(ex, "Achievement {AchievementName} already awarded to user {TiglUserId}", achievementName, tiglUserId);
         }
-    }
-
-    private AchievementLog CreateAchievementLog(long timestamp, AchievementName achievement, TiglFactionName faction, int tiglUserId, string tiglUserName, long tiglUserDiscordId, int matchId = 0)
-    {
-        return new AchievementLog
-        {
-            Timestamp = timestamp,
-            AchievementName = achievement,
-            Faction = faction,
-            TiglUserId = tiglUserId,
-            TiglUserName = tiglUserName,
-            TiglUserDiscordId = tiglUserDiscordId,
-            Published = false,
-            MatchId = matchId,
-        };
     }
 
     public async Task AwardAchievement(int tiglUserId, MatchReport matchReport, AchievementName achievementName, CancellationToken cancellationToken, TiglFactionName faction = TiglFactionName.None)
@@ -202,5 +186,20 @@ public class AchievementRepository(
         dbContext.TiglUserAchievements.Remove(existing);
         await dbContext.SaveChangesAsync(cancellationToken);
         return true;
+    }
+
+    private AchievementLog CreateAchievementLog(long timestamp, AchievementName achievement, TiglFactionName faction, int tiglUserId, string tiglUserName, long tiglUserDiscordId, int matchId = 0)
+    {
+        return new AchievementLog
+        {
+            Timestamp = timestamp,
+            AchievementName = achievement,
+            Faction = faction,
+            TiglUserId = tiglUserId,
+            TiglUserName = tiglUserName,
+            TiglUserDiscordId = tiglUserDiscordId,
+            Published = false,
+            MatchId = matchId,
+        };
     }
 }

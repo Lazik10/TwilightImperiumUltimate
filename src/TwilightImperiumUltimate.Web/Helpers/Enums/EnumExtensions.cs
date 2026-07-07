@@ -53,10 +53,9 @@ public static class EnumExtensions
 
     public static IReadOnlyCollection<KeyValuePair<FactionName, string>> GetFactionValuesWithDisplayNames()
     {
-        return Enum.GetValues(typeof(FactionName))
-                   .Cast<FactionName>()
-                   .Select(x => new KeyValuePair<FactionName, string>(x, x.GetFactionUIText(FactionResourceType.Title)))
-                   .ToList();
+        return Enum.GetValues<FactionName>()
+            .Select(x => new KeyValuePair<FactionName, string>(x, x.GetFactionUIText(FactionResourceType.Title)))
+            .ToList();
     }
 
     public static string GetUIColor(this DraftColor color)

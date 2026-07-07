@@ -22,7 +22,7 @@ public class AsyncPlayerGamesFactory : IAsyncPlayerGamesFactory
             AsyncFactionName faction = AsyncFactionName.Unknown;
 
             var playerStats = game.PlayerStatistics.FirstOrDefault(x => x.DiscordUserID == playerProfile.DiscordUserId);
-            var isActiveFowGame = !game.HasWinner && game.EndedTimestamp is null && game.AsyncGameID.StartsWith(FogOfWar);
+            var isActiveFowGame = !game.HasWinner && game.EndedTimestamp is null && game.AsyncGameID.StartsWith(FogOfWar, StringComparison.Ordinal);
             var asyncGameId = isActiveFowGame ? FogOfWar : game.AsyncGameID;
 
             if (playerStats is not null)

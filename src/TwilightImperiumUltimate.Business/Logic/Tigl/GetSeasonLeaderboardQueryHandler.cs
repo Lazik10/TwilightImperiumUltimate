@@ -28,10 +28,8 @@ public class GetSeasonLeaderboardQueryHandler(
         if (isActiveSeasonRequest)
         {
             var cacheKey = CacheKeyPrefix + request.Season;
-            if (cache.TryGetValue(cacheKey, out ItemListDto<PlayerSeasonResultDto>? cachedResult))
-            {
+            if (cache.TryGetValue(cacheKey, out ItemListDto<PlayerSeasonResultDto>? cachedResult) && cachedResult is not null)
                 return cachedResult;
-            }
         }
 
         var data = await db.SeasonLeaderboard

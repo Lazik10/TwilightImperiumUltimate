@@ -25,7 +25,7 @@ public class GetMatchReportByIdQueryHandler(
 
         foreach (var playerResultDto in matchReportDto.PlayerResults)
         {
-            var tiglUser = tiglUsers.FirstOrDefault(u => u.Id == playerResultDto.TiglUserId);
+            var tiglUser = tiglUsers.FirstOrDefault(u => u?.Id == playerResultDto.TiglUserId);
             if (tiglUser != null)
             {
                 playerResultDto.DiscordUserName = tiglUser.DiscordTag;

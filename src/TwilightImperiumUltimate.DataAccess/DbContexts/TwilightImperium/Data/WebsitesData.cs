@@ -1,5 +1,8 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium.Data;
 
+[SuppressMessage("Url", "S1075", Justification = "These are external links, not file paths.")]
 internal static class WebsitesData
 {
     internal static List<Website> Websites => new List<Website>()

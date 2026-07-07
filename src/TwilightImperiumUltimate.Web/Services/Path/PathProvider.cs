@@ -5,8 +5,8 @@ namespace TwilightImperiumUltimate.Web.Services.Path;
 public class PathProvider : IPathProvider
 {
     private const string _basePath = "resources\\images";
-    private readonly string _language = CultureInfo.CurrentCulture.Name;
     private static Random _random = new Random();
+    private readonly string _language = CultureInfo.CurrentCulture.Name;
 
     public string GetCultureIconPath(string fileName)
     {

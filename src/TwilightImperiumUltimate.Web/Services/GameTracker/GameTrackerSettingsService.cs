@@ -5,9 +5,9 @@ namespace TwilightImperiumUltimate.Web.Services.GameTracker;
 
 public class GameTrackerSettingsService : IGameTrackerSettingsService
 {
-    private List<GameTrackerPlayerModel> _players = GameTrackerOptions.DefaultGameTrackerPlayerModels.ToList();
+    private readonly List<GameTrackerPlayerModel> _players = GameTrackerOptions.DefaultGameTrackerPlayerModels.ToList();
 
-    private List<GameVersion> _gameVersions = GameTrackerOptions.GameVersions.ToList();
+    private readonly List<GameVersion> _gameVersions = GameTrackerOptions.GameVersions.ToList();
 
     public int NumberOfPlayers { get; private set; } = GameTrackerOptions.NumberOfPlayers;
 

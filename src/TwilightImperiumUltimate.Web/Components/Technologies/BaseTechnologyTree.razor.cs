@@ -24,7 +24,7 @@ public partial class BaseTechnologyTree : TwilightImperiumBaseComponent
 
     protected override async Task OnParametersSetAsync()
     {
-        var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<FaqDto>>>(Paths.ApiPath_Faq, default);
+        var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<FaqDto>>>(Paths.ApiPath_Faq);
         if (statusCode == System.Net.HttpStatusCode.OK)
         {
             var faqs = Mapper.Map<List<FaqModel>>(response!.Data!.Items);
@@ -57,7 +57,7 @@ public partial class BaseTechnologyTree : TwilightImperiumBaseComponent
         StateHasChanged();
     }
 
-    private IReadOnlyCollection<TechnologyModel> GetTechnologiesByLevel(TechnologyLevel level)
+    private List<TechnologyModel> GetTechnologiesByLevel(TechnologyLevel level)
     {
         return Technologies
             .Where(x => x.Level == level)

@@ -53,7 +53,7 @@ public partial class SeasonPicker
         }
     }
 
-    private static IReadOnlyCollection<SeasonDto> AddAllOption(IReadOnlyCollection<SeasonDto> source)
+    private static List<SeasonDto> AddAllOption(IReadOnlyCollection<SeasonDto> source)
     {
         var list = source.ToList();
         if (!list.Any(s => s.SeasonNumber == -1))

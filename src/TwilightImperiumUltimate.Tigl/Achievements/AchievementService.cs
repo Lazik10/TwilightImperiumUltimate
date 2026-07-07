@@ -83,7 +83,7 @@ public class AchievementService(
         }
     }
 
-    public async Task EvaluateEndOfSeasonAchievements(Season season, CancellationToken cancellationToken)
+    public async Task EvaluateEndOfSeasonAchievements(Season season, CancellationToken cancellationToken = default)
     {
         using (var scope = serviceScopeFactory.CreateScope())
         {

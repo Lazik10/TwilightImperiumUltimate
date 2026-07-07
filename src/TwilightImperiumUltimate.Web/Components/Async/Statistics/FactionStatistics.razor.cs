@@ -181,13 +181,10 @@ public partial class FactionStatistics
         };
     }
 
-    private bool IsWinrateEnabled() => true;
-
     private bool ShowSubstatsValue()
     {
-        if ((_selectedFactionStatisticsSubstatsFilter == FactionStatisticsSubstatsFilter.WinPercentage
+        if (_selectedFactionStatisticsSubstatsFilter == FactionStatisticsSubstatsFilter.WinPercentage
         || _selectedFactionStatisticsSubstatsFilter == FactionStatisticsSubstatsFilter.Wins)
-        && !IsWinrateEnabled())
             return false;
 
         return true;
@@ -195,7 +192,7 @@ public partial class FactionStatistics
 
     private TextColor GetWinColor(int wins)
     {
-        return IsWinrateEnabled() && wins > 0 ? TextColor.Green : TextColor.Red;
+        return wins > 0 ? TextColor.Green : TextColor.Red;
     }
 
     private IReadOnlyCollection<AsyncFactionsStatsDto> GetSortedFactionsForDisplayByStatistics()

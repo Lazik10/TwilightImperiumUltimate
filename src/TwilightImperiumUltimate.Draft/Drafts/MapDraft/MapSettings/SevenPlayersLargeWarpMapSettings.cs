@@ -21,7 +21,6 @@ internal class SevenPlayersLargeWarpMapSettings : IMapSettings, IHyperlineSettin
 
     public HashSet<(int X, int Y)> EmptyPositions => new HashSet<(int X, int Y)>
     {
-        // TODO: Check all empty positions count
         (0, 0), (0, 2), (0, 6), (0, 8), (1, 1), (1, 7), (2, 0),
         (2, 8), (14, 0), (14, 8), (15, 1), (15, 7), (16, 0), (16, 2),
         (16, 6), (16, 8), (2, 6), (3, 7), (4, 8), (6, 8), (10, 8), (12, 8),

@@ -40,7 +40,8 @@ public static class GraphExtensions
     {
         ArgumentNullException.ThrowIfNull(universe);
 
-        var logString = "\nGenerated Map Layout: \n";
+        var logString = new System.Text.StringBuilder();
+        logString.Append("\nGenerated Map Layout: \n");
 
         for (int x = 0; x < n; x++)
         {
@@ -50,24 +51,24 @@ public static class GraphExtensions
                 {
                     if (universe[(x, y)].Name == " _ ")
                     {
-                        logString += " _ ";
+                        logString.Append(" _ ");
                     }
                     else
                     {
-                        logString += "{" + $"{universe[(x, y)].Name}" + "}";
+                        logString.Append("{" + $"{universe[(x, y)].Name}" + "}");
                     }
                 }
                 else
                 {
-                    logString += "   ";
+                    logString.Append("   ");
                 }
             }
 
-            logString += "\n";
+            logString.Append('\n');
         }
 
-        logString += "\n";
+        logString.Append('\n');
 
-        return logString;
+        return logString.ToString();
     }
 }

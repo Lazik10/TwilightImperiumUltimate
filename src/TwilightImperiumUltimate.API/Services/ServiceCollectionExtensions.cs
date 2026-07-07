@@ -68,7 +68,7 @@ internal static class ServiceCollectionExtensions
         return services;
     }
 
-    private static IServiceCollection RegisterDiscordServices(this IServiceCollection services)
+    private static void RegisterDiscordServices(this IServiceCollection services)
     {
         services.AddSingleton<DiscordBotClient>();
         services.AddSingleton<IDiscordClient>(sp => sp.GetRequiredService<DiscordBotClient>());
@@ -81,11 +81,9 @@ internal static class ServiceCollectionExtensions
         services.AddTransient<IGameLogPublishWorkflow, GameLogPublishWorkflow>();
 
         services.AddSingleton<IDiscordRoleChangePublisher, DiscordRoleChangePublisher>();
-
-        return services;
     }
 
-    private static IServiceCollection RegisterSwagger(this IServiceCollection services)
+    private static void RegisterSwagger(this IServiceCollection services)
     {
         services.AddSwaggerGen(options =>
         {
@@ -117,11 +115,9 @@ internal static class ServiceCollectionExtensions
                 [new OpenApiSecuritySchemeReference("ApiKey", document)] = [],
             });
         });
-
-        return services;
     }
 
-    private static IServiceCollection RegisterQuartzJobs(
+    private static void RegisterQuartzJobs(
         this IServiceCollection services,
         IConfiguration configuration)
     {
@@ -165,7 +161,5 @@ internal static class ServiceCollectionExtensions
         services.AddTransient<AsyncGameDataJob>();
         services.AddTransient<SeasonLeaderboardRefreshJob>();
         services.AddTransient<GameLogsPublishJob>();
-
-        return services;
     }
 }
