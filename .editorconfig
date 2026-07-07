@@ -380,6 +380,10 @@ dotnet_diagnostic.SA1601.documentation_culture = en-US
 dotnet_diagnostic.S101.severity = suggestion
 # S107: Methods should not have too many parameters; consider grouping them into an object.
 dotnet_diagnostic.S107.severity = suggestion
+# S2325: Methods and properties that don’t access instance data should be static
+dotnet_diagnostic.S2325.severity = suggestion
+# S3267: Loops should be simplified with "LINQ" expressions
+dotnet_diagnostic.S3267.severity = suggestion
 # S4457: Parameter validation in async methods should be wrapped in a separate synchronous method.
 dotnet_diagnostic.S4457.severity = suggestion
 # S6966: Prefer using the async version of a method when one is available.
@@ -396,9 +400,9 @@ dotnet_diagnostic.SA1300.severity = warning
 # SA1309: Field names should not begin with underscore (disabled; team uses underscore prefix for private fields).
 dotnet_diagnostic.SA1309.severity = none
 # SA1503: Braces should not be omitted
-dotnet_diagnostic.SA1503.severity = suggestion
+dotnet_diagnostic.SA1503.severity = none
 # SA1633: File must have a standard header (company copyright, etc.).
-dotnet_diagnostic.SA1633.severity = suggestion
+dotnet_diagnostic.SA1633.severity = none
 
 #----------------------------------   CA - diagnostics   ---------------------------------#
 
@@ -426,6 +430,8 @@ dotnet_diagnostic.CA1515.severity = suggestion
 dotnet_diagnostic.CA1305.severity = suggestion
 # CA1711: Identifiers should not have incorrect suffix (e.g., avoid naming enums with 'Enum' suffix).
 dotnet_diagnostic.CA1711.severity = suggestion
+# CA1724: Type Names Should Not Match Namespaces
+dotnet_diagnostic.CA1724.severity = suggestion
 # CA1725: Parameter names should match names in overridden or implemented methods.
 dotnet_diagnostic.CA1725.severity = suggestion
 # CA1805: Do not initialize variables to their default values unnecessarily (e.g., int x = 0;).
@@ -473,7 +479,7 @@ dotnet_diagnostic.CA1863.severity = suggestion
 # CA1873: Avoid potentially expensive logging
 dotnet_diagnostic.CA1873.severity = suggestion
 # CA2007: Consider calling ConfigureAwait on awaited tasks for library code.
-dotnet_diagnostic.CA2007.severity = suggestion
+dotnet_diagnostic.CA2007.severity = none
 # CA2153: Do not catch corrupted state exceptions (e.g., AccessViolationException).
 dotnet_diagnostic.CA2153.severity = error
 # CA2201: Do not raise reserved exception types (e.g., Exception, SystemException); use specific types.

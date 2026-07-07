@@ -35,6 +35,15 @@ public partial class FactionIconRow : TwilightImperiumBaseComponent
     [Inject]
     private IMapGeneratorSettingsService MapGeneratorSettingsService { get; set; } = default!;
 
+    private bool UseSplitRowsLayout
+    {
+        get
+        {
+            var factions = GetBaseGameFactions();
+            return ShowBaseGame && !ShowDiscordantStars && factions.Count >= 24;
+        }
+    }
+
     public void RefreshFactions()
     {
         _factions = MapGeneratorSettingsService.FactionsForMapGenerator;
@@ -66,6 +75,15 @@ public partial class FactionIconRow : TwilightImperiumBaseComponent
             var initialFaction = ResolveInitialFaction(Faction);
             await OnFactionClickGetFaction.InvokeAsync(Factions.Single(x => x.FactionName == initialFaction));
         }
+    }
+
+    private static bool IsCodexVersion(GameVersion gameVersion)
+    {
+        return gameVersion == GameVersion.CodexRecolo
+            || gameVersion == GameVersion.CodexOrdinian
+            || gameVersion == GameVersion.CodexAffinity
+            || gameVersion == GameVersion.CodexVigil
+            || gameVersion == GameVersion.CodexLiberation;
     }
 
     private void FactionClicked(FactionModel selectedFaction)
@@ -121,15 +139,6 @@ public partial class FactionIconRow : TwilightImperiumBaseComponent
     private List<FactionModel> GetDiscordantStarsFactions()
     {
         return _factions?.Where(x => x.GameVersion == GameVersion.DiscordantStars).ToList() ?? new List<FactionModel>();
-    }
-
-    private bool UseSplitRowsLayout
-    {
-        get
-        {
-            var factions = GetBaseGameFactions();
-            return ShowBaseGame && !ShowDiscordantStars && factions.Count >= 24;
-        }
     }
 
     private IReadOnlyCollection<FactionModel> GetCompactFirstRowFactions()
@@ -226,15 +235,6 @@ public partial class FactionIconRow : TwilightImperiumBaseComponent
         row.Add(null);
 
         return row;
-    }
-
-    private static bool IsCodexVersion(GameVersion gameVersion)
-    {
-        return gameVersion == GameVersion.CodexRecolo
-            || gameVersion == GameVersion.CodexOrdinian
-            || gameVersion == GameVersion.CodexAffinity
-            || gameVersion == GameVersion.CodexVigil
-            || gameVersion == GameVersion.CodexLiberation;
     }
 
     private IReadOnlyCollection<FactionModel> GetMobileRow1Factions()

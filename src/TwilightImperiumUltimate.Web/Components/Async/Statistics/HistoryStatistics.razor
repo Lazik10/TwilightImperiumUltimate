@@ -18,7 +18,7 @@
             <Label Text="@Strings.AsyncStats_Year" CenterText="true" />
             <Label Text="@Strings.AsyncStats_Month" CenterText="true" />
             <Label Text="@Strings.AsyncStats_Games" CenterText="true" />
-            <Label Style="span-2" />
+            <Label CssClass="span-2" />
             <VerticalSpace Height="20" CssClass="span-6" />
 
             @foreach (var yearGroup in HistoryStats.GamesHistory.GroupBy(x => x.Year).OrderByDescending(x => x.Key))
@@ -68,7 +68,7 @@
             <Label Text="@Strings.AsyncStats_Year" CenterText="true" />
             <Label Text="@Strings.AsyncStats_Month" CenterText="true" />
             <Label Text="@Strings.AsyncStats_Games" CenterText="true" />
-            <Label Style="span-2" />
+            <Label CssClass="span-2" />
             <VerticalSpace Height="20" CssClass="span-6" />
 
             @foreach (var yearGroup in HistoryStats.GamesHistory.GroupBy(x => x.Year).OrderByDescending(x => x.Key))
@@ -118,7 +118,7 @@
             <Label Text="@Strings.AsyncStats_Year" CenterText="true" />
             <Label Text="@Strings.AsyncStats_Month" CenterText="true" />
             <Label Text="@Strings.AsyncStats_Players" CenterText="true" />
-            <Label Style="span-2" />
+            <Label CssClass="span-2" />
             <VerticalSpace Height="20" CssClass="span-6" />
 
             @foreach (var yearGroup in HistoryStats.PlayersHistory.GroupBy(x => x.Year).OrderByDescending(x => x.Key))
@@ -170,7 +170,7 @@
             <Label Text="@Strings.AsyncStats_Year" CenterText="true" />
             <Label Text="@Strings.AsyncStats_Month" CenterText="true" />
             <Label Text="@Strings.AsyncStats_Players" CenterText="true" />
-            <Label Style="span-2" />
+            <Label CssClass="span-2" />
 
             <VerticalSpace Height="20" CssClass="span-6" />
 

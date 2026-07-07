@@ -206,16 +206,13 @@ public class ObjectiveCardTracker(
                 _draftedStageOneObjectiveCards.RemoveAt(_draftedStageOneObjectiveCards.Count - 1);
             }
         }
-        else if (objectiveCardType == ObjectiveCardType.StageTwo)
+        else if (objectiveCardType == ObjectiveCardType.StageTwo && _draftedStageTwoObjectiveCards.Count(x => x.ObjectiveCard.ObjectiveCardType == ObjectiveCardType.StageTwo) == 6)
         {
-            if (_draftedStageTwoObjectiveCards.Count(x => x.ObjectiveCard.ObjectiveCardType == ObjectiveCardType.StageTwo) == 6)
-            {
-                var incentiveObjective = _draftedStageTwoObjectiveCards[_draftedStageTwoObjectiveCards.Count - 1];
-                incentiveObjective.Revealed = false;
-                incentiveObjective.ScoredFactions = new List<FactionName>();
+            var incentiveObjective = _draftedStageTwoObjectiveCards[_draftedStageTwoObjectiveCards.Count - 1];
+            incentiveObjective.Revealed = false;
+            incentiveObjective.ScoredFactions = new List<FactionName>();
 
-                _draftedStageTwoObjectiveCards.RemoveAt(_draftedStageTwoObjectiveCards.Count - 1);
-            }
+            _draftedStageTwoObjectiveCards.RemoveAt(_draftedStageTwoObjectiveCards.Count - 1);
         }
 
         return Task.CompletedTask;

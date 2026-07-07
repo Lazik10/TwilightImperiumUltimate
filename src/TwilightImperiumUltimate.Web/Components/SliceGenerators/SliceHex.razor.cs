@@ -58,7 +58,9 @@ public partial class SliceHex
         await SliceGeneratorService.SetDraggedSystemTile(SystemTile, SlicePosition, SliceId);
         Log.Information(
             "Starting to drag a system tile: {TileName}, slice ID: {SliceId}, slice position: {SlicePosition}",
-            SystemTile.SystemTileCode, SliceId, SlicePosition);
+            SystemTile.SystemTileCode,
+            SliceId,
+            SlicePosition);
     }
 
     private void DragOverSystemTile()

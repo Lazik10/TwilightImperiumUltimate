@@ -21,6 +21,11 @@ public partial class MainNavigation : IDisposable
     private string? _hoveredMainMenuKey;
     private string? _hoveredSubMenuKey;
 
+    ~MainNavigation()
+    {
+        Dispose(false);
+    }
+
     [Inject]
     private IUserService UserService { get; set; } = default!;
 
@@ -35,11 +40,6 @@ public partial class MainNavigation : IDisposable
 
     [Inject]
     private IMenuSelectionState MenuSelectionState { get; set; } = default!;
-
-    ~MainNavigation()
-    {
-        Dispose(false);
-    }
 
     public void Dispose()
     {
@@ -76,7 +76,7 @@ public partial class MainNavigation : IDisposable
         AuthenticationStateProvider.AuthenticationStateChanged += OnAuthenticationStateChanged;
     }
 
-    private async void OnAuthenticationStateChanged(Task<AuthenticationState> _)
+    private async void OnAuthenticationStateChanged(Task<AuthenticationState> task)
     {
         _user = await UserService.GetCurrentUserAsync();
         StateHasChanged();

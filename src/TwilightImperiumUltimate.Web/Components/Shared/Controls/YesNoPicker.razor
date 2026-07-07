@@ -5,7 +5,7 @@
     <Label Text="@Title" FontSize="@FontSize"/>
     <FlexRowContainer AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.FlexStart">
         <ArrowButton ArrowSymbol="@LeftArrowSymbol" OnArrowClick="() => ToggleValue()" />
-        <Label Text="@GetDisplayValue()" CenterText="true" FontSize="@FontSize" TextColor="@(Value == true ? TextColor.Green : TextColor.Red)" />
+        <Label Text="@GetDisplayValue()" CenterText="true" FontSize="@FontSize" TextColor="@(Value ? TextColor.Green : TextColor.Red)" />
         <ArrowButton ArrowSymbol="@RightArrowSymbol" OnArrowClick="() => ToggleValue()" />
     </FlexRowContainer>
 </FlexRowContainer>

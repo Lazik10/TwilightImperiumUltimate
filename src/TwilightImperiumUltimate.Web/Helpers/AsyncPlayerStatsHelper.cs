@@ -12,14 +12,14 @@ public static class AsyncPlayerStatsHelper
         return propertySelector(instance);
     }
 
-    public static int GetIntValue(this AsyncPlayerFactionStatsByGameVp instance, Func<AsyncPlayerFactionStatsByGameVp, int> propertySelector)
+    public static float GetFloatValue(this AsyncFactionStatsByGameVpDto instance, Func<AsyncFactionStatsByGameVpDto, float> propertySelector)
     {
         ArgumentNullException.ThrowIfNull(propertySelector);
 
         return propertySelector(instance);
     }
 
-    public static float GetFloatValue(this AsyncFactionStatsByGameVpDto instance, Func<AsyncFactionStatsByGameVpDto, float> propertySelector)
+    public static int GetIntValue(this AsyncPlayerFactionStatsByGameVp instance, Func<AsyncPlayerFactionStatsByGameVp, int> propertySelector)
     {
         ArgumentNullException.ThrowIfNull(propertySelector);
 

@@ -13,12 +13,12 @@ public partial class VerticalCard
     [Inject]
     private IPathProvider PathProvider { get; set; } = default!;
 
+    private string CardImagePath => PathProvider.GetCardImagePath(Name, TypeOfCard);
+
     protected override void OnParametersSet()
     {
         _isImageLoaded = false;
     }
-
-    private string CardImagePath => PathProvider.GetCardImagePath(Name, TypeOfCard);
 
     private string GetContainerClass()
     {

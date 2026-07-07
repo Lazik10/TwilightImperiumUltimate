@@ -22,6 +22,14 @@ public partial class SeasonAdminDashboard : ComponentBase
         await LoadSeasonsAsync();
     }
 
+    private static void BeginEdit(SeasonEditModel model) => model.IsEditing = true;
+
+    private static void CancelEdit(SeasonEditModel model)
+    {
+        model.Reset();
+        model.IsEditing = false;
+    }
+
     private async Task LoadSeasonsAsync()
     {
         _loading = true;
@@ -39,14 +47,6 @@ public partial class SeasonAdminDashboard : ComponentBase
         }
 
         _loading = false;
-    }
-
-    private static void BeginEdit(SeasonEditModel model) => model.IsEditing = true;
-
-    private static void CancelEdit(SeasonEditModel model)
-    {
-        model.Reset();
-        model.IsEditing = false;
     }
 
     private async Task SaveSeasonAsync(SeasonEditModel model)

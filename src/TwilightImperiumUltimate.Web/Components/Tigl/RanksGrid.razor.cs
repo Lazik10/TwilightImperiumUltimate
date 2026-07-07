@@ -28,6 +28,80 @@ public partial class RanksGrid
         }
     }
 
+    private static Dictionary<string, List<TiglUserRanking>> GroupRankingsStandard(List<TiglUserRanking> list)
+    {
+        var result = new Dictionary<string, List<TiglUserRanking>>();
+
+        var withPrestige = list.Where(x => x.HasPrestigeRank).ToList();
+        var withoutPrestige = list.Where(x => !x.HasPrestigeRank).ToList();
+
+        // PMBG group first
+        var pmbg = withPrestige
+            .Where(x => x.Prestige == TiglPrestigeRank.PaxMagnificaBellumGloriosum)
+            .OrderBy(x => x.LastAchievedAt)
+            .ToList();
+        if (pmbg.Count > 0)
+            result[Strings.Rankings_PrestigeRankCategory_Pmbg] = pmbg;
+
+        // Track already grouped users to avoid duplicates across groups
+        var used = new HashSet<int>(pmbg.Select(x => x.Id));
+        List<TiglUserRanking> ExcludeUsed(IEnumerable<TiglUserRanking> source) => source.Where(x => !used.Contains(x.Id)).ToList();
+        void AddGroup(string key, IEnumerable<TiglUserRanking> items)
+        {
+            var listItems = ExcludeUsed(items);
+            foreach (var i in listItems) used.Add(i.Id);
+            if (listItems.Count > 0)
+                result[key] = listItems;
+        }
+
+        // Define prestige buckets (Min..Max inclusive) with localized titles
+        var prestigeBuckets = new (string Title, int Min, int Max)[]
+        {
+            (Strings.Rankings_PrestigeRankCategory_GalacticThreatFive, 25, 31),
+            (Strings.Rankings_PrestigeRankCategory_GalacticThreatFour, 20, 24),
+            (Strings.Rankings_PrestigeRankCategory_GalacticThreatThree, 15, 19),
+            (Strings.Rankings_PrestigeRankCategory_GalacticThreatTwo, 10, 14),
+            (Strings.Rankings_PrestigeRankCategory_GalacticThreatOne, 5, 9),
+        };
+
+        foreach (var (title, min, max) in prestigeBuckets)
+        {
+            AddGroup(
+                title,
+                withPrestige
+                    .Where(x => x.Prestige != TiglPrestigeRank.PaxMagnificaBellumGloriosum
+                             && x.FactionPrestigeRankCount >= min && x.FactionPrestigeRankCount <= max)
+                    .OrderByDescending(x => x.FactionPrestigeRankCount)
+                    .ThenBy(x => x.GamesPlayed)
+                    .ThenBy(x => x.LastAchievedAt));
+        }
+
+        // Hero (non-prestige)
+        AddGroup(Strings.Rankings_PrestigeRankCategory_Hero, withoutPrestige
+            .Where(x => x.Rank == TiglRankName.Hero)
+            .OrderByDescending(x => x.FactionPrestigeRankCount)
+            .ThenBy(x => x.GamesPlayed)
+            .ThenBy(x => x.LastAchievedAt));
+
+        // Commander, Agent, Minister (non-prestige) as separate groups
+        AddGroup(Strings.Rankings_PrestigeRankCategory_Commander, withoutPrestige
+            .Where(x => x.Rank == TiglRankName.Commander)
+            .OrderBy(x => x.GamesPlayed)
+            .ThenBy(x => x.LastAchievedAt));
+
+        AddGroup(Strings.Rankings_PrestigeRankCategory_Agent, withoutPrestige
+            .Where(x => x.Rank == TiglRankName.Agent)
+            .OrderBy(x => x.GamesPlayed)
+            .ThenBy(x => x.LastAchievedAt));
+
+        AddGroup(Strings.Rankings_PrestigeRankCategory_Minister, withoutPrestige
+            .Where(x => x.Rank == TiglRankName.Minister)
+            .OrderBy(x => x.GamesPlayed)
+            .ThenBy(x => x.LastAchievedAt));
+
+        return result;
+    }
+
     private Dictionary<string, List<TiglUserRanking>> GroupRankingsFractured(List<TiglUserRanking> list)
     {
         var result = new Dictionary<string, List<TiglUserRanking>>();
@@ -153,79 +227,5 @@ public partial class RanksGrid
 
         _loading = false;
         StateHasChanged();
-    }
-
-    private static Dictionary<string, List<TiglUserRanking>> GroupRankingsStandard(List<TiglUserRanking> list)
-    {
-        var result = new Dictionary<string, List<TiglUserRanking>>();
-
-        var withPrestige = list.Where(x => x.HasPrestigeRank).ToList();
-        var withoutPrestige = list.Where(x => !x.HasPrestigeRank).ToList();
-
-        // PMBG group first
-        var pmbg = withPrestige
-            .Where(x => x.Prestige == TiglPrestigeRank.PaxMagnificaBellumGloriosum)
-            .OrderBy(x => x.LastAchievedAt)
-            .ToList();
-        if (pmbg.Count > 0)
-            result[Strings.Rankings_PrestigeRankCategory_Pmbg] = pmbg;
-
-        // Track already grouped users to avoid duplicates across groups
-        var used = new HashSet<int>(pmbg.Select(x => x.Id));
-        List<TiglUserRanking> ExcludeUsed(IEnumerable<TiglUserRanking> source) => source.Where(x => !used.Contains(x.Id)).ToList();
-        void AddGroup(string key, IEnumerable<TiglUserRanking> items)
-        {
-            var listItems = ExcludeUsed(items);
-            foreach (var i in listItems) used.Add(i.Id);
-            if (listItems.Count > 0)
-                result[key] = listItems;
-        }
-
-        // Define prestige buckets (Min..Max inclusive) with localized titles
-        var prestigeBuckets = new (string Title, int Min, int Max)[]
-        {
-            (Strings.Rankings_PrestigeRankCategory_GalacticThreatFive, 25, 31),
-            (Strings.Rankings_PrestigeRankCategory_GalacticThreatFour, 20, 24),
-            (Strings.Rankings_PrestigeRankCategory_GalacticThreatThree, 15, 19),
-            (Strings.Rankings_PrestigeRankCategory_GalacticThreatTwo, 10, 14),
-            (Strings.Rankings_PrestigeRankCategory_GalacticThreatOne, 5, 9),
-        };
-
-        foreach (var (title, min, max) in prestigeBuckets)
-        {
-            AddGroup(
-                title,
-                withPrestige
-                    .Where(x => x.Prestige != TiglPrestigeRank.PaxMagnificaBellumGloriosum
-                             && x.FactionPrestigeRankCount >= min && x.FactionPrestigeRankCount <= max)
-                    .OrderByDescending(x => x.FactionPrestigeRankCount)
-                    .ThenBy(x => x.GamesPlayed)
-                    .ThenBy(x => x.LastAchievedAt));
-        }
-
-        // Hero (non-prestige)
-        AddGroup(Strings.Rankings_PrestigeRankCategory_Hero, withoutPrestige
-            .Where(x => x.Rank == TiglRankName.Hero)
-            .OrderByDescending(x => x.FactionPrestigeRankCount)
-            .ThenBy(x => x.GamesPlayed)
-            .ThenBy(x => x.LastAchievedAt));
-
-        // Commander, Agent, Minister (non-prestige) as separate groups
-        AddGroup(Strings.Rankings_PrestigeRankCategory_Commander, withoutPrestige
-            .Where(x => x.Rank == TiglRankName.Commander)
-            .OrderBy(x => x.GamesPlayed)
-            .ThenBy(x => x.LastAchievedAt));
-
-        AddGroup(Strings.Rankings_PrestigeRankCategory_Agent, withoutPrestige
-            .Where(x => x.Rank == TiglRankName.Agent)
-            .OrderBy(x => x.GamesPlayed)
-            .ThenBy(x => x.LastAchievedAt));
-
-        AddGroup(Strings.Rankings_PrestigeRankCategory_Minister, withoutPrestige
-            .Where(x => x.Rank == TiglRankName.Minister)
-            .OrderBy(x => x.GamesPlayed)
-            .ThenBy(x => x.LastAchievedAt));
-
-        return result;
     }
 }

@@ -19,15 +19,6 @@ public static class EnumExtensions
         return displayName ?? enumValue.GetType().ToString();
     }
 
-    public static string GetCardDisplayName<TEnum>(this TEnum enumValue)
-    {
-        ArgumentNullException.ThrowIfNull(enumValue);
-
-        string key = $"{enumValue.GetType().Name}_{enumValue}";
-        string? displayName = CardNameResourceManager.GetString(key, CultureInfo.InvariantCulture);
-        return displayName ?? string.Empty;
-    }
-
     public static string GetDisplayName(this TiglPrestigeRank enumValue)
     {
         string key = enumValue.ToString();
@@ -39,6 +30,15 @@ public static class EnumExtensions
     {
         string key = enumValue.ToString();
         string? displayName = TiglFactionsResourceManager.GetString(key, CultureInfo.InvariantCulture);
+        return displayName ?? string.Empty;
+    }
+
+    public static string GetCardDisplayName<TEnum>(this TEnum enumValue)
+    {
+        ArgumentNullException.ThrowIfNull(enumValue);
+
+        string key = $"{enumValue.GetType().Name}_{enumValue}";
+        string? displayName = CardNameResourceManager.GetString(key, CultureInfo.InvariantCulture);
         return displayName ?? string.Empty;
     }
 

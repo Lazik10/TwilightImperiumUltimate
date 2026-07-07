@@ -32,9 +32,9 @@ public class LoginService(IUserService userService, TwilightImperiumAuthenticati
         return loginSuccess;
     }
 
-    public async Task LogoutAsync(CancellationToken ct = default)
+    public async Task LogoutAsync(CancellationToken cancellationToken = default)
     {
-        await _userService.LogoutUserAsync(ct);
+        await _userService.LogoutUserAsync(cancellationToken);
         stateProvider.NotifyUserLogout();
     }
 }

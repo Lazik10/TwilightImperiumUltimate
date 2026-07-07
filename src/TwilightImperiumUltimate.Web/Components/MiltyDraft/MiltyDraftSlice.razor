@@ -8,7 +8,7 @@
 
         <div class="milty-draft-slice-grid">
 
-            @foreach(var systemTile in SliceModel.SystemTiles)
+            @foreach(var systemTile in SliceModel?.SystemTiles ?? Enumerable.Empty<SystemTileModel>())
             {
                 <div class="hex">
                     <MiltyDraftHex SystemTile="systemTile" />

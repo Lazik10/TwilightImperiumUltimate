@@ -1,8 +1,6 @@
 using TwilightImperiumUltimate.Contracts.DTOs.Rankings;
 using TwilightImperiumUltimate.Contracts.DTOs.Tigl;
 using TwilightImperiumUltimate.Web.Helpers.Enums;
-using TwilightImperiumUltimate.Web.Helpers.Tigl;
-using TwilightImperiumUltimate.Web.Services.Path;
 
 namespace TwilightImperiumUltimate.Web.Components.TiglProfile;
 
@@ -10,11 +8,11 @@ public partial class TiglProfileGrid
 {
     private static readonly TiglLeague[] LeagueDisplayOrder = { TiglLeague.ThundersEdge, TiglLeague.Fractured, TiglLeague.ProphecyOfKings };
 
+    private readonly HashSet<string> _expandedSeasons = new();
     private int _factionRow;
     private bool _showAllAchievements;
     private FactionStatisticsFilter _selectedFactionFilter = FactionStatisticsFilter.Official;
     private FactionStatisticsVpFilter _selectedScoreFilter = FactionStatisticsVpFilter.All;
-    private readonly HashSet<string> _expandedSeasons = new();
 
     public TiglProfileCategory CurrentCategory { get; set; } = TiglProfileCategory.All;
 
@@ -52,6 +50,52 @@ public partial class TiglProfileGrid
     private List<ChartSeries> GlickoChartSeries => BuildGlickoChartSeries();
 
     private List<ChartSeries> TrueSkillChartSeries => BuildTrueSkillChartSeries();
+
+    private static IReadOnlyList<TiglFactionName> GetFactionsByFilter(FactionStatisticsFilter filter)
+    {
+        return filter switch
+        {
+            FactionStatisticsFilter.Official => Enum.GetValues<TiglFactionName>()
+                .Where(f => f >= TiglFactionName.TheArborec && f <= TiglFactionName.TheRalNelConsortium)
+                .ToList(),
+            FactionStatisticsFilter.DiscordantStars => Enum.GetValues<TiglFactionName>()
+                .Where(f => f >= TiglFactionName.TheAugursOfIlyxum && f <= TiglFactionName.TheZelianPurifier)
+                .ToList(),
+            FactionStatisticsFilter.Others => Enum.GetValues<TiglFactionName>()
+                .Where(f => (f >= TiglFactionName.TheRubyMonarch && f <= TiglFactionName.ASickeningLurch) ||
+                            (f >= TiglFactionName.UydaiConclave && f <= TiglFactionName.TwilightsFall))
+                .ToList(),
+            _ => Array.Empty<TiglFactionName>(),
+        };
+    }
+
+    private static TextColor GetPrestigeColor(TiglPrestigeRank prestigeRank)
+    {
+        return prestigeRank switch
+        {
+            TiglPrestigeRank.PaxMagnificaBellumGloriosum => TextColor.Pmbg,
+            TiglPrestigeRank.GalacticThreat => TextColor.GalacticThreat,
+            TiglPrestigeRank.Tyrant => TextColor.Tyrant,
+            _ => TextColor.White,
+        };
+    }
+
+    private static string FormatTimestamp(long unixTimestamp)
+    {
+        if (unixTimestamp <= 0)
+            return "N/A";
+
+        var dt = DateTimeOffset.FromUnixTimeMilliseconds(unixTimestamp).UtcDateTime;
+        return dt.ToString("yyyy-MM-dd");
+    }
+
+    private static TiglLeague MapCategoryToLeague(TiglProfileCategory category) => category switch
+    {
+        TiglProfileCategory.ProphecyOfKings => TiglLeague.ProphecyOfKings,
+        TiglProfileCategory.ThundersEdge => TiglLeague.ThundersEdge,
+        TiglProfileCategory.Fractured => TiglLeague.Fractured,
+        _ => TiglLeague.ProphecyOfKings,
+    };
 
     private void OnCategoryChanged(TiglProfileCategory category)
     {
@@ -241,24 +285,6 @@ public partial class TiglProfileGrid
         return games.ToList();
     }
 
-    private static IReadOnlyList<TiglFactionName> GetFactionsByFilter(FactionStatisticsFilter filter)
-    {
-        return filter switch
-        {
-            FactionStatisticsFilter.Official => Enum.GetValues<TiglFactionName>()
-                .Where(f => f >= TiglFactionName.TheArborec && f <= TiglFactionName.TheRalNelConsortium)
-                .ToList(),
-            FactionStatisticsFilter.DiscordantStars => Enum.GetValues<TiglFactionName>()
-                .Where(f => f >= TiglFactionName.TheAugursOfIlyxum && f <= TiglFactionName.TheZelianPurifier)
-                .ToList(),
-            FactionStatisticsFilter.Others => Enum.GetValues<TiglFactionName>()
-                .Where(f => (f >= TiglFactionName.TheRubyMonarch && f <= TiglFactionName.ASickeningLurch) ||
-                            (f >= TiglFactionName.UydaiConclave && f <= TiglFactionName.TwilightsFall))
-                .ToList(),
-            _ => Array.Empty<TiglFactionName>(),
-        };
-    }
-
     private IEnumerable<TiglGamesByYear> GetGroupedFilteredGames()
     {
         return FilteredGameHistory
@@ -347,17 +373,6 @@ public partial class TiglProfileGrid
         if (league.TrueSkillMatchHistory.Count == 0)
             return league.TrueSkillConservative;
         return Math.Max(league.TrueSkillConservative, league.TrueSkillMatchHistory.Max(m => m.ConservativeRatingNew));
-    }
-
-    private static TextColor GetPrestigeColor(TiglPrestigeRank prestigeRank)
-    {
-        return prestigeRank switch
-        {
-            TiglPrestigeRank.PaxMagnificaBellumGloriosum => TextColor.Pmbg,
-            TiglPrestigeRank.GalacticThreat => TextColor.GalacticThreat,
-            TiglPrestigeRank.Tyrant => TextColor.Tyrant,
-            _ => TextColor.White,
-        };
     }
 
     private PrestigeRankHistoryDto? GetLeaguePrestigeTitle(TiglLeague league)
@@ -530,23 +545,6 @@ public partial class TiglProfileGrid
         _showAllAchievements = (bool)(e.Value ?? false);
         StateHasChanged();
     }
-
-    private static string FormatTimestamp(long unixTimestamp)
-    {
-        if (unixTimestamp <= 0)
-            return "N/A";
-
-        var dt = DateTimeOffset.FromUnixTimeMilliseconds(unixTimestamp).UtcDateTime;
-        return dt.ToString("yyyy-MM-dd");
-    }
-
-    private static TiglLeague MapCategoryToLeague(TiglProfileCategory category) => category switch
-    {
-        TiglProfileCategory.ProphecyOfKings => TiglLeague.ProphecyOfKings,
-        TiglProfileCategory.ThundersEdge => TiglLeague.ThundersEdge,
-        TiglProfileCategory.Fractured => TiglLeague.Fractured,
-        _ => TiglLeague.ProphecyOfKings,
-    };
 
     public class ChartDataPoint
     {
@@ -760,15 +758,25 @@ public partial class TiglProfileGrid
     private static string GetDeltaArrow(double delta) =>
         delta >= 0 ? "\u25b2" : "\u25bc";
 
-    private readonly record struct GameRatingDeltas(
-        double AsyncDelta, bool HasAsync,
-        double GlickoDelta, bool HasGlicko,
-        double TrueSkillDelta, bool HasTrueSkill);
+    private static string GetPrestigeDisplayText(PrestigeRankHistoryDto prestige)
+    {
+        var name = prestige.PrestigeRank.GetDisplayName();
+        if (prestige.PrestigeRank is TiglPrestigeRank.GalacticThreat or TiglPrestigeRank.Tyrant && prestige.Level > 0)
+        {
+            var roman = prestige.Level switch
+            {
+                1 => "I",
+                2 => "II",
+                3 => "III",
+                4 => "IV",
+                5 => "V",
+                _ => prestige.Level.ToString(),
+            };
+            return $"{name} {roman}";
+        }
 
-    private readonly record struct SeasonRatingSummary(
-        double AsyncEnd, double AsyncDelta, bool HasAsync,
-        double GlickoEnd, double GlickoDelta, bool HasGlicko,
-        double TrueSkillEnd, double TrueSkillDelta, bool HasTrueSkill);
+        return name;
+    }
 
     private static string FormatRankUpDuration(long fromTimestamp, long toTimestamp)
     {
@@ -831,23 +839,7 @@ public partial class TiglProfileGrid
 
     private string GetHeroIconPath(TiglFactionName faction) => PathProvider.GetLeaderIconPath(faction, LeaderType.Hero);
 
-    private static string GetPrestigeDisplayText(PrestigeRankHistoryDto prestige)
-    {
-        var name = prestige.PrestigeRank.GetDisplayName();
-        if (prestige.PrestigeRank is TiglPrestigeRank.GalacticThreat or TiglPrestigeRank.Tyrant && prestige.Level > 0)
-        {
-            var roman = prestige.Level switch
-            {
-                1 => "I",
-                2 => "II",
-                3 => "III",
-                4 => "IV",
-                5 => "V",
-                _ => prestige.Level.ToString(),
-            };
-            return $"{name} {roman}";
-        }
+    private readonly record struct GameRatingDeltas(double AsyncDelta, bool HasAsync, double GlickoDelta, bool HasGlicko, double TrueSkillDelta, bool HasTrueSkill);
 
-        return name;
-    }
+    private readonly record struct SeasonRatingSummary(double AsyncEnd, double AsyncDelta, bool HasAsync, double GlickoEnd, double GlickoDelta, bool HasGlicko, double TrueSkillEnd, double TrueSkillDelta, bool HasTrueSkill);
 }

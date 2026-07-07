@@ -7,7 +7,6 @@ namespace TwilightImperiumUltimate.Web.Pages.Tigl;
 
 public partial class TiglGameReportDetail
 {
-    private int _placement;
     private IJSObjectReference? _jsModule;
     private RankingSystem _selectedRankingSystem = RankingSystem.TrueSkill;
 

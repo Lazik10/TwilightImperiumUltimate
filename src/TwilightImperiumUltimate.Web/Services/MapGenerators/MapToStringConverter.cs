@@ -251,7 +251,7 @@ public class MapToStringConverter(
 
         for (var i = 0; i < tiUltimatePositionsWithoutMecatolRex.Count; i++)
         {
-            if (map.TryGetValue(tiUltimatePositionsWithoutMecatolRex[i], out var systemTile))
+            if (map.TryGetValue(tiUltimatePositionsWithoutMecatolRex[i], out var _))
             {
                 _logger.LogInformation(
                     "Handling position: {Position}, searching for system tile with Code: {SystemTileCode}",

@@ -460,7 +460,7 @@ public class MiltyDraftService(
 
     private void AssignRandomPlayerColors()
     {
-        var colors = Enum.GetValues(typeof(DraftColor)).Cast<DraftColor>().ToList();
+        var colors = Enum.GetValues<DraftColor>().ToList();
         colors.Remove(DraftColor.None);
 
         foreach (var player in _miltyDraftSettingsService.Players)

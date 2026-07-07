@@ -21,6 +21,29 @@ public class GlickoRatingCalculatorService : IGlickoRatingCalculatorService
     private const double SigmaGrowthCap = 2.0;        // max × growth of sigma per update
     private static readonly double PhiPrimeCap = MaxRD / Scale; // keep update consistent with stored RD cap
 
+    private static double G(double phi)
+    {
+        double denom = Math.Sqrt(1.0 + (3.0 * phi * phi / (Math.PI * Math.PI)));
+        return 1.0 / denom;
+    }
+
+    // Numerically stable logistic
+    private static double EFunc(double mu, double mu_j, double phi_j)
+    {
+        double g = G(phi_j);
+        double d = g * (mu - mu_j);
+        if (d >= 0)
+        {
+            double z = Math.Exp(-d);
+            return 1.0 / (1.0 + z);
+        }
+        else
+        {
+            double z = Math.Exp(d);
+            return z / (1.0 + z);
+        }
+    }
+
     public async Task UpdatePlayerMatchStats(IReadOnlyCollection<GlickoPlayerMatchStats> matchStats, int season)
     {
         if (matchStats is null || matchStats.Count < 2)
@@ -193,28 +216,5 @@ public class GlickoRatingCalculatorService : IGlickoRatingCalculatorService
         double term1 = num / denom;
         double term2 = (x - a) / (Tau * Tau);
         return term1 - term2;
-    }
-
-    private static double G(double phi)
-    {
-        double denom = Math.Sqrt(1.0 + (3.0 * phi * phi / (Math.PI * Math.PI)));
-        return 1.0 / denom;
-    }
-
-    // Numerically stable logistic
-    private static double EFunc(double mu, double mu_j, double phi_j)
-    {
-        double g = G(phi_j);
-        double d = g * (mu - mu_j);
-        if (d >= 0)
-        {
-            double z = Math.Exp(-d);
-            return 1.0 / (1.0 + z);
-        }
-        else
-        {
-            double z = Math.Exp(d);
-            return z / (1.0 + z);
-        }
     }
 }

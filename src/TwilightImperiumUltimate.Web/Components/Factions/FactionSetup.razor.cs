@@ -11,6 +11,16 @@ public partial class FactionSetup : FactionInfoComponentBase
         GetStartingTechnologyString();
     }
 
+    private static int GetTechnologyColumns(int technologyCount)
+    {
+        return technologyCount switch
+        {
+            <= 0 => 1,
+            1 => 1,
+            _ => 2,
+        };
+    }
+
     private List<UnitModel> GetStartingUnits()
     {
         return Faction.StartingUnits.OrderBy(x => x.UnitName).ToList();
@@ -25,16 +35,6 @@ public partial class FactionSetup : FactionInfoComponentBase
     {
         var totalStartingUnitCount = startingUnits.Sum(x => x.Count);
         return totalStartingUnitCount > 0 ? Math.Min(100 / 12, 100 / totalStartingUnitCount) : 100;
-    }
-
-    private static int GetTechnologyColumns(int technologyCount)
-    {
-        return technologyCount switch
-        {
-            <= 0 => 1,
-            1 => 1,
-            _ => 2,
-        };
     }
 
     private void GetStartingTechnologyString()

@@ -94,7 +94,7 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
         }
     }
 
-    public async Task<bool> GetAsync(string query, string endpointPath, CancellationToken cancellationToken)
+    public async Task<bool> GetAsync(string query, string endpointPath, CancellationToken cancellationToken = default)
     {
         Uri uri = new(string.Concat(_httpClient.BaseAddress, endpointPath, query));
         HttpResponseMessage response = await _httpClient.GetAsync(uri, cancellationToken);

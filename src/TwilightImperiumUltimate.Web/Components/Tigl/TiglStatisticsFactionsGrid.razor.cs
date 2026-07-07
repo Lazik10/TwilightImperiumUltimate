@@ -20,9 +20,22 @@ public partial class TiglStatisticsFactionsGrid
         || _season == -1
         || _season >= ThundersEdgeFirstSeason;
 
-    [Inject] private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
+    [Inject] 
+    private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
 
-    [Inject] private ITiglDataCache TiglCache { get; set; } = default!;
+    [Inject] 
+    private ITiglDataCache TiglCache { get; set; } = default!;
+
+    public static TextColor GetWinrateColor(double winrate)
+    {
+        if (winrate > 16.67f) 
+            return TextColor.Green;
+        if (winrate > 12.0f) 
+            return TextColor.Yellow;
+        if (winrate > 8.0f) 
+            return TextColor.Orange;
+        return TextColor.Red;
+    }
 
     protected override async Task OnInitializedAsync()
     {
@@ -183,13 +196,5 @@ public partial class TiglStatisticsFactionsGrid
                 };
             })
             .ToList();
-    }
-
-    public static TextColor GetWinrateColor(double winrate)
-    {
-        if (winrate > 16.67f) return TextColor.Green;
-        if (winrate > 12.0f) return TextColor.Yellow;
-        if (winrate > 8.0f) return TextColor.Orange;
-        return TextColor.Red;
     }
 }

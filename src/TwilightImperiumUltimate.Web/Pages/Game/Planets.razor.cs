@@ -221,7 +221,6 @@ public partial class Planets
         return planets;
     }
 
-
     private void ShowBigImage(PlanetModel planet, string culture)
     {
         _currentBigImageSrc = GetPlanetImagePath(planet);

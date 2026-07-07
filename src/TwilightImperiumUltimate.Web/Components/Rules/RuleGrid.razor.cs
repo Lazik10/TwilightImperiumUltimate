@@ -70,7 +70,7 @@ public partial class RuleGrid
 
     private async Task InitializeRules()
     {
-        var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<RuleDto>>>(Paths.ApiPath_Rules, default);
+        var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<RuleDto>>>(Paths.ApiPath_Rules);
         if (statusCode == HttpStatusCode.OK)
         {
             _rules = Mapper.Map<List<RuleModel>>(response!.Data!.Items);

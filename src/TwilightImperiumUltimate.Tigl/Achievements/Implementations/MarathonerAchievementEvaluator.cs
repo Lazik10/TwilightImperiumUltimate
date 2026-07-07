@@ -1,5 +1,4 @@
-﻿using TwilightImperiumUltimate.Contracts.Enums;
-using TwilightImperiumUltimate.Core.Entities.RelationshipEntities;
+using TwilightImperiumUltimate.Contracts.Enums;
 using TwilightImperiumUltimate.Core.Entities.Tigl;
 using TwilightImperiumUltimate.DataAccess.Repositories;
 using TwilightImperiumUltimate.Tigl.Achievements.Attributes;
@@ -27,19 +26,10 @@ public sealed class MarathonerAchievementEvaluator(
 
         var games = new List<MatchReport>() { slowestGameFractured, slowestGameThundersEdge };
 
-        foreach (var slowestGame in games)
+        foreach (var (slowestGame, player) in games.Where(slowestGame => slowestGame is not null)
+            .SelectMany(slowestGame => slowestGame.PlayerResults.Where(x => x.IsWinner).Select(player => (slowestGame, player))))
         {
-            if (slowestGame is not null)
-            {
-                foreach (var player in slowestGame.PlayerResults.Where(x => x.IsWinner))
-                {
-                    await achievementRepository.AwardAchievement(
-                        player.TiglUserId,
-                        slowestGame,
-                        achievementName,
-                        cancellationToken);
-                }
-            }
+            await achievementRepository.AwardAchievement(player.TiglUserId, slowestGame, achievementName, cancellationToken);
         }
     }
 }

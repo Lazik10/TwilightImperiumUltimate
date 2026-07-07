@@ -7,6 +7,10 @@ namespace TwilightImperiumUltimate.Web.Components.Tigl;
 public partial class TiglLeaderboardGrid
 {
     private const int PageSize = 50;
+
+    // Key: SeasonNumber => Value: League => List of results
+    private readonly Dictionary<int, Dictionary<TiglLeague, List<PlayerSeasonResultDto>>> _seasonLeagueResults = [];
+
     private int _currentPage = 1;
 
     private bool _loading;
@@ -18,9 +22,6 @@ public partial class TiglLeaderboardGrid
 
     private bool _onlyActive = true;
     private bool _onlyConfident = true;
-
-    // Key: SeasonNumber => Value: League => List of results
-    private readonly Dictionary<int, Dictionary<TiglLeague, List<PlayerSeasonResultDto>>> _seasonLeagueResults = [];
 
     // Currently selected season (last season by default once loaded)
     private int _selectedSeasonNumber;
@@ -40,9 +41,12 @@ public partial class TiglLeaderboardGrid
 
     public static TextColor GetWinrateColor(double winrate)
     {
-        if (winrate > 16.67f) return TextColor.Green;
-        if (winrate > 12.0f) return TextColor.Yellow;
-        if (winrate > 8.0f) return TextColor.Orange;
+        if (winrate > 16.67f) 
+            return TextColor.Green;
+        if (winrate > 12.0f) 
+            return TextColor.Yellow;
+        if (winrate > 8.0f) 
+            return TextColor.Orange;
         return TextColor.Red;
     }
 

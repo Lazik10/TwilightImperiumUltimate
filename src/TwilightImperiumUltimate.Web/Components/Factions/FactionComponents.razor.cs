@@ -117,7 +117,7 @@ public partial class FactionComponents : FactionInfoComponentBase
 
     private string GetBreakthroughPath()
     {
-        var name = _breakthroughCards.First().BreakthroughName;
+        var name = _breakthroughCards[0].BreakthroughName;
         return PathProvider.GetBreakthroughImagePath(name);
     }
 

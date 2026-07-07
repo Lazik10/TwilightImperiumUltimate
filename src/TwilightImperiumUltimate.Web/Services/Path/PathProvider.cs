@@ -160,7 +160,6 @@ public class PathProvider : IPathProvider
 
     public string GetWebsitePreviewImagePath(string fileName)
     {
-        // TODO: This is bad, should be handled differently, but I don't have the time to refactor this now.
         var websitePath = fileName switch
         {
             "Fantasy Flight Games" => "FFG",

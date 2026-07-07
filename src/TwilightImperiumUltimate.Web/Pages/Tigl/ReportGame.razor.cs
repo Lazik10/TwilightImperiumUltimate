@@ -350,10 +350,9 @@ public partial class ReportGame
             if (!allowed.Contains(_selectedVpCount))
                 validationErrors.Add("Standard league supports VP of 10, 12 or 14 only.");
         }
-        else if (_selectedLeague == TiglLeague.Fractured)
+        else if (_selectedLeague == TiglLeague.Fractured && (_selectedVpCount < MinVictoryPoints || _selectedVpCount > MaxVictoryPoints))
         {
-            if (_selectedVpCount < MinVictoryPoints || _selectedVpCount > MaxVictoryPoints)
-                validationErrors.Add("Fractured league supports VP between 10 and 20.");
+            validationErrors.Add("Fractured league supports VP between 10 and 20.");
         }
 
         // 5) Round between 1 and 9
@@ -463,8 +462,6 @@ public partial class ReportGame
         if (_round > _minRound)
             _round--;
     }
-
-    private void RedirectBack() => NavigationManager.NavigateTo(Pages.TiglLeaderboard);
 
     private void ChangeSource(ResultSource source)
     {

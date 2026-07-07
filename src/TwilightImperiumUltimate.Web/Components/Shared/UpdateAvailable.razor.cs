@@ -33,7 +33,7 @@ public partial class UpdateAvailable
             nameof(OnUpdateAvailable));
     }
 
-    private async Task ReloadPage(MouseEventArgs _)
+    private async Task ReloadPage(MouseEventArgs args)
     {
         await JSRuntime.InvokeVoidAsync("window.location.reload");
     }

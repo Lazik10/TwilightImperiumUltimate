@@ -25,17 +25,17 @@ public partial class GameReportsDashboard
     [Inject]
     private IConfiguration Configuration { get; set; } = default!;
 
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadReportsAsync();
+    }
+
     private static string GetUserName(PlayerResultDto player)
     {
         if (player.TiglUserName == player.DiscordUserName)
             return player.TiglUserName;
 
         return $"{player.TiglUserName} ({player.DiscordUserName})";
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        await LoadReportsAsync();
     }
 
     private async Task LoadReportsAsync()

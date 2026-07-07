@@ -1,6 +1,4 @@
-﻿@using TwilightImperiumUltimate.Web.Helpers.Resources;
-
-<div class="system-stats">
+﻿<div class="system-stats">
 @foreach(var line in FactionUIText())
 {
     if (line.Contains("."))
@@ -23,7 +21,6 @@
                 @line
             </div>
         </div>
-        continue;
     }
 }
 </div>
