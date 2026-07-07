@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 using System.Text.Json;
 using Microsoft.Extensions.Options;
 using Quartz;
@@ -29,6 +29,7 @@ public class AsyncGameDataJob(
             using var handler = new HttpClientHandler
             {
                 AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate,
+                CheckCertificateRevocationList = true,
             };
 
             using var client = new HttpClient(handler)

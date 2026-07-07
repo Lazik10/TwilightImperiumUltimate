@@ -1,9 +1,8 @@
-﻿@inherits BaseMap
+@inherits BaseMap
 
 <div class="container">
 
-    @if (GeneratedPositionsWithSystemTiles is not null
-    && GeneratedPositionsWithSystemTiles.Keys.Count() == MapPositions.Count())
+    @if (GeneratedPositionsWithSystemTiles is not null && GeneratedPositionsWithSystemTiles.Keys.Count() == MapPositions.Count())
     {
         foreach (var mapPosition in MapPositions)
         {

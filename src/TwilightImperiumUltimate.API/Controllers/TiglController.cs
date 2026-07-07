@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Text;
 using Microsoft.Extensions.Options;
 using TwilightImperiumUltimate.API.Discord;
 using TwilightImperiumUltimate.API.Helpers;
@@ -17,6 +18,7 @@ namespace TwilightImperiumUltimate.API.Controllers;
 [Route("api/[controller]")]
 [ApiKeyStatsAuth]
 [ApiController]
+[SuppressMessage("Sonar", "S6960", Justification = "Reviewed and accepted")]
 public class TiglController(
     IMediator mediator,
     IDiscordClient discordClient,

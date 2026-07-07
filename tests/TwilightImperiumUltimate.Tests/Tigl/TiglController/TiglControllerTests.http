@@ -1,4 +1,4 @@
-@baseUrl = https://localhost:44307
+@baseUrl = https://localhost:7292
 @discordId = 1
 
 POST {{baseUrl}}/api/tigl/register-user

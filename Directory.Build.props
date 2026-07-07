@@ -1,4 +1,4 @@
-﻿<Project>
+<Project>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <AnalysisLevel>latest</AnalysisLevel>
         <AnalysisMode>all</AnalysisMode>
@@ -17,4 +17,11 @@
         <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.435" PrivateAssets="all" />
         <PackageReference Include="SonarAnalyzer.CSharp" Version="9.3.0.71466" PrivateAssets="all" />
     </ItemGroup>
+
+    <Target Name="PostClean" AfterTargets="Clean">
+      <!-- Remove /bin -->
+      <RemoveDir Directories="$(BaseOutputPath)" />
+      <!-- Remove /obj -->
+      <RemoveDir Directories="$(IntermediateOutputPath)" />
+    </Target>
 </Project>
