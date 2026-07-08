@@ -1,11 +1,21 @@
 ﻿@inherits LayoutComponentBase
 @using TwilightImperiumUltimate.Web.Components.Shared
 
-<main>
+<a class="skip-link" href="#main-content">@Strings.SkipToContent</a>
+
+<div class="page-shell">
     <UpdateAvailable />
-    <AccountMenu />
-    <Header />
-    @Body
+
+    <header class="site-header">
+        <AccountMenu />
+        <Header />
+    </header>
+
+    <main id="main-content" class="site-main" tabindex="-1">
+        @Body
+    </main>
+
     <Footer />
-    <RadzenContextMenu />
-</main>
+</div>
+
+<RadzenContextMenu />

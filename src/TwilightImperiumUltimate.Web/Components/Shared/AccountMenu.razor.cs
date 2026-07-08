@@ -10,6 +10,7 @@ public partial class AccountMenu : IDisposable
 {
     private TwilightImperiumUser? _user;
     private bool _disposed;
+    private bool _isAccountDropdownOpen;
 
     ~AccountMenu()
     {
@@ -65,6 +66,10 @@ public partial class AccountMenu : IDisposable
         _user = await UserService.GetCurrentUserAsync();
         StateHasChanged();
     }
+
+    private void OpenAccountDropdown() => _isAccountDropdownOpen = true;
+
+    private void CloseAccountDropdown() => _isAccountDropdownOpen = false;
 
     private async Task Logout()
     {

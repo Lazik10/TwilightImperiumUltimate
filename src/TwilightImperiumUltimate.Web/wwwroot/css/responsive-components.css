@@ -55,7 +55,7 @@
 
 /* Responsive Radzen Components */
 .responsive-radzen-button {
-    font-family: Handel, fallback, sans-serif;
+    font-family: Handel, sans-serif;
     padding: var(--space-sm) var(--space-md);
     border-radius: var(--border-radius-md);
     transition: all 0.3s ease;
@@ -66,7 +66,7 @@
 }
 
 .responsive-radzen-grid {
-    font-family: Handel, fallback, sans-serif;
+    font-family: Handel, sans-serif;
 }
 
 /* Responsive Spacers */

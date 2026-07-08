@@ -116,6 +116,9 @@ public partial class MainNavigation : IDisposable
         return GetSubMenuClass(subMenuKey);
     }
 
+    private bool IsDesktopMenuOpen(string menuKey) =>
+        string.Equals(_hoveredMainMenuKey, menuKey, StringComparison.OrdinalIgnoreCase);
+
     private void OnMainMenuHoverStart(string menuKey)
     {
         _hoveredMainMenuKey = menuKey;

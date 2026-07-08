@@ -1,7 +1,7 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @using TwilightImperiumUltimate.Web.Components.Shared.Text
 
-<div class="news-article-segment">
+<article class="news-article-segment">
     <div class="news-article-segment__texture" aria-hidden="true">
         <TitleTexture Width="100" Texture="Enums.Texture.TopLeft" />
     </div>
@@ -14,9 +14,7 @@
         </div>
 
         <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" Width="100" AlignItems="Enums.AlignItems.FlexStart">
-            <div class="article-title handel-cz white shadow">
-                @(NewsArticle.Title)
-            </div>
+            <ResponsiveHeading Level="2" Text="@NewsArticle.Title" CssClass="article-title handel-cz white shadow" />
         </FlexRowContainer>
 
         <div class="article-title-line" aria-hidden="true">
@@ -32,7 +30,7 @@
 
             <ResponsiveVerticalSpacer Size="2xl" />
 
-            <div class="article-meta width-100">
+            <footer class="article-meta width-100">
                 <FlexRowContainer JustifyContent="Enums.JustifyContent.SpaceEvenly" CssClass="article-meta-row">
                     <FlexColumnCenteredContainer>
                         <div class="author width handel white shadow">
@@ -42,13 +40,13 @@
 
                     <FlexColumnCenteredContainer>
                         <div class="author width handel white shadow">
-                            @(string.Concat(Strings.News_DateLabel, " ", FormattedCreatedAt))
+                            @Strings.News_DateLabel <time datetime="@FormattedCreatedAt">@FormattedCreatedAt</time>
                         </div>
                     </FlexColumnCenteredContainer>
                 </FlexRowContainer>
-            </div>
+            </footer>
 
             <ResponsiveVerticalSpacer Size="2xl" />
         </FlexColumnCenteredContainer>
     </div>
-</div>
+</article>

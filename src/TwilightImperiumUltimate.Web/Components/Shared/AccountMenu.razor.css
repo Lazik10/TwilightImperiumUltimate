@@ -20,7 +20,7 @@
     min-width: 20px !important;
 }
 
-#main-navbar {
+#account-navbar {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,7 +41,8 @@
     flex-shrink: 1;
 }
 
-    .menu-item a {
+    .menu-item a,
+    .menu-item ::deep .account-trigger {
         color: white;
         font-family: Handel, fallback, sans-serif;
         font-size: 24px;
@@ -68,7 +69,8 @@
         animation: none;
     }
 
-    .dropdown a {
+    .dropdown a,
+    .dropdown ::deep .account-logout {
         font-size: 14px;
         background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.6) 10%, rgba(0,0,0,0.6) 90%, rgba(0,0,0,0));
         color: white;
@@ -79,8 +81,15 @@
         margin-bottom: 1px;
     }
 
-        .dropdown a:hover {
+        .dropdown a:hover,
+        .dropdown ::deep .account-logout:hover {
             font-size: 16px;
+        }
+
+        .dropdown a:focus-visible {
+            outline: 0.125rem solid yellow;
+            outline-offset: -0.125rem;
+            color: yellow;
         }
 
 .menu-container {
@@ -88,10 +97,17 @@
     font-size: 22px;
 }
 
-    .menu-container:hover .dropdown {
+    .menu-container:hover .dropdown,
+    .menu-container:focus-within .dropdown {
         opacity: 1;
         visibility: visible;
     }
+
+#account-menu a:focus-visible {
+    outline: 0.125rem solid yellow;
+    outline-offset: 0.125rem;
+    border-radius: var(--border-radius-sm);
+}
 
 @media (max-width: 768px) {
     #account-menu {

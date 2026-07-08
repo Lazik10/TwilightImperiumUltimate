@@ -1,0 +1,29 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Text
+
+@*
+    Responsive semantic heading component.
+    Renders an <h1>-<h6> element (based on Level) with fluid typography and
+    proper text wrapping so headings stay readable on desktop, tablet and mobile.
+*@
+
+@switch (HeadingLevel)
+{
+    case 1:
+        <h1 class="@ComputedCssClass" style="@ComputedStyle">@Text</h1>
+        break;
+    case 2:
+        <h2 class="@ComputedCssClass" style="@ComputedStyle">@Text</h2>
+        break;
+    case 3:
+        <h3 class="@ComputedCssClass" style="@ComputedStyle">@Text</h3>
+        break;
+    case 4:
+        <h4 class="@ComputedCssClass" style="@ComputedStyle">@Text</h4>
+        break;
+    case 5:
+        <h5 class="@ComputedCssClass" style="@ComputedStyle">@Text</h5>
+        break;
+    default:
+        <h6 class="@ComputedCssClass" style="@ComputedStyle">@Text</h6>
+        break;
+}

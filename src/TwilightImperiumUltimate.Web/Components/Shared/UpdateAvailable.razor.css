@@ -6,14 +6,22 @@
     background-color: black;
 }
 
+.update-notify-inner {
+    /* The FlexColumnCenteredContainer/ResponsiveContainer default inline style sets
+       justify-content/align-items to flex-start, which wins over the plain (non
+       !important) rules below because it's an inline style. !important is required
+       here to actually center the message and button. */
+    padding: var(--space-sm) 0 !important;
+}
+
 .update-notify-content {
     width: 100%;
-    align-items: center;
+    justify-content: center !important;
+    align-items: center !important;
 }
 
 .update-notify-text {
     width: 100%;
-    max-width: 70rem;
     white-space: normal;
     overflow-wrap: anywhere;
     word-break: break-word;

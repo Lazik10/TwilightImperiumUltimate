@@ -22,6 +22,37 @@
       ],
       "group": "build",
       "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "free-web-port",
+      "detail": "Kill any orphaned process still holding the Web dev-server port (7299/5166) before launching.",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/.vscode/free-ports.ps1",
+        "-Ports",
+        "7299,5166"
+      ],
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "build-web-and-free-port",
+      "detail": "Free the Web dev-server port, then build the Web project.",
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "free-web-port",
+        "build-web"
+      ],
+      "problemMatcher": []
     }
   ]
 }

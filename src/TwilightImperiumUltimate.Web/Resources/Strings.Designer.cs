@@ -5550,6 +5550,51 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No news articles yet..
+        /// </summary>
+        public static string News_Empty {
+            get {
+                return ResourceManager.GetString("News_Empty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to News could not be loaded. Please try again later..
+        /// </summary>
+        public static string News_Error {
+            get {
+                return ResourceManager.GetString("News_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toggle navigation menu.
+        /// </summary>
+        public static string Nav_MenuToggleLabel {
+            get {
+                return ResourceManager.GetString("Nav_MenuToggleLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Main.
+        /// </summary>
+        public static string Nav_MainLabel {
+            get {
+                return ResourceManager.GetString("Nav_MainLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Skip to main content.
+        /// </summary>
+        public static string SkipToContent {
+            get {
+                return ResourceManager.GetString("SkipToContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Other Websites.
         /// </summary>
         public static string Page_OtherWebsites {

@@ -45,7 +45,7 @@
     width: calc(100% + (var(--news-texture-width) * 1));
 }
 
-.article-title {
+::deep .article-title {
     font-size: clamp(0.95rem, 0.8rem + 0.8vw, 1.75rem);
     white-space: normal;
     overflow-wrap: anywhere;
@@ -122,7 +122,7 @@
         margin-left: 0;
     }
 
-    .article-title {
+    ::deep .article-title {
         font-size: clamp(0.85rem, 0.75rem + 0.4vw, 1rem);
     }
 
@@ -132,6 +132,7 @@
 
     .markup-text {
         font-size: var(--font-size-xs);
+        text-align: left;
     }
 
     .article-meta-row {

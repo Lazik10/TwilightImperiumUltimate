@@ -2990,6 +2990,21 @@ Brandon Williams&lt;/p&gt;</value>
   <data name="News_Loading" xml:space="preserve">
     <value>...LOADING...</value>
   </data>
+  <data name="News_Empty" xml:space="preserve">
+    <value>No news articles yet.</value>
+  </data>
+  <data name="News_Error" xml:space="preserve">
+    <value>News could not be loaded. Please try again later.</value>
+  </data>
+  <data name="Nav_MenuToggleLabel" xml:space="preserve">
+    <value>Toggle navigation menu</value>
+  </data>
+  <data name="Nav_MainLabel" xml:space="preserve">
+    <value>Main</value>
+  </data>
+  <data name="SkipToContent" xml:space="preserve">
+    <value>Skip to main content</value>
+  </data>
   <data name="Page_TiglInfo" xml:space="preserve">
     <value>Info</value>
   </data>

@@ -16,7 +16,7 @@
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build-api",
-      "program": "${workspaceFolder}/src/TwilightImperiumUltimate.API/bin/Debug/net8.0/TwilightImperiumUltimate.API.dll",
+      "program": "${workspaceFolder}/src/TwilightImperiumUltimate.API/bin/Debug/net10.0/TwilightImperiumUltimate.API.dll",
       "args": [],
       "cwd": "${workspaceFolder}/src/TwilightImperiumUltimate.API",
       "console": "internalConsole",
@@ -35,7 +35,7 @@
       "name": "Web (Blazor)",
       "type": "coreclr",
       "request": "launch",
-      "preLaunchTask": "build-web",
+      "preLaunchTask": "build-web-and-free-port",
       "program": "C:\\Program Files\\dotnet\\dotnet.exe",
       "args": [
         "run",

@@ -24,6 +24,11 @@ const manifestUrlList = self.assetsManifest.assets.map(asset => new URL(asset.ur
 async function onInstall(event) {
     console.info('Service worker: Install');
 
+    // Activate this worker as soon as it finishes installing, instead of staying "waiting"
+    // until every open tab of the previous worker closes. That waiting window is exactly what
+    // let stale asset references (old fingerprinted dll/pdb/wasm names) linger after a rebuild.
+    self.skipWaiting();
+
     // Fetch and cache all matching items from the assets manifest
     const assetsRequests = self.assetsManifest.assets
         .filter(asset => offlineAssetsInclude.some(pattern => pattern.test(asset.url)))
@@ -34,6 +39,9 @@ async function onInstall(event) {
 
 async function onActivate(event) {
     console.info('Service worker: Activate');
+
+    // Take control of any already-open clients right away.
+    await self.clients.claim();
 
     // Delete unused caches
     const cacheKeys = await caches.keys();

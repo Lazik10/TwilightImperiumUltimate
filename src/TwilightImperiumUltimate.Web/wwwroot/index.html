@@ -12,7 +12,6 @@
     <link href="css/app.css" rel="stylesheet" />
     <link href="css/responsive-components.css" rel="stylesheet" />
     <link href="manifest.webmanifest" rel="manifest" />
-    <link href="_framework/blazor.boot.json" rel="preload" as="fetch" />
 
     <!-- If you add any scoped CSS files, uncomment the following to load them -->
     <link href="_content/Radzen.Blazor/css/material-base.css" rel="stylesheet">
@@ -34,22 +33,6 @@
         window.blazorCulture = {
             get: () => window.localStorage['BlazorCulture'],
             set: (value) => window.localStorage['BlazorCulture'] = value
-        };
-    </script>
-
-    <script>
-        window.checkForAppUpdate = async function () {
-            const currentVersion = localStorage.getItem('appVersion');
-            const response = await fetch('_framework/blazor.boot.json', { cache: 'no-store' });
-            const json = await response.json();
-
-            const newVersion = json.cacheBootResources;
-
-            if (currentVersion !== newVersion) {
-                localStorage.setItem('appVersion', newVersion);
-                return true;  // New version detected
-            }
-            return false;  // No new version
         };
     </script>
 

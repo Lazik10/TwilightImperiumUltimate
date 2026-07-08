@@ -21,7 +21,8 @@
     flex-shrink: 1;
 }
 
-.menu-item a {
+.menu-item a,
+.menu-item ::deep .menu-trigger {
     color: white;
     font-family: Handel, fallback, sans-serif;
     font-size: 1.75rem;
@@ -31,24 +32,32 @@
     text-shadow: var(--shadow-text);
 }
 
-.menu-container > a {
+.menu-container > a,
+.menu-container ::deep .menu-trigger {
     display: inline-block;
     padding: 0.35rem 0.6rem;
     border-radius: var(--border-radius-sm);
 }
 
-.menu-container > a:hover {
+.menu-container > a:hover,
+.menu-container ::deep .menu-trigger:hover {
     color: yellow;
+    text-decoration: underline;
+    text-underline-offset: 0.25rem;
 }
 
-.menu-container > a.menu-link-active {
+.menu-container > a.menu-link-active,
+.menu-container ::deep .menu-trigger.menu-link-active {
     background-color: transparent;
     color: yellow;
+    text-decoration: underline;
+    text-underline-offset: 0.25rem;
 }
 
-.menu-container > a:focus,
+/* Visible keyboard focus indicator for navigation links (bullet 7). */
 .menu-container > a:focus-visible {
-    outline: none;
+    outline: 0.125rem solid yellow;
+    outline-offset: 0.125rem;
 }
 
 .dropdown {
@@ -92,18 +101,30 @@
 .dropdown a:hover {
     background: rgba(0, 0, 0, 0.85);
     color: yellow;
+    text-decoration: underline;
+    text-underline-offset: 0.25rem;
+}
+
+.dropdown a:focus-visible {
+    outline: 0.125rem solid yellow;
+    outline-offset: -0.125rem;
+    background: rgba(0, 0, 0, 0.85);
+    color: yellow;
 }
 
 .dropdown a.submenu-link-active {
     color: yellow;
     background: rgba(0, 0, 0, 0.9);
+    text-decoration: underline;
+    text-underline-offset: 0.25rem;
 }
 
 .menu-container {
     position: relative;
 }
 
-.menu-container:hover .dropdown {
+.menu-container:hover .dropdown,
+.menu-container:focus-within .dropdown {
     opacity: 1;
     visibility: visible;
 }
@@ -143,6 +164,10 @@
         text-decoration: none;
         text-transform: uppercase;
         text-shadow: var(--shadow-text);
+    }
+
+    .menu-item ::deep .menu-trigger {
+        font-size: 1.25rem;
     }
 
     .dropdown {
@@ -263,6 +288,8 @@
     .mobile-nav-row-link.menu-link-active {
         background: rgba(0, 0, 0, 0.62);
         color: yellow;
+        text-decoration: underline;
+        text-underline-offset: 0.25rem;
     }
 
     .mobile-nav-submenu {
@@ -276,7 +303,8 @@
         background: rgba(0, 0, 0, 0.45);
     }
 
-    .mobile-nav-submenu a {
+    .mobile-nav-submenu a,
+    .mobile-nav-submenu ::deep .menu-button {
         color: white;
         text-decoration: none;
         font-family: Handel, fallback, sans-serif;
@@ -284,15 +312,26 @@
         padding: var(--space-xs) 0;
         transition: color 0.2s ease;
         display: block;
+        width: 100%;
     }
 
-    .mobile-nav-submenu a:hover {
+    .mobile-nav-submenu a:hover,
+    .mobile-nav-submenu ::deep .menu-button:hover {
         color: yellow;
     }
 
     .mobile-nav-submenu a.submenu-link-active {
         color: yellow;
         font-weight: bold;
+    }
+
+    .mobile-nav-toggle:focus-visible,
+    .mobile-nav-row:focus-visible,
+    .mobile-nav-row-link:focus-visible,
+    .mobile-nav-submenu a:focus-visible {
+        outline: 0.125rem solid yellow;
+        outline-offset: -0.125rem;
+        color: yellow;
     }
 
     .mobile-nav-divider {

@@ -176,41 +176,60 @@ body {
     overflow-x: clip;
 }
 
+/* Avoid fixed background attachment on small screens (scroll jank / performance). */
+@media (max-width: 768px) {
+    html {
+        background-attachment: scroll;
+    }
+}
+
+/* Respect the user's reduced-motion preference. */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
 /* ========================= TEXT =========================== */
 .bodoni {
-    font-family: Bodoni, fallback, sans-serif;
+    font-family: Bodoni, sans-serif;
 }
 
 .handel {
-    font-family: Handel, fallback, sans-serif;
+    font-family: Handel, sans-serif;
 }
 
 .handel-cz {
-    font-family: Handel CZ, fallback, sans-serif;
+    font-family: Handel CZ, sans-serif;
 }
 
 .myriad-pro-regular {
-    font-family: Myriad Pro Regular, fallback, sans-serif;
+    font-family: Myriad Pro Regular, sans-serif;
 }
 
 .myriad-pro-italic {
-    font-family: Myriad Pro Italic, fallback, sans-serif;
+    font-family: Myriad Pro Italic, sans-serif;
 }
 
 .myriad-pro-bold {
-    font-family: Myriad Pro Bold, fallback, sans-serif;
+    font-family: Myriad Pro Bold, sans-serif;
 }
 
 .myriad-title {
-    font-family: Myriad Title, fallback, sans-serif;
+    font-family: Myriad Title, sans-serif;
 }
 
 .proda-sans-italic {
-    font-family: Proda Sans, fallback, sans-serif;
+    font-family: Proda Sans, sans-serif;
 }
 
 .slider {
-    font-family: Slider, fallback, sans-serif;
+    font-family: Slider, sans-serif;
 }
 
 .shadow {
@@ -356,7 +375,7 @@ body {
     justify-content: center;
 }
 
-main {
+.page-shell {
     height: 100%;
     max-width: var(--max-content-width);
     width: 100%;
@@ -368,9 +387,38 @@ main {
 
 /* Mobile optimization */
 @media screen and (max-width: 768px) {
-    main {
+    .page-shell {
         padding: 0 var(--space-sm);
     }
+}
+
+/* Skip to main content link (visible on keyboard focus). */
+.skip-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    margin: var(--space-xs);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--color-black);
+    color: var(--color-white);
+    font-family: Handel, fallback, sans-serif;
+    text-decoration: none;
+    border-radius: var(--border-radius-sm);
+    transform: translateY(-200%);
+    transition: transform 0.15s ease;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+    transform: translateY(0);
+    outline: 0.125rem solid yellow;
+    outline-offset: 0.125rem;
+}
+
+/* The main region is a programmatic focus target for the skip link. */
+.site-main:focus {
+    outline: none;
 }
 
 .clickable {

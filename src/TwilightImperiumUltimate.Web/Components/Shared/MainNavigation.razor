@@ -2,16 +2,16 @@
 @using TwilightImperiumUltimate.Web.Resources
 @using TwilightImperiumUltimate.Web.Pages
 
-<div id="main-navbar" class="main-navbar-desktop">
+<nav id="main-navbar" class="main-navbar-desktop" aria-label="@Strings.Nav_MainLabel">
     <div class="menu-item" @onmouseenter='() => OnMainMenuHoverStart("news")' @onmouseleave='OnDesktopHoverEnd'>
         <div class="menu-container" @onmouseenter='() => OnMainMenuHoverStart("news")' @onmouseleave='OnDesktopHoverEnd'>
             <a href="@Pages.Index" class='@GetDesktopMainMenuClass("news")' @onclick='() => SelectMenu("news")'>@Strings.Page_News</a>
         </div>
     </div>
     <div class="menu-item" @onmouseenter='() => OnMainMenuHoverStart("game")' @onmouseleave='OnDesktopHoverEnd'>
-        <div class="menu-container" @onmouseenter='() => OnMainMenuHoverStart("game")' @onmouseleave='OnDesktopHoverEnd'>
-            <a href="#" class='@GetDesktopMainMenuClass("game")' @onclick='() => SelectMenu("game")'>@Strings.Page_Game</a>
-            <div class="dropdown" @onmouseenter='() => OnMainMenuHoverStart("game")' @onmouseleave='OnDesktopHoverEnd'>
+        <div class="menu-container" @onmouseenter='() => OnMainMenuHoverStart("game")' @onmouseleave='OnDesktopHoverEnd' @onfocusin='() => OnMainMenuHoverStart("game")' @onfocusout='OnDesktopHoverEnd'>
+            <MenuButton CssClass='@("menu-trigger " + GetDesktopMainMenuClass("game"))' OnClick='() => SelectMenu("game")' AriaHasPopup="true" AriaExpanded="@IsDesktopMenuOpen("game")" AriaControls="desktop-submenu-game">@Strings.Page_Game</MenuButton>
+            <div class="dropdown" id="desktop-submenu-game" @onmouseenter='() => OnMainMenuHoverStart("game")' @onmouseleave='OnDesktopHoverEnd'>
                 <a href="@Pages.Factions" class='@GetDesktopSubMenuClass("factions")' @onmouseenter='() => OnSubMenuHoverStart("game", "factions")' @onclick='() => SelectSubMenuAndClose("game", "factions")'>@Strings.Page_Factions</a>
                 <a href="@Pages.FactionsDS" class='@GetDesktopSubMenuClass("factionsds")' @onmouseenter='() => OnSubMenuHoverStart("game", "factionsds")' @onclick='() => SelectSubMenuAndClose("game", "factionsds")'>@Strings.Page_FactionsDS</a>
                 <a href="@Pages.Technologies" class='@GetDesktopSubMenuClass("technologies")' @onmouseenter='() => OnSubMenuHoverStart("game", "technologies")' @onclick='() => SelectSubMenuAndClose("game", "technologies")'>@Strings.Page_Technologies</a>
@@ -22,9 +22,9 @@
         </div>
     </div>
     <div class="menu-item" @onmouseenter='() => OnMainMenuHoverStart("community")' @onmouseleave='OnDesktopHoverEnd'>
-        <div class="menu-container" @onmouseenter='() => OnMainMenuHoverStart("community")' @onmouseleave='OnDesktopHoverEnd'>
-            <a href="#" class='@GetDesktopMainMenuClass("community")' @onclick='() => SelectMenu("community")'>@Strings.Page_Community</a>
-            <div class="dropdown" @onmouseenter='() => OnMainMenuHoverStart("community")' @onmouseleave='OnDesktopHoverEnd'>
+        <div class="menu-container" @onmouseenter='() => OnMainMenuHoverStart("community")' @onmouseleave='OnDesktopHoverEnd' @onfocusin='() => OnMainMenuHoverStart("community")' @onfocusout='OnDesktopHoverEnd'>
+            <MenuButton CssClass='@("menu-trigger " + GetDesktopMainMenuClass("community"))' OnClick='() => SelectMenu("community")' AriaHasPopup="true" AriaExpanded="@IsDesktopMenuOpen("community")" AriaControls="desktop-submenu-community">@Strings.Page_Community</MenuButton>
+            <div class="dropdown" id="desktop-submenu-community" @onmouseenter='() => OnMainMenuHoverStart("community")' @onmouseleave='OnDesktopHoverEnd'>
                 <a href="@Pages.GalaxyMap" class='@GetDesktopSubMenuClass("galaxymap")' @onmouseenter='() => OnSubMenuHoverStart("community", "galaxymap")' @onclick='() => SelectSubMenuAndClose("community", "galaxymap")'>@Strings.Page_GalaxyMap</a>
                 <a href="@Pages.MapsArchive" class='@GetDesktopSubMenuClass("mapsarchive")' @onmouseenter='() => OnSubMenuHoverStart("community", "mapsarchive")' @onclick='() => SelectSubMenuAndClose("community", "mapsarchive")'>@Strings.Page_MapArchive</a>
                 <a href="@Pages.SlicesArchive" class='@GetDesktopSubMenuClass("slicesarchive")' @onmouseenter='() => OnSubMenuHoverStart("community", "slicesarchive")' @onclick='() => SelectSubMenuAndClose("community", "slicesarchive")'>@Strings.Page_SlicesArchive</a>
@@ -35,9 +35,9 @@
         </div>
     </div>
     <div class="menu-item" @onmouseenter='() => OnMainMenuHoverStart("tigl")' @onmouseleave='OnDesktopHoverEnd'>
-        <div class="menu-container" @onmouseenter='() => OnMainMenuHoverStart("tigl")' @onmouseleave='OnDesktopHoverEnd'>
-            <a href="#" class='@GetDesktopMainMenuClass("tigl")' @onclick='() => SelectMenu("tigl")'>@Strings.Page_Tigl</a>
-            <div class="dropdown" @onmouseenter='() => OnMainMenuHoverStart("tigl")' @onmouseleave='OnDesktopHoverEnd'>
+        <div class="menu-container" @onmouseenter='() => OnMainMenuHoverStart("tigl")' @onmouseleave='OnDesktopHoverEnd' @onfocusin='() => OnMainMenuHoverStart("tigl")' @onfocusout='OnDesktopHoverEnd'>
+            <MenuButton CssClass='@("menu-trigger " + GetDesktopMainMenuClass("tigl"))' OnClick='() => SelectMenu("tigl")' AriaHasPopup="true" AriaExpanded="@IsDesktopMenuOpen("tigl")" AriaControls="desktop-submenu-tigl">@Strings.Page_Tigl</MenuButton>
+            <div class="dropdown" id="desktop-submenu-tigl" @onmouseenter='() => OnMainMenuHoverStart("tigl")' @onmouseleave='OnDesktopHoverEnd'>
                 <a href="@Pages.Tigl" class='@GetDesktopSubMenuClass("tiglinfo")' @onmouseenter='() => OnSubMenuHoverStart("tigl", "tiglinfo")' @onclick='() => SelectSubMenuAndClose("tigl", "tiglinfo")'>@Strings.Page_TiglInfo</a>
                 <a href="@Pages.TiglRegister" class='@GetDesktopSubMenuClass("tiglregister")' @onmouseenter='() => OnSubMenuHoverStart("tigl", "tiglregister")' @onclick='() => SelectSubMenuAndClose("tigl", "tiglregister")'>@Strings.Page_TiglRegister</a>
                 <a href="@Pages.TiglReportGame" class='@GetDesktopSubMenuClass("tiglreport")' @onmouseenter='() => OnSubMenuHoverStart("tigl", "tiglreport")' @onclick='() => SelectSubMenuAndClose("tigl", "tiglreport")'>@Strings.Page_TiglReportGame</a>
@@ -52,9 +52,9 @@
         </div>
     </div>
     <div class="menu-item" @onmouseenter='() => OnMainMenuHoverStart("tools")' @onmouseleave='OnDesktopHoverEnd'>
-        <div class="menu-container" @onmouseenter='() => OnMainMenuHoverStart("tools")' @onmouseleave='OnDesktopHoverEnd'>
-            <a href="#" class='@GetDesktopMainMenuClass("tools")' @onclick='() => SelectMenu("tools")'>@Strings.Page_Tools</a>
-            <div class="dropdown" @onmouseenter='() => OnMainMenuHoverStart("tools")' @onmouseleave='OnDesktopHoverEnd'>
+        <div class="menu-container" @onmouseenter='() => OnMainMenuHoverStart("tools")' @onmouseleave='OnDesktopHoverEnd' @onfocusin='() => OnMainMenuHoverStart("tools")' @onfocusout='OnDesktopHoverEnd'>
+            <MenuButton CssClass='@("menu-trigger " + GetDesktopMainMenuClass("tools"))' OnClick='() => SelectMenu("tools")' AriaHasPopup="true" AriaExpanded="@IsDesktopMenuOpen("tools")" AriaControls="desktop-submenu-tools">@Strings.Page_Tools</MenuButton>
+            <div class="dropdown" id="desktop-submenu-tools" @onmouseenter='() => OnMainMenuHoverStart("tools")' @onmouseleave='OnDesktopHoverEnd'>
                 <a href="@Pages.GameTracker" target="_blank" class='@GetDesktopSubMenuClass("gametracker")' @onmouseenter='() => OnSubMenuHoverStart("tools", "gametracker")' @onclick='() => SelectSubMenuAndClose("tools", "gametracker")'>@Strings.Page_GameTracker</a>
                 <a href="@Pages.ColorPicker" class='@GetDesktopSubMenuClass("colorpicker")' @onmouseenter='() => OnSubMenuHoverStart("tools", "colorpicker")' @onclick='() => SelectSubMenuAndClose("tools", "colorpicker")'>@Strings.Page_ColorPicker</a>
                 <a href="@Pages.FactionDraft" class='@GetDesktopSubMenuClass("factiondraft")' @onmouseenter='() => OnSubMenuHoverStart("tools", "factiondraft")' @onclick='() => SelectSubMenuAndClose("tools", "factiondraft")'>@Strings.Page_FactionDraft</a>
@@ -66,27 +66,28 @@
         </div>
     </div>
     <div class="menu-item" @onmouseenter='() => OnMainMenuHoverStart("rules")' @onmouseleave='OnDesktopHoverEnd'>
-        <div class="menu-container" @onmouseenter='() => OnMainMenuHoverStart("rules")' @onmouseleave='OnDesktopHoverEnd'>
-            <a href="#" class='@GetDesktopMainMenuClass("rules")' @onclick='() => SelectMenu("rules")'>@Strings.Page_Rules</a>
-            <div class="dropdown" @onmouseenter='() => OnMainMenuHoverStart("rules")' @onmouseleave='OnDesktopHoverEnd'>
+        <div class="menu-container" @onmouseenter='() => OnMainMenuHoverStart("rules")' @onmouseleave='OnDesktopHoverEnd' @onfocusin='() => OnMainMenuHoverStart("rules")' @onfocusout='OnDesktopHoverEnd'>
+            <MenuButton CssClass='@("menu-trigger " + GetDesktopMainMenuClass("rules"))' OnClick='() => SelectMenu("rules")' AriaHasPopup="true" AriaExpanded="@IsDesktopMenuOpen("rules")" AriaControls="desktop-submenu-rules">@Strings.Page_Rules</MenuButton>
+            <div class="dropdown" id="desktop-submenu-rules" @onmouseenter='() => OnMainMenuHoverStart("rules")' @onmouseleave='OnDesktopHoverEnd'>
                 <a href="@Pages.Rules" class='@GetDesktopSubMenuClass("rulespage")' @onmouseenter='() => OnSubMenuHoverStart("rules", "rulespage")' @onclick='() => SelectSubMenuAndClose("rules", "rulespage")'>@Strings.Page_Rules</a>
                 <a href="@Pages.Faq" class='@GetDesktopSubMenuClass("faq")' @onmouseenter='() => OnSubMenuHoverStart("rules", "faq")' @onclick='() => SelectSubMenuAndClose("rules", "faq")'>@Strings.Page_Faq</a>
                 <a href="@Pages.Resources" class='@GetDesktopSubMenuClass("resources")' @onmouseenter='() => OnSubMenuHoverStart("rules", "resources")' @onclick='() => SelectSubMenuAndClose("rules", "resources")'>@Strings.Page_Resources</a>
             </div>
         </div>
     </div>
-</div>
+</nav>
 
-<div class="mobile-nav-shell">
-    <button type="button" class="mobile-nav-toggle handel white shadow" @onclick="ToggleMobileMenu">
-        ☰
+<nav class="mobile-nav-shell" aria-label="@Strings.Nav_MainLabel">
+    <button type="button" class="mobile-nav-toggle handel white shadow" @onclick="ToggleMobileMenu"
+            aria-label="@Strings.Nav_MenuToggleLabel" aria-expanded="@(_isMobileMenuVisible ? "true" : "false")" aria-controls="mobile-nav-panel">
+        <span aria-hidden="true">☰</span>
     </button>
 
     @if (_isMobileMenuVisible)
     {
-        <div class="mobile-nav-panel">
+        <div class="mobile-nav-panel" id="mobile-nav-panel">
             <div class="mobile-nav-account-row">
-                <button type="button" class='mobile-nav-row mobile-nav-row--account @GetMainMenuClass("account")' @onclick="ToggleAccountSection">
+                <button type="button" class='mobile-nav-row mobile-nav-row--account @GetMainMenuClass("account")' @onclick="ToggleAccountSection" aria-expanded="@(_isAccountSectionVisible ? "true" : "false")" aria-controls="mobile-submenu-account">
                     @GetAccountHeaderText()
                 </button>
                 <div class="mobile-nav-account-tools">
@@ -96,7 +97,7 @@
             </div>
             @if (_isAccountSectionVisible)
             {
-                <div class="mobile-nav-submenu">
+                <div class="mobile-nav-submenu" id="mobile-submenu-account">
                     @if (_user is null)
                     {
                         <a href="@Pages.Login" class='@GetSubMenuClass("login")' @onclick='() => SelectSubMenuAndClose("account", "login")'>@Strings.Page_AccountLogin</a>
@@ -112,7 +113,7 @@
                             <a href="@Pages.TiglAdmin" class='@GetSubMenuClass("tigladmin")' @onclick='() => SelectSubMenuAndClose("account", "tigladmin")'>@Strings.Page_TiglAdmin</a>
                         </AuthorizeView>
                         <a href="@Pages.ResendPasswordRecoveryEmail" class='@GetSubMenuClass("passwordreset")' @onclick='() => SelectSubMenuAndClose("account", "passwordreset")'>@Strings.Page_AccountPasswordReset</a>
-                        <a href="#" @onclick="Logout">@Strings.Login_Logout</a>
+                        <MenuButton CssClass="mobile-nav-submenu-action" OnClick="Logout">@Strings.Login_Logout</MenuButton>
                     }
                 </div>
             }
@@ -121,10 +122,10 @@
 
             <a class='mobile-nav-row-link @GetMainMenuClass("news")' href="@Pages.Index" @onclick='() => SelectMenuAndClose("news")'>@Strings.Page_News</a>
 
-            <button type="button" class='mobile-nav-row @GetMainMenuClass("game")' @onclick="ToggleGameSection">@Strings.Page_Game</button>
+            <button type="button" class='mobile-nav-row @GetMainMenuClass("game")' @onclick="ToggleGameSection" aria-expanded="@(_isGameSectionVisible ? "true" : "false")" aria-controls="mobile-submenu-game">@Strings.Page_Game</button>
             @if (_isGameSectionVisible)
             {
-                <div class="mobile-nav-submenu">
+                <div class="mobile-nav-submenu" id="mobile-submenu-game">
                     <a href="@Pages.Factions" class='@GetSubMenuClass("factions")' @onclick='() => SelectSubMenuAndClose("game", "factions")'>@Strings.Page_Factions</a>
                     <a href="@Pages.FactionsDS" class='@GetSubMenuClass("factionsds")' @onclick='() => SelectSubMenuAndClose("game", "factionsds")'>@Strings.Page_FactionsDS</a>
                     <a href="@Pages.Technologies" class='@GetSubMenuClass("technologies")' @onclick='() => SelectSubMenuAndClose("game", "technologies")'>@Strings.Page_Technologies</a>
@@ -134,10 +135,10 @@
                 </div>
             }
 
-            <button type="button" class='mobile-nav-row @GetMainMenuClass("community")' @onclick="ToggleCommunitySection">@Strings.Page_Community</button>
+            <button type="button" class='mobile-nav-row @GetMainMenuClass("community")' @onclick="ToggleCommunitySection" aria-expanded="@(_isCommunitySectionVisible ? "true" : "false")" aria-controls="mobile-submenu-community">@Strings.Page_Community</button>
             @if (_isCommunitySectionVisible)
             {
-                <div class="mobile-nav-submenu">
+                <div class="mobile-nav-submenu" id="mobile-submenu-community">
                     <a href="@Pages.GalaxyMap" class='@GetSubMenuClass("galaxymap")' @onclick='() => SelectSubMenuAndClose("community", "galaxymap")'>@Strings.Page_GalaxyMap</a>
                     <a href="@Pages.MapsArchive" class='@GetSubMenuClass("mapsarchive")' @onclick='() => SelectSubMenuAndClose("community", "mapsarchive")'>@Strings.Page_MapArchive</a>
                     <a href="@Pages.SlicesArchive" class='@GetSubMenuClass("slicesarchive")' @onclick='() => SelectSubMenuAndClose("community", "slicesarchive")'>@Strings.Page_SlicesArchive</a>
@@ -147,10 +148,10 @@
                 </div>
             }
 
-            <button type="button" class='mobile-nav-row @GetMainMenuClass("tigl")' @onclick="ToggleTiglSection">@Strings.Page_Tigl</button>
+            <button type="button" class='mobile-nav-row @GetMainMenuClass("tigl")' @onclick="ToggleTiglSection" aria-expanded="@(_isTiglSectionVisible ? "true" : "false")" aria-controls="mobile-submenu-tigl">@Strings.Page_Tigl</button>
             @if (_isTiglSectionVisible)
             {
-                <div class="mobile-nav-submenu">
+                <div class="mobile-nav-submenu" id="mobile-submenu-tigl">
                     <a href="@Pages.Tigl" class='@GetSubMenuClass("tiglinfo")' @onclick='() => SelectSubMenuAndClose("tigl", "tiglinfo")'>@Strings.Page_TiglInfo</a>
                     <a href="@Pages.TiglRegister" class='@GetSubMenuClass("tiglregister")' @onclick='() => SelectSubMenuAndClose("tigl", "tiglregister")'>@Strings.Page_TiglRegister</a>
                     <a href="@Pages.TiglReportGame" class='@GetSubMenuClass("tiglreport")' @onclick='() => SelectSubMenuAndClose("tigl", "tiglreport")'>@Strings.Page_TiglReportGame</a>
@@ -164,10 +165,10 @@
                 </div>
             }
 
-            <button type="button" class='mobile-nav-row @GetMainMenuClass("tools")' @onclick="ToggleToolsSection">@Strings.Page_Tools</button>
+            <button type="button" class='mobile-nav-row @GetMainMenuClass("tools")' @onclick="ToggleToolsSection" aria-expanded="@(_isToolsSectionVisible ? "true" : "false")" aria-controls="mobile-submenu-tools">@Strings.Page_Tools</button>
             @if (_isToolsSectionVisible)
             {
-                <div class="mobile-nav-submenu">
+                <div class="mobile-nav-submenu" id="mobile-submenu-tools">
                     <a href="@Pages.GameTracker" target="_blank" class='@GetSubMenuClass("gametracker")' @onclick='() => SelectSubMenuAndClose("tools", "gametracker")'>@Strings.Page_GameTracker</a>
                     <a href="@Pages.ColorPicker" class='@GetSubMenuClass("colorpicker")' @onclick='() => SelectSubMenuAndClose("tools", "colorpicker")'>@Strings.Page_ColorPicker</a>
                     <a href="@Pages.FactionDraft" class='@GetSubMenuClass("factiondraft")' @onclick='() => SelectSubMenuAndClose("tools", "factiondraft")'>@Strings.Page_FactionDraft</a>
@@ -178,10 +179,10 @@
                 </div>
             }
 
-            <button type="button" class='mobile-nav-row @GetMainMenuClass("rules")' @onclick="ToggleRulesSection">@Strings.Page_Rules</button>
+            <button type="button" class='mobile-nav-row @GetMainMenuClass("rules")' @onclick="ToggleRulesSection" aria-expanded="@(_isRulesSectionVisible ? "true" : "false")" aria-controls="mobile-submenu-rules">@Strings.Page_Rules</button>
             @if (_isRulesSectionVisible)
             {
-                <div class="mobile-nav-submenu">
+                <div class="mobile-nav-submenu" id="mobile-submenu-rules">
                     <a href="@Pages.Rules" class='@GetSubMenuClass("rulespage")' @onclick='() => SelectSubMenuAndClose("rules", "rulespage")'>@Strings.Page_Rules</a>
                     <a href="@Pages.Faq" class='@GetSubMenuClass("faq")' @onclick='() => SelectSubMenuAndClose("rules", "faq")'>@Strings.Page_Faq</a>
                     <a href="@Pages.Resources" class='@GetSubMenuClass("resources")' @onclick='() => SelectSubMenuAndClose("rules", "resources")'>@Strings.Page_Resources</a>
@@ -189,6 +190,6 @@
             }
         </div>
     }
-</div>
+</nav>
 
 
