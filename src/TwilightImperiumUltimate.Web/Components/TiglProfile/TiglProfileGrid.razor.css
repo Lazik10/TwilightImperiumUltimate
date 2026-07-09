@@ -91,7 +91,7 @@
     object-fit: contain;
 }
 
-.season-header-row {
+::deep .season-header-row {
     display: flex;
     align-items: flex-start;
     padding: 10px 16px;
@@ -101,7 +101,7 @@
     transition: background 0.15s ease;
 }
 
-    .season-header-row:hover {
+    ::deep .season-header-row:hover {
         background: rgba(255, 255, 255, 0.06);
     }
 

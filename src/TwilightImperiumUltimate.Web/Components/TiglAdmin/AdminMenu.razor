@@ -1,21 +1,21 @@
 <FlexColumnCenteredContainer>
     <div class="tigl-admin-navbar">
         <FlexRowContainer Width="100" JustifyContent="Enums.JustifyContent.SpaceEvenly">
-            <div class="clickable" style="min-width: 20%;" @onclick="() => OnMenuItemClick.InvokeAsync(AdminMenuItem.Parameters)">
-                <Label Text="Parameters" FontSize="28" CenterText="true" Style="font-size: 1rem;" />
-            </div>
-            <div class="clickable" style="min-width: 20%;" @onclick="() => OnMenuItemClick.InvokeAsync(AdminMenuItem.Seasons)">
-                <Label Text="Seasons" FontSize="28" CenterText="true" Style="font-size: 1rem;" />
-            </div>
-            <div class="clickable" style="min-width: 20%;" @onclick="() => OnMenuItemClick.InvokeAsync(AdminMenuItem.Register)">
-                <Label Text="Register" FontSize="28" CenterText="true" Style="font-size: 1rem;" />
-            </div>
-            <div class="clickable" style="min-width: 20%;" @onclick="() => OnMenuItemClick.InvokeAsync(AdminMenuItem.Players)">
-                <Label Text="Players" FontSize="28" CenterText="true" Style="font-size: 1rem;" />
-            </div>
-            <div class="clickable" style="min-width: 20%;" @onclick="() => OnMenuItemClick.InvokeAsync(AdminMenuItem.Games)">
-                <Label Text="Games" FontSize="28" CenterText="true" Style="font-size: 1rem;" />
-            </div>
+            <TabNavItem Width="20%" OnClick="() => OnMenuItemClick.InvokeAsync(AdminMenuItem.Parameters)">
+                <ResponsiveLabel Text="Parameters" CenterText="true" FontSize="base" />
+            </TabNavItem>
+            <TabNavItem Width="20%" OnClick="() => OnMenuItemClick.InvokeAsync(AdminMenuItem.Seasons)">
+                <ResponsiveLabel Text="Seasons" CenterText="true" FontSize="base" />
+            </TabNavItem>
+            <TabNavItem Width="20%" OnClick="() => OnMenuItemClick.InvokeAsync(AdminMenuItem.Register)">
+                <ResponsiveLabel Text="Register" CenterText="true" FontSize="base" />
+            </TabNavItem>
+            <TabNavItem Width="20%" OnClick="() => OnMenuItemClick.InvokeAsync(AdminMenuItem.Players)">
+                <ResponsiveLabel Text="Players" CenterText="true" FontSize="base" />
+            </TabNavItem>
+            <TabNavItem Width="20%" OnClick="() => OnMenuItemClick.InvokeAsync(AdminMenuItem.Games)">
+                <ResponsiveLabel Text="Games" CenterText="true" FontSize="base" />
+            </TabNavItem>
         </FlexRowContainer>
     </div>
 </FlexColumnCenteredContainer>

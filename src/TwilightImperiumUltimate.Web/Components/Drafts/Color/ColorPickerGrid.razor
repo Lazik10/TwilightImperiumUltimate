@@ -15,7 +15,7 @@
     @ref="_factionIconRow"/>
 
 <FlexColumnCenteredContainer>
-    <HelpText Text="@Strings.ColorPicker_HelpText" CssClass="margin-top-10 handel" />
+    <HelpText Text="@Strings.ColorPicker_HelpText" CssClass="mt-sm handel" />
 </FlexColumnCenteredContainer>
 
 <FlexRowContainer CssClass="center" 
@@ -30,7 +30,7 @@
     }
 </FlexRowContainer>
 
-<FlexRowContainer CssClass="margin-top-50">
+<FlexRowContainer CssClass="mt-3xl">
     <Button ButtonText="@GetButtonStateText()"
             OnClick="DraftColors" IsDisabled="GetButtonState()" />
     <Button ButtonText="@Strings.DraftButton_ResetSelectedFactions"
@@ -40,14 +40,14 @@
 </FlexRowContainer>
 
 <StretchHeightContainer>
-    <FlexColumnCenteredContainer CssClass="margin-top-50">
+    <FlexColumnCenteredContainer CssClass="mt-3xl">
         @if (ColorPickerService.FactionColorDraftResults is not null && ColorPickerService.FactionColorDraftResults.Any())
         {
             @foreach (var result in ColorPickerService.FactionColorDraftResults)
             {
                 <ColorPickerBackground 
                     BackgroundColor="result.Color"
-                    CssClass="margin-top-10">
+                    CssClass="mt-sm">
 
                     <Title Text="@(result.FactionName.GetFactionUIText(FactionResourceType.Title))"
                            MarginTop="0" 
@@ -59,7 +59,7 @@
         {
             @foreach (var faction in ColorPickerService.SelectedFactions)
             {
-                <ColorPickerBackground BackgroundColor="@(PlayerColor.Black)" CssClass="margin-top-10">
+                <ColorPickerBackground BackgroundColor="@(PlayerColor.Black)" CssClass="mt-sm">
 
                     <Title Text="@(faction.FactionName.GetFactionUIText(FactionResourceType.Title))"
                            CssClass="faction hendel white shadow"

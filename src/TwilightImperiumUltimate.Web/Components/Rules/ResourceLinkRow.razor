@@ -1,0 +1,16 @@
+@using TwilightImperiumUltimate.Web.Enums
+
+<FlexRowContainer>
+    <a href="@Link" target="_blank">@LinkText</a>
+</FlexRowContainer>
+
+<FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+    <a href="@Link" target="_blank" download="@DownloadName">
+        <FlexRowContainer>
+            <ResponsiveHorizontalSpacer CustomWidth="100px" />
+            <img src="@(PathProvider.GetIconPath(IconType.PdfDownload))" alt="" />
+            <ResponsiveHorizontalSpacer CustomWidth="20px" />
+            <div>Download</div>
+        </FlexRowContainer>
+    </a>
+</FlexRowContainer>

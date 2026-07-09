@@ -17,36 +17,36 @@
             <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Width="100" Gap="0.625rem" CssClass="technology-two-column-row">
                 @foreach (var technology in GetTechnologiesByLevel(TechnologyLevel.Level0))
                 {
-                    <div class="image-container clickable" @onclick="@(() => ShowBigImage(technology))">
+                    <ClickableTile CssClass="image-container" OnClick="@(() => ShowBigImage(technology))">
                         <TechnologyCard TechnologyName="technology.TechnologyName" />
-                    </div>
+                    </ClickableTile>
                 }
             </ResponsiveGridContainer>
 
             <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Width="100" Gap="0.625rem" CssClass="technology-two-column-row">
                 @foreach (var technology in GetTechnologiesByLevel(TechnologyLevel.Level1))
                 {
-                    <div class="image-container clickable" @onclick="@(() => ShowBigImage(technology))">
+                    <ClickableTile CssClass="image-container" OnClick="@(() => ShowBigImage(technology))">
                         <TechnologyCard TechnologyName="technology.TechnologyName" />
-                    </div>
+                    </ClickableTile>
                 }
             </ResponsiveGridContainer>
 
             <ResponsiveGridContainer Columns="1" TabletColumns="1" MobileColumns="1" Width="100" Gap="0.625rem">
                 @foreach (var technology in GetTechnologiesByLevel(TechnologyLevel.Level2))
                 {
-                    <div class="image-container image-container-single clickable" @onclick="@(() => ShowBigImage(technology))">
+                    <ClickableTile CssClass="image-container image-container-single" OnClick="@(() => ShowBigImage(technology))">
                         <TechnologyCard TechnologyName="technology.TechnologyName" />
-                    </div>
+                    </ClickableTile>
                 }
             </ResponsiveGridContainer>
 
             <ResponsiveGridContainer Columns="1" TabletColumns="1" MobileColumns="1" Width="100" Gap="0.625rem">
                 @foreach (var technology in GetTechnologiesByLevel(TechnologyLevel.Level3))
                 {
-                    <div class="image-container image-container-single clickable" @onclick="@(() => ShowBigImage(technology))">
+                    <ClickableTile CssClass="image-container image-container-single" OnClick="@(() => ShowBigImage(technology))">
                         <TechnologyCard TechnologyName="technology.TechnologyName" />
-                    </div>
+                    </ClickableTile>
                 }
             </ResponsiveGridContainer>
         </div>
@@ -57,9 +57,9 @@
             <ResponsiveGridContainer Columns="GetCorrectNumberOfColumns()" TabletColumns="2" MobileColumns="1" Width="100" Gap="0.625rem">
                 @foreach (var technology in Technologies)
                 {
-                    <div class="image-container clickable" @onclick="@(() => ShowBigImage(technology))">
+                    <ClickableTile CssClass="image-container" OnClick="@(() => ShowBigImage(technology))">
                         <TechnologyCard TechnologyName="technology.TechnologyName" />
-                    </div>
+                    </ClickableTile>
                 }
             </ResponsiveGridContainer>
         </div>

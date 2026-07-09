@@ -1,0 +1,17 @@
+@*
+    Reusable section for the About page: a heading followed by a centered
+    text panel. Replaces the previously repeated
+    "FlexColumnCenteredContainer + <div class="about handel white shadow">" markup.
+*@
+
+<ResponsiveHeading Text="@HeadingText"
+                    Level="2"
+                    FontSize="2xl"
+                    CenterText="true"
+                    CssClass="mb-xl" />
+
+<ResponsiveContainer Type="fluid" Padding="none" CenteredItems="true" Name="about-section-text">
+    <ResponsiveText TagName="TagName.Div" CssClass="about p-md">
+        @Content
+    </ResponsiveText>
+</ResponsiveContainer>

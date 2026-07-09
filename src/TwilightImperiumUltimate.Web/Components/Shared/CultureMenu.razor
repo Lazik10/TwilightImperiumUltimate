@@ -9,31 +9,37 @@
 @if (InlineMode)
 {
     <div class="culture-menu-inline @CssClass">
-        <img class="culture-flag @GetCultureFlagClass(Strings.EnglishCulture)"
-             src="@(GetCultureIconPath(Strings.EnglishCulture))"
-             alt="English"
-             @onclick="@(() => SetCulture(Strings.EnglishCulture))" />
-        <img class="culture-flag @GetCultureFlagClass(Strings.CzechCulture)"
-             src="@(GetCultureIconPath(Strings.CzechCulture))"
-             alt="Czech"
-             @onclick="@(() => SetCulture(Strings.CzechCulture))" />
+        <button type="button" class="culture-flag-button" @onclick="@(() => SetCulture(Strings.EnglishCulture))" aria-label="English">
+            <img class="culture-flag @GetCultureFlagClass(Strings.EnglishCulture)"
+                 src="@(GetCultureIconPath(Strings.EnglishCulture))"
+                 alt="" />
+        </button>
+        <button type="button" class="culture-flag-button" @onclick="@(() => SetCulture(Strings.CzechCulture))" aria-label="Czech">
+            <img class="culture-flag @GetCultureFlagClass(Strings.CzechCulture)"
+                 src="@(GetCultureIconPath(Strings.CzechCulture))"
+                 alt="" />
+        </button>
     </div>
 }
 else
 {
-    <div @onclick="ToggleMenu">
-        <img class="culture-flag active-culture-flag"
-             src="@(GetCultureIconPath(CultureInfo.CurrentCulture.Name))"
-             alt="Selected Country">
+    <div class="culture-menu-wrapper">
+        <button type="button" class="culture-menu-trigger" @onclick="ToggleMenu" aria-haspopup="true" aria-expanded="@(_isMenuVisible ? "true" : "false")" aria-controls="country-menu" aria-label="Change language">
+            <img class="culture-flag active-culture-flag"
+                 src="@(GetCultureIconPath(CultureInfo.CurrentCulture.Name))"
+                 alt="">
+        </button>
         <div id="country-menu" style="@(_isMenuVisible ? "" : "display:none")">
-            <img class="culture-flag @GetCultureFlagClass(Strings.EnglishCulture)"
-                 src="@(GetCultureIconPath(Strings.EnglishCulture))"
-                 alt="English"
-                 @onclick="@(() =>SetCulture(Strings.EnglishCulture))" />
-            <img class="culture-flag @GetCultureFlagClass(Strings.CzechCulture)"
-                 src="@(GetCultureIconPath(Strings.CzechCulture))"
-                 alt="Czech"
-                 @onclick="@(() => SetCulture(Strings.CzechCulture))" />
+            <button type="button" class="culture-flag-button" @onclick="@(() => SetCulture(Strings.EnglishCulture))" aria-label="English">
+                <img class="culture-flag @GetCultureFlagClass(Strings.EnglishCulture)"
+                     src="@(GetCultureIconPath(Strings.EnglishCulture))"
+                     alt="" />
+            </button>
+            <button type="button" class="culture-flag-button" @onclick="@(() => SetCulture(Strings.CzechCulture))" aria-label="Czech">
+                <img class="culture-flag @GetCultureFlagClass(Strings.CzechCulture)"
+                     src="@(GetCultureIconPath(Strings.CzechCulture))"
+                     alt="" />
+            </button>
         </div>
     </div>
 }

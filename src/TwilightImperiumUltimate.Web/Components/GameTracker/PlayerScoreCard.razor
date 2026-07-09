@@ -1,7 +1,7 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Factions
 @using TwilightImperiumUltimate.Web.Helpers.Enums
 
-<div @onclick="ActivatePlayer" style="width: 100%;" class="clickable @(GetPassStatus())">
+<ClickableTile CssClass="@GetPassStatus()" Style="width: 100%;" OnClick="ActivatePlayer">
 
     <GridLayout Columns="5" Gap="0" Style="@(Border)">
 
@@ -39,5 +39,5 @@
     
     <VerticalSpace Height="5" />
 
-</div>
+</ClickableTile>
 

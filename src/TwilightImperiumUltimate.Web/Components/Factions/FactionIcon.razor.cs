@@ -19,4 +19,6 @@ public partial class FactionIcon : TwilightImperiumBaseComponent
     private string GetBanIconState() => Faction.Banned && EnableBanMode ? "colorless" : string.Empty;
 
     private string GetFactionIconPath() => PathProvider.GetFactionIconPath(Faction.FactionName);
+
+    private string GetIconCssClass() => NoPadding ? "responsive-icon responsive-icon-no-padding" : "responsive-icon";
 }

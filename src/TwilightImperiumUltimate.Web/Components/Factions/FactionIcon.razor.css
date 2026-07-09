@@ -1,4 +1,4 @@
-﻿.responsive-icon {
+﻿::deep .responsive-icon {
     display: flex;
     flex: 1 1 auto;
     max-width: 90%;
@@ -10,12 +10,8 @@
     align-items: center;
 }
 
-.responsive-icon-no-padding {
+::deep .responsive-icon-no-padding {
     padding: 0;
-}
-
-.link {
-    cursor: pointer;
 }
 
 .colorless {

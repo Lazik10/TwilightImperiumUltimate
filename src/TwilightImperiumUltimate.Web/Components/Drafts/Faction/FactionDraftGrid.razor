@@ -14,7 +14,7 @@
 <GameVersionPicker OnVersionSelected="HandleGameVersionClick" />
 
 <FlexColumnCenteredContainer>
-    <HelpText Text="@Strings.FactionDraft_BanHelp" CssClass="margin-top-10 handel" />
+    <HelpText Text="@Strings.FactionDraft_BanHelp" CssClass="mt-sm handel" />
 </FlexColumnCenteredContainer>
 
 <div class="setting-row">
@@ -29,7 +29,7 @@
                     OnIncrease="IncreaseFactionCount" />
 </div>
 
-<FlexRowContainer CssClass="margin-top-50">
+<FlexRowContainer CssClass="mt-3xl">
     <Button ButtonText="@(GetButtonStateText())"
             IsDisabled=@(IsDraftButtonDisabled())
             OnClick="DraftFactions" />
@@ -40,7 +40,7 @@
 
 @if (FactionDraftService.ToManyBans)
 {
-    <div class="flex-column-center margin-top-10">
+    <div class="flex-column-center mt-sm">
         <div class="flex-container-center text-small white handel shadow">
             @Strings.DraftText_DraftNotPossible
         </div>

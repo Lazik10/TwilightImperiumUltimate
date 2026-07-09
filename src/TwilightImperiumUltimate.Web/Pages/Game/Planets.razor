@@ -51,9 +51,9 @@
                     @foreach (var planet in gameVersion)
                     {
                         <div class="planet-item">
-                            <div class="clickable" @onclick="@(() => ShowBigImage(planet, CultureInfo.CurrentCulture.Name))">
+                            <ClickableTile OnClick="@(() => ShowBigImage(planet, CultureInfo.CurrentCulture.Name))">
                                 <PlanetCard Name="@planet.PlanetName.ToString()" />
-                            </div>
+                            </ClickableTile>
                         </div>
                     }
                 </ResponsiveGridContainer>

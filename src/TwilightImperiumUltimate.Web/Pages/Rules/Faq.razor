@@ -10,27 +10,27 @@
 <PageTitle>@Strings.Page_Faq</PageTitle>
 
 <Page>
-    <Label Text="@Strings.Faq_SubmittedFaqs" CenterText="true" FontSize="24"/>
+    <ResponsiveLabel Text="@Strings.Faq_SubmittedFaqs" CenterText="true" FontSize="xl"/>
 
-    <VerticalSpace Height="50" />
+    <ResponsiveVerticalSpacer CustomHeight="50px" />
 
     @foreach (var faq in Faqs)
     {
         <FaqRow Faq="@faq" Culture="@(CultureInfo.CurrentCulture.Name)" Width="80"/>
-        <VerticalSpace Height="20" />
+        <ResponsiveVerticalSpacer CustomHeight="20px" />
         <FlexRowContainer>
             <AuthorizeView Roles="Admin">
                 <Authorized>
                     <FlexRowContainer Width="80">
-                        <Button ButtonText="Approve" OnClick="async () => await ApproveFaq(faq)" Width="100" />
-                        <HorizontalSpace Width="50" />
-                        <Button ButtonText="Edit" OnClick="async () => await EditFaq(faq.Id)" Width="100" />
-                        <HorizontalSpace Width="50" />
-                        <Button ButtonText="Reject" OnClick="async () => await RejectFaq(faq)" Width="100" />
+                        <ResponsiveButton Text="Approve" OnClick="async () => await ApproveFaq(faq)" />
+                        <ResponsiveHorizontalSpacer CustomWidth="50px" />
+                        <ResponsiveButton Text="Edit" OnClick="async () => await EditFaq(faq.Id)" />
+                        <ResponsiveHorizontalSpacer CustomWidth="50px" />
+                        <ResponsiveButton Text="Reject" OnClick="async () => await RejectFaq(faq)" />
                     </FlexRowContainer>
                 </Authorized>
             </AuthorizeView>
         </FlexRowContainer>
-        <VerticalSpace Height="50" />
+        <ResponsiveVerticalSpacer CustomHeight="50px" />
     }
 </Page>

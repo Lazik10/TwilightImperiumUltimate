@@ -26,11 +26,7 @@
                 <GridLayout Columns="4" CssClass="background" >
                     @foreach (var player in _players)
                     {
-                        <div @onclick="() => ScoreObjective(objective, player)"
-                            class="clickable"
-                            style="filter: @GetScoreStatus(objective, player); -webkit-filter: @GetScoreStatus(objective, player);">
-                            <FactionIconImg FactionName="@player.FactionName" />
-                        </div>
+                        <ScorePlayerIcon FactionName="@player.FactionName" ScoreStatusFilter="@GetScoreStatus(objective, player)" OnClick="() => ScoreObjective(objective, player)" />
                     }
                 </GridLayout>
             </div>

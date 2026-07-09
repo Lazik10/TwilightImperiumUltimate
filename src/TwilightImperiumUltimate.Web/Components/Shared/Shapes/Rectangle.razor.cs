@@ -16,6 +16,12 @@ public partial class Rectangle
     [Parameter]
     public string Fill { get; set; } = "black";
 
+    /// <summary>
+    /// Gets or sets an accessible name for this swatch. Falls back to <see cref="Fill"/> when not set.
+    /// </summary>
+    [Parameter]
+    public string AriaLabel { get; set; } = string.Empty;
+
     private async Task HandleClick()
     {
         await OnClick.InvokeAsync();

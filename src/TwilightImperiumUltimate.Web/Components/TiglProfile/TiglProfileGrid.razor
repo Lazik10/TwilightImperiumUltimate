@@ -691,7 +691,7 @@
                             @foreach (var season in standardSeasons)
                             {
                                 var ss = GetSeasonRatingSummary(season);
-                                <div class="season-header-row handel shadow" @onclick="() => ToggleSeason(season)">
+                                <ClickableTile CssClass="season-header-row" OnClick="() => ToggleSeason(season)">
                                     <Label Text="@($"Season {season.Season}")" FontSize="14" Width="30" />
 
                                     <GridLayout CssClass="season-stats"
@@ -727,7 +727,7 @@
                                         <Label Text="@($"WR: {season.WinRate:F1}%")" FontSize="13" TextColor="@season.WinRate.GetWinrateColor()" />
                                     </GridLayout>
                                     <Label Text="@(IsSeasonExpanded(season) ? "▲" : "▶")" FontSize="12" Width="5" TextColor="TextColor.White" Style="text-align: right;" />
-                                </div>
+                                </ClickableTile>
                                 @if (IsSeasonExpanded(season))
                                 {
                                     <VerticalSpace Height="10"/>
@@ -784,7 +784,7 @@
                             @foreach (var season in fracturedSeasons)
                             {
                                 var ssf = GetSeasonRatingSummary(season);
-                                <div class="season-header-row handel shadow" @onclick="() => ToggleSeason(season)">
+                                <ClickableTile CssClass="season-header-row" OnClick="() => ToggleSeason(season)">
                                     <Label Text="@($"Season {season.Season}")" FontSize="14" Width="30" />
                                     <GridLayout CssClass="season-stats"
                                                 Columns="5"
@@ -819,7 +819,7 @@
                                         <Label Text="@($"WR: {season.WinRate:F1}%")" FontSize="13" TextColor="@season.WinRate.GetWinrateColor()" />
                                     </GridLayout>
                                     <Label Text="@(IsSeasonExpanded(season) ? "▲" : "▶")" FontSize="12" Width="5" TextColor="TextColor.White" Style="text-align: right;" />
-                                </div>
+                                </ClickableTile>
                                 @if (IsSeasonExpanded(season))
                                 {
                                     <VerticalSpace Height="10"/>

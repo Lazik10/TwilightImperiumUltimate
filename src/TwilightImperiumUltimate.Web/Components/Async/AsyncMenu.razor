@@ -1,15 +1,15 @@
 ﻿<FlexColumnCenteredContainer>
     <div class="async-navbar">
         <FlexRowContainer Width="100" JustifyContent="Enums.JustifyContent.SpaceEvenly">
-            <div class="clickable" style="min-width: 33%;" @onclick="() => OnMenuItemClick.InvokeAsync(AsyncMenuItem.Statistics)">
-                <Label Text="@Strings.AsyncMenu_Statistics" FontSize="28" CenterText="true" Style="font-size: 1rem;" />
-            </div>
-            <div class="clickable" style="width: 33%;" @onclick="() => OnMenuItemClick.InvokeAsync(AsyncMenuItem.Games)">
-                <Label Text="@Strings.AsyncMenu_Games" FontSize="28" CenterText="true" Style="font-size: 1rem;" />
-            </div>
-            <div class="clickable" style="width: 33%;" @onclick="() => OnMenuItemClick.InvokeAsync(AsyncMenuItem.Players)">
-                <Label Text="@Strings.AsyncMenu_Players" FontSize="28" CenterText="true" Style="font-size: 1rem;" />
-            </div>
+            <TabNavItem Width="33%" OnClick="() => OnMenuItemClick.InvokeAsync(AsyncMenuItem.Statistics)">
+                <ResponsiveLabel Text="@Strings.AsyncMenu_Statistics" CenterText="true" FontSize="base" />
+            </TabNavItem>
+            <TabNavItem Width="33%" OnClick="() => OnMenuItemClick.InvokeAsync(AsyncMenuItem.Games)">
+                <ResponsiveLabel Text="@Strings.AsyncMenu_Games" CenterText="true" FontSize="base" />
+            </TabNavItem>
+            <TabNavItem Width="33%" OnClick="() => OnMenuItemClick.InvokeAsync(AsyncMenuItem.Players)">
+                <ResponsiveLabel Text="@Strings.AsyncMenu_Players" CenterText="true" FontSize="base" />
+            </TabNavItem>
         </FlexRowContainer>
     </div>
 </FlexColumnCenteredContainer>

@@ -3,7 +3,7 @@
     border: 2px solid black !important;
     background-color: rgba(0, 0, 255, 0.3) !important;
     transition: background-color 0.3s ease !important;
-    padding: 10px 30px !important;
+    padding: clamp(0.5rem, 0.5rem + 0.5vw, 0.625rem) clamp(1rem, 1rem + 1vw, 1.875rem) !important;
 }
 
 .button-disabled {
@@ -11,7 +11,7 @@
     border: 2px solid black !important;
     background-color: rgba(128, 128, 128, 0.3) !important;
     transition: background-color 0.3s ease !important;
-    padding: 10px 30px !important;
+    padding: clamp(0.5rem, 0.5rem + 0.5vw, 0.625rem) clamp(1rem, 1rem + 1vw, 1.875rem) !important;
 }
 
 .button:hover {
@@ -20,7 +20,7 @@
 
 .div-like-button {
     display: block !important;
-    padding: 10px 30px !important;
+    padding: clamp(0.5rem, 0.5rem + 0.5vw, 0.625rem) clamp(1rem, 1rem + 1vw, 1.875rem) !important;
     background-color: rgba(0, 0, 255, 0.3);
     color: white !important;
     border: 2px solid black !important;
@@ -28,7 +28,7 @@
     cursor: pointer !important;
     text-align: center !important;
     text-decoration: none !important;
-    font-size: 16px;
+    font-size: clamp(0.75rem, 0.75rem + 0.3vw, 1rem);
     margin-bottom: 0px !important;
 }
 

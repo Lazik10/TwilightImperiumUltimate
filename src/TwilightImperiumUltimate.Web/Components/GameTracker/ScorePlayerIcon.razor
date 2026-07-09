@@ -1,0 +1,12 @@
+@namespace TwilightImperiumUltimate.Web.Components.GameTracker
+@using TwilightImperiumUltimate.Web.Components.Factions
+
+@*
+    Reusable "score this player" faction-icon button used throughout the Game Tracker scoring grids
+    (objectives, secrets, custodians, agenda/relic/action bonus objectives). Replaces the repeated
+    clickable-<div> + dynamic grayscale-filter pattern with a real, keyboard-accessible button.
+*@
+
+<ClickableTile Style="@GetFilterStyle()" OnClick="HandleClickAsync">
+    <FactionIconImg FactionName="@FactionName" />
+</ClickableTile>

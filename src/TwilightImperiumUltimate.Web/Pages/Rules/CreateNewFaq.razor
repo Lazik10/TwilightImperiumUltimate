@@ -8,9 +8,9 @@
             @{
                 var componenetText = string.Concat("New FAQ for: ", ComponentName);
             }
-            <Label Text="@(componenetText)" FontSize="24" CenterText/>
+            <ResponsiveLabel Text="@(componenetText)" FontSize="xl" CenterText/>
 
-        <VerticalSpace Height="50" />
+        <ResponsiveVerticalSpacer CustomHeight="50px" />
 
         <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
             <img src="@(PathProvider.GetCultureIconPath(Strings.EnglishCulture))"
@@ -18,25 +18,25 @@
                  style="max-height: 100px;" />
         </FlexRowContainer>
 
-        <VerticalSpace Height="50" />
+        <ResponsiveVerticalSpacer CustomHeight="50px" />
 
         <FlexRowContainer>
-            <Label Text="@Strings.Faq_Question" Width="15" />
+            <ResponsiveLabel Text="@Strings.Faq_Question" CssClass="faq-field-label" />
             <RadzenTextBox Placeholder="@FaqModel.QuestionEnglish"
                            @bind-Value="FaqModel.QuestionEnglish"
                            class="w-100 flex-row title white handel" />
         </FlexRowContainer>
 
-        <VerticalSpace Height="20" />
+        <ResponsiveVerticalSpacer CustomHeight="20px" />
 
         <FlexRowContainer>
-            <Label Text="@Strings.Faq_Answer" Width="15"/>
+            <ResponsiveLabel Text="@Strings.Faq_Answer" CssClass="faq-field-label"/>
             <RadzenTextBox Placeholder="@FaqModel.AnswerEnglish"
                            @bind-Value="FaqModel.AnswerEnglish"
                            class="w-100 flex-row title white handel" />
         </FlexRowContainer>
 
-        <VerticalSpace Height="50" />
+        <ResponsiveVerticalSpacer CustomHeight="50px" />
 
         <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
             <img src="@(PathProvider.GetCultureIconPath(Strings.CzechCulture))"
@@ -44,28 +44,28 @@
                  style="max-height: 100px;" />
         </FlexRowContainer>
 
-        <VerticalSpace Height="50" />
+        <ResponsiveVerticalSpacer CustomHeight="50px" />
 
         <FlexRowContainer>
-            <Label Text="@Strings.Faq_Question" Width="15" />
+            <ResponsiveLabel Text="@Strings.Faq_Question" CssClass="faq-field-label" />
             <RadzenTextBox Placeholder="@FaqModel.QuestionCzech"
                            @bind-Value="FaqModel.QuestionCzech"
                            class="w-100 flex-row title white handel" />
         </FlexRowContainer>
 
-        <VerticalSpace Height="20" />
+        <ResponsiveVerticalSpacer CustomHeight="20px" />
 
         <FlexRowContainer>
-            <Label Text="@Strings.Faq_Answer" Width="15"/>
+            <ResponsiveLabel Text="@Strings.Faq_Answer" CssClass="faq-field-label"/>
             <RadzenTextBox Placeholder="@FaqModel.AnswerCzech"
                            @bind-Value="FaqModel.AnswerCzech"
                            class="w-100 flex-row title white handel" />
         </FlexRowContainer>
 
-        <VerticalSpace Height="50" />
+        <ResponsiveVerticalSpacer CustomHeight="50px" />
 
         <FlexRowContainer JustifyContent="Enums.JustifyContent.Center" Width="50">
-            <Button ButtonText="@Strings.Faq_Submit" OnClick="Submit" CssClass="button" ButtonType="ButtonType.Submit" />
+            <ResponsiveButton Text="@Strings.Faq_Submit" OnClick="Submit" CssClass="button" ButtonType="ButtonType.Submit" />
         </FlexRowContainer>
         
 
@@ -73,10 +73,10 @@
     }
     else
     {
-        <VerticalSpace Height="200" />
+        <ResponsiveVerticalSpacer CustomHeight="200px" />
 
         <FlexColumnCenteredContainer>
-            <Label Text="@Strings.Faq_SubmitSuccess" FontSize="24" CenterText="true" TextColor="TextColor.Green"/>
+            <ResponsiveLabel Text="@Strings.Faq_SubmitSuccess" FontSize="xl" CenterText="true" TextColor="TextColor.Green"/>
         </FlexColumnCenteredContainer>
     }
 

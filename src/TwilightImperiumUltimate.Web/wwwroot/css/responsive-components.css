@@ -6,6 +6,22 @@
     width: 100%;
 }
 
+/* When ResponsiveContainer renders as a real <button> (OnClick is set), reset native button chrome
+   so it keeps looking like the plain layout container it visually replaces. */
+button.responsive-container {
+    background: none;
+    border: none;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    text-align: inherit;
+}
+
+button.responsive-container:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}
+
 .container-fluid {
     max-width: 100%;
 }

@@ -1,0 +1,15 @@
+/* ResponsiveText renders this element as a child component, so the scoped
+   .about class must reach through with ::deep. Text color and font-size are
+   intentionally left to ResponsiveText's own (rem-based, fluid) defaults. */
+::deep .about {
+    text-align: justify;
+    width: 80%;
+    line-height: 1.5;
+    text-indent: 2em;
+}
+
+    ::deep .about::after {
+        content: "";
+        display: inline-block;
+        width: 100%;
+    }

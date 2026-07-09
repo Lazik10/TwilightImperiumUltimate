@@ -3,6 +3,8 @@ namespace TwilightImperiumUltimate.Web.Components.Shared.Text;
 /// <summary>
 /// Renders a responsive, semantic heading element (h1-h6) with fluid typography.
 /// The heading always wraps its text so it stays readable on any screen size.
+/// Always renders with the "handel white shadow" classes applied; pass additional
+/// classes via <see cref="CssClass"/> rather than repeating those on every call site.
 /// </summary>
 public partial class ResponsiveHeading
 {
@@ -47,7 +49,7 @@ public partial class ResponsiveHeading
     private int HeadingLevel => Math.Clamp(Level, 1, 6);
 
     private string ComputedCssClass =>
-        $"responsive-heading{(CenterText ? " centered-text" : string.Empty)} {CssClass}".Trim();
+        $"responsive-heading handel white shadow{(CenterText ? " centered-text" : string.Empty)} {CssClass}".Trim();
 
     private string ComputedStyle =>
         $"{(FontSize is null ? string.Empty : $"font-size: {ResolveFontSize(FontSize)}; ")}{Style}";

@@ -1,3 +1,4 @@
+using TwilightImperiumUltimate.Web.Helpers;
 using TwilightImperiumUltimate.Web.Helpers.Enums;
 
 namespace TwilightImperiumUltimate.Web.Components.Shared.Controls;
@@ -51,7 +52,7 @@ public partial class TextButton
 
     private bool HasHref => !string.IsNullOrWhiteSpace(Href);
 
-    private string ComponentStyle => $"--text-button-font-size:{FontSize}px; color:{SetColor()}; text-align:{TextAlign}; align-items:{Align}; justify-content:{Justify}; cursor:pointer; width:{Width}%; box-sizing:border-box; padding:2px; height:100%; {Style}";
+    private string ComponentStyle => $"--text-button-font-size:{FluidSizing.GetFluidFontSize(FontSize)}; color:{SetColor()}; text-align:{TextAlign}; align-items:{Align}; justify-content:{Justify}; cursor:pointer; width:{Width}%; box-sizing:border-box; padding:2px; height:100%; {Style}";
 
     private string SetColor() => TextColor.ConvertToString();
 

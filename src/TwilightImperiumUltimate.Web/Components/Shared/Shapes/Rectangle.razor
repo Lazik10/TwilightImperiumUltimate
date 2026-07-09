@@ -1,1 +1,1 @@
-﻿<div style="min-width: @(Width)px; height: @(Height)px; background-color: @(Fill); cursor: pointer;" @onclick="HandleClick" />
+﻿<button type="button" class="rectangle-swatch" style="min-width: @(Width)px; height: @(Height)px; background-color: @(Fill);" @onclick="HandleClick" aria-label="@(string.IsNullOrEmpty(AriaLabel) ? Fill : AriaLabel)"></button>

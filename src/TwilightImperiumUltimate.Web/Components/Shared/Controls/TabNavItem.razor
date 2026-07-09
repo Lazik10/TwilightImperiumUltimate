@@ -1,0 +1,11 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Controls
+
+@*
+    Accessible tab-style navigation item used by feature tab bars (Async, Map Generator, Slice
+    Generator, Milty Draft, Rankings, Admin, ...). Renders a real <button> instead of a clickable
+    <div> so the tab is keyboard operable and reachable by assistive technology.
+*@
+
+<button type="button" class="tab-nav-item @CssClass" style="@GetWidthStyle()" @onclick="HandleClickAsync">
+    @ChildContent
+</button>

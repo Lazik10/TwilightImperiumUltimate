@@ -7,9 +7,9 @@
 
 <div class="hex-menu">
 
-    <div class="clickable" @onclick="ToggleTileMenu">
-        <Label Text="@GetButtonText()" FontSize="20" CenterText="true" />
-    </div>
+    <ClickableTile OnClick="ToggleTileMenu">
+        <ResponsiveLabel Text="@GetButtonText()" CenterText="true" FontSize="lg" />
+    </ClickableTile>
 
     @if (_showTileMenu)
     {

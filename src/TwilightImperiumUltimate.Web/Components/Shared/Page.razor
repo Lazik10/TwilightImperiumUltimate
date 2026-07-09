@@ -1,9 +1,7 @@
-﻿<div class="page">
-    <StretchHeightContainer>
-        <ResponsiveContainer Type="centered" Padding="none" CssClass="page-template page-template-width">
-                @ChildContent
-        </ResponsiveContainer>
-    </StretchHeightContainer>
-</div>
-
-
+﻿<ResponsiveContainer Type="centered"
+                     Padding="none"
+                     CssClass="page-template page-horizontal-padding"
+                     Style="@GetHorizontalPaddingStyle()"
+                     Name="page-template-container">
+        @ChildContent
+</ResponsiveContainer>

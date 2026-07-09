@@ -50,23 +50,23 @@
                         @if (_selectedFaction.FactionName != FactionName.TheFirmamentTheObsidian)
                         {
                             <div class="faction-sheets-row">
-                                <div class="faction-sheet-button clickable" @onclick="() => ShowBigImage(true, false)">
+                                <ClickableTile CssClass="faction-sheet-button" OnClick="() => ShowBigImage(true, false)">
                                     @Strings.Faction_FrontSheet
-                                </div>
-                                <div class="faction-sheet-button clickable" @onclick="() => ShowBigImage(false, false)">
+                                </ClickableTile>
+                                <ClickableTile CssClass="faction-sheet-button" OnClick="() => ShowBigImage(false, false)">
                                     @Strings.Faction_BackSheet
-                                </div>
+                                </ClickableTile>
                             </div>
                         }
                         else
                         {
                             <div class="faction-sheets-row">
-                                <div class="faction-sheet-button clickable" @onclick="() => ShowBigImage(true, false)">
+                                <ClickableTile CssClass="faction-sheet-button" OnClick="() => ShowBigImage(true, false)">
                                     @Strings.Faction_FrontSheetFirmament
-                                </div>
-                                <div class="faction-sheet-button clickable" @onclick="() => ShowBigImage(false, false)">
+                                </ClickableTile>
+                                <ClickableTile CssClass="faction-sheet-button" OnClick="() => ShowBigImage(false, false)">
                                     @Strings.Faction_BackSheetFirmament
-                                </div>
+                                </ClickableTile>
                             </div>
 
                             <div class="firmament-sheet-row-spacer">
@@ -74,12 +74,12 @@
                             </div>
 
                             <div class="faction-sheets-row">
-                                <div class="faction-sheet-button clickable" @onclick="() => ShowBigImage(true, true)">
+                                <ClickableTile CssClass="faction-sheet-button" OnClick="() => ShowBigImage(true, true)">
                                     @Strings.Faction_FrontSheetObsidian
-                                </div>
-                                <div class="faction-sheet-button clickable" @onclick="() => ShowBigImage(false, true)">
+                                </ClickableTile>
+                                <ClickableTile CssClass="faction-sheet-button" OnClick="() => ShowBigImage(false, true)">
                                     @Strings.Faction_BackSheetObsidian
-                                </div>
+                                </ClickableTile>
                             </div>
                         }
                     </div>

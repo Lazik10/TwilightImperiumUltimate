@@ -5,6 +5,26 @@
     cursor: pointer;
 }
 
+.culture-menu-wrapper {
+    position: relative;
+}
+
+.culture-menu-trigger,
+.culture-flag-button {
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    display: inline-flex;
+}
+
+.culture-menu-trigger:focus-visible,
+.culture-flag-button:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}
+
 .culture-flag {
     width: 50px;
     height: 45px;

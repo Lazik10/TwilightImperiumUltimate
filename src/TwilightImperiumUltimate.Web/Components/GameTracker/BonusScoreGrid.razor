@@ -14,11 +14,7 @@
             <GridLayout Columns="4">
                 @foreach (var player in _players)
                 {
-                    <div @onclick="() => ScoreCustodians(player)"
-                         class="clickable"
-                         style="filter: @GetCustodiansScoreStatus(player); -webkit-filter: @GetCustodiansScoreStatus(player);">
-                        <FactionIconImg FactionName="@player.FactionName" />
-                    </div>
+                    <ScorePlayerIcon FactionName="@player.FactionName" ScoreStatusFilter="@GetCustodiansScoreStatus(player)" OnClick="() => ScoreCustodians(player)" />
                 }
             </GridLayout>
         </FlexColumnCenteredContainer>
@@ -53,11 +49,7 @@
             <GridLayout Columns="4">
                 @foreach (var player in _players)
                 {
-                    <div @onclick="() => ScoreAgendaBonusObjective(AgendaCardName.PoliticalCensure, player)"
-                        class="clickable"
-                         style="filter: @GetAgendaScoreStatus(AgendaCardName.PoliticalCensure, player); -webkit-filter: @GetAgendaScoreStatus(AgendaCardName.PoliticalCensure, player);">
-                        <FactionIconImg FactionName="@player.FactionName" />
-                    </div>
+                    <ScorePlayerIcon FactionName="@player.FactionName" ScoreStatusFilter="@GetAgendaScoreStatus(AgendaCardName.PoliticalCensure, player)" OnClick="() => ScoreAgendaBonusObjective(AgendaCardName.PoliticalCensure, player)" />
                 }
             </GridLayout>
         </FlexColumnContainer>
@@ -91,22 +83,18 @@
         <FlexColumnContainer AlignItems="Enums.AlignItems.FlexStart" JustifyContent="Enums.JustifyContent.SpaceEvenly">
             <VerticalCard Name="@AgendaCardName.Mutiny.ToString()" TypeOfCard="@CardType.Agenda.ToString()" />
             <FlexRowContainer>
-                <div style="width: 45%; cursor: pointer;" @onclick="() => UpdateMutiny(true)">
+                <ClickableTile Style="width: 45%;" OnClick="() => UpdateMutiny(true)">
                     <Label Text="For" TextColor="GetMutinyTextColor(true)" CenterText="true" />
-                </div>
+                </ClickableTile>
                 <Label Text="/" CenterText="true" Width="10" />
-                <div style="width: 45%; cursor: pointer;" @onclick="() => UpdateMutiny(false)">
+                <ClickableTile Style="width: 45%;" OnClick="() => UpdateMutiny(false)">
                     <Label Text="Against" TextColor="GetMutinyTextColor(false)" CenterText="true" />
-                </div>
+                </ClickableTile>
             </FlexRowContainer>
             <GridLayout Columns="4">
                 @foreach (var player in _players)
                 {
-                    <div @onclick="() => ScoreAgendaBonusObjective(AgendaCardName.Mutiny, player)"
-                         class="clickable"
-                         style="filter: @GetAgendaScoreStatus(AgendaCardName.Mutiny, player); -webkit-filter: @GetAgendaScoreStatus(AgendaCardName.Mutiny, player);">
-                        <FactionIconImg FactionName="@player.FactionName" />
-                    </div>
+                    <ScorePlayerIcon FactionName="@player.FactionName" ScoreStatusFilter="@GetAgendaScoreStatus(AgendaCardName.Mutiny, player)" OnClick="() => ScoreAgendaBonusObjective(AgendaCardName.Mutiny, player)" />
                 }
             </GridLayout>
         </FlexColumnContainer>
@@ -119,11 +107,7 @@
             <GridLayout Columns="4">
                 @foreach (var player in _players)
                 {
-                    <div @onclick="() => ScoreAgendaBonusObjective(AgendaCardName.SeedOfAnEmpire, player)"
-                         class="clickable"
-                         style="filter: @GetAgendaScoreStatus(AgendaCardName.SeedOfAnEmpire, player); -webkit-filter: @GetAgendaScoreStatus(AgendaCardName.SeedOfAnEmpire, player);">
-                        <FactionIconImg FactionName="@player.FactionName" />
-                    </div>
+                    <ScorePlayerIcon FactionName="@player.FactionName" ScoreStatusFilter="@GetAgendaScoreStatus(AgendaCardName.SeedOfAnEmpire, player)" OnClick="() => ScoreAgendaBonusObjective(AgendaCardName.SeedOfAnEmpire, player)" />
                 }
             </GridLayout>
         </FlexColumnContainer>
@@ -134,16 +118,16 @@
             <VerticalCard Name="@AgendaCardName.IncentiveProgram.ToString()" TypeOfCard="@CardType.Agenda.ToString()" />
             <FlexRowContainer AlignItems="Enums.AlignItems.FlexStart">
                 <FlexColumnCenteredContainer Width="25">
-                    <div @onclick="async () => await HandleIncentiveProgram(ObjectiveCardType.StageOne)">
+                    <ClickableTile OnClick="async () => await HandleIncentiveProgram(ObjectiveCardType.StageOne)">
                         <Label Text="Revealed" TextColor="GetIncentiveProgramTextColor(ObjectiveCardType.StageOne)" />
                         <ObjectiveCard Picked="false" ObjectiveCardType="ObjectiveCardType.StageOne" />
-                    </div>
+                    </ClickableTile>
                 </FlexColumnCenteredContainer>
                 <FlexColumnCenteredContainer Width="25">
-                    <div @onclick="async () => await HandleIncentiveProgram(ObjectiveCardType.StageTwo)">
+                    <ClickableTile OnClick="async () => await HandleIncentiveProgram(ObjectiveCardType.StageTwo)">
                         <Label Text="Revealed" TextColor="GetIncentiveProgramTextColor(ObjectiveCardType.StageTwo)" />
                         <ObjectiveCard Picked="false" ObjectiveCardType="ObjectiveCardType.StageTwo" />
-                    </div>
+                    </ClickableTile>
                 </FlexColumnCenteredContainer>
             </FlexRowContainer>
         </FlexColumnContainer>
@@ -163,11 +147,7 @@
             <GridLayout Columns="4">
                 @foreach (var player in _players)
                 {
-                    <div @onclick="() => ScoreRelicBonusObjective(RelicCardName.ShardOfTheThrone, player)"
-                         class="clickable"
-                         style="filter: @GetRelicScoreStatus(RelicCardName.ShardOfTheThrone, player); -webkit-filter: @GetRelicScoreStatus(RelicCardName.ShardOfTheThrone, player);">
-                        <FactionIconImg FactionName="@player.FactionName" />
-                    </div>
+                    <ScorePlayerIcon FactionName="@player.FactionName" ScoreStatusFilter="@GetRelicScoreStatus(RelicCardName.ShardOfTheThrone, player)" OnClick="() => ScoreRelicBonusObjective(RelicCardName.ShardOfTheThrone, player)" />
                 }
             </GridLayout>
 
@@ -180,11 +160,7 @@
             <GridLayout Columns="4">
                 @foreach (var player in _players)
                 {
-                    <div @onclick="() => ScoreRelicBonusObjective(RelicCardName.TheCrownOfEmphidia, player)"
-                         class="clickable"
-                         style="filter: @GetRelicScoreStatus(RelicCardName.TheCrownOfEmphidia, player); -webkit-filter: @GetRelicScoreStatus(RelicCardName.TheCrownOfEmphidia, player);">
-                        <FactionIconImg FactionName="@player.FactionName" />
-                    </div>
+                    <ScorePlayerIcon FactionName="@player.FactionName" ScoreStatusFilter="@GetRelicScoreStatus(RelicCardName.TheCrownOfEmphidia, player)" OnClick="() => ScoreRelicBonusObjective(RelicCardName.TheCrownOfEmphidia, player)" />
                 }
             </GridLayout>
 
@@ -201,11 +177,7 @@
             <GridLayout Columns="4">
                 @foreach (var player in _players)
                 {
-                    <div @onclick="() => ScoreActionBonusObjective(ActionCardName.ImperialRider, player)"
-                         class="clickable"
-                         style="filter: @GetActionScoreStatus(ActionCardName.ImperialRider, player); -webkit-filter: @GetActionScoreStatus(ActionCardName.ImperialRider, player);">
-                        <FactionIconImg FactionName="@player.FactionName" />
-                    </div>
+                    <ScorePlayerIcon FactionName="@player.FactionName" ScoreStatusFilter="@GetActionScoreStatus(ActionCardName.ImperialRider, player)" OnClick="() => ScoreActionBonusObjective(ActionCardName.ImperialRider, player)" />
                 }
             </GridLayout>
 

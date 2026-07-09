@@ -28,9 +28,9 @@
                 <ResponsiveGridContainer Columns="GetNumberOfColumns()" TabletColumns="2" MobileColumns="1" Width="100" Gap="0.625rem">
                     @foreach(var card in GetFilteredCards())
                     {
-                        <div class="clickable align-center" @onclick="@(() => ShowBigImage(@card, CultureInfo.CurrentCulture.Name))">
+                        <ClickableTile CssClass="align-center" OnClick="@(() => ShowBigImage(@card, CultureInfo.CurrentCulture.Name))">
                             <VerticalCard Name="@card.Name" TypeOfCard="@TypeOfCard" />
-                        </div>
+                        </ClickableTile>
                     }
                 </ResponsiveGridContainer>
             </div>
@@ -48,9 +48,9 @@
                     <ResponsiveGridContainer Columns="GetNumberOfColumns()" TabletColumns="3" MobileColumns="2" Width="100" Gap="0.625rem">
                         @foreach (var card in gameVersionGroup)
                         {
-                            <div class="clickable align-center" @onclick="@(() => ShowBigImage(@card, CultureInfo.CurrentCulture.Name))">
+                            <ClickableTile CssClass="align-center" OnClick="@(() => ShowBigImage(@card, CultureInfo.CurrentCulture.Name))">
                                 <VerticalCard Name="@card.Name" TypeOfCard="@TypeOfCard" />
-                            </div>
+                            </ClickableTile>
                         }
                     </ResponsiveGridContainer>
                 </div>
@@ -74,9 +74,9 @@
 
                     @foreach (var card in _listOfDeprecatedCards)
                     {
-                        <div class="clickable align-center" @onclick="@(() => ShowBigImage(@card, CultureInfo.CurrentCulture.Name))">
+                        <ClickableTile CssClass="align-center" OnClick="@(() => ShowBigImage(@card, CultureInfo.CurrentCulture.Name))">
                             <VerticalCard Name="@card.Name" TypeOfCard="@TypeOfCard" />
-                        </div>
+                        </ClickableTile>
                     }
 
                 </ResponsiveGridContainer>

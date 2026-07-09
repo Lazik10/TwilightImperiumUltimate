@@ -1,8 +1,4 @@
-﻿.page {
-    width: 100%;
-}
-
-.page-template {
+﻿.page-template {
     display: flex;
     flex-direction: column;
     justify-content: center; /*main-axis*/
@@ -11,24 +7,19 @@
     width: 100%;
 }
 
-.page-template-width {
-    width: 80%;
-}
-
+/* Horizontal inset for page content. Desktop value comes from the HorizontalPadding
+   parameter (via inline style, default 20%); tablet/mobile always use the fixed
+   percentages below regardless of the parameter (!important beats the inline style). */
 @media (max-width: 1024px) {
-    .page-template-width {
-        width: 100%;
+    .page-horizontal-padding {
+        padding-left: 5% !important;
+        padding-right: 5% !important;
     }
 }
 
 @media (max-width: 768px) {
-    .page-template-width {
-        width: 100%;
-    }
-}
-
-@media (max-width: 576px) {
-    .page-template-width {
-        width: 100%;
+    .page-horizontal-padding {
+        padding-left: 1% !important;
+        padding-right: 1% !important;
     }
 }
