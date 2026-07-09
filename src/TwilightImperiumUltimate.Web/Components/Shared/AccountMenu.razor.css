@@ -1,51 +1,39 @@
-﻿#account-menu {
+﻿::deep .account-menu {
     position: absolute;
     top: 0;
     right: 1%;
     min-width: 20%;
+    gap: var(--space-3xl);
 }
 
 @media (max-width: 970px) {
-    #account-menu {
+    ::deep .account-menu {
         position: relative;
         top: 0;
         right: 1%;
         width: 100%;
-        display: flex;
     }
 }
 
-.space {
-    align-self: center;
-    min-width: 20px !important;
-}
-
-#account-navbar {
+.account-menu-auth,
+.account-menu-tools {
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-wrap: nowrap;
-    height: 30px;
-    min-height: 30px;
-    align-self: center;
-    min-width: 50%;
+    gap: var(--space-lg);
 }
 
-.menu-item {
+.menu-container {
     position: relative;
     min-width: 5%;
     text-align: center;
-    margin: 0 18px;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
-    flex-grow: 1;
-    flex-shrink: 1;
+    font-size: 1.375rem;
 }
 
-    .menu-item a,
-    .menu-item ::deep .account-trigger {
+    .menu-container ::deep .account-trigger {
         color: white;
         font-family: Handel, fallback, sans-serif;
-        font-size: 24px;
+        font-size: 1.5rem;
         font-weight: bold;
         text-decoration: none;
         text-transform: uppercase;
@@ -71,10 +59,13 @@
 
     .dropdown a,
     .dropdown ::deep .account-logout {
-        font-size: 14px;
+        font-size: 0.875rem;
+        font-family: Handel, fallback, sans-serif;
         background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.6) 10%, rgba(0,0,0,0.6) 90%, rgba(0,0,0,0));
         color: white;
         display: block;
+        width: 100%;
+        text-align: center;
         text-decoration: none;
         white-space: nowrap;
         margin-top: 3px;
@@ -83,7 +74,7 @@
 
         .dropdown a:hover,
         .dropdown ::deep .account-logout:hover {
-            font-size: 16px;
+            font-size: 1rem;
         }
 
         .dropdown a:focus-visible {
@@ -92,25 +83,20 @@
             color: yellow;
         }
 
-.menu-container {
-    position: relative;
-    font-size: 22px;
-}
-
     .menu-container:hover .dropdown,
     .menu-container:focus-within .dropdown {
         opacity: 1;
         visibility: visible;
     }
 
-#account-menu a:focus-visible {
+::deep .account-menu a:focus-visible {
     outline: 0.125rem solid yellow;
     outline-offset: 0.125rem;
     border-radius: var(--border-radius-sm);
 }
 
 @media (max-width: 768px) {
-    #account-menu {
+    ::deep .account-menu {
         display: none !important;
     }
 }

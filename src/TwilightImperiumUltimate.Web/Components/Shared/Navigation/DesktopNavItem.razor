@@ -1,0 +1,41 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Navigation
+
+@*
+    Single top-level desktop navigation entry. Renders a plain link when no Items are supplied
+    (for example "News"), or a hover/focus-activated dropdown trigger with its list of links.
+    Tracks its own hover state locally and reads/writes the shared IMenuSelectionState directly,
+    so MainNavigation only needs to declare which links exist for each section.
+*@
+
+<div class="menu-item"
+     @onmouseenter="HandleHoverStart"
+     @onmouseleave="HandleHoverEnd"
+     @onfocusin="HandleHoverStart"
+     @onfocusout="HandleHoverEnd">
+    @if (Items is { Count: > 0 })
+    {
+        <MenuButton CssClass="@($"menu-trigger {GetActiveCssClass()}")"
+                    OnClick="HandleSelectMenu"
+                    AriaHasPopup="true"
+                    AriaExpanded="_isHovered"
+                    AriaControls="@DropdownId">
+            @Text
+        </MenuButton>
+        <div class="dropdown" id="@DropdownId">
+            @foreach (var item in Items)
+            {
+                <a href="@item.Href"
+                   target="@item.Target"
+                   class="@GetSubMenuCssClass(item.Key)"
+                   @onmouseenter="() => HandleSubMenuHoverStart(item.Key)"
+                   @onclick="() => HandleSelectSubMenu(item.Key)">
+                    @item.Text
+                </a>
+            }
+        </div>
+    }
+    else
+    {
+        <a href="@Href" class="@GetActiveCssClass()" @onclick="HandleSelectMenu">@Text</a>
+    }
+</div>

@@ -75,6 +75,7 @@ public static class ServiceCollectionsExtension
         services.AddCascadingAuthenticationState();
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<ILoginService, LoginService>();
+        services.AddScoped<ICurrentUserState, CurrentUserState>();
 
         services.AddAutoMapper(cfg => cfg.AddMaps(Assembly.GetExecutingAssembly()));
 

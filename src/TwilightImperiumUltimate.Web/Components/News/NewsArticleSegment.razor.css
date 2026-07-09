@@ -35,14 +35,10 @@
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
-    padding-left: var(--news-texture-width);
-    padding-right: var(--news-texture-width);
 }
 
 .article-title-line {
     width: 100%;
-    margin-left: calc(-1 * var(--news-texture-width) * 1);
-    width: calc(100% + (var(--news-texture-width) * 1));
 }
 
 ::deep .article-title {
@@ -113,8 +109,6 @@
     .news-article-segment__content {
         width: 100%;
         max-width: 100%;
-        padding-left: var(--space-sm);
-        padding-right: var(--space-sm);
     }
 
     .article-title-line {

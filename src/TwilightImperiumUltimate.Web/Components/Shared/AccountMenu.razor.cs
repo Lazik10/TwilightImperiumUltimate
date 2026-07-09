@@ -1,30 +1,15 @@
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Authorization;
-using TwilightImperiumUltimate.Web.Models.Users;
 using TwilightImperiumUltimate.Web.Services.Authentication;
-using TwilightImperiumUltimate.Web.Services.User;
 
 namespace TwilightImperiumUltimate.Web.Components.Shared;
 
 public partial class AccountMenu : IDisposable
 {
-    private TwilightImperiumUser? _user;
     private bool _disposed;
     private bool _isAccountDropdownOpen;
 
-    ~AccountMenu()
-    {
-        Dispose(false);
-    }
-
     [Inject]
-    private IUserService UserService { get; set; } = default!;
-
-    [Inject]
-    private ILoginService LoginService { get; set; } = default!;
-
-    [Inject]
-    private AuthenticationStateProvider AuthenticationStateProvider { get; set; } = default!;
+    private ICurrentUserState CurrentUserState { get; set; } = default!;
 
     public void Dispose()
     {
@@ -34,49 +19,26 @@ public partial class AccountMenu : IDisposable
 
     protected virtual void Dispose(bool disposing)
     {
-        if (!_disposed)
-        {
-            if (disposing)
-            {
-                AuthenticationStateProvider.AuthenticationStateChanged -= OnAuthenticationStateChanged;
-            }
+        if (_disposed)
+            return;
 
-            _user = null;
-            _disposed = true;
-        }
+        if (disposing)
+            CurrentUserState.UserChanged -= OnUserChanged;
+
+        _disposed = true;
     }
 
     protected override async Task OnInitializedAsync()
     {
-        _user = await UserService.GetCurrentUserAsync();
-
-        if (_user is null)
-        {
-            var loginSuccess = await LoginService.TryAutomaticLoginAsync(CancellationToken.None);
-
-            if (loginSuccess)
-                _user = await UserService.GetCurrentUserAsync();
-        }
-
-        AuthenticationStateProvider.AuthenticationStateChanged += OnAuthenticationStateChanged;
+        CurrentUserState.UserChanged += OnUserChanged;
+        await CurrentUserState.InitializeAsync();
     }
 
-    private async void OnAuthenticationStateChanged(Task<AuthenticationState> task)
-    {
-        _user = await UserService.GetCurrentUserAsync();
-        StateHasChanged();
-    }
+    private void OnUserChanged() => InvokeAsync(StateHasChanged);
 
     private void OpenAccountDropdown() => _isAccountDropdownOpen = true;
 
     private void CloseAccountDropdown() => _isAccountDropdownOpen = false;
 
-    private async Task Logout()
-    {
-        _user = null;
-        await LoginService.LogoutAsync();
-        var twilightImperiumAuthStateProvider = AuthenticationStateProvider as TwilightImperiumAuthenticationStateProvider;
-        twilightImperiumAuthStateProvider?.NotifyUserLogout();
-        StateHasChanged();
-    }
+    private async Task Logout() => await CurrentUserState.LogoutAsync();
 }

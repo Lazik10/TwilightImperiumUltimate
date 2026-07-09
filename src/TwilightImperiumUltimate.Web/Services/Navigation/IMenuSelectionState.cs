@@ -1,12 +1,14 @@
+using TwilightImperiumUltimate.Web.Enums;
+
 namespace TwilightImperiumUltimate.Web.Services.Navigation;
 
 public interface IMenuSelectionState
 {
-    string? ActiveMenuKey { get; }
+    MainMenuKey? ActiveMenuKey { get; }
 
     string? ActiveSubMenuKey { get; }
 
-    void SelectMenu(string menuKey);
+    void SelectMenu(MainMenuKey menuKey);
 
-    void SelectSubMenu(string menuKey, string subMenuKey);
+    void SelectSubMenu(MainMenuKey menuKey, string subMenuKey);
 }

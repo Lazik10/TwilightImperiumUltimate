@@ -1,4 +1,4 @@
-namespace TwilightImperiumUltimate.Web.Components.Shared;
+namespace TwilightImperiumUltimate.Web.Components.Shared.Navigation;
 
 /// <summary>
 /// Reusable, accessible menu button used for menu triggers and actions that do not navigate

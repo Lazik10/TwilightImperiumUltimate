@@ -11,124 +11,6 @@
     align-self: center;
 }
 
-.menu-item {
-    position: relative;
-    min-width: 5%;
-    text-align: center;
-    margin: 0 1.125rem;
-    text-shadow: 0.0625rem 0.0625rem 0.125rem rgba(0,0,0,0.4);
-    flex-grow: 1;
-    flex-shrink: 1;
-}
-
-.menu-item a,
-.menu-item ::deep .menu-trigger {
-    color: white;
-    font-family: Handel, fallback, sans-serif;
-    font-size: 1.75rem;
-    font-weight: bold;
-    text-decoration: none;
-    text-transform: uppercase;
-    text-shadow: var(--shadow-text);
-}
-
-.menu-container > a,
-.menu-container ::deep .menu-trigger {
-    display: inline-block;
-    padding: 0.35rem 0.6rem;
-    border-radius: var(--border-radius-sm);
-}
-
-.menu-container > a:hover,
-.menu-container ::deep .menu-trigger:hover {
-    color: yellow;
-    text-decoration: underline;
-    text-underline-offset: 0.25rem;
-}
-
-.menu-container > a.menu-link-active,
-.menu-container ::deep .menu-trigger.menu-link-active {
-    background-color: transparent;
-    color: yellow;
-    text-decoration: underline;
-    text-underline-offset: 0.25rem;
-}
-
-/* Visible keyboard focus indicator for navigation links (bullet 7). */
-.menu-container > a:focus-visible {
-    outline: 0.125rem solid yellow;
-    outline-offset: 0.125rem;
-}
-
-.dropdown {
-    position: absolute;
-    top: 120%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: clamp(12rem, 20vw, 18rem);
-    min-width: max-content;
-    max-width: min(90vw, 22rem);
-    z-index: 1000;
-    flex-direction: column;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s, visibility 0.5s;
-}
-
-.dropdown:hover {
-    display: block;
-    animation: none;
-}
-
-.dropdown a {
-    font-size: 1.0625rem;
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 0;
-    color: white;
-    display: block;
-    text-decoration: none;
-    white-space: nowrap;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding: 0.125rem 0.5rem;
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.dropdown a + a {
-    border-top: 1px solid rgba(255, 255, 255, 0.25);
-}
-
-.dropdown a:hover {
-    background: rgba(0, 0, 0, 0.85);
-    color: yellow;
-    text-decoration: underline;
-    text-underline-offset: 0.25rem;
-}
-
-.dropdown a:focus-visible {
-    outline: 0.125rem solid yellow;
-    outline-offset: -0.125rem;
-    background: rgba(0, 0, 0, 0.85);
-    color: yellow;
-}
-
-.dropdown a.submenu-link-active {
-    color: yellow;
-    background: rgba(0, 0, 0, 0.9);
-    text-decoration: underline;
-    text-underline-offset: 0.25rem;
-}
-
-.menu-container {
-    position: relative;
-}
-
-.menu-container:hover .dropdown,
-.menu-container:focus-within .dropdown {
-    opacity: 1;
-    visibility: visible;
-}
-
 @media (max-width: 1280px) {
     #main-navbar {
         height: auto;
@@ -144,56 +26,6 @@
         min-height: 2.5rem;
         margin-bottom: 3.125rem;
         align-self: center;
-    }
-
-    .menu-item {
-        position: relative;
-        min-width: 10%;
-        text-align: center;
-        margin: 0 1.125rem;
-        text-shadow: 0.0625rem 0.0625rem 0.125rem rgba(0,0,0,0.4);
-        flex-grow: 1;
-        flex-shrink: 1;
-    }
-
-    .menu-item a {
-        color: white;
-        font-family: Handel, fallback, sans-serif;
-        font-size: 1.25rem;
-        font-weight: bold;
-        text-decoration: none;
-        text-transform: uppercase;
-        text-shadow: var(--shadow-text);
-    }
-
-    .menu-item ::deep .menu-trigger {
-        font-size: 1.25rem;
-    }
-
-    .dropdown {
-        position: absolute;
-        top: 120%;
-        left: 50%;
-        transform: translateX(-50%);
-        width: clamp(10rem, 18vw, 16rem);
-        min-width: max-content;
-        max-width: min(90vw, 20rem);
-        z-index: 100;
-    }
-
-    .dropdown a {
-        font-size: 0.875rem;
-        color: white;
-        display: block;
-        text-decoration: none;
-        white-space: nowrap;
-        margin-top: 0;
-        margin-bottom: 0;
-        padding: 0.125rem 0.5rem;
-    }
-
-    .dropdown a:hover {
-        font-size: 0.875rem;
     }
 }
 
@@ -246,7 +78,7 @@
         min-height: 3rem;
     }
 
-    .mobile-nav-row,
+    ::deep .mobile-nav-row,
     .mobile-nav-row-link {
         width: 100%;
         display: block;
@@ -278,13 +110,13 @@
         background: rgba(0, 0, 0, 0.62);
     }
 
-    .mobile-nav-row:hover,
+    ::deep .mobile-nav-row:hover,
     .mobile-nav-row-link:hover {
         background: rgba(0, 0, 0, 0.85);
         color: yellow;
     }
 
-    .mobile-nav-row.menu-link-active,
+    ::deep .mobile-nav-row.menu-link-active,
     .mobile-nav-row-link.menu-link-active {
         background: rgba(0, 0, 0, 0.62);
         color: yellow;
@@ -292,7 +124,7 @@
         text-underline-offset: 0.25rem;
     }
 
-    .mobile-nav-submenu {
+    ::deep .mobile-nav-submenu {
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
@@ -303,7 +135,7 @@
         background: rgba(0, 0, 0, 0.45);
     }
 
-    .mobile-nav-submenu a,
+    .mobile-nav-submenu ::deep a,
     .mobile-nav-submenu ::deep .menu-button {
         color: white;
         text-decoration: none;
@@ -315,20 +147,20 @@
         width: 100%;
     }
 
-    .mobile-nav-submenu a:hover,
+    .mobile-nav-submenu ::deep a:hover,
     .mobile-nav-submenu ::deep .menu-button:hover {
         color: yellow;
     }
 
-    .mobile-nav-submenu a.submenu-link-active {
+    .mobile-nav-submenu ::deep a.submenu-link-active {
         color: yellow;
         font-weight: bold;
     }
 
     .mobile-nav-toggle:focus-visible,
-    .mobile-nav-row:focus-visible,
+    ::deep .mobile-nav-row:focus-visible,
     .mobile-nav-row-link:focus-visible,
-    .mobile-nav-submenu a:focus-visible {
+    .mobile-nav-submenu ::deep a:focus-visible {
         outline: 0.125rem solid yellow;
         outline-offset: -0.125rem;
         color: yellow;
