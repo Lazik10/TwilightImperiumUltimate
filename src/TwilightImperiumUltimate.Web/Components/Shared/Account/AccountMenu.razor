@@ -1,5 +1,4 @@
-﻿@using Microsoft.AspNetCore.Components.Authorization
-@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @using TwilightImperiumUltimate.Web.Resources
 @using TwilightImperiumUltimate.Web.Pages;
 
@@ -16,14 +15,11 @@
             <div class="menu-container" @onmouseenter="OpenAccountDropdown" @onmouseleave="CloseAccountDropdown" @onfocusin="OpenAccountDropdown" @onfocusout="CloseAccountDropdown">
                 <MenuButton CssClass="account-trigger" AriaHasPopup="true" AriaExpanded="_isAccountDropdownOpen" AriaControls="account-dropdown">@CurrentUserState.User.UserName</MenuButton>
                 <div class="dropdown" id="account-dropdown">
-                    <a href="@Pages.AccountInfo">@Strings.Page_AccountInfo</a>
-                        <AuthorizeView Roles="Admin">
-                            <a href="@Pages.Admin">@Strings.Page_Admin</a>
-                        </AuthorizeView>
-                        <AuthorizeView Roles="TiglAdmin">
-                            <a href="@Pages.TiglAdmin">@Strings.Page_TiglAdmin</a>
-                        </AuthorizeView>
-                    <a href="@Pages.ResendPasswordRecoveryEmail">@Strings.Page_AccountPasswordReset</a>
+                    <AccountLinksList Items="AccountLinks.LoggedIn">
+                        <LinkTemplate Context="link">
+                            <a href="@link.Href">@link.Text</a>
+                        </LinkTemplate>
+                    </AccountLinksList>
                     <MenuButton CssClass="account-logout" OnClick="Logout">@Strings.Login_Logout</MenuButton>
                 </div>
             </div>

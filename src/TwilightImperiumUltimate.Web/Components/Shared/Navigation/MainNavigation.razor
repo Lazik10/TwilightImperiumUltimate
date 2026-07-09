@@ -1,5 +1,4 @@
-﻿@using Microsoft.AspNetCore.Components.Authorization
-@using TwilightImperiumUltimate.Web.Resources
+﻿@using TwilightImperiumUltimate.Web.Resources
 @using TwilightImperiumUltimate.Web.Pages
 
 <nav id="main-navbar" class="main-navbar-desktop" aria-label="@Strings.Nav_MainLabel">
@@ -39,14 +38,11 @@
                     }
                     else
                     {
-                        <a href="@Pages.AccountInfo" class='@GetSubMenuClass("accountinfo")' @onclick='() => SelectSubMenuAndClose(MainMenuKey.Account, "accountinfo")'>@Strings.Page_AccountInfo</a>
-                        <AuthorizeView Roles="Admin">
-                            <a href="@Pages.Admin" class='@GetSubMenuClass("admin")' @onclick='() => SelectSubMenuAndClose(MainMenuKey.Account, "admin")'>@Strings.Page_Admin</a>
-                        </AuthorizeView>
-                        <AuthorizeView Roles="TiglAdmin">
-                            <a href="@Pages.TiglAdmin" class='@GetSubMenuClass("tigladmin")' @onclick='() => SelectSubMenuAndClose(MainMenuKey.Account, "tigladmin")'>@Strings.Page_TiglAdmin</a>
-                        </AuthorizeView>
-                        <a href="@Pages.ResendPasswordRecoveryEmail" class='@GetSubMenuClass("passwordreset")' @onclick='() => SelectSubMenuAndClose(MainMenuKey.Account, "passwordreset")'>@Strings.Page_AccountPasswordReset</a>
+                        <AccountLinksList Items="AccountLinks.LoggedIn">
+                            <LinkTemplate Context="link">
+                                <a href="@link.Href" class='@GetSubMenuClass(link.Key)' @onclick='() => SelectSubMenuAndClose(MainMenuKey.Account, link.Key)'>@link.Text</a>
+                            </LinkTemplate>
+                        </AccountLinksList>
                         <MenuButton CssClass="mobile-nav-submenu-action" OnClick="Logout">@Strings.Login_Logout</MenuButton>
                     }
                 </div>

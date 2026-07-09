@@ -34,6 +34,10 @@ TwilightImperiumUltimate/
 
     TwilightImperiumUltimate.Web/
       Components/
+        Shared/
+          Layouts/
+            App.razor
+            MainLayout.razor
       Documentation/
       Enums/
       Formatting/
@@ -46,8 +50,6 @@ TwilightImperiumUltimate/
       Validators/
       wwwroot/
       Program.cs
-      App.razor
-      MainLayout.razor
       _Imports.razor
 
     TwilightImperiumUltimate.Contracts/
@@ -267,7 +269,7 @@ MyComponent.razor.cs   (when complexity warrants code-behind)
 |---|---|
 | Page | `RulesPage.razor` |
 | Component | `FactionSummaryCard.razor` |
-| Layout | `MainLayout.razor` |
+| Layout | `Components/Shared/Layouts/MainLayout.razor` |
 | Scoped CSS | `FactionSummaryCard.razor.css` |
 | Code-behind | `FactionSummaryCard.razor.cs` |
 

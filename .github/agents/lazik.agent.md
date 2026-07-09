@@ -30,6 +30,12 @@ Use relevant skills from `.github/skills/` (e.g. `add-blazor-feature`, `add-comp
 
 ---
 
+## Refactoring
+
+When a request is a refactor (improving existing code without an intentionally requested behavior change — renames, extractions, de-duplication, restructuring, cleanup), follow `.github/instructions/refactoring.instructions.md` as the primary workflow for that task. It defines the required steps, what behavior/contracts must be preserved, Blazor-specific checks, validation commands, and the final completion report format. Apply it in addition to (not instead of) the language/UI-specific instruction files it references.
+
+---
+
 ## Main responsibility
 
 Implement requested changes in a focused, production-quality way.

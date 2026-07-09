@@ -9,8 +9,7 @@
     position: relative;
 }
 
-.culture-menu-trigger,
-.culture-flag-button {
+.culture-menu-trigger {
     background: none;
     border: none;
     margin: 0;
@@ -19,13 +18,12 @@
     display: inline-flex;
 }
 
-.culture-menu-trigger:focus-visible,
-.culture-flag-button:focus-visible {
+.culture-menu-trigger:focus-visible {
     outline: 2px solid currentColor;
     outline-offset: 2px;
 }
 
-.culture-flag {
+::deep .culture-flag {
     width: 50px;
     height: 45px;
     margin: 0 5px;
@@ -33,11 +31,11 @@
     transition: filter 0.2s ease;
 }
 
-.active-culture-flag {
+::deep .active-culture-flag {
     filter: grayscale(0%);
 }
 
-.inactive-culture-flag {
+::deep .inactive-culture-flag {
     filter: grayscale(100%);
 }
 
@@ -48,7 +46,7 @@
     height: 100%;
 }
 
-.culture-menu-inline .culture-flag {
+.culture-menu-inline ::deep .culture-flag {
     width: auto;
     height: 100%;
     max-height: 2rem;

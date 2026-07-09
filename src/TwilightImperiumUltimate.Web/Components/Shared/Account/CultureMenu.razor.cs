@@ -1,7 +1,8 @@
-using System.Globalization;
 using Microsoft.AspNetCore.Components;
+using TwilightImperiumUltimate.Web.Services.Language;
+using TwilightImperiumUltimate.Web.Services.Path;
 
-namespace TwilightImperiumUltimate.Web.Components.Shared;
+namespace TwilightImperiumUltimate.Web.Components.Shared.Account;
 
 public partial class CultureMenu
 {
@@ -12,6 +13,21 @@ public partial class CultureMenu
 
     [Parameter]
     public string CssClass { get; set; } = string.Empty;
+
+    private static IReadOnlyList<(string Code, string Label)> SupportedCultures =>
+    [
+        (Strings.EnglishCulture, "English"),
+        (Strings.CzechCulture, "Czech"),
+    ];
+
+    [Inject]
+    private NavigationManager NavigationManager { get; set; } = default!;
+
+    [Inject]
+    private ICultureProvider CultureProvider { get; set; } = default!;
+
+    [Inject]
+    private IPathProvider PathProvider { get; set; } = default!;
 
     private void ToggleMenu()
     {
@@ -31,12 +47,5 @@ public partial class CultureMenu
     private string GetCultureIconPath(string culture)
     {
         return PathProvider.GetCultureIconPath(culture);
-    }
-
-    private string GetCultureFlagClass(string culture)
-    {
-        return string.Equals(CultureInfo.CurrentCulture.Name, culture, StringComparison.OrdinalIgnoreCase)
-            ? "active-culture-flag"
-            : "inactive-culture-flag";
     }
 }

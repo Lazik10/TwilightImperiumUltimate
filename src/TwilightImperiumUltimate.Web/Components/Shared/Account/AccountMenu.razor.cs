@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Components;
 using TwilightImperiumUltimate.Web.Services.Authentication;
 
-namespace TwilightImperiumUltimate.Web.Components.Shared;
+namespace TwilightImperiumUltimate.Web.Components.Shared.Account;
 
 public partial class AccountMenu : IDisposable
 {

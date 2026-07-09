@@ -510,16 +510,6 @@ body {
     flex: 1 0 auto;
 }
 
-/* Extra breathing room around page content on desktop only -- header/nav and footer
-   are intentionally NOT affected (this is scoped to .site-main, not .site-shell). */
-@media (min-width: 1025px) {
-    .site-main {
-        padding-left: 10%;
-        padding-right: 10%;
-        box-sizing: border-box;
-    }
-}
-
 .clickable {
     cursor: pointer;
 }

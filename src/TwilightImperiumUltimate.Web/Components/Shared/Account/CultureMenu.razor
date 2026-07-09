@@ -1,0 +1,29 @@
+﻿@using System.Globalization;
+@using TwilightImperiumUltimate.Web.Resources;
+
+@if (InlineMode)
+{
+    <div class="culture-menu-inline @CssClass">
+        @foreach (var culture in SupportedCultures)
+        {
+            <CultureFlagButton Culture="@culture.Code" Label="@culture.Label" OnCultureSelected="SetCulture" />
+        }
+    </div>
+}
+else
+{
+    <div class="culture-menu-wrapper">
+        <button type="button" class="culture-menu-trigger" @onclick="ToggleMenu" aria-haspopup="true" aria-expanded="@(_isMenuVisible ? "true" : "false")" aria-controls="country-menu" aria-label="Change language">
+            <img class="culture-flag active-culture-flag"
+                 src="@(GetCultureIconPath(CultureInfo.CurrentCulture.Name))"
+                 alt="">
+        </button>
+        <div id="country-menu" style="@(_isMenuVisible ? "" : "display:none")">
+            @foreach (var culture in SupportedCultures)
+            {
+                <CultureFlagButton Culture="@culture.Code" Label="@culture.Label" OnCultureSelected="SetCulture" />
+            }
+        </div>
+    </div>
+}
+

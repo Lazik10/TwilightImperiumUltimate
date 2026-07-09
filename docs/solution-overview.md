@@ -141,7 +141,7 @@ Should not contain:
 |---|---|---|
 | Pages | `src/TwilightImperiumUltimate.Web/Pages` | Routable Blazor pages by domain (`Game`, `Community`, `Tools`, `Rules`, `Tigl`, etc.) |
 | Components | `src/TwilightImperiumUltimate.Web/Components` | Reusable UI components and shared controls/layout |
-| Layout | `src/TwilightImperiumUltimate.Web/MainLayout.razor` | App shell, navigation, and shared layout |
+| Layout | `src/TwilightImperiumUltimate.Web/Components/Shared/Layouts/MainLayout.razor` | App shell, navigation, and shared layout |
 | Services | `src/TwilightImperiumUltimate.Web/Services` | Client-side services and API clients |
 | Shared models | `src/TwilightImperiumUltimate.Contracts` | DTOs, requests/responses, enums |
 | Static assets | `src/TwilightImperiumUltimate.Web/wwwroot` | Images, CSS, fonts, static files |
