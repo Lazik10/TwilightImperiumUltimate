@@ -1,11 +1,11 @@
-﻿@using TwilightImperiumUltimate.Web.Models.Factions;
+@using TwilightImperiumUltimate.Web.Models.Factions;
 @using TwilightImperiumUltimate.Web.Resources;
 @using TwilightImperiumUltimate.Web.Services.HttpClients;
 @using TwilightImperiumUltimate.Web.Services.Path;
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @inherits TwilightImperiumBaseComponent
 
-<ResponsiveContainer Type="fluid" Padding="none">
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none">
     @if (_factions is not null)
     {
         if (ShowBaseGame)

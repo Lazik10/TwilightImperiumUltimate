@@ -1,8 +1,8 @@
-﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @using TwilightImperiumUltimate.Web.Resources
 @using TwilightImperiumUltimate.Web.Pages;
 
-<ResponsiveContainer Type="fluid" Padding="none" CssClass="flex-row account-menu" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.FlexEnd">
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CssClass="flex-row account-menu" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.FlexEnd">
     <div class="account-menu-auth">
         @if(CurrentUserState.User is null)
         {

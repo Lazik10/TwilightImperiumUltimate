@@ -1,4 +1,4 @@
-﻿@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
 @using TwilightImperiumUltimate.Contracts.Enums
 @using TwilightImperiumUltimate.Web.Components.Cards
 @using TwilightImperiumUltimate.Web.Components.Rules
@@ -7,7 +7,7 @@
 
 @inherits TwilightImperiumBaseComponent
 
-<ResponsiveContainer Type="fluid" Padding="none">
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none">
     @if (SelectedTechnologyType == TechnologyType.Biotic
         || SelectedTechnologyType == TechnologyType.Propulsion
         || SelectedTechnologyType == TechnologyType.Cybernetic

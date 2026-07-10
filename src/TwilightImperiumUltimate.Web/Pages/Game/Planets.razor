@@ -1,4 +1,4 @@
-﻿@page "/game/planets"
+@page "/game/planets"
 @using System.Globalization
 @using TwilightImperiumUltimate.Web.Components.Cards
 @using TwilightImperiumUltimate.Web.Components.Galaxy
@@ -38,7 +38,7 @@
         </div>
     </div>
 
-    <ResponsiveContainer Type="fluid" Padding="none">
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none">
         @foreach (var gameVersion in GetFilteredPlanets())
         {
             @if (!_selectedGameVersion.HasValue)

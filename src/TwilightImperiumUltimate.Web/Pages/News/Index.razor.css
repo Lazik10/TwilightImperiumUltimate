@@ -19,6 +19,6 @@
     gap: var(--space-2xl);
 }
 
-.news-list__item {
+.news-list-item {
     width: 100%;
 }

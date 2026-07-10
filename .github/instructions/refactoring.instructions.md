@@ -85,6 +85,7 @@ Stop and report the risk before making a breaking change, destructive migration,
 - Dispose subscriptions, timers, cancellation sources, streams, and JavaScript references.
 - Do not edit generated output.
 - Do not mix unrelated formatting, renaming, package updates, or cleanup into the refactor.
+- Replace `FlexRowContainer` and `FlexColumnCenteredContainer` usages with `ResponsiveContainer` directly when able (both are thin pass-through wrappers around it). If the resulting `ResponsiveContainer` adds no layout behavior beyond what its single child or that child's own CSS already provides (for example a block-level element that is already `width: 100%`), remove the wrapper entirely instead of keeping a no-op container -- see the div-simplification rule below.
 
 ## Blazor-specific checks
 
@@ -100,6 +101,8 @@ When changing a component, confirm that:
 - Focus and keyboard behavior remain correct after conditional rendering.
 - Repeated Radzen behavior is routed through project-owned wrappers when appropriate.
 - JavaScript interop remains isolated and disposable.
+- Unnecessary wrapper `<div>`/container elements are merged or removed when they add no semantic meaning and no layout behavior beyond what a sibling/child already provides (confirm this from the actual CSS -- for example a flex wrapper around a single already-`width:100%` block child is usually a no-op and safe to remove).
+- After merging or removing markup, every selector in the component's `.razor.css` still matches an existing element or class. Pay special attention to classes passed via a `CssClass` parameter into a child component (including `ResponsiveContainer`, `FlexRowContainer`, etc.) -- those render with the CHILD's own scope, so the selector needs `::deep` even though it looks like a plain scoped class in the parent's stylesheet.
 
 Use the Blazor, HTML, CSS, accessibility, and testing instruction files for the detailed rules.
 

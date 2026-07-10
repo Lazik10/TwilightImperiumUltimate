@@ -1,4 +1,4 @@
-﻿@using System.Globalization;
+@using System.Globalization;
 @using Microsoft.AspNetCore.Components.Authorization
 @using TwilightImperiumUltimate.Web.Components.Rules
 @using TwilightImperiumUltimate.Web.Components.Shared.Controls
@@ -11,7 +11,7 @@
 
 @if (_listOfCards is not null)
 {
-    <ResponsiveContainer Type="fluid" Padding="none">
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none">
 
         @if (TypeOfCard != Paths.ResourcePath_StrategyCard)
         {
@@ -66,7 +66,7 @@
 
     @if (_listOfDeprecatedCards is not null && _listOfDeprecatedCards.Count > 0 && !_selectedGameVersion.HasValue)
     {
-        <ResponsiveContainer Type="fluid" Padding="none">
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none">
             <ResponsiveText Text="@Strings.Card_DeprecatedCategory" FontSize="xl" CenterText="true" CssClass="handel white shadow" />
 
             <div class="cards-grid-shell">

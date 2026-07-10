@@ -23,10 +23,10 @@ public partial class ResponsiveContainer
     public string? Name { get; set; }
 
     /// <summary>
-    /// Gets or sets the container type: fluid, centered, narrow, wide.
+    /// Gets or sets the container type: Fluid, Centered, Narrow, Wide, or Flex.
     /// </summary>
     [Parameter]
-    public string Type { get; set; } = "fluid";
+    public ContainerType Type { get; set; } = ContainerType.Fluid;
 
     /// <summary>
     /// Gets or sets the padding size: none, xs, sm, md, lg, xl.
@@ -60,6 +60,7 @@ public partial class ResponsiveContainer
 
     /// <summary>
     /// Gets or sets a value indicating whether child content should be centered using flex layout.
+    /// When true, overrides Type and emits display: flex with justify-content and align-items both set to center.
     /// </summary>
     [Parameter]
     public bool CenteredItems { get; set; }
@@ -78,6 +79,14 @@ public partial class ResponsiveContainer
     [Parameter]
     public AlignItems AlignItems { get; set; } = AlignItems.FlexStart;
 
+    /// <summary>
+    /// Gets or sets the flex direction.
+    /// Only used when Type is Flex.
+    /// Default is Row.
+    /// </summary>
+    [Parameter]
+    public FlexDirection Direction { get; set; } = FlexDirection.Row;
+
     private string Justify => JustifyContent.GetJustifyString();
 
     private string Align => AlignItems.GetAlignString();
@@ -90,14 +99,17 @@ public partial class ResponsiveContainer
     {
         var classes = new List<string>();
 
-        // Container type
-        classes.Add(Type switch
+        // Container type (Flex type does not add a container-* class; flex layout is applied via inline style)
+        if (Type != ContainerType.Flex)
         {
-            "centered" => "container-centered",
-            "narrow" => "container-narrow",
-            "wide" => "container-wide",
-            _ => "container-fluid",
-        });
+            classes.Add(Type switch
+            {
+                ContainerType.Centered => "container-centered",
+                ContainerType.Narrow => "container-narrow",
+                ContainerType.Wide => "container-wide",
+                _ => "container-fluid",
+            });
+        }
 
         // Padding
         if (Padding != "none")
@@ -115,9 +127,25 @@ public partial class ResponsiveContainer
     private string GetContainerStyle()
     {
         var cursorStyle = OnClick.HasDelegate ? "cursor: pointer;" : string.Empty;
-        var layoutStyle = CenteredItems
-            ? $"display:flex; justify-content:{JustifyContent.Center.GetJustifyString()} align-items:{AlignItems.Center.GetAlignString()}"
-            : $"justify-content:{Justify} align-items:{Align}";
+        var layoutStyle = GetLayoutStyle();
         return $"width: {Width}%; {cursorStyle} {layoutStyle} {Style}";
+    }
+
+    /// <summary>
+    /// Gets the layout style based on CenteredItems and Type.
+    /// </summary>
+    private string GetLayoutStyle()
+    {
+        if (CenteredItems)
+        {
+            return $"display:flex; flex-direction:{Direction.GetFlexDirectionString()} justify-content:{JustifyContent.Center.GetJustifyString()} align-items:{AlignItems.Center.GetAlignString()}";
+        }
+
+        if (Type == ContainerType.Flex)
+        {
+            return $"display:flex; flex-direction:{Direction.GetFlexDirectionString()} justify-content:{Justify} align-items:{Align}";
+        }
+
+        return $"justify-content:{Justify} align-items:{Align}";
     }
 }

@@ -1,9 +1,10 @@
 ﻿@page "/"
+@page "/news"
 @using TwilightImperiumUltimate.Web.Components.News;
 
 <PageTitle>@Strings.Page_News</PageTitle>
 
-<Page>
+<Page LeftPadding="7" RightPadding="13">
     <ResponsiveHeading Level="1" Text="@Strings.Page_News" CssClass="news-page-title" FontSize="2xl" CenterText="true" />
 
     @if (_isLoading)
@@ -19,7 +20,7 @@
         <ul class="news-list">
             @foreach (var article in _newsArticles)
             {
-                <li class="news-list__item" @key="article.Id">
+                <li class="news-list-item" @key="article.Id">
                     <NewsArticleSegment NewsArticle="@article" />
                 </li>
             }

@@ -1,14 +1,14 @@
-﻿@using System.Globalization
+@using System.Globalization
 @using Microsoft.AspNetCore.Components.Authorization
 @using TwilightImperiumUltimate.Web.Components.Rules
 @inherits FactionInfoComponentBase
 
 <StretchHeightContainer>
-    <ResponsiveContainer Type="fluid" Padding="none">
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none">
         <div class="faq-content-shell">
-            <ResponsiveContainer Type="fluid" Padding="none" Width="100">
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" Width="100">
                 <div class="faction-faq-navbar">
-                    <ResponsiveContainer Type="fluid" Padding="none" Width="50" Style="display:flex; justify-content:space-between; align-items:center; margin-left: auto; margin-right: auto;">
+                    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" Width="50" Style="display:flex; justify-content:space-between; align-items:center; margin-left: auto; margin-right: auto;">
                         <div class="menu-item clickable" @onclick="() => ShowNotes()">
                             @Strings.Faction_Notes
                         </div>
@@ -21,10 +21,10 @@
 
             @if (_showFaq)
             {
-                <ResponsiveContainer Type="fluid" Padding="none" Width="100" Style="display:flex; justify-content:flex-end;">
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" Width="100" Style="display:flex; justify-content:flex-end;">
                     <AuthorizeView>
                         <Authorized>
-                            <ResponsiveContainer Type="fluid" Padding="none" Width="35">
+                            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" Width="35">
                                 <Button ButtonText="@Strings.Faction_AddFaq" OnClick="AddFaq" Width="100" />
                             </ResponsiveContainer>
                         </Authorized>
@@ -42,7 +42,7 @@
             }
             else if (_showNotes)
             {
-                <ResponsiveContainer Type="fluid" Padding="none" CssClass="white shadow handel">
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CssClass="white shadow handel">
                     @(FactionNotes)
                 </ResponsiveContainer>
             }

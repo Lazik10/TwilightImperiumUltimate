@@ -1,4 +1,4 @@
-﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @using TwilightImperiumUltimate.Web.Components.Technologies
 @using TwilightImperiumUltimate.Web.Components.Units
 @using TwilightImperiumUltimate.Web.Services.Path
@@ -13,7 +13,7 @@
         var startingUnitMaxWidth = GetStartingUnitMaxWidth(startingUnits);
     }
 
-    <ResponsiveContainer Type="fluid" Padding="none" Style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center;">
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" Style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center;">
 
         @foreach (var unit in startingUnits)
         {

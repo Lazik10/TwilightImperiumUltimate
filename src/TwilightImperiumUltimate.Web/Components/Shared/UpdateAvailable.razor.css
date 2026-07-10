@@ -7,25 +7,15 @@
 }
 
 .update-notify-inner {
-    /* The FlexColumnCenteredContainer/ResponsiveContainer default inline style sets
-       justify-content/align-items to flex-start, which wins over the plain (non
-       !important) rules below because it's an inline style. !important is required
-       here to actually center the message and button. */
-    padding: var(--space-sm) 0 !important;
-}
-
-.update-notify-content {
     width: 100%;
-    justify-content: center !important;
-    align-items: center !important;
+    padding: var(--space-sm) 0;
+    gap: var(--space-sm);
 }
 
 .update-notify-text {
-    width: 100%;
     white-space: normal;
     overflow-wrap: anywhere;
     word-break: break-word;
-    text-align: center;
 }
 
 .update-notify-button {
@@ -38,10 +28,8 @@
     border: 2px solid black;
     border-radius: var(--border-radius-md);
     cursor: pointer;
-    text-align: center;
     text-decoration: none;
     font-size: var(--font-size-base);
-    margin: 0 auto;
     transition: background-color 0.3s ease;
 }
 

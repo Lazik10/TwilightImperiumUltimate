@@ -11,7 +11,24 @@ public partial class Page
     /// respectively, regardless of this value -- see page-horizontal-padding in Page.razor.css.
     /// </summary>
     [Parameter]
-    public int HorizontalPadding { get; set; } = 20;
+    public int HorizontalPadding { get; set; } = 10;
 
-    private string GetHorizontalPaddingStyle() => $"padding-left: {HorizontalPadding}%; padding-right: {HorizontalPadding}%;";
+    /// <summary>
+    /// Gets or sets the desktop left padding as a percentage of the page width. When null,
+    /// falls back to <see cref="HorizontalPadding"/>. Tablet/mobile breakpoints always use
+    /// fixed values regardless of this parameter -- see page-horizontal-padding in Page.razor.css.
+    /// </summary>
+    [Parameter]
+    public int? LeftPadding { get; set; }
+
+    /// <summary>
+    /// Gets or sets the desktop right padding as a percentage of the page width. When null,
+    /// falls back to <see cref="HorizontalPadding"/>. Tablet/mobile breakpoints always use
+    /// fixed values regardless of this parameter -- see page-horizontal-padding in Page.razor.css.
+    /// </summary>
+    [Parameter]
+    public int? RightPadding { get; set; }
+
+    private string GetHorizontalPaddingStyle() =>
+        $"padding-left: {LeftPadding ?? HorizontalPadding}%; padding-right: {RightPadding ?? HorizontalPadding}%;";
 }

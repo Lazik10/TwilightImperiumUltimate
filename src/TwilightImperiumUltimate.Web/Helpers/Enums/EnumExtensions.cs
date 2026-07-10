@@ -238,6 +238,18 @@ public static class EnumExtensions
         };
     }
 
+    public static string GetFlexDirectionString(this FlexDirection flexDirection)
+    {
+        return flexDirection switch
+        {
+            FlexDirection.Row => "row;",
+            FlexDirection.Column => "column;",
+            FlexDirection.RowReverse => "row-reverse;",
+            FlexDirection.ColumnReverse => "column-reverse;",
+            _ => "row;",
+        };
+    }
+
     public static TextColor GetRankColor(this TiglRankName rank)
     {
         return rank switch

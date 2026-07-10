@@ -2,16 +2,23 @@
     Reusable section for the About page: a heading followed by a centered
     text panel. Replaces the previously repeated
     "FlexColumnCenteredContainer + <div class="about handel white shadow">" markup.
+
+    Wrapped in a plain <div> (rather than only component tags) so this file's
+    Blazor CSS isolation scope attribute is actually stamped onto an element in
+    the rendered DOM -- without it, the ::deep selectors in AboutSection.razor.css
+    have no ancestor to match against and silently never apply.
 *@
 
-<ResponsiveHeading Text="@HeadingText"
-                    Level="2"
-                    FontSize="2xl"
-                    CenterText="true"
-                    CssClass="mb-xl" />
+<div class="about-section">
+    <ResponsiveHeading Text="@HeadingText"
+                        Level="2"
+                        FontSize="2xl"
+                        CenterText="true"
+                        CssClass="mb-xl" />
 
-<ResponsiveContainer Type="fluid" Padding="none" CenteredItems="true" Name="about-section-text">
-    <ResponsiveText TagName="TagName.Div" CssClass="about p-md">
-        @Content
-    </ResponsiveText>
-</ResponsiveContainer>
+    <ResponsiveContainer Padding="none" CenteredItems="true" Name="about-section-text">
+        <ResponsiveText TagName="TagName.Div" CssClass="about p-md">
+            @Content
+        </ResponsiveText>
+    </ResponsiveContainer>
+</div>

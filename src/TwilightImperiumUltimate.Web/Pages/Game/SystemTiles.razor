@@ -1,4 +1,4 @@
-﻿@page "/game/systemtiles"
+@page "/game/systemtiles"
 @using TwilightImperiumUltimate.Web.Components.Shared
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @using TwilightImperiumUltimate.Web.Components.Shared.Text
@@ -18,7 +18,7 @@
                                    SelectedGameVersionChanged="OnGameVersionFilterChanged" />
     </div>
 
-    <ResponsiveContainer Type="fluid" Padding="none">
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none">
         @foreach (var gameVersion in GetFilteredSystemTiles())
         {
             @if (!_selectedGameVersion.HasValue)

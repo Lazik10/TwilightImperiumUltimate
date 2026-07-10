@@ -1,4 +1,4 @@
-﻿@using TwilightImperiumUltimate.Web.Components.Cards
+@using TwilightImperiumUltimate.Web.Components.Cards
 @using TwilightImperiumUltimate.Web.Components.Galaxy
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @using TwilightImperiumUltimate.Web.Components.Technologies
@@ -12,7 +12,7 @@
             <ResponsiveLabel Text="Home System &amp; Planets" CenterText="true" FontSize="sm" />
         </div>
 
-        <ResponsiveContainer Type="fluid" Padding="none" CenteredItems="true">
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true">
             @if (_systemTiles.Count > 0)
             {
                 <img src="@(PathProvider.GetLargeTileImagePath(_systemTile.SystemTileName))" class="faction-system-tile-image" />
@@ -21,7 +21,7 @@
 
         @if (Faction.FactionName == FactionName.TheFirmamentTheObsidian)
         {
-            <ResponsiveContainer Type="fluid" Padding="none" CenteredItems="true">
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true">
                 @if (_systemTiles.Count > 0)
                 {
                     var _specialSystemTile = _systemTiles.Single(x => x.SystemTileName == SystemTileName.TileTE96B);
@@ -127,7 +127,7 @@
             {
                 <div class="faction-component-half">
 
-                    <ResponsiveContainer Type="fluid" Padding="none" CenteredItems="true">
+                    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true">
                         <TechnologyCard TechnologyName="technology.TechnologyName" />
                     </ResponsiveContainer>
                 </div>
@@ -241,11 +241,11 @@
                 <ResponsiveVerticalSpacer CustomHeight="20px" />
             </div>
 
-            <ResponsiveContainer Type="fluid" Padding="none" CssClass="faction-grid-full-width" Style="display:flex; justify-content:center; align-items:center;">
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CssClass="faction-grid-full-width" Style="display:flex; justify-content:center; align-items:center;">
                 @foreach (var specialComponent in _specialComponentCards.Where(x => x.SpecialType == SpecialComponentType.Token || x.SpecialType == SpecialComponentType.PlanetToken))
                 {
                     var width = specialComponent.SpecialType == SpecialComponentType.Token ? 25 : 35;
-                    <ResponsiveContainer Type="fluid" Padding="none" Width="@width" CenteredItems="true">
+                    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" Width="@width" CenteredItems="true">
                         <TokenCard ImagePath="@(PathProvider.GetSpecialComponentImagePath(specialComponent.SpecialComponentName))" />
                         <ResponsiveHorizontalSpacer Size="md" />
                         <ResponsiveLabel Text="@(specialComponent.Count.ToString() + "x")" FontSize="sm"  />
@@ -260,7 +260,7 @@
                 <ResponsiveLabel Text="Extra system tiles" CenterText="true" FontSize="sm" />
             </div>
 
-            <ResponsiveContainer Type="fluid" Padding="none" CenteredItems="true">
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true">
                 @if (_systemTiles.Count > 0)
                 {
                     var _tile = Faction.FactionName == FactionName.TheGhostsOfCreuss ? SystemTileName.Tile51 : SystemTileName.Tile81;
