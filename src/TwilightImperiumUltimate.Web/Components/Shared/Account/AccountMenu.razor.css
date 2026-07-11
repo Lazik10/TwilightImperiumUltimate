@@ -1,26 +1,31 @@
-﻿::deep .account-menu {
-    position: absolute;
-    top: 0;
-    right: 1%;
-    min-width: 20%;
-    gap: var(--space-3xl);
-}
-
-@media (max-width: 970px) {
-    ::deep .account-menu {
-        position: relative;
-        top: 0;
-        right: 1%;
-        width: 100%;
-    }
-}
-
-.account-menu-auth,
+﻿.account-menu-auth,
 .account-menu-tools {
     display: flex;
     align-items: center;
     gap: var(--space-lg);
 }
+
+/*
+    Login/Register (and the "/" divider between them) use the same fluid/responsive font-size
+    tokens as the rest of the site (bigger on desktop, shrinking on smaller viewports) and the
+    same hover color system as the main navigation (--color-nav-hover) -- but, unlike navigation
+    links, they never get a background, on hover or otherwise; only the font color changes.
+*/
+.account-menu-auth a,
+.account-menu-auth div {
+    font-size: var(--font-size-lg);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.account-menu-auth a {
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+    .account-menu-auth a:hover {
+        color: var(--color-nav-hover);
+    }
 
 .menu-container {
     position: relative;
@@ -67,14 +72,17 @@
         width: 100%;
         text-align: center;
         text-decoration: none;
+        text-transform: uppercase;
         white-space: nowrap;
         margin-top: 3px;
         margin-bottom: 1px;
+        transition: color 0.2s ease;
     }
 
         .dropdown a:hover,
         .dropdown ::deep .account-logout:hover {
             font-size: 1rem;
+            color: var(--color-nav-hover);
         }
 
         .dropdown a:focus-visible {
@@ -89,14 +97,3 @@
         visibility: visible;
     }
 
-::deep .account-menu a:focus-visible {
-    outline: 0.125rem solid yellow;
-    outline-offset: 0.125rem;
-    border-radius: var(--border-radius-sm);
-}
-
-@media (max-width: 768px) {
-    ::deep .account-menu {
-        display: none !important;
-    }
-}

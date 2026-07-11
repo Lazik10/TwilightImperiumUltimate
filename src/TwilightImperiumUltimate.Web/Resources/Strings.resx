@@ -120,6 +120,9 @@
   <data name="AccountInfo_Save" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="Api_UnavailableMessage" xml:space="preserve">
+    <value>The API is currently unavailable. If this continues for more than a few minutes, please contact me on Discord (lazik2110).</value>
+  </data>
   <data name="ActionCard" xml:space="preserve">
     <value>action</value>
   </data>
@@ -3019,9 +3022,6 @@ Brandon Williams&lt;/p&gt;</value>
   </data>
   <data name="News_Empty" xml:space="preserve">
     <value>No news articles yet.</value>
-  </data>
-  <data name="News_Error" xml:space="preserve">
-    <value>News could not be loaded. Please try again later.</value>
   </data>
   <data name="Nav_MenuToggleLabel" xml:space="preserve">
     <value>Toggle navigation menu</value>

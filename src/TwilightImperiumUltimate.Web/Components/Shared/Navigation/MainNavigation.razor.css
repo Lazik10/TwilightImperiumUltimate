@@ -49,7 +49,7 @@
         width: 100%;
         border: 0.125rem solid black;
         border-radius: var(--border-radius-md);
-        background-color: rgba(0, 0, 255, 0.35);
+        background-color: var(--color-nav-panel-bg);
         color: white;
         font-size: var(--font-size-2xl);
         line-height: 1;
@@ -84,7 +84,7 @@
         display: block;
         box-sizing: border-box;
         border: none;
-        background: rgba(0, 0, 0, 0.62);
+        background: var(--color-nav-panel-bg);
         color: white;
         text-align: left;
         font-family: Handel, fallback, sans-serif;
@@ -107,7 +107,7 @@
         align-items: center;
         gap: var(--space-sm);
         padding: 0 var(--space-sm);
-        background: rgba(0, 0, 0, 0.62);
+        background: var(--color-nav-panel-bg);
     }
 
     ::deep .mobile-nav-row:hover,
@@ -118,7 +118,7 @@
 
     ::deep .mobile-nav-row.menu-link-active,
     .mobile-nav-row-link.menu-link-active {
-        background: rgba(0, 0, 0, 0.62);
+        background: var(--color-nav-panel-bg);
         color: var(--color-nav-hover);
         text-decoration: underline;
         text-underline-offset: 0.25rem;
@@ -135,8 +135,8 @@
         background: rgba(0, 0, 0, 0.45);
     }
 
-    .mobile-nav-submenu ::deep a,
-    .mobile-nav-submenu ::deep .menu-button {
+    ::deep .mobile-nav-submenu a,
+    ::deep .mobile-nav-submenu .menu-button {
         color: white;
         text-decoration: none;
         text-transform: uppercase;
@@ -148,12 +148,12 @@
         width: 100%;
     }
 
-    .mobile-nav-submenu ::deep a:hover,
-    .mobile-nav-submenu ::deep .menu-button:hover {
+    ::deep .mobile-nav-submenu a:hover,
+    ::deep .mobile-nav-submenu .menu-button:hover {
         color: var(--color-nav-hover);
     }
 
-    .mobile-nav-submenu ::deep a.submenu-link-active {
+    ::deep .mobile-nav-submenu a.submenu-link-active {
         color: var(--color-nav-hover);
         font-weight: bold;
     }
@@ -161,7 +161,7 @@
     .mobile-nav-toggle:focus-visible,
     ::deep .mobile-nav-row:focus-visible,
     .mobile-nav-row-link:focus-visible,
-    .mobile-nav-submenu ::deep a:focus-visible {
+    ::deep .mobile-nav-submenu a:focus-visible {
         outline: 0.125rem solid var(--color-nav-hover);
         outline-offset: -0.125rem;
         color: var(--color-nav-hover);

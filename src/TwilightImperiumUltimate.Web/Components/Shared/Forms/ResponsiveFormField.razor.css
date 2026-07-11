@@ -1,0 +1,49 @@
+.responsive-form-field {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+}
+
+.responsive-form-field-label {
+    color: white;
+    font-family: Handel, fallback, sans-serif;
+    font-size: var(--font-size-base);
+    text-shadow: var(--shadow-text);
+    margin-bottom: var(--space-xs);
+}
+
+.responsive-form-field-label-centered {
+    text-align: center;
+}
+
+/*
+    The caller's actual input (RadzenTextBox/RadzenPassword/etc.) is rendered as ChildContent, a
+    direct but unscoped (Radzen doesn't use Blazor CSS isolation) descendant of .responsive-form-field
+    -- ::deep is required for THIS component's own scoped selector to reach it at all.
+*/
+::deep .responsive-form-field > input,
+::deep .responsive-form-field > textarea,
+::deep .responsive-form-field > select {
+    margin-bottom: var(--space-lg);
+}
+
+.responsive-form-field-required {
+    color: red;
+    margin-left: 0.25rem;
+}
+
+::deep .responsive-form-field-error {
+    display: block;
+    color: red;
+    font-family: Handel, fallback, sans-serif;
+    font-size: var(--font-size-sm);
+    text-align: center;
+}
+
+.responsive-form-field-help {
+    color: white;
+    opacity: 0.8;
+    font-family: Handel, fallback, sans-serif;
+    font-size: var(--font-size-sm);
+}

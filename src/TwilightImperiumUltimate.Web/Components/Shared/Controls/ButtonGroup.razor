@@ -1,0 +1,11 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Controls
+
+@*
+    Wraps multiple <Button> (or Button-styled) children so they all render with the same width,
+    derived purely from CSS Grid track sizing -- the width of the widest button's own content --
+    with no measuring or hardcoded width needed. See ButtonGroupStyle for the supported layouts.
+*@
+
+<div class="@ComputedCssClass" style="@Style">
+    @ChildContent
+</div>

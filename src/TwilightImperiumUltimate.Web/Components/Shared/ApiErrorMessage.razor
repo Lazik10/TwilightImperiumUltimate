@@ -1,0 +1,9 @@
+@using TwilightImperiumUltimate.Web.Resources
+
+@*
+    Generic "API is unavailable" error message. Use this instead of a page-specific error string
+    whenever a page's error state is caused by an API call failing, so users always see the same
+    actionable message (with a way to reach out) regardless of which page/feature failed.
+*@
+
+<div class="@CssClass" role="alert">@Strings.Api_UnavailableMessage</div>

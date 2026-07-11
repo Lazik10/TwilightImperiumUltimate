@@ -5,6 +5,16 @@
     cursor: pointer;
 }
 
+.culture-menu-backdrop {
+    position: fixed;
+    inset: 0;
+    background: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+    cursor: default;
+}
+
 .culture-menu-wrapper {
     position: relative;
 }

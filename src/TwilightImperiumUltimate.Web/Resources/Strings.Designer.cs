@@ -34,6 +34,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
             }
         }
 
+        public static string Api_UnavailableMessage {
+            get {
+                return ResourceManager.GetString("Api_UnavailableMessage", resourceCulture);
+            }
+        }
+
         public static string About_AboutMe {
             get {
                 return ResourceManager.GetString("About_AboutMe", resourceCulture);
@@ -3433,12 +3439,6 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string News_Empty {
             get {
                 return ResourceManager.GetString("News_Empty", resourceCulture);
-            }
-        }
-
-        public static string News_Error {
-            get {
-                return ResourceManager.GetString("News_Error", resourceCulture);
             }
         }
 

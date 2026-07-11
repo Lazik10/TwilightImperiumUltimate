@@ -1,0 +1,6 @@
+/* Width is controlled by the Width parameter's inline style (default 100%), not CSS -- see
+   ResponsiveTextBox.razor.cs's ComputedStyle. */
+
+::deep .responsive-textbox::placeholder {
+    font-family: Handel, fallback, sans-serif !important;
+}

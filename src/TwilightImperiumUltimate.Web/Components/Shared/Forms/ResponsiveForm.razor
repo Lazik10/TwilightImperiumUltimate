@@ -1,0 +1,50 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Forms
+@using Blazilla
+@using Microsoft.AspNetCore.Components.Forms
+
+@*
+    Generic, reusable form shell: wraps EditForm + FluentValidation (via Blazilla's FluentValidator)
+    + an accessible validation summary + a ResponsiveGridContainer for the fields + a submit button
+    with a built-in busy/disabled state. Callers supply the actual fields as ChildContent (typically
+    ResponsiveFormField instances) and their own Model/submit handlers; this component only owns the
+    generic form shell, not any business/validation logic itself.
+*@
+
+@if (_editContext is not null)
+{
+    <EditForm EditContext="@_editContext" OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit" class="@CssClass" style="@Style">
+        <FluentValidator />
+
+        @if (ShowValidationSummary && _hasValidationErrors)
+        {
+            <div class="responsive-form-summary" role="alert">
+                <ValidationSummary />
+            </div>
+        }
+
+        <ResponsiveGridContainer Columns="Columns"
+                                  TabletColumns="TabletColumns"
+                                  MobileColumns="MobileColumns"
+                                  Gap="@("var(--space-xl)")"
+                                  JustifyItems="Enums.AlignItems.Stretch"
+                                  AlignItems="Enums.AlignItems.FlexStart"
+                                  AlignContent="Enums.JustifyContent.FlexStart"
+                                  Width="100"
+                                  CssClass="@GetGridCssClass()">
+            @ChildContent
+        </ResponsiveGridContainer>
+
+        <div class="responsive-form-actions">
+            @if (FooterContent is not null)
+            {
+                @FooterContent
+            }
+            else
+            {
+                <ResponsiveButton ButtonType="ButtonType.Submit" IsDisabled="@IsSubmitDisabled" CssClass="responsive-form-submit">
+                    @(IsSubmitting ? SubmittingText : SubmitText)
+                </ResponsiveButton>
+            }
+        </div>
+    </EditForm>
+}

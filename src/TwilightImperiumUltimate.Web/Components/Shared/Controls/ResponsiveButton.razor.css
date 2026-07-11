@@ -1,12 +1,21 @@
+/*
+    Padding uses the --space-* scale (already responsive: shrinks automatically at the
+    1024/768/480px breakpoints) so the button is bigger on desktop and progressively smaller on
+    narrower screens with no extra media queries needed here. font-size overrides the C#
+    FontSize parameter's inline px value with the fluid --font-size-md token (!important is
+    required to beat that inline style) -- slightly bigger than the previous fixed 16px on
+    desktop, shrinking smoothly with the viewport instead of a flat pixel value.
+*/
 .responsive-button {
     display: inline-flex;
     box-sizing: border-box;
-    padding: var(--space-sm) var(--space-xl);
+    padding: var(--space-md) var(--space-2xl);
     background-color: rgba(0, 0, 255, 0.3);
     border: 2px solid black;
     border-radius: var(--border-radius-md);
     cursor: pointer;
     text-decoration: none;
+    font-size: var(--font-size-md) !important;
     transition: background-color 0.3s ease;
 }
 
@@ -22,7 +31,7 @@
 
 @media (max-width: 480px) {
     .responsive-button {
-        /*padding: var(--space-xs) var(--space-sm);*/
         font-size: var(--font-size-sm) !important;
     }
 }
+

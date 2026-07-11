@@ -1,6 +1,7 @@
 using System.Net;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.AspNetCore.Components.Forms;
 using TwilightImperiumUltimate.Web.Models.Account;
 using TwilightImperiumUltimate.Web.Resources;
 using TwilightImperiumUltimate.Web.Services.Authentication;
@@ -24,7 +25,7 @@ public partial class Login
 
     private LoginModel LoginModel { get; set; } = new LoginModel();
 
-    private async Task LoginUser(CancellationToken ct)
+    private async Task LoginUser(EditContext editContext)
     {
         if (_loggingIn)
             return;
@@ -33,7 +34,7 @@ public partial class Login
         _loggingIn = true;
         _reasonWhyLoginFailed = string.Empty;
 
-        var (loginSuccess, statusCode) = await LoginService.LoginAsync(LoginModel, ct);
+        var (loginSuccess, statusCode) = await LoginService.LoginAsync(LoginModel, CancellationToken.None);
 
         if (loginSuccess)
         {
@@ -56,10 +57,5 @@ public partial class Login
         }
 
         _loggingIn = false;
-    }
-
-    private bool GetDisabledState()
-    {
-        return _loggingIn;
     }
 }

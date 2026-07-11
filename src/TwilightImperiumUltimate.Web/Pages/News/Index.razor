@@ -23,7 +23,7 @@
     }
     else if (_hasError)
     {
-        <div class="news-state-message" role="alert">@Strings.News_Error</div>
+        <ApiErrorMessage CssClass="news-state-message" />
     }
     else if (_newsArticles?.Count > 0)
     {

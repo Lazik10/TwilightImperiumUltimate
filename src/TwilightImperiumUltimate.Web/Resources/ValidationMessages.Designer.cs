@@ -61,6 +61,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Username is required..
+        /// </summary>
+        public static string Login_EmptyUsername {
+            get {
+                return ResourceManager.GetString("Login_EmptyUsername", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password is required..
+        /// </summary>
+        public static string Login_EmptyPassword {
+            get {
+                return ResourceManager.GetString("Login_EmptyPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Passwords must match..
         /// </summary>
         public static string Register_ConfirmPasswordMatch {

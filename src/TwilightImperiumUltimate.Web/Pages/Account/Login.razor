@@ -1,70 +1,47 @@
 ﻿@page "/account/login"
-@using TwilightImperiumUltimate.Web.Components.Shared
-@using TwilightImperiumUltimate.Web.Components.Shared.Controls
-@using TwilightImperiumUltimate.Web.Components.Shared.Text
 @using TwilightImperiumUltimate.Web.Resources
 
 <PageTitle>@Strings.Page_AccountLogin</PageTitle>
 
 <Page>
-    <FlexColumnCenteredContainer CssClass="handel">
-
-        <FlexRowContainer Width="40">
-            <Label Text="@Strings.Login_Title" FontSize="36" Width="50" CenterText="true" />
-        </FlexRowContainer>
+        <ResponsiveHeading Level="1" Text="@Strings.Login_Title" CenterText="true" CssClass="mb-xl" />
 
         @if (_showLoginFailed)
         {
-            <VerticalSpace Height="20" />
-            <Label Text="@_reasonWhyLoginFailed" CenterText="true" FontSize="24" TextColor="TextColor.Red" />
-            <VerticalSpace Height="20" />
-        }
-        else
-        {
-            <VerticalSpace Height="50" />
+            <ResponsiveText Text="@_reasonWhyLoginFailed" CenterText="true" TextColor="TextColor.Red" CssClass="mt-md mb-md" />
         }
 
-        <FlexRowContainer Width="40">
-            <Label Text="@Strings.Login_Username" Width="50" CenterText="true"/>
-        </FlexRowContainer>
+        <ResponsiveForm Model="LoginModel"
+                        OnValidSubmit="LoginUser"
+                        IsSubmitting="_loggingIn"
+                        SubmitText="@Strings.Login_Login"
+                        SubmittingText="@Strings.Login_Login"
+                        Columns="1">
 
-        <VerticalSpace Height="20" />
+            <ResponsiveFormField Id="login-username" Label="@Strings.Login_Username" For="@(() => LoginModel.Email)" Required="true">
+                <ResponsiveTextBox Id="login-username"
+                                   Name="username"
+                                   AutoComplete="username"
+                                   AriaDescribedBy="login-username-validation"
+                                   Placeholder="@Strings.Login_Username"
+                                   @bind-Value="LoginModel.Email" />
+            </ResponsiveFormField>
 
-        <FlexRowContainer Width="40">
+            <ResponsiveFormField Id="login-password" Label="@Strings.Login_Password" For="@(() => LoginModel.Password)" Required="true">
+                <ResponsivePassword Id="login-password"
+                                    Name="password"
+                                    AutoComplete="current-password"
+                                    AriaDescribedBy="login-password-validation"
+                                    Placeholder="@Strings.Login_Password"
+                                    @bind-Value="LoginModel.Password" />
+            </ResponsiveFormField>
 
-            <RadzenTextBox Placeholder="@Strings.Login_Username"
-                            @bind-Value="LoginModel.Email"
-                            class="w-20 flex-row title white handel" />
-        </FlexRowContainer>
+        </ResponsiveForm>
 
-        <VerticalSpace Height="50" />
-
-        <FlexRowContainer JustifyContent="Enums.JustifyContent.Center" Width="40">
-            <Label Text="@Strings.Login_Password" Width="50" CenterText="true" />
-        </FlexRowContainer>
-
-        <VerticalSpace Height="20" />
-
-        <FlexRowContainer JustifyContent="Enums.JustifyContent.Center" Width="40">
-            <RadzenPassword @bind-Value="LoginModel.Password"
-                        type="password"
-                        class="flex-row title white handel"
-                        placeholder="@Strings.Login_Password" />
-        </FlexRowContainer>
-
-        <VerticalSpace Height="50"/>
-
-        <FlexRowContainer JustifyContent="Enums.JustifyContent.Center" Width="50">
-            <Button ButtonText="@Strings.Login_Login" OnClick="@(async () => await LoginUser(CancellationToken.None))" CssClass="button" IsDisabled="@GetDisabledState()"/>
-        </FlexRowContainer>
-
-        <VerticalSpace Height="50" />
-
-        <FlexRowContainer >
-            <Button ButtonText="@Strings.Login_ConfirmationEmail" OnClick="@(() => NavigationManager.NavigateTo(Pages.ResendConfirmationEmail))" />
-            <Button ButtonText="@Strings.Login_ForgotPassword" OnClick="@(() => NavigationManager.NavigateTo(Pages.ResendPasswordRecoveryEmail))" />
-        </FlexRowContainer>
-
-    </FlexColumnCenteredContainer>
+        <ButtonGroup CssClass="mt-lg mb-lg" GroupStyle="ButtonGroupStyle.RowFill">
+            <ResponsiveButton ButtonText="@Strings.Login_ConfirmationEmail" OnClick="@(() => NavigationManager.NavigateTo(Pages.ResendConfirmationEmail))" />
+            <ResponsiveButton ButtonText="@Strings.Login_ForgotPassword" OnClick="@(() => NavigationManager.NavigateTo(Pages.ResendPasswordRecoveryEmail))" />
+        </ButtonGroup>
 
 </Page>
+

@@ -1,0 +1,28 @@
+.responsive-form-summary {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: var(--space-lg);
+    padding: var(--space-sm) var(--space-md);
+}
+
+::deep .responsive-form-summary ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    color: red;
+    font-family: Handel, fallback, sans-serif;
+    text-shadow: var(--shadow-text);
+}
+
+.responsive-form-grid {
+    margin-bottom: var(--space-lg);
+}
+
+.responsive-form-actions {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-xl);
+}

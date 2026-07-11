@@ -215,43 +215,43 @@ body {
 
 /* ========================= TEXT =========================== */
 .bodoni {
-    font-family: Bodoni, sans-serif;
+    font-family: Bodoni, sans-serif !important;
 }
 
 .handel {
-    font-family: Handel, sans-serif;
+    font-family: Handel, sans-serif !important;
 }
 
 .handel-cz {
-    font-family: Handel CZ, sans-serif;
+    font-family: Handel CZ, sans-serif !important;
 }
 
 .myriad-pro-regular {
-    font-family: Myriad Pro Regular, sans-serif;
+    font-family: Myriad Pro Regular, sans-serif !important;
 }
 
 .myriad-pro-italic {
-    font-family: Myriad Pro Italic, sans-serif;
+    font-family: Myriad Pro Italic, sans-serif !important;
 }
 
 .myriad-pro-bold {
-    font-family: Myriad Pro Bold, sans-serif;
+    font-family: Myriad Pro Bold, sans-serif !important;
 }
 
 .myriad-title {
-    font-family: Myriad Title, sans-serif;
+    font-family: Myriad Title, sans-serif !important;
 }
 
 .proda-sans-italic {
-    font-family: Proda Sans, sans-serif;
+    font-family: Proda Sans, sans-serif !important;
 }
 
 .slider {
-    font-family: Slider, sans-serif;
+    font-family: Slider, sans-serif !important;
 }
 
 .shadow {
-    text-shadow: var(--shadow-text);
+    text-shadow: var(--shadow-text) !important;
 }
 
 /* Radzen dropdown popup items are rendered in a global popup container,
@@ -309,10 +309,71 @@ body {
 }
 
 .white {
-    color: var(--color-white);
+    color: var(--color-white) !important;
+}
+
+/* ==================== LAYOUT UTILITIES ====================== */
+
+/* Centered, responsively-narrowing column: more breathing room around content on desktop,
+   using progressively more of the available width as the viewport shrinks (little/no side
+   margin left on mobile). Useful for single-column forms/actions that shouldn't stretch
+   edge-to-edge on wide screens but also shouldn't waste space on small ones. */
+.responsive-narrow-column {
+    width: 100%;
+    max-width: 28rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 1024px) {
+    .responsive-narrow-column {
+        max-width: 60%;
+    }
+}
+
+@media (max-width: 768px) {
+    .responsive-narrow-column {
+        max-width: 85%;
+    }
+}
+
+@media (max-width: 480px) {
+    .responsive-narrow-column {
+        max-width: 100%;
+    }
+}
+
+/* Responsive input height: taller on desktop, progressively shorter on tablet/mobile. Overrides
+   Radzen's own --rz-input-height custom property (consumed by .rz-textbox/.rz-input-md/etc.), so
+   it applies regardless of cascade order -- a plain "height" declaration would have to fight
+   Radzen's own more specific rules, but overriding the custom property they already read from
+   works reliably instead. !important is required because Radzen's OWN .rz-input-md rule (which
+   also sets --rz-input-height) has the same specificity (single class) and loads AFTER this
+   stylesheet, so it would otherwise win by source order alone. */
+.responsive-input-height {
+    --rz-input-height: 3rem !important;
+}
+
+@media (max-width: 1024px) {
+    .responsive-input-height {
+        --rz-input-height: 2.75rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .responsive-input-height {
+        --rz-input-height: 2.5rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .responsive-input-height {
+        --rz-input-height: 2.25rem !important;
+    }
 }
 
 /* ==================== SPACING UTILITIES ====================== */
+
 
 /* Padding/margin utility classes. Token values (xs..3xl) map to the responsive
    --space-* scale defined above; ".p-0"/".m-0" reset padding/margin to zero
