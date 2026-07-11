@@ -33,8 +33,8 @@
                 <div class="mobile-nav-submenu" id="mobile-submenu-account">
                     @if (CurrentUserState.User is null)
                     {
-                        <a href="@Pages.Login" class='@GetSubMenuClass("login")' @onclick='() => SelectSubMenuAndClose(MainMenuKey.Account, "login")'>@Strings.Page_AccountLogin</a>
-                        <a href="@Pages.Register" class='@GetSubMenuClass("register")' @onclick='() => SelectSubMenuAndClose(MainMenuKey.Account, "register")'>@Strings.Page_AccountRegister</a>
+                        <a href="@Pages.Login" class='@GetSubMenuClass("login")' @onclick="ClearMenuSelectionAndClose">@Strings.Page_AccountLogin</a>
+                        <a href="@Pages.Register" class='@GetSubMenuClass("register")' @onclick="ClearMenuSelectionAndClose">@Strings.Page_AccountRegister</a>
                     }
                     else
                     {

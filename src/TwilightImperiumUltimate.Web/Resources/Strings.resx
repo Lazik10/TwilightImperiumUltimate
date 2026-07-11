@@ -882,6 +882,12 @@
   <data name="Page_Planets" xml:space="preserve">
     <value>Planets</value>
   </data>
+  <data name="PlanetsFilter_ByExpansion" xml:space="preserve">
+    <value>Expansion</value>
+  </data>
+  <data name="PlanetsFilter_ByTrait" xml:space="preserve">
+    <value>Trait</value>
+  </data>
   <data name="Page_PlayOfTheMonth" xml:space="preserve">
     <value>Play of the Month</value>
   </data>
@@ -2423,20 +2429,38 @@ Brandon Williams&lt;/p&gt;</value>
   <data name="TiglMenu_Leaderboard" xml:space="preserve">
     <value>LEADERBOARD</value>
   </data>
+  <data name="Page_TiglLeaderboard" xml:space="preserve">
+    <value>Leaderboard</value>
+  </data>
   <data name="RankingsMenu_Ranks" xml:space="preserve">
     <value>RANKS</value>
+  </data>
+  <data name="Page_TiglRanks" xml:space="preserve">
+    <value>Ranks</value>
   </data>
   <data name="RankingsMenu_Leaders" xml:space="preserve">
     <value>LEADERS</value>
   </data>
+  <data name="Page_TiglLeaders" xml:space="preserve">
+    <value>Leaders</value>
+  </data>
   <data name="RankingsMenu_Achievements" xml:space="preserve">
     <value>ACHIEVEMENTS</value>
+  </data>
+  <data name="Page_TiglAchievements" xml:space="preserve">
+    <value>Achievements</value>
   </data>
   <data name="TiglMenu_Players" xml:space="preserve">
     <value>PLAYERS</value>
   </data>
+  <data name="Page_TiglPlayers" xml:space="preserve">
+    <value>Players</value>
+  </data>
   <data name="TiglMenu_Statistics" xml:space="preserve">
     <value>STATISTICS</value>
+  </data>
+  <data name="Page_TiglStatistics" xml:space="preserve">
+    <value>Statistics</value>
   </data>
   <data name="Rankings_PrestigeRankCategory_Pmbg" xml:space="preserve">
     <value>Pax Magnifica Bellum Gloriosum</value>
@@ -2533,6 +2557,9 @@ Brandon Williams&lt;/p&gt;</value>
   </data>
   <data name="TiglMenu_GameReports" xml:space="preserve">
     <value>GAMES</value>
+  </data>
+  <data name="Page_TiglGameReports" xml:space="preserve">
+    <value>Games</value>
   </data>
   <data name="TiglLeaderboard_Rank" xml:space="preserve">
     <value># Rank</value>

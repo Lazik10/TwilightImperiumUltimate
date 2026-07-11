@@ -6,12 +6,21 @@ public class NewsArticleRepository(
 {
     private readonly IDbContextFactory<TwilightImperiumDbContext> _context = context;
 
-    public async Task<List<NewsArticle>> GetAllNewsArticles(CancellationToken cancellationToken)
+    public async Task<(List<NewsArticle> Items, int TotalCount)> GetNewsArticlesPage(int pageNumber, int pageSize, CancellationToken cancellationToken)
     {
         await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);
-        return await dbContext.NewsArticles
-            .OrderByDescending(x => x.Id)
+
+        var query = dbContext.NewsArticles
             .Include(n => n.User)
+            .OrderByDescending(x => x.Id);
+
+        var totalCount = await query.CountAsync(cancellationToken);
+
+        var items = await query
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
             .ToListAsync(cancellationToken);
+
+        return (items, totalCount);
     }
 }

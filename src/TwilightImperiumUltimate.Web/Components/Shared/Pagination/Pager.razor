@@ -1,14 +1,35 @@
-<FlexRowContainer JustifyContent="Enums.JustifyContent.Center" Width="Width">
-    
-    <Button ButtonText="&lt;&lt;" IsDisabled="@IsFirstPage" OnClick="MoveFirst" />
-    <Button ButtonText="&lt;" IsDisabled="@IsFirstPage" OnClick="MovePrevious" />
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Pagination
 
-    @foreach (var page in VisiblePages)
-    {
-        <Button ButtonText="@(page.ToString())" OnClick="() => ChangePage(page)" IsDisabled="(page == CurrentPage)" />
-    }
+@*
+    Renders a compact "<< < 1 2 3 4 5 > >>" pagination control. The outer ResponsiveContainer
+    always spans the full available width and centers the button group; the buttons themselves
+    are sized to fit their own content (not stretched), so the whole group only ever takes up as
+    much width as it needs to display the arrows + up to MaxPageButtons page numbers.
+*@
 
-    <Button ButtonText="&gt;" IsDisabled="@IsLastPage" OnClick="MoveNext" />
-    <Button ButtonText="&gt;&gt;" IsDisabled="@IsLastPage" OnClick="MoveLast" />
+<ResponsiveContainer Type="ContainerType.Flex"
+                     Padding="none"
+                     JustifyContent="Enums.JustifyContent.Center"
+                     AlignItems="Enums.AlignItems.Center"
+                     CssClass="@CssClass"
+                     Style="@Style">
+    <nav class="pager-nav" aria-label="Pagination">
+        <Button CssClass="pager-button pager-button--icon" Width="0" IsDisabled="@IsFirstPage" OnClick="MoveFirst" ButtonText="&laquo;" aria-label="First page" />
+        <Button CssClass="pager-button pager-button--icon" Width="0" IsDisabled="@IsFirstPage" OnClick="MovePrevious" ButtonText="&lsaquo;" aria-label="Previous page" />
 
-</FlexRowContainer>
+        @foreach (var pageNumber in VisiblePages)
+        {
+            <Button CssClass="@($"pager-button {(pageNumber == CurrentPage ? "pager-button--active" : string.Empty)}")"
+                    Width="0"
+                    IsDisabled="@(pageNumber == CurrentPage)"
+                    OnClick="() => ChangePage(pageNumber)"
+                    ButtonText="@pageNumber.ToString()"
+                    aria-label='@($"Page {pageNumber}")'
+                    aria-current="@(pageNumber == CurrentPage ? "page" : null)"
+                    @key="pageNumber" />
+        }
+
+        <Button CssClass="pager-button pager-button--icon" Width="0" IsDisabled="@IsLastPage" OnClick="MoveNext" ButtonText="&rsaquo;" aria-label="Next page" />
+        <Button CssClass="pager-button pager-button--icon" Width="0" IsDisabled="@IsLastPage" OnClick="MoveLast" ButtonText="&raquo;" aria-label="Last page" />
+    </nav>
+</ResponsiveContainer>

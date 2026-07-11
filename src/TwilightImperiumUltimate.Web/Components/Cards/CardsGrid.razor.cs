@@ -65,23 +65,11 @@ public partial class CardsGrid
         showBigImage = false;
     }
 
-    private string GetCultureIconPath(string culture)
-    {
-        return PathProvider.GetCultureIconPath(culture);
-    }
-
     private void SetBigImageAddress(string culture)
     {
         currentBigImageSrc = currentBigImageSrc.Replace(currentBigImageCulture, culture, StringComparison.Ordinal);
         currentBigImageCulture = culture;
         StateHasChanged();
-    }
-
-    private string GetLanguageFlagClass(string culture)
-    {
-        return string.Equals(currentBigImageCulture, culture, StringComparison.OrdinalIgnoreCase)
-            ? "language-flag-active"
-            : "language-flag-inactive";
     }
 
     private string GetCorrectApiEndpoint()

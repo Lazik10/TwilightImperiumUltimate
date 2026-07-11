@@ -1,0 +1,68 @@
+.pager-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 0.25rem;
+}
+
+/* .pager-button/--active/--icon target the <Button> child component's own rendered <button>
+   element, so they need ::deep. Button.razor.css applies !important to its own padding/border/
+   border-radius/color, so overriding those for this specific usage also needs !important --
+   this is the same "Radzen/shared-component override" pattern already used elsewhere in the repo. */
+::deep .pager-button {
+    min-width: 3.25rem !important;
+    box-sizing: border-box !important;
+    padding: 0.35rem 0.85rem !important;
+    background-color: var(--color-nav-panel-bg) !important;
+    border-radius: 0.5rem !important;
+    font-size: clamp(0.85rem, 0.75rem + 0.5vw, 1.125rem) !important;
+    line-height: 1 !important;
+}
+
+::deep .pager-button:hover:not(:disabled) {
+    background-color: var(--color-nav-hover-bg-solid) !important;
+    color: var(--color-nav-hover) !important;
+}
+
+::deep .pager-button:focus-visible {
+    outline: 2px solid var(--color-nav-hover);
+    outline-offset: 2px;
+}
+
+::deep .pager-button:disabled {
+    cursor: default !important;
+    opacity: 0.5;
+}
+
+::deep .pager-button.pager-button--active {
+    background-color: var(--color-nav-hover-bg-solid) !important;
+    color: var(--color-nav-hover) !important;
+}
+
+::deep .pager-button.pager-button--active:disabled {
+    opacity: 1;
+}
+
+/* The "«"/"‹"/"›"/"»" glyphs sit visually lower than digits within the same line-height, so nudge
+   icon buttons' padding to re-center them (digits need no adjustment -- only these arrow glyphs). */
+::deep .pager-button.pager-button--icon {
+    padding-top: 0.2rem !important;
+    padding-bottom: 0.5rem !important;
+}
+
+@media (max-width: 480px) {
+    .pager-nav {
+        gap: 0.25rem;
+    }
+
+    ::deep .pager-button {
+        min-width: 2.75rem !important;
+        padding: 0.25rem 0.6rem !important;
+    }
+
+    ::deep .pager-button.pager-button--icon {
+        padding-top: 0.15rem !important;
+        padding-bottom: 0.35rem !important;
+    }
+}

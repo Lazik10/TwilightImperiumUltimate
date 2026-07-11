@@ -5,7 +5,17 @@
 <PageTitle>@Strings.Page_News</PageTitle>
 
 <Page LeftPadding="7" RightPadding="13">
-    <ResponsiveHeading Level="1" Text="@Strings.Page_News" CssClass="news-page-title" FontSize="2xl" CenterText="true" />
+    @*
+        This Page uses asymmetric horizontal padding (7% left / 13% right) instead of the default
+        symmetric 10%/10%, so a centered heading here would otherwise sit visually left of where it
+        appears on pages using the default 10/10 padding (its content box is centered at 47% of the
+        page instead of 50%). To compensate, add the padding difference (13-7=6, in terms of the
+        FULL page width) to the smaller (left) side. Since this style applies to an element already
+        inside Page's own padded content box (which is 100-7-13=80% of the page width), the
+        compensating value must be expressed relative to THAT box, not the full page:
+        6% of the full page width == 6 / 80 * 100 = 7.5% of the content box width.
+    *@
+    <ResponsiveHeading Level="1" Text="@Strings.Page_News" CssClass="news-page-title" FontSize="2xl" CenterText="true" Style="padding-left: 7.5%;" />
 
     @if (_isLoading)
     {
@@ -25,6 +35,14 @@
                 </li>
             }
         </ul>
+
+        @if (_totalCount > PageSize)
+        {
+            @* Same asymmetric-padding compensation as the ResponsiveHeading above (see its comment
+               for the full derivation): this Page uses 7%/13% padding instead of 10%/10%, so the
+               centered pager needs the same +7.5% left padding to visually match a 10/10 page. *@
+            <Pager TotalCount="_totalCount" PageSize="PageSize" CurrentPage="_currentPage" CurrentPageChanged="OnPageChanged" Style="padding-left: 7.5%;" />
+        }
     }
     else
     {

@@ -60,8 +60,8 @@
     }
 
     .mobile-nav-toggle:hover {
-        background-color: rgba(0, 0, 0, 0.8);
-        color: yellow;
+        background-color: var(--color-nav-hover-bg);
+        color: var(--color-nav-hover);
     }
 
     .mobile-nav-panel {
@@ -112,14 +112,14 @@
 
     ::deep .mobile-nav-row:hover,
     .mobile-nav-row-link:hover {
-        background: rgba(0, 0, 0, 0.85);
-        color: yellow;
+        background: var(--color-nav-hover-bg);
+        color: var(--color-nav-hover);
     }
 
     ::deep .mobile-nav-row.menu-link-active,
     .mobile-nav-row-link.menu-link-active {
         background: rgba(0, 0, 0, 0.62);
-        color: yellow;
+        color: var(--color-nav-hover);
         text-decoration: underline;
         text-underline-offset: 0.25rem;
     }
@@ -139,6 +139,7 @@
     .mobile-nav-submenu ::deep .menu-button {
         color: white;
         text-decoration: none;
+        text-transform: uppercase;
         font-family: Handel, fallback, sans-serif;
         font-size: var(--font-size-lg);
         padding: var(--space-xs) 0;
@@ -149,11 +150,11 @@
 
     .mobile-nav-submenu ::deep a:hover,
     .mobile-nav-submenu ::deep .menu-button:hover {
-        color: yellow;
+        color: var(--color-nav-hover);
     }
 
     .mobile-nav-submenu ::deep a.submenu-link-active {
-        color: yellow;
+        color: var(--color-nav-hover);
         font-weight: bold;
     }
 
@@ -161,9 +162,9 @@
     ::deep .mobile-nav-row:focus-visible,
     .mobile-nav-row-link:focus-visible,
     .mobile-nav-submenu ::deep a:focus-visible {
-        outline: 0.125rem solid yellow;
+        outline: 0.125rem solid var(--color-nav-hover);
         outline-offset: -0.125rem;
-        color: yellow;
+        color: var(--color-nav-hover);
     }
 
     .mobile-nav-divider {

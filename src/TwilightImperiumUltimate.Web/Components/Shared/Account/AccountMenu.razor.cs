@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Components;
 using TwilightImperiumUltimate.Web.Services.Authentication;
+using TwilightImperiumUltimate.Web.Services.Navigation;
 
 namespace TwilightImperiumUltimate.Web.Components.Shared.Account;
 
@@ -10,6 +11,9 @@ public partial class AccountMenu : IDisposable
 
     [Inject]
     private ICurrentUserState CurrentUserState { get; set; } = default!;
+
+    [Inject]
+    private IMenuSelectionState MenuSelectionState { get; set; } = default!;
 
     public void Dispose()
     {
@@ -39,6 +43,8 @@ public partial class AccountMenu : IDisposable
     private void OpenAccountDropdown() => _isAccountDropdownOpen = true;
 
     private void CloseAccountDropdown() => _isAccountDropdownOpen = false;
+
+    private void ClearMenuSelection() => MenuSelectionState.ClearSelection();
 
     private async Task Logout() => await CurrentUserState.LogoutAsync();
 }

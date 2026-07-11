@@ -6,8 +6,9 @@ namespace TwilightImperiumUltimate.Web.Components.Shared.Navigation;
 /// <summary>
 /// Single top-level desktop navigation entry (plain link or hover/focus dropdown trigger).
 /// </summary>
-public partial class DesktopNavItem
+public partial class DesktopNavItem : IDisposable
 {
+    private bool _disposed;
     private bool _isHovered;
     private string? _hoveredSubMenuKey;
 
@@ -45,16 +46,39 @@ public partial class DesktopNavItem
 
     private bool IsActiveMenu => MenuSelectionState.ActiveMenuKey == MenuKey;
 
+    public void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
+    protected override void OnInitialized() => MenuSelectionState.Changed += OnMenuSelectionChanged;
+
+    protected virtual void Dispose(bool disposing)
+    {
+        if (_disposed)
+            return;
+
+        if (disposing)
+            MenuSelectionState.Changed -= OnMenuSelectionChanged;
+
+        _disposed = true;
+    }
+
+    private void OnMenuSelectionChanged() => InvokeAsync(StateHasChanged);
+
     private void HandleHoverStart()
     {
         _isHovered = true;
         _hoveredSubMenuKey = null;
+        MenuSelectionState.SetHoveredMenu(MenuKey);
     }
 
     private void HandleHoverEnd()
     {
         _isHovered = false;
         _hoveredSubMenuKey = null;
+        MenuSelectionState.ClearHoveredMenu(MenuKey);
     }
 
     private void HandleSubMenuHoverStart(string subMenuKey) => _hoveredSubMenuKey = subMenuKey;
@@ -63,7 +87,13 @@ public partial class DesktopNavItem
 
     private void HandleSelectSubMenu(string subMenuKey) => MenuSelectionState.SelectSubMenu(MenuKey, subMenuKey);
 
-    private string GetActiveCssClass() => _isHovered || IsActiveMenu ? "menu-link-active" : string.Empty;
+    private string GetActiveCssClass()
+    {
+        if (MenuSelectionState.HoveredMenuKey is not null)
+            return _isHovered ? "menu-link-active" : string.Empty;
+
+        return IsActiveMenu ? "menu-link-active" : string.Empty;
+    }
 
     private string GetSubMenuCssClass(string subMenuKey)
     {

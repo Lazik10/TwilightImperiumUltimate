@@ -12,17 +12,23 @@ public partial class Planets
 
     private const string LegendaryFilterValue = "legendary";
 
+    private const int PlanetsPageSize = 20;
+
     private IReadOnlyCollection<PlanetModel> _planets = new List<PlanetModel>();
 
     private GameVersion? _selectedGameVersion;
 
     private string _selectedPlanetFilter = string.Empty;
 
+    private int _visiblePlanetsCount = PlanetsPageSize;
+
     private bool _showBigImage;
 
     private string _currentBigImageSrc = string.Empty;
 
     private string _currentBigImageCulture = string.Empty;
+
+    private string _currentBigImageAlt = string.Empty;
 
     [Inject]
     private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
@@ -32,6 +38,8 @@ public partial class Planets
 
     [Inject]
     private IMapper Mapper { get; set; } = default!;
+
+    private bool HasMorePlanetsToLoad => GetFilteredPlanetsSorted().Count() > _visiblePlanetsCount;
 
     protected override async Task OnInitializedAsync()
     {
@@ -94,7 +102,7 @@ public partial class Planets
         return PathProvider.GetPlanetImagePath(planet.PlanetName.ToString());
     }
 
-    private IEnumerable<IGrouping<GameVersion, PlanetModel>> GetFilteredPlanets()
+    private IEnumerable<PlanetModel> GetFilteredPlanetsSorted()
     {
         var filteredPlanets = ApplyPlanetFilter(
             _selectedGameVersion.HasValue
@@ -103,8 +111,20 @@ public partial class Planets
 
         return filteredPlanets
             .OrderBy(x => x.GameVersion)
-            .ThenBy(x => x.PlanetName)
+            .ThenBy(x => x.PlanetName);
+    }
+
+    private IEnumerable<IGrouping<GameVersion, PlanetModel>> GetVisiblePlanets()
+    {
+        return GetFilteredPlanetsSorted()
+            .Take(_visiblePlanetsCount)
             .GroupBy(x => x.GameVersion);
+    }
+
+    private Task LoadMorePlanets()
+    {
+        _visiblePlanetsCount += PlanetsPageSize;
+        return Task.CompletedTask;
     }
 
     private IEnumerable<GameVersion> GetAvailableGameVersions()
@@ -118,6 +138,7 @@ public partial class Planets
     private Task OnGameVersionFilterChanged(GameVersion? gameVersion)
     {
         _selectedGameVersion = gameVersion;
+        _visiblePlanetsCount = PlanetsPageSize;
         StateHasChanged();
         return Task.CompletedTask;
     }
@@ -170,6 +191,7 @@ public partial class Planets
     private Task OnPlanetFilterChanged(object value)
     {
         _selectedPlanetFilter = value?.ToString() ?? string.Empty;
+        _visiblePlanetsCount = PlanetsPageSize;
         StateHasChanged();
         return Task.CompletedTask;
     }
@@ -225,6 +247,7 @@ public partial class Planets
     {
         _currentBigImageSrc = GetPlanetImagePath(planet);
         _currentBigImageCulture = culture;
+        _currentBigImageAlt = planet.PlanetName.ToString();
         _showBigImage = true;
     }
 
@@ -233,23 +256,11 @@ public partial class Planets
         _showBigImage = false;
     }
 
-    private string GetCultureIconPath(string culture)
-    {
-        return PathProvider.GetCultureIconPath(culture);
-    }
-
     private void SetBigImageAddress(string culture)
     {
         _currentBigImageSrc = _currentBigImageSrc.Replace(_currentBigImageCulture, culture, StringComparison.Ordinal);
         _currentBigImageCulture = culture;
         StateHasChanged();
-    }
-
-    private string GetLanguageFlagClass(string culture)
-    {
-        return string.Equals(_currentBigImageCulture, culture, StringComparison.OrdinalIgnoreCase)
-            ? "language-flag-active"
-            : "language-flag-inactive";
     }
 
     private async Task InititalizePlanets()

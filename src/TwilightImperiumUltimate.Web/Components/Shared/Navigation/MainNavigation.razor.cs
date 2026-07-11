@@ -75,13 +75,13 @@ public partial class MainNavigation : IDisposable
             new NavLinkItem(PageRoutes.Tigl, "tiglinfo", Strings.Page_TiglInfo),
             new NavLinkItem(PageRoutes.TiglRegister, "tiglregister", Strings.Page_TiglRegister),
             new NavLinkItem(PageRoutes.TiglReportGame, "tiglreport", Strings.Page_TiglReportGame),
-            new NavLinkItem(PageRoutes.TiglLeaderboard, "tiglleaderboard", Strings.TiglMenu_Leaderboard),
-            new NavLinkItem(PageRoutes.TiglStatistics, "tiglstatistics", Strings.TiglMenu_Statistics),
-            new NavLinkItem(PageRoutes.TiglPlayers, "tiglplayers", Strings.TiglMenu_Players),
-            new NavLinkItem(PageRoutes.TiglGames, "tiglgames", Strings.TiglMenu_GameReports),
-            new NavLinkItem(PageRoutes.TiglRankings, "tiglranks", Strings.RankingsMenu_Ranks),
-            new NavLinkItem(PageRoutes.TiglLeaders, "tiglleaders", Strings.RankingsMenu_Leaders),
-            new NavLinkItem(PageRoutes.TiglAchievements, "tiglachievements", Strings.RankingsMenu_Achievements),
+            new NavLinkItem(PageRoutes.TiglLeaderboard, "tiglleaderboard", Strings.Page_TiglLeaderboard),
+            new NavLinkItem(PageRoutes.TiglStatistics, "tiglstatistics", Strings.Page_TiglStatistics),
+            new NavLinkItem(PageRoutes.TiglPlayers, "tiglplayers", Strings.Page_TiglPlayers),
+            new NavLinkItem(PageRoutes.TiglGames, "tiglgames", Strings.Page_TiglGameReports),
+            new NavLinkItem(PageRoutes.TiglRankings, "tiglranks", Strings.Page_TiglRanks),
+            new NavLinkItem(PageRoutes.TiglLeaders, "tiglleaders", Strings.Page_TiglLeaders),
+            new NavLinkItem(PageRoutes.TiglAchievements, "tiglachievements", Strings.Page_TiglAchievements),
         ];
 
         _toolsLinks =
@@ -147,6 +147,16 @@ public partial class MainNavigation : IDisposable
     private void SelectSubMenuAndClose(MainMenuKey menuKey, string subMenuKey)
     {
         SelectSubMenu(menuKey, subMenuKey);
+        _isMobileMenuVisible = false;
+    }
+
+    private void ClearMenuSelectionAndClose()
+    {
+        MenuSelectionState.ClearSelection();
+
+        if (_isMobileMenuVisible)
+            CollapseAllSections();
+
         _isMobileMenuVisible = false;
     }
 

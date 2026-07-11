@@ -89,6 +89,13 @@
     --color-blue: #0024ff;
     --color-gray-dark: #333;
     --color-gray-medium: #808080;
+
+    /* Navigation hover/active state */
+    --color-nav-hover: #8ecfff;
+    --color-nav-hover-bg: rgba(18, 57, 87, 0.94);
+    --color-nav-hover-bg-solid: rgb(18, 57, 87);
+    --color-nav-default-bg: rgba(0, 0, 0, 0.7);
+    --color-nav-panel-bg: rgb(8, 14, 24);
     
     /* Layout */
     --max-content-width: 1920px;
@@ -176,10 +183,21 @@ body {
     overflow-x: clip;
 }
 
-/* Avoid fixed background attachment on small screens (scroll jank / performance). */
+/*
+   The desktop rules above look wrong on tablet/mobile: this wide (~2.37:1) landscape image gets
+   forced into an extreme zoomed-in crop by background-size:cover on a tall/narrow viewport, and
+   repeat-y then tiles that crop disjointedly down the page. Tablet has no dedicated asset yet, so
+   it falls back to the plain dark background-color.
+
+   Mobile now uses a dedicated image cropped directly from the desktop source at an exact 9:19.5
+   portrait ratio (665x1440, centered on the nebula/ring), matching real phone viewports (~0.46-0.5
+   ratio) far more closely than the previous 1080x1439 (~0.75 ratio) asset did. Because the ratio
+   now matches, background-size:cover needs no letterboxing/contain workaround and won't force the
+   big height-driven upscale that caused the earlier "zoomed as hell"/pixelated look.
+*/
 @media (max-width: 768px) {
     html {
-        background-attachment: scroll;
+        background-image: url('/resources/images/shared/Twilight_imperium_ultimate_background_mobile.webp');
     }
 }
 

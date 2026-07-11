@@ -23,7 +23,8 @@ public partial class ResponsiveHeading
 
     /// <summary>
     /// Gets or sets the font-size token (xs, sm, base, md, lg, xl, 2xl, 3xl).
-    /// When null, the font size is left to CSS classes so callers can control it themselves.
+    /// When null, the font size is derived automatically from <see cref="Level"/>
+    /// (h1 largest down to h6 smallest). Set explicitly to override that default.
     /// </summary>
     [Parameter]
     public string? FontSize { get; set; }
@@ -52,7 +53,7 @@ public partial class ResponsiveHeading
         $"responsive-heading handel white shadow{(CenterText ? " centered-text" : string.Empty)} {CssClass}".Trim();
 
     private string ComputedStyle =>
-        $"{(FontSize is null ? string.Empty : $"font-size: {ResolveFontSize(FontSize)}; ")}{Style}";
+        $"font-size: {ResolveFontSize(FontSize ?? GetDefaultFontSizeForLevel())}; {Style}";
 
     private static string ResolveFontSize(string fontSize) => fontSize switch
     {
@@ -65,5 +66,15 @@ public partial class ResponsiveHeading
         "2xl" => "var(--font-size-2xl)",
         "3xl" => "var(--font-size-3xl)",
         _ => "var(--font-size-2xl)",
+    };
+
+    private string GetDefaultFontSizeForLevel() => HeadingLevel switch
+    {
+        1 => "3xl",
+        2 => "2xl",
+        3 => "xl",
+        4 => "lg",
+        5 => "md",
+        _ => "base",
     };
 }

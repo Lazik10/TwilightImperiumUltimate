@@ -24,7 +24,7 @@
 
 .menu-item > a:hover,
 .menu-item ::deep .menu-trigger:hover {
-    color: yellow;
+    color: var(--color-nav-hover);
     text-decoration: underline;
     text-underline-offset: 0.25rem;
 }
@@ -32,14 +32,14 @@
 .menu-item > a.menu-link-active,
 .menu-item ::deep .menu-trigger.menu-link-active {
     background-color: transparent;
-    color: yellow;
+    color: var(--color-nav-hover);
     text-decoration: underline;
     text-underline-offset: 0.25rem;
 }
 
 /* Visible keyboard focus indicator for navigation links. */
 .menu-item > a:focus-visible {
-    outline: 0.125rem solid yellow;
+    outline: 0.125rem solid var(--color-nav-hover);
     outline-offset: 0.125rem;
 }
 
@@ -67,11 +67,12 @@
 .dropdown a {
     font-size: 1.0625rem;
     font-family: Handel, fallback, sans-serif;
-    background: rgba(0, 0, 0, 0.7);
+    background: var(--color-nav-panel-bg);
     border-radius: 0;
     color: white;
     display: block;
     text-decoration: none;
+    text-transform: uppercase;
     white-space: nowrap;
     margin-top: 0;
     margin-bottom: 0;
@@ -84,22 +85,22 @@
 }
 
 .dropdown a:hover {
-    background: rgba(0, 0, 0, 0.85);
-    color: yellow;
+    background: var(--color-nav-hover-bg-solid);
+    color: var(--color-nav-hover);
     text-decoration: underline;
     text-underline-offset: 0.25rem;
 }
 
 .dropdown a:focus-visible {
-    outline: 0.125rem solid yellow;
+    outline: 0.125rem solid var(--color-nav-hover);
     outline-offset: -0.125rem;
-    background: rgba(0, 0, 0, 0.85);
-    color: yellow;
+    background: var(--color-nav-hover-bg-solid);
+    color: var(--color-nav-hover);
 }
 
 .dropdown a.submenu-link-active {
-    color: yellow;
-    background: rgba(0, 0, 0, 0.9);
+    color: var(--color-nav-hover);
+    background: var(--color-nav-hover-bg-solid);
     text-decoration: underline;
     text-underline-offset: 0.25rem;
 }
@@ -131,6 +132,7 @@
         color: white;
         display: block;
         text-decoration: none;
+        text-transform: uppercase;
         white-space: nowrap;
         margin-top: 0;
         margin-bottom: 0;

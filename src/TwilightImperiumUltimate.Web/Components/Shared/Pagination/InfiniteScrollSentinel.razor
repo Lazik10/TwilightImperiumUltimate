@@ -1,0 +1,12 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Pagination
+@implements IAsyncDisposable
+
+@*
+    Invisible sentinel element used to implement "load more on scroll" (infinite scroll) behavior.
+    Uses the browser IntersectionObserver API to raise OnIntersect once when this element scrolls
+    into view, then stops observing until the next render -- callers should increase the loaded
+    item count in OnIntersect (and stop rendering this component entirely once there is nothing
+    left to load).
+*@
+
+<div @ref="_sentinelElement" class="infinite-scroll-sentinel" aria-hidden="true"></div>

@@ -1,24 +1,13 @@
 @page "/game/planets"
-@using System.Globalization
-@using TwilightImperiumUltimate.Web.Components.Cards
-@using TwilightImperiumUltimate.Web.Components.Galaxy
-@using TwilightImperiumUltimate.Web.Components.Shared
-@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
-@using TwilightImperiumUltimate.Web.Components.Shared.Text
-@using TwilightImperiumUltimate.Web.Components.Shared.Controls
-@using TwilightImperiumUltimate.Web.Helpers.Enums
-@using TwilightImperiumUltimate.Web.Resources
-@using Radzen
 
 <PageTitle>@Strings.Page_Planets</PageTitle>
 
 <Page>
-    <ResponsiveText Text="@Strings.Page_Planets" CssClass="news-page-title handel white shadow" FontSize="2xl" CenterText="true" />
-    <ResponsiveVerticalSpacer Size="2xl" />
+    <ResponsiveHeading Level="1" Text="@Strings.Page_Planets" CssClass="mb-2xl" FontSize="2xl" CenterText="true" />
 
-    <div class="planets-filters-container">
+    <ResponsiveContainer Type="ContainerType.Flex" JustifyContent="Enums.JustifyContent.SpaceBetween" AlignItems="Enums.AlignItems.FlexStart" CssClass="planets-filters-container">
         <div class="planets-filter-group">
-            <div class="planets-filter-label handel white shadow">By Expansion:</div>
+            <ResponsiveText Text="@Strings.PlanetsFilter_ByExpansion" FontSize="md" CenterText="true" />
             <GameVersionFilterDropdown GameVersions="GetAvailableGameVersions()"
                                        SelectedGameVersion="@_selectedGameVersion"
                                        SelectedGameVersionChanged="OnGameVersionFilterChanged"
@@ -26,7 +15,7 @@
         </div>
 
         <div class="planets-filter-group">
-            <div class="planets-filter-label handel white shadow">By Trait:</div>
+            <ResponsiveText Text="@Strings.PlanetsFilter_ByTrait" FontSize="md" CenterText="true" />
             <RadzenDropDown TValue="string"
                             Data="@GetPlanetFilterOptions()"
                             TextProperty="Label"
@@ -36,53 +25,37 @@
                             class="planets-filter-dropdown"
                             Style="font-family: Handel, fallback, sans-serif" />
         </div>
-    </div>
+    </ResponsiveContainer>
 
     <ResponsiveContainer Type="ContainerType.Fluid" Padding="none">
-        @foreach (var gameVersion in GetFilteredPlanets())
+        @foreach (var gameVersion in GetVisiblePlanets())
         {
             @if (!_selectedGameVersion.HasValue)
             {
-                <ResponsiveText Text="@gameVersion.Key.GetDisplayName()" FontSize="xl" CenterText="true" CssClass="handel white shadow" />
+                <ResponsiveHeading Level="4" Text="@gameVersion.Key.GetDisplayName()" CenterText="true" CssClass="handel white shadow" />
             }
 
-            <div class="planets-grid-shell">
-                <ResponsiveGridContainer Columns="5" TabletColumns="3" MobileColumns="2" Width="100" Gap="0.625rem">
+            <div class="planets-grid-shell" @key="gameVersion.Key">
+                <ResponsiveGridContainer Columns="5" TabletColumns="3" MobileColumns="2" Width="100" Gap="1rem" CssClass="mb-2xl">
                     @foreach (var planet in gameVersion)
                     {
-                        <div class="planet-item">
-                            <ClickableTile OnClick="@(() => ShowBigImage(planet, CultureInfo.CurrentCulture.Name))">
-                                <PlanetCard Name="@planet.PlanetName.ToString()" />
-                            </ClickableTile>
-                        </div>
+                        <ClickableTile @key="planet.PlanetName" OnClick="@(() => ShowBigImage(planet, CultureInfo.CurrentCulture.Name))">
+                            <PlanetCard Name="@planet.PlanetName.ToString()" />
+                        </ClickableTile>
                     }
                 </ResponsiveGridContainer>
             </div>
+        }
 
-            <ResponsiveVerticalSpacer Size="2xl" />
+        @if (HasMorePlanetsToLoad)
+        {
+            <InfiniteScrollSentinel OnIntersect="LoadMorePlanets" />
         }
     </ResponsiveContainer>
 
-    @if (_showBigImage)
-    {
-        <div class="big-image-overlay" @onclick="HideBigImage">
-            <div class="image-container">
-                <img src="@_currentBigImageSrc" @onclick="HideBigImage" />
-            </div>
-            <div class="language-menu">
-                <img class="language-flag @GetLanguageFlagClass(Strings.EnglishCulture)"
-                        src="@(GetCultureIconPath(Strings.EnglishCulture))"
-                        alt="English"
-                        height="50"
-                        @onclick="@(() => SetBigImageAddress(Strings.EnglishCulture))"
-                        @onclick:stopPropagation="true" />
-                <img class="language-flag @GetLanguageFlagClass(Strings.CzechCulture)"
-                        src="@(GetCultureIconPath(Strings.CzechCulture))"
-                        alt="Czech"
-                        height="50"
-                        @onclick="@(() => SetBigImageAddress(Strings.CzechCulture))"
-                        @onclick:stopPropagation="true" />
-            </div>
+    <BigImageOverlay IsOpen="_showBigImage" ImageSrc="@_currentBigImageSrc" ImageAlt="@_currentBigImageAlt" OnClose="HideBigImage" AriaLabel="@Strings.Page_Planets">
+        <div class="mt-md">
+            <LanguageFlagMenu CurrentCulture="@_currentBigImageCulture" CultureSelected="SetBigImageAddress" />
         </div>
-    }
+    </BigImageOverlay>
 </Page>

@@ -6,9 +6,9 @@
     <div class="account-menu-auth">
         @if(CurrentUserState.User is null)
         {
-            <a href="@Pages.Login" class="handel white shadow">@Strings.Page_AccountLogin</a>
+            <a href="@Pages.Login" class="handel white shadow" @onclick="ClearMenuSelection">@Strings.Page_AccountLogin</a>
             <div class="handel white shadow" aria-hidden="true">/</div>
-            <a href="@Pages.Register" class="handel white shadow">@Strings.Page_AccountRegister</a>
+            <a href="@Pages.Register" class="handel white shadow" @onclick="ClearMenuSelection">@Strings.Page_AccountRegister</a>
         }
         else
         {

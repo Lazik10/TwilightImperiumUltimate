@@ -87,25 +87,14 @@
 
 @if (showBigImage)
 {
-    <div class="big-image-overlay" @onclick="HideBigImage">
+    <BigImageOverlay IsOpen="showBigImage" OnClose="HideBigImage" AriaLabel="@_selectedCardModel.Name">
         <div class="big-image-content-row">
             <div class="image-container">
                 <img src="@currentBigImageSrc" @onclick="HideBigImage" />
             </div>
 
-            <div class="language-menu language-menu-mobile" @onclick:stopPropagation="true">
-                <img class="language-flag @GetLanguageFlagClass(Strings.EnglishCulture)"
-                        src="@(GetCultureIconPath(Strings.EnglishCulture))"
-                        alt="English"
-                        height="50"
-                        @onclick="@(() =>SetBigImageAddress(Strings.EnglishCulture))"
-                        @onclick:stopPropagation="true" />
-                <img class="language-flag @GetLanguageFlagClass(Strings.CzechCulture)"
-                        src="@(GetCultureIconPath(Strings.CzechCulture))"
-                        alt="Czech"
-                        height="50"
-                        @onclick="@(() =>SetBigImageAddress(Strings.CzechCulture))"
-                        @onclick:stopPropagation="true" />
+            <div class="language-menu-mobile">
+                <LanguageFlagMenu CurrentCulture="@currentBigImageCulture" CultureSelected="SetBigImageAddress" />
             </div>
 
             <div class="big-image-content-column">
@@ -150,19 +139,8 @@
 
             </div>
         </div>
-        <div class="language-menu language-menu-desktop" @onclick:stopPropagation="true">
-            <img class="language-flag @GetLanguageFlagClass(Strings.EnglishCulture)"
-                    src="@(GetCultureIconPath(Strings.EnglishCulture))"
-                    alt="English"
-                    height="50"
-                    @onclick="@(() =>SetBigImageAddress(Strings.EnglishCulture))"
-                    @onclick:stopPropagation="true" />
-            <img class="language-flag @GetLanguageFlagClass(Strings.CzechCulture)"
-                    src="@(GetCultureIconPath(Strings.CzechCulture))"
-                    alt="Czech"
-                    height="50"
-                    @onclick="@(() =>SetBigImageAddress(Strings.CzechCulture))"
-                    @onclick:stopPropagation="true" />
+        <div class="language-menu-desktop">
+            <LanguageFlagMenu CurrentCulture="@currentBigImageCulture" CultureSelected="SetBigImageAddress" />
         </div>
-    </div>
+    </BigImageOverlay>
 }
