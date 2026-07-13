@@ -1,5 +1,5 @@
 @using TwilightImperiumUltimate.Web.Components.Shared.Bars
 
-<FlexColumnCenteredContainer>
-    <SearchBar Text="Player" Width="50" OnSearchChange="UpdatePlayerList" />
-</FlexColumnCenteredContainer>
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+    <ResponsiveSearchBar Id="tigl-player-search" Text="Player" Width="50" OnSearchChange="UpdatePlayerList" />
+</ResponsiveContainer>

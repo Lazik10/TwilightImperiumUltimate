@@ -1,7 +1,7 @@
-﻿<FlexRowContainer Width="@(Width)">
+﻿<ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="@(Width)">
     <button type="button" class="flex-row arrow-button" @onclick="OnArrowClick">
         <div class="space"></div>
             <div style="font-size: @(FontSize)px;">@ArrowSymbol</div>
         <div class="space"></div>
     </button>
-</FlexRowContainer>
+</ResponsiveContainer>

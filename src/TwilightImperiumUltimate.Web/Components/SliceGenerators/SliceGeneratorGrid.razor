@@ -4,13 +4,11 @@
 
 @if(_selectedMenuItem == SliceGeneratorMenuItem.SliceGenerator)
 {
-    <VerticalSpace Height="20" />
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-md">
+        <ResponsiveButton ButtonText="@Strings.SliceGenerator_GenerateRandomSlices" OnClick="GenerateSlices" Width="30" />
+    </ResponsiveContainer>
 
-    <FlexColumnCenteredContainer>
-        <Button ButtonText="@Strings.SliceGenerator_GenerateRandomSlices" OnClick="GenerateSlices" />
-    </FlexColumnCenteredContainer>
-
-    <FlexColumnCenteredContainer>
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
 
         <div id="sliceArea">
             <GridLayout Width="100" Gap="50" Columns="3">
@@ -30,17 +28,13 @@
             </GridLayout>
         </div>
 
-    </FlexColumnCenteredContainer>
+    </ResponsiveContainer>
 }
 else if (_selectedMenuItem == SliceGeneratorMenuItem.SliceEvaluation)
 {
-    <VerticalSpace Height="20" />
-
-    <FlexColumnCenteredContainer>
-        <Button ButtonText="@Strings.SliceGenerator_GenerateRandomSlices" OnClick="GenerateSlices" />
-    </FlexColumnCenteredContainer>
-
-    <VerticalSpace Height="20" />
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-md mb-md">
+        <ResponsiveButton ButtonText="@Strings.SliceGenerator_GenerateRandomSlices" OnClick="GenerateSlices" Width="30" />
+    </ResponsiveContainer>
 
     <SliceEvaluationGrid Slices="Slices" />
 }

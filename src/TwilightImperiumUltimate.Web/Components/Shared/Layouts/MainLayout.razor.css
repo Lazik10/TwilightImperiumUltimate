@@ -13,7 +13,9 @@
     top: 0;
     right: 1%;
     min-width: 20%;
-    gap: var(--space-lg);
+    /* Doubled from --space-lg (1.5rem) so the logged-in nickname/menu isn't cramped against the
+       culture flag + info icon tools group. */
+    gap: var(--space-2xl);
 }
 
 @media (max-width: 1200px) {

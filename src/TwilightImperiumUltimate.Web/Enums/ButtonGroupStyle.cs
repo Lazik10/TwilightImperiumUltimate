@@ -1,7 +1,7 @@
 namespace TwilightImperiumUltimate.Web.Enums;
 
 /// <summary>
-/// Layout variants supported by <see cref="Components.Shared.Controls.ButtonGroup"/>. All
+/// Layout variants supported by <see cref="Components.Shared.Controls.ResponsiveButtonGroup"/>. All
 /// variants derive every button's width purely from CSS Grid track sizing (the widest button's
 /// natural content width) -- no width is ever measured or hardcoded in C#.
 /// </summary>

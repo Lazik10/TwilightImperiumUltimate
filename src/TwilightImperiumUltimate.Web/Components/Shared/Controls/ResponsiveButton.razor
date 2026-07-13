@@ -5,7 +5,9 @@
         style="@ComputedStyle"
         type="@GetButtonType()"
         @onclick="OnClickHandler"
-        disabled="@IsActuallyDisabled">
+        disabled="@IsActuallyDisabled"
+        @ref="_buttonRef"
+        @attributes="AdditionalAttributes">
     @if (ChildContent is not null)
     {
         @ChildContent

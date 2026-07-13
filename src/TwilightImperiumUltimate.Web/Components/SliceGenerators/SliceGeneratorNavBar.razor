@@ -1,6 +1,6 @@
-﻿<FlexColumnCenteredContainer>
+﻿<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
     <div class="slice-generator-navbar">
-        <FlexRowContainer Width="100" JustifyContent="Enums.JustifyContent.SpaceEvenly">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="100" JustifyContent="Enums.JustifyContent.SpaceEvenly">
             <TabNavItem Width="33%" OnClick="() => OnMenuItemClick.InvokeAsync(SliceGeneratorMenuItem.SliceGenerator)">
                 <ResponsiveLabel Text="@Strings.SliceGeneratorMenu_Slices" CenterText="true" FontSize="base" />
             </TabNavItem>
@@ -10,6 +10,6 @@
             <TabNavItem Width="33%" OnClick="() => OnMenuItemClick.InvokeAsync(SliceGeneratorMenuItem.Settings)">
                 <ResponsiveLabel Text="@Strings.SliceGeneratorMenu_Settings" CenterText="true" FontSize="base" />
             </TabNavItem>
-        </FlexRowContainer>
+        </ResponsiveContainer>
     </div>
-</FlexColumnCenteredContainer>
+</ResponsiveContainer>

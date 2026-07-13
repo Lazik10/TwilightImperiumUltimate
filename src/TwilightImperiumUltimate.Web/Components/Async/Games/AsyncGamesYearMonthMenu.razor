@@ -1,5 +1,5 @@
 ﻿
-<FlexColumnContainer Width="@Width">
+<ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column" Width="@Width">
 
     @if (GameDates != null && GameDates.GameDates.Count > 0)
     {
@@ -7,21 +7,18 @@
         {
             var yearDt = new DateTime(year.Year, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
-            <VerticalSpace Height="50" />
-            <Label FontSize="20" CenterText="true" TextColor="GetYearColor(yearDt)" Text="@(yearDt.ToString("yyyy"))" />
-            <VerticalSpace Height="10" />
+            <Label FontSize="20" CenterText="true" TextColor="GetYearColor(yearDt)" Text="@(yearDt.ToString("yyyy"))" CssClass="mt-2xl mb-sm" />
 
             @foreach (var month in year.Months.OrderByDescending(m => m))
             {
                 var monthDt = new DateTime(year.Year, month, 1, 0, 0, 0, DateTimeKind.Utc);
 
-                <TextButton FontSize="16" Style="@GetMonthColor(monthDt)" Text="@(monthDt.ToString("MMMM"))" OnClick="() => OnMonthSelected(yearDt.Year, month)" />
-                <VerticalSpace Height="10" />
+                <TextButton FontSize="16" Style="@GetMonthColor(monthDt)" Text="@(monthDt.ToString("MMMM"))" OnClick="() => OnMonthSelected(yearDt.Year, month)" CssClass="mb-sm" />
             }
 
         }
 
-        <VerticalSpace Height="20" />
+        <div style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
     }
 
-</FlexColumnContainer>
+</ResponsiveContainer>

@@ -1434,7 +1434,58 @@
 &lt;p&gt;And last thank you goes to all the creators who created a homebrew factions, cards, system tiles and any other stuff out there. I would like to give a credit to you all but I have no idea where to gather all the names. If you want to be mentioned here, let me know and I will add the list for sure!&lt;/p&gt;</value>
   </data>
   <data name="SearchForPlayer" xml:space="preserve">
-    <value>Find player with email:</value>
+    <value>Find player by email or login:</value>
+  </data>
+  <data name="NewsAdmin_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="NewsAdmin_ContentLabel" xml:space="preserve">
+    <value>Content</value>
+  </data>
+  <data name="NewsAdmin_Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="NewsAdmin_CreateHeading" xml:space="preserve">
+    <value>Create news article</value>
+  </data>
+  <data name="NewsAdmin_CreateSuccess" xml:space="preserve">
+    <value>News article created successfully.</value>
+  </data>
+  <data name="NewsAdmin_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="NewsAdmin_DeleteConfirmMessage" xml:space="preserve">
+    <value>Are you sure you want to delete this news article? This cannot be undone.</value>
+  </data>
+  <data name="NewsAdmin_DeleteConfirmTitle" xml:space="preserve">
+    <value>Delete news article</value>
+  </data>
+  <data name="NewsAdmin_DeleteSuccess" xml:space="preserve">
+    <value>News article deleted successfully.</value>
+  </data>
+  <data name="NewsAdmin_Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="NewsAdmin_EditHeading" xml:space="preserve">
+    <value>Edit news article</value>
+  </data>
+  <data name="NewsAdmin_EditMode" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="NewsAdmin_ExistingArticlesHeading" xml:space="preserve">
+    <value>Existing articles</value>
+  </data>
+  <data name="NewsAdmin_PreviewMode" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="NewsAdmin_TitleLabel" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="NewsAdmin_Update" xml:space="preserve">
+    <value>Save changes</value>
+  </data>
+  <data name="NewsAdmin_UpdateSuccess" xml:space="preserve">
+    <value>News article updated successfully.</value>
   </data>
   <data name="Admin_AddUserRole" xml:space="preserve">
     <value>Add role</value>
@@ -1442,8 +1493,26 @@
   <data name="Admin_AddRoleToUserSuccess" xml:space="preserve">
     <value>Role was successfully added to the user.</value>
   </data>
+  <data name="Admin_NewsTab" xml:space="preserve">
+    <value>News</value>
+  </data>
+  <data name="Admin_NoUserSelected" xml:space="preserve">
+    <value>User not selected</value>
+  </data>
+  <data name="Admin_PlayerLookupPlaceholder" xml:space="preserve">
+    <value>User name or Email</value>
+  </data>
+  <data name="Admin_RolesTab" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="Admin_SelectedLogin" xml:space="preserve">
+    <value>Login:</value>
+  </data>
+  <data name="Admin_TabsLabel" xml:space="preserve">
+    <value>Admin sections</value>
+  </data>
   <data name="Admin_UserRoles" xml:space="preserve">
-    <value>Seleceted user roles: </value>
+    <value>Current user roles: </value>
   </data>
   <data name="SelectedPlayer" xml:space="preserve">
     <value>Player:</value>

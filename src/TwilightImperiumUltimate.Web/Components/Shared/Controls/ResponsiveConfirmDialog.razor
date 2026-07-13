@@ -1,0 +1,23 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Controls
+
+@if (IsOpen)
+{
+    <div class="responsive-confirm-dialog-backdrop" @onclick="HandleCancelAsync" aria-hidden="true"></div>
+
+    <div class="responsive-confirm-dialog"
+         role="alertdialog"
+         aria-modal="true"
+         aria-labelledby="@_titleId"
+         aria-describedby="@_messageId"
+         tabindex="-1"
+         @ref="_dialogRef"
+         @onkeydown="HandleKeyDownAsync">
+        <h2 id="@_titleId" class="responsive-confirm-dialog-title handel white shadow">@Title</h2>
+        <p id="@_messageId" class="responsive-confirm-dialog-message">@Message</p>
+
+        <div class="responsive-confirm-dialog-actions">
+            <ResponsiveButton OnClick="HandleCancelAsync">@CancelText</ResponsiveButton>
+            <ResponsiveDangerButton OnClick="HandleConfirmAsync">@ConfirmText</ResponsiveDangerButton>
+        </div>
+    </div>
+}

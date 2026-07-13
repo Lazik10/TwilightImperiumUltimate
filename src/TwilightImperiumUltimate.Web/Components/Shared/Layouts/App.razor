@@ -10,15 +10,14 @@
             <PageTitle>Not found</PageTitle>
             <LayoutView Layout="@typeof(MainLayout)">
                 <StretchHeightContainer>
-                    <FlexColumnCenteredContainer>
-                        <FlexRowContainer AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.SpaceEvenly">
+                    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+                        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.SpaceEvenly" CssClass="mb-2xl">
                             <Label Text="404" FontSize="36" Width="50" CenterText="true" />
-                        </FlexRowContainer>
-                        <VerticalSpace Height="50" />
-                        <FlexRowContainer AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.SpaceEvenly">
+                        </ResponsiveContainer>
+                        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.SpaceEvenly">
                             <Label Text="Page not found" FontSize="24" CenterText="true" />
-                        </FlexRowContainer>
-                    </FlexColumnCenteredContainer>
+                        </ResponsiveContainer>
+                    </ResponsiveContainer>
                 </StretchHeightContainer>
             </LayoutView>
         </NotFound>

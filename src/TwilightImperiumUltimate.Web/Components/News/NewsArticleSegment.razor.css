@@ -3,6 +3,7 @@
 
     position: relative;
     width: 100%;
+    min-height: 750px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -16,7 +17,7 @@
     max-height: 100%;
     overflow: hidden;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     pointer-events: none;
     z-index: 0;
 }
@@ -26,7 +27,7 @@
     height: auto;
     max-height: 100%;
     object-fit: contain;
-    object-position: left center;
+    object-position: left top;
 }
 
 .news-article-segment-content {

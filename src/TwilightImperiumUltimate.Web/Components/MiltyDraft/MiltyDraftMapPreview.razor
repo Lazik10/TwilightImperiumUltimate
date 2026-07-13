@@ -1,29 +1,22 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.MapGenerator
 @using TwilightImperiumUltimate.Web.Helpers.Enums
 
-<FlexColumnCenteredContainer>
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
 
     @if (MiltyDraftService.State == MiltyDraftState.Initialized)
     {
-        <VerticalSpace Height="50" />
-        <Label Text="@Strings.MiltyDraft_DraftNotInProgress" FontSize="32" CenterText="true" />
-        <VerticalSpace Height="50" />
+        <Label Text="@Strings.MiltyDraft_DraftNotInProgress" FontSize="32" CenterText="true" CssClass="mt-2xl mb-2xl" />
     }
     else
     {
-        <VerticalSpace Height="50" />
-
-        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexEnd">
-            <QuickMenuItem IconType="IconType.CopyMapString" IconTypeClicked="IconType.CopyMapStringClicked" OnClick="HandleCopyMapString" />
-            <HorizontalSpace Width="10" />
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexEnd" CssClass="mt-2xl mb-sm">
+            <span class="mr-sm"><QuickMenuItem IconType="IconType.CopyMapString" IconTypeClicked="IconType.CopyMapStringClicked" OnClick="HandleCopyMapString" /></span>
             <QuickMenuItem IconType="IconType.DownloadMapImage" IconTypeClicked="IconType.DownloadMapImageClicked" OnClick="HandleDownloadImage" />
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
-        <VerticalSpace Height="10" />
+        <div id="draftpreviewArea" class="mb-3xl">
 
-        <div id="draftpreviewArea">
-
-            <GridLayout Columns="3" Width="100" Gap="10" AlignItems="stretch">
+            <GridLayout Columns="3" Width="100" Gap="10" AlignItems="stretch" CssClass="mb-md">
 
                 @if (Players is not null && Players.Count > 0)
                 {
@@ -35,23 +28,17 @@
 
             </GridLayout>
 
-            <VerticalSpace Height="20" />
-
-            <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" CssClass="mb-md">
                 <Label Text="@Strings.MiltyDraft_MapString" TextColor="TextColor.Green" FontSize="24" Width="15" />
                 <Label Text="@MapTtsString()" CenterText="true" FontSize="18"/>
-            </FlexRowContainer>
-
-            <VerticalSpace Height="20" />
+            </ResponsiveContainer>
 
             @if (IsSupportedPreviewMap())
             {
                 @DynamicComponent
             }
 
-            <VerticalSpace Height="100" />
-
         </div>
     }
 
-</FlexColumnCenteredContainer>
+</ResponsiveContainer>

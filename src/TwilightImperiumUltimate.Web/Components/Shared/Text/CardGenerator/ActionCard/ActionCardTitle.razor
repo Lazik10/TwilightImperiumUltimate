@@ -1,6 +1,6 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 
-<FlexColumnCenteredContainer>
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
     <div class="handel-cz white action-card-title @CssClass"
          style="margin-top: @(string.Concat(MarginTop, "px;"))
             overflow-wrap:break-word;
@@ -10,4 +10,4 @@
             @Text?.ToUpperInvariant()
         </div>
     </div>
-</FlexColumnCenteredContainer>
+</ResponsiveContainer>

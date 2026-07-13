@@ -68,6 +68,7 @@ public partial class InfiniteScrollSentinel : IAsyncDisposable
         }
 
         _dotNetRef?.Dispose();
+        GC.SuppressFinalize(this);
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)

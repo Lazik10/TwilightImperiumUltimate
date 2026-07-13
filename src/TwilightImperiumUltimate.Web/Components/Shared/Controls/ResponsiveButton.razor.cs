@@ -8,6 +8,8 @@ namespace TwilightImperiumUltimate.Web.Components.Shared.Controls;
 
 public partial class ResponsiveButton : TwilightImperiumBaseComponent
 {
+    private ElementReference _buttonRef;
+
     [Parameter]
     public string Text { get; set; } = string.Empty;
 
@@ -53,6 +55,9 @@ public partial class ResponsiveButton : TwilightImperiumBaseComponent
     [Parameter]
     public EventCallback<MouseEventArgs> OnClickMouse { get; set; }
 
+    [Parameter(CaptureUnmatchedValues = true)]
+    public IReadOnlyDictionary<string, object>? AdditionalAttributes { get; set; }
+
     private string DisplayText => string.IsNullOrWhiteSpace(Text) ? ButtonText : Text;
 
     private bool IsActuallyDisabled => IsDisabled || Disabled;
@@ -67,6 +72,8 @@ public partial class ResponsiveButton : TwilightImperiumBaseComponent
             return $"{widthStyle} color: {TextColor.ConvertToString()}; font-size: {FontSize}px; text-align: {TextAlign}; justify-content: {JustifyContent.GetJustifyString()}; align-items: {AlignItems.GetAlignString()}; {Style}";
         }
     }
+
+    public ValueTask FocusAsync() => _buttonRef.FocusAsync();
 
     private async Task OnClickHandler(MouseEventArgs e)
     {

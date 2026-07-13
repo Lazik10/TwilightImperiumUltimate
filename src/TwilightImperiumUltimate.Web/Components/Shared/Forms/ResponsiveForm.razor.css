@@ -22,7 +22,12 @@
 .responsive-form-actions {
     display: flex;
     justify-content: center;
+    /* Column flex items default to align-items: stretch, so without this the submit button
+       (now capped at max-width: 50rem on .responsive-button) would stay left-aligned instead of
+       centered whenever the form is wider than that cap. */
+    align-items: center;
     width: 100%;
+    flex-direction: column;
     margin-top: var(--space-xl);
     margin-bottom: var(--space-xl);
 }

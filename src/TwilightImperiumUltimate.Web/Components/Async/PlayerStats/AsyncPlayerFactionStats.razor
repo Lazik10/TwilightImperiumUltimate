@@ -2,17 +2,15 @@
 @using TwilightImperiumUltimate.Web.Components.Shared.Bars
 @using TwilightImperiumUltimate.Web.Helpers.Numbers
 
-<FlexRowContainer>
+<ResponsiveContainer Type="ContainerType.Flex" Padding="none">
 
-    <FlexColumnCenteredContainer Width="100">
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="100">
 
         @if (AsyncPlayerProfile is not null && FactionsForDisplay is not null && FactionsForDisplay.Count > 0)
         {
-            <Label Text="Faction stats" FontSize="24" CenterText="true" />
+            <Label Text="Faction stats" FontSize="24" CenterText="true" CssClass="mb-md" />
 
-            <VerticalSpace Height="20" />
-
-            <FlexColumnCenteredContainer>
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                 <EnumPicker TEnum="FactionStatisticsFilter" 
                     CurrentValue="@_selectedFactionStatisticsFilter"
                     CurrentValueChanged="OnFactionStatisticsFilterChanged"
@@ -20,9 +18,9 @@
                     Width="60"
                     CenterText="false"
                     ButtonWidth="10" />
-            </FlexColumnCenteredContainer>
+            </ResponsiveContainer>
 
-            <FlexColumnCenteredContainer>
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                 <EnumPicker TEnum="FactionStatisticsVpFilter"
                             CurrentValue="@_selectedFactionVpStatisticsFilter"
                             CurrentValueChanged="OnFactionStatisticsVpFilterChanged"
@@ -30,9 +28,9 @@
                             Width="60"
                             ButtonWidth="10"
                             CenterText="false" />
-            </FlexColumnCenteredContainer>
+            </ResponsiveContainer>
 
-            <FlexColumnCenteredContainer>
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                 <EnumPicker TEnum="FactionStatisticsSubstatsFilter"
                             CurrentValue="@_selectedFactionStatisticsSubstatsFilter"
                             CurrentValueChanged="OnFactionStatisticsSubstatsFilterChanged"
@@ -40,13 +38,13 @@
                             Width="60"
                             CenterText="false"
                             ButtonWidth="10" />
-            </FlexColumnCenteredContainer>
+            </ResponsiveContainer>
 
             <StretchHeightContainer CssClass="background">
 
                 <GridLayout Style="grid-template-columns: 5% 28% 9% 6% 9% 6% 6% 6% 6% 9% 5%;">
 
-                    <VerticalSpace Height="20" Style="grid-column: span 11;" />
+                    <div style="grid-column: span 11; height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
                     @if (AsyncPlayerProfile.Settings.ShowFactionStats)
                     {
@@ -85,10 +83,10 @@
                         var background = _row % 2 == 0 ? "background" : string.Empty;
 
                         <Label CssClass="@(background)" />
-                        <FlexRowContainer>
+                        <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
                             <AsyncFactionIconImg FactionName="@faction.FactionName" Height="20" />
                             <Label Text="@faction.FactionName.GetFactionUIText(FactionResourceType.Title)" PaddingLeft="10" CssClass="@(background)" />
-                        </FlexRowContainer>
+                        </ResponsiveContainer>
 
                         if (factionStats.Games > 0 && AsyncPlayerProfile.Settings.ShowFactionStats)
                         {
@@ -135,16 +133,16 @@
                         }
                     }
 
-                    <VerticalSpace Height="20" Style="grid-column: span 11;" />
+                    <div style="grid-column: span 11; height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
                 </GridLayout>
 
             </StretchHeightContainer>
 
-            <VerticalSpace Height="20" />
+            <div style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
         }
 
-    </FlexColumnCenteredContainer>
-    <FlexColumnCenteredContainer Width="20" />
+    </ResponsiveContainer>
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="20" />
 
-</FlexRowContainer>
+</ResponsiveContainer>

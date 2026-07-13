@@ -1,28 +1,22 @@
-<VerticalSpace Height="20" />
+<div class="mt-md mb-md">
+    <TiglPlayerSearchbar OnSearchUpdate="SearchPlayers" />
+</div>
 
-<TiglPlayerSearchbar OnSearchUpdate="SearchPlayers" />
-
-<VerticalSpace Height="20" />
-
-<TiglPlayerAlphabet OnLetterClick="FilterByLetter" />
-
-<VerticalSpace Height="20" />
+<div class="mb-md">
+    <TiglPlayerAlphabet OnLetterClick="FilterByLetter" />
+</div>
 
 <StretchHeightContainer CssClass="background">
 
     @if (Loading)
     {
-        <VerticalSpace Height="100" />
-        <Label Text="@Strings.Loading" FontSize="24" CenterText="true" TextColor="TextColor.White" />
-        <VerticalSpace Height="100" />
+        <Label Text="@Strings.Loading" FontSize="24" CenterText="true" TextColor="TextColor.White" CssClass="mt-3xl mb-3xl" />
     }
     else if (Users is not null)
     {
         if (!Users.Any())
         {
-            <VerticalSpace Height="100" />
-            <Label Text="@Strings.TiglPlayersList_NoPlayerMatch" FontSize="24" CenterText="true" TextColor="TextColor.White" />
-            <VerticalSpace Height="100" />
+            <Label Text="@Strings.TiglPlayersList_NoPlayerMatch" FontSize="24" CenterText="true" TextColor="TextColor.White" CssClass="mt-3xl mb-3xl" />
         }
         else if (_filteredUsers is not null && _filteredUsers.Any())
         {
@@ -35,16 +29,12 @@
         }
         else
         {
-            <VerticalSpace Height="100" />
-            <Label Text="@Strings.TiglPlayersList_NoPlayerMatch" FontSize="24" CenterText="true" TextColor="TextColor.White" />
-            <VerticalSpace Height="100" />
+            <Label Text="@Strings.TiglPlayersList_NoPlayerMatch" FontSize="24" CenterText="true" TextColor="TextColor.White" CssClass="mt-3xl mb-3xl" />
         }
     }
     else
     {
-        <VerticalSpace Height="100" />
-        <Label Text="@Strings.TiglPlayersList_NoPlayersFound" FontSize="24" CenterText="true" TextColor="TextColor.White" />
-        <VerticalSpace Height="100" />
+        <Label Text="@Strings.TiglPlayersList_NoPlayersFound" FontSize="24" CenterText="true" TextColor="TextColor.White" CssClass="mt-3xl mb-3xl" />
     }
 
 </StretchHeightContainer>

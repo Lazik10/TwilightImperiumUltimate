@@ -15,19 +15,19 @@
     @if (Overlay == SystemTileOverlay.Id || Overlay == SystemTileOverlay.Resources || Overlay == SystemTileOverlay.Influence)
     {
         <div class="hex-text @(SystemTileOverlayColor) handel shadow">
-            <FlexColumnCenteredContainer>
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                 @SystemTileOverlayText
-            </FlexColumnCenteredContainer>
+            </ResponsiveContainer>
         </div>
     }
     else if (Overlay == SystemTileOverlay.ResourcesAndInfluence)
     {
         <div class="hex-text white handel shadow">
-            <FlexColumnCenteredContainer>
-                <FlexRowContainer>
-                    <div class="yellow">@SystemTile?.Resources</div><HorizontalSpace Width="10" />/<HorizontalSpace Width="10" /><div class="blue">@SystemTile?.Influence</div>
-                </FlexRowContainer>
-            </FlexColumnCenteredContainer>
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+                <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
+                    <div class="yellow">@SystemTile?.Resources</div><span class="ml-sm mr-sm">/</span><div class="blue">@SystemTile?.Influence</div>
+                </ResponsiveContainer>
+            </ResponsiveContainer>
         </div>
     }
 

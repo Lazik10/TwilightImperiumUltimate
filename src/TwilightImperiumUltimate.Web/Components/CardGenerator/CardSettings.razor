@@ -3,71 +3,59 @@
 @using TwilightImperiumUltimate.Web.Components.Shared.Text
 
 <div style="width: 100%; display: flex; flex-direction: column; align-items: self-start;">
-    <VerticalSpace Height="25" />
-    <Label Text="@Strings.CardGenerator_CardTitle" FontSize="24" />
-    <VerticalSpace Height="10" />
-    <FlexRowContainer 
+    <Label Text="@Strings.CardGenerator_CardTitle" FontSize="24" CssClass="mt-lg mb-sm" />
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" 
         JustifyContent="Enums.JustifyContent.FlexStart"
         AlignItems="Enums.AlignItems.Center">
 
         <RadzenTextBox @bind-Value="CardTitle"
         @oninput="@(args => OnTitleInput(args.Value?.ToString()))"
                         Style="width: 70%; height: 25px;"
-                        class="title white handel" />
+                        class="title white handel mr-2xl" />
 
-        <HorizontalSpace Width="50"/>
-        <NumericPicker Value="CardTitleFontSize"
+        <ResponsiveNumericPicker Value="CardTitleFontSize"
             OnDecrease="() => OnTitleFontSizeDecrease()"
             OnIncrease="() => OnTitleFontSizeIncrease()"
             Width="30"/>
-    </FlexRowContainer>
+    </ResponsiveContainer>
 
-    <VerticalSpace Height="25" />
-    <Label Text="@Strings.CardGenerator_CardText" FontSize="24" />
-    <VerticalSpace Height="10" />
-    <FlexRowContainer
+    <Label Text="@Strings.CardGenerator_CardText" FontSize="24" CssClass="mt-lg mb-sm" />
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none"
         JustifyContent="Enums.JustifyContent.FlexStart"
         AlignItems="Enums.AlignItems.Center">
         <RadzenTextArea 
             @bind-Value="CardText" 
             @oninput="@(args => OnTextInput(args.Value?.ToString()))"
             Style="height: 100px; width: 70%;"
-            class="title white handel" />
-        <HorizontalSpace Width="50" />
-        <NumericPicker Value="CardTextFontSize" 
+            class="title white handel mr-2xl" />
+        <ResponsiveNumericPicker Value="CardTextFontSize" 
             OnDecrease="() => OnTextFontSizeDecrease()"
             OnIncrease="() => OnTextFontSizeIncrease()"
             Width="30" />
-    </FlexRowContainer>
+    </ResponsiveContainer>
 
-    <VerticalSpace Height="25" />
-    <Label Text="@Strings.CardGenerator_FlavoredText" FontSize="24" />
-    <VerticalSpace Height="10" />
-    <FlexRowContainer
+    <Label Text="@Strings.CardGenerator_FlavoredText" FontSize="24" CssClass="mt-lg mb-sm" />
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none"
         JustifyContent="Enums.JustifyContent.FlexStart"
         AlignItems="Enums.AlignItems.Center">
         <RadzenTextArea 
             @bind-Value="CardFlavoredText" 
             @oninput="@(args => OnFlavoredTextInput(args.Value?.ToString()))"
             Style="height: 100px; width: 70%;"
-            class="title white handel" />
-        <HorizontalSpace Width="50" />
-        <NumericPicker Value="CardFlavoredTextFontSize"
+            class="title white handel mr-2xl" />
+        <ResponsiveNumericPicker Value="CardFlavoredTextFontSize"
             OnDecrease="() => OnFlavoredTextFontSizeDecrease()"
             OnIncrease="() => OnFlavoredTextFontSizeIncrease()"
             Width="30" />
-    </FlexRowContainer>
+    </ResponsiveContainer>
 
-    <VerticalSpace Height="25" />
-    <Label Text="@Strings.CardGenerator_CardKeywords" FontSize="24" />
-    <VerticalSpace Height="10" />
-    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" Width="67">
+    <Label Text="@Strings.CardGenerator_CardKeywords" FontSize="24" CssClass="mt-lg mb-sm" />
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" Width="67" CssClass="mb-sm">
         <RadzenTextArea @bind-Value="KeywordsText"
                         @oninput="@(args => OnKeywordsTextInput(args.Value?.ToString()))"
                         Style="height: 50px; width: 100%;"
                         class="title white handel" />
-    </FlexRowContainer>
-    <VerticalSpace Height="10" />
+    </ResponsiveContainer>
     <HelpText Text="@Strings.CardGenerator_KeywordsInfo" />
 
 </div>

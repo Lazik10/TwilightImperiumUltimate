@@ -2,13 +2,10 @@
 
 <footer class="footer">
     <ResponsiveContainer Type="ContainerType.Centered" Padding="sm">
-        <FlexColumnCenteredContainer>
-            <ResponsiveLabel Text="@Strings.Footer_DevelopedBy" CssClass="myriad-pro-bold" FontSize="sm" CenterText="true" />
-            <ResponsiveVerticalSpacer CustomHeight="0.625rem" />
-            <ResponsiveText Text="@Strings.Footer_Disclaimer" CssClass="myriad-pro-bold footer-legal-text" FontSize="xs" CenterText="true" />
-            <ResponsiveVerticalSpacer CustomHeight="0.3125rem" />
-            <ResponsiveText Text="@Strings.Footer_Property" CssClass="myriad-pro-bold footer-legal-text" FontSize="xs" CenterText="true" />
-            <ResponsiveVerticalSpacer CustomHeight="0.625rem" />
-        </FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+            <ResponsiveText Text="@Strings.Footer_DevelopedBy" CssClass="myriad-pro-bold mb-sm" FontSize="sm" CenterText="true" />
+            <ResponsiveText Text="@Strings.Footer_Disclaimer" CssClass="myriad-pro-bold footer-legal-text mb-xs" FontSize="xs" CenterText="true" />
+            <ResponsiveText Text="@Strings.Footer_Property" CssClass="myriad-pro-bold footer-legal-text mb-sm" FontSize="xs" CenterText="true" />
+        </ResponsiveContainer>
     </ResponsiveContainer>
 </footer>

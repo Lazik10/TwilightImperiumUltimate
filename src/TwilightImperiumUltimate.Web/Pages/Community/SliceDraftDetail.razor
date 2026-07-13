@@ -6,35 +6,35 @@
 
 <Page>
 
-    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" >
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" >
         <TextButton Text="@Strings.ButtonBack" OnClick="RedirectBack" FontSize="24" Width="20" TextAlign="@(string.Empty)" />
-    </FlexRowContainer>
+    </ResponsiveContainer>
     
-    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexEnd">
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexEnd">
         <QuickMenuItem IconType="IconType.DownloadMapImage" IconTypeClicked="IconType.DownloadMapImageClicked" OnClick="async () => await HandleDownloadIconClick()" />
-    </FlexRowContainer>
+    </ResponsiveContainer>
 
     @if (!_slices.Any())
         return;
 
     <div id="sliceDraftArea" style="width: 100%;" >
 
-        <FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
 
             <Title Text="@SliceDraft.Name"  MarginTop="0" MarginBottom="20" />
 
-            <FlexRowContainer>
-                <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" Width="50">
+            <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
+                <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" Width="50">
                     <Label Text="@Strings.SlicesArchive_SliceDraftRating" Style="margin-right: 10px;" Width="20"/>
                     <StarRating Rating="@SliceDraft.Rating" IsReadOnly="true" />
-                </FlexRowContainer>
-                <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexEnd" Width="50">
+                </ResponsiveContainer>
+                <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexEnd" Width="50">
                     <Label Text="@Strings.SlicesArchive_SliceDraftUserRating" Style="margin-right: 10px;" Width="30"/>
                     <StarRating Rating="@_userRating" OnRatingChange="UpdateUserMapRating" />
-                </FlexRowContainer>
-            </FlexRowContainer>
+                </ResponsiveContainer>
+            </ResponsiveContainer>
 
-            <FlexColumnCenteredContainer>
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
 
                 <GridLayout Columns="3" Gap="50">
 
@@ -45,17 +45,13 @@
 
                 </GridLayout>
 
-            </FlexColumnCenteredContainer>
-
-            <VerticalSpace Height="100" />
+            </ResponsiveContainer>
 
             <SliceEvaluationGrid Slices="_slices" />
 
-            <VerticalSpace Height="50" />
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="70" CssClass="mt-2xl">
 
-            <FlexColumnCenteredContainer Width="70">
-
-                <GridLayout Columns="4" Gap="40">
+                <GridLayout Columns="4" Gap="40" CssClass="mb-md">
 
                     <Label Text="@Strings.SlicesArchive_SliceDraftAuthor" />
                     <Label Text="@SliceDraft.UserName" Style="grid-column: span 3;" />
@@ -68,16 +64,13 @@
 
                     <Label Text="@Strings.SlicesArchive_SliceDraftDescription" Style="grid-column: span 1;" />
 
-                    <FlexColumnCenteredContainer Style="grid-column: span 3;">
-
-                        <VerticalSpace Height="20" />
+                    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Style="grid-column: span 3;" CssClass="mt-md mb-md">
 
                         <div class="handel white shadow">
                             @MarkupStringDescription
                         </div>
 
-                        <VerticalSpace Height="20" />
-                    </FlexColumnCenteredContainer>
+                    </ResponsiveContainer>
 
                     <Label Text="@Strings.SlicesArchive_SlicesString" />
 
@@ -95,11 +88,9 @@
 
                 </GridLayout>
 
-                <VerticalSpace Height="20" />
+            </ResponsiveContainer>
 
-            </FlexColumnCenteredContainer>
-
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
 
     </div>
 </Page>

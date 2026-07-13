@@ -1,9 +1,9 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.PreviewMaps
 @using TwilightImperiumUltimate.Web.Components.SliceGenerators
 
-<div>
+<div class="mb-md">
 
-    <div class="slice-grid">
+    <div class="slice-grid mb-2xl">
 
         @foreach(var systemTile in SliceModel.SystemTiles)
         {
@@ -14,8 +14,7 @@
 
     </div>
 
-    <VerticalSpace Height="100" />
-    <FlexColumnCenteredContainer>
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mb-sm">
         @if (EditNameMode)
         {
             <Label Text="@Strings.SliceArchive_SliceName" CenterText="true" />
@@ -25,11 +24,8 @@
         {
             <Label Text=@SliceModel.Name CenterText="true" />
         }
-    </FlexColumnCenteredContainer>
-
-    <VerticalSpace Height="10" />
+    </ResponsiveContainer>
 
     <SliceEvaluationStats SliceModel="SliceModel" />
 
-    <VerticalSpace Height="20" />
 </div>

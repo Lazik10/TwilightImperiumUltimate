@@ -1,6 +1,6 @@
-﻿<FlexColumnCenteredContainer>
+﻿<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
     <div class="async-navbar">
-        <FlexRowContainer Width="100" JustifyContent="Enums.JustifyContent.SpaceEvenly">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="100" JustifyContent="Enums.JustifyContent.SpaceEvenly">
             <TabNavItem Width="33%" OnClick="() => OnMenuItemClick.InvokeAsync(AsyncMenuItem.Statistics)">
                 <ResponsiveLabel Text="@Strings.AsyncMenu_Statistics" CenterText="true" FontSize="base" />
             </TabNavItem>
@@ -10,6 +10,6 @@
             <TabNavItem Width="33%" OnClick="() => OnMenuItemClick.InvokeAsync(AsyncMenuItem.Players)">
                 <ResponsiveLabel Text="@Strings.AsyncMenu_Players" CenterText="true" FontSize="base" />
             </TabNavItem>
-        </FlexRowContainer>
+        </ResponsiveContainer>
     </div>
-</FlexColumnCenteredContainer>
+</ResponsiveContainer>

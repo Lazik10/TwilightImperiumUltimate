@@ -3,11 +3,11 @@
 @using TwilightImperiumUltimate.Web.Components.Shared.Text
 @using TwilightImperiumUltimate.Web.Resources
 
-<FlexColumnCenteredContainer>
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
 
     <GridLayout Columns="2" Gap="40" Width="80" >
 
-        <FlexRowContainer AlignItems="Enums.AlignItems.Center">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" AlignItems="Enums.AlignItems.Center">
             <Label Text="@Strings.MapGeneratorSettings_MapTemplate" FontSize="18" />
             <RadzenDropDown @bind-Value="SelectedMapTemplate"
                             Data="@_mapTemplates"
@@ -16,9 +16,9 @@
                             TextProperty="Value"
                             Style="width: 80%; max-width: 400px;"
                             class="title handel" />
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
-        <FlexRowContainer>
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
             <Label Text="@Strings.MapGeneratorSettings_TilesOverlay" FontSize="18"/>
             <RadzenDropDown @bind-Value="SelectedSystemTileOverlay"
                             Data="@_systemTileOverlays"
@@ -27,9 +27,9 @@
                             TextProperty="Value"
                             Style="width: 80%; max-width: 400px;"
                             class="title handel" />
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
-        <FlexRowContainer>
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
             <Label Text="@Strings.MapGeneratorSettings_PlacementStyle" FontSize="18" />
             <RadzenDropDown @bind-Value="SelectedPlacementStyle"
                             Data=@_placementStyles
@@ -38,9 +38,9 @@
                             TextProperty="Value"
                             Style="width: 80%; max-width: 400px;"
                             class="title handel" />
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
-        <FlexRowContainer>
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
             <Label Text="@Strings.MapGeneratorSettings_SystemWeight" FontSize="18" />
             <RadzenDropDown @bind-Value="SelectedSystemWeight"
                             Data="@_systemWeights"
@@ -49,58 +49,58 @@
                             TextProperty="Value"
                             Style="width: 80%; max-width: 400px;"
                             class="title handel" />
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
-        <VerticalSpace Height="20" />
+        <div style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
-        <VerticalSpace Height="20" />
+        <div style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
         <Label Text="@Strings.MapGeneratorSettings_SystemTiles" FontSize="18"/>
 
         <div />
 
-        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart">
             <YesNoPicker Title="@Strings.GameVersion_ProphecyOfKings" 
                 DefaultValue="MapGeneratorSettingsService.GameVersions.Contains(GameVersion.ProphecyOfKings)" 
                 OnValueChange="() => UpdateGameVersion(GameVersion.ProphecyOfKings)"
                 Width="100"/>
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
-        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart">
             <YesNoPicker 
                 Title="@Strings.GameVersion_UnchartedSpace" 
                 DefaultValue="MapGeneratorSettingsService.GameVersions.Contains(GameVersion.UnchartedSpace)" 
                 OnValueChange="() => UpdateGameVersion(GameVersion.UnchartedSpace)" 
                 Width="100"/>
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
-        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart">
             <YesNoPicker Title="@Strings.GameVersion_AscendantSun"
                          DefaultValue="MapGeneratorSettingsService.GameVersions.Contains(GameVersion.AscendantSun)"
                          OnValueChange="() => UpdateGameVersion(GameVersion.AscendantSun)"
                          Width="100" />
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
         <div />
 
-        <VerticalSpace Height="20" />
+        <div style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
-        <VerticalSpace Height="20" />
+        <div style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
-        <NumericPicker Title="@Strings.MapGeneratorSettings_NumberOfLegendaryPlanets"
+        <ResponsiveNumericPicker Label="@Strings.MapGeneratorSettings_NumberOfLegendaryPlanets"
                        Value="@MapGeneratorSettingsService.NumberOfLegendaryPlanets"
                        OnDecrease="DecreaseNumberOfLegendaryPlanets"
                        OnIncrease="IncreaseNumberOfLegendaryPlanets"
                        Width="100"
-                       FontSize="18"
-                       CenteredText="false"/>
+                       FontSize="md"
+                       CenterLabel="false"/>
 
-        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart">
             <YesNoPicker Title="@Strings.MapGeneratorSettings_LegendariesInEquidistant"
                          DefaultValue="@MapGeneratorSettingsService.LegendaryPriorityInEquidistant"
                          OnValueChange="() => ToggleLegendaryPriorityInEquidistant()"
                          Width="100" />
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
         <WormholeDensityPicker Width="100" WormholeDensity="MapGeneratorSettingsService.WormholeDensity" />
 
@@ -108,16 +108,14 @@
 
     </GridLayout>
 
-    <VerticalSpace Height="20" />
+    <GridLayout Columns="2" Gap="40" Width="80" CssClass="mt-md">
 
-    <GridLayout Columns="2" Gap="40" Width="80" >
-
-        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart">
             <YesNoPicker Title="@Strings.MapGeneratorSettings_EnablePlaerNames"
                          DefaultValue="@MapGeneratorSettingsService.EnablePlayerNames"
                          OnValueChange="TogglePlayerNames"
                          Width="100" />
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
     </GridLayout>
 
@@ -126,12 +124,12 @@
         {
             foreach (var player in MapGeneratorSettingsService.Players)
             {
-                <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+                <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart">
                     <RadzenTextBox Placeholder="@Strings.Player"
                                     @bind-Value="player.PlayerName"
                                     class="w-100 flex-row title white handel" />
-                </FlexRowContainer>
+                </ResponsiveContainer>
             }
         }
     </GridLayout>
-</FlexColumnCenteredContainer>
+</ResponsiveContainer>

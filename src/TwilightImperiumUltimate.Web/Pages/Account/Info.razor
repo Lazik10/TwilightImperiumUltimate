@@ -1,112 +1,97 @@
 ﻿@page "/account/info"
-@using TwilightImperiumUltimate.Web.Components.Shared
-@using TwilightImperiumUltimate.Web.Components.Shared.Controls
-@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
-@using TwilightImperiumUltimate.Web.Components.Shared.Text
 @using TwilightImperiumUltimate.Web.Resources
 
 <PageTitle>@Strings.Page_AccountInfo</PageTitle>
 
 <Page>
 
-    <FlexColumnCenteredContainer>
+    <ResponsiveHeading Level="1" Text="@Strings.User_AccountInfo" CenterText="true" CssClass="mb-xl" />
 
-        <Label Text="@Strings.User_AccountInfo" FontSize="36" CenterText="true"/>
+    <ResponsiveText CenterText="true" CssClass="mb-xl">
+        <strong>@Strings.User_UserName:</strong> @User!.UserName
+    </ResponsiveText>
 
-        <VerticalSpace Height="50" />
+    @if (_updateSend)
+    {
+        <ResponsiveText Text="@(_infoSaved ? Strings.UserInfo_UpdateSuccess : Strings.UserInfo_UpdateFailed)"
+                        CenterText="true"
+                        TextColor="@(_infoSaved ? TextColor.Green : TextColor.Red)"
+                        FontSize="lg"
+                        CssClass="mt-md mb-md" />
+    }
 
-        <FlexRowContainer Width="50" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.SpaceEvenly">
-            <Label Text="@Strings.User_UserName" />
-            <Label Text="@User!.UserName" />
-        </FlexRowContainer>
+    <ResponsiveForm Model="User"
+                    OnValidSubmit="SaveInfo"
+                    SubmitText="@Strings.AccountInfo_Save"
+                    SubmittingText="@Strings.AccountInfo_Save"
+                    ValidationDisplay="Enums.ValidationDisplay.Summary"
+                    Columns="1"
+                    CssClass="mb-xl">
 
-        <VerticalSpace Height="20" />
+        <ResponsiveFormField Id="info-first-name" Label="@Strings.User_FirstName" For="@(() => User!.FirstName)">
+            <ResponsiveTextBox Id="info-first-name"
+                                Name="first-name"
+                                AutoComplete="given-name"
+                                AriaDescribedBy="info-first-name-validation"
+                                Placeholder="@Strings.User_FirstName"
+                                @bind-Value="User!.FirstName" />
+        </ResponsiveFormField>
 
-        <FlexRowContainer Width="50" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.SpaceEvenly">
-            <Label Text="@Strings.User_FirstName" />
-            <RadzenTextBox @bind-Value="User!.FirstName"
-                            class="w-100 flex-row title white handel" />
-        </FlexRowContainer>
+        <ResponsiveFormField Id="info-last-name" Label="@Strings.User_LastName" For="@(() => User!.LastName)">
+            <ResponsiveTextBox Id="info-last-name"
+                                Name="last-name"
+                                AutoComplete="family-name"
+                                AriaDescribedBy="info-last-name-validation"
+                                Placeholder="@Strings.User_LastName"
+                                @bind-Value="User!.LastName" />
+        </ResponsiveFormField>
 
-        <VerticalSpace Height="20" />
+        <ResponsiveFormField Id="info-email" Label="@Strings.User_Email" For="@(() => User!.Email)">
+            <ResponsiveTextBox Id="info-email"
+                                Name="email"
+                                AutoComplete="email"
+                                AriaDescribedBy="info-email-validation"
+                                Placeholder="@Strings.User_Email"
+                                @bind-Value="User!.Email" />
+        </ResponsiveFormField>
 
-        <FlexRowContainer Width="50" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.SpaceEvenly">
-            <Label Text="@Strings.User_LastName" />
-            <RadzenTextBox @bind-Value="User!.LastName"
-                            class="w-100 flex-row title white handel" />
-        </FlexRowContainer>
+        <ResponsiveNumericPicker Label="@Strings.User_Age" LabelPosition="Enums.LabelPosition.Column" Value="Age" OnIncrease="IncreaaeAge" OnDecrease="DecreaseAge" />
 
-        <VerticalSpace Height="20" />
+        <ResponsiveFormField Id="info-phone-number" Label="@Strings.User_PhoneNumber" For="@(() => User!.PhoneNumber)">
+            <ResponsiveTextBox Id="info-phone-number"
+                                Name="phone-number"
+                                AutoComplete="tel"
+                                AriaDescribedBy="info-phone-number-validation"
+                                Placeholder="@Strings.User_PhoneNumber"
+                                @bind-Value="User!.PhoneNumber" />
+        </ResponsiveFormField>
 
-        <FlexRowContainer Width="50" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.SpaceEvenly">
-            <Label Text="@Strings.User_Email" />
-            <RadzenTextBox @bind-Value="User!.Email"
-                            class="w-100 flex-row title white handel" />
-        </FlexRowContainer>
+        <ResponsiveFormField Id="info-user-info" Label="@Strings.User_UserInfo" For="@(() => User!.UserInfo)">
+            <ResponsiveTextArea Id="info-user-info"
+                                Name="user-info"
+                                AriaDescribedBy="info-user-info-validation"
+                                Placeholder="@Strings.User_UserInfo"
+                                @bind-Value="User!.UserInfo" />
+        </ResponsiveFormField>
 
-        <VerticalSpace Height="20" />
+        <ResponsiveFactionPicker Label="@Strings.User_FavoriteFaction" LabelPosition="Enums.LabelPosition.Column" Value="@FavoriteFaction" OnIncrease="ShowNextFaction" OnDecrease="ShowPreviousFaction" />
 
-        <FlexRowContainer Width="50" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.SpaceEvenly">
-            <Label Text="@Strings.User_Age" />
-            <NumericPicker Value="Age" HideTitle="true" OnIncrease="IncreaaeAge" OnDecrease="DecreaseAge"/>
-        </FlexRowContainer>
+        <ResponsiveFormField Id="info-discord-id" Label="@Strings.User_DiscordId" For="@(() => User!.DiscordId)">
+            <ResponsiveTextBox Id="info-discord-id"
+                                Name="discord-id"
+                                AriaDescribedBy="info-discord-id-validation"
+                                Placeholder="@Strings.User_DiscordId"
+                                @bind-Value="User!.DiscordId" />
+        </ResponsiveFormField>
 
-        <VerticalSpace Height="20" />
+        <ResponsiveFormField Id="info-steam-id" Label="@Strings.User_SteamId" For="@(() => User!.SteamId)">
+            <ResponsiveTextBox Id="info-steam-id"
+                                Name="steam-id"
+                                AriaDescribedBy="info-steam-id-validation"
+                                Placeholder="@Strings.User_SteamId"
+                                @bind-Value="User!.SteamId" />
+        </ResponsiveFormField>
 
-        <FlexRowContainer Width="50" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.SpaceEvenly">
-            <Label Text="@Strings.User_PhoneNumber" />
-            <RadzenTextBox @bind-Value="User!.PhoneNumber"
-                            class="w-100 flex-row title white handel" />
-        </FlexRowContainer>
-
-        <VerticalSpace Height="20" />
-
-        <FlexRowContainer Width="50" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.SpaceEvenly">
-            <Label Text="@Strings.User_UserInfo" />
-            <RadzenTextBox @bind-Value="User!.UserInfo"
-                            class="w-100 flex-row title white handel" />
-        </FlexRowContainer>
-
-        <VerticalSpace Height="20" />
-
-        <FlexRowContainer Width="50" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.SpaceEvenly">
-            <Label Text="@Strings.User_FavoriteFaction" />
-            <FactionPicker Value="@(FavoriteFaction)" OnIncrease="ShowNextFaction" OnDecrease="ShowPreviousFaction" />"
-        </FlexRowContainer>
-
-        <VerticalSpace Height="20" />
-
-        <FlexRowContainer Width="50" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.SpaceEvenly">
-            <Label Text="@Strings.User_DiscordId" />
-            <RadzenTextBox @bind-Value="User!.DiscordId"
-                            class="w-100 flex-row title white handel" />
-        </FlexRowContainer>
-
-        <VerticalSpace Height="20" />
-
-        <FlexRowContainer Width="50" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.SpaceEvenly">
-            <Label Text="@Strings.User_SteamId" />
-            <RadzenTextBox @bind-Value="User!.SteamId"
-                            class="w-100 flex-row title white handel" />
-        </FlexRowContainer>
-
-        <VerticalSpace Height="50" />
-
-        <FlexRowContainer AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.Center" Width="50">
-            <Button ButtonText="@Strings.AccountInfo_Save" OnClick="@SaveInfo" CssClass="button" />
-        </FlexRowContainer>
-
-        <VerticalSpace Height="20" />
-
-        @if(_updateSend && _infoSaved)
-        {
-            <Label Text="@Strings.UserInfo_UpdateSuccess" CenterText="true" FontSize="18" TextColor="TextColor.Green" />
-        }
-        else if (_updateSend && !_infoSaved)
-        {
-            <Label Text="@Strings.UserInfo_UpdateFailed" CenterText="true" FontSize="18" TextColor="TextColor.Red" />        
-        }
-
-    </FlexColumnCenteredContainer>
+    </ResponsiveForm>
 
 </Page>

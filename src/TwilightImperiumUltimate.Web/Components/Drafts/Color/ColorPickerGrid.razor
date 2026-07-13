@@ -14,11 +14,11 @@
     ShowDiscordantStars="true"
     @ref="_factionIconRow"/>
 
-<FlexColumnCenteredContainer>
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
     <HelpText Text="@Strings.ColorPicker_HelpText" CssClass="mt-sm handel" />
-</FlexColumnCenteredContainer>
+</ResponsiveContainer>
 
-<FlexRowContainer CssClass="center" 
+<ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="center" 
     JustifyContent="Enums.JustifyContent.SpaceEvenly"
     AlignItems="Enums.AlignItems.Center">
     @foreach (var color in ColorPickerService.Colors)
@@ -28,19 +28,19 @@
             IsChecked="@(color.Value)"
             OnClick="HandleColorClick" />
     }
-</FlexRowContainer>
+</ResponsiveContainer>
 
-<FlexRowContainer CssClass="mt-3xl">
-    <Button ButtonText="@GetButtonStateText()"
-            OnClick="DraftColors" IsDisabled="GetButtonState()" />
-    <Button ButtonText="@Strings.DraftButton_ResetSelectedFactions"
-            OnClick="ResetSelectedFactions" />
-    <Button ButtonText="@Strings.DraftButton_ResetBannedColors"
-        OnClick="ResetBannedColors" />
-</FlexRowContainer>
+<ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="mt-3xl">
+    <ResponsiveButton ButtonText="@GetButtonStateText()"
+            OnClick="DraftColors" IsDisabled="GetButtonState()" Width="30" />
+    <ResponsiveButton ButtonText="@Strings.DraftButton_ResetSelectedFactions"
+            OnClick="ResetSelectedFactions" Width="30" />
+    <ResponsiveButton ButtonText="@Strings.DraftButton_ResetBannedColors"
+        OnClick="ResetBannedColors" Width="30" />
+</ResponsiveContainer>
 
 <StretchHeightContainer>
-    <FlexColumnCenteredContainer CssClass="mt-3xl">
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-3xl">
         @if (ColorPickerService.FactionColorDraftResults is not null && ColorPickerService.FactionColorDraftResults.Any())
         {
             @foreach (var result in ColorPickerService.FactionColorDraftResults)
@@ -69,6 +69,6 @@
 
             }
         }
-    </FlexColumnCenteredContainer>
+    </ResponsiveContainer>
 </StretchHeightContainer>
 

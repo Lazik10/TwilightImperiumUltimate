@@ -32,7 +32,7 @@
         <ResponsiveText Text="@_technologyPickMessage" CenterText="true" />
     }
 
-    <FlexColumnCenteredContainer>
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
         @if (startingTechnologies.Count > 0)
         {
             <div class="faction-technologies-grid-shell">
@@ -47,6 +47,6 @@
             </div>
         }
 
-    </FlexColumnCenteredContainer>
+    </ResponsiveContainer>
 
 </StretchHeightContainer>

@@ -13,30 +13,30 @@
 
 <GameVersionPicker OnVersionSelected="HandleGameVersionClick" />
 
-<FlexColumnCenteredContainer>
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
     <HelpText Text="@Strings.FactionDraft_BanHelp" CssClass="mt-sm handel" />
-</FlexColumnCenteredContainer>
+</ResponsiveContainer>
 
 <div class="setting-row">
-    <NumericPicker Title="@Strings.DraftText_NumberOfPlayers"
+    <ResponsiveNumericPicker Label="@Strings.DraftText_NumberOfPlayers"
                     Value="@FactionDraftService.NumberOfPlayers"
                     OnDecrease="DecreasePlayerCount"
                     OnIncrease="IncreasePlayerCount" />
 
-    <NumericPicker Title="@Strings.DraftText_NumberOfFactions"
+    <ResponsiveNumericPicker Label="@Strings.DraftText_NumberOfFactions"
                     Value="@FactionDraftService.NumberOfDraftFactions"
                     OnDecrease="DecreaseFactionCount"
                     OnIncrease="IncreaseFactionCount" />
 </div>
 
-<FlexRowContainer CssClass="mt-3xl">
-    <Button ButtonText="@(GetButtonStateText())"
+<ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="mt-3xl">
+    <ResponsiveButton ButtonText="@(GetButtonStateText())"
             IsDisabled=@(IsDraftButtonDisabled())
-            OnClick="DraftFactions" />
+            OnClick="DraftFactions" Width="30" />
 
-    <Button ButtonText="@Strings.DraftButton_ResetBans" 
-            OnClick="ResetBans" />
-</FlexRowContainer>
+    <ResponsiveButton ButtonText="@Strings.DraftButton_ResetBans" 
+            OnClick="ResetBans" Width="30" />
+</ResponsiveContainer>
 
 @if (FactionDraftService.ToManyBans)
 {

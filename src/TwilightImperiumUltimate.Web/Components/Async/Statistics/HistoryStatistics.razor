@@ -1,25 +1,21 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Shared.Bars
 
-<FlexColumnContainer AlignItems="Enums.AlignItems.Center" >
-
-    <VerticalSpace Height="20" />
+<ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column" AlignItems="Enums.AlignItems.Center">
 
     @if (_isDataLoaded && HistoryStats.GamesHistory.Count > 0)
     {
-        <Label Text="@Strings.AsyncGames_GamesHistoryTitle" FontSize="24" CenterText="true" />
-
-        <VerticalSpace Height="20" />
+        <Label Text="@Strings.AsyncGames_GamesHistoryTitle" FontSize="24" CenterText="true" CssClass="mt-md mb-md" />
 
         <GridLayout Columns="6" CssClass="background" Style="grid-template-columns: 5% 15% 15% 15% 45% 5%">
 
-            <VerticalSpace Height="20" CssClass="span-6" />
+            <div class="span-6" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
             <Label />
             <Label Text="@Strings.AsyncStats_Year" CenterText="true" />
             <Label Text="@Strings.AsyncStats_Month" CenterText="true" />
             <Label Text="@Strings.AsyncStats_Games" CenterText="true" />
             <Label CssClass="span-2" />
-            <VerticalSpace Height="20" CssClass="span-6" />
+            <div class="span-6" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
             @foreach (var yearGroup in HistoryStats.GamesHistory.GroupBy(x => x.Year).OrderByDescending(x => x.Key))
             {
@@ -46,7 +42,7 @@
                 }
             }
 
-            <VerticalSpace Height="20" CssClass="span-6" />
+            <div class="span-6" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
             @{
                 _row = 0;
@@ -54,22 +50,18 @@
 
         </GridLayout>
 
-        <VerticalSpace Height="20" />
-
-        <Label Text="@Strings.AsyncGames_NewGamesPerMonthHistoryTitle" FontSize="24" CenterText="true" />
-
-        <VerticalSpace Height="20" />
+        <Label Text="@Strings.AsyncGames_NewGamesPerMonthHistoryTitle" FontSize="24" CenterText="true" CssClass="mt-md mb-md" />
 
         <GridLayout Columns="6" CssClass="background" Style="grid-template-columns: 5% 15% 15% 15% 45% 5%">
 
-            <VerticalSpace Height="20" CssClass="span-6" />
+            <div class="span-6" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
             <Label />
             <Label Text="@Strings.AsyncStats_Year" CenterText="true" />
             <Label Text="@Strings.AsyncStats_Month" CenterText="true" />
             <Label Text="@Strings.AsyncStats_Games" CenterText="true" />
             <Label CssClass="span-2" />
-            <VerticalSpace Height="20" CssClass="span-6" />
+            <div class="span-6" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
             @foreach (var yearGroup in HistoryStats.GamesHistory.GroupBy(x => x.Year).OrderByDescending(x => x.Key))
             {
@@ -96,7 +88,7 @@
                 }
             }
 
-            <VerticalSpace Height="20" CssClass="span-6" />
+            <div class="span-6" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
             @{
                 _row = 0;
@@ -104,22 +96,18 @@
 
         </GridLayout>
 
-        <VerticalSpace Height="20" />
+        <Label Text="@Strings.AsyncGames_PlayersHistoryTitle" FontSize="24" CenterText="true" CssClass="mt-md mb-md" />
 
-        <Label Text="@Strings.AsyncGames_PlayersHistoryTitle" FontSize="24" CenterText="true" />
+        <GridLayout Columns="6" CssClass="background mb-xl" Style="grid-template-columns: 5% 15% 15% 15% 45% 5%">
 
-        <VerticalSpace Height="20" />
-
-        <GridLayout Columns="6" CssClass="background" Style="grid-template-columns: 5% 15% 15% 15% 45% 5%">
-
-            <VerticalSpace Height="20" CssClass="span-6" />
+            <div class="span-6" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
             <Label />
             <Label Text="@Strings.AsyncStats_Year" CenterText="true" />
             <Label Text="@Strings.AsyncStats_Month" CenterText="true" />
             <Label Text="@Strings.AsyncStats_Players" CenterText="true" />
             <Label CssClass="span-2" />
-            <VerticalSpace Height="20" CssClass="span-6" />
+            <div class="span-6" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
             @foreach (var yearGroup in HistoryStats.PlayersHistory.GroupBy(x => x.Year).OrderByDescending(x => x.Key))
             {
@@ -146,7 +134,7 @@
                 }
             }
 
-            <VerticalSpace Height="20" CssClass="span-6" />
+            <div class="span-6" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
             @{
                 _row = 0;
@@ -154,17 +142,11 @@
 
         </GridLayout>
 
-        <VerticalSpace Height="20" />
+        <Label Text="@Strings.AsyncGames_NewPlayersHistoryTitle" FontSize="24" CenterText="true" CssClass="mt-md mb-md" />
 
-        <VerticalSpace Height="20" />
+        <GridLayout Columns="6" CssClass="background mb-xl" Style="grid-template-columns: 5% 15% 15% 15% 45% 5%">
 
-        <Label Text="@Strings.AsyncGames_NewPlayersHistoryTitle" FontSize="24" CenterText="true" />
-
-        <VerticalSpace Height="20" />
-
-        <GridLayout Columns="6" CssClass="background" Style="grid-template-columns: 5% 15% 15% 15% 45% 5%">
-
-            <VerticalSpace Height="20" CssClass="span-6" />
+            <div class="span-6" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
             <Label />
             <Label Text="@Strings.AsyncStats_Year" CenterText="true" />
@@ -172,7 +154,7 @@
             <Label Text="@Strings.AsyncStats_Players" CenterText="true" />
             <Label CssClass="span-2" />
 
-            <VerticalSpace Height="20" CssClass="span-6" />
+            <div class="span-6" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
             @foreach (var yearGroup in HistoryStats.PlayersHistory.GroupBy(x => x.Year).OrderByDescending(x => x.Key))
             {
@@ -199,23 +181,17 @@
                 }
             }
 
-            <VerticalSpace Height="20" CssClass="span-6" />
+            <div class="span-6" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
             @{
                 _row = 0;
             }
 
         </GridLayout>
-
-        <VerticalSpace Height="20" />
     }
     else
     {
-        <VerticalSpace Height="100" />
-        <Label Text="@Strings.Loading" FontSize="24" CenterText="true" />
-        <VerticalSpace Height="100" />
+        <Label Text="@Strings.Loading" FontSize="24" CenterText="true" CssClass="mt-3xl mb-3xl" />
     }
 
-    <VerticalSpace Height="20" />
-
-</FlexColumnContainer>
+</ResponsiveContainer>

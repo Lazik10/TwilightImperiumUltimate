@@ -5,21 +5,15 @@
 @using TwilightImperiumUltimate.Web.Helpers.Format
 @using TwilightImperiumUltimate.Web.Helpers.Time
 
-<VerticalSpace Height="20" />
-<Label Text="@Strings.TiglAdmin_GameReportsAdministration" FontSize="32" CenterText="true" />
-<VerticalSpace Height="20" />
+<Label Text="@Strings.TiglAdmin_GameReportsAdministration" FontSize="32" CenterText="true" CssClass="mt-md mb-md" />
 
 @if (_loading)
 {
-    <VerticalSpace Height="50" />
-    <Label Text="...Loading..." CenterText="true" />
-    <VerticalSpace Height="50" />
+    <Label Text="...Loading..." CenterText="true" CssClass="mt-2xl mb-2xl" />
 }
 else if (!_detailedReports.Any())
 {
-    <VerticalSpace Height="50" />
-    <Label Text="No new game reports found." CenterText="true" />
-    <VerticalSpace Height="50" />
+    <Label Text="No new game reports found." CenterText="true" CssClass="mt-2xl mb-2xl" />
 }
 else
 {
@@ -27,21 +21,16 @@ else
     {
         var hasError = _evaluationErrors.TryGetValue(report.Id, out var errorInfo);
 
-        <VerticalSpace Height="25" />
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="background mt-lg mb-md" Style="width:100%;">
 
-        <FlexColumnCenteredContainer CssClass="background" Style="width:100%;">
-
-            <VerticalSpace Height="20" />
-            <Label Text="@($"Game: {report.GameId}")" TextColor="TextColor.Yellow" CenterText="true" FontSize="24" />
-            <VerticalSpace Height="40" />
+            <Label Text="@($"Game: {report.GameId}")" TextColor="TextColor.Yellow" CenterText="true" FontSize="24" CssClass="mt-md mb-xl" />
 
             @if(report.Source == ResultSource.Async)
             {
-                <TextButton Text="Show Game" TextColor="TextColor.Green" OnClick="@(() => RedirectToGameDetails(report.GameId))" />
-                <VerticalSpace Height="20" />
+                <TextButton Text="Show Game" TextColor="TextColor.Green" OnClick="@(() => RedirectToGameDetails(report.GameId))" CssClass="mb-md" />
             }
 
-            <GridLayout Columns="4">
+            <GridLayout Columns="4" CssClass="mb-md">
                 <Label Text="League" TextColor="TextColor.Yellow" CenterText="true" />
                 <Label Text="Season" TextColor="TextColor.Yellow" CenterText="true" />
                 <Label Text="State" TextColor="TextColor.Yellow" CenterText="true" />
@@ -53,38 +42,34 @@ else
                 <Label Text="@((report.EndTimestamp - report.StartTimestamp).FormatToDaysDuration())" CenterText="true" />
             </GridLayout>
 
-            <VerticalSpace Height="20" />
-
             <GridLayout Columns="5" Style="grid-template-columns: 5% 30% 25% 20% 20%">
-                <VerticalSpace Height="20" CssClass="span-5" />
+                <div class="span-5" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
                 <Label />
                 <Label Text="Player" TextColor="TextColor.Yellow" />
                 <Label Text="Faction" TextColor="TextColor.Yellow" />
                 <Label Text="Score" TextColor="TextColor.Yellow" CenterText="true" />
                 <Label Text="Winner" TextColor="TextColor.Yellow" CenterText="true" />
-                <VerticalSpace Height="10" CssClass="span-5" />
+                <div class="span-5" style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
 
                 @foreach (var pr in report.PlayerResults.OrderBy(x => !x.IsWinner).ThenByDescending(x => x.Score))
                 {
                     var color = pr.IsWinner ? TextColor.Green : TextColor.White;
                     <Label />
                     <Label Text=@GetUserName(pr) TextColor=color />
-                    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart">
                         <TiglFactionImg Faction=@pr.Faction Height="28" />
                         <Label Text=@pr.Faction.GetDisplayName() TextColor=color Width="70" />
-                    </FlexRowContainer>
+                    </ResponsiveContainer>
                     <Label Text=@pr.Score.ToString() CenterText="true" TextColor=color />
                     <Label Text=@(pr.IsWinner ? "Yes" : "") CenterText="true" TextColor=color />
                 }
 
-                <VerticalSpace Height="20" CssClass="span-5" />
+                <div class="span-5" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
             </GridLayout>
 
             @if (report.League == TiglLeague.Fractured && report.GalacticEvents.Any())
             {
-                <VerticalSpace Height="20" />
-                <Label Text="Galactic Events" CenterText="true" />
-                <VerticalSpace Height="20" />
+                <Label Text="Galactic Events" CenterText="true" CssClass="mt-md mb-md" />
                 <GridLayout Columns="3">
                     @foreach (var ge in report.GalacticEvents)
                     {
@@ -93,22 +78,18 @@ else
                 </GridLayout>
             }
 
-            <VerticalSpace Height="20" />
-
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
 
         @if (hasError)
         {
-            <FlexColumnCenteredContainer>
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                 <Label Text="@errorInfo.Title" TextColor="TextColor.Red" />
                 <Label Text="@errorInfo.Message" TextColor="TextColor.Red" />
-            </FlexColumnCenteredContainer>
+            </ResponsiveContainer>
         }
 
-        <VerticalSpace Height="20" />
-
-        <FlexColumnCenteredContainer>
-            <Button ButtonText="Confirm" OnClick="() => ConfirmAsync(report.Id)" IsDisabled="_confirming" Width="50" />
-        </FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-md">
+            <ResponsiveButton ButtonText="Confirm" OnClick="() => ConfirmAsync(report.Id)" IsDisabled="_confirming" Width="50" />
+        </ResponsiveContainer>
     }
 }

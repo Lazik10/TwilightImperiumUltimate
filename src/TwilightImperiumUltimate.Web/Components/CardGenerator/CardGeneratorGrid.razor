@@ -3,13 +3,9 @@
 
 <StretchHeightContainer>
 
-    <VerticalSpace Height="50" />
-
-    <FlexColumnCenteredContainer>
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-2xl mb-2xl">
         <CardTypeSelector OnSelectedCardChange="SetCardType"/>
-    </FlexColumnCenteredContainer>
-
-    <VerticalSpace Height="50" />
+    </ResponsiveContainer>
 
     <div style="display: flex; flex-direction: row;">
         <CardSettings @ref="CardSettings" OnSettingsChangeRefreshComponent="Refresh"/>

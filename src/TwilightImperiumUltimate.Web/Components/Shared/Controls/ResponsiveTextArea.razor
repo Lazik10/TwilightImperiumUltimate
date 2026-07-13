@@ -1,0 +1,17 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Controls
+
+@*
+    Thin wrapper around RadzenTextArea, matching ResponsiveTextBox's pattern, for multi-line
+    fields (e.g. a news article's body).
+*@
+
+<RadzenTextArea id="@Id"
+                Name="@Name"
+                aria-describedby="@AriaDescribedBy"
+                Placeholder="@Placeholder"
+                Rows="Rows"
+                Value="@Value"
+                ValueChanged="OnValueChanged"
+                Disabled="Disabled"
+                class="@ComputedCssClass"
+                style="@ComputedStyle" />

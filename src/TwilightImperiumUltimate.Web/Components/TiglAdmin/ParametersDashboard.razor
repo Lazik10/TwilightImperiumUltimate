@@ -2,49 +2,42 @@
 @using TwilightImperiumUltimate.Contracts.Enums
 @using TwilightImperiumUltimate.Web.Helpers.Enums
 
-<FlexColumnCenteredContainer>
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
 
-    <VerticalSpace Height="20" />
-    <Label Text="@Strings.TiglAdmin_ParametersAdministration" FontSize="32" CenterText="true" />
-    <VerticalSpace Height="20" />
+    <Label Text="@Strings.TiglAdmin_ParametersAdministration" FontSize="32" CenterText="true" CssClass="mt-md mb-md" />
 
     @if (_loading)
     {
-        <VerticalSpace Height="50" />
-        <Label Text="...Loading parameters..." CenterText="true" />
-        <VerticalSpace Height="50" />
+        <Label Text="...Loading parameters..." CenterText="true" CssClass="mt-2xl mb-3xl" />
     }
     else if (_parameters.Count == 0)
     {
-        <VerticalSpace Height="50" />
-        <Label Text="No parameters found." CenterText="true" />
-        <VerticalSpace Height="50" />
+        <Label Text="No parameters found." CenterText="true" CssClass="mt-2xl mb-3xl" />
     }
     else
     {
-        <GridLayout Columns="5" CssClass="handel white shadow background">
-            <VerticalSpace Height="20" CssClass="span-5" />
+        <GridLayout Columns="5" CssClass="handel white shadow background mb-xl">
+            <div class="span-5" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
             <Label />
             <Label Text="Name" TextColor="TextColor.Yellow" />
             <Label Text="Enabled" TextColor="TextColor.Yellow" Width="80" CenterText="true" />
             <Label Text="Toggle" TextColor="TextColor.Yellow" Width="80" CenterText="true" />
             <Label />
 
-            <VerticalSpace Height="20" CssClass="span-5" />
+            <div class="span-5" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
             @foreach (var p in _parameters.OrderBy(x => x.Name))
             {
                 <Label />
                 <Label Text="@p.Name.GetDisplayName()" />
                 <Label Text="@(p.Enabled ? "Yes" : "No")" CenterText="true" TextColor="@(p.Enabled ? TextColor.Green : TextColor.Red)" />
-                <Button ButtonText="@(p.Enabled ? "Disable" : "Enable")" Width="90" OnClick="async () => await ToggleParameterAsync(p)" />
+                <ResponsiveButton ButtonText="@(p.Enabled ? "Disable" : "Enable")" Width="90" OnClick="async () => await ToggleParameterAsync(p)" />
                 <Label />
-                <VerticalSpace Height="10" CssClass="span-5" />
+                <div class="span-5" style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
             }
 
-            <VerticalSpace Height="20" CssClass="span-5" />
+            <div class="span-5" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
         </GridLayout>
     }
 
-    <VerticalSpace Height="40" />
-</FlexColumnCenteredContainer>
+</ResponsiveContainer>

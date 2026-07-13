@@ -4,6 +4,7 @@
     justify-content: center;
     flex-wrap: nowrap;
     gap: 0.25rem;
+    margin-top: var(--space-xl);
 }
 
 /* .pager-button/--active/--icon target the <Button> child component's own rendered <button>

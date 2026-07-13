@@ -3,11 +3,9 @@
 @using TwilightImperiumUltimate.Web.Components.Async.Players
 
 <Page>
-    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" >
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" CssClass="mb-md">
         <TextButton Text="@Strings.ButtonBack" OnClick="RedirectBack" FontSize="24" Width="20" TextAlign="@(string.Empty)" />
-    </FlexRowContainer>
-
-    <VerticalSpace Height="20" />
+    </ResponsiveContainer>
 
     <CascadingValue Value="PlayerProfile" Name="AsyncPlayerProfile">
         <AsyncPlayerProfileGrid />

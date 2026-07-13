@@ -1,11 +1,11 @@
-﻿<FlexRowContainer Width="@Width"
+﻿<ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="@Width"
                   JustifyContent="Enums.JustifyContent.SpaceEvenly"
                   CssClass="title handel white shadow">
 
     <Label Text="@Title" FontSize="@FontSize"/>
-    <FlexRowContainer AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.FlexStart">
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.FlexStart">
         <ArrowButton ArrowSymbol="@LeftArrowSymbol" OnArrowClick="() => ToggleValue()" />
         <Label Text="@GetDisplayValue()" CenterText="true" FontSize="@FontSize" TextColor="@(Value ? TextColor.Green : TextColor.Red)" />
         <ArrowButton ArrowSymbol="@RightArrowSymbol" OnArrowClick="() => ToggleValue()" />
-    </FlexRowContainer>
-</FlexRowContainer>
+    </ResponsiveContainer>
+</ResponsiveContainer>

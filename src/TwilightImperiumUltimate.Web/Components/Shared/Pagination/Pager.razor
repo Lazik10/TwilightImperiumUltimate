@@ -11,15 +11,15 @@
                      Padding="none"
                      JustifyContent="Enums.JustifyContent.Center"
                      AlignItems="Enums.AlignItems.Center"
-                     CssClass="@CssClass"
+                     CssClass="@(CssClass)"
                      Style="@Style">
     <nav class="pager-nav" aria-label="Pagination">
-        <Button CssClass="pager-button pager-button--icon" Width="0" IsDisabled="@IsFirstPage" OnClick="MoveFirst" ButtonText="&laquo;" aria-label="First page" />
-        <Button CssClass="pager-button pager-button--icon" Width="0" IsDisabled="@IsFirstPage" OnClick="MovePrevious" ButtonText="&lsaquo;" aria-label="Previous page" />
+        <ResponsiveButton CssClass="pager-button pager-button--icon" Width="0" IsDisabled="@IsFirstPage" OnClick="MoveFirst" ButtonText="&laquo;" aria-label="First page" />
+        <ResponsiveButton CssClass="pager-button pager-button--icon" Width="0" IsDisabled="@IsFirstPage" OnClick="MovePrevious" ButtonText="&lsaquo;" aria-label="Previous page" />
 
         @foreach (var pageNumber in VisiblePages)
         {
-            <Button CssClass="@($"pager-button {(pageNumber == CurrentPage ? "pager-button--active" : string.Empty)}")"
+            <ResponsiveButton CssClass="@($"pager-button {(pageNumber == CurrentPage ? "pager-button--active" : string.Empty)}")"
                     Width="0"
                     IsDisabled="@(pageNumber == CurrentPage)"
                     OnClick="() => ChangePage(pageNumber)"
@@ -29,7 +29,7 @@
                     @key="pageNumber" />
         }
 
-        <Button CssClass="pager-button pager-button--icon" Width="0" IsDisabled="@IsLastPage" OnClick="MoveNext" ButtonText="&rsaquo;" aria-label="Next page" />
-        <Button CssClass="pager-button pager-button--icon" Width="0" IsDisabled="@IsLastPage" OnClick="MoveLast" ButtonText="&raquo;" aria-label="Last page" />
+        <ResponsiveButton CssClass="pager-button pager-button--icon" Width="0" IsDisabled="@IsLastPage" OnClick="MoveNext" ButtonText="&rsaquo;" aria-label="Next page" />
+        <ResponsiveButton CssClass="pager-button pager-button--icon" Width="0" IsDisabled="@IsLastPage" OnClick="MoveLast" ButtonText="&raquo;" aria-label="Last page" />
     </nav>
 </ResponsiveContainer>

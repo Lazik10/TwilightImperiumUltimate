@@ -49,6 +49,12 @@ public partial class ResponsivePassword
 
     private string ComputedStyle => $"width: {Width}%; --rz-input-font-size: {GetFontSizeStyle()}; {Style}";
 
+    private async Task OnValueChanged(string value)
+    {
+        Value = value;
+        await ValueChanged.InvokeAsync(value);
+    }
+
     private string GetFontSizeStyle() => FontSize switch
     {
         "xs" => "var(--font-size-xs)",

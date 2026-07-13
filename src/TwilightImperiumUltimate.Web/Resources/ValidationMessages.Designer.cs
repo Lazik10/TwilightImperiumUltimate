@@ -79,6 +79,33 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Title is required..
+        /// </summary>
+        public static string NewsAdmin_EmptyTitle {
+            get {
+                return ResourceManager.GetString("NewsAdmin_EmptyTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title must be 255 characters or fewer..
+        /// </summary>
+        public static string NewsAdmin_TitleTooLong {
+            get {
+                return ResourceManager.GetString("NewsAdmin_TitleTooLong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Content is required..
+        /// </summary>
+        public static string NewsAdmin_EmptyContent {
+            get {
+                return ResourceManager.GetString("NewsAdmin_EmptyContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Passwords must match..
         /// </summary>
         public static string Register_ConfirmPasswordMatch {

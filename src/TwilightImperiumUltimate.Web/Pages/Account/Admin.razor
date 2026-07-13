@@ -1,14 +1,41 @@
 ﻿@page "/account/admin"
 @using Microsoft.AspNetCore.Authorization
 @using TwilightImperiumUltimate.Web.Components.Admin
+@using TwilightImperiumUltimate.Web.Resources
 @attribute [Authorize(Roles = "Admin")]
+
+<PageTitle>@Strings.Page_Admin</PageTitle>
 
 <Page>
 
-    <Label Text="@Strings.Admin_UserRoleSection" FontSize="26" CenterText="true" />
+    <ResponsiveHeading Level="1" Text="@Strings.Page_Admin" CenterText="true" CssClass="mb-xl" />
 
-    <VerticalSpace Height="20" />
+    <ResponsiveTabMenu AriaLabel="@Strings.Admin_TabsLabel" CssClass="mb-xl">
+        <ResponsiveTab Id="admin-tab-roles"
+                       ControlsId="admin-panel-roles"
+                       IsActive="@(_activeTab == AdminTab.Roles)"
+                       OnClick="@(() => SelectTab(AdminTab.Roles))">
+            @Strings.Admin_RolesTab
+        </ResponsiveTab>
 
-    <RoleAssignment />
+        <div class="admin-tab-divider handel white shadow" aria-hidden="true">/</div>
+
+        <ResponsiveTab Id="admin-tab-news"
+                       ControlsId="admin-panel-news"
+                       IsActive="@(_activeTab == AdminTab.News)"
+                       OnClick="@(() => SelectTab(AdminTab.News))">
+            @Strings.Admin_NewsTab
+        </ResponsiveTab>
+    </ResponsiveTabMenu>
+
+    <div id="admin-panel-roles" role="tabpanel" aria-labelledby="admin-tab-roles" hidden="@(_activeTab != AdminTab.Roles)">
+        <ResponsiveHeading Level="2" Text="@Strings.Admin_UserRoleSection" FontSize="lg" CenterText="true" CssClass="mb-xl" />
+
+        <RoleAssignment />
+    </div>
+
+    <div id="admin-panel-news" role="tabpanel" aria-labelledby="admin-tab-news" hidden="@(_activeTab != AdminTab.News)">
+        <NewsArticleAdmin />
+    </div>
 
 </Page>

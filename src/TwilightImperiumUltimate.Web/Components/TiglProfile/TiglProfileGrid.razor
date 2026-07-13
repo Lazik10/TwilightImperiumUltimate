@@ -3,46 +3,39 @@
 @using TwilightImperiumUltimate.Web.Helpers.Enums
 @using TwilightImperiumUltimate.Web.Helpers.Numbers
 
-<FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" AlignItems="Enums.AlignItems.FlexStart" CssClass="background padding">
+<ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" AlignItems="Enums.AlignItems.FlexStart" CssClass="background padding">
 
     @if (Profile is not null && !string.IsNullOrEmpty(Profile.TiglUserName))
     {
         <TitleTexture Width="15" Texture="Enums.Texture.TopLeft" />
 
-        <FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-sm mb-3xl">
 
             @* Player Name *@
-            <VerticalSpace Height="10" />
             <TitleLine TransformX="-10" Width="115" MaxWidth="115" />
-            <FlexColumnCenteredContainer CssClass="title handel white shadow">
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="title handel white shadow">
                 <Label Text="@Profile.TiglUserName.ToUpper()" CenterText="true" FontSize="36" />
-            </FlexColumnCenteredContainer>
+            </ResponsiveContainer>
             <TitleLine TransformX="-10" Width="115" MaxWidth="115" />
 
             @if (!string.IsNullOrEmpty(Profile.DiscordTag))
             {
-                <VerticalSpace Height="5" />
-                <Label Text="@($"Discord Tag: {Profile.DiscordTag}")" CenterText="true" FontSize="18" TextColor="TextColor.Yellow" />
+                <Label Text="@($"Discord Tag: {Profile.DiscordTag}")" CenterText="true" FontSize="18" TextColor="TextColor.Yellow" CssClass="mt-xs" />
             }
 
-            <VerticalSpace Height="20" />
-
             @* Category Picker *@
-            <FlexRowContainer JustifyContent="Enums.JustifyContent.Center">
+            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.Center" CssClass="mt-md">
                 <EnumPicker TEnum="TiglProfileCategory"
                             CurrentValue="@CurrentCategory"
                             CurrentValueChanged="@OnCategoryChanged"
                             Width="50"
                             MinChoiceWidth="70"
                             Label="League" />
-            </FlexRowContainer>
-
-            <VerticalSpace Height="30" />
+            </ResponsiveContainer>
 
             @* ─── OVERVIEW ─── *@
-            <div class="section-container">
-                <Label Text="OVERVIEW" CenterText="true" FontSize="22" TextColor="TextColor.Yellow" />
-                <VerticalSpace Height="15" />
+            <div class="section-container mt-xl">
+                <Label Text="OVERVIEW" CenterText="true" FontSize="22" TextColor="TextColor.Yellow" CssClass="mb-md" />
 
                 <div class="ratings-section">
                     @foreach (var league in FilteredLeagueProfiles)
@@ -50,8 +43,7 @@
                         @if (CurrentCategory == TiglProfileCategory.All)
                         {
                             <div class="rating-card handel shadow">
-                                <Label Text="@league.League.GetDisplayName()" CenterText="true" FontSize="20" TextColor="TextColor.Yellow" />
-                                <VerticalSpace Height="8" />
+                                <Label Text="@league.League.GetDisplayName()" CenterText="true" FontSize="20" TextColor="TextColor.Yellow" CssClass="mb-sm" />
 
                                 <div class="rating-row">
                                     <Label Text="Rank" FontSize="14" Width="50" />
@@ -83,12 +75,9 @@
                                     <Label Text="@($"{winRate:F1}%")" FontSize="16" TextColor="@winRate.GetWinrateColor()" Width="50" Style="text-align: right;" />
                                 </div>
 
-                                <VerticalSpace Height="8" />
-                                <div class="rating-divider"></div>
-                                <VerticalSpace Height="8" />
+                                <div class="rating-divider mt-sm mb-sm"></div>
 
-                                <Label Text="TrueSkill" CenterText="true" FontSize="16" TextColor="TextColor.Yellow" />
-                                <VerticalSpace Height="6" />
+                                <Label Text="TrueSkill" CenterText="true" FontSize="16" TextColor="TextColor.Yellow" CssClass="mb-xs" />
                                 <div class="rating-row">
                                     <Label Text="Conservative Peak" FontSize="14" Width="50" />
                                     <Label Text="@GetHighestTrueSkillConservative(league).ToString("F2")" FontSize="14" TextColor="TextColor.Green" Width="50" Style="text-align: right;" />
@@ -106,12 +95,9 @@
                                     <Label Text="@league.TrueSkillMu.ToString("F2")" FontSize="14" Width="50" Style="text-align: right;" />
                                 </div>
 
-                                <VerticalSpace Height="8" />
-                                <div class="rating-divider"></div>
-                                <VerticalSpace Height="8" />
+                                <div class="rating-divider mt-sm mb-sm"></div>
 
-                                <Label Text="Glicko-2" CenterText="true" FontSize="16" TextColor="TextColor.Yellow" />
-                                <VerticalSpace Height="6" />
+                                <Label Text="Glicko-2" CenterText="true" FontSize="16" TextColor="TextColor.Yellow" CssClass="mb-xs" />
                                 <div class="rating-row">
                                     <Label Text="Peak" FontSize="14" Width="50" />
                                     <Label Text="@GetHighestGlickoRating(league).ToString("F0")" FontSize="14" TextColor="TextColor.Green" Width="50" Style="text-align: right;" />
@@ -125,12 +111,9 @@
                                     <Label Text="@league.GlickoRd.ToString("F1")" FontSize="14" Width="50" Style="text-align: right;" />
                                 </div>
 
-                                <VerticalSpace Height="8" />
-                                <div class="rating-divider"></div>
-                                <VerticalSpace Height="8" />
+                                <div class="rating-divider mt-sm mb-sm"></div>
 
-                                <Label Text="Async" CenterText="true" FontSize="16" TextColor="TextColor.Yellow" />
-                                <VerticalSpace Height="6" />
+                                <Label Text="Async" CenterText="true" FontSize="16" TextColor="TextColor.Yellow" CssClass="mb-xs" />
                                 <div class="rating-row">
                                     <Label Text="Peak" FontSize="14" Width="50" />
                                     <Label Text="@GetHighestAsyncRating(league).ToString("F1")" FontSize="14" TextColor="TextColor.Green" Width="50" Style="text-align: right;" />
@@ -178,14 +161,11 @@
                                     </div>
                                 </div>
 
-                                <VerticalSpace Height="8" />
-                                <div class="rating-divider"></div>
-                                <VerticalSpace Height="8" />
+                                <div class="rating-divider mt-sm mb-sm"></div>
 
                                 <div class="overview-ratings-grid">
                                     <div class="overview-rating-col">
-                                        <Label Text="TrueSkill" CenterText="true" FontSize="16" TextColor="TextColor.Yellow" />
-                                        <VerticalSpace Height="6" />
+                                        <Label Text="TrueSkill" CenterText="true" FontSize="16" TextColor="TextColor.Yellow" CssClass="mb-xs" />
                                         <div class="rating-row">
                                             <Label Text="Conservative Peak" FontSize="13" Width="50" />
                                             <Label Text="@GetHighestTrueSkillConservative(league).ToString("F2")" FontSize="13" TextColor="TextColor.Green" Width="50" Style="text-align: right;" />
@@ -204,8 +184,7 @@
                                         </div>
                                     </div>
                                     <div class="overview-rating-col">
-                                        <Label Text="Glicko-2" CenterText="true" FontSize="16" TextColor="TextColor.Yellow" />
-                                        <VerticalSpace Height="6" />
+                                        <Label Text="Glicko-2" CenterText="true" FontSize="16" TextColor="TextColor.Yellow" CssClass="mb-xs" />
                                         <div class="rating-row">
                                             <Label Text="Peak" FontSize="13" Width="50" />
                                             <Label Text="@GetHighestGlickoRating(league).ToString("F0")" FontSize="13" TextColor="TextColor.Green" Width="50" Style="text-align: right;" />
@@ -221,8 +200,7 @@
                                         <div class="rating-row overview-empty-row"></div>
                                     </div>
                                     <div class="overview-rating-col">
-                                        <Label Text="Async" CenterText="true" FontSize="16" TextColor="TextColor.Yellow" />
-                                        <VerticalSpace Height="6" />
+                                        <Label Text="Async" CenterText="true" FontSize="16" TextColor="TextColor.Yellow" CssClass="mb-xs" />
                                         <div class="rating-row">
                                             <Label Text="Peak" FontSize="13" Width="50" />
                                             <Label Text="@GetHighestAsyncRating(league).ToString("F1")" FontSize="13" TextColor="TextColor.Green" Width="50" Style="text-align: right;" />
@@ -244,19 +222,15 @@
                 </div>
             </div>
 
-            <VerticalSpace Height="40" />
-
             @* ─── RATING PROGRESSION CHARTS ─── *@
-            <div class="section-container">
-                <Label Text="RATING PROGRESSION" CenterText="true" FontSize="22" TextColor="TextColor.Yellow" />
-                <VerticalSpace Height="15" />
+            <div class="section-container mt-xl">
+                <Label Text="RATING PROGRESSION" CenterText="true" FontSize="22" TextColor="TextColor.Yellow" CssClass="mb-md" />
 
                 @if (AsyncChartSeries.Count > 0)
                 {
                     var asyncBounds = GetChartAxisBounds(AsyncChartSeries);
-                    <Label Text="Async Rating" CenterText="true" FontSize="16" />
-                    <VerticalSpace Height="5" />
-                    <div class="chart-container">
+                    <Label Text="Async Rating" CenterText="true" FontSize="16" CssClass="mb-xs" />
+                    <div class="chart-container mb-md">
                         <RadzenChart @key="CurrentCategory">
                             @foreach (var series in AsyncChartSeries)
                             {
@@ -272,15 +246,13 @@
                             <RadzenLegend Visible="true" Position="LegendPosition.Bottom" />
                         </RadzenChart>
                     </div>
-                    <VerticalSpace Height="20" />
                 }
 
                 @if (GlickoChartSeries.Count > 0)
                 {
                     var glickoBounds = GetChartAxisBounds(GlickoChartSeries);
-                    <Label Text="Glicko-2 Rating" CenterText="true" FontSize="16" />
-                    <VerticalSpace Height="5" />
-                    <div class="chart-container">
+                    <Label Text="Glicko-2 Rating" CenterText="true" FontSize="16" CssClass="mb-xs" />
+                    <div class="chart-container mb-md">
                         <RadzenChart @key="CurrentCategory">
                             @foreach (var series in GlickoChartSeries)
                             {
@@ -296,14 +268,12 @@
                             <RadzenLegend Visible="true" Position="LegendPosition.Bottom" />
                         </RadzenChart>
                     </div>
-                    <VerticalSpace Height="20" />
                 }
 
                 @if (TrueSkillChartSeries.Count > 0)
                 {
                     var trueSkillBounds = GetChartAxisBounds(TrueSkillChartSeries);
-                    <Label Text="TrueSkill Rating" CenterText="true" FontSize="16" />
-                    <VerticalSpace Height="5" />
+                    <Label Text="TrueSkill Rating" CenterText="true" FontSize="16" CssClass="mb-xs" />
                     <div class="chart-container">
                         <RadzenChart @key="CurrentCategory">
                             @foreach (var series in TrueSkillChartSeries)
@@ -328,12 +298,9 @@
                 }
             </div>
 
-            <VerticalSpace Height="40" />
-
             @* ─── RANK HISTORY ─── *@
-            <div class="section-container">
-                <Label Text="RANK HISTORY" CenterText="true" FontSize="22" TextColor="TextColor.Yellow" />
-                <VerticalSpace Height="15" />
+            <div class="section-container mt-xl">
+                <Label Text="RANK HISTORY" CenterText="true" FontSize="22" TextColor="TextColor.Yellow" CssClass="mb-md" />
 
                 @{
                     var standardRanks = FilteredRankHistory.Where(r => r.League == TiglLeague.ThundersEdge).ToList();
@@ -350,23 +317,21 @@
                             {
                                 var idx = i;
                                 var rank = standardRanks[idx];
-                                <VerticalSpace Height="10" />
-                                <FlexRowContainer>
+                                <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="mt-sm mb-sm">
                                     <Label Text="@rank.League.GetDisplayName()" FontSize="12" TextColor="TextColor.Yellow" CssClass="rank-league-badge" Width="35" CenterText="true" />
-                                    <FlexRowContainer>
+                                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
                                         <Label Text="@rank.Rank.GetDisplayName()" FontSize="14" TextColor="@rank.Rank.GetRankColor()" />
-                                    </FlexRowContainer>
+                                    </ResponsiveContainer>
                                     <Label Text="@FormatTimestamp(rank.AchievedAt)" FontSize="12" Width="20" />
                                     <Label Text="@GetRankUpTime(standardRanks, idx)" FontSize="12" Width="20" />
-                                </FlexRowContainer>
-                                <VerticalSpace Height="10" />
+                                </ResponsiveContainer>
                             }
                         </div>
                     }
 
                     @if (standardRanks.Any() && (fracturedRanks.Any() || legacyRanks.Any()))
                     {
-                        <VerticalSpace Height="40" />
+                        <div style="height: clamp(1.25rem, 1.25rem + 1vw, 2.5rem);"></div>
                     }
 
                     @if (fracturedRanks.Any())
@@ -376,23 +341,21 @@
                             {
                                 var idx = i;
                                 var rank = fracturedRanks[idx];
-                                <VerticalSpace Height="10" />
-                                <FlexRowContainer>
+                                <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="mt-sm mb-sm">
                                     <Label Text="@rank.League.GetDisplayName()" FontSize="12" TextColor="TextColor.Yellow" CssClass="rank-league-badge" Width="35" CenterText="true" />
-                                    <FlexRowContainer>
+                                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
                                         <Label Text="@rank.Rank.GetDisplayName()" FontSize="14" TextColor="@rank.Rank.GetRankColor()" />
-                                    </FlexRowContainer>
+                                    </ResponsiveContainer>
                                     <Label Text="@FormatTimestamp(rank.AchievedAt)" FontSize="12" Width="20" />
                                     <Label Text="@GetRankUpTime(fracturedRanks, idx)" FontSize="12" Width="20" />
-                                </FlexRowContainer>
-                                <VerticalSpace Height="10" />
+                                </ResponsiveContainer>
                             }
                         </div>
                     }
 
                     @if (fracturedRanks.Any() && legacyRanks.Any())
                     {
-                        <VerticalSpace Height="40" />
+                        <div style="height: clamp(1.25rem, 1.25rem + 1vw, 2.5rem);"></div>
                     }
 
                     @if (legacyRanks.Any())
@@ -402,16 +365,14 @@
                             {
                                 var idx = i;
                                 var rank = legacyRanks[idx];
-                                <VerticalSpace Height="10" />
-                                <FlexRowContainer>
+                                <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="mt-sm mb-sm">
                                     <Label Text="@rank.League.GetDisplayName()" FontSize="12" TextColor="TextColor.Yellow" CssClass="rank-league-badge" Width="35" CenterText="true" />
-                                    <FlexRowContainer>
+                                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
                                         <Label Text="@rank.Rank.GetDisplayName()" FontSize="14" TextColor="@rank.Rank.GetRankColor()" />
-                                    </FlexRowContainer>
+                                    </ResponsiveContainer>
                                     <Label Text="@FormatTimestamp(rank.AchievedAt)" FontSize="12" Width="20" />
                                     <Label Text="@GetRankUpTime(legacyRanks, idx)" FontSize="12" Width="20" />
-                                </FlexRowContainer>
-                                <VerticalSpace Height="10" />
+                                </ResponsiveContainer>
                             }
                         </div>
                     }
@@ -422,12 +383,9 @@
                 }
             </div>
 
-            <VerticalSpace Height="40" />
-
             @* ─── PRESTIGE RANK HISTORY ─── *@
-            <div class="section-container">
-                <Label Text="PRESTIGE RANK HISTORY" CenterText="true" FontSize="22" TextColor="TextColor.Yellow" />
-                <VerticalSpace Height="15" />
+            <div class="section-container mt-xl">
+                <Label Text="PRESTIGE RANK HISTORY" CenterText="true" FontSize="22" TextColor="TextColor.Yellow" CssClass="mb-md" />
 
                 @{
                     var standardPrestige = FilteredPrestigeRanks.Where(p => p.League == TiglLeague.ThundersEdge).ToList();
@@ -444,41 +402,37 @@
                             {
                                 var idx = i;
                                 var prestige = standardPrestige[idx];
-                                <VerticalSpace Height="10" />
-                                <FlexRowContainer>
+                                <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="mt-sm mb-sm">
                                     <Label Text="@prestige.League.GetDisplayName()" FontSize="12" TextColor="TextColor.Yellow" CssClass="rank-league-badge" Width="35" CenterText="true" />
                                     @if (prestige.Faction != TiglFactionName.None)
                                     {
-                                        <FlexRowContainer>
-                                            <FlexRowContainer Width="50">
-                                                <img src="@GetHeroIconPath(prestige.Faction)" alt="hero" class="prestige-icon" />
-                                                <HorizontalSpace Width="10" />
+                                        <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
+                                            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="50">
+                                                <img src="@GetHeroIconPath(prestige.Faction)" alt="hero" class="prestige-icon mr-sm" />
                                                 <Label Text="@GetPrestigeDisplayText(prestige)" FontSize="14" TextColor="TextColor.Hero"/>
-                                            </FlexRowContainer>
-                                            <FlexRowContainer Width="50">
-                                                <TiglFactionIconImg FactionName="@prestige.Faction" Height="20" />
-                                                <HorizontalSpace Width="10" />
+                                            </ResponsiveContainer>
+                                            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="50">
+                                                <span class="mr-sm"><TiglFactionIconImg FactionName="@prestige.Faction" Height="20" /></span>
                                                 <Label Text="@prestige.Faction.GetDisplayName()" FontSize="13" />
-                                            </FlexRowContainer>
-                                        </FlexRowContainer>
+                                            </ResponsiveContainer>
+                                        </ResponsiveContainer>
                                     }
                                     else
                                     {
-                                        <FlexRowContainer>
+                                        <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
                                             <Label Text="@GetPrestigeDisplayText(prestige)" FontSize="14" TextColor="GetPrestigeColor(prestige.PrestigeRank)" />
-                                        </FlexRowContainer>
+                                        </ResponsiveContainer>
                                     }
                                     <Label Text="@FormatTimestamp(prestige.AchievedAt)" FontSize="12" Width="20" />
                                     <Label Text="@(prestige.Faction != TiglFactionName.None ? GetPrestigeRankUpTime(standardPrestige, idx, TiglLeague.ThundersEdge) : string.Empty)" FontSize="12" Width="20" />
-                                </FlexRowContainer>
-                                <VerticalSpace Height="10" />
+                                </ResponsiveContainer>
                             }
                         </div>
                     }
 
                     @if (standardPrestige.Any() && (fracturedPrestige.Any() || legacyPrestige.Any()))
                     {
-                        <VerticalSpace Height="40" />
+                        <div style="height: clamp(1.25rem, 1.25rem + 1vw, 2.5rem);"></div>
                     }
 
                     @if (fracturedPrestige.Any())
@@ -488,41 +442,37 @@
                             {
                                 var idx = i;
                                 var prestige = fracturedPrestige[idx];
-                                <VerticalSpace Height="10" />
-                                <FlexRowContainer>
+                                <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="mt-sm mb-sm">
                                     <Label Text="@prestige.League.GetDisplayName()" FontSize="12" TextColor="TextColor.Yellow" CssClass="rank-league-badge" Width="35" CenterText="true" />
                                     @if (prestige.Faction != TiglFactionName.None)
                                     {
-                                        <FlexRowContainer>
-                                            <FlexRowContainer Width="50">
-                                                <img src="@GetHeroIconPath(prestige.Faction)" alt="hero" class="prestige-icon" />
-                                                <HorizontalSpace Width="10" />
+                                        <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
+                                            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="50">
+                                                <img src="@GetHeroIconPath(prestige.Faction)" alt="hero" class="prestige-icon mr-sm" />
                                                 <Label Text="@GetPrestigeDisplayText(prestige)" FontSize="14" TextColor="TextColor.Hero"/>
-                                            </FlexRowContainer>
-                                            <FlexRowContainer Width="50">
-                                                <TiglFactionIconImg FactionName="@prestige.Faction" Height="20" />
-                                                <HorizontalSpace Width="10" />
+                                            </ResponsiveContainer>
+                                            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="50">
+                                                <span class="mr-sm"><TiglFactionIconImg FactionName="@prestige.Faction" Height="20" /></span>
                                                 <Label Text="@prestige.Faction.GetDisplayName()" FontSize="13" />
-                                            </FlexRowContainer>
-                                        </FlexRowContainer>
+                                            </ResponsiveContainer>
+                                        </ResponsiveContainer>
                                     }
                                     else
                                     {
-                                        <FlexRowContainer>
+                                        <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
                                             <Label Text="@GetPrestigeDisplayText(prestige)" FontSize="14" TextColor="GetPrestigeColor(prestige.PrestigeRank)" />
-                                        </FlexRowContainer>
+                                        </ResponsiveContainer>
                                     }
                                     <Label Text="@FormatTimestamp(prestige.AchievedAt)" FontSize="12" Width="20" />
                                     <Label Text="@(prestige.Faction != TiglFactionName.None ? GetPrestigeRankUpTime(fracturedPrestige, idx, TiglLeague.Fractured) : string.Empty)" FontSize="12" Width="20" />
-                                </FlexRowContainer>
-                                <VerticalSpace Height="10" />
+                                </ResponsiveContainer>
                             }
                         </div>
                     }
 
                     @if (fracturedPrestige.Any() && legacyPrestige.Any())
                     {
-                        <VerticalSpace Height="40" />
+                        <div style="height: clamp(1.25rem, 1.25rem + 1vw, 2.5rem);"></div>
                     }
 
                     @if (legacyPrestige.Any())
@@ -532,34 +482,30 @@
                             {
                                 var idx = i;
                                 var prestige = legacyPrestige[idx];
-                                <VerticalSpace Height="10" />
-                                <FlexRowContainer>
+                                <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="mt-sm mb-sm">
                                     <Label Text="@prestige.League.GetDisplayName()" FontSize="12" TextColor="TextColor.Yellow" CssClass="rank-league-badge" Width="35" CenterText="true" />
                                     @if (prestige.Faction != TiglFactionName.None)
                                     {
-                                        <FlexRowContainer>
-                                            <FlexRowContainer Width="50">
-                                                <img src="@GetHeroIconPath(prestige.Faction)" alt="hero" class="prestige-icon" />
-                                                <HorizontalSpace Width="10" />
+                                        <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
+                                            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="50">
+                                                <img src="@GetHeroIconPath(prestige.Faction)" alt="hero" class="prestige-icon mr-sm" />
                                                 <Label Text="@GetPrestigeDisplayText(prestige)" FontSize="14" TextColor="TextColor.Hero"/>
-                                            </FlexRowContainer>
-                                            <FlexRowContainer Width="50">
-                                                <TiglFactionIconImg FactionName="@prestige.Faction" Height="20" />
-                                                <HorizontalSpace Width="10" />
+                                            </ResponsiveContainer>
+                                            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="50">
+                                                <span class="mr-sm"><TiglFactionIconImg FactionName="@prestige.Faction" Height="20" /></span>
                                                 <Label Text="@prestige.Faction.GetDisplayName()" FontSize="13" />
-                                            </FlexRowContainer>
-                                        </FlexRowContainer>
+                                            </ResponsiveContainer>
+                                        </ResponsiveContainer>
                                     }
                                     else
                                     {
-                                        <FlexRowContainer>
+                                        <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
                                             <Label Text="@GetPrestigeDisplayText(prestige)" FontSize="14" TextColor="GetPrestigeColor(prestige.PrestigeRank)" />
-                                        </FlexRowContainer>
+                                        </ResponsiveContainer>
                                     }
                                     <Label Text="@FormatTimestamp(prestige.AchievedAt)" FontSize="12" Width="20" />
                                     <Label Text="@(prestige.Faction != TiglFactionName.None ? GetPrestigeRankUpTime(legacyPrestige, idx, TiglLeague.ProphecyOfKings) : string.Empty)" FontSize="12" Width="20" />
-                                </FlexRowContainer>
-                                <VerticalSpace Height="10" />
+                                </ResponsiveContainer>
                             }
                         </div>
                     }
@@ -570,44 +516,38 @@
                 }
             </div>
 
-            <VerticalSpace Height="40" />
-
             @* ─── FACTION STATISTICS ─── *@
-            <div class="section-container">
-                <Label Text="FACTION STATISTICS" CenterText="true" FontSize="22" TextColor="TextColor.Yellow" />
-
-                <VerticalSpace Height="10" />
+            <div class="section-container mt-xl">
+                <Label Text="FACTION STATISTICS" CenterText="true" FontSize="22" TextColor="TextColor.Yellow" CssClass="mb-sm" />
 
                 @if (IsFactionFilterVisible)
                 {
-                    <FlexColumnCenteredContainer>
+                    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                         <EnumPicker TEnum="FactionStatisticsFilter"
                                     CurrentValue="@_selectedFactionFilter"
                                     CurrentValueChanged="OnFactionFilterChanged"
                                     Label="@Strings.FactionStats_Factions"
                                     Width="50"
                                     MinChoiceWidth="70" />
-                    </FlexColumnCenteredContainer>
+                    </ResponsiveContainer>
                 }
 
-                <VerticalSpace Height="10" />
+                <div style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
 
-                <FlexColumnCenteredContainer>
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mb-sm">
                     <EnumPicker TEnum="FactionStatisticsVpFilter"
                                 CurrentValue="@_selectedScoreFilter"
                                 CurrentValueChanged="OnScoreFilterChanged"
                                 Label="VP"
                                 Width="50"
                                 MinChoiceWidth="70" />
-                </FlexColumnCenteredContainer>
-
-                <VerticalSpace Height="10" />
+                </ResponsiveContainer>
 
                 @if (FilteredFactionStats.Any())
                 {
                     <GridLayout CssClass="background" Style="grid-template-columns: 5% 28% 9% 8% 10% 8% 8% 8% 10% 6%;">
 
-                        <VerticalSpace Height="20" Style="grid-column: span 10;" />
+                        <div style="grid-column: span 10; height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
                         <Label />
                         <Label Text="@Strings.FactionStats_Faction" CenterText="true" />
@@ -626,10 +566,10 @@
                             var bg = _factionRow % 2 == 0 ? "background" : string.Empty;
 
                             <Label CssClass="@bg" />
-                            <FlexRowContainer>
+                            <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
                                 <TiglFactionIconImg FactionName="@faction.Faction" Height="20" />
                                 <Label Text="@faction.Faction.GetDisplayName()" PaddingLeft="10" CssClass="@bg" />
-                            </FlexRowContainer>
+                            </ResponsiveContainer>
 
                             @if (faction.Games > 0)
                             {
@@ -650,7 +590,7 @@
                             _factionRow++;
                         }
 
-                        <VerticalSpace Height="20" Style="grid-column: span 10;" />
+                        <div style="grid-column: span 10; height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
                     </GridLayout>
                 }
@@ -660,21 +600,16 @@
                 }
             </div>
 
-            <VerticalSpace Height="40" />
-
             @* ─── SEASONS ─── *@
             <div class="section-container">
-                <Label Text="SEASONS" CenterText="true" FontSize="22" TextColor="TextColor.Yellow" />
-                <VerticalSpace Height="8" />
-                <GridLayout Columns="5">
+                <Label Text="SEASONS" CenterText="true" FontSize="22" TextColor="TextColor.Yellow" CssClass="mb-xs" />
+                <GridLayout Columns="5" CssClass="mb-md">
                     <Label Text="A — async rating" FontSize="12" CenterText="true" />
                     <Label Text="T — true skill rating" FontSize="12" CenterText="true" />
                     <Label Text="G2 — glicko-2 rating" FontSize="12" CenterText="true" />
                     <Label Text="G — games" FontSize="12" CenterText="true" />
                     <Label Text="WR — win rate" FontSize="12" CenterText="true" />
                 </GridLayout>
-
-                <VerticalSpace Height="15" />
 
                 @{
                     var standardSeasons = FilteredSeasons.Where(s => s.League is TiglLeague.ThundersEdge or TiglLeague.ProphecyOfKings).ToList();
@@ -685,9 +620,8 @@
                 {
                     @if (standardSeasons.Any())
                     {
-                        <Label Text="Standard" FontSize="18" TextColor="TextColor.Yellow" />
-                        <VerticalSpace Height="8" />
-                        <div class="history-list">
+                        <Label Text="Standard" FontSize="18" TextColor="TextColor.Yellow" CssClass="mb-xs" />
+                        <div class="history-list mb-md">
                             @foreach (var season in standardSeasons)
                             {
                                 var ss = GetSeasonRatingSummary(season);
@@ -730,13 +664,11 @@
                                 </ClickableTile>
                                 @if (IsSeasonExpanded(season))
                                 {
-                                    <VerticalSpace Height="10"/>
-                                    <div class="season-games">
+                                    <div class="season-games mt-sm mb-sm">
                                         @foreach (var game in season.Games)
                                         {
                                             var gd = GetGameRatingDeltas(game);
-                                            <VerticalSpace Height="10"/>
-                                            <GridLayout CssClass="season-game-row" Columns="8" Gap="8" AlignItems="center">
+                                            <GridLayout CssClass="season-game-row mt-sm" Columns="8" Gap="8" AlignItems="center">
                                                 <TextButton Text="@game.GameId" TextAlign="left" CssClass="text-no-overflow" FontSize="13" OnClick="@(() => NavigateToGameDetail(game.MatchReportId))" Style="color: lawngreen; justify-content: flex-start;" />
                                                 @if (gd.HasTrueSkill)
                                                 {
@@ -769,17 +701,14 @@
                                             </GridLayout>
                                         }
                                     </div>
-                                    <VerticalSpace Height="10"/>
                                 }
                             }
                         </div>
-                        <VerticalSpace Height="20" />
                     }
 
                     @if (fracturedSeasons.Any())
                     {
-                        <Label Text="Fractured" FontSize="18" TextColor="TextColor.Yellow" />
-                        <VerticalSpace Height="8" />
+                        <Label Text="Fractured" FontSize="18" TextColor="TextColor.Yellow" CssClass="mb-xs" />
                         <div class="history-list">
                             @foreach (var season in fracturedSeasons)
                             {
@@ -822,13 +751,11 @@
                                 </ClickableTile>
                                 @if (IsSeasonExpanded(season))
                                 {
-                                    <VerticalSpace Height="10"/>
-                                    <div class="season-games">
+                                    <div class="season-games mt-sm mb-sm">
                                         @foreach (var game in season.Games)
                                         {
                                             var gdf = GetGameRatingDeltas(game);
-                                            <VerticalSpace Height="10"/>
-                                            <GridLayout CssClass="season-game-row" Columns="8" Gap="8" AlignItems="center">
+                                            <GridLayout CssClass="season-game-row mt-sm" Columns="8" Gap="8" AlignItems="center">
                                                 <TextButton Text="@game.GameId" TextAlign="left" CssClass="text-no-overflow" FontSize="13" OnClick="@(() => NavigateToGameDetail(game.MatchReportId))" Style="color: lawngreen; justify-content: flex-start;" />
                                                 @if (gdf.HasTrueSkill)
                                                 {
@@ -861,7 +788,6 @@
                                             </GridLayout>
                                         }
                                     </div>
-                                    <VerticalSpace Height="10"/>
                                 }
                             }
                         </div>
@@ -873,19 +799,15 @@
                 }
             </div>
 
-            <VerticalSpace Height="40" />
-
             @* ─── GAME HISTORY ─── *@
-            <div class="section-container">
-                <Label Text="GAME HISTORY" CenterText="true" FontSize="22" TextColor="TextColor.Yellow" />
-
-                <VerticalSpace Height="20" />
+            <div class="section-container mt-xl">
+                <Label Text="GAME HISTORY" CenterText="true" FontSize="22" TextColor="TextColor.Yellow" CssClass="mb-md" />
 
                 @if (FilteredGameHistory.Any())
                 {
                     <GridLayout CssClass="background" Style="grid-template-columns: 5% 5% 11% 25% 10% 4% 25% 10% 5%;">
 
-                        <VerticalSpace Height="20" Style="grid-column: span 9;" />
+                        <div style="grid-column: span 9; height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
                         <Label />
                         <Label Text="@Strings.AsyncPlayer_GamesStatsYear" />
@@ -897,7 +819,7 @@
                         <Label Text="@Strings.AsyncPlayer_GamesStatsDuration" />
                         <Label />
 
-                        <VerticalSpace Height="20" Style="grid-column: span 9;" />
+                        <div style="grid-column: span 9; height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
                         @foreach (var year in GroupedFilteredGames)
                         {
@@ -924,7 +846,7 @@
                             }
                         }
 
-                        <VerticalSpace Height="20" Style="grid-column: span 9;" />
+                        <div style="grid-column: span 9; height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
                     </GridLayout>
                 }
@@ -934,12 +856,9 @@
                 }
             </div>
 
-            <VerticalSpace Height="40" />
-
             @* ─── TOP OPPONENTS ─── *@
-            <div class="section-container">
-                <Label Text="TOP OPPONENTS" CenterText="true" FontSize="22" TextColor="TextColor.Yellow" />
-                <VerticalSpace Height="15" />
+            <div class="section-container mt-xl">
+                <Label Text="TOP OPPONENTS" CenterText="true" FontSize="22" TextColor="TextColor.Yellow" CssClass="mb-md" />
 
                 @if (FilteredTopOpponents.Any())
                 {
@@ -1009,19 +928,15 @@
                 }
             </div>
 
-            <VerticalSpace Height="40" />
-
             @* ─── ACHIEVEMENTS ─── *@
-            <div class="section-container">
-                <div class="achievement-title-row">
+            <div class="section-container mt-xl">
+                <div class="achievement-title-row mb-md">
                     <Label Text="ACHIEVEMENTS" CenterText="true" FontSize="22" TextColor="TextColor.Yellow" />
                     <label class="achievement-checkbox-label handel shadow">
                         <input type="checkbox" checked="@_showAllAchievements" @onchange="OnShowAllAchievementsChanged" />
                         <span>Show all</span>
                     </label>
                 </div>
-
-                <VerticalSpace Height="15" />
 
                 @if (DisplayedAchievements.Any())
                 {
@@ -1040,13 +955,11 @@
                 }
             </div>
 
-            <VerticalSpace Height="100" />
-
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
     }
     else
     {
         <StretchHeightContainer />
     }
 
-</FlexRowContainer>
+</ResponsiveContainer>

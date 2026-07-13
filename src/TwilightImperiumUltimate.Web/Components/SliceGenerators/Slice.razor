@@ -1,6 +1,6 @@
-﻿<FlexColumnCenteredContainer>
+﻿<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
 
-    <div class="slice-grid">
+    <div class="slice-grid mb-2xl">
         @{
             int position = 0;
         }
@@ -15,8 +15,6 @@
 
     </div>
 
-    <VerticalSpace Height="100" />
-
     <SliceEvaluationStats SliceModel="SliceModel" />
 
-</FlexColumnCenteredContainer>
+</ResponsiveContainer>

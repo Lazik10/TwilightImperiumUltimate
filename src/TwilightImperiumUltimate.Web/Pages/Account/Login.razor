@@ -16,7 +16,9 @@
                         IsSubmitting="_loggingIn"
                         SubmitText="@Strings.Login_Login"
                         SubmittingText="@Strings.Login_Login"
-                        Columns="1">
+                        ValidationDisplay="Enums.ValidationDisplay.Summary"
+                        Columns="1"
+                        CssClass="mb-xl">
 
             <ResponsiveFormField Id="login-username" Label="@Strings.Login_Username" For="@(() => LoginModel.Email)" Required="true">
                 <ResponsiveTextBox Id="login-username"
@@ -38,10 +40,10 @@
 
         </ResponsiveForm>
 
-        <ButtonGroup CssClass="mt-lg mb-lg" GroupStyle="ButtonGroupStyle.RowFill">
+        <ResponsiveButtonGroup CssClass="mt-lg mb-lg" GroupStyle="ButtonGroupStyle.RowFill">
             <ResponsiveButton ButtonText="@Strings.Login_ConfirmationEmail" OnClick="@(() => NavigationManager.NavigateTo(Pages.ResendConfirmationEmail))" />
             <ResponsiveButton ButtonText="@Strings.Login_ForgotPassword" OnClick="@(() => NavigationManager.NavigateTo(Pages.ResendPasswordRecoveryEmail))" />
-        </ButtonGroup>
+        </ResponsiveButtonGroup>
 
 </Page>
 

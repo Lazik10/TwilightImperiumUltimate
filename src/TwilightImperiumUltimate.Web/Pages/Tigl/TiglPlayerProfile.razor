@@ -2,23 +2,19 @@
 @using TwilightImperiumUltimate.Web.Components.TiglProfile
 
 <Page>
-    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" CssClass="mb-md">
         <TextButton Text="@Strings.ButtonBack" OnClick="RedirectBack" FontSize="24" Width="20" TextAlign="@(string.Empty)" />
-    </FlexRowContainer>
-
-    <VerticalSpace Height="20" />
+    </ResponsiveContainer>
 
     @if (_loading)
     {
-        <FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
             <StretchHeightContainer CssClass="background">
 
-            <VerticalSpace Height="100" />
-            <Label Text="@Strings.Loading" CenterText="true" FontSize="32" />
-            <VerticalSpace Height="100" />
+            <Label Text="@Strings.Loading" CenterText="true" FontSize="32" CssClass="mt-3xl mb-3xl" />
 
             </StretchHeightContainer>
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
     }
     else
     {

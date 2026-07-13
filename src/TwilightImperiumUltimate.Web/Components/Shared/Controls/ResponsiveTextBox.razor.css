@@ -3,4 +3,5 @@
 
 ::deep .responsive-textbox::placeholder {
     font-family: Handel, fallback, sans-serif !important;
+    color: var(--color-gray-medium);
 }

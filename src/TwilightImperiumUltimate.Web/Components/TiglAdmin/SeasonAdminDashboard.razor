@@ -1,26 +1,20 @@
 @using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Season
 @using Microsoft.AspNetCore.Components.Forms
 
-<VerticalSpace Height="20" />
-<Label Text="@Strings.TiglAdmin_SeasonAdministration" FontSize="32" CenterText="true" />
-<VerticalSpace Height="20" />
+<Label Text="@Strings.TiglAdmin_SeasonAdministration" FontSize="32" CenterText="true" CssClass="mt-md mb-md" />
 
 @if (_loading)
 {
-    <VerticalSpace Height="50" />
-    <Label Text="@Strings.TiglAdmin_LoadingSeasons" CenterText="true" />
-    <VerticalSpace Height="50" />
+    <Label Text="@Strings.TiglAdmin_LoadingSeasons" CenterText="true" CssClass="mt-2xl mb-3xl" />
 }
 else
 {
-    <FlexColumnCenteredContainer>
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mb-md">
         <Label Text="@GetActiveSeasonNumber()" CenterText="true" TextColor="TextColor.Green" FontSize="24" />
-    </FlexColumnCenteredContainer>
+    </ResponsiveContainer>
 
-    <VerticalSpace Height="20" />
-
-    <FlexColumnCenteredContainer>
-        <GridLayout CssClass="background" Style="grid-template-columns: 3% 5% 15% 10% 15% 15% 10% 27%">
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+        <GridLayout CssClass="background mb-sm" Style="grid-template-columns: 3% 5% 15% 10% 15% 15% 10% 27%">
             <Label />
             <Label Text="@Strings.TiglAdmin_SeasonId" />
             <Label Text="@Strings.TiglAdmin_SeasonName" />
@@ -30,12 +24,11 @@ else
             <Label Text="@Strings.TiglAdmin_Edit" CenterText="true" />
             <Label Text="@Strings.TiglAdmin_Actions" CenterText="true" />
         </GridLayout>
-        <VerticalSpace Height="10" />
 
         @foreach (var s in _seasonEdits)
         {
             var isEditing = s.IsEditing;
-            <GridLayout CssClass="background" Style="grid-template-columns: 3% 5% 15% 10% 15% 15% 10% 27%">
+            <GridLayout CssClass="background mb-xs" Style="grid-template-columns: 3% 5% 15% 10% 15% 15% 10% 27%">
                 <Label />
                 <Label Text="@s.SeasonNumber.ToString()" TextColor="@(s.IsActive? TextColor.Green: TextColor.Red)" />
                 
@@ -69,53 +62,47 @@ else
 
                 @if (!isEditing)
                 {
-                    <Button ButtonText="Edit" OnClick="() => BeginEdit(s)" Width="70" IsDisabled="@_sendingRequest" />
+                    <ResponsiveButton ButtonText="Edit" OnClick="() => BeginEdit(s)" Width="70" IsDisabled="@_sendingRequest" />
                 }
                 else
                 {
-                    <Button ButtonText="Cancel" OnClick="() => CancelEdit(s)" Width="70" />
+                    <ResponsiveButton ButtonText="Cancel" OnClick="() => CancelEdit(s)" Width="70" />
                 }
 
-                <FlexRowContainer Width="100" JustifyContent="Enums.JustifyContent.SpaceEvenly">
+                <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="100" JustifyContent="Enums.JustifyContent.SpaceEvenly">
                     @if (isEditing)
                     {
-                        <Button ButtonText="@(Strings.TiglAdmin_Save)" OnClick="() => SaveSeasonAsync(s)" Width="50" IsDisabled="@_sendingRequest" />
+                        <ResponsiveButton ButtonText="@(Strings.TiglAdmin_Save)" OnClick="() => SaveSeasonAsync(s)" Width="50" IsDisabled="@_sendingRequest" />
                     }
                     else
                     {
                         @if (!s.IsActive)
                         {
-                            <Button ButtonText="@(Strings.TiglAdmin_SetActive)" OnClick="() => SetActiveAsync(s.SeasonNumber)" Width="50" IsDisabled="@_sendingRequest" />
+                            <ResponsiveButton ButtonText="@(Strings.TiglAdmin_SetActive)" OnClick="() => SetActiveAsync(s.SeasonNumber)" Width="50" IsDisabled="@_sendingRequest" />
                         }
                         @if (s.IsActive)
                         {
-                            <Button ButtonText="@(Strings.TiglAdmin_EndSeason)" OnClick="EndSeasonAsync" Width="50" IsDisabled="@_sendingRequest" />
+                            <ResponsiveButton ButtonText="@(Strings.TiglAdmin_EndSeason)" OnClick="EndSeasonAsync" Width="50" IsDisabled="@_sendingRequest" />
                         }
                     }
-                </FlexRowContainer>
+                </ResponsiveContainer>
             </GridLayout>
-            <VerticalSpace Height="5" />
         }
 
-        <VerticalSpace Height="20" />
-        <Label Text="@(Strings.TiglAdmin_AddNewSeason)" FontSize="24" CenterText="true" />
-        <VerticalSpace Height="10" />
-        <GridLayout CssClass="background" Style="grid-template-columns: 15% 35% 25% 25%">
+        <Label Text="@(Strings.TiglAdmin_AddNewSeason)" FontSize="24" CenterText="true" CssClass="mt-md mb-sm" />
+        <GridLayout CssClass="background mb-xs" Style="grid-template-columns: 15% 35% 25% 25%">
             <Label Text="@Strings.TiglAdmin_SeasonId" CenterText="true" />
             <Label Text="@Strings.TiglAdmin_SeasonName" CenterText="true" />
             <Label Text="@Strings.TiglAdmin_StartDate" CenterText="true" />
             <Label Text="@Strings.TiglAdmin_EndDate" CenterText="true" />
         </GridLayout>
-        <VerticalSpace Height="5" />
-        <GridLayout CssClass="background" Style="grid-template-columns: 15% 35% 25% 25%">
+        <GridLayout CssClass="background mb-sm" Style="grid-template-columns: 15% 35% 25% 25%">
             <input type="number" class="handel white" style="width:95%; color: black;" @bind="_newSeasonNumber" />
             <input class="handel white" style="width:95%; color: black;" @bind="_newSeasonName" />
             <InputDate class="handel white" style="width:95%; color: black;" @bind-Value="_newSeasonStartValue" />
             <InputDate class="handel white" style="width:95%; color: black;" @bind-Value="_newSeasonEndValue" />
         </GridLayout>
-        <VerticalSpace Height="10" />
-        <Button ButtonText="@(Strings.TiglAdmin_AddSeasonButtonText)" OnClick="AddSeasonAsync" IsDisabled="@_sendingRequest" />
-    </FlexColumnCenteredContainer>
+        <ResponsiveButton ButtonText="@(Strings.TiglAdmin_AddSeasonButtonText)" OnClick="AddSeasonAsync" IsDisabled="@_sendingRequest" Width="30" CssClass="mb-xl" />
+    </ResponsiveContainer>
 }
 
-<VerticalSpace Height="30" />

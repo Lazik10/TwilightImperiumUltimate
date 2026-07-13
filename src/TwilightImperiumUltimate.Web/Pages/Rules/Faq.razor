@@ -18,19 +18,19 @@
     {
         <FaqRow Faq="@faq" Culture="@(CultureInfo.CurrentCulture.Name)" Width="80"/>
         <ResponsiveVerticalSpacer CustomHeight="20px" />
-        <FlexRowContainer>
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
             <AuthorizeView Roles="Admin">
                 <Authorized>
-                    <FlexRowContainer Width="80">
+                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="80">
                         <ResponsiveButton Text="Approve" OnClick="async () => await ApproveFaq(faq)" />
                         <ResponsiveHorizontalSpacer CustomWidth="50px" />
                         <ResponsiveButton Text="Edit" OnClick="async () => await EditFaq(faq.Id)" />
                         <ResponsiveHorizontalSpacer CustomWidth="50px" />
                         <ResponsiveButton Text="Reject" OnClick="async () => await RejectFaq(faq)" />
-                    </FlexRowContainer>
+                    </ResponsiveContainer>
                 </Authorized>
             </AuthorizeView>
-        </FlexRowContainer>
+        </ResponsiveContainer>
         <ResponsiveVerticalSpacer CustomHeight="50px" />
     }
 </Page>

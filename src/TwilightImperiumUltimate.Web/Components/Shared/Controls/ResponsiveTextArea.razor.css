@@ -1,0 +1,4 @@
+.responsive-textarea {
+    box-sizing: border-box;
+    resize: vertical;
+}

@@ -1,6 +1,6 @@
 @using TwilightImperiumUltimate.Web.Helpers.Enums
 
-<FlexRowContainer CssClass="background" OnClick="@(() => NavigateToProfile(Ranking.Id))">
+<ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="background mb-xs" OnClick="@(() => NavigateToProfile(Ranking.Id))">
 
     <Label Text="@Ranking.TiglUserName" Width="30" PaddingLeft="50" TextColor="@RankColor" />
     <Label Text="@GetPrestigeRankText()" CenterText=true Width="30" TextColor="@RankColor" />
@@ -8,6 +8,4 @@
     <Label Text="@Ranking.GamesPlayed.ToString()" CenterText=true Width="10" TextColor="@RankColor" />
     <Label Text="@GetDurationTime()" CenterText=true Width="20" TextColor="@RankColor" />
 
-</FlexRowContainer>
-
-<VerticalSpace Height="5" />
+</ResponsiveContainer>

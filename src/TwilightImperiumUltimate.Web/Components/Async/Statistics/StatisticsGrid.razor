@@ -1,21 +1,17 @@
 ﻿
-<VerticalSpace Height="50" />
+<StretchHeightContainer CssClass="background mt-2xl" >
 
-<StretchHeightContainer CssClass="background" >
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column">
 
-    <FlexColumnContainer>
-
-        <VerticalSpace Height="10" />
-
-        <FlexRowContainer JustifyContent="Enums.JustifyContent.Center" AlignItems="Enums.AlignItems.Center">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.Center" AlignItems="Enums.AlignItems.Center" CssClass="mt-sm">
             <HorizontalSpacer Width="33" />
-            <FlexColumnContainer AlignItems="Enums.AlignItems.Center">
+            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column" AlignItems="Enums.AlignItems.Center">
                 <EnumPicker TEnum="PlayerStatisticsType"
                         CurrentValue="@_selectedGamesType"
                         CurrentValueChanged="@OnEnumChanged"
                         Label="@Strings.AsyncStats_Filter"
                         Width="50" />
-            </FlexColumnContainer>
+            </ResponsiveContainer>
 
             <EnumPicker TEnum="QueryLimit"
                         CurrentValue="@_selectedQueryLimit"
@@ -23,7 +19,7 @@
                         Width="33"
                         ExcludeValues="_excludedQueryLimits"
                         Label="@Strings.AsyncStats_QueryLimit" />
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
         <CascadingValue Value="_selectedGamesType" Name="Filter">
 
@@ -94,7 +90,7 @@
 
         </CascadingValue>
 
-    </FlexColumnContainer>
+    </ResponsiveContainer>
 
 </StretchHeightContainer>
 

@@ -1,14 +1,12 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Cards
 @using TwilightImperiumUltimate.Web.Components.Factions
 
-<FlexColumnCenteredContainer>
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
 
-    <Label Text="Custodians and Imperial" CenterText="true" FontSize="24" />
+    <Label Text="Custodians and Imperial" CenterText="true" FontSize="24" CssClass="mb-md" />
 
-    <VerticalSpace Height="20" />
-
-    <FlexRowContainer Width="60" AlignItems="Enums.AlignItems.Center" CssClass="background">
-        <FlexColumnCenteredContainer Width="25">
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="60" AlignItems="Enums.AlignItems.Center" CssClass="background">
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="25">
             <img src="@(PathProvider.GetIconPath(IconType.Custodians))" style="width: 50%;" />
             <Label Text="Score:" CenterText="true" />
             <GridLayout Columns="4">
@@ -17,33 +15,31 @@
                     <ScorePlayerIcon FactionName="@player.FactionName" ScoreStatusFilter="@GetCustodiansScoreStatus(player)" OnClick="() => ScoreCustodians(player)" />
                 }
             </GridLayout>
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
 
-        <FlexRowContainer AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.SpaceEvenly" Width="25">
-            <FlexRowContainer JustifyContent="Enums.JustifyContent.SpaceBetween">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.SpaceEvenly" Width="25">
+            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.SpaceBetween">
                 <StrategyCard Name="@StrategyCardName.Imperial" MaxHeight="250"/>
                 <GridLayout Columns="2">
                     @foreach (var player in _players)
                     {
                         <FactionIconImg FactionName="@player.FactionName" />
-                        <NumericPicker 
-                            CenteredText="true" 
+                        <ResponsiveNumericPicker 
+                            CenterLabel="true" 
                             Value="player.BonusObjectives.ImperialScore" 
                             OnDecrease="() => DecreasePlayerImperialScore(player)"
                             OnIncrease="() => IncreasePlayerImperialScore(player)" />
                     }
                 </GridLayout>
-            </FlexRowContainer>
-        </FlexRowContainer>
-    </FlexRowContainer>
+            </ResponsiveContainer>
+        </ResponsiveContainer>
+    </ResponsiveContainer>
 
-    <Label Text="Agenda" FontSize="24" CenterText="true" />
+    <Label Text="Agenda" FontSize="24" CenterText="true" CssClass="mb-md" />
 
-    <VerticalSpace Height="20" />
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="60" AlignItems="Enums.AlignItems.FlexStart" CssClass="background">
 
-    <FlexRowContainer Width="60" AlignItems="Enums.AlignItems.FlexStart" CssClass="background">
-
-        <FlexColumnContainer AlignItems="Enums.AlignItems.FlexStart" JustifyContent="Enums.JustifyContent.SpaceEvenly">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column" AlignItems="Enums.AlignItems.FlexStart" JustifyContent="Enums.JustifyContent.SpaceEvenly" CssClass="mr-md">
             <VerticalCard Name="@AgendaCardName.PoliticalCensure.ToString()" TypeOfCard="@CardType.Agenda.ToString()" />
             <Label Text="Score:" CenterText="true" />
             <GridLayout Columns="4">
@@ -52,13 +48,11 @@
                     <ScorePlayerIcon FactionName="@player.FactionName" ScoreStatusFilter="@GetAgendaScoreStatus(AgendaCardName.PoliticalCensure, player)" OnClick="() => ScoreAgendaBonusObjective(AgendaCardName.PoliticalCensure, player)" />
                 }
             </GridLayout>
-        </FlexColumnContainer>
+        </ResponsiveContainer>
 
-        <HorizontalSpace Width="15" />
-
-        <FlexColumnContainer AlignItems="Enums.AlignItems.FlexStart" JustifyContent="Enums.JustifyContent.SpaceEvenly">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column" AlignItems="Enums.AlignItems.FlexStart" JustifyContent="Enums.JustifyContent.SpaceEvenly" CssClass="mr-md">
             <VerticalCard Name="@AgendaCardName.ClassifiedDocumentLeaks.ToString()" TypeOfCard="@CardType.Agenda.ToString()" />
-            <FlexColumnCenteredContainer>
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                 @if (ShowClassifiedDocumnetLeaks())
                 {
                     <Label Text="Select secret:" CenterText="true" />
@@ -69,20 +63,18 @@
                                 TextProperty="Value"
                                 Style="width: 100%; max-width: 200px; height: 100%; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"
                                 class="title handel" />
-                    <Button ButtonText="Clear" OnClick="() => ClearClassifiedDocumentLeaks(true)" Width="100"/>
+                    <ResponsiveButton ButtonText="Clear" OnClick="() => ClearClassifiedDocumentLeaks(true)" Width="100"/>
                 }
                 else
                 {
                     <Label Text="No secret scored!" CenterText="true" TextColor="TextColor.Red" />
                 }
-            </FlexColumnCenteredContainer>
-        </FlexColumnContainer>
+            </ResponsiveContainer>
+        </ResponsiveContainer>
 
-        <HorizontalSpace Width="15" />
-
-        <FlexColumnContainer AlignItems="Enums.AlignItems.FlexStart" JustifyContent="Enums.JustifyContent.SpaceEvenly">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column" AlignItems="Enums.AlignItems.FlexStart" JustifyContent="Enums.JustifyContent.SpaceEvenly">
             <VerticalCard Name="@AgendaCardName.Mutiny.ToString()" TypeOfCard="@CardType.Agenda.ToString()" />
-            <FlexRowContainer>
+            <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
                 <ClickableTile Style="width: 45%;" OnClick="() => UpdateMutiny(true)">
                     <Label Text="For" TextColor="GetMutinyTextColor(true)" CenterText="true" />
                 </ClickableTile>
@@ -90,18 +82,16 @@
                 <ClickableTile Style="width: 45%;" OnClick="() => UpdateMutiny(false)">
                     <Label Text="Against" TextColor="GetMutinyTextColor(false)" CenterText="true" />
                 </ClickableTile>
-            </FlexRowContainer>
+            </ResponsiveContainer>
             <GridLayout Columns="4">
                 @foreach (var player in _players)
                 {
                     <ScorePlayerIcon FactionName="@player.FactionName" ScoreStatusFilter="@GetAgendaScoreStatus(AgendaCardName.Mutiny, player)" OnClick="() => ScoreAgendaBonusObjective(AgendaCardName.Mutiny, player)" />
                 }
             </GridLayout>
-        </FlexColumnContainer>
+        </ResponsiveContainer>
 
-        <HorizontalSpace Width="15" />
-
-        <FlexColumnContainer AlignItems="Enums.AlignItems.FlexStart" JustifyContent="Enums.JustifyContent.SpaceEvenly">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column" AlignItems="Enums.AlignItems.FlexStart" JustifyContent="Enums.JustifyContent.SpaceEvenly" CssClass="mr-md">
             <VerticalCard Name="@AgendaCardName.SeedOfAnEmpire.ToString()" TypeOfCard="@CardType.Agenda.ToString()" />
             <Label Text="Score:" CenterText="true" />
             <GridLayout Columns="4">
@@ -110,37 +100,33 @@
                     <ScorePlayerIcon FactionName="@player.FactionName" ScoreStatusFilter="@GetAgendaScoreStatus(AgendaCardName.SeedOfAnEmpire, player)" OnClick="() => ScoreAgendaBonusObjective(AgendaCardName.SeedOfAnEmpire, player)" />
                 }
             </GridLayout>
-        </FlexColumnContainer>
+        </ResponsiveContainer>
 
-        <HorizontalSpace Width="15" />
-
-        <FlexColumnContainer AlignItems="Enums.AlignItems.FlexStart" JustifyContent="Enums.JustifyContent.SpaceEvenly">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column" AlignItems="Enums.AlignItems.FlexStart" JustifyContent="Enums.JustifyContent.SpaceEvenly">
             <VerticalCard Name="@AgendaCardName.IncentiveProgram.ToString()" TypeOfCard="@CardType.Agenda.ToString()" />
-            <FlexRowContainer AlignItems="Enums.AlignItems.FlexStart">
-                <FlexColumnCenteredContainer Width="25">
+            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" AlignItems="Enums.AlignItems.FlexStart">
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="25">
                     <ClickableTile OnClick="async () => await HandleIncentiveProgram(ObjectiveCardType.StageOne)">
                         <Label Text="Revealed" TextColor="GetIncentiveProgramTextColor(ObjectiveCardType.StageOne)" />
                         <ObjectiveCard Picked="false" ObjectiveCardType="ObjectiveCardType.StageOne" />
                     </ClickableTile>
-                </FlexColumnCenteredContainer>
-                <FlexColumnCenteredContainer Width="25">
+                </ResponsiveContainer>
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="25">
                     <ClickableTile OnClick="async () => await HandleIncentiveProgram(ObjectiveCardType.StageTwo)">
                         <Label Text="Revealed" TextColor="GetIncentiveProgramTextColor(ObjectiveCardType.StageTwo)" />
                         <ObjectiveCard Picked="false" ObjectiveCardType="ObjectiveCardType.StageTwo" />
                     </ClickableTile>
-                </FlexColumnCenteredContainer>
-            </FlexRowContainer>
-        </FlexColumnContainer>
+                </ResponsiveContainer>
+            </ResponsiveContainer>
+        </ResponsiveContainer>
 
-    </FlexRowContainer>
+    </ResponsiveContainer>
 
-    <VerticalSpace Height="20" />
+    <Label Text="Relics & Action Cards" FontSize="24" CenterText="true" CssClass="mt-md" />
 
-    <Label Text="Relics & Action Cards" FontSize="24" CenterText="true" />
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="60" AlignItems="Enums.AlignItems.FlexStart" CssClass="background mb-md">
 
-    <FlexRowContainer Width="60" AlignItems="Enums.AlignItems.FlexStart" CssClass="background">
-
-        <FlexColumnContainer AlignItems="Enums.AlignItems.FlexStart" JustifyContent="Enums.JustifyContent.SpaceEvenly" Width="20">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column" AlignItems="Enums.AlignItems.FlexStart" JustifyContent="Enums.JustifyContent.SpaceEvenly" Width="20">
 
             <VerticalCard Name="@RelicCardName.ShardOfTheThrone.ToString()" TypeOfCard="@CardType.Relic.ToString()" />
             <Label Text="Score:" CenterText="true" />
@@ -151,9 +137,9 @@
                 }
             </GridLayout>
 
-        </FlexColumnContainer>
+        </ResponsiveContainer>
 
-        <FlexColumnContainer AlignItems="Enums.AlignItems.FlexStart" JustifyContent="Enums.JustifyContent.SpaceEvenly" Width="20">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column" AlignItems="Enums.AlignItems.FlexStart" JustifyContent="Enums.JustifyContent.SpaceEvenly" Width="20">
 
             <VerticalCard Name="@RelicCardName.TheCrownOfEmphidia.ToString()" TypeOfCard="@CardType.Relic.ToString()" />
             <Label Text="Score:" CenterText="true" />
@@ -164,13 +150,13 @@
                 }
             </GridLayout>
 
-        </FlexColumnContainer>
+        </ResponsiveContainer>
 
-        <FlexColumnContainer Width="25">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column" Width="25">
 
-        </FlexColumnContainer>
+        </ResponsiveContainer>
 
-        <FlexColumnContainer AlignItems="Enums.AlignItems.FlexStart" JustifyContent="Enums.JustifyContent.SpaceEvenly" Width="20">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column" AlignItems="Enums.AlignItems.FlexStart" JustifyContent="Enums.JustifyContent.SpaceEvenly" Width="20">
 
             <VerticalCard Name="@ActionCardName.ImperialRider.ToString()" TypeOfCard="@CardType.Action.ToString()" />
             <Label Text="Score:" CenterText="true" />
@@ -181,12 +167,10 @@
                 }
             </GridLayout>
 
-        </FlexColumnContainer>
+        </ResponsiveContainer>
 
-    </FlexRowContainer>
+    </ResponsiveContainer>
 
-    <VerticalSpace Height="20" />
-
-</FlexColumnCenteredContainer>
+</ResponsiveContainer>
 
 

@@ -9,11 +9,11 @@ public partial class MapArchiveGrid
 
     private IReadOnlyCollection<KeyValuePair<FilterOrder, string>> _filterOrders = default!;
 
-    private SearchBar _nameSearchBar = default!;
+    private ResponsiveSearchBar _nameSearchBar = default!;
 
-    private SearchBar _eventSearchBar = default!;
+    private ResponsiveSearchBar _eventSearchBar = default!;
 
-    private SearchBar _userSearchBar = default!;
+    private ResponsiveSearchBar _userSearchBar = default!;
 
     private string _mapNameSeach = string.Empty;
 

@@ -2,9 +2,7 @@
 @using TwilightImperiumUltimate.Contracts.Enums
 @using TwilightImperiumUltimate.Web.Helpers.Enums
 
-<VerticalSpace Height="20" />
-
-<FlexColumnCenteredContainer>
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-md">
 
     <EnumPicker TEnum="TiglLeague"
                 Label="@Strings.TiglLeague_League"
@@ -14,29 +12,23 @@
                 Width="50"
                 MinChoiceWidth="70" />
 
-</FlexColumnCenteredContainer>
+</ResponsiveContainer>
 
 @if (_loading)
 {
-    <VerticalSpace Height="50" />
-    <Label Text="@Strings.Loading" CenterText="true" />
-    <VerticalSpace Height="50" />
+    <Label Text="@Strings.Loading" CenterText="true" CssClass="mt-2xl mb-2xl" />
 }
 else if (CurrentLeagueLeaders.Count == 0)
 {
-    <VerticalSpace Height="20" />
-    <Label Text="No leaders found." CenterText />
-    <VerticalSpace Height="20" />
+    <Label Text="No leaders found." CenterText CssClass="mt-md mb-md" />
 }
 else
 {
-    <FlexColumnCenteredContainer>
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-md mb-md">
 
-        <VerticalSpace Height="20" />
+        <GridLayout CssClass="background mb-2xl" Style="grid-template-columns: 5% 30% 15% 15% 6% 12% 12% 5%">
 
-        <GridLayout CssClass="background" Style="grid-template-columns: 5% 30% 15% 15% 6% 12% 12% 5%">
-
-            <VerticalSpace Height="20" CssClass="span-8" />
+            <div class="span-8" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
             <Label />
             <Label Text="Leader" CenterText="true" />
@@ -47,25 +39,20 @@ else
             <Label Text="Longest" CenterText="true" />
             <Label />
 
-            <VerticalSpace Height="20" CssClass="span-8" />
+            <div class="span-8" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
         </GridLayout>
 
-        <VerticalSpace Height="50" />
-
         @foreach (var leader in CurrentLeagueLeaders)
         {
-            <FlexColumnCenteredContainer CssClass="span-8" OnClick="@(() => NavigateToProfile(leader.TiglUserId))">
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="span-8 mb-sm" OnClick="@(() => NavigateToProfile(leader.TiglUserId))">
                 <GridLayout CssClass="background" Style="grid-template-columns: 5% 30% 15% 15% 6% 12% 12% 5%">
-                    <VerticalSpace Height="10" CssClass="span-8"/>
+                    <div class="span-8" style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
                     <LeaderRow Leader="leader" />
-                    <VerticalSpace Height="10" CssClass="span-8" />
+                    <div class="span-8" style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
                 </GridLayout>
-            </FlexColumnCenteredContainer>
-            <VerticalSpace Height="10" />
+            </ResponsiveContainer>
         }
 
-    </FlexColumnCenteredContainer>
-
-    <VerticalSpace Height="20" />
+    </ResponsiveContainer>
 }

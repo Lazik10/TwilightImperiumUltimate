@@ -1,17 +1,15 @@
 ﻿
-<FlexRowContainer>
+<ResponsiveContainer Type="ContainerType.Flex" Padding="none">
 
-    <FlexColumnCenteredContainer Width="100">
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="100">
 
         @if (AsyncPlayerProfile is not null)
         {
-            <Label Text="@Strings.OpponentStats_Opponents" FontSize="24" CenterText="true" />
+            <Label Text="@Strings.OpponentStats_Opponents" FontSize="24" CenterText="true" CssClass="mb-md" />
 
-            <VerticalSpace Height="20" />
+            <GridLayout CssClass="background mb-md" Style="grid-template-columns: 5% 35% 10% 5% 35% 10%">
 
-            <GridLayout CssClass="background" Style="grid-template-columns: 5% 35% 10% 5% 35% 10%">
-
-                <VerticalSpace Height="20" Style="grid-column: span 6;" />
+                <div style="grid-column: span 6; height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
                 <Label />
                 <Label Text="@Strings.OpponentStats_DiscordUsername" />
@@ -21,7 +19,7 @@
                 <Label Text="@Strings.OpponentStats_Games" CenterText="true" />
 
 
-                <VerticalSpace Height="20" Style="grid-column: span 6;" />
+                <div style="grid-column: span 6; height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
                 @if (AsyncPlayerProfile.Settings.ShowOpponents)
                 {
@@ -83,20 +81,19 @@
                 }
                 else
                 {
-                    <VerticalSpace MinHeight="300" Style="grid-column: span 6;" />
+                    <div style="grid-column: span 6; height: clamp(3.125rem, 3.125rem + 1vw, 6.25rem); min-height: 300px;"></div>
                     <Label Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" Style="grid-column: span 6;" />
-                    <VerticalSpace MinHeight="300" Style="grid-column: span 6;" />
+                    <div style="grid-column: span 6; height: clamp(3.125rem, 3.125rem + 1vw, 6.25rem); min-height: 300px;"></div>
                 }
 
-                <VerticalSpace Height="20" Style="grid-column: span 6;" />
+                <div style="grid-column: span 6; height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
             </GridLayout>
 
-            <VerticalSpace Height="20" />
         }
 
-    </FlexColumnCenteredContainer>
-    <FlexColumnCenteredContainer Width="20" />
+    </ResponsiveContainer>
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="20" />
 
-</FlexRowContainer>
+</ResponsiveContainer>
 

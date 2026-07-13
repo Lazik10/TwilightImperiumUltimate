@@ -1,5 +1,5 @@
 ﻿
-<FlexColumnCenteredContainer Width="@(Width)">
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="@(Width)">
 
     @if (DropDownEnabled && Picked)
     {
@@ -16,4 +16,4 @@
         <img src="@GetCardImagePath()">
     </div>
 
-</FlexColumnCenteredContainer>
+</ResponsiveContainer>

@@ -123,6 +123,15 @@
   <data name="Login_EmptyPassword" xml:space="preserve">
     <value>Password is required.</value>
   </data>
+  <data name="NewsAdmin_EmptyTitle" xml:space="preserve">
+    <value>Title is required.</value>
+  </data>
+  <data name="NewsAdmin_TitleTooLong" xml:space="preserve">
+    <value>Title must be 255 characters or fewer.</value>
+  </data>
+  <data name="NewsAdmin_EmptyContent" xml:space="preserve">
+    <value>Content is required.</value>
+  </data>
   <data name="Register_ConfirmPasswordMatch" xml:space="preserve">
     <value>Passwords must match.</value>
   </data>

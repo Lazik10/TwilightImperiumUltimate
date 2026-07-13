@@ -1,0 +1,9 @@
+@inherits StatusMessageBase
+
+@*
+    Generic warning message (e.g. "this action may be irreversible"). Use this instead of a
+    page-specific warning string so users always see a consistent, accessible warning regardless
+    of which page/feature shows it.
+*@
+
+<div class="@("handel shadow " + CssClass)" style="color: orange;" role="alert">@Text</div>

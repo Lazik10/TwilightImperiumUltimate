@@ -1,0 +1,9 @@
+/*
+    Plain "/" divider between the ResponsiveTab items, matching the visual style of the
+    Login/Register divider in AccountMenu (Handel font, white, text shadow) -- purely decorative,
+    not part of the tablist's own keyboard/ARIA semantics.
+*/
+.admin-tab-divider {
+    font-size: var(--font-size-lg);
+    font-weight: bold;
+}

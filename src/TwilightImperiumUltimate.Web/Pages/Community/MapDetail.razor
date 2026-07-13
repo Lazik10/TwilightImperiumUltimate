@@ -7,52 +7,48 @@
 
 <Page>
 
-    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" >
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" >
         <TextButton Text="@Strings.ButtonBack" OnClick="RedirectBack" FontSize="24" Width="20" TextAlign="@(string.Empty)" />
-    </FlexRowContainer>
+    </ResponsiveContainer>
     
-    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexEnd">
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexEnd">
         <QuickMenuItem IconType="IconType.DownloadMapImage" IconTypeClicked="IconType.DownloadMapImageClicked" OnClick="async () => await HandleDownloadIconClick()" />
-    </FlexRowContainer>
+    </ResponsiveContainer>
 
     @if (!_map.Keys.Any())
         return;
 
     <div id="mapArea" style="width: 100%;">
 
-        <FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
 
-            <FlexColumnCenteredContainer Width="70">
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="70">
 
                 <Title Text="@Map.Name"  MarginTop="0" MarginBottom="20" />
 
-                <FlexRowContainer>
-                    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" Width="50">
+                <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
+                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" Width="50">
                         <Label Text="@Strings.MapArchive_MapRating" Style="margin-right: 10px;" Width="20"/>
                         <StarRating Rating="@Map.Rating" IsReadOnly="true" />
-                    </FlexRowContainer>
-                    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexEnd" Width="50">
+                    </ResponsiveContainer>
+                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexEnd" Width="50">
                         <Label Text="@Strings.MapArchive_UserRating" Style="margin-right: 10px;" Width="30"/>
                         <StarRating Rating="@UserRating" OnRatingChange="UpdateUserMapRating" />
-                    </FlexRowContainer>
-                </FlexRowContainer>
+                    </ResponsiveContainer>
+                </ResponsiveContainer>
 
                 @DynamicComponent
-            </FlexColumnCenteredContainer>
+            </ResponsiveContainer>
 
-            <VerticalSpace Height="100" />
-
-            <FlexColumnCenteredContainer Width="100">
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="100" CssClass="mt-3xl">
 
                 <MapSliceEvaluation Map="_map" MapTemplate="Map.MapTemplate" />
 
-            </FlexColumnCenteredContainer>
+            </ResponsiveContainer>
 
-            <VerticalSpace Height="50" />
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="70" CssClass="mt-2xl">
 
-            <FlexColumnCenteredContainer Width="70">
-
-                <GridLayout Columns="4" Gap="40">
+                <GridLayout Columns="4" Gap="40" CssClass="mb-md">
 
                     <Label Text="@Strings.MapArchive_MapAuthor" />
                     <Label Text="@Map.UserName" Style="grid-column: span 3;" />
@@ -65,16 +61,13 @@
 
                     <Label Text="@Strings.MapArchive_MapDescription" Style="grid-column: span 4;" />
 
-                    <FlexColumnCenteredContainer Style="grid-column: span 4;">
-
-                        <VerticalSpace Height="20" />
+                    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Style="grid-column: span 4;" CssClass="mt-md mb-md">
 
                         <div class="handel white shadow">
                             @MarkupStringDescription
                         </div>
 
-                        <VerticalSpace Height="20" />
-                    </FlexColumnCenteredContainer>
+                    </ResponsiveContainer>
 
                     <Label Text="@Strings.MapArchive_TtsString" />
 
@@ -90,11 +83,9 @@
 
                 </GridLayout>
 
-                <VerticalSpace Height="20" />
+            </ResponsiveContainer>
 
-            </FlexColumnCenteredContainer>
-
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
 
     </div>
 

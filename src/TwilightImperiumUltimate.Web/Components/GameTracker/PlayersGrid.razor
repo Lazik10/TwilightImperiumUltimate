@@ -1,8 +1,8 @@
-﻿<FlexColumnContainer AlignItems="Enums.AlignItems.Center" Width="95" Style="@(Style)" CssClass="background">
+﻿<ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column" AlignItems="Enums.AlignItems.Center" Width="95" Style="@(Style)" CssClass="background">
 
     @foreach (var player in GetPlayers())
     {
         <PlayerScoreCard Player="@player" />
     }
 
-</FlexColumnContainer>
+</ResponsiveContainer>

@@ -1,24 +1,20 @@
 ﻿@using TwilightImperiumUltimate.Web.Helpers.Numbers
 
-<FlexRowContainer>
+<ResponsiveContainer Type="ContainerType.Flex" Padding="none">
 
-    <FlexColumnCenteredContainer Width="100">
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="100">
 
         @if (AsyncPlayerProfile is not null)
         {
-            <FlexColumnCenteredContainer CssClass="padding" >
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="padding mb-2xl" >
                 <MarkupStringLabel Text="@(ComposeGeneralStats())" FontSize="28" TextColor="@(AsyncPlayerProfile.Settings.ExcludeFromAsyncStats ? TextColor.White : GameStats.WinRate.GetWinrateColor())" CenterText="true" />
-            </FlexColumnCenteredContainer>
+            </ResponsiveContainer>
 
-            <VerticalSpace Height="50" />
+            <Label Text="@Strings.GameStats_Title" FontSize="24" CenterText="true" CssClass="mb-md" />
 
-            <Label Text="@Strings.GameStats_Title" FontSize="24" CenterText="true" />
+            <GridLayout Columns="6" CssClass="background mb-md">
 
-            <VerticalSpace Height="20" />
-
-            <GridLayout Columns="6" CssClass="background">
-
-                <VerticalSpace Height="20" Style="grid-column: span 6;" />
+                <div style="grid-column: span 6; height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
                 <Label Text="@Strings.GameStats_Games" CenterText="true"/>
                 <Label Text="@Strings.GameStats_Active" CenterText="true" />
@@ -27,7 +23,7 @@
                 <Label Text="@Strings.GameStats_Winrate" CenterText="true" />
                 <Label Text="@Strings.GameStats_Eliminations" CenterText="true" />
 
-                <VerticalSpace Height="20" Style="grid-column: span 6;" />
+                <div style="grid-column: span 6; height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
                 @if (AsyncPlayerProfile.Settings.ShowGames)
                 {
@@ -40,20 +36,19 @@
                 }
                 else
                 {
-                    <VerticalSpace Height="10" Style="grid-column: span 6;" />
+                    <div style="grid-column: span 6; height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
                     <Label Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" Style="grid-column: span 6;" />
-                    <VerticalSpace Height="10" Style="grid-column: span 6;" />
+                    <div style="grid-column: span 6; height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
                 }
 
-                <VerticalSpace Height="20" Style="grid-column: span 6;" />
+                <div style="grid-column: span 6; height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
             </GridLayout>
 
-            <VerticalSpace Height="20" />
         }
 
-    </FlexColumnCenteredContainer>
+    </ResponsiveContainer>
 
-    <FlexColumnCenteredContainer Width="20" />
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="20" />
 
-</FlexRowContainer>
+</ResponsiveContainer>

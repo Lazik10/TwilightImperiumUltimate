@@ -2,17 +2,13 @@
 @using TwilightImperiumUltimate.Web.Components.Shared.Bars
 @using TwilightImperiumUltimate.Web.Helpers.Numbers
 
-<FlexColumnCenteredContainer Width="100">
-
-    <VerticalSpace Height="20" />
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="100">
 
     @if (_isDataLoaded && FactionsStats.Count > 0)
     {
-        <Label Text="Faction stats" FontSize="24" CenterText="true" />
+        <Label Text="Faction stats" FontSize="24" CenterText="true" CssClass="mt-md mb-md" />
 
-        <VerticalSpace Height="20" />
-
-        <FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
             <EnumPicker TEnum="FactionStatisticsFilter"
                         CurrentValue="@_selectedFactionStatisticsFilter"
                         CurrentValueChanged="OnFactionStatisticsFilterChanged"
@@ -20,9 +16,9 @@
                         Width="60"
                         CenterText="false"
                         ButtonWidth="10" />
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
 
-        <FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
             <EnumPicker TEnum="FactionStatisticsVpFilter"
                         CurrentValue="@_selectedFactionVpStatisticsFilter"
                         CurrentValueChanged="OnFactionStatisticsVpFilterChanged"
@@ -30,9 +26,9 @@
                         Width="60"
                         CenterText="false"
                         ButtonWidth="10" />
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
 
-        <FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
             <EnumPicker TEnum="FactionStatisticsSubstatsFilter"
                         CurrentValue="@_selectedFactionStatisticsSubstatsFilter"
                         ExcludeValues="@(_excludedValues)"
@@ -41,9 +37,9 @@
                         Width="60"
                         CenterText="false"
                         ButtonWidth="10" />
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
 
-        <StretchHeightContainer CssClass="background">
+        <StretchHeightContainer CssClass="background mb-xl">
 
             <GridLayout Columns="9"
                         Gap="2"
@@ -78,10 +74,10 @@
                     var background = _row % 2 == 0 ? "background" : string.Empty;
 
                     <Label />
-                    <FlexRowContainer>
+                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
                         <AsyncFactionIconImg FactionName="@faction.FactionName" Height="20" />
                         <Label Text="@faction.FactionName.GetFactionUIText(FactionResourceType.Title)" PaddingLeft="10" CssClass="@(background)" />
-                    </FlexRowContainer>
+                    </ResponsiveContainer>
 
                     if (factionStats.Games > 0)
                     {
@@ -127,17 +123,11 @@
             </GridLayout>
 
         </StretchHeightContainer>
-
-        <VerticalSpace Height="20" />
     }
     else
     {
-        <VerticalSpace Height="100" />
-        <Label Text="@Strings.Loading" FontSize="24" CenterText="true" />
-        <VerticalSpace Height="100" />
+        <Label Text="@Strings.Loading" FontSize="24" CenterText="true" CssClass="mt-3xl mb-3xl" />
     }
 
-    <VerticalSpace Height="20" />
-
-</FlexColumnCenteredContainer >
+</ResponsiveContainer>
 

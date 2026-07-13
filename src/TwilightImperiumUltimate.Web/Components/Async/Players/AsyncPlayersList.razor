@@ -1,13 +1,11 @@
 ﻿
-<VerticalSpace Height="20" />
+<div class="mt-md mb-md">
+    <AsyncPlayerSearchbar OnSearchUpdate="SearchPlayerGroup"/>
+</div>
 
-<AsyncPlayerSearchbar OnSearchUpdate="SearchPlayerGroup"/>
-
-<VerticalSpace Height="20" />
-
-<AsyncPlayerAlphabet OnLetterClick="SearchPlayerGroup" />
-
-<VerticalSpace Height="20" />
+<div class="mb-md">
+    <AsyncPlayerAlphabet OnLetterClick="SearchPlayerGroup" />
+</div>
 
 <StretchHeightContainer CssClass="background">
 
@@ -15,9 +13,7 @@
     {
         if (!GroupedPlayers().Any())
         {
-            <VerticalSpace Height="100" />
-            <Label Text="@Strings.AsyncPlayersList_NoPlayerMatch" FontSize="24" CenterText="true" TextColor="TextColor.White" />
-            <VerticalSpace Height="100" />
+            <Label Text="@Strings.AsyncPlayersList_NoPlayerMatch" FontSize="24" CenterText="true" TextColor="TextColor.White" CssClass="mt-3xl mb-3xl" />
         }
         else if (_filteredPlayerProfiles is not null && _filteredPlayerProfiles.Any())
         {
@@ -30,16 +26,12 @@
         }
         else
         {
-            <VerticalSpace Height="100" />
-            <Label Text="@Strings.AsyncPlayersList_NoPlayerMatch" FontSize="24" CenterText="true" TextColor="TextColor.White" />
-            <VerticalSpace Height="100" />
+            <Label Text="@Strings.AsyncPlayersList_NoPlayerMatch" FontSize="24" CenterText="true" TextColor="TextColor.White" CssClass="mt-3xl mb-3xl" />
         }
     }
     else
     {
-        <VerticalSpace Height="100" />
-            <Label Text="@Strings.AsyncPlayersList_NoPlayersFound" FontSize="24" CenterText="true" TextColor="TextColor.White" />
-        <VerticalSpace Height="100" />
+        <Label Text="@Strings.AsyncPlayersList_NoPlayersFound" FontSize="24" CenterText="true" TextColor="TextColor.White" CssClass="mt-3xl mb-3xl" />
     }
 
 </StretchHeightContainer>

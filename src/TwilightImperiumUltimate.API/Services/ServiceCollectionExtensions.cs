@@ -30,9 +30,10 @@ internal static class ServiceCollectionExtensions
         services.AddAuthorization();
         services.AddEndpointsApiExplorer();
         services.AddIdentityApiEndpoints<TwilightImperiumUser>(options =>
-        {
-            options.SignIn.RequireConfirmedEmail = true;
-        })
+            {
+                options.SignIn.RequireConfirmedEmail = true;
+            })
+            .AddRoles<IdentityRole>()
             .AddEntityFrameworkStores<TwilightImperiumDbContext>();
         services.AddScoped<IRoleStore<IdentityRole>, RoleStore<IdentityRole, TwilightImperiumDbContext>>();
         services.AddScoped<IUserStore<TwilightImperiumUser>, UserStore<TwilightImperiumUser, IdentityRole, TwilightImperiumDbContext>>();

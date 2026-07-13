@@ -59,11 +59,25 @@ public partial class ResponsiveForm : IDisposable
     public string Gap { get; set; } = "var(--space-lg)";
 
     /// <summary>
-    /// Gets or sets a value indicating whether a validation summary is shown above the fields
-    /// once the form has failed validation.
+    /// Gets or sets whether a single-column form (<see cref="Columns"/> == 1) is constrained to
+    /// the narrow `responsive-narrow-column` max-width (28rem) used by short account forms like
+    /// login/register. Set to false for content-heavy single-column forms (e.g. a title/body
+    /// article editor) that should stretch to the full available width instead.
     /// </summary>
     [Parameter]
-    public bool ShowValidationSummary { get; set; } = true;
+    public bool NarrowColumn { get; set; } = true;
+
+    /// <summary>
+    /// Gets or sets how validation errors are surfaced: as per-field messages next to each
+    /// <see cref="ResponsiveFormField{TValue}"/> (<see cref="Enums.ValidationDisplay.Field"/>,
+    /// the default), as a single summary list above the submit button
+    /// (<see cref="Enums.ValidationDisplay.Summary"/>), or not at all
+    /// (<see cref="Enums.ValidationDisplay.None"/>). Cascaded to child
+    /// <see cref="ResponsiveFormField{TValue}"/> instances so they know whether to render their
+    /// own <see cref="Microsoft.AspNetCore.Components.Forms.ValidationMessage{TValue}"/>.
+    /// </summary>
+    [Parameter]
+    public Enums.ValidationDisplay ValidationDisplay { get; set; } = Enums.ValidationDisplay.Field;
 
     /// <summary>
     /// Gets or sets a value indicating whether the form is currently submitting. While true, the
@@ -132,7 +146,7 @@ public partial class ResponsiveForm : IDisposable
     }
 
     private string GetGridCssClass() =>
-        Columns == 1 ? "responsive-form-grid responsive-narrow-column" : "responsive-form-grid";
+        Columns == 1 && NarrowColumn ? "responsive-form-grid responsive-narrow-column" : "responsive-form-grid";
 
     private async Task HandleValidSubmit(EditContext context)
     {

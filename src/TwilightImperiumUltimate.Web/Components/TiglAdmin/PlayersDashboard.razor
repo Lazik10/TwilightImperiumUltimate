@@ -3,19 +3,17 @@
 @using Radzen
 @using TwilightImperiumUltimate.Web.Helpers.Enums
 
-<FlexColumnCenteredContainer>
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mb-xl">
 
-    <VerticalSpace Height="20" />
-    <Label Text="@Strings.TiglAdmin_PlayersAdministration" FontSize="32" CenterText="true" />
-    <VerticalSpace Height="20" />
+    <Label Text="@Strings.TiglAdmin_PlayersAdministration" FontSize="32" CenterText="true" CssClass="mt-md mb-md" />
 
     <GridLayout Columns="8" CssClass="handel background">
-        <VerticalSpace Height="20" CssClass="span-8" />
+        <div class="span-8" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
         <Label Text="Find Player" CenterText="true" TextColor="TextColor.Green" FontSize="24" CssClass="span-8" />
-        <VerticalSpace Height="20" CssClass="span-8" />
+        <div class="span-8" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
-        <FlexColumnCenteredContainer CssClass="span-8">
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="span-8">
             <Label Text="By TIGL Name:" TextColor="TextColor.Yellow" Width="50" />
             <RadzenDropDown Data="@_users"
                             TValue="int"
@@ -26,9 +24,8 @@
                             FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
                             Placeholder="Type TIGL Name..."
                             Change="@(async (object? v) => { if (v is int id) await OnUserSelected(id); })"
-                            Style="width: 50%;" />
-
-            <VerticalSpace Height="20" />
+                            Style="width: 50%;"
+                            class="mb-md" />
 
             <Label Text="By Discord Name:" TextColor="TextColor.Yellow" Width="50" />
             <RadzenDropDown Data="@_users"
@@ -41,31 +38,29 @@
                             Placeholder="Type Discord Tag..."
                             Change="@(async (object? v) => { if (v is int id) await OnUserSelected(id); })"
                             Style="width: 50%;" />
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
 
-        <VerticalSpace Height="40" CssClass="span-8" />
+        <div class="span-8" style="height: clamp(1.25rem, 1.25rem + 1vw, 2.5rem);"></div>
     </GridLayout>
 
     @if (_selectedUser is not null && !_loading)
     {
-        <VerticalSpace Height="30" />
-
-        <GridLayout Columns="8" CssClass="handel white shadow background">
-            <VerticalSpace Height="20" CssClass="span-8" />
+        <GridLayout Columns="8" CssClass="handel white shadow background mt-xl">
+            <div class="span-8" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
             <Label Text="Player Overview" CenterText="true" TextColor="TextColor.Green" FontSize="24" CssClass="span-8" />
-            <VerticalSpace Height="20" CssClass="span-8" />
+            <div class="span-8" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
             @if (_userOverview is not null)
             {
                 <Label Text="Prophecy of Kings" CenterText="true" TextColor="TextColor.Yellow" CssClass="span-8" />
                 <Label Text="@GetLeagueRank(_userOverview, TiglLeague.ProphecyOfKings)" TextColor="@(GetLeagueRankTextColor(_userOverview, TiglLeague.ProphecyOfKings))" CenterText="true" CssClass="span-8" FontSize="24" />
 
-                <VerticalSpace Height="10" CssClass="span-8" />
+                <div class="span-8" style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
 
                 <Label Text="Thunders Edge" CenterText="true" TextColor="TextColor.Yellow" CssClass="span-8" />
                 <Label Text="@GetLeagueRank(_userOverview, TiglLeague.ThundersEdge)" TextColor="@(GetLeagueRankTextColor(_userOverview, TiglLeague.ThundersEdge))" CenterText="true" CssClass="span-8" FontSize="24" />
 
-                <VerticalSpace Height="10" CssClass="span-8" />
+                <div class="span-8" style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
 
                 <Label Text="Fractured" CenterText="true" TextColor="TextColor.Yellow" CssClass="span-8" />
                 <Label Text="@GetLeagueRank(_userOverview, TiglLeague.Fractured)" TextColor="@(GetLeagueRankTextColor(_userOverview, TiglLeague.Fractured))" CenterText="true" CssClass="span-8" FontSize="24" />
@@ -75,17 +70,13 @@
                 <Label Text="...Loading overview..." CenterText="true" CssClass="span-8" />
             }
 
-            <VerticalSpace Height="20" CssClass="span-8" />
+            <div class="span-8" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
         </GridLayout>
 
-        <VerticalSpace Height="40" />
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="background mt-xl">
+            <Label Text="League" CenterText="true" TextColor="TextColor.Green" FontSize="24" CssClass="mb-md" />
 
-        <FlexColumnCenteredContainer CssClass="background">
-            <VerticalSpace Height="20" />
-            <Label Text="League" CenterText="true" TextColor="TextColor.Green" FontSize="24" />
-            <VerticalSpace Height="20" CssClass="span-8" />
-
-            <FlexColumnCenteredContainer Width="50">
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="50" CssClass="mb-md">
                 <EnumPicker Label="League"
                             CenterText="true"
                             TEnum="TiglLeague"
@@ -93,119 +84,111 @@
                             CurrentValueChanged="ChangeLeague"
                             Width="100"
                             ExcludeValues="new List<TiglLeague>() { TiglLeague.Test }"/>
-            </FlexColumnCenteredContainer>
+            </ResponsiveContainer>
 
-            <VerticalSpace Height="20" />
+        </ResponsiveContainer>
 
-        </FlexColumnCenteredContainer>
-
-        <VerticalSpace Height="20" />
-
-        <GridLayout Columns="8" CssClass="handel white shadow background">
-            <VerticalSpace Height="20" CssClass="span-8" />
+        <GridLayout Columns="8" CssClass="handel white shadow background mt-md">
+            <div class="span-8" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
             <Label Text="Rank History" CenterText="true" TextColor="TextColor.Yellow" FontSize="24" CssClass="span-8" />
-            <VerticalSpace Height="40" CssClass="span-8" />
+            <div class="span-8" style="height: clamp(1.25rem, 1.25rem + 1vw, 2.5rem);"></div>
 
             @if (_rankHistory.Count == 0)
             {
                 <Label Text="No rank history found for this user." CenterText="true" CssClass="span-8" />
-                <VerticalSpace Height="20" CssClass="span-8" />
+                <div class="span-8" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
             }
             else
             {
                 @foreach (var r in _rankHistory.Where(x => x.League == _selectedLeague).OrderBy(x => x.AchievedAt))
                 {
                     <Label />
-                    <FlexRowContainer CssClass="span-6" JustifyContent="Enums.JustifyContent.Center">
+                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="span-6" JustifyContent="Enums.JustifyContent.Center">
                         <Label Text="@r.Rank.GetDisplayName()" Width="40" TextColor="@(r.Rank.GetRankColor())" />
                         <Label Text="@FormatTimestamp(r.AchievedAt)" Width="40" CenterText="true" />
                         <TextButton Text="Remove" TextColor="TextColor.Red" Width="20" OnClick="async () => await RemoveRankHistoryAsync(r)" />
-                    </FlexRowContainer>
+                    </ResponsiveContainer>
                     <Label />
 
-                    <VerticalSpace Height="10" CssClass="span-8" />
+                    <div class="span-8" style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
                 }
             }
 
-            <VerticalSpace Height="40" CssClass="span-8" />
+            <div class="span-8" style="height: clamp(1.25rem, 1.25rem + 1vw, 2.5rem);"></div>
 
             <Label Text="Add Rank" CenterText="true" TextColor="TextColor.Yellow" CssClass="span-8" />
 
-            <VerticalSpace Height="10" CssClass="span-8" />
+            <div class="span-8" style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
 
-            <FlexRowContainer CssClass="span-3">
+            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="span-3">
                 <EnumPicker TEnum="TiglRankName" Label="Rank" LabelWidth="30" CurrentValue="@_newRankName" CurrentValueChanged="(TiglRankName v) => _newRankName = v" ExcludeValues="ExcludedRanksForLeague" />
-            </FlexRowContainer>
+            </ResponsiveContainer>
 
             <Label Text="Date" CenterText="true" />
 
-            <FlexRowContainer CssClass="span-2">
+            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="span-2">
                 <RadzenDatePicker @bind-Value="_newRankDate" Style="width: 100%;" />
-            </FlexRowContainer>
+            </ResponsiveContainer>
 
-            <FlexColumnCenteredContainer CssClass="span-2">
-                <Button ButtonText="Add" OnClick="async () => await AddRankHistoryAsync()" Width="80" />
-            </FlexColumnCenteredContainer>
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="span-2">
+                <ResponsiveButton ButtonText="Add" OnClick="async () => await AddRankHistoryAsync()" Width="80" />
+            </ResponsiveContainer>
 
-            <VerticalSpace Height="20" CssClass="span-8" />
+            <div class="span-8" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
         </GridLayout>
 
-        <VerticalSpace Height="30" />
-
-        <GridLayout Columns="8" CssClass="handel white background">
-            <VerticalSpace Height="20" CssClass="span-8" />
+        <GridLayout Columns="8" CssClass="handel white background mt-xl">
+            <div class="span-8" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
             <Label Text="Prestige Rank History" CenterText="true" TextColor="TextColor.Yellow" FontSize="24" CssClass="span-8" />
-            <VerticalSpace Height="40" CssClass="span-8" />
+            <div class="span-8" style="height: clamp(1.25rem, 1.25rem + 1vw, 2.5rem);"></div>
 
             @if (_prestigeHistory.Count == 0)
             {
                 <Label Text="No prestige rank history found for this user." CenterText="true" CssClass="span-8" />
-                <VerticalSpace Height="20" />
+                <div style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
             }
             else
             {
                 @foreach (var p in _prestigeHistory.Where(x => x.League == _selectedLeague).OrderByDescending(x => x.AchievedAt))
                 {
-                    <FlexRowContainer CssClass="span-8" JustifyContent="Enums.JustifyContent.Center">
+                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="span-8" JustifyContent="Enums.JustifyContent.Center">
                         <Label Text="@p.PrestigeRank.GetDisplayName()" Width="30" />
                         <Label Text="@p.Level.ToString()" Width="10" CenterText="true" />
                         <Label Text="@FormatTimestamp(p.AchievedAt)" Width="30" />
                         <TextButton Text="Remove" TextColor="TextColor.Red" Width="20" OnClick="async () => await RemovePrestigeRankAsync(p)" />
-                    </FlexRowContainer>
+                    </ResponsiveContainer>
 
-                    <VerticalSpace Height="10" CssClass="span-8" />
+                    <div class="span-8" style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
                 }
             }
 
-            <VerticalSpace Height="30" CssClass="span-8" />
+            <div class="span-8" style="height: clamp(0.938rem, 0.938rem + 1vw, 1.875rem);"></div>
 
             <Label Text="Add Prestige Rank" CenterText="true" TextColor="TextColor.Yellow" CssClass="span-8" />
-            <VerticalSpace Height="10" CssClass="span-8" />
+            <div class="span-8" style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
 
-            <FlexRowContainer CssClass="span-8" JustifyContent="Enums.JustifyContent.Center">
-                <FlexColumnCenteredContainer Width="30">
+            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="span-8" JustifyContent="Enums.JustifyContent.Center">
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="30">
                     <RadzenDropDown Data="@_prestigeRankOptions"
                                     TValue="TiglPrestigeRank"
                                     ValueProperty="Value"
                                     TextProperty="Text"
                                     @bind-Value="_newPrestigeRank"
                                     Style="width:80%; color: black;" />
-                </FlexColumnCenteredContainer>
+                </ResponsiveContainer>
                 <Label Text="Level" Width="10" CenterText="true" />
                 <RadzenNumeric style="width:10%" @bind-Value="_newPrestigeLevel" Min="0" Max="7" />
                 <Label Text="Date" Width="10" CenterText="true" />
-                <FlexColumnCenteredContainer Width="20">
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="20">
                     <RadzenDatePicker @bind-Value="_newPrestigeRankDate" Style="width: 90%;" />
-                </FlexColumnCenteredContainer>
-                <FlexColumnCenteredContainer Width="30">
-                    <Button ButtonText="Add" OnClick="async () => await AddPrestigeRankAsync()" Width="80" />
-                </FlexColumnCenteredContainer>
-            </FlexRowContainer>
+                </ResponsiveContainer>
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="30">
+                    <ResponsiveButton ButtonText="Add" OnClick="async () => await AddPrestigeRankAsync()" Width="80" />
+                </ResponsiveContainer>
+            </ResponsiveContainer>
 
-            <VerticalSpace Height="20" CssClass="span-8" />
+            <div class="span-8" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
         </GridLayout>
     }
 
-    <VerticalSpace Height="40" />
-
-</FlexColumnCenteredContainer>
+</ResponsiveContainer>

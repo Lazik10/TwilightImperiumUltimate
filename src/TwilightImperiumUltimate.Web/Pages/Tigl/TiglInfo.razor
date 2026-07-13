@@ -5,19 +5,15 @@
 <Page>
     <StretchHeightContainer CssClass="background">
 
-    <FlexColumnContainer>
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column">
 
-        <Title Text="What is TIGL?" />
+        <Title Text="What is TIGL?" CssClass="mb-xl" />
 
-        <VerticalSpace Height="40" />
-
-        <Label Text="Twiligt Imperium Global League" CenterText="true" FontSize="28" TextColor="TextColor.Yellow" />
-
-        <VerticalSpace Height="40" />
+        <Label Text="Twiligt Imperium Global League" CenterText="true" FontSize="28" TextColor="TextColor.Yellow" CssClass="mb-xl" />
 
         <Title Text="Overview" FontSize="_sectionFontSize" />
 
-        <FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
             <div class="info-content handel white shadow">
                 <p>
                     TIGL is a fun way to get bonuses and bragging rights for winning competitive games of Twilight Imperium.
@@ -45,11 +41,11 @@
                     BLT or ping the <strong>@@TIGL Admin</strong> role.
                 </p>
             </div>
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
 
         <Title Text="TIGL" FontSize="_sectionFontSize" />
 
-        <FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
             <div class="info-content handel white shadow">
                 <p>
                     The Twilight Imperium Global League (TIGL) was founded by BigAlCupaChino as a larger effort to track competitive TI.
@@ -65,11 +61,11 @@
                     even if ranks are all you really care about.
                 </p>
             </div>
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
 
         <Title Text="Code of Conduct" FontSize="_sectionFontSize" />
 
-        <FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
             <div class="info-content handel white shadow">
                 <h3>Summary</h3>
                 <p>
@@ -116,11 +112,11 @@
                     <li>By signing up for league you agree to have your discord name [and discord tag/id] and your match results being made public.</li>
                 </ol>
             </div>
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
 
         <Title Text="How Do I Get Started?" FontSize="_sectionFontSize" />
 
-        <FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
             <div class="info-content handel white shadow">
 
                 <Title Text="Do I need to sign up for TIGL first?" FontSize="_sectionFontSize" />
@@ -162,11 +158,11 @@
                     Be aware that some games may be looking for people at a certain rank or higher to ensure the winner can rank up.
                 </p>
             </div>
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
 
         <Title Text="What's Allowed in Our Games?" FontSize="_sectionFontSize" />
 
-        <FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
             <div class="info-content handel white shadow">
                 <p>
                     TIGL was originally designed to be very standardized — no homebrew, 10 points every game, a very strict ruleset.
@@ -183,20 +179,16 @@
                     that a standardized way to play competitive TI still exists.
                 </p>
             </div>
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
 
-        <FlexColumnCenteredContainer>
-            <Button ButtonText="Register" OnClick="NavigateToRegister" Width="25" />
-            <VerticalSpace Height="20" />
-            <Button ButtonText="Report Game" OnClick="NavigateToReportGame" Width="25" />
-            <VerticalSpace Height="20" />
-            <Button ButtonText="Join Discord" OnClick="NavigateToDiscord" Width="25" />
-            <VerticalSpace Height="20" />
-            <Button ButtonText="TIGL Manifest" OnClick="NavigateToManifest" Width="25" />
-            <VerticalSpace Height="20" />
-        </FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+            <ResponsiveButton ButtonText="Register" OnClick="NavigateToRegister" Width="25" CssClass="mb-md" />
+            <ResponsiveButton ButtonText="Report Game" OnClick="NavigateToReportGame" Width="25" CssClass="mb-md" />
+            <ResponsiveButton ButtonText="Join Discord" OnClick="NavigateToDiscord" Width="25" CssClass="mb-md" />
+            <ResponsiveButton ButtonText="TIGL Manifest" OnClick="NavigateToManifest" Width="25" CssClass="mb-md" />
+        </ResponsiveContainer>
 
-    </FlexColumnContainer>
+    </ResponsiveContainer>
 
     </StretchHeightContainer>
 </Page>

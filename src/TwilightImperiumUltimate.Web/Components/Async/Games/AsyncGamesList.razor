@@ -1,20 +1,16 @@
-﻿<FlexColumnContainer AlignItems="Enums.AlignItems.FlexStart" >
+﻿<ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column" AlignItems="Enums.AlignItems.FlexStart">
 
-    <VerticalSpace Height="15" />
+    <GridLayout Style="grid-template-columns: 20% 80%" CssClass="mt-md" >
 
-    <GridLayout Style="grid-template-columns: 20% 80%" >
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column" CssClass="background" Style="height: 100%">
 
-        <FlexColumnContainer CssClass="background" Style="height: 100%">
+            <Label Text="Date" CenterText="true" TextColor="TextColor.Yellow" CssClass="mt-md mb-xs" />
 
-            <VerticalSpace Height="15" />
-            <Label Text="Date" CenterText="true" TextColor="TextColor.Yellow" />
-            <VerticalSpace Height="5" />
-
-        </FlexColumnContainer>
+        </ResponsiveContainer>
 
         <GridLayout Gap="5" CssClass="background" Style="grid-template-columns: 20% 40% 7% 10% 17%; min-height: 100%;" Width="100">
 
-            <VerticalSpace Height="15" Style="grid-column: span 5;" />
+            <div style="grid-column: span 5; height: clamp(0.469rem, 0.469rem + 1vw, 0.938rem);"></div>
 
             <Label Text="@Strings.AsyncPlayer_GamesStatsGame" FontSize="18" TextColor="TextColor.Yellow" />
             <Label Text="@Strings.AsyncPlayer_GamesStatsFunGame" FontSize="18" TextColor="TextColor.Yellow" />
@@ -22,7 +18,7 @@
             <Label Text="@Strings.AsyncPlayer_GamesStatsPlayerCount" FontSize="18" CenterText="true" TextColor="TextColor.Yellow" />
             <Label Text="@Strings.AsyncPlayer_GamesStatsDuration" FontSize="18" TextColor="TextColor.Yellow" />
 
-            <VerticalSpace Height="5" Style="grid-column: span 5;" />
+            <div style="grid-column: span 5; height: clamp(0.156rem, 0.156rem + 1vw, 0.313rem);"></div>
 
         </GridLayout>
 
@@ -39,7 +35,7 @@
 
             <GridLayout Gap="5" Style="grid-template-rows: auto; grid-template-columns: 20% 40% 7% 10% 17%; align-items: start; justify-items: start; height: auto; min-height: 0;" AlignItems="start" Width="100">
 
-                <VerticalSpace Height="10" Style="grid-column: span 5;" />
+                <div style="grid-column: span 5; height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
 
                 @if (_isLoaded)
                 {
@@ -52,13 +48,13 @@
                         <Label Text="@GetDurationTime(game)" FontSize="14" />
                     }
 
-                    <VerticalSpace Height="20" Style="grid-column: span 5;" />
+                    <div style="grid-column: span 5; height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
                 }
                 else
                 {
-                    <VerticalSpace Height="100" Style="grid-column: span 5; max-height: 50px;" />
+                    <div style="grid-column: span 5; height: clamp(3.125rem, 3.125rem + 1vw, 6.25rem); max-height: 50px;"></div>
                     <Label Text="@Strings.Loading" CenterText="true" FontSize="20" Style="grid-column: span 5; align-self:flex-start !important; justify-self:  flex-start !important;" />
-                    <VerticalSpace Height="100" Style="grid-column: span 5;" />
+                    <div style="grid-column: span 5; height: clamp(3.125rem, 3.125rem + 1vw, 6.25rem);"></div>
                 }
 
             </GridLayout>
@@ -67,4 +63,4 @@
 
     </GridLayout>
 
-</FlexColumnContainer>
+</ResponsiveContainer>

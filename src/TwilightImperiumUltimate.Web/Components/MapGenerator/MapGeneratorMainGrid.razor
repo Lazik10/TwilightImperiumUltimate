@@ -21,31 +21,27 @@
             <MapQuickMenu OnMenuIconClick="HandleMenuIconClick" />
         </CascadingValue>
 
-        <FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-md">
 
-            <VerticalSpace Height="20" />
-
-            <Button @onclick="GenerateMap" ButtonText="@Strings.MapGenerator_GenerateMap" />
+            <ResponsiveButton OnClick="GenerateMap" ButtonText="@Strings.MapGenerator_GenerateMap" Width="30" />
 
             <StretchHeightContainer>
-                <FlexColumnCenteredContainer>
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                     <div id="mapArea" style="width: @(MapGeneratorSettingsService.MapScale)%">
                         @DynamicComponent
-                        <VerticalSpace Height="150" />
+                        <div style="height: clamp(4.688rem, 4.688rem + 1vw, 9.375rem);"></div>
                     </div>
-                </FlexColumnCenteredContainer>
+                </ResponsiveContainer>
             </StretchHeightContainer>
             <StretchHeightContainer>
             </StretchHeightContainer>
 
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
     }
 
     @if (_selectedSegment == MapGeneratorMenuItem.Settings)
     {
-        <VerticalSpace Height="50" />
-
-        <FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-2xl">
             <GridLayout Columns="2" Gap="40" Width="80" >
                 <YesNoPicker Title="@Strings.MapGeneratorSettings_EnableFactionPick"
                                 DefaultValue="MapGeneratorSettingsService.EnableFactionPick"
@@ -53,46 +49,42 @@
                                 FontSize="18"
                                 OnValueChange="ToggleFactionPick" />
 
-                <NumericPicker Title="@Strings.MapGeneratorSettings_MapScale"
+                <ResponsiveNumericPicker Label="@Strings.MapGeneratorSettings_MapScale"
                                 Value="@MapGeneratorSettingsService.MapScale"
                                 OnDecrease="DecreaseMapScale"
                                 OnIncrease="IncreaseMapScale"
                                 Width="100"
-                                FontSize="18"
-                                CenteredText="false" />
+                                FontSize="md"
+                                CenterLabel="false" />
             </GridLayout>
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
 
         if (MapGeneratorSettingsService.EnableFactionPick)
         {
-            <VerticalSpace Height="20" />
-
-            <FactionIconRow 
-                ShowDiscordantStars="true" 
-                EnableBanMode="true"
-                ProvidedFactions="MapGeneratorSettingsService.FactionsForMapGenerator"
-                OnFactionClickGetFaction="HandleFactionClick" 
-                @ref="factionIconRowRef"/>
+            <div class="mt-md">
+                <FactionIconRow 
+                    ShowDiscordantStars="true" 
+                    EnableBanMode="true"
+                    ProvidedFactions="MapGeneratorSettingsService.FactionsForMapGenerator"
+                    OnFactionClickGetFaction="HandleFactionClick" 
+                    @ref="factionIconRowRef"/>
+            </div>
 
             <GameVersionPicker OnVersionSelected="HandleGameVersionClick" />
         }
 
-        <VerticalSpace Height="50" />
-
-        <MapGeneratorSettings 
-            OnSelectedTemplateChange="UpdateMapTemplate"
-            OnSelectedSystemTileOverlayChange="UpdateMapOverlay" />
+        <div class="mt-2xl">
+            <MapGeneratorSettings 
+                OnSelectedTemplateChange="UpdateMapTemplate"
+                OnSelectedSystemTileOverlayChange="UpdateMapOverlay" />
+        </div>
     }
 
     @if (_selectedSegment == MapGeneratorMenuItem.MapEvaluation)
     {
-        <VerticalSpace Height="20" />
-
-        <FlexColumnCenteredContainer>
-            <Button @onclick="GenerateMap" ButtonText="@Strings.MapGenerator_GenerateMap" />
-        </FlexColumnCenteredContainer>
-
-        <VerticalSpace Height="20" />
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-md mb-md">
+            <ResponsiveButton OnClick="GenerateMap" ButtonText="@Strings.MapGenerator_GenerateMap" Width="30" />
+        </ResponsiveContainer>
 
         <MapEvaluation MapEvaluations="MapEvaluations"/>
     }

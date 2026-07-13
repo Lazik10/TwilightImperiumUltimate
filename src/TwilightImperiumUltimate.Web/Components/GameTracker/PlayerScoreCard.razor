@@ -3,7 +3,7 @@
 
 <ClickableTile CssClass="@GetPassStatus()" Style="width: 100%;" OnClick="ActivatePlayer">
 
-    <GridLayout Columns="5" Gap="0" Style="@(Border)">
+    <GridLayout Columns="5" Gap="0" Style="@(Border)" CssClass="mb-xs">
 
         <img src="@(StrategyCardPath)" 
             style="max-height: 100px;" 
@@ -11,33 +11,31 @@
             @onclick="StrategyCardClick" 
             @onclick:stopPropagation="true" />
 
-        <FlexRowContainer Style="grid-column: span 2;">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Style="grid-column: span 2;">
             <FactionIconImg FactionName="@Player.FactionName" Height="80" />
-            <FlexColumnCenteredContainer>
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                 <Label Text="@Player.Name" CenterText="true" FontSize="24" TextColor="@Player.PlayerColor.GetTextColor(true)" />
                 <Label Text="@Player.FactionName.GetFactionUIText(FactionResourceType.Title)" CenterText="true" FontSize="18" TextColor="@Player.PlayerColor.GetTextColor(true)" />
-            </FlexColumnCenteredContainer>
-        </FlexRowContainer>
+            </ResponsiveContainer>
+        </ResponsiveContainer>
 
-        <FlexRowContainer>
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
             <Label Text="@Player.ElapsedTime.ToString()" TextColor="@Player.PlayerColor.GetTextColor(true)" CenterText="true" />
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
-        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" >
-            <FlexColumnContainer Width="40">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" >
+            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column" Width="40">
                 <Label Text="@GetPlayerScoreBreakdown(ScoreType.StageOne)" FontSize="14" TextColor="@Player.PlayerColor.GetTextColor(true)" />
                 <Label Text="@GetPlayerScoreBreakdown(ScoreType.StageTwo)"  FontSize="14" TextColor="@Player.PlayerColor.GetTextColor(true)" />
                 <Label Text="@GetPlayerScoreBreakdown(ScoreType.Secret)" FontSize="14" TextColor="@Player.PlayerColor.GetTextColor(true)" />
                 <Label Text="@GetPlayerScoreBreakdown(ScoreType.Bonus)" FontSize="14" TextColor="@Player.PlayerColor.GetTextColor(true)" />
-            </FlexColumnContainer>
+            </ResponsiveContainer>
 
-            <FlexColumnCenteredContainer Width="60">
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="60">
                 <Label Text="@Player.Score.ToString()" CenterText="true" FontSize="56" TextColor="@Player.PlayerColor.GetTextColor(true)" />
-            </FlexColumnCenteredContainer>
-        </FlexRowContainer>
+            </ResponsiveContainer>
+        </ResponsiveContainer>
     </GridLayout>
-    
-    <VerticalSpace Height="5" />
 
 </ClickableTile>
 

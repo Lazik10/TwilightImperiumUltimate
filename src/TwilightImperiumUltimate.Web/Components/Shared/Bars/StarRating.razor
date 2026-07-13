@@ -9,7 +9,7 @@
     </defs>
 </svg>
 
-<FlexRowContainer JustifyContent="Enums.JustifyContent.SpaceAround" >
+<ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.SpaceAround" >
     <Label Text="@Rating.ToString(NumberFormat)" Width="15"/>
 
     @if (IsReadOnly)
@@ -162,4 +162,4 @@
                 </label>
         </div>
     }
-</FlexRowContainer>
+</ResponsiveContainer>

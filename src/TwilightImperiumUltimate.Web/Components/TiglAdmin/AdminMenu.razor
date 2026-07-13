@@ -1,6 +1,6 @@
-<FlexColumnCenteredContainer>
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
     <div class="tigl-admin-navbar">
-        <FlexRowContainer Width="100" JustifyContent="Enums.JustifyContent.SpaceEvenly">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="100" JustifyContent="Enums.JustifyContent.SpaceEvenly">
             <TabNavItem Width="20%" OnClick="() => OnMenuItemClick.InvokeAsync(AdminMenuItem.Parameters)">
                 <ResponsiveLabel Text="Parameters" CenterText="true" FontSize="base" />
             </TabNavItem>
@@ -16,6 +16,6 @@
             <TabNavItem Width="20%" OnClick="() => OnMenuItemClick.InvokeAsync(AdminMenuItem.Games)">
                 <ResponsiveLabel Text="Games" CenterText="true" FontSize="base" />
             </TabNavItem>
-        </FlexRowContainer>
+        </ResponsiveContainer>
     </div>
-</FlexColumnCenteredContainer>
+</ResponsiveContainer>

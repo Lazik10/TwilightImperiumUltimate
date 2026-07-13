@@ -96,6 +96,14 @@
     --color-nav-hover-bg-solid: rgb(18, 57, 87);
     --color-nav-default-bg: rgba(0, 0, 0, 0.7);
     --color-nav-panel-bg: rgb(8, 14, 24);
+
+    /* Danger/destructive action state (e.g. ResponsiveDangerButton) -- same darker-to-lighter
+       hover behavior as the nav palette above, just in red. Hover TEXT uses a lighter red (rather
+       than the deeper danger reds above) so it stays readable against the lighter hover
+       background instead of red-on-red. */
+    --color-danger-bg-solid: rgb(90, 20, 20);
+    --color-danger-hover-bg-solid: rgb(150, 30, 30);
+    --color-danger-hover-text: #ff8080;
     
     /* Layout */
     --max-content-width: 1920px;
@@ -260,6 +268,12 @@ body {
 .rz-dropdown-panel .rz-dropdown-item span,
 .rz-dropdown-items .rz-dropdown-item,
 .rz-dropdown-items .rz-dropdown-item span {
+    font-family: Handel, fallback, sans-serif !important;
+}
+
+/* Same as above but for RadzenAutoComplete's popup (used by ResponsiveAutocomplete). */
+.rz-autocomplete-panel .rz-autocomplete-list-item,
+.rz-autocomplete-panel .rz-autocomplete-list-item span {
     font-family: Handel, fallback, sans-serif !important;
 }
 

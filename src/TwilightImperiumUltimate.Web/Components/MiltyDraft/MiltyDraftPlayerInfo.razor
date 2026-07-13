@@ -1,34 +1,24 @@
 ﻿@using TwilightImperiumUltimate.Web.Helpers.Enums
 
-<div class="handel white shadow background" style="width: 100%; height: 100%; display: flex; align-content: center; justify-content: center; flex-direction: column;">
+<div class="handel white shadow background mt-sm" style="width: 100%; height: 100%; display: flex; align-content: center; justify-content: center; flex-direction: column;">
 
-    <VerticalSpace Height="10" />
-
-    <FlexRowContainer>
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="mb-md">
         <Label Text="@GetPlayerName()" TextColor="@TextColor" CenterText="true" FontSize="36"/>
-    </FlexRowContainer>
+    </ResponsiveContainer>
 
-    <VerticalSpace Height="20" />
-
-    <FlexRowContainer>
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="mb-sm">
         <Label Text="@Strings.MiltyDraft_PlayerFaction" TextColor="@TextColor" PaddingLeft="10" FontSize="18" />
         <Label Text="@GetFactionText()" TextColor="@TextColor" FontSize="18" />
-    </FlexRowContainer>
+    </ResponsiveContainer>
 
-    <VerticalSpace Height="10" />
-
-    <FlexRowContainer>
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="mb-sm">
         <Label Text="@Strings.MiltyDraft_PlayerInitiative" TextColor="@TextColor" PaddingLeft="10" FontSize="18" />
         <Label Text="@GetInitiativeText()" TextColor="@TextColor" FontSize="18" />
-    </FlexRowContainer>
+    </ResponsiveContainer>
 
-    <VerticalSpace Height="10" />
-
-    <FlexRowContainer>
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="mb-sm">
         <Label Text="@Strings.MiltyDraft_PlayerSliceId" TextColor="@TextColor" PaddingLeft="10" FontSize="18"/>
         <Label Text="@GetSliceId()" TextColor="@TextColor" FontSize="18"/>
-    </FlexRowContainer>
-
-    <VerticalSpace Height="10" />
+    </ResponsiveContainer>
 
 </div>

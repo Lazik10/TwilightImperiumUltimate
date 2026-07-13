@@ -1,0 +1,26 @@
+/*
+    app.css already makes Radzen dropdown POPUP items use Handel (they're rendered in a global
+    popup container, so that has to be done globally there -- see the comment next to
+    `.rz-dropdown-panel .rz-dropdown-item` in app.css). The closed dropdown's own selected-value
+    display, however, stays in the normal component DOM tree (no portal), so it can be reached
+    from here. The "handel" utility class alone (applied in ComputedCssClass) isn't enough: Radzen
+    renders the selected text inside a nested element that doesn't inherit font-family the way a
+    plain <div>/<span> would.
+*/
+::deep .rz-dropdown,
+::deep .rz-dropdown .rz-inputtext,
+::deep .rz-dropdown input {
+    font-family: Handel, fallback, sans-serif;
+}
+
+/*
+    .rz-dropdown is `display: inline-flex; flex-direction: column;` with its selected-value label
+    (.rz-dropdown-label) as the sole flex item. Radzen's default label padding/line-height is
+    tuned for its own default --rz-input-height; our `.responsive-input-height` utility overrides
+    that to a taller 3rem, but the label's own height still just matches its text content, so a
+    column flex container's default `justify-content: flex-start` leaves the extra height as
+    blank space BELOW the label instead of centering it -- the label visually sits too high.
+*/
+::deep .rz-dropdown {
+    justify-content: center;
+}

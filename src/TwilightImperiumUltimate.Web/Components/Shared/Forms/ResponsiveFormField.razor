@@ -21,7 +21,7 @@
 
     @ChildContent
 
-    @if (For is not null)
+    @if (For is not null && ShowFieldValidationMessage)
     {
         <ValidationMessage For="@For" id="@GetValidationMessageId()" class="responsive-form-field-error" />
     }

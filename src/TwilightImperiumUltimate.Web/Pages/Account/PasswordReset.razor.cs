@@ -66,9 +66,4 @@ public partial class PasswordReset
         _passwordResetFailed = true;
         StateHasChanged();
     }
-
-    private bool GetDisabledState()
-    {
-        return _resetingPassword;
-    }
 }

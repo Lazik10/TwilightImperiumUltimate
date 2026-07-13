@@ -2,10 +2,9 @@
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @inject IJSRuntime JSRuntime
 
-<FlexColumnCenteredContainer>
-    <div id="cardArea">
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+    <div id="cardArea" class="mb-2xl">
         @ChildContent
     </div>
-    <VerticalSpace Height="50" />
-    <Button @onclick="ExportCard" ButtonText="Download Image" />
-</FlexColumnCenteredContainer>
+    <ResponsiveButton OnClick="ExportCard" ButtonText="Download Image" Width="30" />
+</ResponsiveContainer>

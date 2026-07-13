@@ -1,18 +1,14 @@
-﻿@using TwilightImperiumUltimate.Web.Components.Shared.Shapes
-@using TwilightImperiumUltimate.Web.Components.Shared.Pagination
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Pagination
 
-<VerticalSpace Height="20" />
-<NumericPicker Title="@Strings.TiglLeaderboard_Season" FontSize="18" Value="@_selectedSeasonNumber" OnDecrease="DecreaseSeasonNumber" OnIncrease="IncreaseSeasonNumber" />
+<ResponsiveNumericPicker Label="@Strings.TiglLeaderboard_Season" FontSize="md" Value="@_selectedSeasonNumber" OnDecrease="DecreaseSeasonNumber" OnIncrease="IncreaseSeasonNumber" CssClass="mt-md" />
 
-<FlexRowContainer>
+<ResponsiveContainer Type="ContainerType.Flex" Padding="none">
     <EnumPicker Label="@Strings.TiglLeaderboard_League" TEnum="TiglLeagueFilter" CurrentValue="@_selectedLeagueFilter" CurrentValueChanged="@OnLeagueChanged" />
-</FlexRowContainer>
+</ResponsiveContainer>
 
 <EnumPicker Label="@Strings.TiglLeaderboard_RankingSystem" TEnum="RankingSystem" CurrentValue="@_selectedRankingSystem" CurrentValueChanged="@OnRankingSystemChanged" />
 
-<VerticalSpace Height="20" />
-    
-<GridLayout Columns="7" CssClass="handel white shadow" Style="grid-template-columns: 10% 20% 20% 15% 15% 10% 10%">
+<GridLayout Columns="7" CssClass="handel white shadow mt-md mb-sm" Style="grid-template-columns: 10% 20% 20% 15% 15% 10% 10%">
 
     <div class="span-7">
         <Pager TotalCount="@GetTotalFilteredCount()" PageSize="50" CurrentPage="_currentPage" CurrentPageChanged="OnPageChanged" />
@@ -20,11 +16,9 @@
 
 </GridLayout>
 
-<VerticalSpace Height="10" />
-
 <GridLayout Columns="7" CssClass="handel white shadow background" Style="grid-template-columns: 10% 20% 20% 15% 15% 10% 10%">
 
-    <VerticalSpace Height="20" CssClass="span-7"/>
+    <div class="span-7" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
     <Label Text="@Strings.TiglLeaderboard_Rank" CenterText="true" />
     <Label Text="@Strings.TiglLeaderboard_Player" />
@@ -52,27 +46,23 @@
     <Label Text="@Strings.TiglLeaderboard_GamesPlayed" CenterText="true" />
     <Label Text="@Strings.TiglLeaderboard_WinPercentage" CenterText="true" />
 
-    <VerticalSpace Height="20" CssClass="span-7" />
+    <div class="span-7" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
 </GridLayout>
 
 <GridLayout Columns="7" CssClass="handel white shadow" Style="grid-template-columns: 10% 20% 20% 15% 15% 10% 10%">
 
-    <VerticalSpace Height="10" CssClass="span-7" />
+    <div class="span-7" style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
 
-    <FlexRowContainer CssClass="span-7" JustifyContent="Enums.JustifyContent.FlexEnd" Style="justify-self: right;" Width="30">
-        <RadzenCheckBox Value="_onlyActive" ValueChanged="OnOnlyActiveChanged" TValue="bool" />
-        <HorizontalSpace Width="20" />
-        <Label Text="Only active" />
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="span-7" JustifyContent="Enums.JustifyContent.FlexEnd" Style="justify-self: right;" Width="30">
+        <RadzenCheckBox Value="_onlyActive" ValueChanged="OnOnlyActiveChanged" TValue="bool" class="mr-md" />
+        <Label Text="Only active" CssClass="mr-md" />
 
-        <HorizontalSpace Width="20" />
-
-        <RadzenCheckBox Value="_onlyConfident" ValueChanged="OnOnlyConfidentChanged" TValue="bool" />
-        <HorizontalSpace Width="20" />
+        <RadzenCheckBox Value="_onlyConfident" ValueChanged="OnOnlyConfidentChanged" TValue="bool" class="mr-md" />
         <Label Text="Only confident ratings" />
-    </FlexRowContainer>
+    </ResponsiveContainer>
 
-    <VerticalSpace Height="10" CssClass="span-7" />
+    <div class="span-7" style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
 
     @if (!_loading)
     {
@@ -110,23 +100,23 @@
 
             _placement++;
 
-            <VerticalSpace Height="10" CssClass="span-7" />
+            <div class="span-7" style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
         }
 
         _placement = 0;
 
-        <VerticalSpace Height="10" CssClass="span-7" />
+        <div class="span-7" style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
 
         <div class="span-7">
             <Pager TotalCount="@GetTotalFilteredCount()" PageSize="50" CurrentPage="_currentPage" CurrentPageChanged="OnPageChanged" />
         </div>
 
-        <VerticalSpace Height="20" CssClass="span-7" />
+        <div class="span-7" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
     }
     else
     {
-        <VerticalSpace Height="50" CssClass="span-7" />
+        <div class="span-7" style="height: clamp(1.563rem, 1.563rem + 1vw, 3.125rem);"></div>
         <Label Text="Loading" CenterText="true" CssClass="span-7" />
-        <VerticalSpace Height="50" CssClass="span-7" />
+        <div class="span-7" style="height: clamp(1.563rem, 1.563rem + 1vw, 3.125rem);"></div>
     }
 </GridLayout>

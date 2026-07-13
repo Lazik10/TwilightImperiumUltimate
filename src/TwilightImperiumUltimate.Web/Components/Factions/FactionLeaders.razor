@@ -17,81 +17,81 @@
         {
             <Label Text="The Firmament" CenterText="true" FontSize="24" CssClass="span-3" />
         }
-        <FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
             <div>@Strings.Faction_Agent</div>
             <ResponsiveVerticalSpacer CustomHeight="10px" />
             <div>@Strings.Faction_AgentRequirement</div>
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
 
-        <FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
             <div>@Strings.Faction_Commander</div>
             <ResponsiveVerticalSpacer CustomHeight="10px" />
             <div>@(Faction.FactionName.GetFactionUIText(FactionResourceType.CommanderRequirement))</div>
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
 
-        <FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
             <div>@Strings.Faction_Hero</div>
             <ResponsiveVerticalSpacer CustomHeight="10px" />
             <div>@Strings.Faction_HeroRequirement</div>
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
 
-        <FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
             <div class="margin">
                 <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.Agent))" />
             </div>
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
 
-        <FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
             <div class="margin">
                 <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.Commander))" />
             </div>
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
 
-        <FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
             <div class="margin">
                 <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.Hero))" />
             </div>
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
 
         @if (Faction.FactionName == FactionName.TheFirmamentTheObsidian)
         {
             <Label Text="The Obsidian" CenterText="true" FontSize="24" CssClass="span-3" />
 
-            <FlexColumnCenteredContainer>
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                 <div>@Strings.Faction_Agent</div>
                 <ResponsiveVerticalSpacer CustomHeight="10px" />
                 <div>@Strings.Faction_AgentRequirement</div>
-            </FlexColumnCenteredContainer>
+            </ResponsiveContainer>
 
-            <FlexColumnCenteredContainer>
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                 <div>@Strings.Faction_Commander</div>
                 <ResponsiveVerticalSpacer CustomHeight="10px" />
                 <div>@(Faction.FactionName.GetFactionUIText(FactionResourceType.CommanderRequirement))</div>
-            </FlexColumnCenteredContainer>
+            </ResponsiveContainer>
 
-            <FlexColumnCenteredContainer>
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                 <div>@Strings.Faction_Hero</div>
                 <ResponsiveVerticalSpacer CustomHeight="10px" />
                 <div>@Strings.Faction_HeroRequirement</div>
-            </FlexColumnCenteredContainer>
+            </ResponsiveContainer>
 
-            <FlexColumnCenteredContainer>
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                 <div class="margin">
                     <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.AgentObsidian))" />
                 </div>
-            </FlexColumnCenteredContainer>
+            </ResponsiveContainer>
 
-            <FlexColumnCenteredContainer>
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                 <div class="margin">
                     <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.CommanderObsidian))" />
                 </div>
-            </FlexColumnCenteredContainer>
+            </ResponsiveContainer>
 
-            <FlexColumnCenteredContainer>
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                 <div class="margin">
                     <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.HeroObsidian))" />
                 </div>
-            </FlexColumnCenteredContainer>
+            </ResponsiveContainer>
         }
     </div>
 }
@@ -101,184 +101,184 @@
 {
     <div class="handel white shadow leaders-grid">
 
-        <FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
             <div>@Strings.Faction_Agent</div>
             <div>@Strings.Faction_AgentRequirement</div>
-        </FlexColumnCenteredContainer>
-        <FlexColumnCenteredContainer>
+        </ResponsiveContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
             <div>@Strings.Faction_Agent</div>
             <div>@Strings.Faction_AgentRequirement</div>
-        </FlexColumnCenteredContainer>
-        <FlexColumnCenteredContainer>
+        </ResponsiveContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
             <div>@Strings.Faction_Agent</div>
             <div>@Strings.Faction_AgentRequirement</div>
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
 
-        <FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
             <div class="margin">
                 <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.AgentOne))" />
             </div>
-        </FlexColumnCenteredContainer>
-        <FlexColumnCenteredContainer>
+        </ResponsiveContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
             <div class="margin">
                 <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.AgentTwo))" />
             </div>
-        </FlexColumnCenteredContainer>
-        <FlexColumnCenteredContainer>
+        </ResponsiveContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
             <div class="margin">
                 <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.AgentThree))" />
             </div>
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
 
-        <FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
             <div>@Strings.Faction_Commander</div>
             <div>@(Faction.FactionName.GetFactionUIText(FactionResourceType.CommanderRequirement))</div>
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
 
         <div></div>
 
-        <FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
             <div>@Strings.Faction_Hero</div>
             <div>@Strings.Faction_HeroRequirement</div>
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
 
-        <FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
             <div class="margin">
                 <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.Commander))" />
             </div>
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
 
         <div></div>
 
-        <FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
             <div class="margin">
                 <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.Hero))" />
             </div>
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
     </div>
 }
 
 @if (Faction.FactionName == FactionName.TheCouncilKeleres)
 {
     <div class="handel white shadow">
-        <FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
 
             <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Width="66" Gap="20px">
-                <FlexColumnCenteredContainer>
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                     <div>@Strings.Faction_Agent</div>
                     <div>@Strings.Faction_AgentRequirement</div>
-                </FlexColumnCenteredContainer>
+                </ResponsiveContainer>
 
-                <FlexColumnCenteredContainer>
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                     <div>@Strings.Faction_Commander</div>
                     <div>@(Faction.FactionName.GetFactionUIText(FactionResourceType.CommanderRequirement))</div>
-                </FlexColumnCenteredContainer>
+                </ResponsiveContainer>
 
-                <FlexColumnCenteredContainer>
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                     <div class="margin">
                         <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.Agent))" />
                     </div>
-                </FlexColumnCenteredContainer>
+                </ResponsiveContainer>
 
-                <FlexColumnCenteredContainer>
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                     <div class="margin">
                         <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.Commander))" />
                     </div>
-                </FlexColumnCenteredContainer>
+                </ResponsiveContainer>
             </ResponsiveGridContainer>
 
             <ResponsiveGridContainer Columns="3" TabletColumns="2" MobileColumns="1" Width="100" Gap="20px">
-                <FlexColumnCenteredContainer>
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                     <div>@Strings.Faction_Hero</div>
                     <div>@Strings.Faction_HeroRequirement</div>
-                </FlexColumnCenteredContainer>
+                </ResponsiveContainer>
 
-                <FlexColumnCenteredContainer>
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                     <div>@Strings.Faction_Hero</div>
                     <div>@Strings.Faction_HeroRequirement</div>
-                </FlexColumnCenteredContainer>
+                </ResponsiveContainer>
 
-                <FlexColumnCenteredContainer>
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                     <div>@Strings.Faction_Hero</div>
                     <div>@Strings.Faction_HeroRequirement</div>
-                </FlexColumnCenteredContainer>
+                </ResponsiveContainer>
 
-                <FlexColumnCenteredContainer>
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                     <div class="margin">
                         <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.HeroOne))" />
                     </div>
-                </FlexColumnCenteredContainer>
+                </ResponsiveContainer>
 
-                <FlexColumnCenteredContainer>
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                     <div class="margin">
                         <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.HeroTwo))" />
                     </div>
-                </FlexColumnCenteredContainer>
+                </ResponsiveContainer>
 
-                <FlexColumnCenteredContainer>
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                     <div class="margin">
                         <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.HeroThree))" />
                     </div>
-                </FlexColumnCenteredContainer>
+                </ResponsiveContainer>
             </ResponsiveGridContainer>
 
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
     </div>
 }
 
 @if (Faction.FactionName == FactionName.TheGheminaRaiders)
 {
     <div class="handel white shadow">
-        <FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
 
             <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Width="66" Gap="20px">
-                <FlexColumnCenteredContainer>
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                     <div>@Strings.Faction_Agent</div>
                     <div>@Strings.Faction_AgentRequirement</div>
-                </FlexColumnCenteredContainer>
+                </ResponsiveContainer>
 
-                <FlexColumnCenteredContainer>
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                     <div>@Strings.Faction_Commander</div>
                     <div>@(Faction.FactionName.GetFactionUIText(FactionResourceType.CommanderRequirement))</div>
-                </FlexColumnCenteredContainer>
+                </ResponsiveContainer>
 
-                <FlexColumnCenteredContainer>
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                     <div class="margin">
                         <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.Agent))" />
                     </div>
-                </FlexColumnCenteredContainer>
+                </ResponsiveContainer>
 
-                <FlexColumnCenteredContainer>
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                     <div class="margin">
                         <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.Commander))" />
                     </div>
-                </FlexColumnCenteredContainer>
+                </ResponsiveContainer>
             </ResponsiveGridContainer>
 
             <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Width="66" Gap="20px">
-                <FlexColumnCenteredContainer>
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                     <div>@Strings.Faction_Hero</div>
                     <div>@Strings.Faction_HeroRequirement</div>
-                </FlexColumnCenteredContainer>
+                </ResponsiveContainer>
 
-                <FlexColumnCenteredContainer>
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                     <div>@Strings.Faction_Hero</div>
                     <div>@Strings.Faction_HeroRequirement</div>
-                </FlexColumnCenteredContainer>
+                </ResponsiveContainer>
 
-                <FlexColumnCenteredContainer>
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                     <div class="margin">
                         <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.HeroOne))" />
                     </div>
-                </FlexColumnCenteredContainer>
+                </ResponsiveContainer>
 
-                <FlexColumnCenteredContainer>
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                     <div class="margin">
                         <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.HeroTwo))" />
                     </div>
-                </FlexColumnCenteredContainer>
+                </ResponsiveContainer>
             </ResponsiveGridContainer>
 
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
     </div>
 }

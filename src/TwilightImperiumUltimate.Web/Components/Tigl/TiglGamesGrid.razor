@@ -3,67 +3,57 @@
 @using TwilightImperiumUltimate.Web.Helpers.Enums
 @using TwilightImperiumUltimate.Web.Components.Shared.Controls
 
-<VerticalSpace Height="20" />
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-md mb-md">
 
-<FlexColumnCenteredContainer>
-
-<NumericPicker Title="@Strings.TiglLeaderboard_Season"
-              FontSize="18"
+<ResponsiveNumericPicker Label="@Strings.TiglLeaderboard_Season"
+              FontSize="md"
               Value="@_selectedSeasonNumber"
               OnDecrease="DecreaseSeasonNumber"
               OnIncrease="IncreaseSeasonNumber"
               Width="30" />
 
-</FlexColumnCenteredContainer>
+</ResponsiveContainer>
 
-<VerticalSpace Height="20" />
-
-<FlexRowContainer>
+<ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="mb-md">
     <Label Text="@GetStandardTitle()" FontSize="24" CenterText="true" TextColor="TextColor.Yellow" />
     <Label Text="@GetFracturedTitle()" FontSize="24" CenterText="true" TextColor="TextColor.Yellow" />
-</FlexRowContainer>
+</ResponsiveContainer>
 
-<VerticalSpace Height="20" />
-
-<GridLayout Columns="2" Width="100" CssClass="background">
-    <FlexColumnCenteredContainer>
+<GridLayout Columns="2" Width="100" CssClass="background mt-md">
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
         <GridLayout Columns="4" CssClass="handel white shadow background" Style="grid-template-columns: 3% 30% 25% 15% 27%">
-            <VerticalSpace Height="10" CssClass="span-5" />
+            <div class="span-5" style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
             <Label />
             <Label Text="@Strings.TiglGames_GameId" TextColor="TextColor.Green" />
             <Label Text="@Strings.TiglGames_Status" />
             <Label Text="@Strings.TiglGames_Source" />
             <Label Text="@Strings.TiglGames_Ended" />
-            <VerticalSpace Height="10" CssClass="span-5" />
+            <div class="span-5" style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
         </GridLayout>
-    </FlexColumnCenteredContainer>
+    </ResponsiveContainer>
 
-    <FlexColumnCenteredContainer>
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
         <GridLayout Columns="4" CssClass="handel white shadow background" Style="grid-template-columns: 3% 30% 25% 15% 27%">
-            <VerticalSpace Height="10" CssClass="span-5" />
+            <div class="span-5" style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
             <Label />
             <Label Text="@Strings.TiglGames_GameId" TextColor="TextColor.Green" />
             <Label Text="@Strings.TiglGames_Status" />
             <Label Text="@Strings.TiglGames_Source" />
             <Label Text="@Strings.TiglGames_Ended" />
-            <VerticalSpace Height="10" CssClass="span-5" />
+            <div class="span-5" style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
         </GridLayout>
-    </FlexColumnCenteredContainer>
+    </ResponsiveContainer>
 </GridLayout>
-
-<VerticalSpace Height="20" />
 
 
 @if (_loading)
 {
-    <VerticalSpace Height="50" />
-    <Label Text="@Strings.TiglGames_LoadingGames" CenterText="true" />
-    <VerticalSpace Height="50" />
+    <Label Text="@Strings.TiglGames_LoadingGames" CenterText="true" CssClass="mt-2xl mb-3xl" />
 }
 else
 {
-    <GridLayout Columns="2" Width="100" AlignItems="flex-start">
-        <FlexColumnCenteredContainer Width="100" >
+    <GridLayout Columns="2" Width="100" AlignItems="flex-start" CssClass="mb-2xl">
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="100">
             <GridLayout Columns="4" CssClass="handel white shadow" Style="grid-template-columns: 3% 30% 25% 15% 27%">
                 @foreach (var g in FilteredStandardGames)
                 {
@@ -74,8 +64,8 @@ else
                     <Label Text="@FormatEndDate(g.EndTimestamp)" />
                 }
             </GridLayout>
-        </FlexColumnCenteredContainer>
-        <FlexColumnCenteredContainer Width="100">
+        </ResponsiveContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="100">
             <GridLayout Columns="4" CssClass="handel white shadow" Style="grid-template-columns: 3% 30% 25% 15% 27%">
                 @foreach (var g in FilteredFracturedGames)
                 {
@@ -86,9 +76,7 @@ else
                     <Label Text="@FormatEndDate(g.EndTimestamp)" />
                 }
             </GridLayout>
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
     </GridLayout>
 }
-
-<VerticalSpace Height="50" />
 

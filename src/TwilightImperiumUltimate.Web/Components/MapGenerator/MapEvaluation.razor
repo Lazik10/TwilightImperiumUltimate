@@ -2,95 +2,91 @@
 
 <div class="slice-evaluation-grid handel white shadow">
 
-    <FlexColumnCenteredContainer CssClass="background">
-        <VerticalSpace Height="20" />
-        <FlexRowContainer Width="80">
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="background mt-md mb-2xl">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="80">
             <Label Text="@Strings.MapGeneratorStats_PlanetsBarTitle" FontSize="18" Width="30"/>
             <ProgressBar MinValue="MapEvaluations.TotalPlanetsCountMin"
                          MaxValue="MapEvaluations.TotalPlanetsCountMax"
                          Width="100"
                          CssClass="planets"
                          Value="MapEvaluations.PlanetsCount" />
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
-        <FlexRowContainer Width="80">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="80">
             <Label Text="@Strings.MapGeneratorStats_ResourcesBarTitle" FontSize="18" Width="30"/>
             <ProgressBar MinValue="MapEvaluations.TotalResourcesMin"
                          MaxValue="MapEvaluations.TotalResourcesMax"
                          Width="100"
                          Color="yellow"
                          Value="MapEvaluations.Resources" />
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
-        <FlexRowContainer Width="80">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="80">
             <Label Text="@Strings.MapGeneratorStats_InfluenceBarTitle" FontSize="18" Width="30"/>
             <ProgressBar MinValue="MapEvaluations.TotalInfluenceMin"
                          MaxValue="MapEvaluations.TotalInfluenceMax"
                          Width="100"
                          Color="blue"
                          Value="MapEvaluations.Influence" />
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
-        <FlexRowContainer Width="80">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="80">
             <Label Text="@Strings.MapGeneratorStats_FrontiersBarTitle" FontSize="18" Width="30" />
             <ProgressBar MinValue="MapEvaluations.FrontierTokensMin"
                          MaxValue="MapEvaluations.FrontierTokensMax"
                          Width="100"
                          Color="black"
                          Value="MapEvaluations.FrontierTokens" />
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
-        <FlexRowContainer Width="80">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="80">
             <Label Text="@Strings.MapGeneratorStats_LegendariesBarTitle" FontSize="18" Width="30" />
             <ProgressBar MinValue="MapEvaluations.LegendaryPlanetsMin"
                          MaxValue="MapEvaluations.LegendaryPlanetsMax"
                          Width="100"
                          CssClass="pink"
                          Value="MapEvaluations.LegendaryPlanets" />
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
-        <FlexRowContainer Width="80">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="80">
             <Label Text="@Strings.MapGeneratorStats_WormholesBarTitle" FontSize="18" Width="30"/>
             <ProgressBar MinValue="MapEvaluations.WormholesMin"
                          MaxValue="MapEvaluations.WormholesMax"
                          Width="100"
                          CssClass="wormholes"
                          Value="MapEvaluations.Wormholes" />
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
-        <FlexRowContainer Width="80">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="80">
             <Label Text="@Strings.MapGeneratorStats_IndustrialPlanetsBarTitle" FontSize="18" Width="30" />
             <ProgressBar MinValue="MapEvaluations.IndustrialPlanetsMin"
                          MaxValue="MapEvaluations.IndustrialPlanetsMax"
                          Width="100"
                          CssClass="darkgreen"
                          Value="MapEvaluations.IndustrialPlanets" />
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
-                <FlexRowContainer Width="80">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="80">
             <Label Text="@Strings.MapGeneratorStats_CulturalPlanetsBarTitle" FontSize="18" Width="30"/>
             <ProgressBar MinValue="MapEvaluations.CulturalPlanetsMin"
                          MaxValue="MapEvaluations.CulturalPlanetsMax"
                          Width="100"
                          Color="blue"
                          Value="MapEvaluations.CulturalPlanets" />
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
-        <FlexRowContainer Width="80">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="80" CssClass="mb-md">
             <Label Text="@Strings.MapGeneratorStats_HazardousBarTitle" FontSize="18" Width="30" />
             <ProgressBar MinValue="MapEvaluations.HazardousPlanetsMin"
                          MaxValue="MapEvaluations.HazardousPlanetsMax"
                          Width="100"
                          Color="red"
                          Value="MapEvaluations.HazardousPlanets" />
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
-        <VerticalSpace Height="20" />
-    </FlexColumnCenteredContainer>
+    </ResponsiveContainer>
 
-    <VerticalSpace Height="50"/>
-
-    <FlexColumnCenteredContainer CssClass="background">
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="background">
 
         <GridLayout Columns="9" Gap="20" Width="100">
             <div>
@@ -160,7 +156,7 @@
                 </div>
 
                 <div>
-                    <FlexRowContainer>
+                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
                         @foreach (var planetTrait in sliceEvaluation.PlanetTraits.Keys)
                         {
                             for (int i = 0; i < sliceEvaluation.PlanetTraits[planetTrait]; i++)
@@ -168,11 +164,11 @@
                                 <img src="@GetPlanetTraitPath(planetTrait)" class="max-height" />
                             }
                         }
-                    </FlexRowContainer>
+                    </ResponsiveContainer>
                 </div>
 
                 <div>
-                    <FlexRowContainer>
+                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
                         @foreach (var technologyType in sliceEvaluation.TechnologySkips.Keys)
                         {
                             for (int i = 0; i < sliceEvaluation.TechnologySkips[technologyType]; i++)
@@ -200,11 +196,11 @@
                         {
                             <img src="@GetPlanetTraitPath(PlanetTrait.GammaWormhole)" class="max-height" style="max-width: 40px;" />
                         }
-                    </FlexRowContainer>
+                    </ResponsiveContainer>
                 </div>
             }
 
         </GridLayout>
 
-    </FlexColumnCenteredContainer>
+    </ResponsiveContainer>
 </div>

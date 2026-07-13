@@ -1,21 +1,19 @@
-﻿<FlexRowContainer>
+﻿<ResponsiveContainer Type="ContainerType.Flex" Padding="none">
 
-    <FlexColumnCenteredContainer Width="100">
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="100">
 
         @if (AsyncPlayerProfile is not null)
         {
-            <Label Text="Turn stats" FontSize="24" CenterText="true" />
+            <Label Text="Turn stats" FontSize="24" CenterText="true" CssClass="mb-md" />
 
-            <VerticalSpace Height="20" />
+            <GridLayout Columns="2" CssClass="background mb-md">
 
-            <GridLayout Columns="2" CssClass="background">
-
-                <VerticalSpace Height="20" Style="grid-column: span 2;" />
+                <div style="grid-column: span 2; height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
                 <Label Text="@Strings.TurnStats_NumberOfTurns" CenterText="true" />
                 <Label Text="@Strings.TurnStats_AverageTurnTime" CenterText="true" />
 
-                <VerticalSpace Height="20" Style="grid-column: span 2;" />
+                <div style="grid-column: span 2; height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
                 @if (AsyncPlayerProfile.Settings.ShowTurnStats)
                 {
@@ -24,19 +22,18 @@
                 }
                 else
                 {
-                    <VerticalSpace Height="10" Style="grid-column: span 2;" />
+                    <div style="grid-column: span 2; height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
                     <Label Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" Style="grid-column: span 2;" />
-                    <VerticalSpace Height="10" Style="grid-column: span 2;" />
+                    <div style="grid-column: span 2; height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
                 }
 
-                <VerticalSpace Height="20" Style="grid-column: span 2;" />
+                <div style="grid-column: span 2; height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
             </GridLayout>
 
-            <VerticalSpace Height="20" />
         }
 
-    </FlexColumnCenteredContainer>
-    <FlexColumnCenteredContainer Width="20" />
+    </ResponsiveContainer>
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="20" />
 
-</FlexRowContainer>
+</ResponsiveContainer>

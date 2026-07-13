@@ -1,0 +1,26 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Controls
+@typeparam TValue
+
+@*
+    Thin wrapper around RadzenDropDown that applies this app's responsive input sizing
+    (the same --rz-input-height / --rz-input-font-size custom-property mechanism used by
+    ResponsiveTextBox/ResponsivePassword -- taller on desktop, shorter on tablet/mobile, fluid
+    font-size) so pages don't need to repeat raw Radzen markup/classes by hand.
+*@
+
+<RadzenDropDown TValue="TValue"
+                id="@Id"
+                Name="@Name"
+                Data="@Data"
+                TextProperty="@TextProperty"
+                ValueProperty="@ValueProperty"
+                Placeholder="@Placeholder"
+                aria-describedby="@AriaDescribedBy"
+                Disabled="Disabled"
+                AllowClear="AllowClear"
+                AllowFiltering="AllowFiltering"
+                AllowVirtualization="AllowVirtualization"
+                Value="@Value"
+                ValueChanged="OnValueChanged"
+                class="@ComputedCssClass"
+                style="@ComputedStyle" />

@@ -15,26 +15,29 @@
     <EditForm EditContext="@_editContext" OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit" class="@CssClass" style="@Style">
         <FluentValidator />
 
-        @if (ShowValidationSummary && _hasValidationErrors)
-        {
-            <div class="responsive-form-summary" role="alert">
-                <ValidationSummary />
-            </div>
-        }
-
-        <ResponsiveGridContainer Columns="Columns"
-                                  TabletColumns="TabletColumns"
-                                  MobileColumns="MobileColumns"
-                                  Gap="@("var(--space-xl)")"
-                                  JustifyItems="Enums.AlignItems.Stretch"
-                                  AlignItems="Enums.AlignItems.FlexStart"
-                                  AlignContent="Enums.JustifyContent.FlexStart"
-                                  Width="100"
-                                  CssClass="@GetGridCssClass()">
-            @ChildContent
-        </ResponsiveGridContainer>
+        <CascadingValue Value="ValidationDisplay">
+            <ResponsiveGridContainer Columns="Columns"
+                                      TabletColumns="TabletColumns"
+                                      MobileColumns="MobileColumns"
+                                      Gap="@("var(--space-xl)")"
+                                      JustifyItems="Enums.AlignItems.Stretch"
+                                      AlignItems="Enums.AlignItems.FlexStart"
+                                      AlignContent="Enums.JustifyContent.FlexStart"
+                                      Width="100"
+                                      CssClass="@GetGridCssClass()">
+                @ChildContent
+            </ResponsiveGridContainer>
+        </CascadingValue>
 
         <div class="responsive-form-actions">
+
+            @if (ValidationDisplay == Enums.ValidationDisplay.Summary && _hasValidationErrors)
+            {
+                <div class="responsive-form-summary" role="alert">
+                    <ValidationSummary />
+                </div>
+            }
+
             @if (FooterContent is not null)
             {
                 @FooterContent

@@ -1,8 +1,6 @@
 ﻿    <div class="slice-evaluation-grid handel white shadow">
 
-    <FlexColumnCenteredContainer CssClass="background">
-
-        <VerticalSpace Height="10" />
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="background mt-sm mb-sm">
 
         <GridLayout Columns="9" Gap="20" Width="100">
             <div>
@@ -72,7 +70,7 @@
                 </div>
 
                 <div>
-                    <FlexRowContainer>
+                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
                         @foreach (var planetTrait in sliceEvaluation.PlanetTraits.Keys)
                         {
                             for (int i = 0; i < sliceEvaluation.PlanetTraits[planetTrait]; i++)
@@ -80,11 +78,11 @@
                                 <img src="@GetPlanetTraitPath(planetTrait)" class="max-height" />
                             }
                         }
-                    </FlexRowContainer>
+                    </ResponsiveContainer>
                 </div>
 
                 <div>
-                    <FlexRowContainer>
+                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
                         @foreach (var technologyType in sliceEvaluation.TechnologySkips.Keys)
                         {
                             for (int i = 0; i < sliceEvaluation.TechnologySkips[technologyType]; i++)
@@ -112,13 +110,11 @@
                         {
                             <img src="@GetPlanetTraitPath(PlanetTrait.GammaWormhole)" class="max-height" style="max-width: 40px;" />
                         }
-                    </FlexRowContainer>
+                    </ResponsiveContainer>
                 </div>
             }
 
         </GridLayout>
 
-        <VerticalSpace Height="10" />
-
-    </FlexColumnCenteredContainer>
+    </ResponsiveContainer>
 </div>

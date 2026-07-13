@@ -40,9 +40,4 @@ public partial class ResendPasswordRecoveryEmail
         _recoveryEmailSend = true;
         _disableButton = false;
     }
-
-    private bool GetDisabledState()
-    {
-        return _disableButton;
-    }
 }

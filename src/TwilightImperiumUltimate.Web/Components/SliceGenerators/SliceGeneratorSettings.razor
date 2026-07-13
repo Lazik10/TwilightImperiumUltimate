@@ -1,18 +1,16 @@
-﻿<FlexColumnCenteredContainer>
+﻿<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
 
-    <VerticalSpace Height="50" />
+    <GridLayout Columns="2" Gap="40" Width="80" CssClass="mt-2xl">
 
-    <GridLayout Columns="2" Gap="40" Width="80">
-
-        <NumericPicker Title="@Strings.SliceGenerator_NumberOfSlices"
+        <ResponsiveNumericPicker Label="@Strings.SliceGenerator_NumberOfSlices"
                        Value="GetSliceCount()"
                        OnDecrease="DecreaseSliceCount"
                        OnIncrease="IncreaseSliceCount"
                        Width="100"
-                       FontSize="18"
-                       CenteredText="false" />
+                       FontSize="md"
+                       CenterLabel="false" />
 
-        <FlexRowContainer>
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
             <Label Text="@Strings.SliceGeneratorSettings_TilesOverlay" FontSize="18" />
             <RadzenDropDown @bind-Value="SelectedSystemTileOverlay"
                             Data="@_systemTileOverlays"
@@ -21,45 +19,45 @@
                             TextProperty="Value"
                             Style="width: 80%; max-width: 400px;"
                             class="title handel" />
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
         <Label Text="@Strings.MapGeneratorSettings_SystemTiles" FontSize="18" />
 
         <div />
 
-        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart">
             <YesNoPicker Title="@Strings.GameVersion_ProphecyOfKings"
                          DefaultValue="SliceGeneratorSettingsService.GameVersions.Contains(GameVersion.ProphecyOfKings)"
                          OnValueChange="async () => await UpdateGameVersion(GameVersion.ProphecyOfKings)"
                          Width="100" />
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
-        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart">
             <YesNoPicker Title="@Strings.GameVersion_UnchartedSpace"
                          DefaultValue="SliceGeneratorSettingsService.GameVersions.Contains(GameVersion.UnchartedSpace)"
                          OnValueChange="async () => await UpdateGameVersion(GameVersion.UnchartedSpace)"
                          Width="100" />
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
-        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart">
             <YesNoPicker Title="@Strings.GameVersion_AscendantSun"
                          DefaultValue="SliceGeneratorSettingsService.GameVersions.Contains(GameVersion.AscendantSun)"
                          OnValueChange="async () => await UpdateGameVersion(GameVersion.AscendantSun)"
                          Width="100" />
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
         <div />
 
-        <NumericPicker Title="@Strings.MapGeneratorSettings_NumberOfLegendaryPlanets"
+        <ResponsiveNumericPicker Label="@Strings.MapGeneratorSettings_NumberOfLegendaryPlanets"
                        Value="@SliceGeneratorSettingsService.NumberOfLegendaries"
                        OnDecrease="DecreaseNumberOfLegendaryPlanets"
                        OnIncrease="IncreaseNumberOfLegendaryPlanets"
                        Width="100"
-                       FontSize="18"
-                       CenteredText="false" />
+                       FontSize="md"
+                       CenterLabel="false" />
 
         <WormholeDensityPicker Width="100" WormholeDensity="SliceGeneratorSettingsService.WormholeDensity" />
 
     </GridLayout>
 
-</FlexColumnCenteredContainer>
+</ResponsiveContainer>

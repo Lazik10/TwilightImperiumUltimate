@@ -3,7 +3,7 @@
 
 <div style="overflow-x: auto; white-space: nowrap;">
 
-    <div class="grid-header background">
+    <div class="grid-header background mb-md">
         <GridLayout Columns="6" Gap="5" Style="grid-template-columns: 18% 19% 15% 15% 20% 10%;">
 
             <Label Text="@Strings.MapArchive_MapName" CenterText="true" />
@@ -13,9 +13,9 @@
             <Label Text="@Strings.MapArchive_MapRating" CenterText="true" />
             <div />
 
-            <SearchBar HideText="true" OnSearchChange="ApplyMapFilter" EnableEmptySearch="true" @ref=_nameSearchBar Height="65" />
-            <SearchBar HideText="true" OnSearchChange="ApplyEventFilter" EnableEmptySearch="true" @ref=_eventSearchBar Height="65"/>
-            <SearchBar HideText="true" OnSearchChange="ApplyUserFilter" EnableEmptySearch="true" @ref=_userSearchBar Height="65"/>
+            <ResponsiveSearchBar Id="map-archive-name-search" HideText="true" OnSearchChange="ApplyMapFilter" EnableEmptySearch="true" @ref=_nameSearchBar />
+            <ResponsiveSearchBar Id="map-archive-event-search" HideText="true" OnSearchChange="ApplyEventFilter" EnableEmptySearch="true" @ref=_eventSearchBar />
+            <ResponsiveSearchBar Id="map-archive-user-search" HideText="true" OnSearchChange="ApplyUserFilter" EnableEmptySearch="true" @ref=_userSearchBar />
             <RadzenDropDown @bind-Value="SelectedMapTemplate"
                             Data="@_mapTemplates"
                             Change="() => ApplyMapTemplateFilter()"
@@ -30,11 +30,9 @@
                             TextProperty="Value"
                             Style="width: 100%; height: 100%;"
                             class="title handel" />
-            <Button ButtonText="@Strings.ButtonText_Clear" Width="100" OnClick="ResetSearch" />
+            <ResponsiveButton ButtonText="@Strings.ButtonText_Clear" Width="100" OnClick="ResetSearch" />
         </GridLayout>
     </div>
-
-    <VerticalSpace Height="20" />
 
     <GridLayout Columns="6" Gap="5" Style="grid-template-columns: 18% 19% 15% 15% 20% 10%;">
         @foreach (var map in FilteredMaps)
@@ -44,7 +42,7 @@
             <Label Text="@map.UserName" />
             <Label Text="@map.MapTemplate.GetDisplayName()" CenterText="true"/>
             <StarRating IsReadOnly="true" Rating="@map.Rating" />
-            <Button ButtonText="@Strings.ButtonText_View" Width="100" OnClick="() => RedirectToMapDetails(map.Id)" />
+            <ResponsiveButton ButtonText="@Strings.ButtonText_View" Width="100" OnClick="() => RedirectToMapDetails(map.Id)" />
         }
     </GridLayout>
 

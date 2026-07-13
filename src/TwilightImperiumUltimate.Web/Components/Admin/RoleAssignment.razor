@@ -1,59 +1,58 @@
-﻿@using Microsoft.AspNetCore.Components.Forms
-@using TwilightImperiumUltimate.Web.Components.Shared.Bars
-@using TwilightImperiumUltimate.Web.Components.Shared.Text
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Bars
 
-<FlexColumnCenteredContainer>
-    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" >
-        <SearchBar OnSearchChange="FilterUsersByEmail" Text="@Strings.SearchForPlayer" Width="50" />
-    </FlexRowContainer>
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
 
-    <VerticalSpace Height="20" />
+    <ResponsiveFormField TValue="string" Id="role-assignment-search" Label="@Strings.SearchForPlayer" CssClass="mb-md">
+        <ResponsiveAutocomplete Id="role-assignment-search"
+                                Name="role-assignment-search"
+                                Data="_userLookupSuggestions"
+                                Value="@_userSearchText"
+                                ValueChanged="OnUserSearchChanged"
+                                Placeholder="@Strings.Admin_PlayerLookupPlaceholder"
+                                Width="40" />
+    </ResponsiveFormField>
 
-    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
-        <Label Text="@Strings.SelectedPlayer" Width="20" />
-        <RadzenDropDown Data="_filteredUsers" TextProperty="Email" ValueProperty="Email" @bind-Value="_selectedUserEmail" @onselectionchange="async () => await GetUserRoles()" Style="width: 40%" />
-    </FlexRowContainer>
+    <ResponsiveFormField TValue="string" Id="role-assignment-role" Label="@Strings.SelectedRole" CssClass="mb-lg">
+        <ResponsiveDropDown TValue="string"
+                            Id="role-assignment-role"
+                            Name="role-assignment-role"
+                            Data="_roles"
+                            TextProperty="Name"
+                            ValueProperty="Name"
+                            Value="@_selectedRole"
+                            ValueChanged="OnRoleSelected"
+                            Width="40" />
+    </ResponsiveFormField>
 
-    <VerticalSpace Height="10" />
-
-    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
-        <Label Text="@Strings.SelectedRole" Width="20" />
-        <RadzenDropDown Data="_roles" TextProperty="Name" ValueProperty="Name" @bind-Value="_selectedRole" Style="width: 40%" />
-    </FlexRowContainer>
-    <VerticalSpace Height="10" />
-
-    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
-        <Label Text="@Strings.Admin_UserRoles" Width="20"/>
-
-        <HorizontalSpace Width="10" />
-
-        @foreach (var role in _specificUserRoles)
-        {
-            <Label Text="@role.Name" PaddingLeft="10" Width="10" CenterText="true" />
-            <HorizontalSpace Width="10" />
-        }
-
-    </FlexRowContainer>
-
-    <VerticalSpace Height="10" />
-
-    <FlexRowContainer AlignItems="Enums.AlignItems.FlexEnd">
-        <Button ButtonText="@Strings.Admin_AddUserRole" OnClick="AddRoleToUser" ButtonType="ButtonType.Submit" IsDisabled="IsAddRolePossible()"/>
-        <HorizontalSpace Width="10" />
-        <Button ButtonText="@Strings.Admin_RemoveUserRole" OnClick="RemoveRoleFromUser" ButtonType="ButtonType.Submit" IsDisabled="IsRemoveRolePossible()"/>
-    </FlexRowContainer>
-
-    @if(_showRoleAddSuccess)
+    @if (IsUserSelected)
     {
-        <VerticalSpace Height="50" />
-        <Label Text="@Strings.Admin_AddRoleToUserSuccess" FontSize="22" TextColor="TextColor.Green" CenterText="true" />
-        <VerticalSpace Height="50" />
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" AlignItems="Enums.AlignItems.Center" CssClass="mb-md">
+            <ResponsiveLabel Text="@Strings.Admin_UserRoles" CssClass="mr-md" />
+
+            @foreach (var role in _specificUserRoles)
+            {
+                <ResponsiveLabel Text="@role.Name" CssClass="mr-md" />
+            }
+        </ResponsiveContainer>
+    }
+    else
+    {
+        <ResponsiveText Text="@Strings.Admin_NoUserSelected" TextColor="TextColor.Red" CssClass="mb-md" />
+    }
+
+    <ResponsiveButtonGroup GroupStyle="ButtonGroupStyle.Row">
+        <ResponsiveButton ButtonText="@Strings.Admin_AddUserRole" OnClick="AddRoleToUser" ButtonType="ButtonType.Submit" IsDisabled="IsAddRolePossible()" />
+        <ResponsiveButton ButtonText="@Strings.Admin_RemoveUserRole" OnClick="RemoveRoleFromUser" ButtonType="ButtonType.Submit" IsDisabled="IsRemoveRolePossible()" />
+    </ResponsiveButtonGroup>
+
+    @if (_showRoleAddSuccess)
+    {
+        <ResponsiveText Text="@Strings.Admin_AddRoleToUserSuccess" CenterText="true" TextColor="TextColor.Green" FontSize="lg" CssClass="mt-xl mb-xl" />
     }
 
     @if (_showRoleRemoveSuccess)
     {
-        <VerticalSpace Height="50" />
-        <Label Text="@Strings.Admin_RemoveRoleFromUserSuccess" FontSize="22" TextColor="TextColor.Green" CenterText="true" />
-        <VerticalSpace Height="50" />
+        <ResponsiveText Text="@Strings.Admin_RemoveRoleFromUserSuccess" CenterText="true" TextColor="TextColor.Green" FontSize="lg" CssClass="mt-xl mb-xl" />
     }
-</FlexColumnCenteredContainer>
+
+</ResponsiveContainer>

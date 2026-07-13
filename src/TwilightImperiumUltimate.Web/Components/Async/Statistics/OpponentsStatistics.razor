@@ -1,18 +1,14 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Shared.Bars
 
-<FlexColumnContainer AlignItems="Enums.AlignItems.Center" >
-
-    <VerticalSpace Height="20" />
+<ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column" AlignItems="Enums.AlignItems.Center">
 
     @if (_isDataLoaded && OpponentsStats.PlayersWithMostOpponents.Count > 0)
     {
-        <Label Text="@Strings.AsyncGames_MostUniqueOpponentsTitle" FontSize="24" CenterText="true" />
+        <Label Text="@Strings.AsyncGames_MostUniqueOpponentsTitle" FontSize="24" CenterText="true" CssClass="mt-md mb-md" />
 
-        <VerticalSpace Height="20" />
+        <GridLayout Columns="3" CssClass="background mb-xl" Style="grid-template-columns: 5% 30% 15% 15% 30% 5%">
 
-        <GridLayout Columns="3" CssClass="background" Style="grid-template-columns: 5% 30% 15% 15% 30% 5%">
-
-            <VerticalSpace Height="20" CssClass="span-6" />
+            <div class="span-6" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
             <Label />
             <Label Text="@Strings.AsyncStats_Username" CenterText="true" />
@@ -20,7 +16,7 @@
             <Label Text="@Strings.AsyncStats_UniqueOpponents" CenterText="true" />
             <Label Style="span-2"/>
 
-            <VerticalSpace Height="20" CssClass="span-6"/>
+            <div class="span-6" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
             @foreach (var user in OpponentsStats.PlayersWithMostOpponents)
             {
@@ -48,19 +44,13 @@
                 _row = 0;
             }
 
-            <VerticalSpace Height="20" CssClass="span-6" />
+            <div class="span-6" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
         </GridLayout>
-
-        <VerticalSpace Height="20" />
     }
     else
     {
-        <VerticalSpace Height="100" />
-        <Label Text="@Strings.Loading" FontSize="24" CenterText="true" />
-        <VerticalSpace Height="100" />
+        <Label Text="@Strings.Loading" FontSize="24" CenterText="true" CssClass="mt-3xl mb-3xl" />
     }
 
-    <VerticalSpace Height="20" />
-
-</FlexColumnContainer>
+</ResponsiveContainer>

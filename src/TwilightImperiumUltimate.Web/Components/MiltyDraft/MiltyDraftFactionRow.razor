@@ -1,7 +1,5 @@
 ﻿
-<FlexColumnCenteredContainer CssClass="background">
-
-    <VerticalSpace Height="10" />
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="background mt-sm mb-sm">
 
     <GridLayout Width="100" Gap="10" Columns="GetGridColumns()">
 
@@ -9,27 +7,23 @@
         {
             for (int i = 0; i < MiltyDraftSettingsService.NumberOfFactions; i++)
             {
-                <FlexColumnCenteredContainer>
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                     <MiltyDraftFaction Faction="FactionName.None" />
-                    <VerticalSpace Height="10" />
-                    <Button ButtonText="@Strings.MiltyDraft_PickOption" IsDisabled="true" Width="100" />
-                </FlexColumnCenteredContainer>
+                    <ResponsiveButton ButtonText="@Strings.MiltyDraft_PickOption" IsDisabled="true" Width="100" CssClass="mt-sm" />
+                </ResponsiveContainer>
             }
         }
         else
         {
             @foreach (var faction in DraftedFactions)
             {
-                <FlexColumnCenteredContainer>
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                     <MiltyDraftFaction Faction="faction.FactionName" IsPicked="faction.IsPicked" Color="faction.Color" IsColorless="IsColorless(faction)" />
-                    <VerticalSpace Height="10" />
-                    <Button ButtonText="@Strings.MiltyDraft_PickOption" OnClick="async () => await PickFaction(faction)" IsDisabled="IsDisabled(faction)" Width="100" />
-                </FlexColumnCenteredContainer>
+                    <ResponsiveButton ButtonText="@Strings.MiltyDraft_PickOption" OnClick="async () => await PickFaction(faction)" IsDisabled="IsDisabled(faction)" Width="100" CssClass="mt-sm" />
+                </ResponsiveContainer>
             }
         }
 
     </GridLayout>
 
-    <VerticalSpace Height="10" />
-
-</FlexColumnCenteredContainer>
+</ResponsiveContainer>

@@ -22,7 +22,7 @@ public partial class SeasonPicker
     public int Width { get; set; } = 100;
 
     [Parameter]
-    public int FontSize { get; set; } = 24;
+    public string FontSize { get; set; } = "lg";
 
     [Inject]
     private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;

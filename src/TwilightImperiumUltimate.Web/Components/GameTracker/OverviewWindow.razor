@@ -1,8 +1,7 @@
 ﻿
-<VerticalSpace Height="10" />
-<GridLayout Columns="5" Gap="20" >
-    <FlexColumnContainer Style="grid-column: span 3;">
+<GridLayout Columns="5" Gap="20" CssClass="mt-sm" >
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column" Style="grid-column: span 3;">
         <ObjectivesGrid @ref="_objectiveGrid" />
-    </FlexColumnContainer>
+    </ResponsiveContainer>
     <PlayersGrid Style="grid-column: span 2; justify-self: flex-start; align-self: flex-start;" @ref="_playerGrid" />
 </GridLayout>

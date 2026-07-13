@@ -1,12 +1,10 @@
 ﻿<div class="handel white shadow" style="width: 100%;">
-    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" CssClass="mb-sm">
         <Label Text="@Strings.SliceGenerator_SliceId" FontSize="@(FontSize)" TextColor="TextColor.White" Width="20" CenterText="false" />
         <Label Text="@(GetDisplaySliceId())" FontSize="@(FontSize)" TextColor="TextColor.White" Width="20" CenterText="true" />
-    </FlexRowContainer>
+    </ResponsiveContainer>
 
-    <VerticalSpace Height="10" />
-
-    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" CssClass="mb-sm">
         <Label Text="@Strings.SliceGenerator_Traits" FontSize="@(FontSize)" TextColor="TextColor.White" Width="20" CenterText="false" />
 
         @foreach (var planetTrait in SliceEvaluation.PlanetTraits.Keys)
@@ -16,11 +14,9 @@
                 <img src="@GetPlanetTraitPath(planetTrait)" class="max-height" style="max-width: 40px;" />
             }
         }
-    </FlexRowContainer>
+    </ResponsiveContainer>
 
-    <VerticalSpace Height="10" />
-
-    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" CssClass="mb-sm">
         @foreach (var technologyType in SliceEvaluation.TechnologySkips.Keys)
         {
             for (int i = 0; i < SliceEvaluation.TechnologySkips[technologyType]; i++)
@@ -49,23 +45,19 @@
             <img src="@GetPlanetTraitPath(PlanetTrait.GammaWormhole)" class="max-height" style="max-width: 40px;" />
         }
 
-    </FlexRowContainer>
+    </ResponsiveContainer>
 
-    <VerticalSpace Height="10" />
-
-    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" CssClass="mb-sm">
         <Label Text="@Strings.SliceGenerator_Total" FontSize="@FontSize" TextColor="TextColor.White" Width="20" />
         <Label Text="@SliceEvaluation.Resources.ToString()" FontSize="@FontSize" TextColor="TextColor.Yellow" Width="20" CenterText="true" />
         /
         <Label Text="@SliceEvaluation.Influence.ToString()" FontSize="@FontSize" TextColor="TextColor.Deepskyblue" Width="20" CenterText="true" />
-    </FlexRowContainer>
+    </ResponsiveContainer>
 
-    <VerticalSpace Height="10" />
-
-    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart">
         <Label Text="@Strings.SliceGenerator_Optimal" FontSize="@FontSize" TextColor="TextColor.White" Width="20" />
         <Label Text="@SliceEvaluation.OptimalResourcesSum.ToString()" FontSize="@FontSize" TextColor="TextColor.Yellow" Width="20" CenterText="true" />
         /
         <Label Text="@SliceEvaluation.OptimalInfluenceSum.ToString()" FontSize="@FontSize" TextColor="TextColor.Deepskyblue" Width="20" CenterText="true" />
-    </FlexRowContainer>
+    </ResponsiveContainer>
 </div>

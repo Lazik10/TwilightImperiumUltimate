@@ -1,12 +1,12 @@
 ﻿@using TwilightImperiumUltimate.Web.Helpers.Enums
 
-<FlexColumnCenteredContainer CssClass="background">
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="background">
 
     <div style="border: 5px solid @(SliceModel is not null ? SliceModel.Color.GetUIColor() : "transparent"); 
                 height: 100%; padding: 10px 10px 10px 10px;
                 @(IsColorless())">
 
-        <div class="milty-draft-slice-grid">
+        <div class="milty-draft-slice-grid mb-2xl">
 
             @foreach(var systemTile in SliceModel?.SystemTiles ?? Enumerable.Empty<SystemTileModel>())
             {
@@ -17,16 +17,12 @@
 
         </div>
 
-        <VerticalSpace Height="100" />
-
-        <FlexColumnCenteredContainer>
-            <Button ButtonText="@Strings.MiltyDraft_PickOption" OnClick="PickSlice" IsDisabled="IsDisabled()" />
-        </FlexColumnCenteredContainer>
-
-        <VerticalSpace Height="10" />
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mb-sm">
+            <ResponsiveButton ButtonText="@Strings.MiltyDraft_PickOption" OnClick="PickSlice" IsDisabled="IsDisabled()" Width="30" />
+        </ResponsiveContainer>
 
         <MiltyDraftSliceEvaluationStats SliceModel="SliceModel" />
 
     </div>
 
-</FlexColumnCenteredContainer>
+</ResponsiveContainer>

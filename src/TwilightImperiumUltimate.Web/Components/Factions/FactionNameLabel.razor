@@ -1,7 +1,7 @@
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @using TwilightImperiumUltimate.Web.Helpers.Resources;
 
-<FlexColumnCenteredContainer>
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
 
     <ResponsiveVerticalSpacer Size="2xl" ShowOnMobile="false" />
 
@@ -9,7 +9,7 @@
         <TitleLine TransformX="-22" WidthCss="125%" MaxWidthCss="125%" />
     </div>
 
-    <FlexColumnCenteredContainer CssClass="title handel white shadow">
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="title handel white shadow">
 
         <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" Style="display:flex; justify-content:space-between; align-items:center;">
 
@@ -23,10 +23,10 @@
 
         </ResponsiveContainer>
 
-    </FlexColumnCenteredContainer>
+    </ResponsiveContainer>
 
     <div class="faction-title-line">
         <TitleLine TransformX="-22" WidthCss="125%" MaxWidthCss="125%" />
     </div>
 
-</FlexColumnCenteredContainer>
+</ResponsiveContainer>

@@ -1,16 +1,16 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Async.PlayerStats
 
-<FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" AlignItems="Enums.AlignItems.FlexStart" CssClass="background padding">
+<ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" AlignItems="Enums.AlignItems.FlexStart" CssClass="background padding">
 
     @if (AsyncPlayerProfile is not null)
     {
         <TitleTexture Width="15" Texture="Enums.Texture.TopLeft" />
 
-        <FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
 
             <AsyncPlayerNameLabel />
 
-            <FlexRowContainer JustifyContent="Enums.JustifyContent.Center">
+            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.Center" CssClass="mb-2xl">
                 <EnumPicker 
                     TEnum="PlayerStatisticsType"
                     CurrentValue="@CurentStatisticsType"
@@ -18,9 +18,7 @@
                     Width="35"
                     Label="@Strings.AsyncStats_Filter" />
                 <Label Width="20" />
-            </FlexRowContainer>
-
-            <VerticalSpace Height="50" />
+            </ResponsiveContainer>
 
             <CascadingValue Value="@CurentStatisticsType" Name="AsyncPlayerStatisticsType">
 
@@ -40,13 +38,12 @@
 
             </CascadingValue>
 
-            <VerticalSpace Height="100" />
+            <div style="height: clamp(3.125rem, 3.125rem + 1vw, 6.25rem);"></div>
 
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
     }
     else
     {
         <StretchHeightContainer />
     }
-
-</FlexRowContainer>
+</ResponsiveContainer>

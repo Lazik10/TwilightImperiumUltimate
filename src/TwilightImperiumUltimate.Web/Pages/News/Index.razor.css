@@ -49,3 +49,7 @@
 .news-list-item {
     width: 100%;
 }
+
+.pager-nav {
+    margin-top: var(--space-xl);
+}

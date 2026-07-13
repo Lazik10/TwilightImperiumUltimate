@@ -1,6 +1,4 @@
-<VerticalSpace Height="20" />
-
-<FlexColumnCenteredContainer>
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-md mb-md">
 
     <EnumPicker TEnum="TiglLeague"
         Label="@Strings.TiglLeague_League"
@@ -10,21 +8,17 @@
         Width="50"
         MinChoiceWidth="70"/>
 
-</FlexColumnCenteredContainer>
+</ResponsiveContainer>
 
-<VerticalSpace Height="20" />
-
-<FlexColumnCenteredContainer CssClass="background">
-    <VerticalSpace Height="20" />
-    <FlexRowContainer>
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="background mt-md mb-md">
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
         <Label Text="Username" PaddingLeft="50" Width="30" />
         <Label Text="Prestige" CenterText=true Width="30" />
         <Label Text="Rank" CenterText=true Width="30" />
         <Label Text="Games" CenterText=true Width="10" />
         <Label Text="Last Rank Up" CenterText=true Width="20" />
-    </FlexRowContainer>
-    <VerticalSpace Height="20" />
-</FlexColumnCenteredContainer>
+    </ResponsiveContainer>
+</ResponsiveContainer>
 
 @if (!_loading)
 {
@@ -32,30 +26,22 @@
     {
         @foreach (var group in _groupedRankings)
         {
-            <VerticalSpace Height="50" />
-
-            <Label Text="@(group.Key + " (" + group.Value.Count + ")")" CenterText="true" TextColor="TextColor.Yellow" FontSize="16"/>
-
-            <VerticalSpace Height="5" />
+            <Label Text="@(group.Key + " (" + group.Value.Count + ")")" CenterText="true" TextColor="TextColor.Yellow" FontSize="16" CssClass="mt-2xl mb-xs"/>
 
             @foreach (var rank in group.Value)
             {
                 <RankRow Ranking="rank" PrestigeRankText="@group.Key" />
             }
 
-            <VerticalSpace Height="20" />
+            <div style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
         }
     }
     else
     {
-        <VerticalSpace Height="50" />
-        <Label Text="No Data" CenterText="true" />
-        <VerticalSpace Height="50" />
+        <Label Text="No Data" CenterText="true" CssClass="mt-2xl mb-2xl" />
     }
 }
 else
 {
-    <VerticalSpace Height="50" />
-    <Label Text="@Strings.Loading" CenterText="true" />
-    <VerticalSpace Height="50" />
+    <Label Text="@Strings.Loading" CenterText="true" CssClass="mt-2xl mb-2xl" />
 }

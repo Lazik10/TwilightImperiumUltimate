@@ -5,74 +5,70 @@
 @using TwilightImperiumUltimate.Web.Helpers.Enums
 @using TwilightImperiumUltimate.Web.Helpers.Numbers
 
-<FlexRowContainer>
+<ResponsiveContainer Type="ContainerType.Flex" Padding="none">
     <EnumPicker TEnum="TiglFactionStatsShowBy"
                 Label="Filter By"
                 CurrentValue="_showBy"
                 CurrentValueChanged="OnShowByChanged"
                 Width="100" />
-</FlexRowContainer>
+</ResponsiveContainer>
 
 @if (_showBy == TiglFactionStatsShowBy.Era)
 {
-    <FlexRowContainer>
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
         <EnumPicker TEnum="TiglFactionStatsEra"
                     Label="Expansion"
                     CurrentValue="_era"
                     CurrentValueChanged="OnEraChanged"
                     Width="100" />
-    </FlexRowContainer>
+    </ResponsiveContainer>
 }
 else
 {
-    <FlexRowContainer>
-        <SeasonPicker FontSize="18"
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
+        <SeasonPicker FontSize="md"
                       SeasonNumberChanged="OnSeasonChanged"
                       Width="100" />
-    </FlexRowContainer>
+    </ResponsiveContainer>
 }
 
 @if (ShouldShowLeagueFilter)
 {
-    <FlexRowContainer>
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
         <EnumPicker TEnum="TiglFactionStatsLeague"
                     Label="League"
                     CurrentValue="_leagueFilter"
                     CurrentValueChanged="OnLeagueFilterChanged"
                     Width="100" />
-    </FlexRowContainer>
+    </ResponsiveContainer>
 }
 else
 {
-    <FlexRowContainer>
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
         <Label Text="" Width="100" />
-    </FlexRowContainer>
+    </ResponsiveContainer>
 }
 
-<VerticalSpace Height="20" />
+<GridLayout Columns="6" CssClass="handel white shadow background mt-md mb-md" Style="grid-template-columns: 5% 35% 12% 12% 18% 18%">
 
-<GridLayout Columns="6" CssClass="handel white shadow background" Style="grid-template-columns: 5% 35% 12% 12% 18% 18%">
-
-    <VerticalSpace Height="20" CssClass="span-6" />
+    <div class="span-6" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
     <Label />
     <Label Text="Faction" TextColor="TextColor.Yellow" />
     <Label Text="Games" TextColor="TextColor.Yellow" CenterText="true" />
     <Label Text="Wins" TextColor="TextColor.Yellow" CenterText="true" />
     <Label Text="Win Rate" TextColor="TextColor.Yellow" CenterText="true" />
     <Label Text="Avg Score" TextColor="TextColor.Yellow" CenterText="true" />
-    <VerticalSpace Height="15" CssClass="span-6" />
+    <div class="span-6" style="height: clamp(0.469rem, 0.469rem + 1vw, 0.938rem);"></div>
 
 </GridLayout>
-
-<VerticalSpace Height="20" />
 
 @if (_loading)
 {
     <GridLayout Columns="1" CssClass="handel white shadow background">
         <StretchHeightContainer>
-        <VerticalSpace Height="50" CssClass="span-1" />
+        <div class="span-1" style="height: clamp(1.563rem, 1.563rem + 1vw, 3.125rem);"></div>
         <Label Text="...Loading faction stats..." CenterText="true" />
-        <VerticalSpace Height="50" CssClass="span-1" />
+        <div class="span-1" style="height: clamp(1.563rem, 1.563rem + 1vw, 3.125rem);"></div>
         </StretchHeightContainer>
     </GridLayout>
 }
@@ -80,9 +76,9 @@ else if (_rows.Count == 0)
 {
     <GridLayout Columns="1" CssClass="handel white shadow background">
         <StretchHeightContainer>
-        <VerticalSpace Height="50" CssClass="span-1" />
+        <div class="span-1" style="height: clamp(1.563rem, 1.563rem + 1vw, 3.125rem);"></div>
         <Label Text="No data" CenterText="true" />
-        <VerticalSpace Height="50" CssClass="span-1" />
+        <div class="span-1" style="height: clamp(1.563rem, 1.563rem + 1vw, 3.125rem);"></div>
         </StretchHeightContainer>
     </GridLayout>
 }
@@ -90,22 +86,22 @@ else
 {
     <GridLayout Columns="6" CssClass="handel white shadow background" Style="grid-template-columns: 5% 35% 12% 12% 18% 18%">
 
-        <VerticalSpace Height="20" CssClass="span-6" />
+        <div class="span-6" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
         @foreach (var r in _rows.OrderByDescending(x => x.WinRate).ThenByDescending(x => x.AverageScore).ThenBy(x => x.GamesPlayed))
         {
             <Label />
-            <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart">
                 <TiglFactionImg Faction="@r.Faction" Width="30" />
                 <Label Text="@r.Faction.GetDisplayName()" />
-            </FlexRowContainer>
+            </ResponsiveContainer>
             <Label Text="@r.GamesPlayed.ToString()" CenterText="true" TextColor="TextColor.Yellow" />
             <Label Text="@r.Wins.ToString()" CenterText="true" TextColor="TextColor.Green" />
             <Label Text="@($"{r.WinRate.ToString("F2")}%")" CenterText="true" TextColor="GetWinrateColor(r.WinRate)" />
             <Label Text="@r.AverageScore.ToString("F2")" CenterText="true" TextColor="@r.AverageScore.GetAverageVpColor()" />
         }
 
-        <VerticalSpace Height="20" CssClass="span-6" />
+        <div class="span-6" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
     </GridLayout>
 }

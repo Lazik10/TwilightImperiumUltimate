@@ -1,28 +1,22 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Shared.Bars
 
-<VerticalSpace Height="50" />
+<StretchHeightContainer CssClass="background mt-2xl">
 
-<StretchHeightContainer CssClass="background">
-
-    <VerticalSpace Height="10" />
-
-    <FlexColumnCenteredContainer>
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-sm mb-sm">
         <AsyncGamesSearchBar GameNames="@_gameNames" OnGameSelect="OnGameSelect" SearhTitle="@Strings.AsyncStats_SearchByGameIdTitle" Width="50" />
         <AsyncGamesSearchBar GameNames="@_gameFunNames" OnGameSelect="OnGameFunNameSelect" SearhTitle="@Strings.AsyncStats_SearchByGameFunNameTitle" Width="50" />
-    </FlexColumnCenteredContainer>
+    </ResponsiveContainer>
 
-    <VerticalSpace Height="10" />
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
 
-    <FlexColumnCenteredContainer>
-
-        <FlexRowContainer Width="70">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="70">
 
             <EnumPicker TEnum="AsyncGameType" CurrentValue="@_asyncGameType" Label="@Strings.AsyncGameStats_GameType" Width="100" CurrentValueChanged="GameTypeChanged" />
             <EnumPicker TEnum="AsyncGameStatusFilter" CurrentValue="@_gameStatus" Label="Status" Width="100" ButtonWidth="50" CurrentValueChanged="GameStatusChanged" />
 
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
-    </FlexColumnCenteredContainer>
+    </ResponsiveContainer>
 
     <AsyncGamesList GameDates="@_gameDates"
         AsyncGameType="@_asyncGameType"

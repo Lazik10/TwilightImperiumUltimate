@@ -2,7 +2,7 @@
 
 <div style="overflow-x: auto; white-space: nowrap;">
 
-    <div class="grid-header background">
+    <div class="grid-header background mb-md">
         <GridLayout Columns="6" Gap="5" Style="grid-template-columns: 22% 22% 15% 8% 20% 10%;">
 
             <Label Text="@Strings.SlicesArchive_SliceDraftName" CenterText="true" />
@@ -12,9 +12,9 @@
             <Label Text="@Strings.SlicesArchive_SliceDraftRating" CenterText="true" />
             <div />
 
-            <SearchBar HideText="true" OnSearchChange="ApplyNameFilter" EnableEmptySearch="true" @ref=_nameSearchBar Height="65" />
-            <SearchBar HideText="true" OnSearchChange="ApplyEventFilter" EnableEmptySearch="true" @ref=_eventSearchBar Height="65"/>
-            <SearchBar HideText="true" OnSearchChange="ApplyUserFilter" EnableEmptySearch="true" @ref=_userSearchBar Height="65"/>
+            <ResponsiveSearchBar Id="slices-archive-name-search" HideText="true" OnSearchChange="ApplyNameFilter" EnableEmptySearch="true" @ref=_nameSearchBar />
+            <ResponsiveSearchBar Id="slices-archive-event-search" HideText="true" OnSearchChange="ApplyEventFilter" EnableEmptySearch="true" @ref=_eventSearchBar />
+            <ResponsiveSearchBar Id="slices-archive-user-search" HideText="true" OnSearchChange="ApplyUserFilter" EnableEmptySearch="true" @ref=_userSearchBar />
             <RadzenDropDown @bind-Value="SelectedSliceFilter"
                             Data="@_sliceFilters"
                             Change="() => ApplySliceCountFilter()"
@@ -29,11 +29,9 @@
                             TextProperty="Value"
                             Style="width: 100%; height: 100%;"
                             class="title handel" />
-            <Button ButtonText="@Strings.ButtonText_Clear" Width="100" OnClick="ResetSearch" />
+            <ResponsiveButton ButtonText="@Strings.ButtonText_Clear" Width="100" OnClick="ResetSearch" />
         </GridLayout>
     </div>
-
-    <VerticalSpace Height="20" />
 
     <GridLayout Columns="6" Gap="5" Style="grid-template-columns: 22% 22% 15% 8% 20% 10%;">
         @foreach (var sliceDraft in FilteredSliceDrafts)
@@ -43,7 +41,7 @@
             <Label Text="@sliceDraft.UserName" />
             <Label Text="@sliceDraft.SliceCount.ToString()" CenterText="true"/>
             <StarRating IsReadOnly="true" Rating="@sliceDraft.Rating" />
-            <Button ButtonText="@Strings.ButtonText_View" Width="100" OnClick="() => RedirectToMapDetails(sliceDraft.Id)" />
+            <ResponsiveButton ButtonText="@Strings.ButtonText_View" Width="100" OnClick="() => RedirectToMapDetails(sliceDraft.Id)" />
         }
     </GridLayout>
 

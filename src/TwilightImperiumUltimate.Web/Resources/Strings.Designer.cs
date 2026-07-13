@@ -34,12 +34,6 @@ namespace TwilightImperiumUltimate.Web.Resources {
             }
         }
 
-        public static string Api_UnavailableMessage {
-            get {
-                return ResourceManager.GetString("Api_UnavailableMessage", resourceCulture);
-            }
-        }
-
         public static string About_AboutMe {
             get {
                 return ResourceManager.GetString("About_AboutMe", resourceCulture);
@@ -358,6 +352,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
             }
         }
 
+        public static string Admin_NewsTab {
+            get {
+                return ResourceManager.GetString("Admin_NewsTab", resourceCulture);
+            }
+        }
+
+        public static string Admin_NoUserSelected {
+            get {
+                return ResourceManager.GetString("Admin_NoUserSelected", resourceCulture);
+            }
+        }
+
+        public static string Admin_PlayerLookupPlaceholder {
+            get {
+                return ResourceManager.GetString("Admin_PlayerLookupPlaceholder", resourceCulture);
+            }
+        }
+
         public static string Admin_RemoveRoleFromUserSuccess {
             get {
                 return ResourceManager.GetString("Admin_RemoveRoleFromUserSuccess", resourceCulture);
@@ -367,6 +379,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string Admin_RemoveUserRole {
             get {
                 return ResourceManager.GetString("Admin_RemoveUserRole", resourceCulture);
+            }
+        }
+
+        public static string Admin_RolesTab {
+            get {
+                return ResourceManager.GetString("Admin_RolesTab", resourceCulture);
+            }
+        }
+
+        public static string Admin_SelectedLogin {
+            get {
+                return ResourceManager.GetString("Admin_SelectedLogin", resourceCulture);
+            }
+        }
+
+        public static string Admin_TabsLabel {
+            get {
+                return ResourceManager.GetString("Admin_TabsLabel", resourceCulture);
             }
         }
 
@@ -385,6 +415,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string AgendaCard {
             get {
                 return ResourceManager.GetString("AgendaCard", resourceCulture);
+            }
+        }
+
+        public static string Api_UnavailableMessage {
+            get {
+                return ResourceManager.GetString("Api_UnavailableMessage", resourceCulture);
             }
         }
 
@@ -3421,6 +3457,108 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string Nav_MenuToggleLabel {
             get {
                 return ResourceManager.GetString("Nav_MenuToggleLabel", resourceCulture);
+            }
+        }
+
+        public static string NewsAdmin_Cancel {
+            get {
+                return ResourceManager.GetString("NewsAdmin_Cancel", resourceCulture);
+            }
+        }
+
+        public static string NewsAdmin_ContentLabel {
+            get {
+                return ResourceManager.GetString("NewsAdmin_ContentLabel", resourceCulture);
+            }
+        }
+
+        public static string NewsAdmin_Create {
+            get {
+                return ResourceManager.GetString("NewsAdmin_Create", resourceCulture);
+            }
+        }
+
+        public static string NewsAdmin_CreateHeading {
+            get {
+                return ResourceManager.GetString("NewsAdmin_CreateHeading", resourceCulture);
+            }
+        }
+
+        public static string NewsAdmin_CreateSuccess {
+            get {
+                return ResourceManager.GetString("NewsAdmin_CreateSuccess", resourceCulture);
+            }
+        }
+
+        public static string NewsAdmin_Delete {
+            get {
+                return ResourceManager.GetString("NewsAdmin_Delete", resourceCulture);
+            }
+        }
+
+        public static string NewsAdmin_DeleteConfirmMessage {
+            get {
+                return ResourceManager.GetString("NewsAdmin_DeleteConfirmMessage", resourceCulture);
+            }
+        }
+
+        public static string NewsAdmin_DeleteConfirmTitle {
+            get {
+                return ResourceManager.GetString("NewsAdmin_DeleteConfirmTitle", resourceCulture);
+            }
+        }
+
+        public static string NewsAdmin_DeleteSuccess {
+            get {
+                return ResourceManager.GetString("NewsAdmin_DeleteSuccess", resourceCulture);
+            }
+        }
+
+        public static string NewsAdmin_Edit {
+            get {
+                return ResourceManager.GetString("NewsAdmin_Edit", resourceCulture);
+            }
+        }
+
+        public static string NewsAdmin_EditHeading {
+            get {
+                return ResourceManager.GetString("NewsAdmin_EditHeading", resourceCulture);
+            }
+        }
+
+        public static string NewsAdmin_EditMode {
+            get {
+                return ResourceManager.GetString("NewsAdmin_EditMode", resourceCulture);
+            }
+        }
+
+        public static string NewsAdmin_ExistingArticlesHeading {
+            get {
+                return ResourceManager.GetString("NewsAdmin_ExistingArticlesHeading", resourceCulture);
+            }
+        }
+
+        public static string NewsAdmin_PreviewMode {
+            get {
+                return ResourceManager.GetString("NewsAdmin_PreviewMode", resourceCulture);
+            }
+        }
+
+        public static string NewsAdmin_TitleLabel {
+            get {
+                return ResourceManager.GetString("NewsAdmin_TitleLabel", resourceCulture);
+            }
+        }
+
+        public static string NewsAdmin_Update {
+            get {
+                return ResourceManager.GetString("NewsAdmin_Update", resourceCulture);
+            }
+        }
+
+        public static string NewsAdmin_UpdateSuccess {
+            get {
+                return ResourceManager.GetString("NewsAdmin_UpdateSuccess", resourceCulture);
             }
         }
 

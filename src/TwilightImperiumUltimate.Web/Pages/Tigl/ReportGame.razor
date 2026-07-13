@@ -14,44 +14,35 @@
 <Page>
     <PageTitle>Report TIGL Game</PageTitle>
 
-    <FlexColumnCenteredContainer CssClass="background">
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="background">
 
         <StretchHeightContainer>
 
         @if (_loading)
         {
-            <VerticalSpace Height="50" />
-            <Label Text="...Loading..." CenterText="true" FontSize="24" />
-            <VerticalSpace Height="50" />
+            <Label Text="...Loading..." CenterText="true" FontSize="24" CssClass="mt-2xl mb-2xl" />
         }
         else
         {
 
             @if (!string.IsNullOrEmpty(successMessage))
             {
-                <Label Text="@successMessage" TextColor="TextColor.Green" CenterText="true" />
-                <VerticalSpace Height="10" />
+                <Label Text="@successMessage" TextColor="TextColor.Green" CenterText="true" CssClass="mb-sm" />
             }
 
             <Title Text="Report TIGL Game" MarginTop="50" MarginBottom="50" />
 
-            <FlexColumnCenteredContainer CssClass="handel white shadow background">
-                <VerticalSpace Height="20" />
-                <Label Text="Game ID" CenterText="true" Width="25" FontSize="22" />
-                <VerticalSpace Height="20" />
-                <RadzenTextBox @bind-Value="gameReportRequest.GameId" Style="width: 40%;" />
-                <VerticalSpace Height="20" />
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="handel white shadow background mt-md mb-xl">
+                <Label Text="Game ID" CenterText="true" Width="25" FontSize="22" CssClass="mb-md" />
+                <RadzenTextBox @bind-Value="gameReportRequest.GameId" Style="width: 40%;" class="mb-md" />
                 <HelpText Text="For Async games: pbdXXXXX" />
-                <HelpText Text="For Other platforms: your custom name" />
-                <VerticalSpace Height="20" />
-            </FlexColumnCenteredContainer>
-
-            <VerticalSpace Height="40" CssClass="span-4" />
+                <HelpText Text="For Other platforms: your custom name" CssClass="mb-md" />
+            </ResponsiveContainer>
 
             <GridLayout CssClass="handel white shadow" Style="grid-template-columns: 25% 25% 25% 25%">
-                <VerticalSpace Height="20" CssClass="span-4" />
+                <div class="span-4" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
-                <FlexColumnCenteredContainer CssClass="span-4 background">
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="span-4 background">
                     <EnumPicker Label="League"
                                 CenterText="true"
                                 TEnum="TiglLeague"
@@ -59,83 +50,73 @@
                                 CurrentValueChanged="ChangeLeague"
                                 ExcludeValues="new List<TiglLeague> { TiglLeague.ProphecyOfKings, TiglLeague.Test }"
                                 Width="50" />
-                </FlexColumnCenteredContainer>
+                </ResponsiveContainer>
 
-                <VerticalSpace Height="20" CssClass="span-4" />
+                <div class="span-4" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
-                <FlexColumnCenteredContainer CssClass="span-4 background">
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="span-4 background">
                     <EnumPicker Label="Source"
                                 CenterText="true"
                                 TEnum="ResultSource"
                                 CurrentValue="@gameReportRequest.Source"
                                 CurrentValueChanged="ChangeSource"
                                 Width="50" />
-                </FlexColumnCenteredContainer>
+                </ResponsiveContainer>
 
-                <VerticalSpace Height="20" CssClass="span-4" />
+                <div class="span-4" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
-                <FlexRowContainer CssClass="span-4 background">
-                    <NumericPicker Title="VP" Value="@_selectedVpCount" OnIncrease="@(() => OnVpIncrease(_selectedVpCount))" OnDecrease="@(() => OnVpDecrease(_selectedVpCount))" Width="50" FontSize="16" ValueColor="TextColor.Yellow"  />
-                </FlexRowContainer>
+                <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="span-4 background">
+                    <ResponsiveNumericPicker Label="VP" Value="@_selectedVpCount" OnIncrease="@(() => OnVpIncrease(_selectedVpCount))" OnDecrease="@(() => OnVpDecrease(_selectedVpCount))" Width="50" FontSize="base" ValueColor="TextColor.Yellow"  />
+                </ResponsiveContainer>
 
-                <VerticalSpace Height="20" CssClass="span-4" />
+                <div class="span-4" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
-                <FlexRowContainer CssClass="span-4 background">
-                    <NumericPicker Title="Round" Value="@_round" OnIncrease="OnRoundIncrease" OnDecrease="OnRoundDecrease" Width="50" FontSize="16" ValueColor="TextColor.Yellow" />
-                </FlexRowContainer>
+                <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="span-4 background">
+                    <ResponsiveNumericPicker Label="Round" Value="@_round" OnIncrease="OnRoundIncrease" OnDecrease="OnRoundDecrease" Width="50" FontSize="base" ValueColor="TextColor.Yellow" />
+                </ResponsiveContainer>
 
-                <VerticalSpace Height="60" CssClass="span-4" />
+                <div class="span-4" style="height: clamp(1.875rem, 1.875rem + 1vw, 3.75rem);"></div>
 
-                <FlexColumnCenteredContainer CssClass="span-4 background">
-                    <VerticalSpace Height="10" />
-                    <FlexRowContainer Width="50">
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="span-4 background mt-sm mb-sm">
+                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="50">
                         <Label Text="Start Date" Width="30" CenterText="true" />
-                        <FlexColumnCenteredContainer Width="70">
+                        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="70">
                             <RadzenDatePicker TValue="DateTime" @bind-Value="startGame" ShowTime="true" ShowSeconds="false" DateFormat="dd/MM/yyyy HH:mm" />
-                        </FlexColumnCenteredContainer>
-                    </FlexRowContainer>
-                    <VerticalSpace Height="10" />
-                </FlexColumnCenteredContainer>
+                        </ResponsiveContainer>
+                    </ResponsiveContainer>
+                </ResponsiveContainer>
 
-                <VerticalSpace Height="20" CssClass="span-4" />
+                <div class="span-4" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
-                <FlexColumnCenteredContainer CssClass="span-4 background">
-                    <VerticalSpace Height="10" />
-                    <FlexRowContainer Width="50">
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="span-4 background mt-sm mb-sm">
+                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="50">
                         <Label Text="End Date" Width="30" CenterText="true" />
-                        <FlexColumnCenteredContainer Width="70">
+                        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="70">
                             <RadzenDatePicker TValue="DateTime" @bind-Value="endGame" ShowTime="true" ShowSeconds="false" DateFormat="dd/MM/yyyy HH:mm" />
-                        </FlexColumnCenteredContainer>
-                    </FlexRowContainer>
-                    <VerticalSpace Height="10" />
-                </FlexColumnCenteredContainer>
+                        </ResponsiveContainer>
+                    </ResponsiveContainer>
+                </ResponsiveContainer>
 
-                <VerticalSpace Height="20" CssClass="span-4" />
+                <div class="span-4" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
             </GridLayout>
 
-            <VerticalSpace Height="60" />
-
-            <GridLayout Columns="4" CssClass="background">
-                <VerticalSpace Height="40" CssClass="span-4" />
+            <GridLayout Columns="4" CssClass="background mt-3xl mb-md">
+                <div class="span-4" style="height: clamp(1.25rem, 1.25rem + 1vw, 2.5rem);"></div>
                 <Label Text="Players" FontSize="32" CenterText="true" CssClass="span-4" />
-                <VerticalSpace Height="40" CssClass="span-4" />
+                <div class="span-4" style="height: clamp(1.25rem, 1.25rem + 1vw, 2.5rem);"></div>
             </GridLayout>
-
-            <VerticalSpace Height="20" />
 
             @for (var i = 0; i < playerResults.Count; i++)
             {
                 var index = i;
-                <GridLayout Columns="8" CssClass="handel background">
-                    <VerticalSpace Height="20" CssClass="span-8" />
+                <GridLayout Columns="8" CssClass="handel background mb-xl">
+                    <div class="span-8" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
                     @if (_rowModes.Count > index && _rowModes[index] == RowViewMode.Search)
                     {
-                        <FlexColumnCenteredContainer CssClass="span-8">
-                            <VerticalSpace Height="20" CssClass="span-8" />
-                            <Label Text="@($"Find Player {index + 1}:")" CssClass="span-2" CenterText="true" FontSize="24" TextColor="TextColor.Green" />
-                            <VerticalSpace Height="20" CssClass="span-8" />
+                        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="span-8">
+                            <Label Text="@($"Find Player {index + 1}:")" CssClass="span-2 mt-md mb-md" CenterText="true" FontSize="24" TextColor="TextColor.Green" />
 
                             @if (_currentPlayerIndex != index)
                             {
@@ -155,9 +136,9 @@
                                             Placeholder="Type TIGL name..."
                                             ValueChanged="@((long v) => OnUserSelected(index, v))"
                                             Style="width: 50%;"
+                                            class="mb-md"
                                                 />
 
-                                <VerticalSpace Height="20" />
                                 <Label Text="By Discord Name: " TextColor="TextColor.Yellow" Width="50" />
                                 <RadzenDropDown Data="@_users"
                                                 TValue="long"
@@ -171,77 +152,74 @@
                                                 ValueChanged="@((long v) => OnUserSelected(index, v))"
                                                 Style="width: 50%;"/>
                             }
-                        </FlexColumnCenteredContainer>
+                        </ResponsiveContainer>
                     }
                     else
                     {
                         <GridLayout Columns="8" CssClass="span-8">
-                            <VerticalSpace Height="20" CssClass="span-8" />
+                            <div class="span-8" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
                             <Label Text="@($"Player {index + 1}")" CenterText="true" CssClass="span-8" FontSize="24" TextColor="TextColor.Green" />
-                            <VerticalSpace Height="20" CssClass="span-8" />
+                            <div class="span-8" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
                             <Label Text="Tigl Username" CenterText="true" TextColor="TextColor.Yellow" CssClass="span-8" />
                             <Label Text="@GetTiglUserName(playerResults[index].DiscordId)" CssClass="span-8" CenterText="true" FontSize="24" />
 
-                            <VerticalSpace Height="20" CssClass="span-8" />
+                            <div class="span-8" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
                             <Label Text="Discord Tag" CenterText="true" TextColor="TextColor.Yellow" CssClass="span-8" />
                             <Label Text="@GetDiscordTag(playerResults[index].DiscordId)" CssClass="span-8" CenterText="true" FontSize="24" />
 
-                            <VerticalSpace Height="20" CssClass="span-8" />
+                            <div class="span-8" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
                             <Label />
-                            <FlexRowContainer CssClass="span-6" JustifyContent="Enums.JustifyContent.FlexStart">
+                            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="span-6" JustifyContent="Enums.JustifyContent.FlexStart">
                                 <Label Text="Score" Width="30" />
-                                <FlexColumnCenteredContainer Width="70">
+                                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="70">
                                     <RadzenNumeric TValue="int" @bind-Value="playerResults[index].Score" Style="width: 100%;" Min="0" Max="@_selectedVpCount" />
-                                </FlexColumnCenteredContainer>
-                            </FlexRowContainer>
+                                </ResponsiveContainer>
+                            </ResponsiveContainer>
                             <Label />
 
-                            <VerticalSpace Height="20" CssClass="span-8"/>
+                            <div class="span-8" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
                             <Label />
-                            <FlexRowContainer CssClass="span-6" JustifyContent="Enums.JustifyContent.FlexStart">
+                            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="span-6" JustifyContent="Enums.JustifyContent.FlexStart">
                                 <Label Text="Winner" Width="30" />
-                                <FlexRowContainer Width="70">
+                                <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="70">
                                     <RadzenCheckBox @bind-Value="playerResults[index].IsWinner" />
-                                </FlexRowContainer>
-                            </FlexRowContainer>
+                                </ResponsiveContainer>
+                            </ResponsiveContainer>
                             <Label />
 
-                            <VerticalSpace Height="20" CssClass="span-8" />
+                            <div class="span-8" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
                             <Label />
-                            <FlexRowContainer CssClass="span-6" JustifyContent="Enums.JustifyContent.FlexStart">
+                            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="span-6" JustifyContent="Enums.JustifyContent.FlexStart">
                                 <Label Text="Faction" Width="30" />
-                                <FlexColumnCenteredContainer Width="70">
+                                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="70">
                                     <RadzenDropDown Data="@_availableFactionNames"
                                                     @bind-Value="playerResults[index].Faction"
                                                     AllowFiltering="true"
                                                     FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
                                                     Placeholder="Select faction"
                                                     Style="min-width: 100%; max-width: 100%; width: 100%;"/>
-                                </FlexColumnCenteredContainer>
-                            </FlexRowContainer>
+                                </ResponsiveContainer>
+                            </ResponsiveContainer>
                             <Label />
 
                         </GridLayout>
 
-                        <VerticalSpace Height="40" CssClass="span-8" />
+                        <div class="span-8" style="height: clamp(1.25rem, 1.25rem + 1vw, 2.5rem);"></div>
                         <TextButton Text="X - Clear Player" TextColor="TextColor.Red" OnClick="() => ClearPlayer(index)" CssClass="span-8" />
-                        <VerticalSpace Height="20" CssClass="span-8" />
+                        <div class="span-8" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
                     }
 
-                    <VerticalSpace Height="10" CssClass="span-8" />
+                    <div class="span-8" style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
                  </GridLayout>
-
-                <VerticalSpace Height="40" />
             }
 
-            <FlexColumnCenteredContainer CssClass="background">
-                <VerticalSpace Height="20" />
-                <FlexRowContainer JustifyContent="Enums.JustifyContent.SpaceBetween">
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="background mt-md mb-md">
+                <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.SpaceBetween">
                     @if (_selectedLeague == TiglLeague.Fractured && playerResults.Count < MaxNumberOfPlayers)
                     {
                         <TextButton Text="+ Add Player Slot" TextColor="TextColor.Green" OnClick="AddPlayer" />
@@ -250,72 +228,61 @@
                     {
                         <TextButton Text="- Remove Player Slot" TextColor="TextColor.Red" OnClick="RemovePlayer" />
                     }
-                </FlexRowContainer>
-                <VerticalSpace Height="20" />
-            </FlexColumnCenteredContainer>
+                </ResponsiveContainer>
+            </ResponsiveContainer>
 
-            <VerticalSpace Height="50" />
+            <div style="height: clamp(1.563rem, 1.563rem + 1vw, 3.125rem);"></div>
 
             @if (gameReportRequest.League == TiglLeague.Fractured)
             {
-                <FlexColumnCenteredContainer CssClass="background">
-                    <VerticalSpace Height="20" />
-                    <Label Text="Galactic Events (Fractured Only)" FontSize="24" CenterText="true" TextColor="TextColor.Yellow" />
-                    <VerticalSpace Height="20" />
-                </FlexColumnCenteredContainer>
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="background mt-md">
+                    <Label Text="Galactic Events (Fractured Only)" FontSize="24" CenterText="true" TextColor="TextColor.Yellow" CssClass="mt-md mb-md" />
+                </ResponsiveContainer>
 
-                <VerticalSpace Height="20" />
-            
-                <FlexColumnCenteredContainer CssClass="background">
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="background mt-md">
 
-                    <VerticalSpace Height="20" />
+                    <div style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
                     @foreach (var e in _allGalacticEvents)
                     {
-                        <FlexRowContainer>
-                            <FlexRowContainer Width="45" JustifyContent="Enums.JustifyContent.FlexEnd">
+                        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="mb-sm">
+                            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="45" JustifyContent="Enums.JustifyContent.FlexEnd">
                                 <RadzenCheckBox ValueChanged="@((bool value) => ToggleEvent(e, value))" />
-                            </FlexRowContainer>
+                            </ResponsiveContainer>
                             <Label Text="@e" Width="55" PaddingLeft="20" />
-                        </FlexRowContainer>
-                        <VerticalSpace Height="10" />
+                        </ResponsiveContainer>
                     }
 
-                    <VerticalSpace Height="20" />
+                    <div style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
-                </FlexColumnCenteredContainer>
+                </ResponsiveContainer>
             }
 
-            <VerticalSpace Height="50" />
+            <div style="height: clamp(1.563rem, 1.563rem + 1vw, 3.125rem);"></div>
 
             @if (validationErrors.Count > 0)
             {
                 foreach(var err in validationErrors)
                 {
-                    <Label Text="@($"• {err}")" TextColor="TextColor.Red" CenterText="true" />
-                    <VerticalSpace Height="10" />
+                    <Label Text="@($"• {err}")" TextColor="TextColor.Red" CenterText="true" CssClass="mb-sm" />
                 }
             }
             @if (!string.IsNullOrEmpty(errorMessage))
             {
-                <Label Text="@errorMessage" TextColor="TextColor.Red" CenterText="true" />
-                <VerticalSpace Height="20" />
+                <Label Text="@errorMessage" TextColor="TextColor.Red" CenterText="true" CssClass="mb-md" />
                 @if (!string.IsNullOrEmpty(errorDetails))
                 {
-                    <Label Text="@errorDetails" TextColor="TextColor.Orange" CenterText="true" />
-                    <VerticalSpace Height="20" />
+                    <Label Text="@errorDetails" TextColor="TextColor.Orange" CenterText="true" CssClass="mb-md" />
                 }
             }
 
-            <FlexColumnCenteredContainer>
-                <Button ButtonText="Submit Game Report" Width="30" IsDisabled="@isSubmitting" OnClick="async () => await SubmitGameReport()" />
-            </FlexColumnCenteredContainer>
-
-            <VerticalSpace Height="50" />
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mb-2xl">
+                <ResponsiveButton ButtonText="Submit Game Report" Width="30" IsDisabled="@isSubmitting" OnClick="async () => await SubmitGameReport()" />
+            </ResponsiveContainer>
         }
 
         </StretchHeightContainer>
 
-    </FlexColumnCenteredContainer>
+    </ResponsiveContainer>
 
 </Page>

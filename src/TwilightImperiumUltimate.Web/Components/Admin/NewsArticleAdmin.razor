@@ -1,0 +1,126 @@
+@namespace TwilightImperiumUltimate.Web.Components.Admin
+@using TwilightImperiumUltimate.Web.Components.News
+
+<section class="news-article-admin" aria-label="@(IsEditMode ? Strings.NewsAdmin_EditHeading : Strings.NewsAdmin_CreateHeading)">
+    <div class="news-admin-heading-row mb-lg">
+        <ResponsiveHeading Level="2"
+                           Text="@(IsEditMode ? Strings.NewsAdmin_EditHeading : Strings.NewsAdmin_CreateHeading)"
+                           FontSize="lg" />
+
+        <ResponsiveToggleButton IsToggled="_isPreviewMode"
+                                OnText="@Strings.NewsAdmin_PreviewMode"
+                                OffText="@Strings.NewsAdmin_EditMode"
+                                IsToggledChanged="OnPreviewToggled" />
+    </div>
+
+    @if (_showCreateSuccess)
+    {
+        <ResponsiveText Text="@Strings.NewsAdmin_CreateSuccess" CenterText="true" TextColor="TextColor.Green" FontSize="lg" CssClass="mb-lg" />
+    }
+
+    @if (_showUpdateSuccess)
+    {
+        <ResponsiveText Text="@Strings.NewsAdmin_UpdateSuccess" CenterText="true" TextColor="TextColor.Green" FontSize="lg" CssClass="mb-lg" />
+    }
+
+    @if (_showDeleteSuccess)
+    {
+        <ResponsiveText Text="@Strings.NewsAdmin_DeleteSuccess" CenterText="true" TextColor="TextColor.Green" FontSize="lg" CssClass="mb-lg" />
+    }
+
+    @if (_hasSubmitError)
+    {
+        <ApiErrorMessage CssClass="mb-lg" />
+    }
+
+    @if (_isPreviewMode)
+    {
+        <NewsArticleSegment NewsArticle="@PreviewArticle" />
+    }
+    else
+    {
+        <ResponsiveForm Model="_formModel"
+                        OnValidSubmit="HandleValidSubmitAsync"
+                        IsSubmitting="_isSubmitting"
+                        ValidationDisplay="Enums.ValidationDisplay.Summary"
+                        Columns="1"
+                        NarrowColumn="false"
+                        CssClass="mb-xl">
+
+            <ChildContent>
+                <ResponsiveFormField Id="news-admin-title" Label="@Strings.NewsAdmin_TitleLabel" For="@(() => _formModel.Title)" Required="true">
+                    <ResponsiveTextBox Id="news-admin-title" @bind-Value="_formModel.Title" />
+                </ResponsiveFormField>
+
+                <ResponsiveFormField Id="news-admin-content" Label="@Strings.NewsAdmin_ContentLabel" For="@(() => _formModel.Content)" Required="true">
+                    <ResponsiveTextArea Id="news-admin-content" Rows="10" @bind-Value="_formModel.Content" />
+                </ResponsiveFormField>
+            </ChildContent>
+
+            <FooterContent>
+                <ResponsiveButtonGroup GroupStyle="ButtonGroupStyle.Row">
+                    <ResponsiveButton ButtonType="ButtonType.Submit"
+                                      IsDisabled="_isSubmitting"
+                                      ButtonText="@(IsEditMode ? Strings.NewsAdmin_Update : Strings.NewsAdmin_Create)" />
+
+                    @if (IsEditMode)
+                    {
+                        <ResponsiveButton OnClick="CancelEdit" ButtonText="@Strings.NewsAdmin_Cancel" />
+                    }
+                </ResponsiveButtonGroup>
+            </FooterContent>
+        </ResponsiveForm>
+    }
+
+    <div class="news-admin-texture-line" aria-hidden="true">
+        <TitleLine />
+    </div>
+
+    <div @ref="_articlesRegionRef" tabindex="-1">
+        <ResponsiveHeading Level="2" Text="@Strings.NewsAdmin_ExistingArticlesHeading" FontSize="lg" CssClass="mb-lg" />
+
+        @if (_isLoading)
+        {
+            <div class="news-state-message" role="status" aria-live="polite">@Strings.News_Loading</div>
+        }
+        else if (_hasError)
+        {
+            <ApiErrorMessage />
+        }
+        else if (_articles.Count > 0)
+        {
+            <ul class="news-admin-list">
+                @foreach (var article in _articles)
+                {
+                    <li class="news-admin-list-item" @key="article.Id">
+                        <NewsArticleSegment NewsArticle="@article" />
+
+                        <div class="news-admin-item-actions">
+                            <ResponsiveButtonGroup GroupStyle="ButtonGroupStyle.Row">
+                                <ResponsiveButton OnClick="@(() => StartEdit(article))" ButtonText="@Strings.NewsAdmin_Edit" />
+                                <ResponsiveDangerButton @ref="_deleteButtonRefs[article.Id]" OnClick="@(() => RequestDelete(article))" ButtonText="@Strings.NewsAdmin_Delete" />
+                            </ResponsiveButtonGroup>
+                        </div>
+                    </li>
+                }
+            </ul>
+
+            @if (_totalCount > PageSize)
+            {
+                <Pager TotalCount="_totalCount" PageSize="PageSize" CurrentPage="_currentPage" CurrentPageChanged="OnPageChanged" />
+            }
+        }
+        else
+        {
+            <div class="news-state-message" role="status" aria-live="polite">@Strings.News_Empty</div>
+        }
+    </div>
+</section>
+
+<ResponsiveConfirmDialog IsOpen="_isDeleteDialogOpen"
+                         Title="@Strings.NewsAdmin_DeleteConfirmTitle"
+                         Message="@Strings.NewsAdmin_DeleteConfirmMessage"
+                         ConfirmText="@Strings.NewsAdmin_Delete"
+                         CancelText="@Strings.NewsAdmin_Cancel"
+                         OnConfirm="ConfirmDeleteAsync"
+                         OnCancel="CancelDeleteAsync" />

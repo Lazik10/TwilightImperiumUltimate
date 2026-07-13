@@ -4,47 +4,34 @@
 
     <StretchHeightContainer CssClass="background">
 
-        <FlexColumnCenteredContainer CssClass="handel white shadow">
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="handel white shadow">
             <Title Text="TIGL Registration" MarginTop="50" MarginBottom="20" />
-            <HelpText Text="(Twilight Imperium Global League)" />
-            <VerticalSpace Height="100" />
+            <HelpText Text="(Twilight Imperium Global League)" CssClass="mb-3xl" />
             @if (IsRegistrationSuccessful())
             {
-                <Label Text="Registration process succeeded!" CenterText="true" FontSize="28" TextColor="TextColor.Green" />
+                <Label Text="Registration process succeeded!" CenterText="true" FontSize="28" TextColor="TextColor.Green" CssClass="mb-2xl" />
 
-                <VerticalSpace Height="50" />
-
-                <Label Text="You will be redirected shortly to your TIGL profile." />
-
-                <VerticalSpace Height="20" />
+                <Label Text="You will be redirected shortly to your TIGL profile." CssClass="mb-md" />
             }
             else if (IsRegistrationFailure())
             {
-                <Label Text="Registration process failure!" CenterText="true" FontSize="28" TextColor="TextColor.Red" />
+                <Label Text="Registration process failure!" CenterText="true" FontSize="28" TextColor="TextColor.Red" CssClass="mb-2xl" />
 
-                <VerticalSpace Height="50" />
+                <Label Text="@ErrorMessage" CenterText="true" TextColor="TextColor.Red" FontSize="24" CssClass="mb-md" />
 
-                <Label Text="@ErrorMessage" CenterText="true" TextColor="TextColor.Red" FontSize="24" />
-
-                <VerticalSpace Height="20" />
-
-                <HelpText Text="You will be redirected in 5s." />
-
-                <VerticalSpace Height="20" />
+                <HelpText Text="You will be redirected in 5s." CssClass="mb-md" />
             }
             else
             {
-                <FlexColumnCenteredContainer Width="70">
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="70">
 
                     <Title Text="TIGL Code of Conduct" MarginTop="10" MarginBottom="30" FontSize="26" TextColor="TextColor.Yellow" />
 
-                    <p>
+                    <p class="mb-md">
                         All players in the TIGL are to adhere to the code of conduct. By registering you agree to these terms.
                     </p>
 
-                    <VerticalSpace Height="20" />
-
-                    <ul style="text-align:left; line-height:1.4;">
+                    <ul style="text-align:left; line-height:1.4;" class="mb-xl">
                         <li>Respect each other and play with honor and dignity. Do not be rude, argumentative, vulgar or abusive.</li>
                         <li>Sportsmanship is more important than winning. This includes no collusion outside the game in progress.</li>
                         <li>Play within the spirit of the game; allow everyone to have fun and enjoy the game.</li>
@@ -58,20 +45,16 @@
                         <li>By signing up you agree your Discord name and match results may be made public.</li>
                     </ul>
 
-                    <VerticalSpace Height="40" />
-
                     <p>
                         To participate you must register with your Discord account so we can track game statistics and create your TIGL player profile.
                     </p>
 
-                </FlexColumnCenteredContainer>
+                </ResponsiveContainer>
 
-                <VerticalSpace Height="100" />
-                <Button ButtonText="Register With Discord" OnClick="RegisterWithDiscord" />
-                <VerticalSpace Height="20" />
+                <ResponsiveButton ButtonText="Register With Discord" OnClick="RegisterWithDiscord" Width="30" CssClass="mt-3xl mb-md" />
             }
 
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
 
     </StretchHeightContainer>
 </Page>

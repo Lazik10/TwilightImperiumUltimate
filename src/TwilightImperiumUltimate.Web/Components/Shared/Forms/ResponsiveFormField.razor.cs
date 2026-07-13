@@ -51,6 +51,17 @@ public partial class ResponsiveFormField<TValue>
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 
+    /// <summary>
+    /// Gets or sets the validation display mode cascaded down from the enclosing
+    /// <see cref="ResponsiveForm"/>. Defaults to <see cref="Enums.ValidationDisplay.Field"/> when
+    /// this field is used outside a <see cref="ResponsiveForm"/> (no cascaded value available).
+    /// </summary>
+    [CascadingParameter]
+    private Enums.ValidationDisplay? CascadedValidationDisplay { get; set; }
+
+    private bool ShowFieldValidationMessage =>
+        (CascadedValidationDisplay ?? Enums.ValidationDisplay.Field) == Enums.ValidationDisplay.Field;
+
     private string GetValidationMessageId() => $"{Id}-validation";
 
     private string GetHelpTextId() => $"{Id}-help";
