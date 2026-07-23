@@ -177,6 +177,9 @@
   <data name="ApiPath_News" xml:space="preserve">
     <value>api/news</value>
   </data>
+  <data name="ApiPath_Websites" xml:space="preserve">
+    <value>api/websites</value>
+  </data>
   <data name="ApiPath_ObjectiveCards" xml:space="preserve">
     <value>api/cards/objective</value>
   </data>

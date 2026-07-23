@@ -1,0 +1,39 @@
+/*
+    Restyles the RadzenDataGrid comparison table (see WebsiteAdmin.razor) to visually match the
+    dark-navy, Handel-header/Inter-body ResponsiveTable used elsewhere on this page.
+
+    NOTE: `.website-admin-radzen-comparison` is passed via ResponsiveRadzenDataGrid's CssClass
+    parameter, which forwards straight onto RadzenDataGrid's own root element -- a THIRD-PARTY
+    component with no Blazor scope attribute of its own, so `::deep` is required to reach it (same
+    rule as reaching into a project child component's markup). CSS custom properties (--rz-grid-*)
+    inherit through all of RadzenDataGrid's internal descendants regardless of that scope boundary,
+    so only ONE leading ::deep is needed per rule -- no need to repeat it for each nested selector.
+*/
+::deep .website-admin-radzen-comparison {
+    --rz-grid-border: 2px solid var(--color-nav-hover-bg-solid, #123957);
+    --rz-grid-border-radius: var(--border-radius-md);
+    --rz-grid-shadow: 0 0 18px rgba(0, 0, 0, 0.5);
+    --rz-grid-background-color: rgba(8, 14, 24, 0.94);
+    --rz-grid-header-background-color: var(--color-nav-hover-bg-solid, #123957);
+    --rz-grid-header-color: var(--color-nav-hover, #8ecfff);
+    --rz-grid-header-cell-border-bottom: 2px solid var(--color-nav-hover, #8ecfff);
+    --rz-grid-header-cell-border: 1px solid rgba(142, 207, 255, 0.3);
+    --rz-grid-cell-border: 1px solid rgba(142, 207, 255, 0.3);
+    --rz-grid-right-cell-border: 1px solid rgba(142, 207, 255, 0.3);
+    --rz-grid-bottom-cell-border: 1px solid rgba(142, 207, 255, 0.3);
+    --rz-grid-cell-color: white;
+    --rz-grid-cell-padding: var(--space-sm) var(--space-md);
+    --rz-grid-header-cell-padding: var(--space-sm) var(--space-md);
+    --rz-grid-stripe-background-color: rgba(142, 207, 255, 0.1);
+    --rz-grid-stripe-odd-background-color: rgba(0, 0, 0, 0.2);
+    --rz-grid-hover-background-color: var(--color-nav-hover-bg-solid, #123957);
+    --rz-grid-hover-color: white;
+    --rz-grid-cell-focus-background-color: var(--color-nav-hover-bg-solid, #123957);
+    --rz-grid-cell-focus-color: white;
+    --rz-grid-sort-icon-color: var(--color-nav-hover, #8ecfff);
+    font-family: 'Inter', sans-serif;
+}
+
+::deep .website-admin-radzen-comparison .rz-datatable-thead {
+    font-family: Handel, sans-serif;
+}

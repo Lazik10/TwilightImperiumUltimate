@@ -22,7 +22,8 @@ public partial class ParametersDashboard
         var (resp, status) = await HttpClient.GetAsync<ApiResponse<ItemListDto<TiglParameterDto>>>(Paths.ApiPath_TiglParameters);
         if (status == HttpStatusCode.OK && resp?.Data?.Items is not null)
         {
-            _parameters = resp.Data.Items.ToList();
+            // TiglParameterDto has no Id, so sort by the underlying enum value instead.
+            _parameters = resp.Data.Items.OrderBy(p => (int)p.Name).ToList();
         }
         else
         {

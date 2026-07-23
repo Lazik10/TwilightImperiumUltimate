@@ -26,8 +26,8 @@
             {
                 var background = _row % 2 == 0 ? "background" : string.Empty;
                 <Label />
-                <TextButton Text="@game.Id" TextAlign="left" FontSize="16" CssClass="@(background)" Style="height: 100%;" OnClick="@(async () => await RedirectToGameDetails(game.Id))" />
-                <TextButton Text="@game.FunName" TextAlign="left" FontSize="16" CssClass="@(GetCssStyle())" Style="height: 100%;" OnClick="@(async () => await RedirectToGameDetails(game.Id))" />
+                <ResponsiveButton Text="@game.Id" TextAlign="left" FontSize="16" CssClass="@(background)" Style="height: 100%;" OnClick="@(async () => await RedirectToGameDetails(game.Id))" />
+                <ResponsiveButton Text="@game.FunName" TextAlign="left" FontSize="16" CssClass="@(GetCssStyle())" Style="height: 100%;" OnClick="@(async () => await RedirectToGameDetails(game.Id))" />
                 <Label Text="@game.PlayerCount.ToString()" CenterText="true" TextColor="TextColor.Yellow" CssClass="@(background)" />
                 <Label Text="@game.Scoreboard.ToString()" CenterText="true" TextColor="TextColor.Yellow" CssClass="@(background)" />
                 <Label Text="@GetDurationTime(game.Duration)" CenterText="true" TextColor="TextColor.Green" CssClass="@(background)" />
@@ -65,8 +65,8 @@
             {
                 var background = _row % 2 == 0 ? "background" : string.Empty;
                 <Label />
-                <TextButton Text="@game.Id" TextAlign="left" FontSize="16" CssClass="@(background)" Style="height: 100%;" OnClick="@(async () => await RedirectToGameDetails(game.Id))" />
-                <TextButton Text="@game.FunName" TextAlign="left" FontSize="16" CssClass="@(GetCssStyle())" Style="height: 100%;" OnClick="@(async () => await RedirectToGameDetails(game.Id))" />
+                <ResponsiveButton Text="@game.Id" TextAlign="left" FontSize="16" CssClass="@(background)" Style="height: 100%;" OnClick="@(async () => await RedirectToGameDetails(game.Id))" />
+                <ResponsiveButton Text="@game.FunName" TextAlign="left" FontSize="16" CssClass="@(GetCssStyle())" Style="height: 100%;" OnClick="@(async () => await RedirectToGameDetails(game.Id))" />
                 <Label Text="@game.PlayerCount.ToString()" CenterText="true" TextColor="TextColor.Yellow" CssClass="@(background)" />
                 <Label Text="@game.Scoreboard.ToString()" CenterText="true" TextColor="TextColor.Yellow" CssClass="@(background)" />
                 <Label Text="@GetDurationTime(game.Duration)" CenterText="true" TextColor="TextColor.Red" CssClass="@(background)" />

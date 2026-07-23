@@ -32181,6 +32181,17 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         .HasColumnName("Description")
                         .HasColumnOrder(2);
 
+                    b.Property<string>("ImageContentType")
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("ImageContentType")
+                        .HasColumnOrder(5);
+
+                    b.Property<byte[]>("ImageData")
+                        .HasColumnType("varbinary(max)")
+                        .HasColumnName("ImageData")
+                        .HasColumnOrder(4);
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(100)

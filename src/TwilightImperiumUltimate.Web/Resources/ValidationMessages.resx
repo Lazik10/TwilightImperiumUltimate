@@ -132,6 +132,27 @@
   <data name="NewsAdmin_EmptyContent" xml:space="preserve">
     <value>Content is required.</value>
   </data>
+  <data name="WebsiteAdmin_EmptyTitle" xml:space="preserve">
+    <value>Title is required.</value>
+  </data>
+  <data name="WebsiteAdmin_TitleTooLong" xml:space="preserve">
+    <value>Title must be 100 characters or fewer.</value>
+  </data>
+  <data name="WebsiteAdmin_EmptyDescription" xml:space="preserve">
+    <value>Description is required.</value>
+  </data>
+  <data name="WebsiteAdmin_DescriptionTooLong" xml:space="preserve">
+    <value>Description must be 500 characters or fewer.</value>
+  </data>
+  <data name="WebsiteAdmin_EmptyWebsitePath" xml:space="preserve">
+    <value>Website link is required.</value>
+  </data>
+  <data name="WebsiteAdmin_WebsitePathNotValid" xml:space="preserve">
+    <value>Website link must be a valid absolute URL.</value>
+  </data>
+  <data name="WebsiteAdmin_ImageTooLarge" xml:space="preserve">
+    <value>Image must be 2 MB or smaller.</value>
+  </data>
   <data name="Register_ConfirmPasswordMatch" xml:space="preserve">
     <value>Passwords must match.</value>
   </data>

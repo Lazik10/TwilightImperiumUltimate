@@ -31,7 +31,7 @@
                 }
                 else
                 {
-                    <TextButton Text="@user.UserName" FontSize="16" TextAlign="left" CssClass="@(background)" OnClick="@(() => RedirectToPlayerProfile(user.Id))" />
+                    <ResponsiveButton Text="@user.UserName" FontSize="16" TextAlign="left" CssClass="@(background)" OnClick="@(() => RedirectToPlayerProfile(user.Id))" />
                 }
                 <Label Text="@(GetAverageTurn(user.AverageTurnTime))" CenterText="true" TextColor="@(GetAverageTurnColor(user.AverageTurnTime))" CssClass="@(background)" />
                 <AsyncPlayerProgressBar MinValue="1" Value="user.AverageTurnTime" MaxValue="max" TextColor="TextColor.Green" CssClass="@(background)" />
@@ -73,7 +73,7 @@
                 }
                 else
                 {
-                    <TextButton Text="@user.UserName" FontSize="16" TextAlign="left" CssClass="@(background)" OnClick="@(() => RedirectToPlayerProfile(user.Id))" />
+                    <ResponsiveButton Text="@user.UserName" FontSize="16" TextAlign="left" CssClass="@(background)" OnClick="@(() => RedirectToPlayerProfile(user.Id))" />
                 }
                 <Label Text="@user.Turns.ToString()" CenterText="true" TextColor="TextColor.Yellow" CssClass="@(background)" />
                 <AsyncPlayerProgressBar MinValue="1" Value="user.Turns" MaxValue="max" TextColor="TextColor.Green" CssClass="@(background)" />

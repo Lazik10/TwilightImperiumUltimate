@@ -1,7 +1,7 @@
-﻿@using TwilightImperiumUltimate.Web.Components.Shared.Bars
+﻿<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
 
-<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-
+    <ResponsiveHeading Level="2" Text="@Strings.Admin_UserRoleSection" CenterText="true" CssClass="mb-xl" />
+    
     <ResponsiveFormField TValue="string" Id="role-assignment-search" Label="@Strings.SearchForPlayer" CssClass="mb-md">
         <ResponsiveAutocomplete Id="role-assignment-search"
                                 Name="role-assignment-search"

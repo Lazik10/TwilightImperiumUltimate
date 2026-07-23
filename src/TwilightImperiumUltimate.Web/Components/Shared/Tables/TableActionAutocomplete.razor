@@ -1,0 +1,28 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Tables
+
+@*
+    Compact ResponsiveAutocomplete for ResponsiveTable/ResponsiveGrid cells. Same Data/Value
+    contract, defaulting to the smallest FontSize token and a shorter input height so it fits a
+    narrow column -- see TableActionAutocomplete.razor.css.
+
+    The outer span exists ONLY so this component has a real root element of its own to attach its
+    scope attribute to (a wrapper whose entire template is a single child component tag has no DOM
+    node of its own, so its scoped CSS would never match anything -- display:contents keeps it out
+    of layout entirely, so it doesn't affect flex/grid placement of surrounding cells).
+*@
+
+<span class="table-action-autocomplete">
+    <ResponsiveAutocomplete Id="@Id"
+                            Name="@Name"
+                            Data="@Data"
+                            Value="@Value"
+                            ValueChanged="OnValueChanged"
+                            Placeholder="@Placeholder"
+                            AriaDescribedBy="@AriaDescribedBy"
+                            Disabled="Disabled"
+                            FontSize="@FontSize"
+                            Width="@Width"
+                            Style="@Style"
+                            CssClass="@CssClass" />
+</span>
+

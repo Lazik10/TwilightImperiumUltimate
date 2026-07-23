@@ -2,12 +2,12 @@
 @using TwilightImperiumUltimate.Web.Components.News
 
 <section class="news-article-admin" aria-label="@(IsEditMode ? Strings.NewsAdmin_EditHeading : Strings.NewsAdmin_CreateHeading)">
+    
     <div class="news-admin-heading-row mb-lg">
-        <ResponsiveHeading Level="2"
-                           Text="@(IsEditMode ? Strings.NewsAdmin_EditHeading : Strings.NewsAdmin_CreateHeading)"
-                           FontSize="lg" />
+    
+        <ResponsiveHeading Level="2" Text="@(IsEditMode ? Strings.NewsAdmin_EditHeading : Strings.NewsAdmin_CreateHeading)" />
 
-        <ResponsiveToggleButton IsToggled="_isPreviewMode"
+        <ResponsiveSwitch IsToggled="_isPreviewMode"
                                 OnText="@Strings.NewsAdmin_PreviewMode"
                                 OffText="@Strings.NewsAdmin_EditMode"
                                 IsToggledChanged="OnPreviewToggled" />

@@ -35,7 +35,7 @@ else
                 <Label Text="@a.TiglUserName" Width="25" TextColor="TextColor.Green" />
                 <Label Text="@(a.Faction == TiglFactionName.None ? "-" : a.Faction.GetDisplayName())" Width="17" />
                 <div style="width: 15%" @onclick:stopPropagation="true">
-                    <TextButton Text="@a.MatchName" OnClick="() => RedirectToGameDetail(a.MatchId)" Width="100" JustifyContent="Enums.JustifyContent.FlexStart" />
+                    <ResponsiveButton Text="@a.MatchName" OnClick="() => RedirectToGameDetail(a.MatchId)" Width="100" JustifyContent="Enums.JustifyContent.FlexStart" />
                 </div>
                 <Label Text="@FormatDate(a.AchievedAt)" Width="15" />
             </ResponsiveContainer>

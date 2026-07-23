@@ -34,7 +34,7 @@
                 }
                 else
                 {
-                    <TextButton Text="@user.UserName" FontSize="16" TextAlign="left" CssClass="@(background)" OnClick="@(() => RedirectToPlayerProfile(user.Id))" />
+                    <ResponsiveButton Text="@user.UserName" FontSize="16" TextAlign="left" CssClass="@(background)" OnClick="@(() => RedirectToPlayerProfile(user.Id))" />
                 }
                 <Label Text="@user.Vp.ToString()" CenterText="true" TextColor="TextColor.Yellow" CssClass="@(background)" />
                 <Label Text="@user.VpMax.ToString()" CenterText="true" TextColor="TextColor.Yellow" CssClass="@(background)" />
@@ -82,7 +82,7 @@
                 }
                 else
                 {
-                    <TextButton Text="@user.UserName" FontSize="16" TextAlign="left" CssClass="@(background)" OnClick="@(() => RedirectToPlayerProfile(user.Id))" />
+                    <ResponsiveButton Text="@user.UserName" FontSize="16" TextAlign="left" CssClass="@(background)" OnClick="@(() => RedirectToPlayerProfile(user.Id))" />
                 }
                 <Label Text="@user.Vp.ToString()" CenterText="true" TextColor="TextColor.Yellow" CssClass="@(background)" />
                 <Label Text="@user.VpMax.ToString()" CenterText="true" TextColor="TextColor.Yellow" CssClass="@(background)" />

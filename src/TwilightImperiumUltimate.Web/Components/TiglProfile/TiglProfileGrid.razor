@@ -25,7 +25,7 @@
 
             @* Category Picker *@
             <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.Center" CssClass="mt-md">
-                <EnumPicker TEnum="TiglProfileCategory"
+                <ResponsiveEnumPicker TEnum="TiglProfileCategory"
                             CurrentValue="@CurrentCategory"
                             CurrentValueChanged="@OnCategoryChanged"
                             Width="50"
@@ -523,7 +523,7 @@
                 @if (IsFactionFilterVisible)
                 {
                     <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-                        <EnumPicker TEnum="FactionStatisticsFilter"
+                        <ResponsiveEnumPicker TEnum="FactionStatisticsFilter"
                                     CurrentValue="@_selectedFactionFilter"
                                     CurrentValueChanged="OnFactionFilterChanged"
                                     Label="@Strings.FactionStats_Factions"
@@ -535,7 +535,7 @@
                 <div style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
 
                 <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mb-sm">
-                    <EnumPicker TEnum="FactionStatisticsVpFilter"
+                    <ResponsiveEnumPicker TEnum="FactionStatisticsVpFilter"
                                 CurrentValue="@_selectedScoreFilter"
                                 CurrentValueChanged="OnScoreFilterChanged"
                                 Label="VP"
@@ -669,7 +669,7 @@
                                         {
                                             var gd = GetGameRatingDeltas(game);
                                             <GridLayout CssClass="season-game-row mt-sm" Columns="8" Gap="8" AlignItems="center">
-                                                <TextButton Text="@game.GameId" TextAlign="left" CssClass="text-no-overflow" FontSize="13" OnClick="@(() => NavigateToGameDetail(game.MatchReportId))" Style="color: lawngreen; justify-content: flex-start;" />
+                                                <ResponsiveButton Text="@game.GameId" TextAlign="left" CssClass="text-no-overflow" FontSize="13" OnClick="@(() => NavigateToGameDetail(game.MatchReportId))" Style="color: lawngreen; justify-content: flex-start;" />
                                                 @if (gd.HasTrueSkill)
                                                 {
                                                     <Label Text="@($"T: {GetDeltaArrow(gd.TrueSkillDelta)}{FormatDelta(gd.TrueSkillDelta, "F2")}")" FontSize="12" TextColor="@GetDeltaColor(gd.TrueSkillDelta)" />
@@ -756,7 +756,7 @@
                                         {
                                             var gdf = GetGameRatingDeltas(game);
                                             <GridLayout CssClass="season-game-row mt-sm" Columns="8" Gap="8" AlignItems="center">
-                                                <TextButton Text="@game.GameId" TextAlign="left" CssClass="text-no-overflow" FontSize="13" OnClick="@(() => NavigateToGameDetail(game.MatchReportId))" Style="color: lawngreen; justify-content: flex-start;" />
+                                                <ResponsiveButton Text="@game.GameId" TextAlign="left" CssClass="text-no-overflow" FontSize="13" OnClick="@(() => NavigateToGameDetail(game.MatchReportId))" Style="color: lawngreen; justify-content: flex-start;" />
                                                 @if (gdf.HasTrueSkill)
                                                 {
                                                     <Label Text="@($"T: {GetDeltaArrow(gdf.TrueSkillDelta)}{FormatDelta(gdf.TrueSkillDelta, "F2")}")" FontSize="12" TextColor="@GetDeltaColor(gdf.TrueSkillDelta)" />
@@ -836,7 +836,7 @@
                                 @foreach (var game in month.Games)
                                 {
                                     <Label Style="grid-column: span 3;" />
-                                    <TextButton Text="@game.GameId" TextAlign="left" CssClass="text-no-overflow" FontSize="14" OnClick="@(() => NavigateToGameDetail(game.MatchReportId))" Style="color: lawngreen; justify-content: flex-start;" />
+                                    <ResponsiveButton Text="@game.GameId" TextAlign="left" CssClass="text-no-overflow" FontSize="14" OnClick="@(() => NavigateToGameDetail(game.MatchReportId))" Style="color: lawngreen; justify-content: flex-start;" />
                                     <Label Text="@($"{game.Score} / {game.MaxScore}")" FontSize="12" />
                                     <Label Text="@(game.IsWinner ? "W" : string.Empty)" FontSize="12" TextColor="TextColor.Yellow" />
                                     <Label Text="@game.Faction.GetDisplayName()" FontSize="12" />
@@ -882,7 +882,7 @@
                                     var rank = i + 1;
                                     <div class="opponent-row handel shadow">
                                         <Label Text="@rank.ToString()" FontSize="13" TextColor="TextColor.Yellow" Width="10" CenterText="true" />
-                                        <TextButton Text="@opponent.TiglUserName" FontSize="13" Width="60" OnClick="@(() => NavigateToPlayerProfile(opponent.TiglUserId))" Style="justify-content: flex-start;" />
+                                        <ResponsiveButton Text="@opponent.TiglUserName" FontSize="13" Width="60" OnClick="@(() => NavigateToPlayerProfile(opponent.TiglUserId))" Style="justify-content: flex-start;" />
                                         <Label Text="@opponent.GamesPlayed.ToString()" FontSize="13" Width="30" Style="text-align: right;" />
                                     </div>
                                 }
@@ -908,7 +908,7 @@
                                     var rank = halfCount + i + 1;
                                     <div class="opponent-row handel shadow">
                                         <Label Text="@rank.ToString()" FontSize="13" TextColor="TextColor.Yellow" Width="10" CenterText="true" />
-                                        <TextButton Text="@opponent.TiglUserName" FontSize="13" Width="60" OnClick="@(() => NavigateToPlayerProfile(opponent.TiglUserId))" Style="justify-content: flex-start;" />
+                                        <ResponsiveButton Text="@opponent.TiglUserName" FontSize="13" Width="60" OnClick="@(() => NavigateToPlayerProfile(opponent.TiglUserId))" Style="justify-content: flex-start;" />
                                         <Label Text="@opponent.GamesPlayed.ToString()" FontSize="13" Width="30" Style="text-align: right;" />
                                     </div>
                                 }

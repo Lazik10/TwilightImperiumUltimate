@@ -13,7 +13,7 @@
             {
                 var monthDt = new DateTime(year.Year, month, 1, 0, 0, 0, DateTimeKind.Utc);
 
-                <TextButton FontSize="16" Style="@GetMonthColor(monthDt)" Text="@(monthDt.ToString("MMMM"))" OnClick="() => OnMonthSelected(yearDt.Year, month)" CssClass="mb-sm" />
+                <ResponsiveButton FontSize="16" Style="@GetMonthColor(monthDt)" Text="@(monthDt.ToString("MMMM"))" OnClick="() => OnMonthSelected(yearDt.Year, month)" CssClass="mb-sm" />
             }
 
         }

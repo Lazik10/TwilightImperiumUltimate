@@ -21,7 +21,6 @@
                     </div>
 
                     <div class="faction-hero-block">
-                        <ResponsiveVerticalSpacer Size="2xl" ShowOnMobile="false" />
                         <div class="race-image-container">
                             <img src="@PathProvider.GetFactionImagePath(_selectedFaction.FactionName.ToString())" />
                         </div>
@@ -69,10 +68,6 @@
                                 </ClickableTile>
                             </div>
 
-                            <div class="firmament-sheet-row-spacer">
-                                <ResponsiveVerticalSpacer Size="xl" />
-                            </div>
-
                             <div class="faction-sheets-row">
                                 <ClickableTile CssClass="faction-sheet-button" OnClick="() => ShowBigImage(true, true)">
                                     @Strings.Faction_FrontSheetObsidian
@@ -87,11 +82,7 @@
             </div>
         </div>
 
-        <ResponsiveVerticalSpacer Size="2xl" />
-
         <FactionInfoRow OnFactionInfoTypeChange="SetFactionInfoType" />
-
-        <ResponsiveVerticalSpacer Size="2xl" ShowOnMobile="false" />
 
         <div class="faction-dynamic-content-shell">
             <StretchHeightContainer>

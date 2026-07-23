@@ -7,9 +7,7 @@
 <Page>
     <ResponsiveLabel Text="@Strings.Page_Cards" FontSize="2xl" CenterText="true" />
     
-    <ResponsiveVerticalSpacer Size="2xl" />
     <CardTypeNavBar SelectedTypeOfCard="@_currentTypeOfCard" OnTypeSelected="SetCurrentTypeOfCard" />
-    <ResponsiveVerticalSpacer Size="2xl" />
 
     <CardsGrid TypeOfCard="@_currentTypeOfCard" />
 </Page>

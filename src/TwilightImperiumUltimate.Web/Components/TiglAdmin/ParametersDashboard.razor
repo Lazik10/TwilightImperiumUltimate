@@ -1,43 +1,30 @@
 @using TwilightImperiumUltimate.Contracts.DTOs.Tigl
-@using TwilightImperiumUltimate.Contracts.Enums
 @using TwilightImperiumUltimate.Web.Helpers.Enums
 
 <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
 
-    <Label Text="@Strings.TiglAdmin_ParametersAdministration" FontSize="32" CenterText="true" CssClass="mt-md mb-md" />
+    <ResponsiveTable TItem="TiglParameterDto"
+                     Items="_parameters"
+                     IsLoading="_loading"
+                     LoadingText="@Strings.TiglAdmin_LoadingParameters"
+                     EmptyText="@Strings.TiglAdmin_NoParametersFound"
+                     CssClass="mb-2xl">
 
-    @if (_loading)
-    {
-        <Label Text="...Loading parameters..." CenterText="true" CssClass="mt-2xl mb-3xl" />
-    }
-    else if (_parameters.Count == 0)
-    {
-        <Label Text="No parameters found." CenterText="true" CssClass="mt-2xl mb-3xl" />
-    }
-    else
-    {
-        <GridLayout Columns="5" CssClass="handel white shadow background mb-xl">
-            <div class="span-5" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-            <Label />
-            <Label Text="Name" TextColor="TextColor.Yellow" />
-            <Label Text="Enabled" TextColor="TextColor.Yellow" Width="80" CenterText="true" />
-            <Label Text="Toggle" TextColor="TextColor.Yellow" Width="80" CenterText="true" />
-            <Label />
+        <ResponsiveTableColumn Field="x => x.Name" Header="Name">
+            <CellTemplate Context="parameter">
+                @parameter.Name.GetDisplayName()
+            </CellTemplate>
+        </ResponsiveTableColumn>
 
-            <div class="span-5" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
+        <ResponsiveTableColumn Field="x => x.Enabled" Header="Toggle" HeaderAlign="center" Align="center">
+            <CellTemplate Context="parameter">
+                <TableActionSwitch IsToggled="parameter.Enabled"
+                                OnText="@Strings.String_Enabled"
+                                OffText="@Strings.String_Disabled"
+                                IsToggledChanged="@(async () => await ToggleParameterAsync(parameter))" />
+            </CellTemplate>
+        </ResponsiveTableColumn>
 
-            @foreach (var p in _parameters.OrderBy(x => x.Name))
-            {
-                <Label />
-                <Label Text="@p.Name.GetDisplayName()" />
-                <Label Text="@(p.Enabled ? "Yes" : "No")" CenterText="true" TextColor="@(p.Enabled ? TextColor.Green : TextColor.Red)" />
-                <ResponsiveButton ButtonText="@(p.Enabled ? "Disable" : "Enable")" Width="90" OnClick="async () => await ToggleParameterAsync(p)" />
-                <Label />
-                <div class="span-5" style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
-            }
-
-            <div class="span-5" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-        </GridLayout>
-    }
+    </ResponsiveTable>
 
 </ResponsiveContainer>

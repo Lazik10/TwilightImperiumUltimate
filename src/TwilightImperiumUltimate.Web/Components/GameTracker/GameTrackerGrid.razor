@@ -15,9 +15,9 @@ else
             <ResponsiveButton ButtonText="@Strings.ButtonText_Reset" OnClick="ResetTimer" Width="15" />
             <ResponsiveButton ButtonText="@Strings.ButtonText_Agenda" OnClick="Agenda" Width="35" />
         </ResponsiveContainer>
-        <TextButton Text="@Strings.GameTracker_Overview" Width="20" OnClick="() => SetSelectedWindow(GameTrackerWindow.Overview)" FontSize="26" />
-        <TextButton Text="@Strings.GameTracker_StrategyCards" Width="20" OnClick="() => SetSelectedWindow(GameTrackerWindow.StrategyCardPick)" FontSize="26" />
-        <TextButton Text="@Strings.GameTracker_Scoring" Width="20" OnClick="() => SetSelectedWindow(GameTrackerWindow.Objectives)" FontSize="26" />
+        <ResponsiveButton Text="@Strings.GameTracker_Overview" Width="20" OnClick="() => SetSelectedWindow(GameTrackerWindow.Overview)" FontSize="26" />
+        <ResponsiveButton Text="@Strings.GameTracker_StrategyCards" Width="20" OnClick="() => SetSelectedWindow(GameTrackerWindow.StrategyCardPick)" FontSize="26" />
+        <ResponsiveButton Text="@Strings.GameTracker_Scoring" Width="20" OnClick="() => SetSelectedWindow(GameTrackerWindow.Objectives)" FontSize="26" />
         @if (ShowFinishGameButton())
         {
             <ResponsiveButton ButtonText="Finish Game" OnClick="FinishGame" Width="20" />

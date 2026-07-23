@@ -11,7 +11,7 @@
             <Label Text="Faction stats" FontSize="24" CenterText="true" CssClass="mb-md" />
 
             <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-                <EnumPicker TEnum="FactionStatisticsFilter" 
+                <ResponsiveEnumPicker TEnum="FactionStatisticsFilter" 
                     CurrentValue="@_selectedFactionStatisticsFilter"
                     CurrentValueChanged="OnFactionStatisticsFilterChanged"
                     Label="@Strings.FactionStats_Factions"
@@ -21,7 +21,7 @@
             </ResponsiveContainer>
 
             <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-                <EnumPicker TEnum="FactionStatisticsVpFilter"
+                <ResponsiveEnumPicker TEnum="FactionStatisticsVpFilter"
                             CurrentValue="@_selectedFactionVpStatisticsFilter"
                             CurrentValueChanged="OnFactionStatisticsVpFilterChanged"
                             Label="@Strings.FactionStats_VpCount"
@@ -31,7 +31,7 @@
             </ResponsiveContainer>
 
             <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-                <EnumPicker TEnum="FactionStatisticsSubstatsFilter"
+                <ResponsiveEnumPicker TEnum="FactionStatisticsSubstatsFilter"
                             CurrentValue="@_selectedFactionStatisticsSubstatsFilter"
                             CurrentValueChanged="OnFactionStatisticsSubstatsFilterChanged"
                             Label="@Strings.FactionStats_Statistics"

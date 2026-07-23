@@ -59,8 +59,6 @@
                      FontSize="2xl" 
                      TextColor="TextColor.White" />
     
-    <ResponsiveVerticalSpacer Size="3xl" />
-    
     <ResponsiveRadzenText Text="Lorem ipsum dolor sit amet..." 
                           FontSize="base" />
 </ResponsiveContainer>
@@ -98,7 +96,7 @@
 
 ### **After** (Responsive):
 ```razor
-<ResponsiveDataGrid TItem="GameModel"
+<ResponsiveRadzenDataGrid TItem="GameModel"
                     Data="@games"
                     AllowPaging="true"
                     PageSize="10">
@@ -116,7 +114,7 @@
                               Title="Column 3" 
                               Width="auto" />
     </Columns>
-</ResponsiveDataGrid>
+</ResponsiveRadzenDataGrid>
 ```
 
 **Benefits:**
@@ -152,8 +150,6 @@
 <div>
     <ResponsiveLabel Text="Section 1" FontSize="2xl" />
 </div>
-
-<ResponsiveVerticalSpacer Size="2xl" />
 
 <div>
     <ResponsiveLabel Text="Section 2" FontSize="2xl" />

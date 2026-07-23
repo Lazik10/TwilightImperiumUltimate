@@ -32,12 +32,9 @@
 
                 </ResponsiveContainer>
 
-                <ResponsiveVerticalSpacer CustomHeight="20px" />
-
                 @foreach (var faq in Faqs)
                 {
                     <FaqRow Faq="@faq" Culture="@(CultureInfo.CurrentCulture.Name)" />
-                    <ResponsiveVerticalSpacer CustomHeight="50px" />
                 }
             }
             else if (_showNotes)

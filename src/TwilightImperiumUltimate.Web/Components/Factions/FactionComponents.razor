@@ -73,19 +73,16 @@
         @if (Faction.FactionName != FactionName.TheFirmamentTheObsidian)
         {
             <div class="faction-component-half">
-                <ResponsiveVerticalSpacer CustomHeight="20px" />
                 <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), ComponentType.Mech))" />
             </div>
         }
         else
         {
             <div class="faction-component-half">
-                <ResponsiveVerticalSpacer CustomHeight="20px" />
                 <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath("TheFirmament", ComponentType.Mech))" />
             </div>
 
             <div class="faction-component-half">
-                <ResponsiveVerticalSpacer CustomHeight="20px" />
                 <HorizontalCard ImagePath="@(PathProvider.GetFactionComponenetTypeImagePath("TheObsidian", ComponentType.Mech))" />
             </div>
         }
@@ -95,7 +92,6 @@
             @foreach (var flagship in _flagshipCards)
             {
                 <div class="faction-component-half">
-                    <ResponsiveVerticalSpacer CustomHeight="20px" />
                     <HorizontalCard ImagePath="@(PathProvider.GetFlagshipImagePath(flagship.FlagshipName))" />
                 </div>
             }
@@ -106,7 +102,6 @@
             @foreach (var specialComponent in _specialComponentCards.Where(x => x.SpecialType == SpecialComponentType.FactionUnit))
             {
                 <div class="faction-component-half">
-                    <ResponsiveVerticalSpacer CustomHeight="20px" />
                     <HorizontalCard ImagePath="@(PathProvider.GetSpecialComponentImagePath(specialComponent.SpecialComponentName))" />
                 </div>
             }
@@ -144,7 +139,6 @@
                 @foreach (var promissoryNote in _promissoryNotes)
                 {
                     <div class="faction-component-vertical">
-                        <ResponsiveVerticalSpacer CustomHeight="20px" />
                         <VerticalCard Name="@promissoryNote.PromissoryNoteCardName.ToString()" TypeOfCard="@Paths.ResourcePath_PromissoryCard" />
                     </div>
                 }
@@ -155,7 +149,6 @@
             @foreach (var promissoryNote in _promissoryNotes)
             {
                 <div class="faction-component-vertical">
-                    <ResponsiveVerticalSpacer CustomHeight="20px" />
                     <VerticalCard Name="@promissoryNote.PromissoryNoteCardName.ToString()" TypeOfCard="@Paths.ResourcePath_PromissoryCard" />
                 </div>
             }
@@ -164,18 +157,15 @@
         @if (Faction.FactionName != FactionName.TheFirmamentTheObsidian)
         {
             <div class="faction-component-half">
-                <ResponsiveVerticalSpacer CustomHeight="20px" />
                 <HorizontalCard  ImagePath="@GetBreakthroughPath()" />
             </div>
         }
         else
         {
             <div class="faction-component-half">
-                <ResponsiveVerticalSpacer CustomHeight="20px" />
                 <HorizontalCard ImagePath="@GetSpecificBreakthroughPath("TheSowing")" />
             </div>
             <div class="faction-component-half">
-                <ResponsiveVerticalSpacer CustomHeight="20px" />
                 <HorizontalCard ImagePath="@GetSpecificBreakthroughPath("TheReaping")" />
             </div>
         }
@@ -195,21 +185,18 @@
                     @if (specialComponent.SpecialType == SpecialComponentType.VerticalCard)
                     {
                         <div class="faction-component-vertical">
-                            <ResponsiveVerticalSpacer CustomHeight="20px" />
                             <VerticalCard Name="@specialComponent.SpecialComponentName.ToString()" TypeOfCard="specialcomponents" />
                         </div>
                     }
                     else if (specialComponent.SpecialType == SpecialComponentType.HorizontalCard)
                     {
                         <div class="faction-component-half">
-                            <ResponsiveVerticalSpacer CustomHeight="20px" />
                             <HorizontalCard ImagePath="@(PathProvider.GetSpecialComponentImagePath(specialComponent.SpecialComponentName))" />
                         </div>
                     }
                     else
                     {
                         <div class="faction-component-half">
-                            <ResponsiveVerticalSpacer CustomHeight="20px" />
                             <TokenCard ImagePath="@(PathProvider.GetSpecialComponentImagePath(specialComponent.SpecialComponentName))" />
                         </div>
                     }
@@ -226,20 +213,14 @@
             }
 
             <div class="faction-grid-full-width">
-                <ResponsiveVerticalSpacer CustomHeight="20px" />
             </div>
 
             @foreach (var specialComponent in _specialComponentCards.Where(x => x.SpecialType == SpecialComponentType.Plot || x.SpecialType == SpecialComponentType.Ocean))
             {
                 <div class="faction-component-vertical">
-                    <ResponsiveVerticalSpacer CustomHeight="20px" />
                     <VerticalCard Name="@specialComponent.SpecialComponentName.ToString()" TypeOfCard="specialcomponents" />
                 </div>
             }
-
-            <div class="faction-grid-full-width">
-                <ResponsiveVerticalSpacer CustomHeight="20px" />
-            </div>
 
             <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CssClass="faction-grid-full-width" Style="display:flex; justify-content:center; align-items:center;">
                 @foreach (var specialComponent in _specialComponentCards.Where(x => x.SpecialType == SpecialComponentType.Token || x.SpecialType == SpecialComponentType.PlanetToken))
@@ -247,7 +228,6 @@
                     var width = specialComponent.SpecialType == SpecialComponentType.Token ? 25 : 35;
                     <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" Width="@width" CenteredItems="true">
                         <TokenCard ImagePath="@(PathProvider.GetSpecialComponentImagePath(specialComponent.SpecialComponentName))" />
-                        <ResponsiveHorizontalSpacer Size="md" />
                         <ResponsiveLabel Text="@(specialComponent.Count.ToString() + "x")" FontSize="sm"  />
                     </ResponsiveContainer>
                 }

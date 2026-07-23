@@ -86,7 +86,6 @@ Stop and report the risk before making a breaking change, destructive migration,
 - Do not edit generated output.
 - Do not mix unrelated formatting, renaming, package updates, or cleanup into the refactor.
 - Replace `FlexRowContainer` and `FlexColumnCenteredContainer` usages with `ResponsiveContainer` directly when able (both are thin pass-through wrappers around it). If the resulting `ResponsiveContainer` adds no layout behavior beyond what its single child or that child's own CSS already provides (for example a block-level element that is already `width: 100%`), remove the wrapper entirely instead of keeping a no-op container -- see the div-simplification rule below.
-- `VerticalSpace`, `HorizontalSpace`, `ResponsiveVerticalSpacer`, and `ResponsiveHorizontalSpacer` are deprecated. Do not use them in new or refactored code. If any are found during a refactor, remove them and instead apply the equivalent spacing (`.mt-*`/`.mb-*`/`.ml-*`/`.mr-*` margin utility classes from `wwwroot/css/app.css`) via the `CssClass` parameter on the adjacent/relevant component or element, so spacing does not require an extra empty spacer element in the DOM.
 
 ## Blazor-specific checks
 

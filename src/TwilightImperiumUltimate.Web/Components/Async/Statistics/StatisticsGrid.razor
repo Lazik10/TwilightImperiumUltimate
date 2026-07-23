@@ -4,16 +4,16 @@
     <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column">
 
         <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.Center" AlignItems="Enums.AlignItems.Center" CssClass="mt-sm">
-            <HorizontalSpacer Width="33" />
+
             <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column" AlignItems="Enums.AlignItems.Center">
-                <EnumPicker TEnum="PlayerStatisticsType"
+                <ResponsiveEnumPicker TEnum="PlayerStatisticsType"
                         CurrentValue="@_selectedGamesType"
                         CurrentValueChanged="@OnEnumChanged"
                         Label="@Strings.AsyncStats_Filter"
                         Width="50" />
             </ResponsiveContainer>
 
-            <EnumPicker TEnum="QueryLimit"
+            <ResponsiveEnumPicker TEnum="QueryLimit"
                         CurrentValue="@_selectedQueryLimit"
                         CurrentValueChanged="@OnQueryLimitChanged"
                         Width="33"

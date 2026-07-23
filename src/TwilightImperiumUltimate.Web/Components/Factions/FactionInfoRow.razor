@@ -6,7 +6,6 @@
         <div class="factioninfo-navbar">
             <ResponsiveGridContainer Columns="6" TabletColumns="3" MobileColumns="3" Width="100" Gap="var(--space-xs)" CssClass="factioninfo-navbar-grid">
 
-                <ResponsiveVerticalSpacer Size="xs" ShowOnDesktop="false" ShowOnMobile="true" CssClass="factioninfo-mobile-menu-row-spacer span-3" />
                 <div class="menu-item clickable" @onclick="() => OnInfoTypeClick(FactionInfoType.Ability)">
                     @Strings.Faction_Ability
                 </div>
@@ -16,7 +15,6 @@
                 <div class="menu-item menu-item-components clickable" @onclick="() => OnInfoTypeClick(FactionInfoType.Components)">
                     @Strings.Faction_FactionComponents
                 </div>
-                <ResponsiveVerticalSpacer Size="sm" ShowOnDesktop="false" ShowOnMobile="true" CssClass="factioninfo-mobile-menu-row-spacer span-3" />
                 <div class="menu-item clickable" @onclick="() => OnInfoTypeClick(FactionInfoType.Leaders)">
                     @Strings.Faction_Leaders
                 </div>
@@ -26,8 +24,7 @@
                 <div class="menu-item clickable" @onclick="() => OnInfoTypeClick(FactionInfoType.Faq)">
                     @Strings.Faction_Faq
                 </div>
-                <ResponsiveVerticalSpacer Size="xs" ShowOnDesktop="false" ShowOnMobile="true" CssClass="factioninfo-mobile-menu-row-spacer span-3" />
-
+                
             </ResponsiveGridContainer>
         </div>
     </div>

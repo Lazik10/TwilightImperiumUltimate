@@ -3,10 +3,10 @@
 <ResponsiveNumericPicker Label="@Strings.TiglLeaderboard_Season" FontSize="md" Value="@_selectedSeasonNumber" OnDecrease="DecreaseSeasonNumber" OnIncrease="IncreaseSeasonNumber" CssClass="mt-md" />
 
 <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
-    <EnumPicker Label="@Strings.TiglLeaderboard_League" TEnum="TiglLeagueFilter" CurrentValue="@_selectedLeagueFilter" CurrentValueChanged="@OnLeagueChanged" />
+    <ResponsiveEnumPicker Label="@Strings.TiglLeaderboard_League" TEnum="TiglLeagueFilter" CurrentValue="@_selectedLeagueFilter" CurrentValueChanged="@OnLeagueChanged" />
 </ResponsiveContainer>
 
-<EnumPicker Label="@Strings.TiglLeaderboard_RankingSystem" TEnum="RankingSystem" CurrentValue="@_selectedRankingSystem" CurrentValueChanged="@OnRankingSystemChanged" />
+<ResponsiveEnumPicker Label="@Strings.TiglLeaderboard_RankingSystem" TEnum="RankingSystem" CurrentValue="@_selectedRankingSystem" CurrentValueChanged="@OnRankingSystemChanged" />
 
 <GridLayout Columns="7" CssClass="handel white shadow mt-md mb-sm" Style="grid-template-columns: 10% 20% 20% 15% 15% 10% 10%">
 

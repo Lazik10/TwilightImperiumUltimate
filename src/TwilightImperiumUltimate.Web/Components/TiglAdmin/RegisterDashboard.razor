@@ -1,47 +1,48 @@
-@using TwilightImperiumUltimate.Contracts.DTOs.Tigl
+@using TwilightImperiumUltimate.Web.Components.Shared.Forms
 
 <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
 
-    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="70">
-
-        <Label Text="Manual User Registration" FontSize="32" CenterText="true" CssClass="mt-md mb-md" />
-
-        @if (_loading)
+    @if (_loading)
+    {
+        <ResponsiveText Text="@Strings.TiglAdmin_LoadingRegistrationParameters" CenterText="true" CssClass="mt-xl mb-xl" />
+    }
+    else if (!_manualRegisterEnabled)
+    {
+        <ResponsiveText Text="@Strings.TiglAdmin_ManualRegistrationDisabled" CssClass="mb-md" />
+    }
+    else
+    {
+        @if (!string.IsNullOrWhiteSpace(_manualRegisterError))
         {
-            <Label Text="...Loading registration parameters..." CenterText="true" CssClass="mt-xl mb-xl" />
-        }
-        else if (!_manualRegisterEnabled)
-        {
-            <HelpText Text="Manual registration is disabled. Enable 'Test Registrations' in Parameters to use this form." CssClass="mb-md" />
-        }
-        else
-        {
-            <Title Text="Test Registration (Manual)" MarginTop="10" MarginBottom="10" FontSize="22" TextColor="TextColor.Yellow" />
-            <HelpText Text="This form is visible because 'Test Registrations' parameter is enabled." CssClass="mb-md" />
-
-            @if (!string.IsNullOrWhiteSpace(_manualRegisterError))
-            {
-                <Label Text="@_manualRegisterError" TextColor="TextColor.Red" CssClass="mb-sm" />
-            }
-
-            <GridLayout CssClass="background mb-md" Style="grid-template-columns: 25% 75%; row-gap:10px;">
-                <Label Text="Discord ID" />
-                <input class="handel white" style="width:95%; color:black;" @bind="_newUser.DiscordId" />
-
-                <Label Text="Discord Tag (Username)" />
-                <input class="handel white" style="width:95%; color:black;" @bind="_newUser.DiscordTag" />
-
-                <Label Text="TIGL Username" />
-                <input class="handel white" style="width:95%; color:black;" @bind="_newUser.TiglUserName" />
-            </GridLayout>
-
-            @if (_manualRegisterSuccess)
-            {
-                <Label Text="User registered successfully." TextColor="TextColor.Green" CenterText="true" CssClass="mb-sm" />
-            }
-            <ResponsiveButton ButtonText="Register User" OnClick="ManualRegisterUser" IsDisabled="@_manualRegistering" Width="30" CssClass="mb-md" />
+            <ResponsiveText Text="@_manualRegisterError" CenterText="true" TextColor="TextColor.Red" CssClass="mb-md" />
         }
 
-    </ResponsiveContainer>
+        @if (_manualRegisterSuccess)
+        {
+            <ResponsiveText Text="@Strings.TiglAdmin_RegisterUserSuccess" TextColor="TextColor.Green" CenterText="true" CssClass="mb-md" />
+        }
+
+        <ResponsiveForm Model="_newUser"
+                        OnValidSubmit="ManualRegisterUser"
+                        IsSubmitting="_manualRegistering"
+                        SubmitText="@Strings.TiglAdmin_RegisterUserButton"
+                        SubmittingText="@Strings.TiglAdmin_RegisterUserButton"
+                        Columns="1"
+                        CssClass="mb-xl">
+
+            <ResponsiveFormField Id="register-discord-id" Label="@Strings.TiglAdmin_DiscordId" For="@(() => _newUser.DiscordId)" Required="true">
+                <ResponsiveTextBox Id="register-discord-id" Value="@_newUser.DiscordId.ToString()" ValueChanged="OnDiscordIdChanged" />
+            </ResponsiveFormField>
+
+            <ResponsiveFormField Id="register-discord-tag" Label="@Strings.TiglAdmin_DiscordTag" For="@(() => _newUser.DiscordTag)">
+                <ResponsiveTextBox Id="register-discord-tag" @bind-Value="_newUser.DiscordTag" />
+            </ResponsiveFormField>
+
+            <ResponsiveFormField Id="register-tigl-username" Label="@Strings.TiglAdmin_TiglUserName" For="@(() => _newUser.TiglUserName)" Required="true">
+                <ResponsiveTextBox Id="register-tigl-username" @bind-Value="_newUser.TiglUserName" />
+            </ResponsiveFormField>
+
+        </ResponsiveForm>
+    }
 
 </ResponsiveContainer>

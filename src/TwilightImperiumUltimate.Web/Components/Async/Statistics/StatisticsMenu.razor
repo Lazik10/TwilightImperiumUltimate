@@ -8,7 +8,7 @@
     {
         @foreach (var menuItem in _menuItems)
         {
-            <TextButton Text="@menuItem.GetDisplayName()" FontSize="14" Style="@GetMenuItemColor(menuItem)" OnClick="() => SelectedItemItem(menuItem)" CssClass="mt-xs mb-xs" />
+            <ResponsiveButton Text="@menuItem.GetDisplayName()" FontSize="14" Style="@GetMenuItemColor(menuItem)" OnClick="() => SelectedItemItem(menuItem)" CssClass="mt-xs mb-xs" />
         }
     }
 

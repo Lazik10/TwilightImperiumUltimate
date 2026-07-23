@@ -54,15 +54,11 @@
                         }
                     </ResponsiveGridContainer>
                 </div>
-
-                <ResponsiveVerticalSpacer Size="2xl" />
             }
         }
 
     </ResponsiveContainer>
 
-
-    <ResponsiveVerticalSpacer Size="2xl" />
 
     @if (_listOfDeprecatedCards is not null && _listOfDeprecatedCards.Count > 0 && !_selectedGameVersion.HasValue)
     {
@@ -102,8 +98,6 @@
                     @Strings.Faction_Notes
                 </div>
 
-                <ResponsiveVerticalSpacer Size="sm" />
-
                 <div class="white shadow handel notes-panel-container">
                     <div>
                         <div class="scrollable-element">
@@ -112,13 +106,9 @@
                     </div>
                 </div>
 
-                <ResponsiveVerticalSpacer Size="md" />
-
                 <div class="handel white shadow" style="font-size: 24px;" @onclick:stopPropagation="true">
                     @Strings.Faction_Faq
                 </div>
-
-                <ResponsiveVerticalSpacer Size="sm" />
 
                 <div class="faq-panel-container">
                     <div class="scrollable-element">
@@ -132,7 +122,6 @@
                         @foreach (var faq in GetSpecificCardFaqs())
                         {
                             <FaqRow Faq="@faq" Culture="@(currentBigImageCulture)" Width="100" />
-                            <ResponsiveVerticalSpacer Size="2xl" />
                         }
                     </div>
                 </div>

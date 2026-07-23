@@ -412,6 +412,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
             }
         }
 
+        public static string Admin_WebsitesTab {
+            get {
+                return ResourceManager.GetString("Admin_WebsitesTab", resourceCulture);
+            }
+        }
+
         public static string AgendaCard {
             get {
                 return ResourceManager.GetString("AgendaCard", resourceCulture);
@@ -4882,6 +4888,30 @@ namespace TwilightImperiumUltimate.Web.Resources {
             }
         }
 
+        public static string String_Disabled {
+            get {
+                return ResourceManager.GetString("String_Disabled", resourceCulture);
+            }
+        }
+
+        public static string String_Enabled {
+            get {
+                return ResourceManager.GetString("String_Enabled", resourceCulture);
+            }
+        }
+
+        public static string String_Off {
+            get {
+                return ResourceManager.GetString("String_Off", resourceCulture);
+            }
+        }
+
+        public static string String_On {
+            get {
+                return ResourceManager.GetString("String_On", resourceCulture);
+            }
+        }
+
         public static string SystemTileOverlay_Id {
             get {
                 return ResourceManager.GetString("SystemTileOverlay_Id", resourceCulture);
@@ -5128,6 +5158,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
             }
         }
 
+        public static string TiglAdmin_DiscordId {
+            get {
+                return ResourceManager.GetString("TiglAdmin_DiscordId", resourceCulture);
+            }
+        }
+
+        public static string TiglAdmin_DiscordTag {
+            get {
+                return ResourceManager.GetString("TiglAdmin_DiscordTag", resourceCulture);
+            }
+        }
+
         public static string TiglAdmin_Edit {
             get {
                 return ResourceManager.GetString("TiglAdmin_Edit", resourceCulture);
@@ -5152,9 +5194,45 @@ namespace TwilightImperiumUltimate.Web.Resources {
             }
         }
 
+        public static string TiglAdmin_GamesTab {
+            get {
+                return ResourceManager.GetString("TiglAdmin_GamesTab", resourceCulture);
+            }
+        }
+
+        public static string TiglAdmin_LoadingParameters {
+            get {
+                return ResourceManager.GetString("TiglAdmin_LoadingParameters", resourceCulture);
+            }
+        }
+
+        public static string TiglAdmin_LoadingRegistrationParameters {
+            get {
+                return ResourceManager.GetString("TiglAdmin_LoadingRegistrationParameters", resourceCulture);
+            }
+        }
+
         public static string TiglAdmin_LoadingSeasons {
             get {
                 return ResourceManager.GetString("TiglAdmin_LoadingSeasons", resourceCulture);
+            }
+        }
+
+        public static string TiglAdmin_ManualRegistrationDisabled {
+            get {
+                return ResourceManager.GetString("TiglAdmin_ManualRegistrationDisabled", resourceCulture);
+            }
+        }
+
+        public static string TiglAdmin_ManualRegistrationTitle {
+            get {
+                return ResourceManager.GetString("TiglAdmin_ManualRegistrationTitle", resourceCulture);
+            }
+        }
+
+        public static string TiglAdmin_NoParametersFound {
+            get {
+                return ResourceManager.GetString("TiglAdmin_NoParametersFound", resourceCulture);
             }
         }
 
@@ -5164,9 +5242,51 @@ namespace TwilightImperiumUltimate.Web.Resources {
             }
         }
 
+        public static string TiglAdmin_ParametersTab {
+            get {
+                return ResourceManager.GetString("TiglAdmin_ParametersTab", resourceCulture);
+            }
+        }
+
         public static string TiglAdmin_PlayersAdministration {
             get {
                 return ResourceManager.GetString("TiglAdmin_PlayersAdministration", resourceCulture);
+            }
+        }
+
+        public static string TiglAdmin_PlayersTab {
+            get {
+                return ResourceManager.GetString("TiglAdmin_PlayersTab", resourceCulture);
+            }
+        }
+
+        public static string TiglAdmin_RegisterTab {
+            get {
+                return ResourceManager.GetString("TiglAdmin_RegisterTab", resourceCulture);
+            }
+        }
+
+        public static string TiglAdmin_RegisterUserButton {
+            get {
+                return ResourceManager.GetString("TiglAdmin_RegisterUserButton", resourceCulture);
+            }
+        }
+
+        public static string TiglAdmin_RegisterUserFailed {
+            get {
+                return ResourceManager.GetString("TiglAdmin_RegisterUserFailed", resourceCulture);
+            }
+        }
+
+        public static string TiglAdmin_RegisterUserSuccess {
+            get {
+                return ResourceManager.GetString("TiglAdmin_RegisterUserSuccess", resourceCulture);
+            }
+        }
+
+        public static string TiglAdmin_RegisterValidationError {
+            get {
+                return ResourceManager.GetString("TiglAdmin_RegisterValidationError", resourceCulture);
             }
         }
 
@@ -5194,6 +5314,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
             }
         }
 
+        public static string TiglAdmin_SeasonsTab {
+            get {
+                return ResourceManager.GetString("TiglAdmin_SeasonsTab", resourceCulture);
+            }
+        }
+
         public static string TiglAdmin_SetActive {
             get {
                 return ResourceManager.GetString("TiglAdmin_SetActive", resourceCulture);
@@ -5209,6 +5335,30 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string TiglAdmin_Status {
             get {
                 return ResourceManager.GetString("TiglAdmin_Status", resourceCulture);
+            }
+        }
+
+        public static string TiglAdmin_TabsLabel {
+            get {
+                return ResourceManager.GetString("TiglAdmin_TabsLabel", resourceCulture);
+            }
+        }
+
+        public static string TiglAdmin_TestRegistrationHelp {
+            get {
+                return ResourceManager.GetString("TiglAdmin_TestRegistrationHelp", resourceCulture);
+            }
+        }
+
+        public static string TiglAdmin_TestRegistrationTitle {
+            get {
+                return ResourceManager.GetString("TiglAdmin_TestRegistrationTitle", resourceCulture);
+            }
+        }
+
+        public static string TiglAdmin_TiglUserName {
+            get {
+                return ResourceManager.GetString("TiglAdmin_TiglUserName", resourceCulture);
             }
         }
 
@@ -5839,6 +5989,96 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string VpStats_VpPercentageOfTotal {
             get {
                 return ResourceManager.GetString("VpStats_VpPercentageOfTotal", resourceCulture);
+            }
+        }
+
+        public static string WebsiteAdmin_Create {
+            get {
+                return ResourceManager.GetString("WebsiteAdmin_Create", resourceCulture);
+            }
+        }
+
+        public static string WebsiteAdmin_CreateHeading {
+            get {
+                return ResourceManager.GetString("WebsiteAdmin_CreateHeading", resourceCulture);
+            }
+        }
+
+        public static string WebsiteAdmin_CreateSuccess {
+            get {
+                return ResourceManager.GetString("WebsiteAdmin_CreateSuccess", resourceCulture);
+            }
+        }
+
+        public static string WebsiteAdmin_Delete {
+            get {
+                return ResourceManager.GetString("WebsiteAdmin_Delete", resourceCulture);
+            }
+        }
+
+        public static string WebsiteAdmin_DeleteConfirmMessage {
+            get {
+                return ResourceManager.GetString("WebsiteAdmin_DeleteConfirmMessage", resourceCulture);
+            }
+        }
+
+        public static string WebsiteAdmin_DeleteConfirmTitle {
+            get {
+                return ResourceManager.GetString("WebsiteAdmin_DeleteConfirmTitle", resourceCulture);
+            }
+        }
+
+        public static string WebsiteAdmin_DeleteSuccess {
+            get {
+                return ResourceManager.GetString("WebsiteAdmin_DeleteSuccess", resourceCulture);
+            }
+        }
+
+        public static string WebsiteAdmin_DescriptionLabel {
+            get {
+                return ResourceManager.GetString("WebsiteAdmin_DescriptionLabel", resourceCulture);
+            }
+        }
+
+        public static string WebsiteAdmin_Empty {
+            get {
+                return ResourceManager.GetString("WebsiteAdmin_Empty", resourceCulture);
+            }
+        }
+
+        public static string WebsiteAdmin_ExistingWebsitesHeading {
+            get {
+                return ResourceManager.GetString("WebsiteAdmin_ExistingWebsitesHeading", resourceCulture);
+            }
+        }
+
+        public static string WebsiteAdmin_ImageHelpText {
+            get {
+                return ResourceManager.GetString("WebsiteAdmin_ImageHelpText", resourceCulture);
+            }
+        }
+
+        public static string WebsiteAdmin_ImageLabel {
+            get {
+                return ResourceManager.GetString("WebsiteAdmin_ImageLabel", resourceCulture);
+            }
+        }
+
+        public static string WebsiteAdmin_Loading {
+            get {
+                return ResourceManager.GetString("WebsiteAdmin_Loading", resourceCulture);
+            }
+        }
+
+        public static string WebsiteAdmin_TitleLabel {
+            get {
+                return ResourceManager.GetString("WebsiteAdmin_TitleLabel", resourceCulture);
+            }
+        }
+
+        public static string WebsiteAdmin_WebsitePathLabel {
+            get {
+                return ResourceManager.GetString("WebsiteAdmin_WebsitePathLabel", resourceCulture);
             }
         }
 

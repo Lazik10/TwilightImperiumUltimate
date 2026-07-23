@@ -77,7 +77,7 @@
             <Label Text="League" CenterText="true" TextColor="TextColor.Green" FontSize="24" CssClass="mb-md" />
 
             <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="50" CssClass="mb-md">
-                <EnumPicker Label="League"
+                <ResponsiveEnumPicker Label="League"
                             CenterText="true"
                             TEnum="TiglLeague"
                             CurrentValue="@_selectedLeague"
@@ -106,7 +106,7 @@
                     <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="span-6" JustifyContent="Enums.JustifyContent.Center">
                         <Label Text="@r.Rank.GetDisplayName()" Width="40" TextColor="@(r.Rank.GetRankColor())" />
                         <Label Text="@FormatTimestamp(r.AchievedAt)" Width="40" CenterText="true" />
-                        <TextButton Text="Remove" TextColor="TextColor.Red" Width="20" OnClick="async () => await RemoveRankHistoryAsync(r)" />
+                        <ResponsiveButton Text="Remove" TextColor="TextColor.Red" Width="20" OnClick="async () => await RemoveRankHistoryAsync(r)" />
                     </ResponsiveContainer>
                     <Label />
 
@@ -121,7 +121,7 @@
             <div class="span-8" style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
 
             <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="span-3">
-                <EnumPicker TEnum="TiglRankName" Label="Rank" LabelWidth="30" CurrentValue="@_newRankName" CurrentValueChanged="(TiglRankName v) => _newRankName = v" ExcludeValues="ExcludedRanksForLeague" />
+                <ResponsiveEnumPicker TEnum="TiglRankName" Label="Rank" LabelWidth="30" CurrentValue="@_newRankName" CurrentValueChanged="(TiglRankName v) => _newRankName = v" ExcludeValues="ExcludedRanksForLeague" />
             </ResponsiveContainer>
 
             <Label Text="Date" CenterText="true" />
@@ -155,7 +155,7 @@
                         <Label Text="@p.PrestigeRank.GetDisplayName()" Width="30" />
                         <Label Text="@p.Level.ToString()" Width="10" CenterText="true" />
                         <Label Text="@FormatTimestamp(p.AchievedAt)" Width="30" />
-                        <TextButton Text="Remove" TextColor="TextColor.Red" Width="20" OnClick="async () => await RemovePrestigeRankAsync(p)" />
+                        <ResponsiveButton Text="Remove" TextColor="TextColor.Red" Width="20" OnClick="async () => await RemovePrestigeRankAsync(p)" />
                     </ResponsiveContainer>
 
                     <div class="span-8" style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>

@@ -6,7 +6,7 @@
 @using TwilightImperiumUltimate.Web.Helpers.Numbers
 
 <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
-    <EnumPicker TEnum="TiglFactionStatsShowBy"
+    <ResponsiveEnumPicker TEnum="TiglFactionStatsShowBy"
                 Label="Filter By"
                 CurrentValue="_showBy"
                 CurrentValueChanged="OnShowByChanged"
@@ -16,7 +16,7 @@
 @if (_showBy == TiglFactionStatsShowBy.Era)
 {
     <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
-        <EnumPicker TEnum="TiglFactionStatsEra"
+        <ResponsiveEnumPicker TEnum="TiglFactionStatsEra"
                     Label="Expansion"
                     CurrentValue="_era"
                     CurrentValueChanged="OnEraChanged"
@@ -35,7 +35,7 @@ else
 @if (ShouldShowLeagueFilter)
 {
     <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
-        <EnumPicker TEnum="TiglFactionStatsLeague"
+        <ResponsiveEnumPicker TEnum="TiglFactionStatsLeague"
                     Label="League"
                     CurrentValue="_leagueFilter"
                     CurrentValueChanged="OnLeagueFilterChanged"

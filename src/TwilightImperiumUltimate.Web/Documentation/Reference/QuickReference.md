@@ -35,24 +35,6 @@
 </ResponsiveContainer>
 ```
 
-### ResponsiveVerticalSpacer
-```razor
-<!-- Using predefined size -->
-<ResponsiveVerticalSpacer Size="lg" />  // xs, sm, md, lg, xl, 2xl, 3xl
-
-<!-- Using custom height -->
-<ResponsiveVerticalSpacer CustomHeight="2.5rem" />
-```
-
-### ResponsiveHorizontalSpacer
-```razor
-<!-- Using predefined size -->
-<ResponsiveHorizontalSpacer Size="md" />
-
-<!-- Using custom width -->
-<ResponsiveHorizontalSpacer CustomWidth="1.5rem" />
-```
-
 ---
 
 ## 🎛️ Control Components
@@ -67,9 +49,9 @@
     Disabled="false" />
 ```
 
-### ResponsiveDataGrid
+### ResponsiveRadzenDataGrid
 ```razor
-<ResponsiveDataGrid TItem="MyModel"
+<ResponsiveRadzenDataGrid TItem="MyModel"
                     Data="@myData"
                     AllowPaging="true"
                     PageSize="10">
@@ -78,7 +60,7 @@
                               Property="Name" 
                               Title="Name" />
     </Columns>
-</ResponsiveDataGrid>
+</ResponsiveRadzenDataGrid>
 ```
 
 ---
@@ -173,8 +155,6 @@ Examples:
 ### Old Component → New Component
 ```
 Label               → ResponsiveLabel
-VerticalSpace       → ResponsiveVerticalSpacer
-HorizontalSpace     → ResponsiveHorizontalSpacer
 (inline styles)     → ResponsiveContainer
 Button              → ResponsiveButton
 DataGrid            → ResponsiveDataGrid
@@ -186,15 +166,13 @@ DataGrid            → ResponsiveDataGrid
 
 ### Page Title with Spacing
 ```razor
-<ResponsiveLabel Text="Page Title" FontSize="2xl" />
-<ResponsiveVerticalSpacer Size="2xl" />
+<ResponsiveHeading Level="1" Text="Page Title" />
 ```
 
 ### Section with Content
 ```razor
 <ResponsiveContainer Type="centered" Padding="lg">
     <ResponsiveLabel Text="Section Title" FontSize="xl" />
-    <ResponsiveVerticalSpacer Size="lg" />
     <ResponsiveRadzenText Text="Content..." FontSize="base" />
 </ResponsiveContainer>
 ```
@@ -202,7 +180,6 @@ DataGrid            → ResponsiveDataGrid
 ### Button Group
 ```razor
 <ResponsiveButton Text="Save" OnClick="@Save" />
-<ResponsiveHorizontalSpacer Size="sm" />
 <ResponsiveButton Text="Cancel" OnClick="@Cancel" />
 ```
 
@@ -237,7 +214,6 @@ DataGrid            → ResponsiveDataGrid
 
 1. ❌ `style="font-size: 18px;"` → ✅ `FontSize="lg"`
 2. ❌ `Width="200"` → ✅ Remove (let component auto-size)
-3. ❌ `<div style="height: 50px;">` → ✅ `<ResponsiveVerticalSpacer Size="3xl" />`
 4. ❌ Fixed container widths → ✅ `ResponsiveContainer` with `Type`
 
 ---

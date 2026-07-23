@@ -1,7 +1,7 @@
 ﻿<StretchHeightContainer >
 
     <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="mt-md">
-        <EnumPicker TEnum="TiglStatisticsType"
+        <ResponsiveEnumPicker TEnum="TiglStatisticsType"
                     CurrentValue="@_selectedStatisticsType"
                     CurrentValueChanged="@ChangeStatisticsType"
                     Width="100"
@@ -17,7 +17,7 @@
         </ResponsiveContainer>
 
         <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
-            <EnumPicker Label="@Strings.TiglLeaderboard_League" TEnum="TiglLeague" CurrentValue="@_selectedLeague" CurrentValueChanged="@OnLeagueChanged" ExcludeValues="new List<TiglLeague> { TiglLeague.Test }" />
+            <ResponsiveEnumPicker Label="@Strings.TiglLeaderboard_League" TEnum="TiglLeague" CurrentValue="@_selectedLeague" CurrentValueChanged="@OnLeagueChanged" ExcludeValues="new List<TiglLeague> { TiglLeague.Test }" />
         </ResponsiveContainer>
     }
 

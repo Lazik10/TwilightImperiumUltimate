@@ -62,6 +62,21 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Inter';
+    src: url('/resources/fonts/Inter.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Inter Italic';
+    src: url('/resources/fonts/Inter Italic.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
 /* ==================== CSS VARIABLES ====================== */
 :root {
     /* Spacing Scale (rem-based) */
@@ -258,6 +273,14 @@ body {
     font-family: Slider, sans-serif !important;
 }
 
+.inter {
+    font-family: Inter, sans-serif !important;
+}
+
+.inter-italic {
+    font-family: Inter Italic, sans-serif !important;
+}
+
 .shadow {
     text-shadow: var(--shadow-text) !important;
 }
@@ -324,6 +347,10 @@ body {
 
 .white {
     color: var(--color-white) !important;
+}
+
+.width-100 {
+    width: 100%;
 }
 
 /* ==================== LAYOUT UTILITIES ====================== */

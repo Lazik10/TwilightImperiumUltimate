@@ -11,8 +11,8 @@
 
         <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="70">
 
-            <EnumPicker TEnum="AsyncGameType" CurrentValue="@_asyncGameType" Label="@Strings.AsyncGameStats_GameType" Width="100" CurrentValueChanged="GameTypeChanged" />
-            <EnumPicker TEnum="AsyncGameStatusFilter" CurrentValue="@_gameStatus" Label="Status" Width="100" ButtonWidth="50" CurrentValueChanged="GameStatusChanged" />
+            <ResponsiveEnumPicker TEnum="AsyncGameType" CurrentValue="@_asyncGameType" Label="@Strings.AsyncGameStats_GameType" Width="100" CurrentValueChanged="GameTypeChanged" />
+            <ResponsiveEnumPicker TEnum="AsyncGameStatusFilter" CurrentValue="@_gameStatus" Label="Status" Width="100" ButtonWidth="50" CurrentValueChanged="GameStatusChanged" />
 
         </ResponsiveContainer>
 

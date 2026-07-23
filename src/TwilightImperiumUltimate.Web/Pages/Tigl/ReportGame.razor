@@ -43,7 +43,7 @@
                 <div class="span-4" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
                 <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="span-4 background">
-                    <EnumPicker Label="League"
+                    <ResponsiveEnumPicker Label="League"
                                 CenterText="true"
                                 TEnum="TiglLeague"
                                 CurrentValue="@gameReportRequest.League"
@@ -55,7 +55,7 @@
                 <div class="span-4" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
                 <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="span-4 background">
-                    <EnumPicker Label="Source"
+                    <ResponsiveEnumPicker Label="Source"
                                 CenterText="true"
                                 TEnum="ResultSource"
                                 CurrentValue="@gameReportRequest.Source"
@@ -120,7 +120,7 @@
 
                             @if (_currentPlayerIndex != index)
                             {
-                                <TextButton Text="Open Search" TextColor="TextColor.Green" OnClick="(() => OpenPlayerSearch(index))" Width="30" />
+                                <ResponsiveButton Text="Open Search" TextColor="TextColor.Green" OnClick="(() => OpenPlayerSearch(index))" Width="30" />
                             }
                             else
                             {
@@ -210,7 +210,7 @@
                         </GridLayout>
 
                         <div class="span-8" style="height: clamp(1.25rem, 1.25rem + 1vw, 2.5rem);"></div>
-                        <TextButton Text="X - Clear Player" TextColor="TextColor.Red" OnClick="() => ClearPlayer(index)" CssClass="span-8" />
+                        <ResponsiveButton Text="X - Clear Player" TextColor="TextColor.Red" OnClick="() => ClearPlayer(index)" CssClass="span-8" />
                         <div class="span-8" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
                     }
 
@@ -222,11 +222,11 @@
                 <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.SpaceBetween">
                     @if (_selectedLeague == TiglLeague.Fractured && playerResults.Count < MaxNumberOfPlayers)
                     {
-                        <TextButton Text="+ Add Player Slot" TextColor="TextColor.Green" OnClick="AddPlayer" />
+                        <ResponsiveButton Text="+ Add Player Slot" TextColor="TextColor.Green" OnClick="AddPlayer" />
                     }
                     @if (playerResults.Count > MinNumberOfPlayers)
                     {
-                        <TextButton Text="- Remove Player Slot" TextColor="TextColor.Red" OnClick="RemovePlayer" />
+                        <ResponsiveButton Text="- Remove Player Slot" TextColor="TextColor.Red" OnClick="RemovePlayer" />
                     }
                 </ResponsiveContainer>
             </ResponsiveContainer>

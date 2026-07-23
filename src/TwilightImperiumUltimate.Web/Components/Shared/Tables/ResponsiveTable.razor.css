@@ -1,0 +1,180 @@
+.responsive-table-wrapper {
+    /* Always fills its parent's width; pass MaxWidth (in rem) on the component to cap it instead
+       of letting it stretch edge to edge. align-self/flex-basis guard against being placed inside
+       a `CenteredItems`/align-items:center flex container, which would otherwise shrink a plain
+       width:100% block down to its content size on the cross axis instead of stretching it. */
+    width: 100%;
+    max-width: 100%;
+    align-self: stretch;
+    flex: 1 1 auto;
+    box-sizing: border-box;
+    border: 2px solid var(--color-nav-hover-bg-solid, #123957);
+    border-radius: var(--border-radius-md);
+    /* Fully opaque navy panel. Previously a semi-transparent linear-gradient, but that let the
+       page's `background-attachment: fixed` starfield image show through, forcing the browser to
+       repaint that background on every scroll frame -- a major source of scroll jank on tables
+       with many rows (e.g. the Websites admin table). An opaque background lets the browser treat
+       this panel as its own paint layer instead. */
+    background-color: rgba(8, 14, 24, 0.94);
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.5);
+}
+
+.responsive-table-scroll {
+    overflow-x: auto;
+}
+
+.responsive-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Handel, sans-serif;
+    font-size: var(--responsive-table-font-size, var(--font-size-base));
+}
+
+.responsive-table-caption {
+    caption-side: top;
+    text-align: center;
+    padding: var(--space-sm) var(--space-md) var(--space-md);
+    font-size: var(--font-size-lg);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-nav-hover, #8ecfff);
+    border-bottom: 2px solid var(--color-nav-hover, #8ecfff);
+}
+
+::deep .responsive-column {
+    padding: var(--space-sm) var(--space-md);
+    border-bottom: 1px solid rgba(142, 207, 255, 0.3);
+    white-space: nowrap;
+    transition: background-color 0.15s ease;
+}
+
+/*
+    Opt-in per column (pass CssClass="responsive-table-wrap-cell" on a ResponsiveTableColumn) for
+    long free-text content (descriptions, URLs). Without this, `.responsive-column`'s `nowrap`
+    forces a single unbroken line -- for a long, space-less string (e.g. a URL) that has no natural
+    wrap point, the column (and the whole table) can grow to an enormous, mostly-empty pixel width.
+    That oversized scrollable layer is what actually caused the scroll jank, not the horizontal
+    scrollbar itself: painting/compositing a huge mostly-blank table on every scroll frame is
+    expensive regardless of whether the extra width is ever visible. Wrapping the text back down to
+    a normal column width removes that oversized layer while still showing every character (no
+    ellipsis/clipping) -- genuinely many normal-width columns can still trigger EnableXScroll's
+    horizontal scrollbar as intended.
+*/
+::deep .responsive-table-wrap-cell {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+::deep .responsive-column-vertical {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    white-space: nowrap;
+}
+
+thead ::deep th.responsive-column {
+    background-color: var(--color-nav-hover-bg-solid, #123957);
+    border-bottom: 2px solid var(--color-nav-hover, #8ecfff);
+}
+
+/*
+    Data rows use Inter instead of the table's default Handel (kept on the header via the rule
+    above taking no font-family, so it still inherits Handel from .responsive-table).
+    ::deep is anchored right after `tbody` (owned directly by ResponsiveTable) rather than after
+    `tr`/`td`, which are rendered by the child ResponsiveRow/ResponsiveColumn components -- see the
+    ::deep placement rule explained further down this file.
+*/
+.responsive-table tbody ::deep .responsive-column {
+    font-family: 'Inter', sans-serif !important;
+}
+
+.responsive-table-zebra tbody ::deep tr:nth-child(odd) .responsive-column {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.responsive-table-zebra tbody ::deep tr:nth-child(even) .responsive-column {
+    background-color: rgba(142, 207, 255, 0.1);
+}
+
+/*
+    Clear hover highlight (matches the header's background color), applied regardless of
+    ZebraStripes/odd-even so every table gets an obvious "you're pointing at this row" cue.
+
+    CRITICAL: ::deep MUST come right after something ResponsiveTable itself directly renders
+    (here, `tbody`) -- NOT after `tr` or `tr:hover`. Blazor's CSS isolation stamps the scope
+    attribute onto the LAST simple selector before `::deep`, whatever that happens to be. `<tr>` is
+    actually rendered by the child ResponsiveRow component (its own separate scope), so
+    "tbody tr:hover ::deep .responsive-column" used to compile to
+    ".responsive-table tbody tr:hover[b-xxxx] .responsive-column" -- requiring a `<tr>` that
+    carries ResponsiveTable's OWN scope attribute, which never exists (confirmed by inspecting the
+    actual compiled obj/.../ResponsiveTable.razor.rz.scp.css output), making the rule permanently
+    dead CSS despite !important and correct-looking source. Same bug existed on both zebra rules
+    above. Do not move ::deep back after `tr`/`tr:nth-child(...)`/`tr:hover` again.
+*/
+.responsive-table tbody ::deep tr:hover .responsive-column {
+    background-color: var(--color-nav-hover-bg-solid, #123957) !important;
+}
+
+.responsive-table-sticky-header ::deep th.responsive-column {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+}
+
+::deep .responsive-table-sticky-col {
+    background-color: inherit;
+}
+
+.responsive-table-filter-row td {
+    padding: var(--space-xs) var(--space-sm);
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+::deep .responsive-table-value-filter {
+    gap: var(--space-xs);
+}
+
+.responsive-table-state {
+    padding: var(--space-lg);
+    text-align: center;
+    font-family: Handel, sans-serif;
+    color: white;
+}
+
+/*
+    Backs the RowHeight parameter (see ResponsiveDataViewBase.TableStyle, which sets
+    --responsive-row-height as a custom property on the <table> element itself). Same ::deep
+    placement rule as the hover/zebra fix above: ::deep must come right after `tbody` (owned
+    directly by ResponsiveTable), not after `tr` (owned by the child ResponsiveRow component).
+*/
+.responsive-table tbody ::deep tr {
+    height: var(--responsive-row-height, auto);
+}
+
+@media (min-width: 1600px) {
+    .responsive-table {
+        --responsive-table-font-size: var(--font-size-md);
+    }
+}
+
+@media (max-width: 1248px) {
+    .responsive-table {
+        --responsive-table-font-size: var(--font-size-sm);
+    }
+}
+
+@media (max-width: 992px) {
+    .responsive-table {
+        --responsive-table-font-size: var(--font-size-xs);
+    }
+
+    ::deep .responsive-column {
+        padding: var(--space-xs) var(--space-sm);
+    }
+}
+
+@media (max-width: 768px) {
+    .responsive-table {
+        --responsive-table-font-size: var(--font-size-xs);
+    }
+}

@@ -565,6 +565,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to api/websites.
+        /// </summary>
+        public static string ApiPath_Websites {
+            get {
+                return ResourceManager.GetString("ApiPath_Websites", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to api/cards/objective.
         /// </summary>
         public static string ApiPath_ObjectiveCards {

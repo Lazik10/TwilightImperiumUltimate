@@ -1,0 +1,10 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Tables
+
+@*
+    A single table row (<tr>). Building block used internally by ResponsiveTable/ResponsiveGrid,
+    and usable standalone for hand-built tables.
+*@
+
+<tr class="@ComputedCssClass" style="@ComputedStyle" @onclick="OnClick">
+    @ChildContent
+</tr>

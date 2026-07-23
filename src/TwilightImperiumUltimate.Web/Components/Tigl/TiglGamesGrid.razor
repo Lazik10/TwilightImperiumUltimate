@@ -58,7 +58,7 @@ else
                 @foreach (var g in FilteredStandardGames)
                 {
                     <Label />
-                    <TextButton Text="@g.GameId" JustifyContent="Enums.JustifyContent.FlexStart" TextColor="TextColor.Green" OnClick="() => RedirectToGameDetail(g.Id)" />
+                    <ResponsiveButton Text="@g.GameId" JustifyContent="Enums.JustifyContent.FlexStart" TextColor="TextColor.Green" OnClick="() => RedirectToGameDetail(g.Id)" />
                     <Label Text="@g.State.GetDisplayName()" />
                     <Label Text="@g.Source.GetDisplayName()" />
                     <Label Text="@FormatEndDate(g.EndTimestamp)" />
@@ -70,7 +70,7 @@ else
                 @foreach (var g in FilteredFracturedGames)
                 {
                     <Label />
-                    <TextButton Text="@g.GameId" JustifyContent="Enums.JustifyContent.FlexStart" TextColor="TextColor.Green" OnClick="() => RedirectToGameDetail(g.Id)" />
+                    <ResponsiveButton Text="@g.GameId" JustifyContent="Enums.JustifyContent.FlexStart" TextColor="TextColor.Green" OnClick="() => RedirectToGameDetail(g.Id)" />
                     <Label Text="@g.State.GetDisplayName()" />
                     <Label Text="@g.Source.GetDisplayName()" />
                     <Label Text="@FormatEndDate(g.EndTimestamp)" />

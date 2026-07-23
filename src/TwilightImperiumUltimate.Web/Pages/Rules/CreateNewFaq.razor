@@ -4,21 +4,17 @@
 
     @if (!_submitSuccess)
     {
-        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-            @{
-                var componenetText = string.Concat("New FAQ for: ", ComponentName);
-            }
-            <ResponsiveLabel Text="@(componenetText)" FontSize="xl" CenterText/>
-
-        <ResponsiveVerticalSpacer CustomHeight="50px" />
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+        @{
+            var componenetText = string.Concat("New FAQ for: ", ComponentName);
+        }
+        <ResponsiveLabel Text="@(componenetText)" FontSize="xl" CenterText/>
 
         <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart">
             <img src="@(PathProvider.GetCultureIconPath(Strings.EnglishCulture))"
                  alt="English"
                  style="max-height: 100px;" />
         </ResponsiveContainer>
-
-        <ResponsiveVerticalSpacer CustomHeight="50px" />
 
         <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
             <ResponsiveLabel Text="@Strings.Faq_Question" CssClass="faq-field-label" />
@@ -27,8 +23,6 @@
                            class="w-100 flex-row title white handel" />
         </ResponsiveContainer>
 
-        <ResponsiveVerticalSpacer CustomHeight="20px" />
-
         <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
             <ResponsiveLabel Text="@Strings.Faq_Answer" CssClass="faq-field-label"/>
             <RadzenTextBox Placeholder="@FaqModel.AnswerEnglish"
@@ -36,15 +30,11 @@
                            class="w-100 flex-row title white handel" />
         </ResponsiveContainer>
 
-        <ResponsiveVerticalSpacer CustomHeight="50px" />
-
         <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart">
             <img src="@(PathProvider.GetCultureIconPath(Strings.CzechCulture))"
                  alt="Czech"
                  style="max-height: 100px;" />
         </ResponsiveContainer>
-
-        <ResponsiveVerticalSpacer CustomHeight="50px" />
 
         <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
             <ResponsiveLabel Text="@Strings.Faq_Question" CssClass="faq-field-label" />
@@ -53,16 +43,12 @@
                            class="w-100 flex-row title white handel" />
         </ResponsiveContainer>
 
-        <ResponsiveVerticalSpacer CustomHeight="20px" />
-
         <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
             <ResponsiveLabel Text="@Strings.Faq_Answer" CssClass="faq-field-label"/>
             <RadzenTextBox Placeholder="@FaqModel.AnswerCzech"
                            @bind-Value="FaqModel.AnswerCzech"
                            class="w-100 flex-row title white handel" />
         </ResponsiveContainer>
-
-        <ResponsiveVerticalSpacer CustomHeight="50px" />
 
         <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.Center" Width="50">
             <ResponsiveButton Text="@Strings.Faq_Submit" OnClick="Submit" CssClass="button" ButtonType="ButtonType.Submit" />
@@ -73,8 +59,6 @@
     }
     else
     {
-        <ResponsiveVerticalSpacer CustomHeight="200px" />
-
         <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
             <ResponsiveLabel Text="@Strings.Faq_SubmitSuccess" FontSize="xl" CenterText="true" TextColor="TextColor.Green"/>
         </ResponsiveContainer>

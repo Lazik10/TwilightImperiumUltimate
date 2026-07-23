@@ -1,8 +1,8 @@
 ﻿
 <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="mt-2xl mb-lg">
-    <TextButton Text="@Strings.GameTracker_PublicObjectives" OnClick="() => UpdateWindow(GameTrackerWindow.PublicObjectives)" FontSize="22" />
-    <TextButton Text="@Strings.GameTracker_SecretObjectives" OnClick="() => UpdateWindow(GameTrackerWindow.SecretObjectives)" FontSize="22" />
-    <TextButton Text="@Strings.GameTracker_BonusPoints" OnClick="() => UpdateWindow(GameTrackerWindow.BonusPoints)" FontSize="22" />
+    <ResponsiveButton Text="@Strings.GameTracker_PublicObjectives" OnClick="() => UpdateWindow(GameTrackerWindow.PublicObjectives)" FontSize="22" />
+    <ResponsiveButton Text="@Strings.GameTracker_SecretObjectives" OnClick="() => UpdateWindow(GameTrackerWindow.SecretObjectives)" FontSize="22" />
+    <ResponsiveButton Text="@Strings.GameTracker_BonusPoints" OnClick="() => UpdateWindow(GameTrackerWindow.BonusPoints)" FontSize="22" />
 </ResponsiveContainer>
 
 @if (_window == GameTrackerWindow.PublicObjectives)

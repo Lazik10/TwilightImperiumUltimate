@@ -41,8 +41,8 @@
                 {
                     @foreach (var game in _games)
                     {
-                        <TextButton Text="@game.AsyncGameID" TextAlign="left" Style="@(GetAsyncGameIdTextColor(game))" FontSize="14" OnClick="@(() => RedirectToGameDetails(game.AsyncGameID))" />
-                        <TextButton Text="@game.AsyncFunGameName" TextAlign="left" Style="@(GetAsyncGameIdTextColor(game))" FontSize="14" OnClick="@(() => RedirectToGameDetails(game.AsyncGameID))" />
+                        <ResponsiveButton Text="@game.AsyncGameID" TextAlign="left" Style="@(GetAsyncGameIdTextColor(game))" FontSize="14" OnClick="@(() => RedirectToGameDetails(game.AsyncGameID))" />
+                        <ResponsiveButton Text="@game.AsyncFunGameName" TextAlign="left" Style="@(GetAsyncGameIdTextColor(game))" FontSize="14" OnClick="@(() => RedirectToGameDetails(game.AsyncGameID))" />
                         <Label Text="@game.Scoreboard.ToString()" FontSize="14" CenterText="true" />
                         <Label Text="@game.PlayerCount.ToString()" FontSize="14" CenterText="true" />
                         <Label Text="@GetDurationTime(game)" FontSize="14" />

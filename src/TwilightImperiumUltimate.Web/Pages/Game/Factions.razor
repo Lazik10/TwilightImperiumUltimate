@@ -5,10 +5,6 @@
 
 <Page>
     <ResponsiveLabel Text="@Strings.Page_Factions" CssClass="news-page-title handel white shadow" FontSize="2xl" CenterText="true" />
-    
-    <ResponsiveVerticalSpacer Size="2xl" />
     <FactionIconRow OnFactionClickGetFaction="UpdateSelectedFaction" Faction="@Faction" />
-    <ResponsiveVerticalSpacer Size="2xl" ShowOnMobile="false" />
-
     <FactionInfoGrid @ref="factionInfoRef" />
 </Page>

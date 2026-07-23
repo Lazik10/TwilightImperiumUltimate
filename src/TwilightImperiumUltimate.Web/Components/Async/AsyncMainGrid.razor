@@ -4,21 +4,17 @@
 
 <AsyncMenu OnMenuItemClick="ChangeSegment"/>
 
-<StretchHeightContainer >
+@if (_selectedSegment == AsyncMenuItem.Statistics)
+{
+    <StatisticsGrid />
+}
 
-    @if (_selectedSegment == AsyncMenuItem.Statistics)
-    {
-        <StatisticsGrid />
-    }
+@if (_selectedSegment == AsyncMenuItem.Games)
+{
+    <AsyncGamesGrid />
+}
 
-    @if (_selectedSegment == AsyncMenuItem.Games)
-    {
-        <AsyncGamesGrid />
-    }
-
-    @if (_selectedSegment == AsyncMenuItem.Players)
-    {
-        <AsyncPlayersList />
-    }
-
-</StretchHeightContainer>
+@if (_selectedSegment == AsyncMenuItem.Players)
+{
+    <AsyncPlayersList />
+}

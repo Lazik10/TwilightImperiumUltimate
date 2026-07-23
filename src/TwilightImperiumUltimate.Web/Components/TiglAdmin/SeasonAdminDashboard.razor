@@ -1,7 +1,5 @@
-@using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Season
+@using TwilightImperiumUltimate.Web.Models.TiglAdmin
 @using Microsoft.AspNetCore.Components.Forms
-
-<Label Text="@Strings.TiglAdmin_SeasonAdministration" FontSize="32" CenterText="true" CssClass="mt-md mb-md" />
 
 @if (_loading)
 {
@@ -10,84 +8,104 @@
 else
 {
     <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mb-md">
-        <Label Text="@GetActiveSeasonNumber()" CenterText="true" TextColor="TextColor.Green" FontSize="24" />
+        <ResponsiveText Text="@GetActiveSeasonNumber()" CenterText="true" TextColor="TextColor.Green" />
     </ResponsiveContainer>
 
     <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-        <GridLayout CssClass="background mb-sm" Style="grid-template-columns: 3% 5% 15% 10% 15% 15% 10% 27%">
-            <Label />
-            <Label Text="@Strings.TiglAdmin_SeasonId" />
-            <Label Text="@Strings.TiglAdmin_SeasonName" />
-            <Label Text="@Strings.TiglAdmin_Status" />
-            <Label Text="@Strings.TiglAdmin_StartDate" />
-            <Label Text="@Strings.TiglAdmin_EndDate" />
-            <Label Text="@Strings.TiglAdmin_Edit" CenterText="true" />
-            <Label Text="@Strings.TiglAdmin_Actions" CenterText="true" />
-        </GridLayout>
 
-        @foreach (var s in _seasonEdits)
-        {
-            var isEditing = s.IsEditing;
-            <GridLayout CssClass="background mb-xs" Style="grid-template-columns: 3% 5% 15% 10% 15% 15% 10% 27%">
-                <Label />
-                <Label Text="@s.SeasonNumber.ToString()" TextColor="@(s.IsActive? TextColor.Green: TextColor.Red)" />
-                
-                @if (isEditing)
-                {
-                    <input class="handel white" style="width:95%; color: black;" @bind="s.SeasonName" />
-                }
-                else
-                {
-                    <Label Text="@s.SeasonName" TextColor="@(s.IsActive? TextColor.Green: TextColor.Red)" />
-                }
-                <Label Text="@(s.IsActive ? Strings.TiglAdmin_ActiveYes : Strings.TiglAdmin_ActiveNo)" TextColor="@(s.IsActive ? TextColor.Green : TextColor.Red)" />
-                
-                @if (isEditing)
-                {
-                    <InputDate class="handel white" style="width:95%; color: black;" @bind-Value="s.StartDateValue" />
-                }
-                else
-                {
-                    <Label Text="@s.StartDate.ToString(Strings.DateTimeFormat_EU)" TextColor="@(s.IsActive? TextColor.Green: TextColor.Red)" />
-                }
+        <ResponsiveTable TItem="SeasonEditModel"
+                         Items="_seasonEdits"
+                         CssClass="mb-md">
 
-                @if (isEditing)
-                {
-                    <InputDate class="handel white" style="width:95%; color: black;" @bind-Value="s.EndDateValue" />
-                }
-                else
-                {
-                    <Label Text="@s.EndDate.ToString(Strings.DateTimeFormat_EU)" TextColor="@(s.IsActive? TextColor.Green: TextColor.Red)" />
-                }
+            <ResponsiveTableColumn Field="x => x.SeasonNumber" Header="@Strings.TiglAdmin_SeasonId">
+                <CellTemplate Context="s">
+                    <span style="color: @((s.IsActive ? TextColor.Green : TextColor.Red).ConvertToString());">@s.SeasonNumber</span>
+                </CellTemplate>
+            </ResponsiveTableColumn>
 
-                @if (!isEditing)
-                {
-                    <ResponsiveButton ButtonText="Edit" OnClick="() => BeginEdit(s)" Width="70" IsDisabled="@_sendingRequest" />
-                }
-                else
-                {
-                    <ResponsiveButton ButtonText="Cancel" OnClick="() => CancelEdit(s)" Width="70" />
-                }
-
-                <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="100" JustifyContent="Enums.JustifyContent.SpaceEvenly">
-                    @if (isEditing)
+            <ResponsiveTableColumn Field="x => x.SeasonName" Header="@Strings.TiglAdmin_SeasonName">
+                <CellTemplate Context="s">
+                    @if (s.IsEditing)
                     {
-                        <ResponsiveButton ButtonText="@(Strings.TiglAdmin_Save)" OnClick="() => SaveSeasonAsync(s)" Width="50" IsDisabled="@_sendingRequest" />
+                        <input class="handel white" style="width:95%; color:black;" @bind="s.SeasonName" />
                     }
                     else
                     {
-                        @if (!s.IsActive)
-                        {
-                            <ResponsiveButton ButtonText="@(Strings.TiglAdmin_SetActive)" OnClick="() => SetActiveAsync(s.SeasonNumber)" Width="50" IsDisabled="@_sendingRequest" />
-                        }
-                        @if (s.IsActive)
-                        {
-                            <ResponsiveButton ButtonText="@(Strings.TiglAdmin_EndSeason)" OnClick="EndSeasonAsync" Width="50" IsDisabled="@_sendingRequest" />
-                        }
+                        <span style="color: @((s.IsActive ? TextColor.Green : TextColor.Red).ConvertToString());">@s.SeasonName</span>
                     }
-                </ResponsiveContainer>
-            </GridLayout>
-        }
+                </CellTemplate>
+            </ResponsiveTableColumn>
+
+            <ResponsiveTableColumn Field="x => x.IsActive" Header="@Strings.TiglAdmin_Status">
+                <CellTemplate Context="s">
+                    <span style="color: @((s.IsActive ? TextColor.Green : TextColor.Red).ConvertToString());">
+                        @(s.IsActive ? Strings.TiglAdmin_ActiveYes : Strings.TiglAdmin_ActiveNo)
+                    </span>
+                </CellTemplate>
+            </ResponsiveTableColumn>
+
+            <ResponsiveTableColumn Field="x => x.StartDate" Header="@Strings.TiglAdmin_StartDate">
+                <CellTemplate Context="s">
+                    @if (s.IsEditing)
+                    {
+                        <InputDate class="handel white" style="width:95%; color: black;" @bind-Value="s.StartDateValue" />
+                    }
+                    else
+                    {
+                        <span style="color: @((s.IsActive ? TextColor.Green : TextColor.Red).ConvertToString());">@s.StartDate.ToString(Strings.DateTimeFormat_EU)</span>
+                    }
+                </CellTemplate>
+            </ResponsiveTableColumn>
+
+            <ResponsiveTableColumn Field="x => x.EndDate" Header="@Strings.TiglAdmin_EndDate">
+                <CellTemplate Context="s">
+                    @if (s.IsEditing)
+                    {
+                        <InputDate class="handel white" style="width:95%; color: black;" @bind-Value="s.EndDateValue" />
+                    }
+                    else
+                    {
+                        <span style="color: @((s.IsActive ? TextColor.Green : TextColor.Red).ConvertToString());">@s.EndDate.ToString(Strings.DateTimeFormat_EU)</span>
+                    }
+                </CellTemplate>
+            </ResponsiveTableColumn>
+
+            <ResponsiveTableColumn Field="x => x.IsEditing" Header="@Strings.TiglAdmin_Edit" HeaderAlign="center">
+                <CellTemplate Context="s">
+                    @if (!s.IsEditing)
+                    {
+                        <TableActionButton Text="@Strings.TiglAdmin_Edit" OnClick="() => BeginEdit(s)" IsDisabled="@_sendingRequest" />
+                    }
+                    else
+                    {
+                        <TableActionButton Text="@Strings.NewsAdmin_Cancel" OnClick="() => CancelEdit(s)" />
+                    }
+                </CellTemplate>
+            </ResponsiveTableColumn>
+
+            <ResponsiveTableColumn Field="x => x.SeasonNumber" Header="@Strings.TiglAdmin_Actions" HeaderAlign="center">
+                <CellTemplate Context="s">
+                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="100" JustifyContent="Enums.JustifyContent.SpaceEvenly">
+                        @if (s.IsEditing)
+                        {
+                            <TableActionButton Text="@Strings.TiglAdmin_Save" OnClick="() => SaveSeasonAsync(s)" IsDisabled="@_sendingRequest" />
+                        }
+                        else
+                        {
+                            @if (!s.IsActive)
+                            {
+                                <TableActionButton Text="@Strings.TiglAdmin_SetActive" OnClick="() => SetActiveAsync(s.SeasonNumber)" IsDisabled="@_sendingRequest" />
+                            }
+                            @if (s.IsActive)
+                            {
+                                <TableActionButton Text="@Strings.TiglAdmin_EndSeason" OnClick="EndSeasonAsync" IsDisabled="@_sendingRequest" />
+                            }
+                        }
+                    </ResponsiveContainer>
+                </CellTemplate>
+            </ResponsiveTableColumn>
+
+        </ResponsiveTable>
 
         <Label Text="@(Strings.TiglAdmin_AddNewSeason)" FontSize="24" CenterText="true" CssClass="mt-md mb-sm" />
         <GridLayout CssClass="background mb-xs" Style="grid-template-columns: 15% 35% 25% 25%">

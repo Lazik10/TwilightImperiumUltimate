@@ -20,7 +20,7 @@
             <div class="players-grid">
                 @foreach (var playerProfileName in _filteredPlayerProfiles)
                 {
-                    <TextButton Text="@playerProfileName.DiscordUsername" FontSize="14" OnClick="() => RedirectToPlayerProfile(playerProfileName.Id)" />
+                    <ResponsiveButton Text="@playerProfileName.DiscordUsername" FontSize="14" OnClick="() => RedirectToPlayerProfile(playerProfileName.Id)" />
                 }
             </div>
         }

@@ -13,10 +13,6 @@
                              OnSelect="HandleSelection" />
         }
 
-        <div class="span-5 card-type-row-break">
-            <ResponsiveVerticalSpacer Size="sm" />
-        </div>
-
         @foreach (var item in SecondRowCardTypes)
         {
             <CardTypeNavItem TypeOfCard="@item.TypePath"

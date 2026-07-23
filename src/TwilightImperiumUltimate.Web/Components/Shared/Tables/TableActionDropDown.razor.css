@@ -1,0 +1,20 @@
+/*
+    ResponsiveDropDown already drives --rz-input-font-size from its FontSize parameter (defaulted
+    to "xs" here instead of "md", see TableActionDropDown.razor.cs) -- that alone handles the
+    text-size half of the "too big for a table cell" problem. --rz-input-height is a real Radzen
+    input variable (see ResponsiveDropDown.razor.css / app.css's .responsive-input-height comment)
+    that also needs shrinking for the control itself. The selector below combines two classes that
+    only coexist on this specific instance (".table-action-dropdown .responsive-input-height" via
+    ::deep), which gives it more specificity than the plain single-class ".responsive-input-height"
+    utility in app.css, so it reliably wins despite both being !important (the same scope-
+    attribute-adds-specificity trick already used by the padding/margin utilities in app.css).
+*/
+.table-action-dropdown {
+    display: contents;
+}
+
+.table-action-dropdown ::deep .responsive-input-height {
+    --rz-input-height: 1.85rem !important;
+    --rz-input-padding-block: 0.1rem;
+    --rz-input-padding-inline: 0.4rem;
+}

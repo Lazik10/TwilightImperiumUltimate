@@ -6,7 +6,7 @@
 
 <Page>
     <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" CssClass="mb-md">
-        <TextButton Text="@Strings.ButtonBack" OnClick="RedirectBack" FontSize="24" Width="20" TextAlign="@(string.Empty)" />
+        <ResponsiveButton Text="@Strings.ButtonBack" OnClick="RedirectBack" FontSize="24" Width="20" TextAlign="@(string.Empty)" />
     </ResponsiveContainer>
 
     <StretchHeightContainer CssClass="background">
@@ -23,7 +23,7 @@
                 <Label Text="@GetGameLeagueString()" CenterText="true" TextColor="GetGameRank().GetRankColor()" FontSize="24" />
             </ResponsiveContainer>
 
-            <TextButton Text="Show game" OnClick="(() => RedirectToGameDetails(MatchReport.GameId))" TextColor="TextColor.Green" CssClass="mb-md" />
+            <ResponsiveButton Text="Show game" OnClick="(() => RedirectToGameDetails(MatchReport.GameId))" TextColor="TextColor.Green" CssClass="mb-md" />
 
         </ResponsiveContainer>
 
@@ -38,7 +38,7 @@
                 <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="mt-sm mb-sm">
                     <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
                         <WinnerImg />
-                        <TextButton Text="@GetUserName(winner)" OnClick="(() => NavigateToPlayerProfile(winner.TiglUserId))" TextAlign="center" FontSize="22" TextColor="TextColor.Green" Width="50" />
+                        <ResponsiveButton Text="@GetUserName(winner)" OnClick="(() => NavigateToPlayerProfile(winner.TiglUserId))" TextAlign="center" FontSize="22" TextColor="TextColor.Green" Width="50" />
                         <WinnerImg />
                     </ResponsiveContainer>
                     <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
@@ -94,7 +94,7 @@
                 var newRankText = newRank == oldRank ? string.Empty : newRank.GetDisplayName();
                 
                 <Label />
-                    <TextButton Text="@GetUserName(player)" OnClick="(() => NavigateToPlayerProfile(player.TiglUserId))" JustifyContent="Enums.JustifyContent.FlexStart" TextColor="@color" />
+                    <ResponsiveButton Text="@GetUserName(player)" OnClick="(() => NavigateToPlayerProfile(player.TiglUserId))" JustifyContent="Enums.JustifyContent.FlexStart" TextColor="@color" />
                 <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
                     <TiglFactionImg Faction="@player.Faction" Height="30" />
                     <Label Text="@player.Faction.GetDisplayName()" TextColor="@color" Width="80" />
@@ -109,7 +109,7 @@
         </GridLayout>
 
         <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-md mb-md">
-            <EnumPicker TEnum="RankingSystem" Label="Ranking Changes" Width="50" CurrentValue="_selectedRankingSystem" CurrentValueChanged="ChangeRankingSystem" />
+            <ResponsiveEnumPicker TEnum="RankingSystem" Label="Ranking Changes" Width="50" CurrentValue="_selectedRankingSystem" CurrentValueChanged="ChangeRankingSystem" />
         </ResponsiveContainer>
 
         <GridLayout Columns="7" CssClass="handel white shadow background" Style="grid-template-columns: 5% 22% 23% 23% 22% 5%">
@@ -151,7 +151,7 @@
                 var winnerColor = playerResult.IsWinner ? TextColor.Green : TextColor.White;
 
                 <div style="align-self: stretch; justify-self: stretch;" class="background" />
-                <TextButton Text="@GetUserName(playerResult)" OnClick="(() => NavigateToPlayerProfile(playerResult.TiglUserId))" CssClass="background" JustifyContent="Enums.JustifyContent.FlexStart" TextColor="@winnerColor" />
+                <ResponsiveButton Text="@GetUserName(playerResult)" OnClick="(() => NavigateToPlayerProfile(playerResult.TiglUserId))" CssClass="background" JustifyContent="Enums.JustifyContent.FlexStart" TextColor="@winnerColor" />
 
                 if (_selectedRankingSystem == RankingSystem.TrueSkill)
                 {

@@ -4,4 +4,5 @@ public enum AdminTab
 {
     Roles,
     News,
+    Websites,
 }

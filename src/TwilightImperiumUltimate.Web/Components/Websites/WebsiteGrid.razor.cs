@@ -11,7 +11,7 @@ public partial class WebsiteGrid : TwilightImperiumBaseComponent
 
     private async Task GetWebsiteInfos()
     {
-        var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<WebsiteDto>>>("api/websites");
+        var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<WebsiteDto>>>(Paths.ApiPath_Websites);
         if (statusCode == HttpStatusCode.OK)
         {
             _websites = Mapper.Map<List<WebsiteModel>>(response!.Data!.Items);

@@ -12,25 +12,19 @@
 <Page>
     <ResponsiveLabel Text="@Strings.Faq_SubmittedFaqs" CenterText="true" FontSize="xl"/>
 
-    <ResponsiveVerticalSpacer CustomHeight="50px" />
-
     @foreach (var faq in Faqs)
     {
         <FaqRow Faq="@faq" Culture="@(CultureInfo.CurrentCulture.Name)" Width="80"/>
-        <ResponsiveVerticalSpacer CustomHeight="20px" />
         <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
             <AuthorizeView Roles="Admin">
                 <Authorized>
                     <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="80">
                         <ResponsiveButton Text="Approve" OnClick="async () => await ApproveFaq(faq)" />
-                        <ResponsiveHorizontalSpacer CustomWidth="50px" />
                         <ResponsiveButton Text="Edit" OnClick="async () => await EditFaq(faq.Id)" />
-                        <ResponsiveHorizontalSpacer CustomWidth="50px" />
                         <ResponsiveButton Text="Reject" OnClick="async () => await RejectFaq(faq)" />
                     </ResponsiveContainer>
                 </Authorized>
             </AuthorizeView>
         </ResponsiveContainer>
-        <ResponsiveVerticalSpacer CustomHeight="50px" />
     }
 </Page>

@@ -30,7 +30,7 @@
                 }
                 else
                 {
-                    <TextButton Text="@user.UserName" FontSize="16" TextAlign="left" CssClass="@(background)" OnClick="@(() => RedirectToPlayerProfile(user.Id))" />
+                    <ResponsiveButton Text="@user.UserName" FontSize="16" TextAlign="left" CssClass="@(background)" OnClick="@(() => RedirectToPlayerProfile(user.Id))" />
                 }
                 <Label Text="@user.Games.ToString()" CenterText="true" TextColor="TextColor.Yellow" CssClass="@(background)" />
                 <Label Text="@user.UniqueOpponents.ToString()" CenterText="true" TextColor="TextColor.Green" CssClass="@(background)" />

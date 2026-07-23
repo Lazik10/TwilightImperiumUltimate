@@ -1,0 +1,26 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Tables
+@using TwilightImperiumUltimate.Web.Helpers.Enums
+@typeparam TEnum
+
+@*
+    Compact ResponsiveEnumPicker for ResponsiveTable/ResponsiveGrid cells. Same CurrentValue/
+    ExcludeValues contract, defaulting to no visible label and the smallest FontSize token so it
+    fits a narrow column -- see TableActionEnumPicker.razor.css. ResponsiveEnumPicker has no
+    CssClass/Style parameters of its own, so a wrapping <div> carries the compact marker class
+    instead.
+*@
+
+<div class="@($"table-action-enum-picker {CssClass}".Trim())" style="@Style">
+    <ResponsiveEnumPicker TEnum="TEnum"
+                          CurrentValue="CurrentValue"
+                          CurrentValueChanged="CurrentValueChanged"
+                          ExcludeValues="ExcludeValues"
+                          Label="@Label"
+                          LabelPosition="LabelPosition"
+                          FontSize="@FontSize"
+                          LabelColor="LabelColor"
+                          ValueColor="ValueColor"
+                          LabelWidth="LabelWidth"
+                          ButtonWidth="ButtonWidth"
+                          Width="@Width" />
+</div>

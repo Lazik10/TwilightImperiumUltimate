@@ -27,7 +27,7 @@ else
 
             @if(report.Source == ResultSource.Async)
             {
-                <TextButton Text="Show Game" TextColor="TextColor.Green" OnClick="@(() => RedirectToGameDetails(report.GameId))" CssClass="mb-md" />
+                <ResponsiveButton Text="Show Game" TextColor="TextColor.Green" OnClick="@(() => RedirectToGameDetails(report.GameId))" CssClass="mb-md" />
             }
 
             <GridLayout Columns="4" CssClass="mb-md">

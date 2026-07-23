@@ -1496,6 +1496,9 @@
   <data name="Admin_NewsTab" xml:space="preserve">
     <value>News</value>
   </data>
+  <data name="Admin_WebsitesTab" xml:space="preserve">
+    <value>Websites</value>
+  </data>
   <data name="Admin_NoUserSelected" xml:space="preserve">
     <value>User not selected</value>
   </data>
@@ -2987,6 +2990,24 @@ Brandon Williams&lt;/p&gt;</value>
   <data name="TiglAdmin_ParametersAdministration" xml:space="preserve">
     <value>Parameters Administration</value>
   </data>
+  <data name="TiglAdmin_ParametersTab" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="TiglAdmin_SeasonsTab" xml:space="preserve">
+    <value>Seasons</value>
+  </data>
+  <data name="TiglAdmin_RegisterTab" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="TiglAdmin_PlayersTab" xml:space="preserve">
+    <value>Players</value>
+  </data>
+  <data name="TiglAdmin_GamesTab" xml:space="preserve">
+    <value>Games</value>
+  </data>
+  <data name="TiglAdmin_TabsLabel" xml:space="preserve">
+    <value>TIGL administration sections</value>
+  </data>
   <data name="TiglParameterName_RankingUp" xml:space="preserve">
     <value>Allow ranking up</value>
   </data>
@@ -3103,5 +3124,104 @@ Brandon Williams&lt;/p&gt;</value>
   </data>
   <data name="Page_TiglInfo" xml:space="preserve">
     <value>Info</value>
+  </data>
+  <data name="TiglAdmin_LoadingParameters" xml:space="preserve">
+    <value>... Loading parameters ...</value>
+  </data>
+  <data name="TiglAdmin_NoParametersFound" xml:space="preserve">
+    <value>... No parameters found. ...</value>
+  </data>
+  <data name="String_Enabled" xml:space="preserve">
+    <value>Enabled</value>
+  </data>
+  <data name="String_Disabled" xml:space="preserve">
+    <value>Disabled</value>
+  </data>
+  <data name="String_On" xml:space="preserve">
+    <value>ON</value>
+  </data>
+  <data name="String_Off" xml:space="preserve">
+    <value>OFF</value>
+  </data>
+  <data name="TiglAdmin_ManualRegistrationTitle" xml:space="preserve">
+    <value>Manual User Registration</value>
+  </data>
+  <data name="TiglAdmin_LoadingRegistrationParameters" xml:space="preserve">
+    <value>...Loading registration parameters...</value>
+  </data>
+  <data name="TiglAdmin_ManualRegistrationDisabled" xml:space="preserve">
+    <value>Manual registration is disabled. Enable 'Test Registrations' in Parameters to use this form.</value>
+  </data>
+  <data name="TiglAdmin_TestRegistrationTitle" xml:space="preserve">
+    <value>Test Registration (Manual)</value>
+  </data>
+  <data name="TiglAdmin_TestRegistrationHelp" xml:space="preserve">
+    <value>This form is visible because 'Test Registrations' parameter is enabled.</value>
+  </data>
+  <data name="TiglAdmin_DiscordId" xml:space="preserve">
+    <value>Discord ID</value>
+  </data>
+  <data name="TiglAdmin_DiscordTag" xml:space="preserve">
+    <value>Discord Tag (Username)</value>
+  </data>
+  <data name="TiglAdmin_TiglUserName" xml:space="preserve">
+    <value>TIGL Username</value>
+  </data>
+  <data name="TiglAdmin_RegisterUserSuccess" xml:space="preserve">
+    <value>User registered successfully.</value>
+  </data>
+  <data name="TiglAdmin_RegisterUserButton" xml:space="preserve">
+    <value>Register User</value>
+  </data>
+  <data name="TiglAdmin_RegisterValidationError" xml:space="preserve">
+    <value>Please provide a valid Discord ID and TIGL Username.</value>
+  </data>
+  <data name="TiglAdmin_RegisterUserFailed" xml:space="preserve">
+    <value>Registration failed.</value>
+  </data>
+  <data name="WebsiteAdmin_CreateHeading" xml:space="preserve">
+    <value>Add website</value>
+  </data>
+  <data name="WebsiteAdmin_TitleLabel" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="WebsiteAdmin_DescriptionLabel" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="WebsiteAdmin_WebsitePathLabel" xml:space="preserve">
+    <value>Website link</value>
+  </data>
+  <data name="WebsiteAdmin_ImageLabel" xml:space="preserve">
+    <value>Preview image (optional)</value>
+  </data>
+  <data name="WebsiteAdmin_ImageHelpText" xml:space="preserve">
+    <value>If no image is chosen, the site will try to match the title to one of its built-in preview images.</value>
+  </data>
+  <data name="WebsiteAdmin_Create" xml:space="preserve">
+    <value>Add website</value>
+  </data>
+  <data name="WebsiteAdmin_CreateSuccess" xml:space="preserve">
+    <value>Website added successfully.</value>
+  </data>
+  <data name="WebsiteAdmin_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="WebsiteAdmin_DeleteConfirmTitle" xml:space="preserve">
+    <value>Delete website</value>
+  </data>
+  <data name="WebsiteAdmin_DeleteConfirmMessage" xml:space="preserve">
+    <value>Are you sure you want to delete this website? This cannot be undone.</value>
+  </data>
+  <data name="WebsiteAdmin_DeleteSuccess" xml:space="preserve">
+    <value>Website deleted successfully.</value>
+  </data>
+  <data name="WebsiteAdmin_ExistingWebsitesHeading" xml:space="preserve">
+    <value>Existing websites</value>
+  </data>
+  <data name="WebsiteAdmin_Loading" xml:space="preserve">
+    <value>...Loading websites...</value>
+  </data>
+  <data name="WebsiteAdmin_Empty" xml:space="preserve">
+    <value>No websites found.</value>
   </data>
 </root>

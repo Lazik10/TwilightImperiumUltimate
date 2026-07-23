@@ -20,12 +20,10 @@
 
 #### **Layout Components:**
 - ✅ `ResponsiveContainer.razor` - Flexible container with predefined types
-- ✅ `ResponsiveVerticalSpacer.razor` - Vertical spacing with semantic sizes
-- ✅ `ResponsiveHorizontalSpacer.razor` - Horizontal spacing with semantic sizes
 
 #### **Control Components (Radzen Wrappers):**
 - ✅ `ResponsiveButton.razor` - Button with consistent styling
-- ✅ `ResponsiveDataGrid.razor` - DataGrid with responsive column sizing
+- ✅ `ResponsiveRadzenDataGrid.razor` - DataGrid with responsive column sizing
 
 ---
 
@@ -50,7 +48,6 @@
 ### **After (Responsive Units):**
 ```razor
 <ResponsiveLabel Text="Score" FontSize="lg" />
-<ResponsiveVerticalSpacer Size="3xl" />
 ```
 ✅ Works on all devices  
 ✅ Automatically scales  
@@ -71,20 +68,10 @@
     CenterText="true" />
 ```
 
-### **Example 2: Responsive Spacing**
-```razor
-@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
-
-<ResponsiveVerticalSpacer Size="lg" />
-<!-- or custom -->
-<ResponsiveVerticalSpacer CustomHeight="2.5rem" />
-```
-
 ### **Example 3: Responsive Container**
 ```razor
 <ResponsiveContainer Type="centered" Padding="lg">
     <ResponsiveLabel Text="Title" FontSize="2xl" />
-    <ResponsiveVerticalSpacer Size="md" />
     <ResponsiveRadzenText Text="Body content" FontSize="base" />
 </ResponsiveContainer>
 ```
@@ -101,7 +88,7 @@
 
 ### **Example 5: Responsive DataGrid**
 ```razor
-<ResponsiveDataGrid TItem="FactionModel"
+<ResponsiveRadzenDataGrid TItem="FactionModel"
                     Data="@factions"
                     AllowPaging="true">
     <Columns>
@@ -109,7 +96,7 @@
                               Property="Name" 
                               Title="Faction" />
     </Columns>
-</ResponsiveDataGrid>
+</ResponsiveRadzenDataGrid>
 ```
 
 ---
@@ -148,7 +135,6 @@
 ### **Phase 1: Pages (Start Here)**
 When refactoring a page:
 1. Replace `<Label>` with `<ResponsiveLabel>` or `<ResponsiveText>`
-2. Replace `<VerticalSpace>` / `<HorizontalSpace>` with `<ResponsiveVerticalSpacer>` / `<ResponsiveHorizontalSpacer>`
 3. Convert pixel values to semantic sizes (e.g., `Height="50"` → `Size="3xl"`)
 4. **Replace `<GridLayout>` and `<FlexColumnCenteredContainer>` with `<ResponsiveGridContainer>` and `<ResponsiveContainer>`**
 5. Wrap page content in `<ResponsiveContainer Type="centered">` or `<ResponsiveContainer Type="fluid">`

@@ -1,0 +1,24 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Tables
+
+@*
+    A single table cell (<td>/<th>). Building block used internally by ResponsiveTable/ResponsiveGrid,
+    and usable standalone for hand-built tables. Always applies the site's Handel font + text shadow;
+    TextColor defaults to white.
+*@
+
+@if (IsHeader)
+{
+    <th scope="@Scope" aria-sort="@AriaSort" class="@ComputedCssClass" style="@ComputedStyle">
+        @RenderedContent
+    </th>
+}
+else
+{
+    <td class="@ComputedCssClass" style="@ComputedStyle">
+        @RenderedContent
+    </td>
+}
+
+@code {
+    private RenderFragment RenderedContent => ChildContent ?? (builder => builder.AddContent(0, Text));
+}

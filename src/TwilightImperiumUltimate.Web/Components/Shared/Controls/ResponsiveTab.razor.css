@@ -25,7 +25,6 @@
 }
 
 .responsive-tab-active {
-    background-color: var(--color-nav-hover-bg-solid);
     color: var(--color-nav-hover);
     text-decoration: underline;
     text-underline-offset: 0.25rem;

@@ -1,0 +1,26 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Controls
+@using Radzen.Blazor
+@typeparam TItem where TItem : notnull
+
+@*
+    Responsive DataGrid component wrapping RadzenDataGrid.
+    Provides a responsive data table with consistent styling and fluid column sizing.
+*@
+
+<RadzenDataGrid 
+    TItem="TItem"
+    Data="@Data"
+    AllowFiltering="@AllowFiltering"
+    AllowPaging="@AllowPaging"
+    AllowSorting="@AllowSorting"
+    AllowAlternatingRows="@AllowAlternatingRows"
+    PageSize="@PageSize"
+    PagerHorizontalAlign="@PagerHorizontalAlign"
+    class="@GetGridClass()"
+    Style="@Style"
+    AllowColumnResize="true"
+    ColumnWidth="@ColumnWidth">
+    <Columns>
+        @Columns
+    </Columns>
+</RadzenDataGrid>
