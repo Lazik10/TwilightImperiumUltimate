@@ -4,7 +4,7 @@
 
 <section class="website-admin" aria-label="@Strings.WebsiteAdmin_CreateHeading">
 
-    <ResponsiveHeading Level="2" Text="@Strings.WebsiteAdmin_CreateHeading" CssClass="mb-lg" />
+    <ResponsiveHeading Level="2" Text="@Strings.WebsiteAdmin_CreateHeading" />
 
     @if (_showCreateSuccess)
     {
@@ -60,7 +60,7 @@
         </FooterContent>
     </ResponsiveForm>
 
-    <ResponsiveHeading Level="2" Text="@Strings.WebsiteAdmin_ExistingWebsitesHeading" FontSize="lg" CssClass="mb-lg" />
+    <ResponsiveHeading Level="2" Text="@Strings.WebsiteAdmin_ExistingWebsitesHeading" FontSize="lg" />
 
     @if (_hasError)
     {
@@ -98,7 +98,7 @@
 
     @* Radzen DataGrid comparison table -- visual-only, added alongside the ResponsiveTable above
        to compare rendering/scroll behavior. Styled directly by ResponsiveRadzenDataGrid itself. *@
-    <ResponsiveHeading Level="2" Text="@($"{Strings.WebsiteAdmin_ExistingWebsitesHeading} (Radzen)")" FontSize="lg" CssClass="mb-lg" />
+    <ResponsiveHeading Level="2" Text="@($"{Strings.WebsiteAdmin_ExistingWebsitesHeading} (Radzen)")" FontSize="lg" />
 
     <ResponsiveRadzenDataGrid TItem="WebsiteModel"
                               Data="_websites"

@@ -1,26 +1,14 @@
 ﻿<div class="system-stats">
-@foreach(var line in FactionUIText())
-{
-    if (line.Contains("."))
+    @if (!string.IsNullOrEmpty(_title))
     {
-        string[] parts = @line.Split(".");
+        <ResponsiveText TagName="TagName.Div" CssClass="system-stats-title shadow handel">@_title</ResponsiveText>
+    }
 
-        <div class="system-stats-line">
-            <div class="system-stats-text shadow handel">
-                @parts[0]
-            </div>
-            <div class="system-stats-value shadow handel">
-                @parts[1]
-            </div>
-        </div>
-    }
-    else
-    {
-        <div class="system-stats-line-title">
-            <div class="system-stats-text shadow handel">
-                @line
-            </div>
-        </div>
-    }
-}
+    <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="2" Width="100" Gap="var(--space-2xs)" CssClass="system-stats-grid">
+        @foreach (var stat in _stats)
+        {
+            <div class="system-stats-text shadow handel">@stat.Label</div>
+            <div class="system-stats-value shadow handel">@stat.Value</div>
+        }
+    </ResponsiveGridContainer>
 </div>

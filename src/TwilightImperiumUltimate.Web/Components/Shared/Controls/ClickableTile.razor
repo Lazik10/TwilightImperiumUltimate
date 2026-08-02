@@ -7,6 +7,15 @@
     keeping the same CSS classes so existing tile/grid styling is preserved.
 *@
 
-<button type="button" class="clickable-tile @CssClass" style="@Style" @onclick="HandleClickAsync">
-    @ChildContent
-</button>
+@if (string.IsNullOrEmpty(Href))
+{
+    <button type="button" class="clickable-tile @CssClass" style="@Style" @onclick="HandleClickAsync">
+        @ChildContent
+    </button>
+}
+else
+{
+    <a href="@Href" class="clickable-tile @CssClass" style="@Style" @onclick="HandleClickAsync">
+        @ChildContent
+    </a>
+}

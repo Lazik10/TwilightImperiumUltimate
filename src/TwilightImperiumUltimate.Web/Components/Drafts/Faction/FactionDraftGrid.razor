@@ -5,10 +5,9 @@
 @using TwilightImperiumUltimate.Web.Components.Factions;
 @using TwilightImperiumUltimate.Web.Components.Shared.Text;
 
-<FactionIconRow EnableBanMode="true"
+<FactionIconMenu EnableBanMode="true"
                 OnFactionClickGetFaction="UpdateBanFactions"
                 OnInitializeGetFactions="InitializeBanFactions"
-                ShowDiscordantStars="true"
                 @ref="_factionIconRow" />
 
 <GameVersionPicker OnVersionSelected="HandleGameVersionClick" />

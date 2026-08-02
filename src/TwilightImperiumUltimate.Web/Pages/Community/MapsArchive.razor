@@ -2,7 +2,7 @@
 @using TwilightImperiumUltimate.Web.Components.MapsArchive
 @using TwilightImperiumUltimate.Web.Components.Shared.Bars
 
-<PageTitle>@Strings.Page_MapArchive</PageTitle>
+<PageTitle>@Strings.Page_MapArchive_PageTitle</PageTitle>
 
 <Page>
 
@@ -16,7 +16,7 @@
        rendering/scroll behavior. Styled directly by ResponsiveRadzenDataGrid itself. *@
     <section class="maps-archive-radzen-section">
 
-        <ResponsiveHeading Level="2" Text="@($"{Strings.Page_MapArchive} (Radzen)")" FontSize="lg" CssClass="mb-lg" />
+        <ResponsiveHeading Level="2" Text="@($"{Strings.Page_MapArchive} (Radzen)")" FontSize="lg" />
 
         <ResponsiveRadzenDataGrid TItem="MapModel"
                                   Data="Maps"

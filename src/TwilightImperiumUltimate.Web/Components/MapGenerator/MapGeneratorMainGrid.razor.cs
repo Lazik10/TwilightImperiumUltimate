@@ -6,7 +6,7 @@ namespace TwilightImperiumUltimate.Web.Components.MapGenerator;
 
 public partial class MapGeneratorMainGrid
 {
-    private FactionIconRow? factionIconRowRef;
+    private FactionIconMenu? factionIconRowRef;
 
     private MapGeneratorMenuItem _selectedSegment;
 

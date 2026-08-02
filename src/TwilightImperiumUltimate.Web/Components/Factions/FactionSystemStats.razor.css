@@ -7,41 +7,25 @@
     color: white;
 }
 
-.system-stats-text {
-    color: white;
-    font-size: 18px;
-}
-
-.system-stats-line:first-child {
-    font-size: 24px;
-    font-family: 'Myriad';
-    color: white;
-    margin-bottom: 10px;
-}
-
-.system-stats-line {
-    display: flex;
-    flex-direction: row;
-}
-
-.system-stats-line-title {
-    color: white;
-    font-family: Handel, fallback, sans-serif;
+::deep .system-stats-title {
     font-size: 32px;
     font-weight: bold;
     text-decoration: none;
     text-transform: uppercase;
-    text-shadow: 0px 2px 6px rgba(0, 0, 0, 1), 2px 0px 6px rgba(0, 0, 0, 1), 0px -2px 6px rgba(0, 0, 0, 1), -2px 0px 6px rgba(0, 0, 0, 1), 1px 1px 6px rgba(0, 0, 0, 1), 1px -1px 6px rgba(0, 0, 0, 1), -1px 1px 6px rgba(0, 0, 0, 1), -1px -1px 6px rgba(0, 0, 0, 1);
     margin-bottom: 10px;
+    display: block;
+}
+
+::deep .system-stats-grid {
+    align-items: center;
 }
 
 .system-stats-text {
-    align-self: center;
-    width: 50%;
+    font-size: 18px;
 }
 
 .system-stats-value {
-    align-self: center;
+    font-size: 18px;
 }
 
 @media (max-width: 1248px) {
@@ -55,3 +39,4 @@
         font-size: 10px;
     }
 }
+

@@ -1,19 +1,40 @@
-using Microsoft.AspNetCore.Components;
-using TwilightImperiumUltimate.Contracts.Enums;
-using TwilightImperiumUltimate.Web.Enums;
-using TwilightImperiumUltimate.Web.Helpers.Resources;
-
 namespace TwilightImperiumUltimate.Web.Components.Factions;
 
 public partial class FactionSystemStats
 {
+    private string _title = string.Empty;
+
+    private List<(string Label, string Value)> _stats = new();
+
     [Parameter]
     public FactionName FactionName { get; set; } = default!;
 
-    private string[] FactionUIText()
+    protected override void OnParametersSet()
     {
-        string text = FactionName.GetFactionUIText(FactionResourceType.SystemStats);
-        string[] lines = text.Split(';');
-        return lines;
+        ParseSystemStats();
+    }
+
+    private void ParseSystemStats()
+    {
+        _title = string.Empty;
+        _stats = new List<(string Label, string Value)>();
+
+        var lines = FactionName.GetFactionUIText(FactionResourceType.SystemStats)
+            .Split(';', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+
+        foreach (var line in lines)
+        {
+            var separatorIndex = line.IndexOf('.', StringComparison.Ordinal);
+
+            if (separatorIndex < 0)
+            {
+                _title = line;
+                continue;
+            }
+
+            var label = line[..separatorIndex].Trim();
+            var value = line[(separatorIndex + 1)..].Trim();
+            _stats.Add((label, value));
+        }
     }
 }

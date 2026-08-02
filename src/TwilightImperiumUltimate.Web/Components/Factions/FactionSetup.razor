@@ -1,50 +1,43 @@
-@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @using TwilightImperiumUltimate.Web.Components.Technologies
 @using TwilightImperiumUltimate.Web.Components.Units
-@using TwilightImperiumUltimate.Web.Services.Path
 @inherits FactionInfoComponentBase
-@inject IPathProvider PathProvider
 
-<StretchHeightContainer>
+@{
+    var startingUnits = GetStartingUnits();
+    var startingTechnologies = GetStartingTechnologies();
+    var startingUnitMaxWidth = GetStartingUnitMaxWidth(startingUnits);
+}
 
-    @{ 
-        var startingUnits = GetStartingUnits();
-        var startingTechnologies = GetStartingTechnologies();
-        var startingUnitMaxWidth = GetStartingUnitMaxWidth(startingUnits);
-    }
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" Style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center;">
 
-    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" Style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center;">
-
-        @foreach (var unit in startingUnits)
-        {
-            for (var i = 0; i < unit.Count; i++)
-            {
-                <UnitImage UnitName="unit.UnitName" MaxWidth="@startingUnitMaxWidth"/>
-            }
-        }
-
-    </ResponsiveContainer>
-    
-    @if(_showTechnologyPickMessage)
+    @foreach (var unit in startingUnits)
     {
-        <ResponsiveText Text="@_technologyPickMessage" CenterText="true" />
+        for (var i = 0; i < unit.Count; i++)
+        {
+            <UnitImage UnitName="unit.UnitName" MaxWidth="@startingUnitMaxWidth"/>
+        }
     }
 
-    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-        @if (startingTechnologies.Count > 0)
-        {
-            <div class="faction-technologies-grid-shell">
-                <ResponsiveGridContainer Columns="GetTechnologyColumns(startingTechnologies.Count)" TabletColumns="GetTechnologyColumns(startingTechnologies.Count)" MobileColumns="1" Width="100" Gap="10px">
-                    @foreach (var startingTechnology in startingTechnologies)
-                    {
-                        <div class="faction-technology-image-container">
-                            <TechnologyCard TechnologyName="startingTechnology.TechnologyName" Width="100"/>
-                        </div>
-                    }
-                </ResponsiveGridContainer>
-            </div>
-        }
+</ResponsiveContainer>
 
-    </ResponsiveContainer>
+@if (_showTechnologyPickMessage)
+{
+    <ResponsiveText Text="@_technologyPickMessage" CenterText="true" />
+}
 
-</StretchHeightContainer>
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+    @if (startingTechnologies.Count > 0)
+    {
+        <div class="faction-technologies-grid-shell">
+            <ResponsiveGridContainer Columns="GetTechnologyColumns(startingTechnologies.Count)" TabletColumns="GetTechnologyColumns(startingTechnologies.Count)" MobileColumns="1" Width="100" Gap="10px">
+                @foreach (var startingTechnology in startingTechnologies)
+                {
+                    <div class="faction-technology-image-container">
+                        <TechnologyCard TechnologyName="startingTechnology.TechnologyName" Width="100"/>
+                    </div>
+                }
+            </ResponsiveGridContainer>
+        </div>
+    }
+
+</ResponsiveContainer>

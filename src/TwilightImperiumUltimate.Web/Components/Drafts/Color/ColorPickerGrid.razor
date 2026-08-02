@@ -7,11 +7,10 @@
 @using TwilightImperiumUltimate.Web.Resources;
 @using TwilightImperiumUltimate.Web.Components.Factions;
 
-<FactionIconRow 
+<FactionIconMenu 
     EnableBanMode="true"
     OnFactionClickGetFaction="UpdateSelectedFactions" 
     BanAllFactions="true"
-    ShowDiscordantStars="true"
     @ref="_factionIconRow"/>
 
 <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">

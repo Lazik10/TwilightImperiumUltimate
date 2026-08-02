@@ -1,8 +1,9 @@
 using TwilightImperiumUltimate.Contracts.Enums;
+using TwilightImperiumUltimate.Web.Services.Path;
 
 namespace TwilightImperiumUltimate.Web.Components.Factions;
 
-public partial class FactionInfoGrid
+public partial class FactionTemplateGrid
 {
     private FactionModel _selectedFaction = default!;
 
@@ -11,6 +12,15 @@ public partial class FactionInfoGrid
     private bool showBigImage;
 
     private string currentBigImageSrc = string.Empty;
+
+    [Inject]
+    private IPathProvider PathProvider { get; set; } = default!;
+
+    /// <summary>
+    /// Gets the currently selected faction, or <see langword="null"/> before a faction has been selected.
+    /// Used by the hosting page to build an SEO-friendly page title and meta description.
+    /// </summary>
+    public FactionModel? SelectedFaction => _selectedFaction;
 
     private RenderFragment DynamicComponent => builder =>
     {

@@ -4,7 +4,7 @@ namespace TwilightImperiumUltimate.Web.Components.Drafts.Color;
 
 public partial class ColorPickerGrid
 {
-    private FactionIconRow _factionIconRow = null!;
+    private FactionIconMenu _factionIconRow = null!;
 
     private DraftStage _draftStage = DraftStage.Draft;
 

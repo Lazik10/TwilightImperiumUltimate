@@ -6,7 +6,7 @@ public partial class FactionDraftGrid
 {
     private DraftStage _draftStage = DraftStage.Draft;
 
-    private FactionIconRow? _factionIconRow = null!;
+    private FactionIconMenu? _factionIconRow = null!;
 
     [Inject]
     private ILogger<FactionDraftGrid> Logger { get; set; } = null!;

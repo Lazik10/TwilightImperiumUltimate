@@ -1,11 +1,5 @@
-﻿@using TwilightImperiumUltimate.Contracts.Enums
-@using TwilightImperiumUltimate.Web.Components.Cards
-@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
-@using TwilightImperiumUltimate.Web.Resources
-@using TwilightImperiumUltimate.Web.Services.Path
-@using TwilightImperiumUltimate.Web.Helpers.Resources;
+﻿@using TwilightImperiumUltimate.Web.Components.Cards
 @inherits FactionInfoComponentBase
-@inject IPathProvider PathProvider
 
 @* TODO: Create leader API endpoint for this or include them in faction response *@
 @if (Faction.FactionName != FactionName.TheNomad 

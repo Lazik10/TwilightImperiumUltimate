@@ -1,8 +1,10 @@
+using TwilightImperiumUltimate.Web.Helpers.Enums;
+using TwilightImperiumUltimate.Web.Helpers.Factions;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
 
 namespace TwilightImperiumUltimate.Web.Components.Factions;
 
-public partial class FactionIconRow : TwilightImperiumBaseComponent
+public partial class FactionIconMenu : TwilightImperiumBaseComponent
 {
     private List<FactionModel>? _factions = new List<FactionModel>();
 
@@ -18,11 +20,13 @@ public partial class FactionIconRow : TwilightImperiumBaseComponent
     [Parameter]
     public bool BanAllFactions { get; set; } = false;
 
+    /// <summary>
+    /// Gets or sets the single faction source/expansion to isolate (e.g. for the Factions reference
+    /// page). When <see langword="null"/> (the default), every currently supported source is shown
+    /// together, matching this component's behavior when used for drafts/pickers/map generation.
+    /// </summary>
     [Parameter]
-    public bool ShowDiscordantStars { get; set; } = false;
-
-    [Parameter]
-    public bool ShowBaseGame { get; set; } = true;
+    public FactionSource? Source { get; set; }
 
     [Parameter]
     public List<FactionModel> ProvidedFactions { get; set; } = new List<FactionModel>();
@@ -35,12 +39,18 @@ public partial class FactionIconRow : TwilightImperiumBaseComponent
     [Inject]
     private IMapGeneratorSettingsService MapGeneratorSettingsService { get; set; } = default!;
 
+    private bool ShowOfficialGroup => Source is null or FactionSource.Official;
+
+    private bool ShowDiscordantStarsGroup => Source is null or FactionSource.DiscordantStars;
+
+    private bool ShowOtherSourceGroup => Source is FactionSource.BlueRiverie or FactionSource.TwilightsFall or FactionSource.WhispersFromTheVoid;
+
     private bool UseSplitRowsLayout
     {
         get
         {
             var factions = GetBaseGameFactions();
-            return ShowBaseGame && !ShowDiscordantStars && factions.Count >= 24;
+            return Source == FactionSource.Official && factions.Count >= 24;
         }
     }
 
@@ -94,28 +104,33 @@ public partial class FactionIconRow : TwilightImperiumBaseComponent
         OnFactionClickGetFaction.InvokeAsync(selectedFaction);
     }
 
+    private static string GetFactionHref(FactionModel faction)
+    {
+        return $"/game/factions/{faction.FactionName}";
+    }
+
     private FactionName ResolveInitialFaction(string factionName)
     {
-        if (Enum.TryParse<FactionName>(factionName, out var faction))
+        if (!FactionNameAliasResolver.TryResolve(factionName, out var faction))
         {
-            if (ShowBaseGame && faction > FactionName.TheCouncilKeleres)
-                return FactionName.TheArborec;
+            return Source is { } sourceWithNoMatch ? GetDefaultFactionForSource(sourceWithNoMatch) : FactionName.TheArborec;
+        }
 
-            if (ShowDiscordantStars && faction < FactionName.TheAugursOfIlyxum)
-                return FactionName.TheAugursOfIlyxum;
-
+        if (Source is not { } selectedSource)
+        {
             return faction;
         }
 
-        if (!ShowBaseGame && ShowDiscordantStars)
-        {
-            return FactionName.TheAugursOfIlyxum;
-        }
-        else
-        {
-            return FactionName.TheArborec;
-        }
+        return faction.GetFactionSource() == selectedSource ? faction : GetDefaultFactionForSource(selectedSource);
     }
+
+    private static FactionName GetDefaultFactionForSource(FactionSource source) => source switch
+    {
+        FactionSource.DiscordantStars => FactionName.TheAugursOfIlyxum,
+        FactionSource.BlueRiverie => FactionName.AtokeraLegacy,
+        FactionSource.TwilightsFall => FactionName.TheRubyMonarch,
+        _ => FactionName.TheArborec,
+    };
 
     private async Task InitializeFactions()
     {
@@ -133,12 +148,17 @@ public partial class FactionIconRow : TwilightImperiumBaseComponent
 
     private List<FactionModel> GetBaseGameFactions()
     {
-        return _factions?.Where(x => x.GameVersion != GameVersion.DiscordantStars).ToList() ?? new List<FactionModel>();
+        return GetFactionsBySource(FactionSource.Official);
     }
 
     private List<FactionModel> GetDiscordantStarsFactions()
     {
-        return _factions?.Where(x => x.GameVersion == GameVersion.DiscordantStars).ToList() ?? new List<FactionModel>();
+        return GetFactionsBySource(FactionSource.DiscordantStars);
+    }
+
+    private List<FactionModel> GetFactionsBySource(FactionSource source)
+    {
+        return _factions?.Where(x => x.FactionName.GetFactionSource() == source).ToList() ?? new List<FactionModel>();
     }
 
     private List<FactionModel> GetCompactFirstRowFactions()

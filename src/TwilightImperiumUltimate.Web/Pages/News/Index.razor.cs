@@ -13,6 +13,14 @@ public partial class Index
     [Inject]
     private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
 
+    [Inject]
+    private NavigationManager NavigationManager { get; set; } = default!;
+
+    private bool IsHomeRoute =>
+        !NavigationManager.ToBaseRelativePath(NavigationManager.Uri).StartsWith("news", StringComparison.OrdinalIgnoreCase);
+
+    private string PageTitleText => IsHomeRoute ? Strings.Page_Home_PageTitle : Strings.Page_News_PageTitle;
+
     protected override async Task OnInitializedAsync()
     {
         await InitializeNewsAsync();

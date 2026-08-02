@@ -213,6 +213,9 @@
   <data name="ConfirmEmail_Title" xml:space="preserve">
     <value>Confirm Email</value>
   </data>
+  <data name="ConfirmEmail_Title_PageTitle" xml:space="preserve">
+    <value>Confirm Email | TI4 Ultimate</value>
+  </data>
   <data name="ConfirmEmail_UserEmailValidationFailed" xml:space="preserve">
     <value>Email confirmation failed.</value>
   </data>
@@ -314,6 +317,21 @@
   </data>
   <data name="FactionSheetBack" xml:space="preserve">
     <value>FactionSheetBack</value>
+  </data>
+  <data name="FactionSource_Official" xml:space="preserve">
+    <value>Official</value>
+  </data>
+  <data name="FactionSource_TwilightsFall" xml:space="preserve">
+    <value>Twillight's Fall</value>
+  </data>
+  <data name="FactionSource_DiscordantStars" xml:space="preserve">
+    <value>Discordant Stars</value>
+  </data>
+  <data name="FactionSource_BlueRiverie" xml:space="preserve">
+    <value>Blue Riverie</value>
+  </data>
+  <data name="FactionSource_WhispersFromTheVoid" xml:space="preserve">
+    <value>Whispers from the Void</value>
   </data>
   <data name="Faction_Ability" xml:space="preserve">
     <value>Abilities</value>
@@ -795,38 +813,71 @@
   <data name="Page_About" xml:space="preserve">
     <value>About</value>
   </data>
+  <data name="Page_About_PageTitle" xml:space="preserve">
+    <value>About | TI4 Ultimate</value>
+  </data>
   <data name="Page_AccountClaims" xml:space="preserve">
     <value>Claims</value>
   </data>
   <data name="Page_AccountInfo" xml:space="preserve">
     <value>Account Info</value>
   </data>
+  <data name="Page_AccountInfo_PageTitle" xml:space="preserve">
+    <value>Account Info | TI4 Ultimate</value>
+  </data>
   <data name="Page_AccountLogin" xml:space="preserve">
     <value>Login</value>
+  </data>
+  <data name="Page_AccountLogin_PageTitle" xml:space="preserve">
+    <value>Login | TI4 Ultimate</value>
   </data>
   <data name="Page_AccountPasswordReset" xml:space="preserve">
     <value>Password Reset</value>
   </data>
+  <data name="Page_AccountPasswordReset_PageTitle" xml:space="preserve">
+    <value>Password Reset | TI4 Ultimate</value>
+  </data>
   <data name="Page_AccountRegister" xml:space="preserve">
     <value>Register</value>
+  </data>
+  <data name="Page_AccountRegister_PageTitle" xml:space="preserve">
+    <value>Register | TI4 Ultimate</value>
   </data>
   <data name="Page_Admin" xml:space="preserve">
     <value>Admin</value>
   </data>
+  <data name="Page_Admin_PageTitle" xml:space="preserve">
+    <value>Admin | TI4 Ultimate</value>
+  </data>
   <data name="Page_BattleCalculator" xml:space="preserve">
     <value>Battle Calculator</value>
+  </data>
+  <data name="Page_BattleCalculator_PageTitle" xml:space="preserve">
+    <value>Battle Calculator | TI4 Ultimate</value>
   </data>
   <data name="Page_CardGenerator" xml:space="preserve">
     <value>Card Generator</value>
   </data>
+  <data name="Page_CardGenerator_PageTitle" xml:space="preserve">
+    <value>Card Generator | TI4 Ultimate</value>
+  </data>
   <data name="Page_Cards" xml:space="preserve">
     <value>Cards</value>
+  </data>
+  <data name="Page_Cards_PageTitle" xml:space="preserve">
+    <value>Cards | TI4 Ultimate</value>
   </data>
   <data name="Page_ChatGPT" xml:space="preserve">
     <value>TI4 ChatGPT</value>
   </data>
+  <data name="Page_ChatGPT_PageTitle" xml:space="preserve">
+    <value>TI4 ChatGPT | TI4 Ultimate</value>
+  </data>
   <data name="Page_ColorPicker" xml:space="preserve">
     <value>Color Picker</value>
+  </data>
+  <data name="Page_ColorPicker_PageTitle" xml:space="preserve">
+    <value>Color Picker | TI4 Ultimate</value>
   </data>
   <data name="Page_Community" xml:space="preserve">
     <value>Community</value>
@@ -834,8 +885,14 @@
   <data name="Page_Discord" xml:space="preserve">
     <value>Discord</value>
   </data>
+  <data name="Page_Discord_PageTitle" xml:space="preserve">
+    <value>Discord | TI4 Ultimate</value>
+  </data>
   <data name="Page_Diy" xml:space="preserve">
     <value>DIY</value>
+  </data>
+  <data name="Page_Diy_PageTitle" xml:space="preserve">
+    <value>DIY | TI4 Ultimate</value>
   </data>
   <data name="Page_Draft" xml:space="preserve">
     <value>Draft</value>
@@ -843,17 +900,44 @@
   <data name="Page_DraftRooms" xml:space="preserve">
     <value>Draft Rooms</value>
   </data>
+  <data name="Page_DraftRooms_PageTitle" xml:space="preserve">
+    <value>Draft Rooms | TI4 Ultimate</value>
+  </data>
   <data name="Page_Events" xml:space="preserve">
     <value>Events</value>
+  </data>
+  <data name="Page_Events_PageTitle" xml:space="preserve">
+    <value>Events | TI4 Ultimate</value>
   </data>
   <data name="Page_FactionDraft" xml:space="preserve">
     <value>Faction Draft</value>
   </data>
+  <data name="Page_FactionDraft_PageTitle" xml:space="preserve">
+    <value>Faction Draft | TI4 Ultimate</value>
+  </data>
   <data name="Page_FactionGuides" xml:space="preserve">
     <value>Faction Guides</value>
   </data>
+  <data name="Page_FactionGuides_PageTitle" xml:space="preserve">
+    <value>Faction Guides | TI4 Ultimate</value>
+  </data>
   <data name="Page_Factions" xml:space="preserve">
     <value>Factions</value>
+  </data>
+  <data name="Page_Factions_PageTitle" xml:space="preserve">
+    <value>{0} Faction Guide | TI4 Ultimate</value>
+  </data>
+  <data name="Page_Factions_PageTitleDefault" xml:space="preserve">
+    <value>Factions | TI4 Ultimate</value>
+  </data>
+  <data name="Page_Factions_MetaDescription" xml:space="preserve">
+    <value>Learn about the {0} faction in Twilight Imperium 4th Edition - abilities, faction sheet, leaders, technology, and starting setup.</value>
+  </data>
+  <data name="Page_Factions_MetaDescriptionDefault" xml:space="preserve">
+    <value>Browse every faction in Twilight Imperium 4th Edition, including abilities, faction sheets, leaders, technology, and starting setup.</value>
+  </data>
+  <data name="Page_Factions_SourceLabel" xml:space="preserve">
+    <value>Source:</value>
   </data>
   <data name="Page_FactionsDS" xml:space="preserve">
     <value>DS Factions</value>
@@ -861,11 +945,17 @@
   <data name="Page_Faq" xml:space="preserve">
     <value>Faq</value>
   </data>
+  <data name="Page_Faq_PageTitle" xml:space="preserve">
+    <value>FAQ | TI4 Ultimate</value>
+  </data>
   <data name="Page_Game" xml:space="preserve">
     <value>Game</value>
   </data>
   <data name="Page_MapGenerator" xml:space="preserve">
     <value>Map Generator</value>
+  </data>
+  <data name="Page_MapGenerator_PageTitle" xml:space="preserve">
+    <value>Map Generator | TI4 Ultimate</value>
   </data>
   <data name="Page_Maps" xml:space="preserve">
     <value>Maps</value>
@@ -876,14 +966,35 @@
   <data name="Page_News" xml:space="preserve">
     <value>News</value>
   </data>
+  <data name="Page_News_PageTitle" xml:space="preserve">
+    <value>News | TI4 Ultimate</value>
+  </data>
+  <data name="Page_Home_PageTitle" xml:space="preserve">
+    <value>TI4 Ultimate – Twilight Imperium 4 Tools &amp; Compendium</value>
+  </data>
+  <data name="Home_IntroHeading" xml:space="preserve">
+    <value>TI4 Ultimate</value>
+  </data>
+  <data name="Home_IntroDescription" xml:space="preserve">
+    <value>Explore free Twilight Imperium 4 tools, including map and slice generators, faction guides, rules, system tiles, game tracking, and community resources.</value>
+  </data>
   <data name="Page_OtherWebsites" xml:space="preserve">
     <value>Other Websites</value>
+  </data>
+  <data name="Page_OtherWebsites_PageTitle" xml:space="preserve">
+    <value>Other Websites | TI4 Ultimate</value>
   </data>
   <data name="Page_PasswordRecovery" xml:space="preserve">
     <value>Password Recovery</value>
   </data>
+  <data name="Page_PasswordRecovery_PageTitle" xml:space="preserve">
+    <value>Password Recovery | TI4 Ultimate</value>
+  </data>
   <data name="Page_Planets" xml:space="preserve">
     <value>Planets</value>
+  </data>
+  <data name="Page_Planets_PageTitle" xml:space="preserve">
+    <value>Planets | TI4 Ultimate</value>
   </data>
   <data name="PlanetsFilter_ByExpansion" xml:space="preserve">
     <value>Expansion</value>
@@ -894,26 +1005,50 @@
   <data name="Page_PlayOfTheMonth" xml:space="preserve">
     <value>Play of the Month</value>
   </data>
+  <data name="Page_PlayOfTheMonth_PageTitle" xml:space="preserve">
+    <value>Play of the Month | TI4 Ultimate</value>
+  </data>
   <data name="Page_ResendConfirmationEmail" xml:space="preserve">
     <value>Resend confirmation email</value>
+  </data>
+  <data name="Page_ResendConfirmationEmail_PageTitle" xml:space="preserve">
+    <value>Resend Confirmation Email | TI4 Ultimate</value>
   </data>
   <data name="Page_Resources" xml:space="preserve">
     <value>Resources</value>
   </data>
+  <data name="Page_Resources_PageTitle" xml:space="preserve">
+    <value>Resources | TI4 Ultimate</value>
+  </data>
   <data name="Page_Rules" xml:space="preserve">
     <value>Rules</value>
+  </data>
+  <data name="Page_Rules_PageTitle" xml:space="preserve">
+    <value>Rules | TI4 Ultimate</value>
   </data>
   <data name="Page_SliceGenerator" xml:space="preserve">
     <value>Slice Generator</value>
   </data>
+  <data name="Page_SliceGenerator_PageTitle" xml:space="preserve">
+    <value>Slice Generator | TI4 Ultimate</value>
+  </data>
   <data name="Page_Statistics" xml:space="preserve">
     <value>Statistics</value>
+  </data>
+  <data name="Page_Statistics_PageTitle" xml:space="preserve">
+    <value>Statistics | TI4 Ultimate</value>
   </data>
   <data name="Page_SystemTiles" xml:space="preserve">
     <value>System Tiles</value>
   </data>
+  <data name="Page_SystemTiles_PageTitle" xml:space="preserve">
+    <value>System Tiles | TI4 Ultimate</value>
+  </data>
   <data name="Page_Technologies" xml:space="preserve">
     <value>Technologies</value>
+  </data>
+  <data name="Page_Technologies_PageTitle" xml:space="preserve">
+    <value>Technologies | TI4 Ultimate</value>
   </data>
   <data name="Page_Tools" xml:space="preserve">
     <value>Tools</value>
@@ -1422,6 +1557,9 @@
   <data name="MiltyDraft_Title" xml:space="preserve">
     <value>Milty Draft</value>
   </data>
+  <data name="MiltyDraft_Title_PageTitle" xml:space="preserve">
+    <value>Milty Draft | TI4 Ultimate</value>
+  </data>
   <data name="MiltyDraft_NumberOfPlayers" xml:space="preserve">
     <value>Number of players:</value>
   </data>
@@ -1794,8 +1932,14 @@ Brandon Williams&lt;/p&gt;</value>
   <data name="Page_MapArchive" xml:space="preserve">
     <value>Map archive</value>
   </data>
+  <data name="Page_MapArchive_PageTitle" xml:space="preserve">
+    <value>Map Archive | TI4 Ultimate</value>
+  </data>
   <data name="Page_SlicesArchive" xml:space="preserve">
     <value>Slices archive</value>
+  </data>
+  <data name="Page_SlicesArchive_PageTitle" xml:space="preserve">
+    <value>Slices Archive | TI4 Ultimate</value>
   </data>
   <data name="MapArchive_MapName" xml:space="preserve">
     <value>Name:</value>
@@ -2075,8 +2219,14 @@ Brandon Williams&lt;/p&gt;</value>
   <data name="Page_TiglReportGame" xml:space="preserve">
     <value>Report Game</value>
   </data>
+  <data name="Page_TiglReportGame_PageTitle" xml:space="preserve">
+    <value>TIGL Report Game | TI4 Ultimate</value>
+  </data>
   <data name="Page_TiglRegister" xml:space="preserve">
     <value>Register</value>
+  </data>
+  <data name="Page_TiglRegister_PageTitle" xml:space="preserve">
+    <value>TIGL Registration | TI4 Ultimate</value>
   </data>
   <data name="AsyncMenu_Games" xml:space="preserve">
     <value>GAMES</value>
@@ -3417,6 +3567,9 @@ Brandon Williams&lt;/p&gt;</value>
   </data>
   <data name="Page_TiglInfo" xml:space="preserve">
     <value>Info</value>
+  </data>
+  <data name="Page_TiglInfo_PageTitle" xml:space="preserve">
+    <value>TIGL Info | TI4 Ultimate</value>
   </data>
   <data name="TiglAdmin_LoadingParameters" xml:space="preserve">
     <value>... Loading parameters ...</value>

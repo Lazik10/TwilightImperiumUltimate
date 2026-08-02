@@ -4,11 +4,11 @@
 @using TwilightImperiumUltimate.Web.Resources
 @attribute [Authorize(Roles = "Admin")]
 
-<PageTitle>@Strings.Page_Admin</PageTitle>
+<PageTitle>@Strings.Page_Admin_PageTitle</PageTitle>
 
 <Page>
 
-    <ResponsiveHeading Level="1" Text="@Strings.Page_Admin" CenterText="true" CssClass="mb-xl" />
+    <ResponsiveHeading Level="1" Text="@Strings.Page_Admin" />
 
     <ResponsiveTabMenu AriaLabel="@Strings.Admin_TabsLabel" CssClass="mb-xl">
         <ResponsiveTab Id="admin-tab-roles"

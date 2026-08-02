@@ -1,10 +1,10 @@
 ﻿@page "/account/resend-confirmation-email"
 @using TwilightImperiumUltimate.Web.Resources
 
-<PageTitle>@Strings.Page_ResendConfirmationEmail</PageTitle>
+<PageTitle>@Strings.Page_ResendConfirmationEmail_PageTitle</PageTitle>
 
 <Page>
-        <ResponsiveHeading Level="1" Text="@Strings.Login_ConfirmationEmail" CenterText="true" CssClass="mb-xl" />
+        <ResponsiveHeading Level="1" Text="@Strings.Login_ConfirmationEmail" />
 
         @if (_confirmationEmailSend)
         {

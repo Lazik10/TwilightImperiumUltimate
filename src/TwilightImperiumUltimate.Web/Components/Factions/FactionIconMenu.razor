@@ -1,14 +1,9 @@
-@using TwilightImperiumUltimate.Web.Models.Factions;
-@using TwilightImperiumUltimate.Web.Resources;
-@using TwilightImperiumUltimate.Web.Services.HttpClients;
-@using TwilightImperiumUltimate.Web.Services.Path;
-@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @inherits TwilightImperiumBaseComponent
 
 <ResponsiveContainer Type="ContainerType.Fluid" Padding="none">
     @if (_factions is not null)
     {
-        if (ShowBaseGame)
+        if (ShowOfficialGroup)
         {
             @if (UseSplitRowsLayout)
             {
@@ -17,7 +12,7 @@
                         <ResponsiveGridContainer Columns="17" TabletColumns="17" MobileColumns="17" Width="100" Gap="0">
                             @foreach (var faction in GetCompactFirstRowFactions())
                             {
-                                <FactionIcon Faction="faction" OnClick="() => FactionClicked(faction)" EnableBanMode="EnableBanMode" NoPadding="true" />
+                                <FactionIcon Faction="faction" Href="@GetFactionHref(faction)" OnClick="() => FactionClicked(faction)" EnableBanMode="EnableBanMode" NoPadding="true" />
                             }
                         </ResponsiveGridContainer>
                     </div>
@@ -32,7 +27,7 @@
                                 }
                                 else
                                 {
-                                    <FactionIcon Faction="faction" OnClick="() => FactionClicked(faction)" EnableBanMode="EnableBanMode" NoPadding="true" />
+                                    <FactionIcon Faction="faction" Href="@GetFactionHref(faction)" OnClick="() => FactionClicked(faction)" EnableBanMode="EnableBanMode" NoPadding="true" />
                                 }
                             }
                         </ResponsiveGridContainer>
@@ -44,7 +39,7 @@
                         <ResponsiveGridContainer Columns="9" TabletColumns="9" MobileColumns="9" Width="100" Gap="0">
                             @foreach (var faction in GetMobileRow1Factions())
                             {
-                                <FactionIcon Faction="faction" OnClick="() => FactionClicked(faction)" EnableBanMode="EnableBanMode" NoPadding="true" />
+                                <FactionIcon Faction="faction" Href="@GetFactionHref(faction)" OnClick="() => FactionClicked(faction)" EnableBanMode="EnableBanMode" NoPadding="true" />
                             }
                         </ResponsiveGridContainer>
                     </div>
@@ -53,7 +48,7 @@
                         <ResponsiveGridContainer Columns="8" TabletColumns="8" MobileColumns="8" Width="100" Gap="0">
                             @foreach (var faction in GetMobileRow2Factions())
                             {
-                                <FactionIcon Faction="faction" OnClick="() => FactionClicked(faction)" EnableBanMode="EnableBanMode" NoPadding="true" />
+                                <FactionIcon Faction="faction" Href="@GetFactionHref(faction)" OnClick="() => FactionClicked(faction)" EnableBanMode="EnableBanMode" NoPadding="true" />
                             }
                         </ResponsiveGridContainer>
                     </div>
@@ -68,7 +63,7 @@
                                 }
                                 else
                                 {
-                                    <FactionIcon Faction="faction" OnClick="() => FactionClicked(faction)" EnableBanMode="EnableBanMode" NoPadding="true" />
+                                    <FactionIcon Faction="faction" Href="@GetFactionHref(faction)" OnClick="() => FactionClicked(faction)" EnableBanMode="EnableBanMode" NoPadding="true" />
                                 }
                             }
                         </ResponsiveGridContainer>
@@ -84,7 +79,7 @@
                                 }
                                 else
                                 {
-                                    <FactionIcon Faction="faction" OnClick="() => FactionClicked(faction)" EnableBanMode="EnableBanMode" NoPadding="true" />
+                                    <FactionIcon Faction="faction" Href="@GetFactionHref(faction)" OnClick="() => FactionClicked(faction)" EnableBanMode="EnableBanMode" NoPadding="true" />
                                 }
                             }
                         </ResponsiveGridContainer>
@@ -97,34 +92,68 @@
                     <div class="icon-row width-100">
                         @foreach (var faction in GetBaseGameFactions())
                         {
-                            <FactionIcon Faction="faction" OnClick="() => FactionClicked(faction)" EnableBanMode="EnableBanMode" NoPadding="true" />
+                            <FactionIcon Faction="faction" Href="@GetFactionHref(faction)" OnClick="() => FactionClicked(faction)" EnableBanMode="EnableBanMode" NoPadding="true" />
                         }
                     </div>
                 </div>
             }
         }
 
-        if (ShowDiscordantStars && _factions.Count > 25)
+        if (ShowDiscordantStarsGroup)
         {
-            <div class="faction-menu-shell">
-                <div class="icon-row width-100">
-                    @foreach (var faction in GetDiscordantStarsFactions().Take(24))
-                    {
-                        <FactionIcon Faction="faction" OnClick="() => FactionClicked(faction)" EnableBanMode="EnableBanMode" NoPadding="true" />
-                    }
-                </div>
-            </div>
+            var discordantStarsFactions = GetDiscordantStarsFactions();
 
-            @if (_factions.Count > 49)
+            if (discordantStarsFactions.Count > 0)
             {
-                <div class="faction-menu-shell faction-menu-shell-half">
+                <div class="faction-menu-shell">
                     <div class="icon-row width-100">
-                        @foreach (var faction in GetDiscordantStarsFactions().Skip(24).Take(10))
+                        @foreach (var faction in discordantStarsFactions.Take(24))
                         {
-                            <FactionIcon Faction="faction" OnClick="() => FactionClicked(faction)" EnableBanMode="EnableBanMode" NoPadding="true" />
+                            <FactionIcon Faction="faction" Href="@GetFactionHref(faction)" OnClick="() => FactionClicked(faction)" EnableBanMode="EnableBanMode" NoPadding="true" />
                         }
                     </div>
                 </div>
+
+                @if (discordantStarsFactions.Count > 24)
+                {
+                    <div class="faction-menu-shell faction-menu-shell-half">
+                        <div class="icon-row width-100">
+                            @foreach (var faction in discordantStarsFactions.Skip(24).Take(10))
+                            {
+                                <FactionIcon Faction="faction" Href="@GetFactionHref(faction)" OnClick="() => FactionClicked(faction)" EnableBanMode="EnableBanMode" NoPadding="true" />
+                            }
+                        </div>
+                    </div>
+                }
+            }
+        }
+
+        if (ShowOtherSourceGroup && Source is { } otherSource)
+        {
+            var otherSourceFactions = GetFactionsBySource(otherSource);
+
+            if (otherSourceFactions.Count > 0)
+            {
+                <div class="faction-menu-shell">
+                    <div class="icon-row width-100">
+                        @foreach (var faction in otherSourceFactions.Take(24))
+                        {
+                            <FactionIcon Faction="faction" Href="@GetFactionHref(faction)" OnClick="() => FactionClicked(faction)" EnableBanMode="EnableBanMode" NoPadding="true" />
+                        }
+                    </div>
+                </div>
+
+                @if (otherSourceFactions.Count > 24)
+                {
+                    <div class="faction-menu-shell faction-menu-shell-half">
+                        <div class="icon-row width-100">
+                            @foreach (var faction in otherSourceFactions.Skip(24).Take(10))
+                            {
+                                <FactionIcon Faction="faction" Href="@GetFactionHref(faction)" OnClick="() => FactionClicked(faction)" EnableBanMode="EnableBanMode" NoPadding="true" />
+                            }
+                        </div>
+                    </div>
+                }
             }
         }
     }

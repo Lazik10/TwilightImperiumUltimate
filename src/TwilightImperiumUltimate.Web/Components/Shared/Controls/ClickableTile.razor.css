@@ -1,4 +1,5 @@
 .clickable-tile {
+    display: inline-block;
     width: 100%;
     background: none;
     border: none;
@@ -7,6 +8,7 @@
     font: inherit;
     color: inherit;
     text-align: inherit;
+    text-decoration: none;
     cursor: pointer;
     box-sizing: border-box;
 }

@@ -4,7 +4,20 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TI: Ultimate</title>
+    <title>TI4 Ultimate – Twilight Imperium 4 Tools &amp; Compendium</title>
+
+    <meta name="description"
+          content="TI4 Ultimate is a free Twilight Imperium 4 companion with map and slice generators, faction guides, system tiles, rules, game tracking, and community tools.">
+
+    <link rel="canonical" href="https://ti4ultimate.com/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="TI4 Ultimate">
+    <meta property="og:title" content="TI4 Ultimate – Twilight Imperium 4 Tools &amp; Compendium">
+    <meta property="og:description"
+          content="Free Twilight Imperium 4 tools, map and slice generators, faction guides, rules, system tiles, game tracking, and community resources.">
+    <meta property="og:url" content="https://ti4ultimate.com/">
+
     <link rel="icon" type="image/x-icon" href="resources/images/shared/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="resources/images/shared/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="resources/images/shared/favicon-16x16.png" />
@@ -16,14 +29,27 @@
     <!-- If you add any scoped CSS files, uncomment the following to load them -->
     <link href="_content/Radzen.Blazor/css/material-base.css" rel="stylesheet">
     <link href="TwilightImperiumUltimate.Web.styles.css" rel="stylesheet" />
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "TI4 Ultimate",
+        "alternateName": [
+            "TI: Ultimate",
+            "ti4ultimate.com"
+        ],
+        "url": "https://ti4ultimate.com/"
+    }
+    </script>
 </head>
 
 <body>
     <div id="app">
-        <div class="loading-text">...LOADING...</div>
+        <div class="loading-text" data-nosnippet>...LOADING...</div>
     </div>
 
-    <div id="blazor-error-ui">
+    <div id="blazor-error-ui" data-nosnippet>
         An unhandled error has occurred.
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>

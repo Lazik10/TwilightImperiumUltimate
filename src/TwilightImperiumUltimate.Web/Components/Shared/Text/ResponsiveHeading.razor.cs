@@ -5,6 +5,9 @@ namespace TwilightImperiumUltimate.Web.Components.Shared.Text;
 /// The heading always wraps its text so it stays readable on any screen size.
 /// Always renders with the "handel white shadow" classes applied; pass additional
 /// classes via <see cref="CssClass"/> rather than repeating those on every call site.
+/// Applies a default bottom margin that decreases as the level increases (mb-xl for
+/// level 1 down to mb-0 for level 6) unless <see cref="CssClass"/> already supplies
+/// its own "mb-" class.
 /// </summary>
 public partial class ResponsiveHeading
 {
@@ -31,9 +34,11 @@ public partial class ResponsiveHeading
 
     /// <summary>
     /// Gets or sets a value indicating whether the heading text is centered.
+    /// When null, defaults to <see langword="true"/> for level 1 headings and
+    /// <see langword="false"/> for every other level. Set explicitly to override.
     /// </summary>
     [Parameter]
-    public bool CenterText { get; set; }
+    public bool? CenterText { get; set; }
 
     /// <summary>
     /// Gets or sets additional CSS classes to apply to the heading.
@@ -49,8 +54,19 @@ public partial class ResponsiveHeading
 
     private int HeadingLevel => Math.Clamp(Level, 1, 6);
 
-    private string ComputedCssClass =>
-        $"responsive-heading handel white shadow{(CenterText ? " centered-text" : string.Empty)} {CssClass}".Trim();
+    private bool EffectiveCenterText => CenterText ?? HeadingLevel == 1;
+
+    private string ComputedCssClass
+    {
+        get
+        {
+            var marginBottomClass = CssClass.Contains("mb-", StringComparison.Ordinal)
+                ? string.Empty
+                : GetDefaultMarginBottomClassForLevel();
+
+            return $"responsive-heading handel white shadow{(EffectiveCenterText ? " centered-text" : string.Empty)} {marginBottomClass} {CssClass}".Trim();
+        }
+    }
 
     private string ComputedStyle =>
         $"font-size: {ResolveFontSize(FontSize ?? GetDefaultFontSizeForLevel())}; {Style}";
@@ -76,5 +92,15 @@ public partial class ResponsiveHeading
         4 => "lg",
         5 => "md",
         _ => "base",
+    };
+
+    private string GetDefaultMarginBottomClassForLevel() => HeadingLevel switch
+    {
+        1 => "mb-xl",
+        2 => "mb-lg",
+        3 => "mb-md",
+        4 => "mb-sm",
+        5 => "mb-xs",
+        _ => "mb-0",
     };
 }
