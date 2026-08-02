@@ -1192,6 +1192,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
             }
         }
 
+        public static string ButtonText_ClearFilters {
+            get {
+                return ResourceManager.GetString("ButtonText_ClearFilters", resourceCulture);
+            }
+        }
+
         public static string ButtonText_Edit {
             get {
                 return ResourceManager.GetString("ButtonText_Edit", resourceCulture);
@@ -4378,6 +4384,306 @@ namespace TwilightImperiumUltimate.Web.Resources {
             }
         }
 
+        public static string ReportGame_AddPlayerSlot {
+            get {
+                return ResourceManager.GetString("ReportGame_AddPlayerSlot", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_ByDiscordName {
+            get {
+                return ResourceManager.GetString("ReportGame_ByDiscordName", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_ByTiglName {
+            get {
+                return ResourceManager.GetString("ReportGame_ByTiglName", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_ClearPlayer {
+            get {
+                return ResourceManager.GetString("ReportGame_ClearPlayer", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_DiscordTag {
+            get {
+                return ResourceManager.GetString("ReportGame_DiscordTag", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_EndDate {
+            get {
+                return ResourceManager.GetString("ReportGame_EndDate", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_ErrorSubmitFailed {
+            get {
+                return ResourceManager.GetString("ReportGame_ErrorSubmitFailed", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_ErrorUnknown {
+            get {
+                return ResourceManager.GetString("ReportGame_ErrorUnknown", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_Faction {
+            get {
+                return ResourceManager.GetString("ReportGame_Faction", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_FindPlayer {
+            get {
+                return ResourceManager.GetString("ReportGame_FindPlayer", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_GalacticEventsHeading {
+            get {
+                return ResourceManager.GetString("ReportGame_GalacticEventsHeading", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_GameId {
+            get {
+                return ResourceManager.GetString("ReportGame_GameId", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_GameIdAsyncHint {
+            get {
+                return ResourceManager.GetString("ReportGame_GameIdAsyncHint", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_GameIdOtherHint {
+            get {
+                return ResourceManager.GetString("ReportGame_GameIdOtherHint", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_LeagueLabel {
+            get {
+                return ResourceManager.GetString("ReportGame_LeagueLabel", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_Loading {
+            get {
+                return ResourceManager.GetString("ReportGame_Loading", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_OpenSearch {
+            get {
+                return ResourceManager.GetString("ReportGame_OpenSearch", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_PlayerHeader {
+            get {
+                return ResourceManager.GetString("ReportGame_PlayerHeader", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_PlayersHeading {
+            get {
+                return ResourceManager.GetString("ReportGame_PlayersHeading", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_RemovePlayerSlot {
+            get {
+                return ResourceManager.GetString("ReportGame_RemovePlayerSlot", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_RoundLabel {
+            get {
+                return ResourceManager.GetString("ReportGame_RoundLabel", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_Score {
+            get {
+                return ResourceManager.GetString("ReportGame_Score", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_SelectFaction {
+            get {
+                return ResourceManager.GetString("ReportGame_SelectFaction", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_SourceLabel {
+            get {
+                return ResourceManager.GetString("ReportGame_SourceLabel", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_StartDate {
+            get {
+                return ResourceManager.GetString("ReportGame_StartDate", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_SubmitButton {
+            get {
+                return ResourceManager.GetString("ReportGame_SubmitButton", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_SuccessMessage {
+            get {
+                return ResourceManager.GetString("ReportGame_SuccessMessage", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_TiglUsername {
+            get {
+                return ResourceManager.GetString("ReportGame_TiglUsername", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_TypeDiscordTag {
+            get {
+                return ResourceManager.GetString("ReportGame_TypeDiscordTag", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_TypeTiglName {
+            get {
+                return ResourceManager.GetString("ReportGame_TypeTiglName", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_ValidationBullet {
+            get {
+                return ResourceManager.GetString("ReportGame_ValidationBullet", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_ValidationEndBeforeStart {
+            get {
+                return ResourceManager.GetString("ReportGame_ValidationEndBeforeStart", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_ValidationEndDateRequired {
+            get {
+                return ResourceManager.GetString("ReportGame_ValidationEndDateRequired", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_ValidationFactionRequired {
+            get {
+                return ResourceManager.GetString("ReportGame_ValidationFactionRequired", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_ValidationFracturedPlayerCount {
+            get {
+                return ResourceManager.GetString("ReportGame_ValidationFracturedPlayerCount", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_ValidationFracturedVp {
+            get {
+                return ResourceManager.GetString("ReportGame_ValidationFracturedVp", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_ValidationGameIdRequired {
+            get {
+                return ResourceManager.GetString("ReportGame_ValidationGameIdRequired", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_ValidationInvalidLeague {
+            get {
+                return ResourceManager.GetString("ReportGame_ValidationInvalidLeague", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_ValidationOneWinner {
+            get {
+                return ResourceManager.GetString("ReportGame_ValidationOneWinner", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_ValidationPlayersMustBeSelected {
+            get {
+                return ResourceManager.GetString("ReportGame_ValidationPlayersMustBeSelected", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_ValidationRoundRange {
+            get {
+                return ResourceManager.GetString("ReportGame_ValidationRoundRange", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_ValidationScoreRange {
+            get {
+                return ResourceManager.GetString("ReportGame_ValidationScoreRange", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_ValidationStandardFactionDisallowed {
+            get {
+                return ResourceManager.GetString("ReportGame_ValidationStandardFactionDisallowed", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_ValidationStandardPlayerCount {
+            get {
+                return ResourceManager.GetString("ReportGame_ValidationStandardPlayerCount", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_ValidationStandardVp {
+            get {
+                return ResourceManager.GetString("ReportGame_ValidationStandardVp", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_ValidationStartDateRequired {
+            get {
+                return ResourceManager.GetString("ReportGame_ValidationStartDateRequired", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_ValidationUniquePlayers {
+            get {
+                return ResourceManager.GetString("ReportGame_ValidationUniquePlayers", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_ValidationWinningScoreRequired {
+            get {
+                return ResourceManager.GetString("ReportGame_ValidationWinningScoreRequired", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_VpLabel {
+            get {
+                return ResourceManager.GetString("ReportGame_VpLabel", resourceCulture);
+            }
+        }
+
+        public static string ReportGame_Winner {
+            get {
+                return ResourceManager.GetString("ReportGame_Winner", resourceCulture);
+            }
+        }
+
         public static string ResetPassword_ConfirmNewPassword {
             get {
                 return ResourceManager.GetString("ResetPassword_ConfirmNewPassword", resourceCulture);
@@ -5092,6 +5398,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
             }
         }
 
+        public static string Table_ResizeColumnHandle {
+            get {
+                return ResourceManager.GetString("Table_ResizeColumnHandle", resourceCulture);
+            }
+        }
+
         public static string TechnologyType_Biotic {
             get {
                 return ResourceManager.GetString("TechnologyType_Biotic", resourceCulture);
@@ -5446,6 +5758,108 @@ namespace TwilightImperiumUltimate.Web.Resources {
             }
         }
 
+        public static string TiglInfo_AllowedContent {
+            get {
+                return ResourceManager.GetString("TiglInfo_AllowedContent", resourceCulture);
+            }
+        }
+
+        public static string TiglInfo_AllowedHeading {
+            get {
+                return ResourceManager.GetString("TiglInfo_AllowedHeading", resourceCulture);
+            }
+        }
+
+        public static string TiglInfo_CodeOfConductContent {
+            get {
+                return ResourceManager.GetString("TiglInfo_CodeOfConductContent", resourceCulture);
+            }
+        }
+
+        public static string TiglInfo_CodeOfConductHeading {
+            get {
+                return ResourceManager.GetString("TiglInfo_CodeOfConductHeading", resourceCulture);
+            }
+        }
+
+        public static string TiglInfo_GettingStartedContent {
+            get {
+                return ResourceManager.GetString("TiglInfo_GettingStartedContent", resourceCulture);
+            }
+        }
+
+        public static string TiglInfo_GettingStartedHeading {
+            get {
+                return ResourceManager.GetString("TiglInfo_GettingStartedHeading", resourceCulture);
+            }
+        }
+
+        public static string TiglInfo_GettingStartedSignUpHeading {
+            get {
+                return ResourceManager.GetString("TiglInfo_GettingStartedSignUpHeading", resourceCulture);
+            }
+        }
+
+        public static string TiglInfo_JoinDiscordButton {
+            get {
+                return ResourceManager.GetString("TiglInfo_JoinDiscordButton", resourceCulture);
+            }
+        }
+
+        public static string TiglInfo_MainTitle {
+            get {
+                return ResourceManager.GetString("TiglInfo_MainTitle", resourceCulture);
+            }
+        }
+
+        public static string TiglInfo_ManifestButton {
+            get {
+                return ResourceManager.GetString("TiglInfo_ManifestButton", resourceCulture);
+            }
+        }
+
+        public static string TiglInfo_OverviewContent {
+            get {
+                return ResourceManager.GetString("TiglInfo_OverviewContent", resourceCulture);
+            }
+        }
+
+        public static string TiglInfo_OverviewHeading {
+            get {
+                return ResourceManager.GetString("TiglInfo_OverviewHeading", resourceCulture);
+            }
+        }
+
+        public static string TiglInfo_RegisterButton {
+            get {
+                return ResourceManager.GetString("TiglInfo_RegisterButton", resourceCulture);
+            }
+        }
+
+        public static string TiglInfo_ReportGameButton {
+            get {
+                return ResourceManager.GetString("TiglInfo_ReportGameButton", resourceCulture);
+            }
+        }
+
+        public static string TiglInfo_Subtitle {
+            get {
+                return ResourceManager.GetString("TiglInfo_Subtitle", resourceCulture);
+            }
+        }
+
+        public static string TiglInfo_TiglContent {
+            get {
+                return ResourceManager.GetString("TiglInfo_TiglContent", resourceCulture);
+            }
+        }
+
+        public static string TiglInfo_TiglHeading {
+            get {
+                return ResourceManager.GetString("TiglInfo_TiglHeading", resourceCulture);
+            }
+        }
+
         public static string TiglLeaderboard_AsyncRating {
             get {
                 return ResourceManager.GetString("TiglLeaderboard_AsyncRating", resourceCulture);
@@ -5797,6 +6211,54 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string TiglRankName_Unranked {
             get {
                 return ResourceManager.GetString("TiglRankName_Unranked", resourceCulture);
+            }
+        }
+
+        public static string TiglRegisterUser_CodeOfConductContent {
+            get {
+                return ResourceManager.GetString("TiglRegisterUser_CodeOfConductContent", resourceCulture);
+            }
+        }
+
+        public static string TiglRegisterUser_FailureRedirectMessage {
+            get {
+                return ResourceManager.GetString("TiglRegisterUser_FailureRedirectMessage", resourceCulture);
+            }
+        }
+
+        public static string TiglRegisterUser_FailureTitle {
+            get {
+                return ResourceManager.GetString("TiglRegisterUser_FailureTitle", resourceCulture);
+            }
+        }
+
+        public static string TiglRegisterUser_MainTitle {
+            get {
+                return ResourceManager.GetString("TiglRegisterUser_MainTitle", resourceCulture);
+            }
+        }
+
+        public static string TiglRegisterUser_RegisterButton {
+            get {
+                return ResourceManager.GetString("TiglRegisterUser_RegisterButton", resourceCulture);
+            }
+        }
+
+        public static string TiglRegisterUser_Subtitle {
+            get {
+                return ResourceManager.GetString("TiglRegisterUser_Subtitle", resourceCulture);
+            }
+        }
+
+        public static string TiglRegisterUser_SuccessRedirectMessage {
+            get {
+                return ResourceManager.GetString("TiglRegisterUser_SuccessRedirectMessage", resourceCulture);
+            }
+        }
+
+        public static string TiglRegisterUser_SuccessTitle {
+            get {
+                return ResourceManager.GetString("TiglRegisterUser_SuccessTitle", resourceCulture);
             }
         }
 

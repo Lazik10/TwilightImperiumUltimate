@@ -987,6 +987,156 @@
   <data name="RelicCard" xml:space="preserve">
     <value>relic</value>
   </data>
+  <data name="ReportGame_AddPlayerSlot" xml:space="preserve">
+    <value>+ Add Player Slot</value>
+  </data>
+  <data name="ReportGame_ByDiscordName" xml:space="preserve">
+    <value>By Discord Name: </value>
+  </data>
+  <data name="ReportGame_ByTiglName" xml:space="preserve">
+    <value>By TIGL Name: </value>
+  </data>
+  <data name="ReportGame_ClearPlayer" xml:space="preserve">
+    <value>X - Clear Player</value>
+  </data>
+  <data name="ReportGame_DiscordTag" xml:space="preserve">
+    <value>Discord Tag</value>
+  </data>
+  <data name="ReportGame_EndDate" xml:space="preserve">
+    <value>End Date</value>
+  </data>
+  <data name="ReportGame_ErrorSubmitFailed" xml:space="preserve">
+    <value>Failed to submit game report: {0}</value>
+  </data>
+  <data name="ReportGame_ErrorUnknown" xml:space="preserve">
+    <value>Unknown error.</value>
+  </data>
+  <data name="ReportGame_Faction" xml:space="preserve">
+    <value>Faction</value>
+  </data>
+  <data name="ReportGame_FindPlayer" xml:space="preserve">
+    <value>Find Player {0}:</value>
+  </data>
+  <data name="ReportGame_GalacticEventsHeading" xml:space="preserve">
+    <value>Galactic Events (Fractured Only)</value>
+  </data>
+  <data name="ReportGame_GameId" xml:space="preserve">
+    <value>Game ID</value>
+  </data>
+  <data name="ReportGame_GameIdAsyncHint" xml:space="preserve">
+    <value>For Async games: pbdXXXXX</value>
+  </data>
+  <data name="ReportGame_GameIdOtherHint" xml:space="preserve">
+    <value>For Other platforms: your custom name</value>
+  </data>
+  <data name="ReportGame_LeagueLabel" xml:space="preserve">
+    <value>League</value>
+  </data>
+  <data name="ReportGame_Loading" xml:space="preserve">
+    <value>...Loading...</value>
+  </data>
+  <data name="ReportGame_OpenSearch" xml:space="preserve">
+    <value>Open Search</value>
+  </data>
+  <data name="ReportGame_PlayerHeader" xml:space="preserve">
+    <value>Player {0}</value>
+  </data>
+  <data name="ReportGame_PlayersHeading" xml:space="preserve">
+    <value>Players</value>
+  </data>
+  <data name="ReportGame_RemovePlayerSlot" xml:space="preserve">
+    <value>- Remove Player Slot</value>
+  </data>
+  <data name="ReportGame_RoundLabel" xml:space="preserve">
+    <value>Round</value>
+  </data>
+  <data name="ReportGame_Score" xml:space="preserve">
+    <value>Score</value>
+  </data>
+  <data name="ReportGame_SelectFaction" xml:space="preserve">
+    <value>Select faction</value>
+  </data>
+  <data name="ReportGame_SourceLabel" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="ReportGame_StartDate" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
+  <data name="ReportGame_SubmitButton" xml:space="preserve">
+    <value>Submit Game Report</value>
+  </data>
+  <data name="ReportGame_SuccessMessage" xml:space="preserve">
+    <value>Game report for '{0}' has been successfully submitted and processed!</value>
+  </data>
+  <data name="ReportGame_TiglUsername" xml:space="preserve">
+    <value>Tigl Username</value>
+  </data>
+  <data name="ReportGame_TypeDiscordTag" xml:space="preserve">
+    <value>Type Discord Tag...</value>
+  </data>
+  <data name="ReportGame_TypeTiglName" xml:space="preserve">
+    <value>Type TIGL name...</value>
+  </data>
+  <data name="ReportGame_ValidationBullet" xml:space="preserve">
+    <value>• {0}</value>
+  </data>
+  <data name="ReportGame_ValidationEndBeforeStart" xml:space="preserve">
+    <value>End date cannot be before start date.</value>
+  </data>
+  <data name="ReportGame_ValidationEndDateRequired" xml:space="preserve">
+    <value>End date must be selected.</value>
+  </data>
+  <data name="ReportGame_ValidationFactionRequired" xml:space="preserve">
+    <value>All players must have a faction assigned.</value>
+  </data>
+  <data name="ReportGame_ValidationFracturedPlayerCount" xml:space="preserve">
+    <value>Fractured league supports 6 to 8 players.</value>
+  </data>
+  <data name="ReportGame_ValidationFracturedVp" xml:space="preserve">
+    <value>Fractured league supports VP between 10 and 20.</value>
+  </data>
+  <data name="ReportGame_ValidationGameIdRequired" xml:space="preserve">
+    <value>Game ID is required.</value>
+  </data>
+  <data name="ReportGame_ValidationInvalidLeague" xml:space="preserve">
+    <value>Invalid league selected.</value>
+  </data>
+  <data name="ReportGame_ValidationOneWinner" xml:space="preserve">
+    <value>Exactly one winner must be selected.</value>
+  </data>
+  <data name="ReportGame_ValidationPlayersMustBeSelected" xml:space="preserve">
+    <value>All players must be selected from database (with TIGL name or DiscordTag).</value>
+  </data>
+  <data name="ReportGame_ValidationRoundRange" xml:space="preserve">
+    <value>Round must be between 1 and 9.</value>
+  </data>
+  <data name="ReportGame_ValidationScoreRange" xml:space="preserve">
+    <value>Each player's score must be between 0 and the game score.</value>
+  </data>
+  <data name="ReportGame_ValidationStandardFactionDisallowed" xml:space="preserve">
+    <value>Standard league disallows factions for: {0}</value>
+  </data>
+  <data name="ReportGame_ValidationStandardPlayerCount" xml:space="preserve">
+    <value>Exactly 6 players are required for Standard league.</value>
+  </data>
+  <data name="ReportGame_ValidationStandardVp" xml:space="preserve">
+    <value>Standard league supports VP of 10, 12 or 14 only.</value>
+  </data>
+  <data name="ReportGame_ValidationStartDateRequired" xml:space="preserve">
+    <value>Start date must be selected.</value>
+  </data>
+  <data name="ReportGame_ValidationUniquePlayers" xml:space="preserve">
+    <value>Report needs {0} unique players.</value>
+  </data>
+  <data name="ReportGame_ValidationWinningScoreRequired" xml:space="preserve">
+    <value>At least one player must reach the winning score of {0}.</value>
+  </data>
+  <data name="ReportGame_VpLabel" xml:space="preserve">
+    <value>VP</value>
+  </data>
+  <data name="ReportGame_Winner" xml:space="preserve">
+    <value>Winner</value>
+  </data>
   <data name="ResetPassword_ConfirmNewPassword" xml:space="preserve">
     <value>Confirm New Password</value>
   </data>
@@ -1774,6 +1924,12 @@ Brandon Williams&lt;/p&gt;</value>
   </data>
   <data name="ButtonText_Clear" xml:space="preserve">
     <value>Clear</value>
+  </data>
+  <data name="ButtonText_ClearFilters" xml:space="preserve">
+    <value>Clear Filters</value>
+  </data>
+  <data name="Table_ResizeColumnHandle" xml:space="preserve">
+    <value>Resize column</value>
   </data>
   <data name="ButtonText_View" xml:space="preserve">
     <value>View</value>
@@ -2734,6 +2890,143 @@ Brandon Williams&lt;/p&gt;</value>
   </data>
   <data name="TiglGames_LoadingGames" xml:space="preserve">
     <value>...Loading match reports...</value>
+  </data>
+  <data name="TiglInfo_MainTitle" xml:space="preserve">
+    <value>What is TIGL?</value>
+  </data>
+  <data name="TiglInfo_Subtitle" xml:space="preserve">
+    <value>Twilight Imperium Global League</value>
+  </data>
+  <data name="TiglInfo_OverviewHeading" xml:space="preserve">
+    <value>Overview</value>
+  </data>
+  <data name="TiglInfo_OverviewContent" xml:space="preserve">
+    <value>&lt;p&gt;TIGL is a fun way to get bonuses and bragging rights for winning competitive games of Twilight Imperium.&lt;/p&gt;
+&lt;p&gt;It doesn't matter where you play TI. You can use any platform you wan't. Even IRL games can be reported for TI Global League. If you plan to play outside of Async environment make sure you register with your discord first. You can find button at the bottom of this page. If you only play on AsyncTI4 Discord server, you don't need to register as registration will be done automatically when game report is sent to this website.&lt;/p&gt;
+&lt;p&gt;By winning games, you can earn ranks (Minister, Agent, Commander, Hero, and others), rating and achievements. The general idea is that if you win a competitive game of TI (that is, a TIGL game, which will be described later), you gain the first rank: Minister (or Thrall). To rank up further, all the players in your game must be your rank or higher at the start of the game.&lt;/p&gt;
+&lt;p&gt;For example, if 6 Ministers play a TIGL game, the winner will rank up to Agent. If Ministers and Agents start a game, a Minister who wins will rank up, but an Agent who wins will not, and so forth.&lt;/p&gt;
+&lt;p&gt;You may not skip ranks, and the only way to lose ranks is by violating the Code of Conduct or by gaining a prestige rank that also causes you to lose other ranks.&lt;/p&gt;
+&lt;p&gt;The whole thing is silly, but people seem to like it, so have fun! If you have questions or concerns, please reach out to BLT or ping the &lt;strong&gt;@TIGL Admin&lt;/strong&gt; role.&lt;/p&gt;</value>
+  </data>
+  <data name="TiglInfo_TiglHeading" xml:space="preserve">
+    <value>TIGL</value>
+  </data>
+  <data name="TiglInfo_TiglContent" xml:space="preserve">
+    <value>&lt;p&gt;The Twilight Imperium Global League (TIGL) was founded by BigAlCupaChino as a larger effort to track competitive TI. For simplicity, alignment, and the desire not to divert players away from TIGL, competitive async games must be flagged as TIGL games at the start of the game setup.&lt;/p&gt;
+&lt;p&gt;TIGL has a lot of cool features, such as seasons (12 weeks long), season champions, ELO and Aussie points (both season and lifetime), the ability to log real-time or IRL games, and more.&lt;/p&gt;
+&lt;p&gt;This document will focus primarily on the ranks aspect of TIGL, but you can enjoy the other benefits of TIGL even if ranks are all you really care about.&lt;/p&gt;</value>
+  </data>
+  <data name="TiglInfo_CodeOfConductHeading" xml:space="preserve">
+    <value>Code of Conduct</value>
+  </data>
+  <data name="TiglInfo_CodeOfConductContent" xml:space="preserve">
+    <value>&lt;h3&gt;Summary&lt;/h3&gt;
+&lt;p&gt;To ensure people have a good experience with their fellow humans, the Async TI server and TIGL have Codes of Conduct. They won't keep people from taking your home system, but they do compel people to play by two primary rules:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;You will play the game in good faith.&lt;/li&gt;
+&lt;li&gt;You will treat your fellow players with respect.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Violations of the Code of Conduct will result in losing all TIGL Ranks. If you feel a violation has occurred, please contact an Admin (&lt;strong&gt;@admin&lt;/strong&gt;) or BLT.&lt;/p&gt;
+&lt;p&gt;Note that violations that don't result in a full server ban can still result in losing TIGL Ranks, and players can regain ranks by winning games again.&lt;/p&gt;
+&lt;h3&gt;TIGL Code of Conduct&lt;/h3&gt;
+&lt;p&gt;For reference, the full TIGL Code of Conduct is shared verbatim. Since it was originally imagined as a 12-week in-person league, some of the rules don't apply directly to Async TIGL games, especially the bits about using Rules as Written (we adhere to Rules as Explained by Dane, which are often not quite the same as they are written) and playing "each week", which was specific to live games.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;All players in the TIGL are to adhere to the code of conduct:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Respect each other and play with honor and dignity. Don't be rude, argumentative, vulgar or abusive.&lt;/li&gt;
+&lt;li&gt;Sportsmanship is more important than winning. This includes no collusion outside the game in progress.&lt;/li&gt;
+&lt;li&gt;Play within the spirit of the game, allow everyone to have fun and enjoy the game.&lt;/li&gt;
+&lt;li&gt;In game Rules as Written (RAW). Anything goes on the board BUT:
+&lt;ul&gt;
+&lt;li&gt;Above table no abuse, discrimination, intimidation or other unacceptable behavior.&lt;/li&gt;
+&lt;li&gt;Beyond table no collusion or attempt to subvert the league.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Playing each week with same 6 players is legal but discouraged. League encourages players to mingle and play with broader groups.&lt;/li&gt;
+&lt;li&gt;All games are subject to Rules as Written (RAW).&lt;/li&gt;
+&lt;li&gt;Players who sign up for a game and then no show or last minute cancel may be removed from league.&lt;/li&gt;
+&lt;li&gt;If at anytime you feel unsafe or a player's conduct is unbecoming contact an admin.&lt;/li&gt;
+&lt;li&gt;Players may be removed from league at the sole discretion of the TIGL admin team.&lt;/li&gt;
+&lt;li&gt;By signing up for league you agree to have your discord name [and discord tag/id] and your match results being made public.&lt;/li&gt;
+&lt;/ol&gt;</value>
+  </data>
+  <data name="TiglInfo_GettingStartedHeading" xml:space="preserve">
+    <value>How Do I Get Started?</value>
+  </data>
+  <data name="TiglInfo_GettingStartedSignUpHeading" xml:space="preserve">
+    <value>Do I need to sign up for TIGL first?</value>
+  </data>
+  <data name="TiglInfo_GettingStartedContent" xml:space="preserve">
+    <value>&lt;p&gt;Not if you're playing async. If you've never finished an async game, and you're submitting a TIGL played outside async (e.g., TTPG or around a table), you'll need to sign up here for the reporting form to be able to find your name. If you're playing async, finishing an async game will sign you up.&lt;/p&gt;
+&lt;p&gt;Starting a TIGL game is much like starting any game in the Discord server. Head to &lt;strong&gt;#making-new-games&lt;/strong&gt; and make a post explaining the type of game you're looking for, including that it will be TIGL. Some other things worth posting:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Will this be a standard TIGL game? If not, which variants are you including?&lt;/li&gt;
+&lt;li&gt;How many points will be needed to win?&lt;/li&gt;
+&lt;li&gt;About how often do you expect people to be available to respond to deals and conversations, to take turns, etc.? This can range from "once or twice a day" to "more or less constantly besides sleep", and people tend to prefer to play in games where people check in at similar cadences.&lt;/li&gt;
+&lt;li&gt;Support for the Throne considerations&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You'll also need to make sure to tag the game as TIGL, which is usually done with a button in the game creation thread. If for any reason that button doesn't appear or doesn't work, use the slash command to tag it: &lt;code&gt;/game setup is_tigl_game:True&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;If you forget to do this there are manual ways around it, but at the current scale it makes a big difference when games are logged automatically, so thank you 🙂&lt;/p&gt;
+&lt;p&gt;If you are playing a game in the Fractured Ladder (described below) and aren't using the button, you'll also need to run &lt;code&gt;/tigl is_fractured is_fractured:True&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;You can also join a game that somebody else has posted about, by asking in the game creation thread if you can join. Be aware that some games may be looking for people at a certain rank or higher to ensure the winner can rank up.&lt;/p&gt;</value>
+  </data>
+  <data name="TiglInfo_AllowedHeading" xml:space="preserve">
+    <value>What's Allowed in Our Games?</value>
+  </data>
+  <data name="TiglInfo_AllowedContent" xml:space="preserve">
+    <value>&lt;p&gt;TIGL was originally designed to be very standardized — no homebrew, 10 points every game, a very strict ruleset. Thunder's Edge, and Codex 4 before it, brought Events as a new way to change the rules of standard Twilight Imperium that isn't quite homebrew, but is not "standard TI".&lt;/p&gt;
+&lt;p&gt;But just because a game goes to 14 or 16 points, or includes a well-tested homebrew faction or component, or wants to use Minor Factions or another event, doesn't mean the players don't still want a competitive game.&lt;/p&gt;
+&lt;p&gt;So, for the first time, we're introducing two separate "ladders" of ranks. Enough people enjoy the competitive aspect of TIGL games, even for non-standard play modes, that we are accommodating them. We are also ensuring that a standardized way to play competitive TI still exists.&lt;/p&gt;</value>
+  </data>
+  <data name="TiglInfo_RegisterButton" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="TiglInfo_ReportGameButton" xml:space="preserve">
+    <value>Report Game</value>
+  </data>
+  <data name="TiglInfo_JoinDiscordButton" xml:space="preserve">
+    <value>Join Discord</value>
+  </data>
+  <data name="TiglInfo_ManifestButton" xml:space="preserve">
+    <value>TIGL Manifest</value>
+  </data>
+  <data name="TiglRegisterUser_MainTitle" xml:space="preserve">
+    <value>TIGL Registration</value>
+  </data>
+  <data name="TiglRegisterUser_Subtitle" xml:space="preserve">
+    <value>(Twilight Imperium Global League)</value>
+  </data>
+  <data name="TiglRegisterUser_SuccessTitle" xml:space="preserve">
+    <value>Registration process succeeded!</value>
+  </data>
+  <data name="TiglRegisterUser_SuccessRedirectMessage" xml:space="preserve">
+    <value>You will be redirected shortly to your TIGL profile.</value>
+  </data>
+  <data name="TiglRegisterUser_FailureTitle" xml:space="preserve">
+    <value>Registration process failure!</value>
+  </data>
+  <data name="TiglRegisterUser_FailureRedirectMessage" xml:space="preserve">
+    <value>You will be redirected in 5s.</value>
+  </data>
+  <data name="TiglRegisterUser_CodeOfConductContent" xml:space="preserve">
+    <value>&lt;h3&gt;TIGL Code of Conduct&lt;/h3&gt;
+&lt;p&gt;All players in the TIGL are to adhere to the code of conduct. By registering you agree to these terms.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Respect each other and play with honor and dignity. Do not be rude, argumentative, vulgar or abusive.&lt;/li&gt;
+&lt;li&gt;Sportsmanship is more important than winning. This includes no collusion outside the game in progress.&lt;/li&gt;
+&lt;li&gt;Play within the spirit of the game; allow everyone to have fun and enjoy the game.&lt;/li&gt;
+&lt;li&gt;In‑game (RAW) anything goes on the board, BUT above the table no abuse, discrimination, intimidation or other unacceptable behavior.&lt;/li&gt;
+&lt;li&gt;Beyond the table: no collusion or attempt to subvert the league.&lt;/li&gt;
+&lt;li&gt;Playing each week with the same 6 players is legal but discouraged; the league encourages mingling.&lt;/li&gt;
+&lt;li&gt;All games are subject to Rules as Written (RAW).&lt;/li&gt;
+&lt;li&gt;Players who sign up for a game and then no‑show or cancel last minute may be removed from the league.&lt;/li&gt;
+&lt;li&gt;If at any time you feel unsafe or a player's conduct is unbecoming, contact an admin.&lt;/li&gt;
+&lt;li&gt;Players may be removed from the league at the sole discretion of the TIGL admin team.&lt;/li&gt;
+&lt;li&gt;By signing up you agree your Discord name and match results may be made public.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To participate you must register with your Discord account so we can track game statistics and create your TIGL player profile.&lt;/p&gt;</value>
+  </data>
+  <data name="TiglRegisterUser_RegisterButton" xml:space="preserve">
+    <value>Register With Discord</value>
   </data>
   <data name="MatchState_New" xml:space="preserve">
     <value>Waiting for approval</value>

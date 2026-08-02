@@ -1,4 +1,14 @@
 /*
+    Host span for the RadzenDropDown child component -- see the comment in ResponsiveDropDown.razor.
+    display:contents removes it from layout entirely so it doesn't affect flex/grid placement
+    around the dropdown, while still existing as a real element carrying this component's own
+    scope attribute for the ::deep selectors below to anchor from.
+*/
+.responsive-dropdown-host {
+    display: contents;
+}
+
+/*
     app.css already makes Radzen dropdown POPUP items use Handel (they're rendered in a global
     popup container, so that has to be done globally there -- see the comment next to
     `.rz-dropdown-panel .rz-dropdown-item` in app.css). The closed dropdown's own selected-value
@@ -6,21 +16,28 @@
     from here. The "handel" utility class alone (applied in ComputedCssClass) isn't enough: Radzen
     renders the selected text inside a nested element that doesn't inherit font-family the way a
     plain <div>/<span> would.
+
+    The `.rz-inputtext` rule is intentionally scoped to exclude Radzen's `.rz-state-empty` state
+    (no value selected). When empty, `.rz-dropdown-label` only contains a `&nbsp;` placeholder --
+    the Handel display font renders that whitespace-only content as a stray visible glyph (looks
+    like an "@"/"(R)" symbol) instead of blank space, confirmed via live DOM/computed-style
+    inspection. Real selected values render fine in Handel, so only the empty state is excluded.
 */
-::deep .rz-dropdown,
-::deep .rz-dropdown .rz-inputtext,
-::deep .rz-dropdown input {
+.responsive-dropdown-host ::deep .rz-dropdown,
+.responsive-dropdown-host ::deep .rz-dropdown:not(.rz-state-empty) .rz-inputtext,
+.responsive-dropdown-host ::deep .rz-dropdown input {
     font-family: Handel, fallback, sans-serif;
 }
 
 /*
     .rz-dropdown is `display: inline-flex; flex-direction: column;` with its selected-value label
-    (.rz-dropdown-label) as the sole flex item. Radzen's default label padding/line-height is
-    tuned for its own default --rz-input-height; our `.responsive-input-height` utility overrides
-    that to a taller 3rem, but the label's own height still just matches its text content, so a
-    column flex container's default `justify-content: flex-start` leaves the extra height as
-    blank space BELOW the label instead of centering it -- the label visually sits too high.
+    (.rz-dropdown-label, a block element) as the sole flex item. Radzen's default label
+    padding/line-height is tuned for its own default --rz-input-height; our `.responsive-input-height`
+    utility overrides that to a taller value, but the label's own height still just matches its
+    text content, so the column flex container's default `justify-content: flex-start` leaves the
+    extra height as blank space BELOW the label instead of centering it -- the label visually sits
+    too high.
 */
-::deep .rz-dropdown {
+.responsive-dropdown-host ::deep .rz-dropdown {
     justify-content: center;
 }

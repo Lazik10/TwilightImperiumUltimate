@@ -1,0 +1,38 @@
+/*
+    Anchor for the resize handle's absolute positioning below. `.responsive-column` also carries
+    other visual rules (colors, borders, hover/zebra backgrounds) owned by the CONSUMING table
+    component (ResponsiveTable.razor.css/ResponsiveDataGrid.razor.css, reached via ::deep since those
+    files don't render this element directly) -- this file only owns the resize-handle-specific
+    concerns, since both the <th>/<td> and the handle <span> are authored directly in THIS
+    component's own ResponsiveColumn.razor, needing no ::deep here.
+*/
+.responsive-column {
+    position: relative;
+}
+
+/*
+    Thin invisible strip overlapping the header cell's right edge; drag (pointer) or
+    ArrowLeft/ArrowRight (keyboard, see ResponsiveColumn.razor.cs's OnResizeKeyDown) resizes the
+    column. Kept visually subtle until hovered/focused so it doesn't clutter every header by
+    default. Anchored at `right: 0` (fully inside the cell's own box, not sticking outside it) so
+    it is never clipped by the `overflow: hidden` that ResponsiveDataViewBase.GetColumnStyle adds
+    inline to header cells that also specify a MaxWidth (ellipsis truncation).
+*/
+.responsive-column-resize-handle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 6px;
+    height: 100%;
+    cursor: col-resize;
+    touch-action: none;
+    z-index: 4;
+    background-color: transparent;
+}
+
+.responsive-column-resize-handle:hover,
+.responsive-column-resize-handle:focus-visible {
+    background-color: var(--color-nav-hover, #8ecfff);
+    opacity: 0.6;
+    outline: none;
+}

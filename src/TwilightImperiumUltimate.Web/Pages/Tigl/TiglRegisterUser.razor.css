@@ -28,3 +28,56 @@
 .border-warning {
     background-color: rgba(255, 193, 7, 0.05);
 }
+
+.info-content {
+    font-family: Handel, sans-serif !important;
+    color: var(--color-white) !important;
+    text-shadow: var(--shadow-text) !important;
+    text-align: justify;
+    width: 100%;
+    line-height: 1.5;
+}
+
+    .info-content ::deep h3 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        color: yellow;
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .info-content ::deep p {
+        margin-bottom: 12px;
+    }
+
+    .info-content ::deep ul {
+        margin-left: 2em;
+        margin-bottom: 20px;
+        text-align: left;
+        line-height: 1.4;
+    }
+
+    .info-content ::deep li {
+        margin-bottom: 6px;
+    }
+
+@media (max-width: 1248px) {
+    .info-content {
+        font-size: 16px;
+    }
+
+    .info-content ::deep h3 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .info-content {
+        font-size: 12px;
+    }
+
+    .info-content ::deep h3 {
+        font-size: 16px;
+    }
+}
+

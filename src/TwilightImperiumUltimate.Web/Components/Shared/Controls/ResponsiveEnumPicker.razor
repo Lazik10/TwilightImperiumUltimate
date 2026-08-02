@@ -29,7 +29,7 @@
                          JustifyContent="Enums.JustifyContent.Center"
                          AlignItems="Enums.AlignItems.Center">
         <ArrowButton ArrowSymbol="@LeftArrowSymbol" OnArrowClick="PreviousValue" Width="@ButtonWidth" />
-        <ResponsiveLabel Text="@CurrentValue.GetDisplayName()" FontSize="@FontSize" CenterText="true" TextColor="@ValueColor" CssClass="ml-md mr-md" />
+        <ResponsiveLabel Text="@CurrentValue.GetDisplayName()" FontSize="@FontSize" CenterText="true" TextColor="@ValueColor" CssClass="ml-md mr-md" Style="@(MinChoiceWidth.HasValue ? $"min-width: {MinChoiceWidth}px;" : string.Empty)" />
         <ArrowButton ArrowSymbol="@RightArrowSymbol" OnArrowClick="NextValue" Width="@ButtonWidth" />
     </ResponsiveContainer>
 </ResponsiveContainer>

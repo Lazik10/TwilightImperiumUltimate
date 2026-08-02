@@ -18,10 +18,10 @@ public partial class ResponsiveGridContainer
     public int Columns { get; set; } = 1;
 
     [Parameter]
-    public int TabletColumns { get; set; }
+    public int TabletColumns { get; set; } = 1;
 
     [Parameter]
-    public int MobileColumns { get; set; }
+    public int MobileColumns { get; set; } = 1;
 
     /// <summary>
     /// Gets or sets the minimum width of each column (for example "8rem"). When set, the grid

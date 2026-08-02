@@ -1,9 +1,14 @@
 ﻿@page "/community/slices-archive"
 @using TwilightImperiumUltimate.Web.Components.SlicesArchive
 
+<PageTitle>@Strings.Page_SlicesArchive</PageTitle>
+
 <Page>
 
-    <ResponsiveButton ButtonText="@Strings.SlicesArchiveButton_NewSlice" OnClick="Redirect" Width="30" CssClass="mb-md"/>
+    <ResponsiveContainer Type="ContainerType.Flex" JustifyContent="Enums.JustifyContent.Center" Padding="none" CssClass="mb-md">
+        <ResponsiveButton ButtonText="@Strings.SlicesArchiveButton_NewSlice" OnClick="Redirect" />
+    </ResponsiveContainer>
+
     <SlicesArchiveGrid AllSliceDrafts="SliceDrafts" />
 
 </Page>

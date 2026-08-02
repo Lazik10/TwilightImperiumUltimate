@@ -1,0 +1,21 @@
+@namespace TwilightImperiumUltimate.Web.Components.Grid
+
+@*
+    Fills the entire Radzen table/grid cell with a single link so users can click anywhere in the
+    column -- not just directly on the text -- for ResponsiveRadzenTable/ResponsiveRadzenDataGrid
+    columns that navigate to another page (e.g. a player profile or game detail) instead of
+    performing an in-place action. Renders as a real anchor with no button chrome (no
+    background/border at rest) so it stays a genuine, keyboard- and screen-reader-accessible link;
+    Blazor's router intercepts the click for SPA navigation instead of a full page reload. When
+    "Href" is null/empty (e.g. the row has no linked profile), renders as plain non-interactive
+    text instead of a dead link.
+*@
+
+@if (!string.IsNullOrWhiteSpace(Href))
+{
+    <a href="@Href" class="grid-button-column @CssClass" style="@ComputedStyle">@Text</a>
+}
+else
+{
+    <span class="grid-button-column-text @CssClass" style="@ComputedStyle">@Text</span>
+}

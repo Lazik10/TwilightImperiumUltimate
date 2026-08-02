@@ -1,5 +1,7 @@
 .info-content {
-    color: white;
+    font-family: Handel, sans-serif !important;
+    color: var(--color-white) !important;
+    text-shadow: var(--shadow-text) !important;
     text-align: justify;
     width: 80%;
     line-height: 1.5;
@@ -12,30 +14,31 @@
         width: 100%;
     }
 
-    .info-content h3 {
+    .info-content ::deep h3 {
         margin-top: 20px;
         margin-bottom: 10px;
-        color: gold;
+        color: yellow;
         font-size: 24px;
+        text-align: center;
         text-indent: 0;
     }
 
-    .info-content p {
+    .info-content ::deep p {
         margin-bottom: 12px;
     }
 
-    .info-content ol,
-    .info-content ul {
+    .info-content ::deep ol,
+    .info-content ::deep ul {
         margin-left: 2em;
         margin-bottom: 12px;
         text-indent: 0;
     }
 
-    .info-content li {
+    .info-content ::deep li {
         margin-bottom: 6px;
     }
 
-    .info-content code {
+    .info-content ::deep code {
         background-color: rgba(255, 255, 255, 0.1);
         padding: 2px 6px;
         border-radius: 4px;
@@ -57,7 +60,7 @@
         font-size: 16px;
     }
 
-    .info-content h3 {
+    .info-content ::deep h3 {
         font-size: 20px;
     }
 }
@@ -68,7 +71,7 @@
         width: 95%;
     }
 
-    .info-content h3 {
+    .info-content ::deep h3 {
         font-size: 16px;
     }
 

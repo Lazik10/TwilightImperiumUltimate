@@ -12,7 +12,7 @@
     box-sizing: border-box;
     padding: 0.2rem var(--space-sm);
     background-color: var(--color-nav-panel-bg);
-    border: 1px solid black;
+    border: 1px solid var(--color-nav-hover);
     border-radius: var(--border-radius-sm);
     cursor: pointer;
     text-decoration: none;

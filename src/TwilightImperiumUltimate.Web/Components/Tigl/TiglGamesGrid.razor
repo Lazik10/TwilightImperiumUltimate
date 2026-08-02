@@ -1,50 +1,23 @@
 ﻿@using TwilightImperiumUltimate.Contracts.DTOs.Tigl
 @using TwilightImperiumUltimate.Contracts.Enums
-@using TwilightImperiumUltimate.Web.Helpers.Enums
-@using TwilightImperiumUltimate.Web.Components.Shared.Controls
+
+@*
+    Standard/Fractured game results, responsive via ResponsiveGridContainer (side-by-side on
+    desktop, stacked on tablet/mobile) and ResponsiveRadzenDataGrid (horizontal scroll instead of
+    truncation on narrow viewports). See blazor.instructions.md -- do not reintroduce
+    Components/Shared/Tables/ResponsiveTable or ResponsiveGrid, they are obsolete in this codebase.
+*@
 
 <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-md mb-md">
 
-<ResponsiveNumericPicker Label="@Strings.TiglLeaderboard_Season"
-              FontSize="md"
-              Value="@_selectedSeasonNumber"
-              OnDecrease="DecreaseSeasonNumber"
-              OnIncrease="IncreaseSeasonNumber"
-              Width="30" />
+    <ResponsiveNumericPicker Label="@Strings.TiglLeaderboard_Season"
+                  FontSize="md"
+                  Value="@_selectedSeasonNumber"
+                  OnDecrease="DecreaseSeasonNumber"
+                  OnIncrease="IncreaseSeasonNumber"
+                  Width="30" />
 
 </ResponsiveContainer>
-
-<ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="mb-md">
-    <Label Text="@GetStandardTitle()" FontSize="24" CenterText="true" TextColor="TextColor.Yellow" />
-    <Label Text="@GetFracturedTitle()" FontSize="24" CenterText="true" TextColor="TextColor.Yellow" />
-</ResponsiveContainer>
-
-<GridLayout Columns="2" Width="100" CssClass="background mt-md">
-    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-        <GridLayout Columns="4" CssClass="handel white shadow background" Style="grid-template-columns: 3% 30% 25% 15% 27%">
-            <div class="span-5" style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
-            <Label />
-            <Label Text="@Strings.TiglGames_GameId" TextColor="TextColor.Green" />
-            <Label Text="@Strings.TiglGames_Status" />
-            <Label Text="@Strings.TiglGames_Source" />
-            <Label Text="@Strings.TiglGames_Ended" />
-            <div class="span-5" style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
-        </GridLayout>
-    </ResponsiveContainer>
-
-    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-        <GridLayout Columns="4" CssClass="handel white shadow background" Style="grid-template-columns: 3% 30% 25% 15% 27%">
-            <div class="span-5" style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
-            <Label />
-            <Label Text="@Strings.TiglGames_GameId" TextColor="TextColor.Green" />
-            <Label Text="@Strings.TiglGames_Status" />
-            <Label Text="@Strings.TiglGames_Source" />
-            <Label Text="@Strings.TiglGames_Ended" />
-            <div class="span-5" style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
-        </GridLayout>
-    </ResponsiveContainer>
-</GridLayout>
-
 
 @if (_loading)
 {
@@ -52,31 +25,61 @@
 }
 else
 {
-    <GridLayout Columns="2" Width="100" AlignItems="flex-start" CssClass="mb-2xl">
-        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="100">
-            <GridLayout Columns="4" CssClass="handel white shadow" Style="grid-template-columns: 3% 30% 25% 15% 27%">
-                @foreach (var g in FilteredStandardGames)
-                {
-                    <Label />
-                    <ResponsiveButton Text="@g.GameId" JustifyContent="Enums.JustifyContent.FlexStart" TextColor="TextColor.Green" OnClick="() => RedirectToGameDetail(g.Id)" />
-                    <Label Text="@g.State.GetDisplayName()" />
-                    <Label Text="@g.Source.GetDisplayName()" />
-                    <Label Text="@FormatEndDate(g.EndTimestamp)" />
-                }
-            </GridLayout>
-        </ResponsiveContainer>
-        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="100">
-            <GridLayout Columns="4" CssClass="handel white shadow" Style="grid-template-columns: 3% 30% 25% 15% 27%">
-                @foreach (var g in FilteredFracturedGames)
-                {
-                    <Label />
-                    <ResponsiveButton Text="@g.GameId" JustifyContent="Enums.JustifyContent.FlexStart" TextColor="TextColor.Green" OnClick="() => RedirectToGameDetail(g.Id)" />
-                    <Label Text="@g.State.GetDisplayName()" />
-                    <Label Text="@g.Source.GetDisplayName()" />
-                    <Label Text="@FormatEndDate(g.EndTimestamp)" />
-                }
-            </GridLayout>
-        </ResponsiveContainer>
-    </GridLayout>
+    <ResponsiveGridContainer Columns="2"
+                              TabletColumns="1"
+                              MobileColumns="1"
+                              AlignItems="Enums.AlignItems.Stretch"
+                              JustifyItems="Enums.AlignItems.Stretch"
+                              Gap="var(--space-lg)"
+                              CssClass="mb-2xl">
+        <div>
+            <ResponsiveHeading Level="2" Text="@GetStandardTitle()" FontSize="lg" CenterText="true" CssClass="mb-md" />
+            <ResponsiveRadzenDataGrid TItem="MatchReportDto"
+                                      Data="FilteredStandardGames"
+                                      AllowPaging="false"
+                                      AllowAlternatingRows="true">
+                <Columns>
+                    <RadzenDataGridColumn TItem="MatchReportDto" Property="@nameof(MatchReportDto.GameId)" Title="@Strings.TiglGames_GameId">
+                        <Template Context="g">
+                            <GridButtonColumn Text="@g.GameId" TextColor="TextColor.Green" Href="@GetGameDetailUrl(g.Id)" />
+                        </Template>
+                    </RadzenDataGridColumn>
+                    <RadzenDataGridColumn TItem="MatchReportDto" Property="@nameof(MatchReportDto.State)" Title="@Strings.TiglGames_Status">
+                        <Template Context="g">@g.State.GetDisplayName()</Template>
+                    </RadzenDataGridColumn>
+                    <RadzenDataGridColumn TItem="MatchReportDto" Property="@nameof(MatchReportDto.Source)" Title="@Strings.TiglGames_Source">
+                        <Template Context="g">@g.Source.GetDisplayName()</Template>
+                    </RadzenDataGridColumn>
+                    <RadzenDataGridColumn TItem="MatchReportDto" Property="@nameof(MatchReportDto.EndTimestamp)" Title="@Strings.TiglGames_Ended">
+                        <Template Context="g">@FormatEndDate(g.EndTimestamp)</Template>
+                    </RadzenDataGridColumn>
+                </Columns>
+            </ResponsiveRadzenDataGrid>
+        </div>
+        <div>
+            <ResponsiveHeading Level="2" Text="@GetFracturedTitle()" FontSize="lg" CenterText="true" CssClass="mb-md" />
+            <ResponsiveRadzenDataGrid TItem="MatchReportDto"
+                                      Data="FilteredFracturedGames"
+                                      AllowPaging="false"
+                                      AllowAlternatingRows="true">
+                <Columns>
+                    <RadzenDataGridColumn TItem="MatchReportDto" Property="@nameof(MatchReportDto.GameId)" Title="@Strings.TiglGames_GameId">
+                        <Template Context="g">
+                            <GridButtonColumn Text="@g.GameId" TextColor="TextColor.Green" Href="@GetGameDetailUrl(g.Id)" />
+                        </Template>
+                    </RadzenDataGridColumn>
+                    <RadzenDataGridColumn TItem="MatchReportDto" Property="@nameof(MatchReportDto.State)" Title="@Strings.TiglGames_Status">
+                        <Template Context="g">@g.State.GetDisplayName()</Template>
+                    </RadzenDataGridColumn>
+                    <RadzenDataGridColumn TItem="MatchReportDto" Property="@nameof(MatchReportDto.Source)" Title="@Strings.TiglGames_Source">
+                        <Template Context="g">@g.Source.GetDisplayName()</Template>
+                    </RadzenDataGridColumn>
+                    <RadzenDataGridColumn TItem="MatchReportDto" Property="@nameof(MatchReportDto.EndTimestamp)" Title="@Strings.TiglGames_Ended">
+                        <Template Context="g">@FormatEndDate(g.EndTimestamp)</Template>
+                    </RadzenDataGridColumn>
+                </Columns>
+            </ResponsiveRadzenDataGrid>
+        </div>
+    </ResponsiveGridContainer>
 }
 

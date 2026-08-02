@@ -1,4 +1,4 @@
-namespace TwilightImperiumUltimate.Web.Components.Shared.Controls;
+namespace TwilightImperiumUltimate.Web.Components.Grid;
 
 /// <summary>
 /// Code-behind for <see cref="ResponsiveRadzenTable"/>.

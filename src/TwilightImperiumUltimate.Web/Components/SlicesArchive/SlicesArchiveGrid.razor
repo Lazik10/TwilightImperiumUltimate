@@ -1,48 +1,24 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Shared.Bars
+@using TwilightImperiumUltimate.Web.Models.SlicesArchive
 
-<div style="overflow-x: auto; white-space: nowrap;">
+<ResponsiveDataGrid TItem="SliceDraftModel"
+                     Items="FilteredSliceDrafts"
+                     ZebraStripes="true"
+                     CssClass="mb-md"
+                     SelectedItemChanged="RedirectToSelectedSliceDraft">
 
-    <div class="grid-header background mb-md">
-        <GridLayout Columns="6" Gap="5" Style="grid-template-columns: 22% 22% 15% 8% 20% 10%;">
+    <ResponsiveTableColumn Field="x => x.Name" Header="@Strings.SlicesArchive_SliceDraftName" Filter="ResponsiveFilterType.Text" HeaderAlign="center" />
 
-            <Label Text="@Strings.SlicesArchive_SliceDraftName" CenterText="true" />
-            <Label Text="@Strings.SlicesArchive_SliceDraftEventName" CenterText="true" />
-            <Label Text="@Strings.SlicesArchive_SliceDraftAuthor" CenterText="true" />
-            <Label Text="@Strings.SlicesArchive_SliceDraftSliseCount" CenterText="true "/>
-            <Label Text="@Strings.SlicesArchive_SliceDraftRating" CenterText="true" />
-            <div />
-
-            <ResponsiveSearchBar Id="slices-archive-name-search" HideText="true" OnSearchChange="ApplyNameFilter" EnableEmptySearch="true" @ref=_nameSearchBar />
-            <ResponsiveSearchBar Id="slices-archive-event-search" HideText="true" OnSearchChange="ApplyEventFilter" EnableEmptySearch="true" @ref=_eventSearchBar />
-            <ResponsiveSearchBar Id="slices-archive-user-search" HideText="true" OnSearchChange="ApplyUserFilter" EnableEmptySearch="true" @ref=_userSearchBar />
-            <RadzenDropDown @bind-Value="SelectedSliceFilter"
-                            Data="@_sliceFilters"
-                            Change="() => ApplySliceCountFilter()"
-                            ValueProperty="Key"
-                            TextProperty="Value"
-                            Style="width: 100%; height: 100%;"
-                            class="title handel" />
-            <RadzenDropDown @bind-Value="SelectedFilterOrder"
-                            Data="@_filterOrders"
-                            Change="() => ApplyOrderFilter()"
-                            ValueProperty="Key"
-                            TextProperty="Value"
-                            Style="width: 100%; height: 100%;"
-                            class="title handel" />
-            <ResponsiveButton ButtonText="@Strings.ButtonText_Clear" Width="100" OnClick="ResetSearch" />
-        </GridLayout>
-    </div>
-
-    <GridLayout Columns="6" Gap="5" Style="grid-template-columns: 22% 22% 15% 8% 20% 10%;">
-        @foreach (var sliceDraft in FilteredSliceDrafts)
-        {
-            <Label Text="@sliceDraft.Name" />
-            <Label Text="@sliceDraft.EventName" />
-            <Label Text="@sliceDraft.UserName" />
-            <Label Text="@sliceDraft.SliceCount.ToString()" CenterText="true"/>
+    <ResponsiveTableColumn Field="x => x.Rating" Header="@Strings.SlicesArchive_SliceDraftRating" Sortable="true" HeaderAlign="center" Align="center">
+        <CellTemplate Context="sliceDraft">
             <StarRating IsReadOnly="true" Rating="@sliceDraft.Rating" />
-            <ResponsiveButton ButtonText="@Strings.ButtonText_View" Width="100" OnClick="() => RedirectToMapDetails(sliceDraft.Id)" />
-        }
-    </GridLayout>
+        </CellTemplate>
+    </ResponsiveTableColumn>
 
-</div>
+    <ResponsiveTableColumn Field="x => x.EventName" Header="@Strings.SlicesArchive_SliceDraftEventName" Filter="ResponsiveFilterType.Text" HeaderAlign="center" />
+
+    <ResponsiveTableColumn Field="x => x.UserName" Header="@Strings.SlicesArchive_SliceDraftAuthor" Filter="ResponsiveFilterType.Text" HeaderAlign="center" />
+
+    <ResponsiveTableColumn Field="x => x.SliceCount" Header="@Strings.SlicesArchive_SliceDraftSliseCount" Filter="ResponsiveFilterType.Value" HeaderAlign="center" Align="center" />
+
+</ResponsiveDataGrid>

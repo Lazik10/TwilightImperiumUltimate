@@ -12,7 +12,8 @@
                       Width="@Width"
                       Direction="@(LabelPosition == Enums.LabelPosition.Column ? Enums.FlexDirection.Column : Enums.FlexDirection.Row)"
                       JustifyContent="Enums.JustifyContent.FlexStart"
-                      AlignItems="@(LabelPosition == Enums.LabelPosition.Column ? Enums.AlignItems.Stretch : Enums.AlignItems.Center)">
+                      AlignItems="@(LabelPosition == Enums.LabelPosition.Column ? Enums.AlignItems.Stretch : Enums.AlignItems.Center)"
+                      CssClass="@CssClass">
     @if (!string.IsNullOrEmpty(Label))
     {
         <ResponsiveLabel Text="@Label"

@@ -1,4 +1,5 @@
 using TwilightImperiumUltimate.Web.Enums;
+using TwilightImperiumUltimate.Web.Helpers.Enums;
 
 namespace TwilightImperiumUltimate.Web.Components.Shared.Tables;
 
@@ -73,7 +74,7 @@ public partial class ResponsiveColumnFilterControl<TItem>
 
         return Enum.GetValues(underlyingType)
             .Cast<object>()
-            .Select(value => new ResponsiveEnumFilterOption(value.ToString() ?? string.Empty, value))
+            .Select(value => new ResponsiveEnumFilterOption(value.GetDisplayName(), value))
             .ToList();
     }
 }

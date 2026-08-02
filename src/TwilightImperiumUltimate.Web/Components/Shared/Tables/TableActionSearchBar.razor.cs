@@ -1,7 +1,7 @@
 namespace TwilightImperiumUltimate.Web.Components.Shared.Tables;
 
 /// <summary>
-/// Compact ResponsiveSearchBar for use inside a ResponsiveTable/ResponsiveGrid cell (e.g. a
+/// Compact ResponsiveSearchBar for use inside a ResponsiveTable/ResponsiveDataGrid cell (e.g. a
 /// per-column filter trigger). Same contract as
 /// <see cref="Bars.ResponsiveSearchBar"/>, just hiding the label and defaulting to the smallest
 /// FontSize token so it fits a narrow column.

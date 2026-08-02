@@ -6,21 +6,28 @@
     (the same --rz-input-height / --rz-input-font-size custom-property mechanism used by
     ResponsiveTextBox/ResponsivePassword -- taller on desktop, shorter on tablet/mobile, fluid
     font-size) so pages don't need to repeat raw Radzen markup/classes by hand.
-*@
 
-<RadzenDropDown TValue="TValue"
-                id="@Id"
-                Name="@Name"
-                Data="@Data"
-                TextProperty="@TextProperty"
-                ValueProperty="@ValueProperty"
-                Placeholder="@Placeholder"
-                aria-describedby="@AriaDescribedBy"
-                Disabled="Disabled"
-                AllowClear="AllowClear"
-                AllowFiltering="AllowFiltering"
-                AllowVirtualization="AllowVirtualization"
-                Value="@Value"
-                ValueChanged="OnValueChanged"
-                class="@ComputedCssClass"
-                style="@ComputedStyle" />
+    Wrapped in a "display: contents" host span so this component has a real root element carrying
+    its own Blazor CSS-isolation scope attribute -- without it, `<RadzenDropDown>` would be the
+    only element in this file's render tree, and since it's a CHILD component (not plain HTML),
+    none of this component's own ::deep rules in ResponsiveDropDown.razor.css would ever have a
+    reachable ancestor to anchor from (confirmed dead CSS otherwise; see that file's comments).
+*@
+<span class="responsive-dropdown-host">
+    <RadzenDropDown TValue="TValue"
+                    id="@Id"
+                    Name="@Name"
+                    Data="@Data"
+                    TextProperty="@TextProperty"
+                    ValueProperty="@ValueProperty"
+                    Placeholder="@Placeholder"
+                    aria-describedby="@AriaDescribedBy"
+                    Disabled="Disabled"
+                    AllowClear="AllowClear"
+                    AllowFiltering="AllowFiltering"
+                    AllowVirtualization="AllowVirtualization"
+                    Value="@Value"
+                    ValueChanged="OnValueChanged"
+                    class="@ComputedCssClass"
+                    style="@ComputedStyle" />
+</span>

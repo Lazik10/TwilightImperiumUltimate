@@ -29,6 +29,7 @@
                     @foreach (var column in Columns)
                     {
                         <ResponsiveColumn IsHeader="true"
+                                          Resizable="true"
                                           Vertical="column.Vertical"
                                           CssClass="@($"{GetStickyClass(column)} {column.CssClass}".Trim())"
                                           Style="@GetColumnStyle(column)"
@@ -54,6 +55,17 @@
                             </td>
                         }
                     </tr>
+                    @if (HasActiveFilters)
+                    {
+                        <tr class="responsive-table-clear-filters-row">
+                            <td colspan="@Math.Max(Columns.Count, 1)">
+                                <ResponsiveButton ButtonText="@Strings.ButtonText_ClearFilters"
+                                                  Width="100"
+                                                  OnClick="ClearAllFiltersAsync"
+                                                  CssClass="responsive-button-sm" />
+                            </td>
+                        </tr>
+                    }
                 }
             </thead>
             <tbody>

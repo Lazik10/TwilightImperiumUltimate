@@ -62,6 +62,12 @@ public partial class ResponsiveNumericPicker
     [Parameter]
     public int ButtonWidth { get; set; } = 10;
 
+    /// <summary>
+    /// Gets or sets additional CSS classes applied to the root container.
+    /// </summary>
+    [Parameter]
+    public string CssClass { get; set; } = string.Empty;
+
     private int PickerWidth => 100 - LabelWidth;
 
     private string GetDisplayText() => string.IsNullOrEmpty(DisplayText) ? Value.ToString(CultureInfo.InvariantCulture) : DisplayText!;

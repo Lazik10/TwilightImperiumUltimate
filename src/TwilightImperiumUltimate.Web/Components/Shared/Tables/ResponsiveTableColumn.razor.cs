@@ -5,7 +5,7 @@ using TwilightImperiumUltimate.Web.Enums;
 namespace TwilightImperiumUltimate.Web.Components.Shared.Tables;
 
 /// <summary>
-/// Declares a single column of a <c>ResponsiveTable{TItem}</c> or <c>ResponsiveGrid{TItem}</c>:
+/// Declares a single column of a <c>ResponsiveTable{TItem}</c> or <c>ResponsiveDataGrid{TItem}</c>:
 /// which property to display, its header text, its filter type, and whether it can be sorted or
 /// is sticky when the table scrolls horizontally.
 /// </summary>
@@ -37,7 +37,7 @@ public partial class ResponsiveTableColumn<TItem> : IDisposable
 
     /// <summary>
     /// Gets or sets a value indicating whether this column can be sorted. Only used by
-    /// <c>ResponsiveGrid</c> -- ignored by <c>ResponsiveTable</c>, which never sorts.
+    /// <c>ResponsiveDataGrid</c> -- ignored by <c>ResponsiveTable</c>, which never sorts.
     /// </summary>
     [Parameter]
     public bool Sortable { get; set; }

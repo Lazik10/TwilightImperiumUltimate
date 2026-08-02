@@ -1,0 +1,24 @@
+@namespace TwilightImperiumUltimate.Web.Components.Grid
+@using Radzen.Blazor
+
+@*
+    Thin wrapper around Radzen's RadzenTable, for pages that want a plain (non-data-bound) table
+    with this app's responsive/zebra-striped/Handel styling but don't need the column
+    filtering/sorting/model-binding of ResponsiveTable/ResponsiveDataGrid. Compose it with the raw
+    RadzenTableHeader/RadzenTableBody/RadzenTableRow/RadzenTableCell child components as usual.
+
+    For a fully custom (non-Radzen) responsive table/grid with declarative
+    text/value/boolean/enum column filters, sorting, and sticky columns, see
+    Components/Shared/Tables/ResponsiveTable and ResponsiveDataGrid instead.
+ m,
+    NOTE: the "responsive-radzen-table-host" div is required so this component's own Blazor
+    CSS-isolation scope attribute lands on something real in the DOM -- RadzenTable is a child
+    component, not a raw HTML element authored directly in this file, so without a genuine wrapper
+    element the ::deep selectors in ResponsiveRadzenTable.razor.css would never match anything.
+*@
+
+<div class="responsive-radzen-table-host">
+    <RadzenTable class="@GetTableClass()" Style="@Style">
+        @ChildContent
+    </RadzenTable>
+</div>

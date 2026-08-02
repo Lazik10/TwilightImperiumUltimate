@@ -21,7 +21,21 @@
 
 .responsive-table-scroll {
     overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #0024ff #333;
 }
+
+    .responsive-table-scroll::-webkit-scrollbar {
+        height: 12px;
+    }
+
+    .responsive-table-scroll::-webkit-scrollbar-track {
+        background: #333;
+    }
+
+    .responsive-table-scroll::-webkit-scrollbar-thumb {
+        background: #0024ff;
+    }
 
 .responsive-table {
     width: 100%;
@@ -128,6 +142,19 @@ thead ::deep th.responsive-column {
 .responsive-table-filter-row td {
     padding: var(--space-xs) var(--space-sm);
     background-color: rgba(0, 0, 0, 0.2);
+}
+
+/*
+    "Clear Filters" row: a single full-width cell below the filter row, shown only while at least
+    one column has an active filter value (see ResponsiveDataViewBase.HasActiveFilters). Both
+    `<tr>`/`<td>` here are plain HTML authored directly in ResponsiveTable.razor itself (not by a
+    child component), so a plain scoped selector -- no `::deep` -- is correct.
+*/
+.responsive-table-clear-filters-row td {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid var(--color-nav-hover, #8ecfff);
+    padding: var(--space-xs) var(--space-sm);
+    text-align: center;
 }
 
 ::deep .responsive-table-value-filter {

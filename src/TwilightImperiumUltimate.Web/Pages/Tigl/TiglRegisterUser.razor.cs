@@ -5,6 +5,8 @@ namespace TwilightImperiumUltimate.Web.Pages.Tigl;
 
 public partial class TiglRegisterUser
 {
+    private readonly MarkupString _codeOfConductContent = (MarkupString)Strings.TiglRegisterUser_CodeOfConductContent;
+
     private bool _redirectScheduled;
 
     [Parameter]

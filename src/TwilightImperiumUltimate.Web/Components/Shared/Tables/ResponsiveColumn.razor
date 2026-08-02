@@ -1,15 +1,25 @@
 @namespace TwilightImperiumUltimate.Web.Components.Shared.Tables
 
 @*
-    A single table cell (<td>/<th>). Building block used internally by ResponsiveTable/ResponsiveGrid,
+    A single table cell (<td>/<th>). Building block used internally by ResponsiveTable/ResponsiveDataGrid,
     and usable standalone for hand-built tables. Always applies the site's Handel font + text shadow;
     TextColor defaults to white.
 *@
 
 @if (IsHeader)
 {
-    <th scope="@Scope" aria-sort="@AriaSort" class="@ComputedCssClass" style="@ComputedStyle">
+    <th @ref="_headerElement" scope="@Scope" aria-sort="@AriaSort" class="@ComputedCssClass" style="@ComputedStyle">
         @RenderedContent
+        @if (Resizable)
+        {
+            <span @ref="_resizeHandleElement"
+                  class="responsive-column-resize-handle"
+                  role="separator"
+                  aria-orientation="vertical"
+                  aria-label="@Strings.Table_ResizeColumnHandle"
+                  tabindex="0"
+                  @onkeydown="OnResizeKeyDownAsync"></span>
+        }
     </th>
 }
 else

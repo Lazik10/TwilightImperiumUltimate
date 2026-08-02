@@ -9,8 +9,10 @@
     </defs>
 </svg>
 
-<ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.SpaceAround" >
-    <Label Text="@Rating.ToString(NumberFormat)" Width="15"/>
+<ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.SpaceAround" AlignItems="Enums.AlignItems.Center" Style="min-width: 0; gap: var(--space-xs);">
+    <ResponsiveText Text="@Rating.ToString(NumberFormat)"
+                    FontSize="sm"
+                    Style="width: auto; margin: 0; flex-shrink: 0; flex-grow: 0; white-space: nowrap;" />
 
     @if (IsReadOnly)
     {
@@ -154,7 +156,7 @@
                         <use xlink:href="#icon-star"></use>
                     </svg>
                 </label>
-            <input class="comment-stars-input" type="radio" name="rating@(Guid)" value="0.5" id="rating-0.5@(Guid)" @onclick="() => HandleClick(0.5f)" checked="@IsChecked(1.5f)">
+            <input class="comment-stars-input" type="radio" name="rating@(Guid)" value="0.5" id="rating-0.5@(Guid)" @onclick="() => HandleClick(0.5f)" checked="@IsChecked(0.5f)">
                 <label class="comment-stars-view is-half" for="rating-0.5@(Guid)">
                     <svg class="icon icon-star-half">
                         <use xlink:href="#icon-star-half"></use>

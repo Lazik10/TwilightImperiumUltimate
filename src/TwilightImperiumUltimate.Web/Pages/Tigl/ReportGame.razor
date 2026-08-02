@@ -1,287 +1,222 @@
 ﻿@page "/community/tigl/report-game"
-@using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Report
-@using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl
-@using TwilightImperiumUltimate.Contracts.ApiContracts
-@using TwilightImperiumUltimate.Contracts.DTOs
-@using TwilightImperiumUltimate.Contracts.DTOs.Tigl
 @using TwilightImperiumUltimate.Contracts.Enums
-@using TwilightImperiumUltimate.Web.Components.Shared
 @using TwilightImperiumUltimate.Web.Components.Shared.Controls
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
-@using TwilightImperiumUltimate.Web.Helpers.Enums
 @using Radzen
 
+<PageTitle>@Strings.Page_TiglReportGame</PageTitle>
+
 <Page>
-    <PageTitle>Report TIGL Game</PageTitle>
-
-    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="background">
-
-        <StretchHeightContainer>
+    
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
 
         @if (_loading)
         {
-            <Label Text="...Loading..." CenterText="true" FontSize="24" CssClass="mt-2xl mb-2xl" />
+            <ResponsiveText Text="@Strings.ReportGame_Loading" CenterText="true" FontSize="xl" CssClass="mt-2xl mb-2xl" />
         }
         else
         {
 
             @if (!string.IsNullOrEmpty(successMessage))
             {
-                <Label Text="@successMessage" TextColor="TextColor.Green" CenterText="true" CssClass="mb-sm" />
+                <ResponsiveText Text="@successMessage" TextColor="TextColor.Green" CenterText="true" CssClass="mb-sm" />
             }
 
-            <Title Text="Report TIGL Game" MarginTop="50" MarginBottom="50" />
+            <ResponsiveHeading Text="@Strings.Page_TiglReportGame" Level="1" CenterText="true" CssClass="mt-2xl mb-2xl" />
 
-            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="handel white shadow background mt-md mb-xl">
-                <Label Text="Game ID" CenterText="true" Width="25" FontSize="22" CssClass="mb-md" />
-                <RadzenTextBox @bind-Value="gameReportRequest.GameId" Style="width: 40%;" class="mb-md" />
-                <HelpText Text="For Async games: pbdXXXXX" />
-                <HelpText Text="For Other platforms: your custom name" CssClass="mb-md" />
-            </ResponsiveContainer>
+            <section class="report-game-card report-game-shell mt-md mb-xl">
+                <ResponsiveText Text="@Strings.ReportGame_GameId" CenterText="true" FontSize="lg" CssClass="mb-md" />
+                <ResponsiveTextBox Id="game-id" @bind-Value="gameReportRequest.GameId" Width="40" CssClass="mb-md" />
+                <ResponsiveText Text="@Strings.ReportGame_GameIdAsyncHint" FontSize="sm" CenterText="true" />
+                <ResponsiveText Text="@Strings.ReportGame_GameIdOtherHint" FontSize="sm" CenterText="true" />
+            </section>
 
-            <GridLayout CssClass="handel white shadow" Style="grid-template-columns: 25% 25% 25% 25%">
-                <div class="span-4" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
+            <section class="report-game-card report-game-shell mb-xl">
+                <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Gap="var(--space-lg)" Width="100">
+                    <div class="report-game-field">
+                        <ResponsiveText Text="@Strings.ReportGame_LeagueLabel" CenterText="true" CssClass="mb-xs" />
+                        <ResponsiveDropDown Id="league-select"
+                                    TValue="TiglLeague"
+                                    Data="@GetLeagueOptions()"
+                                    TextProperty="Value"
+                                    ValueProperty="Key"
+                                    Value="@gameReportRequest.League"
+                                    ValueChanged="ChangeLeague" />
+                    </div>
 
-                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="span-4 background">
-                    <ResponsiveEnumPicker Label="League"
-                                CenterText="true"
-                                TEnum="TiglLeague"
-                                CurrentValue="@gameReportRequest.League"
-                                CurrentValueChanged="ChangeLeague"
-                                ExcludeValues="new List<TiglLeague> { TiglLeague.ProphecyOfKings, TiglLeague.Test }"
-                                Width="50" />
-                </ResponsiveContainer>
+                    <div class="report-game-field">
+                        <ResponsiveText Text="@Strings.ReportGame_SourceLabel" CenterText="true" CssClass="mb-xs" />
+                        <ResponsiveDropDown Id="source-select"
+                                    TValue="ResultSource"
+                                    Data="@GetSourceOptions()"
+                                    TextProperty="Value"
+                                    ValueProperty="Key"
+                                    Value="@gameReportRequest.Source"
+                                    ValueChanged="ChangeSource" />
+                    </div>
 
-                <div class="span-4" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
+                    <div class="report-game-field">
+                        <ResponsiveText Text="@Strings.ReportGame_VpLabel" CenterText="true" CssClass="mb-xs" />
+                        <ResponsiveDropDown Id="vp-select" TValue="int" Data="@GetVpOptions()" @bind-Value="_selectedVpCount" />
+                    </div>
 
-                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="span-4 background">
-                    <ResponsiveEnumPicker Label="Source"
-                                CenterText="true"
-                                TEnum="ResultSource"
-                                CurrentValue="@gameReportRequest.Source"
-                                CurrentValueChanged="ChangeSource"
-                                Width="50" />
-                </ResponsiveContainer>
+                    <div class="report-game-field">
+                        <ResponsiveText Text="@Strings.ReportGame_RoundLabel" CenterText="true" CssClass="mb-xs" />
+                        <ResponsiveDropDown Id="round-select" TValue="int" Data="@GetRoundOptions()" @bind-Value="_round" />
+                    </div>
+                </ResponsiveGridContainer>
 
-                <div class="span-4" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
+                <ResponsiveGridContainer Columns="2" MobileColumns="1" Gap="var(--space-lg)" Width="100" CssClass="mt-xl">
+                    <div class="report-game-field">
+                        <ResponsiveText Text="@Strings.ReportGame_StartDate" CenterText="true" CssClass="mb-xs" />
+                        <RadzenDatePicker TValue="DateTime" @bind-Value="startGame" ShowTime="true" ShowSeconds="false" DateFormat="dd/MM/yyyy HH:mm" />
+                    </div>
+                    <div class="report-game-field">
+                        <ResponsiveText Text="@Strings.ReportGame_EndDate" CenterText="true" CssClass="mb-xs" />
+                        <RadzenDatePicker TValue="DateTime" @bind-Value="endGame" ShowTime="true" ShowSeconds="false" DateFormat="dd/MM/yyyy HH:mm" />
+                    </div>
+                </ResponsiveGridContainer>
+            </section>
 
-                <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="span-4 background">
-                    <ResponsiveNumericPicker Label="VP" Value="@_selectedVpCount" OnIncrease="@(() => OnVpIncrease(_selectedVpCount))" OnDecrease="@(() => OnVpDecrease(_selectedVpCount))" Width="50" FontSize="base" ValueColor="TextColor.Yellow"  />
-                </ResponsiveContainer>
-
-                <div class="span-4" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
-                <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="span-4 background">
-                    <ResponsiveNumericPicker Label="Round" Value="@_round" OnIncrease="OnRoundIncrease" OnDecrease="OnRoundDecrease" Width="50" FontSize="base" ValueColor="TextColor.Yellow" />
-                </ResponsiveContainer>
-
-                <div class="span-4" style="height: clamp(1.875rem, 1.875rem + 1vw, 3.75rem);"></div>
-
-                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="span-4 background mt-sm mb-sm">
-                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="50">
-                        <Label Text="Start Date" Width="30" CenterText="true" />
-                        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="70">
-                            <RadzenDatePicker TValue="DateTime" @bind-Value="startGame" ShowTime="true" ShowSeconds="false" DateFormat="dd/MM/yyyy HH:mm" />
-                        </ResponsiveContainer>
-                    </ResponsiveContainer>
-                </ResponsiveContainer>
-
-                <div class="span-4" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
-                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="span-4 background mt-sm mb-sm">
-                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="50">
-                        <Label Text="End Date" Width="30" CenterText="true" />
-                        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="70">
-                            <RadzenDatePicker TValue="DateTime" @bind-Value="endGame" ShowTime="true" ShowSeconds="false" DateFormat="dd/MM/yyyy HH:mm" />
-                        </ResponsiveContainer>
-                    </ResponsiveContainer>
-                </ResponsiveContainer>
-
-                <div class="span-4" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
-            </GridLayout>
-
-            <GridLayout Columns="4" CssClass="background mt-3xl mb-md">
-                <div class="span-4" style="height: clamp(1.25rem, 1.25rem + 1vw, 2.5rem);"></div>
-                <Label Text="Players" FontSize="32" CenterText="true" CssClass="span-4" />
-                <div class="span-4" style="height: clamp(1.25rem, 1.25rem + 1vw, 2.5rem);"></div>
-            </GridLayout>
+            <ResponsiveHeading Text="@Strings.ReportGame_PlayersHeading" Level="2" CenterText="true" CssClass="mt-2xl mb-lg" />
 
             @for (var i = 0; i < playerResults.Count; i++)
             {
                 var index = i;
-                <GridLayout Columns="8" CssClass="handel background mb-xl">
-                    <div class="span-8" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
+                <section class="report-game-card report-game-shell mb-lg" @key="index">
 
                     @if (_rowModes.Count > index && _rowModes[index] == RowViewMode.Search)
                     {
-                        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="span-8">
-                            <Label Text="@($"Find Player {index + 1}:")" CssClass="span-2 mt-md mb-md" CenterText="true" FontSize="24" TextColor="TextColor.Green" />
+                        <ResponsiveText Text="@string.Format(Strings.ReportGame_FindPlayer, index + 1)" CenterText="true" FontSize="xl" TextColor="TextColor.Green" CssClass="mb-md" />
 
-                            @if (_currentPlayerIndex != index)
-                            {
-                                <ResponsiveButton Text="Open Search" TextColor="TextColor.Green" OnClick="(() => OpenPlayerSearch(index))" Width="30" />
-                            }
-                            else
-                            {
-                                <Label Text="By TIGL Name: " TextColor="TextColor.Yellow" Width="50" />
-                                <RadzenDropDown Data="@_users"
-                                            TValue="long"
-                                            TextProperty="TiglUserName"
-                                            ValueProperty="DiscordUserId"
-                                            Value="@playerResults[index].DiscordId"
-                                            AllowFiltering="true"
-                                            AllowVirtualization="true"
-                                            FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
-                                            Placeholder="Type TIGL name..."
-                                            ValueChanged="@((long v) => OnUserSelected(index, v))"
-                                            Style="width: 50%;"
-                                            class="mb-md"
-                                                />
-
-                                <Label Text="By Discord Name: " TextColor="TextColor.Yellow" Width="50" />
-                                <RadzenDropDown Data="@_users"
+                        @if (_currentPlayerIndex != index)
+                        {
+                            <ResponsiveButton Text="@Strings.ReportGame_OpenSearch" TextColor="TextColor.Green" OnClick="(() => OpenPlayerSearch(index))" Width="40" />
+                        }
+                        else
+                        {
+                            <ResponsiveGridContainer Columns="2" MobileColumns="1" Gap="var(--space-lg)" Width="100">
+                                <div class="report-game-field">
+                                    <ResponsiveText Text="@Strings.ReportGame_ByTiglName" TextColor="TextColor.Yellow" CssClass="mb-xs" />
+                                    <ResponsiveDropDown Id="@($"player-{index}-tigl-name")"
                                                 TValue="long"
-                                                TextProperty="DiscordUserName"
+                                                Data="@_users"
+                                                TextProperty="TiglUserName"
                                                 ValueProperty="DiscordUserId"
                                                 Value="@playerResults[index].DiscordId"
                                                 AllowFiltering="true"
                                                 AllowVirtualization="true"
-                                                FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
-                                                Placeholder="Type Discord Tag..."
-                                                ValueChanged="@((long v) => OnUserSelected(index, v))"
-                                                Style="width: 50%;"/>
-                            }
-                        </ResponsiveContainer>
+                                                Placeholder="@Strings.ReportGame_TypeTiglName"
+                                                ValueChanged="@((long v) => OnUserSelected(index, v))" />
+                                </div>
+                                <div class="report-game-field">
+                                    <ResponsiveText Text="@Strings.ReportGame_ByDiscordName" TextColor="TextColor.Yellow" CssClass="mb-xs" />
+                                    <ResponsiveDropDown Id="@($"player-{index}-discord-name")"
+                                                    TValue="long"
+                                                    Data="@_users"
+                                                    TextProperty="DiscordUserName"
+                                                    ValueProperty="DiscordUserId"
+                                                    Value="@playerResults[index].DiscordId"
+                                                    AllowFiltering="true"
+                                                    AllowVirtualization="true"
+                                                    Placeholder="@Strings.ReportGame_TypeDiscordTag"
+                                                    ValueChanged="@((long v) => OnUserSelected(index, v))" />
+                                </div>
+                            </ResponsiveGridContainer>
+                        }
                     }
                     else
                     {
-                        <GridLayout Columns="8" CssClass="span-8">
-                            <div class="span-8" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-                            <Label Text="@($"Player {index + 1}")" CenterText="true" CssClass="span-8" FontSize="24" TextColor="TextColor.Green" />
-                            <div class="span-8" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
+                        <ResponsiveText Text="@string.Format(Strings.ReportGame_PlayerHeader, index + 1)" CenterText="true" FontSize="xl" TextColor="TextColor.Green" CssClass="mb-md" />
 
-                            <Label Text="Tigl Username" CenterText="true" TextColor="TextColor.Yellow" CssClass="span-8" />
-                            <Label Text="@GetTiglUserName(playerResults[index].DiscordId)" CssClass="span-8" CenterText="true" FontSize="24" />
+                        <ResponsiveGridContainer Columns="2" MobileColumns="1" Gap="var(--space-lg)" Width="100" CssClass="mb-lg">
+                            <div class="report-game-field">
+                                <ResponsiveText Text="@Strings.ReportGame_TiglUsername" CenterText="true" TextColor="TextColor.Yellow" CssClass="mb-xs" />
+                                <ResponsiveText Text="@GetTiglUserName(playerResults[index].DiscordId)" CenterText="true" FontSize="xl" />
+                            </div>
+                            <div class="report-game-field">
+                                <ResponsiveText Text="@Strings.ReportGame_DiscordTag" CenterText="true" TextColor="TextColor.Yellow" CssClass="mb-xs" />
+                                <ResponsiveText Text="@GetDiscordTag(playerResults[index].DiscordId)" CenterText="true" FontSize="xl" />
+                            </div>
+                        </ResponsiveGridContainer>
 
-                            <div class="span-8" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
+                        <ResponsiveGridContainer Columns="3" TabletColumns="3" MobileColumns="1" Gap="var(--space-lg)" Width="100" CssClass="mb-lg">
+                            <div class="report-game-field">
+                                <ResponsiveText Text="@Strings.ReportGame_Score" CssClass="mb-xs" />
+                                <RadzenNumeric TValue="int" @bind-Value="playerResults[index].Score" Style="width: 100%;" Min="0" Max="@_selectedVpCount" />
+                            </div>
+                            <div class="report-game-field">
+                                <ResponsiveText Text="@Strings.ReportGame_Winner" CssClass="mb-xs" />
+                                <RadzenCheckBox @bind-Value="playerResults[index].IsWinner" />
+                            </div>
+                            <div class="report-game-field">
+                                <ResponsiveText Text="@Strings.ReportGame_Faction" CssClass="mb-xs" />
+                                <ResponsiveDropDown Id="@($"player-{index}-faction")"
+                                                TValue="string"
+                                                Data="@_availableFactionNames"
+                                                @bind-Value="playerResults[index].Faction"
+                                                AllowFiltering="true"
+                                                Placeholder="@Strings.ReportGame_SelectFaction" />
+                            </div>
+                        </ResponsiveGridContainer>
 
-                            <Label Text="Discord Tag" CenterText="true" TextColor="TextColor.Yellow" CssClass="span-8" />
-                            <Label Text="@GetDiscordTag(playerResults[index].DiscordId)" CssClass="span-8" CenterText="true" FontSize="24" />
-
-                            <div class="span-8" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
-                            <Label />
-                            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="span-6" JustifyContent="Enums.JustifyContent.FlexStart">
-                                <Label Text="Score" Width="30" />
-                                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="70">
-                                    <RadzenNumeric TValue="int" @bind-Value="playerResults[index].Score" Style="width: 100%;" Min="0" Max="@_selectedVpCount" />
-                                </ResponsiveContainer>
-                            </ResponsiveContainer>
-                            <Label />
-
-                            <div class="span-8" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
-                            <Label />
-                            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="span-6" JustifyContent="Enums.JustifyContent.FlexStart">
-                                <Label Text="Winner" Width="30" />
-                                <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="70">
-                                    <RadzenCheckBox @bind-Value="playerResults[index].IsWinner" />
-                                </ResponsiveContainer>
-                            </ResponsiveContainer>
-                            <Label />
-
-                            <div class="span-8" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
-                            <Label />
-                            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="span-6" JustifyContent="Enums.JustifyContent.FlexStart">
-                                <Label Text="Faction" Width="30" />
-                                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="70">
-                                    <RadzenDropDown Data="@_availableFactionNames"
-                                                    @bind-Value="playerResults[index].Faction"
-                                                    AllowFiltering="true"
-                                                    FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
-                                                    Placeholder="Select faction"
-                                                    Style="min-width: 100%; max-width: 100%; width: 100%;"/>
-                                </ResponsiveContainer>
-                            </ResponsiveContainer>
-                            <Label />
-
-                        </GridLayout>
-
-                        <div class="span-8" style="height: clamp(1.25rem, 1.25rem + 1vw, 2.5rem);"></div>
-                        <ResponsiveButton Text="X - Clear Player" TextColor="TextColor.Red" OnClick="() => ClearPlayer(index)" CssClass="span-8" />
-                        <div class="span-8" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
+                        <ResponsiveButton Text="@Strings.ReportGame_ClearPlayer" TextColor="TextColor.Red" OnClick="() => ClearPlayer(index)" Width="60" />
                     }
-
-                    <div class="span-8" style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
-                 </GridLayout>
+                </section>
             }
 
-            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="background mt-md mb-md">
+            <div class="report-game-shell mt-md mb-2xl">
                 <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.SpaceBetween">
                     @if (_selectedLeague == TiglLeague.Fractured && playerResults.Count < MaxNumberOfPlayers)
                     {
-                        <ResponsiveButton Text="+ Add Player Slot" TextColor="TextColor.Green" OnClick="AddPlayer" />
+                        <ResponsiveButton Text="@Strings.ReportGame_AddPlayerSlot" TextColor="TextColor.Green" OnClick="AddPlayer" />
                     }
                     @if (playerResults.Count > MinNumberOfPlayers)
                     {
-                        <ResponsiveButton Text="- Remove Player Slot" TextColor="TextColor.Red" OnClick="RemovePlayer" />
+                        <ResponsiveButton Text="@Strings.ReportGame_RemovePlayerSlot" TextColor="TextColor.Red" OnClick="RemovePlayer" />
                     }
                 </ResponsiveContainer>
-            </ResponsiveContainer>
-
-            <div style="height: clamp(1.563rem, 1.563rem + 1vw, 3.125rem);"></div>
+            </div>
 
             @if (gameReportRequest.League == TiglLeague.Fractured)
             {
-                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="background mt-md">
-                    <Label Text="Galactic Events (Fractured Only)" FontSize="24" CenterText="true" TextColor="TextColor.Yellow" CssClass="mt-md mb-md" />
-                </ResponsiveContainer>
+                <section class="report-game-card report-game-shell mb-xl">
+                    <ResponsiveText Text="@Strings.ReportGame_GalacticEventsHeading" FontSize="xl" CenterText="true" TextColor="TextColor.Yellow" CssClass="mb-lg" />
 
-                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="background mt-md">
-
-                    <div style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
-                    @foreach (var e in _allGalacticEvents)
-                    {
-                        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="mb-sm">
-                            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="45" JustifyContent="Enums.JustifyContent.FlexEnd">
+                    <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Gap="var(--space-sm)" Width="100">
+                        @foreach (var e in _allGalacticEvents)
+                        {
+                            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" AlignItems="Enums.AlignItems.Center" CssClass="report-game-event">
                                 <RadzenCheckBox ValueChanged="@((bool value) => ToggleEvent(e, value))" />
+                                <ResponsiveText Text="@e" CssClass="ml-sm" />
                             </ResponsiveContainer>
-                            <Label Text="@e" Width="55" PaddingLeft="20" />
-                        </ResponsiveContainer>
+                        }
+                    </ResponsiveGridContainer>
+                </section>
+            }
+
+            <div class="mt-2xl">
+                @if (validationErrors.Count > 0)
+                {
+                    foreach(var err in validationErrors)
+                    {
+                        <ResponsiveText Text="@string.Format(Strings.ReportGame_ValidationBullet, err)" TextColor="TextColor.Red" CenterText="true" CssClass="mb-sm" />
                     }
+                }
+                @if (!string.IsNullOrEmpty(errorMessage))
+                {
+                    <ResponsiveText Text="@errorMessage" TextColor="TextColor.Red" CenterText="true" CssClass="mb-md" />
+                    @if (!string.IsNullOrEmpty(errorDetails))
+                    {
+                        <ResponsiveText Text="@errorDetails" TextColor="TextColor.Orange" CenterText="true" CssClass="mb-md" />
+                    }
+                }
 
-                    <div style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
+                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mb-2xl">
+                    <ResponsiveButton ButtonText="@Strings.ReportGame_SubmitButton" Width="30" IsDisabled="@isSubmitting" OnClick="async () => await SubmitGameReport()" />
                 </ResponsiveContainer>
-            }
-
-            <div style="height: clamp(1.563rem, 1.563rem + 1vw, 3.125rem);"></div>
-
-            @if (validationErrors.Count > 0)
-            {
-                foreach(var err in validationErrors)
-                {
-                    <Label Text="@($"• {err}")" TextColor="TextColor.Red" CenterText="true" CssClass="mb-sm" />
-                }
-            }
-            @if (!string.IsNullOrEmpty(errorMessage))
-            {
-                <Label Text="@errorMessage" TextColor="TextColor.Red" CenterText="true" CssClass="mb-md" />
-                @if (!string.IsNullOrEmpty(errorDetails))
-                {
-                    <Label Text="@errorDetails" TextColor="TextColor.Orange" CenterText="true" CssClass="mb-md" />
-                }
-            }
-
-            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mb-2xl">
-                <ResponsiveButton ButtonText="Submit Game Report" Width="30" IsDisabled="@isSubmitting" OnClick="async () => await SubmitGameReport()" />
-            </ResponsiveContainer>
+            </div>
         }
-
-        </StretchHeightContainer>
 
     </ResponsiveContainer>
 

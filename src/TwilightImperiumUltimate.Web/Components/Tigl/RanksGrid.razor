@@ -1,40 +1,62 @@
+@*
+    Responsive via ResponsiveRadzenTable instead of the old fixed-percentage GridLayout/Label rows.
+    Category grouping (GroupRankingsStandard/GroupRankingsFractured in the code-behind) is
+    business logic and stays unchanged -- only the rendering of each group/row changed. See
+    blazor.instructions.md -- do not reintroduce Components/Shared/Tables/ResponsiveTable or
+    ResponsiveGrid, they are obsolete in this codebase.
+*@
+
 <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-md mb-md">
 
-    <ResponsiveEnumPicker TEnum="TiglLeague"
-        Label="@Strings.TiglLeague_League"
-        CenterText=true CurrentValue="_league" 
-        ExcludeValues="new List<TiglLeague>() { TiglLeague.Test }"
-        CurrentValueChanged="ChangeLeague"
-        Width="50"
-        MinChoiceWidth="70"/>
+    <ResponsiveTabMenu AriaLabel="@Strings.TiglLeague_League" CssClass="mb-md">
+        <ResponsiveTab Id="ranks-tab-standard"
+                       ControlsId="ranks-panel"
+                       IsActive="@(_league == TiglLeague.ThundersEdge)"
+                       OnClick="@(() => ChangeLeague(TiglLeague.ThundersEdge))">
+            @Strings.TiglGames_CategoryStandard
+        </ResponsiveTab>
+        <ResponsiveTab Id="ranks-tab-fractured"
+                       ControlsId="ranks-panel"
+                       IsActive="@(_league == TiglLeague.Fractured)"
+                       OnClick="@(() => ChangeLeague(TiglLeague.Fractured))">
+            @Strings.TiglGames_CategoryFractured
+        </ResponsiveTab>
+    </ResponsiveTabMenu>
 
 </ResponsiveContainer>
 
-<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="background mt-md mb-md">
-    <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
-        <Label Text="Username" PaddingLeft="50" Width="30" />
-        <Label Text="Prestige" CenterText=true Width="30" />
-        <Label Text="Rank" CenterText=true Width="30" />
-        <Label Text="Games" CenterText=true Width="10" />
-        <Label Text="Last Rank Up" CenterText=true Width="20" />
-    </ResponsiveContainer>
-</ResponsiveContainer>
+<div id="ranks-panel" role="tabpanel" aria-labelledby="@ActiveTabId">
 
 @if (!_loading)
 {
     @if (_groupedRankings?.Count > 0)
     {
-        @foreach (var group in _groupedRankings)
-        {
-            <Label Text="@(group.Key + " (" + group.Value.Count + ")")" CenterText="true" TextColor="TextColor.Yellow" FontSize="16" CssClass="mt-2xl mb-xs"/>
+        <ResponsiveRadzenTable ZebraStripes="true" CssClass="mb-2xl">
+            <RadzenTableHeader>
+                <RadzenTableRow>
+                    <RadzenTableCell>Username</RadzenTableCell>
+                    <RadzenTableCell>Prestige</RadzenTableCell>
+                    <RadzenTableCell>Rank</RadzenTableCell>
+                    <RadzenTableCell>Games</RadzenTableCell>
+                    <RadzenTableCell>Last Rank Up</RadzenTableCell>
+                </RadzenTableRow>
+            </RadzenTableHeader>
+            <RadzenTableBody>
+                @foreach (var group in _groupedRankings)
+                {
+                    <RadzenTableRow>
+                        <RadzenTableCell colspan="5">
+                            <Label Text="@(group.Key + " (" + group.Value.Count + ")")" TextColor="TextColor.Yellow" FontSize="16" />
+                        </RadzenTableCell>
+                    </RadzenTableRow>
 
-            @foreach (var rank in group.Value)
-            {
-                <RankRow Ranking="rank" PrestigeRankText="@group.Key" />
-            }
-
-            <div style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-        }
+                    @foreach (var rank in group.Value)
+                    {
+                        <RankRow @key="rank.Id" Ranking="rank" PrestigeRankText="@group.Key" />
+                    }
+                }
+            </RadzenTableBody>
+        </ResponsiveRadzenTable>
     }
     else
     {
@@ -45,3 +67,5 @@ else
 {
     <Label Text="@Strings.Loading" CenterText="true" CssClass="mt-2xl mb-2xl" />
 }
+
+</div>

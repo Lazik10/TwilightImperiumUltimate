@@ -3,7 +3,7 @@
 
 @*
     Renders the appropriate filter input for a single column's Filter type. Shared by
-    ResponsiveTable (rendered in a dedicated filter row) and ResponsiveGrid (rendered inside the
+    ResponsiveTable (rendered in a dedicated filter row) and ResponsiveDataGrid (rendered inside the
     column's own header cell) so the filter markup only needs to exist once.
 *@
 
@@ -13,7 +13,9 @@
         <ResponsiveTextBox Id="@InputId"
                            Value="@(State.TextValue ?? string.Empty)"
                            ValueChanged="OnTextValueChanged"
-                           FontSize="sm" />
+                           FontSize="sm"
+                           FillWidth="false"
+                           Style="min-width: 5rem;" />
         break;
 
     case ResponsiveFilterType.Value:
@@ -29,7 +31,8 @@
                                Value="@(State.TextValue ?? string.Empty)"
                                ValueChanged="OnTextValueChanged"
                                FontSize="sm"
-                               Width="55" />
+                               Width="55"
+                               Style="min-width: 3.5rem;" />
         </ResponsiveContainer>
         break;
 
@@ -40,7 +43,9 @@
                             Value="State.BooleanValue"
                             ValueChanged="OnBooleanValueChanged"
                             AllowClear="true"
-                            FontSize="sm" />
+                            FontSize="sm"
+                            FillWidth="false"
+                            Style="min-width: 5rem;" />
         break;
 
     case ResponsiveFilterType.Enum:
@@ -52,6 +57,8 @@
                             Value="State.EnumValue"
                             ValueChanged="OnEnumValueChanged"
                             AllowClear="true"
-                            FontSize="sm" />
+                            FontSize="sm"
+                            FillWidth="false"
+                            Style="min-width: 8rem;" />
         break;
 }

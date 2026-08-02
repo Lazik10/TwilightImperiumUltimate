@@ -1,4 +1,3 @@
-@namespace TwilightImperiumUltimate.Web.Components.Admin
 @inherits TwilightImperiumBaseComponent
 @using Microsoft.AspNetCore.Components.Forms
 @using TwilightImperiumUltimate.Web.Models.Website
@@ -67,6 +66,7 @@
     {
         <ApiErrorMessage CssClass="mb-lg" />
     }
+
     @*
     <ResponsiveTable TItem="WebsiteModel"
                      Items="_websites"
@@ -97,7 +97,7 @@
     *@
 
     @* Radzen DataGrid comparison table -- visual-only, added alongside the ResponsiveTable above
-       to compare rendering/scroll behavior. Styled via WebsiteAdmin.razor.css to visually match. *@
+       to compare rendering/scroll behavior. Styled directly by ResponsiveRadzenDataGrid itself. *@
     <ResponsiveHeading Level="2" Text="@($"{Strings.WebsiteAdmin_ExistingWebsitesHeading} (Radzen)")" FontSize="lg" CssClass="mb-lg" />
 
     <ResponsiveRadzenDataGrid TItem="WebsiteModel"
@@ -106,7 +106,7 @@
                               AllowSorting="true"
                               AllowFiltering="false"
                               AllowAlternatingRows="true"
-                              CssClass="website-admin-radzen-comparison mb-xl">
+                              CssClass="mb-xl">
         <Columns>
             <RadzenDataGridColumn TItem="WebsiteModel"  Property="Title" Title="@Strings.WebsiteAdmin_TitleLabel" />
 

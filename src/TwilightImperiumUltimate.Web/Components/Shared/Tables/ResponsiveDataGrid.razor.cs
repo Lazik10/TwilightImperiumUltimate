@@ -8,7 +8,7 @@ namespace TwilightImperiumUltimate.Web.Components.Shared.Tables;
 /// </summary>
 /// <typeparam name="TItem">The row model type.</typeparam>
 [CascadingTypeParameter(nameof(TItem))]
-public partial class ResponsiveGrid<TItem>
+public partial class ResponsiveDataGrid<TItem>
 {
     private ResponsiveTableColumn<TItem>? _sortColumn;
     private ResponsiveSortDirection _sortDirection = ResponsiveSortDirection.None;

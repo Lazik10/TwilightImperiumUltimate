@@ -3,7 +3,7 @@ using System.Collections;
 namespace TwilightImperiumUltimate.Web.Components.Shared.Tables;
 
 /// <summary>
-/// Compact ResponsiveDropDown for use inside a ResponsiveTable/ResponsiveGrid cell. Same contract
+/// Compact ResponsiveDropDown for use inside a ResponsiveTable/ResponsiveDataGrid cell. Same contract
 /// as <see cref="Controls.ResponsiveDropDown{TValue}"/>, just defaulting to the smallest FontSize
 /// token and a shorter input height so it fits a narrow column.
 /// </summary>

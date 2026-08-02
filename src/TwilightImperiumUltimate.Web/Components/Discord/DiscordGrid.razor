@@ -1,9 +1,12 @@
-﻿<GridLayout Columns="2" Gap="50" Width="70">
+﻿<ResponsiveContainer AlignItems="Enums.AlignItems.Center" Type="ContainerType.Flex" JustifyContent="Enums.JustifyContent.Center" >
 
-    @foreach(var discordServer in _discordServers)
-    {
-        <DiscordCard Title="@discordServer.Title"
-                     DiscordInviteLink="@discordServer.DiscordInviteLink" />
-    })
+    <ResponsiveGridContainer Columns="2" Width="80">
 
-</GridLayout>
+        @foreach (var discordServer in _discordServers)
+        {
+            <DiscordCard Title="@discordServer.Title" DiscordInviteLink="@discordServer.DiscordInviteLink" />
+        }
+
+    </ResponsiveGridContainer>
+
+</ResponsiveContainer>

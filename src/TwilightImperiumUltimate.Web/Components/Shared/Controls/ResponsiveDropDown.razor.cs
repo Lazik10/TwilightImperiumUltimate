@@ -47,6 +47,16 @@ public partial class ResponsiveDropDown<TValue>
     [Parameter]
     public int Width { get; set; } = 100;
 
+    /// <summary>
+    /// Gets or sets whether the dropdown renders at <see cref="Width"/>% of its container (the
+    /// default). Set to <see langword="false"/> to omit the percentage width entirely and let
+    /// the dropdown size itself naturally -- needed inside auto-layout table cells, where a
+    /// percentage width creates a circular/starved intrinsic-size computation that shrinks the
+    /// dropdown far below its natural size (confirmed live for table column filters).
+    /// </summary>
+    [Parameter]
+    public bool FillWidth { get; set; } = true;
+
     [Parameter]
     public string Style { get; set; } = string.Empty;
 
@@ -63,7 +73,7 @@ public partial class ResponsiveDropDown<TValue>
 
     private string ComputedCssClass => $"responsive-dropdown responsive-input-height handel {CssClass}".Trim();
 
-    private string ComputedStyle => $"width: {Width}%; --rz-input-font-size: {GetFontSizeStyle()}; {Style}";
+    private string ComputedStyle => $"{(FillWidth ? $"width: {Width}%; " : string.Empty)}--rz-input-font-size: {GetFontSizeStyle()}; {Style}";
 
     private async Task OnValueChanged(TValue value)
     {

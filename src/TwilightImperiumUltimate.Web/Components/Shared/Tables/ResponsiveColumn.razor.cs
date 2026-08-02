@@ -1,10 +1,19 @@
+using Microsoft.AspNetCore.Components.Web;
+using Microsoft.JSInterop;
+
 namespace TwilightImperiumUltimate.Web.Components.Shared.Tables;
 
 /// <summary>
 /// Code-behind for <see cref="ResponsiveColumn"/>.
 /// </summary>
-public partial class ResponsiveColumn
+public partial class ResponsiveColumn : IAsyncDisposable
 {
+    private const int ResizeKeyboardStepPx = 16;
+
+    private ElementReference _headerElement;
+    private ElementReference _resizeHandleElement;
+    private IJSObjectReference? _jsModule;
+
     /// <summary>
     /// Gets or sets the plain text content. Ignored when <see cref="ChildContent"/> is set.
     /// </summary>
@@ -23,6 +32,14 @@ public partial class ResponsiveColumn
     /// </summary>
     [Parameter]
     public bool IsHeader { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether this header column can be resized by dragging its
+    /// right-edge handle (or via ArrowLeft/ArrowRight while the handle has focus). Only applies
+    /// when <see cref="IsHeader"/> is true.
+    /// </summary>
+    [Parameter]
+    public bool Resizable { get; set; }
 
     /// <summary>
     /// Gets or sets the "scope" attribute used when <see cref="IsHeader"/> is true: "col" for a
@@ -69,10 +86,44 @@ public partial class ResponsiveColumn
     [Parameter]
     public string Style { get; set; } = string.Empty;
 
+    [Inject]
+    private IJSRuntime JSRuntime { get; set; } = default!;
+
     private string ComputedCssClass =>
         $"responsive-column handel shadow {(Vertical ? "responsive-column-vertical" : string.Empty)} {CssClass}".Trim();
 
-    private string ComputedStyle => $"text-align: {Align}; color: {GetColorValue()}; {Style}";
+    private string ComputedStyle =>
+        $"text-align: {Align}; color: {GetColorValue()}; {(IsHeader ? "vertical-align: top; " : string.Empty)}{Style}";
+
+    public async ValueTask DisposeAsync()
+    {
+        if (_jsModule is null)
+            return;
+
+        try
+        {
+            await _jsModule.InvokeVoidAsync("dispose", _resizeHandleElement);
+            await _jsModule.DisposeAsync();
+        }
+        catch (JSDisconnectedException)
+        {
+            // Circuit already gone; nothing left to clean up.
+        }
+
+        GC.SuppressFinalize(this);
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender || !IsHeader || !Resizable)
+            return;
+
+        _jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>(
+            "import",
+            "./Components/Shared/Tables/ResponsiveColumn.razor.js");
+
+        await _jsModule.InvokeVoidAsync("initialize", _resizeHandleElement, _headerElement);
+    }
 
     private string GetColorValue() => TextColor switch
     {
@@ -92,4 +143,26 @@ public partial class ResponsiveColumn
         TextColor.Transparent => "transparent",
         _ => "white",
     };
+
+    /// <summary>
+    /// Handles ArrowLeft/ArrowRight on the resize handle as a keyboard-accessible alternative to
+    /// pointer dragging.
+    /// </summary>
+    private async Task OnResizeKeyDownAsync(KeyboardEventArgs args)
+    {
+        if (_jsModule is null)
+            return;
+
+        var delta = args.Key switch
+        {
+            "ArrowLeft" => -ResizeKeyboardStepPx,
+            "ArrowRight" => ResizeKeyboardStepPx,
+            _ => 0,
+        };
+
+        if (delta == 0)
+            return;
+
+        await _jsModule.InvokeVoidAsync("resizeStep", _headerElement, delta);
+    }
 }

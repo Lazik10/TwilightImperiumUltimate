@@ -23,6 +23,13 @@ public partial class ResponsiveEnumPicker<TEnum>
     [Parameter]
     public int Width { get; set; } = 100;
 
+    /// <summary>
+    /// Gets or sets an optional minimum width in pixels for the displayed value, so the arrows
+    /// don't shift position as the value text changes length between enum members.
+    /// </summary>
+    [Parameter]
+    public int? MinChoiceWidth { get; set; }
+
     [Parameter]
     public required TEnum CurrentValue { get; set; }
 

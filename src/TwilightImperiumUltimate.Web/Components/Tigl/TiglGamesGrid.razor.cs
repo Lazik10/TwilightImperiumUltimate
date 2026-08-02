@@ -18,9 +18,6 @@ public partial class TiglGamesGrid
     [Inject]
     private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
 
-    [Inject]
-    private NavigationManager NavigationManager { get; set; } = default!;
-
     protected override async Task OnInitializedAsync()
     {
         _loading = true;
@@ -42,6 +39,12 @@ public partial class TiglGamesGrid
 
         var dt = DateTimeOffset.FromUnixTimeMilliseconds(endTs).ToUniversalTime().DateTime;
         return dt.ToString("dd/MM/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture);
+    }
+
+    private static string GetGameDetailUrl(int id)
+    {
+        var returnUrl = Uri.EscapeDataString(Pages.Pages.TiglGames);
+        return $"{Pages.Pages.TiglGameDetail}?id={id}&returnUrl={returnUrl}";
     }
 
     private async Task LoadSeasons()
@@ -123,11 +126,5 @@ public partial class TiglGamesGrid
     {
         FilteredStandardGames = _allStandard.Where(x => x.Season == _selectedSeasonNumber).ToList();
         FilteredFracturedGames = _allFractured.Where(x => x.Season == _selectedSeasonNumber).ToList();
-    }
-
-    private void RedirectToGameDetail(int id)
-    {
-        var returnUrl = Uri.EscapeDataString(Pages.Pages.TiglGames);
-        NavigationManager.NavigateTo($"{Pages.Pages.TiglGameDetail}?id={id}&returnUrl={returnUrl}");
     }
 }

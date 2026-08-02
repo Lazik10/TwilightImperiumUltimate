@@ -1,5 +1,6 @@
 using TwilightImperiumUltimate.Contracts.DTOs.Rankings;
 using TwilightImperiumUltimate.Web.Models.Rankings;
+using TwilightImperiumUltimate.Web.Services.Rankings;
 
 namespace TwilightImperiumUltimate.Web.Components.Tigl;
 
@@ -10,8 +11,34 @@ public partial class RanksGrid
     private List<TiglUserRanking> _shownRankings = new();
     private Dictionary<string, List<TiglUserRanking>> _groupedRankings = new();
 
-    [Parameter]
-    public IReadOnlyCollection<RankingsUserDto> Rankings { get; set; } = new List<RankingsUserDto>();
+    private IReadOnlyCollection<RankingsUserDto>? _rankings;
+
+    private string ActiveTabId => _league == TiglLeague.Fractured ? "ranks-tab-fractured" : "ranks-tab-standard";
+
+    [Inject]
+    private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
+
+    [Inject]
+    private IRankingsDataCache Cache { get; set; } = default!;
+
+    public IReadOnlyCollection<RankingsUserDto> Rankings => _rankings ?? Cache.Rankings ?? new List<RankingsUserDto>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (!Cache.IsRankingsExpired && Cache.Rankings is not null)
+        {
+            _rankings = Cache.Rankings;
+            return;
+        }
+
+        var (ranksResponse, ranksStatus) = await HttpClient.GetAsync<ApiResponse<ItemListDto<RankingsUserDto>>>(Paths.ApiPath_Rankings, cancellationToken: default);
+        var rankings = ranksStatus == HttpStatusCode.OK && ranksResponse?.Data is not null
+            ? ranksResponse.Data.Items
+            : new List<RankingsUserDto>();
+
+        Cache.Update(rankings);
+        _rankings = rankings;
+    }
 
     protected override void OnParametersSet()
     {

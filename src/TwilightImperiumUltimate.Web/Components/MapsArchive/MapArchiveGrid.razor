@@ -1,49 +1,28 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Shared.Bars
-@using TwilightImperiumUltimate.Web.Helpers.Enums
+@using TwilightImperiumUltimate.Web.Models.MapArchive
 
-<div style="overflow-x: auto; white-space: nowrap;">
+<ResponsiveDataGrid TItem="MapModel"
+                     Items="FilteredMaps"
+                     ZebraStripes="true"
+                     CssClass="mb-md"
+                     SelectedItemChanged="RedirectToSelectedMap">
 
-    <div class="grid-header background mb-md">
-        <GridLayout Columns="6" Gap="5" Style="grid-template-columns: 18% 19% 15% 15% 20% 10%;">
+    <ResponsiveTableColumn Field="x => x.Name" Header="@Strings.MapArchive_MapName" Filter="ResponsiveFilterType.Text" HeaderAlign="center" />
 
-            <Label Text="@Strings.MapArchive_MapName" CenterText="true" />
-            <Label Text="@Strings.MapArchive_MapEvent" CenterText="true" />
-            <Label Text="@Strings.MapArchive_MapAuthor" CenterText="true" />
-            <Label Text="@Strings.MapArchive_MapTemplate" CenterText="true "/>
-            <Label Text="@Strings.MapArchive_MapRating" CenterText="true" />
-            <div />
-
-            <ResponsiveSearchBar Id="map-archive-name-search" HideText="true" OnSearchChange="ApplyMapFilter" EnableEmptySearch="true" @ref=_nameSearchBar />
-            <ResponsiveSearchBar Id="map-archive-event-search" HideText="true" OnSearchChange="ApplyEventFilter" EnableEmptySearch="true" @ref=_eventSearchBar />
-            <ResponsiveSearchBar Id="map-archive-user-search" HideText="true" OnSearchChange="ApplyUserFilter" EnableEmptySearch="true" @ref=_userSearchBar />
-            <RadzenDropDown @bind-Value="SelectedMapTemplate"
-                            Data="@_mapTemplates"
-                            Change="() => ApplyMapTemplateFilter()"
-                            ValueProperty="Key"
-                            TextProperty="Value"
-                            Style="width: 100%; height: 100%;"
-                            class="title handel" />
-            <RadzenDropDown @bind-Value="SelectedFilterOrder"
-                            Data="@_filterOrders"
-                            Change="() => ApplyOrderFilter()"
-                            ValueProperty="Key"
-                            TextProperty="Value"
-                            Style="width: 100%; height: 100%;"
-                            class="title handel" />
-            <ResponsiveButton ButtonText="@Strings.ButtonText_Clear" Width="100" OnClick="ResetSearch" />
-        </GridLayout>
-    </div>
-
-    <GridLayout Columns="6" Gap="5" Style="grid-template-columns: 18% 19% 15% 15% 20% 10%;">
-        @foreach (var map in FilteredMaps)
-        {
-            <Label Text="@map.Name" />
-            <Label Text="@map.EventName" />
-            <Label Text="@map.UserName" />
-            <Label Text="@map.MapTemplate.GetDisplayName()" CenterText="true"/>
+    <ResponsiveTableColumn Field="x => x.Rating" Header="@Strings.MapArchive_MapRating" Sortable="true" HeaderAlign="center" Align="center">
+        <CellTemplate Context="map">
             <StarRating IsReadOnly="true" Rating="@map.Rating" />
-            <ResponsiveButton ButtonText="@Strings.ButtonText_View" Width="100" OnClick="() => RedirectToMapDetails(map.Id)" />
-        }
-    </GridLayout>
+        </CellTemplate>
+    </ResponsiveTableColumn>
 
-</div>
+    <ResponsiveTableColumn Field="x => x.EventName" Header="@Strings.MapArchive_MapEvent" Filter="ResponsiveFilterType.Text" HeaderAlign="center" />
+
+    <ResponsiveTableColumn Field="x => x.UserName" Header="@Strings.MapArchive_MapAuthor" Filter="ResponsiveFilterType.Text" HeaderAlign="center" />
+
+    <ResponsiveTableColumn Field="x => x.MapTemplate" Header="@Strings.MapArchive_MapTemplate" Filter="ResponsiveFilterType.Enum" HeaderAlign="center" Align="center">
+        <CellTemplate Context="map">
+            @map.MapTemplate.GetDisplayName()
+        </CellTemplate>
+    </ResponsiveTableColumn>
+
+</ResponsiveDataGrid>

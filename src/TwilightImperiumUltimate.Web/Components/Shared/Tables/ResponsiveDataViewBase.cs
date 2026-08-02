@@ -3,9 +3,9 @@ using System.Globalization;
 namespace TwilightImperiumUltimate.Web.Components.Shared.Tables;
 
 /// <summary>
-/// Shared engine for <c>ResponsiveTable{TItem}</c> and <c>ResponsiveGrid{TItem}</c>: column
+/// Shared engine for <c>ResponsiveTable{TItem}</c> and <c>ResponsiveDataGrid{TItem}</c>: column
 /// registration, per-column filter state, and client-side filtering. Grid-only concerns (sorting,
-/// selection) live in <c>ResponsiveGrid{TItem}</c> itself.
+/// selection) live in <c>ResponsiveDataGrid{TItem}</c> itself.
 /// </summary>
 /// <typeparam name="TItem">The row model type.</typeparam>
 public abstract class ResponsiveDataViewBase<TItem> : ComponentBase, IResponsiveTableHost<TItem>
@@ -148,7 +148,7 @@ public abstract class ResponsiveDataViewBase<TItem> : ComponentBase, IResponsive
     /// <c>border-collapse: collapse</c> base rule) and <see cref="RowHeight"/> (exposed as the
     /// <c>--responsive-row-height</c> custom property, read by each row's own CSS -- custom
     /// property values inherit through the DOM regardless of Blazor scope boundaries, so this
-    /// reaches the child ResponsiveRow/ResponsiveGrid row components with no extra parameter needed).
+    /// reaches the child ResponsiveRow/ResponsiveDataGrid row components with no extra parameter needed).
     /// </summary>
     protected string TableStyle
     {
@@ -170,6 +170,15 @@ public abstract class ResponsiveDataViewBase<TItem> : ComponentBase, IResponsive
     /// Gets a value indicating whether any column has a filter control.
     /// </summary>
     protected bool HasAnyFilter => _columns.Any(column => column.Filter != ResponsiveFilterType.None);
+
+    /// <summary>
+    /// Gets a value indicating whether any column currently has an active (non-default) filter
+    /// value applied -- unlike <see cref="HasAnyFilter"/>, which only checks column
+    /// declarations, this reflects the live filter state, and drives whether a "Clear Filters"
+    /// control is shown.
+    /// </summary>
+    protected bool HasActiveFilters => _filterStates.Values.Any(state =>
+        !string.IsNullOrEmpty(state.TextValue) || state.BooleanValue is not null || state.EnumValue is not null);
 
     void IResponsiveTableHost<TItem>.AddColumn(ResponsiveTableColumn<TItem> column)
     {
@@ -229,6 +238,23 @@ public abstract class ResponsiveDataViewBase<TItem> : ComponentBase, IResponsive
     {
         if (OnFilterChanged.HasDelegate)
             await OnFilterChanged.InvokeAsync();
+    }
+
+    /// <summary>
+    /// Resets every column's filter state back to its "no filter" default and re-raises
+    /// <see cref="OnFilterChanged"/> so a server-paged caller can reload its unfiltered page.
+    /// </summary>
+    protected async Task ClearAllFiltersAsync()
+    {
+        foreach (var state in _filterStates.Values)
+        {
+            state.TextValue = null;
+            state.ValueOperator = ResponsiveValueFilterOperator.Equals;
+            state.BooleanValue = null;
+            state.EnumValue = null;
+        }
+
+        await NotifyFilterChangedAsync();
     }
 
     /// <summary>

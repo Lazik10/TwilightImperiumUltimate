@@ -12,10 +12,13 @@ public partial class RankRow
     [Parameter]
     public required string PrestigeRankText { get; set; }
 
-    [Inject]
-    private NavigationManager NavigationManager { get; set; } = default!;
-
     private TextColor RankColor => GetRankRowColor();
+
+    private static string GetProfileUrl(int tiglUserId)
+    {
+        var returnUrl = Uri.EscapeDataString(Pages.Pages.TiglRankings);
+        return $"{Pages.Pages.TiglPlayerProfile}?playerId={tiglUserId}&returnUrl={returnUrl}";
+    }
 
     private string GetRankText()
     {
@@ -79,11 +82,5 @@ public partial class RankRow
     private TextColor GetRankRowColor()
     {
         return Ranking.HasPrestigeRank ? GetPrestigeColor() : Ranking.Rank.GetRankColor();
-    }
-
-    private void NavigateToProfile(int tiglUserId)
-    {
-        var returnUrl = Uri.EscapeDataString(Pages.Pages.TiglRankings);
-        NavigationManager.NavigateTo($"{Pages.Pages.TiglPlayerProfile}?playerId={tiglUserId}&returnUrl={returnUrl}");
     }
 }

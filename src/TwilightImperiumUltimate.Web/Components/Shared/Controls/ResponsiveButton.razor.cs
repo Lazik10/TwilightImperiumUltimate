@@ -29,6 +29,9 @@ public partial class ResponsiveButton : TwilightImperiumBaseComponent
     public string TextAlign { get; set; } = "center";
 
     [Parameter]
+    public int? MobileWidth { get; set; }
+
+    [Parameter]
     public JustifyContentEnum JustifyContent { get; set; } = JustifyContentEnum.Center;
 
     [Parameter]
@@ -68,8 +71,9 @@ public partial class ResponsiveButton : TwilightImperiumBaseComponent
     {
         get
         {
-            var widthStyle = Width is > 0 and < 100 ? $"width: {Width}%;" : string.Empty;
-            return $"{widthStyle} color: {TextColor.ConvertToString()}; font-size: {FontSize}px; text-align: {TextAlign}; justify-content: {JustifyContent.GetJustifyString()}; align-items: {AlignItems.GetAlignString()}; {Style}";
+            var widthStyle = Width is > 0 and < 100 ? $"--responsive-button-width: {Width}%;" : string.Empty;
+            var mobileWidthStyle = MobileWidth is > 0 and < 100 ? $"--responsive-button-mobile-width: {MobileWidth}%;" : string.Empty;
+            return $"{widthStyle} {mobileWidthStyle} color: {TextColor.ConvertToString()}; font-size: {FontSize}px; text-align: {TextAlign}; justify-content: {JustifyContent.GetJustifyString()}; align-items: {AlignItems.GetAlignString()}; {Style}";
         }
     }
 

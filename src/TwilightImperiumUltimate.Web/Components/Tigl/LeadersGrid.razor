@@ -1,18 +1,33 @@
 @using TwilightImperiumUltimate.Contracts.DTOs.Rankings
 @using TwilightImperiumUltimate.Contracts.Enums
-@using TwilightImperiumUltimate.Web.Helpers.Enums
+
+@*
+    Responsive via ResponsiveRadzenDataGrid (horizontal scroll instead of column truncation on
+    narrow viewports) instead of the old fixed-percentage GridLayout. See blazor.instructions.md --
+    do not reintroduce Components/Shared/Tables/ResponsiveTable or ResponsiveGrid, they are obsolete
+    in this codebase.
+*@
 
 <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-md">
 
-    <ResponsiveEnumPicker TEnum="TiglLeague"
-                Label="@Strings.TiglLeague_League"
-                CenterText=true CurrentValue="_league"
-                ExcludeValues="new List<TiglLeague>() { TiglLeague.Test, TiglLeague.ProphecyOfKings }"
-                CurrentValueChanged="ChangeLeague"
-                Width="50"
-                MinChoiceWidth="70" />
+    <ResponsiveTabMenu AriaLabel="@Strings.TiglLeague_League" CssClass="mb-md">
+        <ResponsiveTab Id="leaders-tab-standard"
+                       ControlsId="leaders-panel"
+                       IsActive="@(_league == TiglLeague.ThundersEdge)"
+                       OnClick="@(() => ChangeLeague(TiglLeague.ThundersEdge))">
+            @Strings.TiglGames_CategoryStandard
+        </ResponsiveTab>
+        <ResponsiveTab Id="leaders-tab-fractured"
+                       ControlsId="leaders-panel"
+                       IsActive="@(_league == TiglLeague.Fractured)"
+                       OnClick="@(() => ChangeLeague(TiglLeague.Fractured))">
+            @Strings.TiglGames_CategoryFractured
+        </ResponsiveTab>
+    </ResponsiveTabMenu>
 
 </ResponsiveContainer>
+
+<div id="leaders-panel" role="tabpanel" aria-labelledby="@ActiveTabId">
 
 @if (_loading)
 {
@@ -24,35 +39,55 @@ else if (CurrentLeagueLeaders.Count == 0)
 }
 else
 {
-    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-md mb-md">
+    <ResponsiveRadzenDataGrid TItem="RankingsLeaderDto"
+                              Data="CurrentLeagueLeaders"
+                              AllowPaging="false"
+                              AllowAlternatingRows="true"
+                              CssClass="mb-2xl">
+        <Columns>
+            <RadzenDataGridColumn TItem="RankingsLeaderDto" Property="@nameof(RankingsLeaderDto.Name)" Title="Leader">
+                <Template Context="leader">
+                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart">
+                        <TiglFactionImg Faction="@leader.Faction" Height="32" />
+                        <LeaderImg Faction="@leader.Faction" Height="32" />
+                        <Label Text="@leader.Name.GetDisplayName()" TextColor="TextColor.White" />
+                    </ResponsiveContainer>
+                </Template>
+            </RadzenDataGridColumn>
 
-        <GridLayout CssClass="background mb-2xl" Style="grid-template-columns: 5% 30% 15% 15% 6% 12% 12% 5%">
+            <RadzenDataGridColumn TItem="RankingsLeaderDto" Property="@nameof(RankingsLeaderDto.UserName)" Title="User">
+                <Template Context="leader">
+                    <GridButtonColumn Text="@leader.UserName" TextColor="TextColor.Green" Href="@GetProfileUrl(leader.TiglUserId)" />
+                </Template>
+            </RadzenDataGridColumn>
 
-            <div class="span-8" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
+            <RadzenDataGridColumn TItem="RankingsLeaderDto" Property="@nameof(RankingsLeaderDto.LastUpdate)" Title="Duration" TextAlign="TextAlign.Center">
+                <Template Context="leader">@GetDurationTime(leader)</Template>
+            </RadzenDataGridColumn>
 
-            <Label />
-            <Label Text="Leader" CenterText="true" />
-            <Label Text="User" CenterText="true" />
-            <Label Text="Duration" CenterText="true" />
-            <Label Text="# Owner" CenterText="true" />
-            <Label Text="Shortest" CenterText="true" />
-            <Label Text="Longest" CenterText="true" />
-            <Label />
+            <RadzenDataGridColumn TItem="RankingsLeaderDto" Property="@nameof(RankingsLeaderDto.ChangeCount)" Title="# Owner" TextAlign="TextAlign.Center">
+                <Template Context="leader">@(leader.ChangeCount > 0 ? leader.ChangeCount.ToString(CultureInfo.InvariantCulture) : string.Empty)</Template>
+            </RadzenDataGridColumn>
 
-            <div class="span-8" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
+            <RadzenDataGridColumn TItem="RankingsLeaderDto" Property="@nameof(RankingsLeaderDto.ShortestDuration)" Title="Shortest" TextAlign="TextAlign.Center" Sortable="false">
+                <Template Context="leader">
+                    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+                        <Label Text="@GetShortestDurationTime(leader)" CenterText="true" FontSize="14" />
+                        <Label Text="@GetShortestHolderName(leader)" CenterText="true" FontSize="12" TextColor="TextColor.Yellow" />
+                    </ResponsiveContainer>
+                </Template>
+            </RadzenDataGridColumn>
 
-        </GridLayout>
-
-        @foreach (var leader in CurrentLeagueLeaders)
-        {
-            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="span-8 mb-sm" OnClick="@(() => NavigateToProfile(leader.TiglUserId))">
-                <GridLayout CssClass="background" Style="grid-template-columns: 5% 30% 15% 15% 6% 12% 12% 5%">
-                    <div class="span-8" style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
-                    <LeaderRow Leader="leader" />
-                    <div class="span-8" style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
-                </GridLayout>
-            </ResponsiveContainer>
-        }
-
-    </ResponsiveContainer>
+            <RadzenDataGridColumn TItem="RankingsLeaderDto" Property="@nameof(RankingsLeaderDto.LongestDuration)" Title="Longest" TextAlign="TextAlign.Center" Sortable="false">
+                <Template Context="leader">
+                    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+                        <Label Text="@GetLongestDurationTime(leader)" CenterText="true" FontSize="14" />
+                        <Label Text="@GetLongestHolderName(leader)" CenterText="true" FontSize="12" TextColor="TextColor.Yellow" />
+                    </ResponsiveContainer>
+                </Template>
+            </RadzenDataGridColumn>
+        </Columns>
+    </ResponsiveRadzenDataGrid>
 }
+
+</div>
