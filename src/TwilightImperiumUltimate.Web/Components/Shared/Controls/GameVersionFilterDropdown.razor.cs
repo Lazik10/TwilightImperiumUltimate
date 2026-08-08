@@ -4,6 +4,8 @@ namespace TwilightImperiumUltimate.Web.Components.Shared.Controls;
 
 public partial class GameVersionFilterDropdown
 {
+    private readonly string _dropdownId = $"game-version-filter-{Guid.NewGuid():N}";
+
     [Parameter]
     public IEnumerable<GameVersion> GameVersions { get; set; } = Enumerable.Empty<GameVersion>();
 
@@ -12,6 +14,12 @@ public partial class GameVersionFilterDropdown
 
     [Parameter]
     public EventCallback<GameVersion?> SelectedGameVersionChanged { get; set; }
+
+    /// <summary>
+    /// Gets or sets the label rendered above/beside the dropdown and used as its accessible name.
+    /// </summary>
+    [Parameter]
+    public string? Label { get; set; }
 
     [Parameter]
     public string AllLabel { get; set; } = "All";
@@ -45,9 +53,9 @@ public partial class GameVersionFilterDropdown
 
     private string GetSelectedValue() => SelectedGameVersion?.ToString() ?? string.Empty;
 
-    private async Task OnRadzenSelectionChanged(object value)
+    private async Task OnRadzenSelectionChanged(string? value)
     {
-        var selectedValue = value?.ToString();
+        var selectedValue = value;
 
         if (string.IsNullOrWhiteSpace(selectedValue))
         {

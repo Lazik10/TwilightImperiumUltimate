@@ -14,7 +14,9 @@
     font-family: Handel, fallback, sans-serif !important;
 }
 
-.radzen-dropdown {
+/* .radzen-dropdown is passed via CssClass into the ResponsiveDropDown child component and
+   rendered inside that child's own CSS scope, so ::deep is required to reach it. */
+::deep .radzen-dropdown {
     font-family: Handel, fallback, sans-serif !important;
 }
 

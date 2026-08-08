@@ -10,6 +10,7 @@ using TwilightImperiumUltimate.Web.Options.Async;
 using TwilightImperiumUltimate.Web.Services.Async;
 using TwilightImperiumUltimate.Web.Services.Authentication;
 using TwilightImperiumUltimate.Web.Services.Draft;
+using TwilightImperiumUltimate.Web.Services.Factions;
 using TwilightImperiumUltimate.Web.Services.GameTracker;
 using TwilightImperiumUltimate.Web.Services.Language;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
@@ -43,6 +44,7 @@ public static class ServiceCollectionsExtension
         services.AddScoped<IPathProvider, PathProvider>();
         services.AddSingleton<IRankingsDataCache, RankingsDataCache>();
         services.AddSingleton<ITiglDataCache, TiglDataCache>();
+        services.AddScoped<IFactionProvider, FactionProvider>();
         services.AddScoped<IFactionDraftService, FactionDraftService>();
         services.AddScoped<IColorPickerService, ColorPickerService>();
         services.AddScoped<IMapGeneratorService, MapGeneratorService>();

@@ -76,6 +76,19 @@ public static class EnumExtensions
         return FactionSource.Official;
     }
 
+    public static List<GameVersion> GetGameVersionsFromFactionSource(this FactionSource source)
+    {
+        return source switch
+        {
+            FactionSource.Official => [GameVersion.BaseGame, GameVersion.ProphecyOfKings, GameVersion.CodexVigil, GameVersion.ThundersEdge],
+            FactionSource.TwilightsFall => [GameVersion.TwilightFall],
+            FactionSource.DiscordantStars => [GameVersion.DiscordantStars],
+            FactionSource.BlueRiverie => [GameVersion.BlueRiverie],
+            FactionSource.WhispersFromTheVoid => [GameVersion.WhispersFromTheVoid],
+            _ => [],
+        };
+    }
+
     public static string GetUIColor(this DraftColor color)
     {
         return color switch

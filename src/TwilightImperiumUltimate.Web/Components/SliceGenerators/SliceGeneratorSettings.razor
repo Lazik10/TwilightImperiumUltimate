@@ -12,13 +12,15 @@
 
         <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
             <Label Text="@Strings.SliceGeneratorSettings_TilesOverlay" FontSize="18" />
-            <RadzenDropDown @bind-Value="SelectedSystemTileOverlay"
+            <ResponsiveDropDown Id="slice-generator-settings-system-tile-overlay"
+                            TValue="SystemTileOverlay"
+                            Value="@SelectedSystemTileOverlay"
+                            ValueChanged="SetSystemTileOverlay"
                             Data="@_systemTileOverlays"
-                            Change="async () => await SetSystemTileOverlay(SelectedSystemTileOverlay)"
                             ValueProperty="Key"
                             TextProperty="Value"
-                            Style="width: 80%; max-width: 400px;"
-                            class="title handel" />
+                            Style="max-width: 400px;"
+                            CssClass="title" />
         </ResponsiveContainer>
 
         <Label Text="@Strings.MapGeneratorSettings_SystemTiles" FontSize="18" />

@@ -3,13 +3,15 @@
 
     @if (DropDownEnabled && Picked)
     {
-        <RadzenDropDown @bind-Value="_selectedObjectiveCard"
-                        Data="@_objectives"
-                        Change="() => HandleObjectiveChange()"
-                        ValueProperty="Key"
-                        TextProperty="Value"
-                        Style="width: 100%; max-width: 230px; height: 100%; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"
-                        class="title handel" />
+        <ResponsiveDropDown Id="@_dropdownId"
+                            TValue="ObjectiveCardName"
+                            Value="@_selectedObjectiveCard"
+                            ValueChanged="@(async (ObjectiveCardName v) => { _selectedObjectiveCard = v; await HandleObjectiveChange(); })"
+                            Data="@_objectives"
+                            ValueProperty="Key"
+                            TextProperty="Value"
+                            Style="max-width: 230px; height: 100%; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"
+                            CssClass="title" />
     }
 
     <div class="image-item clickable" @onclick="HandleClick">

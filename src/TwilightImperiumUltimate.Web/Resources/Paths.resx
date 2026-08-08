@@ -153,6 +153,9 @@
   <data name="ApiPath_Factions" xml:space="preserve">
     <value>api/factions</value>
   </data>
+  <data name="ApiPath_FactionsByGameVersions" xml:space="preserve">
+    <value>api/factions/by-game-versions</value>
+  </data>
   <data name="ApiPath_Faq" xml:space="preserve">
     <value>api/faqs</value>
   </data>

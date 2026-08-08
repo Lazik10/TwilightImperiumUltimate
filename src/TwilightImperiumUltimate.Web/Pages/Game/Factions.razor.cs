@@ -1,6 +1,7 @@
 using System.Globalization;
 using TwilightImperiumUltimate.Web.Helpers.Enums;
 using TwilightImperiumUltimate.Web.Helpers.Factions;
+using TwilightImperiumUltimate.Web.Services.Factions;
 
 namespace TwilightImperiumUltimate.Web.Pages.Game;
 
@@ -8,20 +9,10 @@ public partial class Factions
 {
     private FactionTemplateGrid? _factionTemplateGridRef;
 
-    private FactionSource _selectedSource;
+    private FactionSource _selectedSource = FactionSource.Official;
 
-    /// <summary>
-    /// Gets or sets the route segment identifying either a specific faction (e.g. "TheArborec")
-    /// or a faction source/expansion (e.g. "DiscordantStars") so every faction can be reached
-    /// through a crawlable, shareable URL. The "faction"/"source" query strings below take
-    /// precedence when present.
-    /// </summary>
     [Parameter]
     public string? FactionOrSource { get; set; }
-
-    [Parameter]
-    [SupplyParameterFromQuery(Name = "info")]
-    public string Info { get; set; } = string.Empty;
 
     [Parameter]
     [SupplyParameterFromQuery(Name = "faction")]
@@ -31,11 +22,15 @@ public partial class Factions
     [SupplyParameterFromQuery(Name = "source")]
     public string? SourceQuery { get; set; }
 
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "info")]
+    public string Info { get; set; } = string.Empty;
+
+    [Inject]
+    private IFactionProvider FactionProvider { get; set; } = default!;
+
     [Inject]
     private NavigationManager NavigationManager { get; set; } = default!;
-
-    private string SelectedFactionParameterValue =>
-        !string.IsNullOrWhiteSpace(FactionQuery) ? FactionQuery! : FactionOrSource ?? string.Empty;
 
     private string PageHeading =>
         _factionTemplateGridRef?.SelectedFaction is { } selectedFaction
@@ -57,39 +52,32 @@ public partial class Factions
             .Select(source => new KeyValuePair<FactionSource, string>(source, source.GetDisplayName()))
             .ToList();
 
-    private void UpdateSelectedFaction(FactionModel selectedFaction)
-    {
-        _factionTemplateGridRef?.UpdateSelectedFaction(selectedFaction);
-        _factionTemplateGridRef?.SetFactionInfo(Info);
-    }
-
     private void OnSourceChanged(FactionSource newSource)
     {
         NavigationManager.NavigateTo($"/game/factions?source={newSource}");
     }
 
+    private void UpdateFaction(FactionModel faction)
+    {
+        _factionTemplateGridRef?.UpdateSelectedFaction(faction);
+    }
+
     private FactionSource ResolveSource()
     {
+        var source = FactionSource.Official;
+
         if (FactionSourceAliasResolver.TryResolve(SourceQuery, out var sourceFromQuery))
-        {
-            return sourceFromQuery;
-        }
+            source = sourceFromQuery;
+        else if (FactionSourceAliasResolver.TryResolve(FactionOrSource, out var sourceFromRoute))
+            source = sourceFromRoute;
+        else if (FactionNameAliasResolver.TryResolve(FactionQuery, out var factionFromQuery))
+            source = factionFromQuery.GetFactionSource();
+        else if (FactionNameAliasResolver.TryResolve(FactionOrSource, out var factionFromRoute))
+            source = factionFromRoute.GetFactionSource();
 
-        if (FactionSourceAliasResolver.TryResolve(FactionOrSource, out var sourceFromRoute))
-        {
-            return sourceFromRoute;
-        }
+        FactionProvider.ClearSource();
+        FactionProvider.SetSource(source);
 
-        if (FactionNameAliasResolver.TryResolve(FactionQuery, out var factionFromQuery))
-        {
-            return factionFromQuery.GetFactionSource();
-        }
-
-        if (FactionNameAliasResolver.TryResolve(FactionOrSource, out var factionFromRoute))
-        {
-            return factionFromRoute.GetFactionSource();
-        }
-
-        return FactionSource.Official;
+        return source;
     }
 }

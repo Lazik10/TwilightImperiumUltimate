@@ -13,7 +13,11 @@
     none of this component's own ::deep rules in ResponsiveDropDown.razor.css would ever have a
     reachable ancestor to anchor from (confirmed dead CSS otherwise; see that file's comments).
 *@
-<span class="responsive-dropdown-host">
+<span class="responsive-dropdown-host@(HasLabel ? " has-label" : string.Empty)">
+    @if (HasLabel)
+    {
+        <ResponsiveText Text="@Label" FontSize="md" CenterText="true" CssClass="responsive-dropdown-label" />
+    }
     <RadzenDropDown TValue="TValue"
                     id="@Id"
                     Name="@Name"
@@ -22,6 +26,7 @@
                     ValueProperty="@ValueProperty"
                     Placeholder="@Placeholder"
                     aria-describedby="@AriaDescribedBy"
+                    aria-label="@Label"
                     Disabled="Disabled"
                     AllowClear="AllowClear"
                     AllowFiltering="AllowFiltering"
@@ -29,5 +34,6 @@
                     Value="@Value"
                     ValueChanged="OnValueChanged"
                     class="@ComputedCssClass"
-                    style="@ComputedStyle" />
+                    style="@ComputedStyle"
+                    @attributes="AdditionalAttributes" />
 </span>

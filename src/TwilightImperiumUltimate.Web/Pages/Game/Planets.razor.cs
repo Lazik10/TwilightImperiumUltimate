@@ -188,9 +188,9 @@ public partial class Planets
         return options;
     }
 
-    private Task OnPlanetFilterChanged(object value)
+    private Task OnPlanetFilterChanged(string? value)
     {
-        _selectedPlanetFilter = value?.ToString() ?? string.Empty;
+        _selectedPlanetFilter = value ?? string.Empty;
         _visiblePlanetsCount = PlanetsPageSize;
         StateHasChanged();
         return Task.CompletedTask;

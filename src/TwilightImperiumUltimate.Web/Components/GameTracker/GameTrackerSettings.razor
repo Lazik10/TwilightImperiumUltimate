@@ -57,14 +57,14 @@
                         <Label Text="@player.DefaultName" CenterText="true" FontSize="20" />
                     }
 
-                    <RadzenDropDown Data="_factionNames" 
-                        TextProperty="Value" 
-                        ValueProperty="Key" 
-                        @bind-Value="player.FactionName"
-                        class="title handel"
-                        style="width: 100%;"
-                        @onchange="UpdatePlayerColors"
-                        Change="UpdatePlayerColors" />
+                    <ResponsiveDropDown Id="@($"game-tracker-faction-{player.DefaultName}")"
+                                        TValue="FactionName"
+                                        Value="@player.FactionName"
+                                        ValueChanged="@(async (FactionName v) => { player.FactionName = v; await UpdatePlayerColors(); })"
+                                        Data="_factionNames"
+                                        TextProperty="Value"
+                                        ValueProperty="Key"
+                                        CssClass="title" />
 
                 </ResponsiveContainer>
             }

@@ -1,21 +1,14 @@
 namespace TwilightImperiumUltimate.Web.Helpers.Factions;
 
-/// <summary>
-/// Resolves a free-form value (e.g. from the "?source=" query string or the
-/// "/game/factions/{FactionOrSource}" route segment) to the matching <see cref="FactionSource"/>.
-/// The exact enum name always matches, case-insensitively, regardless of the alias lists below.
-/// Add short-hand aliases to the arrays as needed -- no other code needs to change to support a
-/// new alias.
-/// </summary>
 public static class FactionSourceAliasResolver
 {
     private static readonly Dictionary<FactionSource, string[]> Aliases = new()
     {
-        [FactionSource.Official] = Array.Empty<string>(),
-        [FactionSource.TwilightsFall] = Array.Empty<string>(),
-        [FactionSource.DiscordantStars] = Array.Empty<string>(),
-        [FactionSource.BlueRiverie] = Array.Empty<string>(),
-        [FactionSource.WhispersFromTheVoid] = Array.Empty<string>(),
+        [FactionSource.Official] = ["official", "basegame", "base", "core"],
+        [FactionSource.TwilightsFall] = ["twilightsfall", "tf"],
+        [FactionSource.DiscordantStars] = ["discordantstars", "ds"],
+        [FactionSource.BlueRiverie] = ["blueriverie", "br"],
+        [FactionSource.WhispersFromTheVoid] = ["whispersfromthevoid", "wftv"],
     };
 
     public static bool TryResolve(string? value, out FactionSource source)

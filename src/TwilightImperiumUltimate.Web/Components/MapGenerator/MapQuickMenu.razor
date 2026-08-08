@@ -19,12 +19,14 @@
     {
         <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="100" CssClass="mt-md">
             <RadzenTextBox @bind-Value="_importedTtsString" Placeholder="@Strings.MapGenerator_EnterMapString" Style="height: 24px; max-height: 24px;" class="mb-sm"/>
-            <RadzenDropDown @bind-Value="_selectedMapTemplate"
+            <ResponsiveDropDown Id="map-quick-menu-map-template"
+                            TValue="MapTemplate"
+                            Value="@_selectedMapTemplate"
+                            ValueChanged="@(async (MapTemplate v) => { _selectedMapTemplate = v; await HandleMapTemplateChange(); })"
                             Data="@_mapTemplates"
-                            Change="async () => await HandleMapTemplateChange()"
                             ValueProperty="Key"
                             TextProperty="Value"
-                            class="title handel" />
+                            CssClass="title" />
             <ResponsiveButton ButtonText="@Strings.ButtonText_LoadMap" OnClick="async () => await LoadMapFromTtsString()" Width="100"/>
         </ResponsiveContainer>
     }

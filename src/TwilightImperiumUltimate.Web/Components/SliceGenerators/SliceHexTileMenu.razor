@@ -8,13 +8,15 @@
 
     @if (_showTileMenu)
     {
-        <RadzenDropDown @bind-Value="_selectedSystemTileType"
+        <ResponsiveDropDown Id="slice-hex-tile-menu-filter"
+            TValue="SystemTileTypeFilter"
+            Value="@_selectedSystemTileType"
+            ValueChanged="@(v => { _selectedSystemTileType = v; GetSystemTilesToShow(); })"
             Data="@_systemTileTypes"
-            Change="() => GetSystemTilesToShow()"
             TextProperty="Value"
             ValueProperty="Key"
-            Style="width: 100%; min-height: 40px;"
-            class="title handel radzen-dropdown" />
+            Style="min-height: 40px;"
+            CssClass="title radzen-dropdown" />
 
         <div class="scrollbar-area">
             @foreach (var systemTile in SystemTiles)

@@ -29,4 +29,18 @@ public class FactionRepository(
             .ThenInclude(ft => ft.Technology)
             .SingleAsync(x => x.FactionName == (FactionName)id, cancellationToken);
     }
+
+    public async Task<List<Faction>> GetFactionsByGameVersions(IReadOnlyCollection<GameVersion> gameVersions, CancellationToken cancellationToken)
+    {
+        await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);
+        return dbContext.Factions
+            .Include(x => x.FactionUnits)
+            .ThenInclude(fu => fu.Unit)
+            .Include(x => x.FactionTechnologies)
+            .ThenInclude(ft => ft.Technology)
+            .Where(x => gameVersions.Contains(x.GameVersion))
+            .AsEnumerable()
+            .OrderBy(x => x.FactionName)
+            .ToList();
+    }
 }

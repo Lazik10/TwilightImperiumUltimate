@@ -6,25 +6,22 @@
     <ResponsiveHeading Level="1" Text="@Strings.Page_Planets" CssClass="mb-2xl" FontSize="2xl" />
 
     <ResponsiveContainer Type="ContainerType.Flex" JustifyContent="Enums.JustifyContent.SpaceBetween" AlignItems="Enums.AlignItems.FlexStart" CssClass="planets-filters-container">
-        <div class="planets-filter-group">
-            <ResponsiveText Text="@Strings.PlanetsFilter_ByExpansion" FontSize="md" CenterText="true" />
-            <GameVersionFilterDropdown GameVersions="GetAvailableGameVersions()"
-                                       SelectedGameVersion="@_selectedGameVersion"
-                                       SelectedGameVersionChanged="OnGameVersionFilterChanged"
-                                       CssClass="planets-filter-dropdown" />
-        </div>
+        <GameVersionFilterDropdown GameVersions="GetAvailableGameVersions()"
+                                   SelectedGameVersion="@_selectedGameVersion"
+                                   SelectedGameVersionChanged="OnGameVersionFilterChanged"
+                                   Label="@Strings.PlanetsFilter_ByExpansion"
+                                   CssClass="planets-filter-dropdown" />
 
-        <div class="planets-filter-group">
-            <ResponsiveText Text="@Strings.PlanetsFilter_ByTrait" FontSize="md" CenterText="true" />
-            <RadzenDropDown TValue="string"
+        <ResponsiveDropDown Id="planets-filter-by-trait"
+                            TValue="string"
+                            Label="@Strings.PlanetsFilter_ByTrait"
                             Data="@GetPlanetFilterOptions()"
                             TextProperty="Label"
                             ValueProperty="Value"
                             Value="@_selectedPlanetFilter"
-                            Change="OnPlanetFilterChanged"
-                            class="planets-filter-dropdown"
-                            Style="font-family: Handel, fallback, sans-serif" />
-        </div>
+                            ValueChanged="OnPlanetFilterChanged"
+                            CssClass="planets-filter-dropdown"
+                            FillWidth="false" />
     </ResponsiveContainer>
 
     <ResponsiveContainer Type="ContainerType.Fluid" Padding="none">

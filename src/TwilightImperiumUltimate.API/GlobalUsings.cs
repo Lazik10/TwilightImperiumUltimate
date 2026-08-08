@@ -11,6 +11,7 @@ global using TwilightImperiumUltimate.Business.Logic.Technologies;
 global using TwilightImperiumUltimate.Business.Logic.Websites;
 global using TwilightImperiumUltimate.Contracts.ApiContracts;
 global using TwilightImperiumUltimate.Contracts.ApiContracts.Draft;
+global using TwilightImperiumUltimate.Contracts.ApiContracts.Faction;
 global using TwilightImperiumUltimate.Contracts.DTOs;
 global using TwilightImperiumUltimate.Contracts.DTOs.Card;
 global using TwilightImperiumUltimate.Contracts.DTOs.Faction;

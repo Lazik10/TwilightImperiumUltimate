@@ -2,6 +2,7 @@
 @page "/game/factions/{FactionOrSource}"
 @using TwilightImperiumUltimate.Web.Components.Factions
 @using TwilightImperiumUltimate.Web.Components.Shared.Controls
+@using TwilightImperiumUltimate.Web.Components.Factions.Menu
 
 <PageTitle>@PageHeading</PageTitle>
 
@@ -25,10 +26,7 @@
                             FillWidth="false" />
     </section>
 
-    <FactionIconMenu @key="_selectedSource"
-                     OnFactionClickGetFaction="UpdateSelectedFaction"
-                     Faction="@SelectedFactionParameterValue"
-                     Source="@_selectedSource" />
+    <FactionMenu @key="_selectedSource" OnClick="UpdateFaction" />
 
     <FactionTemplateGrid @ref="_factionTemplateGridRef" />
 

@@ -56,13 +56,15 @@
                 @if (ShowClassifiedDocumnetLeaks())
                 {
                     <Label Text="Select secret:" CenterText="true" />
-                    <RadzenDropDown @bind-Value="_selectedObjectiveCard"
-                                Data="@_objectives"
-                                Change="() => HandleClassifiedDocumentLeaks()"
-                                ValueProperty="Key"
-                                TextProperty="Value"
-                                Style="width: 100%; max-width: 200px; height: 100%; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"
-                                class="title handel" />
+                    <ResponsiveDropDown Id="bonus-score-classified-document-leaks"
+                                        TValue="ObjectiveCardName?"
+                                        Value="@_selectedObjectiveCard"
+                                        ValueChanged="@(async (ObjectiveCardName? v) => { _selectedObjectiveCard = v; await HandleClassifiedDocumentLeaks(); })"
+                                        Data="@_objectives"
+                                        ValueProperty="Key"
+                                        TextProperty="Value"
+                                        Style="max-width: 200px; height: 100%; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"
+                                        CssClass="title" />
                     <ResponsiveButton ButtonText="Clear" OnClick="() => ClearClassifiedDocumentLeaks(true)" Width="100"/>
                 }
                 else

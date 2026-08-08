@@ -41,3 +41,27 @@
 .responsive-dropdown-host ::deep .rz-dropdown {
     justify-content: center;
 }
+
+/*
+    When Label is set, the host switches from `display: contents` to a real flex layout so the
+    label and the dropdown lay out together -- row (label to the left) on desktop, column (label
+    above) on narrow viewports, matching the responsive label pattern used across the app. When
+    no Label is set, `.has-label` is absent and the host stays `display: contents`, so existing
+    consumers without a Label are unaffected.
+*/
+.responsive-dropdown-host.has-label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.responsive-dropdown-host.has-label ::deep .responsive-dropdown-label {
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .responsive-dropdown-host.has-label {
+        flex-direction: column;
+        gap: var(--space-xs);
+    }
+}

@@ -1,0 +1,32 @@
+@typeparam TItem
+@inherits TwilightImperiumBaseComponent
+
+<div class="@GetContainerCssClass()">
+    @foreach (var breakpoint in GetBreakpointRenderOrder())
+    {
+        var currentBreakpoint = breakpoint;
+        <div class="@GetBreakpointCssClass(currentBreakpoint)">
+            @for (var row = 0; row < _rowsByBreakpoint[currentBreakpoint].Count; row++)
+            {
+                var currentRow = row;
+                <ResponsiveGridContainer Columns="_effectiveColumns[currentBreakpoint][currentRow]" TabletColumns="_effectiveColumns[currentBreakpoint][currentRow]" MobileColumns="_effectiveColumns[currentBreakpoint][currentRow]" Width="Width" Gap="Gap" CssClass="faction-menu-grid-row">
+                    @foreach (var slot in _rowsByBreakpoint[currentBreakpoint][currentRow])
+                    {
+                        @if (slot.HasItem)
+                        {
+                            @ItemTemplate(slot.Item)
+                        }
+                        else if (PlaceholderTemplate is not null)
+                        {
+                            @PlaceholderTemplate
+                        }
+                        else
+                        {
+                            <div class="faction-menu-grid-placeholder"></div>
+                        }
+                    }
+                </ResponsiveGridContainer>
+            }
+        </div>
+    }
+</div>

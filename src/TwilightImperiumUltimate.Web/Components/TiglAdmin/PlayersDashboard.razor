@@ -15,28 +15,30 @@
 
         <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="span-8">
             <Label Text="By TIGL Name:" TextColor="TextColor.Yellow" Width="50" />
-            <RadzenDropDown Data="@_users"
+            <ResponsiveDropDown Id="players-dashboard-by-tigl-name"
                             TValue="int"
+                            Data="@_users"
                             TextProperty="TiglUserName"
                             ValueProperty="Id"
                             AllowFiltering="true"
                             AllowVirtualization="true"
                             FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
                             Placeholder="Type TIGL Name..."
-                            Change="@(async (object? v) => { if (v is int id) await OnUserSelected(id); })"
+                            ValueChanged="@(async (int id) => await OnUserSelected(id))"
                             Style="width: 50%;"
-                            class="mb-md" />
+                            CssClass="mb-md" />
 
             <Label Text="By Discord Name:" TextColor="TextColor.Yellow" Width="50" />
-            <RadzenDropDown Data="@_users"
+            <ResponsiveDropDown Id="players-dashboard-by-discord-name"
                             TValue="int"
+                            Data="@_users"
                             TextProperty="DiscordUserName"
                             ValueProperty="Id"
                             AllowFiltering="true"
                             AllowVirtualization="true"
                             FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
                             Placeholder="Type Discord Tag..."
-                            Change="@(async (object? v) => { if (v is int id) await OnUserSelected(id); })"
+                            ValueChanged="@(async (int id) => await OnUserSelected(id))"
                             Style="width: 50%;" />
         </ResponsiveContainer>
 
@@ -168,8 +170,9 @@
 
             <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="span-8" JustifyContent="Enums.JustifyContent.Center">
                 <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="30">
-                    <RadzenDropDown Data="@_prestigeRankOptions"
+                    <ResponsiveDropDown Id="players-dashboard-prestige-rank"
                                     TValue="TiglPrestigeRank"
+                                    Data="@_prestigeRankOptions"
                                     ValueProperty="Value"
                                     TextProperty="Text"
                                     @bind-Value="_newPrestigeRank"

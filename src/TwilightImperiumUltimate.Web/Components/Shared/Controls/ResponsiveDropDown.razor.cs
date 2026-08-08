@@ -8,6 +8,14 @@ public partial class ResponsiveDropDown<TValue>
     [EditorRequired]
     public string Id { get; set; } = string.Empty;
 
+    /// <summary>
+    /// Gets or sets the label rendered above/beside the dropdown (row layout on desktop, stacked
+    /// above the dropdown on narrow viewports) and used as the dropdown's accessible name. When
+    /// omitted, no label is rendered and the host keeps its default "display: contents" layout.
+    /// </summary>
+    [Parameter]
+    public string? Label { get; set; }
+
     [Parameter]
     public TValue Value { get; set; } = default!;
 
@@ -70,6 +78,16 @@ public partial class ResponsiveDropDown<TValue>
 
     [Parameter]
     public EventCallback<TValue> ValueChanged { get; set; }
+
+    /// <summary>
+    /// Gets or sets Radzen-specific parameters (e.g. <c>FilterCaseSensitivity</c>) that this
+    /// wrapper does not declare explicitly, passed straight through to the underlying
+    /// <c>RadzenDropDown</c> via <c>@attributes</c>.
+    /// </summary>
+    [Parameter(CaptureUnmatchedValues = true)]
+    public IDictionary<string, object>? AdditionalAttributes { get; set; }
+
+    private bool HasLabel => !string.IsNullOrWhiteSpace(Label);
 
     private string ComputedCssClass => $"responsive-dropdown responsive-input-height handel {CssClass}".Trim();
 

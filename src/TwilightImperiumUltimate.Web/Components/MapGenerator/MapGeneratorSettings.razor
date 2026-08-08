@@ -9,46 +9,54 @@
 
         <ResponsiveContainer Type="ContainerType.Flex" Padding="none" AlignItems="Enums.AlignItems.Center">
             <Label Text="@Strings.MapGeneratorSettings_MapTemplate" FontSize="18" />
-            <RadzenDropDown @bind-Value="SelectedMapTemplate"
+            <ResponsiveDropDown Id="map-generator-settings-map-template"
+                            TValue="MapTemplate"
+                            Value="@SelectedMapTemplate"
+                            ValueChanged="SetMapTemplate"
                             Data="@_mapTemplates"
-                            Change="() => SetMapTemplate(SelectedMapTemplate)"
                             ValueProperty="Key"
                             TextProperty="Value"
-                            Style="width: 80%; max-width: 400px;"
-                            class="title handel" />
+                            Style="max-width: 400px;"
+                            CssClass="title" />
         </ResponsiveContainer>
 
         <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
             <Label Text="@Strings.MapGeneratorSettings_TilesOverlay" FontSize="18"/>
-            <RadzenDropDown @bind-Value="SelectedSystemTileOverlay"
+            <ResponsiveDropDown Id="map-generator-settings-system-tile-overlay"
+                            TValue="SystemTileOverlay"
+                            Value="@SelectedSystemTileOverlay"
+                            ValueChanged="SetSystemTileOverlay"
                             Data="@_systemTileOverlays"
-                            Change="() => SetSystemTileOverlay(SelectedSystemTileOverlay)"
                             ValueProperty="Key"
                             TextProperty="Value"
-                            Style="width: 80%; max-width: 400px;"
-                            class="title handel" />
+                            Style="max-width: 400px;"
+                            CssClass="title" />
         </ResponsiveContainer>
 
         <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
             <Label Text="@Strings.MapGeneratorSettings_PlacementStyle" FontSize="18" />
-            <RadzenDropDown @bind-Value="SelectedPlacementStyle"
-                            Data=@_placementStyles
-                            Change="() => SetPlacementStyle(SelectedPlacementStyle)"
+            <ResponsiveDropDown Id="map-generator-settings-placement-style"
+                            TValue="PlacementStyle"
+                            Value="@SelectedPlacementStyle"
+                            ValueChanged="SetPlacementStyle"
+                            Data="@_placementStyles"
                             ValueProperty="Key"
                             TextProperty="Value"
-                            Style="width: 80%; max-width: 400px;"
-                            class="title handel" />
+                            Style="max-width: 400px;"
+                            CssClass="title" />
         </ResponsiveContainer>
 
         <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
             <Label Text="@Strings.MapGeneratorSettings_SystemWeight" FontSize="18" />
-            <RadzenDropDown @bind-Value="SelectedSystemWeight"
+            <ResponsiveDropDown Id="map-generator-settings-system-weight"
+                            TValue="SystemWeight"
+                            Value="@SelectedSystemWeight"
+                            ValueChanged="SetSystemWeight"
                             Data="@_systemWeights"
-                            Change="() => SetSystemWeight(SelectedSystemWeight)"
                             ValueProperty="Key"
                             TextProperty="Value"
-                            Style="width: 80%; max-width: 400px;"
-                            class="title handel" />
+                            Style="max-width: 400px;"
+                            CssClass="title" />
         </ResponsiveContainer>
 
         <div style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
