@@ -101,8 +101,8 @@ public class ManualReportGameCommandHandler(
 
         // Validate that all player results are valid
         var scoreValidationResult = await tiglResultValidator.ValidateResult(gameReport);
-        if (!scoreValidationResult)
-            return new GameReportResult(false, "Invalid Player Results", $"No player reached required points for game: {gameReport.GameId}. Please report game manually or contact @lazik2110");
+        if (scoreValidationResult.IsFailed)
+            return new GameReportResult(false, "Invalid Report Result", scoreValidationResult.Errors[0].Message);
 
         var insertResult = await matchInserter.InsertGameReport(gameReport, cancellationToken);
         if (insertResult.IsFailed)

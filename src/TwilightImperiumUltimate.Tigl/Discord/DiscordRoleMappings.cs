@@ -134,6 +134,27 @@ public static class DiscordRoleMappings
             { TiglRankName.Archon, Make("TIGL - Archon", "1441466185425223681", "#ec651c", string.Empty) },
         };
 
+    public static ulong GetCorrectGalacticThreatPrestigeRankRoleId(int level)
+    {
+        return level switch
+        {
+            2 => 1336192045286686720,
+            3 => 1360285906715803918,
+            4 => 1441206184198803557,
+            5 => 1441206179245199505,
+            _ => 1307040803935223868,
+        };
+    }
+
+    public static ulong GetCorrectTyrantPrestigeRankRoleId(int level)
+    {
+        return level switch
+        {
+            2 => 1441466173895082127,
+            _ => 1441466170115883038,
+        };
+    }
+
     private static DiscordRoleInfo Make(string roleName, string roleId, string colorHex, string emojiId)
     {
         return new DiscordRoleInfo

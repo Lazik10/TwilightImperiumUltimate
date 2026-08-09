@@ -109,14 +109,17 @@ public class ReportGameCommandHandler(
         }
 
         var scoreValidationResult = await tiglResultValidator.ValidateResult(gameReport);
-        if (!scoreValidationResult)
-            return new GameReportResult(false, "Invalid Player Results", $"No player reached required points for game: {gameReport.GameId}. Please report game manually or contact @lazik2110");
+        if (scoreValidationResult.IsFailed)
+            return new GameReportResult(false, "Invalid Report Result", scoreValidationResult.Errors[0].Message);
 
         var insertResult = await matchInserter.InsertGameReport(gameReport, cancellationToken);
         if (insertResult.IsFailed)
         {
             foreach (var error in insertResult.Errors)
+            {
                 _logger.LogError("Insert game report error: {InsertError}", error.Message);
+            }
+
             return new GameReportResult { Success = false, ErrorTitle = $"Insertion of results for game {gameReport.GameId} failed" };
         }
         else
