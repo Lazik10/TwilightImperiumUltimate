@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Options;
 using System.Text;
 using TwilightImperiumUltimate.API.Discord;
 using TwilightImperiumUltimate.API.Helpers;
@@ -10,7 +11,6 @@ using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Report;
 using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Season;
 using TwilightImperiumUltimate.Contracts.DTOs.Tigl;
 using TwilightImperiumUltimate.DataAccess.Repositories;
-using Microsoft.Extensions.Options;
 
 namespace TwilightImperiumUltimate.API.Controllers;
 
@@ -289,6 +289,15 @@ public class TiglController(
     {
         var data = await _mediator.Send(new GetTiglPlayerProfileQuery(tiglUserId), cancellationToken);
         return Ok(new ApiResponse<TiglPlayerProfileDto>() { Success = true, Data = data });
+    }
+
+    // GET: api/tigl/player-ids-by-discord-id
+    [Route("player-ids-by-discord-id")]
+    [HttpGet]
+    public async Task<ActionResult<IApiResponse<PlayerIdsByDiscordIdDto>>> GetPlayerIdsByDiscordId([FromQuery] long discordId, CancellationToken cancellationToken)
+    {
+        var data = await _mediator.Send(new GetPlayerIdsByDiscordIdQuery(discordId), cancellationToken);
+        return Ok(new ApiResponse<PlayerIdsByDiscordIdDto>() { Success = true, Data = data });
     }
 
     // GET: api/tigl/tigl-player-profile-link
