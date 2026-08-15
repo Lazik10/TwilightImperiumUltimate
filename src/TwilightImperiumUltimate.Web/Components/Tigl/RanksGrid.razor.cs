@@ -15,13 +15,13 @@ public partial class RanksGrid
 
     private string ActiveTabId => _league == TiglLeague.Fractured ? "ranks-tab-fractured" : "ranks-tab-standard";
 
+    public IReadOnlyCollection<RankingsUserDto> Rankings => _rankings ?? Cache.Rankings ?? new List<RankingsUserDto>();
+
     [Inject]
     private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
 
     [Inject]
     private IRankingsDataCache Cache { get; set; } = default!;
-
-    public IReadOnlyCollection<RankingsUserDto> Rankings => _rankings ?? Cache.Rankings ?? new List<RankingsUserDto>();
 
     protected override async Task OnInitializedAsync()
     {

@@ -4,7 +4,7 @@ public interface IFactionProvider
 {
     FactionName CurrentFactionName { get; }
 
-    FactionSource? Source { get; }
+    FactionSource CurrentSource { get; }
 
     FactionDto? CurrentFaction { get; }
 
@@ -15,6 +15,10 @@ public interface IFactionProvider
     void ClearSource();
 
     FactionDto? GetFactionByName(FactionName factionName);
+
+    void UpdateSourceAndFaction(FactionSource source, FactionName factionName);
+
+    Task<IReadOnlyCollection<FactionDto>> InitializeFactions(CancellationToken cancellationToken = default);
 
     Task<IReadOnlyCollection<FactionDto>> GetAllFactions(CancellationToken cancellationToken = default);
 

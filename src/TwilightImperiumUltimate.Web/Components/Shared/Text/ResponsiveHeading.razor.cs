@@ -17,6 +17,9 @@ public partial class ResponsiveHeading
     [Parameter]
     public string Text { get; set; } = string.Empty;
 
+    [Parameter]
+    public int Width { get; set; } = 100;
+
     /// <summary>
     /// Gets or sets the heading level (1-6). Determines the rendered element (h1-h6).
     /// Values outside the range are clamped.
@@ -69,7 +72,7 @@ public partial class ResponsiveHeading
     }
 
     private string ComputedStyle =>
-        $"font-size: {ResolveFontSize(FontSize ?? GetDefaultFontSizeForLevel())}; {Style}";
+        $"font-size: {ResolveFontSize(FontSize ?? GetDefaultFontSizeForLevel())}; width: {Width}%; {Style}";
 
     private static string ResolveFontSize(string fontSize) => fontSize switch
     {

@@ -1,4 +1,4 @@
-namespace TwilightImperiumUltimate.Web.Components.Shared;
+namespace TwilightImperiumUltimate.Web.Components.Shared.Text.StatusMessages;
 
 /// <summary>
 /// Base class for the generic, reusable status message components (<see cref="SuccessMessage"/>,

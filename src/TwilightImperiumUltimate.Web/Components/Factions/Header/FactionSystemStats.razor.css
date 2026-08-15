@@ -1,0 +1,19 @@
+﻿.system-stats {
+  width: 100%;
+}
+
+.system-stats ::deep .system-stats-grid {
+  column-gap: var(--space-xs) !important;
+  row-gap: 0 !important;
+  align-items: start;
+}
+
+.system-stats ::deep .system-stats-grid > :first-child {
+  grid-column: 1 / -1;
+  margin-bottom: var(--space-sm);
+}
+
+.system-stats ::deep .system-stats-grid > p {
+    margin: 0;
+    padding: 0;
+}

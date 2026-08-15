@@ -35,18 +35,22 @@
       "name": "Web (Blazor)",
       "type": "coreclr",
       "request": "launch",
-      "preLaunchTask": "build-web-and-free-port",
+      "preLaunchTask": "free-web-port",
       "program": "C:\\Program Files\\dotnet\\dotnet.exe",
       "args": [
-        "run",
-        "--project",
-        "${workspaceFolder}/src/TwilightImperiumUltimate.Web/TwilightImperiumUltimate.Web.csproj",
-        "--launch-profile",
-        "https"
+          "watch",
+          "run",
+          "--project",
+          "${workspaceFolder}/src/TwilightImperiumUltimate.Web/TwilightImperiumUltimate.Web.csproj",
+          "--launch-profile",
+          "https"
       ],
       "cwd": "${workspaceFolder}/src/TwilightImperiumUltimate.Web",
-      "console": "internalConsole",
+      "console": "integratedTerminal",
       "stopAtEntry": false,
+      "env": {
+        "DOTNET_WATCH_SUPPRESS_LAUNCH_BROWSER": "true"
+      },
       "serverReadyAction": {
         "action": "openExternally",
         "pattern": "\\bNow listening on:\\s+(https?://\\S+)",

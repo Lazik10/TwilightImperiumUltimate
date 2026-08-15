@@ -9,7 +9,7 @@ public partial class OfficialFactionMenu : TwilightImperiumBaseComponent
         {
             [ResponsiveBreakpoint.Desktop] = (new List<int> { 17, 17 }, new List<int> { 17, 25, 27, 33 }),
             [ResponsiveBreakpoint.Tablet] = (new List<int> { 17, 17 }, new List<int> { 17, 25, 27, 33 }),
-            [ResponsiveBreakpoint.Mobile] = (new List<int> { 8, 7, 7, 7 }, new List<int> { 23, 25 }),
+            [ResponsiveBreakpoint.Mobile] = (new List<int> { 9, 8, 9, 9 }, new List<int> { 23, 25 }),
         };
 
     private IReadOnlyCollection<FactionDto> _factions = Array.Empty<FactionDto>();

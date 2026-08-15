@@ -9,8 +9,6 @@ public partial class Factions
 {
     private FactionTemplateGrid? _factionTemplateGridRef;
 
-    private FactionSource _selectedSource = FactionSource.Official;
-
     [Parameter]
     public string? FactionOrSource { get; set; }
 
@@ -32,19 +30,18 @@ public partial class Factions
     [Inject]
     private NavigationManager NavigationManager { get; set; } = default!;
 
-    private string PageHeading =>
-        _factionTemplateGridRef?.SelectedFaction is { } selectedFaction
-            ? string.Format(CultureInfo.CurrentCulture, Strings.Page_Factions_PageTitle, selectedFaction.FactionName.GetFactionUIText(FactionResourceType.Title))
-            : Strings.Page_Factions_PageTitleDefault;
+    private string PageHeading => string.Format(CultureInfo.CurrentCulture, Strings.Page_Factions_PageTitle, FactionProvider.CurrentFactionName.GetFactionUIText(FactionResourceType.Title));
 
-    private string MetaDescription =>
-        _factionTemplateGridRef?.SelectedFaction is { } selectedFaction
-            ? string.Format(CultureInfo.CurrentCulture, Strings.Page_Factions_MetaDescription, selectedFaction.FactionName.GetFactionUIText(FactionResourceType.Title))
-            : Strings.Page_Factions_MetaDescriptionDefault;
+    private string MetaDescription => string.Format(CultureInfo.CurrentCulture, Strings.Page_Factions_MetaDescription, FactionProvider.CurrentFactionName.GetFactionUIText(FactionResourceType.Title));
 
-    protected override void OnParametersSet()
+    protected override async Task OnInitializedAsync()
     {
-        _selectedSource = ResolveSource();
+        await FactionProvider.InitializeFactions();
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await ResolveSourceAndFaction();
     }
 
     private static List<KeyValuePair<FactionSource, string>> GetFactionSourceOptions() =>
@@ -59,25 +56,59 @@ public partial class Factions
 
     private void UpdateFaction(FactionModel faction)
     {
-        _factionTemplateGridRef?.UpdateSelectedFaction(faction);
+        _factionTemplateGridRef?.Refresh();
     }
 
-    private FactionSource ResolveSource()
+    private async Task ResolveSourceAndFaction()
     {
         var source = FactionSource.Official;
+        var factionName = FactionName.TheArborec;
 
-        if (FactionSourceAliasResolver.TryResolve(SourceQuery, out var sourceFromQuery))
-            source = sourceFromQuery;
-        else if (FactionSourceAliasResolver.TryResolve(FactionOrSource, out var sourceFromRoute))
-            source = sourceFromRoute;
-        else if (FactionNameAliasResolver.TryResolve(FactionQuery, out var factionFromQuery))
+        // Try to load correct faction and source based on route parameter
+        if (!string.IsNullOrEmpty(FactionOrSource))
+        {
+            if (FactionSourceAliasResolver.TryResolve(FactionOrSource, out var sourceFromRoute))
+            {
+                source = sourceFromRoute;
+                factionName = source.GetFactionSourceDefaultFaction();
+            }
+            else if (FactionNameAliasResolver.TryResolve(FactionOrSource, out var factionFromRoute))
+            {
+                factionName = factionFromRoute;
+                source = factionFromRoute.GetFactionSource();
+            }
+
+            FactionProvider.UpdateSourceAndFaction(source, factionName);
+            return;
+        }
+
+        // If route parameter didn't resolve, try to load based on query parameters
+        // If both source and faction are provided, use them. If only source is provided, use the default faction for that source. If only faction is provided, use the source associated with that faction.
+        if (!string.IsNullOrEmpty(SourceQuery) && FactionSourceAliasResolver.TryResolve(SourceQuery, out var sourceFromQuery))
+        {
+            if (!string.IsNullOrEmpty(FactionQuery) && FactionNameAliasResolver.TryResolve(FactionQuery, out var factionFromQuery))
+            {
+                source = sourceFromQuery;
+                factionName = factionFromQuery;
+            }
+            else
+            {
+                source = sourceFromQuery;
+                factionName = source.GetFactionSourceDefaultFaction();
+            }
+
+            FactionProvider.UpdateSourceAndFaction(source, factionName);
+            return;
+        }
+        else if (!string.IsNullOrEmpty(FactionQuery) && FactionNameAliasResolver.TryResolve(FactionQuery, out var factionFromQuery))
+        {
             source = factionFromQuery.GetFactionSource();
-        else if (FactionNameAliasResolver.TryResolve(FactionOrSource, out var factionFromRoute))
-            source = factionFromRoute.GetFactionSource();
+            factionName = factionFromQuery;
 
-        FactionProvider.ClearSource();
-        FactionProvider.SetSource(source);
+            FactionProvider.UpdateSourceAndFaction(source, factionName);
+            return;
+        }
 
-        return source;
+        FactionProvider.UpdateSourceAndFaction(source, factionName);
     }
 }

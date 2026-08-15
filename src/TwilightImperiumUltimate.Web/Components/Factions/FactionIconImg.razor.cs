@@ -6,20 +6,26 @@ public partial class FactionIconImg
     public FactionName FactionName { get; set; }
 
     [Parameter]
-    public int Height { get; set; } = 40;
+    public string Width { get; set; } = "100%";
 
     [Parameter]
-    public string ResponsiveHeight { get; set; } = string.Empty;
+    public string MaxHeight { get; set; } = "clamp(32px, 10vw, 70px)";
 
     [Inject]
     private IPathProvider PathProvider { get; set; } = default!;
 
     private string ImgPath() => PathProvider.GetFactionIconPath(FactionName);
 
-    private string GetHeight()
+    private string GetInlineStyle()
     {
-        return string.IsNullOrWhiteSpace(ResponsiveHeight)
-            ? $"{Height}px"
-            : ResponsiveHeight;
+        var width = string.IsNullOrWhiteSpace(Width)
+            ? "100%"
+            : Width;
+
+        var maxHeight = string.IsNullOrWhiteSpace(MaxHeight)
+            ? "none"
+            : MaxHeight;
+
+        return $"width: {width}; max-height: {maxHeight};";
     }
 }

@@ -43,16 +43,6 @@
         "clear": true
       },
       "problemMatcher": []
-    },
-    {
-      "label": "build-web-and-free-port",
-      "detail": "Free the Web dev-server port, then build the Web project.",
-      "dependsOrder": "sequence",
-      "dependsOn": [
-        "free-web-port",
-        "build-web"
-      ],
-      "problemMatcher": []
     }
   ]
 }

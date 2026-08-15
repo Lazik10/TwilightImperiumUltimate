@@ -1,0 +1,4 @@
+.commodity-icon {
+    width: clamp(2rem, 7vw, 6rem);
+    height: auto;
+}

@@ -58,10 +58,6 @@ public static class EnumExtensions
             .ToList();
     }
 
-    /// <summary>
-    /// Gets the expansion/fan-content pack a faction belongs to, based on its contiguous range
-    /// within the <see cref="FactionName"/> enum (see the comment blocks in that file).
-    /// </summary>
     public static FactionSource GetFactionSource(this FactionName factionName)
     {
         if (factionName >= FactionName.TheAugursOfIlyxum && factionName <= FactionName.TheNokarSellships)
@@ -74,6 +70,19 @@ public static class EnumExtensions
             return FactionSource.TwilightsFall;
 
         return FactionSource.Official;
+    }
+
+    public static FactionName GetFactionSourceDefaultFaction(this FactionSource source)
+    {
+        return source switch
+        {
+            FactionSource.Official => FactionName.TheArborec,
+            FactionSource.TwilightsFall => FactionName.TheRubyMonarch,
+            FactionSource.DiscordantStars => FactionName.TheAugursOfIlyxum,
+            FactionSource.BlueRiverie => FactionName.AtokeraLegacy,
+            FactionSource.WhispersFromTheVoid => FactionName.None,
+            _ => FactionName.None,
+        };
     }
 
     public static List<GameVersion> GetGameVersionsFromFactionSource(this FactionSource source)

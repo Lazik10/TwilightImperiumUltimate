@@ -175,31 +175,6 @@
         border-radius: 20px;
     }
 
-.race-image-container {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    max-width: 34rem;
-}
-
-    .race-image-container img {
-        display: block;
-        border-radius: 20px;
-        max-width: 100%;
-    }
-
-    .race-image-container::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        box-shadow: inset 0 0 0 3px #000;
-        border-radius: 20px;
-        pointer-events: none;
-    }
-
 .commodities-container {
     display: flex;
     align-items: center;
@@ -212,10 +187,7 @@
     line-height: 1;
 }
 
-.commodity-icon {
-    width: clamp(2rem, 7vw, 6rem);
-    height: auto;
-}
+
 
 @media (max-width: 1024px) {
     .faction-overview-shell,

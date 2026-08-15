@@ -9,29 +9,36 @@ public class FactionProvider(ITwilightImperiumApiHttpClient httpClient) : IFacti
     private readonly SemaphoreSlim _refreshLock = new(1, 1);
     private readonly ITwilightImperiumApiHttpClient _httpClient = httpClient;
 
-    private IReadOnlyCollection<FactionDto>? _factions;
+    private IReadOnlyCollection<FactionDto> _factions = Array.Empty<FactionDto>();
     private FactionDto? _currentFaction;
     private FactionName _currentFactionName;
-    private FactionSource? _source;
+    private FactionSource _currentSource;
     private DateTimeOffset _lastFetched = DateTimeOffset.MinValue;
 
     public FactionName CurrentFactionName => _currentFactionName;
 
-    public FactionSource? Source => _source;
+    public FactionSource CurrentSource => _currentSource;
 
     public FactionDto? CurrentFaction => _currentFaction;
 
-    private bool IsExpired => _factions is null || DateTimeOffset.UtcNow - _lastFetched > CacheDuration;
+    private bool IsExpired => _factions.Count == 0 || DateTimeOffset.UtcNow - _lastFetched > CacheDuration;
 
-    public void ClearSource() => _source = null;
+    public void ClearSource() => _currentSource = FactionSource.Official;
 
-    public void SetSource(FactionSource source) => _source = source;
+    public void SetSource(FactionSource source) => _currentSource = source;
 
     public void SetCurrentFactionName(FactionName factionName) => _currentFactionName = factionName;
     
     public FactionDto? GetFactionByName(FactionName factionName) => _factions?.SingleOrDefault(x => x.FactionName == factionName);
 
-    public async Task<IReadOnlyCollection<FactionDto>> GetAllFactions(CancellationToken cancellationToken = default)
+    public void UpdateSourceAndFaction(FactionSource source, FactionName factionName)
+    {
+        SetSource(source);
+        SetCurrentFactionName(factionName);
+        _currentFaction = GetFactionByName(factionName);
+    }
+
+    public async Task<IReadOnlyCollection<FactionDto>> InitializeFactions(CancellationToken cancellationToken = default)
     {
         if (!IsExpired)
             return _factions!;
@@ -48,7 +55,15 @@ public class FactionProvider(ITwilightImperiumApiHttpClient httpClient) : IFacti
             _refreshLock.Release();
         }
 
-        return _factions ?? [];
+        return _factions;
+    }
+
+    public async Task<IReadOnlyCollection<FactionDto>> GetAllFactions(CancellationToken cancellationToken = default)
+    {
+        if (IsExpired)
+            await InitializeFactions(cancellationToken);
+
+        return _factions;
     }
 
     public async Task<IReadOnlyCollection<FactionDto>> GetFactionsByGameVersions(IReadOnlyCollection<GameVersion> gameVersions, CancellationToken cancellationToken = default)

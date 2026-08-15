@@ -1,4 +1,4 @@
-namespace TwilightImperiumUltimate.Web.Components.Shared;
+namespace TwilightImperiumUltimate.Web.Components.Shared.Images;
 
 public partial class WinnerImg
 {

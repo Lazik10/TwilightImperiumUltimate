@@ -1,0 +1,41 @@
+@using TwilightImperiumUltimate.Web.Components.Factions
+@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+
+<div class="faction-header-layout">
+    <header class="faction-header">
+        <div class="faction-header-texture" aria-hidden="true">
+            <TitleTexture Width="100" Texture="Enums.Texture.TopLeft" />
+        </div>
+
+        <div class="faction-header-content">
+            <div class="faction-title-line mt-2xl" aria-hidden="true">
+                <TitleLine />
+            </div>
+
+            <ResponsiveContainer Type="ContainerType.Flex" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.Center" Padding="none">
+                <FactionIconImg FactionName="@FactionName" />
+                <FactionTitle FactionName="@FactionName" Width="50" />
+                <FactionIconImg FactionName="@FactionName" />
+            </ResponsiveContainer>
+
+            <div class="faction-title-line" aria-hidden="true">
+                <TitleLine />
+            </div>
+        </div>
+    </header>
+        
+    <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Gap="0" AlignItems="Enums.AlignItems.FlexStart" CssClass="faction-header-body">
+
+        <ResponsiveContainer Padding="none" Type="ContainerType.Flex" Direction="Enums.FlexDirection.Column">
+            <FactionQuote />
+            <FactionSystemStats />
+            <FactionSystemInfo />
+        </ResponsiveContainer>
+
+        <ResponsiveContainer Padding="none" Type="ContainerType.Flex" Direction="Enums.FlexDirection.Column" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.Center">
+            <FactionImage />
+
+        </ResponsiveContainer>
+
+    </ResponsiveGridContainer>
+</div>

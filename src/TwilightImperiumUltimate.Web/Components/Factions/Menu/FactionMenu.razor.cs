@@ -22,7 +22,7 @@ public partial class FactionMenu : TwilightImperiumBaseComponent
 
     protected override async Task OnInitializedAsync()
     {
-        _source = FactionProvider.Source ?? FactionSource.Official;
+        _source = FactionProvider.CurrentSource;
     }
 
     private Type GetFactionMenuType() => _source switch

@@ -1,6 +1,8 @@
 ﻿@using TwilightImperiumUltimate.Web.Helpers.Resources
 
-<div class="mb-md"><RuleSearchBar OnSearchChange="GetFilteredRulesAndNotes" /></div>
+<div class="mb-md">
+    <RuleSearchBar OnSearchChange="GetFilteredRulesAndNotes" />
+</div>
 
 <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexEnd">
     <YesNoPicker Title="@Strings.Rules_ShowNotes" Width="30" OnValueChange="ToggleNotes" DefaultValue="_showNotes"/>

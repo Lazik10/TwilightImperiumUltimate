@@ -1,3 +1,4 @@
 ﻿<img src="@(ImgPath())"
-     style="height: @GetHeight();"
-     class="faction-icon"/>
+     style="@GetInlineStyle()"
+     class="faction-icon"
+     alt="@FactionName.GetDisplayName()" />
