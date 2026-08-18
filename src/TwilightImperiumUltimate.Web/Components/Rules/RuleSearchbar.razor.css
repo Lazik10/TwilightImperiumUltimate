@@ -1,3 +1,79 @@
-﻿.radzen-textbox {
-    background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.5) 10%, rgba(0,0,0,0.5) 90%, rgba(0,0,0,0));
+.rules-search {
+    display: grid;
+    grid-template-columns: auto minmax(220px, 1fr) auto;
+    gap: 16px;
+    align-items: center;
+    width: 100%;
+    min-height: 54px;
+}
+
+.rules-search label {
+    font-size: 17px;
+    text-transform: uppercase;
+}
+
+.rules-search-control {
+    position: relative;
+}
+
+.rules-search-input {
+    width: 100%;
+    min-height: 38px;
+    padding: 7px 70px 7px 14px;
+    box-sizing: border-box;
+    border: 0;
+    border-bottom: 1px solid rgba(142, 207, 255, 0.75);
+    border-radius: 0;
+    outline: none;
+    color: white;
+    font-family: Myriad Pro Regular, fallback, sans-serif;
+    font-size: 17px;
+    background: rgba(0, 0, 0, 0.28);
+}
+
+.rules-search-input:focus {
+    border-bottom-color: white;
+    outline: 1px solid rgba(142, 207, 255, 0.7);
+    outline-offset: 2px;
+    background: rgba(10, 40, 64, 0.45);
+}
+
+.rules-search-clear {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    padding: 5px 7px;
+    border: 0;
+    color: #8ecfff;
+    font-size: 11px;
+    background: transparent;
+    cursor: pointer;
+    text-transform: uppercase;
+    transform: translateY(-50%);
+}
+
+.rules-search-clear:hover,
+.rules-search-clear:focus-visible {
+    color: white;
+}
+
+.rules-search-count {
+    color: #8ecfff;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+@media (max-width: 576px) {
+    .rules-search {
+        grid-template-columns: 1fr;
+        gap: 7px;
+    }
+
+    .rules-search label {
+        font-size: 14px;
+    }
+
+    .rules-search-count {
+        justify-self: end;
+    }
 }

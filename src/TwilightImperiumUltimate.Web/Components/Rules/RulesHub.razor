@@ -1,0 +1,57 @@
+﻿<div class="rules-hub">
+    <div class="rules-search-shell rules-global-search">
+        <RuleSearchbar Value="@_searchValue"
+                       Placeholder="Search all rules, factions, and components..."
+                       OnSearchChange="SearchAll" />
+    </div>
+
+    <RulesNavigation ActiveSection="@Section" />
+
+    @if (!string.IsNullOrWhiteSpace(SearchWord) && SearchWord.Trim().Length < 2)
+    {
+        <div class="rules-status" aria-live="polite">
+            Enter at least 2 characters to search all rules.
+        </div>
+    }
+    else if (!string.IsNullOrWhiteSpace(SearchWord))
+    {
+        <div class="rules-global-results">
+            <section>
+                <h2 class="rules-global-heading handel white shadow">Reference</h2>
+                <RuleGrid SearchWord="@SearchWord" CompactSearchResults="true" />
+            </section>
+            <section>
+                <h2 class="rules-global-heading handel white shadow">Factions</h2>
+                <FactionFaqGrid SearchWord="@SearchWord" CompactSearchResults="true" />
+            </section>
+            <section>
+                <h2 class="rules-global-heading handel white shadow">Components</h2>
+                <ComponentFaqGrid SearchWord="@SearchWord" CompactSearchResults="true" />
+            </section>
+        </div>
+    }
+    else
+    {
+        @switch (Section)
+        {
+            case "rules":
+                <RuleGrid Letter="@Letter" RuleId="@RuleId" />
+                break;
+            case "factions":
+                <FactionFaqGrid Source="@Source"
+                                Version="@Version"
+                                ItemKey="@ItemKey" />
+                break;
+            case "components":
+                <ComponentFaqGrid Category="@Category"
+                                  ItemKey="@ItemKey" />
+                break;
+            case "resources":
+                <RulesResources />
+                break;
+            default:
+                <RulesIndex />
+                break;
+        }
+    }
+</div>

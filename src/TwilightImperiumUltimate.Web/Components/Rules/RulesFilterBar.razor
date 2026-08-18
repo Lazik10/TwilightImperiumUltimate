@@ -1,0 +1,51 @@
+<div class="@CssClass" role="group" aria-label="@AriaLabel">
+    @foreach (var item in Items)
+    {
+        <button type="button"
+                aria-pressed="@(IsActive(item) ? "true" : "false")"
+                disabled="@(!item.IsEnabled)"
+                @key="item.Value"
+                @onclick="() => SelectItem(item)">
+            @item.Label
+        </button>
+    }
+</div>
+
+@code {
+    [Parameter, EditorRequired]
+    public IReadOnlyCollection<RulesIndexItem> Items { get; set; } = [];
+
+    [Parameter]
+    public string ActiveValue { get; set; } = string.Empty;
+
+    [Parameter]
+    public string AriaLabel { get; set; } = "Filters";
+
+    [Parameter]
+    public bool Compact { get; set; }
+
+    [Parameter]
+    public bool Dense { get; set; }
+
+    [Parameter]
+    public EventCallback<string> OnSelected { get; set; }
+
+    private Task SelectItem(RulesIndexItem item)
+    {
+        var value = AllowDeselect && item.Value == ActiveValue
+            ? string.Empty
+            : item.Value;
+        return OnSelected.InvokeAsync(value);
+    }
+
+    private bool AllowDeselect => Compact;
+
+    private bool IsActive(RulesIndexItem item) => item.Value == ActiveValue;
+
+    private string CssClass => string.Join(' ', new[]
+    {
+        "rules-filter-bar",
+        Compact ? "rules-sub-filter" : string.Empty,
+        Dense ? "rules-dense-filter" : string.Empty,
+    }.Where(cssClass => !string.IsNullOrEmpty(cssClass)));
+}

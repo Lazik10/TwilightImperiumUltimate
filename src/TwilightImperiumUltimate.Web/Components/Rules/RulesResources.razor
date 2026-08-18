@@ -1,0 +1,39 @@
+<section class="rules-resources handel white shadow">
+    <h1 class="rules-visually-hidden">Rules resources</h1>
+    <div class="resources-list">
+        @foreach (var resource in Resources)
+        {
+            <a href="@resource.Url" target="_blank" rel="noopener noreferrer">
+                <img src="/resources/images/shared/icons/pdfdownload.webp" alt="" />
+                <span>
+                    <strong>@GetDisplayTitle(resource.Title)</strong>
+                </span>
+                <b aria-hidden="true">&rsaquo;</b>
+                <span class="rules-visually-hidden">Opens in a new tab</span>
+            </a>
+        }
+    </div>
+</section>
+
+@code {
+    private static readonly IReadOnlyCollection<ResourceLink> Resources =
+    [
+        new(Strings.RulesResource_CompleteReference, Strings.RulesResource_CompleteReferenceLink),
+        new(Strings.RulesResource_LearnToPlay, Strings.RulesResource_LearnToPlayLink),
+        new(Strings.RulesResource_Summary, Strings.RulesResource_SummaryLink),
+        new(Strings.RulesResource_Cheatsheet, Strings.RulesResource_CheatSheetLink),
+        new(Strings.RulesResource_GuideToTheImperium, Strings.RulesResource_GuideToTheImperiumLink),
+        new(Strings.RulesResource_LivingRulesReference, Strings.RulesResource_LivingRulesReferenceLink),
+        new(Strings.RulesResource_LivingRulesReferenceTwo, Strings.RulesResource_LivingRulesReferenceTwoLink),
+        new(Strings.RulesResource_ProphecyOfKingsRules, Strings.RulesResource_ProphecyOfKingsRulesLink),
+        new(Strings.RulesResource_AgendaPhase, Strings.RulesResource_AgendaPhaseLink),
+        new(Strings.RulesResource_Faq, Strings.RulesResource_FaqLink),
+        new(Strings.RulesResource_FaqTwo, Strings.RulesResource_FaqTwoLink),
+    ];
+
+    private static string GetDisplayTitle(string title) =>
+        title.Replace("Twilight Imperium 4th Edition PoK - ", "PoK - ")
+            .Replace("Twilight Imperium 4th Edition - ", string.Empty);
+
+    private sealed record ResourceLink(string Title, string Url);
+}

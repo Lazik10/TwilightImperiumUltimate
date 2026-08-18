@@ -1,0 +1,116 @@
+.rules-index-page {
+    width: 80%;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.rules-index-title {
+    max-width: 900px;
+}
+
+.rules-index-title h1 {
+    margin: 0;
+    font-size: 34px;
+    text-transform: uppercase;
+}
+
+.rules-index-line {
+    height: 1px;
+    margin: 6px 0 14px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255, 255, 255, 0.45) 12%,
+        rgba(255, 255, 255, 0.45) 88%,
+        transparent);
+}
+
+.rules-index-links {
+    display: grid;
+    gap: 6px;
+}
+
+.rules-index-links a {
+    display: grid;
+    grid-template-columns: 58px minmax(0, 1fr);
+    gap: 18px;
+    align-items: center;
+    min-height: 68px;
+    padding: 8px 7%;
+    box-sizing: border-box;
+    color: white;
+    text-decoration: none;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.58) 10%, rgba(0, 0, 0, 0.58) 90%, rgba(0, 0, 0, 0));
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.rules-index-links img {
+    width: 54px;
+    height: 54px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 5px #000);
+    transition: transform 0.2s ease;
+}
+
+.rules-index-links strong {
+    display: block;
+    color: white;
+    font-size: 27px;
+    text-transform: uppercase;
+}
+
+.rules-index-links small {
+    display: block;
+    margin-top: 3px;
+    color: rgba(255, 255, 255, 0.68);
+    font-family: Myriad Pro Regular, fallback, sans-serif;
+    font-size: 15px;
+    line-height: 1.25;
+}
+
+.rules-index-links a:hover,
+.rules-index-links a:focus-visible {
+    outline: 2px solid rgba(142, 207, 255, 0.8);
+    outline-offset: -2px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(12, 44, 70, 0.75) 10%, rgba(12, 44, 70, 0.75) 90%, rgba(0, 0, 0, 0));
+}
+
+.rules-index-links a:hover img,
+.rules-index-links a:focus-visible img {
+    transform: scale(1.12);
+}
+
+.rules-index-links a:hover strong,
+.rules-index-links a:focus-visible strong {
+    color: #8ecfff;
+}
+
+@media (max-width: 768px) {
+    .rules-index-page {
+        width: 92%;
+    }
+
+    .rules-index-title h1 {
+        font-size: 29px;
+    }
+
+    .rules-index-links a {
+        grid-template-columns: 52px 1fr;
+        gap: 14px;
+        min-height: 66px;
+        padding: 9px 6%;
+    }
+
+    .rules-index-links img {
+        width: 44px;
+        height: 44px;
+    }
+
+    .rules-index-links strong {
+        font-size: 21px;
+    }
+
+    .rules-index-links small {
+        font-size: 14px;
+    }
+}

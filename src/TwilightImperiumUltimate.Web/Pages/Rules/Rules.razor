@@ -1,4 +1,10 @@
 ﻿@page "/rules"
+@page "/rules/reference"
+@page "/rules/reference/{RuleId:int}"
+@page "/rules/factions"
+@page "/rules/factions/{ItemKey}"
+@page "/rules/components"
+@page "/rules/components/{ItemKey}"
 @using TwilightImperiumUltimate.Web.Components.Rules
 @using TwilightImperiumUltimate.Web.Components.Shared
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
@@ -8,5 +14,13 @@
 <PageTitle>@Strings.Page_Rules</PageTitle>
 
 <Page>
-    <RuleGrid SearchWord="@SearchWord" />
+    <RulesHub Section="@_section"
+              SearchWord="@SearchWord"
+              Letter="@Letter"
+              Category="@Category"
+              Source="@Source"
+              Version="@Version"
+              RuleId="@RuleId"
+              ItemKey="@ItemKey"
+              @key="_section" />
 </Page>

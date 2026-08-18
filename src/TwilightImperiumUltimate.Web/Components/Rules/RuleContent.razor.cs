@@ -22,4 +22,6 @@ public partial class RuleContent
     }
 
     private int GetTransformedRuleId() => (int)TransformedRule.RuleCategory;
+
+    private string GetTransformedRuleAnchor() => $"rule-{GetTransformedRuleId()}";
 }

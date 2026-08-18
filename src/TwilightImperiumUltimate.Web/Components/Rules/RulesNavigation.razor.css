@@ -1,0 +1,75 @@
+.rules-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    min-height: 46px;
+    margin: 0 auto 24px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5) 10%, rgba(0, 0, 0, 0.5) 90%, rgba(0, 0, 0, 0));
+}
+
+.rules-navigation a {
+    position: relative;
+    flex: 1 1 135px;
+    max-width: 260px;
+    min-height: 46px;
+    padding: 12px 18px;
+    box-sizing: border-box;
+    color: white;
+    font-size: 19px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+}
+
+.rules-navigation a::after {
+    content: "";
+    position: absolute;
+    right: 25%;
+    bottom: 7px;
+    left: 25%;
+    height: 1px;
+    background: #8ecfff;
+    opacity: 0;
+    transform: scaleX(0);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.rules-navigation a:hover,
+.rules-navigation a.active {
+    color: #8ecfff;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(18, 57, 87, 0.42), rgba(0, 0, 0, 0));
+}
+
+.rules-navigation a:hover::after,
+.rules-navigation a.active::after {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+.rules-navigation a:focus-visible {
+    outline: 2px solid #8ecfff;
+    outline-offset: -4px;
+}
+
+@media (max-width: 768px) {
+    .rules-navigation {
+        display: flex;
+        width: 92%;
+        margin-bottom: 18px;
+        background: none;
+    }
+
+    .rules-navigation a {
+        flex: 1 1 145px;
+        max-width: none;
+        min-height: 44px;
+        padding: 10px 14px;
+        box-sizing: border-box;
+        font-size: 14px;
+        background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5) 10%, rgba(0, 0, 0, 0.5) 90%, rgba(0, 0, 0, 0));
+    }
+}

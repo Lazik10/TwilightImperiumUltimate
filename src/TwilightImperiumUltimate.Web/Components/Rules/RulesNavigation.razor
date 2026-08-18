@@ -1,0 +1,15 @@
+<nav class="rules-navigation handel shadow" aria-label="Rules sections">
+    <a class="@GetClass("rules")" href="/rules/reference" aria-current="@GetAriaCurrent("rules")">Reference</a>
+    <a class="@GetClass("factions")" href="/rules/factions" aria-current="@GetAriaCurrent("factions")">Factions</a>
+    <a class="@GetClass("components")" href="/rules/components" aria-current="@GetAriaCurrent("components")">Components</a>
+    <a class="@GetClass("resources")" href="/rules/resources" aria-current="@GetAriaCurrent("resources")">Resources</a>
+</nav>
+
+@code {
+    [Parameter]
+    public string ActiveSection { get; set; } = string.Empty;
+
+    private string GetClass(string section) => ActiveSection == section ? "active" : string.Empty;
+
+    private string? GetAriaCurrent(string section) => ActiveSection == section ? "page" : null;
+}

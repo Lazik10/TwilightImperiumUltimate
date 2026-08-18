@@ -1,0 +1,141 @@
+@using System.Globalization
+
+<section class="faq-catalog handel white shadow">
+    @if (_isLoading)
+    {
+        <div class="rules-status" aria-live="polite">Loading components...</div>
+    }
+    else if (_loadFailed)
+    {
+        <div class="rules-status rules-status-error">
+            <h2>Components could not be loaded</h2>
+            <p>Check the API connection and try again.</p>
+            <button type="button" class="rules-action-button handel" @onclick="RetryLoad">Retry</button>
+        </div>
+    }
+    else
+    {
+        @if (SelectedComponent is null)
+        {
+            <h1 class="rules-visually-hidden">Components</h1>
+        }
+
+        @if (string.IsNullOrWhiteSpace(SearchTerm))
+        {
+            <RulesFilterBar Items="@ComponentFilterItems"
+                            ActiveValue="@ActiveCategory"
+                            AriaLabel="Component category filters"
+                            OnSelected="SelectCategory" />
+
+            @if (SelectedComponent is null)
+            {
+                <RulesFilterBar Items="@LetterFilterItems"
+                                ActiveValue="@ActiveLetter"
+                                AriaLabel="Component letter filters"
+                                Compact="true"
+                                Dense="true"
+                                OnSelected="SelectLetter" />
+            }
+        }
+
+        @if (!string.IsNullOrWhiteSpace(ItemKey) && SelectedComponent is null)
+        {
+            <div class="rules-status rules-status-error">
+                <h2>Component not found</h2>
+                <p>The requested component does not exist.</p>
+                <a class="rules-action-button handel" href="@GetCatalogPath()">Back to Components</a>
+            </div>
+        }
+        else if (SelectedComponent is null)
+        {
+            @if (FilteredComponentCount == 0)
+            {
+                <div class="rules-empty" aria-live="polite">
+                    No components match the current search and category.
+                </div>
+            }
+            else if (CompactSearchResults)
+            {
+                <div class="faq-link-list component-link-list rules-global-link-list">
+                    @foreach (var component in ComponentGroups.SelectMany(group => group.Items))
+                    {
+                        <a href="@GetComponentPath(component)" @key="component.Key">
+                            <small>@component.Category</small>
+                            <span>@component.Title</span>
+                        </a>
+                    }
+                </div>
+            }
+            else
+            {
+                <div class="component-groups">
+                    @foreach (var group in ComponentGroups)
+                    {
+                        <section class="component-group" @key="group.Title">
+                            <header class="faq-index-heading">
+                                <h2>@group.Title</h2>
+                            </header>
+                            <div class="faq-link-list component-link-list">
+                                @foreach (var component in group.Items)
+                                {
+                                    <a href="@GetComponentPath(component)" @key="component.Key">
+                                        <small>@component.Category</small>
+                                        <span>@component.Title</span>
+                                    </a>
+                                }
+                            </div>
+                        </section>
+                    }
+                </div>
+            }
+        }
+        else
+        {
+            <div class="faq-detail-nav">
+                <a href="@GetCatalogPath()">&lsaquo; Back to Components</a>
+                @if (!string.IsNullOrWhiteSpace(SearchTerm) || ActiveCategory != AllCategory)
+                {
+                    <a href="@GetCatalogPath()">View filtered components</a>
+                }
+            </div>
+
+            <div class="faq-detail-title">
+                <span>@SelectedComponent.Category</span>
+                <h1>@SelectedComponent.Title</h1>
+            </div>
+            <div class="faq-title-line" aria-hidden="true"></div>
+
+            <section class="faq-detail-section">
+                <h2>Notes</h2>
+                @{
+                    var notes = GetComponentNotes(SelectedComponent);
+                }
+                @if (string.IsNullOrWhiteSpace(notes.Value))
+                {
+                    <p class="faq-empty-copy">No component-specific notes.</p>
+                }
+                else
+                {
+                    <div class="faq-markup">@notes</div>
+                }
+            </section>
+
+            <section class="faq-detail-section">
+                <h2>FAQ</h2>
+                @if (SelectedFaqs.Count == 0)
+                {
+                    <p class="faq-empty-copy">No FAQ entries for this component.</p>
+                }
+                else
+                {
+                    @foreach (var faq in SelectedFaqs)
+                    {
+                        <div class="faq-answer" @key="faq.Id">
+                            <FaqRow Faq="@faq" Culture="@CultureInfo.CurrentCulture.Name" />
+                        </div>
+                    }
+                }
+            </section>
+        }
+    }
+</section>

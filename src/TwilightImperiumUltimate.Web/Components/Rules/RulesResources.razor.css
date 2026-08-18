@@ -1,0 +1,75 @@
+.rules-resources {
+    width: 80%;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.rules-visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.resources-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px 24px;
+}
+
+.resources-list a {
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr) auto;
+    gap: 12px;
+    align-items: center;
+    min-height: 58px;
+    padding: 8px 16px;
+    color: white;
+    text-decoration: none;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.18) 84%, transparent);
+}
+
+.resources-list img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.resources-list span {
+    display: grid;
+    min-width: 0;
+}
+
+.resources-list strong {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.resources-list b {
+    color: #8ecfff;
+    font-size: 25px;
+}
+
+.resources-list a:hover,
+.resources-list a:focus-visible {
+    color: #8ecfff;
+    outline: 1px solid rgba(142, 207, 255, 0.65);
+    outline-offset: -1px;
+    background: linear-gradient(to right, rgba(14, 55, 86, 0.78), rgba(6, 22, 36, 0.3) 84%, transparent);
+}
+
+@media (max-width: 768px) {
+    .rules-resources {
+        width: 92%;
+    }
+
+    .resources-list {
+        grid-template-columns: 1fr;
+    }
+}
