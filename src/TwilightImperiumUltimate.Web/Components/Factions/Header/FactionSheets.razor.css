@@ -1,0 +1,33 @@
+.button-width {
+    width: 50%;
+}
+
+@media (max-width: 1750px) {
+    .button-width {
+        width: 60% !important;
+    }
+}
+
+@media (max-width: 1500px) {
+    .button-width {
+        width: 70% !important;
+    }
+}
+
+@media (max-width: 1300px) {
+    .button-width {
+        width: 80% !important;
+    }
+}
+
+@media (max-width: 1024px) {
+    .button-width {
+        width: 50% !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .button-width {
+        width: 60% !important;
+    }
+}

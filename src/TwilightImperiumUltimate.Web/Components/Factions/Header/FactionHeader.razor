@@ -12,10 +12,10 @@
                 <TitleLine />
             </div>
 
-            <ResponsiveContainer Type="ContainerType.Flex" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.Center" Padding="none">
-                <FactionIconImg FactionName="@FactionName" />
+            <ResponsiveContainer Type="ContainerType.Flex" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.Center" Padding="none" CssClass="faction-title-row">
+                <FactionIconImg FactionName="@FactionName" Width="20%" />
                 <FactionTitle FactionName="@FactionName" Width="50" />
-                <FactionIconImg FactionName="@FactionName" />
+                <FactionIconImg FactionName="@FactionName" Width="20%" />
             </ResponsiveContainer>
 
             <div class="faction-title-line" aria-hidden="true">
@@ -24,17 +24,19 @@
         </div>
     </header>
         
-    <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Gap="0" AlignItems="Enums.AlignItems.FlexStart" CssClass="faction-header-body">
+    <ResponsiveGridContainer Columns="2" TabletColumns="1" MobileColumns="1" Gap="0" AlignItems="Enums.AlignItems.FlexStart" CssClass="faction-header-body">
 
-        <ResponsiveContainer Padding="none" Type="ContainerType.Flex" Direction="Enums.FlexDirection.Column">
+        <ResponsiveContainer Padding="none" Type="ContainerType.Flex" Direction="Enums.FlexDirection.Column" CssClass="faction-header-text-column">
             <FactionQuote />
             <FactionSystemStats />
             <FactionSystemInfo />
+            <FactionSheets />
         </ResponsiveContainer>
 
-        <ResponsiveContainer Padding="none" Type="ContainerType.Flex" Direction="Enums.FlexDirection.Column" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.Center">
+        <ResponsiveContainer Padding="none" Type="ContainerType.Flex" Direction="Enums.FlexDirection.Column" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.Center" CssClass="faction-header-image-column">
             <FactionImage />
-
+            <FactionComplexity />
+            <FactionCommodity />
         </ResponsiveContainer>
 
     </ResponsiveGridContainer>

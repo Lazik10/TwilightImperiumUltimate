@@ -60,6 +60,16 @@
     padding-left: var(--faction-texture-width);
 }
 
+::deep .faction-title-row {
+    padding-left: var(--faction-texture-width);
+    box-sizing: border-box;
+}
+
+::deep .faction-header-text-column {
+    padding-right: var(--space-md);
+    box-sizing: border-box;
+}
+
 @media (max-width: 1248px) {
     .faction-header-layout {
         --faction-texture-width: clamp(9rem, 14vw, 14rem);
@@ -102,5 +112,17 @@
 
     ::deep .faction-header-body {
         padding-left: 0;
+    }
+
+    ::deep .faction-title-row {
+        padding-left: 0;
+    }
+
+    ::deep .faction-header-text-column {
+        padding-right: 0;
+    }
+
+    ::deep .faction-header-image-column {
+        order: -1;
     }
 }

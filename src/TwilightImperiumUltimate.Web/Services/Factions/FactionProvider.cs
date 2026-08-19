@@ -3,11 +3,14 @@ using TwilightImperiumUltimate.Web.Helpers.Enums;
 namespace TwilightImperiumUltimate.Web.Services.Factions;
 
 /// <inheritdoc cref="IFactionProvider" />
-public class FactionProvider(ITwilightImperiumApiHttpClient httpClient) : IFactionProvider
+public class FactionProvider(
+    ITwilightImperiumApiHttpClient httpClient,
+    NavigationManager navigationManager) : IFactionProvider
 {
     private static readonly TimeSpan CacheDuration = TimeSpan.FromHours(24);
     private readonly SemaphoreSlim _refreshLock = new(1, 1);
     private readonly ITwilightImperiumApiHttpClient _httpClient = httpClient;
+    private readonly NavigationManager _navigationManager = navigationManager;
 
     private IReadOnlyCollection<FactionDto> _factions = Array.Empty<FactionDto>();
     private FactionDto? _currentFaction;
@@ -27,14 +30,21 @@ public class FactionProvider(ITwilightImperiumApiHttpClient httpClient) : IFacti
 
     public void SetSource(FactionSource source) => _currentSource = source;
 
-    public void SetCurrentFactionName(FactionName factionName) => _currentFactionName = factionName;
+    public void SetCurrentFactionName(FactionName factionName)
+    {
+        _currentFactionName = factionName;
+        _currentFaction = GetFactionByName(factionName);
+        _currentSource = factionName.GetFactionSource();
+
+        _navigationManager.NavigateTo($"{Pages.Pages.Factions}/{_currentFactionName}");
+    }
     
     public FactionDto? GetFactionByName(FactionName factionName) => _factions?.SingleOrDefault(x => x.FactionName == factionName);
 
     public void UpdateSourceAndFaction(FactionSource source, FactionName factionName)
     {
-        SetSource(source);
-        SetCurrentFactionName(factionName);
+        _currentSource = source;
+        _currentFactionName = factionName;
         _currentFaction = GetFactionByName(factionName);
     }
 

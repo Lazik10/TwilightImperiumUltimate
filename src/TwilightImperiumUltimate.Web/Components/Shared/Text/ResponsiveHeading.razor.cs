@@ -44,6 +44,13 @@ public partial class ResponsiveHeading
     public bool? CenterText { get; set; }
 
     /// <summary>
+    /// Gets or sets a value indicating whether the heading text is prevented from wrapping
+    /// onto multiple lines. Defaults to <see langword="false"/> (normal wrapping behavior).
+    /// </summary>
+    [Parameter]
+    public bool NoWrap { get; set; }
+
+    /// <summary>
     /// Gets or sets additional CSS classes to apply to the heading.
     /// </summary>
     [Parameter]
@@ -72,7 +79,7 @@ public partial class ResponsiveHeading
     }
 
     private string ComputedStyle =>
-        $"font-size: {ResolveFontSize(FontSize ?? GetDefaultFontSizeForLevel())}; width: {Width}%; {Style}";
+        $"font-size: {ResolveFontSize(FontSize ?? GetDefaultFontSizeForLevel())}; width: {Width}%; {(NoWrap ? "white-space: nowrap; " : string.Empty)}{Style}";
 
     private static string ResolveFontSize(string fontSize) => fontSize switch
     {

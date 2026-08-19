@@ -1,7 +1,6 @@
 using System.Globalization;
 using TwilightImperiumUltimate.Web.Helpers.Enums;
 using TwilightImperiumUltimate.Web.Helpers.Factions;
-using TwilightImperiumUltimate.Web.Services.Factions;
 
 namespace TwilightImperiumUltimate.Web.Pages.Game;
 
@@ -42,6 +41,7 @@ public partial class Factions
     protected override async Task OnParametersSetAsync()
     {
         await ResolveSourceAndFaction();
+        _factionTemplateGridRef?.Refresh();
     }
 
     private static List<KeyValuePair<FactionSource, string>> GetFactionSourceOptions() =>
@@ -52,11 +52,6 @@ public partial class Factions
     private void OnSourceChanged(FactionSource newSource)
     {
         NavigationManager.NavigateTo($"/game/factions?source={newSource}");
-    }
-
-    private void UpdateFaction(FactionModel faction)
-    {
-        _factionTemplateGridRef?.Refresh();
     }
 
     private async Task ResolveSourceAndFaction()

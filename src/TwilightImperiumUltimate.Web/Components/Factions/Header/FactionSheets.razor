@@ -1,0 +1,21 @@
+<BigImageOverlay ImageSrc="@_imagePath"
+                 IsOpen="@_showImageOverlay"
+                 OnClose="() => Close()" />
+
+@if (_factionName != FactionName.TheFirmamentTheObsidian)
+{
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+        <ResponsiveButton ButtonText="@Strings.Faction_FrontSheet" OnClick="() => ShowOverlayImage(true, false)" CssClass="mb-md button-width" />
+        <ResponsiveButton ButtonText="@Strings.Faction_BackSheet" OnClick="() => ShowOverlayImage(false, false)" CssClass="mb-md button-width" />
+    </ResponsiveContainer>
+}
+else
+{
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+        <ResponsiveButton ButtonText="@Strings.Faction_FrontSheetFirmament" OnClick="() => ShowOverlayImage(true, false)" CssClass="mb-md button-width" />
+        <ResponsiveButton ButtonText="@Strings.Faction_BackSheetFirmament" OnClick="() => ShowOverlayImage(false, false)" CssClass="mb-md button-width" />
+
+        <ResponsiveButton ButtonText="@Strings.Faction_FrontSheetObsidian" OnClick="() => ShowOverlayImage(true, true)" CssClass="mb-md button-width" />
+        <ResponsiveButton ButtonText="@Strings.Faction_BackSheetObsidian" OnClick="() => ShowOverlayImage(false, true)" CssClass="mb-md button-width" />
+    </ResponsiveContainer>
+}
