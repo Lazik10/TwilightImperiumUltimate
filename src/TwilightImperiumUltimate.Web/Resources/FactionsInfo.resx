@@ -121,18 +121,12 @@
   </data>
 
   <data name="RohDhnaMechatronics_SystemStats" xml:space="preserve">
-    <value>PRIND SYSTEM:;
-
-✧ 
-Population:.2,63 Billion;
-
-✧ Government:.Executive Board;
-
-✧ Leadership:.Chief Officer;
-
-✧ Disposition:.Productive
-;
-✧ Tendencies:.Economic</value>
+    <value>&lt;p&gt;PRIND SYSTEM&lt;/p&gt;
+&lt;p&gt;✧ Population:&lt;/p&gt;&lt;p&gt;2,63 Billion&lt;/p&gt;
+&lt;p&gt;✧ Government:&lt;/p&gt;&lt;p&gt;Executive Board&lt;/p&gt;
+&lt;p&gt;✧ Leadership:&lt;/p&gt;&lt;p&gt;Chief Officer&lt;/p&gt;
+&lt;p&gt;✧ Disposition:&lt;/p&gt;&lt;p&gt;Productive&lt;/p&gt;
+&lt;p&gt;✧ Tendencies:&lt;/p&gt;&lt;p&gt;Economic&lt;/p&gt;</value>
   </data>
 
   <data name="RohDhnaMechatronics_Title" xml:space="preserve">
@@ -323,12 +317,12 @@ galaxy with blood in her name</value>
   </data>
 
   <data name="SardakkNorr_SystemStats" xml:space="preserve">
-    <value>SARDAKK SYSTEM:;
-✧ Population.28,71 billion;
-✧ Government.Veiled Brood;
-✧ Leadership.The Envoy;
-✧ Disposition.Aggressive;
-✧ Tendencies.Military</value>
+    <value>&lt;p&gt;SARDAKK SYSTEM&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;28,71 billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Veiled Brood&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;The Envoy&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Aggressive&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Military&lt;/p&gt;</value>
   </data>
 
   <data name="SardakkNorr_Title" xml:space="preserve">
@@ -705,12 +699,12 @@ the gas ring.</value>
   </data>
 
   <data name="TheArgentFlight_SystemStats" xml:space="preserve">
-    <value>ATHARAL GAS TORUS:;
-✧ Population.1,84 billion;
-✧ Government.Confederation;
-✧ Leadership.The Murmeration;
-✧ Disposition.Dedicated;
-✧ Tendencies.Military</value>
+    <value>&lt;p&gt;ATHARAL GAS TORUS&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;1,84 billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Confederation&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;The Murmeration&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Dedicated&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Military&lt;/p&gt;</value>
   </data>
 
   <data name="TheArgentFlight_Title" xml:space="preserve">
@@ -757,16 +751,12 @@ the gas ring.</value>
   </data>
 
   <data name="TheAugursOfIlyxum_SystemStats" xml:space="preserve">
-    <value>THE CRADLE OF ILYXUM:;
-✧ Population:.11,03 Billion
-;
-✧ Government:.Predictive AI;
-
-✧ Leadership:.The Oracle;
-
-✧ Disposition:.Cryptic;
-
-✧ Tendencies:.Scientific</value>
+    <value>&lt;p&gt;THE CRADLE OF ILYXUM&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;11,03 Billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Predictive AI&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;The Oracle&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Cryptic&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Scientific&lt;/p&gt;</value>
   </data>
 
   <data name="TheAugursOfIlyxum_Title" xml:space="preserve">
@@ -994,12 +984,12 @@ and the same.</value>
   </data>
 
   <data name="TheBaronyOfLetnev_SystemStats" xml:space="preserve">
-    <value>BARONY SPACE:;
-✧ Population.10,47 billion;
-✧ Government.Barony;
-✧ Leadership.Daz Emmiciel Werqan III;
-✧ Disposition.Disdainful;
-✧ Tendencies.Military</value>
+    <value>&lt;p&gt;BARONY SPACE&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;10,47 billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Barony&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Daz Emmiciel Werqan III&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Disdainful&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Military&lt;/p&gt;</value>
   </data>
 
   <data name="TheBaronyOfLetnev_Title" xml:space="preserve">
@@ -1044,18 +1034,12 @@ and the same.</value>
   </data>
 
   <data name="TheBentorConglomerate_SystemStats" xml:space="preserve">
-    <value>BENTOR SYSTEM
-
-:;
-✧ Population:.9,57 Billion;
-✧ 
-Government:.Directorship;
-✧ 
-Leadership:.CEO Kenn Tucc
-;
-✧ Disposition:.Corporate
-;
-✧ Tendencies:.Economic</value>
+    <value>&lt;p&gt;BENTOR SYSTEM&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;9,57 Billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Directorship&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;CEO Kenn Tucc&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Corporate&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Economic&lt;/p&gt;</value>
   </data>
 
   <data name="TheBentorConglomerate_Title" xml:space="preserve">
@@ -1104,18 +1088,12 @@ Leadership:.CEO Kenn Tucc
   </data>
 
   <data name="TheBerserkersOfKjalengard_SystemStats" xml:space="preserve">
-    <value>VJOLLHALL
-
-:;
-✧ Population:.7,72 Billion;
-
-✧ Government:.Kingdom;
-
-✧ Leadership:.Grand Skald
-;
-✧ Disposition:.Spirited
-;
-✧ Tendencies:.Scientific</value>
+    <value>&lt;p&gt;VJOLLHALL&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;7,72 Billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Kingdom&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Grand Skald&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Spirited&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Scientific&lt;/p&gt;</value>
   </data>
 
   <data name="TheBerserkersOfKjalengard_Title" xml:space="preserve">
@@ -1163,18 +1141,12 @@ But all was not well. Piracy being an ever-present issue, the great Merchant Fam
   </data>
 
   <data name="TheCeldauriTradeConfederation_SystemStats" xml:space="preserve">
-    <value>AKLYON SYSTEM
-
-;
-✧ Population:.11,56 Billion
-;
-✧ Government:.Trade Union;
-✧ 
-Leadership:.High Councilor
-;
-✧ Disposition:.Optimistic;
-✧ 
-Tendencies:.Economic</value>
+    <value>&lt;p&gt;AKLYON SYSTEM&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;11,56 Billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Trade Union&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;High Councilor&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Optimistic&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Economic&lt;/p&gt;</value>
   </data>
 
   <data name="TheCeldauriTradeConfederation_Title" xml:space="preserve">
@@ -1225,18 +1197,12 @@ Tendencies:.Economic</value>
   </data>
 
   <data name="TheCheiranHordes_SystemStats" xml:space="preserve">
-    <value>CHEIRAN REACH
-
-:;
-✧ Population:.Unknown
-;
-✧ Government:.Demarchy
-;
-✧ Leadership:.Polemarch
-;
-✧ Disposition:.Pragmatic;
-✧ 
-Tendencies:.Objective</value>
+    <value>&lt;p&gt;CHEIRAN REACH&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Demarchy&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Polemarch&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Pragmatic&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Objective&lt;/p&gt;</value>
   </data>
 
   <data name="TheCheiranHordes_Title" xml:space="preserve">
@@ -1469,12 +1435,12 @@ ferocity unlike any other.</value>
   </data>
 
   <data name="TheClanOfSaar_SystemStats" xml:space="preserve">
-    <value>JORUN ASTEROID FIELD:;
-✧ Population.1,01 billion;
-✧ Government.Admiralty;
-✧ Leadership.Council of Captains;
-✧ Disposition.Melancholy;
-✧ Tendencies.Objective</value>
+    <value>&lt;p&gt;JORUN ASTEROID FIELD&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;1,01 billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Admiralty&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Council of Captains&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Melancholy&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Objective&lt;/p&gt;</value>
   </data>
 
   <data name="TheClanOfSaar_Title" xml:space="preserve">
@@ -1700,12 +1666,12 @@ expensive construction process.</value>
   </data>
 
   <data name="TheCouncilKeleres_SystemStats" xml:space="preserve">
-    <value>IMPERIAL INTELLIGENCE HQ:;
-✧ Location.Mecatol City;
-✧ Leadership.The Tribunii;
-✧ Agents.Classified;
-✧ Support Staff.~5000;
-✧ Ongoing Ops.Classified</value>
+    <value>&lt;p&gt;IMPERIAL INTELLIGENCE HQ&lt;/p&gt;
+&lt;p&gt;✧ Location&lt;/p&gt;&lt;p&gt;Mecatol City&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;The Tribunii&lt;/p&gt;
+&lt;p&gt;✧ Agents&lt;/p&gt;&lt;p&gt;Classified&lt;/p&gt;
+&lt;p&gt;✧ Support Staff&lt;/p&gt;&lt;p&gt;~5000&lt;/p&gt;
+&lt;p&gt;✧ Ongoing Ops&lt;/p&gt;&lt;p&gt;Classified&lt;/p&gt;</value>
   </data>
 
   <data name="TheCouncilKeleres_Title" xml:space="preserve">
@@ -1754,17 +1720,12 @@ expensive construction process.</value>
   </data>
 
   <data name="TheDihMohnFlotilla_SystemStats" xml:space="preserve">
-    <value>NEW REST
-:;
-✧ Population:.5,22 Billion
-;
-✧ Government:.Admiralty
-;
-✧ Leadership:.First Admiral
-;
-✧ Disposition:.Unified
-;
-✧ Tendencies:.Expansionist</value>
+    <value>&lt;p&gt;NEW REST&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;5,22 Billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Admiralty&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;First Admiral&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Unified&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Expansionist&lt;/p&gt;</value>
   </data>
 
   <data name="TheDihMohnFlotilla_Title" xml:space="preserve">
@@ -1819,19 +1780,12 @@ expensive construction process.</value>
   </data>
 
   <data name="TheEdynMandate_SystemStats" xml:space="preserve">
-    <value>THE TWILIGHT THRONE
-
-:;
-✧ Population:.28,4 Billion
-;
-✧ Government:.The Mandate
-;
-✧ Leadership:.Living Will
-;
-✧ Disposition:.Graceful
-;
-✧ 
-Tendencies:.Objective</value>
+    <value>&lt;p&gt;THE TWILIGHT THRONE&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;28,4 Billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;The Mandate&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Living Will&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Graceful&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Objective&lt;/p&gt;</value>
   </data>
 
   <data name="TheEdynMandate_Title" xml:space="preserve">
@@ -2039,12 +1993,12 @@ and dreams of his people.</value>
   </data>
 
   <data name="TheEmbersOfMuaat_SystemStats" xml:space="preserve">
-    <value>MUAAT SYSTEM:;
-✧ Population.7,39 billion;
-✧ Government.Tribunal;
-✧ Leadership.Sushon Azh;
-✧ Disposition.Grim;
-✧ Tendencies.Military</value>
+    <value>&lt;p&gt;MUAAT SYSTEM&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;7,39 billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Tribunal&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Sushon Azh&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Grim&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Military&lt;/p&gt;</value>
   </data>
 
   <data name="TheEmbersOfMuaat_Title" xml:space="preserve">
@@ -2238,12 +2192,12 @@ worlds, their ancestral homes.</value>
   </data>
 
   <data name="TheEmiratesOfHacan_SystemStats" xml:space="preserve">
-    <value>KENARA SYSTEM:;
-✧ Population.8,82 billion;
-✧ Government.United Emirates;
-✧ Leadership.Quieron;
-✧ Disposition.Nomadic;
-✧ Tendencies.Economic</value>
+    <value>&lt;p&gt;KENARA SYSTEM&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;8,82 billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;United Emirates&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Quieron&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Nomadic&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Economic&lt;/p&gt;</value>
   </data>
 
   <data name="TheEmiratesOfHacan_Title" xml:space="preserve">
@@ -2401,12 +2355,12 @@ history of the galaxy</value>
   </data>
 
   <data name="TheEmpyrean_SystemStats" xml:space="preserve">
-    <value>THE DARK:;
-✧ Population.Fluctuates;
-✧ Government.Collective;
-✧ Leadership.None;
-✧ Disposition.Contemplative;
-✧ Tendencies.Political</value>
+    <value>&lt;p&gt;THE DARK&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;Fluctuates&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Collective&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;None&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Contemplative&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Political&lt;/p&gt;</value>
   </data>
 
   <data name="TheEmpyrean_Title" xml:space="preserve">
@@ -2579,12 +2533,12 @@ spacefaring races.</value>
   </data>
 
   <data name="TheFederationOfSol_SystemStats" xml:space="preserve">
-    <value>SOL SYSTEM:;
-✧ Population.16,44 billion;
-✧ Government.Federation;
-✧ Leadership.Juan Salvador Tao;
-✧ Disposition.Determined;
-✧ Tendencies.Expansionist</value>
+    <value>&lt;p&gt;SOL SYSTEM&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;16,44 billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Federation&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Juan Salvador Tao&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Determined&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Expansionist&lt;/p&gt;</value>
   </data>
 
   <data name="TheFederationOfSol_Title" xml:space="preserve">
@@ -2633,18 +2587,12 @@ spacefaring races.</value>
   </data>
 
   <data name="TheFlorzenProfiteers_SystemStats" xml:space="preserve">
-    <value>FLORZEN SYSTEM
-
-:;
-✧ Population:.6,75 Billion
-;
-✧ Government:.Administration
-;
-✧ Leadership:.It That Knows;
-✧ 
-Disposition:.Conspiratorial
-;
-✧ Tendencies:.Political</value>
+    <value>&lt;p&gt;FLORZEN SYSTEM&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;6,75 Billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Administration&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;It That Knows&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Conspiratorial&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Political&lt;/p&gt;</value>
   </data>
 
   <data name="TheFlorzenProfiteers_Title" xml:space="preserve">
@@ -2697,18 +2645,12 @@ Disposition:.Conspiratorial
   </data>
 
   <data name="TheFreeSystemsCompact_SystemStats" xml:space="preserve">
-    <value>HOPE'S HEART SYSTEM
-
-:;
-✧ Population:.17,57 Billion;
-✧ 
-Government:.Democracy;
-✧ 
-Leadership:.President Cyhn
-;
-✧ Disposition:.Placative;
-✧ 
-Tendencies:.Political</value>
+    <value>&lt;p&gt;HOPE'S HEART SYSTEM&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;17,57 Billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Democracy&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;President Cyhn&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Placative&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Political&lt;/p&gt;</value>
   </data>
 
   <data name="TheFreeSystemsCompact_Title" xml:space="preserve">
@@ -2754,18 +2696,12 @@ Tendencies:.Political</value>
   </data>
 
   <data name="TheGheminaRaiders_SystemStats" xml:space="preserve">
-    <value>THE TWINS
-
-:;
-✧ Population:.2 Billion
-;
-✧ Government:.United Clans;
-
-✧ Leadership:.Lord and Lady
-;
-✧ Disposition:.Vigorous
-;
-✧ Tendencies:.Expansionist</value>
+    <value>&lt;p&gt;THE TWINS&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;2 Billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;United Clans&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Lord and Lady&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Vigorous&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Expansionist&lt;/p&gt;</value>
   </data>
 
   <data name="TheGheminaRaiders_Title" xml:space="preserve">
@@ -3029,12 +2965,12 @@ questionable circumstances.</value>
   </data>
 
   <data name="TheGhostsOfCreuss_SystemStats" xml:space="preserve">
-    <value>SHALERI PASSAGE:;
-✧ Population.Unknown;
-✧ Government.Unknown;
-✧ Leadership.Unknown;
-✧ Disposition.Enigmatic;
-✧ Tendencies.Expansionist</value>
+    <value>&lt;p&gt;SHALERI PASSAGE&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Enigmatic&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Expansionist&lt;/p&gt;</value>
   </data>
 
   <data name="TheGhostsOfCreuss_Title" xml:space="preserve">
@@ -3087,18 +3023,12 @@ questionable circumstances.</value>
   </data>
 
   <data name="TheGhotiWayfarers_SystemStats" xml:space="preserve">
-    <value>GHOTI SPACE
-
-:;
-✧ Population:.Unknown
-;
-✧ Government:.None
-;
-✧ Leadership:.All-Mother
-;
-✧ Disposition:.Protective
-;
-✧ Tendencies:.Expansionist</value>
+    <value>&lt;p&gt;GHOTI SPACE&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;None&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;All-Mother&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Protective&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Expansionist&lt;/p&gt;</value>
   </data>
 
   <data name="TheGhotiWayfarers_Title" xml:space="preserve">
@@ -3147,18 +3077,12 @@ questionable circumstances.</value>
   </data>
 
   <data name="TheGledgeUnion_SystemStats" xml:space="preserve">
-    <value>THE FRINGE
-
-:;
-✧ Population:.917 Million;
-✧ 
-Government:.Contractorship
-;
-✧ Leadership:.Chief Delegate
-;
-✧ Disposition:.Inventive;
-✧ 
-Tendencies:.Expansionist</value>
+    <value>&lt;p&gt;THE FRINGE&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;917 Million&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Contractorship&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Chief Delegate&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Inventive&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Expansionist&lt;/p&gt;</value>
   </data>
 
   <data name="TheGledgeUnion_Title" xml:space="preserve">
@@ -3210,18 +3134,12 @@ Tendencies:.Expansionist</value>
   </data>
 
   <data name="TheGlimmerOfMortheus_SystemStats" xml:space="preserve">
-    <value>SHIMMERING VEIL:;
-✧ 
-
-Population:.Unknown
-;
-✧ Government:.Unknown
-;
-✧ Leadership:.Unknown
-;
-✧ Disposition:.Reflective
-;
-✧ Tendencies:.Unknown</value>
+    <value>&lt;p&gt;SHIMMERING VEIL&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Reflective&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;</value>
   </data>
 
   <data name="TheGlimmerOfMortheus_Title" xml:space="preserve">
@@ -3268,18 +3186,12 @@ Population:.Unknown
   </data>
 
   <data name="TheKolleccSociety_SystemStats" xml:space="preserve">
-    <value>SUROS SPACE
-
-:;
-✧ Population:.8,32 Billion;
-✧ 
-Government:.Bureaucracy
-;
-✧ Leadership:.Control
-;
-✧ Disposition:.Professional
-;
-✧ Tendencies:.Scientific</value>
+    <value>&lt;p&gt;SUROS SPACE&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;8,32 Billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Bureaucracy&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Control&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Professional&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Scientific&lt;/p&gt;</value>
   </data>
 
   <data name="TheKolleccSociety_Title" xml:space="preserve">
@@ -3331,18 +3243,12 @@ Government:.Bureaucracy
   </data>
 
   <data name="TheKortaliTribunal_SystemStats" xml:space="preserve">
-    <value>KORTALI SYSTEM:;
-✧ 
-
-Population:.18,7 Billion
-;
-✧ Government:.Kritarchy
-;
-✧ Leadership:.Tribunes
-;
-✧ Disposition:.Unrelenting
-;
-✧ Tendencies:.Military</value>
+    <value>&lt;p&gt;KORTALI SYSTEM&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;18,7 Billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Kritarchy&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Tribunes&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Unrelenting&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Military&lt;/p&gt;</value>
   </data>
 
   <data name="TheKortaliTribunal_Title" xml:space="preserve">
@@ -3390,18 +3296,12 @@ Population:.18,7 Billion
   </data>
 
   <data name="TheKyroSodality_SystemStats" xml:space="preserve">
-    <value>ROTHOLD:;
-✧ 
-
-Population:.Unknown
-;
-✧ Government:.Unknown
-;
-✧ Leadership:.Unknown
-;
-✧ Disposition:.Dangerous
-;
-✧ Tendencies:.Unknown</value>
+    <value>&lt;p&gt;ROTHOLD&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Dangerous&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;</value>
   </data>
 
   <data name="TheKyroSodality_Title" xml:space="preserve">
@@ -3613,12 +3513,12 @@ bombardments, however, is not.</value>
   </data>
 
   <data name="TheL1z1xMindnet_SystemStats" xml:space="preserve">
-    <value>UNKNOWN SYSTEM:;
-✧ Population.Unknown;
-✧ Government.Unknown;
-✧ Leadership.Ibna Vel Syd;
-✧ Disposition.Calculating;
-✧ Tendencies.Scientific</value>
+    <value>&lt;p&gt;UNKNOWN SYSTEM&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Ibna Vel Syd&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Calculating&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Scientific&lt;/p&gt;</value>
   </data>
 
   <data name="TheL1z1xMindnet_Title" xml:space="preserve">
@@ -3669,18 +3569,12 @@ bombardments, however, is not.</value>
   </data>
 
   <data name="TheLanefirRemnants_SystemStats" xml:space="preserve">
-    <value>LANEFIR SYSTEM
-
-:;
-✧ Population:.734 Million
-;
-✧ Government:.Conclave
-;
-✧ Leadership:.Myth Keeper
-;
-✧ Disposition:.Revolutionary
-;
-✧ Tendencies:.Political</value>
+    <value>&lt;p&gt;LANEFIR SYSTEM&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;734 Million&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Conclave&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Myth Keeper&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Revolutionary&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Political&lt;/p&gt;</value>
   </data>
 
   <data name="TheLanefirRemnants_Title" xml:space="preserve">
@@ -3730,18 +3624,12 @@ bombardments, however, is not.</value>
   </data>
 
   <data name="TheLiZhoDynasty_SystemStats" xml:space="preserve">
-    <value>PAX SYSTEM
-
-:;
-✧ Population:.9,07 Billion;
-✧ 
-Government:.High Council
-;
-✧ Leadership:.Khaz-Rin Li-Zho
-;
-✧ Disposition:.Honorable
-;
-✧ Tendencies:.Political</value>
+    <value>&lt;p&gt;PAX SYSTEM&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;9,07 Billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;High Council&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Khaz-Rin Li-Zho&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Honorable&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Political&lt;/p&gt;</value>
   </data>
 
   <data name="TheLiZhoDynasty_Title" xml:space="preserve">
@@ -3794,18 +3682,12 @@ Government:.High Council
   </data>
 
   <data name="TheLTokkKhrask_SystemStats" xml:space="preserve">
-    <value>GROVE OF L'TOKK
-:;
-✧ 
-Population:.Unknown
-;
-✧ Government:.Elder Conclave
-;
-✧ Leadership:.Archdruid
-;
-✧ Disposition:.Pensive
-;
-✧ Tendencies:.Political</value>
+    <value>&lt;p&gt;GROVE OF L'TOKK&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Elder Conclave&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Archdruid&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Pensive&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Political&lt;/p&gt;</value>
   </data>
 
   <data name="TheLTokkKhrask_Title" xml:space="preserve">
@@ -3984,12 +3866,12 @@ own advantage.</value>
   </data>
 
   <data name="TheMahactGeneSorcerers_SystemStats" xml:space="preserve">
-    <value>IXTH:;
-✧ Population.Unknown;
-✧ Government.Coalition;
-✧ Leadership.Vertar Auran Oblis;
-✧ Disposition.Imperious;
-✧ Tendencies.Objective</value>
+    <value>&lt;p&gt;IXTH&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Coalition&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Vertar Auran Oblis&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Imperious&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Objective&lt;/p&gt;</value>
   </data>
 
   <data name="TheMahactGeneSorcerers_Title" xml:space="preserve">
@@ -4202,12 +4084,12 @@ vague, code of honor.</value>
   </data>
 
   <data name="TheMentakCoalition_SystemStats" xml:space="preserve">
-    <value>MOLL SYSTEM:;
-✧ Population.2,55 billion;
-✧ Government.Table of Captains;
-✧ Leadership.Erwan’s Hand;
-✧ Disposition.Rebellious;
-✧ Tendencies.Economic</value>
+    <value>&lt;p&gt;MOLL SYSTEM&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;2,55 billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Table of Captains&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Erwan’s Hand&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Rebellious&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Economic&lt;/p&gt;</value>
   </data>
 
   <data name="TheMentakCoalition_Title" xml:space="preserve">
@@ -4253,18 +4135,12 @@ vague, code of honor.</value>
   </data>
 
   <data name="TheMirvedaProtectorate_SystemStats" xml:space="preserve">
-    <value>THE BASTION
-
-:;
-✧ Population:.11,12 Billion
-;
-✧ Government:.Custodianship
-;
-✧ Leadership:.AI Cluster
-;
-✧ Disposition:.Vigilant
-;
-✧ Tendencies:.Scientific</value>
+    <value>&lt;p&gt;THE BASTION&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;11,12 Billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Custodianship&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;AI Cluster&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Vigilant&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Scientific&lt;/p&gt;</value>
   </data>
 
   <data name="TheMirvedaProtectorate_Title" xml:space="preserve">
@@ -4313,18 +4189,12 @@ vague, code of honor.</value>
   </data>
 
   <data name="TheMonksOfKolume_SystemStats" xml:space="preserve">
-    <value>STARLIT TEMPLE
-:;
-✧ 
-Population:.33,3 Million
-;
-✧ Government:.Faculty
-;
-✧ Leadership:.Grandmaster
-;
-✧ Disposition:.Meditative
-;
-✧ Tendencies:.Scientific</value>
+    <value>&lt;p&gt;STARLIT TEMPLE&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;33,3 Million&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Faculty&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Grandmaster&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Meditative&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Scientific&lt;/p&gt;</value>
   </data>
 
   <data name="TheMonksOfKolume_Title" xml:space="preserve">
@@ -4373,17 +4243,12 @@ Population:.33,3 Million
   </data>
 
   <data name="TheMykoMentori_SystemStats" xml:space="preserve">
-    <value>SHAI-HALAUM
-
-:;
-✧ Population:.Unknown
-;
-✧ Government:.Elder Council
-;
-✧ Leadership:.High Shamans
-;
-✧ Disposition:.Eccentric;
-✧ Tendencies:.Objective</value>
+    <value>&lt;p&gt;SHAI-HALAUM&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Elder Council&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;High Shamans&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Eccentric&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Objective&lt;/p&gt;</value>
   </data>
 
   <data name="TheMykoMentori_Title" xml:space="preserve">
@@ -4612,12 +4477,12 @@ deep into the minds of the
   </data>
 
   <data name="TheNaaluCollective_SystemStats" xml:space="preserve">
-    <value>MALLAC SYSTEM:;
-✧ Population.4,72 billion;
-✧ Government.Collective;
-✧ Leadership.Q’uesh Sish;
-✧ Disposition.Seductive;
-✧ Tendencies.Military</value>
+    <value>&lt;p&gt;MALLAC SYSTEM&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;4,72 billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Collective&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Q’uesh Sish&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Seductive&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Military&lt;/p&gt;</value>
   </data>
 
   <data name="TheNaaluCollective_Title" xml:space="preserve">
@@ -4756,12 +4621,12 @@ about it so much.</value>
   </data>
 
   <data name="TheNaazRokhaAlliance_SystemStats" xml:space="preserve">
-    <value>NAAZIR-ROKHA DUAL SYSTEM:;
-✧ Population.12,7 billion;
-✧ Government.Alliance;
-✧ Leadership.The Tetrarchy;
-✧ Disposition.Optimistic;
-✧ Tendencies.Scientific</value>
+    <value>&lt;p&gt;NAAZIR-ROKHA DUAL SYSTEM&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;12,7 billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Alliance&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;The Tetrarchy&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Optimistic&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Scientific&lt;/p&gt;</value>
   </data>
 
   <data name="TheNaazRokhaAlliance_Title" xml:space="preserve">
@@ -5056,12 +4921,12 @@ only be described as godhood.”
   </data>
 
   <data name="TheNekroVirus_SystemStats" xml:space="preserve">
-    <value>ERROR:;
-✧ Population._error;
-✧ Government._error;
-✧ Surface._error;
-✧ Surface Temp._error;
-✧ Surface Area._error</value>
+    <value>&lt;p&gt;ERROR&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;_error&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;_error&lt;/p&gt;
+&lt;p&gt;✧ Surface&lt;/p&gt;&lt;p&gt;_error&lt;/p&gt;
+&lt;p&gt;✧ Surface Temp&lt;/p&gt;&lt;p&gt;_error&lt;/p&gt;
+&lt;p&gt;✧ Surface Area&lt;/p&gt;&lt;p&gt;_error&lt;/p&gt;</value>
   </data>
 
   <data name="TheNekroVirus_Title" xml:space="preserve">
@@ -5112,18 +4977,12 @@ only be described as godhood.”
   </data>
 
   <data name="TheNivynStarKings_SystemStats" xml:space="preserve">
-    <value>SUNDERED HAVEN
-
-:;
-✧ Population:.817 Million
-;
-✧ Government:.Hierarchy
-;
-✧ Leadership:.King Drakkon
-;
-✧ Disposition:.Retributive
-;
-✧ Tendencies:.Expansionist</value>
+    <value>&lt;p&gt;SUNDERED HAVEN&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;817 Million&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Hierarchy&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;King Drakkon&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Retributive&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Expansionist&lt;/p&gt;</value>
   </data>
 
   <data name="TheNivynStarKings_Title" xml:space="preserve">
@@ -5172,18 +5031,12 @@ only be described as godhood.”
   </data>
 
   <data name="TheNokarSellships_SystemStats" xml:space="preserve">
-    <value>NOKK-ZARR SYSTEM
-
-:;
-✧ Population:.5,37 Billion
-;
-✧ Government:.Pirate Lords
-;
-✧ Leadership:.Starsails
-;
-✧ Disposition:.Mercenary
-;
-✧ Tendencies:.Military</value>
+    <value>&lt;p&gt;NOKK-ZARR SYSTEM&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;5,37 Billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Pirate Lords&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Starsails&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Mercenary&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Military&lt;/p&gt;</value>
   </data>
 
   <data name="TheNokarSellships_Title" xml:space="preserve">
@@ -5359,12 +5212,12 @@ seen sudden leadership changes.</value>
   </data>
 
   <data name="TheNomad_SystemStats" xml:space="preserve">
-    <value>SPACE STATION SUMERIAN:;
-✧ Population.167 million;
-✧ Government.Station Master;
-✧ Leadership.The Nomad;
-✧ Disposition.Altruistic;
-✧ Tendencies.Economic</value>
+    <value>&lt;p&gt;SPACE STATION SUMERIAN&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;167 million&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Station Master&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;The Nomad&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Altruistic&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Economic&lt;/p&gt;</value>
   </data>
 
   <data name="TheNomad_Title" xml:space="preserve">
@@ -5411,18 +5264,12 @@ seen sudden leadership changes.</value>
   </data>
 
   <data name="TheOlradinLeague_SystemStats" xml:space="preserve">
-    <value>SANCTUARY SYSTEM
-
-:;
-✧ Population:.16,31 Billion
-;
-✧ Government:.Egotaracy
-;
-✧ Leadership:.Council Speaker
-;
-✧ Disposition:.Communal
-;
-✧ Tendencies:.Political</value>
+    <value>&lt;p&gt;SANCTUARY SYSTEM&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;16,31 Billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Egotaracy&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Council Speaker&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Communal&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Political&lt;/p&gt;</value>
   </data>
 
   <data name="TheOlradinLeague_Title" xml:space="preserve">
@@ -5476,18 +5323,12 @@ seen sudden leadership changes.</value>
   </data>
 
   <data name="TheSavagesOfCymiae_SystemStats" xml:space="preserve">
-    <value>CYMIAE SYSTEM
-
-:;
-✧ Population:.270 Million
-;
-✧ Government:.The Voices
-;
-✧ Leadership:.Psionic Chorus
-;
-✧ Disposition:.Erratic
-;
-✧ Tendencies:.Objective</value>
+    <value>&lt;p&gt;CYMIAE SYSTEM&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;270 Million&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;The Voices&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Psionic Chorus&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Erratic&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Objective&lt;/p&gt;</value>
   </data>
 
   <data name="TheSavagesOfCymiae_Title" xml:space="preserve">
@@ -5537,18 +5378,12 @@ seen sudden leadership changes.</value>
   </data>
 
   <data name="TheShipwrightsofAxis_SystemStats" xml:space="preserve">
-    <value>THE ANVIL:;
-✧ 
-
-Population:.32,9 Billion
-;
-✧ Government:.The Hive
-;
-✧ Leadership:.Hive Queens
-;
-✧ Disposition:.Diligent
-;
-✧ Tendencies:.Economic</value>
+    <value>&lt;p&gt;THE ANVIL&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;32,9 Billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;The Hive&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Hive Queens&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Diligent&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Economic&lt;/p&gt;</value>
   </data>
 
   <data name="TheShipwrightsofAxis_Title" xml:space="preserve">
@@ -5690,12 +5525,12 @@ be more than it appears.</value>
   </data>
 
   <data name="TheTitansOfUl_SystemStats" xml:space="preserve">
-    <value>ELYSIUM:;
-✧ Population.750 million;
-✧ Government.Total Hierarchy;
-✧ Leadership.The Ul;
-✧ Disposition.Patient;
-✧ Tendencies.Expansionist;</value>
+    <value>&lt;p&gt;ELYSIUM&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;750 million&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Total Hierarchy&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;The Ul&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Patient&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Expansionist&lt;/p&gt;</value>
   </data>
 
   <data name="TheTitansOfUl_Title" xml:space="preserve">
@@ -5746,18 +5581,12 @@ be more than it appears.</value>
   </data>
 
   <data name="TheTnelisSyndicate_SystemStats" xml:space="preserve">
-    <value>DISCORDIA
-
-:;
-✧ Population:.4,33 Billion
-;
-✧ Government:.Anocracy
-;
-✧ Leadership:.Crime Families
-;
-✧ Disposition:.Patriotic
-;
-✧ Tendencies:.Objective</value>
+    <value>&lt;p&gt;DISCORDIA&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;4,33 Billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Anocracy&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Crime Families&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Patriotic&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Objective&lt;/p&gt;</value>
   </data>
 
   <data name="TheTnelisSyndicate_Title" xml:space="preserve">
@@ -5961,12 +5790,12 @@ advanced capabilities.</value>
   </data>
 
   <data name="TheUniversitiesOfJolNar_SystemStats" xml:space="preserve">
-    <value>GARIAN SYSTEM:;
-✧ Population.3,22 billion;
-✧ Government.Circle of Regents;
-✧ Leadership.Headmaster;
-✧ Disposition.Aloof;
-✧ Tendencies.Scientific</value>
+    <value>&lt;p&gt;GARIAN SYSTEM&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;3,22 billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Circle of Regents&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Headmaster&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Aloof&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Scientific&lt;/p&gt;</value>
   </data>
 
   <data name="TheUniversitiesOfJolNar_Title" xml:space="preserve">
@@ -6019,18 +5848,12 @@ advanced capabilities.</value>
   </data>
 
   <data name="TheVadenBankingClans_SystemStats" xml:space="preserve">
-    <value>THE AITEMRAS SYSTEM
-
-:;
-✧ Population:.6,1 Billion
-;
-✧ Government:.Banking Council
-;
-✧ Leadership:.Putriv Sirvonks
-;
-✧ Disposition:.Greedy
-;
-✧ Tendencies:.Economic</value>
+    <value>&lt;p&gt;THE AITEMRAS SYSTEM&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;6,1 Billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Banking Council&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Putriv Sirvonks&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Greedy&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Economic&lt;/p&gt;</value>
   </data>
 
   <data name="TheVadenBankingClans_Title" xml:space="preserve">
@@ -6081,18 +5904,12 @@ advanced capabilities.</value>
   </data>
 
   <data name="TheVaylerianScourge_SystemStats" xml:space="preserve">
-    <value>VAYLAR
-
-:;
-✧ Population:.1,2 Billion
-;
-✧ Government:.Clan Council
-;
-✧ Leadership:.High Chieftain
-;
-✧ Disposition:.Opportunistic;
-✧ 
-Tendencies:.Expansionist</value>
+    <value>&lt;p&gt;VAYLAR&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;1,2 Billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Clan Council&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;High Chieftain&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Opportunistic&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Expansionist&lt;/p&gt;</value>
   </data>
 
   <data name="TheVaylerianScourge_Title" xml:space="preserve">
@@ -6145,18 +5962,12 @@ Tendencies:.Expansionist</value>
   </data>
 
   <data name="TheVeldyrSovereignty_SystemStats" xml:space="preserve">
-    <value>THE SYLVARI VEIL
-
-:;
-✧ Population:.14,28 Billion
-;
-✧ Government:.Executive Board
-;
-✧ Leadership:.Auberon Elyrin
-;
-✧ Disposition:.Proud
-;
-✧ Tendencies:.Economic</value>
+    <value>&lt;p&gt;THE SYLVARI VEIL&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;14,28 Billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Executive Board&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Auberon Elyrin&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Proud&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Economic&lt;/p&gt;</value>
   </data>
 
   <data name="TheVeldyrSovereignty_Title" xml:space="preserve">
@@ -6324,12 +6135,12 @@ nightmares made flesh.</value>
   </data>
 
   <data name="TheVuilRaithCabal_SystemStats" xml:space="preserve">
-    <value>ACHERON VORTEX:;
-✧ Population.Unknown;
-✧ Government.Cabal;
-✧ Leadership.None;
-✧ Disposition.Voracious;
-✧ Tendencies.Military</value>
+    <value>&lt;p&gt;ACHERON VORTEX&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Cabal&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;None&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Voracious&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Military&lt;/p&gt;</value>
   </data>
 
   <data name="TheVuilRaithCabal_Title" xml:space="preserve">
@@ -6560,12 +6371,12 @@ galaxy—by force, if necessary.</value>
   </data>
 
   <data name="TheWinnu_SystemStats" xml:space="preserve">
-    <value>WINNU SYSTEM:;
-✧ Population.13,77 billion;
-✧ Government.Imperial;
-✧ Leadership.Muad Di Faruuq;
-✧ Disposition.Righteous;
-✧ Tendencies.Objective</value>
+    <value>&lt;p&gt;WINNU SYSTEM&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;13,77 billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Imperial&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Muad Di Faruuq&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Righteous&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Objective&lt;/p&gt;</value>
   </data>
 
   <data name="TheWinnu_Title" xml:space="preserve">
@@ -6804,12 +6615,12 @@ tranquil veneer.</value>
   </data>
 
   <data name="TheXxchaKingdom_SystemStats" xml:space="preserve">
-    <value>XXLAK SYSTEM:;
-✧ Population.8,16 billion;
-✧ Government.Monarchy;
-✧ Leadership.Ccrysus;
-✧ Disposition.Diplomatic;
-✧ Tendencies.Political</value>
+    <value>&lt;p&gt;XXLAK SYSTEM&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;8,16 billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Monarchy&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Ccrysus&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Diplomatic&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Political&lt;/p&gt;</value>
   </data>
 
   <data name="TheXxchaKingdom_Title" xml:space="preserve">
@@ -7093,12 +6904,12 @@ loyalty to their brothers.</value>
   </data>
 
   <data name="TheYinBrotherhood_SystemStats" xml:space="preserve">
-    <value>LAEL SYSTEM:;
-✧ Population.1,81 billion;
-✧ Government.The Blessed;
-✧ Leadership.The Elder Brother;
-✧ Disposition.Zealous;
-✧ Tendencies.Military</value>
+    <value>&lt;p&gt;LAEL SYSTEM&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;1,81 billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;The Blessed&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;The Elder Brother&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Zealous&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Military&lt;/p&gt;</value>
   </data>
 
   <data name="TheYinBrotherhood_Title" xml:space="preserve">
@@ -7310,12 +7121,12 @@ there and left.</value>
   </data>
 
   <data name="TheYssarilTribes_SystemStats" xml:space="preserve">
-    <value>MYOCK SYSTEM:;
-✧ Population.Unknown;
-✧ Government.Guild of Spies;
-✧ Leadership.The Cqaark;
-✧ Disposition.Secretive;
-✧ Tendencies.Political</value>
+    <value>&lt;p&gt;MYOCK SYSTEM&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Guild of Spies&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;The Cqaark&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Secretive&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Political&lt;/p&gt;</value>
   </data>
 
   <data name="TheYssarilTribes_Title" xml:space="preserve">
@@ -7367,18 +7178,12 @@ there and left.</value>
   </data>
 
   <data name="TheZealotsOfRhodun_SystemStats" xml:space="preserve">
-    <value>ORAD SYSTEM
-
-;
-✧ Population:.2,13 Billion;
-✧ 
-Government:.Theocracy
-;
-✧ Leadership:.The Prophet
-;
-✧ Disposition:.Fervent
-;
-✧ Tendencies:.Scientific</value>
+    <value>&lt;p&gt;ORAD SYSTEM&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;2,13 Billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Theocracy&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;The Prophet&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Fervent&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Scientific&lt;/p&gt;</value>
   </data>
 
   <data name="TheZealotsOfRhodun_Title" xml:space="preserve">
@@ -7427,18 +7232,12 @@ Government:.Theocracy
   </data>
 
   <data name="TheZelianPurifier_SystemStats" xml:space="preserve">
-    <value>ZELIAN SYSTEM
-
-:;
-✧ Population:.1;
-✧ 
-Government:.None
-;
-✧ Leadership:.Zelian
-;
-✧ Disposition:.Seething
-;
-✧ Tendencies:.Objective</value>
+    <value>&lt;p&gt;ZELIAN SYSTEM&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;1&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;None&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Zelian&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Seething&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Objective&lt;/p&gt;</value>
   </data>
 
   <data name="TheZelianPurifier_Title" xml:space="preserve">
@@ -7595,22 +7394,12 @@ Government:.None
   </data>
 
   <data name="TheDeepwroughtScholarate_SystemStats" xml:space="preserve">
-    <value>IKATOL SYSTEM:
-;
-✦
-Population:.9,1 billion
-;
-✦
-Government:.Conclave of Singers
-;
-✦
-Leadership:.Ta Zern
-;
-✦
-Disposition:.Cooperative
-;
-✦
-Tendencies:.Scientific</value>
+    <value>&lt;p&gt;IKATOL SYSTEM&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;9,1 billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Conclave of Singers&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Ta Zern&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Cooperative&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Scientific&lt;/p&gt;</value>
   </data>
 
   <data name="TheDeepwroughtScholarate_Quote" xml:space="preserve">
@@ -7781,12 +7570,12 @@ Tendencies:.Scientific</value>
   </data>
 
   <data name="TheFirmamentTheObsidian_SystemStats" xml:space="preserve">
-    <value>HEAVENSFALL COMMAND:;
-✧ Location:.Nepheme System;
-✧ Leadership:.The Constellation;
-✧ Agents:.Est: 250,000~;
-✧ Threat Level:.Epsilon;
-✧ Priority:.Alpha</value>
+    <value>&lt;p&gt;HEAVENSFALL COMMAND&lt;/p&gt;
+&lt;p&gt;✧ Location&lt;/p&gt;&lt;p&gt;Nepheme System&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;The Constellation&lt;/p&gt;
+&lt;p&gt;✧ Agents&lt;/p&gt;&lt;p&gt;Est: 250,000~&lt;/p&gt;
+&lt;p&gt;✧ Threat Level&lt;/p&gt;&lt;p&gt;Epsilon&lt;/p&gt;
+&lt;p&gt;✧ Priority&lt;/p&gt;&lt;p&gt;Alpha&lt;/p&gt;</value>
   </data>
 
   <data name="TheFirmamentTheObsidian_Quote" xml:space="preserve">
@@ -7847,12 +7636,12 @@ Tendencies:.Scientific</value>
   </data>
 
   <data name="LastBastion_SystemStats" xml:space="preserve">
-    <value>TAXIS SYSTEM:;
-✧Population:.2,100,000;
-✧Government:.Command Authority;
-✧Leadership:.Harrugh Gefhara;
-✧Disposition:.Stoic;
-✧Tendencies:.Military</value>
+    <value>&lt;p&gt;TAXIS SYSTEM&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;2,100,000&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Command Authority&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Harrugh Gefhara&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Stoic&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Military&lt;/p&gt;</value>
   </data>
 
   <data name="LastBastion_SystemInfo" xml:space="preserve">
@@ -8151,18 +7940,12 @@ Tendencies:.Scientific</value>
   </data>
 
   <data name="TheCrimsonRebellion_SystemStats" xml:space="preserve">
-    <value>UNKNOWN DIMENSION
-:;
-✦
-Population:.10 Million
-;
-✦ Government:.Communal Anarchy
-;
-✦ Leadership:.None
-;
-✦ Disposition:.Despairing
-;
-✦ Tendencies:.Military</value>
+    <value>&lt;p&gt;UNKNOWN DIMENSION&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;10 Million&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Communal Anarchy&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;None&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Despairing&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Military&lt;/p&gt;</value>
   </data>
 
   <data name="TheRalNelConsortium_CommanderRequirement" xml:space="preserve">
@@ -8254,12 +8037,12 @@ Population:.10 Million
   </data>
 
   <data name="TheRalNelConsortium_SystemStats" xml:space="preserve">
-    <value>IRK TRO KESH SYSTEM:;
-✧ Population:.6,5 billion;
-✧ Government:.Corporate Oligarchy;
-✧ Leadership:.The Zio;
-✧ Disposition:.Paranoid;
-✧ Tendencies:.Economic</value>
+    <value>&lt;p&gt;IRK TRO KESH SYSTEM&lt;/p&gt;
+&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;6,5 billion&lt;/p&gt;
+&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Corporate Oligarchy&lt;/p&gt;
+&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;The Zio&lt;/p&gt;
+&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Paranoid&lt;/p&gt;
+&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Economic&lt;/p&gt;</value>
   </data>
 
   <data name="TheRalNelConsortium_Lore" xml:space="preserve">

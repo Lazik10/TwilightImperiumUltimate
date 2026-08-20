@@ -10,10 +10,17 @@
 /* Horizontal inset for page content. Desktop value comes from the HorizontalPadding
    parameter (via inline style, default 20%); tablet/mobile always use the fixed
    percentages below regardless of the parameter (!important beats the inline style). */
+@media (max-width: 1570px) {
+    .page-horizontal-padding {
+        padding-left: 3% !important;
+        padding-right: 3% !important;
+    }
+}
+
 @media (max-width: 1024px) {
     .page-horizontal-padding {
-        padding-left: 5% !important;
-        padding-right: 5% !important;
+        padding-left: 2% !important;
+        padding-right: 2% !important;
     }
 }
 
