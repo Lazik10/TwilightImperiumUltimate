@@ -2008,6 +2008,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
             }
         }
 
+        public static string Faction_InfoTabsLabel {
+            get {
+                return ResourceManager.GetString("Faction_InfoTabsLabel", resourceCulture);
+            }
+        }
+
         public static string Faction_Leaders {
             get {
                 return ResourceManager.GetString("Faction_Leaders", resourceCulture);
@@ -2029,6 +2035,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string Faction_Notes {
             get {
                 return ResourceManager.GetString("Faction_Notes", resourceCulture);
+            }
+        }
+
+        public static string Faction_Rules {
+            get {
+                return ResourceManager.GetString("Faction_Rules", resourceCulture);
             }
         }
 

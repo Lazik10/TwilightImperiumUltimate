@@ -8,8 +8,6 @@ public static class Pages
     // Game
     public const string Factions = "/game/factions";
 
-    public const string FactionsDS = "/game/factions-discordant-stars";
-
     public const string Technologies = "/game/technologies";
 
     public const string Cards = "/game/cards";

@@ -1,0 +1,14 @@
+@using TwilightImperiumUltimate.Web.Components.Cards
+
+<section class="faction-component-section faction-component-section--full faction-breakthrough">
+    <ResponsiveHeading Text="Breakthrough" Level="2" CenterText="true" FontSize="lg" CssClass="faction-component-section-title" />
+
+    <ResponsiveGridContainer Columns="@GetDesktopColumns()" TabletColumns="1" MobileColumns="1" Width="100" Gap="var(--space-lg)">
+        @foreach (var imagePath in GetBreakthroughImagePaths())
+        {
+            <div class="faction-horizontal-card">
+                <HorizontalCard ImagePath="@imagePath" />
+            </div>
+        }
+    </ResponsiveGridContainer>
+</section>

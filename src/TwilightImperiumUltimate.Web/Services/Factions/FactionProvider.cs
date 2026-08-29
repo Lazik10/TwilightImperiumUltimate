@@ -36,7 +36,7 @@ public class FactionProvider(
         _currentFaction = GetFactionByName(factionName);
         _currentSource = factionName.GetFactionSource();
 
-        _navigationManager.NavigateTo($"{Pages.Pages.Factions}/{_currentFactionName}");
+        _navigationManager.NavigateTo($"{Pages.Pages.Factions}/{_currentFactionName}{GetCurrentInfoQuery()}");
     }
     
     public FactionDto? GetFactionByName(FactionName factionName) => _factions?.SingleOrDefault(x => x.FactionName == factionName);
@@ -90,6 +90,24 @@ public class FactionProvider(
         var factions = await GetAllFactions(cancellationToken);
 
         return factions.Where(x => source.GetGameVersionsFromFactionSource().Contains(x.GameVersion)).ToList();
+    }
+
+    // Keeps the currently opened faction-info tab selected when the user switches to another faction.
+    private string GetCurrentInfoQuery()
+    {
+        var query = new Uri(_navigationManager.Uri).Query.TrimStart('?');
+
+        var info = query
+            .Split('&', StringSplitOptions.RemoveEmptyEntries)
+            .Select(pair => pair.Split('=', 2))
+            .Where(pair => pair.Length == 2 && string.Equals(pair[0], "info", StringComparison.OrdinalIgnoreCase))
+            .Select(pair => pair[1])
+            .FirstOrDefault();
+
+        if (string.IsNullOrEmpty(info))
+            return string.Empty;
+
+        return string.Equals(info, "faq", StringComparison.OrdinalIgnoreCase) ? "?info=rules" : $"?info={info}";
     }
 
     private async Task FetchAllFactions(CancellationToken cancellationToken)

@@ -78,13 +78,13 @@
   </data>
 
   <data name="RohDhnaMechatronics_Ability" xml:space="preserve">
-    <value>&lt;p&gt;INDUSTRIOUS:&lt;/p&gt;
+    <value>&lt;h2&gt;INDUSTRIOUS:&lt;/h2&gt;
 &lt;p&gt;After you place a space dock in a system that contains no other players' ships, you may spend 6 resources and remove that space dock to place 1 war sun in that system's space area.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;RECYCLED MATERIALS:&lt;/p&gt;
+&lt;h2&gt;RECYCLED MATERIALS:&lt;/h2&gt;
 &lt;p&gt;After you activate a system, you may return 1 cruiser, carrier, or dreadnought you control in that system to your reinforcements to gain a number of trade goods equal to 1 less than that unit’s cost value.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;ORBITAL FOUNDRIES:&lt;/p&gt;
+&lt;h2&gt;ORBITAL FOUNDRIES:&lt;/h2&gt;
 &lt;p&gt;For the purpose of scoring objectives, you may treat each of your war sun units as though it is a structure on any planet you control.&lt;/p&gt;</value>
   </data>
 
@@ -134,7 +134,7 @@
   </data>
 
   <data name="SardakkNorr_Ability" xml:space="preserve">
-    <value>&lt;p&gt;UNRELENTING:&lt;/p&gt;
+    <value>&lt;h2&gt;UNRELENTING:&lt;/h2&gt;
 &lt;p&gt;Apply +1 to the result of each of your unit's combat rolls.&lt;/p&gt;</value>
   </data>
 
@@ -330,7 +330,7 @@ galaxy with blood in her name</value>
   </data>
 
   <data name="TheArborec_Ability" xml:space="preserve">
-    <value>&lt;p&gt;MITOSIS:&lt;/p&gt;
+    <value>&lt;h2&gt;MITOSIS:&lt;/h2&gt;
 &lt;p&gt;Your space docks cannot produce infantry.  At the start of the status phase , place 1 infantry from your reinforcements on any planet you control.&lt;/p&gt;</value>
   </data>
 
@@ -562,10 +562,10 @@ the stars?</value>
   </data>
 
   <data name="TheArgentFlight_Ability" xml:space="preserve">
-    <value>&lt;p&gt;ZEAL:&lt;/p&gt;
+    <value>&lt;h3&gt;ZEAL:&lt;/h3&gt;
 &lt;p&gt;You always vote first during the agenda phase. When you cast at least 1 vote, cast 1 additional vote for each player in the game including you.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;RAID FORMATION:&lt;/p&gt;
+&lt;h2&gt;RAID FORMATION:&lt;/h2&gt;
 &lt;p&gt;When 1 or more of your units uses ANTI-FIGHTER BARRAGE, for each hit produced in excess of your opponent's Fighters, choose 1 of your opponent's ships that has SUSTAIN DAMAGE to become damaged.&lt;/p&gt;
 &lt;br/&gt;
 &lt;p&gt;Note: The “Anti-Fighter Barrage” step can occur even if a player’s opponent has no fighters in the combat (in this case all hits produced from Anti-Fighter Barrage may cause opposing ships with Sustain Damage to become damaged)&lt;/p&gt;</value>
@@ -712,13 +712,13 @@ the gas ring.</value>
   </data>
 
   <data name="TheAugursOfIlyxum_Ability" xml:space="preserve">
-    <value>&lt;p&gt;ORACLE AI:&lt;/p&gt;
+    <value>&lt;h2&gt;ORACLE AI:&lt;/h2&gt;
 &lt;p&gt;After the speaker reveals an unrevealed public objective, choose 1 unrevealed public objective card and place that card on your faction sheet. You may look at the card on your faction sheet at any time.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;LIMITED VISION:&lt;/p&gt;
+&lt;h2&gt;LIMITED VISION:&lt;/h2&gt;
 &lt;p&gt;You may not place a stage II objective card on your faction sheet until all stage I objectives have been revealed.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;PROBABILITY ALGORITHMS:&lt;/p&gt;
+&lt;h2&gt;PROBABILITY ALGORITHMS:&lt;/h2&gt;
 &lt;p&gt;When the speaker would reveal the next public objective, they must reveal the public objective card on your faction sheet instead. Place that card near the other public objectives.&lt;/p&gt;</value>
   </data>
 
@@ -764,10 +764,10 @@ the gas ring.</value>
   </data>
 
   <data name="TheBaronyOfLetnev_Ability" xml:space="preserve">
-    <value>&lt;p&gt;MUNITIONS RESERVES:&lt;/p&gt;
+    <value>&lt;h2&gt;MUNITIONS RESERVES:&lt;/h2&gt;
 &lt;p&gt;At the start of each round of space combat, you may spend 2 trade goods;  you may re-roll any number of your dice during that combat round.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;ARMADA:&lt;/p&gt;
+&lt;h2&gt;ARMADA:&lt;/h2&gt;
 &lt;p&gt;The maximum number of non-fighter ships you can have in each system is equal to 2 more than the number of tokens in your fleet pool.&lt;/p&gt;</value>
   </data>
 
@@ -997,13 +997,13 @@ and the same.</value>
   </data>
 
   <data name="TheBentorConglomerate_Ability" xml:space="preserve">
-    <value>&lt;p&gt;SECRET MAPS:&lt;/p&gt;
+    <value>&lt;h2&gt;SECRET MAPS:&lt;/h2&gt;
 &lt;p&gt;At the end of your tactical actions, you may explore 1 planet in the active system that is or contains 1 of your units with PRODUCTION that you did not explore during that tactical action.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;FORTUNE SEEKERS:&lt;/p&gt;
+&lt;h2&gt;FORTUNE SEEKERS:&lt;/h2&gt;
 &lt;p&gt;Once per action, after you explore a planet or frontier token, you may gain 1 commodity.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;ANCIENT BLUEPRINTS:&lt;/p&gt;
+&lt;h2&gt;ANCIENT BLUEPRINTS:&lt;/h2&gt;
 &lt;p&gt;The first time you gain a cultural, hazardous, industrial, or unknown relic fragment, place the corresponding “Fragment” token on your faction sheet.&lt;/p&gt;</value>
   </data>
 
@@ -1047,13 +1047,13 @@ and the same.</value>
   </data>
 
   <data name="TheBerserkersOfKjalengard_Ability" xml:space="preserve">
-    <value>&lt;p&gt;GLORY:&lt;/p&gt;
+    <value>&lt;h2&gt;GLORY:&lt;/h2&gt;
 &lt;p&gt;After you win a combat, you may place or move a Glory token into the active system, or spend 1 token from your strategy pool to research a unit upgrade technology of the same type as 1 of your units that participated in that combat.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;HEROISM:&lt;/p&gt;
+&lt;h2&gt;HEROISM:&lt;/h2&gt;
 &lt;p&gt;Capture your fighters and infantry that are destroyed during combat. When you pass, for each Glory token on the game board, you may return 4 of your captured units to gain 1 command token.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;VALOR:&lt;/p&gt;
+&lt;h2&gt;VALOR:&lt;/h2&gt;
 &lt;p&gt;When units make a combat roll in a system that contains a Glory token, each result of 10, before applying modifiers, produces 1 additional hit.&lt;/p&gt;</value>
   </data>
 
@@ -1101,10 +1101,10 @@ and the same.</value>
   </data>
 
   <data name="TheCeldauriTradeConfederation_Ability" xml:space="preserve">
-    <value>&lt;p&gt;PROJECTION OF POWER:&lt;/p&gt;
+    <value>&lt;h2&gt;PROJECTION OF POWER:&lt;/h2&gt;
 &lt;p&gt;At the start of any space combat in a system that is adjacent to or contains 1 or more of your space docks, choose up to 1 ship in that system to gain ANTI-FIGHTER BARRAGE 6 during that combat.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;INDUSTRIALISTS:&lt;/p&gt;
+&lt;h2&gt;INDUSTRIALISTS:&lt;/h2&gt;
 &lt;p&gt;During setup, place 1 additional space dock in your reinforcements.&lt;/p&gt;</value>
   </data>
 
@@ -1154,13 +1154,13 @@ But all was not well. Piracy being an ever-present issue, the great Merchant Fam
   </data>
 
   <data name="TheCheiranHordes_Ability" xml:space="preserve">
-    <value>&lt;p&gt;TEEMING:&lt;/p&gt;
+    <value>&lt;h2&gt;TEEMING:&lt;/h2&gt;
 &lt;p&gt;During setup, place 2 additional dreadnoughts and 1 additional mech in your reinforcements.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;MOULT:&lt;/p&gt;
+&lt;h2&gt;MOULT:&lt;/h2&gt;
 &lt;p&gt;After you win a space combat as the defender, you may produce 1 ship in the active system, reducing the cost by 1 for each of your non-fighter ships destroyed during that combat.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;BYSSUS:&lt;/p&gt;
+&lt;h2&gt;BYSSUS:&lt;/h2&gt;
 &lt;p&gt;You may treat your mechs on planets you control as structures for any purpose other than scoring objectives.&lt;/p&gt;</value>
   </data>
 
@@ -1210,10 +1210,10 @@ But all was not well. Piracy being an ever-present issue, the great Merchant Fam
   </data>
 
   <data name="TheClanOfSaar_Ability" xml:space="preserve">
-    <value>&lt;p&gt;SCAVENGE:&lt;/p&gt;
+    <value>&lt;h2&gt;SCAVENGE:&lt;/h2&gt;
 &lt;p&gt;After you gain control of a planet, gain 1 trade good.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;NOMADIC:&lt;/p&gt;
+&lt;h2&gt;NOMADIC:&lt;/h2&gt;
 &lt;p&gt;You can score objectives even if you do not control the planets in your home system.&lt;/p&gt;</value>
   </data>
 
@@ -1448,13 +1448,13 @@ ferocity unlike any other.</value>
   </data>
 
   <data name="TheCouncilKeleres_Ability" xml:space="preserve">
-    <value>&lt;p&gt;THE TRIBUNII:&lt;/p&gt;
+    <value>&lt;h2&gt;THE TRIBUNII:&lt;/h2&gt;
 &lt;p&gt;During setup, choose an unplayed faction from among the Mentak, the Xxcha and The Argent Flight; take that faction's home system, command tokens and control markers. Additionally, take the Keleres Hero that corresponds to that faction.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;COUNCIL PATRONAGE:&lt;/p&gt;
+&lt;h2&gt;COUNCIL PATRONAGE:&lt;/h2&gt;
 &lt;p&gt;Replenish your commodities at the start of the strategy phase, then gain 1 trade good.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;LAW'S ORDER:&lt;/p&gt;
+&lt;h2&gt;LAW'S ORDER:&lt;/h2&gt;
 &lt;p&gt;You may spend 1 influence at the start of your turn to treat all laws as blank until the end of your turn.&lt;/p&gt;</value>
   </data>
 
@@ -1679,13 +1679,13 @@ expensive construction process.</value>
   </data>
 
   <data name="TheDihMohnFlotilla_Ability" xml:space="preserve">
-    <value>&lt;p&gt;CAPITAL FLEET:&lt;/p&gt;
+    <value>&lt;h2&gt;CAPITAL FLEET:&lt;/h2&gt;
 &lt;p&gt;Destroyers count as 1/2 of a ship against your fleet pool.&lt;p&gt;
 &lt;/br&gt;
 &lt;p&gt;MIGRANT EXPLORERS:&lt;/p&gt;
 &lt;p&gt;After you explore a frontier token in a system, you may explore a planet you control that is adjacent to that system.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;FLOTILLA:&lt;/p&gt;
+&lt;h2&gt;FLOTILLA:&lt;/h2&gt;
 &lt;p&gt;You cannot have more infantry than non-fighter ships in the space area of a system.&lt;/p&gt;</value>
   </data>
 
@@ -1733,13 +1733,13 @@ expensive construction process.</value>
   </data>
 
   <data name="TheEdynMandate_Ability" xml:space="preserve">
-    <value>&lt;p&gt;GRACE:&lt;/p&gt;
+    <value>&lt;h2&gt;GRACE:&lt;/h2&gt;
 &lt;p&gt;Once per action phase, after you resolve the primary ability of a strategy card, you may resolve the secondary ability of 1 readied or unchosen strategy card with a lower printed initiative number than that strategy card.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;DECREE:&lt;/p&gt;
+&lt;h2&gt;DECREE:&lt;/h2&gt;
 &lt;p&gt;You may prevent ships from moving through anomalies that contain your ground forces.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;RADIANCE:&lt;/p&gt;
+&lt;h2&gt;RADIANCE:&lt;/h2&gt;
 &lt;p&gt;After an agenda is revealed, you may predict aloud the outcome of that agenda. If your prediction is correct, place 1 command token from another player's reinforcements in a Sigil.&lt;/p&gt;</value>
   </data>
 
@@ -1793,10 +1793,10 @@ expensive construction process.</value>
   </data>
 
   <data name="TheEmbersOfMuaat_Ability" xml:space="preserve">
-    <value>&lt;p&gt;STAR FORGE:&lt;/p&gt;
+    <value>&lt;h2&gt;STAR FORGE:&lt;/h2&gt;
 &lt;p&gt;ACTION: Spend 1 token from your strategy pool to place either 2 fighters or 1 destroyer from your reinforcements in a system that contains 1 or more of your war suns.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;GASHLAI PHYSIOLOGY:&lt;/p&gt;
+&lt;h2&gt;GASHLAI PHYSIOLOGY:&lt;/h2&gt;
 &lt;p&gt;Your ships can move through supernovas.&lt;/p&gt;
 &lt;br/&gt;
 &lt;p&gt;Note: Moving through a system is distinct from moving into a system. See Movement rules for details.&lt;/p&gt;</value>
@@ -2006,13 +2006,13 @@ and dreams of his people.</value>
   </data>
 
   <data name="TheEmiratesOfHacan_Ability" xml:space="preserve">
-    <value>&lt;p&gt;MASTERS OF TRADE:&lt;/p&gt;
+    <value>&lt;h2&gt;MASTERS OF TRADE:&lt;/h2&gt;
 &lt;p&gt;You do not have to spend a command token to resolve the secondary ability of the &quot;Trade&quot; strategy card.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;GUILD SHIPS:&lt;/p&gt;
+&lt;h2&gt;GUILD SHIPS:&lt;/h2&gt;
 &lt;p&gt;You can negotiate transactions with players who are not your neighbor.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;ARBITERS:&lt;/p&gt;
+&lt;h2&gt;ARBITERS:&lt;/h2&gt;
 &lt;p&gt;When you are negotiating a transaction, action cards can be exchanged as part of that transaction.&lt;/p&gt;</value>
   </data>
 
@@ -2205,13 +2205,13 @@ worlds, their ancestral homes.</value>
   </data>
 
   <data name="TheEmpyrean_Ability" xml:space="preserve">
-    <value>&lt;p&gt;VOIDBORN:&lt;/p&gt;
+    <value>&lt;h2&gt;VOIDBORN:&lt;/h2&gt;
 &lt;p&gt;Nebulae do not affect your ships' movement.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;AETHERPASSAGE:&lt;/p&gt;
+&lt;h2&gt;AETHERPASSAGE:&lt;/h2&gt;
 &lt;p&gt;After a player activates a system, you may allow that player to move their ships through systems that contain your ships.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;DARK WHISPERS:&lt;/p&gt;
+&lt;h2&gt;DARK WHISPERS:&lt;/h2&gt;
 &lt;p&gt;During setup, take the additional Empyrean faction promissory note; you have 2 faction promissory notes&lt;/p&gt;.</value>
   </data>
 
@@ -2368,10 +2368,10 @@ history of the galaxy</value>
   </data>
 
   <data name="TheFederationOfSol_Ability" xml:space="preserve">
-    <value>&lt;p&gt;ORBITAL DROP:&lt;/p&gt;
+    <value>&lt;h2&gt;ORBITAL DROP:&lt;/h2&gt;
 &lt;p&gt;ACTION: Spend 1 token from your strategy pool to place 2 infantry from your reinforcements on 1 planet you control.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;VERSATILE:&lt;/p&gt;
+&lt;h2&gt;VERSATILE:&lt;/h2&gt;
 &lt;p&gt;When you gain command tokens during the status phase, gain 1 additional command token.&lt;/p&gt;</value>
   </data>
 
@@ -2546,13 +2546,13 @@ spacefaring races.</value>
   </data>
 
   <data name="TheFlorzenProfiteers_Ability" xml:space="preserve">
-    <value>&lt;p&gt;MERCENARIES:&lt;/p&gt;
+    <value>&lt;h2&gt;MERCENARIES:&lt;/h2&gt;
 &lt;p&gt;At the start of a space combat, you may remove up to 2 fighters you control in a system adjacent to the active system. Then, choose 1 player participating in that combat; that player places the same number of fighters from their reinforcements in the active system.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;DATA LEAK:&lt;/p&gt;
+&lt;h2&gt;DATA LEAK:&lt;/h2&gt;
 &lt;p&gt;When you would gain a relic, you may draw 1 additional card; choose 1 to gain and return the rest to the relic deck. Then, shuffle the relic deck.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;SHADOW MARKETS:&lt;/p&gt;
+&lt;h2&gt;SHADOW MARKETS:&lt;/h2&gt;
 &lt;p&gt;When you explore a planet, you may treat that planet as if it had the same trait as another planet you control.&lt;/p&gt;</value>
   </data>
 
@@ -2600,13 +2600,13 @@ spacefaring races.</value>
   </data>
 
   <data name="TheFreeSystemsCompact_Ability" xml:space="preserve">
-    <value>&lt;p&gt;RALLY TO THE CAUSE:&lt;/p&gt;
+    <value>&lt;h2&gt;RALLY TO THE CAUSE:&lt;/h2&gt;
 &lt;p&gt;Once per action, after you produce 1 or more ships in your home system, you may produce up to 2 ships in a system that contains a cultural, hazardous, or industrial planet and does not contain a legendary planet or other players’ units.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;DIPLOMATS:&lt;/p&gt;
+&lt;h2&gt;DIPLOMATS:&lt;/h2&gt;
 &lt;p&gt;Once per action, you may exhaust 1 uncontrolled planet’s planet card that is on the game board to spend its resources or influence.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;FREE PEOPLE:&lt;/p&gt;
+&lt;h2&gt;FREE PEOPLE:&lt;/h2&gt;
 &lt;p&gt;During setup, for each non-home planet other than Mecatol Rex on the game board, place that planet’s planet card face up on the game board.&lt;/p&gt;</value>
   </data>
 
@@ -2658,10 +2658,10 @@ spacefaring races.</value>
   </data>
 
   <data name="TheGheminaRaiders_Ability" xml:space="preserve">
-    <value>&lt;p&gt;THE LADY &amp; THE LORD:&lt;/p&gt;
+    <value>&lt;h2&gt;THE LADY &amp; THE LORD:&lt;/h2&gt;
 &lt;p&gt;During setup, place 1 additional flagship in your reinforcements and the additional Ghemina Hero next to your faction sheet. This additional flagship has the abilities and attributes listed on the Lord flagship card. You have 2 Heroes.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;RULE OF TWO:&lt;/p&gt;
+&lt;h2&gt;RULE OF TWO:&lt;/h2&gt;
 &lt;p&gt;During a round of combat in a system that contains exactly 2 of your non-fighter ships, if those ships have the same unit type, apply +2 to the result of each of those unit’s combat rolls.&lt;/p&gt;</value>
   </data>
 
@@ -2709,13 +2709,13 @@ spacefaring races.</value>
   </data>
 
   <data name="TheGhostsOfCreuss_Ability" xml:space="preserve">
-    <value>&lt;p&gt;QUANTUM ENTANGLEMENT:&lt;/p&gt;
+    <value>&lt;h2&gt;QUANTUM ENTANGLEMENT:&lt;/h2&gt;
 &lt;p&gt;You treat all systems that contain either an alpha or beta wormhole as adjacent to each other. Game effects cannot prevent you from using this ability.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;SLIPSTREAM:&lt;/p&gt;
+&lt;h2&gt;SLIPSTREAM:&lt;/h2&gt;
 &lt;p&gt;During your tactical actions, apply +1 to the move value of each of your ships that starts its movement in your home system  or in a system that contains either an alpha or beta wormhole.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;CREUSS GATE:&lt;/p&gt;
+&lt;h2&gt;CREUSS GATE:&lt;/h2&gt;
 &lt;p&gt;When you create the game board, place the Creuss Gate (tile 17) where your home system would normally be placed. The Creuss Gate system is not a home system. Then, place your home system (tile 51) in your play area.&lt;/p&gt;</value>
   </data>
 
@@ -2978,13 +2978,13 @@ questionable circumstances.</value>
   </data>
 
   <data name="TheGhotiWayfarers_Ability" xml:space="preserve">
-    <value>&lt;p&gt;ABYSSAL EMBRACE:&lt;/p&gt;
+    <value>&lt;h2&gt;ABYSSAL EMBRACE:&lt;/h2&gt;
 &lt;p&gt;When you create the game board, place the Ghoti Space tile where your home system would normally be placed. The Ghoti Space system is not a home system.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;MOBILE COMMAND:&lt;/p&gt;
+&lt;h2&gt;MOBILE COMMAND:&lt;/h2&gt;
 &lt;p&gt;The system that contains your flagship is your home system. Your flagship cannot be captured and you cannot score public objectives if your flagship is not on the game board.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;SPAWNING GROUNDS:&lt;/p&gt;
+&lt;h2&gt;SPAWNING GROUNDS:&lt;/h2&gt;
 &lt;p&gt;During setup, gain and ready the Ghoti planet card and its planet ability card; you cannot lose those cards.&lt;/p&gt;</value>
   </data>
 
@@ -3036,13 +3036,13 @@ questionable circumstances.</value>
   </data>
 
   <data name="TheGledgeUnion_Ability" xml:space="preserve">
-    <value>&lt;p&gt;MANTLE CRACKING:&lt;/p&gt;
+    <value>&lt;h2&gt;MANTLE CRACKING:&lt;/h2&gt;
 &lt;p&gt;ACTION: Place 1 &quot;Core&quot; token on a non-home planet you control other than Mecatol Rex that does not contain a Core token to gain up to 4 trade goods.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;CELESTIAL RECLAMATION:&lt;/p&gt;
+&lt;h2&gt;CELESTIAL RECLAMATION:&lt;/h2&gt;
 &lt;p&gt;Planets that contain Core tokens have a base resource value of 2 and influence value of 0. Core tokens cannot be removed from the planet that contains them.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;DEEP MINING:&lt;/p&gt;
+&lt;h2&gt;DEEP MINING:&lt;/h2&gt;
 &lt;p&gt;When you would explore a planet that contains 1 of your mechs or structures, you may instead gain 1 trade good.&lt;/p&gt;</value>
   </data>
 
@@ -3090,10 +3090,10 @@ questionable circumstances.</value>
   </data>
 
   <data name="TheGlimmerOfMortheus_Ability" xml:space="preserve">
-    <value>&lt;p&gt;FACSIMILE:&lt;/p&gt;
+    <value>&lt;h2&gt;FACSIMILE:&lt;/h2&gt;
 &lt;p&gt;At the start of a space combat while you are the defender, you may spend influence equal to the cost value of 1 of your opponent's ships in the active system to place 1 unit of that type from your reinforcements in that system.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;ILLUSORY PRESENCE:&lt;/p&gt;
+&lt;h2&gt;ILLUSORY PRESENCE:&lt;/h2&gt;
 &lt;p&gt;During the agenda phase, after another player casts votes, you may exhaust up to 2 planets you control; that player casts an additional number of votes equal to 1 more than the combined influence values of those planets.&lt;/p&gt;</value>
   </data>
 
@@ -3147,13 +3147,13 @@ questionable circumstances.</value>
   </data>
 
   <data name="TheKolleccSociety_Ability" xml:space="preserve">
-    <value>&lt;p&gt;CLOAKED FLEETS:&lt;/p&gt;
+    <value>&lt;h2&gt;CLOAKED FLEETS:&lt;/h2&gt;
 &lt;p&gt;After you produce 1 or more ships, you may place up to 2 of those ships on your faction sheet, those ships are captured.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;SHROUD OF LITH:&lt;/p&gt;
+&lt;h2&gt;SHROUD OF LITH:&lt;/h2&gt;
 &lt;p&gt;After movement, if the active system contains 1 or more of your non-fighter ships, you may place up to 2 of your captured ships and 2 of your captured ground forces from your faction sheet in that system’s space area.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;TREASURE HUNTERS:&lt;/p&gt;
+&lt;h2&gt;TREASURE HUNTERS:&lt;/h2&gt;
 &lt;p&gt;At the start of your turn, you may look at the top card of the cultural, hazardous, or industrial exploration deck. Then, look at the top card of the relic deck.&lt;/p&gt;</value>
   </data>
 
@@ -3199,10 +3199,10 @@ questionable circumstances.</value>
   </data>
 
   <data name="TheKortaliTribunal_Ability" xml:space="preserve">
-    <value>&lt;p&gt;ZEALOUS:&lt;/p&gt;
+    <value>&lt;h2&gt;ZEALOUS:&lt;/h2&gt;
 &lt;p&gt;When you spend a command token to resolve the secondary ability of the &quot;Warfare&quot; strategy card, you may resolve the primary ability instead.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;RUTHLESS:&lt;/p&gt;
+&lt;h2&gt;RUTHLESS:&lt;/h2&gt;
 &lt;p&gt;At the start of a ground combat on an exhausted planet you do not control, you may produce 1 hit and assign it to 1 of your opponent's ground forces on that planet.&lt;/p&gt;</value>
   </data>
 
@@ -3256,13 +3256,13 @@ questionable circumstances.</value>
   </data>
 
   <data name="TheKyroSodality_Ability" xml:space="preserve">
-    <value>&lt;p&gt;CONTAGION:&lt;/p&gt;
+    <value>&lt;h2&gt;CONTAGION:&lt;/h2&gt;
 &lt;p&gt;After you resolve the primary or secondary ability of the &quot;Politics&quot; strategy card, commit 1 infantry from your reinforcements to a planet that is in or adjacent to a system that contains a planet you control; resolve invasion on that planet.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;PLAGUE RESERVOIR:&lt;/p&gt;
+&lt;h2&gt;PLAGUE RESERVOIR:&lt;/h2&gt;
 &lt;p&gt;Once per action, during invasion on a planet that contains your units, you may resolve ground combat on that planet, even if it does not contain another player's ground forces.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;SUBVERSIVE:&lt;/p&gt;
+&lt;h2&gt;SUBVERSIVE:&lt;/h2&gt;
 &lt;p&gt;When participating in a combat that would end in a draw, you are treated as the winner instead.&lt;/p&gt;</value>
   </data>
 
@@ -3309,10 +3309,10 @@ questionable circumstances.</value>
   </data>
 
   <data name="TheL1z1xMindnet_Ability" xml:space="preserve">
-    <value>&lt;p&gt;ASSIMILATE:&lt;/p&gt;
+    <value>&lt;h2&gt;ASSIMILATE:&lt;/h2&gt;
 &lt;p&gt;When you gain control of a planet, replace each PDS and space dock that is on that planet with a matching unit from your reinforcements.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;HARROW:&lt;/p&gt;
+&lt;h2&gt;HARROW:&lt;/h2&gt;
 &lt;p&gt;At the end of each round of ground combat, your ships in the active system may use their Bombardment abilities against your opponent's ground forces on the planet.&lt;/p&gt;</value>
   </data>
 
@@ -3526,13 +3526,13 @@ bombardments, however, is not.</value>
   </data>
 
   <data name="TheLanefirRemnants_Ability" xml:space="preserve">
-    <value>&lt;p&gt;A NEW EDIFICE:&lt;/p&gt;
+    <value>&lt;h2&gt;A NEW EDIFICE:&lt;/h2&gt;
 &lt;p&gt;You may not use technology specialties. When you would gain a relic, instead purge it and explore up to 3 planets you control.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;ICONOCLASM:&lt;/p&gt;
+&lt;h2&gt;ICONOCLASM:&lt;/h2&gt;
 &lt;p&gt;When researching a non-unit upgrade technology, you may purge 1 of your relic fragments to ignore 1 prerequisite on the technology you are researching.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;WAR STORIES:&lt;/p&gt;
+&lt;h2&gt;WAR STORIES:&lt;/h2&gt;
 &lt;p&gt;Once per action, after you win a combat, you may explore 1 planet you control, or if the active system does not contain any planets, the frontier exploration deck in the active system.&lt;/p&gt;</value>
   </data>
 
@@ -3582,10 +3582,10 @@ bombardments, however, is not.</value>
   </data>
 
   <data name="TheLiZhoDynasty_Ability" xml:space="preserve">
-    <value>&lt;p&gt;CUNNING:&lt;/p&gt;
+    <value>&lt;h2&gt;CUNNING:&lt;/h2&gt;
 &lt;p&gt;After you perform a tactical action in a system, you may attach 1 “Trap” card from your reinforcements to a planet in that system that contains 1 or more of your infantry units.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;SUBTERFUGE:&lt;/p&gt;
+&lt;h2&gt;SUBTERFUGE:&lt;/h2&gt;
 &lt;p&gt;Trap attachments are attached face-down and remain hidden until revealed; you may look at Trap attachments at any time. You do not count trap attachments toward fulfilling objectives.&lt;/p&gt;</value>
   </data>
 
@@ -3637,13 +3637,13 @@ bombardments, however, is not.</value>
   </data>
 
   <data name="TheLTokkKhrask_Ability" xml:space="preserve">
-    <value>&lt;p&gt;LITHOIDS:&lt;/p&gt;
+    <value>&lt;h2&gt;LITHOIDS:&lt;/h2&gt;
 &lt;p&gt;During the agenda phase, the number of votes you cast is instead equal to the combined resource value of the planets that you exhaust.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;GARDEN WORLDS:&lt;/p&gt;
+&lt;h2&gt;GARDEN WORLDS:&lt;/h2&gt;
 &lt;p&gt;Apply +1 to the resource values of your planets that do not contain 1 or more ground forces.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;METEOR SLINGS:&lt;/p&gt;
+&lt;h2&gt;METEOR SLINGS:&lt;/h2&gt;
 &lt;p&gt;When your units use BOMBARDMENT against a planet another player controls, you may cancel any number of hits you produce to place that many infantry from your reinforcements onto that planet. Those units participate in ground combat, if able.&lt;/p&gt;</value>
   </data>
 
@@ -3695,13 +3695,13 @@ bombardments, however, is not.</value>
   </data>
 
   <data name="TheMahactGeneSorcerers_Ability" xml:space="preserve">
-    <value>&lt;p&gt;EDICT:&lt;/p&gt;
+    <value>&lt;h2&gt;EDICT:&lt;/h2&gt;
 &lt;p&gt;When you win a combat, place 1 command token from your opponent's reinforcements in your fleet pool if it does not already contain 1 of that player's tokens; other player's tokens in your fleet pool increase your fleet limit but cannot be redistributed.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;IMPERIA:&lt;/p&gt;
+&lt;h2&gt;IMPERIA:&lt;/h2&gt;
 &lt;p&gt;While another player's command token is in your fleet pool, you can use the ability of that player's commander, if it is unlocked.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;HUBRIS:&lt;/p&gt;
+&lt;h2&gt;HUBRIS:&lt;/h2&gt;
 &lt;p&gt;During setup, purge your &quot;Alliance&quot; promissory note. Other players cannot give you their 'Alliance&quot; promissory note.&lt;/p&gt;</value>
   </data>
 
@@ -3879,10 +3879,10 @@ own advantage.</value>
   </data>
 
   <data name="TheMentakCoalition_Ability" xml:space="preserve">
-    <value>&lt;p&gt;AMBUSH:&lt;/p&gt;
+    <value>&lt;h2&gt;AMBUSH:&lt;/h2&gt;
 &lt;p&gt;At the start of a space combat, you may roll 1 die for each of up to 2 of your cruisers or destroyers in the system.  For each result equal to or greater than that ship's combat value, produce 1 hit; your opponent must assign it to 1 of their ships.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;PILLAGE:&lt;/p&gt;
+&lt;h2&gt;PILLAGE:&lt;/h2&gt;
 &lt;p&gt;After 1 of your neighbors gains trade goods or resolves a transaction, if they have 3 or more trade goods, you may take 1 of their trade goods or commodities.&lt;/p&gt;</value>
   </data>
 
@@ -4097,10 +4097,10 @@ vague, code of honor.</value>
   </data>
 
   <data name="TheMirvedaProtectorate_Ability" xml:space="preserve">
-    <value>&lt;p&gt;PRIVILEGED CITIZENRY:&lt;/p&gt;
+    <value>&lt;h2&gt;PRIVILEGED CITIZENRY:&lt;/h2&gt;
 &lt;p&gt;Each system can contain a number of your PDS equal to the number of command tokens in your fleet pool. For the purpose of scoring objectives, you may treat each of your PDS units as though it is a structure on any planet you control.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;COMBAT DRONES:&lt;/p&gt;
+&lt;h2&gt;COMBAT DRONES:&lt;/h2&gt;
 &lt;p&gt;Your space docks cannot produce infantry. At the start of invasion, you may replace each of your fighters in the active system with 1 infantry unit. During invasion, your infantry in the space area of the active system do not count against your ships’ capacity.&lt;/p&gt;</value>
   </data>
 
@@ -4148,13 +4148,13 @@ vague, code of honor.</value>
   </data>
 
   <data name="TheMonksOfKolume_Ability" xml:space="preserve">
-    <value>&lt;p&gt;STARFALL GUNNERY:&lt;/p&gt;
+    <value>&lt;h2&gt;STARFALL GUNNERY:&lt;/h2&gt;
 &lt;p&gt;During movement, while you are not the active player, you may only use 1 of your unit's SPACE CANNON. During each of your actions, up to 3 of your non-fighter ships gain SPACE CANNON 8.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;DELIBERATE ACTION:&lt;/p&gt;
+&lt;h2&gt;DELIBERATE ACTION:&lt;/h2&gt;
 &lt;p&gt;You cannot redistribute command tokens during the status phase. When you pass, you may place 1 command token from your reinforcements in 1 pool on your command sheet that contains no command tokens.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;MEDITATION: ACTION:&lt;/p&gt;
+&lt;h2&gt;MEDITATION: ACTION:&lt;/h2&gt;
 &lt;p&gt;Spend 1 command token from your strategy pool to ready 1 of your technologies.&lt;/p&gt;</value>
   </data>
 
@@ -4202,13 +4202,13 @@ vague, code of honor.</value>
   </data>
 
   <data name="TheMykoMentori_Ability" xml:space="preserve">
-    <value>&lt;p&gt;PRESCIENT MEMORIES:&lt;/p&gt;
+    <value>&lt;h2&gt;PRESCIENT MEMORIES:&lt;/h2&gt;
 &lt;p&gt;You have 4 “Omen” Dice. At the start of the strategy phase, roll all 4 Omen dice and place them near your faction sheet.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;DIVINATION:&lt;/p&gt;
+&lt;h2&gt;DIVINATION:&lt;/h2&gt;
 &lt;p&gt;Before you would roll a die, you may instead return 1 Omen die near your faction sheet to your reinforcements to resolve that roll as if it had the result of that die.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;NECROPHAGE:&lt;/p&gt;
+&lt;h2&gt;NECROPHAGE:&lt;/h2&gt;
 &lt;p&gt;Apply +1 to your commodity value for each space dock you control. After the first round of combat, gain 1 commodity or convert 1 of your commodities to a trade good.&lt;/p&gt;</value>
   </data>
 
@@ -4266,10 +4266,10 @@ Return this card to the Naalu player at the end of the status phase.</value>
   </data>
 
   <data name="TheNaaluCollective_Ability" xml:space="preserve">
-    <value>&lt;p&gt;TELEPATHIC:&lt;/p&gt;
+    <value>&lt;h2&gt;TELEPATHIC:&lt;/h2&gt;
 &lt;p&gt;At the end of the strategy phase, place the Naalu &quot;0&quot; token on your strategy card; you are first in initiative order.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;FORESIGHT:&lt;/p&gt;
+&lt;h2&gt;FORESIGHT:&lt;/h2&gt;
 &lt;p&gt;After another player moves ships into a system that contains 1 or more of your ships, you may place 1 token from your strategy pool in an adjacent system that does not contain another player's ships;  move your ships from the active system into that system.&lt;/p&gt;</value>
   </data>
 
@@ -4490,10 +4490,10 @@ deep into the minds of the
   </data>
 
   <data name="TheNaazRokhaAlliance_Ability" xml:space="preserve">
-    <value>&lt;p&gt;DISTANT SUNS:&lt;/p&gt;
+    <value>&lt;h2&gt;DISTANT SUNS:&lt;/h2&gt;
 &lt;p&gt;When you explore a planet that contains 1 of your mechs, you may draw 1 additional card; choose 1 to resolve and discard the rest.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;FABRICATION:&lt;/p&gt;
+&lt;h2&gt;FABRICATION:&lt;/h2&gt;
 &lt;p&gt;ACTION: Either purge 2 of your relic fragments of the same type to gain 1 relic; or purge 1 of your relic fragments to gain 1 command token.&lt;/p&gt;</value>
   </data>
 
@@ -4634,13 +4634,13 @@ about it so much.</value>
   </data>
 
   <data name="TheNekroVirus_Ability" xml:space="preserve">
-    <value>&lt;p&gt;GALACTIC THREAT:&lt;/p&gt;
+    <value>&lt;h2&gt;GALACTIC THREAT:&lt;/h2&gt;
 &lt;p&gt;You cannot vote on agendas.  Once per agenda phase, after an agenda is revealed, you may predict aloud the outcome of that agenda.  If your prediction is correct, gain 1 technology that is owned by a player who voted how you predicted.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;TECHNOLOGICAL SINGULARITY:&lt;/p&gt;
+&lt;h2&gt;TECHNOLOGICAL SINGULARITY:&lt;/h2&gt;
 &lt;p&gt;Once per combat, after 1 of your opponent's units is destroyed, you may gain 1 technology that is owned by that player.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;PROPAGATION:&lt;/p&gt;
+&lt;h2&gt;PROPAGATION:&lt;/h2&gt;
 &lt;p&gt;You cannot research technology.  When you would research a technology, gain 3 command tokens instead.&lt;/p&gt;</value>
   </data>
 
@@ -4934,13 +4934,13 @@ only be described as godhood.”
   </data>
 
   <data name="TheNivynStarKings_Ability" xml:space="preserve">
-    <value>&lt;p&gt;CELESTIAL GUIDES:&lt;/p&gt;
+    <value>&lt;h2&gt;CELESTIAL GUIDES:&lt;/h2&gt;
 &lt;p&gt;Your units do not roll for gravity rifts. You may ignore the movement effects of anomalies in systems that contain or are adjacent to 1 or more of your structures.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;SINGULARITY POINT:&lt;/p&gt;
+&lt;h2&gt;SINGULARITY POINT:&lt;/h2&gt;
 &lt;p&gt;The system that contains the “Wound” token is a nebula and a gravity rift.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;VOIDSAILORS:&lt;/p&gt;
+&lt;h2&gt;VOIDSAILORS:&lt;/h2&gt;
 &lt;p&gt;When you explore a frontier token, you may draw 1 additional card; choose 1 to resolve and return the rest to the frontier exploration deck. Then, shuffle that deck.&lt;/p&gt;</value>
   </data>
 
@@ -4990,13 +4990,13 @@ only be described as godhood.”
   </data>
 
   <data name="TheNokarSellships_Ability" xml:space="preserve">
-    <value>&lt;p&gt;HIRED GUNS:&lt;/p&gt;
+    <value>&lt;h2&gt;HIRED GUNS:&lt;/h2&gt;
 &lt;p&gt;After a system is activated, you may choose up to 3 of your ships. Those ships are also treated as the active player’s and participate in combat as their units. At the end of this tactical action, that player may replace each of those ships in the active system with their own of the same unit type. Then, remove the rest from the game board.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;PRIVATE FLEET:&lt;/p&gt;
+&lt;h2&gt;PRIVATE FLEET:&lt;/h2&gt;
 &lt;p&gt;During setup, place 4 additional destroyers in your reinforcements.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;DESPERADOS:&lt;/p&gt;
+&lt;h2&gt;DESPERADOS:&lt;/h2&gt;
 &lt;p&gt;When you produce 1 or more units, 1 destroyer does not count against your PRODUCTION limit. Apply +1 to your destroyers' move values while you are not the active player.&lt;/p&gt;</value>
   </data>
 
@@ -5044,10 +5044,10 @@ only be described as godhood.”
   </data>
 
   <data name="TheNomad_Ability" xml:space="preserve">
-    <value>&lt;p&gt;THE COMPANY:&lt;/p&gt;
+    <value>&lt;h2&gt;THE COMPANY:&lt;/h2&gt;
 &lt;p&gt;During setup, take the 2 additional Nomad faction agents and place them next to your faction sheet; you have 3 agents.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;FUTURE SIGHT:&lt;/p&gt;
+&lt;h2&gt;FUTURE SIGHT:&lt;/h2&gt;
 &lt;p&gt;During the Agenda phase, after an outcome that you voted for or predicted is resolved, gain 1 trade good.&lt;/p&gt;</value>
   </data>
 
@@ -5225,7 +5225,7 @@ seen sudden leadership changes.</value>
   </data>
 
   <data name="TheOlradinLeague_Ability" xml:space="preserve">
-    <value>&lt;p&gt;POLICIES:&lt;/p&gt;
+    <value>&lt;h2&gt;POLICIES:&lt;/h2&gt;
 &lt;p&gt;When you gather your starting components, place the 3 “Policy” cards near your faction sheet, choose which side of each card to place face up. This faction has the abilities and effects listed on the face up side of each Policy card.&lt;/p&gt;</value>
   </data>
 
@@ -5277,10 +5277,10 @@ seen sudden leadership changes.</value>
   </data>
 
   <data name="TheSavagesOfCymiae_Ability" xml:space="preserve">
-    <value>&lt;p&gt;AUTONETIC MEMORY:&lt;/p&gt;
+    <value>&lt;h2&gt;AUTONETIC MEMORY:&lt;/h2&gt;
 &lt;p&gt;When you would draw 1 or more action cards, you may draw 1 less card to either choose 1 card from the action card discard pile and add it to your hand, or place 1 infantry from your reinforcements on a planet you control.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;CYBERNETIC MADNESS:&lt;/p&gt;
+&lt;h2&gt;CYBERNETIC MADNESS:&lt;/h2&gt;
 &lt;p&gt;After you add an action card from the discard pile to your hand using your AUTONETIC MEMORY faction ability, you must discard 1 action card. After you fully resolve an action card’s ability text, purge that card instead of discarding it.&lt;/p&gt;</value>
   </data>
 
@@ -5336,10 +5336,10 @@ seen sudden leadership changes.</value>
   </data>
 
   <data name="TheShipwrightsofAxis_Ability" xml:space="preserve">
-    <value>&lt;p&gt;MILITARY INDUSTRIAL COMPLEX:&lt;/p&gt;
+    <value>&lt;h2&gt;MILITARY INDUSTRIAL COMPLEX:&lt;/h2&gt;
 &lt;p&gt;After you gain or replenish commodities, you may spend a number of commodities equal to the combined cost listed on any number of &quot;Axis Order&quot; cards in your reinforcements to place those cards in your play area. You cannot give your commodities to other players as part of a transaction.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;ARMS DEALERS:&lt;/p&gt;
+&lt;h2&gt;ARMS DEALERS:&lt;/h2&gt;
 &lt;p&gt;When a player negotiates a transaction, they may exchange Axis Order cards in their play area as part of that transaction. You cannot resolve the effects of Axis Order cards.&lt;/p&gt;</value>
   </data>
 
@@ -5391,13 +5391,13 @@ seen sudden leadership changes.</value>
   </data>
 
   <data name="TheTitansOfUl_Ability" xml:space="preserve">
-    <value>&lt;p&gt;TERRAGENESIS:&lt;/p&gt;
+    <value>&lt;h2&gt;TERRAGENESIS:&lt;/h2&gt;
 &lt;p&gt;After you explore a planet that does not have a sleeper token, you may place or move 1 sleeper token onto that planet.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;AWAKEN:&lt;/p&gt;
+&lt;h2&gt;AWAKEN:&lt;/h2&gt;
 &lt;p&gt;After you activate a system that contains 1 or more of your sleeper tokens, you may replace each of those tokens with 1 PDS from your reinforcements.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;COALESCENCE:&lt;/p&gt;
+&lt;h2&gt;COALESCENCE:&lt;/h2&gt;
 &lt;p&gt;If your flagship or your AWAKEN faction ability places your units into the same space area or onto the same planet as another player's units, your units must participate in combat during &quot;Space Combat&quot; or &quot;Ground Combat&quot; steps.&lt;/p&gt;</value>
   </data>
 
@@ -5538,13 +5538,13 @@ be more than it appears.</value>
   </data>
 
   <data name="TheTnelisSyndicate_Ability" xml:space="preserve">
-    <value>&lt;p&gt;PLAUSIBLE DENIABILITY:&lt;/p&gt;
+    <value>&lt;h2&gt;PLAUSIBLE DENIABILITY:&lt;/h2&gt;
 &lt;p&gt;When you draw 1 or more secret objective cards, draw 1 additional secret objective card. Then, return 1 secret objective card to the secret objective deck; shuffle that deck.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;INFORMATION BROKERS:&lt;/p&gt;
+&lt;h2&gt;INFORMATION BROKERS:&lt;/h2&gt;
 &lt;p&gt;You may have 1 additional unscored secret objective.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;STEALTH INSERTION:&lt;/p&gt;
+&lt;h2&gt;STEALTH INSERTION:&lt;/h2&gt;
 &lt;p&gt;If you place units onto the same planet as another player's units, your units must participate in combat during the &quot;Ground Combat&quot; step.&lt;/p&gt;</value>
   </data>
 
@@ -5594,10 +5594,10 @@ be more than it appears.</value>
   </data>
 
   <data name="TheUniversitiesOfJolNar_Ability" xml:space="preserve">
-    <value>&lt;p&gt;BRILLIANT:&lt;/p&gt;
+    <value>&lt;h2&gt;BRILLIANT:&lt;/h2&gt;
 &lt;p&gt;When you spend a command token to resolve the secondary ability of the &quot;Technology&quot; strategy card, you may resolve the primary ability instead.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;ANALYTICAL:&lt;/p&gt;
+&lt;h2&gt;ANALYTICAL:&lt;/h2&gt;
 &lt;p&gt;When you research a technology that is not a unit upgrade technology, you may ignore 1 prerequisite.&lt;/p&gt;</value>
   </data>
 
@@ -5803,13 +5803,13 @@ advanced capabilities.</value>
   </data>
 
   <data name="TheVadenBankingClans_Ability" xml:space="preserve">
-    <value>&lt;p&gt;FINE PRINT:&lt;/p&gt;
+    <value>&lt;h2&gt;FINE PRINT:&lt;/h2&gt;
 &lt;p&gt;After a player resolves the secondary ability of 1 of your strategy cards, place up to 1 of their control tokens on your faction sheet.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;COLLATERALIZED LOANS:&lt;/p&gt;
+&lt;h2&gt;COLLATERALIZED LOANS:&lt;/h2&gt;
 &lt;p&gt;After 1 of your opponent’s ships is destroyed during a round of space combat, you may remove 1 of that player’s control tokens from your faction sheet to place 1 ship of that type from your reinforcements in the active system.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;BINDING DEBTS:&lt;/p&gt;
+&lt;h2&gt;BINDING DEBTS:&lt;/h2&gt;
 &lt;p&gt;Other players may place their control tokens on your faction sheet at any time. At the start of the status phase, each of your neighbors may give you 1 trade good to remove up to 2 of their control tokens from your faction sheet.&lt;/p&gt;</value>
   </data>
 
@@ -5861,13 +5861,13 @@ advanced capabilities.</value>
   </data>
 
   <data name="TheVaylerianScourge_Ability" xml:space="preserve">
-    <value>&lt;p&gt;CARGO RAIDERS:&lt;/p&gt;
+    <value>&lt;h2&gt;CARGO RAIDERS:&lt;/h2&gt;
 &lt;p&gt;During the first round of a space combat, you may prevent your opponent from declaring a retreat unless they spend 1 trade good.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;SCOUR:&lt;/p&gt;
+&lt;h2&gt;SCOUR:&lt;/h2&gt;
 &lt;p&gt;Once per tactical action, after you gain control of a planet, you may discard 1 action card to ready that planet.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;RAZE:&lt;/p&gt;
+&lt;h2&gt;RAZE:&lt;/h2&gt;
 &lt;p&gt;After 1 or more of another player's structures are destroyed on a planet that contains your units, you may replenish your commodities.&lt;/p&gt;</value>
   </data>
 
@@ -5917,13 +5917,13 @@ advanced capabilities.</value>
   </data>
 
   <data name="TheVeldyrSovereignty_Ability" xml:space="preserve">
-    <value>&lt;p&gt;CORPORATE ENTITY:&lt;/p&gt;
+    <value>&lt;h2&gt;CORPORATE ENTITY:&lt;/h2&gt;
 &lt;p&gt;During setup, take the additional Veldyr faction promissory notes; you have 4 faction promissory notes. “Branch Office” attachments do not count toward scoring objectives.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;HOLDING COMPANY:&lt;/p&gt;
+&lt;h2&gt;HOLDING COMPANY:&lt;/h2&gt;
 &lt;p&gt;At the start of the status phase, for each planet that has a Branch Office attachment, you may gain 1 commodity or convert 1 of your commodities to a trade good.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;TARGETED ACQUISITION:&lt;/p&gt;
+&lt;h2&gt;TARGETED ACQUISITION:&lt;/h2&gt;
 &lt;p&gt;At the start of the status phase, you may give 1 of your faction promissory notes in your hand to 1 of your neighbors.&lt;/p&gt;</value>
   </data>
 
@@ -5975,13 +5975,13 @@ advanced capabilities.</value>
   </data>
 
   <data name="TheVuilRaithCabal_Ability" xml:space="preserve">
-    <value>&lt;p&gt;DEVOUR:&lt;/p&gt;
+    <value>&lt;h2&gt;DEVOUR:&lt;/h2&gt;
 &lt;p&gt;Capture your opponent's non-structure units that are destroyed during combat.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;AMALGAMATION:&lt;/p&gt;
+&lt;h2&gt;AMALGAMATION:&lt;/h2&gt;
 &lt;p&gt;When you produce a unit, you may return 1 captured unit of that type to produce that unit without spending resources.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;RIFTMELD:&lt;/p&gt;
+&lt;h2&gt;RIFTMELD:&lt;/h2&gt;
 &lt;p&gt;When you research a unit upgrade technology, you may return 1 captured unit of that type to ignore all of the technology's prerequisites.&lt;/p&gt;</value>
   </data>
 
@@ -6148,10 +6148,10 @@ nightmares made flesh.</value>
   </data>
 
   <data name="TheWinnu_Ability" xml:space="preserve">
-    <value>&lt;p&gt;BLOOD TIES:&lt;/p&gt;
+    <value>&lt;h2&gt;BLOOD TIES:&lt;/h2&gt;
 &lt;p&gt;You do not have to spend influence to remove the custodians token from Mecatol Rex.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;RECLAMATION:&lt;/p&gt;
+&lt;h2&gt;RECLAMATION:&lt;/h2&gt;
 &lt;p&gt;After you resolve a tactical action during which you gained control of Mecatol Rex, you may place 1 PDS and 1 space dock from your reinforcements on Mecatol Rex.&lt;/p&gt;</value>
   </data>
 
@@ -6384,10 +6384,10 @@ galaxy—by force, if necessary.</value>
   </data>
 
   <data name="TheXxchaKingdom_Ability" xml:space="preserve">
-    <value>&lt;p&gt;PEACE ACCORDS:&lt;/p&gt;
+    <value>&lt;h2&gt;PEACE ACCORDS:&lt;/h2&gt;
 &lt;p&gt;After you resolve the primary or secondary ability of the &quot;Diplomacy&quot; strategy card, you may gain control of 1 planet other than Mecatol Rex that does not contain any units and is in a system that is adjacent to a planet you control.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;QUASH:&lt;/p&gt;
+&lt;h2&gt;QUASH:&lt;/h2&gt;
 &lt;p&gt;When an agenda is revealed, you may spend 1 token from your strategy pool to discard that agenda and reveal 1 agenda from the top of the deck.  Players vote on this agenda instead.&lt;/p&gt;</value>
   </data>
 
@@ -6628,10 +6628,10 @@ tranquil veneer.</value>
   </data>
 
   <data name="TheYinBrotherhood_Ability" xml:space="preserve">
-    <value>&lt;p&gt;INDOCTRINATION:&lt;/p&gt;
+    <value>&lt;h2&gt;INDOCTRINATION:&lt;/h2&gt;
 &lt;p&gt;At the start of a ground combat, you may spend 2 influence to replace 1 of your opponent's participating infantry with 1 infantry from your reinforcements.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;DEVOTION:&lt;/p&gt;
+&lt;h2&gt;DEVOTION:&lt;/h2&gt;
 &lt;p&gt;After each space battle round, you may destroy 1 of your cruisers or destroyers in the active system to produce 1 hit and assign it to 1 of your opponent's ships in that system.&lt;/p&gt;</value>
   </data>
 
@@ -6917,13 +6917,13 @@ loyalty to their brothers.</value>
   </data>
 
   <data name="TheYssarilTribes_Ability" xml:space="preserve">
-    <value>&lt;p&gt;STALL TACTICS:&lt;/p&gt;
+    <value>&lt;h2&gt;STALL TACTICS:&lt;/h2&gt;
 &lt;p&gt;ACTION: Discard 1 action card from your hand.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;SCHEMING:&lt;/p&gt;
+&lt;h2&gt;SCHEMING:&lt;/h2&gt;
 &lt;p&gt;When you draw 1 or more action cards, draw 1 additional action card.  Then, choose and discard 1 action card from your hand.&lt;/p&gt;
 &lt;br/&gt;
-&lt;p&gt;CRAFTY:&lt;/p&gt;
+&lt;h2&gt;CRAFTY:&lt;/h2&gt;
 &lt;p&gt;You can have any number of action cards in your hand.  Game effects cannot prevent you from using this ability.&lt;/p&gt;</value>
   </data>
 
@@ -7134,10 +7134,10 @@ there and left.</value>
   </data>
 
   <data name="TheZealotsOfRhodun_Ability" xml:space="preserve">
-    <value>&lt;p&gt;CONSPIRATORS:&lt;/p&gt;
+    <value>&lt;h2&gt;CONSPIRATORS:&lt;/h2&gt;
 &lt;p&gt;Once per agenda phase, after an agenda is revealed, if you are not the speaker, you may choose to vote after the speaker on that agenda.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;ANCIENT KNOWLEDGE:&lt;/p&gt;
+&lt;h2&gt;ANCIENT KNOWLEDGE:&lt;/h2&gt;
 &lt;p&gt;When you use a technology specialty to ignore a prerequisite on a technology card you are researching, you may ignore 1 additional prerequisite of the same color. After you exhaust a planet to use its technology specialty, you may gain 1 commodity.&lt;/p&gt;</value>
   </data>
 
@@ -7191,13 +7191,13 @@ there and left.</value>
   </data>
 
   <data name="TheZelianPurifier_Ability" xml:space="preserve">
-    <value>&lt;p&gt;OBSESSIVE DESIGNS:&lt;/p&gt;
+    <value>&lt;h2&gt;OBSESSIVE DESIGNS:&lt;/h2&gt;
 &lt;p&gt;During the action phase, after you research a unit upgrade technology, you may use the PRODUCTION ability of 1 of your space docks in your home system to produce units of that type, reducing the combined cost of the produced units by 2.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;BIOPHOBIC:&lt;/p&gt;
+&lt;h2&gt;BIOPHOBIC:&lt;/h2&gt;
 &lt;p&gt;During the agenda phase, the number of votes you cast is instead equal to the number of planets you exhaust to cast votes.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;PARANOIA:&lt;/p&gt;
+&lt;h2&gt;PARANOIA:&lt;/h2&gt;
 &lt;p&gt;Game effects other than your command tokens cannot prevent you from activating, or moving ships into, your home system.&lt;/p&gt;</value>
   </data>
 
@@ -7444,10 +7444,10 @@ there and left.</value>
   </data>
 
   <data name="TheDeepwroughtScholarate_Ability" xml:space="preserve">
-    <value>&lt;p&gt;RESEARCH TEAM:&lt;/p&gt; 
+    <value>&lt;h2&gt;RESEARCH TEAM:&lt;/h2&gt; 
 &lt;p&gt;When ground forces are committed, if your units on the planet are not already coexisting, you may choose for your units to coexist.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;OCEANBOUND:&lt;/p&gt; 
+&lt;h2&gt;OCEANBOUND:&lt;/h2&gt; 
 &lt;p&gt;When your units begin coexisting on a planet, gain an ocean card and ready it. Any time you have more ocean cards than there are planets that have your coexisting units, discard ocean cards until you do not.&lt;/p&gt;</value>
   </data>
 
@@ -7609,21 +7609,21 @@ there and left.</value>
   <data name="TheFirmamentTheObsidian_Ability" xml:space="preserve">
     <value>&lt;h1&gt;The Firmament&lt;/h1&gt;
 &lt;/br&gt;
-&lt;p&gt;PLOTS WITHIN PLOTS:&lt;/p&gt;
+&lt;h2&gt;PLOTS WITHIN PLOTS:&lt;/h2&gt;
 &lt;p&gt;You can score secret objectives already scored by other players, if you fulfill their requirements; This does not count against your secret objective limit or the number you can score in a round. When you score another player's secret objective do not score a victory point. Instead, place a face down plot card into your play area with that player's control token on it.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;PUPPETS OF THE BLADE:&lt;/p&gt;
+&lt;h2&gt;PUPPETS OF THE BLADE:&lt;/h2&gt;
 &lt;p&gt;If you have at least one plot card in your play area, gain the following ability: ACTION: Purge the Firmaments faction sheet, leaders, planet card, and promissory note, then gain all of the faction components for The Obsidian.&lt;/p&gt;
 &lt;/br&gt;
 &lt;h1&gt;The Obsidian&lt;/h1&gt;
 &lt;/br&gt;
-&lt;p&gt;NOCTURNE:&lt;/p&gt;
+&lt;h2&gt;NOCTURNE:&lt;/h2&gt;
 &lt;p&gt;This faction cannot be chosen during setup.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;THE BLADE'S ORCHESTRA:&lt;/p&gt;
+&lt;h2&gt;THE BLADE'S ORCHESTRA:&lt;/h2&gt;
 &lt;p&gt;When this faction comes into play, flip your home system, double sided faction components and all of your in-play plot cards. Then, ready Cronos Hollow and Tallin Hollow if you control them.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;MARIONETTES:&lt;/p&gt;
+&lt;h2&gt;MARIONETTES:&lt;/h2&gt;
 &lt;p&gt;The player or players whose control tokens are on each plot card are the puppeted players for that plot.&lt;/p&gt;</value>
   </data>
 
@@ -7737,13 +7737,13 @@ there and left.</value>
   </data>
 
   <data name="LastBastion_Ability" xml:space="preserve">
-    <value>&lt;p&gt;LIBERATE:&lt;/p&gt;
+    <value>&lt;h2&gt;LIBERATE:&lt;/h2&gt;
 &lt;p&gt;When you gain control of a planet, ready that planet if it contains a number of your infantry equal to or greater than that planet's resource value; otherwise, place 1 infantry on that planet.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;GALVANIZE:&lt;/p&gt;
+&lt;h2&gt;GALVANIZE:&lt;/h2&gt;
 &lt;p&gt;When a game effect instructs a player to galvanize a unit, they place a galvanize token beneath it, if it does not have one. Galvanized units roll 1 additional die for combat rolls and unit abilities.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;PHOENIX STANDARD:&lt;/p&gt;
+&lt;h2&gt;PHOENIX STANDARD:&lt;/h2&gt;
 &lt;p&gt;At the end of combat, you may galvanize 1 of your units that participated.&lt;/p&gt;</value>
   </data>
 
@@ -7810,13 +7810,13 @@ there and left.</value>
   </data>
 
   <data name="TheCrimsonRebellion_Ability" xml:space="preserve">
-    <value>&lt;p&gt;SUNDERED:&lt;/p&gt;
+    <value>&lt;h2&gt;SUNDERED:&lt;/h2&gt;
 &lt;p&gt;You cannot use wormholes other than epsilon wormholes. Other players' units that move or are placed into your home system are destroyed.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;INCURSION:&lt;/p&gt;
+&lt;h2&gt;INCURSION:&lt;/h2&gt;
 &lt;p&gt;When you activate a system that contains a breach, you may flip that breach; systems that contain active breaches are adjacent. At the end of the status phase, any player with ships in a system that contain an active breach may remove that breach.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;THE SORROW:&lt;/p&gt;
+&lt;h2&gt;THE SORROW:&lt;/h2&gt;
 &lt;p&gt;When you create the game board, place the Sorrow (tile 94) where your home system would normally be placed, then place a inactive breach there. The Sorrow is not a home system. Then, place your home system (tile 118) in your play area.&lt;/p&gt;</value>
   </data>
 
@@ -8064,10 +8064,10 @@ there and left.</value>
   </data>
 
   <data name="TheRalNelConsortium_Ability" xml:space="preserve">
-    <value>&lt;p&gt;SURVIVAL INSTINCT:&lt;/p&gt;
+    <value>&lt;h2&gt;SURVIVAL INSTINCT:&lt;/h2&gt;
 &lt;p&gt;After a player activates a system that contains your ships, you may move up to 2 of your ships into the active system from adjacent systems that do not contain your command tokens.&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;MINIATURIZATION:&lt;/p&gt;
+&lt;h2&gt;MINIATURIZATION:&lt;/h2&gt;
 &lt;p&gt;Your structures can be transported by any ships; this does not require or count against capacity. While your structures are in the space area, they cannot use their unit abilities. At the end of your tactical action, you may place your structures that are in space areas onto planets you control in their respective systems.&lt;/p&gt;</value>
   </data>
 

@@ -1,0 +1,30 @@
+.faction-home-system {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    height: 100%;
+}
+
+.faction-home-system-tiles {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.faction-system-tile-image {
+    width: min(100%, 28rem);
+}
+
+@media (max-width: 1248px) {
+    .faction-system-tile-image {
+        width: min(100%, 24rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .faction-system-tile-image {
+        width: min(100%, 20rem);
+    }
+}

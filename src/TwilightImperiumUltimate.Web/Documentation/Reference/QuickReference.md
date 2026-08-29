@@ -30,9 +30,22 @@
 ```razor
 <ResponsiveContainer 
     Type="centered"         // fluid, centered, narrow, wide
-    Padding="md">           // none, xs, sm, md, lg, xl
+    Padding="md"            // none, xs, sm, md, lg, xl
+    ParagraphFontSize="base"> // xs, sm, base, md, lg, xl, 2xl, 3xl or CSS value
     <!-- Your content -->
 </ResponsiveContainer>
+```
+
+### ResponsiveGridContainer
+```razor
+<ResponsiveGridContainer
+    Columns="2"
+    TabletColumns="2"
+    MobileColumns="1"
+    Gap="var(--space-md)"
+    ParagraphFontSize="sm"> // Applies to descendant <p> tags
+    <!-- Grid content -->
+</ResponsiveGridContainer>
 ```
 
 ---

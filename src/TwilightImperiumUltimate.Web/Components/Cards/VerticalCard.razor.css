@@ -1,27 +1,37 @@
 ﻿.image-item {
+    --card-min-width: 12rem;
+    --card-max-width: 20.875rem;
+
     position: relative;
-    display: inline-block;
+    display: block;
     margin-bottom: 1.25rem;
     flex-grow: 1;
     flex-shrink: 1;
-    width: 100%;
+    width: clamp(var(--card-min-width), 100%, var(--card-max-width));
+    max-width: 100%;
+    aspect-ratio: 2 / 3;
+    container-type: inline-size;
 }
 
 .card-image {
     display: block;
-    border-radius: 1.25rem;
+    border-radius: 6cqw;
     flex-grow: 1;
     flex-shrink: 1;
     width: 100%;
+    height: 100%;
+    object-fit: contain;
     transition: opacity 0.2s ease;
 }
 
 .image-item img {
         display: block;
-        border-radius: 1.25rem;
+        border-radius: 6cqw;
         flex-grow: 1;
         flex-shrink: 1;
         width: 100%;
+        height: 100%;
+        object-fit: contain;
     }
 
 .card-image-placeholder {
@@ -30,7 +40,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    border-radius: 1.25rem;
+    border-radius: 6cqw;
     background: linear-gradient(90deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.08));
     animation: image-placeholder-pulse 1.2s ease-in-out infinite;
 }
@@ -45,18 +55,24 @@
         left: 0;
         right: 0;
         bottom: 0;
-        box-shadow: inset 0 0 0 0.3125rem #000;
+        box-shadow: inset 0 0 0 1.5cqw #000;
         pointer-events: none;
-        border-radius: 1.25rem;
+        border-radius: 6cqw;
     }
 
 .strategy-image-item {
+    --card-min-width: 12rem;
+    --card-max-width: 20.875rem;
+
     position: relative;
-    display: inline-block;
+    display: block;
     flex-grow: 1;
     flex-shrink: 1;
+    width: clamp(var(--card-min-width), 100%, var(--card-max-width));
     max-width: 100%;
+    aspect-ratio: 2 / 3;
     margin-bottom: 1.25rem;
+    container-type: inline-size;
 }
 
 .strategy-image-item .card-image,
@@ -65,46 +81,23 @@
     flex-grow: 1;
     flex-shrink: 1;
     width: 100%;
-    height: auto;
-    max-height: 18.75rem;
+    height: 100%;
     object-fit: contain;
 }
 
 @media (max-width: 1280px) {
-    .strategy-image-item .card-image,
-    .strategy-image-item img {
-        max-height: 12.5rem;
+    .image-item,
+    .strategy-image-item {
+        --card-min-width: 11rem;
+        --card-max-width: 18rem;
     }
-
-    .card-image,
-    .image-item img,
-    .card-image-placeholder {
-        border-radius: 0.625rem;
-    }
-
-    .image-item.image-ready::before {
-        border-radius: 0.625rem;
-        box-shadow: inset 0 0 0 0.1875rem #000;
-    }
-
 }
 
 @media (max-width: 768px) {
-    .strategy-image-item .card-image,
-    .strategy-image-item img {
-        max-height: 46.875rem;
-        max-width: 100%;
-    }
-
-    .card-image,
-    .image-item img,
-    .card-image-placeholder {
-        border-radius: 0.3125rem;
-    }
-
-    .image-item.image-ready::before {
-        border-radius: 0.3125rem;
-        box-shadow: inset 0 0 0 0.125rem #000;
+    .image-item,
+    .strategy-image-item {
+        --card-min-width: 10rem;
+        --card-max-width: 15rem;
     }
 }
 

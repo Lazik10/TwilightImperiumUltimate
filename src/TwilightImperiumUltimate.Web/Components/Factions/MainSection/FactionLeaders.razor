@@ -1,0 +1,32 @@
+﻿@inherits FactionInfoComponentBase
+
+@* TODO: Create leader API endpoint for this or include them in faction response *@
+<div class="responsive-content-width faction-leaders">
+@foreach (var section in LeaderSections)
+{
+    <section class="faction-leader-section">
+        @if (!string.IsNullOrWhiteSpace(section.Title))
+        {
+            <ResponsiveHeading Text="@section.Title" Level="2" CenterText="true" FontSize="xl" CssClass="faction-leader-section-title" />
+        }
+
+        <ResponsiveGridContainer Columns="@section.DesktopColumns" TabletColumns="1" MobileColumns="1" Width="100" Gap="var(--space-xl)">
+            @foreach (var leader in section.Leaders)
+            {
+                if (FactionName != FactionName.TheFirmamentTheObsidian)
+                {
+                    <FactionLeaderCard Title="@leader.Title"
+                                       UnlockRequirement="@leader.UnlockRequirement"
+                                       ImagePath="@GetLeaderImagePath(leader.ComponentType)" />
+                }
+                else
+                {
+                    <FactionLeaderCard Title="@leader.Title"
+                                        UnlockRequirement="@leader.UnlockRequirement"
+                                        ImagePath="@GetLeaderImagePath(leader.ComponentType, section.Title)" />
+                }
+            }
+        </ResponsiveGridContainer>
+    </section>
+}
+</div>

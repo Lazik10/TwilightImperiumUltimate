@@ -43,6 +43,34 @@
         "clear": true
       },
       "problemMatcher": []
+    },
+    {
+      "label": "wait-for-api",
+      "detail": "Block until the API project is actually accepting requests, so the Web browser tab doesn't open before the API is ready.",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/.vscode/wait-for-api.ps1"
+      ],
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "prepare-web",
+      "detail": "Runs free-web-port then wait-for-api in sequence before the Web (Blazor) debug session starts.",
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "free-web-port",
+        "wait-for-api"
+      ],
+      "problemMatcher": []
     }
   ]
 }

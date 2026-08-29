@@ -2,9 +2,7 @@
 
 <FactionMenuGrid TItem="FactionDto" Items="_factions" Layouts="_layout" CssClass="official-faction-menu-grid">
     <ItemTemplate Context="faction">
-        <div @onclick="() => HandleFactionClick(faction) ">
-            <FactionIconImg FactionName="@faction.FactionName" />
-        </div>
+        <FactionMenuIcon FactionName="@faction.FactionName" OnClick="() => HandleFactionClick(faction)" />
     </ItemTemplate>
     <PlaceholderTemplate>
         <div class="faction-menu-grid-placeholder"></div>

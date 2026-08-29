@@ -1,0 +1,31 @@
+﻿::deep .faction-info-tab-label {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+::deep .faction-info-tab-active {
+    background: var(--color-nav-panel-bg);
+    border-radius: var(--border-radius-md);
+}
+
+/* Beats the global ".white { color: ... !important }" utility that ResponsiveLabel always applies. */
+::deep .faction-info-tab-active .faction-info-tab-label {
+    color: var(--color-nav-hover) !important;
+}
+
+/* Separator between tabs -- ResponsiveTabMenu/TabNavItem are generic shared components (used
+   elsewhere without separators), so this is scoped here rather than in their own stylesheets.
+   The tab is laid out as a row so the "/" sits beside the label instead of below it. */
+::deep .tab-nav-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+::deep .tab-nav-item:not(:last-child)::after {
+    content: "/";
+    color: var(--color-white);
+    font-size: var(--font-size-lg);
+    font-weight: bold;
+}

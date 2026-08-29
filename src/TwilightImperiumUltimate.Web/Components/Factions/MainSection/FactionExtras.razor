@@ -1,0 +1,69 @@
+@using TwilightImperiumUltimate.Web.Components.Cards
+
+@if (HasExtras())
+{
+    <section class="faction-component-section faction-component-section--full faction-extras">
+        <ResponsiveHeading Text="Other unique components" Level="2" CenterText="true" FontSize="lg" CssClass="faction-component-section-title" />
+
+        @if (GetCardComponents().Count > 0)
+        {
+            <ResponsiveGridContainer Columns="3" TabletColumns="1" MobileColumns="1" Width="100" Gap="var(--space-xl)">
+                @foreach (var specialComponent in GetCardComponents())
+                {
+                    @if (specialComponent.SpecialType == SpecialComponentType.VerticalCard)
+                    {
+                        <div class="faction-vertical-card">
+                            <VerticalCard Name="@specialComponent.SpecialComponentName.ToString()" TypeOfCard="specialcomponents" />
+                        </div>
+                    }
+                    else if (specialComponent.SpecialType == SpecialComponentType.HorizontalCard)
+                    {
+                        <div class="faction-horizontal-card">
+                            <HorizontalCard ImagePath="@(PathProvider.GetSpecialComponentImagePath(specialComponent.SpecialComponentName))" />
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="faction-token-card">
+                            <TokenCard ImagePath="@(PathProvider.GetSpecialComponentImagePath(specialComponent.SpecialComponentName))" />
+                        </div>
+                    }
+                }
+            </ResponsiveGridContainer>
+        }
+
+        <FactionExtrasVerticalCardGroup Title="Plots" Components="@GetPlotComponents()" />
+        <FactionExtrasVerticalCardGroup Title="Oceans" Components="@GetOceanComponents()" />
+
+        @if (GetTokenComponents().Count > 0)
+        {
+            <div class="faction-token-row">
+            @foreach (var specialComponent in GetTokenComponents())
+                {
+                    if (_largeTokens.Contains(specialComponent.SpecialComponentName))
+                    {
+                        <div class="faction-token-entry faction-token-entry--large">
+                            <ResponsiveLabel Text="@(specialComponent.Count.ToString() + "x")" FontSize="xl" CssClass="faction-token-count" />
+                            <TokenCard ImagePath="@(PathProvider.GetSpecialComponentImagePath(specialComponent.SpecialComponentName))" />
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="faction-token-entry">
+                            <ResponsiveLabel Text="@(specialComponent.Count.ToString() + "x")" FontSize="xl" CssClass="faction-token-count" />
+                            <TokenCard ImagePath="@(PathProvider.GetSpecialComponentImagePath(specialComponent.SpecialComponentName))" />
+                        </div>
+                    }
+                }
+            </div>
+        }
+
+        @if (ExtraSystemTile is not null)
+        {
+            <ResponsiveHeading Text="Extra system tiles" Level="3" CenterText="true" FontSize="md" CssClass="faction-component-section-title" />
+            <div class="faction-extra-system-tile">
+                <img src="@(PathProvider.GetLargeTileImagePath(ExtraSystemTile.SystemTileName))" alt="@ExtraSystemTile.SystemTileName" class="faction-system-tile-image" />
+            </div>
+        }
+    </section>
+}

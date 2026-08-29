@@ -6,7 +6,7 @@ public partial class OfficialFactionMenu : TwilightImperiumBaseComponent
         new Dictionary<ResponsiveBreakpoint, (IReadOnlyList<int> Columns, IReadOnlyList<int> PlaceholderPositions)>
         {
             [ResponsiveBreakpoint.Desktop] = (new List<int> { 17, 17 }, new List<int> { 17, 25, 27, 33 }),
-            [ResponsiveBreakpoint.Tablet] = (new List<int> { 17, 17 }, new List<int> { 17, 25, 27, 33 }),
+            [ResponsiveBreakpoint.Tablet] = (new List<int> { 9, 8, 9, 9 }, new List<int> { 17, 25, 26, 28, 34 }),
             [ResponsiveBreakpoint.Mobile] = (new List<int> { 9, 8, 9, 9 }, new List<int> { 17, 25, 26, 28, 34 }),
         };
 

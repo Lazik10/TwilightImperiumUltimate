@@ -1,3 +1,30 @@
 @using TwilightImperiumUltimate.Web.Components.Factions.Header
+@using TwilightImperiumUltimate.Web.Components.Factions.MainSection
 
 <FactionHeader />
+
+<FactionSubmenu SelectedType="_selectedInfoType" OnFactionInfoTypeChange="OnInfoTypeChanged" />
+
+<section class="faction-info-content">
+    @switch (_selectedInfoType)
+    {
+        case FactionInfoType.Ability:
+            <FactionAbilities />
+            break;
+        case FactionInfoType.Setup:
+            <FactionSetup />
+            break;
+        case FactionInfoType.Components:
+            <FactionComponents />
+            break;
+        case FactionInfoType.Leaders:
+            <FactionLeaders />
+            break;
+        case FactionInfoType.History:
+            <FactionLore />
+            break;
+        case FactionInfoType.Rules:
+            <FactionRules />
+            break;
+    }
+</section>

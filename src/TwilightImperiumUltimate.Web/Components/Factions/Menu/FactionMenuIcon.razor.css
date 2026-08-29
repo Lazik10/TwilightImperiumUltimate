@@ -1,0 +1,32 @@
+.faction-menu-icon-cell {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12.5%;
+    box-sizing: border-box;
+    transition: transform 0.15s ease;
+    transform-origin: center;
+}
+
+.faction-menu-icon-cell:hover {
+    transform: scale(1.2);
+}
+
+.faction-menu-icon-cell::after {
+    content: "";
+    position: absolute;
+    bottom: 12.5%;
+    left: 50%;
+    width: 0;
+    max-width: 75%;
+    height: 3px;
+    background: var(--color-nav-hover);
+    transform: translateX(-50%);
+    transition: width 0.2s ease;
+}
+
+.faction-menu-icon-cell:hover::after,
+.faction-menu-icon-cell.active::after {
+    width: 100%;
+}

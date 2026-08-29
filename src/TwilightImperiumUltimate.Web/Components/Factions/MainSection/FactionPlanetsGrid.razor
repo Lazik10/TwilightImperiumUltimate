@@ -1,0 +1,13 @@
+@using TwilightImperiumUltimate.Web.Components.Galaxy
+
+@if (Planets.Count > 0)
+{
+    <ResponsiveGridContainer Columns="@DesktopColumns" TabletColumns="@TabletColumns" MobileColumns="@MobileColumns" Width="100" Gap="var(--space-md)" Style="height: 100%;">
+        @foreach (var planet in Planets)
+        {
+            <div class="faction-planet-card">
+                <PlanetCard Name="@(planet.PlanetName.ToString())" />
+            </div>
+        }
+    </ResponsiveGridContainer>
+}

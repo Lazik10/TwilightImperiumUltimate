@@ -39,6 +39,14 @@ public partial class ResponsiveGridContainer
     public int Width { get; set; } = 100;
 
     /// <summary>
+    /// Gets or sets the paragraph font-size token/value applied to descendant <c>p</c> tags.
+    /// Accepts the shared scale tokens (xs/sm/base/md/lg/xl/2xl/3xl) or any valid CSS
+    /// font-size value such as <c>1rem</c> or <c>clamp(...)</c>.
+    /// </summary>
+    [Parameter]
+    public string ParagraphFontSize { get; set; } = "base";
+
+    /// <summary>
     /// Gets or sets the vertical alignment of content within each grid cell (CSS `align-items`).
     /// </summary>
     [Parameter]
@@ -91,8 +99,22 @@ public partial class ResponsiveGridContainer
         var mobileColumns = MobileColumns > 0 ? MobileColumns : tabletColumns;
 
         return $"--grid-columns: {Columns}; --grid-columns-tablet: {tabletColumns}; --grid-columns-mobile: {mobileColumns}; " +
-               $"--grid-min-item-width: {MinItemWidth}; --grid-gap: {Gap}; width: {Width}%; " +
+               $"--grid-min-item-width: {MinItemWidth}; --grid-gap: {Gap}; --container-paragraph-font-size: {ResolveParagraphFontSize()}; width: {Width}%; " +
                $"align-items: {AlignItems.GetAlignString()} justify-items: {JustifyItems.GetAlignString()} " +
                $"justify-content: {JustifyContent.GetJustifyString()} align-content: {AlignContent.GetJustifyString()} {Style}";
     }
+
+    private string ResolveParagraphFontSize() => ParagraphFontSize switch
+    {
+        "xs" => "var(--font-size-xs)",
+        "sm" => "var(--font-size-sm)",
+        "base" => "var(--font-size-base)",
+        "md" => "var(--font-size-md)",
+        "lg" => "var(--font-size-lg)",
+        "xl" => "var(--font-size-xl)",
+        "2xl" => "var(--font-size-2xl)",
+        "3xl" => "var(--font-size-3xl)",
+        null or "" => "var(--font-size-base)",
+        _ => ParagraphFontSize,
+    };
 }

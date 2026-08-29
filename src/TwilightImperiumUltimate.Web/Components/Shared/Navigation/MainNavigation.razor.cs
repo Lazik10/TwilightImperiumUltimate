@@ -53,7 +53,6 @@ public partial class MainNavigation : IDisposable
         _gameLinks =
         [
             new NavLinkItem(PageRoutes.Factions, "factions", Strings.Page_Factions),
-            new NavLinkItem(PageRoutes.FactionsDS, "factionsds", Strings.Page_FactionsDS),
             new NavLinkItem(PageRoutes.Technologies, "technologies", Strings.Page_Technologies),
             new NavLinkItem(PageRoutes.Cards, "cards", Strings.Page_Cards),
             new NavLinkItem(PageRoutes.SystemTiles, "systemtiles", Strings.Page_SystemTiles),

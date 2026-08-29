@@ -6,25 +6,30 @@ public partial class Page
     public RenderFragment? ChildContent { get; set; }
 
     /// <summary>
-    /// Gets or sets the desktop horizontal padding as a percentage of the page width.
-    /// Tablet (&lt;=1024px) and mobile (&lt;=768px) breakpoints always use fixed 5% and 1%
-    /// respectively, regardless of this value -- see page-horizontal-padding in Page.razor.css.
+    /// Gets or sets the horizontal padding as a percentage of the page width, applied only at
+    /// viewport widths of 1570px and wider. Below 1570px this value is ignored and a fixed 3%
+    /// is used instead, dropping to 2% at &lt;=1024px and 1% at &lt;=768px, regardless of this
+    /// parameter -- see page-horizontal-padding in Page.razor.css.
     /// </summary>
     [Parameter]
     public int HorizontalPadding { get; set; } = 10;
 
     /// <summary>
-    /// Gets or sets the desktop left padding as a percentage of the page width. When null,
-    /// falls back to <see cref="HorizontalPadding"/>. Tablet/mobile breakpoints always use
-    /// fixed values regardless of this parameter -- see page-horizontal-padding in Page.razor.css.
+    /// Gets or sets the left padding as a percentage of the page width, applied only at viewport
+    /// widths of 1570px and wider. When null, falls back to <see cref="HorizontalPadding"/>.
+    /// Narrower breakpoints always use the fixed values described on
+    /// <see cref="HorizontalPadding"/>, regardless of this parameter -- see
+    /// page-horizontal-padding in Page.razor.css.
     /// </summary>
     [Parameter]
     public int? LeftPadding { get; set; }
 
     /// <summary>
-    /// Gets or sets the desktop right padding as a percentage of the page width. When null,
-    /// falls back to <see cref="HorizontalPadding"/>. Tablet/mobile breakpoints always use
-    /// fixed values regardless of this parameter -- see page-horizontal-padding in Page.razor.css.
+    /// Gets or sets the right padding as a percentage of the page width, applied only at viewport
+    /// widths of 1570px and wider. When null, falls back to <see cref="HorizontalPadding"/>.
+    /// Narrower breakpoints always use the fixed values described on
+    /// <see cref="HorizontalPadding"/>, regardless of this parameter -- see
+    /// page-horizontal-padding in Page.razor.css.
     /// </summary>
     [Parameter]
     public int? RightPadding { get; set; }

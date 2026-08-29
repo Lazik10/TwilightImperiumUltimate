@@ -1,0 +1,41 @@
+.faction-rules {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+}
+
+.faction-rules-notes {
+    width: 100%;
+}
+
+.faction-rules-faq {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.faction-rules-faq-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+}
+
+.faction-rules-faq-header h2 {
+    margin: 0;
+    color: var(--color-white);
+    font-family: Handel, fallback, sans-serif;
+    text-shadow: var(--shadow-text);
+    text-transform: uppercase;
+}
+
+.faction-rules-faq-action {
+    width: min(100%, 16rem);
+}
+
+@media (max-width: 768px) {
+    .faction-rules-faq-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}

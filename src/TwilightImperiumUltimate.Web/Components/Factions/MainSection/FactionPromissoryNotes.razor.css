@@ -1,0 +1,35 @@
+.faction-promissory-notes {
+    --faction-promissory-max-height: 26rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+}
+
+.faction-vertical-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-width: min(100%, 10rem);
+}
+
+.faction-vertical-card ::deep .image-item {
+    width: min(100%, calc(var(--faction-promissory-max-height) * 0.6667));
+    max-width: calc(var(--faction-promissory-max-height) * 0.6667);
+    margin-bottom: 0;
+}
+
+@media (max-width: 1248px) {
+    .faction-promissory-notes {
+        --faction-promissory-max-height: 22rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .faction-promissory-notes {
+        --faction-promissory-max-height: 18rem;
+    }
+}

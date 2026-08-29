@@ -12,8 +12,10 @@ public partial class FactionTitle
 
     /// <summary>
     /// Gets or sets a value indicating whether the title text is prevented from wrapping
-    /// onto multiple lines.
+    /// onto multiple lines. Defaults to <see langword="false"/> so long faction names shrink
+    /// via the responsive font-size in FactionHeader.razor.css instead of overflowing past the
+    /// surrounding faction icons.
     /// </summary>
     [Parameter]
-    public bool NoWrap { get; set; } = true;
+    public bool NoWrap { get; set; }
 }

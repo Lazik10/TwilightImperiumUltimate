@@ -1,0 +1,18 @@
+﻿.faction-starting-units {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: calc(var(--space-xl) * 2);
+}
+
+.faction-technology-image-container {
+    width: 100%;
+    max-width: 21rem;
+}
+
+@media (max-width: 768px) {
+    .faction-technology-image-container {
+        max-width: 18rem;
+    }
+}

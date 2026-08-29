@@ -1,0 +1,19 @@
+.faction-extras-vertical-card-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    width: 100%;
+}
+
+.faction-vertical-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.faction-vertical-card ::deep .image-item {
+    width: min(100%, calc(var(--faction-extras-vertical-card-max-height, 26rem) * 0.6667));
+    max-width: calc(var(--faction-extras-vertical-card-max-height, 26rem) * 0.6667);
+    margin-bottom: 0;
+}

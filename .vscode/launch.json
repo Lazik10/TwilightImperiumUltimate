@@ -35,7 +35,7 @@
       "name": "Web (Blazor)",
       "type": "coreclr",
       "request": "launch",
-      "preLaunchTask": "free-web-port",
+      "preLaunchTask": "prepare-web",
       "program": "C:\\Program Files\\dotnet\\dotnet.exe",
       "args": [
           "watch",

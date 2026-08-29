@@ -1,0 +1,19 @@
+.faction-planet-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: min(100%, 13rem);
+    min-width: min(100%, 9rem);
+}
+
+@media (max-width: 1248px) {
+    .faction-planet-card {
+        width: min(100%, 12rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .faction-planet-card {
+        width: min(100%, 11rem);
+    }
+}

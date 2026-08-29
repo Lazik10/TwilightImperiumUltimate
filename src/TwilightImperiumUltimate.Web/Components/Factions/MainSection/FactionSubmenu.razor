@@ -1,0 +1,31 @@
+@* The wrapper div exists so Blazor's CSS isolation has a real element of this component's own
+   markup to stamp its scope attribute onto -- without it every rule in the .razor.css is dead. *@
+<div class="faction-submenu">
+    <ResponsiveTabMenu AriaLabel="@Strings.Faction_InfoTabsLabel" CssClass="responsive-content-width mb-xl">
+
+        <TabNavItem CssClass="@GetTabCssClass(FactionInfoType.Ability)" OnClick="() => OnInfoTypeClick(FactionInfoType.Ability)">
+            <ResponsiveLabel Text="@Strings.Faction_Ability" CenterText="true" FontSize="lg" CssClass="faction-info-tab-label" />
+        </TabNavItem>
+
+        <TabNavItem CssClass="@GetTabCssClass(FactionInfoType.Setup)" OnClick="() => OnInfoTypeClick(FactionInfoType.Setup)">
+            <ResponsiveLabel Text="@Strings.Faction_Setup" CenterText="true" FontSize="lg" CssClass="faction-info-tab-label" />
+        </TabNavItem>
+
+        <TabNavItem CssClass="@GetTabCssClass(FactionInfoType.Components)" OnClick="() => OnInfoTypeClick(FactionInfoType.Components)">
+            <ResponsiveLabel Text="@Strings.Faction_FactionComponents" CenterText="true" FontSize="lg" CssClass="faction-info-tab-label" />
+        </TabNavItem>
+
+        <TabNavItem CssClass="@GetTabCssClass(FactionInfoType.Leaders)" OnClick="() => OnInfoTypeClick(FactionInfoType.Leaders)">
+            <ResponsiveLabel Text="@Strings.Faction_Leaders" CenterText="true" FontSize="lg" CssClass="faction-info-tab-label" />
+        </TabNavItem>
+
+        <TabNavItem CssClass="@GetTabCssClass(FactionInfoType.History)" OnClick="() => OnInfoTypeClick(FactionInfoType.History)">
+            <ResponsiveLabel Text="@Strings.Faction_Lore" CenterText="true" FontSize="lg" CssClass="faction-info-tab-label" />
+        </TabNavItem>
+
+        <TabNavItem CssClass="@GetTabCssClass(FactionInfoType.Rules)" OnClick="() => OnInfoTypeClick(FactionInfoType.Rules)">
+            <ResponsiveLabel Text="@Strings.Faction_Rules" CenterText="true" FontSize="lg" CssClass="faction-info-tab-label" />
+        </TabNavItem>
+
+    </ResponsiveTabMenu>
+</div>

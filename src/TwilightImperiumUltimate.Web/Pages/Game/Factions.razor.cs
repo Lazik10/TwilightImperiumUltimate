@@ -8,6 +8,8 @@ public partial class Factions
 {
     private FactionTemplateGrid? _factionTemplateGridRef;
 
+    private FactionInfoType _selectedInfoType = FactionInfoType.Ability;
+
     [Parameter]
     public string? FactionOrSource { get; set; }
 
@@ -41,6 +43,7 @@ public partial class Factions
     protected override async Task OnParametersSetAsync()
     {
         await ResolveSourceAndFaction();
+        _selectedInfoType = ResolveFactionInfoType();
         _factionTemplateGridRef?.Refresh();
     }
 
@@ -48,6 +51,14 @@ public partial class Factions
         Enum.GetValues<FactionSource>()
             .Select(source => new KeyValuePair<FactionSource, string>(source, source.GetDisplayName()))
             .ToList();
+
+    private FactionInfoType ResolveFactionInfoType()
+    {
+        if (string.Equals(Info, "faq", StringComparison.OrdinalIgnoreCase))
+            return FactionInfoType.Rules;
+
+        return Enum.TryParse<FactionInfoType>(Info, ignoreCase: true, out var infoType) ? infoType : FactionInfoType.Ability;
+    }
 
     private void OnSourceChanged(FactionSource newSource)
     {

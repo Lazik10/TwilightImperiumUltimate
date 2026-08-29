@@ -1,30 +1,44 @@
 ﻿.image-item {
+    --card-min-width: 18rem;
+    --card-max-width: 31.25rem;
+
     position: relative;
-    display: inline-block;
+    display: block;
     flex-shrink: 1;
-    width: 100%;
+    width: clamp(var(--card-min-width), var(--card-fluid-width, 100%), var(--card-max-width));
     max-width: 100%;
-    height: 100%;
+    aspect-ratio: 3 / 2;
     box-sizing: border-box;
+    container-type: inline-size;
 }
 
     .image-item img {
         display: block;
         width: 100%;
-        max-width: 100%;
-        height: auto;
-        border-radius: 20px;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 6cqw;
     }
 
     .image-item::before {
         content: "";
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        box-shadow: inset 0 0 0 5px #000;
+        inset: 0;
+        box-shadow: inset 0 0 0 1.5cqw #000;
         pointer-events: none;
-        border-radius: 5%;
-        width: 100%;
+        border-radius: 6cqw;
     }
+
+@media (max-width: 1248px) {
+    .image-item {
+        --card-min-width: 17rem;
+        --card-max-width: 28rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .image-item {
+        --card-min-width: 15rem;
+        --card-max-width: 20rem;
+    }
+}

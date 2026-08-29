@@ -6,6 +6,18 @@
     width: 100%;
 }
 
+.responsive-container p,
+.responsive-grid-container p {
+    font-size: var(--container-paragraph-font-size, var(--font-size-base));
+}
+
+/* Shared responsive-width centering shell (80% desktop / 92% <=1248px / 98% <=768px), previously
+   duplicated per-component across Components/Factions/MainSection. */
+.responsive-content-width {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* When ResponsiveContainer renders as a real <button> (OnClick is set), reset native button chrome
    so it keeps looking like the plain layout container it visually replaces. */
 button.responsive-container {

@@ -1,0 +1,52 @@
+.faction-leader-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 32rem;
+    gap: var(--space-sm);
+}
+
+.faction-leader-card-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+    min-height: 4.5rem;
+    text-align: center;
+}
+
+.faction-leader-card-title {
+    font-size: var(--font-size-lg);
+    font-weight: bold;
+}
+
+.faction-leader-card-requirement {
+    font-size: var(--font-size-base);
+    line-height: 1.3;
+}
+
+@media (max-width: 1248px) {
+    .faction-leader-card {
+        max-width: 28rem;
+    }
+
+    .faction-leader-card-title {
+        font-size: var(--font-size-base);
+    }
+}
+
+@media (max-width: 768px) {
+    .faction-leader-card {
+        max-width: 20rem;
+    }
+
+    .faction-leader-card-header {
+        min-height: auto;
+    }
+
+    .faction-leader-card-title,
+    .faction-leader-card-requirement {
+        font-size: var(--font-size-sm);
+    }
+}

@@ -1,0 +1,33 @@
+@using System.Globalization
+@using Microsoft.AspNetCore.Components.Authorization
+@using TwilightImperiumUltimate.Web.Components.Rules
+@using TwilightImperiumUltimate.Web.Components.Shared.Controls
+@inherits FactionInfoComponentBase
+
+<div class="responsive-content-width faction-rules">
+    <section class="faction-rules-notes white shadow handel" aria-label="@Strings.Faction_Rules">
+        @FactionNotes
+    </section>
+
+    @if (Faqs.Count > 0)
+    {
+        <section class="faction-rules-faq" aria-labelledby="faction-rules-faq-heading">
+            <div class="faction-rules-faq-header">
+                <h2 id="faction-rules-faq-heading">@Strings.Faction_Faq</h2>
+
+                <AuthorizeView>
+                    <Authorized>
+                        <div class="faction-rules-faq-action">
+                            <ResponsiveButton ButtonText="@Strings.Faction_AddFaq" OnClick="AddFaq" Width="100" />
+                        </div>
+                    </Authorized>
+                </AuthorizeView>
+            </div>
+
+            @foreach (var faq in Faqs)
+            {
+                <FaqRow Faq="@faq" Culture="@(CultureInfo.CurrentCulture.Name)" />
+            }
+        </section>
+    }
+</div>

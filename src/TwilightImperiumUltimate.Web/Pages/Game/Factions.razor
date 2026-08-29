@@ -30,7 +30,7 @@
 
         <FactionMenu @key="FactionProvider.CurrentSource" />
 
-        <FactionTemplateGrid @key="@($"{FactionProvider.CurrentSource}:{FactionProvider.CurrentFactionName}")" @ref="_factionTemplateGridRef" />
+        <FactionTemplateGrid @key="@($"{FactionProvider.CurrentSource}:{FactionProvider.CurrentFactionName}")" @ref="_factionTemplateGridRef" InitialInfoType="_selectedInfoType" />
     }
 
 </Page>

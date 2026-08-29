@@ -1,0 +1,5 @@
+@inherits TwilightImperiumBaseComponent
+
+<div class="faction-menu-icon-cell clickable @(IsActive ? "active" : string.Empty)" @onclick="OnClick">
+    <FactionIconImg FactionName="@FactionName" />
+</div>

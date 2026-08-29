@@ -1,0 +1,29 @@
+@using TwilightImperiumUltimate.Web.Components.Cards
+@using TwilightImperiumUltimate.Web.Components.Galaxy
+@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Components.Technologies
+@inherits FactionInfoComponentBase
+
+@if (_systemTiles.Any())
+{
+    <div class="faction-components-grid">
+        @if (IsFirmamentObsidian())
+        {
+            <FactionHomeSystem Title="The Firmament Home System" SystemTile="@_systemTile" />
+            <FactionHomeSystem Title="The Obsidian Home System" SystemTile="@GetObsidianSystemTile()" />
+            <FactionPlanets Title="The Firmament Planets" Planets="@GetFirmamentPlanets()" />
+            <FactionPlanets Title="The Obsidian Planets" Planets="@GetObsidianPlanets()" />
+        }
+        else
+        {
+            <FactionHomeSystem SystemTile="@_systemTile" />
+            <FactionPlanets Planets="@_planets" />
+        }
+
+        <FactionUnits FactionName="@FactionName" FlagshipCards="@_flagshipCards" SpecialComponentCards="@_specialComponentCards" />
+        <FactionTechnologies Technologies="@_technologies" />
+        <FactionBreakthrough FactionName="@FactionName" BreakthroughCards="@_breakthroughCards" />
+        <FactionPromissoryNotes FactionName="@FactionName" PromissoryNotes="@_promissoryNotes" />
+        <FactionExtras FactionName="@FactionName" SystemTiles="@_systemTiles" SpecialComponentCards="@_specialComponentCards" />
+    </div>
+}

@@ -1,4 +1,18 @@
-﻿.faction-overview-shell,
+﻿.faction-info-content {
+    min-height: min(66vh, 46rem);
+}
+
+@media (max-width: 1248px) {
+    .faction-info-content {
+        min-height: min(50vh, 32rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .faction-info-content {
+        min-height: min(50vh, 28rem);
+    }
+}.faction-overview-shell,
 .faction-dynamic-content-shell {
     width: 80%;
     margin-left: auto;
