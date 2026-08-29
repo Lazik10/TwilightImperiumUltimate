@@ -5,10 +5,10 @@
     <section class="faction-component-section faction-component-section--full faction-extras">
         <ResponsiveHeading Text="Other unique components" Level="2" CenterText="true" FontSize="lg" CssClass="faction-component-section-title" />
 
-        @if (GetCardComponents().Count > 0)
+        @foreach (var cardComponentRow in GetCardComponentRows())
         {
-            <ResponsiveGridContainer Columns="3" TabletColumns="1" MobileColumns="1" Width="100" Gap="var(--space-xl)">
-                @foreach (var specialComponent in GetCardComponents())
+            <ResponsiveGridContainer Columns="@cardComponentRow.Count" TabletColumns="1" MobileColumns="1" Width="100" Gap="var(--space-xl)">
+                @foreach (var specialComponent in cardComponentRow)
                 {
                     @if (specialComponent.SpecialType == SpecialComponentType.VerticalCard)
                     {

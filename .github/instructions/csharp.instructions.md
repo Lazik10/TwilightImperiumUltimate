@@ -23,13 +23,15 @@ applyTo: '**/*.cs'
 
 ## Formatting
 
-- Apply code-formatting style defined in `.editorconfig`.
+- Apply code-formatting style defined in `.editorconfig`; do not fix ordering/formatting only after a failed build — generate it correctly the first time.
+- Order members within a type per StyleCop defaults (SA1201/SA1202/SA1204/SA1214): constant fields, then static fields, then instance fields, then constructors, then properties/indexers/events, then methods. Within each of those categories, static members come before instance members, and public/internal/protected/private are ordered by that same accessibility rank unless the file already has an established different order to stay consistent with.
 - Prefer file-scoped namespace declarations and single-line using directives.
 - Insert a newline before the opening curly brace of any code block (e.g., after `if`, `for`, `while`, `foreach`, `using`, `try`, etc.).
 - Ensure that the final return statement of a method is on its own line.
 - Use pattern matching and switch expressions wherever possible.
 - Use `nameof` instead of string literals when referring to member names.
 - Ensure that XML doc comments are created for any public APIs. When applicable, include `<example>` and `<code>` documentation in the comments.
+- After editing a `.cs`/`.razor.cs` file, re-check member order and run a build; if the build reports ANY warnings (not just errors) introduced or touched by the change, fix them in the same turn instead of leaving them for the user to flag.
 
 ## Nullable Reference Types
 

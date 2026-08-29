@@ -45,7 +45,7 @@ Do not refactor solely to introduce a preferred pattern when the existing code i
 4. Choose the smallest coherent refactoring scope.
 5. Add or confirm tests around risky behavior when practical.
 6. Make one logical change at a time.
-7. Build and test the affected projects.
+7. Build and test the affected projects. Treat any warning the build reports on touched files the same as an error: fix it in this same turn (e.g. `.editorconfig`/StyleCop member-ordering violations per `csharp.instructions.md`) rather than deferring it or waiting for a follow-up build to reveal it.
 8. Review the final diff for behavior changes and unrelated edits.
 9. Report what changed and what validation actually ran.
 

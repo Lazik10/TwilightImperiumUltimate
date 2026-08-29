@@ -40,6 +40,17 @@
         border-radius: 1.25rem;
     }
 
+/* Opt-in modifier for wide/landscape images (e.g. faction sheets) that should fill the overlay
+   instead of being capped at the narrow default meant for portrait cards/planets, while still
+   respecting a max real-world pixel width so it doesn't stretch absurdly large on ultra-wide
+   displays. Pass CssClass="wide-image" to BigImageOverlay to opt in. */
+.big-image-overlay.wide-image .image-container {
+    width: min(100%, 120rem);
+    height: min(90vh, 100%);
+    max-width: 120rem;
+    max-height: 90vh;
+}
+
 @media (max-width: 768px) {
     .big-image-overlay {
         justify-content: flex-start;

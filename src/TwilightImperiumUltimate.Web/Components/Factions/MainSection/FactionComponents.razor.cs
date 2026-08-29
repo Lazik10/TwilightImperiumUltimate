@@ -53,14 +53,13 @@ public partial class FactionComponents : FactionInfoComponentBase
             return;
 
         _systemTiles = FactionComponentsCache.SystemTiles.ToList();
-        _systemTile = _systemTiles.First(x => x.FactionName == FactionName);
+        _systemTile = FactionName switch
+        {
+            FactionName.TheGhostsOfCreuss => _systemTiles.First(x => x.SystemTileName == SystemTileName.Tile51),
+            FactionName.TheCrimsonRebellion => _systemTiles.First(x => x.SystemTileName == SystemTileName.TileTE118),
+            _ => _systemTiles.First(x => x.FactionName == FactionName),
+        };
         _planets = _systemTile.Planets.ToList();
-
-        if (FactionName == FactionName.TheGhostsOfCreuss)
-            _planets.AddRange(_systemTiles.Single(x => x.SystemTileName == SystemTileName.Tile51).Planets);
-
-        if (FactionName == FactionName.TheCrimsonRebellion)
-            _planets.AddRange(_systemTiles.Single(x => x.SystemTileName == SystemTileName.TileTE118).Planets);
 
         if (FactionName == FactionName.TheFirmamentTheObsidian)
             _planets.AddRange(_systemTiles.Single(x => x.SystemTileName == SystemTileName.TileTE96B).Planets);
