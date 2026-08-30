@@ -25,6 +25,13 @@ img {
     transition: transform 0.3s ease;
     align-self: center;
     justify-self: center;
+    /* Each icon is its own containment/paint boundary: this menu packs 40-60+ of these
+       tightly in a grid, so hovering over it while the mouse wheel scrolls the page under a
+       stationary cursor rapidly enters/exits :hover on many neighboring icons. Without
+       containment the browser has to consider repainting the surrounding row on every one of
+       those transitions, which is what caused the scroll stutter while the menu was on screen. */
+    contain: layout paint;
+    will-change: transform;
 }
 
     img:hover {

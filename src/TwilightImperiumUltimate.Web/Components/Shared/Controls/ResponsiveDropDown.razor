@@ -13,7 +13,7 @@
     none of this component's own ::deep rules in ResponsiveDropDown.razor.css would ever have a
     reachable ancestor to anchor from (confirmed dead CSS otherwise; see that file's comments).
 *@
-<span class="responsive-dropdown-host@(HasLabel ? " has-label" : string.Empty)">
+<span class="@ComputedHostClass">
     @if (HasLabel)
     {
         <ResponsiveText Text="@Label" FontSize="md" CenterText="true" CssClass="responsive-dropdown-label" />

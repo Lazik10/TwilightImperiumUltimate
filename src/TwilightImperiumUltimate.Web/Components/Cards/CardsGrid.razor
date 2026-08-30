@@ -1,17 +1,13 @@
-@using System.Globalization;
+@using System.Globalization
 @using Microsoft.AspNetCore.Components.Authorization
 @using TwilightImperiumUltimate.Web.Components.Rules
 @using TwilightImperiumUltimate.Web.Components.Shared.Controls
 @using TwilightImperiumUltimate.Web.Helpers.Enums
-@using TwilightImperiumUltimate.Web.Models.Cards;
-@using TwilightImperiumUltimate.Web.Resources;
-@using TwilightImperiumUltimate.Web.Services.Language;
-@using TwilightImperiumUltimate.Web.Services.Path;
-@using TwilightImperiumUltimate.Web.Services.HttpClients;
+@using TwilightImperiumUltimate.Web.Resources
 
 @if (_listOfCards is not null)
 {
-    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none">
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CssClass="mt-xl">
 
         @if (TypeOfCard != Paths.ResourcePath_StrategyCard)
         {

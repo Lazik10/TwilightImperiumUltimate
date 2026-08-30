@@ -1,4 +1,5 @@
 using System.Collections;
+using TwilightImperiumUltimate.Web.Enums;
 
 namespace TwilightImperiumUltimate.Web.Components.Shared.Controls;
 
@@ -15,6 +16,15 @@ public partial class ResponsiveDropDown<TValue>
     /// </summary>
     [Parameter]
     public string? Label { get; set; }
+
+    /// <summary>
+    /// Gets or sets where <see cref="Label"/> is rendered relative to the dropdown. Row (the
+    /// default) places it beside the dropdown on desktop/tablet, still collapsing to Column below
+    /// the 768px breakpoint. Column always stacks the label above the dropdown, at every width.
+    /// Only relevant when <see cref="Label"/> is set.
+    /// </summary>
+    [Parameter]
+    public LabelPosition LabelPosition { get; set; } = LabelPosition.Row;
 
     [Parameter]
     public TValue Value { get; set; } = default!;
@@ -65,6 +75,21 @@ public partial class ResponsiveDropDown<TValue>
     [Parameter]
     public bool FillWidth { get; set; } = true;
 
+    /// <summary>
+    /// Gets or sets the dropdown's width in percent at the tablet breakpoint (&lt;=1024px). Falls
+    /// back to <see cref="Width"/> when unset. Ignored when <see cref="FillWidth"/> is false.
+    /// </summary>
+    [Parameter]
+    public int? TabletWidth { get; set; }
+
+    /// <summary>
+    /// Gets or sets the dropdown's width in percent at the mobile breakpoint (&lt;=768px). Falls
+    /// back to <see cref="TabletWidth"/>/<see cref="Width"/> when unset. Ignored when
+    /// <see cref="FillWidth"/> is false.
+    /// </summary>
+    [Parameter]
+    public int? MobileWidth { get; set; }
+
     [Parameter]
     public string Style { get; set; } = string.Empty;
 
@@ -91,7 +116,19 @@ public partial class ResponsiveDropDown<TValue>
 
     private string ComputedCssClass => $"responsive-dropdown responsive-input-height handel {CssClass}".Trim();
 
-    private string ComputedStyle => $"{(FillWidth ? $"width: {Width}%; " : string.Empty)}--rz-input-font-size: {GetFontSizeStyle()}; {Style}";
+    private string ComputedHostClass =>
+        $"responsive-dropdown-host{(HasLabel ? " has-label" : string.Empty)}{(HasLabel && LabelPosition == LabelPosition.Column ? " label-position-column" : string.Empty)}";
+
+    private string ComputedStyle
+    {
+        get
+        {
+            var widthStyle = FillWidth ? $"--responsive-dropdown-width: {Width}%; " : string.Empty;
+            var tabletWidthStyle = FillWidth && TabletWidth is > 0 and <= 100 ? $"--responsive-dropdown-tablet-width: {TabletWidth}%; " : string.Empty;
+            var mobileWidthStyle = FillWidth && MobileWidth is > 0 and <= 100 ? $"--responsive-dropdown-mobile-width: {MobileWidth}%; " : string.Empty;
+            return $"{widthStyle}{tabletWidthStyle}{mobileWidthStyle}--rz-input-font-size: {GetFontSizeStyle()}; {Style}";
+        }
+    }
 
     private async Task OnValueChanged(TValue value)
     {

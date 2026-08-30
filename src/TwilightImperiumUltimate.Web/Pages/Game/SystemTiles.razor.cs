@@ -1,10 +1,18 @@
+using TwilightImperiumUltimate.Web.Services.Cache;
+
 namespace TwilightImperiumUltimate.Web.Pages.Game;
 
 public partial class SystemTiles
 {
+    private const int SystemTilesPageSize = 20;
+
+    private static readonly SingleLoadCache<SystemTileModel> Cache = new();
+
     private List<SystemTileModel> _systemTiles = new();
 
     private GameVersion? _selectedGameVersion;
+
+    private int _visibleSystemTilesCount = SystemTilesPageSize;
 
     private bool _showBigImage;
 
@@ -19,6 +27,8 @@ public partial class SystemTiles
     [Inject]
     private IMapper Mapper { get; set; } = default!;
 
+    private bool HasMoreSystemTilesToLoad => GetFilteredSystemTilesSorted().Count() > _visibleSystemTilesCount;
+
     protected override async Task OnInitializedAsync()
     {
         await InitializeSystemTiles();
@@ -31,18 +41,21 @@ public partial class SystemTiles
 
     private async Task InitializeSystemTiles()
     {
-        var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<SystemTileDto>>>(Paths.ApiPath_SystemTiles);
-        if (statusCode == HttpStatusCode.OK)
+        _systemTiles = (await Cache.GetOrLoadAsync(async () =>
         {
+            var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<SystemTileDto>>>(Paths.ApiPath_SystemTiles);
+            if (statusCode != HttpStatusCode.OK)
+                return [];
+
             var systemTiles = Mapper.Map<List<SystemTileModel>>(response!.Data!.Items);
-            _systemTiles = systemTiles
+            return systemTiles
                 .OrderBy(x => x.GameVersion)
                 .ThenBy(x => x.SystemTileName)
                 .ToList();
-        }
+        })).ToList();
     }
 
-    private IEnumerable<IGrouping<GameVersion, SystemTileModel>> GetFilteredSystemTiles()
+    private IEnumerable<SystemTileModel> GetFilteredSystemTilesSorted()
     {
         var filteredTiles = _selectedGameVersion.HasValue
             ? _systemTiles.Where(x => x.GameVersion == _selectedGameVersion.Value)
@@ -50,8 +63,20 @@ public partial class SystemTiles
 
         return filteredTiles
             .OrderBy(x => x.GameVersion)
-            .ThenBy(x => x.SystemTileName)
+            .ThenBy(x => x.SystemTileName);
+    }
+
+    private IEnumerable<IGrouping<GameVersion, SystemTileModel>> GetFilteredSystemTiles()
+    {
+        return GetFilteredSystemTilesSorted()
+            .Take(_visibleSystemTilesCount)
             .GroupBy(x => x.GameVersion);
+    }
+
+    private Task LoadMoreSystemTiles()
+    {
+        _visibleSystemTilesCount += SystemTilesPageSize;
+        return Task.CompletedTask;
     }
 
     private IEnumerable<GameVersion> GetAvailableGameVersions()
@@ -65,6 +90,7 @@ public partial class SystemTiles
     private Task OnGameVersionFilterChanged(GameVersion? gameVersion)
     {
         _selectedGameVersion = gameVersion;
+        _visibleSystemTilesCount = SystemTilesPageSize;
         StateHasChanged();
         return Task.CompletedTask;
     }

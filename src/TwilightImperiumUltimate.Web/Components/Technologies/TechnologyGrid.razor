@@ -1,3 +1,28 @@
 ﻿@inherits TwilightImperiumBaseComponent
 
+@if (SelectedTechnologyType == TechnologyType.Faction)
+{
+    <div class="technology-grid-filter-row mb-2xl">
+        <ResponsiveDropDown Id="faction-tech-game-version"
+                            TValue="GameVersion"
+                            Label="@Strings.GameVersion_SelectVersion"
+                            LabelPosition="LabelPosition.Column"
+                            Value="_selectedFactionTechGameVersion"
+                            ValueChanged="OnFactionTechGameVersionChanged"
+                            Data="GetFactionTechGameVersions()"
+                            TextProperty="Value"
+                            ValueProperty="Key" />
+
+        <ResponsiveDropDown Id="faction-tech-faction"
+                            TValue="FactionName"
+                            Label="@Strings.ReportGame_SelectFaction"
+                            LabelPosition="LabelPosition.Column"
+                            Value="_selectedFactionTechFaction"
+                            ValueChanged="OnFactionTechFactionChanged"
+                            Data="GetFactionTechFactions()"
+                            TextProperty="Value"
+                            ValueProperty="Key" />
+    </div>
+}
+
 <BaseTechnologyTree Technologies="TechnologiesToShow()" SelectedTechnologyType="SelectedTechnologyType" />

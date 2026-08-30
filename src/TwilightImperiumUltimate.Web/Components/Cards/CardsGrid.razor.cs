@@ -1,9 +1,12 @@
 using TwilightImperiumUltimate.Contracts.DTOs.Card;
+using TwilightImperiumUltimate.Web.Services.Cache;
 
 namespace TwilightImperiumUltimate.Web.Components.Cards;
 
 public partial class CardsGrid
 {
+    private static readonly TimedKeyedCache<string, IReadOnlyList<CardModel>> Cache = new(TimeSpan.FromHours(1));
+
     private IReadOnlyCollection<CardModel> _listOfCards = new List<CardModel>();
 
     private IReadOnlyCollection<CardModel> _listOfDeprecatedCards = new List<CardModel>();
@@ -93,16 +96,18 @@ public partial class CardsGrid
     private async Task InitializeCards()
     {
         var apiEndpoint = GetCorrectApiEndpoint();
-        var result = await HttpClient.GetAsync<ApiResponse<ItemListDto<BaseCardDto>>>(apiEndpoint);
-        var response = result.Response;
-        var statusCode = result.StatusCode;
 
-        if (statusCode == HttpStatusCode.OK)
+        var cards = await Cache.GetOrLoadAsync(apiEndpoint, async () =>
         {
-            var cards = Mapper.Map<List<CardModel>>(response!.Data!.Items);
-            _listOfCards = cards.Where(x => x.GameVersion != GameVersion.Deprecated).ToList();
-            _listOfDeprecatedCards = cards.Where(x => x.GameVersion == GameVersion.Deprecated).ToList();
-        }
+            var result = await HttpClient.GetAsync<ApiResponse<ItemListDto<BaseCardDto>>>(apiEndpoint);
+            if (result.StatusCode != HttpStatusCode.OK)
+                return [];
+
+            return Mapper.Map<List<CardModel>>(result.Response!.Data!.Items);
+        });
+
+        _listOfCards = cards.Where(x => x.GameVersion != GameVersion.Deprecated).ToList();
+        _listOfDeprecatedCards = cards.Where(x => x.GameVersion == GameVersion.Deprecated).ToList();
 
         StateHasChanged();
     }

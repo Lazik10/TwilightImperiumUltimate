@@ -1,142 +1,96 @@
 @using Microsoft.AspNetCore.Components.Authorization
 @using TwilightImperiumUltimate.Contracts.Enums
-@using TwilightImperiumUltimate.Web.Components.Cards
 @using TwilightImperiumUltimate.Web.Components.Rules
-@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
-@using TwilightImperiumUltimate.Web.Resources
 
 @inherits TwilightImperiumBaseComponent
 
 <ResponsiveContainer Type="ContainerType.Fluid" Padding="none">
-    @if (SelectedTechnologyType == TechnologyType.Biotic
-        || SelectedTechnologyType == TechnologyType.Propulsion
-        || SelectedTechnologyType == TechnologyType.Cybernetic
-        || SelectedTechnologyType == TechnologyType.Warfare)
-    {
-        <div class="technology-grid-shell">
-            <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Width="100" Gap="0.625rem" CssClass="technology-two-column-row">
-                @foreach (var technology in GetTechnologiesByLevel(TechnologyLevel.Level0))
-                {
-                    <ClickableTile CssClass="image-container" OnClick="@(() => ShowBigImage(technology))">
-                        <TechnologyCard TechnologyName="technology.TechnologyName" />
-                    </ClickableTile>
-                }
-            </ResponsiveGridContainer>
-
-            <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Width="100" Gap="0.625rem" CssClass="technology-two-column-row">
-                @foreach (var technology in GetTechnologiesByLevel(TechnologyLevel.Level1))
-                {
-                    <ClickableTile CssClass="image-container" OnClick="@(() => ShowBigImage(technology))">
-                        <TechnologyCard TechnologyName="technology.TechnologyName" />
-                    </ClickableTile>
-                }
-            </ResponsiveGridContainer>
-
-            <ResponsiveGridContainer Columns="1" TabletColumns="1" MobileColumns="1" Width="100" Gap="0.625rem">
-                @foreach (var technology in GetTechnologiesByLevel(TechnologyLevel.Level2))
-                {
-                    <ClickableTile CssClass="image-container image-container-single" OnClick="@(() => ShowBigImage(technology))">
-                        <TechnologyCard TechnologyName="technology.TechnologyName" />
-                    </ClickableTile>
-                }
-            </ResponsiveGridContainer>
-
-            <ResponsiveGridContainer Columns="1" TabletColumns="1" MobileColumns="1" Width="100" Gap="0.625rem">
-                @foreach (var technology in GetTechnologiesByLevel(TechnologyLevel.Level3))
-                {
-                    <ClickableTile CssClass="image-container image-container-single" OnClick="@(() => ShowBigImage(technology))">
-                        <TechnologyCard TechnologyName="technology.TechnologyName" />
-                    </ClickableTile>
-                }
-            </ResponsiveGridContainer>
-        </div>
-    }
-    else
-    {
-        <div class="technology-grid-shell">
-            <ResponsiveGridContainer Columns="GetCorrectNumberOfColumns()" TabletColumns="2" MobileColumns="1" Width="100" Gap="0.625rem">
+    <div class="technology-grid-shell">
+        @if (SelectedTechnologyType == TechnologyType.UnitUpgrade)
+        {
+            <ResponsiveGridContainer Columns="3" TabletColumns="2" Gap="var(--space-xl)" CssClass="mb-xl">
                 @foreach (var technology in Technologies)
                 {
-                    <ClickableTile CssClass="image-container" OnClick="@(() => ShowBigImage(technology))">
+                    <ClickableTile CssClass="technology-tile" OnClick="@(() => ShowBigImage(technology))">
                         <TechnologyCard TechnologyName="technology.TechnologyName" />
                     </ClickableTile>
                 }
             </ResponsiveGridContainer>
-        </div>
-    }
+        }
+        else if (SelectedTechnologyType == TechnologyType.Faction)
+        {
+            <ResponsiveGridContainer Columns="2" TabletColumns="2" Gap="var(--space-xl)" CssClass="mb-xl">
+                @foreach (var technology in Technologies)
+                {
+                    <ClickableTile CssClass="technology-tile" OnClick="@(() => ShowBigImage(technology))">
+                        <TechnologyCard TechnologyName="technology.TechnologyName" />
+                    </ClickableTile>
+                }
+            </ResponsiveGridContainer>
+        }
+        else
+        {
+            <ResponsiveGridContainer Columns="2" TabletColumns="2" Gap="var(--space-xl)" CssClass="mb-xl">
+                @foreach (var technology in GetTechnologiesInLevelOrder())
+                {
+                    <ClickableTile CssClass="@GetTechnologyTileCssClass(technology)" OnClick="@(() => ShowBigImage(technology))">
+                        <TechnologyCard TechnologyName="technology.TechnologyName" />
+                    </ClickableTile>
+                }
+            </ResponsiveGridContainer>
+        }
+    </div>
 
-    @if (_showBigImage)
-    {
-    <div class="big-image-overlay" @onclick="HideBigImage">
-        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="80" AlignItems="Enums.AlignItems.Center">
-            <div class="image-container-big-image" style="width: 80%;">
+    <BigImageOverlay IsOpen="_showBigImage" OnClose="HideBigImage" AriaLabel="@_selectedTechnologyModel.TechnologyName.ToString()">
+        <div class="big-image-content-row">
+            <div class="image-container">
                 <img src="@_currentBigImageSrc" @onclick="HideBigImage" />
             </div>
-            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column" JustifyContent="Enums.JustifyContent.SpaceBetween">
-                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mb-xl">
-                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="40" JustifyContent="Enums.JustifyContent.SpaceBetween">
-                        <div class="handel white shadow clickable"
-                                style="font-size: 24px;"
-                                @onclick="() => ShowNotes()"
-                                @onclick:stopPropagation="true">
-                            @Strings.Faction_Notes
-                        </div>
-                        <div class=" handel white shadow clickable"
-                                style="font-size: 24px;"
-                                @onclick="() => ShowFaq()"
-                                @onclick:stopPropagation="true">
-                            @Strings.Faction_Faq
-                        </div>
-                    </ResponsiveContainer>
-                </ResponsiveContainer>
+
+            <div class="language-menu-mobile">
+                <LanguageFlagMenu CurrentCulture="@_currentBigImageCulture" CultureSelected="SetBigImageAddress" />
+            </div>
+
+            <div class="big-image-content-column">
+                <div class="big-image-tab-row">
+                    <div class="handel white shadow clickable big-image-tab-label" @onclick="ShowNotes" @onclick:stopPropagation="true">
+                        @Strings.Faction_Notes
+                    </div>
+                    <div class="handel white shadow clickable big-image-tab-label" @onclick="ShowFaq" @onclick:stopPropagation="true">
+                        @Strings.Faction_Faq
+                    </div>
+                </div>
 
                 @if (_showFaq)
                 {
-                    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-                        <div class="scrollable-element"
-                            style="overflow: auto; max-height: 60vh; min-height: 60vh; width: 80%;">
-                            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="100" JustifyContent="Enums.JustifyContent.FlexEnd">
+                    <div class="faq-panel-container">
+                        <div class="scrollable-element">
+                            <div class="faq-action-row">
                                 <AuthorizeView>
                                     <Authorized>
                                         <ResponsiveButton ButtonText="@Strings.Faction_AddFaq" OnClick="AddFaq" Width="100" />
                                     </Authorized>
                                 </AuthorizeView>
-                            </ResponsiveContainer>
+                            </div>
                             @foreach (var faq in GetSpecificCardFaqs())
                             {
-                                <div class="mb-2xl">
-                                    <FaqRow Faq="@faq" Culture="@(_currentBigImageCulture)" Width="100" />
-                                </div>
+                                <FaqRow Faq="@faq" Culture="@(_currentBigImageCulture)" Width="100" />
                             }
                         </div>
-                    </ResponsiveContainer>
+                    </div>
                 }
                 else if (_showNotes)
                 {
-                    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="white shadow handel">
-                        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="100">
-                            <div class="scrollable-element"
-                                style="line-height: 1.5rem; overflow: auto; min-height: 60vh; max-height: 60vh;">
-                                @(GetSelectedCardNotes())
-                            </div>
-                        </ResponsiveContainer>
-                    </ResponsiveContainer>
+                    <div class="notes-panel-container white shadow handel">
+                        <div class="scrollable-element">
+                            @(GetSelectedCardNotes())
+                        </div>
+                    </div>
                 }
-
-            </ResponsiveContainer>
-        </ResponsiveContainer>
-        <div id="language-menu">
-            <img src="@(GetCultureIconPath(Strings.EnglishCulture))"
-                    alt="English"
-                    height="50"
-                    @onclick="@(() =>SetBigImageAddress(Strings.EnglishCulture))"
-                    @onclick:stopPropagation="true" />
-            <img src="@(GetCultureIconPath(Strings.CzechCulture))"
-                    alt="Czech"
-                    height="50"
-                    @onclick="@(() =>SetBigImageAddress(Strings.CzechCulture))"
-                    @onclick:stopPropagation="true" />
+            </div>
         </div>
-    </div>
-    }
+        <div class="language-menu-desktop">
+            <LanguageFlagMenu CurrentCulture="@_currentBigImageCulture" CultureSelected="SetBigImageAddress" />
+        </div>
+    </BigImageOverlay>
 </ResponsiveContainer>

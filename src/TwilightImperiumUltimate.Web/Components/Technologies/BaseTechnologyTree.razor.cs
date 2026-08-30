@@ -32,6 +32,12 @@ public partial class BaseTechnologyTree : TwilightImperiumBaseComponent
         }
     }
 
+    private static string GetTechnologyTileCssClass(TechnologyModel technology) =>
+        IsFullWidthTechnologyLevel(technology.Level) ? "technology-tile technology-tile-full" : "technology-tile";
+
+    private static bool IsFullWidthTechnologyLevel(TechnologyLevel level) =>
+        level is TechnologyLevel.Level2 or TechnologyLevel.Level3;
+
     private void ShowBigImage(TechnologyModel technology)
     {
         _currentBigImageSrc = PathProvider.GetTechnologyImagePath(technology.TechnologyName);
@@ -45,11 +51,6 @@ public partial class BaseTechnologyTree : TwilightImperiumBaseComponent
         _showBigImage = false;
     }
 
-    private string GetCultureIconPath(string culture)
-    {
-        return PathProvider.GetCultureIconPath(culture);
-    }
-
     private void SetBigImageAddress(string culture)
     {
         _currentBigImageSrc = _currentBigImageSrc.Replace(_currentBigImageCulture, culture, StringComparison.Ordinal);
@@ -57,15 +58,13 @@ public partial class BaseTechnologyTree : TwilightImperiumBaseComponent
         StateHasChanged();
     }
 
-    private List<TechnologyModel> GetTechnologiesByLevel(TechnologyLevel level)
+    private List<TechnologyModel> GetTechnologiesInLevelOrder()
     {
         return Technologies
-            .Where(x => x.Level == level)
-            .OrderBy(x => x.TechnologyName)
+            .OrderBy(x => x.Level)
+            .ThenBy(x => x.TechnologyName)
             .ToList();
     }
-
-    private int GetCorrectNumberOfColumns() => SelectedTechnologyType == TechnologyType.Faction ? 4 : 3;
 
     private void ShowFaq()
     {

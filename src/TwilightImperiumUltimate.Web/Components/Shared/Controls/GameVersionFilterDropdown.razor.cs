@@ -21,6 +21,13 @@ public partial class GameVersionFilterDropdown
     [Parameter]
     public string? Label { get; set; }
 
+    /// <summary>
+    /// Gets or sets where <see cref="Label"/> is rendered relative to the dropdown. Forwarded
+    /// as-is to the underlying <see cref="ResponsiveDropDown{TValue}"/>.
+    /// </summary>
+    [Parameter]
+    public LabelPosition LabelPosition { get; set; } = LabelPosition.Row;
+
     [Parameter]
     public string AllLabel { get; set; } = "All";
 

@@ -4,6 +4,13 @@
     margin-right: auto;
 }
 
+/* Passed via CssClass into ResponsiveContainer, so it renders on that component's own element. */
+::deep .planets-filters-container {
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
 @media (max-width: 1024px) {
     .planets-grid-shell {
         width: 95%;
@@ -19,28 +26,5 @@
 @media (max-width: 480px) {
     .planets-grid-shell {
         width: 100%;
-    }
-}
-
-/* .planets-filters-container is rendered inside ResponsiveContainer's own scope (a child
-   component), so the actual styles need ::deep to apply -- see below. */
-::deep .planets-filters-container {
-    max-width: 20rem;
-    margin-left: auto;
-    margin-right: auto;
-    gap: var(--space-sm);
-    margin-bottom: var(--space-md);
-}
-
-/* .planets-filter-dropdown is passed via CssClass into a child component (GameVersionFilterDropdown /
-   ResponsiveDropDown) and rendered inside that child's own CSS scope, so ::deep is required here too. */
-::deep .planets-filter-dropdown {
-    min-width: 14rem;
-}
-
-@media (max-width: 768px) {
-    ::deep .planets-filters-container {
-        flex-direction: column !important;
-        gap: var(--space-sm);
     }
 }

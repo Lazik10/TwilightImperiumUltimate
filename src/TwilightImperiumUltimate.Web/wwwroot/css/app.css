@@ -593,7 +593,10 @@ body {
 }
 
 .site-shell {
-    min-height: 100vh;
+    /* Taller than one viewport on purpose: on short pages this pushes the footer just below the
+       fold so it takes a little scrolling to reach, instead of always sitting flush at the bottom
+       of the initial view (which made the site feel "short"). */
+    min-height: calc(100vh + 20rem);
     display: flex;
     flex-direction: column;
     max-width: var(--max-content-width);

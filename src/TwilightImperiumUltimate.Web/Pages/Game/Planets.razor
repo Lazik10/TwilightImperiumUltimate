@@ -3,25 +3,27 @@
 <PageTitle>@Strings.Page_Planets_PageTitle</PageTitle>
 
 <Page>
-    <ResponsiveHeading Level="1" Text="@Strings.Page_Planets" CssClass="mb-2xl" FontSize="2xl" />
 
-    <ResponsiveContainer Type="ContainerType.Flex" JustifyContent="Enums.JustifyContent.SpaceBetween" AlignItems="Enums.AlignItems.FlexStart" CssClass="planets-filters-container">
+    <ResponsiveHeading Level="1" Text="@Strings.Page_Planets"/>
+
+    <ResponsiveContainer Type="ContainerType.Flex" JustifyContent="Enums.JustifyContent.Center" AlignItems="Enums.AlignItems.FlexStart" CssClass="planets-filters-container">
         <GameVersionFilterDropdown GameVersions="GetAvailableGameVersions()"
                                    SelectedGameVersion="@_selectedGameVersion"
                                    SelectedGameVersionChanged="OnGameVersionFilterChanged"
                                    Label="@Strings.PlanetsFilter_ByExpansion"
+                                   LabelPosition="LabelPosition.Column"
                                    CssClass="planets-filter-dropdown" />
 
         <ResponsiveDropDown Id="planets-filter-by-trait"
                             TValue="string"
                             Label="@Strings.PlanetsFilter_ByTrait"
+                            LabelPosition="LabelPosition.Column"
                             Data="@GetPlanetFilterOptions()"
                             TextProperty="Label"
                             ValueProperty="Value"
                             Value="@_selectedPlanetFilter"
                             ValueChanged="OnPlanetFilterChanged"
-                            CssClass="planets-filter-dropdown"
-                            FillWidth="false" />
+                            CssClass="planets-filter-dropdown" />
     </ResponsiveContainer>
 
     <ResponsiveContainer Type="ContainerType.Fluid" Padding="none">
@@ -29,7 +31,7 @@
         {
             @if (!_selectedGameVersion.HasValue)
             {
-                <ResponsiveHeading Level="4" Text="@gameVersion.Key.GetDisplayName()" CenterText="true" CssClass="handel white shadow" />
+                <ResponsiveHeading Level="3" Text="@gameVersion.Key.GetDisplayName()" CenterText="true" />
             }
 
             <div class="planets-grid-shell" @key="gameVersion.Key">

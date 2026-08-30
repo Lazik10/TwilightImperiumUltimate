@@ -1,3 +1,5 @@
+using TwilightImperiumUltimate.Web.Services.Cache;
+
 namespace TwilightImperiumUltimate.Web.Pages.Game;
 
 public partial class Planets
@@ -13,6 +15,8 @@ public partial class Planets
     private const string LegendaryFilterValue = "legendary";
 
     private const int PlanetsPageSize = 20;
+
+    private static readonly SingleLoadCache<PlanetModel> Cache = new();
 
     private IReadOnlyCollection<PlanetModel> _planets = new List<PlanetModel>();
 
@@ -265,16 +269,19 @@ public partial class Planets
 
     private async Task InititalizePlanets()
     {
-        var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<PlanetDto>>>(Paths.ApiPath_Planets);
-        if (statusCode == HttpStatusCode.OK)
+        _planets = await Cache.GetOrLoadAsync(async () =>
         {
+            var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<PlanetDto>>>(Paths.ApiPath_Planets);
+            if (statusCode != HttpStatusCode.OK)
+                return [];
+
             var planets = Mapper.Map<List<PlanetModel>>(response!.Data!.Items);
-            _planets = planets
+            return planets
                 .Where(x => x.PlanetName != PlanetName.MalliceInactive)
                 .OrderBy(x => x.GameVersion)
                 .ThenBy(x => x.PlanetName)
                 .ToList();
-        }
+        });
     }
 
     private sealed record PlanetFilterOption(string Value, string Label);

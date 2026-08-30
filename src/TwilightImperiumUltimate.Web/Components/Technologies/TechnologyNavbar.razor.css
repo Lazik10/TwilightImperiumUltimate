@@ -22,16 +22,12 @@
 
 @media (max-width: 1024px) {
     .technology-navbar-shell {
-        width: 92%;
+        width: 99%;
     }
 }
 
 @media (max-width: 768px) {
-    .technology-navbar-shell {
-        width: 98%;
-    }
-
     .technology-navbar {
-        min-height: 2.75rem;
+        min-height: 3.5rem;
     }
 }
