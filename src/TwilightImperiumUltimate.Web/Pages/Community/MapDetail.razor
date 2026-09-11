@@ -5,88 +5,94 @@
 @using TwilightImperiumUltimate.Web.Components.Shared.Bars
 @using TwilightImperiumUltimate.Web.Helpers.Enums
 
+<PageTitle>@PageTitleText</PageTitle>
+
 <Page>
 
-    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" >
-        <ResponsiveButton Text="@Strings.ButtonBack" OnClick="RedirectBack" FontSize="24" Width="20" TextAlign="@(string.Empty)" />
+    <ResponsiveContainer Type="ContainerType.Flex"
+                         Padding="none"
+                         JustifyContent="Enums.JustifyContent.SpaceBetween"
+                         AlignItems="Enums.AlignItems.Center"
+                         CssClass="map-detail-toolbar mb-md">
+
+        <ResponsiveButton ButtonText="@Strings.ButtonBack" OnClick="RedirectBack" />
+
+        <QuickMenuItem IconType="IconType.DownloadMapImage"
+                       IconTypeClicked="IconType.DownloadMapImageClicked"
+                       AriaLabel="@Strings.MapArchive_SaveMap"
+                       OnClick="async () => await HandleDownloadIconClick()" />
+
     </ResponsiveContainer>
-    
-    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexEnd">
-        <QuickMenuItem IconType="IconType.DownloadMapImage" IconTypeClicked="IconType.DownloadMapImageClicked" OnClick="async () => await HandleDownloadIconClick()" />
-    </ResponsiveContainer>
 
-    @if (!_map.Keys.Any())
-        return;
+    @if (!IsMapLoaded)
+    {
+        <ResponsiveText Text="@Strings.Loading" CenterText="true" CssClass="mt-2xl mb-2xl" />
+    }
+    else
+    {
+        <div id="mapArea" class="map-detail-area">
 
-    <div id="mapArea" style="width: 100%;">
+            <ResponsiveHeading Level="1" Text="@Map.Name" CssClass="mb-md" />
 
-        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+            <div class="map-detail-ratings mb-lg">
 
-            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="70">
+                <div class="map-detail-rating">
+                    <ResponsiveLabel Text="@Strings.MapArchive_MapRating" CssClass="map-detail-rating-label" />
+                    <StarRating Rating="@Map.Rating" IsReadOnly="true" />
+                </div>
 
-                <Title Text="@Map.Name"  MarginTop="0" MarginBottom="20" />
+                <div class="map-detail-rating">
+                    <ResponsiveLabel Text="@Strings.MapArchive_UserRating" CssClass="map-detail-rating-label" />
+                    <StarRating Rating="@UserRating" AriaLabel="@Strings.MapArchive_UserRating" OnRatingChange="UpdateUserMapRating" />
+                </div>
 
-                <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
-                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" Width="50">
-                        <Label Text="@Strings.MapArchive_MapRating" Style="margin-right: 10px;" Width="20"/>
-                        <StarRating Rating="@Map.Rating" IsReadOnly="true" />
-                    </ResponsiveContainer>
-                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexEnd" Width="50">
-                        <Label Text="@Strings.MapArchive_UserRating" Style="margin-right: 10px;" Width="30"/>
-                        <StarRating Rating="@UserRating" OnRatingChange="UpdateUserMapRating" />
-                    </ResponsiveContainer>
-                </ResponsiveContainer>
+            </div>
 
+            @*
+                The map preview itself is intentionally left untouched: it keeps the same 70%-wide
+                centered column it has always been rendered in.
+            *@
+            <ResponsiveContainer Type="ContainerType.Fluid"
+                                 Padding="none"
+                                 CenteredItems="true"
+                                 Direction="Enums.FlexDirection.Column"
+                                 Width="70"
+                                 CssClass="map-detail-map">
                 @DynamicComponent
             </ResponsiveContainer>
 
-            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="100" CssClass="mt-3xl">
+            <MapSliceEvaluation Map="_map" MapTemplate="Map.MapTemplate" />
 
-                <MapSliceEvaluation Map="_map" MapTemplate="Map.MapTemplate" />
+            <dl class="map-detail-meta mt-xl">
 
-            </ResponsiveContainer>
+                <dt><ResponsiveLabel Text="@Strings.MapArchive_MapAuthor" /></dt>
+                <dd><ResponsiveLabel Text="@Map.UserName" /></dd>
 
-            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="70" CssClass="mt-2xl">
+                <dt><ResponsiveLabel Text="@Strings.MapArchive_MapEvent" /></dt>
+                <dd><ResponsiveLabel Text="@Map.EventName" /></dd>
 
-                <GridLayout Columns="4" Gap="40" CssClass="mb-md">
+                <dt><ResponsiveLabel Text="@Strings.MapArchive_MapTemplate" /></dt>
+                <dd><ResponsiveLabel Text="@Map.MapTemplate.GetDisplayName()" /></dd>
 
-                    <Label Text="@Strings.MapArchive_MapAuthor" />
-                    <Label Text="@Map.UserName" Style="grid-column: span 3;" />
+                <dt class="map-detail-meta-full"><ResponsiveLabel Text="@Strings.MapArchive_MapDescription" /></dt>
+                <dd class="map-detail-meta-full">
+                    <div class="map-detail-description handel white shadow">
+                        @MarkupStringDescription
+                    </div>
+                </dd>
 
-                    <Label Text="@Strings.MapArchive_MapEvent" />
-                    <Label Text="@Map.EventName" Style="grid-column: span 3;" />
+                <dt><ResponsiveLabel Text="@Strings.MapArchive_TtsString" /></dt>
+                <dd><ResponsiveLabel Text="@Map.TtsString" CssClass="text-break-all" /></dd>
 
-                    <Label Text="@Strings.MapArchive_MapTemplate" />
-                    <Label Text="@Map.MapTemplate.GetDisplayName()" Style="grid-column: span 3;" />
+                <dt><ResponsiveLabel Text="@Strings.MapArchive_MapGeneratorLink" /></dt>
+                <dd><ResponsiveLabel Text="@Map.MapGeneratorLink" CssClass="text-break-all" /></dd>
 
-                    <Label Text="@Strings.MapArchive_MapDescription" Style="grid-column: span 4;" />
+                <dt><ResponsiveLabel Text="@Strings.MapArchive_MapArchiveLink" /></dt>
+                <dd><ResponsiveLabel Text="@Map.MapArchiveLink" CssClass="text-break-all" /></dd>
 
-                    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Style="grid-column: span 4;" CssClass="mt-md mb-md">
+            </dl>
 
-                        <div class="handel white shadow">
-                            @MarkupStringDescription
-                        </div>
-
-                    </ResponsiveContainer>
-
-                    <Label Text="@Strings.MapArchive_TtsString" />
-
-                    <Label Text="@Map.TtsString" CssClass="text-break-all" Style="grid-column: span 3;" />
-
-                    <Label Text="@Strings.MapArchive_MapGeneratorLink" />
-
-                    <Label Text="@Map.MapGeneratorLink" CssClass="text-break-all" Style="grid-column: span 3;" />
-
-                    <Label Text="@Strings.MapArchive_MapArchiveLink" />
-
-                    <Label Text="@Map.MapArchiveLink" CssClass="text-break-all" Style="grid-column: span 3;" />
-
-                </GridLayout>
-
-            </ResponsiveContainer>
-
-        </ResponsiveContainer>
-
-    </div>
+        </div>
+    }
 
 </Page>

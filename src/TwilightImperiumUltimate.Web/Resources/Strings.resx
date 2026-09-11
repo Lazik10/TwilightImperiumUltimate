@@ -2455,6 +2455,10 @@ Brandon Williams&lt;/p&gt;</value>
     <value>Map Archive | TI4 Ultimate</value>
   </data>
 
+  <data name="Page_MapDetail_PageTitle" xml:space="preserve">
+    <value>Map Detail | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_SlicesArchive" xml:space="preserve">
     <value>Slices archive</value>
   </data>
@@ -2521,6 +2525,14 @@ Brandon Williams&lt;/p&gt;</value>
 
   <data name="MapArchive_UserRating" xml:space="preserve">
     <value>Your:</value>
+  </data>
+
+  <data name="StarRating_GroupLabel" xml:space="preserve">
+    <value>Rating</value>
+  </data>
+
+  <data name="StarRating_StarsLabel" xml:space="preserve">
+    <value>{0} out of 5 stars</value>
   </data>
 
   <data name="ButtonBack" xml:space="preserve">

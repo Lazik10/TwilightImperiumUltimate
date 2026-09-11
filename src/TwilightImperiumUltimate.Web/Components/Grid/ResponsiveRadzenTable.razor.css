@@ -50,10 +50,21 @@
    visually matches RadzenDataGrid's auto-generated header exactly, instead of relying on Radzen's
    own internal header styling rules (which target the DataGrid's generated header structure and
    may not apply the same way to a manually-authored <thead>/<td>). */
-.responsive-radzen-table-host ::deep .responsive-radzen-table thead td {
+.responsive-radzen-table-host ::deep .responsive-radzen-table thead td,
+.responsive-radzen-table-host ::deep .responsive-radzen-table thead th {
     color: var(--rz-grid-header-color);
     background-color: var(--rz-grid-header-background-color);
     border-bottom: var(--rz-grid-header-cell-border-bottom);
+}
+
+/* A <caption> authored by a consumer is a direct child of the <table>, so it sits outside the
+   header/body styling above and would otherwise render unstyled. */
+.responsive-radzen-table-host ::deep .responsive-radzen-table caption {
+    caption-side: top;
+    text-align: left;
+    padding: var(--space-sm) var(--space-md);
+    font-family: Handel, sans-serif;
+    color: white;
 }
 
 /* Radzen renders each cell's content inside an inner ".rz-cell-data" SPAN (not the <td> itself),
@@ -88,6 +99,14 @@
     white-space: nowrap;
 }
 
+/* Header cells authored with RadzenTableHeaderCell render their text straight into the <th> (there
+   is no ".rz-column-title"/".rz-cell-data" wrapper span), so the same nowrap treatment has to be
+   applied to the header cell itself -- otherwise a multi-word header such as "Opt Resources" wraps
+   or gets squeezed instead of widening the column. */
+.responsive-radzen-table-host ::deep .responsive-radzen-table thead th {
+    white-space: nowrap;
+}
+
 .responsive-radzen-table-host ::deep .responsive-radzen-table-zebra tbody tr:nth-child(even) {
     background-color: rgba(255, 255, 255, 0.04);
 }
@@ -102,21 +121,25 @@
    within its own box. Add the same overflow + scrollbar treatment used elsewhere in this app (see
    ResponsiveTable.razor.css ".responsive-table-scroll") so ResponsiveRadzenTable matches
    ResponsiveRadzenDataGrid's horizontal-scroll behavior/appearance. */
-.responsive-radzen-table-host ::deep .responsive-radzen-table .rz-datatable-tablewrapper {
+.responsive-radzen-table-host ::deep .responsive-radzen-table .rz-datatable-tablewrapper,
+.responsive-radzen-table-host ::deep .responsive-radzen-table .rz-data-grid-data {
     overflow-x: auto;
     scrollbar-width: thin;
     scrollbar-color: #0024ff #333;
 }
 
-.responsive-radzen-table-host ::deep .responsive-radzen-table .rz-datatable-tablewrapper::-webkit-scrollbar {
+.responsive-radzen-table-host ::deep .responsive-radzen-table .rz-datatable-tablewrapper::-webkit-scrollbar,
+.responsive-radzen-table-host ::deep .responsive-radzen-table .rz-data-grid-data::-webkit-scrollbar {
     height: 12px;
 }
 
-.responsive-radzen-table-host ::deep .responsive-radzen-table .rz-datatable-tablewrapper::-webkit-scrollbar-track {
+.responsive-radzen-table-host ::deep .responsive-radzen-table .rz-datatable-tablewrapper::-webkit-scrollbar-track,
+.responsive-radzen-table-host ::deep .responsive-radzen-table .rz-data-grid-data::-webkit-scrollbar-track {
     background: #333;
 }
 
-.responsive-radzen-table-host ::deep .responsive-radzen-table .rz-datatable-tablewrapper::-webkit-scrollbar-thumb {
+.responsive-radzen-table-host ::deep .responsive-radzen-table .rz-datatable-tablewrapper::-webkit-scrollbar-thumb,
+.responsive-radzen-table-host ::deep .responsive-radzen-table .rz-data-grid-data::-webkit-scrollbar-thumb {
     background: #0024ff;
 }
 

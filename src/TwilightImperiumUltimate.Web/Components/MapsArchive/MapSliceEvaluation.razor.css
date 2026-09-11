@@ -1,6 +1,17 @@
-﻿.slice-evaluation-grid {
+﻿.slice-evaluation {
+    width: 100%;
 }
 
+.slice-evaluation-caption {
+    caption-side: top;
+    text-align: left;
+    padding: var(--space-xs) var(--space-sm);
+    font-size: var(--font-size-lg);
+}
+
+/* Value colors are set on spans authored in this component (not on the Radzen-rendered cells), so
+   the color always wins over the color the table cell inherits, without needing ::deep or
+   !important. */
 .yellow {
     color: yellow;
 }
@@ -13,12 +24,37 @@
     color: lawngreen;
 }
 
-.max-height {
-    max-height: 40px;
+.slice-evaluation-icons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-xs);
 }
 
-.grid-text {
+.slice-evaluation-icon {
+    max-height: 40px;
+    max-width: 40px;
+    height: auto;
+    width: auto;
+}
+
+/* The cells themselves are rendered by Radzen's own components, which never carry this component's
+   CSS-isolation scope attribute, so ::deep (anchored on the authored .slice-evaluation element) is
+   required to reach them. */
+.slice-evaluation ::deep th.slice-evaluation-center,
+.slice-evaluation ::deep td.slice-evaluation-center {
     text-align: center;
-    align-self: center;
-    justify-self: center;
+}
+
+/* Numeric columns have short values, so they must not steal width from the two icon columns. */
+.slice-evaluation ::deep th.slice-evaluation-center {
+    width: 1%;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .slice-evaluation-icon {
+        max-height: 28px;
+        max-width: 28px;
+    }
 }

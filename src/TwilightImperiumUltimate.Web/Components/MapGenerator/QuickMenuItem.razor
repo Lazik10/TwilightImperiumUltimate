@@ -1,1 +1,13 @@
-﻿<img src="@IconPath" style="max-width: @(MaxWidth)px; cursor: pointer;" @onclick="HandleClick"/>
+﻿@*
+    Icon-only action: rendered as a real <button> so it is focusable and operable with the keyboard
+    (Enter/Space), with an accessible name from AriaLabel. The <img> itself is decorative because
+    the button already carries the name.
+*@
+
+<button type="button"
+        class="quick-menu-item"
+        aria-label="@AccessibleName"
+        title="@AccessibleName"
+        @onclick="HandleClick">
+    <img src="@IconPath" alt="" aria-hidden="true" class="quick-menu-item-icon" style="max-width: @(MaxWidth)px;" />
+</button>

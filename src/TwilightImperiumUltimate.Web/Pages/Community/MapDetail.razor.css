@@ -1,2 +1,91 @@
-﻿body {
+﻿.map-detail-toolbar {
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+}
+
+.map-detail-area {
+    width: 100%;
+}
+
+/* The map keeps its original 70%-wide column; it is centered here because it is no longer nested
+   in a centering flex column. Passed via CssClass, so it renders in ResponsiveContainer's own
+   isolation scope and needs ::deep. */
+.map-detail-area ::deep .map-detail-map {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Both ratings share one wrapping row: side by side when there is room, stacked once the viewport
+   (or zoom level) no longer allows it, so neither label is ever squeezed. */
+.map-detail-ratings {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm) var(--space-2xl);
+    width: 100%;
+}
+
+.map-detail-rating {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    flex: 0 1 auto;
+    min-width: 0;
+}
+
+/* Passed into ResponsiveLabel via CssClass, so it is rendered inside the CHILD component's
+   isolation scope and needs ::deep. */
+.map-detail-rating ::deep .map-detail-rating-label {
+    width: auto;
+    flex: 0 0 auto;
+    white-space: nowrap;
+    padding-left: 0;
+}
+
+/* Label/value pairs: a two-column grid whose label column is only as wide as its longest label
+   (so labels are never truncated) and whose value column takes the rest and wraps. */
+.map-detail-meta {
+    display: grid;
+    grid-template-columns: minmax(0, max-content) minmax(0, 1fr);
+    gap: var(--space-sm) var(--space-xl);
+    align-items: start;
+    width: 100%;
+    margin: 0;
+}
+
+.map-detail-meta dt {
+    grid-column: 1;
+    min-width: 0;
+}
+
+.map-detail-meta dd {
+    grid-column: 2;
+    margin: 0;
+    min-width: 0;
+}
+
+.map-detail-meta .map-detail-meta-full {
+    grid-column: 1 / -1;
+}
+
+.map-detail-description {
+    width: 100%;
+    overflow-wrap: anywhere;
+}
+
+/* Stacked label-above-value on narrow screens, where a two-column layout leaves the value column
+   too narrow to stay readable. */
+@media (max-width: 768px) {
+    .map-detail-meta {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--space-xs);
+    }
+
+    .map-detail-meta dt,
+    .map-detail-meta dd {
+        grid-column: 1 / -1;
+    }
+
+    .map-detail-meta dd {
+        margin-bottom: var(--space-sm);
+    }
 }

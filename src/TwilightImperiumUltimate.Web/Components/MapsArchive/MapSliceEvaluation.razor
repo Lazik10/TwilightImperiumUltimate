@@ -1,117 +1,93 @@
-﻿<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="background handel shadow white mt-sm mb-sm">
+﻿@using Radzen.Blazor
+@using TwilightImperiumUltimate.Web.Components.Grid
 
-    <GridLayout Columns="9" Gap="20" Width="100">
-        <div>
-            @Strings.SliceEvaluation_Id
-        </div>
+@*
+    Slice evaluation rendered as a real, semantic table (caption + <th scope="col"> headers) through
+    the project-owned ResponsiveRadzenTable wrapper. The previous fixed 9-column GridLayout squeezed
+    every header into an equal share of the width, so headers such as "Opt Resources" wrapped or were
+    cut off on tablet/mobile. The table instead keeps every header on one line and scrolls
+    horizontally when the columns no longer fit.
+*@
 
-        <div class="green">
-            @Strings.SliceEvaluation_TotalOptimalValue
-        </div>
+<section class="slice-evaluation mt-sm mb-sm" aria-label="@Strings.SliceEvaluation_Specifications">
 
-        <div class="yellow">
-            @Strings.SliceEvaluation_TotalOptimalValueResources
-        </div>
+    <ResponsiveRadzenTable ZebraStripes="true">
 
-        <div class="blue">
-            @Strings.SliceEvaluation_TotalOptimalValueInfluence
-        </div>
+        <caption class="slice-evaluation-caption handel white shadow">@Strings.SliceEvaluation_Specifications</caption>
 
-        <div class="yellow">
-            @Strings.SliceEvaluation_TotalResource
-        </div>
+        <RadzenTableHeader>
+            <RadzenTableHeaderRow>
+                <RadzenTableHeaderCell scope="col" class="slice-evaluation-center">@Strings.SliceEvaluation_Id</RadzenTableHeaderCell>
+                <RadzenTableHeaderCell scope="col" class="slice-evaluation-center"><span class="green">@Strings.SliceEvaluation_TotalOptimalValue</span></RadzenTableHeaderCell>
+                <RadzenTableHeaderCell scope="col" class="slice-evaluation-center"><span class="yellow">@Strings.SliceEvaluation_TotalOptimalValueResources</span></RadzenTableHeaderCell>
+                <RadzenTableHeaderCell scope="col" class="slice-evaluation-center"><span class="blue">@Strings.SliceEvaluation_TotalOptimalValueInfluence</span></RadzenTableHeaderCell>
+                <RadzenTableHeaderCell scope="col" class="slice-evaluation-center"><span class="yellow">@Strings.SliceEvaluation_TotalResource</span></RadzenTableHeaderCell>
+                <RadzenTableHeaderCell scope="col" class="slice-evaluation-center"><span class="blue">@Strings.SliceEvaluation_TotalInfluence</span></RadzenTableHeaderCell>
+                <RadzenTableHeaderCell scope="col" class="slice-evaluation-center"><span class="green">@Strings.SliceEvaluation_LegendaryCount</span></RadzenTableHeaderCell>
+                <RadzenTableHeaderCell scope="col">@Strings.SliceEvaluation_PlanetTraits</RadzenTableHeaderCell>
+                <RadzenTableHeaderCell scope="col">@Strings.SliceEvaluation_TechnologySkips</RadzenTableHeaderCell>
+            </RadzenTableHeaderRow>
+        </RadzenTableHeader>
 
-        <div class="blue">
-            @Strings.SliceEvaluation_TotalInfluence
-        </div>
+        <RadzenTableBody>
+            @foreach (var sliceEvaluation in SliceEvaluations)
+            {
+                <RadzenTableRow @key="sliceEvaluation.Id">
+                    <RadzenTableCell class="slice-evaluation-center">@sliceEvaluation.Id</RadzenTableCell>
+                    <RadzenTableCell class="slice-evaluation-center"><span class="green">@sliceEvaluation.OptimalValueSum</span></RadzenTableCell>
+                    <RadzenTableCell class="slice-evaluation-center"><span class="yellow">@sliceEvaluation.OptimalResourcesSum</span></RadzenTableCell>
+                    <RadzenTableCell class="slice-evaluation-center"><span class="blue">@sliceEvaluation.OptimalInfluenceSum</span></RadzenTableCell>
+                    <RadzenTableCell class="slice-evaluation-center"><span class="yellow">@sliceEvaluation.Resources</span></RadzenTableCell>
+                    <RadzenTableCell class="slice-evaluation-center"><span class="blue">@sliceEvaluation.Influence</span></RadzenTableCell>
+                    <RadzenTableCell class="slice-evaluation-center"><span class="green">@sliceEvaluation.LegendariesCount</span></RadzenTableCell>
 
-        <div class="green">
-            @Strings.SliceEvaluation_LegendaryCount
-        </div>
+                    <RadzenTableCell>
+                        <span class="slice-evaluation-icons" role="img" aria-label="@GetPlanetTraitsLabel(sliceEvaluation)">
+                            @foreach (var planetTrait in sliceEvaluation.PlanetTraits.Keys)
+                            {
+                                for (var i = 0; i < sliceEvaluation.PlanetTraits[planetTrait]; i++)
+                                {
+                                    <img src="@GetPlanetTraitPath(planetTrait)" alt="" aria-hidden="true" class="slice-evaluation-icon" />
+                                }
+                            }
+                        </span>
+                    </RadzenTableCell>
 
-        <div>
-            @Strings.SliceEvaluation_PlanetTraits
-        </div>
+                    <RadzenTableCell>
+                        <span class="slice-evaluation-icons" role="img" aria-label="@GetTechnologySkipsLabel(sliceEvaluation)">
+                            @foreach (var technologyType in sliceEvaluation.TechnologySkips.Keys)
+                            {
+                                for (var i = 0; i < sliceEvaluation.TechnologySkips[technologyType]; i++)
+                                {
+                                    <img src="@GetTechnologyPath(technologyType)" alt="" aria-hidden="true" class="slice-evaluation-icon" />
+                                }
+                            }
 
-        <div>
-            @Strings.SliceEvaluation_TechnologySkips
-        </div>
+                            @for (var i = 0; i < sliceEvaluation.LegendariesCount; i++)
+                            {
+                                <img src="@GetPlanetTraitPath(PlanetTrait.Legendary)" alt="" aria-hidden="true" class="slice-evaluation-icon" />
+                            }
 
-        @foreach (var sliceEvaluation in GetSliceEvaluations())
-        {
-            <div>
-                @sliceEvaluation.Id
-            </div>
+                            @for (var i = 0; i < sliceEvaluation.AlphaWormholesCount; i++)
+                            {
+                                <img src="@GetPlanetTraitPath(PlanetTrait.AlphaWormhole)" alt="" aria-hidden="true" class="slice-evaluation-icon" />
+                            }
 
-            <div class="green grid-text">
-                @sliceEvaluation.OptimalValueSum
-            </div>
+                            @for (var i = 0; i < sliceEvaluation.BetaWormholesCount; i++)
+                            {
+                                <img src="@GetPlanetTraitPath(PlanetTrait.BetaWormhole)" alt="" aria-hidden="true" class="slice-evaluation-icon" />
+                            }
 
-            <div class="yellow">
-                @sliceEvaluation.OptimalResourcesSum
-            </div>
+                            @for (var i = 0; i < sliceEvaluation.GammaWormholesCount; i++)
+                            {
+                                <img src="@GetPlanetTraitPath(PlanetTrait.GammaWormhole)" alt="" aria-hidden="true" class="slice-evaluation-icon" />
+                            }
+                        </span>
+                    </RadzenTableCell>
+                </RadzenTableRow>
+            }
+        </RadzenTableBody>
 
-            <div class="blue">
-                @sliceEvaluation.OptimalInfluenceSum
-            </div>
+    </ResponsiveRadzenTable>
 
-            <div class="yellow">
-                @sliceEvaluation.Resources
-            </div>
-
-            <div class="blue grid-text">
-                @sliceEvaluation.Influence
-            </div>
-
-            <div class="green">
-                @sliceEvaluation.LegendariesCount
-            </div>
-
-            <div>
-                <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
-                    @foreach (var planetTrait in sliceEvaluation.PlanetTraits.Keys)
-                    {
-                        for (int i = 0; i < sliceEvaluation.PlanetTraits[planetTrait]; i++)
-                        {
-                            <img src="@GetPlanetTraitPath(planetTrait)" class="max-height" />
-                        }
-                    }
-                </ResponsiveContainer>
-            </div>
-
-            <div>
-                <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
-                    @foreach (var technologyType in sliceEvaluation.TechnologySkips.Keys)
-                    {
-                        for (int i = 0; i < sliceEvaluation.TechnologySkips[technologyType]; i++)
-                        {
-                            <img src="@GetTechnologyPath(technologyType)" class="max-height" />
-                        }
-                    }
-
-                    @for (int i = 0; i < sliceEvaluation.LegendariesCount; i++)
-                    {
-                        <img src="@GetPlanetTraitPath(PlanetTrait.Legendary)" class="max-height" style="max-width: 40px;" />
-                    }
-
-                    @for (int i = 0; i < sliceEvaluation.AlphaWormholesCount; i++)
-                    {
-                        <img src="@GetPlanetTraitPath(PlanetTrait.AlphaWormhole)" class="max-height" style="max-width: 40px;" />
-                    }
-
-                    @for (int i = 0; i < sliceEvaluation.BetaWormholesCount; i++)
-                    {
-                        <img src="@GetPlanetTraitPath(PlanetTrait.BetaWormhole)" class="max-height" style="max-width: 40px;" />
-                    }
-
-                    @for (int i = 0; i < sliceEvaluation.GammaWormholesCount; i++)
-                    {
-                        <img src="@GetPlanetTraitPath(PlanetTrait.GammaWormhole)" class="max-height" style="max-width: 40px;" />
-                    }
-                </ResponsiveContainer>
-            </div>
-        }
-
-    </GridLayout>
-
-</ResponsiveContainer>
+</section>

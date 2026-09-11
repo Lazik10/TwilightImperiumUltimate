@@ -16,7 +16,7 @@
 
     @if (IsReadOnly)
     {
-        <div class="comment-stars">
+        <div class="comment-stars" aria-hidden="true">
             <div class="comment-stars is-read-only">
                 <input class="comment-stars-input" type="checkbox" name="rating@(Guid)" value="5" id="rating-5@(Guid)" @onclick="() => HandleClick(5.0f)" checked="@IsChecked(5.0f)">
                 <label class="comment-stars-view" for="rating-5@(Guid)">
@@ -101,62 +101,62 @@
     }
     else
     {
-        <div class="comment-stars">
-            <input class="comment-stars-input" type="radio" name="rating@(Guid)" value="5" id="rating-5@(Guid)" @onclick="() => HandleClick(5.0f)" checked="@IsChecked(5.0f)">
+        <div class="comment-stars" role="radiogroup" aria-label="@GroupLabel">
+            <input class="comment-stars-input" type="radio" name="rating@(Guid)" value="5" aria-label="@GetStarLabel(5f)" id="rating-5@(Guid)" @onclick="() => HandleClick(5.0f)" checked="@IsChecked(5.0f)">
                 <label class="comment-stars-view" for="rating-5@(Guid)">
                     <svg class="icon icon-star">
                         <use xlink:href="#icon-star"></use>
                     </svg>
                 </label>
-            <input class="comment-stars-input" type="radio" name="rating@(Guid)" value="4.5" id="rating-4.5@(Guid)" @onclick="() => HandleClick(4.5f)" checked="@IsChecked(4.5f)">
+            <input class="comment-stars-input" type="radio" name="rating@(Guid)" value="4.5" aria-label="@GetStarLabel(4.5f)" id="rating-4.5@(Guid)" @onclick="() => HandleClick(4.5f)" checked="@IsChecked(4.5f)">
                 <label class="comment-stars-view is-half" for="rating-4.5@(Guid)">
                     <svg class="icon icon-star-half">
                         <use xlink:href="#icon-star-half"></use>
                     </svg>
                 </label>
-            <input class="comment-stars-input" type="radio" name="rating@(Guid)" value="4" id="rating-4@(Guid)" @onclick="() => HandleClick(4.0f)" checked="@IsChecked(4.0f)">
+            <input class="comment-stars-input" type="radio" name="rating@(Guid)" value="4" aria-label="@GetStarLabel(4f)" id="rating-4@(Guid)" @onclick="() => HandleClick(4.0f)" checked="@IsChecked(4.0f)">
                 <label class="comment-stars-view" for="rating-4@(Guid)">
                     <svg class="icon icon-star">
                         <use xlink:href="#icon-star"></use>
                     </svg>
                 </label>
-            <input class="comment-stars-input" type="radio" name="rating@(Guid)" value="3.5" id="rating-3.5@(Guid)" @onclick="() => HandleClick(3.5f)" checked="@IsChecked(3.5f)">
+            <input class="comment-stars-input" type="radio" name="rating@(Guid)" value="3.5" aria-label="@GetStarLabel(3.5f)" id="rating-3.5@(Guid)" @onclick="() => HandleClick(3.5f)" checked="@IsChecked(3.5f)">
                 <label class="comment-stars-view is-half" for="rating-3.5@(Guid)">
                     <svg class="icon icon-star-half">
                         <use xlink:href="#icon-star-half"></use>
                     </svg>
                 </label>
-            <input class="comment-stars-input" type="radio" name="rating@(Guid)" value="3" id="rating-3@(Guid)" @onclick="() => HandleClick(3.0f)" checked="@IsChecked(3.0f)">
+            <input class="comment-stars-input" type="radio" name="rating@(Guid)" value="3" aria-label="@GetStarLabel(3f)" id="rating-3@(Guid)" @onclick="() => HandleClick(3.0f)" checked="@IsChecked(3.0f)">
                 <label class="comment-stars-view" for="rating-3@(Guid)">
                     <svg class="icon icon-star">
                         <use xlink:href="#icon-star"></use>
                     </svg>
                 </label>
-            <input class="comment-stars-input" type="radio" name="rating@(Guid)" value="2.5" id="rating-2.5@(Guid)" @onclick="() => HandleClick(2.5f)" checked="@IsChecked(2.5f)">
+            <input class="comment-stars-input" type="radio" name="rating@(Guid)" value="2.5" aria-label="@GetStarLabel(2.5f)" id="rating-2.5@(Guid)" @onclick="() => HandleClick(2.5f)" checked="@IsChecked(2.5f)">
                 <label class="comment-stars-view is-half" for="rating-2.5@(Guid)">
                     <svg class="icon icon-star-half">
                         <use xlink:href="#icon-star-half"></use>
                     </svg>
                 </label>
-            <input class="comment-stars-input" type="radio" name="rating@(Guid)" value="2" id="rating-2@(Guid)" @onclick="() => HandleClick(2.0f)" checked="@IsChecked(2.0f)">
+            <input class="comment-stars-input" type="radio" name="rating@(Guid)" value="2" aria-label="@GetStarLabel(2f)" id="rating-2@(Guid)" @onclick="() => HandleClick(2.0f)" checked="@IsChecked(2.0f)">
                 <label class="comment-stars-view" for="rating-2@(Guid)">
                     <svg class="icon icon-star">
                         <use xlink:href="#icon-star"></use>
                     </svg>
                 </label>
-            <input class="comment-stars-input" type="radio" name="rating@(Guid)" value="1.5" id="rating-1.5@(Guid)" @onclick="() => HandleClick(1.5f)" checked="@IsChecked(1.5f)">
+            <input class="comment-stars-input" type="radio" name="rating@(Guid)" value="1.5" aria-label="@GetStarLabel(1.5f)" id="rating-1.5@(Guid)" @onclick="() => HandleClick(1.5f)" checked="@IsChecked(1.5f)">
                 <label class="comment-stars-view is-half" for="rating-1.5@(Guid)">
                     <svg class="icon icon-star-half">
                         <use xlink:href="#icon-star-half"></use>
                     </svg>
                 </label>
-            <input class="comment-stars-input" type="radio" name="rating@(Guid)" value="1" id="rating-1@(Guid)" @onclick="() => HandleClick(1.0f)" checked="@IsChecked(1.0f)">
+            <input class="comment-stars-input" type="radio" name="rating@(Guid)" value="1" aria-label="@GetStarLabel(1f)" id="rating-1@(Guid)" @onclick="() => HandleClick(1.0f)" checked="@IsChecked(1.0f)">
                 <label class="comment-stars-view" for="rating-1@(Guid)">
                     <svg class="icon icon-star">
                         <use xlink:href="#icon-star"></use>
                     </svg>
                 </label>
-            <input class="comment-stars-input" type="radio" name="rating@(Guid)" value="0.5" id="rating-0.5@(Guid)" @onclick="() => HandleClick(0.5f)" checked="@IsChecked(0.5f)">
+            <input class="comment-stars-input" type="radio" name="rating@(Guid)" value="0.5" aria-label="@GetStarLabel(0.5f)" id="rating-0.5@(Guid)" @onclick="() => HandleClick(0.5f)" checked="@IsChecked(0.5f)">
                 <label class="comment-stars-view is-half" for="rating-0.5@(Guid)">
                     <svg class="icon icon-star-half">
                         <use xlink:href="#icon-star-half"></use>

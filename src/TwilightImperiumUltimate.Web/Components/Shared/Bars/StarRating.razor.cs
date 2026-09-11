@@ -1,3 +1,5 @@
+using System.Globalization;
+
 namespace TwilightImperiumUltimate.Web.Components.Shared.Bars;
 
 public partial class StarRating
@@ -16,12 +18,25 @@ public partial class StarRating
     [Parameter]
     public string NumberFormat { get; set; } = "F2";
 
+    /// <summary>
+    /// Gets or sets the accessible name of the interactive star group (announced by screen readers
+    /// before the individual star options). Ignored when <see cref="IsReadOnly"/> is set, because a
+    /// read-only star row is decorative -- the numeric value next to it already conveys the rating.
+    /// </summary>
+    [Parameter]
+    public string AriaLabel { get; set; } = string.Empty;
+
+    private string GroupLabel => string.IsNullOrWhiteSpace(AriaLabel) ? Strings.StarRating_GroupLabel : AriaLabel;
+
     private Guid Guid { get; set; } = Guid.NewGuid();
 
     public void Refresh()
     {
         StateHasChanged();
     }
+
+    private static string GetStarLabel(float value) =>
+        string.Format(CultureInfo.CurrentCulture, Strings.StarRating_StarsLabel, value.ToString("0.#", CultureInfo.CurrentCulture));
 
     private void HandleClick(float rating)
     {

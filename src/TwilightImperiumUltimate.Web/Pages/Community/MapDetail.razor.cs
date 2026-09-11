@@ -44,6 +44,12 @@ public partial class MapDetail
 
     private MarkupString MarkupStringDescription => (MarkupString)Map.Description;
 
+    private bool IsMapLoaded => _map.Count > 0;
+
+    private string PageTitleText => string.IsNullOrWhiteSpace(Map.Name)
+        ? Strings.Page_MapDetail_PageTitle
+        : $"{Map.Name} | TI4 Ultimate";
+
     private RenderFragment DynamicComponent => builder =>
     {
         builder.OpenComponent(0, Map.MapTemplate.GetPreviewMapTypeFromMapTemplate());

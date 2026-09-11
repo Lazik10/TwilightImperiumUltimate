@@ -3,6 +3,7 @@
     flex-direction: row-reverse;
     flex-wrap: nowrap;
     min-width: 0;
+    position: relative;
     /* Upper bound for the icon size. Reduced from the original "* 1.5" scale-up so the full 5-star
        row (plus the rating number) reliably fits inside a narrow table/grid column. */
     --star-max-width: 1.39306640625em;
@@ -19,9 +20,34 @@
         pointer-events: none; /* Prevents any interaction */
     }
 
+/* Radio inputs are visually hidden instead of "display: none" so they stay in the accessibility
+   tree and remain focusable: the interactive rating can then be reached with Tab and changed with
+   the arrow keys, exactly like any other radio group. They are taken out of flow (absolute +
+   clip-path) so the star row looks unchanged. */
 .comment-stars-input {
-    display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
 }
+
+    /* The read-only variant is decorative (aria-hidden) and must never be focusable. */
+    .comment-stars.is-read-only .comment-stars-input {
+        display: none;
+    }
+
+    /* Keyboard focus has to be visible on the star the hidden input belongs to, since the input
+       itself is not rendered. */
+    .comment-stars-input:focus-visible ~ .comment-stars-view {
+        outline: 2px solid var(--color-nav-hover, #8ecfff);
+        outline-offset: 2px;
+        border-radius: var(--border-radius-sm);
+    }
 
     .comment-stars-input:checked ~ .comment-stars-view svg {
         fill: yellow;

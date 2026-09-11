@@ -4042,6 +4042,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
             }
         }
 
+        public static string Page_MapDetail_PageTitle {
+            get {
+                return ResourceManager.GetString("Page_MapDetail_PageTitle", resourceCulture);
+            }
+        }
+
         public static string Page_MapGenerator {
             get {
                 return ResourceManager.GetString("Page_MapGenerator", resourceCulture);
@@ -5503,6 +5509,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string SlicesGenerator_EnterSlicesString {
             get {
                 return ResourceManager.GetString("SlicesGenerator_EnterSlicesString", resourceCulture);
+            }
+        }
+
+        public static string StarRating_GroupLabel {
+            get {
+                return ResourceManager.GetString("StarRating_GroupLabel", resourceCulture);
+            }
+        }
+
+        public static string StarRating_StarsLabel {
+            get {
+                return ResourceManager.GetString("StarRating_StarsLabel", resourceCulture);
             }
         }
 

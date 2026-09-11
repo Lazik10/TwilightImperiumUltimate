@@ -1,0 +1,27 @@
+/*
+    The quick-menu item is a real <button> (it triggers an action), so the browser's default button
+    chrome has to be removed to keep the original "bare icon" appearance while keeping the control
+    focusable and operable with the keyboard.
+*/
+.quick-menu-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 0;
+    background: none;
+    line-height: 0;
+    cursor: pointer;
+    color: inherit;
+}
+
+.quick-menu-item:focus-visible {
+    outline: 2px solid var(--color-nav-hover, #8ecfff);
+    outline-offset: 2px;
+    border-radius: var(--border-radius-sm);
+}
+
+.quick-menu-item-icon {
+    display: block;
+    height: auto;
+}
