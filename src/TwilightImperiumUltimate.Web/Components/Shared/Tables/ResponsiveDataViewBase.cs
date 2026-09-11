@@ -3,9 +3,9 @@ using System.Globalization;
 namespace TwilightImperiumUltimate.Web.Components.Shared.Tables;
 
 /// <summary>
-/// Shared engine for <c>ResponsiveTable{TItem}</c> and <c>ResponsiveDataGrid{TItem}</c>: column
-/// registration, per-column filter state, and client-side filtering. Grid-only concerns (sorting,
-/// selection) live in <c>ResponsiveDataGrid{TItem}</c> itself.
+/// Shared engine for table/grid host components derived from this base (currently
+/// <c>ResponsiveTable{TItem}</c>): column registration, per-column filter state, and
+/// client-side filtering.
 /// </summary>
 /// <typeparam name="TItem">The row model type.</typeparam>
 public abstract class ResponsiveDataViewBase<TItem> : ComponentBase, IResponsiveTableHost<TItem>
@@ -148,7 +148,7 @@ public abstract class ResponsiveDataViewBase<TItem> : ComponentBase, IResponsive
     /// <c>border-collapse: collapse</c> base rule) and <see cref="RowHeight"/> (exposed as the
     /// <c>--responsive-row-height</c> custom property, read by each row's own CSS -- custom
     /// property values inherit through the DOM regardless of Blazor scope boundaries, so this
-    /// reaches the child ResponsiveRow/ResponsiveDataGrid row components with no extra parameter needed).
+    /// reaches the child ResponsiveRow row components with no extra parameter needed).
     /// </summary>
     protected string TableStyle
     {
@@ -297,7 +297,7 @@ public abstract class ResponsiveDataViewBase<TItem> : ComponentBase, IResponsive
     }
 
     /// <summary>
-    /// Gets the inline "position: sticky; left: …" style for a sticky column, offset by the width
+    /// Gets the inline "position: sticky; left: ..." style for a sticky column, offset by the width
     /// of every preceding sticky column.
     /// </summary>
     protected string GetStickyStyle(ResponsiveTableColumn<TItem> column)

@@ -1,7 +1,7 @@
 namespace TwilightImperiumUltimate.Web.Components.Shared.Tables;
 
 /// <summary>
-/// Compact ResponsiveSwitch for use inside a ResponsiveTable/ResponsiveDataGrid cell. Same OnText/
+/// Compact ResponsiveSwitch for use inside a ResponsiveTable cell. Same OnText/
 /// OffText/IsToggled contract as <see cref="Controls.ResponsiveSwitch"/>, just shrunk down to fit
 /// a narrow column -- see TableActionSwitch.razor.css.
 /// </summary>

@@ -1,7 +1,7 @@
 namespace TwilightImperiumUltimate.Web.Enums;
 
 /// <summary>
-/// The current sort state of a <c>ResponsiveDataGrid</c> column.
+/// The current sort state of a grid or table column.
 /// </summary>
 public enum ResponsiveSortDirection
 {

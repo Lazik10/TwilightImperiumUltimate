@@ -2,7 +2,7 @@ namespace TwilightImperiumUltimate.Web.Enums;
 
 /// <summary>
 /// The kind of filter control rendered for a <c>ResponsiveTableColumn</c> in
-/// <c>ResponsiveTable</c>/<c>ResponsiveDataGrid</c>.
+/// <c>ResponsiveTable</c>.
 /// </summary>
 public enum ResponsiveFilterType
 {

@@ -4,12 +4,12 @@
 @*
     Thin wrapper around Radzen's RadzenTable, for pages that want a plain (non-data-bound) table
     with this app's responsive/zebra-striped/Handel styling but don't need the column
-    filtering/sorting/model-binding of ResponsiveTable/ResponsiveDataGrid. Compose it with the raw
+    filtering/model-binding of ResponsiveTable. Compose it with the raw
     RadzenTableHeader/RadzenTableBody/RadzenTableRow/RadzenTableCell child components as usual.
 
-    For a fully custom (non-Radzen) responsive table/grid with declarative
-    text/value/boolean/enum column filters, sorting, and sticky columns, see
-    Components/Shared/Tables/ResponsiveTable and ResponsiveDataGrid instead.
+    For a fully custom (non-Radzen) responsive table with declarative
+    text/value/boolean/enum column filters and sticky columns, see
+    Components/Shared/Tables/ResponsiveTable instead.
  m,
     NOTE: the "responsive-radzen-table-host" div is required so this component's own Blazor
     CSS-isolation scope attribute lands on something real in the DOM -- RadzenTable is a child

@@ -5,8 +5,7 @@ namespace TwilightImperiumUltimate.Web.Components.Grid;
 /// <summary>
 /// Thin wrapper around Radzen's <c>RadzenDataGrid</c> with this app's responsive styling
 /// defaults. For a fully custom (non-Radzen) data grid with declarative
-/// text/value/boolean/enum column filters, sorting, and sticky columns, see
-/// <see cref="TwilightImperiumUltimate.Web.Components.Shared.Tables.ResponsiveDataGrid{TItem}"/> /
+/// text/value/boolean/enum column filters and sticky columns, see
 /// <see cref="TwilightImperiumUltimate.Web.Components.Shared.Tables.ResponsiveTable{TItem}"/> instead.
 /// </summary>
 public partial class ResponsiveRadzenDataGrid<TItem>

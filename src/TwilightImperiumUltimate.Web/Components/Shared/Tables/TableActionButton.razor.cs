@@ -4,7 +4,7 @@ using Radzen;
 namespace TwilightImperiumUltimate.Web.Components.Shared.Tables;
 
 /// <summary>
-/// Compact action button sized to fit inside a ResponsiveTable/ResponsiveDataGrid cell. Mirrors
+/// Compact action button sized to fit inside a ResponsiveTable cell. Mirrors
 /// ResponsiveButton's Text/ChildContent/OnClick/TextColor/disabled contract, just at table-cell
 /// scale -- see <see cref="Controls.ResponsiveButton"/> for the full-size page button used
 /// everywhere else.

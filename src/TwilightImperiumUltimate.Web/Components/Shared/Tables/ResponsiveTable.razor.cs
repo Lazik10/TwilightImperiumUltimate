@@ -8,8 +8,8 @@ namespace TwilightImperiumUltimate.Web.Components.Shared.Tables;
 /// column headers), optional horizontal scrolling with sticky columns, a sticky header row,
 /// zebra-striped rows, vertical column headers, and responsive font sizing (desktop/tablet/mobile).
 ///
-/// Does not sort. Use <see cref="ResponsiveDataGrid{TItem}"/> for sortable columns, per-column header
-/// filters, and row selection.
+/// Does not sort. For sortable columns, row selection, and Radzen-based grids, see
+/// <see cref="TwilightImperiumUltimate.Web.Components.Grid.ResponsiveRadzenDataGrid{TItem}"/> instead.
 /// </summary>
 /// <typeparam name="TItem">The row model type.</typeparam>
 [CascadingTypeParameter(nameof(TItem))]

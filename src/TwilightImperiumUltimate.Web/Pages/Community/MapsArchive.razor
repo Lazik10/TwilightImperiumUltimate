@@ -1,6 +1,5 @@
 ﻿@page "/community/maps-archive"
 @using TwilightImperiumUltimate.Web.Components.MapsArchive
-@using TwilightImperiumUltimate.Web.Components.Shared.Bars
 
 <PageTitle>@Strings.Page_MapArchive_PageTitle</PageTitle>
 
@@ -11,41 +10,5 @@
     </ResponsiveContainer>
     
     <MapArchiveGrid AllMaps="Maps"/>
-
-    @* Radzen DataGrid comparison table -- visual-only, added alongside the grid above to compare
-       rendering/scroll behavior. Styled directly by ResponsiveRadzenDataGrid itself. *@
-    <section class="maps-archive-radzen-section">
-
-        <ResponsiveHeading Level="2" Text="@($"{Strings.Page_MapArchive} (Radzen)")" FontSize="lg" />
-
-        <ResponsiveRadzenDataGrid TItem="MapModel"
-                                  Data="Maps"
-                                  AllowPaging="false"
-                                  AllowSorting="true"
-                                  AllowFiltering="true"
-                                  AllowAlternatingRows="true"
-                                  CssClass="mb-xl">
-            <Columns>
-                <RadzenDataGridColumn TItem="MapModel" Property="Name" Title="@Strings.MapArchive_MapName" Width="220px" />
-
-                <RadzenDataGridColumn TItem="MapModel" Property="Rating" Title="@Strings.MapArchive_MapRating" Filterable="false" Width="180px">
-                    <Template Context="map">
-                        <StarRating IsReadOnly="true" Rating="@map.Rating" />
-                    </Template>
-                </RadzenDataGridColumn>
-
-                <RadzenDataGridColumn TItem="MapModel" Property="EventName" Title="@Strings.MapArchive_MapEvent" Width="180px" />
-
-                <RadzenDataGridColumn TItem="MapModel" Property="UserName" Title="@Strings.MapArchive_MapAuthor" Width="160px" />
-
-                <RadzenDataGridColumn TItem="MapModel" Property="MapTemplate" Title="@Strings.MapArchive_MapTemplate" Width="160px">
-                    <Template Context="map">
-                        @map.MapTemplate.GetDisplayName()
-                    </Template>
-                </RadzenDataGridColumn>
-            </Columns>
-        </ResponsiveRadzenDataGrid>
-
-    </section>
 
 </Page>

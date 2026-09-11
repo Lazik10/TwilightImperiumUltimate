@@ -1,7 +1,7 @@
 namespace TwilightImperiumUltimate.Web.Components.Shared.Tables;
 
 /// <summary>
-/// Compact ResponsiveAutocomplete for use inside a ResponsiveTable/ResponsiveDataGrid cell. Same
+/// Compact ResponsiveAutocomplete for use inside a ResponsiveTable cell. Same
 /// contract as <see cref="Controls.ResponsiveAutocomplete"/>, just defaulting to the smallest
 /// FontSize token and a shorter input height so it fits a narrow column.
 /// </summary>

@@ -1,24 +1,30 @@
-﻿@using TwilightImperiumUltimate.Web.Components.Shared.Bars
+@using TwilightImperiumUltimate.Web.Components.Shared.Bars
 @using TwilightImperiumUltimate.Web.Models.SlicesArchive
 
-<ResponsiveDataGrid TItem="SliceDraftModel"
-                     Items="FilteredSliceDrafts"
-                     ZebraStripes="true"
-                     CssClass="mb-md"
-                     SelectedItemChanged="RedirectToSelectedSliceDraft">
+<ResponsiveRadzenDataGrid TItem="SliceDraftModel"
+                          Data="FilteredSliceDrafts"
+                          AllowPaging="false"
+                          AllowSorting="true"
+                          AllowFiltering="true"
+                          AllowAlternatingRows="true"
+                          CssClass="mb-md">
+    <Columns>
+        <RadzenDataGridColumn TItem="SliceDraftModel" Property="Name" Title="@Strings.SlicesArchive_SliceDraftName">
+            <Template Context="sliceDraft">
+                <GridButtonColumn Text="@sliceDraft.Name" Href="@GetSliceDraftDetailsUrl(sliceDraft.Id)" />
+            </Template>
+        </RadzenDataGridColumn>
 
-    <ResponsiveTableColumn Field="x => x.Name" Header="@Strings.SlicesArchive_SliceDraftName" Filter="ResponsiveFilterType.Text" HeaderAlign="center" />
+        <RadzenDataGridColumn TItem="SliceDraftModel" Property="Rating" Title="@Strings.SlicesArchive_SliceDraftRating" Filterable="false">
+            <Template Context="sliceDraft">
+                <StarRating IsReadOnly="true" Rating="@sliceDraft.Rating" />
+            </Template>
+        </RadzenDataGridColumn>
 
-    <ResponsiveTableColumn Field="x => x.Rating" Header="@Strings.SlicesArchive_SliceDraftRating" Sortable="true" HeaderAlign="center" Align="center">
-        <CellTemplate Context="sliceDraft">
-            <StarRating IsReadOnly="true" Rating="@sliceDraft.Rating" />
-        </CellTemplate>
-    </ResponsiveTableColumn>
+        <RadzenDataGridColumn TItem="SliceDraftModel" Property="EventName" Title="@Strings.SlicesArchive_SliceDraftEventName" />
 
-    <ResponsiveTableColumn Field="x => x.EventName" Header="@Strings.SlicesArchive_SliceDraftEventName" Filter="ResponsiveFilterType.Text" HeaderAlign="center" />
+        <RadzenDataGridColumn TItem="SliceDraftModel" Property="UserName" Title="@Strings.SlicesArchive_SliceDraftAuthor" />
 
-    <ResponsiveTableColumn Field="x => x.UserName" Header="@Strings.SlicesArchive_SliceDraftAuthor" Filter="ResponsiveFilterType.Text" HeaderAlign="center" />
-
-    <ResponsiveTableColumn Field="x => x.SliceCount" Header="@Strings.SlicesArchive_SliceDraftSliseCount" Filter="ResponsiveFilterType.Value" HeaderAlign="center" Align="center" />
-
-</ResponsiveDataGrid>
+        <RadzenDataGridColumn TItem="SliceDraftModel" Property="SliceCount" Title="@Strings.SlicesArchive_SliceDraftSliseCount" />
+    </Columns>
+</ResponsiveRadzenDataGrid>

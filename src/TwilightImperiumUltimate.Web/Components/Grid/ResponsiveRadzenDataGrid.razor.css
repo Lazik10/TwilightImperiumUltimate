@@ -44,7 +44,7 @@
 /* RadzenDataGrid's own ".rz-data-grid-data" wrapper already sets "overflow: auto", but its default
    ".rz-grid-table-fixed" table layout squeezes every column to fit the container instead of
    overflowing -- forcing "table-layout: auto" plus "nowrap" cell/header content (matching
-   ResponsiveDataGrid's ".responsive-column" behavior) lets columns keep their natural/explicit
+   this app's ".responsive-column" cell behavior elsewhere) lets columns keep their natural/explicit
    width so long text stays on one line and a horizontal scrollbar appears once the columns no
    longer fit, instead of truncating column text. */
 .responsive-radzen-grid-host ::deep .responsive-radzen-grid .rz-grid-table {

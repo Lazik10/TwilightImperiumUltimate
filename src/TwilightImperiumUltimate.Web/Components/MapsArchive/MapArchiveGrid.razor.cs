@@ -9,24 +9,10 @@ public partial class MapArchiveGrid
 
     private IReadOnlyCollection<MapModel> FilteredMaps { get; set; } = new List<MapModel>();
 
-    [Inject]
-    private NavigationManager NavigationManager { get; set; } = default!;
-
     protected override void OnParametersSet()
     {
         FilteredMaps = AllMaps.OrderByDescending(map => map.Rating).ToList();
     }
 
-    private void RedirectToMapDetails(int mapId)
-    {
-        NavigationManager.NavigateTo($"{Pages.Pages.MapPreview}{mapId}");
-    }
-
-    private void RedirectToSelectedMap(MapModel? map)
-    {
-        if (map is not null)
-        {
-            RedirectToMapDetails(map.Id);
-        }
-    }
+    private static string GetMapDetailsUrl(int mapId) => $"{Pages.Pages.MapPreview}{mapId}";
 }

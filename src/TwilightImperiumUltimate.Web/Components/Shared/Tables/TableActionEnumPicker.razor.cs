@@ -3,7 +3,7 @@ using TwilightImperiumUltimate.Web.Helpers.Enums;
 namespace TwilightImperiumUltimate.Web.Components.Shared.Tables;
 
 /// <summary>
-/// Compact ResponsiveEnumPicker for use inside a ResponsiveTable/ResponsiveDataGrid cell. Same
+/// Compact ResponsiveEnumPicker for use inside a ResponsiveTable cell. Same
 /// CurrentValue/ExcludeValues contract as
 /// <see cref="Controls.ResponsiveEnumPicker{TEnum}"/>, just hiding the label and defaulting to
 /// the smallest FontSize token so it fits a narrow column.

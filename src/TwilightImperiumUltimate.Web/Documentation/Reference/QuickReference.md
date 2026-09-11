@@ -170,7 +170,7 @@ Examples:
 Label               → ResponsiveLabel
 (inline styles)     → ResponsiveContainer
 Button              → ResponsiveButton
-DataGrid            → ResponsiveDataGrid
+DataGrid            → ResponsiveRadzenDataGrid
 ```
 
 ---

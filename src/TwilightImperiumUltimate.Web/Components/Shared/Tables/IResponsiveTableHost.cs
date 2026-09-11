@@ -1,8 +1,8 @@
 namespace TwilightImperiumUltimate.Web.Components.Shared.Tables;
 
 /// <summary>
-/// Implemented by the table/grid host component (<c>ResponsiveTable{TItem}</c>,
-/// <c>ResponsiveDataGrid{TItem}</c>) so cascaded <c>ResponsiveTableColumn{TItem}</c> children can
+/// Implemented by the table/grid host component (currently <c>ResponsiveTable{TItem}</c>)
+/// so cascaded <c>ResponsiveTableColumn{TItem}</c> children can
 /// register themselves without either side needing to know the other's concrete type.
 /// </summary>
 /// <typeparam name="TItem">The row model type.</typeparam>

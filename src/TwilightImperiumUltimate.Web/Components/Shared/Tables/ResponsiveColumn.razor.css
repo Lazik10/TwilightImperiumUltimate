@@ -1,8 +1,8 @@
 /*
     Anchor for the resize handle's absolute positioning below. `.responsive-column` also carries
     other visual rules (colors, borders, hover/zebra backgrounds) owned by the CONSUMING table
-    component (ResponsiveTable.razor.css/ResponsiveDataGrid.razor.css, reached via ::deep since those
-    files don't render this element directly) -- this file only owns the resize-handle-specific
+    component (ResponsiveTable.razor.css, reached via ::deep since that
+    file doesn't render this element directly) -- this file only owns the resize-handle-specific
     concerns, since both the <th>/<td> and the handle <span> are authored directly in THIS
     component's own ResponsiveColumn.razor, needing no ::deep here.
 */

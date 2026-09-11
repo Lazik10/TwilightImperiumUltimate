@@ -1,28 +1,34 @@
-﻿@using TwilightImperiumUltimate.Web.Components.Shared.Bars
+@using TwilightImperiumUltimate.Web.Components.Shared.Bars
 @using TwilightImperiumUltimate.Web.Models.MapArchive
 
-<ResponsiveDataGrid TItem="MapModel"
-                     Items="FilteredMaps"
-                     ZebraStripes="true"
-                     CssClass="mb-md"
-                     SelectedItemChanged="RedirectToSelectedMap">
+<ResponsiveRadzenDataGrid TItem="MapModel"
+                          Data="FilteredMaps"
+                          AllowPaging="false"
+                          AllowSorting="true"
+                          AllowFiltering="true"
+                          AllowAlternatingRows="true"
+                          CssClass="mb-md">
+    <Columns>
+        <RadzenDataGridColumn TItem="MapModel" Property="Name" Title="@Strings.MapArchive_MapName">
+            <Template Context="map">
+                <GridButtonColumn Text="@map.Name" Href="@GetMapDetailsUrl(map.Id)" />
+            </Template>
+        </RadzenDataGridColumn>
 
-    <ResponsiveTableColumn Field="x => x.Name" Header="@Strings.MapArchive_MapName" Filter="ResponsiveFilterType.Text" HeaderAlign="center" />
+        <RadzenDataGridColumn TItem="MapModel" Property="Rating" Title="@Strings.MapArchive_MapRating" Filterable="false">
+            <Template Context="map">
+                <StarRating IsReadOnly="true" Rating="@map.Rating" />
+            </Template>
+        </RadzenDataGridColumn>
 
-    <ResponsiveTableColumn Field="x => x.Rating" Header="@Strings.MapArchive_MapRating" Sortable="true" HeaderAlign="center" Align="center">
-        <CellTemplate Context="map">
-            <StarRating IsReadOnly="true" Rating="@map.Rating" />
-        </CellTemplate>
-    </ResponsiveTableColumn>
+        <RadzenDataGridColumn TItem="MapModel" Property="EventName" Title="@Strings.MapArchive_MapEvent" />
 
-    <ResponsiveTableColumn Field="x => x.EventName" Header="@Strings.MapArchive_MapEvent" Filter="ResponsiveFilterType.Text" HeaderAlign="center" />
+        <RadzenDataGridColumn TItem="MapModel" Property="UserName" Title="@Strings.MapArchive_MapAuthor" />
 
-    <ResponsiveTableColumn Field="x => x.UserName" Header="@Strings.MapArchive_MapAuthor" Filter="ResponsiveFilterType.Text" HeaderAlign="center" />
-
-    <ResponsiveTableColumn Field="x => x.MapTemplate" Header="@Strings.MapArchive_MapTemplate" Filter="ResponsiveFilterType.Enum" HeaderAlign="center" Align="center">
-        <CellTemplate Context="map">
-            @map.MapTemplate.GetDisplayName()
-        </CellTemplate>
-    </ResponsiveTableColumn>
-
-</ResponsiveDataGrid>
+        <RadzenDataGridColumn TItem="MapModel" Property="MapTemplate" Title="@Strings.MapArchive_MapTemplate">
+            <Template Context="map">
+                @map.MapTemplate.GetDisplayName()
+            </Template>
+        </RadzenDataGridColumn>
+    </Columns>
+</ResponsiveRadzenDataGrid>
