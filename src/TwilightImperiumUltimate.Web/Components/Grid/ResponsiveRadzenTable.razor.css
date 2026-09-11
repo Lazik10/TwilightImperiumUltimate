@@ -61,7 +61,7 @@
    header/body styling above and would otherwise render unstyled. */
 .responsive-radzen-table-host ::deep .responsive-radzen-table caption {
     caption-side: top;
-    text-align: left;
+    text-align: center;
     padding: var(--space-sm) var(--space-md);
     font-family: Handel, sans-serif;
     color: white;

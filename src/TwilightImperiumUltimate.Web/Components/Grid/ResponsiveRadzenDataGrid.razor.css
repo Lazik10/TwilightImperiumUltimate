@@ -93,3 +93,18 @@
 .responsive-radzen-grid-host ::deep .responsive-radzen-grid .rz-data-grid-data::-webkit-scrollbar-thumb {
     background: #0024ff;
 }
+
+/* Applied only when the "RowClick" callback is set (see GetGridClass()) so rows without a click
+   handler don't misleadingly look interactive. */
+.responsive-radzen-grid-host ::deep .responsive-radzen-grid-clickable-rows .rz-data-row {
+    cursor: pointer;
+}
+
+/* Radzen's own row-hover background rule only applies when the grid root also carries its
+   "rz-selectable" class (added when row selection is enabled) -- this grid never enables
+   selection, so that rule never matches and hovering a clickable row shows no feedback at all.
+   Reuse the same header background color the user expects the hover to match. */
+.responsive-radzen-grid-host ::deep .responsive-radzen-grid-clickable-rows .rz-data-row:hover > td {
+    background-color: var(--rz-grid-header-background-color, var(--color-nav-hover-bg-solid));
+}
+

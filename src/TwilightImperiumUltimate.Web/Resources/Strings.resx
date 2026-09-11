@@ -2648,6 +2648,14 @@ Brandon Williams&lt;/p&gt;</value>
     <value>Clear Filters</value>
   </data>
 
+  <data name="ButtonText_Copy" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+
+  <data name="ButtonText_Copied" xml:space="preserve">
+    <value>Copied!</value>
+  </data>
+
   <data name="Table_ResizeColumnHandle" xml:space="preserve">
     <value>Resize column</value>
   </data>

@@ -56,41 +56,58 @@
                                  Padding="none"
                                  CenteredItems="true"
                                  Direction="Enums.FlexDirection.Column"
-                                 Width="70"
+                                 Width="100"
                                  CssClass="map-detail-map">
                 @DynamicComponent
             </ResponsiveContainer>
 
             <MapSliceEvaluation Map="_map" MapTemplate="Map.MapTemplate" />
 
-            <dl class="map-detail-meta mt-xl">
+            <ResponsiveCard CssClass="mt-xl">
+                <dl class="map-detail-meta">
 
-                <dt><ResponsiveLabel Text="@Strings.MapArchive_MapAuthor" /></dt>
-                <dd><ResponsiveLabel Text="@Map.UserName" /></dd>
+                    <dt><ResponsiveLabel Text="@Strings.MapArchive_MapAuthor" /></dt>
+                    <dd><ResponsiveLabel Text="@Map.UserName" /></dd>
 
-                <dt><ResponsiveLabel Text="@Strings.MapArchive_MapEvent" /></dt>
-                <dd><ResponsiveLabel Text="@Map.EventName" /></dd>
+                    <dt><ResponsiveLabel Text="@Strings.MapArchive_MapEvent" /></dt>
+                    <dd><ResponsiveLabel Text="@Map.EventName" /></dd>
 
-                <dt><ResponsiveLabel Text="@Strings.MapArchive_MapTemplate" /></dt>
-                <dd><ResponsiveLabel Text="@Map.MapTemplate.GetDisplayName()" /></dd>
+                    <dt><ResponsiveLabel Text="@Strings.MapArchive_MapTemplate" /></dt>
+                    <dd><ResponsiveLabel Text="@Map.MapTemplate.GetDisplayName()" /></dd>
 
-                <dt class="map-detail-meta-full"><ResponsiveLabel Text="@Strings.MapArchive_MapDescription" /></dt>
-                <dd class="map-detail-meta-full">
-                    <div class="map-detail-description handel white shadow">
-                        @MarkupStringDescription
-                    </div>
-                </dd>
+                    <dt><ResponsiveLabel Text="@Strings.MapArchive_MapDescription" /></dt>
+                    <dd>
+                        <div class="map-detail-description handel white shadow">
+                            @MarkupStringDescription
+                        </div>
+                    </dd>
 
-                <dt><ResponsiveLabel Text="@Strings.MapArchive_TtsString" /></dt>
-                <dd><ResponsiveLabel Text="@Map.TtsString" CssClass="text-break-all" /></dd>
+                    <dt><ResponsiveLabel Text="@Strings.MapArchive_TtsString" /></dt>
+                    <dd>
+                        <ResponsiveLabel Text="@Map.TtsString" CssClass="text-break-all" />
+                        <div class="map-detail-copy-row">
+                            <CopyButton TextToCopy="@Map.TtsString" AriaLabel="@Strings.MapArchive_TtsString" />
+                        </div>
+                    </dd>
 
-                <dt><ResponsiveLabel Text="@Strings.MapArchive_MapGeneratorLink" /></dt>
-                <dd><ResponsiveLabel Text="@Map.MapGeneratorLink" CssClass="text-break-all" /></dd>
+                    <dt><ResponsiveLabel Text="@Strings.MapArchive_MapGeneratorLink" /></dt>
+                    <dd>
+                        <ResponsiveLabel Text="@Map.MapGeneratorLink" CssClass="text-break-all" />
+                        <div class="map-detail-copy-row">
+                            <CopyButton TextToCopy="@Map.MapGeneratorLink" AriaLabel="@Strings.MapArchive_MapGeneratorLink" />
+                        </div>
+                    </dd>
 
-                <dt><ResponsiveLabel Text="@Strings.MapArchive_MapArchiveLink" /></dt>
-                <dd><ResponsiveLabel Text="@Map.MapArchiveLink" CssClass="text-break-all" /></dd>
+                    <dt><ResponsiveLabel Text="@Strings.MapArchive_MapArchiveLink" /></dt>
+                    <dd>
+                        <ResponsiveLabel Text="@Map.MapArchiveLink" CssClass="text-break-all" />
+                        <div class="map-detail-copy-row">
+                            <CopyButton TextToCopy="@Map.MapArchiveLink" AriaLabel="@Strings.MapArchive_MapArchiveLink" />
+                        </div>
+                    </dd>
 
-            </dl>
+                </dl>
+            </ResponsiveCard>
 
         </div>
     }

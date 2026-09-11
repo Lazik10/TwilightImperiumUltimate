@@ -15,13 +15,22 @@
     margin-right: auto;
 }
 
-/* Both ratings share one wrapping row: side by side when there is room, stacked once the viewport
-   (or zoom level) no longer allows it, so neither label is ever squeezed. */
+/* Both ratings are centered as a group with space between them, side by side when there is room,
+   stacked (one above the other) once the viewport no longer allows it, so neither label is ever
+   squeezed. */
 .map-detail-ratings {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: var(--space-sm) var(--space-2xl);
     width: 100%;
+}
+
+@media (max-width: 768px) {
+    .map-detail-ratings {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .map-detail-rating {
@@ -63,13 +72,17 @@
     min-width: 0;
 }
 
-.map-detail-meta .map-detail-meta-full {
-    grid-column: 1 / -1;
-}
-
 .map-detail-description {
     width: 100%;
     overflow-wrap: anywhere;
+}
+
+/* Passed into CopyButton via CssClass-less wrapper -- CopyButton is a project-owned component so
+   this only needs to center its own root, not reach inside it. */
+.map-detail-copy-row {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-xs);
 }
 
 /* Stacked label-above-value on narrow screens, where a two-column layout leaves the value column

@@ -1198,6 +1198,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
             }
         }
 
+        public static string ButtonText_Copied {
+            get {
+                return ResourceManager.GetString("ButtonText_Copied", resourceCulture);
+            }
+        }
+
+        public static string ButtonText_Copy {
+            get {
+                return ResourceManager.GetString("ButtonText_Copy", resourceCulture);
+            }
+        }
+
         public static string ButtonText_Edit {
             get {
                 return ResourceManager.GetString("ButtonText_Edit", resourceCulture);

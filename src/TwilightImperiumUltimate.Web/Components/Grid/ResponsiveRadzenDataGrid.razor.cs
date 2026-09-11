@@ -1,4 +1,5 @@
 using Radzen;
+using Radzen.Blazor;
 
 namespace TwilightImperiumUltimate.Web.Components.Grid;
 
@@ -77,11 +78,22 @@ public partial class ResponsiveRadzenDataGrid<TItem>
     public string ColumnWidth { get; set; } = "auto";
 
     /// <summary>
+    /// Gets or sets the callback invoked when a data row is clicked. When set, rows render with a
+    /// pointer cursor and hover highlight to signal they are clickable.
+    /// </summary>
+    [Parameter]
+    public EventCallback<TItem> RowClick { get; set; }
+
+    /// <summary>
     /// Gets the combined CSS class string for the grid.
     /// </summary>
     /// <returns>The CSS class string.</returns>
     private string GetGridClass()
     {
-        return $"responsive-radzen-grid {CssClass}";
+        var clickableClass = RowClick.HasDelegate ? "responsive-radzen-grid-clickable-rows" : string.Empty;
+
+        return $"responsive-radzen-grid {clickableClass} {CssClass}";
     }
+
+    private Task OnRowClick(DataGridRowMouseEventArgs<TItem> args) => RowClick.InvokeAsync(args.Data);
 }

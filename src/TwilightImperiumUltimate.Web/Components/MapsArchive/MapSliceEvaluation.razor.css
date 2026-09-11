@@ -4,7 +4,7 @@
 
 .slice-evaluation-caption {
     caption-side: top;
-    text-align: left;
+    text-align: center;
     padding: var(--space-xs) var(--space-sm);
     font-size: var(--font-size-lg);
 }
@@ -24,9 +24,12 @@
     color: lawngreen;
 }
 
+/* Kept on a single line (the table already scrolls horizontally once columns no longer fit --
+   see ResponsiveRadzenTable.razor.css) instead of wrapping into multiple rows, which made rows
+   with many icons much taller than the rest of the table. */
 .slice-evaluation-icons {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     gap: var(--space-xs);
 }

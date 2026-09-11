@@ -1,0 +1,11 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Layouts
+
+@*
+    Reusable bordered/shadowed dark-navy card (matches ReportGame.razor's form cards and the
+    RadzenDataGrid/RadzenTable aesthetic) for wrapping a section of content so it reads as a
+    distinct, more legible panel instead of floating directly on the page background.
+*@
+
+<section class="responsive-card @CssClass">
+    @ChildContent
+</section>

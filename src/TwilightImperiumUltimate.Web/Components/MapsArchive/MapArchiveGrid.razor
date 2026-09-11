@@ -7,13 +7,10 @@
                           AllowSorting="true"
                           AllowFiltering="true"
                           AllowAlternatingRows="true"
+                          RowClick="@(map => NavigationManager.NavigateTo(GetMapDetailsUrl(map.Id)))"
                           CssClass="mb-md">
     <Columns>
-        <RadzenDataGridColumn TItem="MapModel" Property="Name" Title="@Strings.MapArchive_MapName">
-            <Template Context="map">
-                <GridButtonColumn Text="@map.Name" Href="@GetMapDetailsUrl(map.Id)" />
-            </Template>
-        </RadzenDataGridColumn>
+        <RadzenDataGridColumn TItem="MapModel" Property="Name" Title="@Strings.MapArchive_MapName" />
 
         <RadzenDataGridColumn TItem="MapModel" Property="Rating" Title="@Strings.MapArchive_MapRating" Filterable="false">
             <Template Context="map">
