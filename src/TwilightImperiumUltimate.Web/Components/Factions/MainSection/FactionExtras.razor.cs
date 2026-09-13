@@ -2,7 +2,7 @@ namespace TwilightImperiumUltimate.Web.Components.Factions.MainSection;
 
 public partial class FactionExtras
 {
-    private IReadOnlyList<SpecialComponentName> _largeTokens = [ SpecialComponentName.AvernusToken, SpecialComponentName.VoidTetherToken ];
+    private IReadOnlyList<SpecialComponentName> _largeTokens = [SpecialComponentName.AvernusToken, SpecialComponentName.VoidTetherToken];
 
     [Parameter]
     public FactionName FactionName { get; set; }

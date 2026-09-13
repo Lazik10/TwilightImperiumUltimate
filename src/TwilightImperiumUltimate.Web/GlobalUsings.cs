@@ -35,6 +35,6 @@ global using TwilightImperiumUltimate.Web.Models.Technologies;
 global using TwilightImperiumUltimate.Web.Models.Unit;
 global using TwilightImperiumUltimate.Web.Models.Website;
 global using TwilightImperiumUltimate.Web.Resources;
+global using TwilightImperiumUltimate.Web.Services.Factions;
 global using TwilightImperiumUltimate.Web.Services.HttpClients;
 global using TwilightImperiumUltimate.Web.Services.Path;
-global using TwilightImperiumUltimate.Web.Services.Factions;

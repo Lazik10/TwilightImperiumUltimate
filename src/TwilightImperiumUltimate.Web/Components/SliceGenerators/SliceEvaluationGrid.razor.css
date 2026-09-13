@@ -1,4 +1,12 @@
-﻿.slice-evaluation-grid {
+.slice-evaluation {
+    width: 100%;
+}
+
+.slice-evaluation-caption {
+    caption-side: top;
+    text-align: center;
+    padding: var(--space-xs) var(--space-sm);
+    font-size: var(--font-size-lg);
 }
 
 .yellow {
@@ -13,12 +21,43 @@
     color: lawngreen;
 }
 
-.max-height {
-    max-height: 40px;
+.slice-evaluation-icons {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: var(--space-xs);
 }
 
-.grid-text {
+.slice-evaluation-icon {
+    max-height: 40px;
+    max-width: 40px;
+    height: auto;
+    width: auto;
+}
+
+.slice-evaluation ::deep th.slice-evaluation-center,
+.slice-evaluation ::deep td.slice-evaluation-center {
     text-align: center;
-    align-self: center;
-    justify-self: center;
+}
+
+.slice-evaluation ::deep th.slice-evaluation-center {
+    width: 1%;
+    white-space: nowrap;
+}
+
+@media (max-width: 1100px) {
+    .slice-evaluation-caption {
+        text-align: left;
+    }
+}
+
+@media (max-width: 768px) {
+    .slice-evaluation-caption {
+        text-align: left;
+    }
+
+    .slice-evaluation-icon {
+        max-height: 28px;
+        max-width: 28px;
+    }
 }

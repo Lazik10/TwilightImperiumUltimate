@@ -96,17 +96,25 @@ public partial class FactionIconMenu : TwilightImperiumBaseComponent
             || gameVersion == GameVersion.CodexLiberation;
     }
 
+    private static string GetFactionHref(FactionModel faction)
+    {
+        return $"/game/factions/{faction.FactionName}";
+    }
+
+    private static FactionName GetDefaultFactionForSource(FactionSource source) => source switch
+    {
+        FactionSource.DiscordantStars => FactionName.TheAugursOfIlyxum,
+        FactionSource.BlueRiverie => FactionName.AtokeraLegacy,
+        FactionSource.TwilightsFall => FactionName.TheRubyMonarch,
+        _ => FactionName.TheArborec,
+    };
+
     private void FactionClicked(FactionModel selectedFaction)
     {
         if (EnableBanMode)
             selectedFaction.Banned = !selectedFaction.Banned;
 
         OnFactionClickGetFaction.InvokeAsync(selectedFaction);
-    }
-
-    private static string GetFactionHref(FactionModel faction)
-    {
-        return $"/game/factions/{faction.FactionName}";
     }
 
     private FactionName ResolveInitialFaction(string factionName)
@@ -123,14 +131,6 @@ public partial class FactionIconMenu : TwilightImperiumBaseComponent
 
         return faction.GetFactionSource() == selectedSource ? faction : GetDefaultFactionForSource(selectedSource);
     }
-
-    private static FactionName GetDefaultFactionForSource(FactionSource source) => source switch
-    {
-        FactionSource.DiscordantStars => FactionName.TheAugursOfIlyxum,
-        FactionSource.BlueRiverie => FactionName.AtokeraLegacy,
-        FactionSource.TwilightsFall => FactionName.TheRubyMonarch,
-        _ => FactionName.TheArborec,
-    };
 
     private async Task InitializeFactions()
     {

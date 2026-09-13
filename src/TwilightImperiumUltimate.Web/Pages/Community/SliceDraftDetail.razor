@@ -2,95 +2,108 @@
 @using TwilightImperiumUltimate.Web.Components.MapGenerator
 @using TwilightImperiumUltimate.Web.Components.PreviewSlices
 @using TwilightImperiumUltimate.Web.Components.Shared.Bars
+@using TwilightImperiumUltimate.Web.Components.Shared.Controls
 @using TwilightImperiumUltimate.Web.Components.SliceGenerators
+
+<PageTitle>@SliceDraft.Name</PageTitle>
 
 <Page>
 
-    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" >
-        <ResponsiveButton Text="@Strings.ButtonBack" OnClick="RedirectBack" FontSize="24" Width="20" TextAlign="@(string.Empty)" />
-    </ResponsiveContainer>
-    
-    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexEnd">
-        <QuickMenuItem IconType="IconType.DownloadMapImage" IconTypeClicked="IconType.DownloadMapImageClicked" OnClick="async () => await HandleDownloadIconClick()" />
+    <ResponsiveContainer Type="ContainerType.Flex"
+                         Padding="none"
+                         JustifyContent="Enums.JustifyContent.SpaceBetween"
+                         AlignItems="Enums.AlignItems.Center"
+                         CssClass="slice-draft-toolbar mb-md">
+
+        <ResponsiveButton ButtonText="@Strings.ButtonBack" OnClick="RedirectBack" />
+
+        <QuickMenuItem IconType="IconType.DownloadMapImage"
+                       IconTypeClicked="IconType.DownloadMapImageClicked"
+                       AriaLabel="@Strings.MapArchive_SaveMap"
+                       OnClick="async () => await HandleDownloadIconClick()" />
+
     </ResponsiveContainer>
 
     @if (!_slices.Any())
         return;
 
-    <div id="sliceDraftArea" style="width: 100%;" >
+    <div id="sliceDraftArea" class="slice-draft-area">
 
-        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+        <ResponsiveHeading Level="1" Text="@SliceDraft.Name" CssClass="mb-md" />
 
-            <Title Text="@SliceDraft.Name"  MarginTop="0" MarginBottom="20" />
+        <div class="slice-draft-ratings mb-lg">
 
-            <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
-                <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" Width="50">
-                    <Label Text="@Strings.SlicesArchive_SliceDraftRating" Style="margin-right: 10px;" Width="20"/>
-                    <StarRating Rating="@SliceDraft.Rating" IsReadOnly="true" />
-                </ResponsiveContainer>
-                <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexEnd" Width="50">
-                    <Label Text="@Strings.SlicesArchive_SliceDraftUserRating" Style="margin-right: 10px;" Width="30"/>
-                    <StarRating Rating="@_userRating" OnRatingChange="UpdateUserMapRating" />
-                </ResponsiveContainer>
-            </ResponsiveContainer>
+            <div class="slice-draft-rating">
+                <ResponsiveLabel Text="@Strings.SlicesArchive_SliceDraftRating" CssClass="slice-draft-rating-label" />
+                <StarRating Rating="@SliceDraft.Rating" IsReadOnly="true" />
+            </div>
 
-            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+            <div class="slice-draft-rating">
+                <ResponsiveLabel Text="@Strings.SlicesArchive_SliceDraftUserRating" CssClass="slice-draft-rating-label" />
+                <StarRating Rating="@_userRating" OnRatingChange="UpdateUserMapRating" />
+            </div>
 
-                <GridLayout Columns="3" Gap="50">
+        </div>
 
-                    @foreach (var slice in _slices)
-                    {
-                        <SlicePreview SliceModel="slice" />
-                    }
+        <div class="slice-card-grid">
+            @foreach (var slice in _slices)
+            {
+                <ResponsiveCard @key="slice.Id" CssClass="slice-detail-card">
+                    <SlicePreview SliceModel="slice" ArchiveLayout="true" />
+                </ResponsiveCard>
+            }
+        </div>
 
-                </GridLayout>
+        <SliceEvaluationGrid Slices="_slices" />
 
-            </ResponsiveContainer>
+        <ResponsiveCard CssClass="mt-xl">
+            <dl class="slice-draft-meta">
 
-            <SliceEvaluationGrid Slices="_slices" />
+                <dt><ResponsiveLabel Text="@Strings.SlicesArchive_SliceDraftAuthor" /></dt>
+                <dd><ResponsiveLabel Text="@SliceDraft.UserName" /></dd>
 
-            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="70" CssClass="mt-2xl">
+                <dt><ResponsiveLabel Text="@Strings.SlicesArchive_SliceDraftEventName" /></dt>
+                <dd><ResponsiveLabel Text="@SliceDraft.EventName" /></dd>
 
-                <GridLayout Columns="4" Gap="40" CssClass="mb-md">
+                <dt><ResponsiveLabel Text="@Strings.SlicesArchive_SlicesCount" /></dt>
+                <dd><ResponsiveLabel Text="@SliceDraft.SliceCount.ToString()" /></dd>
 
-                    <Label Text="@Strings.SlicesArchive_SliceDraftAuthor" />
-                    <Label Text="@SliceDraft.UserName" Style="grid-column: span 3;" />
+                <dt><ResponsiveLabel Text="@Strings.SlicesArchive_SliceDraftDescription" /></dt>
+                <dd>
+                    <div class="slice-draft-description handel white shadow">
+                        @MarkupStringDescription
+                    </div>
+                </dd>
 
-                    <Label Text="@Strings.SlicesArchive_SliceDraftEventName" />
-                    <Label Text="@SliceDraft.EventName" Style="grid-column: span 3;" />
-
-                    <Label Text="@Strings.SlicesArchive_SlicesCount" />
-                    <Label Text="@SliceDraft.SliceCount.ToString()" Style="grid-column: span 3;" />
-
-                    <Label Text="@Strings.SlicesArchive_SliceDraftDescription" Style="grid-column: span 1;" />
-
-                    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Style="grid-column: span 3;" CssClass="mt-md mb-md">
-
-                        <div class="handel white shadow">
-                            @MarkupStringDescription
-                        </div>
-
-                    </ResponsiveContainer>
-
-                    <Label Text="@Strings.SlicesArchive_SlicesString" />
-
-                    <div class="handel white shadow" style="grid-column: span 3;">
+                <dt><ResponsiveLabel Text="@Strings.SlicesArchive_SlicesString" /></dt>
+                <dd>
+                    <div class="slice-draft-text slice-draft-normal-text">
                         @SlicesString
                     </div>
+                    <div class="slice-draft-copy-row">
+                        <CopyButton TextToCopy="@SliceDraft.SliceDraftString" AriaLabel="@Strings.SlicesArchive_SlicesString" />
+                    </div>
+                </dd>
 
-                    <Label Text="@Strings.SlicesArchive_SliceGeneratorLink" />
+                <dt><ResponsiveLabel Text="@Strings.SlicesArchive_SliceGeneratorLink" /></dt>
+                <dd>
+                    <ResponsiveLabel Text="@SliceDraft.SliceDraftGeneratorLink" CssClass="text-break-all slice-draft-normal-text" />
+                    <div class="slice-draft-copy-row">
+                        <CopyButton TextToCopy="@SliceDraft.SliceDraftGeneratorLink" AriaLabel="@Strings.SlicesArchive_SliceGeneratorLink" />
+                    </div>
+                </dd>
 
-                    <Label Text="@SliceDraft.SliceDraftGeneratorLink" CssClass="text-break-all" Style="grid-column: span 3;" />
+                <dt><ResponsiveLabel Text="@Strings.SlicesArchive_SliceDraftArchiveLink" /></dt>
+                <dd>
+                    <ResponsiveLabel Text="@SliceDraft.SliceDraftArchiveLink" CssClass="text-break-all slice-draft-normal-text" />
+                    <div class="slice-draft-copy-row">
+                        <CopyButton TextToCopy="@SliceDraft.SliceDraftArchiveLink" AriaLabel="@Strings.SlicesArchive_SliceDraftArchiveLink" />
+                    </div>
+                </dd>
 
-                    <Label Text="@Strings.SlicesArchive_SliceDraftArchiveLink" />
+            </dl>
+        </ResponsiveCard>
 
-                    <Label Text="@SliceDraft.SliceDraftArchiveLink" CssClass="text-break-all" Style="grid-column: span 3;" />
-
-                </GridLayout>
-
-            </ResponsiveContainer>
-
-        </ResponsiveContainer>
 
     </div>
 </Page>

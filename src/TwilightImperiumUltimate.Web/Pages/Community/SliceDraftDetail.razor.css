@@ -1,0 +1,127 @@
+.slice-draft-toolbar {
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+}
+
+.slice-draft-area {
+    width: 100%;
+}
+
+.slice-draft-ratings {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-sm) var(--space-2xl);
+    width: 100%;
+}
+
+.slice-draft-rating {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.slice-draft-rating ::deep .slice-draft-rating-label {
+    width: auto;
+    white-space: nowrap;
+    padding-left: 0;
+}
+
+.slice-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-lg);
+    align-items: stretch;
+    width: 100%;
+}
+
+.slice-card-grid ::deep .slice-detail-card {
+    height: 100%;
+}
+
+.slice-card-grid ::deep .slice-detail-card .slice-preview-archive {
+    height: 100%;
+}
+
+.slice-card-grid ::deep .slice-detail-card {
+    overflow: visible;
+}
+
+.slice-card-grid ::deep .slice-detail-card .slice-preview-archive {
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+}
+
+.slice-draft-meta {
+    display: grid;
+    grid-template-columns: minmax(0, max-content) minmax(0, 1fr);
+    gap: var(--space-sm) var(--space-xl);
+    align-items: start;
+    width: 100%;
+    margin: 0;
+}
+
+.slice-draft-meta dt {
+    grid-column: 1;
+    min-width: 0;
+}
+
+.slice-draft-meta dt ::deep .responsive-label {
+    color: var(--color-nav-hover) !important;
+}
+
+.slice-draft-meta dd {
+    grid-column: 2;
+    margin: 0;
+    min-width: 0;
+}
+
+.slice-draft-description,
+.slice-draft-text {
+    width: 100%;
+    overflow-wrap: anywhere;
+}
+
+.slice-draft-normal-text {
+    font-family: 'Inter', sans-serif !important;
+    font-size: var(--rz-grid-cell-font-size, 0.875rem) !important;
+    text-shadow: none !important;
+}
+
+.slice-draft-copy-row {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-xs);
+}
+
+@media (max-width: 1100px) {
+    .slice-card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .slice-draft-ratings {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .slice-card-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .slice-draft-meta {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--space-xs);
+    }
+
+    .slice-draft-meta dt,
+    .slice-draft-meta dd {
+        grid-column: 1 / -1;
+    }
+
+    .slice-draft-meta dd {
+        margin-bottom: var(--space-sm);
+    }
+}

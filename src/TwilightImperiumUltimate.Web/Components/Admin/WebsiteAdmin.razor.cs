@@ -19,7 +19,6 @@ public partial class WebsiteAdmin : TwilightImperiumBaseComponent
     private WebsiteFormModel _formModel = new();
     private List<WebsiteModel> _websites = [];
     private WebsiteModel? _pendingDeleteWebsite;
-    private bool _isLoading = true;
     private bool _hasError;
     private bool _hasSubmitError;
     private bool _isSubmitting;
@@ -35,7 +34,6 @@ public partial class WebsiteAdmin : TwilightImperiumBaseComponent
 
     private async Task LoadWebsitesAsync()
     {
-        _isLoading = true;
         _hasError = false;
         StateHasChanged();
 
@@ -50,7 +48,6 @@ public partial class WebsiteAdmin : TwilightImperiumBaseComponent
             _hasError = true;
         }
 
-        _isLoading = false;
         StateHasChanged();
     }
 
@@ -114,12 +111,6 @@ public partial class WebsiteAdmin : TwilightImperiumBaseComponent
 
         _isSubmitting = false;
         StateHasChanged();
-    }
-
-    private void RequestDelete(WebsiteModel website)
-    {
-        _pendingDeleteWebsite = website;
-        _isDeleteDialogOpen = true;
     }
 
     private async Task ConfirmDeleteAsync()

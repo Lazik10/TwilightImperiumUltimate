@@ -66,6 +66,10 @@
     min-width: 0;
 }
 
+.map-detail-meta dt ::deep .responsive-label {
+    color: var(--color-nav-hover) !important;
+}
+
 .map-detail-meta dd {
     grid-column: 2;
     margin: 0;
@@ -75,6 +79,13 @@
 .map-detail-description {
     width: 100%;
     overflow-wrap: anywhere;
+}
+
+.map-detail-meta dd ::deep .map-detail-normal-text {
+    color: var(--color-white) !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: var(--rz-grid-cell-font-size, 0.875rem) !important;
+    text-shadow: none !important;
 }
 
 /* Passed into CopyButton via CssClass-less wrapper -- CopyButton is a project-owned component so

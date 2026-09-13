@@ -13,9 +13,9 @@ public partial class RanksGrid
 
     private IReadOnlyCollection<RankingsUserDto>? _rankings;
 
-    private string ActiveTabId => _league == TiglLeague.Fractured ? "ranks-tab-fractured" : "ranks-tab-standard";
+    private IReadOnlyCollection<RankingsUserDto> Rankings => _rankings ?? Cache.Rankings ?? new List<RankingsUserDto>();
 
-    public IReadOnlyCollection<RankingsUserDto> Rankings => _rankings ?? Cache.Rankings ?? new List<RankingsUserDto>();
+    private string ActiveTabId => _league == TiglLeague.Fractured ? "ranks-tab-fractured" : "ranks-tab-standard";
 
     [Inject]
     private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;

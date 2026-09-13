@@ -7,6 +7,9 @@ public partial class SlicesArchiveGrid
     [Parameter]
     public IReadOnlyCollection<SliceDraftModel> AllSliceDrafts { get; set; } = new List<SliceDraftModel>();
 
+    [Inject]
+    private NavigationManager NavigationManager { get; set; } = default!;
+
     private IReadOnlyCollection<SliceDraftModel> FilteredSliceDrafts { get; set; } = new List<SliceDraftModel>();
 
     protected override void OnParametersSet()

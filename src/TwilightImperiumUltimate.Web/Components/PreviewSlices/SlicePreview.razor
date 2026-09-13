@@ -1,18 +1,7 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.PreviewMaps
 @using TwilightImperiumUltimate.Web.Components.SliceGenerators
 
-<div class="mb-md">
-
-    <div class="slice-grid mb-2xl">
-
-        @foreach(var systemTile in SliceModel.SystemTiles)
-        {
-            <div class="hex">
-                <PreviewMapHex SystemTile="systemTile" />
-            </div>
-        }
-
-    </div>
+<div class="slice-preview @(ArchiveLayout ? "slice-preview-archive" : string.Empty)">
 
     <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mb-sm">
         @if (EditNameMode)
@@ -26,6 +15,17 @@
         }
     </ResponsiveContainer>
 
-    <SliceEvaluationStats SliceModel="SliceModel" />
+    <div class="slice-grid mb-2xl">
+
+        @foreach(var systemTile in SliceModel.SystemTiles)
+        {
+            <div class="hex">
+                <PreviewMapHex SystemTile="systemTile" />
+            </div>
+        }
+
+    </div>
+
+    <SliceEvaluationStats SliceModel="SliceModel" ArchiveLayout="ArchiveLayout" />
 
 </div>

@@ -1,4 +1,75 @@
-﻿<div class="handel white shadow" style="width: 100%;">
+﻿@if (ArchiveLayout)
+{
+    <div class="slice-archive-stats">
+        <div class="slice-archive-stat-row">
+            <span class="slice-archive-stat-label slice-archive-stat-id-label">@Strings.SliceGenerator_SliceId</span>
+            <span>@GetDisplaySliceId()</span>
+        </div>
+
+        <div class="slice-archive-stat-row">
+            <span class="slice-archive-stat-label">@Strings.SliceGenerator_Optimal</span>
+            <span class="slice-archive-resource">@SliceEvaluation.OptimalResourcesSum</span>
+            <span>/</span>
+            <span class="slice-archive-influence">@SliceEvaluation.OptimalInfluenceSum</span>
+        </div>
+
+        <div class="slice-archive-stat-row">
+            <span class="slice-archive-stat-label">@Strings.SliceGenerator_Total</span>
+            <span class="slice-archive-resource">@SliceEvaluation.Resources</span>
+            <span>/</span>
+            <span class="slice-archive-influence">@SliceEvaluation.Influence</span>
+        </div>
+
+        <div class="slice-archive-stat-row slice-archive-traits">
+            <span class="slice-archive-stat-label handel shadow">@Strings.SliceGenerator_Traits</span>
+            <span class="slice-archive-trait-groups">
+                <span class="slice-archive-trait-icons">
+                @foreach (var planetTrait in SliceEvaluation.PlanetTraits.Keys)
+                {
+                    for (var i = 0; i < SliceEvaluation.PlanetTraits[planetTrait]; i++)
+                    {
+                        <img src="@GetPlanetTraitPath(planetTrait)" class="max-height" alt="" />
+                    }
+                }
+
+                </span>
+
+                <span class="slice-archive-trait-icons">
+                @foreach (var technologyType in SliceEvaluation.TechnologySkips.Keys)
+                {
+                    for (var i = 0; i < SliceEvaluation.TechnologySkips[technologyType]; i++)
+                    {
+                        <img src="@GetTechnologyPath(technologyType)" class="max-height" alt="" />
+                    }
+                }
+
+                @for (var i = 0; i < SliceEvaluation.LegendariesCount; i++)
+                {
+                    <img src="@GetPlanetTraitPath(PlanetTrait.Legendary)" class="max-height" alt="" />
+                }
+
+                @for (var i = 0; i < SliceEvaluation.AlphaWormholesCount; i++)
+                {
+                    <img src="@GetPlanetTraitPath(PlanetTrait.AlphaWormhole)" class="max-height" alt="" />
+                }
+
+                @for (var i = 0; i < SliceEvaluation.BetaWormholesCount; i++)
+                {
+                    <img src="@GetPlanetTraitPath(PlanetTrait.BetaWormhole)" class="max-height" alt="" />
+                }
+
+                @for (var i = 0; i < SliceEvaluation.GammaWormholesCount; i++)
+                {
+                    <img src="@GetPlanetTraitPath(PlanetTrait.GammaWormhole)" class="max-height" alt="" />
+                }
+                </span>
+            </span>
+        </div>
+    </div>
+}
+else
+{
+<div class="handel white shadow" style="width: 100%;">
     <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" CssClass="mb-sm">
         <Label Text="@Strings.SliceGenerator_SliceId" FontSize="@(FontSize)" TextColor="TextColor.White" Width="20" CenterText="false" />
         <Label Text="@(GetDisplaySliceId())" FontSize="@(FontSize)" TextColor="TextColor.White" Width="20" CenterText="true" />
@@ -61,3 +132,4 @@
         <Label Text="@SliceEvaluation.OptimalInfluenceSum.ToString()" FontSize="@FontSize" TextColor="TextColor.Deepskyblue" Width="20" CenterText="true" />
     </ResponsiveContainer>
 </div>
+}

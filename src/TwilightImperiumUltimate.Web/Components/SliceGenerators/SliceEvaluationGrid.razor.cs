@@ -1,4 +1,6 @@
 using System.Globalization;
+using System.Text;
+using TwilightImperiumUltimate.Web.Helpers.Enums;
 using TwilightImperiumUltimate.Web.Services.SliceGenerators;
 
 namespace TwilightImperiumUltimate.Web.Components.SliceGenerators;
@@ -34,6 +36,42 @@ public partial class SliceEvaluationGrid
             var resources when resources < planetModel.Influence => 0.0f,
             _ => 0.0f,
         };
+    }
+
+    private static string GetPlanetTraitsLabel(SliceEvaluation sliceEvaluation)
+    {
+        var builder = new StringBuilder();
+
+        foreach (var (planetTrait, count) in sliceEvaluation.PlanetTraits)
+            AppendCount(builder, count, planetTrait.ToString());
+
+        return builder.Length == 0 ? string.Empty : builder.ToString();
+    }
+
+    private static string GetTechnologySkipsLabel(SliceEvaluation sliceEvaluation)
+    {
+        var builder = new StringBuilder();
+
+        foreach (var (technologyType, count) in sliceEvaluation.TechnologySkips)
+            AppendCount(builder, count, technologyType.GetDisplayName());
+
+        AppendCount(builder, sliceEvaluation.LegendariesCount, PlanetTrait.Legendary.ToString());
+        AppendCount(builder, sliceEvaluation.AlphaWormholesCount, PlanetTrait.AlphaWormhole.ToString());
+        AppendCount(builder, sliceEvaluation.BetaWormholesCount, PlanetTrait.BetaWormhole.ToString());
+        AppendCount(builder, sliceEvaluation.GammaWormholesCount, PlanetTrait.GammaWormhole.ToString());
+
+        return builder.Length == 0 ? string.Empty : builder.ToString();
+    }
+
+    private static void AppendCount(StringBuilder builder, int count, string name)
+    {
+        if (count <= 0)
+            return;
+
+        if (builder.Length > 0)
+            builder.Append(", ");
+
+        builder.Append(count.ToString(CultureInfo.CurrentCulture)).Append(' ').Append(name);
     }
 
     private string GetDisplaySliceId(SliceEvaluation sliceEvaluation) => (sliceEvaluation.Id + 1).ToString(CultureInfo.InvariantCulture);

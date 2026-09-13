@@ -7,13 +7,10 @@
                           AllowSorting="true"
                           AllowFiltering="true"
                           AllowAlternatingRows="true"
+                          RowClick="@(sliceDraft => NavigationManager.NavigateTo(GetSliceDraftDetailsUrl(sliceDraft.Id)))"
                           CssClass="mb-md">
     <Columns>
-        <RadzenDataGridColumn TItem="SliceDraftModel" Property="Name" Title="@Strings.SlicesArchive_SliceDraftName">
-            <Template Context="sliceDraft">
-                <GridButtonColumn Text="@sliceDraft.Name" Href="@GetSliceDraftDetailsUrl(sliceDraft.Id)" />
-            </Template>
-        </RadzenDataGridColumn>
+        <RadzenDataGridColumn TItem="SliceDraftModel" Property="Name" Title="@Strings.SlicesArchive_SliceDraftName" />
 
         <RadzenDataGridColumn TItem="SliceDraftModel" Property="Rating" Title="@Strings.SlicesArchive_SliceDraftRating" Filterable="false">
             <Template Context="sliceDraft">
