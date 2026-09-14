@@ -2,7 +2,7 @@
 @using TwilightImperiumUltimate.Web.Components.Async.Players
 @using TwilightImperiumUltimate.Web.Components.Async.Statistics
 
-<AsyncMenu OnMenuItemClick="ChangeSegment"/>
+<AsyncMenu SelectedItem="@_selectedSegment" OnMenuItemClick="ChangeSegment" />
 
 @if (_selectedSegment == AsyncMenuItem.Statistics)
 {

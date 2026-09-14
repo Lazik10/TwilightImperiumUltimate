@@ -77,6 +77,33 @@
     font-display: swap;
 }
 
+/* ResponsiveDatePicker's calendar popup is rendered outside the component tree, so its
+   dark theme must be global rather than CSS-isolated. */
+.responsive-date-picker-popup,
+.rz-datepicker-panel {
+    background-color: var(--color-nav-panel-bg) !important;
+    border-color: var(--color-nav-hover) !important;
+    color: var(--color-white) !important;
+    font-family: Handel, fallback, sans-serif !important;
+}
+
+.rz-datepicker-panel .rz-calendar,
+.rz-datepicker-panel .rz-calendar-header,
+.rz-datepicker-panel .rz-calendar-view,
+.rz-datepicker-panel .rz-calendar-view td,
+.rz-datepicker-panel .rz-calendar-view th {
+    background-color: var(--color-nav-panel-bg) !important;
+    color: var(--color-white) !important;
+    font-family: Handel, fallback, sans-serif !important;
+}
+
+.rz-datepicker-panel .rz-calendar-view td:hover,
+.rz-datepicker-panel .rz-calendar-view td.rz-state-selected,
+.rz-datepicker-panel .rz-calendar-view td.rz-state-focused {
+    background-color: var(--color-nav-hover-bg-solid) !important;
+    color: var(--color-nav-hover) !important;
+}
+
 /* ==================== CSS VARIABLES ====================== */
 :root {
     /* Spacing Scale (rem-based) */
@@ -301,6 +328,146 @@ p {
 .rz-dropdown-items .rz-dropdown-item,
 .rz-dropdown-items .rz-dropdown-item span {
     font-family: Handel, fallback, sans-serif !important;
+}
+
+/* Radzen dropdowns and their popup panels are global/portal-rendered. Keep every shared
+   ResponsiveDropDown dark, including hover states and the searchable popup input. */
+.rz-dropdown,
+.rz-dropdown:hover,
+.rz-dropdown-panel,
+.rz-dropdown-filter-container,
+.rz-dropdown-filter-container input,
+.rz-dropdown-panel .rz-dropdown-item,
+.rz-dropdown-panel .rz-dropdown-item:hover,
+.rz-dropdown-panel .rz-dropdown-item.rz-state-highlight,
+.rz-dropdown-panel .rz-dropdown-item.rz-state-focused {
+    background-color: var(--color-nav-panel-bg) !important;
+    color: var(--color-white) !important;
+    font-family: Handel, fallback, sans-serif !important;
+}
+
+.rz-dropdown,
+.rz-dropdown:hover,
+.rz-dropdown:focus-within {
+    --rz-input-background-color: var(--color-nav-panel-bg);
+    --rz-input-hover-background-color: var(--color-nav-panel-bg);
+    --rz-input-border: 1px solid var(--color-nav-hover);
+    --rz-input-border-block-end: 1px solid var(--color-nav-hover);
+    --rz-input-hover-border: 1px solid var(--color-nav-hover);
+    --rz-input-hover-border-block-end: 1px solid var(--color-nav-hover);
+    --rz-input-value-color: var(--color-white);
+}
+
+.rz-dropdown-panel,
+.rz-dropdown-panel:hover,
+.rz-dropdown-panel .rz-dropdown-filter-container,
+.rz-dropdown-panel .rz-dropdown-filter-container input {
+    background-color: var(--color-black) !important;
+    color: var(--color-white) !important;
+    font-family: Handel, fallback, sans-serif !important;
+}
+
+.rz-dropdown-panel .rz-dropdown-filter-container {
+    border-bottom: 1px solid var(--color-nav-hover) !important;
+}
+
+.rz-dropdown-panel .rz-dropdown-filter-container input {
+    border: 0 !important;
+    color: var(--color-white) !important;
+    outline: none !important;
+}
+
+/* Match Radzen's exact pager selector so every shared data grid centers its pager controls. */
+.responsive-radzen-grid .rz-pager.rz-align-left > .rz-pager-pages,
+.responsive-radzen-grid .rz-pager.rz-align-right > .rz-pager-pages,
+.responsive-radzen-grid .rz-pager.rz-align-center > .rz-pager-pages {
+    justify-content: center !important;
+}
+
+.responsive-radzen-grid .rz-pager-first,
+.responsive-radzen-grid .rz-pager-prev,
+.responsive-radzen-grid .rz-pager-next,
+.responsive-radzen-grid .rz-pager-last {
+    visibility: visible !important;
+}
+
+.responsive-radzen-grid .rz-pager-first.rz-state-disabled,
+.responsive-radzen-grid .rz-pager-prev.rz-state-disabled,
+.responsive-radzen-grid .rz-pager-next.rz-state-disabled,
+.responsive-radzen-grid .rz-pager-last.rz-state-disabled {
+    color: var(--color-nav-hover) !important;
+    opacity: 0.55;
+}
+
+.responsive-radzen-grid .rz-pager-first .rzi,
+.responsive-radzen-grid .rz-pager-prev .rzi,
+.responsive-radzen-grid .rz-pager-next .rzi,
+.responsive-radzen-grid .rz-pager-last .rzi {
+    color: var(--color-nav-hover) !important;
+}
+
+.rz-dropdown-panel .rz-dropdown-item:hover,
+.rz-dropdown-panel .rz-dropdown-item.rz-state-highlight,
+.rz-dropdown-panel .rz-dropdown-item.rz-state-focused {
+    background-color: var(--color-nav-hover-bg-solid) !important;
+    color: var(--color-nav-hover) !important;
+}
+
+/* Keep Radzen dropdown list scrollbars consistent with the page and data-grid scrollbars. */
+.rz-dropdown-panel .rz-dropdown-items-wrapper,
+.rz-dropdown-panel .rz-multiselect-items-wrapper {
+    scrollbar-width: thin;
+    scrollbar-color: #0024ff #333;
+}
+
+.rz-dropdown-panel .rz-dropdown-items-wrapper::-webkit-scrollbar,
+.rz-dropdown-panel .rz-multiselect-items-wrapper::-webkit-scrollbar {
+    width: 12px;
+}
+
+.rz-dropdown-panel .rz-dropdown-items-wrapper::-webkit-scrollbar-track,
+.rz-dropdown-panel .rz-multiselect-items-wrapper::-webkit-scrollbar-track {
+    background: #333;
+}
+
+.rz-dropdown-panel .rz-dropdown-items-wrapper::-webkit-scrollbar-thumb,
+.rz-dropdown-panel .rz-multiselect-items-wrapper::-webkit-scrollbar-thumb {
+    background: #0024ff;
+}
+
+/* RadzenDatePicker popup surfaces are rendered outside the component scope. Set both the
+   visible colors and Radzen's header variables so the calendar header cannot fall back to white. */
+.rz-datepicker-popup-container,
+.rz-datepicker-popup-container .rz-calendar,
+.rz-datepicker-popup-container .rz-calendar-header,
+.rz-datepicker-popup-container .rz-calendar-view-container,
+.rz-datepicker-popup-container .rz-calendar-view,
+.rz-datepicker-popup-container .rz-calendar-view th,
+.rz-datepicker-popup-container .rz-calendar-view td,
+.rz-datepicker-popup-container .rz-calendar-month-dropdown,
+.rz-datepicker-popup-container .rz-calendar-year-dropdown {
+    --rz-datepicker-header-background-color: var(--color-black) !important;
+    --rz-datepicker-header-color: var(--color-white) !important;
+    --rz-datepicker-calendar-color: var(--color-white) !important;
+    background-color: var(--color-black) !important;
+    color: var(--color-white) !important;
+    font-family: Handel, fallback, sans-serif !important;
+}
+
+.rz-datepicker-popup-container .rz-calendar-view td:hover .rz-state-default,
+.rz-datepicker-popup-container .rz-state-active,
+.rz-datepicker-popup-container .rz-state-focused,
+.rz-datepicker-popup-container .rz-calendar-today {
+    background-color: var(--color-nav-hover-bg-solid) !important;
+    color: var(--color-nav-hover) !important;
+}
+
+.rz-datepicker-popup-container .rz-calendar-view td .rz-calendar-today,
+.rz-datepicker-popup-container .rz-calendar-view td .rz-calendar-today:hover,
+.rz-datepicker-popup-container .rz-calendar-view td .rz-calendar-today.rz-state-focused {
+    background-color: rgb(31, 92, 54) !important;
+    color: var(--color-white) !important;
+    box-shadow: inset 0 0 0 1px rgb(55, 130, 78) !important;
 }
 
 /* Same as above but for RadzenAutoComplete's popup (used by ResponsiveAutocomplete). */

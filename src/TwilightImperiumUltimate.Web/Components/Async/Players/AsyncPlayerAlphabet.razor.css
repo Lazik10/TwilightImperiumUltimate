@@ -1,13 +1,22 @@
 ﻿.alphabet-row {
-    background: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.5) 10%, rgba(0,0,0,0.5) 90%, rgba(0,0,0,0.5));
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
     width: 100%;
-    height: 30px;
     min-height: 40px;
     align-self: center;
     box-sizing: border-box;
+}
+
+.alphabet-row ::deep .responsive-button {
+    flex: 0 0 2.25rem;
+    min-width: 2.25rem;
+    padding-inline: var(--space-xs);
+}
+
+.alphabet-row ::deep .async-letter-active {
+    background-color: var(--color-nav-hover-bg-solid);
+    color: var(--color-nav-hover) !important;
 }

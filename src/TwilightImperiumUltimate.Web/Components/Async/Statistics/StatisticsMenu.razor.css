@@ -1,0 +1,16 @@
+.async-statistics-menu {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    width: 100%;
+}
+
+.async-statistics-menu > .label {
+    flex-basis: 100%;
+}
+
+.async-statistics-menu-separator {
+    color: var(--color-nav-hover);
+}

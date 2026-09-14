@@ -31,6 +31,10 @@
     margin-top: var(--space-2xl);
 }
 
+.slice-archive-stat-id-value {
+    margin-top: var(--space-2xl);
+}
+
 .slice-archive-resource {
     color: yellow;
 }
@@ -57,5 +61,14 @@
 }
 
 .slice-archive-trait-groups .slice-archive-trait-icons + .slice-archive-trait-icons {
-    margin-top: var(--space-2xl);
+    margin-top: var(--space-sm);
+}
+
+@media (max-width: 1024px) {
+    .slice-archive-trait-groups .max-height {
+        width: 1.25rem;
+        height: auto;
+        max-width: 1.25rem;
+        max-height: 1.25rem;
+    }
 }

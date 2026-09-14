@@ -11,9 +11,8 @@ public partial class AsyncGamesList
     private IReadOnlyCollection<AsyncGameDto> _games = new List<AsyncGameDto>();
     private IJSObjectReference? _jsModule;
     private bool _isLoaded;
-    private bool _datesSet;
-    private int _year;
-    private int _month;
+    private int _requestVersion;
+    private (DateTime From, DateTime To, string DiscordId, string FunName, AsyncGameStatusFilter Status, AsyncGameType Type)? _lastRequest;
 
     [Parameter]
     public AsyncGameStatusFilter StatusFilter { get; set; } = AsyncGameStatusFilter.All;
@@ -30,6 +29,12 @@ public partial class AsyncGamesList
     [Parameter]
     public string AsyncGameFunName { get; set; } = string.Empty;
 
+    [Parameter]
+    public DateTime DateFrom { get; set; }
+
+    [Parameter]
+    public DateTime DateTo { get; set; }
+
     [Inject]
     private NavigationManager NavigationManager { get; set; } = default!;
 
@@ -44,14 +49,22 @@ public partial class AsyncGamesList
 
     protected override async Task OnParametersSetAsync()
     {
-        if (GameDates.GameDates.Count > 0 && !_datesSet)
+        var request = (DateFrom, DateTo, AsyncGameDiscordId, AsyncGameFunName, StatusFilter, AsyncGameType);
+        if (_lastRequest == request)
+            return;
+
+        _lastRequest = request;
+        var requestVersion = ++_requestVersion;
+        _isLoaded = false;
+
+        if (string.IsNullOrWhiteSpace(AsyncGameDiscordId)
+            && string.IsNullOrWhiteSpace(AsyncGameFunName)
+            && (DateFrom == default || DateTo == default))
         {
-            _year = GameDates.GameDates.First().Year;
-            _month = GameDates.GameDates.First().Months.First();
-            _datesSet = true;
+            return;
         }
 
-        await UpdateGameList();
+        await UpdateGameList(requestVersion);
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -60,6 +73,24 @@ public partial class AsyncGamesList
         {
             _jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./Components/Async/Games/AsyncGamesList.razor.js");
         }
+    }
+
+    private static IEnumerable<(int Year, int Month)> GetMonthsInRange(DateTime from, DateTime to)
+    {
+        var month = new DateTime(from.Year, from.Month, 1, 0, 0, 0, DateTimeKind.Utc);
+        var lastMonth = new DateTime(to.Year, to.Month, 1, 0, 0, 0, DateTimeKind.Utc);
+
+        while (month <= lastMonth)
+        {
+            yield return (month.Year, month.Month);
+            month = month.AddMonths(1);
+        }
+    }
+
+    private static bool IsWithinDateRange(AsyncGameDto game, DateTime from, DateTime to)
+    {
+        var startDate = DateTimeOffset.FromUnixTimeSeconds(game.StartDate).Date;
+        return startDate >= from && startDate <= to;
     }
 
     private string GetDurationTime(AsyncGameDto game)
@@ -82,19 +113,6 @@ public partial class AsyncGamesList
         return parts.Count > 0 ? string.Join(" ", parts) : "0s";
     }
 
-    private async Task HandleYearMonthSelected((int Year, int Month) date)
-    {
-        _year = date.Year;
-        _month = date.Month;
-
-        AsyncGameDiscordId = string.Empty;
-        AsyncGameFunName = string.Empty;
-
-        await UpdateGameList();
-
-        StateHasChanged();
-    }
-
     private async Task RedirectToGameDetails(string gameId)
     {
         if (_jsModule is null)
@@ -106,39 +124,41 @@ public partial class AsyncGamesList
         _ = Task.Run(async () => await _jsModule.InvokeVoidAsync("openInNewTab", $"{path}{gameId}"));
     }
 
-    private async Task UpdateGameList()
+    private Task HandleGameRowClick(AsyncGameDto game) => RedirectToGameDetails(game.AsyncGameID);
+
+    private async Task UpdateGameList(int requestVersion)
     {
-        _isLoaded = false;
-        StateHasChanged();
+        var from = DateFrom == default ? DateTime.UtcNow.Date : DateFrom.Date;
+        var to = DateTo == default ? from : DateTo.Date;
+        IReadOnlyCollection<AsyncGameDto> games;
 
-        if (_year != 0 && _month != 0 && string.IsNullOrEmpty(AsyncGameDiscordId) && string.IsNullOrEmpty(AsyncGameFunName))
+        if (!string.IsNullOrWhiteSpace(AsyncGameDiscordId))
         {
-            var games = await AsyncGamesProvider.GetAsyncGamesFromYearAndMonth(_year, _month);
+            games = [await AsyncGamesProvider.GetAsyncGameByDiscordId(AsyncGameDiscordId)];
+        }
+        else if (!string.IsNullOrWhiteSpace(AsyncGameFunName))
+        {
+            games = [await AsyncGamesProvider.GetAsyncGameByFunName(AsyncGameFunName)];
+        }
+        else
+        {
+            var months = GetMonthsInRange(from, to).ToList();
+            var monthResults = await Task.WhenAll(months.Select(month => AsyncGamesProvider.GetAsyncGamesFromYearAndMonth(month.Year, month.Month)));
+            games = monthResults.SelectMany(x => x).ToList();
+        }
 
-            _games = FilterGames(games);
-        }
-        else if (!string.IsNullOrEmpty(AsyncGameDiscordId))
-        {
-            var game = await AsyncGamesProvider.GetAsyncGameByDiscordId(AsyncGameDiscordId);
-            var startDate = DateTimeOffset.FromUnixTimeSeconds(game.StartDate);
-            _year = startDate.Year;
-            _month = startDate.Month;
-            _games = new List<AsyncGameDto> { game };
-        }
-        else if (!string.IsNullOrEmpty(AsyncGameFunName))
-        {
-            var game = await AsyncGamesProvider.GetAsyncGameByFunName(AsyncGameFunName);
-            var startDate = DateTimeOffset.FromUnixTimeSeconds(game.StartDate);
-            _year = startDate.Year;
-            _month = startDate.Month;
-            _games = new List<AsyncGameDto> { game };
-        }
+        if (requestVersion != _requestVersion)
+            return;
+
+        var filteredGames = FilterGames(games);
+        _games = string.IsNullOrWhiteSpace(AsyncGameDiscordId) && string.IsNullOrWhiteSpace(AsyncGameFunName)
+            ? filteredGames.Where(game => IsWithinDateRange(game, from, to)).ToList()
+            : filteredGames;
 
         _isLoaded = true;
-        StateHasChanged();
     }
 
-    private List<AsyncGameDto> FilterGames(IReadOnlyCollection<AsyncGameDto> games)
+    private List<AsyncGameDto> FilterGames(IEnumerable<AsyncGameDto> games)
     {
         return games
             .Where(ApplyStatusFilter)

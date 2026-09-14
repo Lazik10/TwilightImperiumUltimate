@@ -12,10 +12,11 @@
     element the ::deep selectors in ResponsiveRadzenDataGrid.razor.css would never match anything.
 *@
 
-<div class="responsive-radzen-grid-host">
+<div class="responsive-radzen-grid-host" aria-busy="@(IsLoading ? "true" : "false")">
     <RadzenDataGrid
+        @ref="_grid"
         TItem="TItem"
-        Data="@Data"
+        Data="@(IsLoading ? Enumerable.Empty<TItem>() : Data)"
         AllowFiltering="@AllowFiltering"
         AllowPaging="@AllowPaging"
         AllowSorting="@AllowSorting"
@@ -30,5 +31,10 @@
         <Columns>
             @Columns
         </Columns>
+        <EmptyTemplate>
+            <div class="responsive-radzen-grid-empty" role="status" aria-live="polite">
+                <span class="responsive-radzen-grid-loading-text">@(IsLoading ? LoadingText : _grid?.EmptyText)</span>
+            </div>
+        </EmptyTemplate>
     </RadzenDataGrid>
 </div>

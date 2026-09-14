@@ -1,0 +1,9 @@
+.async-player-searchbar ::deep .async-player-search-label {
+    flex: 0 0 auto;
+    white-space: nowrap !important;
+    width: max-content;
+}
+
+.async-player-searchbar ::deep .async-player-search-note {
+    margin-top: var(--space-xs);
+}

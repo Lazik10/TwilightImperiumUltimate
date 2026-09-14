@@ -55,6 +55,9 @@ public partial class ResponsiveTextBox
     [Parameter]
     public EventCallback<string> ValueChanged { get; set; }
 
+    [Parameter]
+    public EventCallback<string> InputChanged { get; set; }
+
     private string ComputedCssClass => $"responsive-textbox responsive-input-height handel {CssClass}".Trim();
 
     private string ComputedStyle => $"{(FillWidth ? $"width: {Width}%; " : string.Empty)}--rz-input-font-size: {GetFontSizeStyle()}; {Style}";
@@ -63,6 +66,13 @@ public partial class ResponsiveTextBox
     {
         Value = value;
         await ValueChanged.InvokeAsync(value);
+    }
+
+    private async Task OnInput(ChangeEventArgs args)
+    {
+        var value = args.Value?.ToString() ?? string.Empty;
+        Value = value;
+        await InputChanged.InvokeAsync(value);
     }
 
     private string GetFontSizeStyle() => FontSize switch

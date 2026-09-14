@@ -128,7 +128,7 @@
             <Label Text="Date" CenterText="true" />
 
             <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="span-2">
-                <RadzenDatePicker @bind-Value="_newRankDate" Style="width: 100%;" />
+                <ResponsiveDatePicker Id="players-dashboard-rank-date" @bind-Value="_newRankDate" Style="width: 100%;" />
             </ResponsiveContainer>
 
             <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="span-2">
@@ -182,7 +182,7 @@
                 <RadzenNumeric style="width:10%" @bind-Value="_newPrestigeLevel" Min="0" Max="7" />
                 <Label Text="Date" Width="10" CenterText="true" />
                 <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="20">
-                    <RadzenDatePicker @bind-Value="_newPrestigeRankDate" Style="width: 90%;" />
+                    <ResponsiveDatePicker Id="players-dashboard-prestige-rank-date" @bind-Value="_newPrestigeRankDate" Style="width: 90%;" />
                 </ResponsiveContainer>
                 <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="30">
                     <ResponsiveButton ButtonText="Add" OnClick="async () => await AddPrestigeRankAsync()" Width="80" />

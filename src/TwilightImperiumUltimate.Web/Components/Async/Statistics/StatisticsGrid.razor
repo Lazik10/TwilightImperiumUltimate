@@ -1,5 +1,5 @@
 ﻿
-<StretchHeightContainer CssClass="background mt-2xl" >
+    <StretchHeightContainer CssClass="mt-2xl">
 
     <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column">
 
@@ -25,7 +25,7 @@
 
             <CascadingValue Value="@GetQueryLimit()" Name="Limit">
 
-                <GridLayout Width="100" Style="grid-template-rows: auto; grid-template-columns: 15% 85%; align-items: start; justify-items: start; height: auto; min-height: 0;">
+                <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column" CssClass="async-statistics-content">
 
                     <StatisticsMenu SelectedMenuITem="UpdateSelectedMenuItem" />
 
@@ -84,7 +84,7 @@
                         <HistoryStatistics />
                     }
 
-                </GridLayout>
+                </ResponsiveContainer>
 
             </CascadingValue>
 

@@ -29,6 +29,20 @@
     font-family: Handel, fallback, sans-serif;
 }
 
+.responsive-dropdown-host ::deep .rz-dropdown,
+.responsive-dropdown-host ::deep .rz-dropdown:hover,
+.responsive-dropdown-host ::deep .rz-dropdown:focus-within {
+    --rz-input-background-color: var(--color-nav-panel-bg);
+    --rz-input-hover-background-color: var(--color-nav-panel-bg);
+    --rz-input-border: 1px solid #0024ff;
+    --rz-input-border-block-end: 1px solid #0024ff;
+    --rz-input-hover-border: 1px solid #0024ff;
+    --rz-input-hover-border-block-end: 1px solid #0024ff;
+    --rz-input-value-color: var(--color-white);
+    background-color: var(--color-nav-panel-bg);
+    color: var(--color-white);
+}
+
 /*
     .rz-dropdown is `display: inline-flex; flex-direction: column;` with its selected-value label
     (.rz-dropdown-label, a block element) as the sole flex item. Radzen's default label

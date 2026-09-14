@@ -1,4 +1,5 @@
 @using TwilightImperiumUltimate.Web.Components.TiglProfile
+@using TwilightImperiumUltimate.Web.Components.Charts
 @using TwilightImperiumUltimate.Web.Components.Factions
 @using TwilightImperiumUltimate.Web.Helpers.Enums
 @using TwilightImperiumUltimate.Web.Helpers.Numbers
@@ -231,20 +232,13 @@
                     var asyncBounds = GetChartAxisBounds(AsyncChartSeries);
                     <Label Text="Async Rating" CenterText="true" FontSize="16" CssClass="mb-xs" />
                     <div class="chart-container mb-md">
-                        <RadzenChart @key="CurrentCategory">
+                        <RadzenLineChart @key="CurrentCategory" Min="@asyncBounds.Min" Max="@asyncBounds.Max" Step="@asyncBounds.Step" CategoryTitle="Game #" ValueTitle="Rating">
                             @foreach (var series in AsyncChartSeries)
                             {
                                 <RadzenLineSeries Data="@series.Points" CategoryProperty="Game" ValueProperty="Rating"
                                                   Title="@series.Title" Smooth="true" StrokeWidth="2" />
                             }
-                            <RadzenCategoryAxis Stroke="white" StrokeWidth="2">
-                                <RadzenAxisTitle Text="Game #" />
-                            </RadzenCategoryAxis>
-                            <RadzenValueAxis Min="@asyncBounds.Min" Max="@asyncBounds.Max" Step="@asyncBounds.Step" Stroke="white" StrokeWidth="2">
-                                <RadzenAxisTitle Text="Rating" />
-                            </RadzenValueAxis>
-                            <RadzenLegend Visible="true" Position="LegendPosition.Bottom" />
-                        </RadzenChart>
+                        </RadzenLineChart>
                     </div>
                 }
 
@@ -253,20 +247,13 @@
                     var glickoBounds = GetChartAxisBounds(GlickoChartSeries);
                     <Label Text="Glicko-2 Rating" CenterText="true" FontSize="16" CssClass="mb-xs" />
                     <div class="chart-container mb-md">
-                        <RadzenChart @key="CurrentCategory">
+                        <RadzenLineChart @key="CurrentCategory" Min="@glickoBounds.Min" Max="@glickoBounds.Max" Step="@glickoBounds.Step" CategoryTitle="Game #" ValueTitle="Rating">
                             @foreach (var series in GlickoChartSeries)
                             {
                                 <RadzenLineSeries Data="@series.Points" CategoryProperty="Game" ValueProperty="Rating"
                                                   Title="@series.Title" Smooth="true" StrokeWidth="2" />
                             }
-                            <RadzenCategoryAxis Stroke="white" StrokeWidth="2">
-                                <RadzenAxisTitle Text="Game #" />
-                            </RadzenCategoryAxis>
-                            <RadzenValueAxis Min="@glickoBounds.Min" Max="@glickoBounds.Max" Step="@glickoBounds.Step" Stroke="white" StrokeWidth="2">
-                                <RadzenAxisTitle Text="Rating" />
-                            </RadzenValueAxis>
-                            <RadzenLegend Visible="true" Position="LegendPosition.Bottom" />
-                        </RadzenChart>
+                        </RadzenLineChart>
                     </div>
                 }
 
@@ -275,20 +262,13 @@
                     var trueSkillBounds = GetChartAxisBounds(TrueSkillChartSeries);
                     <Label Text="TrueSkill Rating" CenterText="true" FontSize="16" CssClass="mb-xs" />
                     <div class="chart-container">
-                        <RadzenChart @key="CurrentCategory">
+                        <RadzenLineChart @key="CurrentCategory" Min="@trueSkillBounds.Min" Max="@trueSkillBounds.Max" Step="@trueSkillBounds.Step" CategoryTitle="Game #" ValueTitle="Rating">
                             @foreach (var series in TrueSkillChartSeries)
                             {
                                 <RadzenLineSeries Data="@series.Points" CategoryProperty="Game" ValueProperty="Rating"
                                                   Title="@series.Title" Smooth="true" StrokeWidth="2" />
                             }
-                            <RadzenCategoryAxis Stroke="white" StrokeWidth="2">
-                                <RadzenAxisTitle Text="Game #" />
-                            </RadzenCategoryAxis>
-                            <RadzenValueAxis Min="@trueSkillBounds.Min" Max="@trueSkillBounds.Max" Step="@trueSkillBounds.Step" Stroke="white" StrokeWidth="2">
-                                <RadzenAxisTitle Text="Rating" />
-                            </RadzenValueAxis>
-                            <RadzenLegend Visible="true" Position="LegendPosition.Bottom" />
-                        </RadzenChart>
+                        </RadzenLineChart>
                     </div>
                 }
 

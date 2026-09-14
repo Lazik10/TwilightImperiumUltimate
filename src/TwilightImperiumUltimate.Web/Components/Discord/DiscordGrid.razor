@@ -1,6 +1,12 @@
-﻿<ResponsiveContainer AlignItems="Enums.AlignItems.Center" Type="ContainerType.Flex" JustifyContent="Enums.JustifyContent.Center" >
+﻿<ResponsiveContainer AlignItems="Enums.AlignItems.Center" Type="ContainerType.Flex" JustifyContent="Enums.JustifyContent.Center">
 
-    <ResponsiveGridContainer Columns="2" Width="80">
+    <ResponsiveGridContainer Columns="2"
+                              TabletColumns="2"
+                              MobileColumns="1"
+                              Width="80"
+                              Gap="var(--space-xl)"
+                              AlignItems="Enums.AlignItems.Stretch"
+                              CssClass="discord-grid">
 
         @foreach (var discordServer in _discordServers)
         {

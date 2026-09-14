@@ -1,5 +1,23 @@
-﻿@using TwilightImperiumUltimate.Web.Components.Shared.Bars
+﻿<div class="async-player-searchbar">
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+        <ResponsiveContainer Type="ContainerType.Flex"
+                             Padding="none"
+                             Width="50"
+                             JustifyContent="Enums.JustifyContent.Center"
+                             AlignItems="Enums.AlignItems.Center">
+            <ResponsiveLabel Text="@Strings.AsyncPlayers_DiscordNameSearch"
+                             FontSize="md"
+                             CssClass="async-player-search-label mr-lg" />
+            <ResponsiveTextBox Id="async-player-search"
+                               Placeholder="Search..."
+                               Value="@SearchText"
+                               InputChanged="UpdatePlayerList" />
+        </ResponsiveContainer>
 
-<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-    <ResponsiveSearchBar Id="async-player-search" Text="@Strings.AsyncPlayers_DiscordNameSearch" Width="50" OnSearchChange="UpdatePlayerList"/>
-</ResponsiveContainer>
+        <ResponsiveText Text="Search starts after 3 characters."
+                        FontSize="sm"
+                        TextColor="TextColor.White"
+                        CenterText="true"
+                        CssClass="async-player-search-note" />
+    </ResponsiveContainer>
+</div>

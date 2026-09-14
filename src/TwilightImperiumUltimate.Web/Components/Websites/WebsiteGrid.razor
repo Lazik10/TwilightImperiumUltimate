@@ -1,6 +1,10 @@
 ﻿@inherits TwilightImperiumBaseComponent
 
-<GridLayout Columns="3" Gap="20">
+<ResponsiveGridContainer Columns="3"
+                          TabletColumns="2"
+                          MobileColumns="1"
+                          Gap="var(--space-xl)"
+                          CssClass="website-grid">
     @foreach (var website in _websites)
     {
         <WebsiteCard Title="@website.Title"
@@ -9,5 +13,5 @@
                      ImageData="@website.ImageData"
                      ImageContentType="@website.ImageContentType" />
     }
-</GridLayout>
+</ResponsiveGridContainer>
 

@@ -85,6 +85,7 @@
 
 .slice-draft-normal-text {
     font-family: 'Inter', sans-serif !important;
+    color: var(--color-white) !important;
     font-size: var(--rz-grid-cell-font-size, 0.875rem) !important;
     text-shadow: none !important;
 }

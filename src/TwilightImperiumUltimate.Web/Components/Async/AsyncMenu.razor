@@ -1,15 +1,19 @@
-﻿<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-    <div class="async-navbar">
-        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="100" JustifyContent="Enums.JustifyContent.SpaceEvenly">
-            <TabNavItem Width="33%" OnClick="() => OnMenuItemClick.InvokeAsync(AsyncMenuItem.Statistics)">
-                <ResponsiveLabel Text="@Strings.AsyncMenu_Statistics" CenterText="true" FontSize="base" />
-            </TabNavItem>
-            <TabNavItem Width="33%" OnClick="() => OnMenuItemClick.InvokeAsync(AsyncMenuItem.Games)">
-                <ResponsiveLabel Text="@Strings.AsyncMenu_Games" CenterText="true" FontSize="base" />
-            </TabNavItem>
-            <TabNavItem Width="33%" OnClick="() => OnMenuItemClick.InvokeAsync(AsyncMenuItem.Players)">
-                <ResponsiveLabel Text="@Strings.AsyncMenu_Players" CenterText="true" FontSize="base" />
-            </TabNavItem>
-        </ResponsiveContainer>
-    </div>
-</ResponsiveContainer>
+﻿<div class="async-navbar">
+    <ResponsiveTabMenu AriaLabel="Async sections" CssClass="responsive-content-width mb-xl">
+        <ResponsiveTab Id="async-tab-statistics"
+                       IsActive="@(SelectedItem == AsyncMenuItem.Statistics)"
+                       OnClick="() => OnMenuItemClick.InvokeAsync(AsyncMenuItem.Statistics)">
+            @Strings.AsyncMenu_Statistics
+        </ResponsiveTab>
+        <ResponsiveTab Id="async-tab-games"
+                       IsActive="@(SelectedItem == AsyncMenuItem.Games)"
+                       OnClick="() => OnMenuItemClick.InvokeAsync(AsyncMenuItem.Games)">
+            @Strings.AsyncMenu_Games
+        </ResponsiveTab>
+        <ResponsiveTab Id="async-tab-players"
+                       IsActive="@(SelectedItem == AsyncMenuItem.Players)"
+                       OnClick="() => OnMenuItemClick.InvokeAsync(AsyncMenuItem.Players)">
+            @Strings.AsyncMenu_Players
+        </ResponsiveTab>
+    </ResponsiveTabMenu>
+</div>

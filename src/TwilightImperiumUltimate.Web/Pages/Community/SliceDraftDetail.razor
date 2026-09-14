@@ -60,24 +60,24 @@
             <dl class="slice-draft-meta">
 
                 <dt><ResponsiveLabel Text="@Strings.SlicesArchive_SliceDraftAuthor" /></dt>
-                <dd><ResponsiveLabel Text="@SliceDraft.UserName" /></dd>
+                <dd><ResponsiveLabel Text="@SliceDraft.UserName" UseHandelStyling="false" CssClass="inter white" /></dd>
 
                 <dt><ResponsiveLabel Text="@Strings.SlicesArchive_SliceDraftEventName" /></dt>
-                <dd><ResponsiveLabel Text="@SliceDraft.EventName" /></dd>
+                <dd><ResponsiveLabel Text="@SliceDraft.EventName" UseHandelStyling="false" CssClass="inter white" /></dd>
 
                 <dt><ResponsiveLabel Text="@Strings.SlicesArchive_SlicesCount" /></dt>
-                <dd><ResponsiveLabel Text="@SliceDraft.SliceCount.ToString()" /></dd>
+                <dd><ResponsiveLabel Text="@SliceDraft.SliceCount.ToString()" UseHandelStyling="false" CssClass="inter white" /></dd>
 
                 <dt><ResponsiveLabel Text="@Strings.SlicesArchive_SliceDraftDescription" /></dt>
                 <dd>
-                    <div class="slice-draft-description handel white shadow">
+                    <div class="slice-draft-description inter white">
                         @MarkupStringDescription
                     </div>
                 </dd>
 
                 <dt><ResponsiveLabel Text="@Strings.SlicesArchive_SlicesString" /></dt>
                 <dd>
-                    <div class="slice-draft-text slice-draft-normal-text">
+                    <div class="slice-draft-text slice-draft-normal-text inter white">
                         @SlicesString
                     </div>
                     <div class="slice-draft-copy-row">
@@ -87,7 +87,7 @@
 
                 <dt><ResponsiveLabel Text="@Strings.SlicesArchive_SliceGeneratorLink" /></dt>
                 <dd>
-                    <ResponsiveLabel Text="@SliceDraft.SliceDraftGeneratorLink" CssClass="text-break-all slice-draft-normal-text" />
+                    <ResponsiveLabel Text="@SliceDraft.SliceDraftGeneratorLink" UseHandelStyling="false" CssClass="text-break-all slice-draft-normal-text inter white" />
                     <div class="slice-draft-copy-row">
                         <CopyButton TextToCopy="@SliceDraft.SliceDraftGeneratorLink" AriaLabel="@Strings.SlicesArchive_SliceGeneratorLink" />
                     </div>
@@ -95,7 +95,7 @@
 
                 <dt><ResponsiveLabel Text="@Strings.SlicesArchive_SliceDraftArchiveLink" /></dt>
                 <dd>
-                    <ResponsiveLabel Text="@SliceDraft.SliceDraftArchiveLink" CssClass="text-break-all slice-draft-normal-text" />
+                    <ResponsiveLabel Text="@SliceDraft.SliceDraftArchiveLink" UseHandelStyling="false" CssClass="text-break-all slice-draft-normal-text inter white" />
                     <div class="slice-draft-copy-row">
                         <CopyButton TextToCopy="@SliceDraft.SliceDraftArchiveLink" AriaLabel="@Strings.SlicesArchive_SliceDraftArchiveLink" />
                     </div>

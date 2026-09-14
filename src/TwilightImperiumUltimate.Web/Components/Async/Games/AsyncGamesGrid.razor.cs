@@ -18,6 +18,10 @@ public partial class AsyncGamesGrid
     private AsyncGameStatusFilter _gameStatus = AsyncGameStatusFilter.All;
 
     private AsyncGameType _asyncGameType = AsyncGameType.All;
+    private DateTime _dateFrom;
+    private DateTime _dateTo;
+    private IReadOnlyCollection<AsyncGameType> _gameTypes = Enum.GetValues<AsyncGameType>();
+    private IReadOnlyCollection<AsyncGameStatusFilter> _gameStatuses = Enum.GetValues<AsyncGameStatusFilter>();
 
     [Inject]
     private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
@@ -31,16 +35,13 @@ public partial class AsyncGamesGrid
     protected override async Task OnInitializedAsync()
     {
         await GetAsyncGameDates();
+        SetDefaultDateRange();
 
-        if (_gameNames.Count == 0)
-        {
-            _gameNames = await AsyncGamesProvider.GetAsyncGameNames();
-        }
-
-        if (_gameFunNames.Count == 0)
-        {
-            _gameFunNames = await AsyncGamesProvider.GetAsyncGameFunNames();
-        }
+        var namesTask = AsyncGamesProvider.GetAsyncGameNames();
+        var funNamesTask = AsyncGamesProvider.GetAsyncGameFunNames();
+        await Task.WhenAll(namesTask, funNamesTask);
+        _gameNames = await namesTask;
+        _gameFunNames = await funNamesTask;
     }
 
     private async Task GetAsyncGameDates()
@@ -48,11 +49,37 @@ public partial class AsyncGamesGrid
         _gameDates = await AsyncGamesProvider.GetAsyncGameDates();
     }
 
+    private void SetDefaultDateRange()
+    {
+        var currentMonth = new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, 1, 0, 0, 0, DateTimeKind.Utc);
+        var hasCurrentMonth = _gameDates.GameDates.Any(x => x.Year == currentMonth.Year && x.Months.Contains(currentMonth.Month));
+        var selectedMonth = hasCurrentMonth
+            ? currentMonth
+            : _gameDates.GameDates.OrderByDescending(x => x.Year).ThenByDescending(x => x.Months.Max()).Select(x => new DateTime(x.Year, x.Months.Max(), 1, 0, 0, 0, DateTimeKind.Utc)).FirstOrDefault(currentMonth);
+
+        _dateFrom = selectedMonth;
+        _dateTo = selectedMonth.AddMonths(1).AddDays(-1);
+    }
+
     private void OnGameSelect(string gameName)
     {
         _asyncGameDiscordId = gameName;
         _asyncGameFunName = string.Empty;
         StateHasChanged();
+    }
+
+    private void OnDateFromChanged(DateTime value)
+    {
+        _dateFrom = value;
+        if (_dateTo < _dateFrom)
+            _dateTo = _dateFrom;
+    }
+
+    private void OnDateToChanged(DateTime value)
+    {
+        _dateTo = value;
+        if (_dateFrom > _dateTo)
+            _dateFrom = _dateTo;
     }
 
     private void OnGameFunNameSelect(string gameFunName)

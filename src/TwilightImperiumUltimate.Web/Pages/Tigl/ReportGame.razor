@@ -69,11 +69,11 @@
                 <ResponsiveGridContainer Columns="2" MobileColumns="1" Gap="var(--space-lg)" Width="100" CssClass="mt-xl">
                     <div class="report-game-field">
                         <ResponsiveText Text="@Strings.ReportGame_StartDate" CenterText="true" CssClass="mb-xs" />
-                        <RadzenDatePicker TValue="DateTime" @bind-Value="startGame" ShowTime="true" ShowSeconds="false" DateFormat="dd/MM/yyyy HH:mm" />
+                        <ResponsiveDatePicker Id="report-game-start-date" @bind-Value="startGame" ShowTime="true" ShowSeconds="false" />
                     </div>
                     <div class="report-game-field">
                         <ResponsiveText Text="@Strings.ReportGame_EndDate" CenterText="true" CssClass="mb-xs" />
-                        <RadzenDatePicker TValue="DateTime" @bind-Value="endGame" ShowTime="true" ShowSeconds="false" DateFormat="dd/MM/yyyy HH:mm" />
+                        <ResponsiveDatePicker Id="report-game-end-date" @bind-Value="endGame" ShowTime="true" ShowSeconds="false" />
                     </div>
                 </ResponsiveGridContainer>
             </section>

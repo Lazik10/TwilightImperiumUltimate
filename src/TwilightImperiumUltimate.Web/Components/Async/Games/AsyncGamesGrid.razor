@@ -1,27 +1,74 @@
-﻿@using TwilightImperiumUltimate.Web.Components.Shared.Bars
+﻿@using TwilightImperiumUltimate.Web.Components.Grid
+@using Microsoft.AspNetCore.Components.Forms
 
-<StretchHeightContainer CssClass="background mt-2xl">
+<div class="async-games-grid">
+<StretchHeightContainer CssClass="mt-2xl">
 
-    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-sm mb-sm">
-        <AsyncGamesSearchBar GameNames="@_gameNames" OnGameSelect="OnGameSelect" SearhTitle="@Strings.AsyncStats_SearchByGameIdTitle" Width="50" />
-        <AsyncGamesSearchBar GameNames="@_gameFunNames" OnGameSelect="OnGameFunNameSelect" SearhTitle="@Strings.AsyncStats_SearchByGameFunNameTitle" Width="50" />
-    </ResponsiveContainer>
+    <div class="async-games-dropdown-filters">
+        <ResponsiveDropDown TValue="string"
+                            Id="async-game-id-filter"
+                            Label="Game ID"
+                            Data="@_gameNames"
+                            Value="@_asyncGameDiscordId"
+                            ValueChanged="OnGameSelect"
+                            Placeholder="All game IDs"
+                            AllowClear="true"
+                            AllowFiltering="true"
+                            AllowVirtualization="true"
+                            Width="100" />
 
-    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+        <ResponsiveDropDown TValue="string"
+                            Id="async-game-name-filter"
+                            Label="Fun Name"
+                            Data="@_gameFunNames"
+                            Value="@_asyncGameFunName"
+                            ValueChanged="OnGameFunNameSelect"
+                            Placeholder="All fun names"
+                            AllowClear="true"
+                            AllowFiltering="true"
+                            AllowVirtualization="true"
+                            Width="100" />
 
-        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="70">
+        <ResponsiveDropDown TValue="AsyncGameType"
+                            Id="async-game-type-filter"
+                            Label="Games"
+                            Data="@_gameTypes"
+                            Value="@_asyncGameType"
+                            ValueChanged="GameTypeChanged"
+                            Width="100" />
 
-            <ResponsiveEnumPicker TEnum="AsyncGameType" CurrentValue="@_asyncGameType" Label="@Strings.AsyncGameStats_GameType" Width="100" CurrentValueChanged="GameTypeChanged" />
-            <ResponsiveEnumPicker TEnum="AsyncGameStatusFilter" CurrentValue="@_gameStatus" Label="Status" Width="100" ButtonWidth="50" CurrentValueChanged="GameStatusChanged" />
+        <ResponsiveDropDown TValue="AsyncGameStatusFilter"
+                            Id="async-game-status-filter"
+                            Label="Status"
+                            Data="@_gameStatuses"
+                            Value="@_gameStatus"
+                            ValueChanged="GameStatusChanged"
+                            Width="100" />
 
-        </ResponsiveContainer>
+    </div>
 
-    </ResponsiveContainer>
+    <div class="async-games-date-filters">
+        <div class="async-games-date-filter">
+            <ResponsiveLabel Text="Date from" CenterText="true" CssClass="async-games-date-label" />
+            <ResponsiveDatePicker Id="async-games-date-from"
+                                  Value="@_dateFrom"
+                                  ValueChanged="OnDateFromChanged" />
+        </div>
+        <div class="async-games-date-filter">
+            <ResponsiveLabel Text="Date to" CenterText="true" CssClass="async-games-date-label" />
+            <ResponsiveDatePicker Id="async-games-date-to"
+                                  Value="@_dateTo"
+                                  ValueChanged="OnDateToChanged" />
+        </div>
+    </div>
 
     <AsyncGamesList GameDates="@_gameDates"
         AsyncGameType="@_asyncGameType"
         StatusFilter="@_gameStatus"
         AsyncGameDiscordId="@_asyncGameDiscordId"
-        AsyncGameFunName="@_asyncGameFunName" />
+        AsyncGameFunName="@_asyncGameFunName"
+        DateFrom="@_dateFrom"
+        DateTo="@_dateTo" />
 
 </StretchHeightContainer>
+</div>

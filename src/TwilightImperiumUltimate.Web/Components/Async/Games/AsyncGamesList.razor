@@ -1,66 +1,29 @@
-﻿<ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column" AlignItems="Enums.AlignItems.FlexStart">
+﻿@using TwilightImperiumUltimate.Contracts.DTOs.Async
+@using TwilightImperiumUltimate.Web.Components.Grid
 
-    <GridLayout Style="grid-template-columns: 20% 80%" CssClass="mt-md" >
-
-        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column" CssClass="background" Style="height: 100%">
-
-            <Label Text="Date" CenterText="true" TextColor="TextColor.Yellow" CssClass="mt-md mb-xs" />
-
-        </ResponsiveContainer>
-
-        <GridLayout Gap="5" CssClass="background" Style="grid-template-columns: 20% 40% 7% 10% 17%; min-height: 100%;" Width="100">
-
-            <div style="grid-column: span 5; height: clamp(0.469rem, 0.469rem + 1vw, 0.938rem);"></div>
-
-            <Label Text="@Strings.AsyncPlayer_GamesStatsGame" FontSize="18" TextColor="TextColor.Yellow" />
-            <Label Text="@Strings.AsyncPlayer_GamesStatsFunGame" FontSize="18" TextColor="TextColor.Yellow" />
-            <Label Text="@Strings.AsyncPlayer_GamesStatsVp" FontSize="18" CenterText="true" TextColor="TextColor.Yellow" />
-            <Label Text="@Strings.AsyncPlayer_GamesStatsPlayerCount" FontSize="18" CenterText="true" TextColor="TextColor.Yellow" />
-            <Label Text="@Strings.AsyncPlayer_GamesStatsDuration" FontSize="18" TextColor="TextColor.Yellow" />
-
-            <div style="grid-column: span 5; height: clamp(0.156rem, 0.156rem + 1vw, 0.313rem);"></div>
-
-        </GridLayout>
-
-    </GridLayout>
-
-    <GridLayout Style="grid-template-columns: 20% 80%" AlignItems="start" >
-
-        @if (GameDates != null && GameDates.GameDates.Count > 0)
-        {
-            <AsyncGamesYearMonthMenu OnYearMonthSelected="HandleYearMonthSelected"
-                                     SelectedMonth="@_month"
-                                     SelectedYear="@_year"
-                                     GameDates="GameDates" />
-
-            <GridLayout Gap="5" Style="grid-template-rows: auto; grid-template-columns: 20% 40% 7% 10% 17%; align-items: start; justify-items: start; height: auto; min-height: 0;" AlignItems="start" Width="100">
-
-                <div style="grid-column: span 5; height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
-
-                @if (_isLoaded)
-                {
-                    @foreach (var game in _games)
-                    {
-                        <ResponsiveButton Text="@game.AsyncGameID" TextAlign="left" Style="@(GetAsyncGameIdTextColor(game))" FontSize="14" OnClick="@(() => RedirectToGameDetails(game.AsyncGameID))" />
-                        <ResponsiveButton Text="@game.AsyncFunGameName" TextAlign="left" Style="@(GetAsyncGameIdTextColor(game))" FontSize="14" OnClick="@(() => RedirectToGameDetails(game.AsyncGameID))" />
-                        <Label Text="@game.Scoreboard.ToString()" FontSize="14" CenterText="true" />
-                        <Label Text="@game.PlayerCount.ToString()" FontSize="14" CenterText="true" />
-                        <Label Text="@GetDurationTime(game)" FontSize="14" />
-                    }
-
-                    <div style="grid-column: span 5; height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-                }
-                else
-                {
-                    <div style="grid-column: span 5; height: clamp(3.125rem, 3.125rem + 1vw, 6.25rem); max-height: 50px;"></div>
-                    <Label Text="@Strings.Loading" CenterText="true" FontSize="20" Style="grid-column: span 5; align-self:flex-start !important; justify-self:  flex-start !important;" />
-                    <div style="grid-column: span 5; height: clamp(3.125rem, 3.125rem + 1vw, 6.25rem);"></div>
-                }
-
-            </GridLayout>
-
-        }
-
-    </GridLayout>
-
-</ResponsiveContainer>
+<div class="async-games-list">
+    <div class="async-games-layout">
+            <ResponsiveRadzenDataGrid TItem="AsyncGameDto"
+                                          Data="@_games"
+                                          IsLoading="@(!_isLoaded)"
+                                          AllowPaging="true"
+                                          PageSize="50"
+                                          AllowSorting="true"
+                                          AllowFiltering="true"
+                                          AllowAlternatingRows="true"
+                                          RowClick="HandleGameRowClick"
+                                          CssClass="async-games-table">
+                    <Columns>
+                        <RadzenDataGridColumn TItem="AsyncGameDto" Property="AsyncGameID" Title="@Strings.AsyncPlayer_GamesStatsGame">
+                            <Template Context="game"><span style="@GetAsyncGameIdTextColor(game)">@game.AsyncGameID</span></Template>
+                        </RadzenDataGridColumn>
+                        <RadzenDataGridColumn TItem="AsyncGameDto" Property="AsyncFunGameName" Title="@Strings.AsyncPlayer_GamesStatsFunGame" />
+                        <RadzenDataGridColumn TItem="AsyncGameDto" Property="Scoreboard" Title="@Strings.AsyncPlayer_GamesStatsVp" />
+                        <RadzenDataGridColumn TItem="AsyncGameDto" Property="PlayerCount" Title="@Strings.AsyncPlayer_GamesStatsPlayerCount" />
+                        <RadzenDataGridColumn TItem="AsyncGameDto" Property="DurationHours" Title="Duration (hours)">
+                            <Template Context="game">@GetDurationTime(game)</Template>
+                        </RadzenDataGridColumn>
+                    </Columns>
+                </ResponsiveRadzenDataGrid>
+    </div>
+</div>

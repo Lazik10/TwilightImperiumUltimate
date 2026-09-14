@@ -49,7 +49,13 @@ public class AsyncGamesProvider(
 
         (var response, var statusCode) = await _httpClient.GetAsync<ApiResponse<AsyncGameNamesDto>>(Paths.ApiPath_AsyncGameFunNames);
         if (statusCode == HttpStatusCode.OK)
-            _gameFunNames = response!.Data!.GameNames;
+        {
+            _gameFunNames = response!.Data!.GameNames
+                .Where(x => !string.IsNullOrWhiteSpace(x))
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .OrderBy(x => x)
+                .ToList();
+        }
 
         return _gameFunNames;
     }
@@ -61,7 +67,12 @@ public class AsyncGamesProvider(
 
         (var response, var statusCode) = await _httpClient.GetAsync<ApiResponse<AsyncGameNamesDto>>(Paths.ApiPath_AsyncGameNames);
         if (statusCode == HttpStatusCode.OK)
-            _gameNames = response!.Data!.GameNames;
+        {
+            _gameNames = response!.Data!.GameNames
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .OrderBy(x => x)
+                .ToList();
+        }
 
         return _gameNames;
     }

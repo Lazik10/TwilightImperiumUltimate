@@ -5,7 +5,6 @@ namespace TwilightImperiumUltimate.Web.Components.Async.Statistics;
 public partial class StatisticsMenu
 {
     private List<AsyncStatisticsTypeMenuItem> _menuItems = new List<AsyncStatisticsTypeMenuItem>();
-    private AsyncStatisticsTypeMenuItem _selectedMenuItem = AsyncStatisticsTypeMenuItem.General;
 
     [Parameter]
     public EventCallback<AsyncStatisticsTypeMenuItem> SelectedMenuITem { get; set; }
@@ -25,14 +24,7 @@ public partial class StatisticsMenu
 
     private void SelectedItemItem(AsyncStatisticsTypeMenuItem menuItem)
     {
-        _selectedMenuItem = menuItem;
         SelectedMenuITem.InvokeAsync(menuItem);
         StateHasChanged();
-    }
-
-    private string GetMenuItemColor(AsyncStatisticsTypeMenuItem menuItem)
-    {
-        var color = menuItem == _selectedMenuItem ? "lawngreen" : "white";
-        return $"color: {color}";
     }
 }

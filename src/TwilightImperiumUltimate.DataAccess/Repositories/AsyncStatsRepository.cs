@@ -56,6 +56,7 @@ public class AsyncStatsRepository(
         return await dbContext.GameStats
             .Where(x =>
                 x.SetupTimestamp >= startOfMonth && x.SetupTimestamp < startOfNextMonth)
+            .AsNoTracking()
             .ToListAsync(cancellationToken);
     }
 
@@ -71,13 +72,24 @@ public class AsyncStatsRepository(
     public async Task<IReadOnlyCollection<string>> GetAllAsyncGameNames(CancellationToken cancellationToken)
     {
         await using var dbContex = await _context.CreateDbContextAsync(cancellationToken);
-        return await dbContex.GameStats.Select(x => x.AsyncGameID).ToListAsync(cancellationToken);
+        return await dbContex.GameStats
+            .AsNoTracking()
+            .Select(x => x.AsyncGameID)
+            .Distinct()
+            .OrderBy(x => x)
+            .ToListAsync(cancellationToken);
     }
 
     public async Task<IReadOnlyCollection<string>> GetAllAsyncFunGameNames(CancellationToken cancellationToken)
     {
         await using var dbContex = await _context.CreateDbContextAsync(cancellationToken);
-        return await dbContex.GameStats.Select(x => x.AsyncFunGameName).ToListAsync(cancellationToken);
+        return await dbContex.GameStats
+            .AsNoTracking()
+            .Where(x => !string.IsNullOrEmpty(x.AsyncFunGameName))
+            .Select(x => x.AsyncFunGameName)
+            .Distinct()
+            .OrderBy(x => x)
+            .ToListAsync(cancellationToken);
     }
 
     public async Task<GameStats?> GetAsyncGameByDiscordId(string asyncGameId, CancellationToken cancellationToken)

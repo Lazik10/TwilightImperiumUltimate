@@ -34,7 +34,84 @@
     --rz-grid-cell-focus-background-color: var(--color-nav-hover-bg-solid, #123957);
     --rz-grid-cell-focus-color: white;
     --rz-grid-sort-icon-color: var(--color-nav-hover, #8ecfff);
+    --rz-pager-numeric-button-background-color: transparent;
+    --rz-pager-numeric-button-color: var(--color-white);
+    --rz-pager-numeric-button-selected-background-color: var(--color-nav-hover-bg-solid);
+    --rz-pager-numeric-button-selected-color: var(--color-nav-hover);
+    --rz-pager-button-border-radius: var(--border-radius-sm);
+    --rz-pager-numeric-button-min-width: 3.25rem;
+    --rz-pager-numeric-button-padding: 0.35rem 0.85rem;
+    --rz-pager-numeric-button-selected-padding: 0.35rem 0.85rem;
     font-family: 'Inter', sans-serif;
+}
+
+.responsive-radzen-grid-host {
+    container-type: inline-size;
+    position: relative;
+    min-height: 32rem;
+}
+
+.responsive-radzen-grid-host ::deep .responsive-radzen-grid {
+    min-height: 32rem;
+}
+
+.responsive-radzen-grid-host ::deep .responsive-radzen-grid .rz-data-grid-data {
+    min-height: 32rem;
+}
+
+.responsive-radzen-grid-host ::deep .responsive-radzen-grid .rz-datatable-emptymessage {
+    height: 28rem;
+    padding: 0;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.responsive-radzen-grid-empty {
+    position: sticky;
+    left: 0;
+    display: flex;
+    width: calc(100cqw - 4px);
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    padding: var(--space-md);
+    color: var(--color-white);
+    font-family: Handel, fallback, sans-serif;
+    text-shadow: var(--shadow-text);
+}
+
+.responsive-radzen-grid-loading-text {
+    padding: 0.6rem 1.25rem;
+    background: var(--color-nav-panel-bg);
+    border: 1px solid var(--color-nav-hover);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-md);
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+.responsive-radzen-grid-host ::deep .responsive-radzen-grid .rz-pager {
+    justify-content: center;
+    gap: var(--space-xs);
+    font-family: Handel, fallback, sans-serif;
+}
+
+.responsive-radzen-grid-host ::deep .responsive-radzen-grid .rz-pager-page:hover:not(.rz-state-disabled),
+.responsive-radzen-grid-host ::deep .responsive-radzen-grid .rz-pager-page.rz-state-active {
+    background-color: var(--color-nav-hover-bg-solid) !important;
+    color: var(--color-nav-hover) !important;
+}
+
+.responsive-radzen-grid-host ::deep .responsive-radzen-grid .rz-pager-first:hover:not(.rz-state-disabled),
+.responsive-radzen-grid-host ::deep .responsive-radzen-grid .rz-pager-prev:hover:not(.rz-state-disabled),
+.responsive-radzen-grid-host ::deep .responsive-radzen-grid .rz-pager-next:hover:not(.rz-state-disabled),
+.responsive-radzen-grid-host ::deep .responsive-radzen-grid .rz-pager-last:hover:not(.rz-state-disabled),
+.responsive-radzen-grid-host ::deep .responsive-radzen-grid .rz-pager-first:focus-visible:not(.rz-state-disabled),
+.responsive-radzen-grid-host ::deep .responsive-radzen-grid .rz-pager-prev:focus-visible:not(.rz-state-disabled),
+.responsive-radzen-grid-host ::deep .responsive-radzen-grid .rz-pager-next:focus-visible:not(.rz-state-disabled),
+.responsive-radzen-grid-host ::deep .responsive-radzen-grid .rz-pager-last:focus-visible:not(.rz-state-disabled) {
+    background-color: var(--color-nav-hover-bg-solid) !important;
+    color: var(--color-nav-hover) !important;
 }
 
 .responsive-radzen-grid-host ::deep .responsive-radzen-grid .rz-datatable-thead {

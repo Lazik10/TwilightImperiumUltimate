@@ -9,13 +9,26 @@ namespace TwilightImperiumUltimate.Web.Components.Grid;
 /// text/value/boolean/enum column filters and sticky columns, see
 /// <see cref="TwilightImperiumUltimate.Web.Components.Shared.Tables.ResponsiveTable{TItem}"/> instead.
 /// </summary>
+/// <typeparam name="TItem">The row model displayed by the grid.</typeparam>
 public partial class ResponsiveRadzenDataGrid<TItem>
 {
+    private RadzenDataGrid<TItem>? _grid;
+
     /// <summary>
     /// Gets or sets the data collection to display in the grid.
     /// </summary>
     [Parameter]
     public IEnumerable<TItem> Data { get; set; } = Enumerable.Empty<TItem>();
+
+    /// <summary>
+    /// Gets or sets a value indicating whether the grid displays its loading state while
+    /// preserving the header and table frame.
+    /// </summary>
+    [Parameter]
+    public bool IsLoading { get; set; }
+
+    [Parameter]
+    public string LoadingText { get; set; } = Strings.Loading;
 
     /// <summary>
     /// Gets or sets the column definitions for the grid.

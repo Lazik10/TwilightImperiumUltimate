@@ -2,22 +2,22 @@
 {
     <div class="slice-archive-stats">
         <div class="slice-archive-stat-row">
-            <span class="slice-archive-stat-label slice-archive-stat-id-label">@Strings.SliceGenerator_SliceId</span>
-            <span>@GetDisplaySliceId()</span>
+            <span class="slice-archive-stat-label slice-archive-stat-id-label">ID:</span>
+            <span class="slice-archive-stat-id-value handel shadow">@GetDisplaySliceId()</span>
         </div>
 
         <div class="slice-archive-stat-row">
             <span class="slice-archive-stat-label">@Strings.SliceGenerator_Optimal</span>
-            <span class="slice-archive-resource">@SliceEvaluation.OptimalResourcesSum</span>
-            <span>/</span>
-            <span class="slice-archive-influence">@SliceEvaluation.OptimalInfluenceSum</span>
+            <span class="slice-archive-resource handel shadow">@SliceEvaluation.OptimalResourcesSum</span>
+            <span class="handel shadow">/</span>
+            <span class="slice-archive-influence handel shadow">@SliceEvaluation.OptimalInfluenceSum</span>
         </div>
 
         <div class="slice-archive-stat-row">
             <span class="slice-archive-stat-label">@Strings.SliceGenerator_Total</span>
-            <span class="slice-archive-resource">@SliceEvaluation.Resources</span>
-            <span>/</span>
-            <span class="slice-archive-influence">@SliceEvaluation.Influence</span>
+            <span class="slice-archive-resource handel shadow">@SliceEvaluation.Resources</span>
+            <span class="handel shadow">/</span>
+            <span class="slice-archive-influence handel shadow">@SliceEvaluation.Influence</span>
         </div>
 
         <div class="slice-archive-stat-row slice-archive-traits">

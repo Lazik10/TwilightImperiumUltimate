@@ -1,17 +1,17 @@
 ﻿
 <div class="mt-md mb-md">
-    <AsyncPlayerSearchbar OnSearchUpdate="SearchPlayerGroup"/>
+    <AsyncPlayerSearchbar @ref="_searchbar" OnSearchUpdate="SearchPlayerGroup" />
 </div>
 
 <div class="mb-md">
-    <AsyncPlayerAlphabet OnLetterClick="SearchPlayerGroup" />
+    <AsyncPlayerAlphabet SelectedLetter="@_selectedLetter" OnLetterClick="SearchPlayerGroup" />
 </div>
 
-<StretchHeightContainer CssClass="background">
+<StretchHeightContainer>
 
     @if (PlayerProfileNames is not null)
     {
-        if (!GroupedPlayers().Any())
+        if (_playerGroups.Count == 0)
         {
             <Label Text="@Strings.AsyncPlayersList_NoPlayerMatch" FontSize="24" CenterText="true" TextColor="TextColor.White" CssClass="mt-3xl mb-3xl" />
         }

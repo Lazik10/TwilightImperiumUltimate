@@ -1,15 +1,21 @@
 ﻿@using TwilightImperiumUltimate.Web.Helpers.Enums
 
-<ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column" Width="@Width">
-
+<nav class="async-statistics-menu" aria-label="@Strings.AsyncStatisticsTypeMenuItem_CategoryTitle">
     <Label Text="@Strings.AsyncStatisticsTypeMenuItem_CategoryTitle" TextColor="TextColor.Yellow" FontSize="24" CenterText="true" />
 
     @if (_menuItems.Count > 0)
     {
-        @foreach (var menuItem in _menuItems)
+        @for (var index = 0; index < _menuItems.Count; index++)
         {
-            <ResponsiveButton Text="@menuItem.GetDisplayName()" FontSize="14" Style="@GetMenuItemColor(menuItem)" OnClick="() => SelectedItemItem(menuItem)" CssClass="mt-xs mb-xs" />
+            var menuItem = _menuItems[index];
+            <TabNavItem OnClick="() => SelectedItemItem(menuItem)">
+                <ResponsiveLabel Text="@menuItem.GetDisplayName()" CenterText="true" FontSize="base" />
+            </TabNavItem>
+            @if (index < _menuItems.Count - 1)
+            {
+                <span class="async-statistics-menu-separator" aria-hidden="true">/</span>
+            }
         }
     }
 
-</ResponsiveContainer>
+</nav>

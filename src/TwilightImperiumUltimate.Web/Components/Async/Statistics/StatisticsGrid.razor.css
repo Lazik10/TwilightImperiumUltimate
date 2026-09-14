@@ -1,0 +1,7 @@
+.async-statistics-content {
+    width: 100%;
+}
+
+.async-statistics-content ::deep .background {
+    background: transparent;
+}

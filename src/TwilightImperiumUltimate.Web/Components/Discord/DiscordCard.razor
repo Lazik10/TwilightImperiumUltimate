@@ -1,6 +1,8 @@
-﻿<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-    <a href="@DiscordInviteLink" target="_blank" style="width: 100%">
-        <BorderedImage ImagePath="@GetDiscordIconPath()" AltText="@Title" MaxWidth="70" Width="100" />
+﻿<article class="discord-card">
+    <a class="discord-card-link" href="@DiscordInviteLink" target="_blank" rel="noopener noreferrer">
+        <div class="discord-card-image">
+            <img src="@GetDiscordIconPath()" alt="@Title" />
+        </div>
+        <ResponsiveText Text="@Title" FontSize="lg" CenterText="true" CssClass="handel white shadow discord-card-title" />
     </a>
-    <ResponsiveText Text="@Title" FontSize="lg" CenterText="true" CssClass="handel white shadow" />
-</ResponsiveContainer>
+</article>
