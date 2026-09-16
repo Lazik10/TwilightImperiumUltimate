@@ -12,9 +12,10 @@ public class AsyncGeneralStatsFactory(
 
     public async Task<AsyncGeneralSummaryStatsDto> CreateAsyncGeneralStatsSummary(CancellationToken cancellationToken)
     {
-        var allGames = await _asyncStatsRepository.GetAllAsyncGames(cancellationToken);
-        var tiglGames = allGames.Where(x => x.IsTigl).ToList();
-        var customGames = allGames.Where(x => !x.IsTigl).ToList();
+        var allGameRows = await _asyncStatsRepository.GetAsyncGeneralStatsGameProjections(cancellationToken);
+        var allGames = GroupGames(allGameRows);
+        var tiglGames = allGames.Where(x => x.Details.IsTigl).ToList();
+        var customGames = allGames.Where(x => !x.Details.IsTigl).ToList();
 
         var allGameStats = CreateGameStats(allGames);
         var tiglGameStats = CreateGameStats(tiglGames);
@@ -23,59 +24,65 @@ public class AsyncGeneralStatsFactory(
         return new AsyncGeneralSummaryStatsDto(allGameStats, tiglGameStats, customGameStats);
     }
 
-    private AsyncGeneralStatsDto CreateGameStats(List<GameStats> games)
+    private AsyncGeneralStatsDto CreateGameStats(IReadOnlyList<GeneralStatsGame> games)
     {
         var gamesCount = games.Count;
-        var activeGames = games.Count(g => g.EndedTimestamp == null);
-        var cancelledGames = games.Count(g => g.EndedTimestamp is not null && !g.HasWinner);
+        var activeGames = games.Count(g => g.Details.EndedTimestamp == null);
+        var cancelledGames = games.Count(g => g.Details.EndedTimestamp is not null && !g.Details.HasWinner);
         var finishedGames = gamesCount - activeGames - cancelledGames;
-        var eliminations = games.Count(g => g.PlayerStatistics.Any(ps => ps.Eliminated));
+        var eliminations = games.Count(g => g.Players.Any(ps => ps.Eliminated == true));
 
-        var players = games.SelectMany(g => g.PlayerStatistics)
-            .Select(x => x.DiscordUserID)
+        var players = games.SelectMany(g => g.Players)
+            .Where(x => x.DiscordUserId.HasValue)
+            .Select(x => x.DiscordUserId!.Value)
             .Distinct()
             .Count();
 
-        var activePlayers = games.Where(g => g.EndedTimestamp == null)
-            .SelectMany(g => g.PlayerStatistics)
-            .Select(x => x.DiscordUserID)
+        var activePlayers = games.Where(g => g.Details.EndedTimestamp == null)
+            .SelectMany(g => g.Players)
+            .Where(x => x.DiscordUserId.HasValue)
+            .Select(x => x.DiscordUserId!.Value)
             .Distinct()
             .ToHashSet();
 
         var inactiveGames = games
-            .Where(g => g.EndedTimestamp is not null)
+            .Where(g => g.Details.EndedTimestamp is not null)
             .ToList();
 
         var inactivePlayers = inactiveGames
-            .SelectMany(g => g.PlayerStatistics)
-            .Select(x => x.DiscordUserID)
+            .SelectMany(g => g.Players)
+            .Where(x => x.DiscordUserId.HasValue)
+            .Select(x => x.DiscordUserId!.Value)
             .Where(x => !activePlayers.Contains(x))
             .Distinct()
             .ToHashSet();
 
         var inactiveLessThanThreeMonths = inactiveGames
-            .Where(g => IsLessThanMonthsInactive(g, 3))
-            .SelectMany(g => g.PlayerStatistics)
-            .Select(x => x.DiscordUserID)
+            .Where(g => IsLessThanMonthsInactive(g.Details, 3))
+            .SelectMany(g => g.Players)
+            .Where(x => x.DiscordUserId.HasValue)
+            .Select(x => x.DiscordUserId!.Value)
             .Where(inactivePlayers.Contains)
             .Distinct()
             .ToList();
 
         var inactiveMoreThanThreeMonths = games
-            .Where(g => IsMoreThanMonthsInactive(g, 3))
-            .SelectMany(g => g.PlayerStatistics)
-            .Select(x => x.DiscordUserID)
+            .Where(g => IsMoreThanMonthsInactive(g.Details, 3))
+            .SelectMany(g => g.Players)
+            .Where(x => x.DiscordUserId.HasValue)
+            .Select(x => x.DiscordUserId!.Value)
             .Where(x => inactivePlayers.Contains(x) && !inactiveLessThanThreeMonths.Contains(x))
             .Distinct()
             .Count();
 
         var distributionsByPlayerTime = games
-            .SelectMany(game => game.PlayerStatistics)
-            .GroupBy(stat => stat.DiscordUserID)
+            .SelectMany(game => game.Players)
+            .Where(stat => stat.DiscordUserId.HasValue)
+            .GroupBy(stat => stat.DiscordUserId!.Value)
             .Select(group =>
             {
-                int totalTurns = group.Sum(stat => stat.TotalNumberOfTurns);
-                double averageTimeHours = group.Sum(stat => stat.TotalTurnTime) / (totalTurns * 3600000.0);
+                int totalTurns = group.Sum(stat => stat.TotalNumberOfTurns ?? 0);
+                double averageTimeHours = group.Sum(stat => stat.TotalTurnTime ?? 0) / (totalTurns * 3600000.0);
 
                 return new
                 {
@@ -91,18 +98,18 @@ public class AsyncGeneralStatsFactory(
             .ToList();
 
         var distributionByVp = games
-            .GroupBy(GetVpDistributionKey)
+            .GroupBy(x => GetVpDistributionKey(x.Details))
             .Select(x => new GameDistributionByVpDto(x.Key, x.Count()))
             .ToList();
 
         var distributionByPlayerCount = games
-            .GroupBy(GetPlayerCountDistributionKey)
+            .GroupBy(x => GetPlayerCountDistributionKey(x.Details))
             .Select(x => new GameDistributionByPlayerCountDto(x.Key, x.Count()))
             .ToList();
 
         var distributionByAverageTurnEnd = games
-            .GroupBy(GetVpDistributionKey)
-            .Select(x => new GameDitributionByAverageTurnEndDto(x.Key, x.Average(x => x.Round)))
+            .GroupBy(x => GetVpDistributionKey(x.Details))
+            .Select(x => new GameDitributionByAverageTurnEndDto(x.Key, x.Average(game => game.Details.Round)))
             .ToList();
 
         return new AsyncGeneralStatsDto(
@@ -122,6 +129,14 @@ public class AsyncGeneralStatsFactory(
             distributionByAverageTurnEnd);
     }
 
+    private List<GeneralStatsGame> GroupGames(IReadOnlyList<AsyncGeneralStatsGameProjection> gameRows)
+    {
+        return gameRows
+            .GroupBy(x => x.GameStatsId)
+            .Select(group => new GeneralStatsGame(group.First(), group.Where(x => x.DiscordUserId.HasValue).ToList()))
+            .ToList();
+    }
+
     private int CategorizeTime(double avgTimeHours)
     {
         if (avgTimeHours >= 8) return 9; // 8+ hours grouped together
@@ -137,7 +152,7 @@ public class AsyncGeneralStatsFactory(
         return avgTimeHours >= 0.5 ? 1 : 0;
     }
 
-    private int GetVpDistributionKey(GameStats game)
+    private int GetVpDistributionKey(AsyncGeneralStatsGameProjection game)
     {
         return game.Scoreboard switch
         {
@@ -148,7 +163,7 @@ public class AsyncGeneralStatsFactory(
         };
     }
 
-    private int GetPlayerCountDistributionKey(GameStats game)
+    private int GetPlayerCountDistributionKey(AsyncGeneralStatsGameProjection game)
     {
         return game.NumberOfPlayers switch
         {
@@ -157,13 +172,17 @@ public class AsyncGeneralStatsFactory(
         };
     }
 
-    private bool IsLessThanMonthsInactive(GameStats game, int months)
+    private bool IsLessThanMonthsInactive(AsyncGeneralStatsGameProjection game, int months)
     {
         return DateTimeOffset.FromUnixTimeSeconds(game.SetupTimestamp) > DateTimeOffset.UtcNow.AddMonths(-months);
     }
 
-    private bool IsMoreThanMonthsInactive(GameStats game, int months)
+    private bool IsMoreThanMonthsInactive(AsyncGeneralStatsGameProjection game, int months)
     {
         return DateTimeOffset.FromUnixTimeSeconds(game.SetupTimestamp) < DateTimeOffset.UtcNow.AddMonths(-months);
     }
+
+    private sealed record GeneralStatsGame(
+        AsyncGeneralStatsGameProjection Details,
+        IReadOnlyList<AsyncGeneralStatsGameProjection> Players);
 }

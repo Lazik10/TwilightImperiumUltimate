@@ -1,0 +1,37 @@
+@namespace TwilightImperiumUltimate.Web.Components.Charts
+@using Radzen
+@using Radzen.Blazor
+
+<div class="radzen-bar-chart" @ref="_chartElement">
+    @if (!string.IsNullOrWhiteSpace(Title))
+    {
+        <ResponsiveHeading Level="2" Text="@Title" FontSize="lg" CenterText="true" CssClass="radzen-bar-chart-title mb-md" />
+    }
+
+    @if (!string.IsNullOrWhiteSpace(Subtitle))
+    {
+        <HelpText Text="@Subtitle" CssClass="radzen-bar-chart-subtitle handel white shadow centered-text mb-md" />
+    }
+
+    @if (IsLoading)
+    {
+        <div class="radzen-bar-chart-loading" style="height: @ChartHeightPx;" role="status" aria-live="polite">
+            <ResponsiveLabel Text="@Strings.Loading" CenterText="true" />
+        </div>
+    }
+    else
+    {
+        <RadzenChart Style="@ChartStyle" SeriesClick="SeriesClick">
+            @ChildContent
+            <RadzenCategoryAxis Stroke="white" StrokeWidth="1" Formatter="@CategoryFormatter">
+                <RadzenAxisTitle Text="@CategoryTitle" />
+            </RadzenCategoryAxis>
+            <RadzenValueAxis Visible="@ShowValueAxis" Min="0" Step="@ValueAxisStep">
+                <RadzenAxisTitle Text="@ValueTitle" />
+                <RadzenGridLines Visible="false" />
+            </RadzenValueAxis>
+            <RadzenLegend Visible="@ShowLegend" Position="LegendPosition.Bottom" />
+            <RadzenBarOptions Height="20" CategoryGap="0.02" Radius="2" />
+        </RadzenChart>
+    }
+</div>

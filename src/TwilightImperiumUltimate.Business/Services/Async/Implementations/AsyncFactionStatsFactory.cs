@@ -12,7 +12,7 @@ public class AsyncFactionStatsFactory(
 
     public async Task<AsyncFactionsSummaryStatsDto> CreateAsyncFactionStatsSummary(CancellationToken cancellationToken)
     {
-        var games = await _asyncStatsRepository.GetAllAsyncGames(cancellationToken);
+        var games = await _asyncStatsRepository.GetAsyncStatisticsGameProjections(cancellationToken);
 
         var allGames = games
             .Where(x =>
@@ -30,37 +30,32 @@ public class AsyncFactionStatsFactory(
         return new AsyncFactionsSummaryStatsDto(allGameStats, tiglGameStats, customGameStats);
     }
 
-    private static List<AsyncFactionsStatsDto> CreateFactionStats(List<GameStats> games)
+    private static List<AsyncFactionsStatsDto> CreateFactionStats(List<AsyncStatisticsGameProjection> games)
     {
         var factionStatsDict = CreateAsyncFactionsDictionary();
 
-        foreach (var game in games)
+        foreach (var game in games.Where(x => x.DiscordUserId.HasValue))
         {
-            var allPlayerStats = game.PlayerStatistics.ToList();
+            var faction = game.FactionName!.Value;
+            var factionStats = factionStatsDict[faction];
 
-            foreach (var playerStats in allPlayerStats)
-            {
-                var faction = playerStats.FactionName;
-                var factionStats = factionStatsDict[faction];
-
-                UpdateFactionByVp(game.Scoreboard, factionStats, playerStats);
-                UpdateOverallFactionStats(game.Scoreboard, factionStats.All, playerStats);
-            }
+            UpdateFactionByVp(game.Scoreboard, factionStats, game);
+            UpdateOverallFactionStats(game.Scoreboard, factionStats.All, game);
         }
 
         return factionStatsDict.Values.ToList();
     }
 
-    private static void UpdateOverallFactionStats(int scoreboard, AsyncFactionStatsByGameVpDto factionStats, PlayerStats playerStats)
+    private static void UpdateOverallFactionStats(int scoreboard, AsyncFactionStatsByGameVpDto factionStats, AsyncStatisticsGameProjection playerStats)
     {
         factionStats.Games++;
-        factionStats.Wins += playerStats.Winner ? 1 : 0;
-        factionStats.Eliminations += playerStats.Eliminated ? 1 : 0;
-        factionStats.Vp += playerStats.Score;
+        factionStats.Wins += playerStats.Winner == true ? 1 : 0;
+        factionStats.Eliminations += playerStats.Eliminated == true ? 1 : 0;
+        factionStats.Vp += playerStats.Score ?? 0;
         factionStats.MaxVp += scoreboard;
     }
 
-    private static void UpdateFactionByVp(int scoreboard, AsyncFactionsStatsDto factionStats, PlayerStats playerStats)
+    private static void UpdateFactionByVp(int scoreboard, AsyncFactionsStatsDto factionStats, AsyncStatisticsGameProjection playerStats)
     {
         var correctfactionStats = scoreboard switch
         {
@@ -73,10 +68,10 @@ public class AsyncFactionStatsFactory(
         if (correctfactionStats is not null)
         {
             correctfactionStats.Games++;
-            correctfactionStats.Wins += playerStats.Winner ? 1 : 0;
-            correctfactionStats.Eliminations += playerStats.Eliminated ? 1 : 0;
+            correctfactionStats.Wins += playerStats.Winner == true ? 1 : 0;
+            correctfactionStats.Eliminations += playerStats.Eliminated == true ? 1 : 0;
             correctfactionStats.MaxVp += scoreboard;
-            correctfactionStats.Vp += playerStats.Score;
+            correctfactionStats.Vp += playerStats.Score ?? 0;
         }
     }
 

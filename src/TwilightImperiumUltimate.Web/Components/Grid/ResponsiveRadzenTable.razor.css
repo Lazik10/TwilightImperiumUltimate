@@ -14,6 +14,7 @@
     only ONE leading ::deep is needed per rule.
 */
 .responsive-radzen-table-host ::deep .responsive-radzen-table {
+    width: 100%;
     --rz-grid-border: 2px solid var(--color-nav-hover-bg-solid, #123957);
     --rz-grid-border-radius: var(--border-radius-md);
     --rz-grid-shadow: 0 0 18px rgba(0, 0, 0, 0.5);
@@ -36,6 +37,23 @@
     --rz-grid-cell-focus-color: white;
     --rz-grid-sort-icon-color: var(--color-nav-hover, #8ecfff);
     font-family: 'Inter', sans-serif;
+}
+
+.responsive-radzen-table-host {
+    width: var(--responsive-radzen-table-width-desktop, 100%);
+    max-width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .responsive-radzen-table-host {
+        width: var(--responsive-radzen-table-width-tablet, 100%);
+    }
+}
+
+@media (max-width: 768px) {
+    .responsive-radzen-table-host {
+        width: var(--responsive-radzen-table-width-mobile, 100%);
+    }
 }
 
 /* RadzenTable's header content is authored manually via RadzenTableHeader (no dedicated
@@ -67,6 +85,10 @@
     color: white;
 }
 
+.responsive-radzen-table-host ::deep .responsive-radzen-table caption.statistics-table-caption {
+    font-size: var(--font-size-lg);
+}
+
 /* Radzen renders each cell's content inside an inner ".rz-cell-data" SPAN (not the <td> itself),
    with its own "display: block; overflow: hidden; ..." from Radzen's default theme. That span is
    used by GridButtonColumn (see Components/Grid/GridButtonColumn.razor.css) as the positioned
@@ -94,6 +116,11 @@
     table-layout: auto;
 }
 
+.responsive-radzen-table-host ::deep .responsive-radzen-table-equal-columns .rz-grid-table {
+    table-layout: fixed;
+    width: 100%;
+}
+
 .responsive-radzen-table-host ::deep .responsive-radzen-table .rz-cell-data,
 .responsive-radzen-table-host ::deep .responsive-radzen-table .rz-column-title {
     white-space: nowrap;
@@ -105,6 +132,27 @@
    or gets squeezed instead of widening the column. */
 .responsive-radzen-table-host ::deep .responsive-radzen-table thead th {
     white-space: nowrap;
+    text-align: center;
+}
+
+.responsive-radzen-table-host ::deep .responsive-radzen-table tbody td {
+    text-align: center;
+}
+
+.responsive-radzen-table-host ::deep .responsive-radzen-table tbody td.yellow .rz-cell-data {
+    color: yellow !important;
+}
+
+.responsive-radzen-table-host ::deep .responsive-radzen-table tbody td.green .rz-cell-data {
+    color: lawngreen !important;
+}
+
+.responsive-radzen-table-host ::deep .responsive-radzen-table tbody td.orange .rz-cell-data {
+    color: orange !important;
+}
+
+.responsive-radzen-table-host ::deep .responsive-radzen-table tbody td.red .rz-cell-data {
+    color: red !important;
 }
 
 .responsive-radzen-table-host ::deep .responsive-radzen-table-zebra tbody tr:nth-child(even) {

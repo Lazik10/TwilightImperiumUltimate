@@ -11,6 +11,10 @@ public interface IAsyncStatsRepository
 
     Task<List<GameStats>> GetAllAsyncGames(CancellationToken cancellationToken);
 
+    Task<List<AsyncGeneralStatsGameProjection>> GetAsyncGeneralStatsGameProjections(CancellationToken cancellationToken);
+
+    Task<List<AsyncStatisticsGameProjection>> GetAsyncStatisticsGameProjections(CancellationToken cancellationToken);
+
     Task<List<GameStats>> GetAllAsyncGamesByYearAndMonthQuery(int year, int month, CancellationToken cancellationToken);
 
     Task<List<long>> GetAllAsyncGameDates(CancellationToken cancellationToken);

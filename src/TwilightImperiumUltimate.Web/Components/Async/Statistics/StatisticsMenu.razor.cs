@@ -1,30 +1,31 @@
-using TwilightImperiumUltimate.Web.Services.Async;
+using TwilightImperiumUltimate.Web.Helpers.Enums;
 
 namespace TwilightImperiumUltimate.Web.Components.Async.Statistics;
 
 public partial class StatisticsMenu
 {
-    private List<AsyncStatisticsTypeMenuItem> _menuItems = new List<AsyncStatisticsTypeMenuItem>();
+    private IReadOnlyCollection<StatisticsMenuItem> _menuItems = [];
 
     [Parameter]
-    public EventCallback<AsyncStatisticsTypeMenuItem> SelectedMenuITem { get; set; }
+    public EventCallback<AsyncStatisticsTypeMenuItem> SelectedMenuItemChanged { get; set; }
+
+    [Parameter]
+    public AsyncStatisticsTypeMenuItem SelectedMenuItem { get; set; } = AsyncStatisticsTypeMenuItem.General;
 
     [Parameter]
     public int Width { get; set; } = 100;
 
-    [Inject]
-    private IAsyncGamesProvider AsyncGameProvider { get; set; } = default!;
-
     protected override void OnInitialized()
     {
-        _menuItems = GetMenuItems();
+        _menuItems = EnumExtensions.GetEnumValuesWithDisplayNames<AsyncStatisticsTypeMenuItem>()
+            .Select(item => new StatisticsMenuItem(item.Key, item.Value))
+            .ToList();
     }
 
-    private List<AsyncStatisticsTypeMenuItem> GetMenuItems() => Enum.GetValues<AsyncStatisticsTypeMenuItem>().ToList();
-
-    private void SelectedItemItem(AsyncStatisticsTypeMenuItem menuItem)
+    private Task SelectedItemItem(AsyncStatisticsTypeMenuItem menuItem)
     {
-        SelectedMenuITem.InvokeAsync(menuItem);
-        StateHasChanged();
+        return SelectedMenuItemChanged.InvokeAsync(menuItem);
     }
+
+    private sealed record StatisticsMenuItem(AsyncStatisticsTypeMenuItem Value, string DisplayName);
 }

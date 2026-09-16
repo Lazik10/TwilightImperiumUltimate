@@ -1,21 +1,12 @@
-﻿@using TwilightImperiumUltimate.Web.Helpers.Enums
-
-<nav class="async-statistics-menu" aria-label="@Strings.AsyncStatisticsTypeMenuItem_CategoryTitle">
-    <Label Text="@Strings.AsyncStatisticsTypeMenuItem_CategoryTitle" TextColor="TextColor.Yellow" FontSize="24" CenterText="true" />
-
-    @if (_menuItems.Count > 0)
-    {
-        @for (var index = 0; index < _menuItems.Count; index++)
-        {
-            var menuItem = _menuItems[index];
-            <TabNavItem OnClick="() => SelectedItemItem(menuItem)">
-                <ResponsiveLabel Text="@menuItem.GetDisplayName()" CenterText="true" FontSize="base" />
-            </TabNavItem>
-            @if (index < _menuItems.Count - 1)
-            {
-                <span class="async-statistics-menu-separator" aria-hidden="true">/</span>
-            }
-        }
-    }
-
-</nav>
+﻿<div class="async-statistics-menu">
+    <ResponsiveDropDown TValue="AsyncStatisticsTypeMenuItem"
+                        Id="async-statistics-category"
+                        Label="@Strings.AsyncStatisticsTypeMenuItem_CategoryTitle"
+                        LabelPosition="LabelPosition.Column"
+                        Data="@_menuItems"
+                        TextProperty="DisplayName"
+                        ValueProperty="Value"
+                        Value="@SelectedMenuItem"
+                        ValueChanged="SelectedItemItem"
+                        Width="100" />
+</div>

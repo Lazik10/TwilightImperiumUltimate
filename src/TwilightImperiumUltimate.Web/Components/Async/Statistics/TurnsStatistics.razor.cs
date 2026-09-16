@@ -1,4 +1,7 @@
 using TwilightImperiumUltimate.Contracts.DTOs.Async.AsyncStats;
+using TwilightImperiumUltimate.Web.Components.Charts;
+using TwilightImperiumUltimate.Web.Helpers.Charts;
+using TwilightImperiumUltimate.Web.Helpers.Enums;
 using TwilightImperiumUltimate.Web.Services.Async;
 
 namespace TwilightImperiumUltimate.Web.Components.Async.Statistics;
@@ -6,7 +9,6 @@ namespace TwilightImperiumUltimate.Web.Components.Async.Statistics;
 public partial class TurnsStatistics
 {
     private bool _isDataLoaded;
-    private int _row;
     private AsyncTurnsSummaryStatsDto _turnsSummaryStats = new AsyncTurnsSummaryStatsDto();
 
     [CascadingParameter(Name = "Filter")]
@@ -76,8 +78,27 @@ public partial class TurnsStatistics
         return TextColor.Green;
     }
 
-    private void RedirectToPlayerProfile(int id)
+    private IReadOnlyCollection<RankingBarPoint> GetFastestPlayersData() => TurnsStats.AsyncFastestPlayers
+        .Select((user, index) => new RankingBarPoint(
+            index.ToString(),
+            $"{user.UserName} ({user.Turns})",
+            user.AverageTurnTime,
+            user.Id == 0 ? TextColor.Red.GetChartFillColor() : GetAverageTurnColor(user.AverageTurnTime).GetChartFillColor(),
+            user.Id == 0 ? null : user.Id,
+            user.Id == 0))
+        .ToList();
+
+    private IReadOnlyCollection<RankingBarPoint> GetMostTurnsData() => PlayerRankingChartHelper.BuildPoints(
+        TurnsStats.AsyncMostTurnsPlayers,
+        user => user.Id,
+        user => user.UserName,
+        user => user.Turns,
+        TextColor.Green,
+        user => $"{user.Games}");
+
+    private void OnPlayerClick(object? tag)
     {
-        NavigationManager.NavigateTo($"{Pages.Pages.AsyncProfile}?playerId={id}");
+        if (tag is int playerId)
+            NavigationManager.NavigateTo($"{Pages.Pages.AsyncProfile}?playerId={playerId}");
     }
 }

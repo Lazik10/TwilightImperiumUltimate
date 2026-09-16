@@ -13,9 +13,10 @@ public class AsyncWinsStatsFactory(
 
     public async Task<AsyncWinsSummaryStatsDto> CreateAsyncWinsStatsSummary(int limit, CancellationToken cancellationToken)
     {
-        var playerProfiles = await _asyncStatsRepository.GetAllAsyncPlayerProfiles(true, cancellationToken);
+        var playerProfiles = (await _asyncStatsRepository.GetAllAsyncPlayerProfiles(true, cancellationToken))
+            .ToDictionary(x => x.DiscordUserId);
 
-        var games = await _asyncStatsRepository.GetAllAsyncGames(cancellationToken);
+        var games = await _asyncStatsRepository.GetAsyncStatisticsGameProjections(cancellationToken);
 
         var allFinishedGames = games.Where(x => x.EndedTimestamp != null && x.HasWinner).ToList();
         var tiglGames = allFinishedGames.Where(x => x.IsTigl).ToList();
@@ -28,21 +29,21 @@ public class AsyncWinsStatsFactory(
         return new AsyncWinsSummaryStatsDto(allGameStats, tiglGameStats, customGameStats);
     }
 
-    private AsyncWinsStatsDto CreateWinsStats(List<GameStats> games, List<AsyncPlayerProfile> playerProfiles, int limit)
+    private AsyncWinsStatsDto CreateWinsStats(List<AsyncStatisticsGameProjection> games, IReadOnlyDictionary<long, AsyncPlayerProfile> playerProfiles, int limit)
     {
         var playersDto = games
-            .SelectMany(x => x.PlayerStatistics)
-            .GroupBy(x => x.DiscordUserID)
+            .Where(x => x.DiscordUserId.HasValue)
+            .GroupBy(x => x.DiscordUserId!.Value)
             .Where(x => x.Count() >= 20)
             .Select(g =>
             {
                 var playerInfo = GetPlayerInfo(g.Key, playerProfiles);
 
                 return new AsyncWinsPlayerDto(
-                playerInfo.Id,
-                playerInfo.Name,
-                g.Count(y => y.Winner),
-                g.Count());
+                    playerInfo.Id,
+                    playerInfo.Name,
+                    g.Count(y => y.Winner == true),
+                    g.Count());
             })
             .ToList();
 
@@ -70,9 +71,9 @@ public class AsyncWinsStatsFactory(
         return new AsyncWinsStatsDto(playersWithMostWins, playersWithHighestWinsPercentage, playersWithHighestWinsDeviation);
     }
 
-    private (int Id, string Name) GetPlayerInfo(long discordUserId, List<AsyncPlayerProfile> playerProfiles)
+    private (int Id, string Name) GetPlayerInfo(long discordUserId, IReadOnlyDictionary<long, AsyncPlayerProfile> playerProfiles)
     {
-        var player = playerProfiles.Find(x => x.DiscordUserId == discordUserId);
+        playerProfiles.TryGetValue(discordUserId, out var player);
 
         if (player is not null && player.ProfileSettings is not null && player.ProfileSettings.ShowWinRate && !player.ProfileSettings.ExcludeFromAsyncStats)
             return (player.Id, player.DiscordUserName);

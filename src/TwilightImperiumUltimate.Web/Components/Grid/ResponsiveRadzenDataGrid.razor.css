@@ -49,9 +49,24 @@
     container-type: inline-size;
     position: relative;
     min-height: 32rem;
+    width: var(--responsive-radzen-grid-width-desktop, 100%);
+    max-width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .responsive-radzen-grid-host {
+        width: var(--responsive-radzen-grid-width-tablet, 100%);
+    }
+}
+
+@media (max-width: 768px) {
+    .responsive-radzen-grid-host {
+        width: var(--responsive-radzen-grid-width-mobile, 100%);
+    }
 }
 
 .responsive-radzen-grid-host ::deep .responsive-radzen-grid {
+    width: 100%;
     min-height: 32rem;
 }
 
@@ -149,6 +164,10 @@
     display: block;
     height: 100%;
     overflow: visible;
+}
+
+.responsive-radzen-grid-host ::deep .responsive-radzen-grid .rz-data-row > td {
+    text-align: center;
 }
 
 /* Match ResponsiveRadzenTable's horizontal-scrollbar look on this grid's own scroll container

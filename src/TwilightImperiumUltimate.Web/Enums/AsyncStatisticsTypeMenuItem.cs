@@ -3,14 +3,14 @@ namespace TwilightImperiumUltimate.Web.Enums;
 public enum AsyncStatisticsTypeMenuItem
 {
     General,
+    History,
+    Factions,
     Games,
     Wins,
     Vp,
     Eliminations,
-    Factions,
     Turns,
     Combat,
     Durations,
     Opponents,
-    History,
 }

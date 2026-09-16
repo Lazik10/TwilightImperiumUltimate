@@ -9,6 +9,7 @@ public class AsyncStatsProvider(
 {
     private static readonly int[] AllowedLimits = { 20, 50, 100, 200 };
     private readonly ITwilightImperiumApiHttpClient _httpClient = httpClient;
+    private readonly ConcurrentDictionary<string, Lazy<Task<object?>>> _inFlightRequests = new();
     private readonly ConcurrentDictionary<int, AsyncGamesSummaryStatsDto> _gamesStatsCache = new();
     private readonly ConcurrentDictionary<int, AsyncWinsSummaryStatsDto> _winsStatsCache = new();
     private readonly ConcurrentDictionary<int, AsyncVpSummaryStatsDto> _vpStatsCache = new();
@@ -20,16 +21,20 @@ public class AsyncStatsProvider(
     private AsyncFactionsSummaryStatsDto _factionsStats = new();
     private AsyncGeneralSummaryStatsDto _generalStats = new();
     private AsyncHistorySummaryStatsDto _historyStats = new();
+    private bool _hasFactionsStats;
+    private bool _hasGeneralStats;
+    private bool _hasHistoryStats;
 
     public async Task<AsyncGeneralSummaryStatsDto> GetGeneralStatistics()
     {
-        if (_generalStats.All.Games > 0)
+        if (_hasGeneralStats)
             return _generalStats;
 
-        var result = await _httpClient.GetAsync<ApiResponse<AsyncGeneralSummaryStatsDto>>(Paths.ApiPath_AsyncGeneralStats);
-        if (result.StatusCode == HttpStatusCode.OK)
+        var result = await GetStatisticsAsync<AsyncGeneralSummaryStatsDto>(nameof(GetGeneralStatistics), Paths.ApiPath_AsyncGeneralStats);
+        if (result is not null)
         {
-            _generalStats = result.Response!.Data!;
+            _generalStats = result;
+            _hasGeneralStats = true;
             return _generalStats;
         }
 
@@ -44,11 +49,11 @@ public class AsyncStatsProvider(
         if (_gamesStatsCache.TryGetValue(limit, out var cachedStats))
             return cachedStats;
 
-        var result = await _httpClient.GetAsync<ApiResponse<AsyncGamesSummaryStatsDto>>(Paths.ApiPath_AsyncGamesStats, GetLimitQuery(limit));
-        if (result.StatusCode == HttpStatusCode.OK)
+        var result = await GetStatisticsAsync<AsyncGamesSummaryStatsDto>($"{nameof(GetGamesStatistics)}:{limit}", Paths.ApiPath_AsyncGamesStats, GetLimitQuery(limit));
+        if (result is not null)
         {
-            _gamesStatsCache[limit] = result.Response!.Data!;
-            return result.Response!.Data!;
+            _gamesStatsCache[limit] = result;
+            return result;
         }
 
         return new AsyncGamesSummaryStatsDto();
@@ -62,11 +67,11 @@ public class AsyncStatsProvider(
         if (_winsStatsCache.TryGetValue(limit, out var cachedStats))
             return cachedStats;
 
-        var result = await _httpClient.GetAsync<ApiResponse<AsyncWinsSummaryStatsDto>>(Paths.ApiPath_AsyncWinsStats, GetLimitQuery(limit));
-        if (result.StatusCode == HttpStatusCode.OK)
+        var result = await GetStatisticsAsync<AsyncWinsSummaryStatsDto>($"{nameof(GetWinsStatistics)}:{limit}", Paths.ApiPath_AsyncWinsStats, GetLimitQuery(limit));
+        if (result is not null)
         {
-            _winsStatsCache[limit] = result.Response!.Data!;
-            return result.Response!.Data!;
+            _winsStatsCache[limit] = result;
+            return result;
         }
 
         return new AsyncWinsSummaryStatsDto();
@@ -80,11 +85,11 @@ public class AsyncStatsProvider(
         if (_vpStatsCache.TryGetValue(limit, out var cachedStats))
             return cachedStats;
 
-        var result = await _httpClient.GetAsync<ApiResponse<AsyncVpSummaryStatsDto>>(Paths.ApiPath_AsyncVpStats, GetLimitQuery(limit));
-        if (result.StatusCode == HttpStatusCode.OK)
+        var result = await GetStatisticsAsync<AsyncVpSummaryStatsDto>($"{nameof(GetVpStatistics)}:{limit}", Paths.ApiPath_AsyncVpStats, GetLimitQuery(limit));
+        if (result is not null)
         {
-            _vpStatsCache[limit] = result.Response!.Data!;
-            return result.Response!.Data!;
+            _vpStatsCache[limit] = result;
+            return result;
         }
 
         return new AsyncVpSummaryStatsDto();
@@ -98,11 +103,11 @@ public class AsyncStatsProvider(
         if (_eliminationsStatsCache.TryGetValue(limit, out var cachedStats))
             return cachedStats;
 
-        var result = await _httpClient.GetAsync<ApiResponse<AsyncEliminationsSummaryStatsDto>>(Paths.ApiPath_AsyncEliminationsStats, GetLimitQuery(limit));
-        if (result.StatusCode == HttpStatusCode.OK)
+        var result = await GetStatisticsAsync<AsyncEliminationsSummaryStatsDto>($"{nameof(GetEliminationsStatistics)}:{limit}", Paths.ApiPath_AsyncEliminationsStats, GetLimitQuery(limit));
+        if (result is not null)
         {
-            _eliminationsStatsCache[limit] = result.Response!.Data!;
-            return result.Response!.Data!;
+            _eliminationsStatsCache[limit] = result;
+            return result;
         }
 
         return new AsyncEliminationsSummaryStatsDto();
@@ -116,11 +121,11 @@ public class AsyncStatsProvider(
         if (_turnsStatsCache.TryGetValue(limit, out var cachedStats))
             return cachedStats;
 
-        var result = await _httpClient.GetAsync<ApiResponse<AsyncTurnsSummaryStatsDto>>(Paths.ApiPath_AsyncTurnsStats, GetLimitQuery(limit));
-        if (result.StatusCode == HttpStatusCode.OK)
+        var result = await GetStatisticsAsync<AsyncTurnsSummaryStatsDto>($"{nameof(GetTurnsStatistics)}:{limit}", Paths.ApiPath_AsyncTurnsStats, GetLimitQuery(limit));
+        if (result is not null)
         {
-            _turnsStatsCache[limit] = result.Response!.Data!;
-            return result.Response!.Data!;
+            _turnsStatsCache[limit] = result;
+            return result;
         }
 
         return new AsyncTurnsSummaryStatsDto();
@@ -134,11 +139,11 @@ public class AsyncStatsProvider(
         if (_combatStatsCache.TryGetValue(limit, out var cachedStats))
             return cachedStats;
 
-        var result = await _httpClient.GetAsync<ApiResponse<AsyncCombatSummaryStatsDto>>(Paths.ApiPath_AsyncCombatStats, GetLimitQuery(limit));
-        if (result.StatusCode == HttpStatusCode.OK)
+        var result = await GetStatisticsAsync<AsyncCombatSummaryStatsDto>($"{nameof(GetCombatStatistics)}:{limit}", Paths.ApiPath_AsyncCombatStats, GetLimitQuery(limit));
+        if (result is not null)
         {
-            _combatStatsCache[limit] = result.Response!.Data!;
-            return result.Response!.Data!;
+            _combatStatsCache[limit] = result;
+            return result;
         }
 
         return new AsyncCombatSummaryStatsDto();
@@ -152,11 +157,11 @@ public class AsyncStatsProvider(
         if (_durationsStatsCache.TryGetValue(limit, out var cachedStats))
             return cachedStats;
 
-        var result = await _httpClient.GetAsync<ApiResponse<AsyncDurationsSummaryStatsDto>>(Paths.ApiPath_AsyncDurationsStats, GetLimitQuery(limit));
-        if (result.StatusCode == HttpStatusCode.OK)
+        var result = await GetStatisticsAsync<AsyncDurationsSummaryStatsDto>($"{nameof(GetDurationsStatistics)}:{limit}", Paths.ApiPath_AsyncDurationsStats, GetLimitQuery(limit));
+        if (result is not null)
         {
-            _durationsStatsCache[limit] = result.Response!.Data!;
-            return result.Response!.Data!;
+            _durationsStatsCache[limit] = result;
+            return result;
         }
 
         return new AsyncDurationsSummaryStatsDto();
@@ -170,11 +175,11 @@ public class AsyncStatsProvider(
         if (_opponentsStatsCache.TryGetValue(limit, out var cachedStats))
             return cachedStats;
 
-        var result = await _httpClient.GetAsync<ApiResponse<AsyncOpponentsSummaryStatsDto>>(Paths.ApiPath_AsyncOpponentsStats, GetLimitQuery(limit));
-        if (result.StatusCode == HttpStatusCode.OK)
+        var result = await GetStatisticsAsync<AsyncOpponentsSummaryStatsDto>($"{nameof(GetOpponentsStatistics)}:{limit}", Paths.ApiPath_AsyncOpponentsStats, GetLimitQuery(limit));
+        if (result is not null)
         {
-            _opponentsStatsCache[limit] = result.Response!.Data!;
-            return result.Response!.Data!;
+            _opponentsStatsCache[limit] = result;
+            return result;
         }
 
         return new AsyncOpponentsSummaryStatsDto();
@@ -182,13 +187,14 @@ public class AsyncStatsProvider(
 
     public async Task<AsyncHistorySummaryStatsDto> GetHistoryStatistics()
     {
-        if (_historyStats.All.GamesHistory.Count > 0)
+        if (_hasHistoryStats)
             return _historyStats;
 
-        var result = await _httpClient.GetAsync<ApiResponse<AsyncHistorySummaryStatsDto>>(Paths.ApiPath_AsyncHistoryStats);
-        if (result.StatusCode == HttpStatusCode.OK)
+        var result = await GetStatisticsAsync<AsyncHistorySummaryStatsDto>(nameof(GetHistoryStatistics), Paths.ApiPath_AsyncHistoryStats);
+        if (result is not null)
         {
-            _historyStats = result.Response!.Data!;
+            _historyStats = result;
+            _hasHistoryStats = true;
             return _historyStats;
         }
 
@@ -197,18 +203,47 @@ public class AsyncStatsProvider(
 
     public async Task<AsyncFactionsSummaryStatsDto> GetFactionsStatistics()
     {
-        if (_factionsStats.All.Count > 0)
+        if (_hasFactionsStats)
             return _factionsStats;
 
-        var result = await _httpClient.GetAsync<ApiResponse<AsyncFactionsSummaryStatsDto>>(Paths.ApiPath_AsyncFactionStats);
-        if (result.StatusCode == HttpStatusCode.OK)
+        var result = await GetStatisticsAsync<AsyncFactionsSummaryStatsDto>(nameof(GetFactionsStatistics), Paths.ApiPath_AsyncFactionStats);
+        if (result is not null)
         {
-            _factionsStats = result.Response!.Data!;
-            return result.Response!.Data!;
+            _factionsStats = result;
+            _hasFactionsStats = true;
+            return result;
         }
 
         return new AsyncFactionsSummaryStatsDto();
     }
 
     private static string GetLimitQuery(int limit) => $"?limit={limit}";
+
+    private async Task<T?> GetStatisticsAsync<T>(string key, string path, string query = "")
+        where T : class
+    {
+        var request = new Lazy<Task<object?>>(
+            () => FetchStatisticsAsync<T>(path, query),
+            LazyThreadSafetyMode.ExecutionAndPublication);
+        var inFlightRequest = _inFlightRequests.GetOrAdd(key, request);
+
+        try
+        {
+            return (T?)await inFlightRequest.Value;
+        }
+        finally
+        {
+            if (inFlightRequest.IsValueCreated && inFlightRequest.Value.IsCompleted)
+            {
+                _inFlightRequests.TryRemove(new KeyValuePair<string, Lazy<Task<object?>>>(key, inFlightRequest));
+            }
+        }
+    }
+
+    private async Task<object?> FetchStatisticsAsync<T>(string path, string query)
+        where T : class
+    {
+        var result = await _httpClient.GetAsync<ApiResponse<T>>(path, query);
+        return result.StatusCode == HttpStatusCode.OK ? result.Response?.Data : null;
+    }
 }

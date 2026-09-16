@@ -1,0 +1,14 @@
+@using TwilightImperiumUltimate.Web.Components.Charts
+
+<section class="async-history-section" aria-label="Player Count Total">
+    <RankingBarChart Data="@Series.Points"
+                     Title="Player Count Total"
+                     CategoryTitle="Year / month"
+                     ValueTitle="Players"
+                     CategoryFormatter="@HistoryBarChartFormatting.FormatCategory"
+                     ChartHeight="@HistoryBarChartFormatting.GetChartHeight(Series.Points.Count)"
+                     SeriesTitle="@Series.Title"
+                     BarColors="@Series.Fills"
+                     ValueFormatter="@HistoryBarChartFormatting.FormatValue"
+                     IsLoading="@IsLoading" />
+</section>

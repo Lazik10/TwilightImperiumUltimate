@@ -1,4 +1,3 @@
-using System.Xml.Schema;
 using TwilightImperiumUltimate.Business.Services.Async.Interfaces;
 using TwilightImperiumUltimate.Contracts.DTOs.Async.AsyncStats;
 using TwilightImperiumUltimate.Core.Entities.Async;
@@ -13,13 +12,15 @@ public class AsyncDurationsStatsFactory(
 
     public async Task<AsyncDurationsSummaryStatsDto> CreateAsyncDurationsStatsSummary(int limit, CancellationToken cancellationToken)
     {
-        var games = await _asyncStatsRepository.GetAllAsyncGames(cancellationToken);
+        var gameRows = await _asyncStatsRepository.GetAsyncStatisticsGameProjections(cancellationToken);
 
-        var allGames = games
+        var allGames = gameRows
             .Where(x => x.EndedTimestamp != null
                 && x.HasWinner
                 && x.EndedTimestamp != 0
-                && x.PlayerStatistics.Any(y => y.Score >= x.Scoreboard))
+                && x.Score >= x.Scoreboard)
+            .GroupBy(x => x.GameStatsId)
+            .Select(x => x.First())
             .ToList();
 
         var tiglGames = allGames.Where(x => x.IsTigl).ToList();
@@ -32,12 +33,12 @@ public class AsyncDurationsStatsFactory(
         return new AsyncDurationsSummaryStatsDto(allGameStats, tiglGameStats, customGameStats);
     }
 
-    private AsyncDurationsStatsDto CreateDurationsStats(List<GameStats> games, int limit)
+    private AsyncDurationsStatsDto CreateDurationsStats(List<AsyncStatisticsGameProjection> games, int limit)
     {
         var longestGames = games
             .Where(x => x.NumberOfPlayers >= 6)
             .Select(x => new AsyncDurationDto(
-                x.AsyncGameID,
+                x.AsyncGameId,
                 x.AsyncFunGameName,
                 (x.EndedTimestamp ?? 0) - x.SetupTimestamp,
                 x.Scoreboard,
@@ -49,7 +50,7 @@ public class AsyncDurationsStatsFactory(
         var fastestGames = games
             .Where(x => x.NumberOfPlayers >= 6)
             .Select(x => new AsyncDurationDto(
-                x.AsyncGameID,
+                x.AsyncGameId,
                 x.AsyncFunGameName,
                 (x.EndedTimestamp ?? 0) - x.SetupTimestamp,
                 x.Scoreboard,

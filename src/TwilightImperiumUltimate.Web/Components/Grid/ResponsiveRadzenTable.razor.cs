@@ -30,6 +30,25 @@ public partial class ResponsiveRadzenTable
     [Parameter]
     public string Style { get; set; } = string.Empty;
 
+    /// <summary>Gets or sets the table width on desktop viewports.</summary>
+    [Parameter]
+    public string WidthDesktop { get; set; } = "100%";
+
+    /// <summary>Gets or sets the table width on tablet viewports.</summary>
+    [Parameter]
+    public string WidthTablet { get; set; } = "100%";
+
+    /// <summary>Gets or sets the table width on mobile viewports.</summary>
+    [Parameter]
+    public string WidthMobile { get; set; } = "100%";
+
+    /// <summary>Gets or sets whether all columns use equal shares of the available table width.</summary>
+    [Parameter]
+    public bool EqualColumns { get; set; }
+
     private string GetTableClass() =>
-        $"responsive-radzen-table handel white shadow {(ZebraStripes ? "responsive-radzen-table-zebra" : string.Empty)} {CssClass}".Trim();
+        $"responsive-radzen-table handel white shadow {(ZebraStripes ? "responsive-radzen-table-zebra" : string.Empty)} {(EqualColumns ? "responsive-radzen-table-equal-columns" : string.Empty)} {CssClass}".Trim();
+
+    private string GetHostStyle() =>
+        $"--responsive-radzen-table-width-desktop: {WidthDesktop}; --responsive-radzen-table-width-tablet: {WidthTablet}; --responsive-radzen-table-width-mobile: {WidthMobile};";
 }

@@ -13,8 +13,9 @@ public class AsyncOpponentsStatsFactory(
 
     public async Task<AsyncOpponentsSummaryStatsDto> CreateAsyncOpponentsStatsSummary(int limit, CancellationToken cancellationToken)
     {
-        var games = await _asyncStatsRepository.GetAllAsyncGames(cancellationToken);
-        var playerProfiles = await _asyncStatsRepository.GetAllAsyncPlayerProfiles(true, cancellationToken);
+        var games = await _asyncStatsRepository.GetAsyncStatisticsGameProjections(cancellationToken);
+        var playerProfiles = (await _asyncStatsRepository.GetAllAsyncPlayerProfiles(true, cancellationToken))
+            .ToDictionary(x => x.DiscordUserId);
 
         var tiglGames = games.Where(x => x.IsTigl).ToList();
         var customGames = games.Where(x => !x.IsTigl).ToList();
@@ -26,23 +27,33 @@ public class AsyncOpponentsStatsFactory(
         return new AsyncOpponentsSummaryStatsDto(allGameStats, tiglGameStats, customGameStats);
     }
 
-    private AsyncOpponentsStatsDto CreateOpponentsStats(List<GameStats> games, List<AsyncPlayerProfile> playerProfiles, int limit)
+    private AsyncOpponentsStatsDto CreateOpponentsStats(List<AsyncStatisticsGameProjection> games, IReadOnlyDictionary<long, AsyncPlayerProfile> playerProfiles, int limit)
     {
+        var playersByGame = games
+            .GroupBy(x => x.GameStatsId)
+            .ToDictionary(
+                group => group.Key,
+                group => group
+                    .Where(x => x.DiscordUserId.HasValue)
+                    .Select(x => x.DiscordUserId!.Value)
+                    .Distinct()
+                    .ToList());
+
         var playerGamesMap = games
-            .SelectMany(game => game.PlayerStatistics.Select(player => (player.DiscordUserID, game)))
-            .GroupBy(x => x.DiscordUserID)
-            .ToDictionary(g => g.Key, g => g.Select(x => x.game).ToList());
+            .Where(x => x.DiscordUserId.HasValue)
+            .GroupBy(x => x.DiscordUserId!.Value)
+            .ToDictionary(g => g.Key, g => g.Select(x => x.GameStatsId).Distinct().ToList());
 
         var playerDtos = playerGamesMap
             .Select(kvp =>
             {
                 var playerInfo = GetPlayerInfo(kvp.Key, playerProfiles);
                 var playerId = playerInfo.Id;
-                var playerGames = kvp.Value;
-                var gamesPlayed = playerGames.Count;
+                var playerGameIds = kvp.Value;
+                var gamesPlayed = playerGameIds.Count;
 
-                var uniqueOpponents = playerGames
-                    .SelectMany(game => game.PlayerStatistics.Select(p => p.DiscordUserID))
+                var uniqueOpponents = playerGameIds
+                    .SelectMany(gameId => playersByGame[gameId])
                     .Where(opponentId => opponentId != kvp.Key)
                     .Distinct()
                     .Count();
@@ -53,6 +64,7 @@ public class AsyncOpponentsStatsFactory(
                     uniqueOpponents,
                     gamesPlayed);
             })
+            .Where(dto => dto.UniqueOpponents > 0)
             .OrderByDescending(dto => dto.UniqueOpponents)
             .Take(limit)
             .ToList();
@@ -60,9 +72,9 @@ public class AsyncOpponentsStatsFactory(
         return new AsyncOpponentsStatsDto(playerDtos);
     }
 
-    private (int Id, string Name) GetPlayerInfo(long discordUserId, List<AsyncPlayerProfile> playerProfiles)
+    private (int Id, string Name) GetPlayerInfo(long discordUserId, IReadOnlyDictionary<long, AsyncPlayerProfile> playerProfiles)
     {
-        var player = playerProfiles.Find(x => x.DiscordUserId == discordUserId);
+        playerProfiles.TryGetValue(discordUserId, out var player);
 
         if (player is not null && player.ProfileSettings is not null && player.ProfileSettings.ShowOpponents && !player.ProfileSettings.ExcludeFromAsyncStats)
             return (player.Id, player.DiscordUserName);

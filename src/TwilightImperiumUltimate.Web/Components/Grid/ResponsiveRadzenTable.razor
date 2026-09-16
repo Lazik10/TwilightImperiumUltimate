@@ -17,7 +17,7 @@
     element the ::deep selectors in ResponsiveRadzenTable.razor.css would never match anything.
 *@
 
-<div class="responsive-radzen-table-host">
+<div class="responsive-radzen-table-host" style="@GetHostStyle()">
     <RadzenTable class="@GetTableClass()" Style="@Style">
         @ChildContent
     </RadzenTable>

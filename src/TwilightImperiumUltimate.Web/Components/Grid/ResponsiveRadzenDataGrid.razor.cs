@@ -84,6 +84,18 @@ public partial class ResponsiveRadzenDataGrid<TItem>
     [Parameter]
     public string Style { get; set; } = string.Empty;
 
+    /// <summary>Gets or sets the grid width on desktop viewports.</summary>
+    [Parameter]
+    public string WidthDesktop { get; set; } = "100%";
+
+    /// <summary>Gets or sets the grid width on tablet viewports.</summary>
+    [Parameter]
+    public string WidthTablet { get; set; } = "100%";
+
+    /// <summary>Gets or sets the grid width on mobile viewports.</summary>
+    [Parameter]
+    public string WidthMobile { get; set; } = "100%";
+
     /// <summary>
     /// Gets or sets the default column width. Responsive by default.
     /// </summary>
@@ -109,4 +121,7 @@ public partial class ResponsiveRadzenDataGrid<TItem>
     }
 
     private Task OnRowClick(DataGridRowMouseEventArgs<TItem> args) => RowClick.InvokeAsync(args.Data);
+
+    private string GetHostStyle() =>
+        $"--responsive-radzen-grid-width-desktop: {WidthDesktop}; --responsive-radzen-grid-width-tablet: {WidthTablet}; --responsive-radzen-grid-width-mobile: {WidthMobile};";
 }

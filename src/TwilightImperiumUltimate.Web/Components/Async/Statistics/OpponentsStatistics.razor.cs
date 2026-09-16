@@ -1,4 +1,6 @@
 using TwilightImperiumUltimate.Contracts.DTOs.Async.AsyncStats;
+using TwilightImperiumUltimate.Web.Components.Charts;
+using TwilightImperiumUltimate.Web.Helpers.Charts;
 using TwilightImperiumUltimate.Web.Services.Async;
 
 namespace TwilightImperiumUltimate.Web.Components.Async.Statistics;
@@ -6,7 +8,6 @@ namespace TwilightImperiumUltimate.Web.Components.Async.Statistics;
 public partial class OpponentsStatistics
 {
     private bool _isDataLoaded;
-    private int _row;
     private AsyncOpponentsSummaryStatsDto _opponentsSummaryStats = new AsyncOpponentsSummaryStatsDto();
 
     [CascadingParameter(Name = "Filter")]
@@ -44,8 +45,17 @@ public partial class OpponentsStatistics
         _isDataLoaded = true;
     }
 
-    private void RedirectToPlayerProfile(int id)
+    private IReadOnlyCollection<RankingBarPoint> GetOpponentsData() => PlayerRankingChartHelper.BuildPoints(
+        OpponentsStats.PlayersWithMostOpponents,
+        user => user.Id,
+        user => user.UserName,
+        user => user.UniqueOpponents,
+        TextColor.Green,
+        user => $"{user.Games}");
+
+    private void OnPlayerClick(object? tag)
     {
-        NavigationManager.NavigateTo($"{Pages.Pages.AsyncProfile}?playerId={id}");
+        if (tag is int playerId)
+            NavigationManager.NavigateTo($"{Pages.Pages.AsyncProfile}?playerId={playerId}");
     }
 }

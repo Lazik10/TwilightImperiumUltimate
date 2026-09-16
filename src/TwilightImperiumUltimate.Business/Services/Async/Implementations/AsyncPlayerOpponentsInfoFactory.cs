@@ -20,7 +20,8 @@ public class AsyncPlayerOpponentsInfoFactory(
         var tiglGames = games.Where(x => x.IsTigl).ToList();
         var customGames = games.Where(x => !x.IsTigl).ToList();
 
-        var playerProfiles = await _asyncStatsRepository.GetAllAsyncPlayerProfiles(false, CancellationToken.None);
+        var playerProfiles = (await _asyncStatsRepository.GetAllAsyncPlayerProfiles(false, CancellationToken.None))
+            .ToDictionary(x => x.DiscordUserId);
 
         var allOpponentsDto = GetOpponents(games, playerProfile.DiscordUserId, playerProfiles);
         var tiglOpponentsDto = GetOpponents(tiglGames, playerProfile.DiscordUserId, playerProfiles);
@@ -31,7 +32,7 @@ public class AsyncPlayerOpponentsInfoFactory(
         return summary;
     }
 
-    private List<AsyncPlayerOpponentInfoDto> GetOpponents(List<GameStats> games, long discordUserId, List<AsyncPlayerProfile> playerProfiles)
+    private List<AsyncPlayerOpponentInfoDto> GetOpponents(List<GameStats> games, long discordUserId, IReadOnlyDictionary<long, AsyncPlayerProfile> playerProfiles)
     {
         var opponents = games
             .Where(x => x.PlayerStatistics.Any(y => y.DiscordUserID == discordUserId))
@@ -43,7 +44,7 @@ public class AsyncPlayerOpponentsInfoFactory(
             .GroupBy(player => player.DiscordUserID)
             .Select(group =>
                 new AsyncPlayerOpponentInfoDto(
-                    IsExcludedProfile(group.Key, playerProfiles) ? 0 : playerProfiles.Find(x => x.DiscordUserId == group.Key)?.Id ?? 0,
+                    IsExcludedProfile(group.Key, playerProfiles) ? 0 : playerProfiles.GetValueOrDefault(group.Key)?.Id ?? 0,
                     IsExcludedProfile(group.Key, playerProfiles) ? _privateProfile : group.First().DiscordUserName,
                     group.Count()))
             .OrderByDescending(x => x.Games)
@@ -51,9 +52,9 @@ public class AsyncPlayerOpponentsInfoFactory(
             .ToList();
     }
 
-    private bool IsExcludedProfile(long playerDiscordId, List<AsyncPlayerProfile> playerProfiles)
+    private bool IsExcludedProfile(long playerDiscordId, IReadOnlyDictionary<long, AsyncPlayerProfile> playerProfiles)
     {
-        var profile = playerProfiles.Find(y => y.DiscordUserId == playerDiscordId);
+        playerProfiles.TryGetValue(playerDiscordId, out var profile);
         if (profile is null)
             return true;
 

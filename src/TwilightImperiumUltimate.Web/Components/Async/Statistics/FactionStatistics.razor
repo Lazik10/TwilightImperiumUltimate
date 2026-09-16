@@ -1,4 +1,76 @@
-﻿@using TwilightImperiumUltimate.Web.Components.Factions
+﻿@using TwilightImperiumUltimate.Web.Components.Statistics.DataGrid
+
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="100">
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+        <ResponsiveEnumPicker TEnum="FactionStatisticsFilter"
+                              CurrentValue="@_selectedFactionStatisticsFilter"
+                              CurrentValueChanged="OnFactionStatisticsFilterChanged"
+                              Label="@Strings.FactionStats_Factions"
+                              Width="60"
+                              ButtonWidth="10" />
+    </ResponsiveContainer>
+
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+        <ResponsiveEnumPicker TEnum="FactionStatisticsVpFilter"
+                              CurrentValue="@_selectedFactionVpStatisticsFilter"
+                              CurrentValueChanged="OnFactionStatisticsVpFilterChanged"
+                              Label="@Strings.FactionStats_VpCount"
+                              Width="60"
+                              ButtonWidth="10" />
+    </ResponsiveContainer>
+
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+        <ResponsiveEnumPicker TEnum="FactionStatisticsSubstatsFilter"
+                              CurrentValue="@_selectedFactionStatisticsSubstatsFilter"
+                              ExcludeValues="@_excludedValues"
+                              CurrentValueChanged="OnFactionStatisticsSubstatsFilterChanged"
+                              Label="@Strings.FactionStats_Statistics"
+                              Width="60"
+                              ButtonWidth="10" />
+    </ResponsiveContainer>
+
+    <FactionStatisticsTable FactionsForDisplay="@FactionsForDisplay"
+                            SelectedVpFilter="@_selectedFactionVpStatisticsFilter"
+                            SelectedSubstatsFilter="@_selectedFactionStatisticsSubstatsFilter"
+                            IsLoading="@(!_isDataLoaded)" />
+ </ResponsiveContainer>
+@*
+@using TwilightImperiumUltimate.Web.Components.Statistics.DataGrid
+
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="100">
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+        <ResponsiveEnumPicker TEnum="FactionStatisticsFilter"
+                              CurrentValue="@_selectedFactionStatisticsFilter"
+                              CurrentValueChanged="OnFactionStatisticsFilterChanged"
+                              Label="@Strings.FactionStats_Factions"
+                              Width="60"
+                              ButtonWidth="10" />
+    </ResponsiveContainer>
+
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+        <ResponsiveEnumPicker TEnum="FactionStatisticsVpFilter"
+                              CurrentValue="@_selectedFactionVpStatisticsFilter"
+                              CurrentValueChanged="OnFactionStatisticsVpFilterChanged"
+                              Label="@Strings.FactionStats_VpCount"
+                              Width="60"
+                              ButtonWidth="10" />
+    </ResponsiveContainer>
+
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+        <ResponsiveEnumPicker TEnum="FactionStatisticsSubstatsFilter"
+                              CurrentValue="@_selectedFactionStatisticsSubstatsFilter"
+                              ExcludeValues="@_excludedValues"
+                              CurrentValueChanged="OnFactionStatisticsSubstatsFilterChanged"
+                              Label="@Strings.FactionStats_Statistics"
+                              Width="60"
+                              ButtonWidth="10" />
+    </ResponsiveContainer>
+
+    <FactionStatisticsTable FactionsForDisplay="@FactionsForDisplay"
+                            SelectedVpFilter="@_selectedFactionVpStatisticsFilter"
+                            SelectedSubstatsFilter="@_selectedFactionStatisticsSubstatsFilter"
+                            IsLoading="@(!_isDataLoaded)" />
+</ResponsiveContainer>@using TwilightImperiumUltimate.Web.Components.Factions
 @using TwilightImperiumUltimate.Web.Components.Shared.Bars
 @using TwilightImperiumUltimate.Web.Helpers.Numbers
 
@@ -58,7 +130,7 @@
                 }
                 else
                 {
-                    @* Dummy label to match heigh of the elimination column title, not visible *@
+                    Dummy label to match the elimination column title, not visible
                     <Label Text="@Strings.FactionStats_Eliminations" CenterText="true" Vertical="true" Visible="false" />
                     <Label Text="@GetCorrectLabelText()" CenterText="true" TextColor="@GetCorrectLabelColor()" Style="grid-column: span 4;" />
                     <Label />
@@ -127,4 +199,10 @@
     }
 
 </ResponsiveContainer>
+
+                            <FactionStatisticsTable FactionsForDisplay="@FactionsForDisplay"
+                                                    SelectedVpFilter="@_selectedFactionVpStatisticsFilter"
+                                                    SelectedSubstatsFilter="@_selectedFactionStatisticsSubstatsFilter"
+                                                    IsLoading="@(!_isDataLoaded)" />
+*@
 

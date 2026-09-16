@@ -3,31 +3,41 @@
 
     <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column">
 
-        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.Center" AlignItems="Enums.AlignItems.Center" CssClass="mt-sm">
-
-            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column" AlignItems="Enums.AlignItems.Center">
-                <ResponsiveEnumPicker TEnum="PlayerStatisticsType"
-                        CurrentValue="@_selectedGamesType"
-                        CurrentValueChanged="@OnEnumChanged"
-                        Label="@Strings.AsyncStats_Filter"
-                        Width="50" />
-            </ResponsiveContainer>
-
-            <ResponsiveEnumPicker TEnum="QueryLimit"
-                        CurrentValue="@_selectedQueryLimit"
-                        CurrentValueChanged="@OnQueryLimitChanged"
-                        Width="33"
-                        ExcludeValues="_excludedQueryLimits"
-                        Label="@Strings.AsyncStats_QueryLimit" />
-        </ResponsiveContainer>
-
         <CascadingValue Value="_selectedGamesType" Name="Filter">
 
             <CascadingValue Value="@GetQueryLimit()" Name="Limit">
 
                 <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column" CssClass="async-statistics-content">
 
-                    <StatisticsMenu SelectedMenuITem="UpdateSelectedMenuItem" />
+                    <StatisticsMenu SelectedMenuItem="@_selectedMenuItem"
+                                    SelectedMenuItemChanged="UpdateSelectedMenuItem" />
+
+                    <div class="async-statistics-filters @(IsGeneralStatistics ? "async-statistics-filters-single" : string.Empty)">
+                        <ResponsiveDropDown TValue="PlayerStatisticsType"
+                                            Id="async-statistics-filter"
+                                            Label="@Strings.AsyncStats_Filter"
+                                            LabelPosition="LabelPosition.Column"
+                                            Data="@_statisticsFilters"
+                                            TextProperty="DisplayName"
+                                            ValueProperty="Value"
+                                            Value="@_selectedGamesType"
+                                            ValueChanged="OnEnumChanged"
+                                            Width="100" />
+
+                        @if (_selectedMenuItem != AsyncStatisticsTypeMenuItem.General)
+                        {
+                            <ResponsiveDropDown TValue="QueryLimit"
+                                                Id="async-statistics-query-limit"
+                                                Label="@Strings.AsyncStats_QueryLimit"
+                                                LabelPosition="LabelPosition.Column"
+                                                Data="@_queryLimitOptions"
+                                                TextProperty="Value"
+                                                ValueProperty="Key"
+                                                Value="@_selectedQueryLimit"
+                                                ValueChanged="@OnQueryLimitChanged"
+                                                Width="100" />
+                        }
+                    </div>
 
                     @if(_selectedMenuItem == AsyncStatisticsTypeMenuItem.General)
                     {

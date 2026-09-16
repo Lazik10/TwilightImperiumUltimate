@@ -12,7 +12,7 @@
     element the ::deep selectors in ResponsiveRadzenDataGrid.razor.css would never match anything.
 *@
 
-<div class="responsive-radzen-grid-host" aria-busy="@(IsLoading ? "true" : "false")">
+<div class="responsive-radzen-grid-host" style="@GetHostStyle()" aria-busy="@(IsLoading ? "true" : "false")">
     <RadzenDataGrid
         @ref="_grid"
         TItem="TItem"

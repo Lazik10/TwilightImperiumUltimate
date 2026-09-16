@@ -1,0 +1,9 @@
+@using TwilightImperiumUltimate.Web.Components.Charts
+
+<RankingBarChart Data="@Data"
+                 Title="@Strings.AsyncGames_FastestPlayersTitle"
+                 Subtitle="@Strings.AsyncGames_MinTurns"
+                 SeriesTitle="@Strings.AsyncStats_AverageTurnTime"
+                 ValueFormatter="@FormatValue"
+                 TagClick="@TagClick"
+                 IsLoading="@IsLoading" />

@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Globalization;
 using Microsoft.Extensions.Logging;
 using TwilightImperiumUltimate.Contracts.ApiContracts.AsyncTI4;
@@ -33,9 +34,96 @@ public class AsyncStatsRepository(
     public async Task<List<GameStats>> GetAllAsyncGames(CancellationToken cancellationToken)
     {
         await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);
-        return await dbContext.GameStats
+        var stopwatch = Stopwatch.StartNew();
+        var games = await dbContext.GameStats
+            .AsNoTracking()
+            .AsSplitQuery()
             .Include(x => x.PlayerStatistics)
             .ToListAsync(cancellationToken);
+
+        stopwatch.Stop();
+        _logger.LogInformation(
+            "Async statistics game query completed in {ElapsedMilliseconds} ms with {GameCount} games and {PlayerRowCount} player rows",
+            stopwatch.ElapsedMilliseconds,
+            games.Count,
+            games.Sum(x => x.PlayerStatistics.Count));
+
+        return games;
+    }
+
+    public async Task<List<AsyncGeneralStatsGameProjection>> GetAsyncGeneralStatsGameProjections(CancellationToken cancellationToken)
+    {
+        await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);
+        var stopwatch = Stopwatch.StartNew();
+        var gameRows = await dbContext.GameStats
+            .AsNoTracking()
+            .SelectMany(
+                game => game.PlayerStatistics.DefaultIfEmpty(),
+                (game, player) => new AsyncGeneralStatsGameProjection(
+                    game.Id,
+                    game.IsTigl,
+                    game.SetupTimestamp,
+                    game.EndedTimestamp,
+                    game.HasWinner,
+                    game.NumberOfPlayers,
+                    game.Round,
+                    game.Scoreboard,
+                    player == null ? null : player.DiscordUserID,
+                    player == null ? null : player.Eliminated,
+                    player == null ? null : player.TotalNumberOfTurns,
+                    player == null ? null : player.TotalTurnTime))
+            .ToListAsync(cancellationToken);
+
+        stopwatch.Stop();
+        _logger.LogInformation(
+            "Async general statistics projection completed in {ElapsedMilliseconds} ms with {GameCount} games and {PlayerRowCount} player rows",
+            stopwatch.ElapsedMilliseconds,
+            gameRows.Select(x => x.GameStatsId).Distinct().Count(),
+            gameRows.Count(x => x.DiscordUserId.HasValue));
+
+        return gameRows;
+    }
+
+    public async Task<List<AsyncStatisticsGameProjection>> GetAsyncStatisticsGameProjections(CancellationToken cancellationToken)
+    {
+        await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);
+        var stopwatch = Stopwatch.StartNew();
+        var gameRows = await dbContext.GameStats
+            .AsNoTracking()
+            .SelectMany(
+                game => game.PlayerStatistics.DefaultIfEmpty(),
+                (game, player) => new AsyncStatisticsGameProjection(
+                    game.Id,
+                    game.AsyncGameID,
+                    game.AsyncFunGameName,
+                    game.Timestamp,
+                    game.SetupTimestamp,
+                    game.EndedTimestamp,
+                    game.HasWinner,
+                    game.NumberOfPlayers,
+                    game.Scoreboard,
+                    game.IsTigl,
+                    game.AbsolMode,
+                    game.FrankenGame,
+                    player == null ? null : player.DiscordUserID,
+                    player == null ? null : player.FactionName,
+                    player == null ? null : player.Score,
+                    player == null ? null : player.TotalNumberOfTurns,
+                    player == null ? null : player.TotalTurnTime,
+                    player == null ? null : player.ExpectedHits,
+                    player == null ? null : player.ActualHits,
+                    player == null ? null : player.Eliminated,
+                    player == null ? null : player.Winner))
+            .ToListAsync(cancellationToken);
+
+        stopwatch.Stop();
+        _logger.LogInformation(
+            "Async statistics projection completed in {ElapsedMilliseconds} ms with {GameCount} games and {PlayerRowCount} player rows",
+            stopwatch.ElapsedMilliseconds,
+            gameRows.Select(x => x.GameStatsId).Distinct().Count(),
+            gameRows.Count(x => x.DiscordUserId.HasValue));
+
+        return gameRows;
     }
 
     public async Task<List<GameStats>> GetAllAsyncGamesByYearAndMonthQuery(int year, int month, CancellationToken cancellationToken)
@@ -96,6 +184,7 @@ public class AsyncStatsRepository(
     {
         await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);
         return await dbContext.GameStats
+            .AsNoTracking()
             .FirstOrDefaultAsync(x => x.AsyncGameID == asyncGameId, cancellationToken);
     }
 
@@ -103,6 +192,7 @@ public class AsyncStatsRepository(
     {
         await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);
         return await dbContext.GameStats
+            .AsNoTracking()
             .FirstOrDefaultAsync(x => x.AsyncFunGameName == funName && !string.IsNullOrEmpty(x.AsyncFunGameName), cancellationToken);
     }
 
@@ -307,6 +397,7 @@ public class AsyncStatsRepository(
         await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);
         return await dbContext.AsyncPlayerProfiles
             .AsSplitQuery()
+            .AsNoTracking()
             .Include(x => x.ProfileSettings)
             .Include(x => x.GameStatistics)
             .ThenInclude(x => x.GameStats)
@@ -320,6 +411,7 @@ public class AsyncStatsRepository(
 
         var player = await dbContext.AsyncPlayerProfiles
             .AsSplitQuery()
+            .AsNoTracking()
             .Include(x => x.ProfileSettings)
             .Include(x => x.GameStatistics)
             .ThenInclude(x => x.GameStats)
@@ -328,6 +420,7 @@ public class AsyncStatsRepository(
 
         player ??= await dbContext.AsyncPlayerProfiles
             .AsSplitQuery()
+            .AsNoTracking()
             .Include(x => x.ProfileSettings)
             .Include(x => x.GameStatistics)
             .ThenInclude(x => x.GameStats)
@@ -341,6 +434,7 @@ public class AsyncStatsRepository(
     {
         await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);
         return await dbContext.AsyncPlayerProfiles
+            .AsNoTracking()
             .FirstOrDefaultAsync(x => x.DiscordUserId == discordId, cancellationToken);
     }
 
@@ -387,13 +481,27 @@ public class AsyncStatsRepository(
     public async Task<List<AsyncPlayerProfile>> GetAllAsyncPlayerProfiles(bool withExcludedProfiles, CancellationToken cancellationToken)
     {
         await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);
-        var userProfiles = await dbContext.AsyncPlayerProfiles
+        var stopwatch = Stopwatch.StartNew();
+        var profilesQuery = dbContext.AsyncPlayerProfiles
+            .AsNoTracking()
             .Include(x => x.ProfileSettings)
-            .ToListAsync(cancellationToken);
+            .AsQueryable();
 
-        return withExcludedProfiles ?
-            userProfiles :
-            userProfiles.Where(x => !x.ProfileSettings!.ExcludeFromAsyncStats).ToList();
+        if (!withExcludedProfiles)
+        {
+            profilesQuery = profilesQuery.Where(x => x.ProfileSettings == null || !x.ProfileSettings.ExcludeFromAsyncStats);
+        }
+
+        var profiles = await profilesQuery.ToListAsync(cancellationToken);
+
+        stopwatch.Stop();
+        _logger.LogInformation(
+            "Async statistics profile query completed in {ElapsedMilliseconds} ms with {ProfileCount} profiles; excluded profiles included: {WithExcludedProfiles}",
+            stopwatch.ElapsedMilliseconds,
+            profiles.Count,
+            withExcludedProfiles);
+
+        return profiles;
     }
 
     public async Task<bool> UpdateAsyncPlayerProfileSettings(long asyncPlayerDiscordId, AsyncPlayerProfileSettings settings, CancellationToken cancellationToken)

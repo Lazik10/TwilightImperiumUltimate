@@ -1,0 +1,9 @@
+@namespace TwilightImperiumUltimate.Web.Components.Charts
+@using Radzen
+@using Radzen.Blazor
+
+<RadzenBarChart Title="@Title" Subtitle="@Subtitle" IsLoading="@IsLoading" CategoryTitle="@CategoryTitle" ValueTitle="@ValueTitle" CategoryFormatter="@FormatCategory" PrivateCategoryLabels="@GetPrivateCategoryLabels()" ChartHeight="@EffectiveChartHeight" ShowLegend="@ShowLegend" ShowValueAxis="@ShowValueAxis" ValueAxisStep="@AxisStep" SeriesClick="@OnSeriesClick">
+    <RadzenBarSeries Data="@Data" CategoryProperty="CategoryKey" ValueProperty="Value" Title="@SeriesTitle" Fills="@GetFills()" FillMode="FillMode.Solid">
+        <RadzenSeriesDataLabels Visible="true" Position="DataLabelPosition.Auto" Formatter="@FormatValue" />
+    </RadzenBarSeries>
+</RadzenBarChart>

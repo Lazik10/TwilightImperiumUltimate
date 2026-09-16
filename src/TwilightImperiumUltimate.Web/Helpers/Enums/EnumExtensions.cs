@@ -131,6 +131,21 @@ public static class EnumExtensions
         };
     }
 
+    /// <summary>Maps a semantic <see cref="TextColor"/> to a muted, website-consistent chart fill color.</summary>
+    public static string GetChartFillColor(this TextColor color)
+    {
+        return color switch
+        {
+            TextColor.Red => "#e05252",
+            TextColor.Orange => "#f2994a",
+            TextColor.Yellow => "#f2c94c",
+            TextColor.Green => "#35c46a",
+            TextColor.Blue => "#5aa9e6",
+            TextColor.Purple => "#9b7bd3",
+            _ => "#5aa9e6",
+        };
+    }
+
     public static TextColor GetTextColor(this DraftColor color, bool transparent = false)
     {
         if (transparent)

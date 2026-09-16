@@ -13,8 +13,9 @@ public class AsyncCombatStatsFactory(
 
     public async Task<AsyncCombatSummaryStatsDto> CreateAsyncCombatStatsSummary(int limit, CancellationToken cancellationToken)
     {
-        var games = await _asyncStatsRepository.GetAllAsyncGames(cancellationToken);
-        var playerProfiles = await _asyncStatsRepository.GetAllAsyncPlayerProfiles(true, cancellationToken);
+        var games = await _asyncStatsRepository.GetAsyncStatisticsGameProjections(cancellationToken);
+        var playerProfiles = (await _asyncStatsRepository.GetAllAsyncPlayerProfiles(true, cancellationToken))
+            .ToDictionary(x => x.DiscordUserId);
 
         var allGames = games
             .Where(x =>
@@ -37,11 +38,11 @@ public class AsyncCombatStatsFactory(
         return new AsyncCombatSummaryStatsDto(allGameStats, tiglGameStats, customGameStats);
     }
 
-    private AsyncCombatStatsDto CreateCombatStats(List<GameStats> games, List<AsyncPlayerProfile> playerProfiles, int limit)
+    private AsyncCombatStatsDto CreateCombatStats(List<AsyncStatisticsGameProjection> games, IReadOnlyDictionary<long, AsyncPlayerProfile> playerProfiles, int limit)
     {
         var playerDtos = games
-            .SelectMany(x => x.PlayerStatistics)
-            .GroupBy(x => x.DiscordUserID)
+            .Where(x => x.DiscordUserId.HasValue)
+            .GroupBy(x => x.DiscordUserId!.Value)
             .Select(g =>
             {
                 var playerInfo = GetPlayerInfo(g.Key, playerProfiles);
@@ -50,9 +51,9 @@ public class AsyncCombatStatsFactory(
                 playerInfo.Id,
                 playerInfo.Name,
                 g.Count(),
-                g.Sum(x => x.ActualHits),
-                g.Sum(x => x.ExpectedHits),
-                g.Max(x => x.ActualHits));
+                g.Sum(x => x.ActualHits ?? 0),
+                g.Sum(x => x.ExpectedHits ?? 0),
+                g.Max(x => x.ActualHits ?? 0));
             })
             .Where(x => x.Games >= 20)
             .ToList();
@@ -102,9 +103,9 @@ public class AsyncCombatStatsFactory(
             worstHitsDeviationPlayers);
     }
 
-    private (int Id, string Name) GetPlayerInfo(long discordUserId, List<AsyncPlayerProfile> playerProfiles)
+    private (int Id, string Name) GetPlayerInfo(long discordUserId, IReadOnlyDictionary<long, AsyncPlayerProfile> playerProfiles)
     {
-        var player = playerProfiles.Find(x => x.DiscordUserId == discordUserId);
+        playerProfiles.TryGetValue(discordUserId, out var player);
 
         if (player is not null && player.ProfileSettings is not null && player.ProfileSettings.ShowCombatStats && !player.ProfileSettings.ExcludeFromAsyncStats)
             return (player.Id, player.DiscordUserName);

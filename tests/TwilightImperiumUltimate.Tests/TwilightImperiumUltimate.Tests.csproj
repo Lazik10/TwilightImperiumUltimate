@@ -25,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\TwilightImperiumUltimate.Business\TwilightImperiumUltimate.Business.csproj" />
     <ProjectReference Include="..\..\src\TwilightImperiumUltimate.DataAccess\TwilightImperiumUltimate.DataAccess.csproj" />
     <ProjectReference Include="..\..\src\TwilightImperiumUltimate.Tigl\TwilightImperiumUltimate.Tigl.csproj" />
   </ItemGroup>

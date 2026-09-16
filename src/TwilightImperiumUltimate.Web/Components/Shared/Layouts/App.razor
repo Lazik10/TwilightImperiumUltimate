@@ -3,7 +3,34 @@
 <CascadingAuthenticationState>
     <Router AppAssembly="@typeof(App).Assembly">
         <Found Context="routeData">
-            <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+            <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
+                <NotAuthorized>
+                    <AuthorizeView>
+                        <Authorized Context="authorizationContext">
+                            <PageTitle>Forbidden</PageTitle>
+                            <LayoutView Layout="@typeof(MainLayout)">
+                                <StretchHeightContainer>
+                                    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+                                        <ResponsiveHeading Text="403" Level="1" FontSize="2xl" CenterText="true" CssClass="mb-2xl" />
+                                        <ResponsiveHeading Text="Access denied" Level="2" FontSize="lg" CenterText="true" CssClass="mb-0" />
+                                    </ResponsiveContainer>
+                                </StretchHeightContainer>
+                            </LayoutView>
+                        </Authorized>
+                        <NotAuthorized Context="anonymousContext">
+                            <PageTitle>Unauthorized</PageTitle>
+                            <LayoutView Layout="@typeof(MainLayout)">
+                                <StretchHeightContainer>
+                                    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+                                        <ResponsiveHeading Text="401" Level="1" FontSize="2xl" CenterText="true" CssClass="mb-2xl" />
+                                        <ResponsiveHeading Text="Authentication required" Level="2" FontSize="lg" CenterText="true" CssClass="mb-0" />
+                                    </ResponsiveContainer>
+                                </StretchHeightContainer>
+                            </LayoutView>
+                        </NotAuthorized>
+                    </AuthorizeView>
+                </NotAuthorized>
+            </AuthorizeRouteView>
             <FocusOnNavigate RouteData="@routeData" Selector="body" />
         </Found>
         <NotFound>
@@ -11,12 +38,8 @@
             <LayoutView Layout="@typeof(MainLayout)">
                 <StretchHeightContainer>
                     <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-                        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.SpaceEvenly" CssClass="mb-2xl">
-                            <Label Text="404" FontSize="36" Width="50" CenterText="true" />
-                        </ResponsiveContainer>
-                        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.SpaceEvenly">
-                            <Label Text="Page not found" FontSize="24" CenterText="true" />
-                        </ResponsiveContainer>
+                                    <ResponsiveHeading Text="404" Level="1" FontSize="2xl" CenterText="true" CssClass="mb-2xl" />
+                                    <ResponsiveHeading Text="Page not found" Level="2" FontSize="lg" CenterText="true" CssClass="mb-0" />
                     </ResponsiveContainer>
                 </StretchHeightContainer>
             </LayoutView>

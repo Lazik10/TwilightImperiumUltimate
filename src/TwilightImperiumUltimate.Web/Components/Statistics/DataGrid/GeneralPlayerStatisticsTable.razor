@@ -1,0 +1,37 @@
+@using Radzen.Blazor
+@using TwilightImperiumUltimate.Web.Components.Grid
+
+<ResponsiveRadzenTable ZebraStripes="true" EqualColumns="true" CssClass="mb-xl">
+    <caption class="statistics-table-caption handel white shadow">@Title</caption>
+
+    <RadzenTableHeader>
+        <RadzenTableHeaderRow>
+            <RadzenTableHeaderCell scope="col">@Strings.AsyncStats_Total</RadzenTableHeaderCell>
+            <RadzenTableHeaderCell scope="col">@Strings.AsyncStats_Active</RadzenTableHeaderCell>
+            <RadzenTableHeaderCell scope="col">@Strings.AsyncStats_Inactive</RadzenTableHeaderCell>
+            <RadzenTableHeaderCell scope="col">@Strings.AsyncStats_InactiveLessThanThreeMonths</RadzenTableHeaderCell>
+            <RadzenTableHeaderCell scope="col">@Strings.AsyncStats_InactiveMoreThanThreeMonths</RadzenTableHeaderCell>
+        </RadzenTableHeaderRow>
+    </RadzenTableHeader>
+
+    <RadzenTableBody>
+        @if (IsLoading)
+        {
+            <RadzenTableRow>
+                <RadzenTableCell colspan="5">
+                    <ResponsiveLabel Text="@Strings.Loading" CenterText="true" />
+                </RadzenTableCell>
+            </RadzenTableRow>
+        }
+        else
+        {
+            <RadzenTableRow>
+                <RadzenTableCell class="yellow">@Players</RadzenTableCell>
+                <RadzenTableCell class="green">@ActivePlayers</RadzenTableCell>
+                <RadzenTableCell class="yellow">@InactivePlayers</RadzenTableCell>
+                <RadzenTableCell class="orange">@InactiveLessThanThreeMonths</RadzenTableCell>
+                <RadzenTableCell class="red">@InactiveMoreThanThreeMonths</RadzenTableCell>
+            </RadzenTableRow>
+        }
+    </RadzenTableBody>
+</ResponsiveRadzenTable>

@@ -1,0 +1,37 @@
+@using Radzen.Blazor
+@using TwilightImperiumUltimate.Web.Components.Grid
+
+<ResponsiveRadzenTable ZebraStripes="true" EqualColumns="true" CssClass="mb-xl">
+    <caption class="statistics-table-caption handel white shadow">@Title</caption>
+
+    <RadzenTableHeader>
+        <RadzenTableHeaderRow>
+            <RadzenTableHeaderCell scope="col">@Strings.AsyncStats_Total</RadzenTableHeaderCell>
+            <RadzenTableHeaderCell scope="col">@Strings.AsyncStats_Active</RadzenTableHeaderCell>
+            <RadzenTableHeaderCell scope="col">@Strings.AsyncStats_Cancelled</RadzenTableHeaderCell>
+            <RadzenTableHeaderCell scope="col">@Strings.AsyncStats_Finished</RadzenTableHeaderCell>
+            <RadzenTableHeaderCell scope="col">@Strings.AsyncStats_Eliminations</RadzenTableHeaderCell>
+        </RadzenTableHeaderRow>
+    </RadzenTableHeader>
+
+    <RadzenTableBody>
+        @if (IsLoading)
+        {
+            <RadzenTableRow>
+                <RadzenTableCell colspan="5">
+                    <ResponsiveLabel Text="@Strings.Loading" CenterText="true" />
+                </RadzenTableCell>
+            </RadzenTableRow>
+        }
+        else
+        {
+            <RadzenTableRow>
+                <RadzenTableCell class="yellow">@Games</RadzenTableCell>
+                <RadzenTableCell class="green">@Active</RadzenTableCell>
+                <RadzenTableCell class="orange">@Cancelled</RadzenTableCell>
+                <RadzenTableCell class="red">@Finished</RadzenTableCell>
+                <RadzenTableCell class="red">@Eliminations</RadzenTableCell>
+            </RadzenTableRow>
+        }
+    </RadzenTableBody>
+</ResponsiveRadzenTable>
