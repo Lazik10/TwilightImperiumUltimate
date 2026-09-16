@@ -3,8 +3,8 @@
 <section class="async-history-section" aria-label="Player Count Total">
     <RankingBarChart Data="@Series.Points"
                      Title="Player Count Total"
-                     CategoryTitle="Year / month"
-                     ValueTitle="Players"
+                     YAxisLabel="Year / month"
+                     XAxisLabel="Players"
                      CategoryFormatter="@HistoryBarChartFormatting.FormatCategory"
                      ChartHeight="@HistoryBarChartFormatting.GetChartHeight(Series.Points.Count)"
                      SeriesTitle="@Series.Title"

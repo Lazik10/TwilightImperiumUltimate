@@ -12,7 +12,7 @@
                     <StatisticsMenu SelectedMenuItem="@_selectedMenuItem"
                                     SelectedMenuItemChanged="UpdateSelectedMenuItem" />
 
-                    <div class="async-statistics-filters @(IsGeneralStatistics ? "async-statistics-filters-single" : string.Empty)">
+                    <div class="async-statistics-filters @(IsLimitHiddenStatistics ? "async-statistics-filters-single" : string.Empty)">
                         <ResponsiveDropDown TValue="PlayerStatisticsType"
                                             Id="async-statistics-filter"
                                             Label="@Strings.AsyncStats_Filter"
@@ -24,7 +24,7 @@
                                             ValueChanged="OnEnumChanged"
                                             Width="100" />
 
-                        @if (_selectedMenuItem != AsyncStatisticsTypeMenuItem.General)
+                        @if (!IsLimitHiddenStatistics)
                         {
                             <ResponsiveDropDown TValue="QueryLimit"
                                                 Id="async-statistics-query-limit"
@@ -38,6 +38,13 @@
                                                 Width="100" />
                         }
                     </div>
+
+                    @if (AsyncStatsProvider.SnapshotAge is { } snapshotAge)
+                    {
+                        <p class="async-statistics-snapshot-age" role="status">
+                            Snapshot age: @FormatSnapshotAge(snapshotAge)
+                        </p>
+                    }
 
                     @if(_selectedMenuItem == AsyncStatisticsTypeMenuItem.General)
                     {

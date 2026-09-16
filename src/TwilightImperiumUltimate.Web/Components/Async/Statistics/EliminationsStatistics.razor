@@ -3,7 +3,7 @@
 
 <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column" AlignItems="Enums.AlignItems.Center">
 
-    <RankingBarChart Data="@GetEliminationsPercentageData()" Title="@Strings.AsyncGames_MostEliminationsPercentageTitle" Subtitle="@Strings.AsyncGames_MinGamesCount" SeriesTitle="@Strings.AsyncStats_EliminationsPercentage" ValueFormatter="@FormatPercentage" TagClick="OnPlayerClick" IsLoading="@(!_isDataLoaded || EliminationsStats.MostEliminationsPercentagePlayers.Count == 0)" />
-    <RankingBarChart Data="@GetEliminationsData()" Title="@Strings.AsyncGames_MostEliminationsTitle" Subtitle="@Strings.AsyncGames_MinGamesCount" SeriesTitle="@Strings.AsyncStats_Eliminations" TagClick="OnPlayerClick" IsLoading="@(!_isDataLoaded || EliminationsStats.MostEliminationsPlayers.Count == 0)" />
+    <RankingBarChart Data="@GetEliminationsPercentageData()" Title="@Strings.AsyncGames_MostEliminationsPercentageTitle" Subtitle="@Strings.AsyncGames_MinGamesCount" XAxisLabel="Elimination %" SeriesTitle="@Strings.AsyncStats_EliminationsPercentage" ValueFormatter="@FormatPercentage" TagClick="OnPlayerClick" IsLoading="@(!_isDataLoaded || EliminationsStats.MostEliminationsPercentagePlayers.Count == 0)" />
+    <RankingBarChart Data="@GetEliminationsData()" Title="@Strings.AsyncGames_MostEliminationsTitle" Subtitle="@Strings.AsyncGames_MinGamesCount" XAxisLabel="Eliminations" SeriesTitle="@Strings.AsyncStats_Eliminations" TagClick="OnPlayerClick" IsLoading="@(!_isDataLoaded || EliminationsStats.MostEliminationsPlayers.Count == 0)" />
 
 </ResponsiveContainer>

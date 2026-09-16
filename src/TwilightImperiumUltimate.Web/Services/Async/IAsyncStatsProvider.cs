@@ -4,6 +4,12 @@ namespace TwilightImperiumUltimate.Web.Services.Async;
 
 public interface IAsyncStatsProvider
 {
+    DateTimeOffset? SnapshotGeneratedAtUtc { get; }
+
+    TimeSpan? SnapshotAge { get; }
+
+    void InvalidateCache();
+
     Task<AsyncGeneralSummaryStatsDto> GetGeneralStatistics();
 
     Task<AsyncGamesSummaryStatsDto> GetGamesStatistics(int limit);

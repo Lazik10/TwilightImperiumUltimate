@@ -8,6 +8,12 @@ public partial class GamesMostActiveGamesChart
     public IReadOnlyCollection<RankingBarPoint> Data { get; set; } = [];
 
     [Parameter]
+    public string Title { get; set; } = string.Empty;
+
+    [Parameter]
+    public string SeriesTitle { get; set; } = string.Empty;
+
+    [Parameter]
     public EventCallback<object?> TagClick { get; set; }
 
     [Parameter]

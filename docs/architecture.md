@@ -72,6 +72,10 @@ Browser (Blazor WASM)
               -> SQL Server and external integrations (Discord, SMTP, Async data sources)
 ```
 
+  Async community statistics are published through a persisted aggregate snapshot. The hourly `AsyncGameDataJob` imports source data first and explicitly triggers `AsyncStatisticsSnapshotJob` only after successful batch commits; the snapshot job also has a configurable post-sync cron trigger and a startup trigger that only builds when no snapshot exists. It builds all categories from one scoped source projection/profile load, serializes only already-masked public DTOs, and atomically publishes one JSON row while retaining only the newest two rows. Summary endpoints read the published row through a bounded, single-flight `IMemoryCache`, use versioned `IDistributedCache` keys, return the existing DTO shapes, and expose the snapshot version through `ETag` and `Last-Modified`. A failed or cancelled refresh never unpublishes the previous successful row.
+
+  `AddDistributedMemoryCache` is process-local and is suitable only for development. A horizontally scaled deployment must register a shared Redis or SQL Server `IDistributedCache` provider in the API host and keep the versioned key namespace shared between instances. This repository intentionally does not select a provider package or connection string because that is deployment-specific; the snapshot reader consumes the standard abstraction and remains compatible with either provider.
+
 Design principles:
 
 - Keep components focused on rendering and interaction.

@@ -152,6 +152,14 @@ dotnet ef database update \
   --startup-project src/TwilightImperiumUltimate.API/TwilightImperiumUltimate.API.csproj
 ```
 
+The `AsyncStatisticsSnapshot` migration creates the persisted aggregate JSON row and a filtered unique index so only one row can be published. Deploy it with the same `dotnet ef database update` command before enabling the jobs. Source synchronization uses `AsyncStats:CroneExpression`; snapshot refresh uses `AsyncStats:SnapshotCronExpression` and defaults to ten minutes after each hour. Refresh failures preserve the last published row, so recovery is to fix the source/database issue and trigger the snapshot job again.
+
+The server uses `IMemoryCache` for deserialized snapshots. `AddDistributedMemoryCache` remains process-local and is development-only; it is not a multi-instance cache. A horizontally scaled deployment must replace that registration with a shared `IDistributedCache` implementation such as Redis or SQL Server and coordinate its versioned keys before relying on cross-instance cache coherence. No provider-specific package is added because production cache and connection details are deployment-specific.
+
+The snapshot reader uses `async-statistics-snapshot:v{SnapshotVersion}` as its distributed-cache key and keeps a bounded in-process copy. After a successful publication, the job invalidates the local memory entry; the next read resolves the new version and leaves older distributed entries to expire naturally. Profile visibility updates enqueue a refresh. If no snapshot exists, summary endpoints return `503 Service Unavailable` until the startup or scheduled job successfully publishes one.
+
+Refresh logs include snapshot version, category count, build/persistence/total durations, generated time, and UTF-8 payload size. Summary responses include `X-Async-Snapshot-Generated-At` and `X-Async-Snapshot-Age-Seconds` alongside `ETag` and `Last-Modified`. The Web client uses category/filter/limit plus the observed snapshot version in its in-memory cache keys and starts optional category prefetch after the selected category's first render with a concurrency limit of three. Payload measurements are intentionally log-based and do not log serialized content; the current category endpoints remain the measured deployment choice until production traffic provides evidence for an aggregate endpoint.
+
 Rollback to migration:
 
 ```bash

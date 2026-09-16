@@ -37,6 +37,15 @@ public partial class RadzenBarChart : IAsyncDisposable
     public double? ValueAxisStep { get; set; }
 
     [Parameter]
+    public double? ValueAxisMin { get; set; } = 0;
+
+    [Parameter]
+    public double? ValueAxisMax { get; set; }
+
+    [Parameter]
+    public Func<object, string>? ValueAxisFormatter { get; set; }
+
+    [Parameter]
     public int ChartHeight { get; set; } = 520;
 
     /// <summary>

@@ -23,8 +23,8 @@
     <RankingBarChart Title="@Strings.AsyncGames_PlayersByAverageTimerDistributionTitle"
                      Subtitle="@Strings.AsyncGames_MinTurns100"
                      Data="@GetTimerDistributionData()"
-                     CategoryTitle="@Strings.AsyncStats_TimerCategory"
-                    ValueTitle="@Strings.AsyncStats_Players"
+                     YAxisLabel="@Strings.AsyncStats_TimerCategory"
+                    XAxisLabel="@Strings.AsyncStats_Players"
                      SeriesTitle="@Strings.AsyncStats_Players"
                      BarColors="@GetTimerBarColors()"
                      IsLoading="@(!_isDataLoaded)" />

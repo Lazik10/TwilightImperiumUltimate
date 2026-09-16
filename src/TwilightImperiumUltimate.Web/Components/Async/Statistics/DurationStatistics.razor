@@ -3,10 +3,14 @@
 <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column" AlignItems="Enums.AlignItems.Center">
 
     <DurationStatisticsTable Data="@DurationsStats.FastestGames"
+                             TableTitle="@Strings.AsyncGames_FastestGamesTitle"
+                             TableDescription="@Strings.AsyncGames_MinSixPlayers"
                              GameClick="RedirectToGameDetails"
                              IsLoading="@(!_isDataLoaded || DurationsStats.FastestGames.Count == 0)" />
     <DurationStatisticsTable Data="@DurationsStats.LongestGames"
                              IsLongest="true"
+                             TableTitle="@Strings.AsyncGames_LongestGamesTitle"
+                             TableDescription="@Strings.AsyncGames_MinSixPlayers"
                              GameClick="RedirectToGameDetails"
                              IsLoading="@(!_isDataLoaded || DurationsStats.LongestGames.Count == 0)" />
 

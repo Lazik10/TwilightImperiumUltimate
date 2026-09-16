@@ -1,18 +1,14 @@
-@using TwilightImperiumUltimate.Contracts.DTOs.Async.AsyncStats
 @using TwilightImperiumUltimate.Web.Components.Grid
 
-<section class="async-duration-section" aria-label="@(IsLongest ? "Longest games" : "Fastest games")">
+<section class="async-duration-section" style="width: 100%; max-width: 100%; min-width: 0; overflow: hidden;" aria-label="@(IsLongest ? "Longest games" : "Fastest games")">
     <ResponsiveRadzenTable ZebraStripes="true"
                            EqualColumns="false"
                            WidthDesktop="100%"
                            WidthTablet="100%"
                            WidthMobile="100%"
-                           CssClass="mb-xl">
-        <caption class="handel white shadow">
-            @(IsLongest ? Strings.AsyncGames_LongestGamesTitle : Strings.AsyncGames_FastestGamesTitle)
-            <span> (@Strings.AsyncGames_MinSixPlayers)</span>
-        </caption>
-
+                           TableTitle="@TableTitle"
+                           TableDescription="@TableDescription"
+                           CssClass="duration-statistics-table mb-xl">
         <RadzenTableHeader>
             <RadzenTableHeaderRow>
                 <RadzenTableHeaderCell scope="col">@Strings.AsyncStats_Game</RadzenTableHeaderCell>
@@ -39,7 +35,7 @@
                     <tr class="rz-data-row" role="link" tabindex="0" @onclick="() => OnRowClick(game)" @onkeydown="eventArgs => OnRowKeyDown(eventArgs, game)">
                         <td>@game.Id</td>
                         <td class="text-align-center"><span class="@(IsLongest ? "red" : "green")">@GetDurationTime(game.Duration)</span></td>
-                        <td>@game.FunName</td>
+                        <td title="@game.FunName">@GetFunGameName(game.FunName)</td>
                         <td class="text-align-center">@game.PlayerCount</td>
                         <td class="text-align-center">@game.Scoreboard</td>
                     </tr>

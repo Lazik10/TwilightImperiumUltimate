@@ -64,6 +64,7 @@ TwilightImperiumUltimate/
       Email/
       Helpers/
       Jobs/
+        AsyncStatisticsSnapshotJob.cs
       Logs/
       Options/
       Services/
@@ -83,9 +84,11 @@ TwilightImperiumUltimate/
 
     TwilightImperiumUltimate.DataAccess/
       Configurations/
+        Async/
       DbContexts/
       Migrations/
       Repositories/
+        AsyncStatisticsSnapshotRepository.cs
       Schemas/
       Tables/
 

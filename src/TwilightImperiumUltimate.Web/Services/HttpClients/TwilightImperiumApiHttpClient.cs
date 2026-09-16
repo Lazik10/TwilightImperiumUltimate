@@ -102,6 +102,33 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
         return response.IsSuccessStatusCode;
     }
 
+    public async Task<(TResponse? Response, HttpStatusCode StatusCode, string? ETag, DateTimeOffset? SnapshotGeneratedAtUtc)> GetWithValidationAsync<TResponse>(string endpointPath, string query = "", string? etag = null, CancellationToken cancellationToken = default)
+        where TResponse : class
+    {
+        if (!string.IsNullOrEmpty(query) && query.Contains('?', StringComparison.Ordinal))
+            endpointPath += query;
+
+        Uri uri = new(string.Concat(_httpClient.BaseAddress, endpointPath));
+        await SetAuthorizationHeaderAsync(cancellationToken);
+        using var request = new HttpRequestMessage(HttpMethod.Get, uri);
+        if (!string.IsNullOrWhiteSpace(etag))
+            request.Headers.TryAddWithoutValidation("If-None-Match", etag);
+
+        using var response = await _httpClient.SendAsync(request, cancellationToken);
+        var responseEtag = response.Headers.ETag?.Tag;
+        var generatedAt = response.Headers.TryGetValues("X-Async-Snapshot-Generated-At", out var generatedAtValues)
+            && DateTimeOffset.TryParse(generatedAtValues.FirstOrDefault(), out var parsedGeneratedAt)
+                ? parsedGeneratedAt
+                : (DateTimeOffset?)null;
+        if (response.StatusCode == HttpStatusCode.NotModified)
+            return (null, response.StatusCode, responseEtag, generatedAt);
+        if (!response.IsSuccessStatusCode)
+            return (null, response.StatusCode, responseEtag, generatedAt);
+
+        var result = await response.Content.ReadFromJsonAsync<TResponse>(_options, cancellationToken);
+        return (result, response.StatusCode, responseEtag, generatedAt);
+    }
+
     public async Task<(TResponse Response, HttpStatusCode StatusCode)> PostAsync<TRequest, TResponse>(string endpointPath, TRequest request, CancellationToken cancellationToken = default)
     where TRequest : class
     where TResponse : class, new()

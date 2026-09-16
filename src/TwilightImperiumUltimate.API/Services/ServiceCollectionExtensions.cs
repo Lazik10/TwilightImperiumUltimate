@@ -26,6 +26,7 @@ internal static class ServiceCollectionExtensions
         services.AddAuthentication()
             .AddBearerToken();
         services.AddScoped<ApiKeyStatsAuthAttribute>();
+        services.AddScoped<IAsyncStatisticsSnapshotOperations, AsyncStatisticsSnapshotOperations>();
 
         services.AddAuthorization();
         services.AddEndpointsApiExplorer();
@@ -135,6 +136,20 @@ internal static class ServiceCollectionExtensions
                 .WithIdentity($"{nameof(AsyncGameDataJob)}-trigger")
                 .WithCronSchedule(croneExpression ?? defaultCroneExpression));
 
+            var snapshotJobKey = new JobKey(nameof(AsyncStatisticsSnapshotJob));
+            const string defaultSnapshotCronExpression = "0 10 * * * ?";
+            var snapshotCronExpression = configuration.GetValue<string>("AsyncStats:SnapshotCronExpression");
+            q.AddJob<AsyncStatisticsSnapshotJob>(opts => opts.WithIdentity(snapshotJobKey));
+            q.AddTrigger(opts => opts
+                .ForJob(snapshotJobKey)
+                .WithIdentity($"{nameof(AsyncStatisticsSnapshotJob)}-startup-trigger")
+                .UsingJobData("SkipIfPublished", true)
+                .StartNow());
+            q.AddTrigger(opts => opts
+                .ForJob(snapshotJobKey)
+                .WithIdentity($"{nameof(AsyncStatisticsSnapshotJob)}-trigger")
+                .WithCronSchedule(snapshotCronExpression ?? defaultSnapshotCronExpression));
+
             // Season leaderboard refresh: run immediately at startup, then every 1 hour
             var seasonLeaderboardJobKey = new JobKey(nameof(SeasonLeaderboardRefreshJob));
             q.AddJob<SeasonLeaderboardRefreshJob>(opts => opts.WithIdentity(seasonLeaderboardJobKey));
@@ -160,6 +175,7 @@ internal static class ServiceCollectionExtensions
         });
 
         services.AddTransient<AsyncGameDataJob>();
+        services.AddTransient<AsyncStatisticsSnapshotJob>();
         services.AddTransient<SeasonLeaderboardRefreshJob>();
         services.AddTransient<GameLogsPublishJob>();
     }

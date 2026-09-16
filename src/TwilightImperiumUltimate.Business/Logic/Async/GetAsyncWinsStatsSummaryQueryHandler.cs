@@ -4,15 +4,15 @@ using TwilightImperiumUltimate.Contracts.DTOs.Async.AsyncStats;
 namespace TwilightImperiumUltimate.Business.Logic.Async;
 
 public class GetAsyncWinsStatsSummaryQueryHandler(
-    IAsyncWinsStatsFactory asyncWinsStatsFactory)
+    IAsyncStatisticsSnapshotReader snapshotReader)
     : IRequestHandler<GetAsyncWinsStatsSummaryQuery, AsyncWinsSummaryStatsDto>
 {
-    private readonly IAsyncWinsStatsFactory _asyncWinsStatsFactory = asyncWinsStatsFactory;
+    private readonly IAsyncStatisticsSnapshotReader _snapshotReader = snapshotReader;
 
     public async Task<AsyncWinsSummaryStatsDto> Handle(GetAsyncWinsStatsSummaryQuery request, CancellationToken cancellationToken)
     {
         ArgumentNullException.ThrowIfNull(request);
 
-        return await _asyncWinsStatsFactory.CreateAsyncWinsStatsSummary(request.Limit, cancellationToken);
+        return await _snapshotReader.GetWinsAsync(request.Limit, cancellationToken);
     }
 }

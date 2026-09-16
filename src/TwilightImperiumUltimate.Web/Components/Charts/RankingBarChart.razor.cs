@@ -17,10 +17,10 @@ public partial class RankingBarChart
     public IReadOnlyCollection<RankingBarPoint> Data { get; set; } = [];
 
     [Parameter]
-    public string CategoryTitle { get; set; } = string.Empty;
+    public string YAxisLabel { get; set; } = string.Empty;
 
     [Parameter]
-    public string ValueTitle { get; set; } = string.Empty;
+    public string XAxisLabel { get; set; } = string.Empty;
 
     [Parameter]
     public string Title { get; set; } = string.Empty;
@@ -48,6 +48,15 @@ public partial class RankingBarChart
 
     [Parameter]
     public double? ValueAxisStep { get; set; }
+
+    [Parameter]
+    public double? ValueAxisMin { get; set; } = 0;
+
+    [Parameter]
+    public double? ValueAxisMax { get; set; }
+
+    [Parameter]
+    public Func<object, string>? ValueAxisFormatter { get; set; }
 
     [Parameter]
     public string BarColor { get; set; } = "#5aa9e6";

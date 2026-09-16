@@ -3,8 +3,8 @@
 <section class="async-history-section" aria-label="New player growth per month">
     <RankingBarChart Data="@Series.Points"
                      Title="New Player Growth Per Month"
-                     CategoryTitle="Year / month"
-                     ValueTitle="New Players"
+                     YAxisLabel="Year / month"
+                     XAxisLabel="New Players"
                      CategoryFormatter="@HistoryBarChartFormatting.FormatCategory"
                      ChartHeight="@HistoryBarChartFormatting.GetChartHeight(Series.Points.Count)"
                      SeriesTitle="@Series.Title"

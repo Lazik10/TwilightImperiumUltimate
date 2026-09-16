@@ -2,7 +2,13 @@
 
 <RankingBarChart Data="@Data"
                    Title="@Strings.AsyncGames_LowestHitsDeviationTitle"
+                   Subtitle="@Strings.AsyncGames_MinGamesCount"
+                   XAxisLabel="Hit % Deviation"
+                   ValueAxisMin="0"
+                   ValueAxisMax="0.3"
+                   ValueAxisStep="0.05"
+                   ValueAxisFormatter="@FormatNegativeAxisValue"
                    SeriesTitle="@Strings.AsyncStats_HitsDeviation"
-                   ValueFormatter="@FormatValue"
+                   ValueFormatter="@FormatNegativeValue"
                    TagClick="@TagClick"
                    IsLoading="@IsLoading" />

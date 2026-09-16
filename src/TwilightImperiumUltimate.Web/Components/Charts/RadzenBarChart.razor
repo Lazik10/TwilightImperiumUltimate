@@ -26,7 +26,7 @@
             <RadzenCategoryAxis Stroke="white" StrokeWidth="1" Formatter="@CategoryFormatter">
                 <RadzenAxisTitle Text="@CategoryTitle" />
             </RadzenCategoryAxis>
-            <RadzenValueAxis Visible="@ShowValueAxis" Min="0" Step="@ValueAxisStep">
+            <RadzenValueAxis Visible="@ShowValueAxis" Min="@ValueAxisMin" Max="@ValueAxisMax" Step="@ValueAxisStep" Formatter="@ValueAxisFormatter">
                 <RadzenAxisTitle Text="@ValueTitle" />
                 <RadzenGridLines Visible="false" />
             </RadzenValueAxis>

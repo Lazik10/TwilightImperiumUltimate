@@ -83,7 +83,7 @@ public partial class CombatStatistics
         CombatStats.WorstHitsDeviationPlayers,
         user => user.Id,
         user => user.UserName,
-        user => user.HitsDeviation,
+        user => Math.Abs(user.HitsDeviation),
         TextColor.Red);
 
     private void OnPlayerClick(object? tag)

@@ -52,7 +52,8 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IMapArchiveRepository, MapArchiveRepository>();
         services.AddScoped<ISlicesArchiveRepository, SlicesArchiveRepository>();
         services.AddScoped<IGameStatisticsRepository, GameStatisticsRepository>();
-        services.AddTransient<IAsyncStatsRepository, AsyncStatsRepository>();
+        services.AddScoped<IAsyncStatsRepository, AsyncStatsRepository>();
+        services.AddScoped<IAsyncStatisticsSnapshotRepository, AsyncStatisticsSnapshotRepository>();
         services.AddScoped<ITiglRepository, TiglRepository>();
         services.AddScoped<ITiglUserRepository, TiglUserRepository>();
         services.AddScoped<ISeasonRepository, SeasonRepository>();

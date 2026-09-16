@@ -15,4 +15,6 @@ public partial class TurnsFastestPlayersChart
 
     [Parameter]
     public Func<double, string>? FormatValue { get; set; }
+
+    private string FormatAxisValue(object value) => FormatValue?.Invoke(Convert.ToDouble(value)) ?? value.ToString() ?? string.Empty;
 }

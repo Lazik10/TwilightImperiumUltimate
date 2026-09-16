@@ -12,6 +12,12 @@ public partial class ResponsiveRadzenTable
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 
+    [Parameter]
+    public string TableTitle { get; set; } = string.Empty;
+
+    [Parameter]
+    public string TableDescription { get; set; } = string.Empty;
+
     /// <summary>
     /// Gets or sets a value indicating whether odd/even rows are colored differently.
     /// </summary>

@@ -284,6 +284,42 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.ToTable("AsyncPlayerProfileSettings", "Statistics");
                 });
 
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Async.AsyncStatisticsSnapshot", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("GeneratedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsPublished")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Payload")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("SnapshotVersion")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("SourceDataVersion")
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IsPublished")
+                        .IsUnique()
+                        .HasFilter("[IsPublished] = 1");
+
+                    b.HasIndex("IsPublished", "SnapshotVersion");
+
+                    b.ToTable("AsyncStatisticsSnapshots", "Statistics");
+                });
+
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Async.GameStats", b =>
                 {
                     b.Property<int>("Id")

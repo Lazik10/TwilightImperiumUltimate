@@ -11,6 +11,8 @@ internal static class TableName
 
     internal const string AsyncPlayerProfileSettings = "AsyncPlayerProfileSettings";
 
+    internal const string AsyncStatisticsSnapshots = "AsyncStatisticsSnapshots";
+
     // Cards
     internal const string ActionCards = "ActionCards";
 

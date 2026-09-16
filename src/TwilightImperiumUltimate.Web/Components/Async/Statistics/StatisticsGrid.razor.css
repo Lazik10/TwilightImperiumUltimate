@@ -27,6 +27,13 @@
     --async-statistics-control-width: min(100%, 20rem);
 }
 
+.async-statistics-snapshot-age {
+    align-self: center;
+    margin: 0 0 var(--space-md);
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+}
+
 .async-statistics-filters ::deep .responsive-dropdown-host {
     width: var(--async-statistics-control-width);
 }

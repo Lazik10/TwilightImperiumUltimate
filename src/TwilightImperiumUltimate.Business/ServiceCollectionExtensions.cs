@@ -51,6 +51,8 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IAsyncFactionStatsFactory, AsyncFactionStatsFactory>();
         services.AddScoped<IAsyncOpponentsStatsFactory, AsyncOpponentsStatsFactory>();
         services.AddScoped<IAsyncHistoryStatsFactory, AsyncHistoryStatsFactory>();
+        services.AddScoped<IAsyncStatisticsSnapshotBuilder, AsyncStatisticsSnapshotBuilder>();
+        services.AddScoped<IAsyncStatisticsSnapshotReader, AsyncStatisticsSnapshotReader>();
 
         return services;
     }
