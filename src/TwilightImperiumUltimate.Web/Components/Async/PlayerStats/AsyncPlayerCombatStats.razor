@@ -1,64 +1,42 @@
 ﻿@using TwilightImperiumUltimate.Web.Helpers.Numbers
 
-<ResponsiveContainer Type="ContainerType.Flex" Padding="none">
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="100">
 
-    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="100">
-
-        @if (AsyncPlayerProfile is not null)
-        {
-            <Label Text="@Strings.CombatStats_Title" FontSize="24" CenterText="true" CssClass="mb-md" />
-
-            <GridLayout Columns="3" CssClass="background mb-md">
-
-                <div style="grid-column: span 3; height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
-                <Label Text="@Strings.CombatStats_ExpectedHits" CenterText="true" />
-                <Label Text="@Strings.CombatStats_ActualHits" CenterText="true" />
-                <Label Text="@Strings.CombatStats_HitsDeviation" CenterText="true" />
-
-                <div style="grid-column: span 3; height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
-                @if (AsyncPlayerProfile.Settings.ShowCombatStats)
+    @if (AsyncPlayerProfile is not null)
+    {
+        <ResponsiveRadzenTable ZebraStripes="true" EqualColumns="true" CssClass="mb-xl statistics-row-handel" TableTitle="@Strings.CombatStats_Title">
+            <RadzenTableHeader>
+                <RadzenTableHeaderRow>
+                    <RadzenTableHeaderCell scope="col">@Strings.CombatStats_ExpectedHits</RadzenTableHeaderCell>
+                    <RadzenTableHeaderCell scope="col">@Strings.CombatStats_ActualHits</RadzenTableHeaderCell>
+                    <RadzenTableHeaderCell scope="col">@Strings.CombatStats_HitsDeviation</RadzenTableHeaderCell>
+                    <RadzenTableHeaderCell scope="col">@Strings.CombatStats_MinHits</RadzenTableHeaderCell>
+                    <RadzenTableHeaderCell scope="col">@Strings.CombatStats_AverageHits</RadzenTableHeaderCell>
+                    <RadzenTableHeaderCell scope="col">@Strings.CombatStats_MaxHits</RadzenTableHeaderCell>
+                </RadzenTableHeaderRow>
+            </RadzenTableHeader>
+            <RadzenTableBody>
+                @if (!AsyncPlayerProfile.Settings.ShowCombatStats)
                 {
-                    <Label Text="@CombatStats.ExpectedHits.ToStringWithPrecision(2)" CenterText="true" TextColor="TextColor.Yellow" />
-                    <Label Text="@CombatStats.ActualHits.ToStringWithPrecision(0)" CenterText="true" TextColor="TextColor.Yellow" />
-                    <Label Text="@GetHitDeviationText()" CenterText="true" TextColor="@GetDiceDeviationTextColor()" />
+                    <RadzenTableRow>
+                        <RadzenTableCell colspan="6">
+                            <ResponsiveLabel Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" />
+                        </RadzenTableCell>
+                    </RadzenTableRow>
                 }
                 else
                 {
-                    <div style="grid-column: span 3; height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
-                    <Label Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" Style="grid-column: span 3;" />
-                    <div style="grid-column: span 3; height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
+                    <RadzenTableRow>
+                        <RadzenTableCell class="yellow">@CombatStats.ExpectedHits.ToStringWithPrecision(2)</RadzenTableCell>
+                        <RadzenTableCell class="yellow">@CombatStats.ActualHits.ToStringWithPrecision(0)</RadzenTableCell>
+                        <RadzenTableCell class="@(GetDiceDeviationCssClass())">@GetHitDeviationText()</RadzenTableCell>
+                        <RadzenTableCell class="yellow">@CombatStats.MinHitsPerGame.ToStringWithPrecision(0)</RadzenTableCell>
+                        <RadzenTableCell class="yellow">@CombatStats.AverageHitsPerGame.ToStringWithPrecision(0)</RadzenTableCell>
+                        <RadzenTableCell class="yellow">@CombatStats.MaxHitsPerGame.ToStringWithPrecision(0)</RadzenTableCell>
+                    </RadzenTableRow>
                 }
-
-                <div style="grid-column: span 3; height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
-                <Label Text="@Strings.CombatStats_MinHits" CenterText="true" />
-                <Label Text="@Strings.CombatStats_AverageHits" CenterText="true" />
-                <Label Text="@Strings.CombatStats_MaxHits" CenterText="true" />
-
-                <div style="grid-column: span 3; height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
-                @if (AsyncPlayerProfile.Settings.ShowCombatStats)
-                {
-                    <Label Text="@CombatStats.MinHitsPerGame.ToStringWithPrecision(0)" CenterText="true" TextColor="TextColor.Yellow" />
-                    <Label Text="@CombatStats.AverageHitsPerGame.ToStringWithPrecision(0)" CenterText="true" TextColor="TextColor.Yellow" />
-                    <Label Text="@CombatStats.MaxHitsPerGame.ToStringWithPrecision(0)" CenterText="true" TextColor="TextColor.Yellow" />
-                }
-                else
-                {
-                    <div style="grid-column: span 3; height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
-                    <Label Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" Style="grid-column: span 3;" />
-                    <div style="grid-column: span 3; height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
-                }
-
-                <div style="grid-column: span 3; height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
-            </GridLayout>
-
-        }
-
-    </ResponsiveContainer>
-    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="20" />
+            </RadzenTableBody>
+        </ResponsiveRadzenTable>
+    }
 
 </ResponsiveContainer>

@@ -766,9 +766,21 @@ namespace TwilightImperiumUltimate.Web.Resources {
             }
         }
 
+        public static string AsyncPlayer_GamesStatsCollapseAll {
+            get {
+                return ResourceManager.GetString("AsyncPlayer_GamesStatsCollapseAll", resourceCulture);
+            }
+        }
+
         public static string AsyncPlayer_GamesStatsDuration {
             get {
                 return ResourceManager.GetString("AsyncPlayer_GamesStatsDuration", resourceCulture);
+            }
+        }
+
+        public static string AsyncPlayer_GamesStatsExpandAll {
+            get {
+                return ResourceManager.GetString("AsyncPlayer_GamesStatsExpandAll", resourceCulture);
             }
         }
 
@@ -811,6 +823,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string AsyncPlayer_GamesStatsVp {
             get {
                 return ResourceManager.GetString("AsyncPlayer_GamesStatsVp", resourceCulture);
+            }
+        }
+
+        public static string AsyncPlayer_GamesStatsWin {
+            get {
+                return ResourceManager.GetString("AsyncPlayer_GamesStatsWin", resourceCulture);
             }
         }
 

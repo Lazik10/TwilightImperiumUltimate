@@ -1,0 +1,40 @@
+/*
+    Desktop/tablet shows two 3-column opponent sets side by side in one row (6 columns total);
+    mobile switches to a single 3-column list (one opponent per row) instead of squeezing 6
+    columns into a narrow viewport. Two separate ResponsiveRadzenTable instances are rendered
+    (table column count is structural, can't be changed with CSS alone) and toggled via the
+    same 768px breakpoint already used elsewhere in this app (see ResponsiveRadzenTable.razor.css).
+*/
+.async-opponents-mobile {
+    display: none;
+}
+
+/* Both wrap ResponsiveRadzenTable, which shrinks to content width unless its own container
+   stretches -- these are plain flex-item divs (no explicit width) inside a CenteredItems
+   flex-column parent, so they need width:100% to actually fill that parent. */
+.async-opponents-desktop,
+.async-opponents-mobile {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .async-opponents-desktop {
+        display: none;
+    }
+
+    .async-opponents-mobile {
+        display: block;
+    }
+}
+
+/* Opponent name cells are clickable (navigate to that player's profile) without being a button. */
+.clickable-cell {
+    color: var(--color-white, #ffffff);
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+}
+
+.clickable-cell:hover,
+.clickable-cell:focus-visible {
+    text-decoration: underline;
+}

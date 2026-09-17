@@ -1,46 +1,49 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Async.PlayerStats
 
-<ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" AlignItems="Enums.AlignItems.FlexStart" CssClass="background padding">
+<ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" AlignItems="Enums.AlignItems.FlexStart" CssClass="padding">
 
     @if (AsyncPlayerProfile is not null)
     {
         <TitleTexture Width="15" Texture="Enums.Texture.TopLeft" />
 
-        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Style="min-width: 0;">
 
             <AsyncPlayerNameLabel />
 
-            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.Center" CssClass="mb-2xl">
-                <ResponsiveEnumPicker 
-                    TEnum="PlayerStatisticsType"
-                    CurrentValue="@CurentStatisticsType"
-                    CurrentValueChanged="@OnEnumChanged"
-                    Width="35"
+            <div style="width: fit-content; margin: 0 auto;" class="mb-2xl">
+                <ResponsiveDropDown TValue="PlayerStatisticsType"
+                    Id="async-player-profile-statistics-filter"
+                    Data="@GetStatisticsTypeOptions()"
+                    TextProperty="Value"
+                    ValueProperty="Key"
+                    Value="@CurentStatisticsType"
+                    ValueChanged="@OnEnumChanged"
                     Label="@Strings.AsyncStats_Filter" />
-                <Label Width="20" />
-            </ResponsiveContainer>
+            </div>
 
             <CascadingValue Value="@CurentStatisticsType" Name="AsyncPlayerStatisticsType">
 
-                <AsyncPlayerMainStats />
+                <div class="mb-2xl"><AsyncPlayerMainStats /></div>
 
-                <AsyncPlayerVictoryPointStats />
+                <div class="mb-2xl"><AsyncPlayerVictoryPointStats /></div>
 
-                <AsyncPlayerTurnStats />
+                <div class="mb-2xl"><AsyncPlayerTurnStats /></div>
 
-                <AsyncPlayerCombatStats />
+                <div class="mb-2xl"><AsyncPlayerCombatStats /></div>
 
-                <AsyncPlayerFactionStats />
+                <div class="mb-2xl" style="width: 100%;"><AsyncPlayerFactionStats /></div>
 
-                <AsyncPlayerOpponentsStats />
+                <div class="mb-2xl" style="width: 100%;"><AsyncPlayerOpponentsStats /></div>
 
-                <AsyncPlayerGamesStats />
+                <div class="mb-2xl" style="width: 100%;"><AsyncPlayerGamesStats /></div>
 
             </CascadingValue>
 
             <div style="height: clamp(3.125rem, 3.125rem + 1vw, 6.25rem);"></div>
 
         </ResponsiveContainer>
+
+        <div style="min-width: 15%; max-width: 15%;"></div>
     }
     else
     {

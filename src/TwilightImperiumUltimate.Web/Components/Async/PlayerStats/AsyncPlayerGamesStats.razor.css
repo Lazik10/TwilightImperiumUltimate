@@ -1,0 +1,91 @@
+/*
+    Year/month group rows inside the games table (see AsyncPlayerGamesStats.razor). Rendered via
+    plain RadzenTableRow/RadzenTableCell child components nested inside ResponsiveRadzenTable, so
+    this component's own scope attribute never lands on them directly -- ::deep is required, same
+    reasoning as ResponsiveRadzenTable.razor.css's own header/caption rules.
+*/
+
+/* Plain flex-item div (no explicit width) inside a CenteredItems flex-column parent, so it
+   shrinks to content width unless forced to fill the parent. */
+.async-player-games-host {
+    position: relative;
+    width: 100%;
+}
+
+/* Absolutely positioned so it overlays the table's own caption band without disturbing the
+   caption's centered "Games" title -- no DOM change to the Radzen-owned caption is needed. */
+.async-player-games-host .async-player-games-expand-all-btn {
+    position: absolute;
+    top: var(--space-sm);
+    right: var(--space-md);
+    z-index: 2;
+}
+
+/* VP/Faction/Duration columns keep the table's default Inter font (only year/month group rows
+   above use Handel). Needs !important to beat ".statistics-row-handel tbody tr .rz-cell-data"
+   (also !important) applied directly to this same element, not just inherited. */
+.async-player-games-host ::deep .rz-data-row:not(.async-player-games-year-row):not(.async-player-games-month-row) .rz-cell-data {
+    font-family: 'Inter', sans-serif !important;
+}
+
+.async-player-games-host ::deep .async-player-games-year-row > td,
+.async-player-games-host ::deep .async-player-games-month-row > td {
+    text-align: left;
+    color: var(--color-nav-hover, #8ecfff);
+    font-family: Handel, fallback, sans-serif;
+    text-shadow: var(--shadow-text);
+}
+
+.async-player-games-host ::deep .async-player-games-year-row,
+.async-player-games-host ::deep .async-player-games-month-row {
+    cursor: pointer;
+}
+
+.async-player-games-host ::deep .async-player-games-year-row > td {
+    font-size: var(--font-size-2xl);
+    color: yellow;
+    background-color: var(--color-nav-hover-bg-solid, #123957);
+}
+
+/* The visible text color actually comes from the inner .rz-cell-data span (Radzen sets its own
+   explicit color there), and the "white" utility class on the table's root div is !important, so
+   the year label needs to win here with matching !important + higher specificity. */
+.async-player-games-host ::deep .async-player-games-year-row > td .rz-cell-data {
+    color: yellow !important;
+}
+
+.async-player-games-host ::deep .async-player-games-month-row > td {
+    font-size: var(--font-size-md);
+}
+
+.async-player-games-host ::deep .async-player-games-year-row:focus-visible > td,
+.async-player-games-host ::deep .async-player-games-month-row:focus-visible > td {
+    outline: 2px solid var(--color-nav-hover, #8ecfff);
+    outline-offset: -2px;
+}
+
+/* Whole game row is clickable (navigate to the game) without being a button; the game id/fun
+   name text itself is plain, non-link-looking text. */
+.async-player-games-host ::deep .async-player-games-game-row {
+    cursor: pointer;
+}
+
+.async-player-games-host ::deep .async-player-games-game-row:focus-visible > td {
+    outline: 2px solid var(--color-nav-hover, #8ecfff);
+    outline-offset: -2px;
+}
+
+/* Fun name column truncates instead of stretching the table when the name is long.
+   ResponsiveRadzenTable.razor.css sets ".rz-cell-data { overflow: visible; }" for every cell, so
+   truncation must be re-applied here specifically for this column's span. */
+.async-player-games-host ::deep .async-player-games-fun-name-cell {
+    max-width: 0;
+}
+
+.async-player-games-host ::deep .async-player-games-fun-name-cell .rz-cell-data {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

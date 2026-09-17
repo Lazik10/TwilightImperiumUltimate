@@ -2,26 +2,21 @@
 
 <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="100" CssClass="mt-sm" >
 
-    <TitleLine TransformX="-10" Width="115" MaxWidth="115" />
+    <TitleLine TransformXCss="-3%" Width="140" MaxWidth="140" />
 
     <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="title handel white shadow">
 
-        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.SpaceBetween">
-            @if (AsyncPlayerProfile is not null)
-            {
-                <Label Text="@AsyncPlayerProfile.PlayerInfo.DiscordUserName.ToUpper()" CenterText="true" FontSize="36" />
-            }
-            else
-            {
-                <div style="height: clamp(1.125rem, 1.125rem + 1vw, 2.25rem);"></div>
-            }
-
-            <div style="min-width: 20%;" />
-
-        </ResponsiveContainer>
+        @if (AsyncPlayerProfile is not null)
+        {
+            <Label Text="@AsyncPlayerProfile.PlayerInfo.DiscordUserName.ToUpper()" CenterText="true" FontSize="36" />
+        }
+        else
+        {
+            <div style="height: clamp(1.125rem, 1.125rem + 1vw, 2.25rem);"></div>
+        }
 
     </ResponsiveContainer>
 
-    <TitleLine TransformX="-10" Width="115" MaxWidth="115"/>
+    <TitleLine TransformXCss="-3%" Width="140" MaxWidth="140"/>
 
 </ResponsiveContainer>

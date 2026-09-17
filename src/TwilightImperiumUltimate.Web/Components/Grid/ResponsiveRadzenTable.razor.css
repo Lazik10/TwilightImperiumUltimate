@@ -137,6 +137,7 @@
    column text. */
 .responsive-radzen-table-host ::deep .responsive-radzen-table .rz-grid-table {
     table-layout: auto;
+    width: 100%;
 }
 
 .responsive-radzen-table-host ::deep .responsive-radzen-table-equal-columns .rz-grid-table {

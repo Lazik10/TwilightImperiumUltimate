@@ -1,39 +1,32 @@
-﻿<ResponsiveContainer Type="ContainerType.Flex" Padding="none">
+﻿<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="100">
 
-    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="100">
-
-        @if (AsyncPlayerProfile is not null)
-        {
-            <Label Text="Turn stats" FontSize="24" CenterText="true" CssClass="mb-md" />
-
-            <GridLayout Columns="2" CssClass="background mb-md">
-
-                <div style="grid-column: span 2; height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
-                <Label Text="@Strings.TurnStats_NumberOfTurns" CenterText="true" />
-                <Label Text="@Strings.TurnStats_AverageTurnTime" CenterText="true" />
-
-                <div style="grid-column: span 2; height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
-                @if (AsyncPlayerProfile.Settings.ShowTurnStats)
+    @if (AsyncPlayerProfile is not null)
+    {
+        <ResponsiveRadzenTable ZebraStripes="true" EqualColumns="true" CssClass="mb-xl statistics-row-handel" TableTitle="Turn stats">
+            <RadzenTableHeader>
+                <RadzenTableHeaderRow>
+                    <RadzenTableHeaderCell scope="col">@Strings.TurnStats_NumberOfTurns</RadzenTableHeaderCell>
+                    <RadzenTableHeaderCell scope="col">@Strings.TurnStats_AverageTurnTime</RadzenTableHeaderCell>
+                </RadzenTableHeaderRow>
+            </RadzenTableHeader>
+            <RadzenTableBody>
+                @if (!AsyncPlayerProfile.Settings.ShowTurnStats)
                 {
-                    <Label Text="@TurnStats.TotalTurns.ToString()" CenterText="true" TextColor="TextColor.Yellow" />
-                    <Label Text="@GetAverageTurn()" CenterText="true" TextColor="@GetAverageTurnColor()" />
+                    <RadzenTableRow>
+                        <RadzenTableCell colspan="2">
+                            <ResponsiveLabel Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" />
+                        </RadzenTableCell>
+                    </RadzenTableRow>
                 }
                 else
                 {
-                    <div style="grid-column: span 2; height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
-                    <Label Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" Style="grid-column: span 2;" />
-                    <div style="grid-column: span 2; height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
+                    <RadzenTableRow>
+                        <RadzenTableCell class="yellow">@TurnStats.TotalTurns.ToString()</RadzenTableCell>
+                        <RadzenTableCell class="@(GetAverageTurnCssClass())">@GetAverageTurn()</RadzenTableCell>
+                    </RadzenTableRow>
                 }
-
-                <div style="grid-column: span 2; height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
-            </GridLayout>
-
-        }
-
-    </ResponsiveContainer>
-    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="20" />
+            </RadzenTableBody>
+        </ResponsiveRadzenTable>
+    }
 
 </ResponsiveContainer>

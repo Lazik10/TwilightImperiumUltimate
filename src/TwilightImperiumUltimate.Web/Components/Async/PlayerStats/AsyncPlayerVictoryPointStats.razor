@@ -1,70 +1,61 @@
 ﻿@using TwilightImperiumUltimate.Web.Helpers.Numbers
 
-<ResponsiveContainer Type="ContainerType.Flex" Padding="none">
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="100">
 
-    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="100">
-
-        @if (AsyncPlayerProfile is not null)
-        {
-            <Label Text="@Strings.VpStats_Title" FontSize="24" CenterText="true" CssClass="mb-md" />
-
-            <GridLayout Columns="6" CssClass="background mb-md">
-
-                <div style="grid-column: span 6; height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
-                <Label Text="@Strings.VpStats_VictoryPoints" CenterText="true" />
-                <Label Text="@Strings.VpStats_Games" CenterText="true" />
-                <Label Text="@Strings.VpStats_TotalVp" CenterText="true" />
-                <Label Text="@Strings.VpStats_MaxPossibleVp" CenterText="true" />
-                <Label Text="@Strings.VpStats_AverageVp" CenterText="true" />
-                <Label Text="@Strings.VpStats_VpPercentageOfTotal" CenterText="true" />
-
-                <div style="grid-column: span 6; height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
-                @if (AsyncPlayerProfile.Settings.ShowVpStats)
+    @if (AsyncPlayerProfile is not null)
+    {
+        <ResponsiveRadzenTable ZebraStripes="true" EqualColumns="true" CssClass="mb-xl statistics-row-handel" TableTitle="@Strings.VpStats_Title">
+            <RadzenTableHeader>
+                <RadzenTableHeaderRow>
+                    <RadzenTableHeaderCell scope="col">@Strings.VpStats_VictoryPoints</RadzenTableHeaderCell>
+                    <RadzenTableHeaderCell scope="col">@Strings.VpStats_Games</RadzenTableHeaderCell>
+                    <RadzenTableHeaderCell scope="col">@Strings.VpStats_TotalVp</RadzenTableHeaderCell>
+                    <RadzenTableHeaderCell scope="col">@Strings.VpStats_MaxPossibleVp</RadzenTableHeaderCell>
+                    <RadzenTableHeaderCell scope="col">@Strings.VpStats_AverageVp</RadzenTableHeaderCell>
+                    <RadzenTableHeaderCell scope="col">@Strings.VpStats_VpPercentageOfTotal</RadzenTableHeaderCell>
+                </RadzenTableHeaderRow>
+            </RadzenTableHeader>
+            <RadzenTableBody>
+                @if (!AsyncPlayerProfile.Settings.ShowVpStats)
                 {
-                    foreach (var stats in VpStats.VpStatsByVpGame)
-                    {
-                        if (stats.Games == 0)
-                        {
-                            <Label Text="@stats.VpGameCategory.ToString()" CenterText="true" />
-                            <Label Text="@ShowGames(stats.Games)" CenterText="true" TextColor="TextColor.Yellow" />
-                            <Label CssClass="span-4" />
-                        }
-                        else
-                        {
-                            <Label Text="@stats.VpGameCategory.ToString()" CenterText="true" />
-                            <Label Text="@ShowGames(stats.Games)" CenterText="true" TextColor="TextColor.Yellow" />
-                            <Label Text="@stats.TotalVp.ToString()" CenterText="true" TextColor="TextColor.Yellow" />
-                            <Label Text="@stats.MaxPossibleVp.ToString()" CenterText="true" TextColor="TextColor.Yellow" />
-                            <Label Text="@stats.AverageVpPerGame.ToStringWithPrecision(2)" CenterText="true" TextColor="@stats.AverageVpPerGame.GetAverageVpColor()" />
-                            <Label Text="@stats.VpPercentageOfTotal.ToStringWithPrecisionAndPercentage(2)" CenterText="true" TextColor="@stats.VpPercentageOfTotal.GetAverageVpPercentageColor()" />
-                        }
-                    }
-
-                    <div style="grid-column: span 6; height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
-                    <Label Text="Total" CenterText="true" />
-                    <Label Text="@ShowGames(VpStats.VpStatsTotal.Games)" CenterText="true" TextColor="TextColor.Yellow" />
-                    <Label Text="@VpStats.VpStatsTotal.TotalVp.ToString()" CenterText="true" TextColor="TextColor.Yellow" />
-                    <Label Text="@VpStats.VpStatsTotal.MaxPossibleVp.ToString()" CenterText="true" TextColor="TextColor.Yellow" />
-                    <Label Text="@VpStats.VpStatsTotal.AverageVpPerGame.ToStringWithPrecision(2)" CenterText="true" TextColor="@VpStats.VpStatsTotal.AverageVpPerGame.GetAverageVpColor()" />
-                    <Label Text="@VpStats.VpStatsTotal.VpPercentageOfTotal.ToStringWithPrecisionAndPercentage(2)" CenterText="true" TextColor="@VpStats.VpStatsTotal.VpPercentageOfTotal.GetAverageVpPercentageColor()" />
+                    <RadzenTableRow>
+                        <RadzenTableCell colspan="6">
+                            <ResponsiveLabel Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" />
+                        </RadzenTableCell>
+                    </RadzenTableRow>
                 }
                 else
                 {
-                    <div style="grid-column: span 6; height: clamp(3.125rem, 3.125rem + 1vw, 6.25rem); min-height: 100px;"></div>
-                    <Label Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" Style="grid-column: span 6;" />
-                    <div style="grid-column: span 6; height: clamp(3.125rem, 3.125rem + 1vw, 6.25rem); min-height: 100px;"></div>
+                    @foreach (var stats in VpStats.VpStatsByVpGame)
+                    {
+                        <RadzenTableRow>
+                            <RadzenTableCell>@stats.VpGameCategory.ToString()</RadzenTableCell>
+                            <RadzenTableCell class="yellow">@ShowGames(stats.Games)</RadzenTableCell>
+                            @if (stats.Games == 0)
+                            {
+                                <RadzenTableCell colspan="4"></RadzenTableCell>
+                            }
+                            else
+                            {
+                                <RadzenTableCell class="yellow">@stats.TotalVp.ToString()</RadzenTableCell>
+                                <RadzenTableCell class="yellow">@stats.MaxPossibleVp.ToString()</RadzenTableCell>
+                                <RadzenTableCell class="@(GetAverageVpCssClass(stats.AverageVpPerGame))">@stats.AverageVpPerGame.ToStringWithPrecision(2)</RadzenTableCell>
+                                <RadzenTableCell class="@(GetAverageVpPercentageCssClass(stats.VpPercentageOfTotal))">@stats.VpPercentageOfTotal.ToStringWithPrecisionAndPercentage(2)</RadzenTableCell>
+                            }
+                        </RadzenTableRow>
+                    }
+
+                    <RadzenTableRow class="async-player-vp-total-row">
+                        <RadzenTableCell>Total</RadzenTableCell>
+                        <RadzenTableCell class="yellow">@ShowGames(VpStats.VpStatsTotal.Games)</RadzenTableCell>
+                        <RadzenTableCell class="yellow">@VpStats.VpStatsTotal.TotalVp.ToString()</RadzenTableCell>
+                        <RadzenTableCell class="yellow">@VpStats.VpStatsTotal.MaxPossibleVp.ToString()</RadzenTableCell>
+                        <RadzenTableCell class="@(GetAverageVpCssClass(VpStats.VpStatsTotal.AverageVpPerGame))">@VpStats.VpStatsTotal.AverageVpPerGame.ToStringWithPrecision(2)</RadzenTableCell>
+                        <RadzenTableCell class="@(GetAverageVpPercentageCssClass(VpStats.VpStatsTotal.VpPercentageOfTotal))">@VpStats.VpStatsTotal.VpPercentageOfTotal.ToStringWithPrecisionAndPercentage(2)</RadzenTableCell>
+                    </RadzenTableRow>
                 }
-
-                <div style="grid-column: span 6; height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
-            </GridLayout>
-
-        }
-
-    </ResponsiveContainer>
-    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="20" />
+            </RadzenTableBody>
+        </ResponsiveRadzenTable>
+    }
 
 </ResponsiveContainer>

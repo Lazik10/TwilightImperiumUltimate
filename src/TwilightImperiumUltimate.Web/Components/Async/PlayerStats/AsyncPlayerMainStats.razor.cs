@@ -47,8 +47,18 @@ public partial class AsyncPlayerMainStats
         return GameStats.Wins.ToString(CultureInfo.InvariantCulture);
     }
 
-    private MarkupString ComposeGeneralStats()
+    private string GetWinrateCssClass()
     {
-        return new MarkupString($"{GetWinratePercentage()}\u2003\u2003{GetGamesFinished()}");
+        if (AsyncPlayerProfile.Settings.ExcludeFromAsyncStats || !AsyncPlayerProfile.Settings.ShowWinRates)
+            return string.Empty;
+
+        return GameStats.WinRate.GetWinrateColor() switch
+        {
+            TextColor.Green => "green",
+            TextColor.Yellow => "yellow",
+            TextColor.Orange => "orange",
+            TextColor.Red => "red",
+            _ => string.Empty,
+        };
     }
 }

@@ -589,6 +589,24 @@ p {
     }
 }
 
+/*
+    Unpaged data grids (e.g. the "Factions" overview grid on the Async Statistics and player
+    profile pages) render every row at once. RadzenDataGrid itself has no Blazor CSS scope
+    attribute, so this plain global selector reaches it fine without ::deep from either consumer.
+*/
+
+/* Never show a horizontal scrollbar for this grid -- wrap column content/shrink columns to fit
+   the available width instead of the default nowrap+overflow-x:auto columns use elsewhere. */
+.faction-overview-grid .rz-data-grid-data {
+    overflow-x: hidden;
+}
+
+.faction-overview-grid .rz-grid-table th,
+.faction-overview-grid .rz-grid-table td {
+    white-space: normal;
+    word-break: break-word;
+}
+
 /* ==================== SPACING UTILITIES ====================== */
 
 
