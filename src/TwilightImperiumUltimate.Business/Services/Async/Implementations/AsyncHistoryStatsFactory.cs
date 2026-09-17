@@ -28,9 +28,10 @@ public class AsyncHistoryStatsFactory(
     private AsyncHistoryStatsDto CreateHistoryStats(List<List<AsyncStatisticsGameProjection>> games)
     {
         var historyStats = CalculateAsyncGamesHistory(games);
+        var endedHistoryStats = CalculateAsyncEndedGamesHistory(games);
         var playersHistoryStats = CalculateAsyncPlayerHistory(games);
 
-        return new AsyncHistoryStatsDto(historyStats, playersHistoryStats);
+        return new AsyncHistoryStatsDto(historyStats, endedHistoryStats, playersHistoryStats);
     }
 
     private List<AsyncGamesHistoryDto> CalculateAsyncGamesHistory(List<List<AsyncStatisticsGameProjection>> games)
@@ -63,10 +64,45 @@ public class AsyncHistoryStatsFactory(
                 entry.Year,
                 entry.Month,
                 cumulativeGames,
-                entry.Count));
+                entry.Count,
+                0));
         }
 
         return result;
+    }
+
+    private List<AsyncGamesHistoryDto> CalculateAsyncEndedGamesHistory(List<List<AsyncStatisticsGameProjection>> games)
+    {
+        var endedGameRecords = games
+            .Where(game => game[0].HasWinner || game[0].EndedTimestamp.HasValue)
+            .Select(game =>
+            {
+                var endedTimestamp = game[0].EndedTimestamp ?? (long?)game[0].SetupTimestamp ?? game[0].Timestamp;
+                return new
+                {
+                    Year = DateTimeOffset.FromUnixTimeSeconds(endedTimestamp).UtcDateTime.Year,
+                    Month = DateTimeOffset.FromUnixTimeSeconds(endedTimestamp).UtcDateTime.Month,
+                };
+            })
+            .GroupBy(x => new { x.Year, x.Month })
+            .Select(g => new
+            {
+                g.Key.Year,
+                g.Key.Month,
+                Count = g.Count(),
+            })
+            .OrderBy(x => x.Year)
+            .ThenBy(x => x.Month)
+            .ToList();
+
+        return endedGameRecords
+            .Select(entry => new AsyncGamesHistoryDto(
+                entry.Year,
+                entry.Month,
+                entry.Count,
+                0,
+                entry.Count))
+            .ToList();
     }
 
     private List<AsyncPlayersHistoryDto> CalculateAsyncPlayerHistory(List<List<AsyncStatisticsGameProjection>> games)

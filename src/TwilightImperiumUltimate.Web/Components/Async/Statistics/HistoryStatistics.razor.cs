@@ -65,6 +65,10 @@ public partial class HistoryStatistics
         GetSelectedHistory().GamesHistory,
         item => item.New);
 
+    private HistoryBarSeries GetEndedGamesSeries() => CreateSeries(
+        GetSelectedHistory().GamesEndedHistory,
+        item => item.Ended);
+
     private HistoryBarSeries GetPlayerCountsSeries() => CreateSeries(
         GetSelectedHistory().PlayersHistory,
         item => item.Count);

@@ -43,6 +43,46 @@ public sealed class AsyncStatisticsSnapshotValidatorTests
     }
 
     [Fact]
+    public void Validate_WhenHistoryHasGamesButMissingEndedHistory_ShouldRejectSnapshot()
+    {
+        var snapshot = new AsyncStatisticsSnapshotDto
+        {
+            History = new AsyncHistorySummaryStatsDto(
+                new AsyncHistoryStatsDto(
+                    gamesHistory: [new AsyncGamesHistoryDto(2026, 9, 1, 1, 0)],
+                    gamesEndedHistory: [],
+                    playersHistory: [new AsyncPlayersHistoryDto(2026, 9, 1, 1)]),
+                new AsyncHistoryStatsDto(),
+                new AsyncHistoryStatsDto()),
+        };
+
+        var action = () => AsyncStatisticsSnapshotValidator.Validate(snapshot);
+
+        action.Should().Throw<InvalidOperationException>()
+            .WithMessage("*History.All*games history*ended-games history*");
+    }
+
+    [Fact]
+    public void Validate_WhenEndedHistoryRowsExistButEndedValueIsZero_ShouldRejectSnapshot()
+    {
+        var snapshot = new AsyncStatisticsSnapshotDto
+        {
+            History = new AsyncHistorySummaryStatsDto(
+                new AsyncHistoryStatsDto(
+                    gamesHistory: [new AsyncGamesHistoryDto(2026, 9, 1, 1, 0)],
+                    gamesEndedHistory: [new AsyncGamesHistoryDto(2026, 9, 42, 0, 0)],
+                    playersHistory: [new AsyncPlayersHistoryDto(2026, 9, 1, 1)]),
+                new AsyncHistoryStatsDto(),
+                new AsyncHistoryStatsDto()),
+        };
+
+        var action = () => AsyncStatisticsSnapshotValidator.Validate(snapshot);
+
+        action.Should().Throw<InvalidOperationException>()
+            .WithMessage("*invalid ended-games point*");
+    }
+
+    [Fact]
     public void Validate_WhenSnapshotHasAllCategoriesAndFilters_ShouldAcceptSnapshot()
     {
         var action = () => AsyncStatisticsSnapshotValidator.Validate(new AsyncStatisticsSnapshotDto());

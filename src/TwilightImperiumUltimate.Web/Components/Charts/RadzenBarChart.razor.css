@@ -1,5 +1,8 @@
 .radzen-bar-chart {
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
     position: relative;
     margin-bottom: var(--space-2xl);
     padding: var(--space-md);
@@ -28,6 +31,7 @@
 
 .radzen-bar-chart ::deep .rz-chart {
     width: 100%;
+    max-width: 100%;
     min-height: 0;
 }
 

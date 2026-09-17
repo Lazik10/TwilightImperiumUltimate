@@ -1,4 +1,9 @@
-﻿@using TwilightImperiumUltimate.Web.Components.Statistics.DataGrid
+﻿@using TwilightImperiumUltimate.Contracts.DTOs.Async.AsyncStats
+@using TwilightImperiumUltimate.Web.Components.Charts
+@using TwilightImperiumUltimate.Web.Components.Factions
+@using TwilightImperiumUltimate.Web.Components.Grid
+@using TwilightImperiumUltimate.Web.Components.Statistics.Chart
+@using TwilightImperiumUltimate.Web.Helpers.Numbers
 
 <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="100">
     <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
@@ -29,11 +34,101 @@
                               ButtonWidth="10" />
     </ResponsiveContainer>
 
-    <FactionStatisticsTable FactionsForDisplay="@FactionsForDisplay"
-                            SelectedVpFilter="@_selectedFactionVpStatisticsFilter"
-                            SelectedSubstatsFilter="@_selectedFactionStatisticsSubstatsFilter"
-                            IsLoading="@(!_isDataLoaded)" />
- </ResponsiveContainer>
+    @if (_selectedFactionStatisticsSubstatsFilter == FactionStatisticsSubstatsFilter.All)
+    {
+        <ResponsiveRadzenDataGrid TItem="AsyncFactionsStatsDto"
+                                  Data="@FactionsForDisplay"
+                                  IsLoading="@(!_isDataLoaded)"
+                                  AllowPaging="true"
+                                  PageSize="25"
+                                  AllowSorting="true"
+                                  AllowAlternatingRows="true"
+                                  CssClass="faction-overview-grid">
+            <Columns>
+                <RadzenDataGridColumn TItem="AsyncFactionsStatsDto" Title="@Strings.FactionStats_Faction" Sortable="true">
+                    <Template Context="faction">
+                        <div style="display:flex; align-items:center; gap:0.5rem;">
+                            <AsyncFactionIconImg FactionName="@faction.FactionName" Height="20" />
+                            <span>@faction.FactionName.GetFactionUIText(FactionResourceType.Title)</span>
+                        </div>
+                    </Template>
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="AsyncFactionsStatsDto" Title="@Strings.FactionStats_Games" Sortable="true">
+                    <Template Context="faction">@GetCorrectFactionStatsByVp(faction).Games</Template>
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="AsyncFactionsStatsDto" Title="@Strings.FactionStats_Wins" Sortable="true">
+                    <Template Context="faction">@GetCorrectFactionStatsByVp(faction).Wins</Template>
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="AsyncFactionsStatsDto" Title="@Strings.FactionStats_WinPercentage" Sortable="true">
+                    <Template Context="faction">@GetCorrectFactionStatsByVp(faction).WinsPercentage.ToStringWithPrecisionAndPercentage(2)</Template>
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="AsyncFactionsStatsDto" Title="@Strings.FactionStats_Eliminations" Sortable="true">
+                    <Template Context="faction">@GetCorrectFactionStatsByVp(faction).Eliminations</Template>
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="AsyncFactionsStatsDto" Title="@Strings.FactionStats_AverageVp" Sortable="true">
+                    <Template Context="faction">@GetAverageVpValue(faction).ToStringWithPrecision(2)</Template>
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="AsyncFactionsStatsDto" Title="@Strings.FactionStats_AverageVpPercentage" Sortable="true">
+                    <Template Context="faction">@GetCorrectFactionStatsByVp(faction).VpPercentage.ToStringWithPrecisionAndPercentage(1)</Template>
+                </RadzenDataGridColumn>
+            </Columns>
+        </ResponsiveRadzenDataGrid>
+    }
+    else
+    {
+        @switch (_selectedFactionStatisticsSubstatsFilter)
+        {
+            case FactionStatisticsSubstatsFilter.Games:
+                <RankingBarChart Data="@GetGamesData()"
+                                Title="@Strings.FactionStats_Games"
+                                XAxisLabel="@Strings.FactionStats_Games"
+                                SeriesTitle="@Strings.FactionStats_Games"
+                                IsLoading="@(!_isDataLoaded)" />
+                break;
+            case FactionStatisticsSubstatsFilter.Wins:
+                <RankingBarChart Data="@GetWinsData()"
+                                Title="@Strings.FactionStats_Wins"
+                                XAxisLabel="@Strings.FactionStats_Wins"
+                                SeriesTitle="@Strings.FactionStats_Wins"
+                                IsLoading="@(!_isDataLoaded)" />
+                break;
+            case FactionStatisticsSubstatsFilter.WinPercentage:
+                <RankingBarChart Data="@GetWinPercentageData()"
+                                Title="@Strings.FactionStats_WinPercentage"
+                                XAxisLabel="@Strings.FactionStats_WinPercentage"
+                                SeriesTitle="@Strings.FactionStats_WinPercentage"
+                                ValueFormatter="FormatFactionWinPercentageValue"
+                                IsLoading="@(!_isDataLoaded)" />
+                break;
+            case FactionStatisticsSubstatsFilter.Eliminations:
+                <RankingBarChart Data="@GetEliminationsData()"
+                                Title="@Strings.FactionStats_Eliminations"
+                                XAxisLabel="@Strings.FactionStats_Eliminations"
+                                SeriesTitle="@Strings.FactionStats_Eliminations"
+                                IsLoading="@(!_isDataLoaded)" />
+                break;
+            case FactionStatisticsSubstatsFilter.AverageVp:
+                <RankingBarChart Data="@GetAverageVpData()"
+                                Title="@Strings.FactionStats_AverageVp"
+                                XAxisLabel="@Strings.FactionStats_AverageVp"
+                                SeriesTitle="@Strings.FactionStats_AverageVp"
+                                ValueFormatter="FormatFactionAverageVpValue"
+                                IsLoading="@(!_isDataLoaded)" />
+                break;
+            case FactionStatisticsSubstatsFilter.AverageVpPercentage:
+                <RankingBarChart Data="@GetAverageVpPercentageData()"
+                                Title="@Strings.FactionStats_AverageVpPercentage"
+                                XAxisLabel="@Strings.FactionStats_AverageVpPercentage"
+                                SeriesTitle="@Strings.FactionStats_AverageVpPercentage"
+                                ValueFormatter="FormatFactionAverageVpPercentageValue"
+                                IsLoading="@(!_isDataLoaded)" />
+                break;
+            default:
+                <ResponsiveLabel Text="@Strings.Loading" CenterText="true" />
+                break;
+        }
+    }
+</ResponsiveContainer>
 @*
 @using TwilightImperiumUltimate.Web.Components.Statistics.DataGrid
 

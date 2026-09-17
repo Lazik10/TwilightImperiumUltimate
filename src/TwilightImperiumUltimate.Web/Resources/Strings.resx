@@ -3117,11 +3117,11 @@ Brandon Williams&lt;/p&gt;</value>
   </data>
 
   <data name="FactionStats_All" xml:space="preserve">
-    <value>All</value>
+    <value>Overall</value>
   </data>
 
   <data name="FactionStatisticsSubstatsFilter_All" xml:space="preserve">
-    <value>All</value>
+    <value>Overall</value>
   </data>
 
   <data name="FactionStatisticsSubstatsFilter_Games" xml:space="preserve">

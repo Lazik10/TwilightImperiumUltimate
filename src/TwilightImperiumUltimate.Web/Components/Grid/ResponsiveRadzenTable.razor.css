@@ -171,6 +171,10 @@
     background-color: var(--rz-grid-header-background-color, var(--color-nav-hover-bg-solid));
 }
 
+.responsive-radzen-table-host ::deep .statistics-row-handel tbody tr .rz-cell-data {
+    font-family: Handel, sans-serif !important;
+}
+
 .responsive-radzen-table-host ::deep .responsive-radzen-table tbody td.yellow .rz-cell-data {
     color: yellow !important;
 }

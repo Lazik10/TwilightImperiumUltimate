@@ -1,5 +1,8 @@
 .radzen-line-chart {
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
     min-height: 18rem;
     padding: var(--space-md);
     border: 1px solid var(--color-nav-hover-bg-solid);
@@ -9,5 +12,7 @@
 
 .radzen-line-chart ::deep .rz-chart {
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
     min-height: 16rem;
 }

@@ -11,6 +11,7 @@ namespace TwilightImperiumUltimate.Business.Services.Async.Implementations;
 
 public sealed class AsyncStatisticsSnapshotReader(
     IAsyncStatisticsSnapshotRepository repository,
+    IAsyncStatisticsSnapshotBuilder snapshotBuilder,
     IMemoryCache memoryCache,
     IDistributedCache distributedCache,
     ILogger<AsyncStatisticsSnapshotReader> logger)
@@ -23,6 +24,7 @@ public sealed class AsyncStatisticsSnapshotReader(
     private static readonly SemaphoreSlim CachePopulationLock = new(1, 1);
 
     private readonly IAsyncStatisticsSnapshotRepository _repository = repository;
+    private readonly IAsyncStatisticsSnapshotBuilder _snapshotBuilder = snapshotBuilder;
     private readonly IMemoryCache _memoryCache = memoryCache;
     private readonly IDistributedCache _distributedCache = distributedCache;
     private readonly ILogger<AsyncStatisticsSnapshotReader> _logger = logger;
@@ -144,6 +146,8 @@ public sealed class AsyncStatisticsSnapshotReader(
             var snapshot = await _repository.GetPublishedAsync(cancellationToken)
                 ?? throw new InvalidOperationException("Async statistics snapshot is not available.");
 
+            snapshot = await EnsureSchemaCompatibleSnapshotAsync(snapshot, cancellationToken);
+
             var distributedKey = $"{DistributedCacheKeyPrefix}{snapshot.SnapshotVersion}";
             var payload = await _distributedCache.GetStringAsync(distributedKey, cancellationToken);
             if (payload is null)
@@ -163,6 +167,14 @@ public sealed class AsyncStatisticsSnapshotReader(
 
             var materializedSnapshot = JsonSerializer.Deserialize<AsyncStatisticsSnapshotDto>(payload)
                 ?? throw new InvalidOperationException("Async statistics snapshot payload is invalid.");
+
+            if (!IsValidSnapshotPayload(materializedSnapshot, snapshot.SnapshotVersion))
+            {
+                var rebuiltSnapshot = await _snapshotBuilder.BuildAsync(cancellationToken);
+                var rebuiltPayload = JsonSerializer.Serialize(rebuiltSnapshot);
+                snapshot = await _repository.PublishAsync(DateTime.UtcNow, AsyncStatisticsSnapshotSchema.Version, rebuiltPayload, cancellationToken);
+                materializedSnapshot = rebuiltSnapshot;
+            }
 
             var result = new CachedSnapshot(snapshot.SnapshotVersion, materializedSnapshot);
             _memoryCache.Set(MemoryCacheKey, result, CacheDuration);
@@ -195,6 +207,40 @@ public sealed class AsyncStatisticsSnapshotReader(
 
     private AsyncOpponentsStatsDto SliceOpponents(AsyncOpponentsStatsDto stats, int limit) =>
         new(stats.PlayersWithMostOpponents.Take(limit).ToList());
+
+    private async Task<Core.Entities.Async.AsyncStatisticsSnapshot> EnsureSchemaCompatibleSnapshotAsync(Core.Entities.Async.AsyncStatisticsSnapshot snapshot, CancellationToken cancellationToken)
+    {
+        if (snapshot.SourceDataVersion == AsyncStatisticsSnapshotSchema.Version)
+        {
+            return snapshot;
+        }
+
+        _logger.LogWarning(
+            "Published async snapshot schema version is incompatible. Found={FoundSchemaVersion}, Expected={ExpectedSchemaVersion}. Rebuilding snapshot.",
+            snapshot.SourceDataVersion ?? "<null>",
+            AsyncStatisticsSnapshotSchema.Version);
+
+        var rebuiltSnapshot = await _snapshotBuilder.BuildAsync(cancellationToken);
+        var rebuiltPayload = JsonSerializer.Serialize(rebuiltSnapshot);
+        return await _repository.PublishAsync(DateTime.UtcNow, AsyncStatisticsSnapshotSchema.Version, rebuiltPayload, cancellationToken);
+    }
+
+    private bool IsValidSnapshotPayload(AsyncStatisticsSnapshotDto snapshot, long snapshotVersion)
+    {
+        try
+        {
+            AsyncStatisticsSnapshotValidator.Validate(snapshot);
+            return true;
+        }
+        catch (InvalidOperationException ex)
+        {
+            _logger.LogWarning(
+                ex,
+                "Published async snapshot payload validation failed. SnapshotVersion={SnapshotVersion}. Rebuilding snapshot.",
+                snapshotVersion);
+            return false;
+        }
+    }
 
     private sealed record CachedSnapshot(long Version, AsyncStatisticsSnapshotDto Payload);
 }

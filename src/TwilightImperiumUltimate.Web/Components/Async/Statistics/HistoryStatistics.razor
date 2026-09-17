@@ -2,9 +2,10 @@
 
 <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column" AlignItems="Enums.AlignItems.Center">
 
-    <HistoryGameCountsChart Series="@GetGameCountsSeries()" IsLoading="@(!_isDataLoaded || GetSelectedHistory().GamesHistory.Count == 0)" />
-    <HistoryNewGamesChart Series="@GetNewGamesSeries()" IsLoading="@(!_isDataLoaded || GetSelectedHistory().GamesHistory.Count == 0)" />
-    <HistoryPlayerCountsChart Series="@GetPlayerCountsSeries()" IsLoading="@(!_isDataLoaded || GetSelectedHistory().PlayersHistory.Count == 0)" />
-    <HistoryNewPlayerGrowthChart Series="@GetNewPlayerGrowthSeries()" IsLoading="@(!_isDataLoaded || GetSelectedHistory().PlayersHistory.Count == 0)" />
+    <HistoryGameCountsChart Series="@GetGameCountsSeries()" IsLoading="@(!_isDataLoaded)" />
+    <HistoryNewGamesChart Series="@GetNewGamesSeries()" IsLoading="@(!_isDataLoaded)" />
+    <HistoryEndedGamesChart Series="@GetEndedGamesSeries()" IsLoading="@(!_isDataLoaded)" />
+    <HistoryPlayerCountsChart Series="@GetPlayerCountsSeries()" IsLoading="@(!_isDataLoaded)" />
+    <HistoryNewPlayerGrowthChart Series="@GetNewPlayerGrowthSeries()" IsLoading="@(!_isDataLoaded)" />
 
 </ResponsiveContainer>

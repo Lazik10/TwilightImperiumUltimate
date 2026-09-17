@@ -1,8 +1,8 @@
 @using TwilightImperiumUltimate.Web.Components.Charts
 
-<section class="async-history-section" aria-label="New player growth per month">
+<section class="async-history-section" style="width: 100%;" aria-label="New player growth per month">
     <RankingBarChart Data="@Series.Points"
-                     Title="New Player Growth Per Month"
+                     Title="@Strings.AsyncGames_NewPlayersHistoryTitle"
                      YAxisLabel="Year / month"
                      XAxisLabel="New Players"
                      CategoryFormatter="@HistoryBarChartFormatting.FormatCategory"

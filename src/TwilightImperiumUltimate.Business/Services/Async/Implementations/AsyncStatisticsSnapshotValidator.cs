@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Reflection;
 using TwilightImperiumUltimate.Contracts.DTOs.Async;
+using TwilightImperiumUltimate.Contracts.DTOs.Async.AsyncStats;
 
 namespace TwilightImperiumUltimate.Business.Services.Async.Implementations;
 
@@ -38,6 +39,29 @@ public static class AsyncStatisticsSnapshotValidator
 
                 ValidateCollections(filter, $"{categoryName}.{filterName}", new HashSet<object>(ReferenceEqualityComparer.Instance));
             }
+        }
+
+        ValidateHistorySnapshot(snapshot.History.All, $"{nameof(AsyncStatisticsSnapshotDto.History)}.All");
+        ValidateHistorySnapshot(snapshot.History.Tigl, $"{nameof(AsyncStatisticsSnapshotDto.History)}.Tigl");
+        ValidateHistorySnapshot(snapshot.History.Custom, $"{nameof(AsyncStatisticsSnapshotDto.History)}.Custom");
+    }
+
+    private static void ValidateHistorySnapshot(AsyncHistoryStatsDto historyStats, string path)
+    {
+        if (historyStats.GamesHistory.Count > 0 && historyStats.GamesEndedHistory.Count == 0)
+        {
+            throw new InvalidOperationException($"Async statistics snapshot history '{path}' has games history but no ended-games history.");
+        }
+
+        var invalidEndedPoint = historyStats.GamesEndedHistory.FirstOrDefault(point => point.Count <= 0
+            || point.Ended <= 0
+            || point.Ended != point.Count
+            || point.New != 0);
+        if (invalidEndedPoint is not null)
+        {
+            throw new InvalidOperationException(
+                $"Async statistics snapshot history '{path}' has invalid ended-games point for {invalidEndedPoint.Year:D4}-{invalidEndedPoint.Month:D2}: "
+                + $"Count={invalidEndedPoint.Count}, Ended={invalidEndedPoint.Ended}, New={invalidEndedPoint.New}.");
         }
     }
 

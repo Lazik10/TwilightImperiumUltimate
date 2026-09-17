@@ -1,6 +1,6 @@
 .async-history-section {
-    align-self: stretch;
+    align-self: center;
     width: 100%;
-    max-width: 72rem;
+    margin: 0 auto;
     box-sizing: border-box;
 }

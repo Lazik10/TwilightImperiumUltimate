@@ -2,6 +2,7 @@ using System.Text;
 using System.Text.Json;
 using Quartz;
 using TwilightImperiumUltimate.Business.Services.Async.Interfaces;
+using TwilightImperiumUltimate.Contracts.DTOs.Async;
 using TwilightImperiumUltimate.DataAccess.Repositories;
 
 namespace TwilightImperiumUltimate.API.Jobs;
@@ -26,11 +27,26 @@ public sealed class AsyncStatisticsSnapshotJob(
 
         try
         {
-            if (context.Trigger.JobDataMap.GetBoolean("SkipIfPublished")
-                && await _repository.GetPublishedAsync(context.CancellationToken) is not null)
+            // Only the startup trigger sets this key; recurring/manual triggers omit it, so a plain
+            // GetBoolean lookup throws KeyNotFoundException and silently aborts every non-startup refresh.
+            var skipIfPublished = context.Trigger.JobDataMap.TryGetValue("SkipIfPublished", out var skipIfPublishedValue)
+                && skipIfPublishedValue is true;
+
+            var publishedSnapshot = await _repository.GetPublishedAsync(context.CancellationToken);
+            if (skipIfPublished
+                && publishedSnapshot is not null
+                && publishedSnapshot.SourceDataVersion == AsyncStatisticsSnapshotSchema.Version)
             {
                 _logger.LogInformation("Async statistics snapshot already exists; skipping startup refresh");
                 return;
+            }
+
+            if (skipIfPublished && publishedSnapshot is not null)
+            {
+                _logger.LogInformation(
+                    "Published async snapshot schema version is incompatible. Found={FoundSchemaVersion}, Expected={ExpectedSchemaVersion}. Rebuilding snapshot.",
+                    publishedSnapshot.SourceDataVersion ?? "<null>",
+                    AsyncStatisticsSnapshotSchema.Version);
             }
 
             var buildStopwatch = System.Diagnostics.Stopwatch.StartNew();
@@ -42,7 +58,7 @@ public sealed class AsyncStatisticsSnapshotJob(
             serializationStopwatch.Stop();
             var payloadSizeBytes = Encoding.UTF8.GetByteCount(payload);
             var persistenceStopwatch = System.Diagnostics.Stopwatch.StartNew();
-            var publishedSnapshot = await _repository.PublishAsync(DateTime.UtcNow, null, payload, context.CancellationToken);
+            publishedSnapshot = await _repository.PublishAsync(DateTime.UtcNow, AsyncStatisticsSnapshotSchema.Version, payload, context.CancellationToken);
             persistenceStopwatch.Stop();
             _reader.Invalidate();
 
