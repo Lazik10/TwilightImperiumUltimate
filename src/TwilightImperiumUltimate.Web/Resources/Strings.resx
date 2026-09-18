@@ -1430,7 +1430,7 @@
   </data>
 
   <data name="ReportGame_FindPlayer" xml:space="preserve">
-    <value>Find Player {0}:</value>
+    <value>Player {0}:</value>
   </data>
 
   <data name="ReportGame_GalacticEventsHeading" xml:space="preserve">
@@ -1458,7 +1458,7 @@
   </data>
 
   <data name="ReportGame_OpenSearch" xml:space="preserve">
-    <value>Open Search</value>
+    <value>Search</value>
   </data>
 
   <data name="ReportGame_PlayerHeader" xml:space="preserve">
@@ -3930,6 +3930,10 @@ Brandon Williams&lt;/p&gt;</value>
 
   <data name="TiglPlayersList_NoPlayerMatch" xml:space="preserve">
     <value>No players match this criteria.</value>
+  </data>
+
+  <data name="TiglPlayers_NameSearch" xml:space="preserve">
+    <value>Player Name:</value>
   </data>
 
   <data name="TiglGames_CategoryStandard" xml:space="preserve">

@@ -1,5 +1,5 @@
-@using TwilightImperiumUltimate.Contracts.DTOs.Rankings
 @using TwilightImperiumUltimate.Contracts.Enums
+@using TwilightImperiumUltimate.Contracts.DTOs.Rankings
 
 @*
     Responsive via ResponsiveRadzenDataGrid (horizontal scroll instead of column truncation on
@@ -39,55 +39,57 @@ else if (CurrentLeagueLeaders.Count == 0)
 }
 else
 {
-    <ResponsiveRadzenDataGrid TItem="RankingsLeaderDto"
-                              Data="CurrentLeagueLeaders"
-                              AllowPaging="false"
-                              AllowAlternatingRows="true"
-                              CssClass="mb-2xl">
-        <Columns>
-            <RadzenDataGridColumn TItem="RankingsLeaderDto" Property="@nameof(RankingsLeaderDto.Name)" Title="Leader">
-                <Template Context="leader">
-                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart">
-                        <TiglFactionImg Faction="@leader.Faction" Height="32" />
-                        <LeaderImg Faction="@leader.Faction" Height="32" />
-                        <Label Text="@leader.Name.GetDisplayName()" TextColor="TextColor.White" />
-                    </ResponsiveContainer>
-                </Template>
-            </RadzenDataGridColumn>
-
-            <RadzenDataGridColumn TItem="RankingsLeaderDto" Property="@nameof(RankingsLeaderDto.UserName)" Title="User">
-                <Template Context="leader">
-                    <GridButtonColumn Text="@leader.UserName" TextColor="TextColor.Green" Href="@GetProfileUrl(leader.TiglUserId)" />
-                </Template>
-            </RadzenDataGridColumn>
-
-            <RadzenDataGridColumn TItem="RankingsLeaderDto" Property="@nameof(RankingsLeaderDto.LastUpdate)" Title="Duration" TextAlign="TextAlign.Center">
-                <Template Context="leader">@GetDurationTime(leader)</Template>
-            </RadzenDataGridColumn>
-
-            <RadzenDataGridColumn TItem="RankingsLeaderDto" Property="@nameof(RankingsLeaderDto.ChangeCount)" Title="# Owner" TextAlign="TextAlign.Center">
-                <Template Context="leader">@(leader.ChangeCount > 0 ? leader.ChangeCount.ToString(CultureInfo.InvariantCulture) : string.Empty)</Template>
-            </RadzenDataGridColumn>
-
-            <RadzenDataGridColumn TItem="RankingsLeaderDto" Property="@nameof(RankingsLeaderDto.ShortestDuration)" Title="Shortest" TextAlign="TextAlign.Center" Sortable="false">
-                <Template Context="leader">
-                    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-                        <Label Text="@GetShortestDurationTime(leader)" CenterText="true" FontSize="14" />
-                        <Label Text="@GetShortestHolderName(leader)" CenterText="true" FontSize="12" TextColor="TextColor.Yellow" />
-                    </ResponsiveContainer>
-                </Template>
-            </RadzenDataGridColumn>
-
-            <RadzenDataGridColumn TItem="RankingsLeaderDto" Property="@nameof(RankingsLeaderDto.LongestDuration)" Title="Longest" TextAlign="TextAlign.Center" Sortable="false">
-                <Template Context="leader">
-                    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-                        <Label Text="@GetLongestDurationTime(leader)" CenterText="true" FontSize="14" />
-                        <Label Text="@GetLongestHolderName(leader)" CenterText="true" FontSize="12" TextColor="TextColor.Yellow" />
-                    </ResponsiveContainer>
-                </Template>
-            </RadzenDataGridColumn>
-        </Columns>
-    </ResponsiveRadzenDataGrid>
+    <ResponsiveRadzenTable ZebraStripes="true" CssClass="leaders-table mb-2xl">
+        <RadzenTableHeader>
+            <RadzenTableRow>
+                <RadzenTableCell class="leaders-header-cell">Leader</RadzenTableCell>
+                <RadzenTableCell class="leaders-header-cell">User</RadzenTableCell>
+                <RadzenTableCell class="leaders-header-cell">Duration</RadzenTableCell>
+                <RadzenTableCell class="leaders-header-cell"># Owner</RadzenTableCell>
+                <RadzenTableCell class="leaders-header-cell">Shortest</RadzenTableCell>
+                <RadzenTableCell class="leaders-header-cell">Longest</RadzenTableCell>
+            </RadzenTableRow>
+        </RadzenTableHeader>
+        <RadzenTableBody>
+            @foreach (var leader in CurrentLeagueLeaders)
+            {
+                <RadzenTableRow class="leader-player-row"
+                                tabindex="@(leader.TiglUserId == 0 ? -1 : 0)"
+                                role="@(leader.TiglUserId == 0 ? null : "link")"
+                                @onclick="() => NavigateToProfile(leader.TiglUserId)"
+                                @onkeydown="e => OnRowKeyDown(e, leader.TiglUserId)">
+                    <RadzenTableCell>
+                        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart">
+                            <TiglFactionImg Faction="@leader.Faction" Height="32" />
+                            <LeaderImg Faction="@leader.Faction" Height="32" />
+                            <ResponsiveLabel Text="@leader.Name.GetDisplayName()" UseHandelStyling="false" />
+                        </ResponsiveContainer>
+                    </RadzenTableCell>
+                    <RadzenTableCell>
+                        <ResponsiveLabel Text="@leader.UserName" TextColor="TextColor.White" UseHandelStyling="false" />
+                    </RadzenTableCell>
+                    <RadzenTableCell>
+                        <ResponsiveLabel Text="@GetDurationTime(leader)" CenterText="true" UseHandelStyling="false" />
+                    </RadzenTableCell>
+                    <RadzenTableCell>
+                        <ResponsiveLabel Text="@(leader.ChangeCount > 0 ? leader.ChangeCount.ToString(CultureInfo.InvariantCulture) : string.Empty)" CenterText="true" UseHandelStyling="false" />
+                    </RadzenTableCell>
+                    <RadzenTableCell>
+                        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+                            <ResponsiveLabel Text="@GetShortestDurationTime(leader)" CenterText="true" FontSize="sm" UseHandelStyling="false" />
+                            <ResponsiveLabel Text="@GetShortestHolderName(leader)" CenterText="true" FontSize="xs" TextColor="TextColor.Yellow" UseHandelStyling="false" />
+                        </ResponsiveContainer>
+                    </RadzenTableCell>
+                    <RadzenTableCell>
+                        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+                            <ResponsiveLabel Text="@GetLongestDurationTime(leader)" CenterText="true" FontSize="sm" UseHandelStyling="false" />
+                            <ResponsiveLabel Text="@GetLongestHolderName(leader)" CenterText="true" FontSize="xs" TextColor="TextColor.Yellow" UseHandelStyling="false" />
+                        </ResponsiveContainer>
+                    </RadzenTableCell>
+                </RadzenTableRow>
+            }
+        </RadzenTableBody>
+    </ResponsiveRadzenTable>
 }
 
 </div>

@@ -1,4 +1,5 @@
 ﻿@using TwilightImperiumUltimate.Contracts.DTOs.Tigl
+@using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Season
 @using TwilightImperiumUltimate.Contracts.Enums
 
 @*
@@ -10,12 +11,15 @@
 
 <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-md mb-md">
 
-    <ResponsiveNumericPicker Label="@Strings.TiglLeaderboard_Season"
-                  FontSize="md"
-                  Value="@_selectedSeasonNumber"
-                  OnDecrease="DecreaseSeasonNumber"
-                  OnIncrease="IncreaseSeasonNumber"
-                  Width="30" />
+    <ResponsiveDropDown TValue="int"
+                        Id="tigl-games-season"
+                        Label="@Strings.TiglLeaderboard_Season"
+                        Data="@_seasons"
+                        TextProperty="@nameof(SeasonDto.SeasonNumber)"
+                        ValueProperty="@nameof(SeasonDto.SeasonNumber)"
+                        Value="@_selectedSeasonNumber"
+                        ValueChanged="@OnSeasonChanged"
+                        Width="30" />
 
 </ResponsiveContainer>
 

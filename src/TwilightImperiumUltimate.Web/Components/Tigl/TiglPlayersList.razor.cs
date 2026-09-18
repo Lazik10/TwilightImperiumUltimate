@@ -7,7 +7,8 @@ public partial class TiglPlayersList
     private readonly char _digitGroup = '1';
     private readonly char _othersGroup = '*';
     private List<TiglUserLiteDto>? _filteredUsers = new();
-    private char _selectedLetter = 'A';
+    private char? _selectedLetter = 'A';
+    private TiglPlayerSearchbar? _searchbar;
 
     [Parameter]
     public IReadOnlyCollection<TiglUserLiteDto> Users { get; set; } = new List<TiglUserLiteDto>();
@@ -20,8 +21,8 @@ public partial class TiglPlayersList
 
     protected override void OnParametersSet()
     {
-        var group = GroupedUsers().Find(g => g.Key == _selectedLetter)?.ToList();
-        _filteredUsers = group is null ? Users.ToList() : group;
+        var group = GroupedUsers().Find(g => g.Key == _selectedLetter);
+        _filteredUsers = group is null ? Users.ToList() : group.ToList();
         OrderList();
     }
 
@@ -51,25 +52,28 @@ public partial class TiglPlayersList
         })
         .ToList();
 
-    private void FilterByLetter(char letter)
+    private async Task FilterByLetter(char letter)
     {
         _selectedLetter = letter;
+        await (_searchbar?.ResetSearchAsync() ?? Task.CompletedTask);
+
         _filteredUsers = GroupedUsers().Find(g => g.Key == letter)?.ToList() ?? new List<TiglUserLiteDto>();
         OrderList();
     }
 
     private void SearchPlayers(string search)
     {
-        if (string.IsNullOrWhiteSpace(search))
+        _selectedLetter = 'A';
+
+        if (search.Length < 3)
         {
-            _filteredUsers = GroupedUsers().Find(g => g.Key == _selectedLetter)?.ToList() ?? Users.ToList();
+            _filteredUsers = GroupedUsers().Find(g => g.Key == _selectedLetter)?.ToList() ?? new List<TiglUserLiteDto>();
             OrderList();
             return;
         }
 
-        _selectedLetter = char.ToUpperInvariant(search[0]);
-        var group = GroupedUsers().Find(g => g.Key == _selectedLetter)?.ToList() ?? Users.ToList();
-        _filteredUsers = group
+        _selectedLetter = null;
+        _filteredUsers = Users
             .Where(u => u.TiglUserName.Contains(search, StringComparison.OrdinalIgnoreCase))
             .ToList();
         OrderList();

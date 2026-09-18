@@ -74,34 +74,9 @@ public partial class TiglGamesGrid
         }
     }
 
-    private void DecreaseSeasonNumber()
+    private void OnSeasonChanged(int seasonNumber)
     {
-        if (_seasons.Count == 0)
-            return;
-
-        var maxSeason = _seasons.Max(x => x.SeasonNumber);
-        var minSeason = _seasons.Min(x => x.SeasonNumber);
-
-        if (_selectedSeasonNumber > minSeason)
-            _selectedSeasonNumber--;
-        else if (_selectedSeasonNumber == minSeason)
-            _selectedSeasonNumber = maxSeason;
-
-        UpdateSelectedGames();
-    }
-
-    private void IncreaseSeasonNumber()
-    {
-        if (_seasons.Count == 0)
-            return;
-
-        var maxSeason = _seasons.Max(x => x.SeasonNumber);
-        var minSeason = _seasons.Min(x => x.SeasonNumber);
-
-        if (_selectedSeasonNumber < maxSeason)
-            _selectedSeasonNumber++;
-        else if (_selectedSeasonNumber == maxSeason)
-            _selectedSeasonNumber = minSeason;
+        _selectedSeasonNumber = seasonNumber;
 
         UpdateSelectedGames();
     }

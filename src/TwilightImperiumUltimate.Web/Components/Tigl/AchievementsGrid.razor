@@ -2,44 +2,57 @@
 @using TwilightImperiumUltimate.Contracts.Enums
 @using TwilightImperiumUltimate.Web.Helpers.Enums
 
-<Label Text="Last 50 Achievements" FontSize="28" CenterText="true" CssClass="mt-md mb-md" />
+<div id="achievements-panel">
+    <ResponsiveHeading Text="Last 50 Achievements" Level="1" FontSize="xl" CenterText="true" CssClass="mt-md mb-md" />
 
-<GridLayout CssClass="background mt-2xl" Style="grid-template-columns: 3% 25% 25% 17% 15% 15%">
-    <div class="span-6" style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
-    <Label />
-    <Label Text="Achievement" />
-    <Label Text="User" />
-    <Label Text="Faction" />
-    <Label Text="Match" />
-    <Label Text="Achieved" />
-    <div class="span-6" style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
-</GridLayout>
-
-@if (_loading)
-{
-    <Label Text="Loading achievements..." CenterText="true" CssClass="mt-2xl mb-3xl" />
-}
-else if (_achievements.Count == 0)
-{
-    <Label Text="No achievements found." CenterText="true" CssClass="mt-2xl mb-3xl" />
-}
-else
-{
-    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mb-md">
-
-        @foreach (var a in _achievements)
-        {
-            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="background mb-xs" OnClick="@(() => NavigateToProfile(a.TiglUserId))">
-                <Label Width="3" />
-                <Label Text="@a.AchievementName.GetDisplayName()" Width="25" TextColor="TextColor.Yellow" />
-                <Label Text="@a.TiglUserName" Width="25" TextColor="TextColor.Green" />
-                <Label Text="@(a.Faction == TiglFactionName.None ? "-" : a.Faction.GetDisplayName())" Width="17" />
-                <div style="width: 15%" @onclick:stopPropagation="true">
-                    <ResponsiveButton Text="@a.MatchName" OnClick="() => RedirectToGameDetail(a.MatchId)" Width="100" JustifyContent="Enums.JustifyContent.FlexStart" />
-                </div>
-                <Label Text="@FormatDate(a.AchievedAt)" Width="15" />
-            </ResponsiveContainer>
-        }
-
-    </ResponsiveContainer>
-}
+    @if (_loading)
+    {
+        <ResponsiveLabel Text="Loading achievements..." CenterText="true" CssClass="mt-2xl mb-3xl" />
+    }
+    else if (_achievements.Count == 0)
+    {
+        <ResponsiveLabel Text="No achievements found." CenterText="true" CssClass="mt-2xl mb-3xl" />
+    }
+    else
+    {
+        <ResponsiveRadzenTable ZebraStripes="true" CssClass="achievements-table mb-2xl">
+            <RadzenTableHeader>
+                <RadzenTableRow>
+                    <RadzenTableHeaderCell class="achievements-header-cell" scope="col">Achievement</RadzenTableHeaderCell>
+                    <RadzenTableHeaderCell class="achievements-header-cell" scope="col">User</RadzenTableHeaderCell>
+                    <RadzenTableHeaderCell class="achievements-header-cell" scope="col">Faction</RadzenTableHeaderCell>
+                    <RadzenTableHeaderCell class="achievements-header-cell" scope="col">Match</RadzenTableHeaderCell>
+                    <RadzenTableHeaderCell class="achievements-header-cell" scope="col">Achieved</RadzenTableHeaderCell>
+                </RadzenTableRow>
+            </RadzenTableHeader>
+            <RadzenTableBody>
+                @foreach (var achievement in _achievements)
+                {
+                    <RadzenTableRow class="achievement-player-row"
+                                    tabindex="@(achievement.TiglUserId == 0 ? -1 : 0)"
+                                    role="@(achievement.TiglUserId == 0 ? null : "link")"
+                                    @onclick="() => NavigateToProfile(achievement.TiglUserId)"
+                                    @onkeydown="eventArgs => OnRowKeyDown(eventArgs, achievement.TiglUserId)">
+                        <RadzenTableCell>
+                            <ResponsiveLabel Text="@achievement.AchievementName.GetDisplayName()" TextColor="TextColor.Yellow" UseHandelStyling="false" />
+                        </RadzenTableCell>
+                        <RadzenTableCell>
+                            <ResponsiveLabel Text="@achievement.TiglUserName" UseHandelStyling="false" />
+                        </RadzenTableCell>
+                        <RadzenTableCell>
+                            <ResponsiveLabel Text="@(achievement.Faction == TiglFactionName.None ? "-" : achievement.Faction.GetDisplayName())" UseHandelStyling="false" />
+                        </RadzenTableCell>
+                        <RadzenTableCell>
+                            <a class="achievement-match-link"
+                               href="@GetGameDetailUrl(achievement.MatchId)"
+                               @onclick:stopPropagation="true">@achievement.MatchName</a>
+                        </RadzenTableCell>
+                        <RadzenTableCell>
+                            <ResponsiveLabel Text="@FormatDate(achievement.AchievedAt)" UseHandelStyling="false" />
+                        </RadzenTableCell>
+                    </RadzenTableRow>
+                }
+            </RadzenTableBody>
+        </ResponsiveRadzenTable>
+    }
+</div>

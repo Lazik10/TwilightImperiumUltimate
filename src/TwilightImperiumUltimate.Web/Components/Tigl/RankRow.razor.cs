@@ -1,4 +1,5 @@
 using System.Globalization;
+using Microsoft.AspNetCore.Components.Web;
 using TwilightImperiumUltimate.Web.Helpers.Enums;
 using TwilightImperiumUltimate.Web.Models.Rankings;
 
@@ -12,6 +13,9 @@ public partial class RankRow
     [Parameter]
     public required string PrestigeRankText { get; set; }
 
+    [Inject]
+    private NavigationManager NavigationManager { get; set; } = default!;
+
     private TextColor RankColor => GetRankRowColor();
 
     private static string GetProfileUrl(int tiglUserId)
@@ -19,6 +23,21 @@ public partial class RankRow
         var returnUrl = Uri.EscapeDataString(Pages.Pages.TiglRankings);
         return $"{Pages.Pages.TiglPlayerProfile}?playerId={tiglUserId}&returnUrl={returnUrl}";
     }
+
+    private void NavigateToProfile(int tiglUserId)
+    {
+        NavigationManager.NavigateTo(GetProfileUrl(tiglUserId));
+    }
+
+    private void OnRowKeyDown(KeyboardEventArgs args)
+    {
+        if (args.Key is "Enter" or " ")
+            NavigateToProfile(Ranking.Id);
+    }
+
+            private string GetRankColorStyle() => $"color: {RankColor.ConvertToString()};";
+
+            private string GetPlayerNameStyle() => $"{GetRankColorStyle()} text-align: left;";
 
     private string GetRankText()
     {

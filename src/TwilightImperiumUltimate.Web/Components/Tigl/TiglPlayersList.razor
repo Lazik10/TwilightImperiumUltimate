@@ -1,12 +1,14 @@
+@using TwilightImperiumUltimate.Contracts.DTOs.Tigl
+
 <div class="mt-md mb-md">
-    <TiglPlayerSearchbar OnSearchUpdate="SearchPlayers" />
+    <TiglPlayerSearchbar @ref="_searchbar" OnSearchUpdate="SearchPlayers" />
 </div>
 
 <div class="mb-md">
-    <TiglPlayerAlphabet OnLetterClick="FilterByLetter" />
+    <TiglPlayerAlphabet SelectedLetter="@_selectedLetter" OnLetterClick="FilterByLetter" />
 </div>
 
-<StretchHeightContainer CssClass="background">
+<StretchHeightContainer>
 
     @if (Loading)
     {

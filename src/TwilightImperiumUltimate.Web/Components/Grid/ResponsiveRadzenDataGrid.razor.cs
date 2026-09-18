@@ -36,6 +36,9 @@ public partial class ResponsiveRadzenDataGrid<TItem>
     [Parameter]
     public RenderFragment? Columns { get; set; }
 
+    [Parameter]
+    public RenderFragment? HeaderTemplate { get; set; }
+
     /// <summary>
     /// Gets or sets a value indicating whether filtering is enabled.
     /// </summary>

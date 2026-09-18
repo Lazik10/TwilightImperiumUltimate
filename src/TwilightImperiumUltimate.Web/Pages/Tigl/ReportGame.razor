@@ -91,13 +91,13 @@
 
                         @if (_currentPlayerIndex != index)
                         {
-                            <ResponsiveButton Text="@Strings.ReportGame_OpenSearch" TextColor="TextColor.Green" OnClick="(() => OpenPlayerSearch(index))" Width="40" />
+                            <ResponsiveButton Text="@Strings.ReportGame_OpenSearch" TextColor="TextColor.Green" OnClick="(() => OpenPlayerSearch(index))" />
                         }
                         else
                         {
                             <ResponsiveGridContainer Columns="2" MobileColumns="1" Gap="var(--space-lg)" Width="100">
                                 <div class="report-game-field">
-                                    <ResponsiveText Text="@Strings.ReportGame_ByTiglName" TextColor="TextColor.Yellow" CssClass="mb-xs" />
+                                    <ResponsiveText Text="@Strings.ReportGame_ByTiglName" CenterText="true" TextColor="TextColor.Yellow" CssClass="mb-xs" />
                                     <ResponsiveDropDown Id="@($"player-{index}-tigl-name")"
                                                 TValue="long"
                                                 Data="@_users"
@@ -110,7 +110,7 @@
                                                 ValueChanged="@((long v) => OnUserSelected(index, v))" />
                                 </div>
                                 <div class="report-game-field">
-                                    <ResponsiveText Text="@Strings.ReportGame_ByDiscordName" TextColor="TextColor.Yellow" CssClass="mb-xs" />
+                                    <ResponsiveText Text="@Strings.ReportGame_ByDiscordName" CenterText="true" TextColor="TextColor.Yellow" CssClass="mb-xs" />
                                     <ResponsiveDropDown Id="@($"player-{index}-discord-name")"
                                                     TValue="long"
                                                     Data="@_users"
@@ -142,14 +142,6 @@
 
                         <ResponsiveGridContainer Columns="3" TabletColumns="3" MobileColumns="1" Gap="var(--space-lg)" Width="100" CssClass="mb-lg">
                             <div class="report-game-field">
-                                <ResponsiveText Text="@Strings.ReportGame_Score" CssClass="mb-xs" />
-                                <RadzenNumeric TValue="int" @bind-Value="playerResults[index].Score" Style="width: 100%;" Min="0" Max="@_selectedVpCount" />
-                            </div>
-                            <div class="report-game-field">
-                                <ResponsiveText Text="@Strings.ReportGame_Winner" CssClass="mb-xs" />
-                                <RadzenCheckBox @bind-Value="playerResults[index].IsWinner" />
-                            </div>
-                            <div class="report-game-field">
                                 <ResponsiveText Text="@Strings.ReportGame_Faction" CssClass="mb-xs" />
                                 <ResponsiveDropDown Id="@($"player-{index}-faction")"
                                                 TValue="string"
@@ -157,6 +149,14 @@
                                                 @bind-Value="playerResults[index].Faction"
                                                 AllowFiltering="true"
                                                 Placeholder="@Strings.ReportGame_SelectFaction" />
+                            </div>
+                            <div class="report-game-field">
+                                <ResponsiveText Text="@Strings.ReportGame_Winner" CenterText="true" CssClass="mb-xs" />
+                                <RadzenCheckBox @bind-Value="playerResults[index].IsWinner" />
+                            </div>
+                            <div class="report-game-field">
+                                <ResponsiveText Text="@Strings.ReportGame_Score" CenterText="true" CssClass="mb-xs" />
+                                <RadzenNumeric TValue="int" @bind-Value="playerResults[index].Score" Style="width: 100%;" Min="0" Max="@_selectedVpCount" />
                             </div>
                         </ResponsiveGridContainer>
 
@@ -213,7 +213,7 @@
                 }
 
                 <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mb-2xl">
-                    <ResponsiveButton ButtonText="@Strings.ReportGame_SubmitButton" Width="30" IsDisabled="@isSubmitting" OnClick="async () => await SubmitGameReport()" />
+                    <ResponsiveButton ButtonText="@Strings.ReportGame_SubmitButton" IsDisabled="@isSubmitting" OnClick="async () => await SubmitGameReport()" />
                 </ResponsiveContainer>
             </div>
         }

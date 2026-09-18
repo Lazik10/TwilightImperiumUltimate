@@ -31,14 +31,14 @@
 {
     @if (_groupedRankings?.Count > 0)
     {
-        <ResponsiveRadzenTable ZebraStripes="true" CssClass="mb-2xl">
+        <ResponsiveRadzenTable ZebraStripes="true" CssClass="ranks-table mb-2xl">
             <RadzenTableHeader>
                 <RadzenTableRow>
-                    <RadzenTableCell>Username</RadzenTableCell>
-                    <RadzenTableCell>Prestige</RadzenTableCell>
-                    <RadzenTableCell>Rank</RadzenTableCell>
-                    <RadzenTableCell>Games</RadzenTableCell>
-                    <RadzenTableCell>Last Rank Up</RadzenTableCell>
+                    <RadzenTableCell class="ranks-header-cell">Username</RadzenTableCell>
+                    <RadzenTableCell class="ranks-header-cell">Prestige</RadzenTableCell>
+                    <RadzenTableCell class="ranks-header-cell">Rank</RadzenTableCell>
+                    <RadzenTableCell class="ranks-header-cell">Games</RadzenTableCell>
+                    <RadzenTableCell class="ranks-header-cell">Last Rank Up</RadzenTableCell>
                 </RadzenTableRow>
             </RadzenTableHeader>
             <RadzenTableBody>
@@ -46,7 +46,10 @@
                 {
                     <RadzenTableRow>
                         <RadzenTableCell colspan="5">
-                            <Label Text="@(group.Key + " (" + group.Value.Count + ")")" TextColor="TextColor.Yellow" FontSize="16" />
+                            <div class="rank-group-label">
+                                <span style="color: @GetGroupRankColor(group.Value).ConvertToString();">@group.Key</span>
+                                <span class="rank-group-count"> (@group.Value.Count)</span>
+                            </div>
                         </RadzenTableCell>
                     </RadzenTableRow>
 

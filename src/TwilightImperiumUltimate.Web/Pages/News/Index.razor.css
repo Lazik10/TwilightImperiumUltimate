@@ -1,9 +1,5 @@
 ﻿/*
-    Left-offset to match NewsArticleSegment's title/paragraph indent (reserved for the decorative
-    corner texture image), so the Loading/Error/Empty state messages line up with real article
-    content instead of sitting centered across the full width. Breakpoints mirror
-    NewsArticleSegment.razor.css's own --news-texture-width steps exactly (that variable is scoped
-    to NewsArticleSegment's own component, so it can't be inherited here directly).
+    Match the centered introduction above while compensating for this page's asymmetric padding.
 */
 ::deep .news-state-message {
     font-family: Handel, sans-serif;
@@ -11,22 +7,10 @@
     font-size: clamp(1.5rem, 1.2rem + 1.5vw, 2.25rem);
     font-weight: bold;
     padding-top: var(--space-3xl);
-    padding-left: clamp(10rem, 16vw, 16rem);
-    text-align: left;
+    padding-left: 7.5%;
+    text-align: center;
     text-transform: uppercase;
     text-shadow: var(--shadow-text);
-}
-
-@media (max-width: 1248px) {
-    ::deep .news-state-message {
-        padding-left: clamp(9rem, 14vw, 14rem);
-    }
-}
-
-@media (max-width: 992px) {
-    ::deep .news-state-message {
-        padding-left: clamp(6rem, 10vw, 9rem);
-    }
 }
 
 @media (max-width: 768px) {

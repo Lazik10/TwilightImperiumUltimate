@@ -1,4 +1,5 @@
 using TwilightImperiumUltimate.Contracts.DTOs.Rankings;
+using Microsoft.AspNetCore.Components.Web;
 
 namespace TwilightImperiumUltimate.Web.Components.Tigl;
 
@@ -27,6 +28,12 @@ public partial class AchievementsGrid
         return dt.ToString("dd/MM/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture);
     }
 
+    private static string GetGameDetailUrl(int id)
+    {
+        var returnUrl = Uri.EscapeDataString(Pages.Pages.TiglAchievements);
+        return $"{Pages.Pages.TiglGameDetail}?id={id}&returnUrl={returnUrl}";
+    }
+
     private async Task LoadAchievements()
     {
         var (resp, status) = await HttpClient.GetAsync<ApiResponse<ItemListDto<RankingsAchievementDto>>>(Paths.ApiPath_RecentAchievements);
@@ -38,12 +45,6 @@ public partial class AchievementsGrid
         }
     }
 
-    private void RedirectToGameDetail(int id)
-    {
-        var returnUrl = Uri.EscapeDataString(Pages.Pages.TiglAchievements);
-        NavigationManager.NavigateTo($"{Pages.Pages.TiglGameDetail}?id={id}&returnUrl={returnUrl}");
-    }
-
     private void NavigateToProfile(int tiglUserId)
     {
         if (tiglUserId == 0)
@@ -51,5 +52,11 @@ public partial class AchievementsGrid
 
         var returnUrl = Uri.EscapeDataString(Pages.Pages.TiglRankings);
         NavigationManager.NavigateTo($"{Pages.Pages.TiglPlayerProfile}?playerId={tiglUserId}&returnUrl={returnUrl}");
+    }
+
+    private void OnRowKeyDown(KeyboardEventArgs eventArgs, int tiglUserId)
+    {
+        if (eventArgs.Key is "Enter" or " ")
+            NavigateToProfile(tiglUserId);
     }
 }

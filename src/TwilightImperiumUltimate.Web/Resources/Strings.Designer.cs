@@ -6466,6 +6466,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
             }
         }
 
+        public static string TiglPlayers_NameSearch {
+            get {
+                return ResourceManager.GetString("TiglPlayers_NameSearch", resourceCulture);
+            }
+        }
+
         public static string TiglPrestigeRank_GalacticThreat {
             get {
                 return ResourceManager.GetString("TiglPrestigeRank_GalacticThreat", resourceCulture);

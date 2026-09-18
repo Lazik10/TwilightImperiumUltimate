@@ -1,5 +1,24 @@
-@using TwilightImperiumUltimate.Web.Components.Shared.Bars
 
-<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-    <ResponsiveSearchBar Id="tigl-player-search" Text="Player" Width="50" OnSearchChange="UpdatePlayerList" />
-</ResponsiveContainer>
+<div class="tigl-player-searchbar">
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+        <ResponsiveContainer Type="ContainerType.Flex"
+                             Padding="none"
+                             Width="50"
+                             JustifyContent="Enums.JustifyContent.Center"
+                             AlignItems="Enums.AlignItems.Center">
+            <ResponsiveLabel Text="@Strings.TiglPlayers_NameSearch"
+                             FontSize="md"
+                             CssClass="tigl-player-search-label mr-lg" />
+            <ResponsiveTextBox Id="tigl-player-search"
+                               Placeholder="Search..."
+                               Value="@SearchText"
+                               InputChanged="UpdatePlayerList" />
+        </ResponsiveContainer>
+
+        <ResponsiveText Text="Search starts after 3 characters."
+                        FontSize="sm"
+                        TextColor="TextColor.White"
+                        CenterText="true"
+                        CssClass="tigl-player-search-note" />
+    </ResponsiveContainer>
+</div>

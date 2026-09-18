@@ -1,5 +1,6 @@
 using TwilightImperiumUltimate.Contracts.DTOs.Rankings;
 using TwilightImperiumUltimate.Contracts.Enums;
+using Microsoft.AspNetCore.Components.Web;
 using TwilightImperiumUltimate.Web.Helpers.Time;
 
 namespace TwilightImperiumUltimate.Web.Components.Tigl;
@@ -12,6 +13,9 @@ public partial class LeadersGrid
 
     [Parameter]
     public IReadOnlyCollection<RankingsLeaderDto> Leaders { get; set; } = new List<RankingsLeaderDto>();
+
+    [Inject]
+    private NavigationManager NavigationManager { get; set; } = default!;
 
     private List<RankingsLeaderDto> CurrentLeagueLeaders => _grouped.TryGetValue(_league, out var list) ? list : new List<RankingsLeaderDto>();
 
@@ -120,6 +124,19 @@ public partial class LeadersGrid
 
         var returnUrl = Uri.EscapeDataString(Pages.Pages.TiglLeaders);
         return $"{Pages.Pages.TiglPlayerProfile}?playerId={tiglUserId}&returnUrl={returnUrl}";
+    }
+
+    private void NavigateToProfile(int tiglUserId)
+    {
+        var profileUrl = GetProfileUrl(tiglUserId);
+        if (profileUrl is not null)
+            NavigationManager.NavigateTo(profileUrl);
+    }
+
+    private void OnRowKeyDown(KeyboardEventArgs args, int tiglUserId)
+    {
+        if (args.Key is "Enter" or " ")
+            NavigateToProfile(tiglUserId);
     }
 
     private void ChangeLeague(TiglLeague league)

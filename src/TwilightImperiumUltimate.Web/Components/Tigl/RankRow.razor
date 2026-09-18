@@ -1,19 +1,23 @@
 @using TwilightImperiumUltimate.Web.Helpers.Enums
 
-<RadzenTableRow>
+<RadzenTableRow class="rank-player-row"
+                tabindex="0"
+                role="link"
+                @onclick="() => NavigateToProfile(Ranking.Id)"
+                @onkeydown="OnRowKeyDown">
     <RadzenTableCell>
-        <GridButtonColumn Text="@Ranking.TiglUserName" Href="@GetProfileUrl(Ranking.Id)" TextColor="@RankColor" />
+        <ResponsiveLabel Text="@Ranking.TiglUserName" CenterText="false" TextColor="@RankColor" UseHandelStyling="false" CssClass="rank-player-name" Style="@GetPlayerNameStyle()" />
     </RadzenTableCell>
     <RadzenTableCell>
-        <Label Text="@GetPrestigeRankText()" CenterText="true" TextColor="@RankColor" />
+                    <ResponsiveLabel Text="@GetPrestigeRankText()" CenterText="true" TextColor="@RankColor" UseHandelStyling="false" Style="@GetRankColorStyle()" />
     </RadzenTableCell>
     <RadzenTableCell>
-        <Label Text="@GetRankText()" CenterText="true" TextColor="@RankColor" />
+                    <ResponsiveLabel Text="@GetRankText()" CenterText="true" TextColor="@RankColor" UseHandelStyling="false" Style="@GetRankColorStyle()" />
     </RadzenTableCell>
     <RadzenTableCell>
-        <Label Text="@Ranking.GamesPlayed.ToString(CultureInfo.InvariantCulture)" CenterText="true" TextColor="@RankColor" />
+                    <ResponsiveLabel Text="@Ranking.GamesPlayed.ToString(CultureInfo.InvariantCulture)" CenterText="true" TextColor="@RankColor" UseHandelStyling="false" Style="@GetRankColorStyle()" />
     </RadzenTableCell>
     <RadzenTableCell>
-        <Label Text="@GetDurationTime()" CenterText="true" TextColor="@RankColor" />
+                    <ResponsiveLabel Text="@GetDurationTime()" CenterText="true" TextColor="@RankColor" UseHandelStyling="false" Style="@GetRankColorStyle()" />
     </RadzenTableCell>
 </RadzenTableRow>

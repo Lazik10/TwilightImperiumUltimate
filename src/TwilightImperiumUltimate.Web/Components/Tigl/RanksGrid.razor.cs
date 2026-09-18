@@ -1,4 +1,5 @@
 using TwilightImperiumUltimate.Contracts.DTOs.Rankings;
+using TwilightImperiumUltimate.Web.Helpers.Enums;
 using TwilightImperiumUltimate.Web.Models.Rankings;
 using TwilightImperiumUltimate.Web.Services.Rankings;
 
@@ -53,6 +54,21 @@ public partial class RanksGrid
 
             _loading = false;
         }
+    }
+
+    private static TextColor GetGroupRankColor(IReadOnlyCollection<TiglUserRanking> rankings)
+    {
+        var ranking = rankings.First();
+
+        return ranking.HasPrestigeRank
+            ? ranking.Prestige switch
+            {
+                TiglPrestigeRank.PaxMagnificaBellumGloriosum => TextColor.Pmbg,
+                TiglPrestigeRank.GalacticThreat => TextColor.GalacticThreat,
+                TiglPrestigeRank.Tyrant => TextColor.Tyrant,
+                _ => TextColor.White,
+            }
+            : ranking.Rank.GetRankColor();
     }
 
     private static Dictionary<string, List<TiglUserRanking>> GroupRankingsStandard(List<TiglUserRanking> list)
