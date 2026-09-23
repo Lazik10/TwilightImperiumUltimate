@@ -79,6 +79,7 @@ public abstract class ResponsiveTextBase : ComponentBase
         TextColor.Red => "red",
         TextColor.Green => "lawngreen",
         TextColor.Blue => "blue",
+        TextColor.LightBlue => "lightblue",
         TextColor.Yellow => "yellow",
         TextColor.Deepskyblue => "deepskyblue",
         TextColor.Purple => "purple",

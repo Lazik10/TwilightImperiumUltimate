@@ -6,6 +6,7 @@ namespace TwilightImperiumUltimate.Web.Components.Tigl;
 public partial class TiglGamesGrid
 {
     private int _selectedSeasonNumber;
+    private TiglLeague _selectedLeague = TiglLeague.ProphecyOfKings;
     private List<MatchReportDto> _allStandard = new();
     private List<MatchReportDto> _allFractured = new();
     private bool _loading;
@@ -15,8 +16,19 @@ public partial class TiglGamesGrid
 
     private List<MatchReportDto> FilteredFracturedGames { get; set; } = new List<MatchReportDto>();
 
+    private List<MatchReportDto> FilteredGames => _selectedLeague == TiglLeague.Fractured
+        ? FilteredFracturedGames
+        : FilteredStandardGames;
+
+    private string ActiveTabId => _selectedLeague == TiglLeague.Fractured
+        ? "tigl-games-tab-fractured"
+        : "tigl-games-tab-standard";
+
     [Inject]
     private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
+
+    [Inject]
+    private NavigationManager NavigationManager { get; set; } = default!;
 
     protected override async Task OnInitializedAsync()
     {
@@ -38,7 +50,7 @@ public partial class TiglGamesGrid
             return "-";
 
         var dt = DateTimeOffset.FromUnixTimeMilliseconds(endTs).ToUniversalTime().DateTime;
-        return dt.ToString("dd/MM/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture);
+        return dt.ToString("yyyy-MM-dd HH:mm", System.Globalization.CultureInfo.InvariantCulture);
     }
 
     private static string GetGameDetailUrl(int id)
@@ -81,20 +93,16 @@ public partial class TiglGamesGrid
         UpdateSelectedGames();
     }
 
-    private string GetStandardTitle()
+    private string GetSelectedTitle() => $"{(_selectedLeague == TiglLeague.Fractured ? Strings.TiglGames_CategoryFractured : Strings.TiglGames_CategoryStandard)} Ladder ({FilteredGames.Count} games)";
+
+    private void OnLeagueChanged(TiglLeague league)
     {
-        var count = FilteredStandardGames.Count;
-        return count > 0
-            ? $"{Strings.TiglGames_CategoryStandard} ({count})"
-            : Strings.TiglGames_CategoryStandard;
+        _selectedLeague = league;
     }
 
-    private string GetFracturedTitle()
+    private void RedirectToGame(MatchReportDto game)
     {
-        var count = FilteredFracturedGames.Count;
-        return count > 0
-            ? $"{Strings.TiglGames_CategoryFractured} ({count})"
-            : Strings.TiglGames_CategoryFractured;
+        NavigationManager.NavigateTo(GetGameDetailUrl(game.Id));
     }
 
     private void UpdateSelectedGames()

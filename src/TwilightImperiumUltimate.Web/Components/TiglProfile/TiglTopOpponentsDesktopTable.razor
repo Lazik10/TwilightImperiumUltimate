@@ -1,0 +1,54 @@
+<ResponsiveRadzenTable ZebraStripes="true" CssClass="statistics-row-handel" TableTitle="Top opponents">
+    <RadzenTableHeader>
+        <RadzenTableHeaderRow>
+            <RadzenTableHeaderCell scope="col">#</RadzenTableHeaderCell>
+            <RadzenTableHeaderCell scope="col">Player</RadzenTableHeaderCell>
+            <RadzenTableHeaderCell scope="col">Games</RadzenTableHeaderCell>
+            <RadzenTableHeaderCell scope="col">#</RadzenTableHeaderCell>
+            <RadzenTableHeaderCell scope="col">Player</RadzenTableHeaderCell>
+            <RadzenTableHeaderCell scope="col">Games</RadzenTableHeaderCell>
+        </RadzenTableHeaderRow>
+    </RadzenTableHeader>
+    <RadzenTableBody>
+        @foreach (var index in Enumerable.Range(0, (Opponents.Count + 1) / 2))
+        {
+            var leftOpponent = Opponents[index];
+            var rightIndex = index + (Opponents.Count + 1) / 2;
+            <RadzenTableRow>
+                <RadzenTableCell>@(index + 1).</RadzenTableCell>
+                <RadzenTableCell>
+                    @if (leftOpponent.TiglUserId == 0)
+                    {
+                        <span style="color: red;">Private Profile</span>
+                    }
+                    else
+                    {
+                        <span class="clickable-cell" tabindex="0" role="button" @onclick="() => OnPlayerSelected.InvokeAsync(leftOpponent.TiglUserId)">@leftOpponent.TiglUserName</span>
+                    }
+                </RadzenTableCell>
+                <RadzenTableCell class="yellow">@leftOpponent.GamesPlayed</RadzenTableCell>
+
+                @if (rightIndex < Opponents.Count)
+                {
+                    var rightOpponent = Opponents[rightIndex];
+                    <RadzenTableCell>@(rightIndex + 1).</RadzenTableCell>
+                    <RadzenTableCell>
+                        @if (rightOpponent.TiglUserId == 0)
+                        {
+                            <span style="color: red;">Private Profile</span>
+                        }
+                        else
+                        {
+                            <span class="clickable-cell" tabindex="0" role="button" @onclick="() => OnPlayerSelected.InvokeAsync(rightOpponent.TiglUserId)">@rightOpponent.TiglUserName</span>
+                        }
+                    </RadzenTableCell>
+                    <RadzenTableCell class="yellow">@rightOpponent.GamesPlayed</RadzenTableCell>
+                }
+                else
+                {
+                    <RadzenTableCell colspan="3"></RadzenTableCell>
+                }
+            </RadzenTableRow>
+        }
+    </RadzenTableBody>
+</ResponsiveRadzenTable>

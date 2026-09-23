@@ -1,3 +1,5 @@
+using TwilightImperiumUltimate.Web.Helpers.Enums;
+
 namespace TwilightImperiumUltimate.Web.Components.Shared.Text;
 
 public partial class ResponsiveLabel
@@ -19,5 +21,5 @@ public partial class ResponsiveLabel
     private string ComputedCssClass =>
         $"responsive-label {(UseHandelStyling ? "handel white shadow" : string.Empty)} {(Truncate ? "text-no-overflow" : string.Empty)} {GetVisibilityClass} {CssClass}";
 
-    private string ComputedStyle => $"font-size: {FontSizeStyle}; color: {GetColorClass}; {GetTextAlignmentStyle} {Style}";
+    private string ComputedStyle => $"font-size: {FontSizeStyle}; color: {TextColor.ConvertToString()} !important; {GetTextAlignmentStyle} {Style}";
 }

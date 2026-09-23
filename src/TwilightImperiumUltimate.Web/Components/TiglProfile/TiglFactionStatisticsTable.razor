@@ -1,0 +1,26 @@
+@using TwilightImperiumUltimate.Contracts.DTOs.Tigl
+
+<section class="section-container mb-xl">
+	<ResponsiveHeading Level="2" Text="FACTION STATISTICS" FontSize="lg" CenterText="true" />
+	<ResponsiveRadzenDataGrid TItem="TiglProfileFactionStatsDto" Data="@Stats" AllowPaging="false" AllowSorting="true" AllowAlternatingRows="true" CssClass="faction-overview-grid">
+		<Columns>
+			<RadzenDataGridColumn TItem="TiglProfileFactionStatsDto" Title="Faction">
+				<Template Context="item">
+					@if (item.Faction != TiglFactionName.TwilightsFall)
+					{
+						<TiglFactionIconImg FactionName="@item.Faction" Height="20" />
+					}
+					@item.Faction.GetDisplayName()
+				</Template>
+			</RadzenDataGridColumn>
+			<RadzenDataGridColumn TItem="TiglProfileFactionStatsDto" Title="Games" Property="Games" />
+			<RadzenDataGridColumn TItem="TiglProfileFactionStatsDto" Title="Wins" Property="Wins" />
+			<RadzenDataGridColumn TItem="TiglProfileFactionStatsDto" Title="Win rate">
+				<Template Context="item">@(item.Games == 0 ? "-" : $"{item.WinRate:F1}%")</Template>
+			</RadzenDataGridColumn>
+			<RadzenDataGridColumn TItem="TiglProfileFactionStatsDto" Title="Average VP">
+				<Template Context="item">@(item.Games == 0 ? "-" : item.AverageVp.ToString("F1"))</Template>
+			</RadzenDataGridColumn>
+		</Columns>
+	</ResponsiveRadzenDataGrid>
+</section>

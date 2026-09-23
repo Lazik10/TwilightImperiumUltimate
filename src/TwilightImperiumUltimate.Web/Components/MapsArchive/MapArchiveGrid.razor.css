@@ -3,3 +3,16 @@
     padding-bottom: 1%;
     width: 100%;
 }
+
+.map-archive-grid ::deep .rz-grid-table thead th {
+    text-align: center;
+}
+
+.map-archive-grid ::deep .rz-custom-header {
+    width: 100%;
+}
+
+.map-archive-grid ::deep .rz-grid-table tbody tr > td:first-child,
+.map-archive-grid ::deep .rz-grid-table tbody tr > td:first-child .rz-cell-data {
+    text-align: left;
+}

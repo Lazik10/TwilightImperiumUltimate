@@ -1,0 +1,4 @@
+<ResponsiveRadzenTable ZebraStripes="true" CssClass="mb-xl statistics-row-handel" TableTitle="Rank summary">
+<RadzenTableHeader><RadzenTableHeaderRow><RadzenTableHeaderCell scope="col">League</RadzenTableHeaderCell><RadzenTableHeaderCell scope="col">Highest prestige rank</RadzenTableHeaderCell><RadzenTableHeaderCell scope="col">Achieved rank</RadzenTableHeaderCell></RadzenTableHeaderRow></RadzenTableHeader>
+<RadzenTableBody>@foreach (var row in Rows){<RadzenTableRow><RadzenTableCell>@row.Name</RadzenTableCell><RadzenTableCell><ResponsiveLabel Text="@row.Prestige" TextColor="@row.PrestigeColor" CenterText="true" /></RadzenTableCell><RadzenTableCell><ResponsiveLabel Text="@row.Rank" TextColor="@row.RankColor" CenterText="true" /></RadzenTableCell></RadzenTableRow>}</RadzenTableBody>
+</ResponsiveRadzenTable>

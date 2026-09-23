@@ -1,0 +1,16 @@
+.responsive-checkbox {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    color: white;
+    font-family: Handel, fallback, sans-serif;
+    font-size: var(--font-size-sm);
+    font-weight: bold;
+    text-shadow: var(--shadow-text);
+    cursor: pointer;
+}
+
+.responsive-checkbox input {
+    accent-color: var(--color-nav-hover);
+    cursor: inherit;
+}

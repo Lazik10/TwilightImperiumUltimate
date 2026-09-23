@@ -1,27 +1,32 @@
 @using TwilightImperiumUltimate.Web.Components.Shared.Bars
 @using TwilightImperiumUltimate.Web.Models.SlicesArchive
 
-<ResponsiveRadzenDataGrid TItem="SliceDraftModel"
-                          Data="FilteredSliceDrafts"
-                          AllowPaging="false"
-                          AllowSorting="true"
-                          AllowFiltering="true"
-                          AllowAlternatingRows="true"
-                          RowClick="@(sliceDraft => NavigationManager.NavigateTo(GetSliceDraftDetailsUrl(sliceDraft.Id)))"
-                          CssClass="mb-md">
-    <Columns>
-        <RadzenDataGridColumn TItem="SliceDraftModel" Property="Name" Title="@Strings.SlicesArchive_SliceDraftName" />
+<div class="slices-archive-grid">
+    <ResponsiveRadzenDataGrid TItem="SliceDraftModel"
+                              Data="FilteredSliceDrafts"
+                              AllowPaging="false"
+                              AllowSorting="true"
+                              AllowFiltering="true"
+                              AllowAlternatingRows="true"
+                              RowClick="@(sliceDraft => NavigationManager.NavigateTo(GetSliceDraftDetailsUrl(sliceDraft.Id)))"
+                              CssClass="mb-md">
+        <HeaderTemplate>
+            <ResponsiveHeading Level="4" Text="Slices" CenterText="true" CssClass="mb-0" />
+        </HeaderTemplate>
+        <Columns>
+            <RadzenDataGridColumn TItem="SliceDraftModel" Property="Name" Title="@Strings.SlicesArchive_SliceDraftName" />
 
-        <RadzenDataGridColumn TItem="SliceDraftModel" Property="Rating" Title="@Strings.SlicesArchive_SliceDraftRating" Filterable="false">
-            <Template Context="sliceDraft">
-                <StarRating IsReadOnly="true" Rating="@sliceDraft.Rating" />
-            </Template>
-        </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="SliceDraftModel" Property="Rating" Title="@Strings.SlicesArchive_SliceDraftRating" Filterable="false">
+                <Template Context="sliceDraft">
+                    <StarRating IsReadOnly="true" Rating="@sliceDraft.Rating" />
+                </Template>
+            </RadzenDataGridColumn>
 
-        <RadzenDataGridColumn TItem="SliceDraftModel" Property="EventName" Title="@Strings.SlicesArchive_SliceDraftEventName" />
+            <RadzenDataGridColumn TItem="SliceDraftModel" Property="EventName" Title="@Strings.SlicesArchive_SliceDraftEventName" />
 
-        <RadzenDataGridColumn TItem="SliceDraftModel" Property="UserName" Title="@Strings.SlicesArchive_SliceDraftAuthor" />
+            <RadzenDataGridColumn TItem="SliceDraftModel" Property="UserName" Title="@Strings.SlicesArchive_SliceDraftAuthor" />
 
-        <RadzenDataGridColumn TItem="SliceDraftModel" Property="SliceCount" Title="@Strings.SlicesArchive_SliceDraftSliseCount" />
-    </Columns>
-</ResponsiveRadzenDataGrid>
+            <RadzenDataGridColumn TItem="SliceDraftModel" Property="SliceCount" Title="@Strings.SlicesArchive_SliceDraftSliseCount" />
+        </Columns>
+    </ResponsiveRadzenDataGrid>
+</div>

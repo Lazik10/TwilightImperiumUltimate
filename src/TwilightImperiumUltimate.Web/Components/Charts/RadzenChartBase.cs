@@ -11,6 +11,12 @@ public abstract class RadzenChartBase : ComponentBase
     [Parameter]
     public string ValueTitle { get; set; } = string.Empty;
 
+    /// <summary>
+    /// Gets or sets the optional numeric format for value-axis labels.
+    /// </summary>
+    [Parameter]
+    public string? ValueFormatString { get; set; }
+
     [Parameter]
     public double Min { get; set; }
 

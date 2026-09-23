@@ -1,19 +1,19 @@
 ﻿@page "/community/tigl/player-profile"
 @using TwilightImperiumUltimate.Web.Components.TiglProfile
 
+<PageTitle>TIGL Player Profile</PageTitle>
+
 <Page>
     <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" CssClass="mb-md">
         <ResponsiveButton Text="@Strings.ButtonBack" OnClick="RedirectBack" FontSize="24" Width="20" TextAlign="@(string.Empty)" />
     </ResponsiveContainer>
 
+    <ResponsiveHeading Level="1" Text="TIGL Player Profile" FontSize="2xl" CenterText="true" CssClass="mb-xl" />
+
     @if (_loading)
     {
         <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-            <StretchHeightContainer CssClass="background">
-
-            <Label Text="@Strings.Loading" CenterText="true" FontSize="32" CssClass="mt-3xl mb-3xl" />
-
-            </StretchHeightContainer>
+            <ResponsiveLabel Text="@Strings.Loading" CenterText="true" FontSize="xl" CssClass="mt-3xl mb-3xl" />
         </ResponsiveContainer>
     }
     else

@@ -1,0 +1,5 @@
+@using Radzen.Blazor
+@using Radzen
+@using TwilightImperiumUltimate.Web.Components.Charts
+
+<section class="section-container mb-xl" aria-labelledby="tigl-rating-heading"><ResponsiveHeading Level="2" Text="RATING PROGRESSION" FontSize="lg" CenterText="true" />@if (!Series.Any()){<ResponsiveLabel Text="No match history available." CenterText="true" TextColor="TextColor.Grey" />}@foreach(var chart in Series){var bounds = GetBounds(chart);<ResponsiveHeading Level="3" Text="@chart.Title" FontSize="md" CenterText="true" /><div class="tigl-chart"><RadzenLineChart @key="chart.Title" Min="@bounds.Min" Max="@bounds.Max" Step="@bounds.Step" CategoryTitle="Game #" ValueTitle="Rating" ValueFormatString="{0:F1}"><RadzenLineSeries Data="@chart.Points" CategoryProperty="Game" ValueProperty="Rating" Title="@chart.Title" Smooth="true" /></RadzenLineChart></div>}</section>

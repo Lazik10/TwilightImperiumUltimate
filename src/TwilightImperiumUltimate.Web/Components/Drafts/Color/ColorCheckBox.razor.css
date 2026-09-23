@@ -4,9 +4,9 @@
     justify-content: center;
     min-width: 50px;
     min-height: 30px;
-    width: 9%;
+    width: 100%;
+    box-sizing: border-box;
     padding: 0px 15px 0px 15px;
-    margin-top: 50px;
     border-radius: 10px;
     border: 2px solid black;
     opacity: 0.8;

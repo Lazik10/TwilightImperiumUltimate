@@ -133,6 +133,20 @@
     font-family: Handel, sans-serif;
 }
 
+.responsive-radzen-grid-host ::deep .responsive-radzen-grid .rz-group-header {
+    background-color: var(--color-nav-panel-bg);
+}
+
+.responsive-radzen-grid-host ::deep .responsive-radzen-grid .rz-custom-header {
+    width: 100%;
+    text-align: center;
+}
+
+.responsive-radzen-grid-host ::deep .responsive-radzen-grid .rz-column-title {
+    text-align: center;
+    text-shadow: none !important;
+}
+
 /* RadzenDataGrid's own ".rz-data-grid-data" wrapper already sets "overflow: auto", but its default
    ".rz-grid-table-fixed" table layout squeezes every column to fit the container instead of
    overflowing -- forcing "table-layout: auto" plus "nowrap" cell/header content (matching

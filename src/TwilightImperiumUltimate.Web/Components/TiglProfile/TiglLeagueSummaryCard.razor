@@ -1,0 +1,30 @@
+<div class="tigl-summary">
+<ResponsiveRadzenTable CssClass="tigl-league-summary mb-xl statistics-row-handel" TableTitle="@Profile.League.GetDisplayName()">
+	<RadzenTableHeader>
+		<RadzenTableHeaderRow>
+			<RadzenTableHeaderCell colspan="3" id="tigl-summary-games">Games</RadzenTableHeaderCell>
+			<RadzenTableHeaderCell colspan="3" id="tigl-summary-win-rate">Win rate</RadzenTableHeaderCell>
+			<RadzenTableHeaderCell colspan="3" id="tigl-summary-prestige">Prestige</RadzenTableHeaderCell>
+			<RadzenTableHeaderCell colspan="3" id="tigl-summary-rank">Rank</RadzenTableHeaderCell>
+		</RadzenTableHeaderRow>
+	</RadzenTableHeader>
+	<RadzenTableBody>
+		<RadzenTableRow>
+			<RadzenTableCell colspan="3" headers="tigl-summary-games">@Profile.GamesPlayed</RadzenTableCell>
+			<RadzenTableCell colspan="3" headers="tigl-summary-win-rate">@WinRate.ToString("F1")%</RadzenTableCell>
+			<RadzenTableCell colspan="3" headers="tigl-summary-prestige"><ResponsiveLabel Text="@(Prestige?.PrestigeRank.GetDisplayName() ?? "-")" TextColor="@PrestigeColor" CenterText="true" /></RadzenTableCell>
+			<RadzenTableCell colspan="3" headers="tigl-summary-rank"><ResponsiveLabel Text="@Profile.CurrentRank.GetDisplayName()" TextColor="@Profile.CurrentRank.GetRankColor()" CenterText="true" /></RadzenTableCell>
+		</RadzenTableRow>
+		<RadzenTableRow>
+			<RadzenTableHeaderCell colspan="4" id="tigl-summary-trueskill">TrueSkill</RadzenTableHeaderCell>
+			<RadzenTableHeaderCell colspan="4" id="tigl-summary-glicko">Glicko-2</RadzenTableHeaderCell>
+			<RadzenTableHeaderCell colspan="4" id="tigl-summary-async">Async</RadzenTableHeaderCell>
+		</RadzenTableRow>
+		<RadzenTableRow>
+			<RadzenTableCell colspan="4" headers="tigl-summary-trueskill">@Profile.TrueSkillConservative.ToString("F2")</RadzenTableCell>
+			<RadzenTableCell colspan="4" headers="tigl-summary-glicko">@Profile.GlickoRating.ToString("F0")</RadzenTableCell>
+			<RadzenTableCell colspan="4" headers="tigl-summary-async">@Profile.AsyncRating.ToString("F1")</RadzenTableCell>
+		</RadzenTableRow>
+	</RadzenTableBody>
+</ResponsiveRadzenTable>
+</div>

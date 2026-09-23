@@ -3,70 +3,59 @@
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @using TwilightImperiumUltimate.Web.Components.Shared.Text
 @using TwilightImperiumUltimate.Web.Helpers.Resources;
-@using TwilightImperiumUltimate.Web.Resources;
-@using TwilightImperiumUltimate.Web.Components.Factions;
 
-<FactionIconMenu 
-    EnableBanMode="true"
-    OnFactionClickGetFaction="UpdateSelectedFactions" 
-    BanAllFactions="true"
-    @ref="_factionIconRow"/>
-
-<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-    <HelpText Text="@Strings.ColorPicker_HelpText" CssClass="mt-sm handel" />
+<ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="mt-3xl" JustifyContent="Enums.JustifyContent.Center">
+    <ResponsiveButton ButtonText="@GetPrimaryButtonText()"
+            OnClick="HandlePrimaryButtonClick" IsDisabled="GetButtonState()" Width="40" />
 </ResponsiveContainer>
 
-<ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="center" 
-    JustifyContent="Enums.JustifyContent.SpaceEvenly"
-    AlignItems="Enums.AlignItems.Center">
-    @foreach (var color in ColorPickerService.Colors)
+<ColorPickerMenu
+    OnFactionClickGetFaction="UpdateSelectedFactions"
+    @ref="_colorPickerMenu"/>
+
+<ResponsiveCard CssClass="mt-lg mb-xl">
+    <ResponsiveHeading Level="4" Text="Available Colors" CenterText="true" CssClass="mb-0" />
+    <ResponsiveText Text="(click to exclude)" FontSize="sm" CenterText="true" />
+
+    <ResponsiveGridContainer Columns="4" TabletColumns="4" MobileColumns="2">
+        @foreach (var color in ColorPickerService.Colors)
+        {
+            <ColorCheckBox 
+                Color="@(color.Key)" 
+                IsChecked="@(color.Value)"
+                OnClick="HandleColorClick" />
+        }
+    </ResponsiveGridContainer>
+</ResponsiveCard>
+
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-3xl">
+    @if (ColorPickerService.FactionColorDraftResults is not null && ColorPickerService.FactionColorDraftResults.Any())
     {
-        <ColorCheckBox 
-            Color="@(color.Key)" 
-            IsChecked="@(color.Value)"
-            OnClick="HandleColorClick" />
+        @foreach (var result in ColorPickerService.FactionColorDraftResults)
+        {
+            <ColorPickerBackground 
+                BackgroundColor="result.Color"
+                CssClass="mt-sm">
+
+                <Title Text="@(result.FactionName.GetFactionUIText(FactionResourceType.Title))"
+                       MarginTop="0" 
+                       FontSize="24" />
+            </ColorPickerBackground>
+        }
+    }
+    else
+    {
+        @foreach (var faction in ColorPickerService.SelectedFactions)
+        {
+            <ColorPickerBackground BackgroundColor="@(PlayerColor.Black)" CssClass="mt-sm">
+
+                <Title Text="@(faction.FactionName.GetFactionUIText(FactionResourceType.Title))"
+                       CssClass="faction hendel white shadow"
+                       MarginTop="0"
+                       FontSize="24" />
+            </ColorPickerBackground>
+
+        }
     }
 </ResponsiveContainer>
-
-<ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="mt-3xl">
-    <ResponsiveButton ButtonText="@GetButtonStateText()"
-            OnClick="DraftColors" IsDisabled="GetButtonState()" Width="30" />
-    <ResponsiveButton ButtonText="@Strings.DraftButton_ResetSelectedFactions"
-            OnClick="ResetSelectedFactions" Width="30" />
-    <ResponsiveButton ButtonText="@Strings.DraftButton_ResetBannedColors"
-        OnClick="ResetBannedColors" Width="30" />
-</ResponsiveContainer>
-
-<StretchHeightContainer>
-    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-3xl">
-        @if (ColorPickerService.FactionColorDraftResults is not null && ColorPickerService.FactionColorDraftResults.Any())
-        {
-            @foreach (var result in ColorPickerService.FactionColorDraftResults)
-            {
-                <ColorPickerBackground 
-                    BackgroundColor="result.Color"
-                    CssClass="mt-sm">
-
-                    <Title Text="@(result.FactionName.GetFactionUIText(FactionResourceType.Title))"
-                           MarginTop="0" 
-                           FontSize="24" />
-                </ColorPickerBackground>
-            }
-        }
-        else
-        {
-            @foreach (var faction in ColorPickerService.SelectedFactions)
-            {
-                <ColorPickerBackground BackgroundColor="@(PlayerColor.Black)" CssClass="mt-sm">
-
-                    <Title Text="@(faction.FactionName.GetFactionUIText(FactionResourceType.Title))"
-                           CssClass="faction hendel white shadow"
-                           MarginTop="0"
-                           FontSize="24" />
-                </ColorPickerBackground>
-
-            }
-        }
-    </ResponsiveContainer>
-</StretchHeightContainer>
 

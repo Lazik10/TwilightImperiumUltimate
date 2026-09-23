@@ -26,7 +26,9 @@ public class ColorPickerService : IColorPickerService
 
     public IReadOnlyCollection<FactionColorDraftResult>? FactionColorDraftResults => _factionColorDraftResults;
 
-    public bool IsDraftPossible() => Colors.Count(x => !x.Value) >= SelectedFactions.Count;
+    public bool IsDraftPossible() =>
+        SelectedFactions.Count >= ColorDraftOptions.MinNumberOfFactions
+        && Colors.Count(x => !x.Value) >= SelectedFactions.Count;
 
     public PlayerColor GetRandomColor() => Colors.Keys.ToList()[_random.Next(Colors.Count)];
 
@@ -34,6 +36,12 @@ public class ColorPickerService : IColorPickerService
     {
         _selectedFactions = [];
         _factionColorDraftResults = [];
+    }
+
+    public void ResetDraft()
+    {
+        ResetSelectedFactions();
+        OnFactionUpdate?.Invoke(this, EventArgs.Empty);
     }
 
     public void ResetBannedColors() => InitializeColors();

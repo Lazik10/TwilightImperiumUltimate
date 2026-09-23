@@ -49,6 +49,36 @@
     width: 100%;
 }
 
+.report-game-card ::deep #game-id {
+    --rz-input-background-color: var(--color-nav-panel-bg);
+    --rz-input-hover-background-color: var(--color-nav-panel-bg);
+    --rz-input-focus-background-color: var(--color-nav-panel-bg);
+    --rz-input-border: 1px solid var(--color-nav-hover-bg-solid, #123957);
+    --rz-input-border-block-end: 1px solid var(--color-nav-hover-bg-solid, #123957);
+    --rz-input-hover-border: 1px solid var(--color-nav-hover-bg-solid, #123957);
+    --rz-input-hover-border-block-end: 1px solid var(--color-nav-hover-bg-solid, #123957);
+    --rz-input-focus-border: 1px solid var(--color-nav-hover-bg-solid, #123957);
+    --rz-input-focus-border-block-end: 1px solid var(--color-nav-hover-bg-solid, #123957);
+    --rz-input-value-color: var(--color-white);
+    background-color: var(--color-nav-panel-bg) !important;
+    border: 1px solid var(--color-nav-hover-bg-solid, #123957) !important;
+    border-block-end: 1px solid var(--color-nav-hover-bg-solid, #123957) !important;
+    border-color: var(--color-nav-hover-bg-solid, #123957) !important;
+    color: var(--color-white) !important;
+    font-family: Handel, fallback, sans-serif !important;
+}
+
+.report-game-card ::deep #game-id:hover,
+.report-game-card ::deep #game-id:focus,
+.report-game-card ::deep #game-id:focus-visible,
+.report-game-card ::deep #game-id:active {
+    background-color: var(--color-nav-panel-bg) !important;
+    border: 1px solid var(--color-nav-hover-bg-solid, #123957) !important;
+    border-block-end: 1px solid var(--color-nav-hover-bg-solid, #123957) !important;
+    border-color: var(--color-nav-hover-bg-solid, #123957) !important;
+    color: var(--color-white) !important;
+}
+
 .report-game-card ::deep .rz-numeric {
     border: 1px solid var(--color-nav-hover-bg-solid, #123957) !important;
     border-radius: var(--border-radius-md);

@@ -1,19 +1,21 @@
 ﻿<div class="async-navbar">
-    <ResponsiveTabMenu AriaLabel="Async sections" CssClass="responsive-content-width mb-xl">
+    <ResponsiveTabMenu AriaLabel="Async sections" CssClass="responsive-content-width mb-xl faction-style">
         <ResponsiveTab Id="async-tab-statistics"
                        IsActive="@(SelectedItem == AsyncMenuItem.Statistics)"
                        OnClick="() => OnMenuItemClick.InvokeAsync(AsyncMenuItem.Statistics)">
-            @Strings.AsyncMenu_Statistics
+            <ResponsiveLabel Text="@Strings.AsyncMenu_Statistics" CenterText="true" FontSize="lg" />
         </ResponsiveTab>
+        <ResponsiveTabSeparator />
         <ResponsiveTab Id="async-tab-games"
                        IsActive="@(SelectedItem == AsyncMenuItem.Games)"
                        OnClick="() => OnMenuItemClick.InvokeAsync(AsyncMenuItem.Games)">
-            @Strings.AsyncMenu_Games
+            <ResponsiveLabel Text="@Strings.AsyncMenu_Games" CenterText="true" FontSize="lg" />
         </ResponsiveTab>
+        <ResponsiveTabSeparator />
         <ResponsiveTab Id="async-tab-players"
                        IsActive="@(SelectedItem == AsyncMenuItem.Players)"
                        OnClick="() => OnMenuItemClick.InvokeAsync(AsyncMenuItem.Players)">
-            @Strings.AsyncMenu_Players
+            <ResponsiveLabel Text="@Strings.AsyncMenu_Players" CenterText="true" FontSize="lg" />
         </ResponsiveTab>
     </ResponsiveTabMenu>
 </div>

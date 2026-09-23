@@ -1,0 +1,30 @@
+<section class="section-container mb-xl">
+	<ResponsiveRadzenTable ZebraStripes="true" TableTitle="Rank history">
+		<RadzenTableHeader>
+			<RadzenTableHeaderRow>
+				<RadzenTableHeaderCell scope="col">Rank</RadzenTableHeaderCell>
+				<RadzenTableHeaderCell scope="col">Achieved</RadzenTableHeaderCell>
+				<RadzenTableHeaderCell scope="col">Time to next rank</RadzenTableHeaderCell>
+			</RadzenTableHeaderRow>
+		</RadzenTableHeader>
+		<RadzenTableBody>
+			@if (Rows.Count == 0)
+			{
+				<RadzenTableRow>
+					<RadzenTableCell colspan="3"><ResponsiveLabel Text="No rank history." CenterText="true" /></RadzenTableCell>
+				</RadzenTableRow>
+			}
+			else
+			{
+				@foreach (var row in Rows)
+				{
+					<RadzenTableRow>
+						<RadzenTableCell><ResponsiveLabel Text="@row.Rank.GetDisplayName()" TextColor="@row.Rank.GetRankColor()" CenterText="true" /></RadzenTableCell>
+						<RadzenTableCell>@FormatDate(row.AchievedAt)</RadzenTableCell>
+						<RadzenTableCell>@row.Duration</RadzenTableCell>
+					</RadzenTableRow>
+				}
+			}
+		</RadzenTableBody>
+	</ResponsiveRadzenTable>
+</section>

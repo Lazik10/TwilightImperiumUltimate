@@ -1,0 +1,11 @@
+.tigl-summary {
+    width: 100%;
+    min-width: 0;
+}
+
+.tigl-summary ::deep .tigl-league-summary tbody th {
+    color: var(--rz-grid-header-color);
+    background-color: var(--rz-grid-header-background-color);
+    border-bottom: var(--rz-grid-header-cell-border-bottom);
+    text-align: center;
+}

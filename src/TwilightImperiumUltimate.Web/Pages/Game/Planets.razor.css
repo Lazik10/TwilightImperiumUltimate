@@ -4,8 +4,11 @@
     margin-right: auto;
 }
 
-/* Passed via CssClass into ResponsiveContainer, so it renders on that component's own element. */
-::deep .planets-filters-container {
+.planets-filters-wrapper {
+    width: 100%;
+}
+
+.planets-filters-wrapper ::deep .planets-filters-container {
     flex-wrap: wrap;
     gap: var(--space-md);
     margin-bottom: var(--space-lg);

@@ -1,0 +1,1 @@
+.tigl-metrics { display:grid; grid-template-columns:repeat(auto-fit,minmax(8rem,1fr)); gap:var(--space-md); text-align:center; }.tigl-metrics span,.tigl-metrics strong { display:block; }.tigl-metrics span { color:var(--color-nav-hover); }.tigl-metrics strong { margin-top:var(--space-xs); }

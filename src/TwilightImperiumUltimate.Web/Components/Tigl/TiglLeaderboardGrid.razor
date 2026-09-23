@@ -11,6 +11,7 @@
         <ResponsiveDropDown Id="leaderboard-season"
                             TValue="int"
                             Label="@Strings.TiglLeaderboard_Season"
+                            LabelPosition="LabelPosition.Column"
                             Data="@_seasons"
                             TextProperty="@nameof(SeasonDto.SeasonNumber)"
                             ValueProperty="@nameof(SeasonDto.SeasonNumber)"
@@ -20,6 +21,7 @@
         <ResponsiveDropDown Id="leaderboard-league"
                             TValue="TiglLeagueFilter"
                             Label="@Strings.TiglLeaderboard_League"
+                            LabelPosition="LabelPosition.Column"
                             Data="@LeagueOptions"
                             TextProperty="Value"
                             ValueProperty="Key"
@@ -29,6 +31,7 @@
         <ResponsiveDropDown Id="leaderboard-ranking-system"
                             TValue="RankingSystem"
                             Label="@Strings.TiglLeaderboard_RankingSystem"
+                            LabelPosition="LabelPosition.Column"
                             Data="@RankingSystemOptions"
                             TextProperty="Value"
                             ValueProperty="Key"
@@ -39,7 +42,8 @@
     <ResponsiveRadzenDataGrid TItem="PlayerSeasonResultDto"
                               Data="@DisplayedRows"
                               IsLoading="@_loading"
-                              AllowPaging="false"
+                              AllowPaging="true"
+                              PageSize="50"
                               AllowSorting="false"
                               AllowAlternatingRows="true"
                               RowClick="RedirectToPlayer"
@@ -48,10 +52,16 @@
             <div class="leaderboard-title-row">
                 <span class="leaderboard-title">@_selectedRankingSystem.GetDisplayName()</span>
                 <div class="leaderboard-options" role="group" aria-label="Leaderboard filters">
-                    <RadzenCheckBox Value="@_onlyActive" ValueChanged="OnOnlyActiveChanged" TValue="bool" aria-label="Only active" />
-                    <span>Only active</span>
-                    <RadzenCheckBox Value="@_onlyConfident" ValueChanged="OnOnlyConfidentChanged" TValue="bool" aria-label="Only confident ratings" />
-                    <span>Only confident ratings</span>
+                    <ResponsiveCheckbox Label="Only active"
+                                         IsChecked="@_onlyActive"
+                                         IsCheckedChanged="OnOnlyActiveChanged"
+                                         Name="leaderboard-only-active"
+                                         AriaLabel="Only active" />
+                    <ResponsiveCheckbox Label="Only confident ratings"
+                                         IsChecked="@_onlyConfident"
+                                         IsCheckedChanged="OnOnlyConfidentChanged"
+                                         Name="leaderboard-only-confident"
+                                         AriaLabel="Only confident ratings" />
                 </div>
             </div>
         </HeaderTemplate>

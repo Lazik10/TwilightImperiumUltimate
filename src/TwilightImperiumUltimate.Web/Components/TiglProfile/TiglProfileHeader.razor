@@ -1,0 +1,10 @@
+<TitleLine TransformX="-10" Width="115" MaxWidth="115" />
+<ResponsiveHeading Level="2" Text="@Profile.TiglUserName.ToUpperInvariant()" FontSize="2xl" CenterText="true" CssClass="mb-0" />
+<TitleLine TransformX="-10" Width="115" MaxWidth="115" />
+@if (!string.IsNullOrWhiteSpace(Profile.DiscordTag))
+{
+    <ResponsiveLabel Text="@($"Discord Tag: {Profile.DiscordTag}")" CenterText="true" FontSize="md" TextColor="TextColor.Yellow" CssClass="mt-xs mb-lg" />
+}
+<div class="tigl-profile-league-picker mt-md mb-xl">
+    <ResponsiveDropDown TValue="TiglProfileCategory" Id="tigl-profile-league" Data="@Options" TextProperty="Value" ValueProperty="Key" Value="@CurrentCategory" ValueChanged="CurrentCategoryChanged" Label="League" LabelPosition="LabelPosition.Column" Width="40" />
+</div>

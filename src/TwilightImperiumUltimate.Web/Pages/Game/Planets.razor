@@ -6,25 +6,27 @@
 
     <ResponsiveHeading Level="1" Text="@Strings.Page_Planets"/>
 
-    <ResponsiveContainer Type="ContainerType.Flex" JustifyContent="Enums.JustifyContent.Center" AlignItems="Enums.AlignItems.FlexStart" CssClass="planets-filters-container">
-        <GameVersionFilterDropdown GameVersions="GetAvailableGameVersions()"
-                                   SelectedGameVersion="@_selectedGameVersion"
-                                   SelectedGameVersionChanged="OnGameVersionFilterChanged"
-                                   Label="@Strings.PlanetsFilter_ByExpansion"
-                                   LabelPosition="LabelPosition.Column"
-                                   CssClass="planets-filter-dropdown" />
+    <div class="planets-filters-wrapper">
+        <ResponsiveContainer Type="ContainerType.Flex" JustifyContent="Enums.JustifyContent.Center" AlignItems="Enums.AlignItems.FlexStart" CssClass="planets-filters-container">
+            <GameVersionFilterDropdown GameVersions="GetAvailableGameVersions()"
+                                       SelectedGameVersion="@_selectedGameVersion"
+                                       SelectedGameVersionChanged="OnGameVersionFilterChanged"
+                                       Label="@Strings.PlanetsFilter_ByExpansion"
+                                       LabelPosition="LabelPosition.Column"
+                                       CssClass="planets-filter-dropdown" />
 
-        <ResponsiveDropDown Id="planets-filter-by-trait"
-                            TValue="string"
-                            Label="@Strings.PlanetsFilter_ByTrait"
-                            LabelPosition="LabelPosition.Column"
-                            Data="@GetPlanetFilterOptions()"
-                            TextProperty="Label"
-                            ValueProperty="Value"
-                            Value="@_selectedPlanetFilter"
-                            ValueChanged="OnPlanetFilterChanged"
-                            CssClass="planets-filter-dropdown" />
-    </ResponsiveContainer>
+            <ResponsiveDropDown Id="planets-filter-by-trait"
+                                TValue="string"
+                                Label="@Strings.PlanetsFilter_ByTrait"
+                                LabelPosition="LabelPosition.Column"
+                                Data="@GetPlanetFilterOptions()"
+                                TextProperty="Label"
+                                ValueProperty="Value"
+                                Value="@_selectedPlanetFilter"
+                                ValueChanged="OnPlanetFilterChanged"
+                                CssClass="planets-filter-dropdown" />
+        </ResponsiveContainer>
+    </div>
 
     <ResponsiveContainer Type="ContainerType.Fluid" Padding="none">
         @foreach (var gameVersion in GetVisiblePlanets())

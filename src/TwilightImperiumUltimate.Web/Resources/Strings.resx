@@ -161,6 +161,10 @@
     <value>Not enough colors</value>
   </data>
 
+  <data name="ColorPickerButton_ResetDraft" xml:space="preserve">
+    <value>Reset Draft</value>
+  </data>
+
   <data name="ColorPicker_HelpText" xml:space="preserve">
     <value>(Select factions from the row above)</value>
   </data>
@@ -1198,7 +1202,7 @@
   </data>
 
   <data name="Home_IntroDescription" xml:space="preserve">
-    <value>Explore free Twilight Imperium 4 tools, including map and slice generators, faction guides, rules, system tiles, game tracking, and community resources.</value>
+    <value>TI4 Ultimate offers information about factions and game components, free tools such as slice and map generators, rules, a game tracker, statistics for asynchronous Discord games, TIGL league game tracking and statistics, and community resources.</value>
   </data>
 
   <data name="Page_OtherWebsites" xml:space="preserve">

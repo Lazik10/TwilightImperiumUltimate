@@ -10,3 +10,26 @@
     padding: var(--space-sm) var(--space-md);
     border-radius: var(--border-radius-md);
 }
+
+.responsive-tab-menu.faction-style ::deep .responsive-tab,
+.responsive-tab-menu.faction-style ::deep .tab-nav-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0;
+    color: white;
+    font-size: var(--font-size-lg);
+    text-decoration: none;
+}
+
+.responsive-tab-menu.faction-style ::deep .responsive-tab-active,
+.responsive-tab-menu.faction-style ::deep .faction-info-tab-active {
+    color: var(--color-nav-hover) !important;
+    text-decoration: none;
+}
+
+.responsive-tab-menu.faction-style ::deep .responsive-tab-active .white,
+.responsive-tab-menu.faction-style ::deep .faction-info-tab-active .white {
+    color: var(--color-nav-hover) !important;
+}
+

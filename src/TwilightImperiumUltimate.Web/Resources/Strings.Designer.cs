@@ -1462,6 +1462,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
             }
         }
 
+        public static string ColorPickerButton_ResetDraft {
+            get {
+                return ResourceManager.GetString("ColorPickerButton_ResetDraft", resourceCulture);
+            }
+        }
+
         public static string ColorPicker_HelpText {
             get {
                 return ResourceManager.GetString("ColorPicker_HelpText", resourceCulture);

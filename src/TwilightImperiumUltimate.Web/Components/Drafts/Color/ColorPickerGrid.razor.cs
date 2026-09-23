@@ -4,12 +4,16 @@ namespace TwilightImperiumUltimate.Web.Components.Drafts.Color;
 
 public partial class ColorPickerGrid
 {
-    private FactionIconMenu _factionIconRow = null!;
+    private ColorPickerMenu _colorPickerMenu = null!;
 
     private DraftStage _draftStage = DraftStage.Draft;
 
     [Inject]
     private IColorPickerService ColorPickerService { get; set; } = null!;
+
+    private bool HasDraftResults => ColorPickerService.FactionColorDraftResults is not null && ColorPickerService.FactionColorDraftResults.Any();
+
+    private bool HasTooFewColors => ColorPickerService.Colors.Count(color => !color.Value) < ColorPickerService.SelectedFactions.Count;
 
     protected override void OnInitialized()
     {
@@ -27,16 +31,22 @@ public partial class ColorPickerGrid
         _draftStage = DraftStage.Draft;
     }
 
-    private void ResetSelectedFactions()
+    private async Task HandlePrimaryButtonClick()
     {
-        _factionIconRow.SetAllFactionsBanStatus(true);
-        ColorPickerService.ResetSelectedFactions();
-        StateHasChanged();
+        if (HasDraftResults)
+        {
+            ResetDraft();
+            return;
+        }
+
+        await DraftColors();
     }
 
-    private void ResetBannedColors()
+    private void ResetDraft()
     {
-        ColorPickerService.ResetBannedColors();
+        ColorPickerService.ResetDraft();
+        _colorPickerMenu.SetAllFactionsBanStatus(true);
+        StateHasChanged();
     }
 
     private void HandleColorClick(PlayerColor color)
@@ -46,20 +56,25 @@ public partial class ColorPickerGrid
 
     private void UpdateSelectedFactions(FactionModel faction)
     {
-        ColorPickerService.UpdateSelectedFactions(_factionIconRow.Factions, faction);
+        ColorPickerService.UpdateSelectedFactions(_colorPickerMenu.Factions, faction);
+    }
+
+    private string GetPrimaryButtonText()
+    {
+        return HasDraftResults ? Strings.ColorPickerButton_ResetDraft : GetButtonStateText();
     }
 
     private string GetButtonStateText()
     {
         return _draftStage switch
         {
-            DraftStage.Draft when !ColorPickerService.IsDraftPossible() => Strings.ColorPickerButton_NotEnoughColors,
+            DraftStage.Draft when HasTooFewColors => Strings.ColorPickerButton_NotEnoughColors,
             DraftStage.DraftInProgress => Strings.ColorPcikerButton_Drafting,
             _ => Strings.ColorPickerButton_DraftReady,
         };
     }
 
-    private bool GetButtonState() => _draftStage == DraftStage.Draft && !ColorPickerService.IsDraftPossible();
+    private bool GetButtonState() => !HasDraftResults && _draftStage == DraftStage.Draft && !ColorPickerService.IsDraftPossible();
 
     private void HandleOnDataUpdated(object? sender, EventArgs e)
     {
