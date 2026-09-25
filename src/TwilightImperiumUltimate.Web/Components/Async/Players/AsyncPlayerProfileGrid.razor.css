@@ -1,0 +1,4 @@
+.async-player-profile-filter ::deep .responsive-dropdown-host.has-label.label-position-column {
+    align-items: center;
+    width: 100%;
+}

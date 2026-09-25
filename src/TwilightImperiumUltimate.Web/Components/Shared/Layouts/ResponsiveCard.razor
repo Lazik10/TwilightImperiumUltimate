@@ -6,6 +6,6 @@
     distinct, more legible panel instead of floating directly on the page background.
 *@
 
-<section class="responsive-card @CssClass">
+<section class="responsive-card @(RemoveHorizontalPadding ? "responsive-card-no-horizontal-padding" : string.Empty) @CssClass">
     @ChildContent
 </section>

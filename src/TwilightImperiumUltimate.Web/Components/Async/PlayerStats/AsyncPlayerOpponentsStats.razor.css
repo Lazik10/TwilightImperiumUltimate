@@ -27,14 +27,22 @@
     }
 }
 
-/* Opponent name cells are clickable (navigate to that player's profile) without being a button. */
 .clickable-cell {
+    display: inline-flex;
+    padding: 0;
+    border: 0;
+    background: transparent;
     color: var(--color-white, #ffffff);
-    font-family: 'Inter', sans-serif;
+    font: inherit;
     cursor: pointer;
 }
 
-.clickable-cell:hover,
 .clickable-cell:focus-visible {
-    text-decoration: underline;
+    outline: 2px solid var(--color-nav-hover);
+    outline-offset: 2px;
+}
+
+.clickable-cell ::deep .responsive-label {
+    font-family: Handel, sans-serif !important;
+    text-shadow: var(--shadow-text);
 }

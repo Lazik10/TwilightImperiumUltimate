@@ -16,4 +16,10 @@ public partial class ResponsiveCard
     /// </summary>
     [Parameter]
     public string CssClass { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Gets or sets a value indicating whether left and right card padding should be removed.
+    /// </summary>
+    [Parameter]
+    public bool RemoveHorizontalPadding { get; set; }
 }

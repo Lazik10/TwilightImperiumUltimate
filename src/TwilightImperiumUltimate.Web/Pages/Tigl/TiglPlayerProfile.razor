@@ -3,12 +3,10 @@
 
 <PageTitle>TIGL Player Profile</PageTitle>
 
-<Page>
-    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" CssClass="mb-md">
+<Page HorizontalPadding="0">
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" CssClass="mb-md" Style="padding-left: 10%;" Name="tigl-profile-back-row">
         <ResponsiveButton Text="@Strings.ButtonBack" OnClick="RedirectBack" FontSize="24" Width="20" TextAlign="@(string.Empty)" />
     </ResponsiveContainer>
-
-    <ResponsiveHeading Level="1" Text="TIGL Player Profile" FontSize="2xl" CenterText="true" CssClass="mb-xl" />
 
     @if (_loading)
     {

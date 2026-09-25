@@ -4,11 +4,14 @@
     @if (AsyncPlayerProfile is not null)
     {
         <div class="async-player-games-host">
-        <ResponsiveButton Text="@(_allExpanded ? Strings.AsyncPlayer_GamesStatsCollapseAll : Strings.AsyncPlayer_GamesStatsExpandAll)"
-                          OnClick="ToggleExpandAll"
-                          CssClass="async-player-games-expand-all-btn"
-                          FontSize="14" />
-        <ResponsiveRadzenTable ZebraStripes="true" CssClass="mb-xl statistics-row-handel" TableTitle="@Strings.AsyncPlayer_GamesStatsTitle">
+        <ResponsiveRadzenTable ZebraStripes="true" CssClass="statistics-row-handel" TableTitle="@Strings.AsyncPlayer_GamesStatsTitle">
+            <TableTitleActions>
+                <ResponsiveCheckbox Label="@Strings.AsyncPlayer_GamesStatsExpandAll"
+                                    IsChecked="@_allExpanded"
+                                    IsCheckedChanged="OnExpandAllChanged"
+                                    CssClass="async-player-games-expand-all-checkbox" />
+            </TableTitleActions>
+            <ChildContent>
             <RadzenTableHeader>
                 <RadzenTableHeaderRow>
                     <RadzenTableHeaderCell scope="col">@Strings.AsyncPlayer_GamesStatsGame</RadzenTableHeaderCell>
@@ -65,7 +68,7 @@
                                                 <span style="@GetAsyncGameIdTextColor(game)">@game.AsyncGameID</span>
                                             </RadzenTableCell>
                                             <RadzenTableCell class="async-player-games-fun-name-cell">
-                                                <span style="@GetAsyncGameIdTextColor(game)">@game.GameFunName</span>
+                                                <span style="@GetAsyncGameIdTextColor(game)" title="@game.GameFunName">@GetDisplayGameFunName(game.GameFunName)</span>
                                             </RadzenTableCell>
                                             <RadzenTableCell>
                                                 @if (ShowWins(game) && game.IsWinner)
@@ -74,7 +77,11 @@
                                                 }
                                             </RadzenTableCell>
                                             <RadzenTableCell>@(ShowWins(game) ? $"{game.PlayerScore} / {game.Scoreboard}" : $"? / {game.Scoreboard}")</RadzenTableCell>
-                                            <RadzenTableCell>@(game.Faction.GetFactionUIText(FactionResourceType.Title))</RadzenTableCell>
+                                            <RadzenTableCell class="async-player-games-faction-cell">
+                                                <span title="@(game.Faction.GetFactionUIText(FactionResourceType.Title))">
+                                                    <AsyncFactionIconImg FactionName="@game.Faction" Height="24" />
+                                                </span>
+                                            </RadzenTableCell>
                                             <RadzenTableCell>@GetDurationTime(game)</RadzenTableCell>
                                         </RadzenTableRow>
                                     }
@@ -84,6 +91,7 @@
                     }
                 }
             </RadzenTableBody>
+            </ChildContent>
         </ResponsiveRadzenTable>
         </div>
     }

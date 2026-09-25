@@ -5,8 +5,8 @@
     @if (AsyncPlayerProfile is not null)
     {
         <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" CssClass="mb-2xl">
-            <ResponsiveLabel Text="@GetWinratePercentage()" FontSize="xl" CenterText="true" TextColor="@(AsyncPlayerProfile.Settings.ExcludeFromAsyncStats ? TextColor.White : GameStats.WinRate.GetWinrateColor())" />
-            <ResponsiveLabel Text="@GetGamesFinished()" FontSize="xl" CenterText="true" TextColor="TextColor.White" />
+            <ResponsiveLabel Text="@GetWinratePercentage()" FontSize="xl" CenterText="true" TextColor="@MainStatsTextColor" />
+            <ResponsiveLabel Text="@GetGamesFinished()" FontSize="xl" CenterText="true" TextColor="@MainStatsTextColor" />
         </ResponsiveGridContainer>
 
         <ResponsiveRadzenTable ZebraStripes="true" EqualColumns="true" CssClass="mb-xl statistics-row-handel" TableTitle="@Strings.GameStats_Title">

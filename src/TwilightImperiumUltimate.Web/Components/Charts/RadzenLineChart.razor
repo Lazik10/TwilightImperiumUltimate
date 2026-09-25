@@ -4,6 +4,11 @@
 @inherits RadzenChartBase
 
 <div class="radzen-line-chart">
+    @if (!string.IsNullOrWhiteSpace(ChartTitle))
+    {
+        <div class="radzen-line-chart-title handel white shadow">@ChartTitle</div>
+    }
+
     <RadzenChart>
         @ChildContent
         <RadzenCategoryAxis Stroke="white" StrokeWidth="2">
@@ -12,6 +17,6 @@
         <RadzenValueAxis Min="@Min" Max="@Max" Step="@Step" FormatString="@ValueFormatString" Stroke="white" StrokeWidth="2">
             <RadzenAxisTitle Text="@ValueTitle" />
         </RadzenValueAxis>
-        <RadzenLegend Visible="true" Position="LegendPosition.Bottom" />
+        <RadzenLegend Visible="@ShowLegend" Position="LegendPosition.Bottom" />
     </RadzenChart>
 </div>

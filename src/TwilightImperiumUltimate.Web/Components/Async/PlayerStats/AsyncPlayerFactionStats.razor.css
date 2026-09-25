@@ -1,1 +1,25 @@
-﻿
+.async-player-faction-filter {
+	margin-bottom: var(--space-lg);
+}
+
+.async-player-faction-filter ::deep .responsive-dropdown-host.has-label.label-position-column {
+	align-items: center;
+	gap: 0;
+	width: 100%;
+}
+
+.async-player-faction-filter ::deep .responsive-dropdown-label {
+	margin-bottom: 0 !important;
+}
+
+.async-player-faction-grid,
+.async-player-faction-grid ::deep .responsive-radzen-grid-host {
+	width: 100%;
+}
+
+.async-player-faction-grid ::deep .faction-overview-grid .rz-cell-data,
+.async-player-faction-grid ::deep .faction-overview-grid .rz-column-title,
+.async-player-faction-grid ::deep .faction-overview-grid tbody span {
+	font-family: Handel, sans-serif !important;
+	text-shadow: var(--shadow-text);
+}

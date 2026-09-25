@@ -1,6 +1,31 @@
 .section-container { width: 100%; padding: 0 var(--space-sm); box-sizing: border-box; }
 .tigl-profile-league-picker { width: fit-content; margin: 0 auto; }
 .tigl-league-summary { width: 100%; }
+.tigl-profile-faction-filter {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.tigl-profile-faction-filter ::deep .responsive-dropdown-host.has-label.label-position-column {
+    align-items: center;
+    width: 100%;
+}
+
+.tigl-profile-content-fill,
+.tigl-profile-content-fill ::deep .section-container,
+.tigl-profile-content-fill ::deep .tigl-chart,
+.tigl-profile-content-fill ::deep .radzen-line-chart,
+.tigl-profile-content-fill ::deep .responsive-radzen-table-host,
+.tigl-profile-content-fill ::deep .responsive-radzen-grid-host,
+.tigl-profile-content-fill ::deep .responsive-card,
+.tigl-profile-content-fill ::deep .tigl-opponents-desktop,
+.tigl-profile-content-fill ::deep .tigl-opponents-mobile {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
 .tigl-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr)); gap: var(--space-md); text-align: center; }
 .tigl-metrics span, .tigl-metrics strong { display: block; }
 .tigl-metrics span { color: var(--color-nav-hover); }

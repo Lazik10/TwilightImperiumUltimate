@@ -1,6 +1,7 @@
 .responsive-checkbox {
     display: inline-flex;
     align-items: center;
+    flex-shrink: 0;
     gap: var(--space-xs);
     color: white;
     font-family: Handel, fallback, sans-serif;
@@ -8,6 +9,11 @@
     font-weight: bold;
     text-shadow: var(--shadow-text);
     cursor: pointer;
+    white-space: nowrap;
+}
+
+.responsive-checkbox span {
+    white-space: nowrap;
 }
 
 .responsive-checkbox input {

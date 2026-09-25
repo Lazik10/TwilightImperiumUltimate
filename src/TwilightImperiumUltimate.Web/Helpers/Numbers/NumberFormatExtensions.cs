@@ -5,6 +5,16 @@ namespace TwilightImperiumUltimate.Web.Helpers.Numbers;
 
 public static class NumberFormatExtensions
 {
+    public static string ToRomanNumeral(this int number)
+    {
+        return number switch
+        {
+            <= 0 => string.Empty,
+            >= 10 => number.ToString(CultureInfo.InvariantCulture),
+            _ => new[] { string.Empty, "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" }[number],
+        };
+    }
+
     public static string ToStringWithPrecision(this float number, int decimalValues)
     {
         return number.ToString($"N{decimalValues}", CultureInfo.InvariantCulture);

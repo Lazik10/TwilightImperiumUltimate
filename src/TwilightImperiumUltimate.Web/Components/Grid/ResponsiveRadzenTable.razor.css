@@ -98,6 +98,23 @@
     margin: 0 !important;
 }
 
+.responsive-radzen-table-host ::deep .responsive-radzen-table-caption-row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.responsive-radzen-table-host ::deep .responsive-radzen-table-caption-actions {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    display: inline-flex;
+    align-items: center;
+    transform: translateY(-50%);
+}
+
 .responsive-radzen-table-host ::deep .responsive-radzen-table caption.responsive-radzen-table-caption .table-description {
     margin: 0 !important;
     color: var(--color-white);
@@ -218,6 +235,18 @@
     max-height: 28rem;
     overflow-x: auto;
     overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+    .responsive-radzen-table-host ::deep .responsive-radzen-table-caption-row {
+        flex-direction: column;
+        gap: var(--space-xs);
+    }
+
+    .responsive-radzen-table-host ::deep .responsive-radzen-table-caption-actions {
+        position: static;
+        transform: none;
+    }
 }
 
 .responsive-radzen-table-host ::deep .responsive-radzen-table .rz-datatable-tablewrapper::-webkit-scrollbar,

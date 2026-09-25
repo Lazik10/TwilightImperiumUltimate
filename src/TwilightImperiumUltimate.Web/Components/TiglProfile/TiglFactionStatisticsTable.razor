@@ -1,8 +1,10 @@
 @using TwilightImperiumUltimate.Contracts.DTOs.Tigl
 
 <section class="section-container mb-xl">
-	<ResponsiveHeading Level="2" Text="FACTION STATISTICS" FontSize="lg" CenterText="true" />
 	<ResponsiveRadzenDataGrid TItem="TiglProfileFactionStatsDto" Data="@Stats" AllowPaging="false" AllowSorting="true" AllowAlternatingRows="true" CssClass="faction-overview-grid">
+		<HeaderTemplate>
+			<ResponsiveHeading Level="2" Text="FACTION STATISTICS" FontSize="lg" CenterText="true" CssClass="mb-0" />
+		</HeaderTemplate>
 		<Columns>
 			<RadzenDataGridColumn TItem="TiglProfileFactionStatsDto" Title="Faction">
 				<Template Context="item">

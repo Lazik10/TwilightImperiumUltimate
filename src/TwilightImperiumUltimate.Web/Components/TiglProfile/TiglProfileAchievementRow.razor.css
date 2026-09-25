@@ -4,13 +4,13 @@
     gap: 12px;
     padding: 10px 16px;
     border-radius: 6px;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(8, 14, 24, 0.94);
     border-left: 3px solid rgba(255, 255, 255, 0.2);
     transition: background 0.2s ease;
 }
 
     .achievement-row:hover {
-        background: rgba(0, 0, 0, 0.6);
+        background: var(--color-nav-hover-bg-solid);
     }
 
 .achievement-unearned {
@@ -34,9 +34,10 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    flex-shrink: 0;
+    flex: 0 0 15rem;
+    justify-content: flex-end;
     white-space: nowrap;
-    min-width: 20%;
+    min-width: 15rem;
 }
 
 /* ── Rarity: Legendary (<0.1%) ── pink */

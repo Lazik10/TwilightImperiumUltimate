@@ -19,12 +19,24 @@
 
 <div class="responsive-radzen-table-host" style="@GetHostStyle()">
     <RadzenTable class="@GetTableClass()" Style="@Style">
-        @if (!string.IsNullOrWhiteSpace(TableTitle) || !string.IsNullOrWhiteSpace(TableDescription))
+        @if (!string.IsNullOrWhiteSpace(TableTitle) || !string.IsNullOrWhiteSpace(TableDescription) || TableTitleActions is not null)
         {
             <caption class="responsive-radzen-table-caption handel white shadow">
-                @if (!string.IsNullOrWhiteSpace(TableTitle))
+                @if (!string.IsNullOrWhiteSpace(TableTitle) || TableTitleActions is not null)
                 {
-                    <ResponsiveHeading Level="2" Text="@TableTitle" FontSize="lg" CenterText="true" CssClass="table-title handel white shadow" />
+                    <div class="responsive-radzen-table-caption-row">
+                        @if (!string.IsNullOrWhiteSpace(TableTitle))
+                        {
+                            <ResponsiveHeading Level="2" Text="@TableTitle" FontSize="lg" CenterText="true" CssClass="table-title handel white shadow" />
+                        }
+
+                        @if (TableTitleActions is not null)
+                        {
+                            <div class="responsive-radzen-table-caption-actions">
+                                @TableTitleActions
+                            </div>
+                        }
+                    </div>
                 }
 
                 @if (!string.IsNullOrWhiteSpace(TableDescription))

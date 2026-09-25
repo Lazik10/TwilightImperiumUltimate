@@ -12,10 +12,19 @@ public abstract class RadzenChartBase : ComponentBase
     public string ValueTitle { get; set; } = string.Empty;
 
     /// <summary>
+    /// Gets or sets the optional chart title rendered above the chart area.
+    /// </summary>
+    [Parameter]
+    public string ChartTitle { get; set; } = string.Empty;
+
+    /// <summary>
     /// Gets or sets the optional numeric format for value-axis labels.
     /// </summary>
     [Parameter]
     public string? ValueFormatString { get; set; }
+
+    [Parameter]
+    public bool ShowLegend { get; set; } = true;
 
     [Parameter]
     public double Min { get; set; }

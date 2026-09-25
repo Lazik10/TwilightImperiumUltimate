@@ -3,17 +3,17 @@
 
 <div class="achievement-row handel shadow @RarityClass @(IsEarned ? string.Empty : "achievement-unearned")">
     <div class="achievement-info">
-        <Label Text="@TiglAchievementDescriptions.GetDisplayName(Achievement.AchievementName)" FontSize="15" TextColor="EffectiveTextColor" CssClass="achievement-name-label" />
+        <ResponsiveLabel Text="@TiglAchievementDescriptions.GetDisplayName(Achievement.AchievementName)" FontSize="base" TextColor="EffectiveTextColor" CssClass="achievement-name-label" />
         <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
-            <Label Text="@TiglAchievementDescriptions.GetDescription(Achievement.AchievementName)" FontSize="12" CssClass="achievement-desc-label" />
+            <ResponsiveLabel Text="@TiglAchievementDescriptions.GetDescription(Achievement.AchievementName)" FontSize="sm" CssClass="achievement-desc-label" />
             @if (Achievement.Faction != TiglFactionName.None)
             {
-                <Label Text="@Achievement.Faction.GetDisplayName()" FontSize="12" Width="100" />
+                <ResponsiveLabel Text="@Achievement.Faction.GetDisplayName()" FontSize="sm" />
             }
         </ResponsiveContainer>
     </div>
     <div class="achievement-meta">
-        <Label Text="@($"{RarityPercent:F1}% of players")" FontSize="11" Width="100" />
-        <Label Text="@(IsEarned ? FormatDate(Achievement.AchievedAt) : string.Empty)" FontSize="12" Width="100" />
+        <ResponsiveLabel Text="@($"{RarityPercent:F1}% of players")" FontSize="sm" Truncate="false" />
+        <ResponsiveLabel Text="@(IsEarned ? FormatDate(Achievement.AchievedAt) : string.Empty)" FontSize="sm" Truncate="false" />
     </div>
 </div>

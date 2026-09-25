@@ -37,9 +37,11 @@ public partial class AsyncPlayerFactionStats
             FactionsForDisplay = GetFilteredFactionStats(FactionStats);
     }
 
-    private static string FormatPercentageValue(double value) => ((float)value).ToStringWithPrecisionAndPercentage(2);
+    private static string FormatPercentageValue(double value) => $"{((float)value).ToStringWithPrecision(1)} %";
 
     private static string FormatAverageVpValue(double value) => ((float)value).ToStringWithPrecision(2);
+
+    private static string RemoveTrailingColon(string value) => value.TrimEnd(':');
 
     private static List<KeyValuePair<FactionStatisticsFilter, string>> GetFactionFilterOptions() => Enum.GetValues<FactionStatisticsFilter>()
         .Select(value => new KeyValuePair<FactionStatisticsFilter, string>(value, value.GetDisplayName()))

@@ -21,6 +21,10 @@ public partial class AsyncPlayerMainStats
         _ => AsyncPlayerProfile.GameStats.All,
     };
 
+    private TextColor MainStatsTextColor => AsyncPlayerProfile.Settings.ExcludeFromAsyncStats || !AsyncPlayerProfile.Settings.ShowWinRates
+        ? TextColor.White
+        : GameStats.WinRate.GetWinrateColor();
+
     private string GetWinratePercentage() =>
         $"Win rate:\u2003\u2003{(AsyncPlayerProfile.Settings.ShowWinRates ?
             GameStats.WinRate.ToStringWithPrecisionAndPercentage(3)

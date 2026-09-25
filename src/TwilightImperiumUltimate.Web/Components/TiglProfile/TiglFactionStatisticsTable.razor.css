@@ -1,0 +1,10 @@
+::deep .faction-overview-grid tbody td:first-child,
+::deep .faction-overview-grid tbody td:first-child .rz-cell-data {
+    text-align: left;
+    font-family: Handel, sans-serif !important;
+}
+
+::deep .faction-overview-grid tbody td:first-child .faction-icon {
+    margin-right: var(--space-xs);
+    vertical-align: middle;
+}

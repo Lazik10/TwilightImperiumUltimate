@@ -98,14 +98,19 @@ public partial class AsyncPlayerGamesStats
         }
     }
 
-    private void ToggleExpandAll()
+    private void OnExpandAllChanged(bool isChecked)
     {
-        if (_allExpanded)
+        if (!isChecked)
         {
             InitializeDefaultExpansion();
             return;
         }
 
+        ExpandAllGroups();
+    }
+
+    private void ExpandAllGroups()
+    {
         foreach (var year in GroupedGames)
         {
             _expandedYears.Add(year.Year.Year);
@@ -124,6 +129,8 @@ public partial class AsyncPlayerGamesStats
     {
         if (!_expandedYears.Remove(year))
             _expandedYears.Add(year);
+
+        _allExpanded = AreAllGameGroupsExpanded();
     }
 
     private void ToggleMonth(int year, int month)
@@ -131,6 +138,16 @@ public partial class AsyncPlayerGamesStats
         var key = (year, month);
         if (!_expandedMonths.Remove(key))
             _expandedMonths.Add(key);
+
+        _allExpanded = AreAllGameGroupsExpanded();
+    }
+
+    private bool AreAllGameGroupsExpanded()
+    {
+        var groupedGames = GroupedGames.ToList();
+        return groupedGames.Any()
+            && groupedGames.All(year => _expandedYears.Contains(year.Year.Year)
+                && year.Months.All(month => _expandedMonths.Contains((year.Year.Year, month.Month.Month))));
     }
 
     private void OnYearKeyDown(KeyboardEventArgs e, int year)
@@ -168,18 +185,14 @@ public partial class AsyncPlayerGamesStats
         var endDate = game.EndDate != 0 ? DateTimeOffset.FromUnixTimeSeconds(game.EndDate) : DateTimeOffset.Now;
 
         var duration = endDate - startDate;
-
-        List<string> parts = new List<string>();
-
         if (duration.Days > 0)
-            parts.Add($"{duration.Days:D2} d");
-        if (duration.Hours > 0)
-            parts.Add($"{duration.Hours:D2} h");
-        if (duration.Minutes > 0)
-            parts.Add($"{duration.Minutes:D2} m");
+            return $"{duration.Days:D2} d {duration.Hours:D2} h";
 
-        return parts.Count > 0 ? string.Join(" ", parts) : "0m";
+        return $"{duration.Hours:D2} h";
     }
+
+    private static string GetDisplayGameFunName(string gameFunName) =>
+        gameFunName.Length > 15 ? $"{gameFunName[..15]}..." : gameFunName;
 
     private string GetAsyncGameIdTextColor(AsyncPlayerGameDto game)
     {

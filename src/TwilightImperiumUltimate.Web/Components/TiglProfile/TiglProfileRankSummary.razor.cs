@@ -1,5 +1,7 @@
+using TwilightImperiumUltimate.Contracts.DTOs.Rankings;
 using TwilightImperiumUltimate.Contracts.DTOs.Tigl;
 using TwilightImperiumUltimate.Web.Helpers.Enums;
+using TwilightImperiumUltimate.Web.Helpers.Numbers;
 namespace TwilightImperiumUltimate.Web.Components.TiglProfile;
 public partial class TiglProfileRankSummary
 {
@@ -9,8 +11,13 @@ public partial class TiglProfileRankSummary
     {
         var profile = Profile.LeagueProfiles.FirstOrDefault(item => item.League == league);
         var prestige = Profile.PrestigeRankHistory.Where(item => item.League == league).OrderByDescending(item => item.Level).ThenByDescending(item => item.AchievedAt).FirstOrDefault();
-        return new(name, prestige?.PrestigeRank.GetDisplayName() ?? "-", profile?.HighestRank.GetDisplayName() ?? "-", prestige is null ? TextColor.White : GetPrestigeColor(prestige.PrestigeRank), profile is null ? TextColor.White : profile.HighestRank.GetRankColor());
+        return new(name, prestige is null ? "-" : FormatPrestigeRank(prestige), profile?.HighestRank.GetDisplayName() ?? "-", prestige is null ? TextColor.White : GetPrestigeColor(prestige.PrestigeRank), profile is null ? TextColor.White : profile.HighestRank.GetRankColor());
     }
+
+    private static string FormatPrestigeRank(PrestigeRankHistoryDto prestige) => prestige.Level > 0
+        ? $"{prestige.PrestigeRank.GetDisplayName()} {prestige.Level.ToRomanNumeral()}"
+        : prestige.PrestigeRank.GetDisplayName();
+
     private static TextColor GetPrestigeColor(TiglPrestigeRank rank) => rank switch
     {
         TiglPrestigeRank.PaxMagnificaBellumGloriosum => TextColor.Pmbg,

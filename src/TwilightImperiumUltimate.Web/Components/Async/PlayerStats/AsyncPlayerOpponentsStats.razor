@@ -59,7 +59,7 @@
                                         }
                                         else
                                         {
-                                            <span class="clickable-cell" tabindex="0" role="button" @onclick="() => ViewProfile(opponent.Id)" @onkeydown="e => OnOpponentKeyDown(e, opponent.Id)">@opponent.DiscordUserName</span>
+                                            <button type="button" class="clickable-cell" @onclick="() => ViewProfile(opponent.Id)"><ResponsiveLabel Text="@opponent.DiscordUserName" CenterText="true" FontSize="base" CssClass="clickable-cell-label" /></button>
                                         }
                                     </RadzenTableCell>
                                     <RadzenTableCell class="yellow">@opponent.Games</RadzenTableCell>
@@ -80,7 +80,7 @@
                                         }
                                         else
                                         {
-                                            <span class="clickable-cell" tabindex="0" role="button" @onclick="() => ViewProfile(opponent.Id)" @onkeydown="e => OnOpponentKeyDown(e, opponent.Id)">@opponent.DiscordUserName</span>
+                                            <button type="button" class="clickable-cell" @onclick="() => ViewProfile(opponent.Id)"><ResponsiveLabel Text="@opponent.DiscordUserName" CenterText="true" FontSize="base" CssClass="clickable-cell-label" /></button>
                                         }
                                     </RadzenTableCell>
                                     <RadzenTableCell class="yellow">@opponent.Games</RadzenTableCell>
@@ -119,7 +119,7 @@
                                     }
                                     else
                                     {
-                                        <span class="clickable-cell" tabindex="0" role="button" @onclick="() => ViewProfile(opponent.Id)" @onkeydown="e => OnOpponentKeyDown(e, opponent.Id)">@opponent.DiscordUserName</span>
+                                        <button type="button" class="clickable-cell" @onclick="() => ViewProfile(opponent.Id)"><ResponsiveLabel Text="@opponent.DiscordUserName" CenterText="true" FontSize="base" CssClass="clickable-cell-label" /></button>
                                     }
                                 </RadzenTableCell>
                                 <RadzenTableCell class="yellow">@opponent.Games</RadzenTableCell>

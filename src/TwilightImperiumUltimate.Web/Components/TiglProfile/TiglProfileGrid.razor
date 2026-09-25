@@ -1,31 +1,42 @@
-<ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" AlignItems="Enums.AlignItems.FlexStart">
+<ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" AlignItems="Enums.AlignItems.FlexStart" CssClass="padding" Name="tigl-profile-frame">
     @if (Profile is not null && !string.IsNullOrEmpty(Profile.TiglUserName))
     {
         <TitleTexture Width="15" Texture="Enums.Texture.TopLeft" />
-        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" Direction="Enums.FlexDirection.Column" Style="min-width: 0;">
-            <TiglProfileHeader Profile="@Profile" CurrentCategory="@CurrentCategory" CurrentCategoryChanged="OnCategoryChanged" />
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-2xl" Style="min-width: 0;" Name="tigl-profile-content-column">
+            <div class="tigl-profile-content-fill" data-container-name="tigl-profile-content-fill">
+            <TiglProfileHeader Profile="@Profile" />
             <TiglProfileRankSummary Profile="@Profile" />
+            <div class="tigl-profile-league-picker mt-md mb-xl">
+                <ResponsiveDropDown TValue="TiglProfileCategory" Id="tigl-profile-league" Data="@Options" TextProperty="Value" ValueProperty="Key" Value="@CurrentCategory" ValueChanged="OnCategoryChanged" Label="League" LabelPosition="LabelPosition.Column" Width="40" />
+            </div>
             @if (SelectedLeagueProfile is not null)
             {
                 <TiglLeagueSummaryCard Profile="@SelectedLeagueProfile" Prestige="@SelectedPrestige" />
                 <TiglRatingProgression @key="CurrentCategory" Profile="@SelectedLeagueProfile" />
                 <TiglRankHistoryTable Ranks="@FilteredRankHistory" />
                 <TiglPrestigeHistoryTable Profile="@Profile" Prestiges="@FilteredPrestigeRanks" PathProvider="@PathProvider" />
+                <div class="tigl-profile-faction-filter mb-md">
+                    <ResponsiveDropDown TValue="FactionStatisticsFilter" Id="tigl-profile-faction-filter" Data="@FactionFilterOptions" TextProperty="Value" ValueProperty="Key" Value="@EffectiveFactionStatisticsFilter" ValueChanged="OnFactionStatisticsFilterChanged" Label="Factions:" LabelPosition="LabelPosition.Column" Disabled="@(SelectedLeague == TiglLeague.ThundersEdge)" Width="40" />
+                </div>
                 <TiglFactionStatisticsTable Stats="@FilteredFactionStats" />
-                <TiglSeasonHistoryTable Seasons="@FilteredSeasons" OnGameSelected="NavigateToGameDetail" />
+                <TiglSeasonHistoryTable Seasons="@FilteredSeasons" LeagueProfile="@SelectedLeagueProfile" OnGameSelected="NavigateToGameDetail" />
                 <TiglGameHistoryTable Games="@FilteredGameHistory" OnGameSelected="NavigateToGameDetail" />
                 <TiglTopOpponentsTable Opponents="@FilteredTopOpponents" OnPlayerSelected="NavigateToPlayerProfile" />
             }
             else
             {
+                <div class="tigl-profile-faction-filter mb-md">
+                    <ResponsiveDropDown TValue="FactionStatisticsFilter" Id="tigl-profile-faction-filter" Data="@FactionFilterOptions" TextProperty="Value" ValueProperty="Key" Value="@EffectiveFactionStatisticsFilter" ValueChanged="OnFactionStatisticsFilterChanged" Label="Factions:" LabelPosition="LabelPosition.Column" Disabled="@(SelectedLeague == TiglLeague.ThundersEdge)" Width="40" />
+                </div>
                 <TiglFactionStatisticsTable Stats="@FilteredFactionStats" />
             }
-            <ResponsiveCard CssClass="mt-xl">
             <section class="tigl-achievements" aria-label="Achievements">
-                <div class="achievement-title-row mb-md">
-                    <ResponsiveHeading Level="2" Text="ACHIEVEMENTS" FontSize="lg" CenterText="true" />
-                    <label class="achievement-checkbox-label handel shadow"><input type="checkbox" checked="@_showAllAchievements" @onchange="OnShowAllAchievementsChanged" /><span>Show all</span></label>
-                </div>
+                <ResponsiveCard CssClass="achievement-title-card mt-xl mb-md">
+                    <div class="achievement-title-row">
+                        <ResponsiveLabel Text="Achievements" FontSize="lg" CenterText="true" />
+                        <ResponsiveCheckbox Label="Show all" IsChecked="@_showAllAchievements" IsCheckedChanged="OnShowAllAchievementsChanged" />
+                    </div>
+                </ResponsiveCard>
                 @if (DisplayedAchievements.Any())
                 {
                     <div class="achievements-list">
@@ -40,8 +51,10 @@
                     <ResponsiveLabel Text="No achievements yet." CenterText="true" FontSize="base" TextColor="TextColor.Grey" />
                 }
             </section>
-            </ResponsiveCard>
+            </div>
         </ResponsiveContainer>
+
+        <div style="min-width: 15%; max-width: 15%;" data-container-name="tigl-profile-right-texture-spacer"></div>
     }
     else
     {

@@ -1,0 +1,14 @@
+.combat-stats-table-host {
+	width: 100%;
+}
+
+.combat-stats-table-host ::deep .combat-stats-table tbody th {
+	color: var(--rz-grid-header-color);
+	background-color: var(--rz-grid-header-background-color);
+	border-bottom: var(--rz-grid-header-cell-border-bottom);
+	text-align: center;
+}
+
+.combat-stats-table-host ::deep .combat-stats-table tbody th:not(:last-child) {
+	border-inline-end: var(--rz-grid-header-cell-border);
+}

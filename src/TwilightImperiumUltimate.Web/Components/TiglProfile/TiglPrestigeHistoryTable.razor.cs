@@ -1,5 +1,7 @@
 using TwilightImperiumUltimate.Contracts.DTOs.Rankings;
 using TwilightImperiumUltimate.Contracts.DTOs.Tigl;
+using TwilightImperiumUltimate.Web.Helpers.Enums;
+using TwilightImperiumUltimate.Web.Helpers.Numbers;
 namespace TwilightImperiumUltimate.Web.Components.TiglProfile;
 public partial class TiglPrestigeHistoryTable
 {
@@ -14,6 +16,8 @@ public partial class TiglPrestigeHistoryTable
         TiglPrestigeRank.Tyrant => TextColor.Tyrant,
         _ => TextColor.White,
     };
+    private static string GetPrestigeText(PrestigeRankHistoryDto prestige) => prestige.Level > 0 ? $"{prestige.PrestigeRank.GetDisplayName()} {prestige.Level.ToRomanNumeral()}" : prestige.PrestigeRank.GetDisplayName();
+
     private string GetDuration(int index) => index == Prestiges.Count - 1 ? string.Empty : FormatDuration(Prestiges[index + 1].AchievedAt, Prestiges[index].AchievedAt);
     private static string FormatDuration(long from, long to) { var days=(int)(DateTimeOffset.FromUnixTimeMilliseconds(to)-DateTimeOffset.FromUnixTimeMilliseconds(from)).TotalDays; return days < 1 ? "<24h" : $"{days} {(days == 1 ? "day" : "days")}"; }
 }

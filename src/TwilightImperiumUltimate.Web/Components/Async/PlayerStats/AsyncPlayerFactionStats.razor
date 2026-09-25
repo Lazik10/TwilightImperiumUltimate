@@ -6,7 +6,8 @@
 
     @if (AsyncPlayerProfile is not null && FactionsForDisplay is not null && FactionsForDisplay.Count > 0)
     {
-        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+        <div class="async-player-faction-filter">
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
             <ResponsiveDropDown TValue="FactionStatisticsFilter"
                         Id="async-player-faction-stats-filter"
                         Data="@GetFactionFilterOptions()"
@@ -14,10 +15,14 @@
                         ValueProperty="Key"
                         Value="@_selectedFactionStatisticsFilter"
                         ValueChanged="OnFactionStatisticsFilterChanged"
-                        Label="@Strings.FactionStats_Factions" />
-        </ResponsiveContainer>
+                        Label="@RemoveTrailingColon(Strings.FactionStats_Factions)"
+                        LabelPosition="LabelPosition.Column"
+                        Width="40" />
+            </ResponsiveContainer>
+        </div>
 
-        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+        <div class="async-player-faction-filter">
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
             <ResponsiveDropDown TValue="FactionStatisticsVpFilter"
                         Id="async-player-faction-stats-vp-filter"
                         Data="@GetFactionVpFilterOptions()"
@@ -25,10 +30,14 @@
                         ValueProperty="Key"
                         Value="@_selectedFactionVpStatisticsFilter"
                         ValueChanged="OnFactionStatisticsVpFilterChanged"
-                        Label="@Strings.FactionStats_VpCount" />
-        </ResponsiveContainer>
+                        Label="@RemoveTrailingColon(Strings.FactionStats_VpCount)"
+                        LabelPosition="LabelPosition.Column"
+                        Width="40" />
+            </ResponsiveContainer>
+        </div>
 
-        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+        <div class="async-player-faction-filter">
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
             <ResponsiveDropDown TValue="FactionStatisticsSubstatsFilter"
                         Id="async-player-faction-stats-substats-filter"
                         Data="@GetFactionSubstatsFilterOptions()"
@@ -36,8 +45,11 @@
                         ValueProperty="Key"
                         Value="@_selectedFactionStatisticsSubstatsFilter"
                         ValueChanged="OnFactionStatisticsSubstatsFilterChanged"
-                        Label="@Strings.FactionStats_Statistics" />
-        </ResponsiveContainer>
+                        Label="@RemoveTrailingColon(Strings.FactionStats_Statistics)"
+                        LabelPosition="LabelPosition.Column"
+                        Width="40" />
+            </ResponsiveContainer>
+        </div>
 
         @if (!AsyncPlayerProfile.Settings.ShowFactionStats)
         {
@@ -45,87 +57,90 @@
         }
         else if (_selectedFactionStatisticsSubstatsFilter == FactionStatisticsSubstatsFilter.All)
         {
-            <ResponsiveHeading Level="2" Text="@Strings.FactionStats_Factions" FontSize="lg" CenterText="true" CssClass="mb-lg" />
-
-            <ResponsiveRadzenDataGrid TItem="AsyncPlayerFactionStatsDto"
-                                      Data="@FactionsForDisplay"
-                                      AllowPaging="false"
-                                      AllowSorting="true"
-                                      AllowAlternatingRows="true"
-                                      CssClass="faction-overview-grid">
-                <Columns>
-                    <RadzenDataGridColumn TItem="AsyncPlayerFactionStatsDto" Title="@Strings.FactionStats_Faction" Sortable="true">
-                        <Template Context="faction">
-                            <div style="display:flex; align-items:center; gap:0.5rem;">
-                                <AsyncFactionIconImg FactionName="@faction.FactionName" Height="20" />
-                                <span>@faction.FactionName.GetFactionUIText(FactionResourceType.Title)</span>
-                            </div>
-                        </Template>
-                    </RadzenDataGridColumn>
-                    <RadzenDataGridColumn TItem="AsyncPlayerFactionStatsDto" Title="@Strings.FactionStats_Games" Sortable="true">
-                        <Template Context="faction"><span style="color: @(TextColor.Yellow.ConvertToString());">@GetCorrectFactionStatsByVp(faction).Games</span></Template>
-                    </RadzenDataGridColumn>
-                    <RadzenDataGridColumn TItem="AsyncPlayerFactionStatsDto" Title="@Strings.FactionStats_Wins" Sortable="true">
-                        <Template Context="faction">
-                            @if (GetCorrectFactionStatsByVp(faction).Games == 0)
-                            {
-                                @string.Empty
-                            }
-                            else if (!IsWinrateEnabled())
-                            {
-                                @Strings.AsyncPlayer_HiddenStat
-                            }
-                            else
-                            {
-                                <span style="color: @(GetWinsColor(GetCorrectFactionStatsByVp(faction).Wins).ConvertToString());">@GetCorrectFactionStatsByVp(faction).Wins</span>
-                            }
-                        </Template>
-                    </RadzenDataGridColumn>
-                    <RadzenDataGridColumn TItem="AsyncPlayerFactionStatsDto" Title="@Strings.FactionStats_WinPercentage" Sortable="true">
-                        <Template Context="faction">
-                            @if (GetCorrectFactionStatsByVp(faction).Games == 0)
-                            {
-                                @string.Empty
-                            }
-                            else if (!IsWinrateEnabled())
-                            {
-                                @Strings.AsyncPlayer_HiddenStat
-                            }
-                            else
-                            {
-                                <span style="color: @(GetCorrectFactionStatsByVp(faction).WinRate.GetWinrateColor().ConvertToString());">@GetCorrectFactionStatsByVp(faction).WinRate.ToStringWithPrecisionAndPercentage(2)</span>
-                            }
-                        </Template>
-                    </RadzenDataGridColumn>
-                    <RadzenDataGridColumn TItem="AsyncPlayerFactionStatsDto" Title="@Strings.FactionStats_Eliminations" Sortable="true">
-                        <Template Context="faction">
-                            @if (GetCorrectFactionStatsByVp(faction).Games == 0)
-                            {
-                                @string.Empty
-                            }
-                            else
-                            {
-                                <span style="color: @(TextColor.Red.ConvertToString());">@GetCorrectFactionStatsByVp(faction).Eliminations</span>
-                            }
-                        </Template>
-                    </RadzenDataGridColumn>
-                    <RadzenDataGridColumn TItem="AsyncPlayerFactionStatsDto" Title="@Strings.FactionStats_AverageVp" Sortable="true">
-                        <Template Context="faction">
-                            @if (GetCorrectFactionStatsByVp(faction).Games == 0)
-                            {
-                                @string.Empty
-                            }
-                            else
-                            {
-                                <span style="color: @(((double)GetCorrectFactionStatsByVp(faction).AverageVp).GetAverageVpColor().ConvertToString());">@GetCorrectFactionStatsByVp(faction).AverageVp.ToStringWithPrecision(2)</span>
-                            }
-                        </Template>
-                    </RadzenDataGridColumn>
-                    <RadzenDataGridColumn TItem="AsyncPlayerFactionStatsDto" Title="@Strings.FactionStats_AverageVpPercentage" Sortable="true">
-                        <Template Context="faction">@(GetCorrectFactionStatsByVp(faction).Games == 0 ? string.Empty : GetCorrectFactionStatsByVp(faction).AverageVpPercentage.ToStringWithPrecisionAndPercentage(1))</Template>
-                    </RadzenDataGridColumn>
-                </Columns>
-            </ResponsiveRadzenDataGrid>
+            <div class="async-player-faction-grid">
+                <ResponsiveRadzenDataGrid TItem="AsyncPlayerFactionStatsDto"
+                                          Data="@FactionsForDisplay"
+                                          AllowPaging="false"
+                                          AllowSorting="true"
+                                          AllowAlternatingRows="true"
+                                          CssClass="faction-overview-grid">
+                    <HeaderTemplate>
+                        <ResponsiveHeading Level="2" Text="@RemoveTrailingColon(Strings.FactionStats_Factions)" FontSize="lg" CenterText="true" CssClass="mb-0" />
+                    </HeaderTemplate>
+                    <Columns>
+                        <RadzenDataGridColumn TItem="AsyncPlayerFactionStatsDto" Title="@Strings.FactionStats_Faction" Sortable="true">
+                            <Template Context="faction">
+                                <div style="display:flex; align-items:center; gap:0.5rem;">
+                                    <AsyncFactionIconImg FactionName="@faction.FactionName" Height="20" />
+                                    <span>@faction.FactionName.GetFactionUIText(FactionResourceType.Title)</span>
+                                </div>
+                            </Template>
+                        </RadzenDataGridColumn>
+                        <RadzenDataGridColumn TItem="AsyncPlayerFactionStatsDto" Title="@Strings.FactionStats_Games" Sortable="true">
+                            <Template Context="faction"><span style="color: @(TextColor.Yellow.ConvertToString());">@GetCorrectFactionStatsByVp(faction).Games</span></Template>
+                        </RadzenDataGridColumn>
+                        <RadzenDataGridColumn TItem="AsyncPlayerFactionStatsDto" Title="@Strings.FactionStats_Wins" Sortable="true">
+                            <Template Context="faction">
+                                @if (GetCorrectFactionStatsByVp(faction).Games == 0)
+                                {
+                                    @string.Empty
+                                }
+                                else if (!IsWinrateEnabled())
+                                {
+                                    @Strings.AsyncPlayer_HiddenStat
+                                }
+                                else
+                                {
+                                    <span style="color: @(GetWinsColor(GetCorrectFactionStatsByVp(faction).Wins).ConvertToString());">@GetCorrectFactionStatsByVp(faction).Wins</span>
+                                }
+                            </Template>
+                        </RadzenDataGridColumn>
+                        <RadzenDataGridColumn TItem="AsyncPlayerFactionStatsDto" Title="@Strings.FactionStats_WinPercentage" Sortable="true">
+                            <Template Context="faction">
+                                @if (GetCorrectFactionStatsByVp(faction).Games == 0)
+                                {
+                                    @string.Empty
+                                }
+                                else if (!IsWinrateEnabled())
+                                {
+                                    @Strings.AsyncPlayer_HiddenStat
+                                }
+                                else
+                                {
+                                    <span style="color: @(GetCorrectFactionStatsByVp(faction).WinRate.GetWinrateColor().ConvertToString());">@FormatPercentageValue(GetCorrectFactionStatsByVp(faction).WinRate)</span>
+                                }
+                            </Template>
+                        </RadzenDataGridColumn>
+                        <RadzenDataGridColumn TItem="AsyncPlayerFactionStatsDto" Title="@Strings.FactionStats_Eliminations" Sortable="true">
+                            <Template Context="faction">
+                                @if (GetCorrectFactionStatsByVp(faction).Games == 0)
+                                {
+                                    @string.Empty
+                                }
+                                else
+                                {
+                                    <span style="color: @(TextColor.Red.ConvertToString());">@GetCorrectFactionStatsByVp(faction).Eliminations</span>
+                                }
+                            </Template>
+                        </RadzenDataGridColumn>
+                        <RadzenDataGridColumn TItem="AsyncPlayerFactionStatsDto" Title="@Strings.FactionStats_AverageVp" Sortable="true">
+                            <Template Context="faction">
+                                @if (GetCorrectFactionStatsByVp(faction).Games == 0)
+                                {
+                                    @string.Empty
+                                }
+                                else
+                                {
+                                    <span style="color: @(((double)GetCorrectFactionStatsByVp(faction).AverageVp).GetAverageVpColor().ConvertToString());">@GetCorrectFactionStatsByVp(faction).AverageVp.ToStringWithPrecision(2)</span>
+                                }
+                            </Template>
+                        </RadzenDataGridColumn>
+                        <RadzenDataGridColumn TItem="AsyncPlayerFactionStatsDto" Title="@Strings.FactionStats_AverageVpPercentage" Sortable="true">
+                            <Template Context="faction">@(GetCorrectFactionStatsByVp(faction).Games == 0 ? string.Empty : FormatPercentageValue(GetCorrectFactionStatsByVp(faction).AverageVpPercentage))</Template>
+                        </RadzenDataGridColumn>
+                    </Columns>
+                </ResponsiveRadzenDataGrid>
+            </div>
         }
         else
         {

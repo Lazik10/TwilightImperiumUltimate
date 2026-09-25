@@ -1,1 +1,50 @@
-<section class="section-container mb-xl"><ResponsiveRadzenTable ZebraStripes="true" TableTitle="Seasons"><RadzenTableHeader><RadzenTableHeaderRow><RadzenTableHeaderCell scope="col">Season</RadzenTableHeaderCell><RadzenTableHeaderCell scope="col">Games</RadzenTableHeaderCell><RadzenTableHeaderCell scope="col">Win rate</RadzenTableHeaderCell><RadzenTableHeaderCell scope="col">Details</RadzenTableHeaderCell></RadzenTableHeaderRow></RadzenTableHeader><RadzenTableBody>@if(!Seasons.Any()){<RadzenTableRow><RadzenTableCell colspan="4"><ResponsiveLabel Text="No season data." CenterText="true" /></RadzenTableCell></RadzenTableRow>}@foreach(var season in Seasons){<RadzenTableRow><RadzenTableCell>@season.Season</RadzenTableCell><RadzenTableCell>@season.GamesPlayed</RadzenTableCell><RadzenTableCell>@season.WinRate.ToString("F1")%</RadzenTableCell><RadzenTableCell><button type="button" class="tigl-table-action" aria-expanded="@IsExpanded(season)" @onclick="() => Toggle(season)">@(IsExpanded(season) ? "Hide" : "Show")</button></RadzenTableCell></RadzenTableRow>@if(IsExpanded(season)){foreach(var game in season.Games){<RadzenTableRow><RadzenTableCell colspan="2"><button type="button" class="tigl-link" @onclick="() => OnGameSelected.InvokeAsync(game.MatchReportId)">@game.GameId</button></RadzenTableCell><RadzenTableCell>@game.Score / @game.MaxScore @(game.IsWinner ? "W" : "")</RadzenTableCell><RadzenTableCell>@game.Faction.GetDisplayName()</RadzenTableCell></RadzenTableRow>}}}</RadzenTableBody></ResponsiveRadzenTable></section>
+<section class="section-container mb-xl">
+	<ResponsiveRadzenTable ZebraStripes="true" CssClass="statistics-row-handel" TableTitle="Seasons">
+		<RadzenTableHeader>
+			<RadzenTableHeaderRow>
+				<RadzenTableHeaderCell scope="col">Season</RadzenTableHeaderCell>
+				<RadzenTableHeaderCell scope="col">TrueSkill</RadzenTableHeaderCell>
+				<RadzenTableHeaderCell scope="col">Glicko-2</RadzenTableHeaderCell>
+				<RadzenTableHeaderCell scope="col">Async</RadzenTableHeaderCell>
+				<RadzenTableHeaderCell scope="col">Games</RadzenTableHeaderCell>
+				<RadzenTableHeaderCell scope="col">Win Rate</RadzenTableHeaderCell>
+				<RadzenTableHeaderCell scope="col"></RadzenTableHeaderCell>
+			</RadzenTableHeaderRow>
+		</RadzenTableHeader>
+		<RadzenTableBody>
+			@if (!Rows.Any())
+			{
+				<RadzenTableRow>
+					<RadzenTableCell colspan="7"><ResponsiveLabel Text="No season data." CenterText="true" /></RadzenTableCell>
+				</RadzenTableRow>
+			}
+			@foreach (var season in Rows)
+			{
+				<RadzenTableRow class="tigl-season-row" tabindex="0" role="button" aria-expanded="@IsExpanded(season.Season).ToString().ToLowerInvariant()" @onclick="() => Toggle(season.Season)" @onkeydown="@(args => OnSeasonKeyDown(args, season.Season))">
+					<RadzenTableCell>Season #@season.Season</RadzenTableCell>
+					<RadzenTableCell><ResponsiveLabel Text="@FormatDelta(season.TrueSkillDelta)" TextColor="@GetChangeColor(season.TrueSkillDelta)" CenterText="true" /></RadzenTableCell>
+					<RadzenTableCell><ResponsiveLabel Text="@FormatDelta(season.GlickoDelta)" TextColor="@GetChangeColor(season.GlickoDelta)" CenterText="true" /></RadzenTableCell>
+					<RadzenTableCell><ResponsiveLabel Text="@FormatDelta(season.AsyncDelta)" TextColor="@GetChangeColor(season.AsyncDelta)" CenterText="true" /></RadzenTableCell>
+					<RadzenTableCell>@season.GamesPlayed</RadzenTableCell>
+					<RadzenTableCell>@season.WinRate.ToString("F1")%</RadzenTableCell>
+					<RadzenTableCell>@(IsExpanded(season.Season) ? "▾" : "▸")</RadzenTableCell>
+				</RadzenTableRow>
+				@if (IsExpanded(season.Season))
+				{
+					@foreach (var game in season.Games)
+					{
+						<RadzenTableRow class="tigl-season-game-row" tabindex="0" role="link" @onclick="() => OnGameSelected.InvokeAsync(game.MatchReportId)" @onkeydown="@(args => OnGameKeyDown(args, game.MatchReportId))">
+							<RadzenTableCell><span class="tigl-link">@game.GameId</span></RadzenTableCell>
+							<RadzenTableCell><ResponsiveLabel Text="@FormatDelta(game.TrueSkillDelta)" TextColor="@GetChangeColor(game.TrueSkillDelta)" CenterText="true" /></RadzenTableCell>
+							<RadzenTableCell><ResponsiveLabel Text="@FormatDelta(game.GlickoDelta)" TextColor="@GetChangeColor(game.GlickoDelta)" CenterText="true" /></RadzenTableCell>
+							<RadzenTableCell><ResponsiveLabel Text="@FormatDelta(game.AsyncDelta)" TextColor="@GetChangeColor(game.AsyncDelta)" CenterText="true" /></RadzenTableCell>
+							<RadzenTableCell>@game.Score / @game.MaxScore</RadzenTableCell>
+							<RadzenTableCell>@game.FactionName</RadzenTableCell>
+							<RadzenTableCell>@game.Duration</RadzenTableCell>
+						</RadzenTableRow>
+					}
+				}
+			}
+		</RadzenTableBody>
+	</ResponsiveRadzenTable>
+</section>

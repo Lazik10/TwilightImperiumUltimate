@@ -4,39 +4,45 @@
 
     @if (AsyncPlayerProfile is not null)
     {
-        <ResponsiveRadzenTable ZebraStripes="true" EqualColumns="true" CssClass="mb-xl statistics-row-handel" TableTitle="@Strings.CombatStats_Title">
-            <RadzenTableHeader>
-                <RadzenTableHeaderRow>
-                    <RadzenTableHeaderCell scope="col">@Strings.CombatStats_ExpectedHits</RadzenTableHeaderCell>
-                    <RadzenTableHeaderCell scope="col">@Strings.CombatStats_ActualHits</RadzenTableHeaderCell>
-                    <RadzenTableHeaderCell scope="col">@Strings.CombatStats_HitsDeviation</RadzenTableHeaderCell>
-                    <RadzenTableHeaderCell scope="col">@Strings.CombatStats_MinHits</RadzenTableHeaderCell>
-                    <RadzenTableHeaderCell scope="col">@Strings.CombatStats_AverageHits</RadzenTableHeaderCell>
-                    <RadzenTableHeaderCell scope="col">@Strings.CombatStats_MaxHits</RadzenTableHeaderCell>
-                </RadzenTableHeaderRow>
-            </RadzenTableHeader>
-            <RadzenTableBody>
-                @if (!AsyncPlayerProfile.Settings.ShowCombatStats)
-                {
-                    <RadzenTableRow>
-                        <RadzenTableCell colspan="6">
-                            <ResponsiveLabel Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" />
-                        </RadzenTableCell>
-                    </RadzenTableRow>
-                }
-                else
-                {
-                    <RadzenTableRow>
-                        <RadzenTableCell class="yellow">@CombatStats.ExpectedHits.ToStringWithPrecision(2)</RadzenTableCell>
-                        <RadzenTableCell class="yellow">@CombatStats.ActualHits.ToStringWithPrecision(0)</RadzenTableCell>
-                        <RadzenTableCell class="@(GetDiceDeviationCssClass())">@GetHitDeviationText()</RadzenTableCell>
-                        <RadzenTableCell class="yellow">@CombatStats.MinHitsPerGame.ToStringWithPrecision(0)</RadzenTableCell>
-                        <RadzenTableCell class="yellow">@CombatStats.AverageHitsPerGame.ToStringWithPrecision(0)</RadzenTableCell>
-                        <RadzenTableCell class="yellow">@CombatStats.MaxHitsPerGame.ToStringWithPrecision(0)</RadzenTableCell>
-                    </RadzenTableRow>
-                }
-            </RadzenTableBody>
-        </ResponsiveRadzenTable>
+        <div class="combat-stats-table-host">
+            <ResponsiveRadzenTable ZebraStripes="true" EqualColumns="true" CssClass="mb-xl statistics-row-handel combat-stats-table" TableTitle="@Strings.CombatStats_Title">
+                <RadzenTableHeader>
+                    <RadzenTableHeaderRow>
+                        <RadzenTableHeaderCell scope="col">@Strings.CombatStats_ExpectedHits</RadzenTableHeaderCell>
+                        <RadzenTableHeaderCell scope="col">@Strings.CombatStats_ActualHits</RadzenTableHeaderCell>
+                        <RadzenTableHeaderCell scope="col">@Strings.CombatStats_HitsDeviation</RadzenTableHeaderCell>
+                    </RadzenTableHeaderRow>
+                </RadzenTableHeader>
+                <RadzenTableBody>
+                    @if (!AsyncPlayerProfile.Settings.ShowCombatStats)
+                    {
+                        <RadzenTableRow>
+                            <RadzenTableCell colspan="3">
+                                <ResponsiveLabel Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" />
+                            </RadzenTableCell>
+                        </RadzenTableRow>
+                    }
+                    else
+                    {
+                        <RadzenTableRow>
+                            <RadzenTableCell class="yellow">@CombatStats.ExpectedHits.ToStringWithPrecision(2)</RadzenTableCell>
+                            <RadzenTableCell class="yellow">@CombatStats.ActualHits.ToStringWithPrecision(0)</RadzenTableCell>
+                            <RadzenTableCell class="@(GetDiceDeviationCssClass())">@GetHitDeviationText()</RadzenTableCell>
+                        </RadzenTableRow>
+                        <RadzenTableRow>
+                            <RadzenTableHeaderCell scope="col">@Strings.CombatStats_MinHits</RadzenTableHeaderCell>
+                            <RadzenTableHeaderCell scope="col">@Strings.CombatStats_AverageHits</RadzenTableHeaderCell>
+                            <RadzenTableHeaderCell scope="col">@Strings.CombatStats_MaxHits</RadzenTableHeaderCell>
+                        </RadzenTableRow>
+                        <RadzenTableRow>
+                            <RadzenTableCell class="yellow">@CombatStats.MinHitsPerGame.ToStringWithPrecision(0)</RadzenTableCell>
+                            <RadzenTableCell class="yellow">@CombatStats.AverageHitsPerGame.ToStringWithPrecision(0)</RadzenTableCell>
+                            <RadzenTableCell class="yellow">@CombatStats.MaxHitsPerGame.ToStringWithPrecision(0)</RadzenTableCell>
+                        </RadzenTableRow>
+                    }
+                </RadzenTableBody>
+            </ResponsiveRadzenTable>
+        </div>
     }
 
 </ResponsiveContainer>

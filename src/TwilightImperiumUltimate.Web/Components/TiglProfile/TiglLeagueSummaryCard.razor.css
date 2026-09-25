@@ -9,3 +9,7 @@
     border-bottom: var(--rz-grid-header-cell-border-bottom);
     text-align: center;
 }
+
+.tigl-summary ::deep .tigl-league-summary tbody th:not(:last-child) {
+    border-inline-end: var(--rz-grid-header-cell-border);
+}

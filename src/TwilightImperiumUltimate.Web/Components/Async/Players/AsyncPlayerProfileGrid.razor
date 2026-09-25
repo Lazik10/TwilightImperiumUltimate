@@ -10,7 +10,7 @@
 
             <AsyncPlayerNameLabel />
 
-            <div style="width: fit-content; margin: 0 auto;" class="mb-2xl">
+            <div style="width: fit-content; margin: 0 auto;" class="async-player-profile-filter mb-2xl">
                 <ResponsiveDropDown TValue="PlayerStatisticsType"
                     Id="async-player-profile-statistics-filter"
                     Data="@GetStatisticsTypeOptions()"
@@ -18,7 +18,8 @@
                     ValueProperty="Key"
                     Value="@CurentStatisticsType"
                     ValueChanged="@OnEnumChanged"
-                    Label="@Strings.AsyncStats_Filter" />
+                    Label="@Strings.AsyncStats_Filter"
+                    LabelPosition="LabelPosition.Column" />
             </div>
 
             <CascadingValue Value="@CurentStatisticsType" Name="AsyncPlayerStatisticsType">
@@ -35,11 +36,9 @@
 
                 <div class="mb-2xl" style="width: 100%;"><AsyncPlayerOpponentsStats /></div>
 
-                <div class="mb-2xl" style="width: 100%;"><AsyncPlayerGamesStats /></div>
+                <div style="width: 100%;"><AsyncPlayerGamesStats /></div>
 
             </CascadingValue>
-
-            <div style="height: clamp(3.125rem, 3.125rem + 1vw, 6.25rem);"></div>
 
         </ResponsiveContainer>
 
@@ -49,4 +48,5 @@
     {
         <StretchHeightContainer />
     }
+    
 </ResponsiveContainer>
