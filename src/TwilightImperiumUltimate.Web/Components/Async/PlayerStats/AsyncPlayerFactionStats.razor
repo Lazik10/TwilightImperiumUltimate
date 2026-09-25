@@ -4,75 +4,91 @@
 
 <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="100">
 
-    @if (AsyncPlayerProfile is not null && FactionsForDisplay is not null && FactionsForDisplay.Count > 0)
+    @if (AsyncPlayerProfile is not null)
     {
-        <div class="async-player-faction-filter">
-            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-            <ResponsiveDropDown TValue="FactionStatisticsFilter"
-                        Id="async-player-faction-stats-filter"
-                        Data="@GetFactionFilterOptions()"
-                        TextProperty="Value"
-                        ValueProperty="Key"
-                        Value="@_selectedFactionStatisticsFilter"
-                        ValueChanged="OnFactionStatisticsFilterChanged"
-                        Label="@RemoveTrailingColon(Strings.FactionStats_Factions)"
-                        LabelPosition="LabelPosition.Column"
-                        Width="40" />
-            </ResponsiveContainer>
-        </div>
-
-        <div class="async-player-faction-filter">
-            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-            <ResponsiveDropDown TValue="FactionStatisticsVpFilter"
-                        Id="async-player-faction-stats-vp-filter"
-                        Data="@GetFactionVpFilterOptions()"
-                        TextProperty="Value"
-                        ValueProperty="Key"
-                        Value="@_selectedFactionVpStatisticsFilter"
-                        ValueChanged="OnFactionStatisticsVpFilterChanged"
-                        Label="@RemoveTrailingColon(Strings.FactionStats_VpCount)"
-                        LabelPosition="LabelPosition.Column"
-                        Width="40" />
-            </ResponsiveContainer>
-        </div>
-
-        <div class="async-player-faction-filter">
-            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-            <ResponsiveDropDown TValue="FactionStatisticsSubstatsFilter"
-                        Id="async-player-faction-stats-substats-filter"
-                        Data="@GetFactionSubstatsFilterOptions()"
-                        TextProperty="Value"
-                        ValueProperty="Key"
-                        Value="@_selectedFactionStatisticsSubstatsFilter"
-                        ValueChanged="OnFactionStatisticsSubstatsFilterChanged"
-                        Label="@RemoveTrailingColon(Strings.FactionStats_Statistics)"
-                        LabelPosition="LabelPosition.Column"
-                        Width="40" />
-            </ResponsiveContainer>
-        </div>
-
         @if (!AsyncPlayerProfile.Settings.ShowFactionStats)
         {
             <ResponsiveLabel Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" CssClass="mt-md mb-2xl" />
         }
-        else if (_selectedFactionStatisticsSubstatsFilter == FactionStatisticsSubstatsFilter.All)
+        else
         {
-            <div class="async-player-faction-grid">
+            <section class="async-player-faction-stats" aria-label="@RemoveTrailingColon(Strings.FactionStats_Factions)">
+                <header class="async-player-faction-header">
+                    <ResponsiveHeading Level="2"
+                                       Text="@RemoveTrailingColon(Strings.FactionStats_Factions)"
+                                       FontSize="lg"
+                                       CenterText="true"
+                                       CssClass="mb-0" />
+                    <button type="button"
+                            class="async-player-faction-filter-toggle"
+                            aria-label="@FilterButtonLabel"
+                            title="@FilterButtonLabel"
+                            aria-expanded="@_areFactionFiltersVisible.ToString().ToLowerInvariant()"
+                            aria-controls="@(_areFactionFiltersVisible ? "async-player-faction-filters" : null)"
+                            @onclick="ToggleFactionFilters">
+                        <img src="@FilterIconPath" alt="" aria-hidden="true" />
+                    </button>
+                </header>
+
+                @if (_areFactionFiltersVisible)
+                {
+                    <div id="async-player-faction-filters" class="async-player-faction-filters">
+                        <div class="async-player-faction-filter">
+                            <ResponsiveDropDown TValue="FactionStatisticsFilter"
+                                                Id="async-player-faction-stats-filter"
+                                                Data="@GetFactionFilterOptions()"
+                                                TextProperty="Value"
+                                                ValueProperty="Key"
+                                                Value="@_selectedFactionStatisticsFilter"
+                                                ValueChanged="OnFactionStatisticsFilterChanged"
+                                                Label="@RemoveTrailingColon(Strings.FactionStats_Factions)"
+                                                LabelPosition="LabelPosition.Column"
+                                                Width="100" />
+                        </div>
+
+                        <div class="async-player-faction-filter">
+                            <ResponsiveDropDown TValue="FactionStatisticsVpFilter"
+                                                Id="async-player-faction-stats-vp-filter"
+                                                Data="@GetFactionVpFilterOptions()"
+                                                TextProperty="Value"
+                                                ValueProperty="Key"
+                                                Value="@_selectedFactionVpStatisticsFilter"
+                                                ValueChanged="OnFactionStatisticsVpFilterChanged"
+                                                Label="@RemoveTrailingColon(Strings.FactionStats_VpCount)"
+                                                LabelPosition="LabelPosition.Column"
+                                                Width="100" />
+                        </div>
+
+                        <div class="async-player-faction-filter">
+                            <ResponsiveDropDown TValue="FactionStatisticsSubstatsFilter"
+                                                Id="async-player-faction-stats-substats-filter"
+                                                Data="@GetFactionSubstatsFilterOptions()"
+                                                TextProperty="Value"
+                                                ValueProperty="Key"
+                                                Value="@_selectedFactionStatisticsSubstatsFilter"
+                                                ValueChanged="OnFactionStatisticsSubstatsFilterChanged"
+                                                Label="@RemoveTrailingColon(Strings.FactionStats_Statistics)"
+                                                LabelPosition="LabelPosition.Column"
+                                                Width="100" />
+                        </div>
+                    </div>
+                }
+
+                @if (_selectedFactionStatisticsSubstatsFilter == FactionStatisticsSubstatsFilter.All)
+                {
+                    <div class="async-player-faction-grid">
                 <ResponsiveRadzenDataGrid TItem="AsyncPlayerFactionStatsDto"
                                           Data="@FactionsForDisplay"
                                           AllowPaging="false"
                                           AllowSorting="true"
                                           AllowAlternatingRows="true"
                                           CssClass="faction-overview-grid">
-                    <HeaderTemplate>
-                        <ResponsiveHeading Level="2" Text="@RemoveTrailingColon(Strings.FactionStats_Factions)" FontSize="lg" CenterText="true" CssClass="mb-0" />
-                    </HeaderTemplate>
                     <Columns>
                         <RadzenDataGridColumn TItem="AsyncPlayerFactionStatsDto" Title="@Strings.FactionStats_Faction" Sortable="true">
                             <Template Context="faction">
-                                <div style="display:flex; align-items:center; gap:0.5rem;">
-                                    <AsyncFactionIconImg FactionName="@faction.FactionName" Height="20" />
-                                    <span>@faction.FactionName.GetFactionUIText(FactionResourceType.Title)</span>
+                                <div class="async-player-faction-identity">
+                                    <AsyncFactionIconImg FactionName="@faction.FactionName" Height="24" />
+                                    <span class="async-player-faction-name">@faction.FactionName.GetFactionUIText(FactionResourceType.Title)</span>
                                 </div>
                             </Template>
                         </RadzenDataGridColumn>
@@ -107,7 +123,7 @@
                                 }
                                 else
                                 {
-                                    <span style="color: @(GetCorrectFactionStatsByVp(faction).WinRate.GetWinrateColor().ConvertToString());">@FormatPercentageValue(GetCorrectFactionStatsByVp(faction).WinRate)</span>
+                                    <span style="color: @(GetCorrectFactionStatsByVp(faction).WinRate.GetWinrateColor().ConvertToString()) !important;">@FormatPercentageValue(GetCorrectFactionStatsByVp(faction).WinRate)</span>
                                 }
                             </Template>
                         </RadzenDataGridColumn>
@@ -136,16 +152,25 @@
                             </Template>
                         </RadzenDataGridColumn>
                         <RadzenDataGridColumn TItem="AsyncPlayerFactionStatsDto" Title="@Strings.FactionStats_AverageVpPercentage" Sortable="true">
-                            <Template Context="faction">@(GetCorrectFactionStatsByVp(faction).Games == 0 ? string.Empty : FormatPercentageValue(GetCorrectFactionStatsByVp(faction).AverageVpPercentage))</Template>
+                            <Template Context="faction">
+                                @if (GetCorrectFactionStatsByVp(faction).Games == 0)
+                                {
+                                    @string.Empty
+                                }
+                                else
+                                {
+                                    <span style="color: @(GetCorrectFactionStatsByVp(faction).AverageVpPercentage.GetAverageVpPercentageColor().ConvertToString()) !important;">@FormatPercentageValue(GetCorrectFactionStatsByVp(faction).AverageVpPercentage)</span>
+                                }
+                            </Template>
                         </RadzenDataGridColumn>
                     </Columns>
                 </ResponsiveRadzenDataGrid>
-            </div>
-        }
-        else
-        {
-            @switch (_selectedFactionStatisticsSubstatsFilter)
-            {
+                    </div>
+                }
+                else
+                {
+                    @switch (_selectedFactionStatisticsSubstatsFilter)
+                    {
                 case FactionStatisticsSubstatsFilter.Games:
                     <RankingBarChart Data="@GetGamesData()"
                                     Title="@Strings.FactionStats_Games"
@@ -200,7 +225,9 @@
                 default:
                     <ResponsiveLabel Text="@Strings.Loading" CenterText="true" />
                     break;
-            }
+                    }
+                }
+            </section>
         }
     }
 

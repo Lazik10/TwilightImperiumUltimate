@@ -1,32 +1,38 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Async.PlayerStats
 
-<ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" AlignItems="Enums.AlignItems.FlexStart" CssClass="padding">
+<ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" AlignItems="Enums.AlignItems.FlexStart" Style="margin-top: calc(-1 * var(--space-2xl));">
 
     @if (AsyncPlayerProfile is not null)
     {
-        <TitleTexture Width="15" Texture="Enums.Texture.TopLeft" />
+        <div class="async-player-profile-texture">
+            <TitleTexture Width="100" Texture="Enums.Texture.TopLeft" />
+        </div>
 
-        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Style="min-width: 0;">
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-2xl-non-mobile" Style="min-width: 0;">
 
             <AsyncPlayerNameLabel />
 
-            <div style="width: fit-content; margin: 0 auto;" class="async-player-profile-filter mb-2xl">
-                <ResponsiveDropDown TValue="PlayerStatisticsType"
-                    Id="async-player-profile-statistics-filter"
-                    Data="@GetStatisticsTypeOptions()"
-                    TextProperty="Value"
-                    ValueProperty="Key"
-                    Value="@CurentStatisticsType"
-                    ValueChanged="@OnEnumChanged"
-                    Label="@Strings.AsyncStats_Filter"
-                    LabelPosition="LabelPosition.Column" />
-            </div>
-
             <CascadingValue Value="@CurentStatisticsType" Name="AsyncPlayerStatisticsType">
 
-                <div class="mb-2xl"><AsyncPlayerMainStats /></div>
+                <div class="mb-2xl">
+                    <AsyncPlayerMainStats>
+                        <SummaryContent>
+                            <div class="async-player-profile-filter mb-2xl">
+                                <ResponsiveDropDown TValue="PlayerStatisticsType"
+                                                    Id="async-player-profile-statistics-filter"
+                                                    Data="@GetStatisticsTypeOptions()"
+                                                    TextProperty="Value"
+                                                    ValueProperty="Key"
+                                                    Value="@CurentStatisticsType"
+                                                    ValueChanged="@OnEnumChanged"
+                                                    Label="@Strings.AsyncStats_Filter"
+                                                    LabelPosition="LabelPosition.Column" />
+                            </div>
+                        </SummaryContent>
+                    </AsyncPlayerMainStats>
+                </div>
 
-                <div class="mb-2xl"><AsyncPlayerVictoryPointStats /></div>
+                <div class="mb-2xl" style="width: 100%;"><AsyncPlayerVictoryPointStats /></div>
 
                 <div class="mb-2xl"><AsyncPlayerTurnStats /></div>
 
@@ -42,7 +48,7 @@
 
         </ResponsiveContainer>
 
-        <div style="min-width: 15%; max-width: 15%;"></div>
+        <div class="async-player-profile-texture-spacer"></div>
     }
     else
     {

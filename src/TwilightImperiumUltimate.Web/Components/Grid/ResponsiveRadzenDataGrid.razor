@@ -23,6 +23,7 @@
         AllowAlternatingRows="@AllowAlternatingRows"
         PageSize="@PageSize"
         PagerHorizontalAlign="@PagerHorizontalAlign"
+        HeaderTemplate="@HeaderTemplate"
         class="@GetGridClass()"
         Style="@Style"
         AllowColumnResize="true"
@@ -31,9 +32,6 @@
         <Columns>
             @Columns
         </Columns>
-        <HeaderTemplate>
-            @HeaderTemplate
-        </HeaderTemplate>
         <EmptyTemplate>
             <div class="responsive-radzen-grid-empty" role="status" aria-live="polite">
                 <span class="responsive-radzen-grid-loading-text">@(IsLoading ? LoadingText : _grid?.EmptyText)</span>

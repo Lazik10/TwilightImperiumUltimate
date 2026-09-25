@@ -17,6 +17,5 @@ public partial class AsyncPlayerProfileGrid
     private void OnEnumChanged(PlayerStatisticsType statisticsType)
     {
         CurentStatisticsType = statisticsType;
-        StateHasChanged();
     }
 }

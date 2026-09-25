@@ -192,7 +192,7 @@ public partial class AsyncPlayerGamesStats
     }
 
     private static string GetDisplayGameFunName(string gameFunName) =>
-        gameFunName.Length > 15 ? $"{gameFunName[..15]}..." : gameFunName;
+        gameFunName.Length > 32 ? $"{gameFunName[..32]}..." : gameFunName;
 
     private string GetAsyncGameIdTextColor(AsyncPlayerGameDto game)
     {
@@ -203,6 +203,10 @@ public partial class AsyncPlayerGamesStats
         else
             return "color: lawngreen;";
     }
+
+    private string GetMobileVpCssClass(AsyncPlayerGameDto game) => ShowWins(game) && game.IsWinner
+        ? "async-player-games-vp-cell yellow"
+        : "async-player-games-vp-cell";
 
     private bool ShowWins(AsyncPlayerGameDto game)
     {

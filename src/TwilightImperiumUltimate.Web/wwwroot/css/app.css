@@ -686,6 +686,7 @@ p {
 .mt-lg { margin-top: var(--space-lg) !important; }
 .mt-xl { margin-top: var(--space-xl) !important; }
 .mt-2xl { margin-top: var(--space-2xl) !important; }
+.mt-2xl-non-mobile { margin-top: var(--space-2xl) !important; }
 .mt-3xl { margin-top: var(--space-3xl) !important; }
 
 .mr-0 { margin-right: 0 !important; }
@@ -795,7 +796,11 @@ body {
 /* Mobile optimization */
 @media screen and (max-width: 768px) {
     .site-shell {
-        padding: 0 var(--space-sm);
+        padding: 0;
+    }
+
+    .mt-2xl-non-mobile {
+        margin-top: 0 !important;
     }
 }
 

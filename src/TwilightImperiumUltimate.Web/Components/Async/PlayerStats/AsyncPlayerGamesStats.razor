@@ -68,15 +68,15 @@
                                                 <span style="@GetAsyncGameIdTextColor(game)">@game.AsyncGameID</span>
                                             </RadzenTableCell>
                                             <RadzenTableCell class="async-player-games-fun-name-cell">
-                                                <span style="@GetAsyncGameIdTextColor(game)" title="@game.GameFunName">@GetDisplayGameFunName(game.GameFunName)</span>
+                                                <span title="@game.GameFunName">@GetDisplayGameFunName(game.GameFunName)</span>
                                             </RadzenTableCell>
-                                            <RadzenTableCell>
+                                            <RadzenTableCell class="async-player-games-win-cell">
                                                 @if (ShowWins(game) && game.IsWinner)
                                                 {
                                                     <span style="color: yellow;">W</span>
                                                 }
                                             </RadzenTableCell>
-                                            <RadzenTableCell>@(ShowWins(game) ? $"{game.PlayerScore} / {game.Scoreboard}" : $"? / {game.Scoreboard}")</RadzenTableCell>
+                                            <RadzenTableCell class="@GetMobileVpCssClass(game)">@(ShowWins(game) ? $"{game.PlayerScore} / {game.Scoreboard}" : $"? / {game.Scoreboard}")</RadzenTableCell>
                                             <RadzenTableCell class="async-player-games-faction-cell">
                                                 <span title="@(game.Faction.GetFactionUIText(FactionResourceType.Title))">
                                                     <AsyncFactionIconImg FactionName="@game.Faction" Height="24" />

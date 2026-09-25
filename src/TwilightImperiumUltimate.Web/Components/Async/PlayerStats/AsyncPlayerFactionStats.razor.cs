@@ -9,6 +9,8 @@ namespace TwilightImperiumUltimate.Web.Components.Async.PlayerStats;
 
 public partial class AsyncPlayerFactionStats
 {
+    private bool _areFactionFiltersVisible;
+
     private FactionStatisticsFilter _selectedFactionStatisticsFilter = FactionStatisticsFilter.Official;
 
     private FactionStatisticsVpFilter _selectedFactionVpStatisticsFilter = FactionStatisticsVpFilter.All;
@@ -30,6 +32,18 @@ public partial class AsyncPlayerFactionStats
     };
 
     public IReadOnlyCollection<AsyncPlayerFactionStatsDto> FactionsForDisplay { get; set; } = new List<AsyncPlayerFactionStatsDto>();
+
+    [Inject]
+    private IPathProvider PathProvider { get; set; } = default!;
+
+    private string FilterButtonLabel => (_areFactionFiltersVisible ? "Hide faction filters" : "Show faction filters")
+        + (AreFactionFiltersApplied ? ", filters active" : string.Empty);
+
+    private string FilterIconPath => PathProvider.GetIconPath(_areFactionFiltersVisible || AreFactionFiltersApplied ? IconType.FilterClicked : IconType.Filter);
+
+    private bool AreFactionFiltersApplied => _selectedFactionStatisticsFilter != FactionStatisticsFilter.Official
+        || _selectedFactionVpStatisticsFilter != FactionStatisticsVpFilter.All
+        || _selectedFactionStatisticsSubstatsFilter != FactionStatisticsSubstatsFilter.All;
 
     protected override void OnParametersSet()
     {
@@ -55,6 +69,11 @@ public partial class AsyncPlayerFactionStats
         .Select(value => new KeyValuePair<FactionStatisticsSubstatsFilter, string>(value, value.GetDisplayName()))
         .ToList();
 
+    private void ToggleFactionFilters()
+    {
+        _areFactionFiltersVisible = !_areFactionFiltersVisible;
+    }
+
     private void OnFactionStatisticsFilterChanged(FactionStatisticsFilter filter)
     {
         _selectedFactionStatisticsFilter = filter;
@@ -65,13 +84,11 @@ public partial class AsyncPlayerFactionStats
     private void OnFactionStatisticsVpFilterChanged(FactionStatisticsVpFilter filter)
     {
         _selectedFactionVpStatisticsFilter = filter;
-        StateHasChanged();
     }
 
     private void OnFactionStatisticsSubstatsFilterChanged(FactionStatisticsSubstatsFilter filter)
     {
         _selectedFactionStatisticsSubstatsFilter = filter;
-        StateHasChanged();
     }
 
     private List<AsyncPlayerFactionStatsDto> GetFilteredFactionStats(IReadOnlyCollection<AsyncPlayerFactionStatsDto> factionStats)
