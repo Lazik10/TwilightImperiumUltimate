@@ -15,7 +15,10 @@
             <RadzenAxisTitle Text="@CategoryTitle" />
         </RadzenCategoryAxis>
         <RadzenValueAxis Min="@Min" Max="@Max" Step="@Step" FormatString="@ValueFormatString" Stroke="white" StrokeWidth="2">
-            <RadzenAxisTitle Text="@ValueTitle" />
+            @if (!string.IsNullOrWhiteSpace(ValueTitle))
+            {
+                <RadzenAxisTitle Text="@ValueTitle" />
+            }
         </RadzenValueAxis>
         <RadzenLegend Visible="@ShowLegend" Position="LegendPosition.Bottom" />
     </RadzenChart>

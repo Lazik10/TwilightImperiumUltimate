@@ -72,15 +72,25 @@
 
 @media (max-width: 768px) {
     .achievement-row {
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        align-items: start;
         gap: 6px;
         padding: 8px 10px;
     }
 
+    .achievement-info,
     .achievement-meta {
-        width: 100%;
-        justify-content: flex-start;
-        gap: 8px;
-        flex-wrap: wrap;
+        display: contents;
+    }
+
+    .achievement-meta ::deep > .responsive-label:first-child {
+        justify-self: end;
+        text-align: right;
+    }
+
+    .achievement-meta ::deep > .responsive-label:last-child {
+        justify-self: center;
+        text-align: center;
     }
 }

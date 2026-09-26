@@ -1,3 +1,17 @@
 ::deep .rating-progression-title-card {
     padding-block: var(--space-xs);
 }
+
+.rating-progression-mobile-chart {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .rating-progression-desktop-chart {
+        display: none;
+    }
+
+    .rating-progression-mobile-chart {
+        display: block;
+    }
+}

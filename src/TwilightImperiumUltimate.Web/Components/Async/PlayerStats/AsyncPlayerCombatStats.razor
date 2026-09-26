@@ -8,9 +8,9 @@
             <ResponsiveRadzenTable ZebraStripes="true" EqualColumns="true" CssClass="statistics-row-handel combat-stats-table" TableTitle="@Strings.CombatStats_Title">
                 <RadzenTableHeader>
                     <RadzenTableHeaderRow>
-                        <RadzenTableHeaderCell scope="col">@Strings.CombatStats_ExpectedHits</RadzenTableHeaderCell>
-                        <RadzenTableHeaderCell scope="col">@Strings.CombatStats_ActualHits</RadzenTableHeaderCell>
-                        <RadzenTableHeaderCell scope="col">@Strings.CombatStats_HitsDeviation</RadzenTableHeaderCell>
+                        <RadzenTableHeaderCell scope="col"><span class="combat-stats-header-desktop">@Strings.CombatStats_ExpectedHits</span><span class="combat-stats-header-mobile">Expected</span></RadzenTableHeaderCell>
+                        <RadzenTableHeaderCell scope="col"><span class="combat-stats-header-desktop">@Strings.CombatStats_ActualHits</span><span class="combat-stats-header-mobile">Actual</span></RadzenTableHeaderCell>
+                        <RadzenTableHeaderCell scope="col"><span class="combat-stats-header-desktop">@Strings.CombatStats_HitsDeviation</span><span class="combat-stats-header-mobile">Deviation</span></RadzenTableHeaderCell>
                     </RadzenTableHeaderRow>
                 </RadzenTableHeader>
                 <RadzenTableBody>
@@ -30,9 +30,9 @@
                             <RadzenTableCell class="@(GetDiceDeviationCssClass())">@GetHitDeviationText()</RadzenTableCell>
                         </RadzenTableRow>
                         <RadzenTableRow>
-                            <RadzenTableHeaderCell scope="col">@Strings.CombatStats_MinHits</RadzenTableHeaderCell>
-                            <RadzenTableHeaderCell scope="col">@Strings.CombatStats_AverageHits</RadzenTableHeaderCell>
-                            <RadzenTableHeaderCell scope="col">@Strings.CombatStats_MaxHits</RadzenTableHeaderCell>
+                            <RadzenTableHeaderCell scope="col"><span class="combat-stats-header-desktop">@Strings.CombatStats_MinHits</span><span class="combat-stats-header-mobile">Min</span></RadzenTableHeaderCell>
+                            <RadzenTableHeaderCell scope="col"><span class="combat-stats-header-desktop">@Strings.CombatStats_AverageHits</span><span class="combat-stats-header-mobile">Avg</span></RadzenTableHeaderCell>
+                            <RadzenTableHeaderCell scope="col"><span class="combat-stats-header-desktop">@Strings.CombatStats_MaxHits</span><span class="combat-stats-header-mobile">Max</span></RadzenTableHeaderCell>
                         </RadzenTableRow>
                         <RadzenTableRow>
                             <RadzenTableCell class="yellow">@CombatStats.MinHitsPerGame.ToStringWithPrecision(0)</RadzenTableCell>

@@ -39,7 +39,10 @@
 			</RadzenDataGridColumn>
 			<RadzenDataGridColumn TItem="TiglProfileFactionStatsDto" Title="Games" Property="Games">
 				<Template Context="item">
-					<span style="color: @(TextColor.Yellow.ConvertToString());">@item.Games</span>
+					@if (item.Games > 0)
+					{
+						<span style="color: @(TextColor.Yellow.ConvertToString());">@item.Games</span>
+					}
 				</Template>
 			</RadzenDataGridColumn>
 			<RadzenDataGridColumn TItem="TiglProfileFactionStatsDto" Title="Wins" Property="Wins">

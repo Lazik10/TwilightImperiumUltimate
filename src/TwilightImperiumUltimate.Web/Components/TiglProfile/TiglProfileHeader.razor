@@ -1,11 +1,15 @@
 <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="100" CssClass="mt-sm" Name="tigl-profile-title-block">
-    <TitleLine TransformXCss="-3%" Width="140" MaxWidth="140" />
+    <div class="tigl-profile-name-line tigl-profile-name-line-top">
+        <TitleLine TransformXCss="-3%" Width="140" MaxWidth="140" />
+    </div>
 
     <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="title handel white shadow" Name="tigl-profile-player-name">
         <ResponsiveHeading Level="1" Text="@Profile.TiglUserName.ToUpperInvariant()" FontSize="2xl" CenterText="true" CssClass="mb-0" />
     </ResponsiveContainer>
 
-    <TitleLine TransformXCss="-3%" Width="140" MaxWidth="140" />
+    <div class="tigl-profile-name-line tigl-profile-name-line-bottom">
+        <TitleLine TransformXCss="-3%" Width="140" MaxWidth="140" />
+    </div>
 </ResponsiveContainer>
 @if (!string.IsNullOrWhiteSpace(Profile.DiscordTag))
 {

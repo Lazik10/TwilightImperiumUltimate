@@ -70,10 +70,7 @@
                 <RadzenTableHeader>
                     <RadzenTableHeaderRow>
                         <RadzenTableHeaderCell scope="col">@Strings.VpStats_VictoryPoints</RadzenTableHeaderCell>
-                        @foreach (var stats in VpStats.VpStatsByVpGame)
-                        {
-                            <RadzenTableHeaderCell scope="col">@stats.VpGameCategory.ToString()</RadzenTableHeaderCell>
-                        }
+                        <RadzenTableHeaderCell scope="col">@string.Join(" / ", VpStats.VpStatsByVpGame.Select(stats => stats.VpGameCategory.ToString()))</RadzenTableHeaderCell>
                         <RadzenTableHeaderCell scope="col">Total</RadzenTableHeaderCell>
                     </RadzenTableHeaderRow>
                 </RadzenTableHeader>
@@ -81,7 +78,7 @@
                     @if (!AsyncPlayerProfile.Settings.ShowVpStats)
                     {
                         <RadzenTableRow>
-                            <RadzenTableCell colspan="@(VpStats.VpStatsByVpGame.Count + 2)">
+                            <RadzenTableCell colspan="3">
                                 <ResponsiveLabel Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" />
                             </RadzenTableCell>
                         </RadzenTableRow>
@@ -90,46 +87,31 @@
                     {
                         <RadzenTableRow>
                             <RadzenTableCell>@Strings.VpStats_Games</RadzenTableCell>
-                            @foreach (var stats in VpStats.VpStatsByVpGame)
-                            {
-                                <RadzenTableCell class="yellow">@ShowGames(stats.Games)</RadzenTableCell>
-                            }
+                            <RadzenTableCell class="yellow">@string.Join(" / ", VpStats.VpStatsByVpGame.Select(stats => ShowGames(stats.Games)))</RadzenTableCell>
                             <RadzenTableCell class="yellow">@ShowGames(VpStats.VpStatsTotal.Games)</RadzenTableCell>
                         </RadzenTableRow>
 
                         <RadzenTableRow>
                             <RadzenTableCell>@Strings.VpStats_TotalVp</RadzenTableCell>
-                            @foreach (var stats in VpStats.VpStatsByVpGame)
-                            {
-                                <RadzenTableCell class="yellow">@(stats.Games == 0 ? string.Empty : stats.TotalVp.ToString())</RadzenTableCell>
-                            }
+                            <RadzenTableCell class="yellow">@string.Join(" / ", VpStats.VpStatsByVpGame.Select(stats => stats.Games == 0 ? string.Empty : stats.TotalVp.ToString()))</RadzenTableCell>
                             <RadzenTableCell class="yellow">@VpStats.VpStatsTotal.TotalVp.ToString()</RadzenTableCell>
                         </RadzenTableRow>
 
                         <RadzenTableRow>
                             <RadzenTableCell>Max VP</RadzenTableCell>
-                            @foreach (var stats in VpStats.VpStatsByVpGame)
-                            {
-                                <RadzenTableCell class="yellow">@(stats.Games == 0 ? string.Empty : stats.MaxPossibleVp.ToString())</RadzenTableCell>
-                            }
+                            <RadzenTableCell class="yellow">@string.Join(" / ", VpStats.VpStatsByVpGame.Select(stats => stats.Games == 0 ? string.Empty : stats.MaxPossibleVp.ToString()))</RadzenTableCell>
                             <RadzenTableCell class="yellow">@VpStats.VpStatsTotal.MaxPossibleVp.ToString()</RadzenTableCell>
                         </RadzenTableRow>
 
                         <RadzenTableRow>
                             <RadzenTableCell>@Strings.VpStats_AverageVp</RadzenTableCell>
-                            @foreach (var stats in VpStats.VpStatsByVpGame)
-                            {
-                                <RadzenTableCell class="@(stats.Games == 0 ? string.Empty : GetAverageVpCssClass(stats.AverageVpPerGame))">@(stats.Games == 0 ? string.Empty : stats.AverageVpPerGame.ToStringWithPrecision(2))</RadzenTableCell>
-                            }
+                            <RadzenTableCell>@string.Join(" / ", VpStats.VpStatsByVpGame.Select(stats => stats.Games == 0 ? string.Empty : stats.AverageVpPerGame.ToStringWithPrecision(2)))</RadzenTableCell>
                             <RadzenTableCell class="@(GetAverageVpCssClass(VpStats.VpStatsTotal.AverageVpPerGame))">@VpStats.VpStatsTotal.AverageVpPerGame.ToStringWithPrecision(2)</RadzenTableCell>
                         </RadzenTableRow>
 
                         <RadzenTableRow>
                             <RadzenTableCell>@Strings.VpStats_VpPercentageOfTotal</RadzenTableCell>
-                            @foreach (var stats in VpStats.VpStatsByVpGame)
-                            {
-                                <RadzenTableCell class="@(stats.Games == 0 ? string.Empty : GetAverageVpPercentageCssClass(stats.VpPercentageOfTotal))">@(stats.Games == 0 ? string.Empty : stats.VpPercentageOfTotal.ToStringWithPrecisionAndPercentage(0))</RadzenTableCell>
-                            }
+                            <RadzenTableCell>@string.Join(" / ", VpStats.VpStatsByVpGame.Select(stats => stats.Games == 0 ? string.Empty : stats.VpPercentageOfTotal.ToStringWithPrecisionAndPercentage(0)))</RadzenTableCell>
                             <RadzenTableCell class="@(GetAverageVpPercentageCssClass(VpStats.VpStatsTotal.VpPercentageOfTotal))">@VpStats.VpStatsTotal.VpPercentageOfTotal.ToStringWithPrecisionAndPercentage(0)</RadzenTableCell>
                         </RadzenTableRow>
                     }

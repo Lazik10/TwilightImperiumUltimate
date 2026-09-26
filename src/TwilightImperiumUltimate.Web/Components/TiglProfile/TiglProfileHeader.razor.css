@@ -3,3 +3,25 @@
     justify-content: center;
     width: 100%;
 }
+
+.tigl-profile-name-line {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .tigl-profile-name-line-top {
+        margin-top: var(--space-xl);
+    }
+
+    .tigl-profile-name-line ::deep img {
+        width: 95% !important;
+        max-width: 95% !important;
+        transform: translate(0%, 0%) !important;
+    }
+
+    .tigl-profile-name-line-bottom {
+        margin-bottom: var(--space-sm);
+    }
+}
