@@ -34,4 +34,13 @@ public abstract class RadzenChartBase : ComponentBase
 
     [Parameter]
     public double Step { get; set; }
+
+    [Parameter]
+    public double? CategoryMin { get; set; }
+
+    [Parameter]
+    public double? CategoryMax { get; set; }
+
+    [Parameter]
+    public Func<object, string>? CategoryFormatter { get; set; }
 }

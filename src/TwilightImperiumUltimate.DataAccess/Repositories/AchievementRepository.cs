@@ -143,6 +143,25 @@ public class AchievementRepository(
             .ToListAsync(cancellationToken);
     }
 
+    public async Task<int> GetTotalTiglUsers(CancellationToken cancellationToken)
+    {
+        await using var dbContext = await context.CreateDbContextAsync(cancellationToken);
+        return await dbContext.TiglUsers.CountAsync(cancellationToken);
+    }
+
+    public async Task<Dictionary<AchievementName, int>> GetAchievementPlayerCounts(CancellationToken cancellationToken)
+    {
+        await using var dbContext = await context.CreateDbContextAsync(cancellationToken);
+
+        var achievementCounts = await dbContext.TiglUserAchievements
+            .AsNoTracking()
+            .GroupBy(a => a.AchievementName)
+            .Select(g => new { Name = g.Key, Count = g.Select(a => a.TiglUserId).Distinct().Count() })
+            .ToListAsync(cancellationToken);
+
+        return achievementCounts.ToDictionary(a => a.Name, a => a.Count);
+    }
+
     public async Task<bool> AddManualAchievement(int tiglUserId, AchievementName achievementName, TiglFactionName faction, CancellationToken cancellationToken)
     {
         await using var dbContext = await context.CreateDbContextAsync(cancellationToken);

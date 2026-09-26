@@ -8,13 +8,14 @@
 
 <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-md mb-md">
 
-    <ResponsiveTabMenu AriaLabel="@Strings.TiglLeague_League" CssClass="mb-md">
+    <ResponsiveTabMenu AriaLabel="@Strings.TiglLeague_League" CssClass="faction-style mb-md">
         <ResponsiveTab Id="ranks-tab-standard"
                        ControlsId="ranks-panel"
                        IsActive="@(_league == TiglLeague.ThundersEdge)"
                        OnClick="@(() => ChangeLeague(TiglLeague.ThundersEdge))">
             @Strings.TiglGames_CategoryStandard
         </ResponsiveTab>
+        <ResponsiveTabSeparator />
         <ResponsiveTab Id="ranks-tab-fractured"
                        ControlsId="ranks-panel"
                        IsActive="@(_league == TiglLeague.Fractured)"
@@ -31,7 +32,7 @@
 {
     @if (_groupedRankings?.Count > 0)
     {
-        <ResponsiveRadzenTable ZebraStripes="true" CssClass="ranks-table mb-2xl">
+        <ResponsiveRadzenTable ZebraStripes="true" CssClass="ranks-table">
             <RadzenTableHeader>
                 <RadzenTableRow>
                     <RadzenTableCell class="ranks-header-cell">Username</RadzenTableCell>
@@ -53,9 +54,24 @@
                         </RadzenTableCell>
                     </RadzenTableRow>
 
-                    @foreach (var rank in group.Value)
+                    var visibleGroupRanks = GetVisibleRankingsForGroup(group.Key, group.Value);
+
+                    @foreach (var rank in visibleGroupRanks)
                     {
                         <RankRow @key="rank.Id" Ranking="rank" PrestigeRankText="@group.Key" />
+                    }
+
+                    @if (ShouldShowExpandRow(group.Key, group.Value))
+                    {
+                        <RadzenTableRow class="rank-show-all-row"
+                                        tabindex="0"
+                                        role="button"
+                                        @onclick="() => ExpandGroup(group.Key)"
+                                        @onkeydown="args => OnShowAllKeyDown(args, group.Key)">
+                            <RadzenTableCell colspan="5">
+                                <span class="rank-show-all-label">Show All</span>
+                            </RadzenTableCell>
+                        </RadzenTableRow>
                     }
                 }
             </RadzenTableBody>

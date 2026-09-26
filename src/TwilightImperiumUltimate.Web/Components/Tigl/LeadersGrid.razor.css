@@ -1,7 +1,23 @@
+#leaders-panel {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+#leaders-panel ::deep .responsive-radzen-table-host,
+#leaders-panel ::deep .responsive-radzen-table .rz-datatable-wrapper,
+#leaders-panel ::deep .responsive-radzen-table .rz-datatable-tablewrapper {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+#leaders-panel ::deep .leaders-table {
+    margin-bottom: 0 !important;
+}
+
 #leaders-panel ::deep .leaders-table tbody td {
-    font-family: Inter, sans-serif !important;
+    font-family: Handel, sans-serif !important;
     text-align: center;
-    text-shadow: none !important;
+    text-shadow: var(--shadow-text) !important;
 }
 
 #leaders-panel ::deep .leaders-table thead .leaders-header-cell {
@@ -17,7 +33,7 @@
 
 #leaders-panel ::deep .leaders-table .leader-player-row {
     cursor: pointer;
-    font-family: Inter, sans-serif !important;
+    font-family: Handel, sans-serif !important;
 }
 
 #leaders-panel ::deep .leaders-table .leader-player-row:focus-visible {
@@ -26,8 +42,8 @@
 }
 
 #leaders-panel ::deep .leaders-table .leader-player-row .responsive-label {
-    font-family: Inter, sans-serif !important;
-    text-shadow: none !important;
+    font-family: Handel, sans-serif !important;
+    text-shadow: var(--shadow-text) !important;
 }
 
 #leaders-panel ::deep .leaders-table .leader-player-row td,
@@ -39,4 +55,16 @@
 
 #leaders-panel ::deep .leaders-table .leader-player-row td .rz-cell-data {
     min-width: max-content;
+}
+
+#leaders-panel ::deep .leaders-table .leader-faction-cell,
+#leaders-panel ::deep .leaders-table .leader-hero-cell {
+    width: 1%;
+    text-align: center;
+}
+
+#leaders-panel ::deep .leaders-table .leader-name-cell,
+#leaders-panel ::deep .leaders-table .leader-name-cell .rz-cell-data,
+#leaders-panel ::deep .leaders-table .leader-name-cell .responsive-label {
+    text-align: left !important;
 }

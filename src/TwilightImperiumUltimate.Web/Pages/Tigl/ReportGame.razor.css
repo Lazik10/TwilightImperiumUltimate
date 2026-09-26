@@ -41,6 +41,10 @@
     box-shadow: 0 0 18px rgba(0, 0, 0, 0.5);
 }
 
+.report-game-card ::deep .responsive-button {
+    border: 2px solid var(--color-nav-hover-bg-solid, #123957) !important;
+}
+
 /* A single label-above-control field, used inside a ResponsiveGridContainer cell. */
 .report-game-field {
     display: flex;

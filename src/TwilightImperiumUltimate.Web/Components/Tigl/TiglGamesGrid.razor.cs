@@ -5,6 +5,8 @@ namespace TwilightImperiumUltimate.Web.Components.Tigl;
 
 public partial class TiglGamesGrid
 {
+    private bool _areSeasonFiltersVisible;
+    private int _defaultSeasonNumber;
     private int _selectedSeasonNumber;
     private TiglLeague _selectedLeague = TiglLeague.ProphecyOfKings;
     private List<MatchReportDto> _allStandard = new();
@@ -24,11 +26,21 @@ public partial class TiglGamesGrid
         ? "tigl-games-tab-fractured"
         : "tigl-games-tab-standard";
 
+    private string SeasonFilterButtonLabel => (_areSeasonFiltersVisible ? "Hide season filter" : "Show season filter")
+        + (IsSeasonFilterApplied ? ", filter active" : string.Empty);
+
+    private string SeasonFilterIconPath => PathProvider.GetIconPath(_areSeasonFiltersVisible || IsSeasonFilterApplied ? IconType.FilterClicked : IconType.Filter);
+
+    private bool IsSeasonFilterApplied => _selectedSeasonNumber != _defaultSeasonNumber;
+
     [Inject]
     private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
 
     [Inject]
     private NavigationManager NavigationManager { get; set; } = default!;
+
+    [Inject]
+    private IPathProvider PathProvider { get; set; } = default!;
 
     protected override async Task OnInitializedAsync()
     {
@@ -38,7 +50,8 @@ public partial class TiglGamesGrid
         var gamesTask = LoadGameReports();
         await Task.WhenAll(seasonsTask, gamesTask);
 
-        _selectedSeasonNumber = _seasons.Count > 0 ? _seasons.Max(s => s.SeasonNumber) : 0;
+        _defaultSeasonNumber = _seasons.Count > 0 ? _seasons.Max(s => s.SeasonNumber) : 0;
+        _selectedSeasonNumber = _defaultSeasonNumber;
         UpdateSelectedGames();
 
         _loading = false;
@@ -93,7 +106,12 @@ public partial class TiglGamesGrid
         UpdateSelectedGames();
     }
 
-    private string GetSelectedTitle() => $"{(_selectedLeague == TiglLeague.Fractured ? Strings.TiglGames_CategoryFractured : Strings.TiglGames_CategoryStandard)} Ladder ({FilteredGames.Count} games)";
+    private string GetSelectedTitle() => $"{(_selectedLeague == TiglLeague.Fractured ? Strings.TiglGames_CategoryFractured : Strings.TiglGames_CategoryStandard)} Ladder {FilteredGames.Count} games";
+
+    private void ToggleSeasonFilters()
+    {
+        _areSeasonFiltersVisible = !_areSeasonFiltersVisible;
+    }
 
     private void OnLeagueChanged(TiglLeague league)
     {

@@ -7,6 +7,7 @@ namespace TwilightImperiumUltimate.Web.Components.TiglProfile;
 public partial class TiglProfileGrid
 {
     private bool _showAllAchievements;
+    private bool _areFactionFiltersVisible;
     private FactionStatisticsFilter _selectedFactionStatisticsFilter = FactionStatisticsFilter.Official;
 
     public TiglProfileCategory CurrentCategory { get; set; } = TiglProfileCategory.ThundersEdge;
@@ -35,14 +36,26 @@ public partial class TiglProfileGrid
         _ => TiglLeague.ThundersEdge,
     };
 
-    private FactionStatisticsFilter EffectiveFactionStatisticsFilter => SelectedLeague == TiglLeague.ThundersEdge
-        ? FactionStatisticsFilter.Official
-        : _selectedFactionStatisticsFilter;
+    private FactionStatisticsFilter EffectiveFactionStatisticsFilter => SelectedLeague == TiglLeague.Fractured
+        ? _selectedFactionStatisticsFilter
+        : FactionStatisticsFilter.Official;
+
+    private bool AreFactionFiltersApplied => SelectedLeague == TiglLeague.Fractured
+        && _selectedFactionStatisticsFilter != FactionStatisticsFilter.Official;
+
+    private string FilterButtonLabel => (_areFactionFiltersVisible ? "Hide faction filters" : "Show faction filters")
+        + (AreFactionFiltersApplied ? ", filters active" : string.Empty);
+
+    private string FilterIconPath => PathProvider.GetIconPath(_areFactionFiltersVisible || AreFactionFiltersApplied ? IconType.FilterClicked : IconType.Filter);
 
     private TiglLeagueProfileDto? SelectedLeagueProfile => Profile?.LeagueProfiles.FirstOrDefault(profile => profile.League == SelectedLeague);
     private PrestigeRankHistoryDto? SelectedPrestige => Profile?.PrestigeRankHistory.Where(prestige => prestige.League == SelectedLeague).OrderByDescending(prestige => prestige.Level).ThenByDescending(prestige => prestige.AchievedAt).FirstOrDefault();
     private IReadOnlyList<RankHistoryDto> FilteredRankHistory => Profile?.RankHistory.Where(rank => rank.League == SelectedLeague).OrderByDescending(rank => rank.AchievedAt).ToList() ?? [];
-    private IReadOnlyList<PrestigeRankHistoryDto> FilteredPrestigeRanks => Profile?.PrestigeRankHistory.Where(prestige => prestige.League == SelectedLeague).OrderByDescending(prestige => prestige.AchievedAt).ToList() ?? [];
+    private IReadOnlyList<PrestigeRankHistoryDto> FilteredPrestigeRanks => Profile?.PrestigeRankHistory
+        .Where(prestige => prestige.League == SelectedLeague)
+        .OrderByDescending(prestige => prestige.AchievedAt)
+        .ThenByDescending(prestige => prestige.Id)
+        .ToList() ?? [];
     private IReadOnlyList<TiglProfileGameDto> FilteredGameHistory => Profile?.GameHistory.Where(game => game.League == SelectedLeague).OrderByDescending(game => game.EndTimestamp).ToList() ?? [];
     private IReadOnlyList<TiglTopOpponentDto> FilteredTopOpponents => Profile?.TopOpponents.Where(opponent => opponent.League == SelectedLeague).OrderByDescending(opponent => opponent.GamesPlayed).Take(20).ToList() ?? [];
     private IReadOnlyList<TiglProfileFactionStatsDto> FilteredFactionStats => Enum.GetValues<TiglFactionName>()
@@ -57,11 +70,16 @@ public partial class TiglProfileGrid
     private void OnCategoryChanged(TiglProfileCategory category)
     {
         CurrentCategory = category == TiglProfileCategory.All ? TiglProfileCategory.ThundersEdge : category;
-        if (SelectedLeague == TiglLeague.ThundersEdge)
+        if (SelectedLeague != TiglLeague.Fractured)
+        {
             _selectedFactionStatisticsFilter = FactionStatisticsFilter.Official;
+            _areFactionFiltersVisible = false;
+        }
     }
 
     private void OnFactionStatisticsFilterChanged(FactionStatisticsFilter filter) => _selectedFactionStatisticsFilter = filter;
+
+    private void ToggleFactionFilters() => _areFactionFiltersVisible = !_areFactionFiltersVisible;
 
     private void NavigateToGameDetail(int matchReportId) { var returnUrl = $"{Web.Pages.Pages.TiglPlayerProfile}?playerId={Profile.TiglUserId}"; NavigationManager.NavigateTo($"{Web.Pages.Pages.TiglGameDetail}?id={matchReportId}&returnUrl={Uri.EscapeDataString(returnUrl)}"); }
     private void NavigateToPlayerProfile(int tiglUserId) => NavigationManager.NavigateTo($"{Web.Pages.Pages.TiglPlayerProfile}?playerId={tiglUserId}&returnUrl={Uri.EscapeDataString(NavigationManager.Uri)}");

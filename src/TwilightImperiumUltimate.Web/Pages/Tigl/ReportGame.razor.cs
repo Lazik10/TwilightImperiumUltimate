@@ -65,7 +65,7 @@ public partial class ReportGame
     private int _currentPlayerIndex;
     private List<RowViewMode> _rowModes = new();
 
-    private bool _loading = true;
+    private bool _usersLoading;
     private IList<TiglUserLiteDto> _users = Array.Empty<TiglUserLiteDto>();
     private Dictionary<long, TiglUserLiteDto> _usersById = new();
     private List<string> _availableFactionNames = new();
@@ -85,13 +85,12 @@ public partial class ReportGame
     [Inject]
     private IJSRuntime JSRuntime { get; set; } = default!;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        _loading = true;
         InitializeForm();
         UpdateFactionList();
-        await LoadUsersAsync();
-        _loading = false;
+        _usersLoading = true;
+        _ = LoadUsersAndRefreshAsync();
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -157,6 +156,19 @@ public partial class ReportGame
         {
             _users = Array.Empty<TiglUserLiteDto>();
             _usersById = new();
+        }
+    }
+
+    private async Task LoadUsersAndRefreshAsync()
+    {
+        try
+        {
+            await LoadUsersAsync();
+        }
+        finally
+        {
+            _usersLoading = false;
+            await InvokeAsync(StateHasChanged);
         }
     }
 

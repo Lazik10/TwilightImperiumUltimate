@@ -1,7 +1,86 @@
+ .faction-overview-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3.75rem;
+    padding: var(--space-sm) 3.5rem;
+}
+
+.faction-filter-toggle {
+    position: absolute;
+    right: var(--space-lg);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.faction-filter-toggle:focus-visible {
+    outline: 2px solid var(--color-nav-hover, #8ecfff);
+    outline-offset: 2px;
+    border-radius: var(--border-radius-sm);
+}
+
+.faction-filter-toggle img {
+    display: block;
+    max-width: 1.625rem;
+    height: auto;
+}
+
+.faction-overview-filters {
+    padding: var(--space-md);
+}
+
+.faction-overview-filters ::deep .responsive-dropdown-host.has-label.label-position-column {
+    align-items: center;
+    gap: 0;
+    width: 100%;
+}
+
+.faction-overview-filters ::deep .responsive-dropdown {
+    width: 100%;
+    max-width: 25rem;
+}
+
+.faction-overview-filters ::deep .responsive-dropdown-label {
+    margin-bottom: 0 !important;
+}
+
 ::deep .faction-overview-grid tbody td:first-child,
 ::deep .faction-overview-grid tbody td:first-child .rz-cell-data {
     text-align: left;
     font-family: Handel, sans-serif !important;
+}
+
+::deep .faction-overview-grid .rz-cell-data,
+::deep .faction-overview-grid .rz-column-title,
+::deep .faction-overview-grid tbody span {
+    font-family: Handel, sans-serif !important;
+    text-shadow: var(--shadow-text);
+}
+
+::deep .faction-overview-grid .rz-data-grid-data {
+    overflow-x: auto;
+}
+
+::deep .faction-overview-grid .rz-grid-table {
+    min-width: max-content;
+}
+
+::deep .faction-overview-grid .rz-grid-table th,
+::deep .faction-overview-grid .rz-grid-table td {
+    white-space: nowrap;
+    word-break: normal;
+}
+
+::deep .faction-overview-grid .rz-data-row:hover > td {
+    background-color: var(--rz-grid-header-background-color, var(--color-nav-hover-bg-solid));
 }
 
 ::deep .faction-overview-grid tbody td:first-child .faction-icon {

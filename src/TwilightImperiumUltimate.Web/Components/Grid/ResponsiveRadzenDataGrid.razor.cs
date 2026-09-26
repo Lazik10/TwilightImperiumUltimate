@@ -113,6 +113,12 @@ public partial class ResponsiveRadzenDataGrid<TItem>
     public EventCallback<TItem> RowClick { get; set; }
 
     /// <summary>
+    /// Gets or sets the callback invoked as each data cell is rendered.
+    /// </summary>
+    [Parameter]
+    public Action<DataGridCellRenderEventArgs<TItem>>? CellRender { get; set; }
+
+    /// <summary>
     /// Gets the combined CSS class string for the grid.
     /// </summary>
     /// <returns>The CSS class string.</returns>

@@ -1438,7 +1438,7 @@
   </data>
 
   <data name="ReportGame_GalacticEventsHeading" xml:space="preserve">
-    <value>Galactic Events (Fractured Only)</value>
+    <value>Galactic Events</value>
   </data>
 
   <data name="ReportGame_GameId" xml:space="preserve">

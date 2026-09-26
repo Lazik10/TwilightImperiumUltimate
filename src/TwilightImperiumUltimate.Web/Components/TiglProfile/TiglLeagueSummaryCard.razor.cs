@@ -1,5 +1,6 @@
 using TwilightImperiumUltimate.Contracts.DTOs.Rankings;
 using TwilightImperiumUltimate.Contracts.DTOs.Tigl;
+using TwilightImperiumUltimate.Web.Helpers.Enums;
 using TwilightImperiumUltimate.Web.Helpers.Numbers;
 
 namespace TwilightImperiumUltimate.Web.Components.TiglProfile;
@@ -19,6 +20,13 @@ public partial class TiglLeagueSummaryCard
         TiglPrestigeRank.GalacticThreat => TextColor.GalacticThreat,
         TiglPrestigeRank.Tyrant => TextColor.Tyrant,
         _ => TextColor.White,
+    };
+
+    private string PrestigeText => Prestige switch
+    {
+        { Level: > 0 } prestige => $"{prestige.PrestigeRank.GetDisplayName()} {prestige.Level.ToRomanNumeral()}",
+        not null => Prestige.PrestigeRank.GetDisplayName(),
+        _ => "-",
     };
 
     private double WinRate => Profile.GamesPlayed == 0 ? 0 : Profile.AsyncMatchHistory.Count(item => item.RatingChange > 0) / (double)Profile.GamesPlayed * 100;

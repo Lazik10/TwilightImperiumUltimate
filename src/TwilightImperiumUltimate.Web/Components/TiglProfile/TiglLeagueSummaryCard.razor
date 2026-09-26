@@ -1,7 +1,7 @@
 @using TwilightImperiumUltimate.Web.Helpers.Numbers
 
 <div class="tigl-summary">
-<ResponsiveRadzenTable CssClass="tigl-league-summary mb-xl statistics-row-handel" TableTitle="General">
+<ResponsiveRadzenTable EqualColumns="true" CssClass="tigl-league-summary mb-xl statistics-row-handel" TableTitle="General">
 	<RadzenTableHeader>
 		<RadzenTableHeaderRow>
 			<RadzenTableHeaderCell colspan="3" id="tigl-summary-games">Games</RadzenTableHeaderCell>
@@ -14,24 +14,21 @@
 		<RadzenTableRow>
 			<RadzenTableCell colspan="3" headers="tigl-summary-games"><ResponsiveLabel Text="@Profile.GamesPlayed.ToString()" TextColor="TextColor.Yellow" CenterText="true" /></RadzenTableCell>
 			<RadzenTableCell colspan="3" headers="tigl-summary-win-rate"><ResponsiveLabel Text="@($"{WinRate:F1}%")" TextColor="@WinRate.GetWinrateColor()" CenterText="true" /></RadzenTableCell>
-			<RadzenTableCell colspan="3" headers="tigl-summary-prestige"><ResponsiveLabel Text="@(Prestige?.PrestigeRank.GetDisplayName() ?? "-")" TextColor="@PrestigeColor" CenterText="true" /></RadzenTableCell>
+			<RadzenTableCell colspan="3" headers="tigl-summary-prestige"><ResponsiveLabel Text="@PrestigeText" TextColor="@PrestigeColor" CenterText="true" /></RadzenTableCell>
 			<RadzenTableCell colspan="3" headers="tigl-summary-rank"><ResponsiveLabel Text="@Profile.CurrentRank.GetDisplayName()" TextColor="@Profile.CurrentRank.GetRankColor()" CenterText="true" /></RadzenTableCell>
 		</RadzenTableRow>
 		<RadzenTableRow>
-			<RadzenTableHeaderCell colspan="2" id="tigl-summary-trueskill-current">TrueSkill</RadzenTableHeaderCell>
-			<RadzenTableHeaderCell colspan="2" id="tigl-summary-trueskill-max">Max</RadzenTableHeaderCell>
-			<RadzenTableHeaderCell colspan="2" id="tigl-summary-glicko-current">Glicko-2</RadzenTableHeaderCell>
-			<RadzenTableHeaderCell colspan="2" id="tigl-summary-glicko-max">Max</RadzenTableHeaderCell>
-			<RadzenTableHeaderCell colspan="2" id="tigl-summary-async-current">Async</RadzenTableHeaderCell>
-			<RadzenTableHeaderCell colspan="2" id="tigl-summary-async-max">Max</RadzenTableHeaderCell>
+			<RadzenTableHeaderCell colspan="4" id="tigl-summary-trueskill-current">TrueSkill</RadzenTableHeaderCell>
+			<RadzenTableHeaderCell colspan="4" id="tigl-summary-glicko-current">Glicko-2</RadzenTableHeaderCell>
+			<RadzenTableHeaderCell colspan="4" id="tigl-summary-async-current">Async</RadzenTableHeaderCell>
 		</RadzenTableRow>
 		<RadzenTableRow>
 			<RadzenTableCell colspan="2" headers="tigl-summary-trueskill-current"><ResponsiveLabel Text="@Profile.TrueSkillConservative.ToString("F2")" TextColor="TextColor.Yellow" CenterText="true" /></RadzenTableCell>
-			<RadzenTableCell colspan="2" headers="tigl-summary-trueskill-max"><ResponsiveLabel Text="@MaxTrueSkill.ToString("F2")" TextColor="TextColor.Green" CenterText="true" /></RadzenTableCell>
+			<RadzenTableCell colspan="2" headers="tigl-summary-trueskill-current"><ResponsiveLabel Text="@MaxTrueSkill.ToString("F2")" TextColor="TextColor.Green" CenterText="true" /></RadzenTableCell>
 			<RadzenTableCell colspan="2" headers="tigl-summary-glicko-current"><ResponsiveLabel Text="@Profile.GlickoRating.ToString("F0")" TextColor="TextColor.Yellow" CenterText="true" /></RadzenTableCell>
-			<RadzenTableCell colspan="2" headers="tigl-summary-glicko-max"><ResponsiveLabel Text="@MaxGlicko.ToString("F0")" TextColor="TextColor.Green" CenterText="true" /></RadzenTableCell>
+			<RadzenTableCell colspan="2" headers="tigl-summary-glicko-current"><ResponsiveLabel Text="@MaxGlicko.ToString("F0")" TextColor="TextColor.Green" CenterText="true" /></RadzenTableCell>
 			<RadzenTableCell colspan="2" headers="tigl-summary-async-current"><ResponsiveLabel Text="@Profile.AsyncRating.ToString("F1")" TextColor="TextColor.Yellow" CenterText="true" /></RadzenTableCell>
-			<RadzenTableCell colspan="2" headers="tigl-summary-async-max"><ResponsiveLabel Text="@MaxAsync.ToString("F1")" TextColor="TextColor.Green" CenterText="true" /></RadzenTableCell>
+			<RadzenTableCell colspan="2" headers="tigl-summary-async-current"><ResponsiveLabel Text="@MaxAsync.ToString("F1")" TextColor="TextColor.Green" CenterText="true" /></RadzenTableCell>
 		</RadzenTableRow>
 	</RadzenTableBody>
 </ResponsiveRadzenTable>

@@ -10,12 +10,6 @@
     
     <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
 
-        @if (_loading)
-        {
-            <ResponsiveText Text="@Strings.ReportGame_Loading" CenterText="true" FontSize="xl" CssClass="mt-2xl mb-2xl" />
-        }
-        else
-        {
 
             @if (!string.IsNullOrEmpty(successMessage))
             {
@@ -78,7 +72,7 @@
                 </ResponsiveGridContainer>
             </section>
 
-            <ResponsiveHeading Text="@Strings.ReportGame_PlayersHeading" Level="2" CenterText="true" CssClass="mt-2xl mb-lg" />
+            <ResponsiveHeading Text="@Strings.ReportGame_PlayersHeading" Level="2" CenterText="true" CssClass="mb-lg" />
 
             @for (var i = 0; i < playerResults.Count; i++)
             {
@@ -91,7 +85,11 @@
 
                         @if (_currentPlayerIndex != index)
                         {
-                            <ResponsiveButton Text="@Strings.ReportGame_OpenSearch" TextColor="TextColor.Green" OnClick="(() => OpenPlayerSearch(index))" />
+                            <ResponsiveButton Text="@Strings.ReportGame_OpenSearch" IsDisabled="@_usersLoading" OnClick="(() => OpenPlayerSearch(index))" Style="color: var(--color-nav-hover, #8ecfff) !important;" />
+                        }
+                        else if (_usersLoading)
+                        {
+                            <ResponsiveText Text="@Strings.ReportGame_Loading" CenterText="true" FontSize="md" CssClass="mb-md" />
                         }
                         else
                         {
@@ -165,21 +163,21 @@
                 </section>
             }
 
-            <div class="report-game-shell mt-md mb-2xl">
-                <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.SpaceBetween">
-                    @if (_selectedLeague == TiglLeague.Fractured && playerResults.Count < MaxNumberOfPlayers)
-                    {
-                        <ResponsiveButton Text="@Strings.ReportGame_AddPlayerSlot" TextColor="TextColor.Green" OnClick="AddPlayer" />
-                    }
-                    @if (playerResults.Count > MinNumberOfPlayers)
-                    {
-                        <ResponsiveButton Text="@Strings.ReportGame_RemovePlayerSlot" TextColor="TextColor.Red" OnClick="RemovePlayer" />
-                    }
-                </ResponsiveContainer>
-            </div>
-
             @if (gameReportRequest.League == TiglLeague.Fractured)
             {
+                <div class="report-game-shell mt-md mb-2xl">
+                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.Center" Style="gap: var(--space-md);">
+                        @if (_selectedLeague == TiglLeague.Fractured && playerResults.Count < MaxNumberOfPlayers)
+                        {
+                            <ResponsiveButton Text="@Strings.ReportGame_AddPlayerSlot" TextColor="TextColor.Green" OnClick="AddPlayer" />
+                        }
+                        @if (playerResults.Count > MinNumberOfPlayers)
+                        {
+                            <ResponsiveButton Text="@Strings.ReportGame_RemovePlayerSlot" TextColor="TextColor.Red" OnClick="RemovePlayer" />
+                        }
+                    </ResponsiveContainer>
+                </div>
+
                 <section class="report-game-card report-game-shell mb-xl">
                     <ResponsiveText Text="@Strings.ReportGame_GalacticEventsHeading" FontSize="xl" CenterText="true" TextColor="TextColor.Yellow" CssClass="mb-lg" />
 
@@ -195,28 +193,25 @@
                 </section>
             }
 
-            <div class="mt-2xl">
-                @if (validationErrors.Count > 0)
+            @if (validationErrors.Count > 0)
+            {
+                foreach(var err in validationErrors)
                 {
-                    foreach(var err in validationErrors)
-                    {
-                        <ResponsiveText Text="@string.Format(Strings.ReportGame_ValidationBullet, err)" TextColor="TextColor.Red" CenterText="true" CssClass="mb-sm" />
-                    }
+                    <ResponsiveText Text="@string.Format(Strings.ReportGame_ValidationBullet, err)" TextColor="TextColor.Red" CenterText="true" CssClass="mb-sm" />
                 }
-                @if (!string.IsNullOrEmpty(errorMessage))
+            }
+            @if (!string.IsNullOrEmpty(errorMessage))
+            {
+                <ResponsiveText Text="@errorMessage" TextColor="TextColor.Red" CenterText="true" CssClass="mb-md" />
+                @if (!string.IsNullOrEmpty(errorDetails))
                 {
-                    <ResponsiveText Text="@errorMessage" TextColor="TextColor.Red" CenterText="true" CssClass="mb-md" />
-                    @if (!string.IsNullOrEmpty(errorDetails))
-                    {
-                        <ResponsiveText Text="@errorDetails" TextColor="TextColor.Orange" CenterText="true" CssClass="mb-md" />
-                    }
+                    <ResponsiveText Text="@errorDetails" TextColor="TextColor.Orange" CenterText="true" CssClass="mb-md" />
                 }
+            }
 
-                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mb-2xl">
-                    <ResponsiveButton ButtonText="@Strings.ReportGame_SubmitButton" IsDisabled="@isSubmitting" OnClick="async () => await SubmitGameReport()" />
-                </ResponsiveContainer>
-            </div>
-        }
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+                <ResponsiveButton ButtonText="@Strings.ReportGame_SubmitButton" IsDisabled="@isSubmitting" OnClick="async () => await SubmitGameReport()" />
+            </ResponsiveContainer>
 
     </ResponsiveContainer>
 

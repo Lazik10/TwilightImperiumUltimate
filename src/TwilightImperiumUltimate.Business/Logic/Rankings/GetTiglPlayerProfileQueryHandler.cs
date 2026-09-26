@@ -92,8 +92,10 @@ public class GetTiglPlayerProfileQueryHandler(IDbContextFactory<TwilightImperium
             .AsNoTracking()
             .Where(p => p.TiglUserId == userId)
             .OrderByDescending(p => p.AchievedAt)
+            .ThenByDescending(p => p.Id)
             .Select(p => new PrestigeRankHistoryDto
             {
+                Id = p.Id,
                 League = p.PrestigeRank.League,
                 PrestigeRank = p.PrestigeRank.Name,
                 Faction = p.PrestigeRank.FactionName,

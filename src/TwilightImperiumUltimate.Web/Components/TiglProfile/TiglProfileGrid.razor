@@ -1,8 +1,10 @@
-<ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" AlignItems="Enums.AlignItems.FlexStart" CssClass="padding" Name="tigl-profile-frame">
+<ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" AlignItems="Enums.AlignItems.FlexStart" CssClass="tigl-profile-frame" Style="margin-top: calc(-1 * var(--space-2xl)); padding: 0;" Name="tigl-profile-frame">
     @if (Profile is not null && !string.IsNullOrEmpty(Profile.TiglUserName))
     {
-        <TitleTexture Width="15" Texture="Enums.Texture.TopLeft" />
-        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-2xl" Style="min-width: 0;" Name="tigl-profile-content-column">
+        <div class="tigl-profile-left-texture" aria-hidden="true">
+            <TitleTexture Width="100" Texture="Enums.Texture.TopLeft" />
+        </div>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-2xl-non-mobile" Style="min-width: 0;" Name="tigl-profile-content-column">
             <div class="tigl-profile-content-fill" data-container-name="tigl-profile-content-fill">
             <TiglProfileHeader Profile="@Profile" />
             <TiglProfileRankSummary Profile="@Profile" />
@@ -15,20 +17,22 @@
                 <TiglRatingProgression @key="CurrentCategory" Profile="@SelectedLeagueProfile" />
                 <TiglRankHistoryTable Ranks="@FilteredRankHistory" />
                 <TiglPrestigeHistoryTable Profile="@Profile" Prestiges="@FilteredPrestigeRanks" PathProvider="@PathProvider" />
-                <div class="tigl-profile-faction-filter mb-md">
-                    <ResponsiveDropDown TValue="FactionStatisticsFilter" Id="tigl-profile-faction-filter" Data="@FactionFilterOptions" TextProperty="Value" ValueProperty="Key" Value="@EffectiveFactionStatisticsFilter" ValueChanged="OnFactionStatisticsFilterChanged" Label="Factions:" LabelPosition="LabelPosition.Column" Disabled="@(SelectedLeague == TiglLeague.ThundersEdge)" Width="40" />
-                </div>
-                <TiglFactionStatisticsTable Stats="@FilteredFactionStats" />
+            }
+            <TiglFactionStatisticsTable Stats="@FilteredFactionStats"
+                                        ShowFilters="@(SelectedLeague == TiglLeague.Fractured)"
+                                        AreFiltersVisible="@_areFactionFiltersVisible"
+                                        FilterButtonLabel="@FilterButtonLabel"
+                                        FilterIconPath="@FilterIconPath"
+                                        OnToggleFilters="ToggleFactionFilters">
+                <FilterContent>
+                    <ResponsiveDropDown TValue="FactionStatisticsFilter" Id="tigl-profile-faction-filter" Data="@FactionFilterOptions" TextProperty="Value" ValueProperty="Key" Value="@EffectiveFactionStatisticsFilter" ValueChanged="OnFactionStatisticsFilterChanged" Label="Factions" LabelPosition="LabelPosition.Column" Disabled="@(SelectedLeague == TiglLeague.ThundersEdge)" Width="100" />
+                </FilterContent>
+            </TiglFactionStatisticsTable>
+            @if (SelectedLeagueProfile is not null)
+            {
                 <TiglSeasonHistoryTable Seasons="@FilteredSeasons" LeagueProfile="@SelectedLeagueProfile" OnGameSelected="NavigateToGameDetail" />
                 <TiglGameHistoryTable Games="@FilteredGameHistory" OnGameSelected="NavigateToGameDetail" />
                 <TiglTopOpponentsTable Opponents="@FilteredTopOpponents" OnPlayerSelected="NavigateToPlayerProfile" />
-            }
-            else
-            {
-                <div class="tigl-profile-faction-filter mb-md">
-                    <ResponsiveDropDown TValue="FactionStatisticsFilter" Id="tigl-profile-faction-filter" Data="@FactionFilterOptions" TextProperty="Value" ValueProperty="Key" Value="@EffectiveFactionStatisticsFilter" ValueChanged="OnFactionStatisticsFilterChanged" Label="Factions:" LabelPosition="LabelPosition.Column" Disabled="@(SelectedLeague == TiglLeague.ThundersEdge)" Width="40" />
-                </div>
-                <TiglFactionStatisticsTable Stats="@FilteredFactionStats" />
             }
             <section class="tigl-achievements" aria-label="Achievements">
                 <ResponsiveCard CssClass="achievement-title-card mt-xl mb-md">
@@ -54,7 +58,7 @@
             </div>
         </ResponsiveContainer>
 
-        <div style="min-width: 15%; max-width: 15%;" data-container-name="tigl-profile-right-texture-spacer"></div>
+        <div class="tigl-profile-right-texture-spacer" data-container-name="tigl-profile-right-texture-spacer"></div>
     }
     else
     {

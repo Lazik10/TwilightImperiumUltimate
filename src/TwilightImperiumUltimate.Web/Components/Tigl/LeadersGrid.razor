@@ -8,15 +8,16 @@
     in this codebase.
 *@
 
-<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-md">
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-md mb-md">
 
-    <ResponsiveTabMenu AriaLabel="@Strings.TiglLeague_League" CssClass="mb-md">
+    <ResponsiveTabMenu AriaLabel="@Strings.TiglLeague_League" CssClass="faction-style mb-md">
         <ResponsiveTab Id="leaders-tab-standard"
                        ControlsId="leaders-panel"
                        IsActive="@(_league == TiglLeague.ThundersEdge)"
                        OnClick="@(() => ChangeLeague(TiglLeague.ThundersEdge))">
             @Strings.TiglGames_CategoryStandard
         </ResponsiveTab>
+        <ResponsiveTabSeparator />
         <ResponsiveTab Id="leaders-tab-fractured"
                        ControlsId="leaders-panel"
                        IsActive="@(_league == TiglLeague.Fractured)"
@@ -39,10 +40,10 @@ else if (CurrentLeagueLeaders.Count == 0)
 }
 else
 {
-    <ResponsiveRadzenTable ZebraStripes="true" CssClass="leaders-table mb-2xl">
+    <ResponsiveRadzenTable ZebraStripes="true" CssClass="leaders-table">
         <RadzenTableHeader>
             <RadzenTableRow>
-                <RadzenTableCell class="leaders-header-cell">Leader</RadzenTableCell>
+                <RadzenTableCell class="leaders-header-cell" colspan="3">Leader</RadzenTableCell>
                 <RadzenTableCell class="leaders-header-cell">User</RadzenTableCell>
                 <RadzenTableCell class="leaders-header-cell">Duration</RadzenTableCell>
                 <RadzenTableCell class="leaders-header-cell"># Owner</RadzenTableCell>
@@ -58,32 +59,34 @@ else
                                 role="@(leader.TiglUserId == 0 ? null : "link")"
                                 @onclick="() => NavigateToProfile(leader.TiglUserId)"
                                 @onkeydown="e => OnRowKeyDown(e, leader.TiglUserId)">
-                    <RadzenTableCell>
-                        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart">
+                    <RadzenTableCell class="leader-faction-cell">
                             <TiglFactionImg Faction="@leader.Faction" Height="32" />
+                    </RadzenTableCell>
+                    <RadzenTableCell class="leader-hero-cell">
                             <LeaderImg Faction="@leader.Faction" Height="32" />
+                    </RadzenTableCell>
+                    <RadzenTableCell class="leader-name-cell">
                             <ResponsiveLabel Text="@leader.Name.GetDisplayName()" UseHandelStyling="false" />
-                        </ResponsiveContainer>
                     </RadzenTableCell>
                     <RadzenTableCell>
-                        <ResponsiveLabel Text="@leader.UserName" TextColor="TextColor.White" UseHandelStyling="false" />
+                        <ResponsiveLabel Text="@leader.UserName" Style="color: var(--color-nav-hover, #8ecfff) !important;" UseHandelStyling="false" />
                     </RadzenTableCell>
                     <RadzenTableCell>
-                        <ResponsiveLabel Text="@GetDurationTime(leader)" CenterText="true" UseHandelStyling="false" />
+                        <ResponsiveLabel Text="@GetDurationTime(leader)" CenterText="true" TextColor="TextColor.Green" UseHandelStyling="false" />
                     </RadzenTableCell>
                     <RadzenTableCell>
-                        <ResponsiveLabel Text="@(leader.ChangeCount > 0 ? leader.ChangeCount.ToString(CultureInfo.InvariantCulture) : string.Empty)" CenterText="true" UseHandelStyling="false" />
-                    </RadzenTableCell>
-                    <RadzenTableCell>
-                        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-                            <ResponsiveLabel Text="@GetShortestDurationTime(leader)" CenterText="true" FontSize="sm" UseHandelStyling="false" />
-                            <ResponsiveLabel Text="@GetShortestHolderName(leader)" CenterText="true" FontSize="xs" TextColor="TextColor.Yellow" UseHandelStyling="false" />
-                        </ResponsiveContainer>
+                        <ResponsiveLabel Text="@(leader.ChangeCount > 0 ? leader.ChangeCount.ToString(CultureInfo.InvariantCulture) : string.Empty)" CenterText="true" TextColor="TextColor.Yellow" UseHandelStyling="false" />
                     </RadzenTableCell>
                     <RadzenTableCell>
                         <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-                            <ResponsiveLabel Text="@GetLongestDurationTime(leader)" CenterText="true" FontSize="sm" UseHandelStyling="false" />
-                            <ResponsiveLabel Text="@GetLongestHolderName(leader)" CenterText="true" FontSize="xs" TextColor="TextColor.Yellow" UseHandelStyling="false" />
+                            <ResponsiveLabel Text="@GetShortestDurationTime(leader)" CenterText="true" FontSize="sm" TextColor="TextColor.Red" UseHandelStyling="false" />
+                            <ResponsiveLabel Text="@GetShortestHolderName(leader)" CenterText="true" FontSize="xs" Style="color: var(--color-nav-hover, #8ecfff) !important;" UseHandelStyling="false" />
+                        </ResponsiveContainer>
+                    </RadzenTableCell>
+                    <RadzenTableCell>
+                        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+                            <ResponsiveLabel Text="@GetLongestDurationTime(leader)" CenterText="true" FontSize="sm" TextColor="TextColor.Green" UseHandelStyling="false" />
+                            <ResponsiveLabel Text="@GetLongestHolderName(leader)" CenterText="true" FontSize="xs" Style="color: var(--color-nav-hover, #8ecfff) !important;" UseHandelStyling="false" />
                         </ResponsiveContainer>
                     </RadzenTableCell>
                 </RadzenTableRow>

@@ -7,38 +7,6 @@
 @using TwilightImperiumUltimate.Web.Helpers.Enums
 
 <div class="tigl-leaderboard">
-    <div class="leaderboard-filters">
-        <ResponsiveDropDown Id="leaderboard-season"
-                            TValue="int"
-                            Label="@Strings.TiglLeaderboard_Season"
-                            LabelPosition="LabelPosition.Column"
-                            Data="@_seasons"
-                            TextProperty="@nameof(SeasonDto.SeasonNumber)"
-                            ValueProperty="@nameof(SeasonDto.SeasonNumber)"
-                            Value="@_selectedSeasonNumber"
-                            ValueChanged="@OnSeasonChanged" />
-
-        <ResponsiveDropDown Id="leaderboard-league"
-                            TValue="TiglLeagueFilter"
-                            Label="@Strings.TiglLeaderboard_League"
-                            LabelPosition="LabelPosition.Column"
-                            Data="@LeagueOptions"
-                            TextProperty="Value"
-                            ValueProperty="Key"
-                            Value="@_selectedLeagueFilter"
-                            ValueChanged="@OnLeagueChanged" />
-
-        <ResponsiveDropDown Id="leaderboard-ranking-system"
-                            TValue="RankingSystem"
-                            Label="@Strings.TiglLeaderboard_RankingSystem"
-                            LabelPosition="LabelPosition.Column"
-                            Data="@RankingSystemOptions"
-                            TextProperty="Value"
-                            ValueProperty="Key"
-                            Value="@_selectedRankingSystem"
-                            ValueChanged="@OnRankingSystemChanged" />
-    </div>
-
     <ResponsiveRadzenDataGrid TItem="PlayerSeasonResultDto"
                               Data="@DisplayedRows"
                               IsLoading="@_loading"
@@ -51,6 +19,15 @@
         <HeaderTemplate>
             <div class="leaderboard-title-row">
                 <span class="leaderboard-title">@_selectedRankingSystem.GetDisplayName()</span>
+                <button type="button"
+                        class="leaderboard-filter-toggle"
+                        aria-label="@DropdownFilterButtonLabel"
+                        title="@DropdownFilterButtonLabel"
+                        aria-expanded="@_areDropdownFiltersVisible.ToString().ToLowerInvariant()"
+                        aria-controls="@(_areDropdownFiltersVisible ? "leaderboard-filters" : null)"
+                        @onclick="ToggleDropdownFilters">
+                    <img src="@DropdownFilterIconPath" alt="" aria-hidden="true" />
+                </button>
                 <div class="leaderboard-options" role="group" aria-label="Leaderboard filters">
                     <ResponsiveCheckbox Label="Only active"
                                          IsChecked="@_onlyActive"
@@ -63,6 +40,41 @@
                                          Name="leaderboard-only-confident"
                                          AriaLabel="Only confident ratings" />
                 </div>
+
+                @if (_areDropdownFiltersVisible)
+                {
+                    <div id="leaderboard-filters" class="leaderboard-filters">
+                        <ResponsiveDropDown Id="leaderboard-season"
+                                            TValue="int"
+                                            Label="@Strings.TiglLeaderboard_Season"
+                                            LabelPosition="LabelPosition.Column"
+                                            Data="@_seasons"
+                                            TextProperty="@nameof(SeasonDto.SeasonNumber)"
+                                            ValueProperty="@nameof(SeasonDto.SeasonNumber)"
+                                            Value="@_selectedSeasonNumber"
+                                            ValueChanged="@OnSeasonChanged" />
+
+                        <ResponsiveDropDown Id="leaderboard-league"
+                                            TValue="TiglLeagueFilter"
+                                            Label="@Strings.TiglLeaderboard_League"
+                                            LabelPosition="LabelPosition.Column"
+                                            Data="@LeagueOptions"
+                                            TextProperty="Value"
+                                            ValueProperty="Key"
+                                            Value="@_selectedLeagueFilter"
+                                            ValueChanged="@OnLeagueChanged" />
+
+                        <ResponsiveDropDown Id="leaderboard-ranking-system"
+                                            TValue="RankingSystem"
+                                            Label="@Strings.TiglLeaderboard_RankingSystem"
+                                            LabelPosition="LabelPosition.Column"
+                                            Data="@RankingSystemOptions"
+                                            TextProperty="Value"
+                                            ValueProperty="Key"
+                                            Value="@_selectedRankingSystem"
+                                            ValueChanged="@OnRankingSystemChanged" />
+                    </div>
+                }
             </div>
         </HeaderTemplate>
         <Columns>
@@ -72,7 +84,11 @@
                 </Template>
             </RadzenDataGridColumn>
 
-            <RadzenDataGridColumn TItem="PlayerSeasonResultDto" Property="@nameof(PlayerSeasonResultDto.TiglUserName)" Title="@Strings.TiglLeaderboard_Player" />
+            <RadzenDataGridColumn TItem="PlayerSeasonResultDto" Property="@nameof(PlayerSeasonResultDto.TiglUserName)" Title="@Strings.TiglLeaderboard_Player">
+                <Template Context="playerResult">
+                    <span class="leaderboard-player-name">@playerResult.TiglUserName</span>
+                </Template>
+            </RadzenDataGridColumn>
 
             @if (_selectedRankingSystem == RankingSystem.TrueSkill)
             {
@@ -83,7 +99,7 @@
                     <Template Context="playerResult">@playerResult.TrueSkillMu.ToString("F2")</Template>
                 </RadzenDataGridColumn>
                 <RadzenDataGridColumn TItem="PlayerSeasonResultDto" Property="@nameof(PlayerSeasonResultDto.TrueSkillSigma)" Title="@Strings.TiglLeaderboard_TrueSkillSigma" TextAlign="TextAlign.Center">
-                    <Template Context="playerResult">@playerResult.TrueSkillSigma.ToString("F6")</Template>
+                    <Template Context="playerResult">@playerResult.TrueSkillSigma.ToString("F3")</Template>
                 </RadzenDataGridColumn>
             }
             else if (_selectedRankingSystem == RankingSystem.Glicko2)
@@ -92,10 +108,10 @@
                     <Template Context="playerResult"><span class="leaderboard-cell leaderboard-cell--primary">@playerResult.GlickoRating.ToString("F2")</span></Template>
                 </RadzenDataGridColumn>
                 <RadzenDataGridColumn TItem="PlayerSeasonResultDto" Property="@nameof(PlayerSeasonResultDto.GlickoRd)" Title="@Strings.TiglLeaderboard_GlickoRd" TextAlign="TextAlign.Center">
-                    <Template Context="playerResult">@playerResult.GlickoRd.ToString("F4")</Template>
+                    <Template Context="playerResult">@playerResult.GlickoRd.ToString("F3")</Template>
                 </RadzenDataGridColumn>
                 <RadzenDataGridColumn TItem="PlayerSeasonResultDto" Property="@nameof(PlayerSeasonResultDto.GlickoVolatility)" Title="@Strings.TiglLeaderboard_GlickoVolatility" TextAlign="TextAlign.Center">
-                    <Template Context="playerResult">@playerResult.GlickoVolatility.ToString("F6")</Template>
+                    <Template Context="playerResult">@playerResult.GlickoVolatility.ToString("F3")</Template>
                 </RadzenDataGridColumn>
             }
             else
@@ -113,7 +129,7 @@
                 <Template Context="playerResult"><span class="leaderboard-cell leaderboard-cell--games">@playerResult.GamesPlayed</span></Template>
             </RadzenDataGridColumn>
             <RadzenDataGridColumn TItem="PlayerSeasonResultDto" Property="@nameof(PlayerSeasonResultDto.WinPercentage)" Title="@Strings.TiglLeaderboard_WinPercentage" TextAlign="TextAlign.Center">
-                <Template Context="playerResult"><span class="leaderboard-cell" style="color: @GetWinrateColor(playerResult.WinPercentage).ConvertToString();">@playerResult.WinPercentage.ToString("F2")</span></Template>
+                <Template Context="playerResult"><span class="leaderboard-cell" style="color: @GetWinrateColor(playerResult.WinPercentage).ConvertToString();">@playerResult.WinPercentage.ToString("F1")</span></Template>
             </RadzenDataGridColumn>
         </Columns>
     </ResponsiveRadzenDataGrid>

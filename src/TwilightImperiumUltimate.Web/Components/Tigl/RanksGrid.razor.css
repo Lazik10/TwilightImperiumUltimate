@@ -1,7 +1,7 @@
 #ranks-panel ::deep .ranks-table tbody td {
-    font-family: Inter, sans-serif !important;
+    font-family: Handel, sans-serif !important;
     text-align: center;
-    text-shadow: none !important;
+    text-shadow: var(--shadow-text) !important;
 }
 
 #ranks-panel ::deep .ranks-table thead .ranks-header-cell {
@@ -17,7 +17,7 @@
 
 #ranks-panel ::deep .ranks-table .rank-player-row {
     cursor: pointer;
-    font-family: Inter, sans-serif !important;
+    font-family: Handel, sans-serif !important;
 }
 
 #ranks-panel ::deep .ranks-table .rank-player-row:focus-visible {
@@ -26,9 +26,9 @@
 }
 
 #ranks-panel ::deep .ranks-table .rank-player-row .responsive-label {
-    font-family: Inter, sans-serif !important;
+    font-family: Handel, sans-serif !important;
     text-align: center;
-    text-shadow: none !important;
+    text-shadow: var(--shadow-text) !important;
 }
 
 #ranks-panel ::deep .ranks-table .rank-player-row .rank-player-name {
@@ -40,14 +40,36 @@
 }
 
 #ranks-panel ::deep .rank-group-label {
-    font-family: Inter, sans-serif !important;
+    font-family: Handel, sans-serif !important;
     font-size: var(--font-size-xl);
     font-weight: 700;
     text-align: center;
-    text-shadow: none !important;
+    text-shadow: var(--shadow-text) !important;
 }
 
 #ranks-panel ::deep .rank-group-count {
-    color: yellow;
-    text-shadow: none !important;
+    color: var(--color-nav-hover, #8ecfff);
+    text-shadow: var(--shadow-text) !important;
+}
+
+#ranks-panel ::deep .ranks-table .rank-show-all-row {
+    cursor: pointer;
+}
+
+#ranks-panel ::deep .ranks-table .rank-show-all-row .rz-cell-data {
+    text-align: center;
+}
+
+#ranks-panel ::deep .ranks-table .rank-show-all-label {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-family: Handel, sans-serif !important;
+    color: var(--color-nav-hover, #8ecfff);
+    text-shadow: var(--shadow-text) !important;
+}
+
+#ranks-panel ::deep .ranks-table .rank-show-all-row:focus-visible {
+    outline: 2px solid var(--color-nav-hover, #8ecfff);
+    outline-offset: -2px;
 }

@@ -16,6 +16,9 @@ public partial class TiglGameHistoryTable
             return "N/A";
 
         var duration = DateTimeOffset.FromUnixTimeMilliseconds(game.EndTimestamp) - DateTimeOffset.FromUnixTimeMilliseconds(game.StartTimestamp);
-        return duration.TotalHours < 1 ? "<1 h" : $"{(int)duration.TotalHours} h";
+        if (duration < TimeSpan.FromHours(1))
+            return "-";
+
+        return $"{(int)duration.TotalDays:D2} d {duration.Hours:D2} h";
     }
 }

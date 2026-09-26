@@ -19,4 +19,6 @@ public class RankingsAchievementDto
     public int MatchId { get; set; }
 
     public string MatchName { get; set; } = string.Empty;
+
+    public double RarityPercent { get; set; }
 }

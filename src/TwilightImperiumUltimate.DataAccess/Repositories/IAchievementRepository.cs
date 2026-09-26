@@ -14,6 +14,10 @@ public interface IAchievementRepository
 
     Task<List<TiglUserAchievement>> GetRecentAchievements(int take, CancellationToken cancellationToken);
 
+    Task<int> GetTotalTiglUsers(CancellationToken cancellationToken);
+
+    Task<Dictionary<AchievementName, int>> GetAchievementPlayerCounts(CancellationToken cancellationToken);
+
     Task<bool> AddManualAchievement(int tiglUserId, AchievementName achievementName, TiglFactionName faction, CancellationToken cancellationToken);
 
     Task<bool> RemoveAchievement(int tiglUserId, AchievementName achievementName, TiglFactionName faction, CancellationToken cancellationToken);

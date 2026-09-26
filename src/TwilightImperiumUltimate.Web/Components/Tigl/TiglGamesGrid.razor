@@ -26,20 +26,6 @@
     </ResponsiveTab>
 </ResponsiveTabMenu>
 
-<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mb-md">
-    <ResponsiveDropDown TValue="int"
-                        Id="tigl-games-season"
-                        Label="@Strings.TiglLeaderboard_Season"
-                        LabelPosition="LabelPosition.Column"
-                        Data="@_seasons"
-                        TextProperty="@nameof(SeasonDto.SeasonNumber)"
-                        ValueProperty="@nameof(SeasonDto.SeasonNumber)"
-                        Value="@_selectedSeasonNumber"
-                        ValueChanged="@OnSeasonChanged"
-                        Width="30" />
-
-</ResponsiveContainer>
-
 @if (_loading)
 {
     <Label Text="@Strings.TiglGames_LoadingGames" CenterText="true" CssClass="mt-2xl mb-3xl" />
@@ -54,18 +40,44 @@ else
                                   AllowFiltering="true"
                                   AllowAlternatingRows="true"
                                   RowClick="RedirectToGame"
-                                  CssClass="mb-2xl">
+                                  CssClass="mb-2xl tigl-games-grid">
             <HeaderTemplate>
-                <ResponsiveHeading Level="2" Text="@GetSelectedTitle()" FontSize="lg" CenterText="true" CssClass="mb-0" />
+                <div class="tigl-games-header-row">
+                    <ResponsiveHeading Level="2" Text="@GetSelectedTitle()" FontSize="lg" CenterText="true" CssClass="mb-0" />
+                    <button type="button"
+                            class="tigl-games-filter-toggle"
+                            aria-label="@SeasonFilterButtonLabel"
+                            title="@SeasonFilterButtonLabel"
+                            aria-expanded="@_areSeasonFiltersVisible.ToString().ToLowerInvariant()"
+                            aria-controls="@(_areSeasonFiltersVisible ? "tigl-games-season-filter" : null)"
+                            @onclick="ToggleSeasonFilters">
+                        <img src="@SeasonFilterIconPath" alt="" aria-hidden="true" />
+                    </button>
+
+                    @if (_areSeasonFiltersVisible)
+                    {
+                        <div id="tigl-games-season-filter" class="tigl-games-season-filter">
+                            <ResponsiveDropDown TValue="int"
+                                                Id="tigl-games-season"
+                                                Label="@Strings.TiglLeaderboard_Season"
+                                                LabelPosition="LabelPosition.Column"
+                                                Data="@_seasons"
+                                                TextProperty="@nameof(SeasonDto.SeasonNumber)"
+                                                ValueProperty="@nameof(SeasonDto.SeasonNumber)"
+                                                Value="@_selectedSeasonNumber"
+                                                ValueChanged="@OnSeasonChanged"
+                                                Width="30" />
+                        </div>
+                    }
+                </div>
             </HeaderTemplate>
             <Columns>
                 <RadzenDataGridColumn TItem="MatchReportDto" Property="@nameof(MatchReportDto.GameId)" Title="@Strings.TiglGames_GameId" Filterable="true" TextAlign="TextAlign.Left">
                     <Template Context="g">
                         <ResponsiveLabel Text="@g.GameId"
-                                         TextColor="TextColor.LightBlue"
                                          UseHandelStyling="false"
                                          CenterText="false"
-                                         Style="text-align: left;" />
+                                         Style="color: var(--color-nav-hover, #8ecfff) !important; text-align: left;" />
                     </Template>
                 </RadzenDataGridColumn>
                 <RadzenDataGridColumn TItem="MatchReportDto" Property="@nameof(MatchReportDto.State)" Title="@Strings.TiglGames_Status">

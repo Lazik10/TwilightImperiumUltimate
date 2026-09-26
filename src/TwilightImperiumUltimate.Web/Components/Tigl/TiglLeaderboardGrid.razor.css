@@ -13,6 +13,7 @@
 }
 
 .leaderboard-title-row {
+    position: relative;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -22,6 +23,34 @@
     padding: var(--space-sm) var(--space-md);
     color: white;
     font-family: Handel, sans-serif;
+}
+
+.leaderboard-filter-toggle {
+    position: absolute;
+    top: 50%;
+    right: var(--space-lg);
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.leaderboard-filter-toggle:focus-visible {
+    outline: 2px solid var(--color-nav-hover, #8ecfff);
+    outline-offset: 2px;
+    border-radius: var(--border-radius-sm);
+}
+
+.leaderboard-filter-toggle img {
+    display: block;
+    max-width: 1.625rem;
+    height: auto;
 }
 
 .leaderboard-title {
@@ -41,7 +70,19 @@
 }
 
 .leaderboard-cell {
-    font-family: Inter, sans-serif;
+    font-family: Handel, sans-serif;
+    text-shadow: var(--shadow-text);
+}
+
+.leaderboard-player-name {
+    color: var(--color-nav-hover, #8ecfff);
+    font-family: Handel, sans-serif;
+    text-shadow: var(--shadow-text);
+    transition: color 0.2s ease;
+}
+
+.tigl-leaderboard ::deep .tigl-leaderboard-grid .rz-data-row:hover .leaderboard-player-name {
+    color: var(--color-nav-hover, #8ecfff);
 }
 
 .leaderboard-cell--rank,
@@ -54,12 +95,32 @@
 }
 
 .tigl-leaderboard ::deep .tigl-leaderboard-grid .rz-data-row {
-    font-family: Inter, sans-serif;
+    font-family: Handel, sans-serif !important;
+}
+
+.tigl-leaderboard ::deep .tigl-leaderboard-grid .rz-cell-data,
+.tigl-leaderboard ::deep .tigl-leaderboard-grid .rz-column-title {
+    font-family: Handel, sans-serif !important;
+    text-shadow: var(--shadow-text);
+}
+
+.tigl-leaderboard ::deep .tigl-leaderboard-grid .rz-data-grid-data {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.tigl-leaderboard ::deep .tigl-leaderboard-grid .rz-grid-table {
+    width: max-content;
+    min-width: 100%;
 }
 
 @media (max-width: 768px) {
     .leaderboard-title-row,
     .leaderboard-options {
         justify-content: center;
+    }
+
+    .leaderboard-filter-toggle {
+        right: var(--space-sm);
     }
 }

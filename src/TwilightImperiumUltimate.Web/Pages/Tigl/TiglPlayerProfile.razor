@@ -4,10 +4,6 @@
 <PageTitle>TIGL Player Profile</PageTitle>
 
 <Page HorizontalPadding="0">
-    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" CssClass="mb-md" Style="padding-left: 10%;" Name="tigl-profile-back-row">
-        <ResponsiveButton Text="@Strings.ButtonBack" OnClick="RedirectBack" FontSize="24" Width="20" TextAlign="@(string.Empty)" />
-    </ResponsiveContainer>
-
     @if (_loading)
     {
         <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">

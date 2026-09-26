@@ -70,7 +70,8 @@ public partial class TiglSeasonHistoryTable
             async?.RatingChange ?? 0,
             game.Score,
             game.MaxScore,
-            game.Faction.GetDisplayName(),
+            game.Faction,
+            game.IsWinner,
             FormatDuration(game));
     }
 
@@ -96,10 +97,13 @@ public partial class TiglSeasonHistoryTable
             return "N/A";
 
         var duration = DateTimeOffset.FromUnixTimeMilliseconds(game.EndTimestamp) - DateTimeOffset.FromUnixTimeMilliseconds(game.StartTimestamp);
-        return $"{(int)duration.TotalDays:D2} D {duration.Hours:D2} HH";
+        if (duration < TimeSpan.FromHours(1))
+            return "-";
+
+        return $"{(int)duration.TotalDays:D2} d {duration.Hours:D2} h";
     }
 
     private sealed record SeasonRow(int Season, int GamesPlayed, double WinRate, double TrueSkillDelta, double GlickoDelta, double AsyncDelta, IReadOnlyList<SeasonGameRow> Games);
 
-    private sealed record SeasonGameRow(int MatchReportId, string GameId, double TrueSkillDelta, double GlickoDelta, double AsyncDelta, int Score, int MaxScore, string FactionName, string Duration);
+    private sealed record SeasonGameRow(int MatchReportId, string GameId, double TrueSkillDelta, double GlickoDelta, double AsyncDelta, int Score, int MaxScore, TiglFactionName Faction, bool IsWinner, string Duration);
 }

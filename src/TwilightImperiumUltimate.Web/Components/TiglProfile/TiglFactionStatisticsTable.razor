@@ -1,9 +1,31 @@
 @using TwilightImperiumUltimate.Contracts.DTOs.Tigl
+@using TwilightImperiumUltimate.Web.Helpers.Enums
+@using TwilightImperiumUltimate.Web.Helpers.Numbers
 
 <section class="section-container mb-xl">
-	<ResponsiveRadzenDataGrid TItem="TiglProfileFactionStatsDto" Data="@Stats" AllowPaging="false" AllowSorting="true" AllowAlternatingRows="true" CssClass="faction-overview-grid">
+	<ResponsiveRadzenDataGrid TItem="TiglProfileFactionStatsDto" Data="@Stats" AllowPaging="false" AllowSorting="true" AllowAlternatingRows="true" CssClass="faction-overview-grid" CellRender="@OnCellRender">
 		<HeaderTemplate>
-			<ResponsiveHeading Level="2" Text="FACTION STATISTICS" FontSize="lg" CenterText="true" CssClass="mb-0" />
+			<header class="faction-overview-header">
+				<ResponsiveHeading Level="2" Text="Factions" FontSize="lg" CenterText="true" CssClass="mb-0" />
+				@if (ShowFilters)
+				{
+					<button type="button"
+							class="faction-filter-toggle"
+							aria-label="@FilterButtonLabel"
+							title="@FilterButtonLabel"
+							aria-expanded="@AreFiltersVisible.ToString().ToLowerInvariant()"
+							aria-controls="tigl-profile-faction-filters"
+							@onclick="OnToggleFilters">
+						<img src="@FilterIconPath" alt="" aria-hidden="true" />
+					</button>
+				}
+			</header>
+			@if (ShowFilters && AreFiltersVisible && FilterContent is not null)
+			{
+				<div id="tigl-profile-faction-filters" class="faction-overview-filters">
+					@FilterContent
+				</div>
+			}
 		</HeaderTemplate>
 		<Columns>
 			<RadzenDataGridColumn TItem="TiglProfileFactionStatsDto" Title="Faction">
@@ -15,12 +37,29 @@
 					@item.Faction.GetDisplayName()
 				</Template>
 			</RadzenDataGridColumn>
-			<RadzenDataGridColumn TItem="TiglProfileFactionStatsDto" Title="Games" Property="Games" />
-			<RadzenDataGridColumn TItem="TiglProfileFactionStatsDto" Title="Wins" Property="Wins" />
-			<RadzenDataGridColumn TItem="TiglProfileFactionStatsDto" Title="Win rate">
-				<Template Context="item">@(item.Games == 0 ? "-" : $"{item.WinRate:F1}%")</Template>
+			<RadzenDataGridColumn TItem="TiglProfileFactionStatsDto" Title="Games" Property="Games">
+				<Template Context="item">
+					<span style="color: @(TextColor.Yellow.ConvertToString());">@item.Games</span>
+				</Template>
 			</RadzenDataGridColumn>
-			<RadzenDataGridColumn TItem="TiglProfileFactionStatsDto" Title="Average VP">
+			<RadzenDataGridColumn TItem="TiglProfileFactionStatsDto" Title="Wins" Property="Wins">
+				<Template Context="item">
+					<span style="color: @((item.Wins > 0 ? TextColor.Green : TextColor.Red).ConvertToString());">@item.Wins</span>
+				</Template>
+			</RadzenDataGridColumn>
+			<RadzenDataGridColumn TItem="TiglProfileFactionStatsDto" Title="Win rate" Property="WinRate">
+				<Template Context="item">
+					@if (item.Games == 0)
+					{
+						<span>-</span>
+					}
+					else
+					{
+						<span style="color: @(item.WinRate.GetWinrateColor().ConvertToString());">@($"{item.WinRate:F1}%")</span>
+					}
+				</Template>
+			</RadzenDataGridColumn>
+			<RadzenDataGridColumn TItem="TiglProfileFactionStatsDto" Title="Average VP" Property="AverageVp">
 				<Template Context="item">@(item.Games == 0 ? "-" : item.AverageVp.ToString("F1"))</Template>
 			</RadzenDataGridColumn>
 		</Columns>

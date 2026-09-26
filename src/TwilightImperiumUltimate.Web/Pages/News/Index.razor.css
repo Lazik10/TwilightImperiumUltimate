@@ -2,12 +2,13 @@
     Match the centered introduction above while compensating for this page's asymmetric padding.
 */
 ::deep .news-state-message {
+    display: block;
+    width: 100%;
     font-family: Handel, sans-serif;
     color: white;
     font-size: clamp(1.5rem, 1.2rem + 1.5vw, 2.25rem);
     font-weight: bold;
     padding-top: var(--space-3xl);
-    padding-left: 7.5%;
     text-align: center;
     text-transform: uppercase;
     text-shadow: var(--shadow-text);
@@ -15,7 +16,6 @@
 
 @media (max-width: 768px) {
     ::deep .news-state-message {
-        padding-left: 0;
         text-align: center;
     }
 }

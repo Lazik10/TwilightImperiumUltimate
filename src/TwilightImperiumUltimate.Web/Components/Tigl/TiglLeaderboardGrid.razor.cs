@@ -10,12 +10,14 @@ public partial class TiglLeaderboardGrid
     private readonly Dictionary<int, Dictionary<TiglLeague, List<PlayerSeasonResultDto>>> _seasonLeagueResults = [];
 
     private bool _loading;
+    private bool _areDropdownFiltersVisible;
     private TiglLeague _selectedLeague = TiglLeague.ProphecyOfKings;
     private TiglLeagueFilter _selectedLeagueFilter = TiglLeagueFilter.Standard;
     private RankingSystem _selectedRankingSystem = RankingSystem.TrueSkill;
     private IReadOnlyCollection<SeasonDto> _seasons = Array.Empty<SeasonDto>();
     private bool _onlyActive = true;
     private bool _onlyConfident = true;
+    private int _defaultSeasonNumber;
     private int _selectedSeasonNumber;
     private List<PlayerSeasonResultDto> _currentRows = [];
 
@@ -27,6 +29,15 @@ public partial class TiglLeaderboardGrid
 
     private IReadOnlyList<PlayerSeasonResultDto> DisplayedRows => GetSortedRows();
 
+    private string DropdownFilterButtonLabel => (_areDropdownFiltersVisible ? "Hide leaderboard filters" : "Show leaderboard filters")
+        + (AreDropdownFiltersApplied ? ", filters active" : string.Empty);
+
+    private string DropdownFilterIconPath => PathProvider.GetIconPath(_areDropdownFiltersVisible || AreDropdownFiltersApplied ? IconType.FilterClicked : IconType.Filter);
+
+    private bool AreDropdownFiltersApplied => _selectedSeasonNumber != _defaultSeasonNumber
+        || _selectedLeagueFilter != TiglLeagueFilter.Standard
+        || _selectedRankingSystem != RankingSystem.TrueSkill;
+
     [Inject]
     private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
 
@@ -35,6 +46,9 @@ public partial class TiglLeaderboardGrid
 
     [Inject]
     private NavigationManager NavigationManager { get; set; } = default!;
+
+    [Inject]
+    private IPathProvider PathProvider { get; set; } = default!;
 
     public static TextColor GetWinrateColor(double winrate)
     {
@@ -78,7 +92,13 @@ public partial class TiglLeaderboardGrid
             _seasons = Array.Empty<SeasonDto>();
         }
 
-        _selectedSeasonNumber = _seasons.Count > 0 ? _seasons.Max(s => s.SeasonNumber) : 0;
+        _defaultSeasonNumber = _seasons.Count > 0 ? _seasons.Max(s => s.SeasonNumber) : 0;
+        _selectedSeasonNumber = _defaultSeasonNumber;
+    }
+
+    private void ToggleDropdownFilters()
+    {
+        _areDropdownFiltersVisible = !_areDropdownFiltersVisible;
     }
 
     private async Task LoadSeasonResults(int seasonNumber)

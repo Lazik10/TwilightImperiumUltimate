@@ -25,7 +25,7 @@ public partial class AchievementsGrid
     {
         if (ts <= 0) return "-";
         var dt = DateTimeOffset.FromUnixTimeMilliseconds(ts).ToLocalTime().DateTime;
-        return dt.ToString("dd/MM/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture);
+        return dt.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
     }
 
     private static string GetGameDetailUrl(int id)
@@ -41,6 +41,7 @@ public partial class AchievementsGrid
         {
             _achievements = resp.Data.Items
                 .OrderByDescending(a => a.AchievedAt)
+                .Take(100)
                 .ToList();
         }
     }
@@ -58,5 +59,18 @@ public partial class AchievementsGrid
     {
         if (eventArgs.Key is "Enter" or " ")
             NavigateToProfile(tiglUserId);
+    }
+
+    private static TextColor GetRarityTextColor(double rarityPercent)
+    {
+        return rarityPercent switch
+        {
+            < 0.1 => TextColor.Pink,
+            < 0.5 => TextColor.Orange,
+            < 5.0 => TextColor.Purple,
+            < 15.0 => TextColor.LightBlue,
+            < 30.0 => TextColor.Green,
+            _ => TextColor.White,
+        };
     }
 }

@@ -1,14 +1,16 @@
 .section-container { width: 100%; padding: 0 var(--space-sm); box-sizing: border-box; }
 .tigl-profile-league-picker { width: fit-content; margin: 0 auto; }
 .tigl-league-summary { width: 100%; }
-.tigl-profile-faction-filter {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+
+.tigl-profile-left-texture,
+.tigl-profile-right-texture-spacer {
+    flex: 0 0 15%;
+    min-width: 15%;
+    max-width: 15%;
 }
 
-.tigl-profile-faction-filter ::deep .responsive-dropdown-host.has-label.label-position-column {
-    align-items: center;
+.tigl-profile-left-texture ::deep img {
+    display: block;
     width: 100%;
 }
 
@@ -311,6 +313,10 @@
 }
 
 @media (max-width: 768px) {
+    .tigl-profile-frame {
+        padding-right: 0 !important;
+    }
+
     .achievement-title-row {
         flex-direction: column;
         gap: var(--space-sm);
@@ -372,5 +378,12 @@
 
     .overview-ratings-grid {
         flex-direction: column;
+    }
+}
+
+@media (max-width: 1024px) {
+    .tigl-profile-left-texture,
+    .tigl-profile-right-texture-spacer {
+        display: none;
     }
 }

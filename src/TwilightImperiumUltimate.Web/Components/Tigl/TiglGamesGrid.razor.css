@@ -1,0 +1,65 @@
+.tigl-games-header-row {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    width: 100%;
+}
+
+.tigl-games-filter-toggle {
+    position: absolute;
+    top: 50%;
+    right: var(--space-lg);
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.tigl-games-filter-toggle:focus-visible {
+    outline: 2px solid var(--color-nav-hover, #8ecfff);
+    outline-offset: 2px;
+    border-radius: var(--border-radius-sm);
+}
+
+.tigl-games-filter-toggle img {
+    display: block;
+    max-width: 1.625rem;
+    height: auto;
+}
+
+.tigl-games-season-filter {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.tigl-games-season-filter ::deep .responsive-dropdown-host.has-label.label-position-column {
+    align-items: center;
+    width: 100%;
+}
+
+.tigl-games-season-filter ::deep .responsive-dropdown-host.has-label.label-position-column .rz-dropdown {
+    min-width: 12rem;
+}
+
+.tigl-games-grid ::deep .rz-data-row,
+.tigl-games-grid ::deep .rz-cell-data,
+.tigl-games-grid ::deep .rz-column-title {
+    font-family: Handel, sans-serif !important;
+    text-shadow: var(--shadow-text);
+}
+
+@media (max-width: 768px) {
+    .tigl-games-filter-toggle {
+        right: var(--space-sm);
+    }
+}

@@ -1,7 +1,11 @@
+#achievements-panel ::deep .responsive-radzen-table-host {
+    padding-bottom: 0 !important;
+}
+
 #achievements-panel ::deep .achievements-table tbody td {
-    font-family: Inter, sans-serif !important;
+    font-family: Handel, sans-serif !important;
     text-align: left;
-    text-shadow: none !important;
+    text-shadow: var(--shadow-text) !important;
 }
 
 #achievements-panel ::deep .achievements-table thead .achievements-header-cell {
@@ -13,7 +17,7 @@
 
 #achievements-panel ::deep .achievements-table .achievement-player-row {
     cursor: pointer;
-    font-family: Inter, sans-serif !important;
+    font-family: Handel, sans-serif !important;
 }
 
 #achievements-panel ::deep .achievements-table .achievement-player-row:focus-visible {
@@ -32,14 +36,21 @@
     min-width: max-content;
 }
 
+#achievements-panel ::deep .achievements-table .achievement-player-row .achievement-faction-cell .rz-cell-data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #achievements-panel ::deep .achievements-table .achievement-player-row .responsive-label {
-    font-family: Inter, sans-serif !important;
-    text-shadow: none !important;
+    font-family: Handel, sans-serif !important;
+    text-shadow: var(--shadow-text) !important;
 }
 
 .achievement-match-link {
     color: var(--color-white);
-    font-family: Inter, sans-serif;
+    font-family: Handel, sans-serif;
+    text-shadow: var(--shadow-text);
     text-decoration: none;
 }
 
