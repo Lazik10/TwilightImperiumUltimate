@@ -108,7 +108,20 @@
 .responsive-radzen-grid-host ::deep .responsive-radzen-grid .rz-pager {
     justify-content: center;
     gap: var(--space-xs);
-    font-family: Handel, fallback, sans-serif;
+    font-family: Inter, sans-serif;
+    text-shadow: none;
+}
+
+.responsive-radzen-grid-host ::deep .responsive-radzen-grid .rz-pager * {
+    text-shadow: none;
+}
+
+.responsive-radzen-grid-host ::deep .responsive-radzen-grid .rz-pager .rzi {
+    font-family: "Material Symbols" !important;
+}
+
+.responsive-radzen-grid-host ::deep .responsive-radzen-grid .rz-pager .rzi::before {
+    font-family: "Material Symbols" !important;
 }
 
 .responsive-radzen-grid-host ::deep .responsive-radzen-grid .rz-pager-page:hover:not(.rz-state-disabled),

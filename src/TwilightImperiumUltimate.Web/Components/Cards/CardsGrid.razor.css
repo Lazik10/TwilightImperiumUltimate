@@ -20,6 +20,12 @@
     .cards-grid-shell {
         width: 98%;
     }
+
+    .cards-grid-shell ::deep .strategy-card-tile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 .cards-filter-row {

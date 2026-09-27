@@ -30,28 +30,36 @@
 
 <div id="leaders-panel" role="tabpanel" aria-labelledby="@ActiveTabId">
 
-@if (_loading)
-{
-    <Label Text="@Strings.Loading" CenterText="true" CssClass="mt-2xl mb-2xl" />
-}
-else if (CurrentLeagueLeaders.Count == 0)
-{
-    <Label Text="No leaders found." CenterText CssClass="mt-md mb-md" />
-}
-else
-{
-    <ResponsiveRadzenTable ZebraStripes="true" CssClass="leaders-table">
-        <RadzenTableHeader>
+<ResponsiveRadzenTable ZebraStripes="true" CssClass="leaders-table">
+    <RadzenTableHeader>
+        <RadzenTableRow>
+            <RadzenTableCell class="leaders-header-cell" colspan="3">Leader</RadzenTableCell>
+            <RadzenTableCell class="leaders-header-cell">User</RadzenTableCell>
+            <RadzenTableCell class="leaders-header-cell">Duration</RadzenTableCell>
+            <RadzenTableCell class="leaders-header-cell"># Owner</RadzenTableCell>
+            <RadzenTableCell class="leaders-header-cell">Shortest</RadzenTableCell>
+            <RadzenTableCell class="leaders-header-cell">Longest</RadzenTableCell>
+        </RadzenTableRow>
+    </RadzenTableHeader>
+    <RadzenTableBody>
+        @if (_loading)
+        {
             <RadzenTableRow>
-                <RadzenTableCell class="leaders-header-cell" colspan="3">Leader</RadzenTableCell>
-                <RadzenTableCell class="leaders-header-cell">User</RadzenTableCell>
-                <RadzenTableCell class="leaders-header-cell">Duration</RadzenTableCell>
-                <RadzenTableCell class="leaders-header-cell"># Owner</RadzenTableCell>
-                <RadzenTableCell class="leaders-header-cell">Shortest</RadzenTableCell>
-                <RadzenTableCell class="leaders-header-cell">Longest</RadzenTableCell>
+                <RadzenTableCell colspan="8">
+                    <ResponsiveLabel Text="@Strings.Loading" CenterText="true" />
+                </RadzenTableCell>
             </RadzenTableRow>
-        </RadzenTableHeader>
-        <RadzenTableBody>
+        }
+        else if (CurrentLeagueLeaders.Count == 0)
+        {
+            <RadzenTableRow>
+                <RadzenTableCell colspan="8">
+                    <ResponsiveLabel Text="No leaders found." CenterText="true" />
+                </RadzenTableCell>
+            </RadzenTableRow>
+        }
+        else
+        {
             @foreach (var leader in CurrentLeagueLeaders)
             {
                 <RadzenTableRow class="leader-player-row"
@@ -91,8 +99,8 @@ else
                     </RadzenTableCell>
                 </RadzenTableRow>
             }
-        </RadzenTableBody>
-    </ResponsiveRadzenTable>
-}
+        }
+    </RadzenTableBody>
+</ResponsiveRadzenTable>
 
 </div>

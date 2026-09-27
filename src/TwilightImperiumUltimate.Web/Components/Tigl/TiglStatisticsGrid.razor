@@ -1,33 +1,34 @@
 ﻿<StretchHeightContainer >
 
-    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="mt-md">
-        <ResponsiveEnumPicker TEnum="TiglStatisticsType"
-                    CurrentValue="@_selectedStatisticsType"
-                    CurrentValueChanged="@ChangeStatisticsType"
-                    Width="100"
-                    Label="@Strings.TiglStatistics_StatisticType" />
-    </ResponsiveContainer>
+    <ResponsiveTabMenu AriaLabel="@Strings.TiglStatistics_StatisticType" CssClass="faction-style mt-md mb-md">
+        <ResponsiveTab Id="tigl-statistics-tab-factions"
+                       ControlsId="tigl-statistics-panel"
+                       IsActive="@(_selectedStatisticsType == TiglStatisticsType.Factions)"
+                       OnClick="@(() => ChangeStatisticsType(TiglStatisticsType.Factions))">
+            @TiglStatisticsType.Factions.GetDisplayName()
+        </ResponsiveTab>
+        <ResponsiveTabSeparator />
+        <ResponsiveTab Id="tigl-statistics-tab-players"
+                       ControlsId="tigl-statistics-panel"
+                       IsActive="@(_selectedStatisticsType == TiglStatisticsType.Players)"
+                       OnClick="@(() => ChangeStatisticsType(TiglStatisticsType.Players))">
+            @TiglStatisticsType.Players.GetDisplayName()
+        </ResponsiveTab>
+        <ResponsiveTabSeparator />
+        <ResponsiveTab Id="tigl-statistics-tab-games"
+                       ControlsId="tigl-statistics-panel"
+                       IsActive="@(_selectedStatisticsType == TiglStatisticsType.Games)"
+                       OnClick="@(() => ChangeStatisticsType(TiglStatisticsType.Games))">
+            @TiglStatisticsType.Games.GetDisplayName()
+        </ResponsiveTab>
+    </ResponsiveTabMenu>
 
-    @if (_selectedStatisticsType != TiglStatisticsType.Factions)
-    {
-        <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
-            <SeasonPicker FontSize="md"
-                          SeasonNumberChanged="OnSeasonChanged"
-                          Width="100" />
-        </ResponsiveContainer>
+    <div id="tigl-statistics-panel" role="tabpanel" aria-labelledby="@ActiveTabId">
+        <CascadingValue Value="_selectedSeasonNumber" Name="SelectedSeasonNumber">
+            <CascadingValue Value="_selectedLeague" Name="SelectedLeague">
 
-        <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
-            <ResponsiveEnumPicker Label="@Strings.TiglLeaderboard_League" TEnum="TiglLeague" CurrentValue="@_selectedLeague" CurrentValueChanged="@OnLeagueChanged" ExcludeValues="new List<TiglLeague> { TiglLeague.Test }" />
-        </ResponsiveContainer>
-    }
-
-    <div style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
-    <CascadingValue Value="_selectedSeasonNumber" Name="SelectedSeasonNumber">
-        <CascadingValue Value="_selectedLeague" Name="SelectedLeague">
-
-        @if(_selectedStatisticsType == TiglStatisticsType.Factions)
-        {
+            @if(_selectedStatisticsType == TiglStatisticsType.Factions)
+            {
                 <TiglStatisticsFactionsGrid />
             }
             else if(_selectedStatisticsType == TiglStatisticsType.Players)
@@ -38,9 +39,9 @@
             {
                 <TiglStatisticsGamesGrid />
             }
-        }
 
+            </CascadingValue>
         </CascadingValue>
-    </CascadingValue>
+    </div>
 
 </StretchHeightContainer>

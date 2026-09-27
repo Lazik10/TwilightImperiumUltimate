@@ -1,0 +1,113 @@
+.tigl-statistics-factions {
+    width: 100%;
+}
+
+.tigl-statistics-factions ::deep .faction-overview-grid .rz-custom-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.tigl-statistics-factions ::deep .faction-overview-grid .rz-custom-header > .responsive-heading {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.tigl-statistics-faction-filter-toggle {
+    grid-row: 1;
+    grid-column: 1;
+    justify-self: end;
+    align-self: center;
+    margin-right: var(--space-lg);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.tigl-statistics-faction-filter-toggle:focus-visible {
+    outline: 2px solid var(--color-nav-hover, #8ecfff);
+    outline-offset: 2px;
+    border-radius: var(--border-radius-sm);
+}
+
+.tigl-statistics-faction-filter-toggle img {
+    display: block;
+    max-width: 1.625rem;
+    height: auto;
+}
+
+.tigl-statistics-factions ::deep .faction-overview-grid .rz-custom-header > .responsive-dropdown-host {
+    width: min(100%, 34rem);
+    margin: var(--space-sm) auto;
+}
+
+.tigl-statistics-factions ::deep .faction-overview-grid .rz-custom-header > .responsive-dropdown-host > .responsive-dropdown {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.tigl-statistics-faction-identity {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.tigl-statistics-faction-games {
+    color: yellow;
+}
+
+.tigl-statistics-faction-wins {
+    color: lawngreen;
+}
+
+.tigl-statistics-factions ::deep .faction-overview-grid {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.tigl-statistics-factions ::deep .faction-overview-grid .rz-data-grid-data {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.tigl-statistics-factions ::deep .faction-overview-grid .rz-grid-table {
+    min-width: 38rem;
+}
+
+.tigl-statistics-factions ::deep .faction-overview-grid .rz-grid-table th,
+.tigl-statistics-factions ::deep .faction-overview-grid .rz-grid-table td {
+    white-space: nowrap;
+    word-break: normal;
+}
+
+.tigl-statistics-factions ::deep .faction-overview-grid .rz-data-row:hover > td {
+    background-color: var(--rz-grid-header-background-color, var(--color-nav-hover-bg-solid));
+}
+
+.tigl-statistics-factions ::deep .faction-overview-grid .rz-cell-data,
+.tigl-statistics-factions ::deep .faction-overview-grid .rz-column-title,
+.tigl-statistics-factions ::deep .faction-overview-grid tbody span {
+    font-family: Handel, sans-serif !important;
+    text-shadow: var(--shadow-text);
+}
+
+.tigl-statistics-factions ::deep .faction-overview-grid tbody .tigl-statistics-faction-percent {
+    margin-left: 0.2rem;
+    font-family: Inter, sans-serif !important;
+    text-shadow: none;
+}
+
+@media (max-width: 768px) {
+    .tigl-statistics-faction-filter-toggle {
+        margin-right: var(--space-sm);
+    }
+
+    .tigl-statistics-faction-identity {
+        justify-content: center;
+    }
+}

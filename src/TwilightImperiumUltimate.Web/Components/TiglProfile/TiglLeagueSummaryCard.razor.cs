@@ -14,6 +14,10 @@ public partial class TiglLeagueSummaryCard
     [Parameter]
     public PrestigeRankHistoryDto? Prestige { get; set; }
 
+    [Parameter]
+    [EditorRequired]
+    public IReadOnlyList<TiglProfileGameDto> Games { get; set; } = [];
+
     private TextColor PrestigeColor => Prestige?.PrestigeRank switch
     {
         TiglPrestigeRank.PaxMagnificaBellumGloriosum => TextColor.Pmbg,
@@ -29,7 +33,7 @@ public partial class TiglLeagueSummaryCard
         _ => "-",
     };
 
-    private double WinRate => Profile.GamesPlayed == 0 ? 0 : Profile.AsyncMatchHistory.Count(item => item.RatingChange > 0) / (double)Profile.GamesPlayed * 100;
+    private double WinRate => Games.Count == 0 ? 0 : Games.Count(game => game.IsWinner) / (double)Games.Count * 100;
 
     private double MaxTrueSkill => Profile.TrueSkillMatchHistory.Count == 0 ? Profile.TrueSkillConservative : Profile.TrueSkillMatchHistory.Max(item => item.MuNew);
 

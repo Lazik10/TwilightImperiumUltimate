@@ -28,21 +28,35 @@
 
 <div id="ranks-panel" role="tabpanel" aria-labelledby="@ActiveTabId">
 
-@if (!_loading)
-{
-    @if (_groupedRankings?.Count > 0)
-    {
-        <ResponsiveRadzenTable ZebraStripes="true" CssClass="ranks-table">
-            <RadzenTableHeader>
-                <RadzenTableRow>
-                    <RadzenTableCell class="ranks-header-cell">Username</RadzenTableCell>
-                    <RadzenTableCell class="ranks-header-cell">Prestige</RadzenTableCell>
-                    <RadzenTableCell class="ranks-header-cell">Rank</RadzenTableCell>
-                    <RadzenTableCell class="ranks-header-cell">Games</RadzenTableCell>
-                    <RadzenTableCell class="ranks-header-cell">Last Rank Up</RadzenTableCell>
-                </RadzenTableRow>
-            </RadzenTableHeader>
-            <RadzenTableBody>
+<ResponsiveRadzenTable ZebraStripes="true" CssClass="ranks-table">
+    <RadzenTableHeader>
+        <RadzenTableHeaderRow>
+            <RadzenTableHeaderCell scope="col" class="ranks-header-cell">Username</RadzenTableHeaderCell>
+            <RadzenTableHeaderCell scope="col" class="ranks-header-cell">Prestige</RadzenTableHeaderCell>
+            <RadzenTableHeaderCell scope="col" class="ranks-header-cell">Rank</RadzenTableHeaderCell>
+            <RadzenTableHeaderCell scope="col" class="ranks-header-cell">Games</RadzenTableHeaderCell>
+            <RadzenTableHeaderCell scope="col" class="ranks-header-cell">Last Rank Up</RadzenTableHeaderCell>
+        </RadzenTableHeaderRow>
+    </RadzenTableHeader>
+    <RadzenTableBody>
+        @if (_loading)
+        {
+            <RadzenTableRow>
+                <RadzenTableCell colspan="5">
+                    <ResponsiveLabel Text="@Strings.Loading" CenterText="true" />
+                </RadzenTableCell>
+            </RadzenTableRow>
+        }
+        else if (_groupedRankings.Count == 0)
+        {
+            <RadzenTableRow>
+                <RadzenTableCell colspan="5">
+                    <ResponsiveLabel Text="No Data" CenterText="true" />
+                </RadzenTableCell>
+            </RadzenTableRow>
+        }
+        else
+        {
                 @foreach (var group in _groupedRankings)
                 {
                     <RadzenTableRow>
@@ -74,17 +88,7 @@
                         </RadzenTableRow>
                     }
                 }
-            </RadzenTableBody>
-        </ResponsiveRadzenTable>
-    }
-    else
-    {
-        <Label Text="No Data" CenterText="true" CssClass="mt-2xl mb-2xl" />
-    }
-}
-else
-{
-    <Label Text="@Strings.Loading" CenterText="true" CssClass="mt-2xl mb-2xl" />
-}
-
+        }
+    </RadzenTableBody>
+</ResponsiveRadzenTable>
 </div>

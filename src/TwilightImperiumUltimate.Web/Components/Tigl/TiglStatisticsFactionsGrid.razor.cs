@@ -1,4 +1,7 @@
+using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Season;
 using TwilightImperiumUltimate.Contracts.DTOs.Tigl;
+using TwilightImperiumUltimate.Web.Enums;
+using TwilightImperiumUltimate.Web.Helpers.Enums;
 using TwilightImperiumUltimate.Web.Services.Tigl;
 
 namespace TwilightImperiumUltimate.Web.Components.Tigl;
@@ -8,7 +11,9 @@ public partial class TiglStatisticsFactionsGrid
     private const int ThundersEdgeFirstSeason = 14;
 
     private bool _loading;
+    private bool _areFiltersVisible;
     private List<FactionSeasonStatsDto> _rows = new();
+    private IReadOnlyCollection<SeasonDto> _seasons = Array.Empty<SeasonDto>();
 
     private TiglFactionStatsShowBy _showBy = TiglFactionStatsShowBy.Era;
     private TiglFactionStatsEra _era = TiglFactionStatsEra.All;
@@ -20,11 +25,32 @@ public partial class TiglStatisticsFactionsGrid
         || _season == -1
         || _season >= ThundersEdgeFirstSeason;
 
+    private string FilterButtonLabel => (_areFiltersVisible ? "Hide faction statistic filters" : "Show faction statistic filters")
+        + (AreFiltersApplied ? ", filters active" : string.Empty);
+
+    private string FilterIconPath => PathProvider.GetIconPath(_areFiltersVisible || AreFiltersApplied ? IconType.FilterClicked : IconType.Filter);
+
+    private bool AreFiltersApplied => _showBy != TiglFactionStatsShowBy.Era
+        || _era != TiglFactionStatsEra.All
+        || _leagueFilter != TiglFactionStatsLeague.Standard;
+
+    private IReadOnlyCollection<KeyValuePair<TiglFactionStatsShowBy, string>> ShowByOptions =>
+        EnumExtensions.GetEnumValuesWithDisplayNames<TiglFactionStatsShowBy>();
+
+    private IReadOnlyCollection<KeyValuePair<TiglFactionStatsEra, string>> EraOptions =>
+        EnumExtensions.GetEnumValuesWithDisplayNames<TiglFactionStatsEra>();
+
+    private IReadOnlyCollection<KeyValuePair<TiglFactionStatsLeague, string>> LeagueOptions =>
+        EnumExtensions.GetEnumValuesWithDisplayNames<TiglFactionStatsLeague>();
+
     [Inject] 
     private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
 
     [Inject] 
     private ITiglDataCache TiglCache { get; set; } = default!;
+
+    [Inject]
+    private IPathProvider PathProvider { get; set; } = default!;
 
     public static TextColor GetWinrateColor(double winrate)
     {
@@ -39,7 +65,30 @@ public partial class TiglStatisticsFactionsGrid
 
     protected override async Task OnInitializedAsync()
     {
+        await LoadSeasonsAsync();
         await LoadAsync();
+    }
+
+    private void ToggleFilters()
+    {
+        _areFiltersVisible = !_areFiltersVisible;
+    }
+
+    private async Task LoadSeasonsAsync()
+    {
+        var (response, status) = await HttpClient.GetAsync<ApiResponse<ItemListDto<SeasonDto>>>(Paths.ApiPath_Seasons);
+        _seasons = status == HttpStatusCode.OK && response?.Data?.Items is not null
+            ? AddAllOption(response.Data.Items)
+            : [new SeasonDto { SeasonNumber = -1, Name = "All" }];
+    }
+
+    private static IReadOnlyCollection<SeasonDto> AddAllOption(IReadOnlyCollection<SeasonDto> seasons)
+    {
+        var options = seasons.ToList();
+        if (!options.Any(season => season.SeasonNumber == -1))
+            options.Add(new SeasonDto { SeasonNumber = -1, Name = "All" });
+
+        return options.OrderByDescending(season => season.SeasonNumber).ToList();
     }
 
     private static List<FactionSeasonStatsDto> MergeStats(List<FactionSeasonStatsDto> items)

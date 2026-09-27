@@ -12,7 +12,7 @@
 	</RadzenTableHeader>
 	<RadzenTableBody>
 		<RadzenTableRow>
-			<RadzenTableCell colspan="3" headers="tigl-summary-games"><ResponsiveLabel Text="@Profile.GamesPlayed.ToString()" TextColor="TextColor.Yellow" CenterText="true" /></RadzenTableCell>
+			<RadzenTableCell colspan="3" headers="tigl-summary-games"><ResponsiveLabel Text="@Games.Count.ToString()" TextColor="TextColor.Yellow" CenterText="true" /></RadzenTableCell>
 			<RadzenTableCell colspan="3" headers="tigl-summary-win-rate"><ResponsiveLabel Text="@($"{WinRate:F1}%")" TextColor="@WinRate.GetWinrateColor()" CenterText="true" /></RadzenTableCell>
 			<RadzenTableCell colspan="3" headers="tigl-summary-prestige"><ResponsiveLabel Text="@PrestigeText" TextColor="@PrestigeColor" CenterText="true" /></RadzenTableCell>
 			<RadzenTableCell colspan="3" headers="tigl-summary-rank"><ResponsiveLabel Text="@Profile.CurrentRank.GetDisplayName()" TextColor="@Profile.CurrentRank.GetRankColor()" CenterText="true" /></RadzenTableCell>

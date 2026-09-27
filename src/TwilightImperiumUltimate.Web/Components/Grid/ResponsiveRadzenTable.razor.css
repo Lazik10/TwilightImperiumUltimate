@@ -181,6 +181,23 @@
     font-family: Inter, sans-serif;
 }
 
+.responsive-radzen-table-host ::deep .responsive-radzen-table .rz-pager {
+    font-family: Inter, sans-serif;
+    text-shadow: none;
+}
+
+.responsive-radzen-table-host ::deep .responsive-radzen-table .rz-pager * {
+    text-shadow: none;
+}
+
+.responsive-radzen-table-host ::deep .responsive-radzen-table .rz-pager .rzi {
+    font-family: "Material Symbols" !important;
+}
+
+.responsive-radzen-table-host ::deep .responsive-radzen-table .rz-pager .rzi::before {
+    font-family: "Material Symbols" !important;
+}
+
 .responsive-radzen-table-host ::deep .responsive-radzen-table .rz-data-row {
     cursor: pointer;
 }

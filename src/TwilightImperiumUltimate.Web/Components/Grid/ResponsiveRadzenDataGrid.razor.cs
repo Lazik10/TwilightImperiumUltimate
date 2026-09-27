@@ -58,6 +58,12 @@ public partial class ResponsiveRadzenDataGrid<TItem>
     public bool AllowSorting { get; set; } = true;
 
     /// <summary>
+    /// Gets or sets a value indicating whether users can resize grid columns.
+    /// </summary>
+    [Parameter]
+    public bool AllowColumnResize { get; set; } = true;
+
+    /// <summary>
     /// Gets or sets a value indicating whether odd/even rows are colored differently.
     /// </summary>
     [Parameter]

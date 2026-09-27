@@ -8,7 +8,7 @@
 }
 
 /* Horizontal inset for page content. Desktop value comes from the HorizontalPadding
-   parameter (via inline style, default 20%); tablet/mobile always use the fixed
+   parameter (via inline style, default 10%); tablet/mobile always use the fixed
    percentages below regardless of the parameter (!important beats the inline style).
    ::deep is required: this class only ever renders on the div owned by the child
    ResponsiveContainer component, never on an element authored directly in Page.razor. */

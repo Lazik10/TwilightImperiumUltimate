@@ -106,7 +106,7 @@ public partial class TiglGamesGrid
         UpdateSelectedGames();
     }
 
-    private string GetSelectedTitle() => $"{(_selectedLeague == TiglLeague.Fractured ? Strings.TiglGames_CategoryFractured : Strings.TiglGames_CategoryStandard)} Ladder {FilteredGames.Count} games";
+    private string GetSelectedTitle() => $"{FilteredGames.Count} Games";
 
     private void ToggleSeasonFilters()
     {

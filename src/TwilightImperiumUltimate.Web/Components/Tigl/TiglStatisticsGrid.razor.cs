@@ -6,6 +6,13 @@ public partial class TiglStatisticsGrid
     private int _selectedSeasonNumber = -1;
     private TiglLeague _selectedLeague = TiglLeague.ProphecyOfKings;
 
+    private string ActiveTabId => _selectedStatisticsType switch
+    {
+        TiglStatisticsType.Players => "tigl-statistics-tab-players",
+        TiglStatisticsType.Games => "tigl-statistics-tab-games",
+        _ => "tigl-statistics-tab-factions",
+    };
+
     private void ChangeStatisticsType(TiglStatisticsType statisticType)
     {
         _selectedStatisticsType = statisticType;

@@ -26,18 +26,14 @@
     </ResponsiveTab>
 </ResponsiveTabMenu>
 
-@if (_loading)
-{
-    <Label Text="@Strings.TiglGames_LoadingGames" CenterText="true" CssClass="mt-2xl mb-3xl" />
-}
-else
-{
-    <div id="tigl-games-panel" role="tabpanel" aria-labelledby="@ActiveTabId">
+<div id="tigl-games-panel" role="tabpanel" aria-labelledby="@ActiveTabId">
         <ResponsiveRadzenDataGrid TItem="MatchReportDto"
                                   Data="@FilteredGames"
+                                  IsLoading="@_loading"
                                   AllowPaging="true"
                                   PageSize="50"
                                   AllowFiltering="true"
+                                  AllowColumnResize="false"
                                   AllowAlternatingRows="true"
                                   RowClick="RedirectToGame"
                                   CssClass="mb-2xl tigl-games-grid">
@@ -77,6 +73,7 @@ else
                         <ResponsiveLabel Text="@g.GameId"
                                          UseHandelStyling="false"
                                          CenterText="false"
+                                         CssClass="text-no-overflow"
                                          Style="color: var(--color-nav-hover, #8ecfff) !important; text-align: left;" />
                     </Template>
                 </RadzenDataGridColumn>
@@ -91,6 +88,5 @@ else
                 </RadzenDataGridColumn>
             </Columns>
         </ResponsiveRadzenDataGrid>
-    </div>
-}
+</div>
 

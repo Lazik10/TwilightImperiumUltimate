@@ -9,11 +9,11 @@
             <TiglProfileHeader Profile="@Profile" />
             <TiglProfileRankSummary Profile="@Profile" />
             <div class="tigl-profile-league-picker mt-md mb-xl">
-                <ResponsiveDropDown TValue="TiglProfileCategory" Id="tigl-profile-league" Data="@Options" TextProperty="Value" ValueProperty="Key" Value="@CurrentCategory" ValueChanged="OnCategoryChanged" Label="League" LabelPosition="LabelPosition.Column" Width="40" />
+                <ResponsiveDropDown TValue="TiglProfileCategory" Id="tigl-profile-league" Data="@Options" TextProperty="Value" ValueProperty="Key" Value="@CurrentCategory" ValueChanged="OnCategoryChanged" Label="Ladder" LabelPosition="LabelPosition.Column" Width="40" />
             </div>
             @if (SelectedLeagueProfile is not null)
             {
-                <TiglLeagueSummaryCard Profile="@SelectedLeagueProfile" Prestige="@SelectedPrestige" />
+                <TiglLeagueSummaryCard Profile="@SelectedLeagueProfile" Prestige="@SelectedPrestige" Games="@FilteredGameHistory" />
                 <TiglRatingProgression @key="CurrentCategory" Profile="@SelectedLeagueProfile" />
                 <TiglRankHistoryTable Ranks="@FilteredRankHistory" />
                 <TiglPrestigeHistoryTable Profile="@Profile" Prestiges="@FilteredPrestigeRanks" PathProvider="@PathProvider" />

@@ -10,9 +10,8 @@
 
 .tigl-games-filter-toggle {
     position: absolute;
-    top: 50%;
+    top: -0.25rem;
     right: var(--space-lg);
-    transform: translateY(-50%);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -51,11 +50,35 @@
     min-width: 12rem;
 }
 
-.tigl-games-grid ::deep .rz-data-row,
-.tigl-games-grid ::deep .rz-cell-data,
-.tigl-games-grid ::deep .rz-column-title {
+#tigl-games-panel ::deep .tigl-games-grid,
+#tigl-games-panel ::deep .tigl-games-grid *:not(.rz-grid-filter-icon):not(.rz-sortable-column-icon):not(.rz-dropdown-trigger-icon) {
     font-family: Handel, sans-serif !important;
     text-shadow: var(--shadow-text);
+}
+
+#tigl-games-panel ::deep .tigl-games-grid .rz-grid-filter-icon,
+#tigl-games-panel ::deep .tigl-games-grid .rz-sortable-column-icon,
+#tigl-games-panel ::deep .tigl-games-grid .rz-dropdown-trigger-icon {
+    font-family: var(--rz-icon-font-family) !important;
+    text-shadow: none;
+}
+
+#tigl-games-panel ::deep .tigl-games-grid .rz-pager,
+#tigl-games-panel ::deep .tigl-games-grid .rz-pager * {
+    font-family: Inter, sans-serif !important;
+    text-shadow: none !important;
+}
+
+#tigl-games-panel ::deep .tigl-games-grid .rz-pager .rzi {
+    font-family: "Material Symbols" !important;
+}
+
+#tigl-games-panel ::deep .tigl-games-grid .rz-pager .rzi::before {
+    font-family: "Material Symbols" !important;
+}
+
+#tigl-games-panel ::deep .tigl-games-grid .rz-column-resizer {
+    display: none;
 }
 
 @media (max-width: 768px) {
