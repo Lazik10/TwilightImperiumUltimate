@@ -60,7 +60,7 @@
                 @foreach (var group in _groupedRankings)
                 {
                     <RadzenTableRow>
-                        <RadzenTableCell colspan="5">
+                        <RadzenTableCell colspan="5" class="rank-group-cell">
                             <div class="rank-group-label">
                                 <span style="color: @GetGroupRankColor(group.Value).ConvertToString();">@group.Key</span>
                                 <span class="rank-group-count"> (@group.Value.Count)</span>

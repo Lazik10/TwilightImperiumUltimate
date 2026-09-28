@@ -27,9 +27,8 @@
 
 .leaderboard-filter-toggle {
     position: absolute;
-    top: 50%;
+    top: var(--space-sm);
     right: var(--space-lg);
-    transform: translateY(-50%);
     display: inline-flex;
     align-items: center;
     justify-content: center;

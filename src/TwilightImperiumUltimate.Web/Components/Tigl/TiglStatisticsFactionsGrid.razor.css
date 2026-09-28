@@ -110,4 +110,17 @@
     .tigl-statistics-faction-identity {
         justify-content: center;
     }
+
+    .tigl-statistics-faction-name {
+        display: none;
+    }
+
+    .tigl-statistics-faction-identity ::deep .tigl-faction-icon {
+        height: 40px !important;
+        max-height: 40px !important;
+    }
+
+    .tigl-statistics-factions ::deep .faction-overview-grid .rz-grid-table th:first-child .rz-column-title {
+        justify-content: center;
+    }
 }

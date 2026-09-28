@@ -1,10 +1,21 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @using TwilightImperiumUltimate.Web.Resources
 
-<ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="100" JustifyContent="Enums.JustifyContent.Center" AlignItems="Enums.AlignItems.Center">
-    <div class="title white handel shadow mr-3xl">@Strings.SearchForKeyword</div>
-    <RadzenTextBox Placeholder="@SearchPlaceholder"
-                   @bind-Value="SearchTerm"
-                   @oninput="@(args => SearchRules(args.Value?.ToString()!))"
-                   class="w-20 title white handel" />
-</ResponsiveContainer>
+<div class="rule-searchbar">
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+        <ResponsiveContainer Type="ContainerType.Flex"
+                             Padding="none"
+                             Width="50"
+                             JustifyContent="Enums.JustifyContent.Center"
+                             AlignItems="Enums.AlignItems.Center">
+            <ResponsiveLabel Text="@Strings.SearchForKeyword"
+                             FontSize="md"
+                             CssClass="rule-search-label mr-lg" />
+            <ResponsiveTextBox Id="rules-search"
+                               Placeholder="@SearchPlaceholder"
+                               Value="@SearchTerm"
+                               InputChanged="SearchRules"
+                               AutoComplete="on" />
+        </ResponsiveContainer>
+    </ResponsiveContainer>
+</div>

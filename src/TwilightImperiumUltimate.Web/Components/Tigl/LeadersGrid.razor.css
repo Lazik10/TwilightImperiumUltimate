@@ -68,3 +68,24 @@
 #leaders-panel ::deep .leaders-table .leader-name-cell .responsive-label {
     text-align: left !important;
 }
+
+#leaders-panel ::deep .leaders-header-cell--mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    #leaders-panel ::deep .leaders-header-cell--desktop,
+    #leaders-panel ::deep .leaders-table .leader-name-cell {
+        display: none;
+    }
+
+    #leaders-panel ::deep .leaders-header-cell--mobile {
+        display: table-cell;
+    }
+
+    #leaders-panel ::deep .leaders-table .leader-faction-cell .tigl-faction-icon,
+    #leaders-panel ::deep .leaders-table .leader-hero-cell img {
+        height: 40px !important;
+        max-height: 40px !important;
+    }
+}

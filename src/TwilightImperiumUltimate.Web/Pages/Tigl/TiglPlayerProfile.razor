@@ -4,16 +4,7 @@
 <PageTitle>TIGL Player Profile</PageTitle>
 
 <Page HorizontalPadding="0">
-    @if (_loading)
-    {
-        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-            <ResponsiveLabel Text="@Strings.Loading" CenterText="true" FontSize="xl" CssClass="mt-3xl mb-3xl" />
-        </ResponsiveContainer>
-    }
-    else
-    {
-        <CascadingValue Value="PlayerProfile" Name="TiglPlayerProfile">
-            <TiglProfileGrid />
-        </CascadingValue>
-    }
+    <CascadingValue Value="PlayerProfile" Name="TiglPlayerProfile">
+        <TiglProfileGrid IsLoading="@_loading" />
+    </CascadingValue>
 </Page>

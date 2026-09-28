@@ -14,6 +14,10 @@ public partial class TiglPlayerProfile
     [SupplyParameterFromQuery(Name = "returnUrl")]
     public string? ReturnUrl { get; set; }
 
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "playerName")]
+    public string? PlayerName { get; set; }
+
     private TiglPlayerProfileDto PlayerProfile { get; set; } = new();
 
     [Inject]
@@ -25,6 +29,11 @@ public partial class TiglPlayerProfile
     protected override async Task OnParametersSetAsync()
     {
         _loading = true;
+        PlayerProfile = new TiglPlayerProfileDto
+        {
+            TiglUserId = PlayerId,
+            TiglUserName = string.IsNullOrWhiteSpace(PlayerName) ? $"Player #{PlayerId}" : PlayerName,
+        };
         await GetPlayerProfileAsync();
         _loading = false;
     }

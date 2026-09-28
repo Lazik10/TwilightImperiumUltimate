@@ -1,3 +1,31 @@
-﻿.radzen-textbox {
-    background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.5) 10%, rgba(0,0,0,0.5) 90%, rgba(0,0,0,0));
+﻿.rule-searchbar ::deep .rule-search-label {
+    flex: 0 0 auto;
+    white-space: nowrap !important;
+    width: max-content;
+}
+
+.rule-searchbar ::deep .responsive-textbox {
+    --rz-input-background-color: var(--color-nav-panel-bg);
+    --rz-input-hover-background-color: var(--color-nav-panel-bg);
+    --rz-input-border: 1px solid var(--color-nav-hover-bg-solid, #123957);
+    --rz-input-border-block-end: 1px solid var(--color-nav-hover-bg-solid, #123957);
+    --rz-input-hover-border: 1px solid var(--color-nav-hover-bg-solid, #123957);
+    --rz-input-hover-border-block-end: 1px solid var(--color-nav-hover-bg-solid, #123957);
+    --rz-input-value-color: var(--color-white);
+    background-color: var(--color-nav-panel-bg) !important;
+    border-color: var(--color-nav-hover-bg-solid, #123957) !important;
+    color: var(--color-white) !important;
+    font-family: Handel, fallback, sans-serif !important;
+}
+
+.rule-searchbar ::deep .responsive-textbox:hover,
+.rule-searchbar ::deep .responsive-textbox:focus {
+    background-color: var(--color-nav-panel-bg) !important;
+    border-color: var(--color-nav-hover-bg-solid, #123957) !important;
+    color: var(--color-white) !important;
+}
+
+.rule-searchbar ::deep .responsive-textbox::placeholder {
+    color: var(--color-white) !important;
+    opacity: 1;
 }

@@ -1,6 +1,6 @@
 ﻿.resource-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 1rem;
-    margin-left: 20%;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+    gap: var(--space-md);
+    width: 100%;
 }

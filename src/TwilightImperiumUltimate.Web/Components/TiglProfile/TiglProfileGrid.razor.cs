@@ -10,6 +10,9 @@ public partial class TiglProfileGrid
     private bool _areFactionFiltersVisible;
     private FactionStatisticsFilter _selectedFactionStatisticsFilter = FactionStatisticsFilter.Official;
 
+    [Parameter]
+    public bool IsLoading { get; set; }
+
     public TiglProfileCategory CurrentCategory { get; set; } = TiglProfileCategory.ThundersEdge;
 
     [CascadingParameter(Name = "TiglPlayerProfile")]

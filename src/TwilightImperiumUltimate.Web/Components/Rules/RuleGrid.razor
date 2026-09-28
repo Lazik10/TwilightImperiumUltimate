@@ -4,9 +4,9 @@
     <RuleSearchBar OnSearchChange="GetFilteredRulesAndNotes" />
 </div>
 
-<ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexEnd">
-    <YesNoPicker Title="@Strings.Rules_ShowNotes" Width="30" OnValueChange="ToggleNotes" DefaultValue="_showNotes"/>
-</ResponsiveContainer>
+<div class="rules-notes-toggle">
+    <ResponsiveCheckbox Label="@Strings.Rules_ShowNotes" IsChecked="@_showNotes" IsCheckedChanged="ToggleNotes" />
+</div>
 
 @foreach (var transformedRule in FilteredAndTransformedRules)
 {

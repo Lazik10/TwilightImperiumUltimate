@@ -1,3 +1,28 @@
+@if (IsLoading)
+{
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" AlignItems="Enums.AlignItems.FlexStart" CssClass="tigl-profile-frame" Style="margin-top: calc(-1 * var(--space-2xl)); padding: 0;" Name="tigl-profile-frame">
+        <div class="tigl-profile-left-texture" aria-hidden="true">
+            <TitleTexture Width="100" Texture="Enums.Texture.TopLeft" />
+        </div>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-2xl-non-mobile" Style="min-width: 0;" Name="tigl-profile-content-column">
+            <div class="tigl-profile-content-fill" data-container-name="tigl-profile-content-fill">
+                <TiglProfileHeader Profile="@Profile" />
+                <TiglProfileLoadingTable Title="Overview" ColumnCount="3" />
+                <TiglProfileLoadingTable Title="General" ColumnCount="12" />
+                <TiglProfileLoadingTable Title="Ranks" ColumnCount="3" />
+                <TiglProfileLoadingTable Title="Prestige Ranks" ColumnCount="4" />
+                <TiglProfileLoadingTable Title="Factions" ColumnCount="5" />
+                <TiglProfileLoadingTable Title="Seasons" ColumnCount="7" />
+                <TiglProfileLoadingTable Title="Games" ColumnCount="6" />
+                <TiglProfileLoadingTable Title="Top opponents" ColumnCount="3" />
+                <TiglProfileLoadingTable Title="Achievements" ColumnCount="1" />
+            </div>
+        </ResponsiveContainer>
+        <div class="tigl-profile-right-texture-spacer" data-container-name="tigl-profile-right-texture-spacer"></div>
+    </ResponsiveContainer>
+}
+else
+{
 <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" AlignItems="Enums.AlignItems.FlexStart" CssClass="tigl-profile-frame" Style="margin-top: calc(-1 * var(--space-2xl)); padding: 0;" Name="tigl-profile-frame">
     @if (Profile is not null && !string.IsNullOrEmpty(Profile.TiglUserName))
     {
@@ -65,3 +90,4 @@
         <StretchHeightContainer />
     }
 </ResponsiveContainer>
+}

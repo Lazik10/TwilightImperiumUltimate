@@ -25,7 +25,7 @@
             <div class="players-grid">
                 @foreach (var user in _filteredUsers)
                 {
-                    <ResponsiveButton Text="@(GetUserName(user))" FontSize="14" OnClick="() => RedirectToPlayer(user.Id)" />
+                    <ResponsiveButton Text="@(GetUserName(user))" FontSize="14" OnClick="() => RedirectToPlayer(user)" />
                 }
             </div>
         }

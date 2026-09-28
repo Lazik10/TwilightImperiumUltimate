@@ -78,9 +78,8 @@ public partial class RuleGrid
         }
     }
 
-    private void ToggleNotes()
+    private void ToggleNotes(bool isChecked)
     {
-        _showNotes = !_showNotes;
-        StateHasChanged();
+        _showNotes = isChecked;
     }
 }

@@ -1,7 +1,12 @@
+using System.Linq.Expressions;
+using Microsoft.AspNetCore.Components.Forms;
+
 namespace TwilightImperiumUltimate.Web.Components.Shared.Controls;
 
 public partial class ResponsivePassword
 {
+    private FieldIdentifier? _fieldIdentifier;
+
     [Parameter]
     [EditorRequired]
     public string Id { get; set; } = string.Empty;
@@ -45,14 +50,27 @@ public partial class ResponsivePassword
     [Parameter]
     public EventCallback<string> ValueChanged { get; set; }
 
+    [Parameter]
+    public Expression<Func<string>>? ValueExpression { get; set; }
+
+    [CascadingParameter]
+    private EditContext? EditContext { get; set; }
+
     private string ComputedCssClass => $"responsive-password responsive-input-height handel {CssClass}".Trim();
 
     private string ComputedStyle => $"width: {Width}%; --rz-input-font-size: {GetFontSizeStyle()}; {Style}";
+
+    protected override void OnParametersSet()
+    {
+        _fieldIdentifier = ValueExpression is null ? null : FieldIdentifier.Create(ValueExpression);
+    }
 
     private async Task OnValueChanged(string value)
     {
         Value = value;
         await ValueChanged.InvokeAsync(value);
+        if (EditContext is not null && _fieldIdentifier is { } fieldIdentifier)
+            EditContext.NotifyFieldChanged(fieldIdentifier);
     }
 
     private string GetFontSizeStyle() => FontSize switch

@@ -1,230 +1,296 @@
 ﻿@page "/community/tigl/game-detail"
+@using TwilightImperiumUltimate.Contracts.DTOs.Tigl
 
 <Page>
-    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" CssClass="mb-md">
-        <ResponsiveButton Text="@Strings.ButtonBack" OnClick="RedirectBack" FontSize="24" Width="20" TextAlign="@(string.Empty)" />
-    </ResponsiveContainer>
+    <section class="tigl-game-report-detail" aria-label="Game report">
+        <StretchHeightContainer>
 
-    <StretchHeightContainer CssClass="background">
-
-    @if (MatchReport is not null)
-    {
-        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="background">
-
-            <Title Text="@MatchReport.GameId" TextColor="GetGameRank().GetRankColor()" MarginTop="20" MarginBottom="20" />
-
-
-            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="mb-md">
-                <Label Text="@GetGameRankString()" CenterText=true TextColor="GetGameRank().GetRankColor()" FontSize="24" />
-                <Label Text="@GetGameLeagueString()" CenterText="true" TextColor="GetGameRank().GetRankColor()" FontSize="24" />
-            </ResponsiveContainer>
-
-            <ResponsiveButton Text="Show game" OnClick="(() => RedirectToGameDetails(MatchReport.GameId))" TextColor="TextColor.Green" CssClass="mb-md" />
-
-        </ResponsiveContainer>
-
-        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="background mt-xl mb-sm">
-            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="mt-md mb-sm">
-                <Label Text="Winner" TextColor="TextColor.Yellow" CenterText=true />
-                <Label Text="Faction" TextColor="TextColor.Yellow" CenterText=true />
-            </ResponsiveContainer>
-
-        @foreach(var winner in Winners)
+        @if (MatchReport is not null)
         {
-                <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="mt-sm mb-sm">
-                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
-                        <WinnerImg />
-                        <ResponsiveButton Text="@GetUserName(winner)" OnClick="(() => NavigateToPlayerProfile(winner.TiglUserId))" TextAlign="center" FontSize="22" TextColor="TextColor.Green" Width="50" />
-                        <WinnerImg />
-                    </ResponsiveContainer>
-                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
-                        <TiglFactionImg Faction="@winner.Faction" Height="40" />
-                        <Label Text="@winner.Faction.GetDisplayName()" CenterText=true FontSize="22" Width="50" />
-                    </ResponsiveContainer>
-                </ResponsiveContainer>
+            <div class="tigl-game-report-title mb-xl">
+                <ResponsiveHeading Level="1" Text="@MatchReport.GameId" CenterText="true" CssClass="mb-0" />
+                <ResponsiveButton ButtonText="Show Game" OnClick="NavigateToAsyncGame" />
+            </div>
+
+            <section class="tigl-game-report-overview mb-xl" aria-label="Overview">
+                <ResponsiveHeading Level="2" Text="Overview" FontSize="lg" CenterText="true" CssClass="mb-0" />
+                <table class="tigl-game-report-overview-table">
+                    <tbody>
+                        <tr class="tigl-game-report-overview-headers">
+                            <th scope="colgroup" colspan="3">Winner</th>
+                            <th scope="colgroup" colspan="3">Faction</th>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <button type="button" class="tigl-game-report-overview-player tigl-game-report-player-name tigl-game-report-winner-name" aria-label="@($"View {GetUserName(Winners[0])}'s profile")" @onclick="() => NavigateToPlayerProfile(Winners[0])">
+                                    <img src="@PathProvider.GetIconPath(IconType.Winner)" alt="" aria-hidden="true" />
+                                    <span>@GetUserName(Winners[0])</span>
+                                    <img src="@PathProvider.GetIconPath(IconType.Winner)" alt="" aria-hidden="true" />
+                                </button>
+                            </td>
+                            <td colspan="3">
+                                <div class="tigl-game-report-faction tigl-game-report-overview-faction">
+                                    <TiglFactionImg Faction="@Winners[0].Faction" Height="40" />
+                                    <span>@Winners[0].Faction.GetDisplayName()</span>
+                                    <TiglFactionImg Faction="@Winners[0].Faction" Height="40" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="tigl-game-report-overview-headers">
+                            <th scope="colgroup" colspan="3">Game Rank</th>
+                            <th scope="colgroup" colspan="3">League</th>
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="color: @(GetGameRank().GetRankColor().ConvertToString());">@GetGameRank().GetDisplayName()</td>
+                            <td colspan="3">@MatchReport.League.GetDisplayName()</td>
+                        </tr>
+                        <tr class="tigl-game-report-overview-headers">
+                            <th scope="colgroup" colspan="2">Start Date</th>
+                            <th scope="colgroup" colspan="2">End Date</th>
+                            <th scope="colgroup" colspan="2">Duration</th>
+                        </tr>
+                        <tr>
+                            <td colspan="2">@MatchReport.StartTimestamp.FormatToDateString()</td>
+                            <td colspan="2">@MatchReport.EndTimestamp.FormatToDateString()</td>
+                            <td colspan="2">@((MatchReport.EndTimestamp - MatchReport.StartTimestamp).FormatToDaysDuration())</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <ResponsiveRadzenDataGrid TItem="PlayerResultDto"
+                                      Data="@OrderedPlayerResults"
+                                      AllowPaging="false"
+                                      AllowSorting="false"
+                                      AllowColumnResize="false"
+                                      AllowAlternatingRows="true"
+                                      RowClick="NavigateToPlayerProfile"
+                                      CssClass="mb-xl tigl-game-report-grid tigl-game-report-handel-grid">
+                <HeaderTemplate>
+                    <ResponsiveHeading Level="2" Text="Players" FontSize="lg" CenterText="true" CssClass="mb-0" />
+                </HeaderTemplate>
+                <Columns>
+                    <RadzenDataGridColumn TItem="PlayerResultDto" Property="@nameof(PlayerResultDto.TiglUserName)" Title="Player" TextAlign="TextAlign.Left">
+                        <Template Context="player">
+                            <span class="tigl-game-report-player-name @(player.IsWinner ? "tigl-game-report-winner-name" : string.Empty)">
+                                @if (player.IsWinner)
+                                {
+                                    <img src="@PathProvider.GetIconPath(IconType.Winner)" alt="Winner" />
+                                }
+                                <span>@GetUserName(player)</span>
+                            </span>
+                        </Template>
+                    </RadzenDataGridColumn>
+                    <RadzenDataGridColumn TItem="PlayerResultDto" Property="@nameof(PlayerResultDto.Faction)" Title="Faction">
+                        <Template Context="player">
+                            <div class="tigl-game-report-faction">
+                                <TiglFactionImg Faction="@player.Faction" Height="30" />
+                                <span>@player.Faction.GetDisplayName()</span>
+                            </div>
+                        </Template>
+                    </RadzenDataGridColumn>
+                    <RadzenDataGridColumn TItem="PlayerResultDto" Property="@nameof(PlayerResultDto.Score)" Title="Score" TextAlign="TextAlign.Center" />
+                    <RadzenDataGridColumn TItem="PlayerResultDto" Title="New Rank" TextAlign="TextAlign.Center">
+                        <Template Context="player">
+                            @{ var playerStats = GetPlayersAsyncData(player.TiglUserId); }
+                            @if (playerStats.NewRank != playerStats.OldRank)
+                            {
+                                <span style="color: @(playerStats.NewRank.GetRankColor().ConvertToString());">@playerStats.NewRank.GetDisplayName()</span>
+                            }
+                        </Template>
+                    </RadzenDataGridColumn>
+                </Columns>
+            </ResponsiveRadzenDataGrid>
+
+            <ResponsiveRadzenDataGrid TItem="PlayerResultDto"
+                                      Data="@OrderedPlayerResults"
+                                      AllowPaging="false"
+                                      AllowSorting="false"
+                                      AllowColumnResize="false"
+                                      AllowAlternatingRows="true"
+                                      RowClick="NavigateToPlayerProfile"
+                                      CssClass="mb-xl tigl-game-report-grid tigl-game-report-handel-grid">
+                <HeaderTemplate>
+                    <div class="tigl-game-report-ratings-header">
+                        <ResponsiveHeading Level="2" Text="Ratings" FontSize="lg" CenterText="true" CssClass="mb-0" />
+                        <button type="button"
+                                class="tigl-game-report-ratings-filter-toggle"
+                                aria-label="@RankingSystemFilterButtonLabel"
+                                title="@RankingSystemFilterButtonLabel"
+                                aria-expanded="@_isRankingSystemFilterVisible.ToString().ToLowerInvariant()"
+                                aria-controls="@(_isRankingSystemFilterVisible ? "tigl-game-report-ranking-system-filter" : null)"
+                                @onclick="ToggleRankingSystemFilter">
+                            <img src="@RankingSystemFilterIconPath" alt="" aria-hidden="true" />
+                        </button>
+
+                        @if (_isRankingSystemFilterVisible)
+                        {
+                            <div id="tigl-game-report-ranking-system-filter" class="tigl-game-report-ranking-system-filter">
+                                <ResponsiveDropDown Id="tigl-game-report-ranking-system"
+                                                    TValue="RankingSystem"
+                                                    Label="Rating"
+                                                    LabelPosition="LabelPosition.Column"
+                                                    Data="@RankingSystemOptions"
+                                                    TextProperty="Value"
+                                                    ValueProperty="Key"
+                                                    Value="@_selectedRankingSystem"
+                                                    ValueChanged="ChangeRankingSystem"
+                                                    Width="50" />
+                            </div>
+                        }
+                    </div>
+                </HeaderTemplate>
+                <Columns>
+                    <RadzenDataGridColumn TItem="PlayerResultDto" Property="@nameof(PlayerResultDto.TiglUserName)" Title="@Strings.TiglLeaderboard_Player" TextAlign="TextAlign.Left">
+                        <Template Context="player">
+                            <span class="tigl-game-report-player-name @(player.IsWinner ? "tigl-game-report-winner-name" : string.Empty)">
+                                @if (player.IsWinner)
+                                {
+                                    <img src="@PathProvider.GetIconPath(IconType.Winner)" alt="Winner" />
+                                }
+                                <span>@GetUserName(player)</span>
+                            </span>
+                        </Template>
+                    </RadzenDataGridColumn>
+
+                    @if (_selectedRankingSystem == RankingSystem.TrueSkill)
+                    {
+                        <RadzenDataGridColumn TItem="PlayerResultDto" Title="@Strings.TiglLeaderboard_TrueSkillConservativeRating">
+                            <Columns>
+                                <RadzenDataGridColumn TItem="PlayerResultDto" Title="New">
+                                    <Template Context="player">@GetPlayersTrueSkillData(player.TiglUserId).ConservativeRatingNew.ToString("F2")</Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="PlayerResultDto" Title="Change">
+                                    <Template Context="player">
+                                        @{ var stats = GetPlayersTrueSkillData(player.TiglUserId); }
+                                        <span style="color: @(GetChangeColor(stats.ConservativeRatingChange).ConvertToString());">@stats.ConservativeRatingChange.ToSignedFormat(2)</span>
+                                    </Template>
+                                </RadzenDataGridColumn>
+                            </Columns>
+                        </RadzenDataGridColumn>
+                        <RadzenDataGridColumn TItem="PlayerResultDto" Title="@Strings.TiglLeaderboard_TrueSkillMu">
+                            <Columns>
+                                <RadzenDataGridColumn TItem="PlayerResultDto" Title="New">
+                                    <Template Context="player">@GetPlayersTrueSkillData(player.TiglUserId).MuNew.ToString("F2")</Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="PlayerResultDto" Title="Change">
+                                    <Template Context="player">
+                                        @{ var stats = GetPlayersTrueSkillData(player.TiglUserId); }
+                                        <span style="color: @(GetChangeColor(stats.MuChange).ConvertToString());">@stats.MuChange.ToSignedFormat(2)</span>
+                                    </Template>
+                                </RadzenDataGridColumn>
+                            </Columns>
+                        </RadzenDataGridColumn>
+                        <RadzenDataGridColumn TItem="PlayerResultDto" Title="@Strings.TiglLeaderboard_TrueSkillSigma">
+                            <Columns>
+                                <RadzenDataGridColumn TItem="PlayerResultDto" Title="New">
+                                    <Template Context="player">@GetPlayersTrueSkillData(player.TiglUserId).SigmaNew.ToString("F3")</Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="PlayerResultDto" Title="Change">
+                                    <Template Context="player">
+                                        @{ var stats = GetPlayersTrueSkillData(player.TiglUserId); }
+                                        <span style="color: @(GetChangeColor(stats.SigmaChange).ConvertToString());">@stats.SigmaChange.ToSignedFormat(3)</span>
+                                    </Template>
+                                </RadzenDataGridColumn>
+                            </Columns>
+                        </RadzenDataGridColumn>
+                    }
+                    else if (_selectedRankingSystem == RankingSystem.Glicko2)
+                    {
+                        <RadzenDataGridColumn TItem="PlayerResultDto" Title="@Strings.TiglLeaderboard_GlickoRating">
+                            <Columns>
+                                <RadzenDataGridColumn TItem="PlayerResultDto" Title="New">
+                                    <Template Context="player">@GetPlayersGlickoData(player.TiglUserId).RatingNew.ToString("F2")</Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="PlayerResultDto" Title="Change">
+                                    <Template Context="player">
+                                        @{ var stats = GetPlayersGlickoData(player.TiglUserId); }
+                                        <span style="color: @(GetChangeColor(stats.RatingChange).ConvertToString());">@stats.RatingChange.ToSignedFormat(2)</span>
+                                    </Template>
+                                </RadzenDataGridColumn>
+                            </Columns>
+                        </RadzenDataGridColumn>
+                        <RadzenDataGridColumn TItem="PlayerResultDto" Title="@Strings.TiglLeaderboard_GlickoRd">
+                            <Columns>
+                                <RadzenDataGridColumn TItem="PlayerResultDto" Title="New">
+                                    <Template Context="player">@GetPlayersGlickoData(player.TiglUserId).RdNew.ToString("F2")</Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="PlayerResultDto" Title="Change">
+                                    <Template Context="player">
+                                        @{ var stats = GetPlayersGlickoData(player.TiglUserId); }
+                                        <span style="color: @(GetChangeColor(stats.RdChange).ConvertToString());">@stats.RdChange.ToSignedFormat(2)</span>
+                                    </Template>
+                                </RadzenDataGridColumn>
+                            </Columns>
+                        </RadzenDataGridColumn>
+                        <RadzenDataGridColumn TItem="PlayerResultDto" Title="@Strings.TiglLeaderboard_GlickoVolatility">
+                            <Columns>
+                                <RadzenDataGridColumn TItem="PlayerResultDto" Title="New">
+                                    <Template Context="player">@GetPlayersGlickoData(player.TiglUserId).VolatilityNew.ToString("F6")</Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="PlayerResultDto" Title="Change">
+                                    <Template Context="player">
+                                        @{ var stats = GetPlayersGlickoData(player.TiglUserId); }
+                                        <span style="color: @(GetChangeColor(stats.VolatilityChange).ConvertToString());">@stats.VolatilityChange.ToSignedFormat(6)</span>
+                                    </Template>
+                                </RadzenDataGridColumn>
+                            </Columns>
+                        </RadzenDataGridColumn>
+                    }
+                    else
+                    {
+                        <RadzenDataGridColumn TItem="PlayerResultDto" Title="@Strings.TiglLeaderboard_AsyncRating">
+                            <Columns>
+                                <RadzenDataGridColumn TItem="PlayerResultDto" Title="Rating">
+                                    <Template Context="player">@GetPlayersAsyncData(player.TiglUserId).RatingNew.ToString("F2")</Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="PlayerResultDto" Title="Change">
+                                    <Template Context="player">
+                                        @{ var stats = GetPlayersAsyncData(player.TiglUserId); }
+                                        <span style="color: @(GetChangeColor(stats.RatingChange).ConvertToString());">@stats.RatingChange.ToSignedFormat(2)</span>
+                                    </Template>
+                                </RadzenDataGridColumn>
+                            </Columns>
+                        </RadzenDataGridColumn>
+                        <RadzenDataGridColumn TItem="PlayerResultDto" Title="@Strings.TiglLeaderboard_AussieScore">
+                            <Columns>
+                                <RadzenDataGridColumn TItem="PlayerResultDto" Title="Rating">
+                                    <Template Context="player">@GetPlayersAsyncData(player.TiglUserId).AussieScoreNew.ToString("F2")</Template>
+                                </RadzenDataGridColumn>
+                                <RadzenDataGridColumn TItem="PlayerResultDto" Title="Change">
+                                    <Template Context="player">
+                                        @{ var stats = GetPlayersAsyncData(player.TiglUserId); }
+                                        <span style="color: @(GetChangeColor(stats.AussieScoreChange).ConvertToString());">@stats.AussieScoreChange.ToSignedFormat(2)</span>
+                                    </Template>
+                                </RadzenDataGridColumn>
+                            </Columns>
+                        </RadzenDataGridColumn>
+                    }
+                </Columns>
+            </ResponsiveRadzenDataGrid>
+
+            @if (MatchReport.League == TiglLeague.Fractured)
+            {
+                <ResponsiveRadzenDataGrid TItem="string"
+                                          Data="@MatchReport.GalacticEvents"
+                                          AllowPaging="false"
+                                          AllowSorting="false"
+                                          AllowColumnResize="false"
+                                          AllowAlternatingRows="true"
+                                          CssClass="mb-md tigl-game-report-grid">
+                    <HeaderTemplate>
+                        <ResponsiveHeading Level="2" Text="Galactic Events" FontSize="lg" CenterText="true" CssClass="mb-0" />
+                    </HeaderTemplate>
+                    <Columns>
+                        <RadzenDataGridColumn TItem="string" Title="Event">
+                            <Template Context="galacticEvent">@galacticEvent</Template>
+                        </RadzenDataGridColumn>
+                    </Columns>
+                </ResponsiveRadzenDataGrid>
+            }
         }
 
-        </ResponsiveContainer>
-
-        <GridLayout Columns="3" CssClass="background mt-xl">
-
-            <div class="span-3" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
-            <Label Text="Start Date" CenterText="true" TextColor="TextColor.Yellow" />
-
-            <Label Text="End Date" CenterText="true" TextColor="TextColor.Yellow" />
-
-            <Label Text="Duration" CenterText="true" TextColor="TextColor.Yellow" />
-
-            <div class="span-3" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
-            <Label Text="@MatchReport.StartTimestamp.FormatToDateString()" CenterText="true" />
-
-            <Label Text="@MatchReport.EndTimestamp.FormatToDateString()" CenterText="true"  />
-
-            <Label Text="@((MatchReport.EndTimestamp - MatchReport.StartTimestamp).FormatToDaysDuration())" CenterText="true" />
-
-            <div class="span-3" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
-        </GridLayout>
-
-        <GridLayout Columns="3" CssClass="background mt-xl" Style="grid-template-columns: 5% 30% 20% 20% 20% 5%">
-
-            <div class="span-6" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
-            <Label />
-            <Label Text="Player" TextColor="TextColor.Yellow" />
-            <Label Text="Faction" TextColor="TextColor.Yellow" />
-            <Label Text="Score" TextColor="TextColor.Yellow" CenterText="true" />
-            <Label Text="New Rank" TextColor="TextColor.Yellow" CenterText="true" />
-            <Label />
-
-            <div class="span-6" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
-            @foreach(var player in MatchReport.PlayerResults.OrderBy(x => !x.IsWinner).ThenByDescending(x => x.Score))
-            {
-                var color = player.IsWinner ? TextColor.Green : TextColor.White;
-                var playerStats = GetPlayersAsyncData(player.TiglUserId);
-                var newRank = playerStats.NewRank;
-                var oldRank = playerStats.OldRank;
-                var newRankText = newRank == oldRank ? string.Empty : newRank.GetDisplayName();
-                
-                <Label />
-                    <ResponsiveButton Text="@GetUserName(player)" OnClick="(() => NavigateToPlayerProfile(player.TiglUserId))" JustifyContent="Enums.JustifyContent.FlexStart" TextColor="@color" />
-                <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
-                    <TiglFactionImg Faction="@player.Faction" Height="30" />
-                    <Label Text="@player.Faction.GetDisplayName()" TextColor="@color" Width="80" />
-                </ResponsiveContainer>
-                <Label Text="@player.Score.ToString()" CenterText="true" TextColor="@color" />
-                <Label Text="@newRankText" CenterText="true" TextColor="@newRank.GetRankColor()" />
-                <Label />
-            }
-
-            <div class="span-6" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
-        </GridLayout>
-
-        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-md mb-md">
-            <ResponsiveEnumPicker TEnum="RankingSystem" Label="Ranking Changes" Width="50" CurrentValue="_selectedRankingSystem" CurrentValueChanged="ChangeRankingSystem" />
-        </ResponsiveContainer>
-
-        <GridLayout Columns="7" CssClass="handel white shadow background" Style="grid-template-columns: 5% 22% 23% 23% 22% 5%">
-
-            <div class="span-7" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-            
-            <Label />
-            <Label Text="@Strings.TiglLeaderboard_Player" TextColor="TextColor.Yellow" />
-
-            @if (_selectedRankingSystem == RankingSystem.TrueSkill)
-            {
-                <Label Text="@Strings.TiglLeaderboard_TrueSkillConservativeRating" TextColor="TextColor.Yellow" />
-                <Label Text="@Strings.TiglLeaderboard_TrueSkillMu" TextColor="TextColor.Yellow" />
-                <Label Text="@Strings.TiglLeaderboard_TrueSkillSigma" TextColor="TextColor.Yellow" />
-            }
-            else if (_selectedRankingSystem == RankingSystem.Glicko2)
-            {
-                <Label Text="@Strings.TiglLeaderboard_GlickoRating" TextColor="TextColor.Yellow" />
-                <Label Text="@Strings.TiglLeaderboard_GlickoRd" TextColor="TextColor.Yellow" />
-                <Label Text="@Strings.TiglLeaderboard_GlickoVolatility" TextColor="TextColor.Yellow" />
-            }
-            else if (_selectedRankingSystem == RankingSystem.Async)
-            {
-                <Label Text="@Strings.TiglLeaderboard_AsyncRating" TextColor="TextColor.Yellow" />
-                <Label Text="@Strings.TiglLeaderboard_AussieScore" TextColor="TextColor.Yellow" />
-                <Label />
-            }
-
-            <Label />
-
-            <div class="span-7" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
-        </GridLayout>
-
-        <GridLayout Style="grid-template-columns: 5% 22% 23% 23% 22% 5%" CssClass="mt-md">
-
-            @foreach (var playerResult in MatchReport.PlayerResults.OrderBy(x => !x.IsWinner).ThenByDescending(x => x.Score))
-            {
-                var winnerColor = playerResult.IsWinner ? TextColor.Green : TextColor.White;
-
-                <div style="align-self: stretch; justify-self: stretch;" class="background" />
-                <ResponsiveButton Text="@GetUserName(playerResult)" OnClick="(() => NavigateToPlayerProfile(playerResult.TiglUserId))" CssClass="background" JustifyContent="Enums.JustifyContent.FlexStart" TextColor="@winnerColor" />
-
-                if (_selectedRankingSystem == RankingSystem.TrueSkill)
-                {
-                    var trueSkillData = GetPlayersTrueSkillData(playerResult.TiglUserId);
-
-                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="background">
-                        <Label Text="@trueSkillData.ConservativeRatingNew.ToString("F2")" TextColor="TextColor.Green" />
-                        <Label Text="@trueSkillData.ConservativeRatingChange.ToSignedFormat(2)" TextColor="@GetChangeColor(trueSkillData.ConservativeRatingChange)" />
-                    </ResponsiveContainer>
-                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="background">
-                        <Label Text="@trueSkillData.MuNew.ToString("F2")" TextColor="TextColor.Yellow" />
-                        <Label Text="@trueSkillData.MuChange.ToSignedFormat(2)" TextColor="@GetChangeColor(trueSkillData.MuChange)" />
-                    </ResponsiveContainer>
-                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="background">
-                        <Label Text="@trueSkillData.SigmaNew.ToString("F6")" TextColor="TextColor.Yellow" />
-                        <Label Text="@trueSkillData.SigmaChange.ToSignedFormat(6)" TextColor="@GetChangeColor(trueSkillData.SigmaChange)" />
-                    </ResponsiveContainer>       
-                }
-                else if (_selectedRankingSystem == RankingSystem.Glicko2)
-                {
-                    var glickoData = GetPlayersGlickoData(playerResult.TiglUserId);
-
-                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="background">
-                        <Label Text="@glickoData.RatingNew.ToString("F2")" TextColor="TextColor.Green" />
-                        <Label Text="@glickoData.RatingChange.ToSignedFormat(2)" TextColor="@GetChangeColor(glickoData.RatingChange)" />
-                    </ResponsiveContainer>
-                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="background">
-                        <Label Text="@glickoData.RdNew.ToString("F4")" TextColor="TextColor.Yellow" />
-                        <Label Text="@glickoData.RdChange.ToSignedFormat(4)" TextColor="@GetChangeColor(glickoData.RdChange)" />
-                    </ResponsiveContainer>
-                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="background">
-                        <Label Text="@glickoData.VolatilityNew.ToString("F6")" TextColor="TextColor.Yellow" />
-                        <Label Text="@glickoData.VolatilityChange.ToSignedFormat(6)" TextColor="@GetChangeColor(glickoData.VolatilityChange)" />
-                    </ResponsiveContainer>
-                }
-                else if (_selectedRankingSystem == RankingSystem.Async)
-                {
-                    var asyncData = GetPlayersAsyncData(playerResult.TiglUserId);
-
-                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="background">
-                        <Label Text="@asyncData.RatingNew.ToString("F2")" TextColor="TextColor.Green" />
-                        <Label Text="@asyncData.RatingChange.ToSignedFormat(2)" TextColor="@GetChangeColor(asyncData.RatingChange)" />
-                    </ResponsiveContainer>
-                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="background">
-                        <Label Text="@asyncData.AussieScoreNew.ToString("F2")" TextColor="TextColor.Yellow" />
-                        <Label Text="@asyncData.AussieScoreChange.ToSignedFormat(2)" TextColor="@GetChangeColor(asyncData.AussieScoreChange)" />
-                    </ResponsiveContainer>
-
-                    <div style="align-self: stretch; justify-self: stretch;" class="background" />
-                }
-
-                <Label />
-
-                <div class="span-7" style="height: clamp(0.313rem, 0.313rem + 1vw, 0.625rem);"></div>
-            }
-
-        </GridLayout>
-
-        @if(MatchReport.League == TiglLeague.Fractured)
-        {
-            <Label Text="Galactic Events" CenterText="true" CssClass="mb-md" />
-
-            <GridLayout CssClass="background mb-md" Columns="3" >
-
-            <div class="span-3" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
-            @foreach(var galacticEvent in MatchReport.GalacticEvents)
-            {
-                <Label Text="@galacticEvent" CenterText="true" />
-            }
-
-            <div class="span-3" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
-            </GridLayout>
-        }
-    }
-
-    </StretchHeightContainer>
+        </StretchHeightContainer>
+    </section>
 
 </Page>

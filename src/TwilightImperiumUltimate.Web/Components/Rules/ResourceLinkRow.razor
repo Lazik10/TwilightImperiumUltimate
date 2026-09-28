@@ -1,14 +1,12 @@
 @using TwilightImperiumUltimate.Web.Enums
 
-<ResponsiveContainer Type="ContainerType.Flex" Padding="none">
-    <a href="@Link" target="_blank">@LinkText</a>
-</ResponsiveContainer>
-
-<ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart">
-    <a href="@Link" target="_blank" download="@DownloadName">
-        <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
-            <img src="@(PathProvider.GetIconPath(IconType.PdfDownload))" alt="" />
-            <div>Download</div>
-        </ResponsiveContainer>
+<article class="resource-link-row">
+    <a class="resource-card-link" href="@Link" target="_blank" rel="noopener noreferrer" aria-label="@LinkText">
+        <ResponsiveCard CssClass="resource-card">
+            <div class="resource-card-content">
+                <img class="resource-card-icon" src="@(PathProvider.GetIconPath(IconType.PdfDownload))" alt="" />
+                <ResponsiveLabel Text="@LinkText" FontSize="base" TextColor="TextColor.White" CssClass="resource-card-title" />
+            </div>
+        </ResponsiveCard>
     </a>
-</ResponsiveContainer>
+</article>
