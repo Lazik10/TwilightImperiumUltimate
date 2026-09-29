@@ -91,13 +91,13 @@ public partial class MainNavigation : IDisposable
             new NavLinkItem(PageRoutes.MiltyDraft, "miltydraft", Strings.Page_MiltyDraft),
             new NavLinkItem(PageRoutes.SliceGenerator, "slicegenerator", Strings.Page_SliceGenerator),
             new NavLinkItem(PageRoutes.MapGenerator, "mapgenerator", Strings.Page_MapGenerator),
-            new NavLinkItem(PageRoutes.CardGenerator, "cardgenerator", Strings.Page_CardGenerator),
+            // new NavLinkItem(PageRoutes.CardGenerator, "cardgenerator", Strings.Page_CardGenerator),
         ];
 
         _rulesLinks =
         [
             new NavLinkItem(PageRoutes.Rules, "rulespage", Strings.Page_Rules),
-            new NavLinkItem(PageRoutes.Faq, "faq", Strings.Page_Faq),
+            // new NavLinkItem(PageRoutes.Faq, "faq", Strings.Page_Faq),
             new NavLinkItem(PageRoutes.Resources, "resources", Strings.Page_Resources),
         ];
 

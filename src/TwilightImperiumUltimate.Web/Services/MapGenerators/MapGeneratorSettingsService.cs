@@ -21,7 +21,7 @@ public class MapGeneratorSettingsService(
 
     public SystemWeight SystemWeight { get; set; } = MapGeneratorOptions.SystemWeight;
 
-    public List<GameVersion> GameVersions { get; set; } = new List<GameVersion>() { GameVersion.BaseGame, GameVersion.ProphecyOfKings };
+    public List<GameVersion> GameVersions { get; set; } = new List<GameVersion>() { GameVersion.BaseGame, GameVersion.ProphecyOfKings, GameVersion.ThundersEdge };
 
     public SystemTileOverlay MapOverlay { get; set; } = MapGeneratorOptions.MapOverlay;
 

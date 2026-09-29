@@ -2,9 +2,9 @@
 @using TwilightImperiumUltimate.Web.Helpers.Enums
 
 <div class="milty-draft-main">
-    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-md">
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
 
-        <ResponsiveButton ButtonText="@(GetButtonText())" OnClick="StartMiltyDraft" IsDisabled="GetButtonStatus()" Width="30" CssClass="mt-xl milty-draft-primary-action" Style="--responsive-button-mobile-width: 80%; white-space: nowrap;" />
+        <ResponsiveButton ButtonText="@(GetButtonText())" OnClick="StartMiltyDraft" IsDisabled="GetButtonStatus()" Width="30" CssClass="milty-draft-primary-action" Style="--responsive-button-mobile-width: 80%; white-space: nowrap;" />
 
         @if (IsImportedSlicesEnabledAndImportedStringInvalid().Result)
         {

@@ -16,7 +16,8 @@
 }
 
 ::deep .tile-menu-toggle {
-    width: 100%;
+    width: max-content;
+    white-space: nowrap;
 }
 
 /* .tile-menu-card and .radzen-dropdown are rendered by child components, so ::deep is required. */

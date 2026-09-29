@@ -83,16 +83,20 @@
         <ResponsiveHeading Level="4" Text="Other" CenterText="true" CssClass="mb-sm" />
 
         <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Width="100" Gap="var(--space-xl)">
-            <ResponsiveDropDown Id="map-generator-enable-faction-pick" TValue="bool" Label="@Strings.MapGeneratorSettings_EnableFactionPick.TrimEnd(':')" LabelPosition="LabelPosition.Column" Value="@MapGeneratorSettingsService.EnableFactionPick" ValueChanged="OnFactionPickChanged" Data="@BooleanOptions" ValueProperty="Key" TextProperty="Value" />
-
             <ResponsiveDropDown Id="map-generator-settings-legendary-planets" TValue="int" Label="@Strings.MapGeneratorSettings_NumberOfLegendaryPlanets.TrimEnd(':')" LabelPosition="LabelPosition.Column" Value="@MapGeneratorSettingsService.NumberOfLegendaryPlanets" ValueChanged="SetNumberOfLegendaryPlanets" Data="@GetLegendaryPlanetOptions()" />
 
             <ResponsiveDropDown Id="map-generator-settings-legendaries-in-equidistant" TValue="bool" Label="@Strings.MapGeneratorSettings_LegendariesInEquidistant.TrimEnd(':')" LabelPosition="LabelPosition.Column" Value="@MapGeneratorSettingsService.LegendaryPriorityInEquidistant" ValueChanged="SetLegendaryPriorityInEquidistant" Data="@BooleanOptions" ValueProperty="Key" TextProperty="Value" />
 
             <ResponsiveDropDown Id="map-generator-settings-wormhole-density" TValue="WormholeDensity" Label="@Strings.WormholeDensityPicker_WormholeDensity.TrimEnd(':')" LabelPosition="LabelPosition.Column" Value="@MapGeneratorSettingsService.WormholeDensity" ValueChanged="SetWormholeDensity" Data="@_wormholeDensities" ValueProperty="Key" TextProperty="Value" />
-
-            <ResponsiveDropDown Id="map-generator-settings-enable-player-names" TValue="bool" Label="@Strings.MapGeneratorSettings_EnablePlaerNames.TrimEnd(':')" LabelPosition="LabelPosition.Column" Value="@MapGeneratorSettingsService.EnablePlayerNames" ValueChanged="SetPlayerNamesEnabled" Data="@BooleanOptions" ValueProperty="Key" TextProperty="Value" />
         </ResponsiveGridContainer>
+    </ResponsiveCard>
+
+    <ResponsiveCard CssClass="mb-md">
+        <ResponsiveHeading Level="4" Text="Faction pick" CenterText="true" CssClass="mb-sm" />
+
+        <div class="map-generator-settings-toggle">
+            <ResponsiveDropDown Id="map-generator-enable-faction-pick" TValue="bool" Label="@Strings.MapGeneratorSettings_EnableFactionPick.TrimEnd(':')" LabelPosition="LabelPosition.Column" Value="@MapGeneratorSettingsService.EnableFactionPick" ValueChanged="OnFactionPickChanged" Data="@BooleanOptions" ValueProperty="Key" TextProperty="Value" />
+        </div>
     </ResponsiveCard>
 
     @if (MapGeneratorSettingsService.EnableFactionPick)
@@ -100,17 +104,21 @@
         <FactionMenuPicker ProvidedFactions="@MapGeneratorSettingsService.FactionsForMapGenerator" OnFactionChanged="OnFactionChanged" />
     }
 
-    @if (MapGeneratorSettingsService.EnablePlayerNames)
-    {
-        <ResponsiveCard CssClass="mb-md">
-            <ResponsiveHeading Level="4" Text="@Strings.MapGeneratorSettings_EnablePlaerNames.TrimEnd(':')" CenterText="true" CssClass="mb-sm" />
+    <ResponsiveCard CssClass="mb-md">
+        <ResponsiveHeading Level="4" Text="Players" CenterText="true" CssClass="mb-sm" />
 
+        <div class="map-generator-settings-toggle">
+            <ResponsiveDropDown Id="map-generator-settings-enable-player-names" TValue="bool" Label="@Strings.MapGeneratorSettings_EnablePlaerNames.TrimEnd(':')" LabelPosition="LabelPosition.Column" Value="@MapGeneratorSettingsService.EnablePlayerNames" ValueChanged="SetPlayerNamesEnabled" Data="@BooleanOptions" ValueProperty="Key" TextProperty="Value" />
+        </div>
+
+        @if (MapGeneratorSettingsService.EnablePlayerNames)
+        {
             <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Width="100" Gap="var(--space-xl)">
                 @foreach (var player in MapGeneratorSettingsService.Players)
                 {
                     <ResponsiveTextBox Id="@($"map-generator-player-name-{MapGeneratorSettingsService.Players.IndexOf(player)}")" Value="@player.PlayerName" ValueChanged="value => player.PlayerName = value" Placeholder="@Strings.Player" />
                 }
             </ResponsiveGridContainer>
-        </ResponsiveCard>
-    }
+        }
+    </ResponsiveCard>
 </ResponsiveContainer>

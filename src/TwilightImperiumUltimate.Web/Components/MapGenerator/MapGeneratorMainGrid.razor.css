@@ -7,6 +7,31 @@
     width: 100%;
 }
 
+@media (min-width: 769px) {
+    .map-controls {
+        position: relative;
+        width: 100%;
+        min-height: 4.75rem;
+        margin-top: var(--space-sm);
+    }
+
+    .map-controls ::deep .hex-menu {
+        top: 0;
+        bottom: 0;
+        justify-content: center;
+        min-height: 0;
+        max-height: none;
+    }
+
+    .map-controls ::deep .map-quick-menu {
+        top: 0;
+        bottom: 0;
+        justify-content: center;
+        min-height: 0;
+        max-height: none;
+    }
+}
+
 @media (max-width: 768px) {
     .map-controls {
         display: flex;

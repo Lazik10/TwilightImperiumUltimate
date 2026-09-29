@@ -13,6 +13,10 @@
 
     @if (_selectedSegment == MapGeneratorMenuItem.MapGenerator)
     {
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-md">
+            <ResponsiveButton OnClick="GenerateMap" ButtonText="@Strings.MapGenerator_GenerateMap" Width="30" />
+        </ResponsiveContainer>
+
         <div class="map-controls">
             <HexTileMenu SwappedSystemTileFromMenu="Refresh" />
 
@@ -22,9 +26,6 @@
         </div>
 
         <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-md">
-
-            <ResponsiveButton OnClick="GenerateMap" ButtonText="@Strings.MapGenerator_GenerateMap" Width="30" />
-
             <StretchHeightContainer>
                 <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                     <MapZoomViewport>

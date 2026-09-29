@@ -1,5 +1,6 @@
 using TwilightImperiumUltimate.Web.Services.Draft;
 using TwilightImperiumUltimate.Web.Components.Factions;
+using TwilightImperiumUltimate.Web.Options.Drafts;
 
 namespace TwilightImperiumUltimate.Web.Components.Drafts.Color;
 
@@ -9,10 +10,22 @@ public partial class ColorPickerGrid
 
     private DraftStage _draftStage = DraftStage.Draft;
 
+    private IReadOnlyCollection<FactionColorDraftResult> _previewDraftResults = [];
+
+    private IReadOnlyCollection<FactionModel> _previewFactions = [];
+
+    private bool _showSettings;
+
     [Inject]
     private IColorPickerService ColorPickerService { get; set; } = null!;
 
     private bool HasDraftResults => ColorPickerService.FactionColorDraftResults is not null && ColorPickerService.FactionColorDraftResults.Any();
+
+    private bool HasPreviewDraftResults => _previewDraftResults.Count > 0;
+
+    private bool HasAvailableColors => ColorPickerService.Colors.Any(color => !color.Value);
+
+    private bool HasEnoughSelectedFactions => ColorPickerService.SelectedFactions.Count >= ColorDraftOptions.MinNumberOfFactions;
 
     private bool HasTooFewColors => ColorPickerService.Colors.Count(color => !color.Value) < ColorPickerService.SelectedFactions.Count;
 
@@ -23,20 +36,30 @@ public partial class ColorPickerGrid
 
     private async Task DraftColors()
     {
-        if (!ColorPickerService.IsDraftPossible())
+        if (HasEnoughSelectedFactions && !ColorPickerService.IsDraftPossible())
             return;
 
         _draftStage = DraftStage.DraftInProgress;
-        await ColorPickerService.PerformDraft();
+        if (HasEnoughSelectedFactions)
+            await ColorPickerService.PerformDraft();
+        else
+            RunPreviewDraft();
+
         StateHasChanged();
         _draftStage = DraftStage.Draft;
     }
 
     private async Task HandlePrimaryButtonClick()
     {
-        if (HasDraftResults)
+        if (HasEnoughSelectedFactions && HasDraftResults)
         {
             ResetDraft();
+            return;
+        }
+
+        if (!HasEnoughSelectedFactions && HasPreviewDraftResults)
+        {
+            _previewDraftResults = [];
             return;
         }
 
@@ -50,6 +73,38 @@ public partial class ColorPickerGrid
         StateHasChanged();
     }
 
+    private void InitializePreviewFactions(IReadOnlyCollection<FactionModel> factions)
+    {
+        _previewFactions = factions
+            .OrderBy(_ => Random.Shared.Next())
+            .Take(6)
+            .ToArray();
+    }
+
+    private void RunPreviewDraft()
+    {
+        var availableColors = ColorPickerService.Colors
+            .Where(color => !color.Value)
+            .Select(color => color.Key)
+            .OrderBy(_ => Random.Shared.Next())
+            .ToArray();
+
+        if (availableColors.Length == 0)
+            return;
+
+        _previewDraftResults = _previewFactions
+            .Select((faction, index) => new FactionColorDraftResult
+            {
+                FactionName = faction.FactionName,
+                Color = availableColors[index % availableColors.Length],
+            })
+            .ToArray();
+    }
+
+    private void ShowDraft() => _showSettings = false;
+
+    private void ShowSettings() => _showSettings = true;
+
     private void HandleColorClick(PlayerColor color)
     {
         ColorPickerService.UpdateColorBanStatus(color);
@@ -58,11 +113,14 @@ public partial class ColorPickerGrid
     private void UpdateSelectedFactions(FactionModel faction)
     {
         ColorPickerService.UpdateSelectedFactions(_factionMenuPicker.Factions, faction);
+        _previewDraftResults = [];
     }
 
     private string GetPrimaryButtonText()
     {
-        return HasDraftResults ? Strings.ColorPickerButton_ResetDraft : GetButtonStateText();
+        return (HasEnoughSelectedFactions && HasDraftResults) || (!HasEnoughSelectedFactions && HasPreviewDraftResults)
+            ? Strings.ColorPickerButton_ResetDraft
+            : GetButtonStateText();
     }
 
     private string GetButtonStateText()
@@ -75,7 +133,15 @@ public partial class ColorPickerGrid
         };
     }
 
-    private bool GetButtonState() => !HasDraftResults && _draftStage == DraftStage.Draft && !ColorPickerService.IsDraftPossible();
+    private bool GetButtonState()
+    {
+        if (_draftStage != DraftStage.Draft)
+            return true;
+
+        return HasEnoughSelectedFactions
+            ? !HasDraftResults && !ColorPickerService.IsDraftPossible()
+            : !HasPreviewDraftResults && (!HasAvailableColors || _previewFactions.Count == 0);
+    }
 
     private void HandleOnDataUpdated(object? sender, EventArgs e)
     {
