@@ -1,20 +1,20 @@
-﻿<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-
-    <div class="slice-grid mb-2xl">
-        @{
-            int position = 0;
-        }
-        @foreach(var systemTile in SliceModel.SystemTiles)
-        {
-
-            <div class="hex">
-                <SliceHex SystemTile="systemTile" SliceId="SliceModel.Id" SlicePosition="position" />
+﻿<div class="slice-generator-slice">
+    <ResponsiveCard CssClass="slice-detail-card">
+        <div class="slice-preview-archive">
+            <div class="slice-grid mb-2xl">
+                @{
+                    int position = 0;
+                }
+                @foreach(var systemTile in SliceModel.SystemTiles)
+                {
+                    <div class="hex">
+                        <SliceHex SystemTile="systemTile" SliceId="SliceModel.Id" SlicePosition="position" />
+                    </div>
+                    position++;
+                }
             </div>
-            position++;
-        }
 
-    </div>
-
-    <SliceEvaluationStats SliceModel="SliceModel" />
-
-</ResponsiveContainer>
+            <SliceEvaluationStats SliceModel="SliceModel" ArchiveLayout="true" />
+        </div>
+    </ResponsiveCard>
+</div>

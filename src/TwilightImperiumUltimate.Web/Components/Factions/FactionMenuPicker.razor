@@ -1,0 +1,38 @@
+@inherits TwilightImperiumBaseComponent
+
+<div class="faction-menu-picker">
+    <ResponsiveCard CssClass="faction-menu-picker-versions-card">
+        <ResponsiveHeading Level="4" Text="Factions" CenterText="true" CssClass="mb-md" />
+
+        @foreach (var gameVersion in GetGameVersionGroups())
+        {
+            <div class="faction-menu-picker-group">
+                <div class="faction-menu-picker-group-header">
+                    <ResponsiveHeading Level="5" Text="@GetGameVersionLabel(gameVersion)" CenterText="true" CssClass="faction-menu-picker-group-label" />
+
+                    <ResponsiveSwitch IsToggled="@IsGameVersionEnabled(gameVersion)"
+                                      IsToggledChanged="isEnabled => SetGameVersionEnabledAsync(gameVersion, isEnabled)"
+                                      OffText="Off"
+                                      OnText="On"
+                                      Theme="Enums.SwitchColorTheme.Primary"
+                                      CssClass="faction-menu-picker-group-switch" />
+                </div>
+
+                @if (IsGameVersionEnabled(gameVersion))
+                {
+                    <div class="faction-menu-picker-icon-row">
+                        @foreach (var faction in GetFactionsForGameVersion(gameVersion))
+                        {
+                            <div class="faction-menu-picker-icon">
+                                <FactionIcon Faction="faction" NoPadding="true" OnClick="() => FactionIconClicked(faction)" />
+                                <label class="faction-menu-picker-checkbox-label handel shadow">
+                                    <input type="checkbox" checked="@(!faction.Banned)" @onchange="e => FactionCheckboxChanged(faction, e)" />
+                                </label>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+        }
+    </ResponsiveCard>
+</div>

@@ -3520,6 +3520,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
             }
         }
 
+        public static string MiltyDraft_PreparingDraft {
+            get {
+                return ResourceManager.GetString("MiltyDraft_PreparingDraft", resourceCulture);
+            }
+        }
+
         public static string MiltyDraft_ResetDraft {
             get {
                 return ResourceManager.GetString("MiltyDraft_ResetDraft", resourceCulture);

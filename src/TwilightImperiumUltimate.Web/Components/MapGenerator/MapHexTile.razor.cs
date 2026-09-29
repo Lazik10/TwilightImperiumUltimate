@@ -30,9 +30,11 @@ public partial class MapHexTile : TwilightImperiumBaseComponent
     [Inject]
     private IMapGeneratorSettingsService MapGeneratorSettingsService { get; set; } = null!;
 
-    private SystemTileOverlay Overlay => MapGeneratorSettingsService.SystemTileOverlay;
+    private SystemTileOverlay Overlay => MapPosition < 0
+        ? MapGeneratorSettingsService.MenuOverlay
+        : MapGeneratorSettingsService.MapOverlay;
 
-    private string SystemTileOverlayText => MapGeneratorSettingsService.SystemTileOverlay switch
+    private string SystemTileOverlayText => Overlay switch
     {
         SystemTileOverlay.Id => SystemTile?.SystemTileCode ?? string.Empty,
         SystemTileOverlay.Resources => SystemTile?.Resources.ToString(CultureInfo.InvariantCulture) ?? string.Empty,
@@ -40,7 +42,7 @@ public partial class MapHexTile : TwilightImperiumBaseComponent
         _ => string.Empty,
     };
 
-    private string SystemTileOverlayColor => MapGeneratorSettingsService.SystemTileOverlay switch
+    private string SystemTileOverlayColor => Overlay switch
     {
 
         SystemTileOverlay.Id => "white",

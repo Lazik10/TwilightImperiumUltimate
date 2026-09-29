@@ -23,7 +23,9 @@ public class MapGeneratorSettingsService(
 
     public List<GameVersion> GameVersions { get; set; } = new List<GameVersion>() { GameVersion.BaseGame, GameVersion.ProphecyOfKings };
 
-    public SystemTileOverlay SystemTileOverlay { get; set; } = MapGeneratorOptions.SystemTileOverlay;
+    public SystemTileOverlay MapOverlay { get; set; } = MapGeneratorOptions.MapOverlay;
+
+    public SystemTileOverlay MenuOverlay { get; set; } = MapGeneratorOptions.MenuOverlay;
 
     public WormholeDensity WormholeDensity { get; set; } = MapGeneratorOptions.WormholeDensity;
 

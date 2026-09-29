@@ -2,3 +2,29 @@
     position: relative;
     width: 100%;
 }
+
+#mapArea {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .map-controls {
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        width: 100%;
+        padding-inline: 3%;
+    }
+
+    .map-controls ::deep .hex-menu {
+        position: static;
+        flex: 0 0 auto;
+        width: auto;
+        min-height: 0;
+        max-height: none;
+    }
+
+    .map-controls ::deep .tile-menu-toggle {
+        width: auto;
+    }
+}

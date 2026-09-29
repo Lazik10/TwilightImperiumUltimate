@@ -1,10 +1,29 @@
-﻿.player-number {
-    max-width: 20%;
+﻿.faction-draft-player-card:not(:last-child) {
+    margin-bottom: var(--space-md);
 }
 
-.factions-text {
-    justify-self: end;
-    min-width: 25%;
+.faction-draft-player-card ::deep .responsive-card {
+    padding-block: var(--space-sm);
+}
+
+.faction-draft-player-row ::deep .faction-draft-player-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+}
+
+.faction-draft-player-details,
+.faction-draft-player-factions {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    gap: var(--space-md);
+}
+
+.faction-draft-player-details {
+    justify-content: flex-start;
+}
+
+.faction-draft-player-factions {
+    justify-content: space-between;
 }
 
 .wrap {
@@ -16,4 +35,20 @@
     height: 75px;
     margin: 0px 5px;
     border-radius: 20%;
+}
+
+@media (max-width: 768px) {
+    .faction-draft-player-row ::deep .faction-draft-player-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .faction-draft-player-details {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .faction-draft-player-factions {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
 }

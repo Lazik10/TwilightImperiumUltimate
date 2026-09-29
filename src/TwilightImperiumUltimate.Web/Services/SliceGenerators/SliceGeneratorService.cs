@@ -40,6 +40,30 @@ public class SliceGeneratorService(
         await GenerateSlices(true);
     }
 
+    public Task InitializeEmptySlices(int numberOfSlices)
+    {
+        _slices = new List<SliceModel>();
+
+        for (var index = 0; index < numberOfSlices; index++)
+        {
+            _slices.Add(new SliceModel()
+            {
+                Id = index,
+                SystemTiles = new List<SystemTileModel>
+                {
+                    new SystemTileModel() { SystemTileName = SystemTileName.TileHome },
+                    new SystemTileModel() { SystemTileName = SystemTileName.TileEmpty, GameVersion = GameVersion.Custom },
+                    new SystemTileModel() { SystemTileName = SystemTileName.TileEmpty, GameVersion = GameVersion.Custom },
+                    new SystemTileModel() { SystemTileName = SystemTileName.TileEmpty, GameVersion = GameVersion.Custom },
+                    new SystemTileModel() { SystemTileName = SystemTileName.TileEmpty, GameVersion = GameVersion.Custom },
+                    new SystemTileModel() { SystemTileName = SystemTileName.TileEmpty, GameVersion = GameVersion.Custom },
+                },
+            });
+        }
+
+        return Task.CompletedTask;
+    }
+
     public async Task GenerateSlices(bool previewSlices)
     {
         var request = new SliceDraftRequest(

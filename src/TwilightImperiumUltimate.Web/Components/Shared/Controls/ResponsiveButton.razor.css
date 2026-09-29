@@ -16,7 +16,7 @@
     tappable on tablet and mobile.
 
     Background/hover colors are read from --responsive-button-* custom properties (falling back
-    to the normal nav palette) instead of being hardcoded, so a themed variant like
+    to the navigation palette) instead of being hardcoded, so a themed variant like
     ResponsiveDangerButton can override just the palette -- via inline style custom properties on
     the wrapped <ResponsiveButton>, e.g. `--responsive-button-bg: var(--color-danger-bg-solid);`
     -- without needing to fight this component's own CSS specificity/!important from another
@@ -28,13 +28,13 @@
     width: var(--responsive-button-width, auto);
     max-width: 50rem;
     padding: var(--space-md) var(--space-2xl);
-    background-color: var(--responsive-button-bg, var(--color-nav-panel-bg));
+    background-color: var(--responsive-button-bg, var(--color-nav-hover-bg-solid));
     border: 2px solid black;
     border-radius: var(--border-radius-md);
     cursor: pointer;
     text-decoration: none;
     font-size: var(--font-size-md) !important;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 /* Opt-in modifier for buttons that need to stay compact/short (e.g. a "Clear filters" action
@@ -46,7 +46,8 @@
 }
 
 .responsive-button:hover:not(:disabled) {
-    background-color: var(--responsive-button-hover-bg, var(--color-nav-hover-bg-solid));
+    background-color: var(--responsive-button-hover-bg, var(--color-nav-panel-bg));
+    border-color: var(--responsive-button-bg, var(--color-nav-hover-bg-solid));
     color: var(--responsive-button-hover-color, var(--color-nav-hover)) !important;
 }
 

@@ -2,43 +2,78 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    left: 20px;
-    top: 400px;
+    left: 3%;
+    top: 10%;
     z-index: 1000;
-    width: 10%;
-    max-height: 835px;
-    min-height: 835px;
+    width: 15%;
+    max-height: 40%;
+    min-height: 40%;
 }
 
 .rz-dropdown-item {
     font-family: Handel, fallback, sans-serif !important;
 }
 
-/* .radzen-dropdown is passed via CssClass into the ResponsiveDropDown child component and
-   rendered inside that child's own CSS scope, so ::deep is required to reach it. */
-::deep .radzen-dropdown {
+::deep .tile-menu-toggle {
+    width: max-content;
+    white-space: nowrap;
+}
+
+/* .tile-menu-card and .radzen-dropdown are rendered by child components, so ::deep is required. */
+::deep .tile-menu-card {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1001;
+    width: auto;
+    padding: var(--space-md) 0 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+
+.tile-menu-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+::deep .tile-menu-card .radzen-dropdown {
     font-family: Handel, fallback, sans-serif !important;
+    box-sizing: border-box;
+    align-self: center;
+    width: min(100%, 26rem) !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
 }
 
 .scrollbar-area {
-    overflow-y: auto;
-    overflow-x: hidden;
-    height: 100%;
+    display: flex;
+    gap: var(--space-sm);
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
 }
 
-    .scrollbar-area::-webkit-scrollbar {
-        width: 12px;
-    }
+::deep .scrollbar-area .hex-container {
+    flex: 0 0 clamp(5.4rem, 9.6vw, 9rem);
+    width: clamp(5.4rem, 9.6vw, 9rem);
+    height: auto;
+}
 
-    .scrollbar-area::-webkit-scrollbar-track {
-        background: transparent;
-    }
+.scrollbar-area::-webkit-scrollbar {
+    display: none;
+}
 
-    .scrollbar-area::-webkit-scrollbar-thumb {
-        background: #0024ff;
-    }
+.scrollbar-area::-webkit-scrollbar-track {
+    background: transparent;
+}
 
-    .scrollbar-area::-webkit-scrollbar-button {
-        background-color: transparent;
-        color: transparent;
-    }
+.scrollbar-area::-webkit-scrollbar-thumb {
+    background: #0024ff;
+}
+
+.scrollbar-area::-webkit-scrollbar-button {
+    background-color: transparent;
+    color: transparent;
+}

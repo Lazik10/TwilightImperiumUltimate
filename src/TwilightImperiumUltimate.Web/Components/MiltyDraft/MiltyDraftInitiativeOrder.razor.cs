@@ -1,3 +1,4 @@
+using TwilightImperiumUltimate.Web.Helpers.Enums;
 using TwilightImperiumUltimate.Web.Services.MiltyDraft;
 
 namespace TwilightImperiumUltimate.Web.Components.MiltyDraft;
@@ -21,6 +22,9 @@ public partial class MiltyDraftInitiativeOrder
 
     [Inject]
     private IMiltyDraftService MiltyDraftService { get; set; } = default!;
+
+    [Inject]
+    private IMiltyDraftSettingsService MiltyDraftSettingsService { get; set; } = default!;
 
     private async Task PickInitiative()
     {
@@ -46,5 +50,21 @@ public partial class MiltyDraftInitiativeOrder
     {
         return !IsPicked && MiltyDraftService.Initiatives.Count(x => x.Picked) >= MiltyDraftService.Players.Count
             ? "filter: grayscale(100%); -webkit-filter: grayscale(100%);" : string.Empty;
+    }
+
+    private string GetInitiativeLabel()
+    {
+        var player = MiltyDraftService.Players.FirstOrDefault(player => player.Initiative == Initiative);
+        return player is null
+            ? "Unpicked"
+            : MiltyDraftSettingsService.EnablePlayerNames
+                ? player.PlayerName
+                : player.PlayerDefaultName;
+    }
+
+    private TextColor GetInitiativeTextColor()
+    {
+        var player = MiltyDraftService.Players.FirstOrDefault(player => player.Initiative == Initiative);
+        return player is null ? TextColor.White : player.PlayerColor.GetTextColor();
     }
 }

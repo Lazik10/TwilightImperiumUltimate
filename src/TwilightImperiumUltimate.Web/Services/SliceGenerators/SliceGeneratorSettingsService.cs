@@ -14,7 +14,9 @@ public class SliceGeneratorSettingsService : ISliceGeneratorSettingsService
 
     public int NumberOfLegendaries { get; set; } = SliceGeneratorOptions.NumberOfLegendaryPlanets;
 
-    public SystemTileOverlay SystemTileOverlay { get; set; } = SliceGeneratorOptions.SystemTileOverlay;
+    public SystemTileOverlay SliceOverlay { get; set; } = SliceGeneratorOptions.SliceOverlay;
+
+    public SystemTileOverlay MenuOverlay { get; set; } = SliceGeneratorOptions.MenuOverlay;
 
     public Task IncreaseNumberOfSlices()
     {
@@ -58,9 +60,15 @@ public class SliceGeneratorSettingsService : ISliceGeneratorSettingsService
         return Task.CompletedTask;
     }
 
-    public Task UpdateSystemTileOverlay(SystemTileOverlay systemTileOverlay)
+    public Task UpdateSliceOverlay(SystemTileOverlay systemTileOverlay)
     {
-        SystemTileOverlay = systemTileOverlay;
+        SliceOverlay = systemTileOverlay;
+        return Task.CompletedTask;
+    }
+
+    public Task UpdateMenuOverlay(SystemTileOverlay systemTileOverlay)
+    {
+        MenuOverlay = systemTileOverlay;
         return Task.CompletedTask;
     }
 

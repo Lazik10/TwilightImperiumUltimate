@@ -37,9 +37,9 @@ public partial class SliceHexTile : TwilightImperiumBaseComponent
     [Inject]
     private ISliceGeneratorSettingsService SliceGeneratorSettingsService { get; set; } = null!;
 
-    private SystemTileOverlay Overlay => SliceGeneratorSettingsService.SystemTileOverlay;
+    private SystemTileOverlay Overlay => SliceGeneratorSettingsService.MenuOverlay;
 
-    private string SystemTileOverlayText => SliceGeneratorSettingsService.SystemTileOverlay switch
+    private string SystemTileOverlayText => Overlay switch
     {
         SystemTileOverlay.Id => SystemTile?.SystemTileCode ?? string.Empty,
         SystemTileOverlay.Resources => SystemTile?.Resources.ToString(CultureInfo.InvariantCulture) ?? string.Empty,
@@ -47,7 +47,7 @@ public partial class SliceHexTile : TwilightImperiumBaseComponent
         _ => string.Empty,
     };
 
-    private string SystemTileOverlayColor => SliceGeneratorSettingsService.SystemTileOverlay switch
+    private string SystemTileOverlayColor => Overlay switch
     {
 
         SystemTileOverlay.Id => "white",

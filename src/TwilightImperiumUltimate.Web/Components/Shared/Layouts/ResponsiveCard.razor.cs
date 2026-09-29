@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Components.Web;
+
 namespace TwilightImperiumUltimate.Web.Components.Shared.Layouts;
 
 /// <summary>
@@ -22,4 +24,28 @@ public partial class ResponsiveCard
     /// </summary>
     [Parameter]
     public bool RemoveHorizontalPadding { get; set; }
+
+    /// <summary>
+    /// Gets or sets the optional action raised when an interactive card is activated.
+    /// </summary>
+    [Parameter]
+    public EventCallback OnClick { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether an interactive card is unavailable for activation.
+    /// </summary>
+    [Parameter]
+    public bool IsDisabled { get; set; }
+
+    private async Task HandleClickAsync()
+    {
+        if (OnClick.HasDelegate && !IsDisabled)
+            await OnClick.InvokeAsync();
+    }
+
+    private async Task HandleKeyDownAsync(KeyboardEventArgs keyboardEventArgs)
+    {
+        if (keyboardEventArgs.Key is "Enter" or " ")
+            await HandleClickAsync();
+    }
 }

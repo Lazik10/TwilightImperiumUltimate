@@ -16,7 +16,9 @@ public interface IMapGeneratorSettingsService
 
     List<MapGeneratorPlayerModel> Players { get; set; }
 
-    SystemTileOverlay SystemTileOverlay { get; set; }
+    SystemTileOverlay MapOverlay { get; set; }
+
+    SystemTileOverlay MenuOverlay { get; set; }
 
     WormholeDensity WormholeDensity { get; set; }
 

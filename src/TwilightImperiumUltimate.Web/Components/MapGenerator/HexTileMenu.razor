@@ -1,36 +1,37 @@
-﻿@using TwilightImperiumUltimate.Web.Components.Shared.Text
-@using TwilightImperiumUltimate.Web.Resources
+﻿@using TwilightImperiumUltimate.Web.Resources
 @using TwilightImperiumUltimate.Web.Services.MapGenerators
-@using TwilightImperiumUltimate.Web.Services.Path
-@inject IPathProvider PathProvider
 @inject IMapGeneratorSettingsService MapGeneratorSettingsService
 
 <div class="hex-menu">
 
-    <ClickableTile OnClick="ToggleTileMenu">
-        <ResponsiveLabel Text="@GetButtonText()" CenterText="true" FontSize="lg" />
-    </ClickableTile>
+    <ResponsiveButton OnClick="ToggleTileMenu"
+                      ButtonText="@GetButtonText()"
+                      CssClass="tile-menu-toggle" />
 
     @if (_showTileMenu)
     {
-@*         <Title Text="Filter:" FontSize="20" /> *@
-        <ResponsiveDropDown Id="hex-tile-menu-filter"
-            TValue="SystemTileTypeFilter"
-            Value="@_selectedSystemTileType"
-            ValueChanged="@(v => { _selectedSystemTileType = v; GetSystemTilesToShow(); })"
-            Data="@_systemTileTypes"
-            TextProperty="Value"
-            ValueProperty="Key"
-            Style="min-height: 40px;"
-            CssClass="title radzen-dropdown" />
+        <ResponsiveCard CssClass="tile-menu-card">
+            <div class="tile-menu-content">
+                <ResponsiveDropDown Id="hex-tile-menu-filter"
+                                      TValue="SystemTileTypeFilter"
+                                      Value="@_selectedSystemTileType"
+                                      ValueChanged="@(v => { _selectedSystemTileType = v; GetSystemTilesToShow(); })"
+                                      Data="@_systemTileTypes"
+                                      TextProperty="Value"
+                                      ValueProperty="Key"
+                                      Style="min-height: 40px;"
+                                      CssClass="title radzen-dropdown" />
 
-        <div class="scrollbar-area">
-            @foreach (var systemTile in SystemTiles)
-            {
-                <MapHexTile SystemTile="systemTile"
-                MapPosition="-1"
-                SwappedSystemTileFromMenu="RefreshSystemTilesMenu" />
-            }
-        </div>
+                <div class="scrollbar-area">
+                    @foreach (var systemTile in SystemTiles)
+                    {
+                        <MapHexTile @key="systemTile.SystemTileName"
+                                    SystemTile="systemTile"
+                                    MapPosition="-1"
+                                    SwappedSystemTileFromMenu="RefreshSystemTilesMenu" />
+                    }
+                </div>
+            </div>
+        </ResponsiveCard>
     }
 </div>

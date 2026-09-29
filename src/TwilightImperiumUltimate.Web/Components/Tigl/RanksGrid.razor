@@ -6,25 +6,21 @@
     ResponsiveGrid, they are obsolete in this codebase.
 *@
 
-<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-md mb-md">
-
-    <ResponsiveTabMenu AriaLabel="@Strings.TiglLeague_League" CssClass="faction-style mb-md">
-        <ResponsiveTab Id="ranks-tab-standard"
-                       ControlsId="ranks-panel"
-                       IsActive="@(_league == TiglLeague.ThundersEdge)"
-                       OnClick="@(() => ChangeLeague(TiglLeague.ThundersEdge))">
-            @Strings.TiglGames_CategoryStandard
-        </ResponsiveTab>
-        <ResponsiveTabSeparator />
-        <ResponsiveTab Id="ranks-tab-fractured"
-                       ControlsId="ranks-panel"
-                       IsActive="@(_league == TiglLeague.Fractured)"
-                       OnClick="@(() => ChangeLeague(TiglLeague.Fractured))">
-            @Strings.TiglGames_CategoryFractured
-        </ResponsiveTab>
-    </ResponsiveTabMenu>
-
-</ResponsiveContainer>
+<ResponsiveTabMenu AriaLabel="@Strings.TiglLeague_League" CssClass="faction-style mb-md">
+    <ResponsiveTab Id="ranks-tab-standard"
+                   ControlsId="ranks-panel"
+                   IsActive="@(_league == TiglLeague.ThundersEdge)"
+                   OnClick="@(() => ChangeLeague(TiglLeague.ThundersEdge))">
+        @Strings.TiglGames_CategoryStandard
+    </ResponsiveTab>
+    <ResponsiveTabSeparator />
+    <ResponsiveTab Id="ranks-tab-fractured"
+                   ControlsId="ranks-panel"
+                   IsActive="@(_league == TiglLeague.Fractured)"
+                   OnClick="@(() => ChangeLeague(TiglLeague.Fractured))">
+        @Strings.TiglGames_CategoryFractured
+    </ResponsiveTab>
+</ResponsiveTabMenu>
 
 <div id="ranks-panel" role="tabpanel" aria-labelledby="@ActiveTabId">
 

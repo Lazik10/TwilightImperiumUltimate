@@ -164,6 +164,7 @@ public static class EnumExtensions
             DraftColor.White => TextColor.White,
             DraftColor.Pink => TextColor.Pink,
             DraftColor.Orange => TextColor.Orange,
+            DraftColor.LightBlue => TextColor.LightBlue,
             _ => TextColor.White,
         };
     }

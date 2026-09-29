@@ -44,7 +44,9 @@
 }
 
 .slice-archive-traits {
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-sm);
 }
 
 .slice-archive-trait-icons {
@@ -56,12 +58,14 @@
 
 .slice-archive-trait-groups {
     display: grid;
-    gap: var(--space-xs);
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-sm);
     min-width: 0;
+    width: 100%;
 }
 
-.slice-archive-trait-groups .slice-archive-trait-icons + .slice-archive-trait-icons {
-    margin-top: var(--space-sm);
+.slice-archive-trait-groups .slice-archive-trait-icons {
+    justify-content: center;
 }
 
 @media (max-width: 1024px) {

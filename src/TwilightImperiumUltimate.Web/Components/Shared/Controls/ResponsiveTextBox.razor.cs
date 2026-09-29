@@ -66,6 +66,9 @@ public partial class ResponsiveTextBox
     [Parameter]
     public EventCallback<string> InputChanged { get; set; }
 
+    [Parameter]
+    public long? MaxLength { get; set; }
+
     [CascadingParameter]
     private EditContext? EditContext { get; set; }
 
@@ -89,7 +92,7 @@ public partial class ResponsiveTextBox
     private async Task OnInput(ChangeEventArgs args)
     {
         var value = args.Value?.ToString() ?? string.Empty;
-        Value = value;
+        await OnValueChanged(value);
         await InputChanged.InvokeAsync(value);
     }
 

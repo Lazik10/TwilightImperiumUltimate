@@ -54,7 +54,7 @@ public partial class SliceGeneratorGrid
         }
         else
         {
-            await SliceGeneratorService.GeneratePreviewSlices();
+            await SliceGeneratorService.InitializeEmptySlices(SliceGeneratorSettingsService.NumberOfSlices);
             _slices = GetUpdatedSlices();
         }
     }
@@ -91,10 +91,10 @@ public partial class SliceGeneratorGrid
 
         if (iconType == IconType.Hashtag)
         {
-            if (SliceGeneratorSettingsService.SystemTileOverlay != SystemTileOverlay.Id)
-                await SliceGeneratorSettingsService.UpdateSystemTileOverlay(SystemTileOverlay.Id);
+            if (SliceGeneratorSettingsService.SliceOverlay != SystemTileOverlay.Id)
+                await SliceGeneratorSettingsService.UpdateSliceOverlay(SystemTileOverlay.Id);
             else
-                await SliceGeneratorSettingsService.UpdateSystemTileOverlay(SystemTileOverlay.None);
+                await SliceGeneratorSettingsService.UpdateSliceOverlay(SystemTileOverlay.None);
 
             await UpdateSlices();
 

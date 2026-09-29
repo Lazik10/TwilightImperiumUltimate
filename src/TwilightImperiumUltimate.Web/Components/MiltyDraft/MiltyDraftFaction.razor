@@ -1,11 +1,13 @@
 ﻿@using TwilightImperiumUltimate.Web.Helpers.Enums
 
-<div style="border: 5px solid @(IsPicked ? Color.GetUIColor() : "transparent"); height: 100%; filter: @(ApplyGreyscale()); -webkit-filter: @(ApplyGreyscale())">
-    <div class="link responsive-icon">
-        <img class="icon"
-             src="@GetFactionImage()"
-             alt="icon for @Faction.ToString()"
-             title="@Faction.ToString()"
-             style="filter: @(ApplyGreyscale()); -webkit-filter: @(ApplyGreyscale())" />
+<ResponsiveButton OnClick="OnClick" IsDisabled="IsDisabled" Style="width: 100%; background: transparent; border: 0; padding: 0;" aria-label="@Faction.ToString()">
+    <div style="height: 100%; filter: @(ApplyGreyscale()); -webkit-filter: @(ApplyGreyscale())">
+        <div class="link responsive-icon">
+            <img class="icon"
+                 src="@GetFactionImage()"
+                 alt=""
+                 title="@Faction.ToString()"
+                 style="filter: @(ApplyGreyscale()); -webkit-filter: @(ApplyGreyscale())" />
+        </div>
     </div>
-</div>
+</ResponsiveButton>

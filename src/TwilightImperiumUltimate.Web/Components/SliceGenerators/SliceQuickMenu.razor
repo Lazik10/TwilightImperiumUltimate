@@ -3,7 +3,7 @@
 
 <div class="slice-quick-menu">
 
-    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.SpaceEvenly">
+    <ResponsiveGridContainer Columns="6" TabletColumns="6" MobileColumns="6" Gap="var(--space-xs)">
 
         <QuickMenuItem IconType="IconType.Hashtag" IconTypeClicked="IconType.HashtagClicked" OnClick="async () => await HandleMenuIconClick(IconType.Hashtag)" />
         <QuickMenuItem IconType="IconType.CopyMapString" IconTypeClicked="IconType.CopyMapStringClicked" OnClick="async () => await HandleMenuIconClick(IconType.CopyMapString)" />
@@ -13,7 +13,7 @@
         <AuthorizeView Roles="User">
             <QuickMenuItem IconType="IconType.Archive" IconTypeClicked="IconType.ArchiveClicked" OnClick="async () => await HandleMenuIconClick(IconType.Archive)" />
         </AuthorizeView>
-    </ResponsiveContainer>
+    </ResponsiveGridContainer>
 
     @if (_showImportSliceDraftString)
     {

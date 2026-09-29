@@ -90,13 +90,13 @@ public partial class ResponsiveHeading
         "lg" => "var(--font-size-lg)",
         "xl" => "var(--font-size-xl)",
         "2xl" => "var(--font-size-2xl)",
-        "3xl" => "var(--font-size-3xl)",
+        "3xl" => "var(--font-size-2xl)",
         _ => "var(--font-size-2xl)",
     };
 
     private string GetDefaultFontSizeForLevel() => HeadingLevel switch
     {
-        1 => "3xl",
+        1 => "2xl",
         2 => "2xl",
         3 => "xl",
         4 => "lg",

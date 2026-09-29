@@ -1,118 +1,72 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Factions
-@using TwilightImperiumUltimate.Web.Components.Shared.GameVersions
+@using TwilightImperiumUltimate.Web.Components.Drafts.Color
 
 <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-2xl">
-
-    <FactionIconMenu 
-        EnableBanMode="true"
+    <FactionMenuPicker
         ProvidedFactions="MiltyDraftService.FactionsForMiltyDraftMenu.ToList()"
-        OnFactionClickGetFaction="HandleFactionClick" />
+        OnFactionChanged="HandleFactionClick" />
 
-    <GameVersionPicker OnVersionSelected="HandleGameVersionClick" />
+    <ResponsiveCard CssClass="mt-lg mb-md">
+        <ResponsiveHeading Level="4" Text="General" CenterText="true" CssClass="mb-sm" />
 
-    <GridLayout Columns="2" Gap="40" Width="80" CssClass="mt-2xl mb-md">
+        <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Width="100" Gap="var(--space-xl)">
 
-        <ResponsiveNumericPicker Label="@Strings.MiltyDraft_NumberOfPlayers"
-                       Value="@MiltyDraftSettingsService.NumberOfPlayers"
-                       OnDecrease="DecreaseNumberOfPlayers"
-                       OnIncrease="IncreaseNumberOfPlayers"
-                       Width="100"
-                       FontSize="md"
-                       CenterLabel="false" />
+            <ResponsiveDropDown Id="milty-draft-settings-player-count" TValue="int" Label="@Strings.MiltyDraft_NumberOfPlayers.TrimEnd(':')" LabelPosition="LabelPosition.Column" Value="@MiltyDraftSettingsService.NumberOfPlayers" ValueChanged="SetPlayerCountAsync" Data="@GetPlayerCountOptions()" />
 
-        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart">
-            <YesNoPicker Title="@Strings.MiltyDraft_PlayerNames"
-                         DefaultValue="MiltyDraftSettingsService.EnablePlayerNames"
-                         OnValueChange="EnablePlayerNames"
-                         Width="100" />
+            <ResponsiveDropDown Id="milty-draft-settings-player-names" TValue="bool" Label="@Strings.MiltyDraft_PlayerNames.TrimEnd(':')" LabelPosition="LabelPosition.Column" Value="@MiltyDraftSettingsService.EnablePlayerNames" ValueChanged="EnablePlayerNames" Data="@BooleanOptions" ValueProperty="Key" TextProperty="Value" />
+
+            <ResponsiveDropDown Id="milty-draft-settings-slice-count" TValue="int" Label="@Strings.MiltyDraft_NumberOfSlices.TrimEnd(':')" LabelPosition="LabelPosition.Column" Value="@MiltyDraftSettingsService.NumberOfSlices" ValueChanged="SetSliceCountAsync" Data="@GetSliceCountOptions()" />
+
+            <ResponsiveDropDown Id="milty-draft-settings-faction-count" TValue="int" Label="@Strings.MiltyDraft_NumberOfFactions.TrimEnd(':')" LabelPosition="LabelPosition.Column" Value="@MiltyDraftSettingsService.NumberOfFactions" ValueChanged="SetFactionCountAsync" Data="@GetFactionCountOptions()" />
+
+        </ResponsiveGridContainer>
+    </ResponsiveCard>
+
+    @if (MiltyDraftSettingsService.EnablePlayerNames)
+    {
+        <ResponsiveCard CssClass="mb-md">
+            <ResponsiveHeading Level="4" Text="@Strings.MiltyDraft_PlayerNames.TrimEnd(':')" CenterText="true" CssClass="mb-sm" />
+
+            <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Width="100" Gap="var(--space-xl)">
+                @foreach (var player in MiltyDraftSettingsService.Players)
+                {
+                    <ResponsiveTextBox Id="@($"milty-draft-player-name-{player.PlayerId}")" Value="@player.PlayerName" ValueChanged="value => player.PlayerName = value" Placeholder="@Strings.Player" MaxLength="16" />
+                }
+            </ResponsiveGridContainer>
+        </ResponsiveCard>
+    }
+
+    <ResponsiveCard CssClass="mb-md">
+        <ResponsiveHeading Level="4" Text="System Tiles" CenterText="true" CssClass="mb-sm" />
+
+        <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Width="100" Gap="var(--space-xl)">
+
+            <ResponsiveDropDown Id="milty-draft-settings-prophecy-of-kings" TValue="bool" Label="@Strings.GameVersion_ProphecyOfKings" LabelPosition="LabelPosition.Column" Value="@MiltyDraftSettingsService.GameVersions.Contains(GameVersion.ProphecyOfKings)" ValueChanged="value => SetGameVersionAsync(GameVersion.ProphecyOfKings, value)" Data="@BooleanOptions" ValueProperty="Key" TextProperty="Value" />
+
+            <ResponsiveDropDown Id="milty-draft-settings-thunders-edge" TValue="bool" Label="@Strings.GameVersion_ThundersEdge" LabelPosition="LabelPosition.Column" Value="@MiltyDraftSettingsService.GameVersions.Contains(GameVersion.ThundersEdge)" ValueChanged="value => SetGameVersionAsync(GameVersion.ThundersEdge, value)" Data="@BooleanOptions" ValueProperty="Key" TextProperty="Value" />
+
+            <ResponsiveDropDown Id="milty-draft-settings-uncharted-space" TValue="bool" Label="@Strings.GameVersion_UnchartedSpace" LabelPosition="LabelPosition.Column" Value="@MiltyDraftSettingsService.GameVersions.Contains(GameVersion.UnchartedSpace)" ValueChanged="value => SetGameVersionAsync(GameVersion.UnchartedSpace, value)" Data="@BooleanOptions" ValueProperty="Key" TextProperty="Value" />
+
+        </ResponsiveGridContainer>
+    </ResponsiveCard>
+
+    <ResponsiveCard CssClass="mb-md">
+        <ResponsiveHeading Level="4" Text="Other" CenterText="true" CssClass="mb-sm" />
+
+        <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Width="100" Gap="var(--space-xl)">
+
+            <ResponsiveDropDown Id="milty-draft-settings-legendary-planets" TValue="int" Label="@Strings.MapGeneratorSettings_NumberOfLegendaryPlanets.TrimEnd(':')" LabelPosition="LabelPosition.Column" Value="@MiltyDraftSettingsService.NumberOfLegendaryPlanets" ValueChanged="SetLegendaryPlanetCountAsync" Data="@GetLegendaryPlanetOptions()" />
+
+            <ResponsiveDropDown Id="milty-draft-settings-wormhole-density" TValue="WormholeDensity" Label="@Strings.WormholeDensityPicker_WormholeDensity.TrimEnd(':')" LabelPosition="LabelPosition.Column" Value="@MiltyDraftSettingsService.WormholeDensity" ValueChanged="SetWormholeDensityAsync" Data="@_wormholeDensities" ValueProperty="Key" TextProperty="Value" />
+        </ResponsiveGridContainer>
+    </ResponsiveCard>
+
+    <ResponsiveCard CssClass="mb-md">
+        <ResponsiveHeading Level="4" Text="Import" CenterText="true" CssClass="mb-sm" />
+
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CenteredItems="true">
+            <ResponsiveDropDown Id="milty-draft-settings-import-slices" TValue="bool" Label="Import own slices" LabelPosition="LabelPosition.Column" Value="@MiltyDraftSettingsService.ImportSlices" ValueChanged="EnableImportSlices" Data="@BooleanOptions" ValueProperty="Key" TextProperty="Value" Width="50" MobileWidth="100" />
         </ResponsiveContainer>
-
-        @if (MiltyDraftSettingsService.EnablePlayerNames)
-        {
-            @foreach (var player in MiltyDraftSettingsService.Players)
-            {
-                <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart">
-                    <RadzenTextBox Placeholder="@Strings.Player"
-                                   @bind-Value="player.PlayerName"
-                                   class="w-100 flex-row title white handel" />
-                </ResponsiveContainer>
-            }
-
-            @if (MiltyDraftSettingsService.Players.Count % 2 == 1)
-            {
-                <div />
-            }
-        }
-
-        <ResponsiveNumericPicker Label="@Strings.MiltyDraft_NumberOfSlices"
-                       Value="@MiltyDraftSettingsService.NumberOfSlices"
-                       OnDecrease="DecreaseNumberOfSlices"
-                       OnIncrease="IncreaseNumberOfSlices"
-                       Width="100"
-                       FontSize="md"
-                       CenterLabel="false" />
-
-        <ResponsiveNumericPicker Label="@Strings.MiltyDraft_NumberOfFactions"
-                       Value="@MiltyDraftSettingsService.NumberOfFactions"
-                       OnDecrease="DecreaseNumberOfFactions"
-                       OnIncrease="IncreaseNumberOfFactions"
-                       Width="100"
-                       FontSize="md"
-                       CenterLabel="false" />
-
-        <div style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
-        <div style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
-        <Label Text="@Strings.MapGeneratorSettings_SystemTiles" FontSize="18" />
-
-        <div />
-
-        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart">
-            <YesNoPicker Title="@Strings.GameVersion_ProphecyOfKings"
-                         DefaultValue="MiltyDraftSettingsService.GameVersions.Contains(GameVersion.ProphecyOfKings)"
-                         OnValueChange="() => UpdateGameVersion(GameVersion.ProphecyOfKings)"
-                         Width="100" />
-        </ResponsiveContainer>
-
-        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart">
-            <YesNoPicker Title="@Strings.GameVersion_UnchartedSpace"
-                         DefaultValue="MiltyDraftSettingsService.GameVersions.Contains(GameVersion.UnchartedSpace)"
-                         OnValueChange="() => UpdateGameVersion(GameVersion.UnchartedSpace)"
-                         Width="100" />
-        </ResponsiveContainer>
-
-        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart">
-            <YesNoPicker Title="@Strings.GameVersion_AscendantSun"
-                         DefaultValue="MiltyDraftSettingsService.GameVersions.Contains(GameVersion.AscendantSun)"
-                         OnValueChange="() => UpdateGameVersion(GameVersion.AscendantSun)"
-                         Width="100" />
-        </ResponsiveContainer>
-
-        <div />
-
-        <div style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
-        <div style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
-
-        <ResponsiveNumericPicker Label="@Strings.MapGeneratorSettings_NumberOfLegendaryPlanets"
-                       Value="@MiltyDraftSettingsService.NumberOfLegendaryPlanets"
-                       OnDecrease="DecreaseNumberOfLegendaryPlanets"
-                       OnIncrease="IncreaseNumberOfLegendaryPlanets"
-                       Width="100"
-                       FontSize="md"
-                       CenterLabel="false" />
-
-        <WormholeDensityPicker Width="100" WormholeDensity="MiltyDraftSettingsService.WormholeDensity" />
-
-        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart">
-            <YesNoPicker Title="@Strings.MiltyDraft_ImportSlices"
-                         DefaultValue="MiltyDraftSettingsService.ImportSlices"
-                         OnValueChange="EnableImportSlices"
-                         Width="100" />
-        </ResponsiveContainer>
-
-        <div />
 
         @if (MiltyDraftSettingsService.ImportSlices)
         {
@@ -120,7 +74,6 @@
                             @bind-Value="MiltyDraftSettingsService.ImportedSlicesString"
                             class="w-100 flex-row title white handel" Style="height: 200px;" />
         }
-
-    </GridLayout>
+    </ResponsiveCard>
 
 </ResponsiveContainer>

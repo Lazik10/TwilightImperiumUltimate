@@ -12,7 +12,7 @@
             @onclick:stopPropagation="true" />
 
         <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Style="grid-column: span 2;">
-            <FactionIconImg FactionName="@Player.FactionName" Height="80" />
+              <FactionIconImg FactionName="@Player.FactionName" MaxHeight="80px" />
             <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                 <Label Text="@Player.Name" CenterText="true" FontSize="24" TextColor="@Player.PlayerColor.GetTextColor(true)" />
                 <Label Text="@Player.FactionName.GetFactionUIText(FactionResourceType.Title)" CenterText="true" FontSize="18" TextColor="@Player.PlayerColor.GetTextColor(true)" />

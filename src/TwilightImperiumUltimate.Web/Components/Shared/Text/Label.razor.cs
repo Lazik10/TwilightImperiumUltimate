@@ -41,6 +41,12 @@ public partial class Label
     [Parameter]
     public bool Visible { get; set; } = true;
 
+    /// <summary>
+    /// Gets or sets whether the label truncates overflowing text to one line.
+    /// </summary>
+    [Parameter]
+    public bool Truncate { get; set; } = true;
+
     public string SetColor() => TextColor.ConvertToString();
 
     /// <summary>

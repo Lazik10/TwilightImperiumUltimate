@@ -1,65 +1,102 @@
 ﻿<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+    <ResponsiveCard CssClass="mb-md">
+        <ResponsiveHeading Level="4" Text="General" CenterText="true" CssClass="mb-sm" />
 
-    <GridLayout Columns="2" Gap="40" Width="80" CssClass="mt-2xl">
+        <ResponsiveGridContainer Columns="1" TabletColumns="1" MobileColumns="1" Width="100" Gap="var(--space-xl)">
+            <ResponsiveDropDown Id="slice-generator-settings-slice-count"
+                                TValue="int"
+                                Label="@Strings.SliceGenerator_NumberOfSlices.TrimEnd(':')"
+                                LabelPosition="LabelPosition.Column"
+                                Value="@SliceGeneratorSettingsService.NumberOfSlices"
+                                ValueChanged="SetSliceCountAsync"
+                                Data="@GetSliceCountOptions()" />
+        </ResponsiveGridContainer>
+    </ResponsiveCard>
 
-        <ResponsiveNumericPicker Label="@Strings.SliceGenerator_NumberOfSlices"
-                       Value="GetSliceCount()"
-                       OnDecrease="DecreaseSliceCount"
-                       OnIncrease="IncreaseSliceCount"
-                       Width="100"
-                       FontSize="md"
-                       CenterLabel="false" />
+    <ResponsiveCard CssClass="mb-md">
+        <ResponsiveHeading Level="4" Text="Overlays" CenterText="true" CssClass="mb-sm" />
 
-        <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
-            <Label Text="@Strings.SliceGeneratorSettings_TilesOverlay" FontSize="18" />
-            <ResponsiveDropDown Id="slice-generator-settings-system-tile-overlay"
-                            TValue="SystemTileOverlay"
-                            Value="@SelectedSystemTileOverlay"
-                            ValueChanged="SetSystemTileOverlay"
-                            Data="@_systemTileOverlays"
-                            ValueProperty="Key"
-                            TextProperty="Value"
-                            Style="max-width: 400px;"
-                            CssClass="title" />
-        </ResponsiveContainer>
+        <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Width="100" Gap="var(--space-xl)">
+            <ResponsiveDropDown Id="slice-generator-settings-slice-overlay"
+                                TValue="SystemTileOverlay"
+                                Label="Slices"
+                                LabelPosition="LabelPosition.Column"
+                                Value="@SelectedSliceOverlay"
+                                ValueChanged="SetSliceOverlay"
+                                Data="@_systemTileOverlays"
+                                ValueProperty="Key"
+                                TextProperty="Value" />
 
-        <Label Text="@Strings.MapGeneratorSettings_SystemTiles" FontSize="18" />
+            <ResponsiveDropDown Id="slice-generator-settings-menu-overlay"
+                                TValue="SystemTileOverlay"
+                                Label="Menu"
+                                LabelPosition="LabelPosition.Column"
+                                Value="@SelectedMenuOverlay"
+                                ValueChanged="SetMenuOverlay"
+                                Data="@_systemTileOverlays"
+                                ValueProperty="Key"
+                                TextProperty="Value" />
+        </ResponsiveGridContainer>
+    </ResponsiveCard>
 
-        <div />
+    <ResponsiveCard CssClass="mb-md">
+        <ResponsiveHeading Level="4" Text="@Strings.MapGeneratorSettings_SystemTiles.TrimEnd(':')" CenterText="true" CssClass="mb-sm" />
 
-        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart">
-            <YesNoPicker Title="@Strings.GameVersion_ProphecyOfKings"
-                         DefaultValue="SliceGeneratorSettingsService.GameVersions.Contains(GameVersion.ProphecyOfKings)"
-                         OnValueChange="async () => await UpdateGameVersion(GameVersion.ProphecyOfKings)"
-                         Width="100" />
-        </ResponsiveContainer>
+        <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Width="100" Gap="var(--space-xl)">
+            <ResponsiveDropDown Id="slice-generator-settings-prophecy-of-kings"
+                                TValue="bool"
+                                Label="@Strings.GameVersion_ProphecyOfKings"
+                                LabelPosition="LabelPosition.Column"
+                                Value="@SliceGeneratorSettingsService.GameVersions.Contains(GameVersion.ProphecyOfKings)"
+                                ValueChanged="value => SetGameVersionAsync(GameVersion.ProphecyOfKings, value)"
+                                Data="@BooleanOptions"
+                                ValueProperty="Key"
+                                TextProperty="Value" />
 
-        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart">
-            <YesNoPicker Title="@Strings.GameVersion_UnchartedSpace"
-                         DefaultValue="SliceGeneratorSettingsService.GameVersions.Contains(GameVersion.UnchartedSpace)"
-                         OnValueChange="async () => await UpdateGameVersion(GameVersion.UnchartedSpace)"
-                         Width="100" />
-        </ResponsiveContainer>
+            <ResponsiveDropDown Id="slice-generator-settings-thunders-edge"
+                                TValue="bool"
+                                Label="@Strings.GameVersion_ThundersEdge"
+                                LabelPosition="LabelPosition.Column"
+                                Value="@SliceGeneratorSettingsService.GameVersions.Contains(GameVersion.ThundersEdge)"
+                                ValueChanged="value => SetGameVersionAsync(GameVersion.ThundersEdge, value)"
+                                Data="@BooleanOptions"
+                                ValueProperty="Key"
+                                TextProperty="Value" />
 
-        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart">
-            <YesNoPicker Title="@Strings.GameVersion_AscendantSun"
-                         DefaultValue="SliceGeneratorSettingsService.GameVersions.Contains(GameVersion.AscendantSun)"
-                         OnValueChange="async () => await UpdateGameVersion(GameVersion.AscendantSun)"
-                         Width="100" />
-        </ResponsiveContainer>
+            <ResponsiveDropDown Id="slice-generator-settings-uncharted-space"
+                                TValue="bool"
+                                Label="@Strings.GameVersion_UnchartedSpace"
+                                LabelPosition="LabelPosition.Column"
+                                Value="@SliceGeneratorSettingsService.GameVersions.Contains(GameVersion.UnchartedSpace)"
+                                ValueChanged="value => SetGameVersionAsync(GameVersion.UnchartedSpace, value)"
+                                Data="@BooleanOptions"
+                                ValueProperty="Key"
+                                TextProperty="Value" />
+        </ResponsiveGridContainer>
+    </ResponsiveCard>
 
-        <div />
+    <ResponsiveCard CssClass="mb-md">
+        <ResponsiveHeading Level="4" Text="Other" CenterText="true" CssClass="mb-sm" />
 
-        <ResponsiveNumericPicker Label="@Strings.MapGeneratorSettings_NumberOfLegendaryPlanets"
-                       Value="@SliceGeneratorSettingsService.NumberOfLegendaries"
-                       OnDecrease="DecreaseNumberOfLegendaryPlanets"
-                       OnIncrease="IncreaseNumberOfLegendaryPlanets"
-                       Width="100"
-                       FontSize="md"
-                       CenterLabel="false" />
+        <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Width="100" Gap="var(--space-xl)">
+            <ResponsiveDropDown Id="slice-generator-settings-legendary-planets"
+                                TValue="int"
+                                Label="@Strings.MapGeneratorSettings_NumberOfLegendaryPlanets.TrimEnd(':')"
+                                LabelPosition="LabelPosition.Column"
+                                Value="@SliceGeneratorSettingsService.NumberOfLegendaries"
+                                ValueChanged="SetNumberOfLegendaryPlanetsAsync"
+                                Data="@GetLegendaryPlanetOptions()" />
 
-        <WormholeDensityPicker Width="100" WormholeDensity="SliceGeneratorSettingsService.WormholeDensity" />
-
-    </GridLayout>
+            <ResponsiveDropDown Id="slice-generator-settings-wormhole-density"
+                                TValue="WormholeDensity"
+                                Label="@Strings.WormholeDensityPicker_WormholeDensity.TrimEnd(':')"
+                                LabelPosition="LabelPosition.Column"
+                                Value="@SliceGeneratorSettingsService.WormholeDensity"
+                                ValueChanged="SetWormholeDensityAsync"
+                                Data="@_wormholeDensities"
+                                ValueProperty="Key"
+                                TextProperty="Value" />
+        </ResponsiveGridContainer>
+    </ResponsiveCard>
 
 </ResponsiveContainer>

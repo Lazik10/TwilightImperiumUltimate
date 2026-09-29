@@ -6,6 +6,12 @@
     distinct, more legible panel instead of floating directly on the page background.
 *@
 
-<section class="responsive-card @(RemoveHorizontalPadding ? "responsive-card-no-horizontal-padding" : string.Empty) @CssClass">
+<section class="responsive-card @(RemoveHorizontalPadding ? "responsive-card-no-horizontal-padding" : string.Empty) @(OnClick.HasDelegate ? "responsive-card-interactive" : string.Empty) @CssClass"
+         role="@(OnClick.HasDelegate ? "button" : null)"
+         tabindex="@(OnClick.HasDelegate ? 0 : null)"
+         aria-disabled="@(OnClick.HasDelegate ? IsDisabled : null)"
+         @onclick="HandleClickAsync"
+         @onkeydown="HandleKeyDownAsync"
+         @onkeydown:preventDefault="OnClick.HasDelegate">
     @ChildContent
 </section>

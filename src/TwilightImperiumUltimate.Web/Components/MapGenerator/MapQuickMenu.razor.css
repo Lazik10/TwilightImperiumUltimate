@@ -2,10 +2,40 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    right: -5%;
+    right: 3%;
     top: 10%;
     z-index: 1000;
     width: 15%;
     max-height: 40%;
     min-height: 40%;
+}
+
+.map-quick-menu ::deep .responsive-grid-container {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-xs);
+    width: 100% !important;
+}
+
+@media (max-width: 768px) {
+    .map-quick-menu {
+        position: static;
+        width: auto;
+        min-height: 0;
+        max-height: none;
+        margin-top: 0;
+        margin-left: auto;
+    }
+
+    .map-quick-menu ::deep .responsive-grid-container {
+        display: grid;
+        --grid-gap: var(--space-sm) !important;
+        width: fit-content !important;
+        margin-inline: 0;
+    }
+
+    .map-quick-menu ::deep .quick-menu-item-icon {
+        width: 32px;
+        max-width: 32px !important;
+    }
 }

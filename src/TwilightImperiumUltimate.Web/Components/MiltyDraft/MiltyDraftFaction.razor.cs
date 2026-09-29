@@ -16,6 +16,12 @@ public partial class MiltyDraftFaction
     [Parameter]
     public bool IsColorless { get; set; }
 
+    [Parameter]
+    public bool IsDisabled { get; set; }
+
+    [Parameter]
+    public EventCallback OnClick { get; set; }
+
     [Inject]
     private IPathProvider PathProvider { get; set; } = default!;
 

@@ -1726,7 +1726,7 @@
   </data>
 
   <data name="SliceEvaluation_TotalInfluence" xml:space="preserve">
-    <value>Influence</value>
+    <value>Inf</value>
   </data>
 
   <data name="SliceEvaluation_TotalOptimalValue" xml:space="preserve">
@@ -1734,15 +1734,15 @@
   </data>
 
   <data name="SliceEvaluation_TotalOptimalValueInfluence" xml:space="preserve">
-    <value>Opt Influence</value>
+    <value>Opt Inf</value>
   </data>
 
   <data name="SliceEvaluation_TotalOptimalValueResources" xml:space="preserve">
-    <value>Opt Resources</value>
+    <value>Opt Res</value>
   </data>
 
   <data name="SliceEvaluation_TotalResource" xml:space="preserve">
-    <value>Resources</value>
+    <value>Res</value>
   </data>
 
   <data name="SliceGeneratorMenu_Settings" xml:space="preserve">
@@ -2074,7 +2074,7 @@
   </data>
 
   <data name="MiltyDraft_Finnished" xml:space="preserve">
-    <value>Milty draft finished!</value>
+    <value>Milty draft has finished!</value>
   </data>
 
   <data name="MiltyDraft_ResetDraft" xml:space="preserve">
@@ -2087,6 +2087,10 @@
 
   <data name="MiltyDraft_NotEnoughFactions" xml:space="preserve">
     <value>Not enough factions</value>
+  </data>
+
+  <data name="MiltyDraft_PreparingDraft" xml:space="preserve">
+    <value>Preparing draft...</value>
   </data>
 
   <data name="MiltyDraft_DraftNotInProgress" xml:space="preserve">

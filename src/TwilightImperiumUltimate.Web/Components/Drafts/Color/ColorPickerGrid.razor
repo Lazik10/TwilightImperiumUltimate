@@ -1,4 +1,5 @@
 ﻿@using TwilightImperiumUltimate.Contracts.Enums
+@using TwilightImperiumUltimate.Web.Components.Factions
 @using TwilightImperiumUltimate.Web.Components.Shared.Controls
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @using TwilightImperiumUltimate.Web.Components.Shared.Text
@@ -9,9 +10,9 @@
             OnClick="HandlePrimaryButtonClick" IsDisabled="GetButtonState()" Width="40" />
 </ResponsiveContainer>
 
-<ColorPickerMenu
-    OnFactionClickGetFaction="UpdateSelectedFactions"
-    @ref="_colorPickerMenu"/>
+<FactionMenuPicker
+    OnFactionChanged="UpdateSelectedFactions"
+    @ref="_factionMenuPicker" />
 
 <ResponsiveCard CssClass="mt-lg mb-xl">
     <ResponsiveHeading Level="4" Text="Available Colors" CenterText="true" CssClass="mb-0" />
@@ -37,9 +38,9 @@
                 BackgroundColor="result.Color"
                 CssClass="mt-sm">
 
-                <Title Text="@(result.FactionName.GetFactionUIText(FactionResourceType.Title))"
-                       MarginTop="0" 
-                       FontSize="24" />
+                  <ResponsiveHeading Level="3"
+                            Text="@(result.FactionName.GetFactionUIText(FactionResourceType.Title))"
+                            CssClass="mb-0" />
             </ColorPickerBackground>
         }
     }
@@ -49,10 +50,9 @@
         {
             <ColorPickerBackground BackgroundColor="@(PlayerColor.Black)" CssClass="mt-sm">
 
-                <Title Text="@(faction.FactionName.GetFactionUIText(FactionResourceType.Title))"
-                       CssClass="faction hendel white shadow"
-                       MarginTop="0"
-                       FontSize="24" />
+                  <ResponsiveHeading Level="3"
+                            Text="@(faction.FactionName.GetFactionUIText(FactionResourceType.Title))"
+                            CssClass="faction mb-0" />
             </ColorPickerBackground>
 
         }

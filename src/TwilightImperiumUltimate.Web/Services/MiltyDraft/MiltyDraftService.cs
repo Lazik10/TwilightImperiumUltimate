@@ -79,9 +79,28 @@ public class MiltyDraftService(
         }
     }
 
-    public async Task GeneratePreviewSlices()
+    public Task GeneratePreviewSlices()
     {
-        await GenerateSlices(true);
+        _slices = new List<SliceModel>();
+
+        for (var index = 0; index < _miltyDraftSettingsService.NumberOfSlices; index++)
+        {
+            _slices.Add(new SliceModel()
+            {
+                Id = index,
+                SystemTiles = new List<SystemTileModel>
+                {
+                    new SystemTileModel() { SystemTileName = SystemTileName.TileHome },
+                    new SystemTileModel() { SystemTileName = SystemTileName.TileEmpty, GameVersion = GameVersion.Custom },
+                    new SystemTileModel() { SystemTileName = SystemTileName.TileEmpty, GameVersion = GameVersion.Custom },
+                    new SystemTileModel() { SystemTileName = SystemTileName.TileEmpty, GameVersion = GameVersion.Custom },
+                    new SystemTileModel() { SystemTileName = SystemTileName.TileEmpty, GameVersion = GameVersion.Custom },
+                    new SystemTileModel() { SystemTileName = SystemTileName.TileEmpty, GameVersion = GameVersion.Custom },
+                },
+            });
+        }
+
+        return Task.CompletedTask;
     }
 
     public async Task GenerateSlices(bool previewSlices)
@@ -460,8 +479,9 @@ public class MiltyDraftService(
 
     private void AssignRandomPlayerColors()
     {
-        var colors = Enum.GetValues<DraftColor>().ToList();
-        colors.Remove(DraftColor.None);
+        var colors = Enum.GetValues<DraftColor>()
+            .Where(color => color is not DraftColor.None and not DraftColor.White)
+            .ToList();
 
         foreach (var player in _miltyDraftSettingsService.Players)
         {

@@ -1,4 +1,5 @@
 using System.Runtime.CompilerServices;
+using TwilightImperiumUltimate.Web.Helpers.Enums;
 using TwilightImperiumUltimate.Web.Services.MiltyDraft;
 
 namespace TwilightImperiumUltimate.Web.Components.MiltyDraft;
@@ -50,5 +51,24 @@ public partial class MiltyDraftFactionRow
         var result = !isPicked && (draftedFactionsCount >= playersCount);
 
         return result;
+    }
+
+    private string GetFactionLabel(MiltyDraftFactionModel faction)
+    {
+        if (!faction.IsPicked)
+            return "Unpicked";
+
+        var player = MiltyDraftService.Players.FirstOrDefault(player => player.Faction == faction.FactionName);
+        return player is null
+            ? "Player"
+            : MiltyDraftSettingsService.EnablePlayerNames
+                ? player.PlayerName
+                : player.PlayerDefaultName;
+    }
+
+    private TextColor GetFactionTextColor(MiltyDraftFactionModel faction)
+    {
+        var player = MiltyDraftService.Players.FirstOrDefault(player => player.Faction == faction.FactionName);
+        return player is null ? TextColor.White : player.PlayerColor.GetTextColor();
     }
 }

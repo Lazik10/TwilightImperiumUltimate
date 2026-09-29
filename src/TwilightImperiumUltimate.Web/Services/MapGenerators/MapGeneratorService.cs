@@ -183,7 +183,9 @@ public class MapGeneratorService(
         {
             var draggedSystemTileToSwap = _systemTiles[DraggedSystemTileStartMapPosition];
             _systemTiles[DraggedSystemTileStartMapPosition] = systemTile;
-            _systemTiles[mapPosition] = draggedSystemTileToSwap;
+
+            if (mapPosition != -1)
+                _systemTiles[mapPosition] = draggedSystemTileToSwap;
         }
         else
         {

@@ -1,13 +1,12 @@
 using Microsoft.JSInterop;
 using TwilightImperiumUltimate.Web.Helpers.Maps;
+using TwilightImperiumUltimate.Web.Options.MapGenerators;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
 
 namespace TwilightImperiumUltimate.Web.Components.MapGenerator;
 
 public partial class MapGeneratorMainGrid
 {
-    private FactionIconMenu? factionIconRowRef;
-
     private MapGeneratorMenuItem _selectedSegment;
 
     public IReadOnlyDictionary<int, SystemTileModel> GeneratedPositionsWithSystemTiles { get; set; } = default!;
@@ -103,40 +102,21 @@ public partial class MapGeneratorMainGrid
         StateHasChanged();
     }
 
-    private void ToggleFactionPick()
+    private void SetFactionPick(bool enableFactionPick)
     {
-        MapGeneratorSettingsService.EnableFactionPick = !MapGeneratorSettingsService.EnableFactionPick;
-        StateHasChanged();
-    }
-
-    private void HandleGameVersionClick(GameVersion gameVersion)
-    {
-        MapGeneratorSettingsService.GameVersionGlobalEnableDisable(gameVersion);
+        MapGeneratorSettingsService.EnableFactionPick = enableFactionPick;
         StateHasChanged();
     }
 
     private void HandleFactionClick(FactionModel faction)
     {
         MapGeneratorSettingsService.UpdateFactionBanStatus(faction);
-        factionIconRowRef?.RefreshFactions();
         StateHasChanged();
     }
 
     private async Task InitializeFactionsForFactionRow()
     {
         await MapGeneratorSettingsService.InitializeFactionsForMapGenerator();
-    }
-
-    private void IncreaseMapScale()
-    {
-        MapGeneratorSettingsService.IncreaseMapScale();
-        StateHasChanged();
-    }
-
-    private void DecreaseMapScale()
-    {
-        MapGeneratorSettingsService.DecreaseMapScale();
-        StateHasChanged();
     }
 
     private async Task DownloadMapImage()
@@ -153,10 +133,10 @@ public partial class MapGeneratorMainGrid
 
         if (iconType == IconType.Hashtag)
         {
-            if (MapGeneratorSettingsService.SystemTileOverlay != SystemTileOverlay.Id)
-                MapGeneratorSettingsService.SystemTileOverlay = SystemTileOverlay.Id;
+            if (MapGeneratorSettingsService.MapOverlay != SystemTileOverlay.Id)
+                MapGeneratorSettingsService.MapOverlay = SystemTileOverlay.Id;
             else
-                MapGeneratorSettingsService.SystemTileOverlay = SystemTileOverlay.None;
+                MapGeneratorSettingsService.MapOverlay = SystemTileOverlay.None;
 
             await UpdateMapOverlay();
         }

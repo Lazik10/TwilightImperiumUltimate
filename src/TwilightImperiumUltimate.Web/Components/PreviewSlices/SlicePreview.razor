@@ -3,17 +3,20 @@
 
 <div class="slice-preview @(ArchiveLayout ? "slice-preview-archive" : string.Empty)">
 
-    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mb-sm">
-        @if (EditNameMode)
-        {
-            <Label Text="@Strings.SliceArchive_SliceName" CenterText="true" />
-            <RadzenTextBox @bind-Value=SliceModel.Name class="title white" Placeholder="Optional" />
-        }
-        else
-        {
-            <Label Text=@SliceModel.Name CenterText="true" />
-        }
-    </ResponsiveContainer>
+    @if (ShowName)
+    {
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mb-sm">
+            @if (EditNameMode)
+            {
+                <Label Text="@Strings.SliceArchive_SliceName" CenterText="true" />
+                <RadzenTextBox @bind-Value=SliceModel.Name class="title white" Placeholder="Optional" />
+            }
+            else
+            {
+                <Label Text=@SliceModel.Name CenterText="true" />
+            }
+        </ResponsiveContainer>
+    }
 
     <div class="slice-grid mb-2xl">
 

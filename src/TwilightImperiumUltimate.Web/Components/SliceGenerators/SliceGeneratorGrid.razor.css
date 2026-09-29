@@ -1,2 +1,89 @@
-﻿body {
+﻿.slice-generator-grid {
+	position: relative;
+	width: 100%;
+}
+
+.slice-generator-slices-grid {
+	display: grid;
+	grid-template-columns: repeat(6, minmax(0, 1fr));
+	grid-auto-rows: 1fr;
+	gap: var(--space-sm);
+	width: 100%;
+}
+
+.slice-generator-slices-grid ::deep .slice-generator-slice {
+	grid-column: span 2;
+	min-width: 0;
+}
+
+.slice-generator-slices-grid ::deep .slice-generator-slice:nth-last-child(2):nth-child(3n + 1) {
+	grid-column: 2 / span 2;
+}
+
+.slice-generator-slices-grid ::deep .slice-generator-slice:last-child:nth-child(3n + 1) {
+	grid-column: 3 / span 2;
+}
+
+@media (min-width: 769px) {
+	.slice-controls {
+		position: relative;
+		width: 100%;
+		min-height: 4.75rem;
+		margin-top: var(--space-sm);
+	}
+
+	.slice-controls ::deep .hex-menu {
+		top: 0;
+	}
+
+	.slice-controls ::deep .slice-quick-menu {
+		top: var(--space-md);
+	}
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+	.slice-generator-slices-grid {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+
+	.slice-generator-slices-grid ::deep .slice-generator-slice {
+		grid-column: span 2;
+	}
+
+	.slice-generator-slices-grid ::deep .slice-generator-slice:last-child:nth-child(odd) {
+		grid-column: 2 / span 2;
+	}
+}
+
+@media (max-width: 768px) {
+	.slice-controls {
+		display: flex;
+		align-items: center;
+		box-sizing: border-box;
+		width: 100%;
+		padding-inline: 3%;
+	}
+
+	.slice-controls ::deep .hex-menu {
+		position: static;
+		flex: 0 0 auto;
+		width: auto;
+		min-height: 0;
+		max-height: none;
+	}
+
+	.slice-controls ::deep .tile-menu-toggle {
+		width: auto;
+	}
+
+	.slice-generator-slices-grid {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.slice-generator-slices-grid ::deep .slice-generator-slice,
+	.slice-generator-slices-grid ::deep .slice-generator-slice:nth-last-child(2):nth-child(3n + 1),
+	.slice-generator-slices-grid ::deep .slice-generator-slice:last-child:nth-child(3n + 1),
+	.slice-generator-slices-grid ::deep .slice-generator-slice:last-child:nth-child(odd) {
+		grid-column: 1;
+	}
 }

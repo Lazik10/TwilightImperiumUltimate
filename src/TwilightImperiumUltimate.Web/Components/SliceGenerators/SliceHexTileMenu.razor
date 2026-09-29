@@ -1,31 +1,34 @@
-﻿@using TwilightImperiumUltimate.Web.Components.MapGenerator
+﻿<div class="hex-menu">
 
-<div class="hex-menu">
-
-    <ClickableTile OnClick="ToggleTileMenu">
-        <ResponsiveLabel Text="@GetButtonText()" CenterText="true" FontSize="lg" />
-    </ClickableTile>
+    <ResponsiveButton OnClick="ToggleTileMenu"
+                      ButtonText="@GetButtonText()"
+                      CssClass="tile-menu-toggle" />
 
     @if (_showTileMenu)
     {
-        <ResponsiveDropDown Id="slice-hex-tile-menu-filter"
-            TValue="SystemTileTypeFilter"
-            Value="@_selectedSystemTileType"
-            ValueChanged="@(v => { _selectedSystemTileType = v; GetSystemTilesToShow(); })"
-            Data="@_systemTileTypes"
-            TextProperty="Value"
-            ValueProperty="Key"
-            Style="min-height: 40px;"
-            CssClass="title radzen-dropdown" />
+        <ResponsiveCard CssClass="tile-menu-card">
+            <div class="tile-menu-content">
+                <ResponsiveDropDown Id="slice-hex-tile-menu-filter"
+                                    TValue="SystemTileTypeFilter"
+                                    Value="@_selectedSystemTileType"
+                                    ValueChanged="@(v => { _selectedSystemTileType = v; GetSystemTilesToShow(); })"
+                                    Data="@_systemTileTypes"
+                                    TextProperty="Value"
+                                    ValueProperty="Key"
+                                    Style="min-height: 40px;"
+                                    CssClass="title radzen-dropdown" />
 
-        <div class="scrollbar-area">
-            @foreach (var systemTile in SystemTiles)
-            {
-                <SliceHexTile SystemTile="systemTile"
-                Position="-1"
-                SliceId="-1"
-                SwappedSystemTileFromMenu="RefreshSystemTilesMenu" />
-            }
-        </div>
+                <div class="scrollbar-area">
+                    @foreach (var systemTile in SystemTiles)
+                    {
+                        <SliceHexTile @key="systemTile.SystemTileName"
+                                      SystemTile="systemTile"
+                                      Position="-1"
+                                      SliceId="-1"
+                                      SwappedSystemTileFromMenu="RefreshSystemTilesMenu" />
+                    }
+                </div>
+            </div>
+        </ResponsiveCard>
     }
 </div>

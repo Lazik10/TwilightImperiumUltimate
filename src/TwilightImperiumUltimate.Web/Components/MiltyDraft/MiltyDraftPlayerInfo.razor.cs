@@ -16,7 +16,12 @@ public partial class MiltyDraftPlayerInfo
 
     private string GetPlayerName() => MiltyDraftSettingsService.EnablePlayerNames ? Player.PlayerName : Player.PlayerDefaultName;
 
-    private string GetFactionText() => Player.Faction == FactionName.None ? string.Empty : Player.Faction.GetFactionUIText(FactionResourceType.Title);
+    private string GetFactionText() => Player.Faction switch
+    {
+        FactionName.None => string.Empty,
+        FactionName.TheFirmamentTheObsidian => "The Firmament",
+        _ => Player.Faction.GetFactionUIText(FactionResourceType.Title),
+    };
 
     private string GetInitiativeText() => Player.Initiative == MiltyDraftInitiative.None ? string.Empty : Player.Initiative.GetDisplayName();
 

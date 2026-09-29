@@ -4,6 +4,8 @@ public interface ISliceGeneratorService
 {
     IReadOnlyList<SystemTileModel> AllSystemTiles { get; }
 
+    Task InitializeEmptySlices(int numberOfSlices);
+
     IReadOnlyList<SliceModel> Slices { get; }
 
     Task InitializeAllSystemTilesForSliceGenerator();

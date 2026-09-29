@@ -78,6 +78,7 @@
 .slice-preview-archive .slice-grid {
     height: auto;
     flex: 0 0 auto;
+    padding-bottom: calc(100% / 6);
 }
 
 .slice-preview-archive ::deep .slice-archive-stats {

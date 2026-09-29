@@ -31,11 +31,11 @@ public partial class SliceHex
     [Inject]
     private ISliceGeneratorService SliceGeneratorService { get; set; } = default!;
 
-    private SystemTileOverlay Overlay => SliceGeneratorSettingsService.SystemTileOverlay;
+    private SystemTileOverlay Overlay => SliceGeneratorSettingsService.SliceOverlay;
 
     private string ImagePath => PathProvider.GetLargeTileImagePath(SystemTile?.SystemTileName ?? SystemTileName.TileEmpty);
 
-    private string SystemTileOverlayText => SliceGeneratorSettingsService.SystemTileOverlay switch
+    private string SystemTileOverlayText => Overlay switch
     {
         SystemTileOverlay.Id => SystemTile?.SystemTileCode ?? string.Empty,
         SystemTileOverlay.Resources => SystemTile?.Resources.ToString(CultureInfo.InvariantCulture) ?? string.Empty,
@@ -43,7 +43,7 @@ public partial class SliceHex
         _ => string.Empty,
     };
 
-    private string SystemTileOverlayColor => SliceGeneratorSettingsService.SystemTileOverlay switch
+    private string SystemTileOverlayColor => Overlay switch
     {
 
         SystemTileOverlay.Id => "white",

@@ -1,0 +1,37 @@
+.milty-draft-faction-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-sm);
+    width: 100%;
+}
+
+.milty-draft-faction-item {
+    display: flex;
+    flex: 0 0 clamp(4.5rem, 10vw, 7rem);
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+}
+
+.milty-draft-faction-item ::deep .responsive-button {
+    display: flex;
+    width: 100%;
+    aspect-ratio: 1;
+    padding: 0;
+}
+
+.milty-draft-faction-item ::deep .responsive-icon {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    padding: 0;
+}
+
+.milty-draft-faction-item ::deep .responsive-icon .icon {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    max-height: none;
+    object-fit: contain;
+}

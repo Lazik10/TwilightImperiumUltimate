@@ -1,25 +1,25 @@
-﻿@using TwilightImperiumUltimate.Web.Components.Factions
-@using TwilightImperiumUltimate.Web.Components.MapGenerator
+﻿@using TwilightImperiumUltimate.Web.Components.MapGenerator
 @using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids
 @using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.Custom
 @using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.EightPlayers
 @using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.SixPlayers
 @using TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.ThreePlayers
 @using TwilightImperiumUltimate.Web.Components.Shared.Controls
-@using TwilightImperiumUltimate.Web.Components.Shared.GameVersions
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 
 <div class="map-generator-grid">
 
-    <MapGeneratorMenu OnMenuItemClick="ChangeSegment"/>
+    <MapGeneratorMenu SelectedMenuItem="@_selectedSegment" OnMenuItemClick="ChangeSegment" />
 
     @if (_selectedSegment == MapGeneratorMenuItem.MapGenerator)
     {
-        <HexTileMenu SwappedSystemTileFromMenu="Refresh" />
+        <div class="map-controls">
+            <HexTileMenu SwappedSystemTileFromMenu="Refresh" />
 
-        <CascadingValue Value="this" Name="MapGeneratorMainGrid">
-            <MapQuickMenu OnMenuIconClick="HandleMenuIconClick" />
-        </CascadingValue>
+            <CascadingValue Value="this" Name="MapGeneratorMainGrid">
+                <MapQuickMenu OnMenuIconClick="HandleMenuIconClick" />
+            </CascadingValue>
+        </div>
 
         <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-md">
 
@@ -27,13 +27,13 @@
 
             <StretchHeightContainer>
                 <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-                    <div id="mapArea" style="width: @(MapGeneratorSettingsService.MapScale)%">
-                        @DynamicComponent
-                        <div style="height: clamp(4.688rem, 4.688rem + 1vw, 9.375rem);"></div>
-                    </div>
+                    <MapZoomViewport>
+                        <div id="mapArea">
+                            @DynamicComponent
+                            <div style="height: clamp(4.688rem, 4.688rem + 1vw, 9.375rem);"></div>
+                        </div>
+                    </MapZoomViewport>
                 </ResponsiveContainer>
-            </StretchHeightContainer>
-            <StretchHeightContainer>
             </StretchHeightContainer>
 
         </ResponsiveContainer>
@@ -41,41 +41,12 @@
 
     @if (_selectedSegment == MapGeneratorMenuItem.Settings)
     {
-        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-2xl">
-            <GridLayout Columns="2" Gap="40" Width="80" >
-                <YesNoPicker Title="@Strings.MapGeneratorSettings_EnableFactionPick"
-                                DefaultValue="MapGeneratorSettingsService.EnableFactionPick"
-                                Width="100"
-                                FontSize="18"
-                                OnValueChange="ToggleFactionPick" />
-
-                <ResponsiveNumericPicker Label="@Strings.MapGeneratorSettings_MapScale"
-                                Value="@MapGeneratorSettingsService.MapScale"
-                                OnDecrease="DecreaseMapScale"
-                                OnIncrease="IncreaseMapScale"
-                                Width="100"
-                                FontSize="md"
-                                CenterLabel="false" />
-            </GridLayout>
-        </ResponsiveContainer>
-
-        if (MapGeneratorSettingsService.EnableFactionPick)
-        {
-            <div class="mt-md">
-                <FactionIconMenu 
-                    EnableBanMode="true"
-                    ProvidedFactions="MapGeneratorSettingsService.FactionsForMapGenerator"
-                    OnFactionClickGetFaction="HandleFactionClick" 
-                    @ref="factionIconRowRef"/>
-            </div>
-
-            <GameVersionPicker OnVersionSelected="HandleGameVersionClick" />
-        }
-
         <div class="mt-2xl">
             <MapGeneratorSettings 
                 OnSelectedTemplateChange="UpdateMapTemplate"
-                OnSelectedSystemTileOverlayChange="UpdateMapOverlay" />
+                OnSelectedOverlayChange="UpdateMapOverlay"
+                OnFactionPickChanged="SetFactionPick"
+                OnFactionChanged="HandleFactionClick" />
         </div>
     }
 

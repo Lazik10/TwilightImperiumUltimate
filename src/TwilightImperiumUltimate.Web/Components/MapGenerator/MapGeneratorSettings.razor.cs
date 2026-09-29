@@ -5,6 +5,12 @@ namespace TwilightImperiumUltimate.Web.Components.MapGenerator;
 
 public partial class MapGeneratorSettings
 {
+    private readonly IReadOnlyCollection<KeyValuePair<bool, string>> _booleanOptions =
+    [
+        new(false, Strings.String_Disabled),
+        new(true, Strings.String_Enabled),
+    ];
+
     private IReadOnlyCollection<KeyValuePair<MapTemplate, string>> _mapTemplates = default!;
 
     private IReadOnlyCollection<KeyValuePair<SystemWeight, string>> _systemWeights = default!;
@@ -13,14 +19,28 @@ public partial class MapGeneratorSettings
 
     private IReadOnlyCollection<KeyValuePair<SystemTileOverlay, string>> _systemTileOverlays = default!;
 
+    private IReadOnlyCollection<KeyValuePair<WormholeDensity, string>> _wormholeDensities = default!;
+
     [Parameter]
     public EventCallback<MapTemplate> OnSelectedTemplateChange { get; set; } = default!;
 
     [Parameter]
-    public EventCallback OnSelectedSystemTileOverlayChange { get; set; } = default!;
+    public EventCallback OnSelectedOverlayChange { get; set; } = default!;
 
     [Parameter]
     public EventCallback OnHideSettings { get; set; } = default!;
+
+    /// <summary>
+    /// Gets or sets the callback invoked when faction selection is enabled or disabled.
+    /// </summary>
+    [Parameter]
+    public EventCallback<bool> OnFactionPickChanged { get; set; }
+
+    /// <summary>
+    /// Gets or sets the callback invoked when a faction is enabled or disabled.
+    /// </summary>
+    [Parameter]
+    public EventCallback<FactionModel> OnFactionChanged { get; set; }
 
     private MapTemplate SelectedMapTemplate { get; set; }
 
@@ -28,10 +48,14 @@ public partial class MapGeneratorSettings
 
     private PlacementStyle SelectedPlacementStyle { get; set; }
 
-    private SystemTileOverlay SelectedSystemTileOverlay { get; set; }
+    private SystemTileOverlay SelectedMapOverlay { get; set; }
+
+    private SystemTileOverlay SelectedMenuOverlay { get; set; }
 
     [Inject]
     private IMapGeneratorSettingsService MapGeneratorSettingsService { get; set; } = default!;
+
+    private IReadOnlyCollection<KeyValuePair<bool, string>> BooleanOptions => _booleanOptions;
 
     protected override void OnInitialized()
     {
@@ -45,6 +69,7 @@ public partial class MapGeneratorSettings
         _systemWeights = EnumExtensions.GetEnumValuesWithDisplayNames<SystemWeight>();
         _placementStyles = EnumExtensions.GetEnumValuesWithDisplayNames<PlacementStyle>();
         _systemTileOverlays = EnumExtensions.GetEnumValuesWithDisplayNames<SystemTileOverlay>();
+        _wormholeDensities = EnumExtensions.GetEnumValuesWithDisplayNames<WormholeDensity>();
     }
 
     private void InitializeSettings()
@@ -52,7 +77,8 @@ public partial class MapGeneratorSettings
         SelectedMapTemplate = MapGeneratorSettingsService.MapTemplate;
         SelectedPlacementStyle = MapGeneratorSettingsService.PlacementStyle;
         SelectedSystemWeight = MapGeneratorSettingsService.SystemWeight;
-        SelectedSystemTileOverlay = MapGeneratorSettingsService.SystemTileOverlay;
+        SelectedMapOverlay = MapGeneratorSettingsService.MapOverlay;
+        SelectedMenuOverlay = MapGeneratorSettingsService.MenuOverlay;
     }
 
     private void SetMapTemplate(MapTemplate mapTemplate)
@@ -74,50 +100,59 @@ public partial class MapGeneratorSettings
         MapGeneratorSettingsService.SystemWeight = systemWeight;
     }
 
-    private void SetSystemTileOverlay(SystemTileOverlay systemTileOverlay)
+    private void SetMapOverlay(SystemTileOverlay systemTileOverlay)
     {
-        SelectedSystemTileOverlay = systemTileOverlay;
-        MapGeneratorSettingsService.SystemTileOverlay = systemTileOverlay;
-        OnSelectedSystemTileOverlayChange.InvokeAsync();
+        SelectedMapOverlay = systemTileOverlay;
+        MapGeneratorSettingsService.MapOverlay = systemTileOverlay;
+        OnSelectedOverlayChange.InvokeAsync();
     }
 
-    private void UpdateGameVersion(GameVersion gameVersion)
+    private void SetMenuOverlay(SystemTileOverlay systemTileOverlay)
     {
-        MapGeneratorSettingsService.UpdateGameVersion(gameVersion);
+        SelectedMenuOverlay = systemTileOverlay;
+        MapGeneratorSettingsService.MenuOverlay = systemTileOverlay;
+        OnSelectedOverlayChange.InvokeAsync();
     }
 
-    private void IncreaseNumberOfLegendaryPlanets()
+    private void SetGameVersion(GameVersion gameVersion, bool isEnabled)
     {
-        int maxNumberOfLegendaryPlanets = 0;
-        maxNumberOfLegendaryPlanets += MapGeneratorSettingsService.GameVersions.Contains(GameVersion.ProphecyOfKings) ? 2 : 0;
-        maxNumberOfLegendaryPlanets += MapGeneratorSettingsService.GameVersions.Contains(GameVersion.UnchartedSpace) ? 5 : 0;
-        maxNumberOfLegendaryPlanets += MapGeneratorSettingsService.GameVersions.Contains(GameVersion.AscendantSun) ? 12 : 0;
+        if (MapGeneratorSettingsService.GameVersions.Contains(gameVersion) != isEnabled)
+            MapGeneratorSettingsService.UpdateGameVersion(gameVersion);
 
-        if (MapGeneratorSettingsService.NumberOfLegendaryPlanets < maxNumberOfLegendaryPlanets)
-        {
-            MapGeneratorSettingsService.NumberOfLegendaryPlanets++;
-            StateHasChanged();
-        }
-    }
-
-    private void DecreaseNumberOfLegendaryPlanets()
-    {
-        if (MapGeneratorSettingsService.NumberOfLegendaryPlanets > 0)
-        {
-            MapGeneratorSettingsService.NumberOfLegendaryPlanets--;
-            StateHasChanged();
-        }
-    }
-
-    private void ToggleLegendaryPriorityInEquidistant()
-    {
-        MapGeneratorSettingsService.LegendaryPriorityInEquidistant = !MapGeneratorSettingsService.LegendaryPriorityInEquidistant;
         StateHasChanged();
     }
 
-    private void TogglePlayerNames()
+    private void SetNumberOfLegendaryPlanets(int numberOfLegendaryPlanets)
     {
-        MapGeneratorSettingsService.EnablePlayerNames = !MapGeneratorSettingsService.EnablePlayerNames;
+        MapGeneratorSettingsService.NumberOfLegendaryPlanets = numberOfLegendaryPlanets;
         StateHasChanged();
+    }
+
+    private void SetLegendaryPriorityInEquidistant(bool legendaryPriorityInEquidistant)
+    {
+        MapGeneratorSettingsService.LegendaryPriorityInEquidistant = legendaryPriorityInEquidistant;
+        StateHasChanged();
+    }
+
+    private void SetPlayerNamesEnabled(bool enablePlayerNames)
+    {
+        MapGeneratorSettingsService.EnablePlayerNames = enablePlayerNames;
+        StateHasChanged();
+    }
+
+    private void SetWormholeDensity(WormholeDensity wormholeDensity)
+    {
+        MapGeneratorSettingsService.UpdateWormholeDensity(wormholeDensity);
+    }
+
+    private IReadOnlyCollection<int> GetLegendaryPlanetOptions() =>
+        Enumerable.Range(0, GetMaximumLegendaryPlanetCount() + 1).ToArray();
+
+    private int GetMaximumLegendaryPlanetCount()
+    {
+        var gameVersions = MapGeneratorSettingsService.GameVersions;
+        return (gameVersions.Contains(GameVersion.ProphecyOfKings) ? 2 : 0) +
+               (gameVersions.Contains(GameVersion.UnchartedSpace) ? 5 : 0) +
+               (gameVersions.Contains(GameVersion.AscendantSun) ? 12 : 0);
     }
 }

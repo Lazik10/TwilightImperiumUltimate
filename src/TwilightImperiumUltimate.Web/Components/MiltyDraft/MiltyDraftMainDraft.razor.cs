@@ -5,6 +5,11 @@ namespace TwilightImperiumUltimate.Web.Components.MiltyDraft;
 
 public partial class MiltyDraftMainDraft
 {
+    private bool _isInitializing = true;
+
+    [Parameter]
+    public EventCallback OnDraftCompleted { get; set; }
+
     [Inject]
     private IMiltyDraftService MiltyDraftService { get; set; } = default!;
 
@@ -51,20 +56,33 @@ public partial class MiltyDraftMainDraft
         Initiatives = MiltyDraftService.Initiatives.Take(MiltyDraftSettingsService.NumberOfPlayers).ToList();
         PlayersOrderOfPicks = await MiltyDraftService.NextPicks();
         DraftedFactions = MiltyDraftService.DraftedFactions;
+
+        if (DraftState == MiltyDraftState.Finished && OnDraftCompleted.HasDelegate)
+        {
+            await OnDraftCompleted.InvokeAsync();
+        }
+
         StateHasChanged();
     }
 
     protected override async Task OnInitializedAsync()
     {
-        if (MiltyDraftService.State == MiltyDraftState.Initialized)
+        try
         {
-            await MiltyDraftService.ResetMiltyDraft();
-            await MiltyDraftService.InitializeFactions();
-        }
+            if (MiltyDraftService.State == MiltyDraftState.Initialized && MiltyDraftService.Slices.Count == 0)
+            {
+                await MiltyDraftService.ResetMiltyDraft();
+            }
 
-        Initiatives = MiltyDraftService.Initiatives.Take(MiltyDraftSettingsService.NumberOfPlayers).ToList();
-        PlayersOrderOfPicks = await MiltyDraftService.NextPicks();
-        DraftedFactions = MiltyDraftService.DraftedFactions;
+            await MiltyDraftService.InitializeFactions();
+            Initiatives = MiltyDraftService.Initiatives.Take(MiltyDraftSettingsService.NumberOfPlayers).ToList();
+            PlayersOrderOfPicks = await MiltyDraftService.NextPicks();
+            DraftedFactions = MiltyDraftService.DraftedFactions;
+        }
+        finally
+        {
+            _isInitializing = false;
+        }
     }
 
     private async Task GetNextPicks()
@@ -95,6 +113,11 @@ public partial class MiltyDraftMainDraft
 
     private string GetButtonText()
     {
+        if (_isInitializing)
+        {
+            return Strings.MiltyDraft_PreparingDraft;
+        }
+
         if (MiltyDraftService.State == MiltyDraftState.Started || MiltyDraftService.State == MiltyDraftState.Finished)
         {
             return Strings.MiltyDraft_ResetDraft;
@@ -112,7 +135,7 @@ public partial class MiltyDraftMainDraft
         return string.Empty;
     }
 
-    private bool GetButtonStatus() => (MiltyDraftService.State == MiltyDraftState.Initialized
+    private bool GetButtonStatus() => _isInitializing || (MiltyDraftService.State == MiltyDraftState.Initialized
         && MiltyDraftService.NotEnoughFactionsPicked)
         || IsImportedSlicesEnabledAndImportedStringInvalid().Result;
 

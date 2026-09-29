@@ -1,206 +1,187 @@
-﻿@using TwilightImperiumUltimate.Web.Components.Shared.Bars
+﻿@using Radzen.Blazor
+@using TwilightImperiumUltimate.Web.Components.Grid
+@using TwilightImperiumUltimate.Web.Components.Shared.Bars
+@using TwilightImperiumUltimate.Web.Components.Shared.Text
 
-<div class="slice-evaluation-grid handel white shadow">
+@if (IsEvaluationAvailable)
+{
+    <div class="slice-evaluation-grid">
 
-    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="background mt-md mb-2xl">
-        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="80">
-            <Label Text="@Strings.MapGeneratorStats_PlanetsBarTitle" FontSize="18" Width="30"/>
+    <ResponsiveCard CssClass="map-evaluation-summary mt-md mb-2xl">
+        <ResponsiveGridContainer Columns="4" TabletColumns="4" MobileColumns="4" Width="100" Gap="var(--space-sm)" CssClass="map-evaluation-metrics-grid">
+            <ResponsiveLabel Text="@Strings.MapGeneratorStats_PlanetsBarTitle.TrimEnd(':')" FontSize="md" />
+            <ResponsiveText Text="@MapEvaluations.TotalPlanetsCountMin.ToString()" TagName="TagName.Div" TextColor="TextColor.Red" CenterText="true" />
             <ProgressBar MinValue="MapEvaluations.TotalPlanetsCountMin"
                          MaxValue="MapEvaluations.TotalPlanetsCountMax"
                          Width="100"
                          CssClass="planets"
+                         ShowBounds="false"
                          Value="MapEvaluations.PlanetsCount" />
-        </ResponsiveContainer>
+            <ResponsiveText Text="@MapEvaluations.TotalPlanetsCountMax.ToString()" TagName="TagName.Div" TextColor="TextColor.Green" CenterText="true" />
 
-        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="80">
-            <Label Text="@Strings.MapGeneratorStats_ResourcesBarTitle" FontSize="18" Width="30"/>
+            <ResponsiveLabel Text="@Strings.MapGeneratorStats_ResourcesBarTitle.TrimEnd(':')" FontSize="md" />
+            <ResponsiveText Text="@MapEvaluations.TotalResourcesMin.ToString()" TagName="TagName.Div" TextColor="TextColor.Red" CenterText="true" />
             <ProgressBar MinValue="MapEvaluations.TotalResourcesMin"
                          MaxValue="MapEvaluations.TotalResourcesMax"
                          Width="100"
                          Color="yellow"
+                         ShowBounds="false"
                          Value="MapEvaluations.Resources" />
-        </ResponsiveContainer>
+            <ResponsiveText Text="@MapEvaluations.TotalResourcesMax.ToString()" TagName="TagName.Div" TextColor="TextColor.Green" CenterText="true" />
 
-        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="80">
-            <Label Text="@Strings.MapGeneratorStats_InfluenceBarTitle" FontSize="18" Width="30"/>
+            <ResponsiveLabel Text="@Strings.MapGeneratorStats_InfluenceBarTitle.TrimEnd(':')" FontSize="md" />
+            <ResponsiveText Text="@MapEvaluations.TotalInfluenceMin.ToString()" TagName="TagName.Div" TextColor="TextColor.Red" CenterText="true" />
             <ProgressBar MinValue="MapEvaluations.TotalInfluenceMin"
                          MaxValue="MapEvaluations.TotalInfluenceMax"
                          Width="100"
                          Color="blue"
+                         ShowBounds="false"
                          Value="MapEvaluations.Influence" />
-        </ResponsiveContainer>
+            <ResponsiveText Text="@MapEvaluations.TotalInfluenceMax.ToString()" TagName="TagName.Div" TextColor="TextColor.Green" CenterText="true" />
 
-        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="80">
-            <Label Text="@Strings.MapGeneratorStats_FrontiersBarTitle" FontSize="18" Width="30" />
+            <ResponsiveLabel Text="@Strings.MapGeneratorStats_FrontiersBarTitle.TrimEnd(':')" FontSize="md" />
+            <ResponsiveText Text="@MapEvaluations.FrontierTokensMin.ToString()" TagName="TagName.Div" TextColor="TextColor.Red" CenterText="true" />
             <ProgressBar MinValue="MapEvaluations.FrontierTokensMin"
                          MaxValue="MapEvaluations.FrontierTokensMax"
                          Width="100"
                          Color="black"
+                         ShowBounds="false"
                          Value="MapEvaluations.FrontierTokens" />
-        </ResponsiveContainer>
+            <ResponsiveText Text="@MapEvaluations.FrontierTokensMax.ToString()" TagName="TagName.Div" TextColor="TextColor.Green" CenterText="true" />
 
-        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="80">
-            <Label Text="@Strings.MapGeneratorStats_LegendariesBarTitle" FontSize="18" Width="30" />
+            <ResponsiveLabel Text="@Strings.MapGeneratorStats_LegendariesBarTitle.TrimEnd(':')" FontSize="md" />
+            <ResponsiveText Text="@MapEvaluations.LegendaryPlanetsMin.ToString()" TagName="TagName.Div" TextColor="TextColor.Red" CenterText="true" />
             <ProgressBar MinValue="MapEvaluations.LegendaryPlanetsMin"
                          MaxValue="MapEvaluations.LegendaryPlanetsMax"
                          Width="100"
                          CssClass="pink"
+                         ShowBounds="false"
                          Value="MapEvaluations.LegendaryPlanets" />
-        </ResponsiveContainer>
+            <ResponsiveText Text="@MapEvaluations.LegendaryPlanetsMax.ToString()" TagName="TagName.Div" TextColor="TextColor.Green" CenterText="true" />
 
-        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="80">
-            <Label Text="@Strings.MapGeneratorStats_WormholesBarTitle" FontSize="18" Width="30"/>
+            <ResponsiveLabel Text="@Strings.MapGeneratorStats_WormholesBarTitle.TrimEnd(':')" FontSize="md" />
+            <ResponsiveText Text="@MapEvaluations.WormholesMin.ToString()" TagName="TagName.Div" TextColor="TextColor.Red" CenterText="true" />
             <ProgressBar MinValue="MapEvaluations.WormholesMin"
                          MaxValue="MapEvaluations.WormholesMax"
                          Width="100"
                          CssClass="wormholes"
+                         ShowBounds="false"
                          Value="MapEvaluations.Wormholes" />
-        </ResponsiveContainer>
+            <ResponsiveText Text="@MapEvaluations.WormholesMax.ToString()" TagName="TagName.Div" TextColor="TextColor.Green" CenterText="true" />
 
-        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="80">
-            <Label Text="@Strings.MapGeneratorStats_IndustrialPlanetsBarTitle" FontSize="18" Width="30" />
+            <ResponsiveLabel Text="@Strings.MapGeneratorStats_IndustrialPlanetsBarTitle.TrimEnd(':')" FontSize="md" />
+            <ResponsiveText Text="@MapEvaluations.IndustrialPlanetsMin.ToString()" TagName="TagName.Div" TextColor="TextColor.Red" CenterText="true" />
             <ProgressBar MinValue="MapEvaluations.IndustrialPlanetsMin"
                          MaxValue="MapEvaluations.IndustrialPlanetsMax"
                          Width="100"
                          CssClass="darkgreen"
+                         ShowBounds="false"
                          Value="MapEvaluations.IndustrialPlanets" />
-        </ResponsiveContainer>
+            <ResponsiveText Text="@MapEvaluations.IndustrialPlanetsMax.ToString()" TagName="TagName.Div" TextColor="TextColor.Green" CenterText="true" />
 
-        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="80">
-            <Label Text="@Strings.MapGeneratorStats_CulturalPlanetsBarTitle" FontSize="18" Width="30"/>
+            <ResponsiveLabel Text="@Strings.MapGeneratorStats_CulturalPlanetsBarTitle.TrimEnd(':')" FontSize="md" />
+            <ResponsiveText Text="@MapEvaluations.CulturalPlanetsMin.ToString()" TagName="TagName.Div" TextColor="TextColor.Red" CenterText="true" />
             <ProgressBar MinValue="MapEvaluations.CulturalPlanetsMin"
                          MaxValue="MapEvaluations.CulturalPlanetsMax"
                          Width="100"
                          Color="blue"
+                         ShowBounds="false"
                          Value="MapEvaluations.CulturalPlanets" />
-        </ResponsiveContainer>
+            <ResponsiveText Text="@MapEvaluations.CulturalPlanetsMax.ToString()" TagName="TagName.Div" TextColor="TextColor.Green" CenterText="true" />
 
-        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="80" CssClass="mb-md">
-            <Label Text="@Strings.MapGeneratorStats_HazardousBarTitle" FontSize="18" Width="30" />
+            <ResponsiveLabel Text="@Strings.MapGeneratorStats_HazardousBarTitle.TrimEnd(':')" FontSize="md" />
+            <ResponsiveText Text="@MapEvaluations.HazardousPlanetsMin.ToString()" TagName="TagName.Div" TextColor="TextColor.Red" CenterText="true" />
             <ProgressBar MinValue="MapEvaluations.HazardousPlanetsMin"
                          MaxValue="MapEvaluations.HazardousPlanetsMax"
                          Width="100"
                          Color="red"
+                         ShowBounds="false"
                          Value="MapEvaluations.HazardousPlanets" />
-        </ResponsiveContainer>
+            <ResponsiveText Text="@MapEvaluations.HazardousPlanetsMax.ToString()" TagName="TagName.Div" TextColor="TextColor.Green" CenterText="true" />
 
+        </ResponsiveGridContainer>
+    </ResponsiveCard>
+
+    <ResponsiveRadzenTable ZebraStripes="true">
+            <RadzenTableHeader>
+                <RadzenTableHeaderRow>
+                    <RadzenTableHeaderCell scope="col" class="map-evaluation-center"><ResponsiveText Text="@Strings.SliceEvaluation_Id" TagName="TagName.Div" CenterText="true" CssClass="map-evaluation-header-text" /></RadzenTableHeaderCell>
+                    <RadzenTableHeaderCell scope="col" class="map-evaluation-center"><ResponsiveText Text="@Strings.SliceEvaluation_TotalOptimalValue" TagName="TagName.Div" TextColor="TextColor.Green" CenterText="true" CssClass="map-evaluation-header-text" /></RadzenTableHeaderCell>
+                    <RadzenTableHeaderCell scope="col" class="map-evaluation-center"><ResponsiveText Text="@Strings.SliceEvaluation_TotalOptimalValueResources" TagName="TagName.Div" TextColor="TextColor.Yellow" CenterText="true" CssClass="map-evaluation-header-text" /></RadzenTableHeaderCell>
+                    <RadzenTableHeaderCell scope="col" class="map-evaluation-center"><ResponsiveText Text="@Strings.SliceEvaluation_TotalOptimalValueInfluence" TagName="TagName.Div" TextColor="TextColor.Deepskyblue" CenterText="true" CssClass="map-evaluation-header-text" /></RadzenTableHeaderCell>
+                    <RadzenTableHeaderCell scope="col" class="map-evaluation-center"><ResponsiveText Text="@Strings.SliceEvaluation_TotalResource" TagName="TagName.Div" TextColor="TextColor.Yellow" CenterText="true" CssClass="map-evaluation-header-text" /></RadzenTableHeaderCell>
+                    <RadzenTableHeaderCell scope="col" class="map-evaluation-center"><ResponsiveText Text="@Strings.SliceEvaluation_TotalInfluence" TagName="TagName.Div" TextColor="TextColor.Deepskyblue" CenterText="true" CssClass="map-evaluation-header-text" /></RadzenTableHeaderCell>
+                    <RadzenTableHeaderCell scope="col" class="map-evaluation-center"><ResponsiveText Text="@Strings.SliceEvaluation_LegendaryCount" TagName="TagName.Div" TextColor="TextColor.Green" CenterText="true" CssClass="map-evaluation-header-text" /></RadzenTableHeaderCell>
+                    <RadzenTableHeaderCell scope="col"><ResponsiveText Text="@Strings.SliceEvaluation_PlanetTraits" TagName="TagName.Div" CenterText="true" CssClass="map-evaluation-header-text" /></RadzenTableHeaderCell>
+                    <RadzenTableHeaderCell scope="col"><ResponsiveText Text="@Strings.SliceEvaluation_Specifications" TagName="TagName.Div" CenterText="true" CssClass="map-evaluation-header-text" /></RadzenTableHeaderCell>
+                </RadzenTableHeaderRow>
+            </RadzenTableHeader>
+
+            <RadzenTableBody>
+                @foreach (var sliceEvaluation in GetSliceEvaluations())
+                {
+                    <RadzenTableRow @key="sliceEvaluation.Id">
+                        <RadzenTableCell class="map-evaluation-center"><ResponsiveText Text="@sliceEvaluation.Id.ToString()" TagName="TagName.Div" CenterText="true" /></RadzenTableCell>
+                        <RadzenTableCell class="map-evaluation-center"><ResponsiveText Text="@sliceEvaluation.OptimalValueSum.ToString()" TagName="TagName.Div" TextColor="TextColor.Green" CenterText="true" /></RadzenTableCell>
+                        <RadzenTableCell class="map-evaluation-center"><ResponsiveText Text="@sliceEvaluation.OptimalResourcesSum.ToString()" TagName="TagName.Div" TextColor="TextColor.Yellow" CenterText="true" /></RadzenTableCell>
+                        <RadzenTableCell class="map-evaluation-center"><ResponsiveText Text="@sliceEvaluation.OptimalInfluenceSum.ToString()" TagName="TagName.Div" TextColor="TextColor.Deepskyblue" CenterText="true" /></RadzenTableCell>
+                        <RadzenTableCell class="map-evaluation-center"><ResponsiveText Text="@sliceEvaluation.Resources.ToString()" TagName="TagName.Div" TextColor="TextColor.Yellow" CenterText="true" /></RadzenTableCell>
+                        <RadzenTableCell class="map-evaluation-center"><ResponsiveText Text="@sliceEvaluation.Influence.ToString()" TagName="TagName.Div" TextColor="TextColor.Deepskyblue" CenterText="true" /></RadzenTableCell>
+                        <RadzenTableCell class="map-evaluation-center"><ResponsiveText Text="@sliceEvaluation.LegendariesCount.ToString()" TagName="TagName.Div" TextColor="TextColor.Green" CenterText="true" /></RadzenTableCell>
+                        <RadzenTableCell>
+                            <span class="map-evaluation-icons" role="img" aria-label="@Strings.SliceEvaluation_PlanetTraits">
+                                @foreach (var planetTrait in sliceEvaluation.PlanetTraits.Keys)
+                                {
+                                    for (var i = 0; i < sliceEvaluation.PlanetTraits[planetTrait]; i++)
+                                    {
+                                        <img src="@GetPlanetTraitPath(planetTrait)" alt="" aria-hidden="true" class="map-evaluation-icon" />
+                                    }
+                                }
+                            </span>
+                        </RadzenTableCell>
+                        <RadzenTableCell>
+                            <span class="map-evaluation-icons" role="img" aria-label="@Strings.SliceEvaluation_Specifications">
+                                @foreach (var technologyType in sliceEvaluation.TechnologySkips.Keys)
+                                {
+                                    for (var i = 0; i < sliceEvaluation.TechnologySkips[technologyType]; i++)
+                                    {
+                                        <img src="@GetTechnologyPath(technologyType)" alt="" aria-hidden="true" class="map-evaluation-icon" />
+                                    }
+                                }
+
+                                @for (var i = 0; i < sliceEvaluation.LegendariesCount; i++)
+                                {
+                                    <img src="@GetPlanetTraitPath(PlanetTrait.Legendary)" alt="" aria-hidden="true" class="map-evaluation-icon" />
+                                }
+
+                                @for (var i = 0; i < sliceEvaluation.AlphaWormholesCount; i++)
+                                {
+                                    <img src="@GetPlanetTraitPath(PlanetTrait.AlphaWormhole)" alt="" aria-hidden="true" class="map-evaluation-icon" />
+                                }
+
+                                @for (var i = 0; i < sliceEvaluation.BetaWormholesCount; i++)
+                                {
+                                    <img src="@GetPlanetTraitPath(PlanetTrait.BetaWormhole)" alt="" aria-hidden="true" class="map-evaluation-icon" />
+                                }
+
+                                @for (var i = 0; i < sliceEvaluation.GammaWormholesCount; i++)
+                                {
+                                    <img src="@GetPlanetTraitPath(PlanetTrait.GammaWormhole)" alt="" aria-hidden="true" class="map-evaluation-icon" />
+                                }
+                            </span>
+                        </RadzenTableCell>
+                    </RadzenTableRow>
+                }
+            </RadzenTableBody>
+    </ResponsiveRadzenTable>
+    </div>
+}
+else
+{
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+        <Label Text="Stats for this template are not available."
+               FontSize="32"
+               CenterText="true"
+               CssClass="mt-2xl mb-2xl" />
     </ResponsiveContainer>
-
-    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="background">
-
-        <GridLayout Columns="9" Gap="20" Width="100">
-            <div>
-                @Strings.SliceEvaluation_Id
-            </div>
-
-            <div class="green">
-                @Strings.SliceEvaluation_TotalOptimalValue
-            </div>
-
-            <div class="yellow">
-                @Strings.SliceEvaluation_TotalOptimalValueResources
-            </div>
-
-            <div class="blue">
-                @Strings.SliceEvaluation_TotalOptimalValueInfluence
-            </div>
-
-            <div class="yellow">
-                @Strings.SliceEvaluation_TotalResource
-            </div>
-
-            <div class="blue">
-                @Strings.SliceEvaluation_TotalInfluence
-            </div>
-
-            <div class="green">
-                @Strings.SliceEvaluation_LegendaryCount
-            </div>
-
-            <div>
-                @Strings.SliceEvaluation_PlanetTraits
-            </div>
-
-            <div>
-                @Strings.SliceEvaluation_Specifications
-            </div>
-
-            @foreach(var sliceEvaluation in GetSliceEvaluations())
-            {
-                <div>
-                    @sliceEvaluation.Id
-                </div>
-
-                <div class="green grid-text">
-                    @sliceEvaluation.OptimalValueSum
-                </div>
-
-                <div class="yellow">
-                    @sliceEvaluation.OptimalResourcesSum
-                </div>
-
-                <div class="blue">
-                    @sliceEvaluation.OptimalInfluenceSum
-                </div>
-
-                <div class="yellow">
-                    @sliceEvaluation.Resources
-                </div>
-
-                <div class="blue grid-text">
-                    @sliceEvaluation.Influence
-                </div>
-
-                <div class="green">
-                    @sliceEvaluation.LegendariesCount
-                </div>
-
-                <div>
-                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
-                        @foreach (var planetTrait in sliceEvaluation.PlanetTraits.Keys)
-                        {
-                            for (int i = 0; i < sliceEvaluation.PlanetTraits[planetTrait]; i++)
-                            {
-                                <img src="@GetPlanetTraitPath(planetTrait)" class="max-height" />
-                            }
-                        }
-                    </ResponsiveContainer>
-                </div>
-
-                <div>
-                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
-                        @foreach (var technologyType in sliceEvaluation.TechnologySkips.Keys)
-                        {
-                            for (int i = 0; i < sliceEvaluation.TechnologySkips[technologyType]; i++)
-                            {
-                                <img src="@GetTechnologyPath(technologyType)" class="max-height" />
-                            }
-                        }
-
-                        @for (int i = 0; i < sliceEvaluation.LegendariesCount; i++)
-                        {
-                            <img src="@GetPlanetTraitPath(PlanetTrait.Legendary)" class="max-height" style="max-width: 40px;" />
-                        }
-
-                        @for (int i = 0; i < sliceEvaluation.AlphaWormholesCount; i++)
-                        {
-                            <img src="@GetPlanetTraitPath(PlanetTrait.AlphaWormhole)" class="max-height" style="max-width: 40px;" />
-                        }
-
-                        @for (int i = 0; i < sliceEvaluation.BetaWormholesCount; i++)
-                        {
-                            <img src="@GetPlanetTraitPath(PlanetTrait.BetaWormhole)" class="max-height" style="max-width: 40px;" />
-                        }
-
-                        @for (int i = 0; i < sliceEvaluation.GammaWormholesCount; i++)
-                        {
-                            <img src="@GetPlanetTraitPath(PlanetTrait.GammaWormhole)" class="max-height" style="max-width: 40px;" />
-                        }
-                    </ResponsiveContainer>
-                </div>
-            }
-
-        </GridLayout>
-
-    </ResponsiveContainer>
-</div>
+}

@@ -7,9 +7,10 @@ public partial class Page
 
     /// <summary>
     /// Gets or sets the horizontal padding as a percentage of the page width, applied only at
-    /// viewport widths of 1570px and wider. Below 1570px this value is ignored and a fixed 3%
-    /// is used instead, dropping to 2% at &lt;=1024px and 1% at &lt;=768px, regardless of this
-    /// parameter -- see page-horizontal-padding in Page.razor.css.
+    /// viewport widths of 1570px and wider. A value of zero disables horizontal padding at every
+    /// breakpoint. Otherwise, below 1570px this value is ignored and a fixed 3% is used instead,
+    /// dropping to 2% at &lt;=1024px and 1% at &lt;=768px -- see page-horizontal-padding in
+    /// Page.razor.css.
     /// </summary>
     [Parameter]
     public int HorizontalPadding { get; set; } = 10;
@@ -33,6 +34,10 @@ public partial class Page
     /// </summary>
     [Parameter]
     public int? RightPadding { get; set; }
+
+    private string PageCssClass => HorizontalPadding is 0
+        ? "page-template page-horizontal-padding page-no-horizontal-padding"
+        : "page-template page-horizontal-padding";
 
     private string GetHorizontalPaddingStyle() =>
         $"padding-left: {LeftPadding ?? HorizontalPadding}%; padding-right: {RightPadding ?? HorizontalPadding}%;";

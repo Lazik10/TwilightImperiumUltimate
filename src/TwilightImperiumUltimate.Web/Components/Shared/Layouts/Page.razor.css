@@ -32,3 +32,8 @@
         padding-right: 1% !important;
     }
 }
+
+::deep .page-no-horizontal-padding {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}

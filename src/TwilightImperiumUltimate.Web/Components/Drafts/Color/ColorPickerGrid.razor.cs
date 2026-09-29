@@ -1,10 +1,11 @@
 using TwilightImperiumUltimate.Web.Services.Draft;
+using TwilightImperiumUltimate.Web.Components.Factions;
 
 namespace TwilightImperiumUltimate.Web.Components.Drafts.Color;
 
 public partial class ColorPickerGrid
 {
-    private ColorPickerMenu _colorPickerMenu = null!;
+    private FactionMenuPicker _factionMenuPicker = null!;
 
     private DraftStage _draftStage = DraftStage.Draft;
 
@@ -45,7 +46,7 @@ public partial class ColorPickerGrid
     private void ResetDraft()
     {
         ColorPickerService.ResetDraft();
-        _colorPickerMenu.SetAllFactionsBanStatus(true);
+        _factionMenuPicker.SetAllFactionsBanStatus(true);
         StateHasChanged();
     }
 
@@ -56,7 +57,7 @@ public partial class ColorPickerGrid
 
     private void UpdateSelectedFactions(FactionModel faction)
     {
-        ColorPickerService.UpdateSelectedFactions(_colorPickerMenu.Factions, faction);
+        ColorPickerService.UpdateSelectedFactions(_factionMenuPicker.Factions, faction);
     }
 
     private string GetPrimaryButtonText()

@@ -1,28 +1,8 @@
-﻿@using TwilightImperiumUltimate.Web.Helpers.Enums
+﻿@using TwilightImperiumUltimate.Web.Components.PreviewSlices
 
-<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="background">
-
-    <div style="border: 5px solid @(SliceModel is not null ? SliceModel.Color.GetUIColor() : "transparent"); 
-                height: 100%; padding: 10px 10px 10px 10px;
-                @(IsColorless())">
-
-        <div class="milty-draft-slice-grid mb-2xl">
-
-            @foreach(var systemTile in SliceModel?.SystemTiles ?? Enumerable.Empty<SystemTileModel>())
-            {
-                <div class="hex">
-                    <MiltyDraftHex SystemTile="systemTile" />
-                </div>
-            }
-
-        </div>
-
-        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mb-sm">
-            <ResponsiveButton ButtonText="@Strings.MiltyDraft_PickOption" OnClick="PickSlice" IsDisabled="IsDisabled()" Width="30" />
-        </ResponsiveContainer>
-
-        <MiltyDraftSliceEvaluationStats SliceModel="SliceModel" />
-
-    </div>
-
-</ResponsiveContainer>
+<div class="milty-draft-slice" style="@(IsColorless())">
+    <ResponsiveCard CssClass="slice-detail-card" OnClick="PickSlice" IsDisabled="IsDisabled()">
+        <ResponsiveLabel Text="@GetSliceOwnerLabel()" TextColor="@GetSliceOwnerTextColor()" CenterText="true" CssClass="mb-sm" />
+        <SlicePreview SliceModel="SliceModel" ArchiveLayout="true" ShowName="false" />
+    </ResponsiveCard>
+</div>

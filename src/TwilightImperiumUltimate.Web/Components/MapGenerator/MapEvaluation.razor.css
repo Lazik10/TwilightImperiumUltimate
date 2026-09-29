@@ -1,26 +1,75 @@
-﻿.slice-evaluation-grid
-{
-    
+﻿.slice-evaluation-grid {
+    width: 100%;
 }
 
-.yellow {
-    color: yellow;
+.slice-evaluation-grid ::deep .map-evaluation-summary {
+    padding: var(--spacing-md, 1rem);
 }
 
-.blue {
-    color: deepskyblue;
+.slice-evaluation-grid ::deep .map-evaluation-metrics-grid {
+    grid-template-columns: max-content max-content minmax(0, 1fr) max-content;
 }
 
-.green {
-    color: lawngreen;
+.slice-evaluation-grid ::deep .map-evaluation-metrics-grid > :nth-child(4n + 3) {
+    width: 100%;
+    min-width: 0;
 }
 
-.max-height {
-    max-height: 40px;
+.slice-evaluation-grid ::deep .map-evaluation-metrics-grid > :nth-child(4n + 1) {
+    justify-self: start;
+    text-align: left;
 }
 
-.grid-text {
+.slice-evaluation-grid ::deep .map-evaluation-metrics-grid .responsive-label,
+.slice-evaluation-grid ::deep .map-evaluation-metrics-grid .responsive-text {
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: 18px;
+}
+
+.slice-evaluation-grid ::deep .map-evaluation-metrics-grid .value {
+    top: 50%;
+    line-height: 18px;
+    transform: translateY(-50%);
+}
+
+.slice-evaluation-grid ::deep .map-evaluation-center {
     text-align: center;
-    align-self: center;
-    justify-self: center;
+    vertical-align: middle;
+}
+
+.slice-evaluation-grid ::deep .responsive-radzen-table-host {
+    overflow-x: auto;
+}
+
+.slice-evaluation-grid ::deep .responsive-radzen-table .rz-grid-table {
+    min-width: max-content;
+}
+
+.slice-evaluation-grid ::deep .map-evaluation-header-text {
+    width: max-content;
+    white-space: nowrap !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+}
+
+.map-evaluation-icons {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs, 0.25rem);
+    min-height: 40px;
+}
+
+.map-evaluation-icon {
+    max-width: 40px;
+    max-height: 40px;
+    object-fit: contain;
+}
+
+@media (max-width: 767px) {
+    .slice-evaluation-grid ::deep .map-evaluation-summary {
+        padding: var(--spacing-sm, 0.5rem);
+    }
+
 }

@@ -9,14 +9,14 @@
     }
     else
     {
-        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexEnd" CssClass="mt-2xl mb-sm">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexEnd" CssClass="mb-sm">
             <span class="mr-sm"><QuickMenuItem IconType="IconType.CopyMapString" IconTypeClicked="IconType.CopyMapStringClicked" OnClick="HandleCopyMapString" /></span>
             <QuickMenuItem IconType="IconType.DownloadMapImage" IconTypeClicked="IconType.DownloadMapImageClicked" OnClick="HandleDownloadImage" />
         </ResponsiveContainer>
 
         <div id="draftpreviewArea" class="mb-3xl">
 
-            <GridLayout Columns="3" Width="100" Gap="10" AlignItems="stretch" CssClass="mb-md">
+            <GridLayout Columns="3" Width="100" Gap="10" AlignItems="stretch" CssClass="milty-draft-player-grid mb-md">
 
                 @if (Players is not null && Players.Count > 0)
                 {
@@ -28,10 +28,13 @@
 
             </GridLayout>
 
-            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" CssClass="mb-md">
-                <Label Text="@Strings.MiltyDraft_MapString" TextColor="TextColor.Green" FontSize="24" Width="15" />
-                <Label Text="@MapTtsString()" CenterText="true" FontSize="18"/>
-            </ResponsiveContainer>
+            <ResponsiveCard CssClass="milty-draft-map-string mb-md">
+                <ResponsiveLabel Text="@Strings.MiltyDraft_MapString" TextColor="TextColor.LightBlue" FontSize="md" />
+                <ResponsiveLabel Text="@MapTtsString()" TextColor="TextColor.White" UseHandelStyling="false" CssClass="inter milty-draft-map-string-value" />
+                <div class="milty-draft-map-string-copy-row">
+                    <CopyButton TextToCopy="@MapTtsString()" AriaLabel="@Strings.MiltyDraft_MapString" />
+                </div>
+            </ResponsiveCard>
 
             @if (IsSupportedPreviewMap())
             {

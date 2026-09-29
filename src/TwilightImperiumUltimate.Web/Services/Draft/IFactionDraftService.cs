@@ -9,6 +9,8 @@ public interface IFactionDraftService
 
     bool ToManyBans { get; }
 
+    bool EnablePlayerNames { get; set; }
+
     IReadOnlyCollection<FactionDraftPlayerModel> Players { get; }
 
     IReadOnlyCollection<FactionModel> FactionsWithUpdatedBanStatus { get; }
