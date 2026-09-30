@@ -1,5 +1,3 @@
-using TwilightImperiumUltimate.Contracts.Enums;
-
 namespace TwilightImperiumUltimate.Web.Helpers.Tigl;
 
 public static class TiglAchievementDescriptions
@@ -47,6 +45,8 @@ public static class TiglAchievementDescriptions
         [AchievementName.Collector] = ("Collector", "Earn 5 different achievements"),
         [AchievementName.Overachiever] = ("Overachiever", "Earn 15 different achievements"),
         [AchievementName.Completionist] = ("Completionist", "Earn 30 different achievements"),
+        [AchievementName.Icarus] = ("Icarus", "Lose a game in which you would have gained Inconceivable or Mythical achievement"),
+        [AchievementName.Mythical] = ("Mythical", "Win 10 games in a row"),
     };
 
     public static string GetDisplayName(AchievementName name)

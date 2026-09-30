@@ -305,6 +305,15 @@ public class TiglController(
         return Ok(new ApiResponse<TiglPlayerProfileDto>() { Success = true, Data = data });
     }
 
+    // GET: api/tigl/player-ids-by-discord-id
+    [Route("player-ids-by-discord-id")]
+    [HttpGet]
+    public async Task<ActionResult<IApiResponse<PlayerIdsByDiscordIdDto>>> GetPlayerIdsByDiscordId([FromQuery] long discordId, CancellationToken cancellationToken)
+    {
+        var data = await _mediator.Send(new GetPlayerIdsByDiscordIdQuery(discordId), cancellationToken);
+        return Ok(new ApiResponse<PlayerIdsByDiscordIdDto>() { Success = true, Data = data });
+    }
+
     // GET: api/tigl/tigl-player-profile-link
     [Route("tigl-player-profile-link")]
     [HttpGet]

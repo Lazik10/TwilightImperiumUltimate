@@ -25,8 +25,7 @@ internal sealed class DiscordBotClient : IDiscordClient, IHostedService, IDispos
         _logger = logger;
         _client = new DiscordSocketClient(new DiscordSocketConfig
         {
-            GatewayIntents = GatewayIntents.Guilds | GatewayIntents.GuildMembers,
-            AlwaysDownloadUsers = true,
+            GatewayIntents = GatewayIntents.Guilds,
             LogGatewayIntentWarnings = false,
             MessageCacheSize = 0,
         });
@@ -137,17 +136,14 @@ internal sealed class DiscordBotClient : IDiscordClient, IHostedService, IDispos
                 return false;
             }
 
-            await guild.DownloadUsersAsync();
-
-            var user = guild.GetUser(userId);
+            var user = await ((IGuild)guild).GetUserAsync(userId, CacheMode.AllowDownload);
             if (user is null)
             {
                 discordRoleChangeLog.Result = DiscordRoleChangeStatus.UserNotFound;
                 return false;
             }
 
-            var roles = user.Roles.ToList();
-            if (roles.Any(r => r.Id == roleId))
+            if (user.RoleIds.Contains(roleId))
             {
                 discordRoleChangeLog.Result = DiscordRoleChangeStatus.AlreadyHasRole;
                 return true;
@@ -155,16 +151,14 @@ internal sealed class DiscordBotClient : IDiscordClient, IHostedService, IDispos
 
             await user.AddRoleAsync(roleId);
 
-            await guild.DownloadUsersAsync();
-            var updatedUser = guild.GetUser(userId);
+            var updatedUser = await ((IGuild)guild).GetUserAsync(userId, CacheMode.AllowDownload);
             if (updatedUser is null)
             {
                 discordRoleChangeLog.Result = DiscordRoleChangeStatus.UpdatedUserNotFound;
                 return false;
             }
 
-            var updatedRoles = updatedUser.Roles.ToList();
-            if (!updatedRoles.Any(r => r.Id == roleId))
+            if (!updatedUser.RoleIds.Contains(roleId))
             {
                 discordRoleChangeLog.Result = DiscordRoleChangeStatus.FailedToAddRole;
                 return false;
@@ -200,17 +194,14 @@ internal sealed class DiscordBotClient : IDiscordClient, IHostedService, IDispos
                 return false;
             }
 
-            await guild.DownloadUsersAsync();
-
-            var user = guild.GetUser(userId);
+            var user = await ((IGuild)guild).GetUserAsync(userId, CacheMode.AllowDownload);
             if (user is null)
             {
                 discordRoleChangeLog.Result = DiscordRoleChangeStatus.UserNotFound;
                 return false;
             }
 
-            var roles = user.Roles.ToList();
-            if (!roles.Any(r => r.Id == roleId))
+            if (!user.RoleIds.Contains(roleId))
             {
                 discordRoleChangeLog.Result = DiscordRoleChangeStatus.DoesNotHaveRole;
                 return true;
@@ -218,16 +209,14 @@ internal sealed class DiscordBotClient : IDiscordClient, IHostedService, IDispos
 
             await user.RemoveRoleAsync(roleId);
 
-            await guild.DownloadUsersAsync();
-            var updatedUser = guild.GetUser(userId);
+            var updatedUser = await ((IGuild)guild).GetUserAsync(userId, CacheMode.AllowDownload);
             if (updatedUser is null)
             {
                 discordRoleChangeLog.Result = DiscordRoleChangeStatus.UpdatedUserNotFound;
                 return false;
             }
 
-            var updatedRoles = updatedUser.Roles.ToList();
-            if (updatedRoles.Any(r => r.Id == roleId))
+            if (updatedUser.RoleIds.Contains(roleId))
             {
                 discordRoleChangeLog.Result = DiscordRoleChangeStatus.FailedToRemoveRole;
                 return false;
@@ -257,8 +246,8 @@ internal sealed class DiscordBotClient : IDiscordClient, IHostedService, IDispos
             if (guild is null)
                 return false;
 
-            var fromUser = guild.GetUser(fromUserId);
-            var toUser = guild.GetUser(toUserId);
+            var fromUser = await ((IGuild)guild).GetUserAsync(fromUserId, CacheMode.AllowDownload);
+            var toUser = await ((IGuild)guild).GetUserAsync(toUserId, CacheMode.AllowDownload);
 
             if (fromUser is null || toUser is null)
                 return false;

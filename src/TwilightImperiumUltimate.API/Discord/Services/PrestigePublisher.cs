@@ -17,7 +17,37 @@ internal sealed class PrestigePublisher(IDiscordClient discordClient, ILogger<Pr
         if (!ok)
             logger.LogWarning("Failed to publish prestige log {LogId}", log.Id);
 
+        var roleAssigned = await AssignGlobalPrestigeRoleAsync(log, cancellationToken);
+        if (!roleAssigned)
+            logger.LogWarning("Failed to assign prestige role {PrestigeRank} to user {UserId}", log.Name, log.TiglUserDiscordId);
+
         return ok;
+    }
+
+    private async Task<bool> AssignGlobalPrestigeRoleAsync(PrestigeLog log, CancellationToken cancellationToken)
+    {
+        if (log.Name is not (TiglPrestigeRank.GalacticThreat or TiglPrestigeRank.PaxMagnificaBellumGloriosum or TiglPrestigeRank.Tyrant))
+            return true;
+
+        if (!DiscordRoleMappings.PrestigeRoles.TryGetValue(log.Name, out var roleInfo)
+            || !ulong.TryParse(roleInfo.RoleId, NumberStyles.None, CultureInfo.InvariantCulture, out var roleId)
+            || roleId == 0)
+        {
+            return false;
+        }
+
+        var correctRoleId = log.Name switch
+        {
+            TiglPrestigeRank.GalacticThreat => DiscordRoleMappings.GetCorrectGalacticThreatPrestigeRankRoleId(log.Rank),
+            TiglPrestigeRank.Tyrant => DiscordRoleMappings.GetCorrectTyrantPrestigeRankRoleId(log.Rank),
+            _ => roleId,
+        };
+
+        return await discordClient.AddRoleToUserAsync(
+            (ulong)log.TiglUserDiscordId,
+            correctRoleId,
+            DiscordRoleType.Leader,
+            cancellationToken);
     }
 
     private Task<bool> PublishAsyncInternal(TiglLeague league, string content, CancellationToken cancellationToken)
