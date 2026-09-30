@@ -1,7 +1,9 @@
 ﻿@page "/"
 @page "/news"
+@using TwilightImperiumUltimate.Web.Components.Shared.Seo
 
 <PageTitle>@PageTitleText</PageTitle>
+<JsonLd Json="@ArticleStructuredData" />
 
 <Page LeftPadding="7" RightPadding="13">
     @*

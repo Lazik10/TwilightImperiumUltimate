@@ -1,5 +1,8 @@
 ﻿@inherits LayoutComponentBase
 @using TwilightImperiumUltimate.Web.Components.Shared
+@using TwilightImperiumUltimate.Web.Components.Shared.Seo
+
+<SeoMetadata />
 
 <a class="skip-link" href="#main-content">@Strings.SkipToContent</a>
 
@@ -12,6 +15,7 @@
     </header>
 
     <main id="main-content" class="site-main" tabindex="-1">
+        <Breadcrumbs />
         @Body
     </main>
 

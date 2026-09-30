@@ -1,3 +1,6 @@
+using System.Globalization;
+using System.Text.Json;
+
 namespace TwilightImperiumUltimate.Web.Pages.News;
 
 public partial class Index
@@ -20,6 +23,32 @@ public partial class Index
         !NavigationManager.ToBaseRelativePath(NavigationManager.Uri).StartsWith("news", StringComparison.OrdinalIgnoreCase);
 
     private string PageTitleText => IsHomeRoute ? Strings.Page_Home_PageTitle : Strings.Page_News_PageTitle;
+
+    private string ArticleStructuredData => _newsArticles is null
+        ? string.Empty
+        : JsonSerializer.Serialize(new
+        {
+            @context = "https://schema.org",
+            @type = "ItemList",
+            name = "TI4 Ultimate news",
+            itemListElement = _newsArticles.Select((article, index) => new
+            {
+                @type = "ListItem",
+                position = index + 1,
+                item = new
+                {
+                    @type = "Article",
+                    headline = article.Title,
+                    datePublished = article.CreatedAt.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    dateModified = article.UpdatedAt.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    author = new
+                    {
+                        @type = "Person",
+                        name = article.User?.UserName ?? "TI4 Ultimate",
+                    },
+                },
+            }),
+        });
 
     protected override async Task OnInitializedAsync()
     {

@@ -146,4 +146,18 @@
     </Content>
   </ItemGroup>
 
+  <Target Name="GenerateSitemap" BeforeTargets="PrepareForPublish">
+    <Exec Command="dotnet run --project &quot;$(MSBuildProjectDirectory)\..\..\tools\TwilightImperiumUltimate.SitemapGenerator\TwilightImperiumUltimate.SitemapGenerator.csproj&quot; --configuration $(Configuration) -- --repository-root &quot;$(MSBuildProjectDirectory)\..\..&quot; --api-base-url &quot;$(SitemapApiBaseUrl)&quot;" />
+  </Target>
+
+  <Target Name="UseProjectWebConfig" AfterTargets="_ProcessPublishFilesForBlazor">
+    <ItemGroup>
+      <ResolvedFileToPublish Remove="@(ResolvedFileToPublish)" Condition="'%(ResolvedFileToPublish.RelativePath)' == 'web.config'" />
+      <ResolvedFileToPublish Include="$(MSBuildProjectDirectory)\web.config">
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+        <RelativePath>web.config</RelativePath>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+
 </Project>

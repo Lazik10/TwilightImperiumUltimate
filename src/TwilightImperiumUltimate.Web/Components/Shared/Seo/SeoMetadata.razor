@@ -1,0 +1,31 @@
+@using Microsoft.AspNetCore.Components
+
+<HeadContent>
+    <meta name="description" content="@Description" />
+    <link rel="canonical" href="@CanonicalUrl" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="TI4 Ultimate" />
+    <meta property="og:title" content="@Title" />
+    <meta property="og:description" content="@Description" />
+    <meta property="og:url" content="@CanonicalUrl" />
+    <meta property="og:image" content="@OpenGraphImageUrl" />
+    <meta property="og:image:alt" content="@OpenGraphImageAlt" />
+    <meta property="og:image:type" content="@OpenGraphImage.ContentType" />
+    <meta property="og:image:width" content="@OpenGraphImage.Width" />
+    <meta property="og:image:height" content="@OpenGraphImage.Height" />
+    <meta name="twitter:card" content="@OpenGraphImage.TwitterCard" />
+    <meta name="twitter:title" content="@Title" />
+    <meta name="twitter:description" content="@Description" />
+    <meta name="twitter:image" content="@OpenGraphImageUrl" />
+    <meta name="twitter:image:alt" content="@OpenGraphImageAlt" />
+
+    @if (IsNoIndex)
+    {
+        <meta name="robots" content="noindex, follow" />
+    }
+    else
+    {
+        <script type="application/ld+json">@((MarkupString)StructuredData)</script>
+    }
+</HeadContent>

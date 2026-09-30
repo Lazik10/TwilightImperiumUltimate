@@ -8,6 +8,9 @@
                     <AuthorizeView>
                         <Authorized Context="authorizationContext">
                             <PageTitle>Forbidden</PageTitle>
+                            <HeadContent>
+                                <meta name="robots" content="noindex, follow" />
+                            </HeadContent>
                             <LayoutView Layout="@typeof(MainLayout)">
                                 <StretchHeightContainer>
                                     <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
@@ -19,6 +22,9 @@
                         </Authorized>
                         <NotAuthorized Context="anonymousContext">
                             <PageTitle>Unauthorized</PageTitle>
+                            <HeadContent>
+                                <meta name="robots" content="noindex, follow" />
+                            </HeadContent>
                             <LayoutView Layout="@typeof(MainLayout)">
                                 <StretchHeightContainer>
                                     <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
@@ -35,6 +41,9 @@
         </Found>
         <NotFound>
             <PageTitle>Not found</PageTitle>
+            <HeadContent>
+                <meta name="robots" content="noindex, follow" />
+            </HeadContent>
             <LayoutView Layout="@typeof(MainLayout)">
                 <StretchHeightContainer>
                     <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">

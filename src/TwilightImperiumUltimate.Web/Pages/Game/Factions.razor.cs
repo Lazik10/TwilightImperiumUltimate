@@ -33,8 +33,6 @@ public partial class Factions
 
     private string PageHeading => string.Format(CultureInfo.CurrentCulture, Strings.Page_Factions_PageTitle, FactionProvider.CurrentFactionName.GetFactionUIText(FactionResourceType.Title));
 
-    private string MetaDescription => string.Format(CultureInfo.CurrentCulture, Strings.Page_Factions_MetaDescription, FactionProvider.CurrentFactionName.GetFactionUIText(FactionResourceType.Title));
-
     protected override async Task OnInitializedAsync()
     {
         await FactionProvider.InitializeFactions();

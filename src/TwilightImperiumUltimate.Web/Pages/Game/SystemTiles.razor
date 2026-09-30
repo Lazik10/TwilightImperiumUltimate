@@ -31,7 +31,7 @@
                     {
                         <div class="systemtile-item">
                             <ClickableTile OnClick="(() => ShowBigImage(systemtile))">
-                                <img class="systemtile" src="@GetSystemTileImagePath(systemtile)" alt="@systemtile.SystemTileName">
+                                <img class="systemtile" src="@GetSystemTileImagePath(systemtile)" alt="@systemtile.SystemTileName" width="1000" height="1000">
                             </ClickableTile>
                             <div class="systemtile-code handel shadow white">
                                 @(systemtile.SystemTileCode)
@@ -52,7 +52,7 @@
     {
         <div class="big-image-overlay" @onclick="HideBigImage">
             <div class="image-container">
-                <img src="@_currentBigImageSrc" @onclick="HideBigImage" />
+                <img src="@_currentBigImageSrc" alt="@_currentBigImageAlt" width="1000" height="1000" @onclick="HideBigImage" />
             </div>
         </div>
     }

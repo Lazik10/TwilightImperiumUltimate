@@ -94,7 +94,11 @@ public class PathProvider : IPathProvider
 
     public string GetIconPath(IconType iconType)
     {
-        return $"{Paths.ResourcePath_IconPath}{Strings.BackSlash}{iconType}{Strings.FileExtensionWebp}";
+        var iconFileName = iconType is IconType.Winner or IconType.WinnerTrophy
+            ? iconType.ToString()
+            : iconType.ToString().ToLowerInvariant();
+
+        return $"{Paths.ResourcePath_IconPath}{Strings.ForwardSlash}{iconFileName}{Strings.FileExtensionWebp}";
     }
 
     public string GetTexturePath(Texture texture)

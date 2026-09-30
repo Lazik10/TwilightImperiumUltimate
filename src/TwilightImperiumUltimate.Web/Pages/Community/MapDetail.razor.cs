@@ -1,4 +1,5 @@
 using Microsoft.JSInterop;
+using System.Text.Json;
 using TwilightImperiumUltimate.Contracts.ApiContracts.Maps;
 using TwilightImperiumUltimate.Web.Helpers.Maps;
 using TwilightImperiumUltimate.Web.Models.Users;
@@ -49,6 +50,28 @@ public partial class MapDetail
     private string PageTitleText => string.IsNullOrWhiteSpace(Map.Name)
         ? Strings.Page_MapDetail_PageTitle
         : $"{Map.Name} | TI4 Ultimate";
+
+    private string MapStructuredData => !IsMapLoaded
+        ? string.Empty
+        : JsonSerializer.Serialize(new
+        {
+            @context = "https://schema.org",
+            @type = "CreativeWork",
+            name = Map.Name,
+            description = Map.Description,
+            url = $"https://ti4ultimate.com/community/maps-archive/map/{MapId}",
+            author = new
+            {
+                @type = "Person",
+                name = Map.UserName,
+            },
+            isPartOf = new
+            {
+                @type = "CollectionPage",
+                name = "Twilight Imperium 4 Map Archive",
+                url = "https://ti4ultimate.com/community/maps-archive",
+            },
+        });
 
     private RenderFragment DynamicComponent => builder =>
     {

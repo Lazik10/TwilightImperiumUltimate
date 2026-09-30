@@ -3,9 +3,11 @@
 @using TwilightImperiumUltimate.Web.Components.PreviewSlices
 @using TwilightImperiumUltimate.Web.Components.Shared.Bars
 @using TwilightImperiumUltimate.Web.Components.Shared.Controls
+@using TwilightImperiumUltimate.Web.Components.Shared.Seo
 @using TwilightImperiumUltimate.Web.Components.SliceGenerators
 
 <PageTitle>@SliceDraft.Name</PageTitle>
+<JsonLd Json="@SliceDraftStructuredData" />
 
 <Page>
 

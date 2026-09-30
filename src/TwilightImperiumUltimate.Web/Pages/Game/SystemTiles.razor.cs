@@ -18,6 +18,8 @@ public partial class SystemTiles
 
     private string _currentBigImageSrc = string.Empty;
 
+    private string _currentBigImageAlt = string.Empty;
+
     [Inject]
     private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
 
@@ -98,6 +100,7 @@ public partial class SystemTiles
     private void ShowBigImage(SystemTileModel systemTile)
     {
         _currentBigImageSrc = GetSystemTileImagePath(systemTile);
+        _currentBigImageAlt = systemTile.SystemTileName.ToString();
         _showBigImage = true;
     }
 

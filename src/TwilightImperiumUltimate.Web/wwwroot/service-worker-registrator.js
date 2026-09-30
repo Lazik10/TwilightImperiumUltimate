@@ -10,6 +10,7 @@ if (isDevelopmentHost) {
     // Provide no-op stubs so the Blazor update-notification interop calls don't throw in dev.
     window.updateAvailable = Promise.resolve(false);
     window.registerForUpdateAvailableNotification = () => { };
+    window.reloadForUpdate = () => window.location.reload();
 
     (async () => {
         let removedSomething = false;
@@ -53,7 +54,7 @@ if (isDevelopmentHost) {
             return;
         }
 
-        navigator.serviceWorker.register('service-worker.js')
+        navigator.serviceWorker.register('service-worker.js', { updateViaCache: 'none' })
             .then(registration => {
                 console.info(`Service worker registration successful (scope: ${registration.scope})`);
 
@@ -65,7 +66,7 @@ if (isDevelopmentHost) {
                 registration.onupdatefound = () => {
                     const installingServiceWorker = registration.installing;
                     installingServiceWorker.onstatechange = () => {
-                        if (installingServiceWorker.state === 'installed') {
+                        if (installingServiceWorker.state === 'installed' && navigator.serviceWorker.controller) {
                             resolve(true);
                         }
                     }
@@ -76,6 +77,19 @@ if (isDevelopmentHost) {
                 reject(error);
             });
     });
+
+    window.reloadForUpdate = async () => {
+        const registration = await navigator.serviceWorker.getRegistration();
+        if (registration) {
+            await registration.update();
+
+            // Published workers call skipWaiting during installation. Retain this message for
+            // compatibility if that policy changes in a future worker revision.
+            registration.waiting?.postMessage({ type: 'SKIP_WAITING' });
+        }
+
+        window.location.reload();
+    };
 
     window.registerForUpdateAvailableNotification = (caller, methodName) => {
         window.updateAvailable.then(isUpdateAvailable => {
