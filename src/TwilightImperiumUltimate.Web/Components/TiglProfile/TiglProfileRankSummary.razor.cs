@@ -10,8 +10,12 @@ public partial class TiglProfileRankSummary
     private RankSummaryRow Create(TiglLeague league, string name)
     {
         var profile = Profile.LeagueProfiles.FirstOrDefault(item => item.League == league);
-        var prestige = Profile.PrestigeRankHistory.Where(item => item.League == league).OrderByDescending(item => item.Level).ThenByDescending(item => item.AchievedAt).FirstOrDefault();
-        return new(name, prestige is null ? "-" : FormatPrestigeRank(prestige), profile?.HighestRank.GetDisplayName() ?? "-", prestige is null ? TextColor.White : GetPrestigeColor(prestige.PrestigeRank), profile is null ? TextColor.White : profile.HighestRank.GetRankColor());
+        var prestige = Profile.PrestigeRankHistory
+            .Where(item => item.League == league && item.PrestigeRank.IsLeagueMilestone(league))
+            .OrderByDescending(item => item.Level)
+            .ThenByDescending(item => item.AchievedAt)
+            .FirstOrDefault();
+        return new(name, prestige is null ? "-" : FormatPrestigeRank(prestige), profile?.CurrentRank.GetDisplayName() ?? "-", prestige is null ? TextColor.White : GetPrestigeColor(prestige.PrestigeRank), profile is null ? TextColor.White : profile.CurrentRank.GetRankColor());
     }
 
     private static string FormatPrestigeRank(PrestigeRankHistoryDto prestige) => prestige.Level > 0

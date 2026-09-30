@@ -56,8 +56,8 @@
 }
 
 ::deep .scrollbar-area .hex-container {
-    flex: 0 0 clamp(5.4rem, 9.6vw, 9rem);
-    width: clamp(5.4rem, 9.6vw, 9rem);
+    flex: 0 0 clamp(8.1rem, 14.4vw, 13.5rem);
+    width: clamp(8.1rem, 14.4vw, 13.5rem);
     height: auto;
 }
 

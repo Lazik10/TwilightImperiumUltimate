@@ -11,21 +11,56 @@ public partial class TiglPrestigeHistoryTable
     private IReadOnlyList<PrestigeHistoryRow> Rows => BuildRows();
 
     private string FormatDate(long timestamp) => timestamp <= 0 ? "-" : DateTimeOffset.FromUnixTimeMilliseconds(timestamp).ToString("yyyy-MM-dd");
-    private static TextColor GetPrestigeColor(TiglPrestigeRank rank) => rank switch
+    private static TextColor GetPrestigeColor(PrestigeRankHistoryDto prestige) => prestige.PrestigeRank switch
     {
         TiglPrestigeRank.PaxMagnificaBellumGloriosum => TextColor.Pmbg,
         TiglPrestigeRank.GalacticThreat => TextColor.GalacticThreat,
         TiglPrestigeRank.Tyrant => TextColor.Tyrant,
+        _ when prestige.Faction != TiglFactionName.None => TextColor.Hero,
         _ => TextColor.White,
     };
     private static string GetPrestigeText(PrestigeRankHistoryDto prestige) => prestige.Level > 0 ? $"{prestige.PrestigeRank.GetDisplayName()} {prestige.Level.ToRomanNumeral()}" : prestige.PrestigeRank.GetDisplayName();
 
     private IReadOnlyList<PrestigeHistoryRow> BuildRows()
     {
-        var prestiges = Prestiges.ToArray();
+        var prestiges = IsLegacyHistory()
+            ? OrderLegacyPrestiges()
+            : Prestiges.ToArray();
         return prestiges
             .Select((prestige, index) => new PrestigeHistoryRow(prestige, GetDuration(prestiges, index)))
             .ToList();
+    }
+
+    private bool IsLegacyHistory() => Prestiges.All(prestige => prestige.League == TiglLeague.ProphecyOfKings);
+
+    private IReadOnlyList<PrestigeRankHistoryDto> OrderLegacyPrestiges()
+    {
+        var milestones = Prestiges
+            .Where(prestige => prestige.PrestigeRank == TiglPrestigeRank.GalacticThreat)
+            .OrderByDescending(prestige => prestige.Level)
+            .ThenByDescending(prestige => prestige.AchievedAt)
+            .ThenByDescending(prestige => prestige.Id)
+            .ToList();
+        var factionRanks = Prestiges
+            .Where(prestige => prestige.Faction != TiglFactionName.None)
+            .OrderByDescending(prestige => prestige.AchievedAt)
+            .ThenByDescending(prestige => prestige.Id)
+            .ToList();
+        var orderedPrestiges = new List<PrestigeRankHistoryDto>(Prestiges.Count);
+
+        foreach (var milestone in milestones)
+        {
+            orderedPrestiges.Add(milestone);
+            orderedPrestiges.AddRange(factionRanks.Take(5));
+            factionRanks.RemoveRange(0, Math.Min(5, factionRanks.Count));
+        }
+
+        orderedPrestiges.AddRange(factionRanks);
+        orderedPrestiges.AddRange(Prestiges
+            .Where(prestige => prestige.Faction == TiglFactionName.None && prestige.PrestigeRank != TiglPrestigeRank.GalacticThreat)
+            .OrderByDescending(prestige => prestige.AchievedAt)
+            .ThenByDescending(prestige => prestige.Id));
+        return orderedPrestiges;
     }
 
     private static string GetDuration(IReadOnlyList<PrestigeRankHistoryDto> prestiges, int index)

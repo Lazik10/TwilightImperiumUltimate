@@ -33,6 +33,10 @@
 }
 
 @media (max-width: 768px) {
+    .map-generator-grid ::deep .map-generator-generate-action {
+        margin-bottom: var(--space-lg);
+    }
+
     .map-controls {
         display: flex;
         align-items: center;

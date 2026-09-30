@@ -2716,6 +2716,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
             }
         }
 
+        public static string MapArchive_RegisterToAddMap {
+            get {
+                return ResourceManager.GetString("MapArchive_RegisterToAddMap", resourceCulture);
+            }
+        }
+
         public static string MapArchive_SaveMap {
             get {
                 return ResourceManager.GetString("MapArchive_SaveMap", resourceCulture);
@@ -3850,6 +3856,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
             }
         }
 
+        public static string Page_AsyncPlayerProfile_PageTitle {
+            get {
+                return ResourceManager.GetString("Page_AsyncPlayerProfile_PageTitle", resourceCulture);
+            }
+        }
+
+        public static string Page_Async_PageTitle {
+            get {
+                return ResourceManager.GetString("Page_Async_PageTitle", resourceCulture);
+            }
+        }
+
         public static string Page_BattleCalculator {
             get {
                 return ResourceManager.GetString("Page_BattleCalculator", resourceCulture);
@@ -4054,6 +4072,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
             }
         }
 
+        public static string Page_GalaxyMap_PageTitle {
+            get {
+                return ResourceManager.GetString("Page_GalaxyMap_PageTitle", resourceCulture);
+            }
+        }
+
         public static string Page_Game {
             get {
                 return ResourceManager.GetString("Page_Game", resourceCulture);
@@ -4063,6 +4087,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string Page_GameTracker {
             get {
                 return ResourceManager.GetString("Page_GameTracker", resourceCulture);
+            }
+        }
+
+        public static string Page_GameTracker_PageTitle {
+            get {
+                return ResourceManager.GetString("Page_GameTracker_PageTitle", resourceCulture);
             }
         }
 
@@ -4117,6 +4147,18 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string Page_Moderator {
             get {
                 return ResourceManager.GetString("Page_Moderator", resourceCulture);
+            }
+        }
+
+        public static string Page_NewMap_PageTitle {
+            get {
+                return ResourceManager.GetString("Page_NewMap_PageTitle", resourceCulture);
+            }
+        }
+
+        public static string Page_NewSlices_PageTitle {
+            get {
+                return ResourceManager.GetString("Page_NewSlices_PageTitle", resourceCulture);
             }
         }
 
@@ -4294,15 +4336,33 @@ namespace TwilightImperiumUltimate.Web.Resources {
             }
         }
 
+        public static string Page_TiglAchievements_PageTitle {
+            get {
+                return ResourceManager.GetString("Page_TiglAchievements_PageTitle", resourceCulture);
+            }
+        }
+
         public static string Page_TiglAdmin {
             get {
                 return ResourceManager.GetString("Page_TiglAdmin", resourceCulture);
             }
         }
 
+        public static string Page_TiglGameReportDetail_PageTitle {
+            get {
+                return ResourceManager.GetString("Page_TiglGameReportDetail_PageTitle", resourceCulture);
+            }
+        }
+
         public static string Page_TiglGameReports {
             get {
                 return ResourceManager.GetString("Page_TiglGameReports", resourceCulture);
+            }
+        }
+
+        public static string Page_TiglGameReports_PageTitle {
+            get {
+                return ResourceManager.GetString("Page_TiglGameReports_PageTitle", resourceCulture);
             }
         }
 
@@ -4324,9 +4384,27 @@ namespace TwilightImperiumUltimate.Web.Resources {
             }
         }
 
+        public static string Page_TiglLeaderboard_PageTitle {
+            get {
+                return ResourceManager.GetString("Page_TiglLeaderboard_PageTitle", resourceCulture);
+            }
+        }
+
         public static string Page_TiglLeaders {
             get {
                 return ResourceManager.GetString("Page_TiglLeaders", resourceCulture);
+            }
+        }
+
+        public static string Page_TiglLeaders_PageTitle {
+            get {
+                return ResourceManager.GetString("Page_TiglLeaders_PageTitle", resourceCulture);
+            }
+        }
+
+        public static string Page_TiglPlayerProfile_PageTitle {
+            get {
+                return ResourceManager.GetString("Page_TiglPlayerProfile_PageTitle", resourceCulture);
             }
         }
 
@@ -4336,9 +4414,21 @@ namespace TwilightImperiumUltimate.Web.Resources {
             }
         }
 
+        public static string Page_TiglPlayers_PageTitle {
+            get {
+                return ResourceManager.GetString("Page_TiglPlayers_PageTitle", resourceCulture);
+            }
+        }
+
         public static string Page_TiglRanks {
             get {
                 return ResourceManager.GetString("Page_TiglRanks", resourceCulture);
+            }
+        }
+
+        public static string Page_TiglRanks_PageTitle {
+            get {
+                return ResourceManager.GetString("Page_TiglRanks_PageTitle", resourceCulture);
             }
         }
 
@@ -4369,6 +4459,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string Page_TiglStatistics {
             get {
                 return ResourceManager.GetString("Page_TiglStatistics", resourceCulture);
+            }
+        }
+
+        public static string Page_TiglStatistics_PageTitle {
+            get {
+                return ResourceManager.GetString("Page_TiglStatistics_PageTitle", resourceCulture);
             }
         }
 
@@ -5248,6 +5344,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
             }
         }
 
+        public static string Rules_Keyword {
+            get {
+                return ResourceManager.GetString("Rules_Keyword", resourceCulture);
+            }
+        }
+
         public static string Rules_Notes {
             get {
                 return ResourceManager.GetString("Rules_Notes", resourceCulture);
@@ -5473,6 +5575,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string SlicesArchive_DescriptionPlaceholder {
             get {
                 return ResourceManager.GetString("SlicesArchive_DescriptionPlaceholder", resourceCulture);
+            }
+        }
+
+        public static string SlicesArchive_RegisterToAddSlices {
+            get {
+                return ResourceManager.GetString("SlicesArchive_RegisterToAddSlices", resourceCulture);
             }
         }
 

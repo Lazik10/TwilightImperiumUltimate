@@ -1,6 +1,8 @@
 ﻿@page "/community/tigl/game-detail"
 @using TwilightImperiumUltimate.Contracts.DTOs.Tigl
 
+<PageTitle>@PageTitle</PageTitle>
+
 <Page>
     <section class="tigl-game-report-detail" aria-label="Game report">
         <StretchHeightContainer>
@@ -50,8 +52,8 @@
                             <th scope="colgroup" colspan="2">Duration</th>
                         </tr>
                         <tr>
-                            <td colspan="2">@MatchReport.StartTimestamp.FormatToDateString()</td>
-                            <td colspan="2">@MatchReport.EndTimestamp.FormatToDateString()</td>
+                            <td colspan="2">@FormatTimestamp(MatchReport.StartTimestamp)</td>
+                            <td colspan="2">@FormatTimestamp(MatchReport.EndTimestamp)</td>
                             <td colspan="2">@((MatchReport.EndTimestamp - MatchReport.StartTimestamp).FormatToDaysDuration())</td>
                         </tr>
                     </tbody>

@@ -1,21 +1,26 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @inherits TwilightImperiumBaseComponent
 
-<div class="hex-container"
-     draggable="true"
-     @ondragstart="@(() => StartDragSystemTile())"
-     @ondrop="@(() => DropSystemTile())"
-     @ondrop:preventDefault="true"
-     @ondragover="@(() => DragOverSystemTile())"
-     @ondragover:preventDefault="true"
-     @ondragend="@(() => EndDragSystemTile())"
-     title="@(SystemTile?.SystemTileName.ToString())">
+<button type="button"
+    class="hex-container @(IsTileSelected ? "hex-container-selected" : string.Empty)"
+    draggable="true"
+    aria-label="@($"Select {SystemTile?.SystemTileName}")"
+    aria-pressed="@IsTileSelected"
+    @onclick="HandleTileClick"
+    @ondragstart="@(() => StartDragSystemTile())"
+    @ondrop="RequestDropSystemTile"
+    @ondrop:preventDefault="true"
+    @ondragover="@(() => DragOverSystemTile())"
+    @ondragover:preventDefault="true"
+    @ondragend="@(() => EndDragSystemTile())"
+    title="@(SystemTile?.SystemTileName.ToString())">
 
     <img src="@ImagePath"
          style="transform: rotate(@(_degrees)deg);
                 transition: transform 0.5s ease;"
         alt="Hexagon" 
-        @onclick="Rotate">
+        @onclick="HandleImageClick"
+        @onclick:stopPropagation="true">
 
     @if (Overlay == SystemTileOverlay.Id || Overlay == SystemTileOverlay.Resources || Overlay == SystemTileOverlay.Influence)
     {
@@ -35,5 +40,5 @@
             </ResponsiveContainer>
         </div>
     }
-</div>
+</button>
 

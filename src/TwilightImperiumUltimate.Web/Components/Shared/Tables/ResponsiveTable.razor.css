@@ -91,6 +91,10 @@ thead ::deep th.responsive-column {
     border-bottom: 2px solid var(--color-nav-hover, #8ecfff);
 }
 
+thead ::deep th.responsive-column + th.responsive-column {
+    border-left: 1px solid rgba(142, 207, 255, 0.45);
+}
+
 /*
     Data rows use Inter instead of the table's default Handel (kept on the header via the rule
     above taking no font-family, so it still inherits Handel from .responsive-table).
@@ -195,8 +199,8 @@ thead ::deep th.responsive-column {
         --responsive-table-font-size: var(--font-size-xs);
     }
 
-    ::deep .responsive-column {
-        padding: var(--space-xs) var(--space-sm);
+    .responsive-table tbody ::deep .responsive-column {
+        padding: var(--space-sm) var(--space-sm);
     }
 }
 

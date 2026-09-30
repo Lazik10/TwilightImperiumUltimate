@@ -23,7 +23,7 @@ public partial class TiglRatingProgression
     {
         BuildChartData("Async", Profile.AsyncMatchHistory.Select(item => item.RatingNew).ToList()),
         BuildChartData("Glicko-2", Profile.GlickoMatchHistory.Select(item => item.RatingNew).ToList()),
-        BuildChartData("TrueSkill", Profile.TrueSkillMatchHistory.Select(item => item.MuNew).ToList()),
+        BuildChartData("TrueSkill", Profile.TrueSkillMatchHistory.Select(item => item.ConservativeRatingNew).ToList()),
     }
     .Where(item => item.Points.Count > 0)
     .ToList();

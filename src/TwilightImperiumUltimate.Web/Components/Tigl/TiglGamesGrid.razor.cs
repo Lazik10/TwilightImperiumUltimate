@@ -68,8 +68,7 @@ public partial class TiglGamesGrid
 
     private static string GetGameDetailUrl(int id)
     {
-        var returnUrl = Uri.EscapeDataString(Pages.Pages.TiglGames);
-        return $"{Pages.Pages.TiglGameDetail}?id={id}&returnUrl={returnUrl}";
+        return $"{Pages.Pages.TiglGameDetail}?id={id}";
     }
 
     private async Task LoadSeasons()

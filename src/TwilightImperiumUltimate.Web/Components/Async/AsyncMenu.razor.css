@@ -1,8 +1,3 @@
 ﻿.async-navbar {
     width: 100%;
 }
-
-.async-navbar ::deep .responsive-tab-active {
-    background: var(--color-nav-panel-bg);
-    border-radius: var(--border-radius-md);
-}

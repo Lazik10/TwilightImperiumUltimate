@@ -21,7 +21,6 @@
 .language-flag-active {
     opacity: 1;
     filter: grayscale(0%);
-    border: 2px solid var(--color-nav-hover);
 }
 
 .language-flag-inactive {

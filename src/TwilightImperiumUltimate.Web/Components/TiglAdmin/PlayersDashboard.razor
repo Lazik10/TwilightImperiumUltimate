@@ -5,9 +5,8 @@
 
 <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mb-xl">
 
-    <Label Text="@Strings.TiglAdmin_PlayersAdministration" FontSize="32" CenterText="true" CssClass="mt-md mb-md" />
-
-    <GridLayout Columns="8" CssClass="handel background">
+    <ResponsiveCard>
+        <GridLayout Columns="8" CssClass="handel">
         <div class="span-8" style="height: clamp(0.625rem, 0.625rem + 1vw, 1.25rem);"></div>
 
         <Label Text="Find Player" CenterText="true" TextColor="TextColor.Green" FontSize="24" CssClass="span-8" />
@@ -22,7 +21,7 @@
                             ValueProperty="Id"
                             AllowFiltering="true"
                             AllowVirtualization="true"
-                            FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+                            FilterCaseSensitivity="@FilterCaseSensitivity.CaseInsensitive"
                             Placeholder="Type TIGL Name..."
                             ValueChanged="@(async (int id) => await OnUserSelected(id))"
                             Style="width: 50%;"
@@ -36,14 +35,15 @@
                             ValueProperty="Id"
                             AllowFiltering="true"
                             AllowVirtualization="true"
-                            FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+                            FilterCaseSensitivity="@FilterCaseSensitivity.CaseInsensitive"
                             Placeholder="Type Discord Tag..."
                             ValueChanged="@(async (int id) => await OnUserSelected(id))"
                             Style="width: 50%;" />
         </ResponsiveContainer>
 
-        <div class="span-8" style="height: clamp(1.25rem, 1.25rem + 1vw, 2.5rem);"></div>
-    </GridLayout>
+            <div class="span-8" style="height: clamp(1.25rem, 1.25rem + 1vw, 2.5rem);"></div>
+        </GridLayout>
+    </ResponsiveCard>
 
     @if (_selectedUser is not null && !_loading)
     {

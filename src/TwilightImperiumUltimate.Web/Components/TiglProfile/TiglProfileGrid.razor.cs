@@ -52,7 +52,11 @@ public partial class TiglProfileGrid
     private string FilterIconPath => PathProvider.GetIconPath(_areFactionFiltersVisible || AreFactionFiltersApplied ? IconType.FilterClicked : IconType.Filter);
 
     private TiglLeagueProfileDto? SelectedLeagueProfile => Profile?.LeagueProfiles.FirstOrDefault(profile => profile.League == SelectedLeague);
-    private PrestigeRankHistoryDto? SelectedPrestige => Profile?.PrestigeRankHistory.Where(prestige => prestige.League == SelectedLeague).OrderByDescending(prestige => prestige.Level).ThenByDescending(prestige => prestige.AchievedAt).FirstOrDefault();
+    private PrestigeRankHistoryDto? SelectedPrestige => Profile?.PrestigeRankHistory
+        .Where(prestige => prestige.League == SelectedLeague && prestige.PrestigeRank.IsLeagueMilestone(SelectedLeague))
+        .OrderByDescending(prestige => prestige.Level)
+        .ThenByDescending(prestige => prestige.AchievedAt)
+        .FirstOrDefault();
     private IReadOnlyList<RankHistoryDto> FilteredRankHistory => Profile?.RankHistory.Where(rank => rank.League == SelectedLeague).OrderByDescending(rank => rank.AchievedAt).ToList() ?? [];
     private IReadOnlyList<PrestigeRankHistoryDto> FilteredPrestigeRanks => Profile?.PrestigeRankHistory
         .Where(prestige => prestige.League == SelectedLeague)
@@ -84,8 +88,8 @@ public partial class TiglProfileGrid
 
     private void ToggleFactionFilters() => _areFactionFiltersVisible = !_areFactionFiltersVisible;
 
-    private void NavigateToGameDetail(int matchReportId) { var returnUrl = $"{Web.Pages.Pages.TiglPlayerProfile}?playerId={Profile.TiglUserId}"; NavigationManager.NavigateTo($"{Web.Pages.Pages.TiglGameDetail}?id={matchReportId}&returnUrl={Uri.EscapeDataString(returnUrl)}"); }
-    private void NavigateToPlayerProfile(int tiglUserId) => NavigationManager.NavigateTo($"{Web.Pages.Pages.TiglPlayerProfile}?playerId={tiglUserId}&returnUrl={Uri.EscapeDataString(NavigationManager.Uri)}");
+    private void NavigateToGameDetail(int matchReportId) => NavigationManager.NavigateTo($"{Web.Pages.Pages.TiglGameDetail}?id={matchReportId}");
+    private void NavigateToPlayerProfile(int tiglUserId) => NavigationManager.NavigateTo($"{Web.Pages.Pages.TiglPlayerProfile}?playerId={tiglUserId}");
     private double GetRarityPercent(AchievementName name) => Profile is null || Profile.TotalTiglUsers == 0 ? 0 : Profile.AchievementPlayerCounts.TryGetValue(name.ToString(), out var count) ? (double)count / Profile.TotalTiglUsers * 100 : 0;
 
     private IReadOnlyList<AchievementDisplayEntry> GetDisplayedAchievements()

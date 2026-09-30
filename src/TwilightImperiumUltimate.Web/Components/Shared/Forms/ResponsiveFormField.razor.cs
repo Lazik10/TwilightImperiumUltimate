@@ -38,6 +38,13 @@ public partial class ResponsiveFormField<TValue>
     [Parameter]
     public bool CenterLabel { get; set; }
 
+    /// <summary>
+    /// Gets or sets whether the native label remains available only to assistive technology.
+    /// Use this when rendering a project-owned visual label in the field content.
+    /// </summary>
+    [Parameter]
+    public bool VisuallyHideLabel { get; set; }
+
     [Parameter]
     public string? HelpText { get; set; }
 
@@ -67,5 +74,5 @@ public partial class ResponsiveFormField<TValue>
     private string GetHelpTextId() => $"{Id}-help";
 
     private string GetLabelCssClass() =>
-        CenterLabel ? "responsive-form-field-label responsive-form-field-label-centered" : "responsive-form-field-label";
+        $"responsive-form-field-label{(CenterLabel ? " responsive-form-field-label-centered" : string.Empty)}{(VisuallyHideLabel ? " responsive-form-field-label-visually-hidden" : string.Empty)}";
 }

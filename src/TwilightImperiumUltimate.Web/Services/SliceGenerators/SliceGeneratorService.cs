@@ -22,9 +22,19 @@ public class SliceGeneratorService(
 
     private int _draggedSystemTileSliceId;
 
+    private SystemTileName? _selectedSystemTileName;
+
     public IReadOnlyList<SystemTileModel> AllSystemTiles => _allSystemTiles;
 
     public IReadOnlyList<SliceModel> Slices => GetOrderedSlices();
+
+    public event Action? TileSelectionChanged;
+
+    public bool HasSelectedSystemTile { get; private set; }
+
+    public int SelectedSystemTileSliceId { get; private set; } = -1;
+
+    public int SelectedSystemTileSlicePosition { get; private set; } = -1;
 
     public async Task InitializeAllSystemTilesForSliceGenerator()
     {
@@ -158,6 +168,51 @@ public class SliceGeneratorService(
         return Task.FromResult(_draggedSystemTile);
     }
 
+    public Task SelectSystemTile(SystemTileModel systemTile, int slicePosition, int sliceId)
+    {
+        ArgumentNullException.ThrowIfNull(systemTile);
+
+        HasSelectedSystemTile = true;
+        SelectedSystemTileSlicePosition = slicePosition;
+        SelectedSystemTileSliceId = sliceId;
+        _selectedSystemTileName = systemTile.SystemTileName;
+        TileSelectionChanged?.Invoke();
+
+        return Task.CompletedTask;
+    }
+
+    public Task ClearSystemTileSelection()
+    {
+        _draggedSystemTile = null;
+        _draggedSystemTileSliceId = -1;
+        _draggedSystemTileSlicePosition = -1;
+        HasSelectedSystemTile = false;
+        SelectedSystemTileSliceId = -1;
+        SelectedSystemTileSlicePosition = -1;
+        _selectedSystemTileName = null;
+        TileSelectionChanged?.Invoke();
+
+        return Task.CompletedTask;
+    }
+
+    public bool IsSystemTileSelected(SystemTileModel systemTile, int slicePosition, int sliceId) =>
+        HasSelectedSystemTile &&
+        SelectedSystemTileSlicePosition == slicePosition &&
+        SelectedSystemTileSliceId == sliceId &&
+        (slicePosition != -1 || _selectedSystemTileName == systemTile.SystemTileName);
+
+    public bool WouldPlacementCreateDuplicate(int sliceId, int slicePosition) =>
+        _draggedSystemTile is not null &&
+        _draggedSystemTileSliceId == -1 &&
+        _draggedSystemTileSlicePosition == -1 &&
+        sliceId != -1 &&
+        slicePosition != -1 &&
+        _slices.Any(slice => slice.SystemTiles
+            .Where((systemTile, position) =>
+                (slice.Id != sliceId || position != slicePosition) &&
+                systemTile.SystemTileCode == _draggedSystemTile.SystemTileCode)
+            .Any());
+
     public Task SwitchDraggingSystemTileWithDropSystemTile(
         SystemTileModel droppedSystemTile,
         int droppedSystemTileSliceId,
@@ -185,11 +240,7 @@ public class SliceGeneratorService(
             }
         }
 
-        _draggedSystemTile = null;
-        _draggedSystemTileSliceId = -1;
-        _draggedSystemTileSlicePosition = -1;
-
-        return Task.CompletedTask;
+        return ClearSystemTileSelection();
     }
 
     public Task SetImportedSlices(IReadOnlyCollection<SliceModel> slices)

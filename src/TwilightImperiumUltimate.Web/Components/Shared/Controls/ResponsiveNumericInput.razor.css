@@ -1,0 +1,40 @@
+.responsive-numeric-input-host {
+    display: contents;
+}
+
+.responsive-numeric-input-host ::deep .responsive-numeric-input,
+.responsive-numeric-input-host ::deep .responsive-numeric-input:hover,
+.responsive-numeric-input-host ::deep .responsive-numeric-input:focus-within {
+    --rz-input-background-color: var(--color-black);
+    --rz-input-hover-background-color: var(--color-black);
+    --rz-input-border: 1px solid #0024ff;
+    --rz-input-border-block-end: 1px solid #0024ff;
+    --rz-input-hover-border: 1px solid #0024ff;
+    --rz-input-hover-border-block-end: 1px solid #0024ff;
+    --rz-input-value-color: var(--color-white);
+    background-color: var(--color-black) !important;
+    border-color: #0024ff !important;
+    color: var(--color-white) !important;
+    overflow: hidden;
+}
+
+.responsive-numeric-input-host ::deep .responsive-numeric-input input {
+    background-color: var(--color-black) !important;
+    color: var(--color-white) !important;
+}
+
+.responsive-numeric-input-host ::deep .responsive-numeric-input .rz-numeric-button {
+    border: 0 !important;
+    border-radius: 0;
+    background-color: var(--color-black) !important;
+    color: var(--color-white) !important;
+}
+
+.responsive-numeric-input-host ::deep .responsive-numeric-input .rz-numeric-button:hover,
+.responsive-numeric-input-host ::deep .responsive-numeric-input .rz-numeric-button:focus-visible {
+    background-color: var(--color-nav-hover-bg-solid, #123957) !important;
+}
+
+.responsive-numeric-input-host ::deep .responsive-numeric-input .rz-numeric-button .rzi {
+    color: var(--color-white) !important;
+}

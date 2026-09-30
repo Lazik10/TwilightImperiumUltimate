@@ -87,8 +87,6 @@ public partial class TiglPlayersList
 
     private void RedirectToPlayer(TiglUserLiteDto player)
     {
-        var returnUrl = Uri.EscapeDataString(Pages.Pages.TiglPlayers);
-        var playerName = Uri.EscapeDataString(player.TiglUserName);
-        NavigationManager.NavigateTo($"{Pages.Pages.TiglPlayerProfile}?playerId={player.Id}&playerName={playerName}&returnUrl={returnUrl}");
+        NavigationManager.NavigateTo($"{Pages.Pages.TiglPlayerProfile}?playerId={player.Id}");
     }
 }

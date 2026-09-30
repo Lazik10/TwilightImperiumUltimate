@@ -1,0 +1,15 @@
+.game-tracker-settings-card {
+    grid-column: 1 / -1;
+    width: 100%;
+}
+
+.game-tracker-player-names-setting {
+    display: flex;
+    grid-column: 1 / -1;
+    justify-content: center;
+    width: 100%;
+}
+
+.game-tracker-player-names-setting ::deep .responsive-dropdown-host {
+    width: min(100%, 24rem);
+}

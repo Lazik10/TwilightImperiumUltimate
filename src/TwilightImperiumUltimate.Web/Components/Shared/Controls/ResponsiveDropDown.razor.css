@@ -29,6 +29,11 @@
     font-family: Handel, fallback, sans-serif;
 }
 
+/* The dropdown's chevron is a Radzen icon glyph, not display text. */
+.responsive-dropdown-host ::deep .rz-dropdown-trigger .rzi {
+    font-family: var(--rz-icon-font-family) !important;
+}
+
 .responsive-dropdown-host ::deep .rz-dropdown,
 .responsive-dropdown-host ::deep .rz-dropdown:hover,
 .responsive-dropdown-host ::deep .rz-dropdown:focus-within {
@@ -59,6 +64,7 @@
     narrow viewport) since a single stacked dropdown there should read as a full-width control.
 */
 .responsive-dropdown-host ::deep .rz-dropdown {
+    cursor: pointer;
     justify-content: center;
     width: var(--responsive-dropdown-width, auto);
     min-width: 16rem;

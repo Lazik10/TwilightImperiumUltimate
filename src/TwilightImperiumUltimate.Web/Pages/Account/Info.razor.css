@@ -1,4 +1,16 @@
-﻿.fixed-width {
+﻿.favorite-faction-picker {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.favorite-faction-picker ::deep .favorite-faction-dropdown {
+    flex: 1;
+}
+
+.favorite-faction-picker ::deep .responsive-icon {
+    flex: 0 0 auto;
+}.fixed-width {
     width: 100%; /* Or any desired width, e.g., 300px */
     box-sizing: border-box !important; /* Ensures padding and border are included in the width */
 }

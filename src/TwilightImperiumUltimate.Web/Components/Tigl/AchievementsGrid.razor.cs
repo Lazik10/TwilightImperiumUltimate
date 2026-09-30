@@ -30,8 +30,7 @@ public partial class AchievementsGrid
 
     private static string GetGameDetailUrl(int id)
     {
-        var returnUrl = Uri.EscapeDataString(Pages.Pages.TiglAchievements);
-        return $"{Pages.Pages.TiglGameDetail}?id={id}&returnUrl={returnUrl}";
+        return $"{Pages.Pages.TiglGameDetail}?id={id}";
     }
 
     private async Task LoadAchievements()
@@ -51,8 +50,7 @@ public partial class AchievementsGrid
         if (tiglUserId == 0)
             return;
 
-        var returnUrl = Uri.EscapeDataString(Pages.Pages.TiglRankings);
-        NavigationManager.NavigateTo($"{Pages.Pages.TiglPlayerProfile}?playerId={tiglUserId}&returnUrl={returnUrl}");
+        NavigationManager.NavigateTo($"{Pages.Pages.TiglPlayerProfile}?playerId={tiglUserId}");
     }
 
     private void OnRowKeyDown(KeyboardEventArgs eventArgs, int tiglUserId)

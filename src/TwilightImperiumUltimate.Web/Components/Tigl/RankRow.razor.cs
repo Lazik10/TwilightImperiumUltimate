@@ -20,8 +20,7 @@ public partial class RankRow
 
     private static string GetProfileUrl(int tiglUserId)
     {
-        var returnUrl = Uri.EscapeDataString(Pages.Pages.TiglRankings);
-        return $"{Pages.Pages.TiglPlayerProfile}?playerId={tiglUserId}&returnUrl={returnUrl}";
+        return $"{Pages.Pages.TiglPlayerProfile}?playerId={tiglUserId}";
     }
 
     private void NavigateToProfile(int tiglUserId)

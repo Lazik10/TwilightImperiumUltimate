@@ -1,12 +1,14 @@
 ﻿@inherits TwilightImperiumBaseComponent
 
-<button type="button" class="tech-nav-item clickable @(IsSelected ? "tech-nav-item-selected" : string.Empty)" @onclick="OnClick">
-    @if (TechnologyType != TechnologyType.Faction)
-    {
-        <img src="@ImagePath" class="tech-nav-icon" alt="@TechnologyName" />
-    }
-    <div class="handel @ColorClass shadow tech-nav-label @(TechnologyType == TechnologyType.Faction ? "tech-nav-label-faction" : string.Empty)">
-        @TechnologyName
-    </div>
+<button type="button" class="tech-nav-item clickable @(IsSelected ? "tech-nav-item-selected" : string.Empty)" aria-label="@TechnologyName" @onclick="OnClick">
+    <span class="tech-nav-content">
+        @if (TechnologyType != TechnologyType.Faction)
+        {
+            <img src="@ImagePath" class="tech-nav-icon" alt="" />
+        }
+        <span class="handel @ColorClass shadow tech-nav-label @(TechnologyType == TechnologyType.Faction ? "tech-nav-label-faction" : string.Empty)">
+            @TechnologyName
+        </span>
+    </span>
 </button>
 

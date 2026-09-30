@@ -12,9 +12,7 @@ public partial class StatisticsGrid
 
     private readonly IReadOnlyCollection<StatisticsFilterOption> _statisticsFilters =
         EnumExtensions.GetEnumValuesWithDisplayNames<PlayerStatisticsType>()
-            .Select(item => new StatisticsFilterOption(
-                item.Key,
-                item.Key == PlayerStatisticsType.Custom ? "Casual" : item.Value))
+            .Select(item => new StatisticsFilterOption(item.Key, item.Value))
             .ToList();
 
     private AsyncStatisticsTypeMenuItem _selectedMenuItem;

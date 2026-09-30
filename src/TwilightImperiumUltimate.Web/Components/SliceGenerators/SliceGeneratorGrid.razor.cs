@@ -9,6 +9,10 @@ public partial class SliceGeneratorGrid
 {
     private SliceGeneratorMenuItem _selectedMenuItem = SliceGeneratorMenuItem.SliceGenerator;
 
+    private Func<Task>? _pendingDuplicateTilePlacement;
+
+    private bool _isDuplicateTileDialogOpen;
+
     private SliceHexTileMenu? _sliceHexTileMenu;
 
     private List<SliceModel> _slices = new List<SliceModel>();
@@ -39,6 +43,21 @@ public partial class SliceGeneratorGrid
     public void UpdateSliceHexTileMenu()
     {
         _sliceHexTileMenu?.RefreshSystemTilesMenu();
+    }
+
+    public async Task RequestSystemTileSwapAsync(Func<Task> swapSystemTiles, int sliceId, int slicePosition)
+    {
+        ArgumentNullException.ThrowIfNull(swapSystemTiles);
+
+        if (SliceGeneratorService.WouldPlacementCreateDuplicate(sliceId, slicePosition))
+        {
+            _pendingDuplicateTilePlacement = swapSystemTiles;
+            _isDuplicateTileDialogOpen = true;
+            await InvokeAsync(StateHasChanged);
+            return;
+        }
+
+        await swapSystemTiles();
     }
 
     protected override async Task OnInitializedAsync()
@@ -74,6 +93,24 @@ public partial class SliceGeneratorGrid
     private void OnMenuItemClick(SliceGeneratorMenuItem item)
     {
         _selectedMenuItem = item;
+        StateHasChanged();
+    }
+
+    private async Task ConfirmDuplicateTilePlacementAsync()
+    {
+        var pendingTilePlacement = _pendingDuplicateTilePlacement;
+        _pendingDuplicateTilePlacement = null;
+        _isDuplicateTileDialogOpen = false;
+        await InvokeAsync(StateHasChanged);
+
+        if (pendingTilePlacement is not null)
+            await pendingTilePlacement();
+    }
+
+    private void CancelDuplicateTilePlacement()
+    {
+        _pendingDuplicateTilePlacement = null;
+        _isDuplicateTileDialogOpen = false;
         StateHasChanged();
     }
 

@@ -18,6 +18,8 @@ public interface IColorPickerService
 
     Task PerformDraft();
 
+    Task<IReadOnlyCollection<FactionColorDraftResult>> GetDraftResultsAsync(IReadOnlyCollection<FactionModel> factions);
+
     void UpdateSelectedFactions(IReadOnlyCollection<FactionModel>? factions, FactionModel faction);
 
     void UpdateColorBanStatus(PlayerColor color);

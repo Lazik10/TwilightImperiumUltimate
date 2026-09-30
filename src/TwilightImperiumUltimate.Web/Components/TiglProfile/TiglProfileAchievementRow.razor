@@ -4,13 +4,11 @@
 <div class="achievement-row handel shadow @RarityClass @(IsEarned ? string.Empty : "achievement-unearned")">
     <div class="achievement-info">
         <ResponsiveLabel Text="@TiglAchievementDescriptions.GetDisplayName(Achievement.AchievementName)" FontSize="base" TextColor="EffectiveTextColor" CssClass="achievement-name-label" />
-        <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
-            <ResponsiveLabel Text="@TiglAchievementDescriptions.GetDescription(Achievement.AchievementName)" FontSize="sm" CssClass="achievement-desc-label" />
-            @if (Achievement.Faction != TiglFactionName.None)
-            {
-                <ResponsiveLabel Text="@Achievement.Faction.GetDisplayName()" FontSize="sm" />
-            }
-        </ResponsiveContainer>
+        <ResponsiveLabel Text="@TiglAchievementDescriptions.GetDescription(Achievement.AchievementName)" FontSize="sm" CssClass="achievement-desc-label" />
+        @if (Achievement.Faction != TiglFactionName.None)
+        {
+            <ResponsiveLabel Text="@Achievement.Faction.GetDisplayName()" FontSize="sm" CssClass="achievement-faction-label" />
+        }
     </div>
     <div class="achievement-meta">
         <ResponsiveLabel Text="@($"{RarityPercent:F1}% of players")" FontSize="sm" Truncate="false" />

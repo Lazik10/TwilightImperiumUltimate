@@ -19,57 +19,46 @@ public class GameTrackerSettingsService : IGameTrackerSettingsService
 
     public bool EnablePlayerNames { get; set; } = GameTrackerOptions.EnablePlayerNames;
 
-    public Task DecreasePlayerCount()
+    public Task SetNumberOfPlayers(int numberOfPlayers)
     {
-        if (NumberOfPlayers > 3)
-        {
-            NumberOfPlayers--;
+        if (numberOfPlayers < 3 || numberOfPlayers > 8 || NumberOfPlayers == numberOfPlayers)
+            return Task.CompletedTask;
 
+        while (_players.Count > numberOfPlayers)
             _players.RemoveAt(_players.Count - 1);
-        }
 
-        return Task.CompletedTask;
-    }
-
-    public Task DecreaseScorePoints()
-    {
-        if (NumberOfPoints > GameTrackerOptions.MinimumNumberOfPoints)
-            NumberOfPoints--;
-
-        return Task.CompletedTask;
-    }
-
-    public Task IncreasePlayerCount()
-    {
-        if (NumberOfPlayers < 8)
+        while (_players.Count < numberOfPlayers)
         {
-            NumberOfPlayers++;
+            var playerNumber = _players.Count + 1;
 
             _players.Add(new GameTrackerPlayerModel
             {
-                Id = NumberOfPlayers - 1,
-                DefaultName = $"Player {NumberOfPlayers}",
+                Id = playerNumber - 1,
+                DefaultName = $"Player {playerNumber}",
                 FactionName = FactionName.None,
                 Initiative = InitiativeOrder.First,
                 Score = 0,
             });
         }
 
+        NumberOfPlayers = numberOfPlayers;
         return Task.CompletedTask;
     }
 
-    public Task IncreaseScorePoints()
+    public Task SetNumberOfPoints(int numberOfPoints)
     {
-        if (NumberOfPoints < GameTrackerOptions.MaximumNumberOfPoints)
-            NumberOfPoints++;
+        if (numberOfPoints >= GameTrackerOptions.MinimumNumberOfPoints && numberOfPoints <= GameTrackerOptions.MaximumNumberOfPoints)
+            NumberOfPoints = numberOfPoints;
 
         return Task.CompletedTask;
     }
 
-    public Task UpdateGameVersion(GameVersion gameVersion)
+    public Task SetGameVersion(GameVersion gameVersion, bool isEnabled)
     {
-        if (!_gameVersions.Remove(gameVersion))
+        if (isEnabled && !_gameVersions.Contains(gameVersion))
             _gameVersions.Add(gameVersion);
+        else if (!isEnabled)
+            _gameVersions.Remove(gameVersion);
 
         return Task.CompletedTask;
     }

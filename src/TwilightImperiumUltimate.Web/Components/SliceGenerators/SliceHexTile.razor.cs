@@ -5,7 +5,7 @@ using TwilightImperiumUltimate.Web.Services.SliceGenerators;
 
 namespace TwilightImperiumUltimate.Web.Components.SliceGenerators;
 
-public partial class SliceHexTile : TwilightImperiumBaseComponent
+public partial class SliceHexTile : TwilightImperiumBaseComponent, IDisposable
 {
     private TileRotation _tileRotation;
 
@@ -23,6 +23,9 @@ public partial class SliceHexTile : TwilightImperiumBaseComponent
     [CascadingParameter(Name = "SliceGeneratorPage")]
     public SliceGenerator SliceGeneratorPage { get; set; } = default!;
 
+    [CascadingParameter(Name = "SliceGeneratorGrid")]
+    public SliceGeneratorGrid SliceGeneratorGrid { get; set; } = default!;
+
     [Parameter]
     public EventCallback SwappedTwoSystemTiles { get; set; }
 
@@ -36,6 +39,9 @@ public partial class SliceHexTile : TwilightImperiumBaseComponent
 
     [Inject]
     private ISliceGeneratorSettingsService SliceGeneratorSettingsService { get; set; } = null!;
+
+    private bool IsTileSelected =>
+        SystemTile is not null && SliceGeneratorService.IsSystemTileSelected(SystemTile, Position, SliceId);
 
     private SystemTileOverlay Overlay => SliceGeneratorSettingsService.MenuOverlay;
 
@@ -62,6 +68,12 @@ public partial class SliceHexTile : TwilightImperiumBaseComponent
         if (SystemTile!.SystemTileCategory == SystemTileCategory.Hyperlane)
             await HandleInitialRotation();
     }
+
+    protected override void OnInitialized() =>
+        SliceGeneratorService.TileSelectionChanged += HandleTileSelectionChanged;
+
+    public void Dispose() =>
+        SliceGeneratorService.TileSelectionChanged -= HandleTileSelectionChanged;
 
     private Task HandleInitialRotation()
     {
@@ -104,10 +116,56 @@ public partial class SliceHexTile : TwilightImperiumBaseComponent
             Log.Information("Dragged system tile was: {TileName}", draggedSystemTile?.SystemTileCode);
             Log.Information("Dropped on system tile: {TileName}", SystemTile.SystemTileCode);
             await SliceGeneratorService.SwitchDraggingSystemTileWithDropSystemTile(SystemTile, SliceId, Position);
+            SliceGeneratorGrid.UpdateSliceHexTileMenu();
             await SliceGeneratorPage.Reload();
             StateHasChanged();
         }
     }
+
+    private Task RequestDropSystemTile() =>
+        SliceGeneratorGrid.RequestSystemTileSwapAsync(DropSystemTile, SliceId, Position);
+
+    private Task HandleImageClick()
+    {
+        if (SystemTile?.SystemTileCategory == SystemTileCategory.Hyperlane)
+        {
+            Rotate();
+            return Task.CompletedTask;
+        }
+
+        return HandleTileClick();
+    }
+
+    private async Task HandleTileClick()
+    {
+        if (SystemTile is null)
+            return;
+
+        if (IsTileSelected)
+        {
+            await SliceGeneratorService.ClearSystemTileSelection();
+            return;
+        }
+
+        if (SliceGeneratorService.HasSelectedSystemTile)
+        {
+            if (Position == -1 && SliceGeneratorService.SelectedSystemTileSlicePosition == -1)
+            {
+                await StartDragSystemTile();
+                await SliceGeneratorService.SelectSystemTile(SystemTile, Position, SliceId);
+                return;
+            }
+
+            await RequestDropSystemTile();
+            return;
+        }
+
+        await StartDragSystemTile();
+        await SliceGeneratorService.SelectSystemTile(SystemTile, Position, SliceId);
+    }
+
+    private void HandleTileSelectionChanged() =>
+        _ = InvokeAsync(StateHasChanged);
 
     private void Rotate()
     {

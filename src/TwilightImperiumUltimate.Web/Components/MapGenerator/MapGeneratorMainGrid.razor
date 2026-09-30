@@ -13,31 +13,31 @@
 
     @if (_selectedSegment == MapGeneratorMenuItem.MapGenerator)
     {
-        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-md">
-            <ResponsiveButton OnClick="GenerateMap" ButtonText="@Strings.MapGenerator_GenerateMap" Width="30" />
-        </ResponsiveContainer>
+        <CascadingValue Value="this" Name="MapGeneratorMainGrid">
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="map-generator-generate-action mt-md">
+                <ResponsiveButton OnClick="GenerateMap" ButtonText="@Strings.MapGenerator_GenerateMap" Width="30" />
+            </ResponsiveContainer>
 
-        <div class="map-controls">
-            <HexTileMenu SwappedSystemTileFromMenu="Refresh" />
+            <div class="map-controls">
+                <HexTileMenu SwappedSystemTileFromMenu="Refresh" />
 
-            <CascadingValue Value="this" Name="MapGeneratorMainGrid">
                 <MapQuickMenu OnMenuIconClick="HandleMenuIconClick" />
-            </CascadingValue>
-        </div>
+            </div>
 
-        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-md">
-            <StretchHeightContainer>
-                <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-                    <MapZoomViewport>
-                        <div id="mapArea">
-                            @DynamicComponent
-                            <div style="height: clamp(4.688rem, 4.688rem + 1vw, 9.375rem);"></div>
-                        </div>
-                    </MapZoomViewport>
-                </ResponsiveContainer>
-            </StretchHeightContainer>
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-md">
+                <StretchHeightContainer>
+                    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+                        <MapZoomViewport>
+                            <div id="mapArea">
+                                @DynamicComponent
+                                <div style="height: clamp(4.688rem, 4.688rem + 1vw, 9.375rem);"></div>
+                            </div>
+                        </MapZoomViewport>
+                    </ResponsiveContainer>
+                </StretchHeightContainer>
 
-        </ResponsiveContainer>
+            </ResponsiveContainer>
+        </CascadingValue>
     }
 
     @if (_selectedSegment == MapGeneratorMenuItem.Settings)
@@ -61,4 +61,12 @@
     }
 
 </div>
+
+<ResponsiveConfirmDialog IsOpen="_isDuplicateTileDialogOpen"
+                         Title="Duplicate system tile"
+                         Message="This placement would add a duplicate system tile to the map. Do you want to continue?"
+                         ConfirmText="Place tile"
+                         CancelText="Cancel"
+                         OnConfirm="ConfirmDuplicateTilePlacementAsync"
+                         OnCancel="CancelDuplicateTilePlacement" />
 

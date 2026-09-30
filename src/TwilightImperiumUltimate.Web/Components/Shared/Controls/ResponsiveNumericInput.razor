@@ -1,0 +1,17 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Controls
+
+<span class="responsive-numeric-input-host">
+    <RadzenNumeric TValue="int"
+                   id="@Id"
+                   Name="@Name"
+                   aria-describedby="@AriaDescribedBy"
+                   aria-label="@AriaLabel"
+                   Min="@Min"
+                   Max="@Max"
+                   Step="@Step.ToString(System.Globalization.CultureInfo.InvariantCulture)"
+                   Value="@Value"
+                   ValueChanged="OnValueChanged"
+                   Disabled="Disabled"
+                   class="@ComputedCssClass"
+                   style="@ComputedStyle" />
+</span>

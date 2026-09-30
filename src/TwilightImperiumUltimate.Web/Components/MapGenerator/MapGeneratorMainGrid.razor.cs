@@ -9,6 +9,10 @@ public partial class MapGeneratorMainGrid
 {
     private MapGeneratorMenuItem _selectedSegment;
 
+    private Func<Task>? _pendingDuplicateTilePlacement;
+
+    private bool _isDuplicateTileDialogOpen;
+
     public IReadOnlyDictionary<int, SystemTileModel> GeneratedPositionsWithSystemTiles { get; set; } = default!;
 
     [CascadingParameter(Name = "MapTemplateValue")]
@@ -48,6 +52,21 @@ public partial class MapGeneratorMainGrid
     {
         StateHasChanged();
         return Task.CompletedTask;
+    }
+
+    public async Task RequestSystemTileSwapAsync(Func<Task> swapSystemTiles, int mapPosition)
+    {
+        ArgumentNullException.ThrowIfNull(swapSystemTiles);
+
+        if (MapGeneratorService.WouldPlacementCreateDuplicate(mapPosition))
+        {
+            _pendingDuplicateTilePlacement = swapSystemTiles;
+            _isDuplicateTileDialogOpen = true;
+            await InvokeAsync(StateHasChanged);
+            return;
+        }
+
+        await swapSystemTiles();
     }
 
     protected override async Task OnInitializedAsync()
@@ -93,6 +112,24 @@ public partial class MapGeneratorMainGrid
 
     private void Refresh()
     {
+        StateHasChanged();
+    }
+
+    private async Task ConfirmDuplicateTilePlacementAsync()
+    {
+        var pendingTilePlacement = _pendingDuplicateTilePlacement;
+        _pendingDuplicateTilePlacement = null;
+        _isDuplicateTileDialogOpen = false;
+        await InvokeAsync(StateHasChanged);
+
+        if (pendingTilePlacement is not null)
+            await pendingTilePlacement();
+    }
+
+    private void CancelDuplicateTilePlacement()
+    {
+        _pendingDuplicateTilePlacement = null;
+        _isDuplicateTileDialogOpen = false;
         StateHasChanged();
     }
 

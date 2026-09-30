@@ -144,7 +144,7 @@ public partial class RanksGrid
                 withPrestige
                     .Where(x => x.Prestige != TiglPrestigeRank.PaxMagnificaBellumGloriosum
                              && x.FactionPrestigeRankCount >= min && x.FactionPrestigeRankCount <= max)
-                    .OrderByDescending(x => x.FactionPrestigeRankCount)
+                    .OrderByDescending(x => x.Rank)
                     .ThenBy(x => x.GamesPlayed)
                     .ThenBy(x => x.LastAchievedAt));
         }

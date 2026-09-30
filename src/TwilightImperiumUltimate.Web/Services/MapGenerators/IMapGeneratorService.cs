@@ -8,6 +8,12 @@ public interface IMapGeneratorService
 
     Task<Dictionary<int, SystemTileModel>> GenerateMapAsync(bool previewMap, CancellationToken ct);
 
+    event Action? TileSelectionChanged;
+
+    bool HasSelectedSystemTile { get; }
+
+    int SelectedSystemTileMapPosition { get; }
+
     Task<Dictionary<int, SystemTileModel>> GenerateMapLayoutPreview(MapTemplate mapTemplate);
 
     Task InitializeSystemTilesAsync(CancellationToken ct);
@@ -19,6 +25,12 @@ public interface IMapGeneratorService
     void SetDraggingSystemTilePosition(int draggedSystemTileStartMapPosition);
 
     void ResetDraggingSystemTile(SystemTileModel systemTile);
+
+    void SelectSystemTile(SystemTileModel systemTile, int mapPosition);
+
+    bool IsSystemTileSelected(SystemTileModel systemTile, int mapPosition);
+
+    bool WouldPlacementCreateDuplicate(int mapPosition);
 
     void SwapSystemTiles(SystemTileModel systemTile, int mapPosition);
 

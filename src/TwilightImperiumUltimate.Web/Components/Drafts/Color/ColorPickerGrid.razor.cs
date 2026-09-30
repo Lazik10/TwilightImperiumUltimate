@@ -43,10 +43,10 @@ public partial class ColorPickerGrid
         if (HasEnoughSelectedFactions)
             await ColorPickerService.PerformDraft();
         else
-            RunPreviewDraft();
+            await RunPreviewDraftAsync();
 
-        StateHasChanged();
         _draftStage = DraftStage.Draft;
+        StateHasChanged();
     }
 
     private async Task HandlePrimaryButtonClick()
@@ -81,7 +81,21 @@ public partial class ColorPickerGrid
             .ToArray();
     }
 
-    private void RunPreviewDraft()
+    private async Task RunPreviewDraftAsync()
+    {
+        for (var index = 0; index < FactionDraftOptions.DefaultNumberOfAssignments; index++)
+        {
+            _previewDraftResults = GeneratePreviewDraftResults();
+            await InvokeAsync(StateHasChanged);
+            await Task.Delay(FactionDraftOptions.DefaultDelayInMilliseconds);
+        }
+
+        var draftResults = await ColorPickerService.GetDraftResultsAsync(_previewFactions);
+        if (draftResults.Count > 0)
+            _previewDraftResults = draftResults;
+    }
+
+    private IReadOnlyCollection<FactionColorDraftResult> GeneratePreviewDraftResults()
     {
         var availableColors = ColorPickerService.Colors
             .Where(color => !color.Value)
@@ -90,9 +104,9 @@ public partial class ColorPickerGrid
             .ToArray();
 
         if (availableColors.Length == 0)
-            return;
+            return [];
 
-        _previewDraftResults = _previewFactions
+        return _previewFactions
             .Select((faction, index) => new FactionColorDraftResult
             {
                 FactionName = faction.FactionName,

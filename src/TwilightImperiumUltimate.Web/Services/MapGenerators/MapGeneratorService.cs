@@ -16,7 +16,15 @@ public class MapGeneratorService(
 
     public SystemTileModel DraggedSystemTile { get; set; } = new();
 
-    public int DraggedSystemTileStartMapPosition { get; set; }
+    public int DraggedSystemTileStartMapPosition { get; set; } = -1;
+
+    public event Action? TileSelectionChanged;
+
+    public bool HasSelectedSystemTile { get; private set; }
+
+    public int SelectedSystemTileMapPosition { get; private set; } = -1;
+
+    private SystemTileName? SelectedSystemTileName { get; set; }
 
     public IReadOnlyDictionary<int, SystemTileModel> GeneratedPositionsWithSystemTiles => _systemTiles;
 
@@ -170,7 +178,34 @@ public class MapGeneratorService(
     public void ResetDraggingSystemTile(SystemTileModel systemTile)
     {
         DraggedSystemTile = new();
+        DraggedSystemTileStartMapPosition = -1;
+        HasSelectedSystemTile = false;
+        SelectedSystemTileMapPosition = -1;
+        SelectedSystemTileName = null;
+        TileSelectionChanged?.Invoke();
     }
+
+    public void SelectSystemTile(SystemTileModel systemTile, int mapPosition)
+    {
+        ArgumentNullException.ThrowIfNull(systemTile);
+
+        HasSelectedSystemTile = true;
+        SelectedSystemTileMapPosition = mapPosition;
+        SelectedSystemTileName = systemTile.SystemTileName;
+        TileSelectionChanged?.Invoke();
+    }
+
+    public bool IsSystemTileSelected(SystemTileModel systemTile, int mapPosition) =>
+        HasSelectedSystemTile &&
+        SelectedSystemTileMapPosition == mapPosition &&
+        (mapPosition != -1 || SelectedSystemTileName == systemTile.SystemTileName);
+
+    public bool WouldPlacementCreateDuplicate(int mapPosition) =>
+        DraggedSystemTileStartMapPosition == -1 &&
+        mapPosition != -1 &&
+        _systemTiles.Any(x =>
+            x.Key != mapPosition &&
+            x.Value.SystemTileName == DraggedSystemTile.SystemTileName);
 
     public SystemTileModel GetCurrentDraggingSystemTile()
     {

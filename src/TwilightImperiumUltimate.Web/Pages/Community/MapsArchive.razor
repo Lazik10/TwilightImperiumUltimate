@@ -1,4 +1,5 @@
 ﻿@page "/community/maps-archive"
+@using Microsoft.AspNetCore.Components.Authorization
 @using TwilightImperiumUltimate.Web.Components.MapsArchive
 
 <PageTitle>@Strings.Page_MapArchive_PageTitle</PageTitle>
@@ -6,9 +7,16 @@
 <Page>
     <ResponsiveHeading Level="1" Text="@Strings.Page_MapArchive" />
 
-    <ResponsiveContainer Type="ContainerType.Flex" JustifyContent="Enums.JustifyContent.Center" Padding="none" CssClass="mb-md">
-        <ResponsiveButton ButtonText="@Strings.MapArchiveButton_NewMap" OnClick="Redirect" />
-    </ResponsiveContainer>
+    <AuthorizeView>
+        <Authorized>
+            <ResponsiveContainer Type="ContainerType.Flex" JustifyContent="Enums.JustifyContent.Center" Padding="none" CssClass="mb-md">
+                <ResponsiveButton ButtonText="@Strings.MapArchiveButton_NewMap" OnClick="Redirect" />
+            </ResponsiveContainer>
+        </Authorized>
+        <NotAuthorized>
+            <ResponsiveLabel Text="@Strings.MapArchive_RegisterToAddMap" FontSize="sm" CenterText="true" CssClass="mb-md" />
+        </NotAuthorized>
+    </AuthorizeView>
     
     <MapArchiveGrid AllMaps="Maps"/>
 

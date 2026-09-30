@@ -10,21 +10,12 @@ public partial class TiglPlayerProfile
     [SupplyParameterFromQuery(Name = "playerId")]
     public int PlayerId { get; set; }
 
-    [Parameter]
-    [SupplyParameterFromQuery(Name = "returnUrl")]
-    public string? ReturnUrl { get; set; }
-
-    [Parameter]
-    [SupplyParameterFromQuery(Name = "playerName")]
-    public string? PlayerName { get; set; }
-
     private TiglPlayerProfileDto PlayerProfile { get; set; } = new();
+
+    private string PageTitle => Strings.Page_TiglPlayerProfile_PageTitle.FormatWith(PlayerProfile.TiglUserName);
 
     [Inject]
     private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
-
-    [Inject]
-    private NavigationManager NavigationManager { get; set; } = default!;
 
     protected override async Task OnParametersSetAsync()
     {
@@ -32,7 +23,7 @@ public partial class TiglPlayerProfile
         PlayerProfile = new TiglPlayerProfileDto
         {
             TiglUserId = PlayerId,
-            TiglUserName = string.IsNullOrWhiteSpace(PlayerName) ? $"Player #{PlayerId}" : PlayerName,
+            TiglUserName = $"Player #{PlayerId}",
         };
         await GetPlayerProfileAsync();
         _loading = false;
@@ -49,8 +40,4 @@ public partial class TiglPlayerProfile
         }
     }
 
-    private void RedirectBack()
-    {
-        NavigationManager.NavigateTo(!string.IsNullOrEmpty(ReturnUrl) ? ReturnUrl : Pages.TiglPlayers);
-    }
 }

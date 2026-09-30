@@ -2,6 +2,8 @@
     display: flex;
     align-items: center;
     gap: 12px;
+    box-sizing: border-box;
+    height: 5.5rem;
     padding: 10px 16px;
     border-radius: 6px;
     background: rgba(8, 14, 24, 0.94);
@@ -28,6 +30,10 @@
 
 .achievement-name-label {
     font-weight: 600;
+}
+
+.achievement-faction-label {
+    text-align: left;
 }
 
 .achievement-meta {

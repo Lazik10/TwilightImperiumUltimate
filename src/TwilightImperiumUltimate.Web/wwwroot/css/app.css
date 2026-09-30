@@ -327,6 +327,7 @@ p {
 .rz-dropdown-panel .rz-dropdown-item span,
 .rz-dropdown-items .rz-dropdown-item,
 .rz-dropdown-items .rz-dropdown-item span {
+    cursor: pointer;
     font-family: Handel, fallback, sans-serif !important;
 }
 

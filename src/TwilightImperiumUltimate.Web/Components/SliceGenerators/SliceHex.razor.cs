@@ -5,7 +5,7 @@ using TwilightImperiumUltimate.Web.Services.SliceGenerators;
 
 namespace TwilightImperiumUltimate.Web.Components.SliceGenerators;
 
-public partial class SliceHex
+public partial class SliceHex : IDisposable
 {
     [Parameter]
     public SystemTileModel SystemTile { get; set; } = new SystemTileModel();
@@ -31,6 +31,9 @@ public partial class SliceHex
     [Inject]
     private ISliceGeneratorService SliceGeneratorService { get; set; } = default!;
 
+    private bool IsTileSelected =>
+        SliceGeneratorService.IsSystemTileSelected(SystemTile, SlicePosition, SliceId);
+
     private SystemTileOverlay Overlay => SliceGeneratorSettingsService.SliceOverlay;
 
     private string ImagePath => PathProvider.GetLargeTileImagePath(SystemTile?.SystemTileName ?? SystemTileName.TileEmpty);
@@ -52,6 +55,12 @@ public partial class SliceHex
         SystemTileOverlay.MapPosition => "white",
         _ => string.Empty,
     };
+
+    protected override void OnInitialized() =>
+        SliceGeneratorService.TileSelectionChanged += HandleTileSelectionChanged;
+
+    public void Dispose() =>
+        SliceGeneratorService.TileSelectionChanged -= HandleTileSelectionChanged;
 
     private async Task StartDragSystemTile()
     {
@@ -87,4 +96,28 @@ public partial class SliceHex
             StateHasChanged();
         }
     }
+
+    private Task RequestDropSystemTile() =>
+        SliceGeneratorGrid.RequestSystemTileSwapAsync(DropSystemTile, SliceId, SlicePosition);
+
+    private async Task HandleTileClick()
+    {
+        if (IsTileSelected)
+        {
+            await SliceGeneratorService.ClearSystemTileSelection();
+            return;
+        }
+
+        if (SliceGeneratorService.HasSelectedSystemTile)
+        {
+            await RequestDropSystemTile();
+            return;
+        }
+
+        await StartDragSystemTile();
+        await SliceGeneratorService.SelectSystemTile(SystemTile, SlicePosition, SliceId);
+    }
+
+    private void HandleTileSelectionChanged() =>
+        _ = InvokeAsync(StateHasChanged);
 }

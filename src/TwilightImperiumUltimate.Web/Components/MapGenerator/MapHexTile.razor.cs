@@ -4,7 +4,7 @@ using TwilightImperiumUltimate.Web.Services.MapGenerators;
 
 namespace TwilightImperiumUltimate.Web.Components.MapGenerator;
 
-public partial class MapHexTile : TwilightImperiumBaseComponent
+public partial class MapHexTile : TwilightImperiumBaseComponent, IDisposable
 {
     private TileRotation _tileRotation;
 
@@ -22,6 +22,9 @@ public partial class MapHexTile : TwilightImperiumBaseComponent
     [Parameter]
     public EventCallback SwappedSystemTileFromMenu { get; set; }
 
+    [CascadingParameter(Name = "MapGeneratorMainGrid")]
+    public MapGeneratorMainGrid MapGeneratorMainGrid { get; set; } = default!;
+
     private string ImagePath => PathProvider.GetLargeTileImagePath(SystemTile?.SystemTileName ?? SystemTileName.TileEmpty);
 
     [Inject]
@@ -29,6 +32,9 @@ public partial class MapHexTile : TwilightImperiumBaseComponent
 
     [Inject]
     private IMapGeneratorSettingsService MapGeneratorSettingsService { get; set; } = null!;
+
+    private bool IsTileSelected =>
+        SystemTile is not null && MapGeneratorService.IsSystemTileSelected(SystemTile, MapPosition);
 
     private SystemTileOverlay Overlay => MapPosition < 0
         ? MapGeneratorSettingsService.MenuOverlay
@@ -58,6 +64,12 @@ public partial class MapHexTile : TwilightImperiumBaseComponent
             await HandleInitialRotation();
     }
 
+    protected override void OnInitialized() =>
+        MapGeneratorService.TileSelectionChanged += HandleTileSelectionChanged;
+
+    public void Dispose() =>
+        MapGeneratorService.TileSelectionChanged -= HandleTileSelectionChanged;
+
     private Task HandleInitialRotation()
     {
         _tileRotation = SystemTile!.SystemTileCode switch
@@ -85,7 +97,7 @@ public partial class MapHexTile : TwilightImperiumBaseComponent
         }
     }
 
-    private void DropSystemTile(SystemTileModel? systemTile)
+    private async Task DropSystemTile(SystemTileModel? systemTile)
     {
         if (systemTile is not null)
         {
@@ -93,12 +105,15 @@ public partial class MapHexTile : TwilightImperiumBaseComponent
             Log.Information("Dragged system tile was: {TileName}", draggedSystemTile.SystemTileName.ToString());
             Log.Information("Dropped on system tile: {TileName}", systemTile.SystemTileName.ToString());
             MapGeneratorService.SwapSystemTiles(systemTile, MapPosition);
-            SwappedTwoSystemTiles.InvokeAsync();
-            SwappedSystemTileFromMenu.InvokeAsync();
+            await SwappedTwoSystemTiles.InvokeAsync();
+            await SwappedSystemTileFromMenu.InvokeAsync();
             StateHasChanged();
             MapGeneratorService.ResetDraggingSystemTile(systemTile);
         }
     }
+
+    private Task RequestDropSystemTile() =>
+        MapGeneratorMainGrid.RequestSystemTileSwapAsync(() => DropSystemTile(SystemTile), MapPosition);
 
     private void DragOverSystemTile(SystemTileModel? systemTile)
     {
@@ -110,6 +125,48 @@ public partial class MapHexTile : TwilightImperiumBaseComponent
         Log.Information("Drag ended for system tile: {TileName}", systemTile?.SystemTileName.ToString());
         SwappedSystemTileFromMenu.InvokeAsync();
     }
+
+    private Task HandleImageClick()
+    {
+        if (SystemTile?.SystemTileCategory == SystemTileCategory.Hyperlane)
+        {
+            Rotate();
+            return Task.CompletedTask;
+        }
+
+        return HandleTileClick();
+    }
+
+    private async Task HandleTileClick()
+    {
+        if (SystemTile is null)
+            return;
+
+        if (IsTileSelected)
+        {
+            MapGeneratorService.ResetDraggingSystemTile(SystemTile);
+            return;
+        }
+
+        if (MapGeneratorService.HasSelectedSystemTile)
+        {
+            if (MapPosition == -1 && MapGeneratorService.SelectedSystemTileMapPosition == -1)
+            {
+                StartDragSystemTile(SystemTile);
+                MapGeneratorService.SelectSystemTile(SystemTile, MapPosition);
+                return;
+            }
+
+            await RequestDropSystemTile();
+            return;
+        }
+
+        StartDragSystemTile(SystemTile);
+        MapGeneratorService.SelectSystemTile(SystemTile, MapPosition);
+    }
+
+    private void HandleTileSelectionChanged() =>
+        _ = InvokeAsync(StateHasChanged);
 
     private void Rotate()
     {

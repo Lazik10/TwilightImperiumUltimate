@@ -14,9 +14,17 @@
     text-shadow: var(--shadow-text);
 }
 
+.home-introduction ::deep .home-introduction-compensation {
+    padding-left: 7.5%;
+}
+
 @media (max-width: 768px) {
     ::deep .news-state-message {
         text-align: center;
+    }
+
+    .home-introduction ::deep .home-introduction-compensation {
+        padding-left: 0;
     }
 }
 

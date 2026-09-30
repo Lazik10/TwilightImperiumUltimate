@@ -1,4 +1,5 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.MapGenerator
+@using TwilightImperiumUltimate.Web.Components.Shared.Controls
 
 <div class="slice-generator-grid">
 
@@ -38,3 +39,11 @@
         <SliceGeneratorSettings OnSettingsChange="async () =>  await UpdateSlices()" />
     }
 </div>
+
+<ResponsiveConfirmDialog IsOpen="_isDuplicateTileDialogOpen"
+                         Title="Duplicate system tile"
+                         Message="This placement would add a duplicate system tile to the slices. Do you want to continue?"
+                         ConfirmText="Place tile"
+                         CancelText="Cancel"
+                         OnConfirm="ConfirmDuplicateTilePlacementAsync"
+                         OnCancel="CancelDuplicateTilePlacement" />

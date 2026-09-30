@@ -26,6 +26,16 @@ public static class EnumExtensions
         return displayName ?? string.Empty;
     }
 
+    /// <summary>
+    /// Gets whether a prestige rank is a league-level milestone rather than a faction-specific rank.
+    /// </summary>
+    public static bool IsLeagueMilestone(this TiglPrestigeRank prestigeRank, TiglLeague league) => league switch
+    {
+        TiglLeague.Fractured => prestigeRank == TiglPrestigeRank.Tyrant,
+        TiglLeague.ThundersEdge or TiglLeague.ProphecyOfKings => prestigeRank is TiglPrestigeRank.GalacticThreat or TiglPrestigeRank.PaxMagnificaBellumGloriosum,
+        _ => false,
+    };
+
     public static string GetDisplayName(this TiglFactionName enumValue)
     {
         string key = enumValue.ToString();

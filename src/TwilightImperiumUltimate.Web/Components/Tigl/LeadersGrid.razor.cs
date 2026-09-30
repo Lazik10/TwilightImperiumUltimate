@@ -122,8 +122,7 @@ public partial class LeadersGrid
         if (tiglUserId == 0)
             return null;
 
-        var returnUrl = Uri.EscapeDataString(Pages.Pages.TiglLeaders);
-        return $"{Pages.Pages.TiglPlayerProfile}?playerId={tiglUserId}&returnUrl={returnUrl}";
+        return $"{Pages.Pages.TiglPlayerProfile}?playerId={tiglUserId}";
     }
 
     private void NavigateToProfile(int tiglUserId)

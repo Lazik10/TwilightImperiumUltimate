@@ -221,7 +221,6 @@ public partial class TiglLeaderboardGrid
 
     private void RedirectToPlayer(PlayerSeasonResultDto playerResult)
     {
-        var returnUrl = Uri.EscapeDataString(Pages.Pages.TiglLeaderboard);
-        NavigationManager.NavigateTo($"{Pages.Pages.TiglPlayerProfile}?playerId={playerResult.TiglUserId}&returnUrl={returnUrl}");
+        NavigationManager.NavigateTo($"{Pages.Pages.TiglPlayerProfile}?playerId={playerResult.TiglUserId}");
     }
 }

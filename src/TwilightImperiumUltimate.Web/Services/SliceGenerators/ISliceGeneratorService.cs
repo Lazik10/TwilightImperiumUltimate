@@ -16,6 +16,14 @@ public interface ISliceGeneratorService
 
     Task GenerateSlices(bool previewSlices);
 
+    event Action? TileSelectionChanged;
+
+    bool HasSelectedSystemTile { get; }
+
+    int SelectedSystemTileSliceId { get; }
+
+    int SelectedSystemTileSlicePosition { get; }
+
     Task SetImportedSlices(IReadOnlyCollection<SliceModel> slices);
 
     Task AddSlice();
@@ -28,6 +36,14 @@ public interface ISliceGeneratorService
         int draggedSystemTileSliceId);
 
     Task<SystemTileModel?> GetCurrentDraggingSystemTile();
+
+    Task SelectSystemTile(SystemTileModel systemTile, int slicePosition, int sliceId);
+
+    Task ClearSystemTileSelection();
+
+    bool IsSystemTileSelected(SystemTileModel systemTile, int slicePosition, int sliceId);
+
+    bool WouldPlacementCreateDuplicate(int sliceId, int slicePosition);
 
     Task SwitchDraggingSystemTileWithDropSystemTile(
         SystemTileModel droppedSystemTile,

@@ -1,3 +1,4 @@
+using System.Globalization;
 using TwilightImperiumUltimate.Contracts.DTOs.Tigl;
 using TwilightImperiumUltimate.Web.Helpers.Enums;
 using TwilightImperiumUltimate.Web.Options.Async;
@@ -13,11 +14,9 @@ public partial class TiglGameReportDetail
     [SupplyParameterFromQuery(Name = "id")]
     public int Id { get; set; }
 
-    [Parameter]
-    [SupplyParameterFromQuery(Name = "returnUrl")]
-    public string? ReturnUrl { get; set; }
-
     private MatchReportDto? MatchReport { get; set; }
+
+    private string PageTitle => Strings.Page_TiglGameReportDetail_PageTitle.FormatWith(MatchReport?.GameId ?? Strings.Page_TiglGameReports);
 
     private List<PlayerResultDto> Winners => GetWinners();
 
@@ -49,6 +48,16 @@ public partial class TiglGameReportDetail
     protected override async Task OnInitializedAsync()
     {
         await LoadGameReport();
+    }
+
+    private static string FormatTimestamp(long timestamp)
+    {
+        if (timestamp == 0)
+            return "Unknown";
+
+        return DateTimeOffset.FromUnixTimeMilliseconds(timestamp)
+            .ToLocalTime()
+            .ToString("yyyy-MM-dd - HH:mm", CultureInfo.InvariantCulture);
     }
 
     private static string GetUserName(PlayerResultDto player)
@@ -113,23 +122,9 @@ public partial class TiglGameReportDetail
         return MatchReport!.PlayerMatchTrueSkillStats.FirstOrDefault(x => x.TiglUserId == playerId) ?? new TrueSkillPlayerMatchStatsDto();
     }
 
-    private void RedirectBack()
-    {
-        if (!string.IsNullOrEmpty(ReturnUrl))
-        {
-            NavigationManager.NavigateTo(ReturnUrl);
-        }
-        else
-        {
-            NavigationManager.NavigateTo(Pages.TiglGames);
-        }
-    }
-
     private void NavigateToPlayerProfile(PlayerResultDto player)
     {
-        var currentPath = $"/{NavigationManager.ToBaseRelativePath(NavigationManager.Uri)}";
-        var targetUrl = $"{Pages.TiglPlayerProfile}?playerId={player.TiglUserId}&returnUrl={Uri.EscapeDataString(currentPath)}";
-        NavigationManager.NavigateTo(targetUrl);
+        NavigationManager.NavigateTo($"{Pages.TiglPlayerProfile}?playerId={player.TiglUserId}");
     }
 
     private TextColor GetChangeColor(double value)

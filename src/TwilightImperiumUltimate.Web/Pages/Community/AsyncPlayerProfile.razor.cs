@@ -19,6 +19,8 @@ public partial class AsyncPlayerProfile
 
     private AsyncPlayerProfileSummaryStatsDto PlayerProfile { get; set; } = default!;
 
+    private string PageTitle => Strings.Page_AsyncPlayerProfile_PageTitle.FormatWith(PlayerProfile?.PlayerInfo?.DiscordUserName ?? $"Player #{PlayerId}");
+
     [Inject]
     private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
 

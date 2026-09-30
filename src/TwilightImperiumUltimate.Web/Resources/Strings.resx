@@ -514,7 +514,7 @@
   </data>
 
   <data name="GameVersion_SelectVersion" xml:space="preserve">
-    <value>Game Versions:</value>
+     <value>Game Versions</value>
   </data>
 
   <data name="GameVersion_TtsHyperlines" xml:space="preserve">
@@ -1150,7 +1150,7 @@
   </data>
 
   <data name="Page_Factions_SourceLabel" xml:space="preserve">
-    <value>Source:</value>
+    <value>Source</value>
   </data>
 
   <data name="Page_FactionsDS" xml:space="preserve">
@@ -1701,8 +1701,12 @@
     <value>Notes:</value>
   </data>
 
+  <data name="Rules_Keyword" xml:space="preserve">
+    <value>Keyword</value>
+  </data>
+
   <data name="Rules_ShowNotes" xml:space="preserve">
-    <value>Show notes:</value>
+    <value>Show notes</value>
   </data>
 
   <data name="SearchForKeyword" xml:space="preserve">
@@ -2348,6 +2352,10 @@
     <value>Game Tracker</value>
   </data>
 
+  <data name="Page_GameTracker_PageTitle" xml:space="preserve">
+    <value>Game Tracker | TI4 Ultimate</value>
+  </data>
+
   <data name="About_Credits" xml:space="preserve">
     <value>&lt;p&gt;FOURTH EDITION DEVELOPMENT: Dane Beltrami with Corey Konieczka&lt;/p&gt;
 &lt;p&gt;ORIGINAL GAME DESIGN: Christian T. Petersen&lt;/p&gt;
@@ -2456,24 +2464,40 @@ Brandon Williams&lt;/p&gt;</value>
   </data>
 
   <data name="Page_MapArchive" xml:space="preserve">
-    <value>Map archive</value>
+     <value>Map Archive</value>
   </data>
 
   <data name="Page_MapArchive_PageTitle" xml:space="preserve">
     <value>Map Archive | TI4 Ultimate</value>
   </data>
 
+    <data name="Page_NewMap_PageTitle" xml:space="preserve">
+      <value>New Map | TI4 Ultimate</value>
+    </data>
+
   <data name="Page_MapDetail_PageTitle" xml:space="preserve">
     <value>Map Detail | TI4 Ultimate</value>
   </data>
 
   <data name="Page_SlicesArchive" xml:space="preserve">
-    <value>Slices archive</value>
+     <value>Slices Archive</value>
   </data>
 
   <data name="Page_SlicesArchive_PageTitle" xml:space="preserve">
     <value>Slices Archive | TI4 Ultimate</value>
   </data>
+
+    <data name="Page_NewSlices_PageTitle" xml:space="preserve">
+      <value>New Slices | TI4 Ultimate</value>
+    </data>
+
+      <data name="MapArchive_RegisterToAddMap" xml:space="preserve">
+        <value>Please register if you want to add your own map.</value>
+      </data>
+
+      <data name="SlicesArchive_RegisterToAddSlices" xml:space="preserve">
+        <value>Please register if you want to add your own slices.</value>
+      </data>
 
   <data name="MapArchive_MapName" xml:space="preserve">
     <value>Name:</value>
@@ -2736,6 +2760,10 @@ Brandon Williams&lt;/p&gt;</value>
     <value>Galaxy Map</value>
   </data>
 
+  <data name="Page_GalaxyMap_PageTitle" xml:space="preserve">
+    <value>Galaxy Map | TI4 Ultimate</value>
+  </data>
+
   <data name="GameTracker_StageOneObjectives" xml:space="preserve">
     <value>Stage I</value>
   </data>
@@ -2852,6 +2880,10 @@ Brandon Williams&lt;/p&gt;</value>
     <value>Async</value>
   </data>
 
+  <data name="Page_Async_PageTitle" xml:space="preserve">
+    <value>Async | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_Tigl" xml:space="preserve">
     <value>TIGL</value>
   </data>
@@ -2893,7 +2925,7 @@ Brandon Williams&lt;/p&gt;</value>
   </data>
 
   <data name="PlayerStatisticsType_Custom" xml:space="preserve">
-    <value>Custom</value>
+     <value>Casual</value>
   </data>
 
   <data name="CombatStats_Title" xml:space="preserve">
@@ -3017,7 +3049,7 @@ Brandon Williams&lt;/p&gt;</value>
   </data>
 
   <data name="AsyncStats_Filter" xml:space="preserve">
-    <value>Filter:</value>
+     <value>Filter</value>
   </data>
 
   <data name="FactionStats_Factions" xml:space="preserve">
@@ -3225,7 +3257,7 @@ Brandon Williams&lt;/p&gt;</value>
   </data>
 
   <data name="AsyncGameType_Custom" xml:space="preserve">
-    <value>Custom</value>
+     <value>Casual</value>
   </data>
 
   <data name="AsyncPlayer_GamesStatsFaction" xml:space="preserve">
@@ -3664,12 +3696,20 @@ Brandon Williams&lt;/p&gt;</value>
     <value>Leaderboard</value>
   </data>
 
+  <data name="Page_TiglLeaderboard_PageTitle" xml:space="preserve">
+    <value>TIGL Leaderboard | TI4 Ultimate</value>
+  </data>
+
   <data name="RankingsMenu_Ranks" xml:space="preserve">
     <value>RANKS</value>
   </data>
 
   <data name="Page_TiglRanks" xml:space="preserve">
     <value>Rankings</value>
+  </data>
+
+  <data name="Page_TiglRanks_PageTitle" xml:space="preserve">
+    <value>TIGL Rankings | TI4 Ultimate</value>
   </data>
 
   <data name="RankingsMenu_Leaders" xml:space="preserve">
@@ -3680,12 +3720,20 @@ Brandon Williams&lt;/p&gt;</value>
     <value>Leaders</value>
   </data>
 
+  <data name="Page_TiglLeaders_PageTitle" xml:space="preserve">
+    <value>TIGL Leaders | TI4 Ultimate</value>
+  </data>
+
   <data name="RankingsMenu_Achievements" xml:space="preserve">
     <value>ACHIEVEMENTS</value>
   </data>
 
   <data name="Page_TiglAchievements" xml:space="preserve">
     <value>Achievements</value>
+  </data>
+
+  <data name="Page_TiglAchievements_PageTitle" xml:space="preserve">
+    <value>TIGL Achievements | TI4 Ultimate</value>
   </data>
 
   <data name="TiglMenu_Players" xml:space="preserve">
@@ -3696,12 +3744,20 @@ Brandon Williams&lt;/p&gt;</value>
     <value>Players</value>
   </data>
 
+  <data name="Page_TiglPlayers_PageTitle" xml:space="preserve">
+    <value>TIGL Players | TI4 Ultimate</value>
+  </data>
+
   <data name="TiglMenu_Statistics" xml:space="preserve">
     <value>STATISTICS</value>
   </data>
 
   <data name="Page_TiglStatistics" xml:space="preserve">
     <value>Statistics</value>
+  </data>
+
+  <data name="Page_TiglStatistics_PageTitle" xml:space="preserve">
+    <value>TIGL Statistics | TI4 Ultimate</value>
   </data>
 
   <data name="Rankings_PrestigeRankCategory_Pmbg" xml:space="preserve">
@@ -3834,6 +3890,22 @@ Brandon Williams&lt;/p&gt;</value>
 
   <data name="Page_TiglGameReports" xml:space="preserve">
     <value>Games</value>
+  </data>
+
+  <data name="Page_TiglGameReports_PageTitle" xml:space="preserve">
+    <value>TIGL Games | TI4 Ultimate</value>
+  </data>
+
+  <data name="Page_TiglGameReportDetail_PageTitle" xml:space="preserve">
+    <value>TIGL {0} | TI4 Ultimate</value>
+  </data>
+
+  <data name="Page_TiglPlayerProfile_PageTitle" xml:space="preserve">
+    <value>TIGL {0} | TI4 Ultimate</value>
+  </data>
+
+  <data name="Page_AsyncPlayerProfile_PageTitle" xml:space="preserve">
+    <value>Async {0} | TI4 Ultimate</value>
   </data>
 
   <data name="TiglLeaderboard_Rank" xml:space="preserve">

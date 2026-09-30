@@ -17,6 +17,18 @@
     text-align: center;
 }
 
+.responsive-form-field-label-visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 /*
     The caller's actual input (RadzenTextBox/RadzenPassword/etc.) is rendered as ChildContent, a
     direct but unscoped (Radzen doesn't use Blazor CSS isolation) descendant of .responsive-form-field

@@ -12,7 +12,7 @@
                     <ResponsiveLabel Text="@GetPrestigeRankText()" CenterText="true" TextColor="@RankColor" UseHandelStyling="false" Style="@GetRankColorStyle()" />
     </RadzenTableCell>
     <RadzenTableCell>
-                    <ResponsiveLabel Text="@GetRankText()" CenterText="true" TextColor="@RankColor" UseHandelStyling="false" Style="@GetRankColorStyle()" />
+                    <ResponsiveLabel Text="@GetRankText()" CenterText="true" TextColor="@Ranking.Rank.GetRankColor()" UseHandelStyling="false" />
     </RadzenTableCell>
     <RadzenTableCell>
                     <ResponsiveLabel Text="@Ranking.GamesPlayed.ToString(CultureInfo.InvariantCulture)" CenterText="true" TextColor="TextColor.Yellow" UseHandelStyling="false" />
