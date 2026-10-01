@@ -1,7 +1,7 @@
-﻿/*
+/*
     Match the centered introduction above while compensating for this page's asymmetric padding.
 */
-::deep .news-state-message {
+.news-state-message {
     display: block;
     width: 100%;
     font-family: Handel, sans-serif;
@@ -19,7 +19,7 @@
 }
 
 @media (max-width: 768px) {
-    ::deep .news-state-message {
+    .news-state-message {
         text-align: center;
     }
 

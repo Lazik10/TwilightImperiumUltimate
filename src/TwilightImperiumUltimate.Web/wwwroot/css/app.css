@@ -502,6 +502,10 @@ p {
     font-size: var(--font-size-xs);
 }
 
+.api-error-message-centered {
+    text-align: center;
+}
+
 .text-break {
     word-wrap: break-word;
     overflow-wrap: break-word;

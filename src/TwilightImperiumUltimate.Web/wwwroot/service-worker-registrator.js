@@ -1,4 +1,4 @@
-﻿// Development (localhost) uses no service worker at all. A worker provides no benefit locally
+// Development (localhost) uses no service worker at all. A worker provides no benefit locally
 // and is actively harmful: after a rebuild it can intercept requests for fingerprinted
 // framework files (_framework/*.wasm|.pdb) and serve stale/empty cached responses, which
 // surfaces as 404s + "SRI integrity" failures even though the dev server serves the files
@@ -58,6 +58,26 @@ if (isDevelopmentHost) {
             .then(registration => {
                 console.info(`Service worker registration successful (scope: ${registration.scope})`);
 
+                let updateResolved = false;
+                const notifyUpdateAvailable = () => {
+                    if (!updateResolved && navigator.serviceWorker.controller) {
+                        updateResolved = true;
+                        resolve(true);
+                    }
+                };
+
+                if (registration.waiting) {
+                    notifyUpdateAvailable();
+                }
+
+                if (registration.installing) {
+                    registration.installing.onstatechange = () => {
+                        if (registration.installing?.state === 'installed') {
+                            notifyUpdateAvailable();
+                        }
+                    };
+                }
+
                 setInterval(() => {
                     console.log('Service worker check for updates.');
                     registration.update();
@@ -65,11 +85,15 @@ if (isDevelopmentHost) {
 
                 registration.onupdatefound = () => {
                     const installingServiceWorker = registration.installing;
-                    installingServiceWorker.onstatechange = () => {
-                        if (installingServiceWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                            resolve(true);
-                        }
+                    if (!installingServiceWorker) {
+                        return;
                     }
+
+                    installingServiceWorker.onstatechange = () => {
+                        if (installingServiceWorker.state === 'installed') {
+                            notifyUpdateAvailable();
+                        }
+                    };
                 };
             })
             .catch(error => {

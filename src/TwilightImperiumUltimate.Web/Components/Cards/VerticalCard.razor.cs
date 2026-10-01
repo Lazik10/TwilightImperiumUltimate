@@ -3,6 +3,7 @@ namespace TwilightImperiumUltimate.Web.Components.Cards;
 public partial class VerticalCard
 {
     private bool _isImageLoaded;
+    private string _lastCardImagePath = string.Empty;
 
     [Parameter]
     public string Name { get; set; } = string.Empty;
@@ -17,7 +18,12 @@ public partial class VerticalCard
 
     protected override void OnParametersSet()
     {
-        _isImageLoaded = false;
+        var currentCardImagePath = CardImagePath;
+        if (!string.Equals(_lastCardImagePath, currentCardImagePath, StringComparison.Ordinal))
+        {
+            _isImageLoaded = false;
+            _lastCardImagePath = currentCardImagePath;
+        }
     }
 
     private string GetContainerClass()
@@ -38,7 +44,7 @@ public partial class VerticalCard
 
     private void OnImageError()
     {
-        _isImageLoaded = false;
+        _isImageLoaded = true;
         StateHasChanged();
     }
 }

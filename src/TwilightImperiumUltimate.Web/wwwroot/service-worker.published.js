@@ -9,10 +9,12 @@ self.addEventListener('message', event => {
         self.skipWaiting();
     }
 });
-self.addEventListener('fetch', (event) => {
-    event.respondWith(
-        fetch(event.request, { cache: 'no-store' }).catch(() => caches.match(event.request))
-    );
+self.addEventListener('fetch', event => {
+    if (event.request.method !== 'GET') {
+        return;
+    }
+
+    event.respondWith(onFetch(event));
 });
 
 const cacheVersion = 'v1.0.1';
@@ -39,7 +41,9 @@ async function onInstall(event) {
         .filter(asset => offlineAssetsInclude.some(pattern => pattern.test(asset.url)))
         .filter(asset => !offlineAssetsExclude.some(pattern => pattern.test(asset.url)))
         .map(asset => new Request(asset.url, { cache: 'no-cache' }));
-    await caches.open(cacheName).then(cache => cache.addAll(assetsRequests));
+    const cache = await caches.open(cacheName);
+    await Promise.all(
+        assetsRequests.map(request => cache.add(request).catch(() => null)));
 }
 
 async function onActivate(event) {
@@ -56,18 +60,40 @@ async function onActivate(event) {
 }
 
 async function onFetch(event) {
-    let cachedResponse = null;
-    if (event.request.method === 'GET') {
-        // For all navigation requests, try to serve index.html from cache,
-        // unless that request is for an offline resource.
-        const shouldServeIndexHtml = event.request.mode === 'navigate'
-            && !manifestUrlList.some(url => url === event.request.url)
-            && !event.request.url.includes('/account/');
-
-        const request = shouldServeIndexHtml ? 'index.html' : event.request;
-        const cache = await caches.open(cacheName);
-        cachedResponse = await cache.match(request);
+    const requestUrl = new URL(event.request.url);
+    if (requestUrl.origin !== self.location.origin) {
+        return fetch(event.request);
     }
 
-    return cachedResponse || fetch(event.request);
+    const cache = await caches.open(cacheName);
+
+    // For navigation requests, prefer network to avoid serving stale app shell and
+    // use cached index.html only as an offline fallback.
+    const shouldServeIndexHtml = event.request.mode === 'navigate'
+        && !manifestUrlList.some(url => url === event.request.url)
+        && !event.request.url.includes('/account/');
+
+    if (shouldServeIndexHtml) {
+        try {
+            return await fetch(event.request, { cache: 'no-store' });
+        } catch {
+            const offlineResponse = await cache.match('index.html');
+            if (offlineResponse) {
+                return offlineResponse;
+            }
+
+            return new Response('Offline', { status: 503, statusText: 'Offline' });
+        }
+    }
+
+    const cachedResponse = await cache.match(event.request);
+    if (cachedResponse) {
+        return cachedResponse;
+    }
+
+    try {
+        return await fetch(event.request, { cache: 'no-store' });
+    } catch {
+        return new Response('Resource unavailable', { status: 503, statusText: 'Offline' });
+    }
 }
