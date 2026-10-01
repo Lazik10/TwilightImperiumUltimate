@@ -30,6 +30,14 @@ public partial class GameReportsDashboard
         await LoadReportsAsync();
     }
 
+    private static string GetUserName(PlayerResultDto player)
+    {
+        if (player.TiglUserName == player.DiscordUserName)
+            return player.TiglUserName;
+
+        return $"{player.TiglUserName} ({player.DiscordUserName})";
+    }
+
     private async Task LoadReportsAsync()
     {
         _loading = true;
@@ -52,14 +60,6 @@ public partial class GameReportsDashboard
         }
 
         _loading = false;
-    }
-
-    private static string GetUserName(PlayerResultDto player)
-    {
-        if (player.TiglUserName == player.DiscordUserName)
-            return player.TiglUserName;
-
-        return $"{player.TiglUserName} ({player.DiscordUserName})";
     }
 
     private async Task ConfirmAsync(int matchReportId)

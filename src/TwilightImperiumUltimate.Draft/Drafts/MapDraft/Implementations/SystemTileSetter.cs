@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Contracts.Enums;
+﻿using TwilightImperiumUltimate.Contracts.Enums;
 using TwilightImperiumUltimate.Core.Entities.Galaxy;
 using TwilightImperiumUltimate.Draft.Drafts.MapDraft.Constants;
 using TwilightImperiumUltimate.Draft.Drafts.MapDraft.Extensions;
@@ -22,6 +22,11 @@ public class SystemTileSetter(
         IMapSettings mapSettings,
         GenerateMapRequest request)
     {
+        ArgumentNullException.ThrowIfNull(galaxy);
+        ArgumentNullException.ThrowIfNull(systemTilesForMapSetup);
+        ArgumentNullException.ThrowIfNull(mapSettings);
+        ArgumentNullException.ThrowIfNull(request);
+
         var redTiles = systemTilesForMapSetup.RedTiles.ToList();
         _logger.LogInformation("Available red tiles: {RedTiles}", redTiles.GetSystemTileCodes());
 
@@ -137,27 +142,16 @@ public class SystemTileSetter(
         }
 
         // Replace one random red tile with legendary one if it is not present already to satisfy 7 legendary planets request
-        if (request.NumberOfLegendaries == 7 && redTilesWithAnomalyAndLegendaryPlanet.Count > 0)
+        if ((request.NumberOfLegendaries == 7 && redTilesWithAnomalyAndLegendaryPlanet.Count > 0)
+
+            // Sometimes replace red tile with legendary one if we need legendaries already (but only if we have Uncharted Space)
+            || (request.NumberOfLegendaries > 1 && request.GameVersions.Contains(GameVersion.UnchartedSpace) && Random.Next(0, 100) < request.NumberOfLegendaries / 7.0f * 100))
         {
             var position = galaxy.Keys.Where(x => galaxy[x].Name == PositionName.Red && galaxy[x].SystemTile is not null)
                 .OrderBy(x => Random.Next())
                 .First();
 
             galaxy[position].SystemTile = redTilesWithAnomalyAndLegendaryPlanet.FirstOrDefault();
-        }
-        else
-        {
-            // Sometimes replace red tile with legendary one if we need legendaries already (but only if we have Uncharted Space)
-            if (request.NumberOfLegendaries > 1
-                && request.GameVersions.Contains(GameVersion.UnchartedSpace)
-                && Random.Next(0, 100) < request.NumberOfLegendaries / 7.0f * 100)
-            {
-                var position = galaxy.Keys.Where(x => galaxy[x].Name == PositionName.Red && galaxy[x].SystemTile is not null)
-                    .OrderBy(x => Random.Next())
-                    .First();
-
-                galaxy[position].SystemTile = redTilesWithAnomalyAndLegendaryPlanet.FirstOrDefault();
-            }
         }
 
         _logger.LogInformation("Assigned red tile codes in galaxy: {RedTilesCount}", galaxy.GetRedTileCodes());
@@ -171,6 +165,11 @@ public class SystemTileSetter(
         IReadOnlyCollection<FactionName> factions,
         IReadOnlyCollection<string> playerNames)
     {
+        ArgumentNullException.ThrowIfNull(galaxy);
+        ArgumentNullException.ThrowIfNull(systemTilesForMapSetup);
+        ArgumentNullException.ThrowIfNull(mapSettings);
+        ArgumentNullException.ThrowIfNull(playerNames);
+
         if (homeSystemDraftType == HomeSystemDraftType.Placeholders)
         {
             var homeSystemPlaceholder = systemTilesForMapSetup.EmptyHomeSystemPlaceholder;
@@ -215,11 +214,18 @@ public class SystemTileSetter(
 
     public void SetMecatolSystemTile(Dictionary<(int X, int Y), Hex> galaxy, IMapSettings mapSettings, SystemTile mecatolRexSystemTile)
     {
+        ArgumentNullException.ThrowIfNull(galaxy);
+        ArgumentNullException.ThrowIfNull(mapSettings);
+
         galaxy[mapSettings.MecatolRexPosition].SystemTile = mecatolRexSystemTile;
     }
 
     public void SetLegendarySystemTiles(Dictionary<(int X, int Y), Hex> galaxy, SystemTilesForGalaxyDistribution remainingSystemTiles, IMapSettings mapSettings)
     {
+        ArgumentNullException.ThrowIfNull(galaxy);
+        ArgumentNullException.ThrowIfNull(remainingSystemTiles);
+        ArgumentNullException.ThrowIfNull(mapSettings);
+
         if (!remainingSystemTiles.BlueTiles.Exists(x => x.HasLegendaryPlanet))
             return;
 
@@ -251,6 +257,11 @@ public class SystemTileSetter(
 
     public void SetRemainingSystemTiles(Dictionary<(int X, int Y), Hex> galaxy, IMapSettings mapSettings, GenerateMapRequest request, IReadOnlyCollection<Slice> balancedSlices)
     {
+        ArgumentNullException.ThrowIfNull(galaxy);
+        ArgumentNullException.ThrowIfNull(mapSettings);
+        ArgumentNullException.ThrowIfNull(request);
+        ArgumentNullException.ThrowIfNull(balancedSlices);
+
         _ = request.PlacementStyle switch
         {
             PlacementStyle.Random => SetRemainingSystemTilesByRandomPlacement(galaxy, balancedSlices),
@@ -263,6 +274,10 @@ public class SystemTileSetter(
 
     public void SetHyperlines(Dictionary<(int X, int Y), Hex> galaxy, IHyperlineSettings hyperlineSettings, SystemTilesForMapSetup systemTilesForMapSetup)
     {
+        ArgumentNullException.ThrowIfNull(galaxy);
+        ArgumentNullException.ThrowIfNull(hyperlineSettings);
+        ArgumentNullException.ThrowIfNull(systemTilesForMapSetup);
+
         if (hyperlineSettings.Hyperlines.Count == 0)
             return;
 
@@ -280,6 +295,8 @@ public class SystemTileSetter(
 
     public void SetFrameTiles(Dictionary<(int X, int Y), Hex> galaxy, SystemTile frameSystemPlaceholder)
     {
+        ArgumentNullException.ThrowIfNull(galaxy);
+
         foreach (var hex in galaxy.Values)
         {
             if (galaxy.TryGetValue((hex.X, hex.Y), out Hex? galaxyHex) && galaxyHex is not null)
@@ -439,7 +456,7 @@ public class SystemTileSetter(
 
             _logger.LogInformation("Slice empty positions: {EmptyPositions}", string.Join(",", sliceEmptyPositions.Select(x => $"[{x.X},{x.Y}]")));
 
-            _logger.LogInformation("Drafted system tiles: {Count} {DraftedSystemTiles}", slice.DraftedSystemTiles.Count,  string.Join(" ", slice.DraftedSystemTiles.Select(x => x.SystemTileCode)));
+            _logger.LogInformation("Drafted system tiles: {Count} {DraftedSystemTiles}", slice.DraftedSystemTiles.Count, string.Join(" ", slice.DraftedSystemTiles.Select(x => x.SystemTileCode)));
 
             var slicePositionsInPriorityOrder = new List<(int X, int Y)>();
 

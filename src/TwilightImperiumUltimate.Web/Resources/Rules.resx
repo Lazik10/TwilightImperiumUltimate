@@ -198,16 +198,19 @@
   <data name="RuleCategoryTitle_CustodiansToken" xml:space="preserve">
     <value>Custodians Token</value>
   </data>
+    <data name="RuleCategory_CustodiansToken_Notes" xml:space="preserve">
+      <value />
+    </data>
   <data name="RuleCategoryTitle_Deals" xml:space="preserve">
     <value>Deals</value>
   </data>
-  <data name="RuleCategoryTitle_Defender" xml:space="preserve">
+    <data name="RuleCategory_Planets_Notes" xml:space="preserve">
     <value>Defender</value>
   </data>
   <data name="RuleCategoryTitle_Deploy" xml:space="preserve">
     <value>Deploy</value>
   </data>
-  <data name="RuleCategoryTitle_Destroyed" xml:space="preserve">
+    <data name="RuleCategory_Readied_Notes" xml:space="preserve">
     <value>Destroyed</value>
   </data>
   <data name="RuleCategoryTitle_Diplomacy" xml:space="preserve">

@@ -58,3 +58,32 @@
     background-color: transparent !important;
     clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
 }
+
+.slice-preview-archive {
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+}
+
+.slice-preview-archive ::deep .responsive-container {
+    position: relative;
+    z-index: 2;
+}
+
+.slice-preview-archive ::deep .label {
+    font-size: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+    padding: var(--space-xs);
+}
+
+.slice-preview-archive .slice-grid {
+    height: auto;
+    flex: 0 0 auto;
+    padding-bottom: calc(100% / 6);
+}
+
+.slice-preview-archive ::deep .slice-archive-stats {
+    position: relative;
+    z-index: 2;
+    padding-top: var(--space-sm);
+    background-color: rgba(8, 14, 24, 0.94);
+}

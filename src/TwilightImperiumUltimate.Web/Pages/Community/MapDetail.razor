@@ -3,99 +3,115 @@
 @using TwilightImperiumUltimate.Web.Components.MapGenerator
 @using TwilightImperiumUltimate.Web.Components.MapsArchive
 @using TwilightImperiumUltimate.Web.Components.Shared.Bars
+@using TwilightImperiumUltimate.Web.Components.Shared.Seo
 @using TwilightImperiumUltimate.Web.Helpers.Enums
+
+<PageTitle>@PageTitleText</PageTitle>
+<JsonLd Json="@MapStructuredData" />
 
 <Page>
 
-    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" >
-        <TextButton Text="@Strings.ButtonBack" OnClick="RedirectBack" FontSize="24" Width="20" TextAlign="@(string.Empty)" />
-    </FlexRowContainer>
-    
-    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexEnd">
-        <QuickMenuItem IconType="IconType.DownloadMapImage" IconTypeClicked="IconType.DownloadMapImageClicked" OnClick="async () => await HandleDownloadIconClick()" />
-    </FlexRowContainer>
+    <ResponsiveContainer Type="ContainerType.Flex"
+                         Padding="none"
+                         JustifyContent="Enums.JustifyContent.SpaceBetween"
+                         AlignItems="Enums.AlignItems.Center"
+                         CssClass="map-detail-toolbar mb-md">
 
-    @if (!_map.Keys.Any())
-        return;
+        <ResponsiveButton ButtonText="@Strings.ButtonBack" OnClick="RedirectBack" />
 
-    <div id="mapArea" style="width: 100%;">
+        <QuickMenuItem IconType="IconType.DownloadMapImage"
+                       IconTypeClicked="IconType.DownloadMapImageClicked"
+                       AriaLabel="@Strings.MapArchive_SaveMap"
+                       OnClick="async () => await HandleDownloadIconClick()" />
 
-        <FlexColumnCenteredContainer>
+    </ResponsiveContainer>
 
-            <FlexColumnCenteredContainer Width="70">
+    @if (!IsMapLoaded)
+    {
+        <ResponsiveText Text="@Strings.Loading" CenterText="true" CssClass="mt-2xl mb-2xl" />
+    }
+    else
+    {
+        <div id="mapArea" class="map-detail-area">
 
-                <Title Text="@Map.Name"  MarginTop="0" MarginBottom="20" />
+            <ResponsiveHeading Level="1" Text="@Map.Name" CssClass="mb-md" />
 
-                <FlexRowContainer>
-                    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" Width="50">
-                        <Label Text="@Strings.MapArchive_MapRating" Style="margin-right: 10px;" Width="20"/>
-                        <StarRating Rating="@Map.Rating" IsReadOnly="true" />
-                    </FlexRowContainer>
-                    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexEnd" Width="50">
-                        <Label Text="@Strings.MapArchive_UserRating" Style="margin-right: 10px;" Width="30"/>
-                        <StarRating Rating="@UserRating" OnRatingChange="UpdateUserMapRating" />
-                    </FlexRowContainer>
-                </FlexRowContainer>
+            <div class="map-detail-ratings mb-lg">
 
+                <div class="map-detail-rating">
+                    <ResponsiveLabel Text="@Strings.MapArchive_MapRating" CssClass="map-detail-rating-label" />
+                    <StarRating Rating="@Map.Rating" IsReadOnly="true" />
+                </div>
+
+                <div class="map-detail-rating">
+                    <ResponsiveLabel Text="@Strings.MapArchive_UserRating" CssClass="map-detail-rating-label" />
+                    <StarRating Rating="@UserRating" AriaLabel="@Strings.MapArchive_UserRating" OnRatingChange="UpdateUserMapRating" />
+                </div>
+
+            </div>
+
+            @*
+                The map preview itself is intentionally left untouched: it keeps the same 70%-wide
+                centered column it has always been rendered in.
+            *@
+            <ResponsiveContainer Type="ContainerType.Fluid"
+                                 Padding="none"
+                                 CenteredItems="true"
+                                 Direction="Enums.FlexDirection.Column"
+                                 Width="100"
+                                 CssClass="map-detail-map mb-2xl">
                 @DynamicComponent
-            </FlexColumnCenteredContainer>
+            </ResponsiveContainer>
 
-            <VerticalSpace Height="100" />
+            <MapSliceEvaluation Map="_map" MapTemplate="Map.MapTemplate" />
 
-            <FlexColumnCenteredContainer Width="100">
+            <ResponsiveCard CssClass="mt-xl">
+                <dl class="map-detail-meta">
 
-                <MapSliceEvaluation Map="_map" MapTemplate="Map.MapTemplate" />
+                    <dt><ResponsiveLabel Text="@Strings.MapArchive_MapAuthor" /></dt>
+                    <dd><ResponsiveLabel Text="@Map.UserName" UseHandelStyling="false" CssClass="inter" /></dd>
 
-            </FlexColumnCenteredContainer>
+                    <dt><ResponsiveLabel Text="@Strings.MapArchive_MapEvent" /></dt>
+                    <dd><ResponsiveLabel Text="@Map.EventName" UseHandelStyling="false" CssClass="inter" /></dd>
 
-            <VerticalSpace Height="50" />
+                    <dt><ResponsiveLabel Text="@Strings.MapArchive_MapTemplate" /></dt>
+                    <dd><ResponsiveLabel Text="@Map.MapTemplate.GetDisplayName()" UseHandelStyling="false" CssClass="inter" /></dd>
 
-            <FlexColumnCenteredContainer Width="70">
-
-                <GridLayout Columns="4" Gap="40">
-
-                    <Label Text="@Strings.MapArchive_MapAuthor" />
-                    <Label Text="@Map.UserName" Style="grid-column: span 3;" />
-
-                    <Label Text="@Strings.MapArchive_MapEvent" />
-                    <Label Text="@Map.EventName" Style="grid-column: span 3;" />
-
-                    <Label Text="@Strings.MapArchive_MapTemplate" />
-                    <Label Text="@Map.MapTemplate.GetDisplayName()" Style="grid-column: span 3;" />
-
-                    <Label Text="@Strings.MapArchive_MapDescription" Style="grid-column: span 4;" />
-
-                    <FlexColumnCenteredContainer Style="grid-column: span 4;">
-
-                        <VerticalSpace Height="20" />
-
-                        <div class="handel white shadow">
+                    <dt><ResponsiveLabel Text="@Strings.MapArchive_MapDescription" /></dt>
+                    <dd>
+                        <div class="map-detail-description inter white">
                             @MarkupStringDescription
                         </div>
+                    </dd>
 
-                        <VerticalSpace Height="20" />
-                    </FlexColumnCenteredContainer>
+                    <dt><ResponsiveLabel Text="@Strings.MapArchive_TtsString" /></dt>
+                    <dd>
+                        <ResponsiveLabel Text="@Map.TtsString" CssClass="text-break-all map-detail-normal-text" />
+                        <div class="map-detail-copy-row">
+                            <CopyButton TextToCopy="@Map.TtsString" AriaLabel="@Strings.MapArchive_TtsString" />
+                        </div>
+                    </dd>
 
-                    <Label Text="@Strings.MapArchive_TtsString" />
+                    <dt><ResponsiveLabel Text="@Strings.MapArchive_MapGeneratorLink" /></dt>
+                    <dd>
+                        <ResponsiveLabel Text="@Map.MapGeneratorLink" CssClass="text-break-all map-detail-normal-text" />
+                        <div class="map-detail-copy-row">
+                            <CopyButton TextToCopy="@Map.MapGeneratorLink" AriaLabel="@Strings.MapArchive_MapGeneratorLink" />
+                        </div>
+                    </dd>
 
-                    <Label Text="@Map.TtsString" CssClass="text-break-all" Style="grid-column: span 3;" />
+                    <dt><ResponsiveLabel Text="@Strings.MapArchive_MapArchiveLink" /></dt>
+                    <dd>
+                        <ResponsiveLabel Text="@Map.MapArchiveLink" CssClass="text-break-all map-detail-normal-text" />
+                        <div class="map-detail-copy-row">
+                            <CopyButton TextToCopy="@Map.MapArchiveLink" AriaLabel="@Strings.MapArchive_MapArchiveLink" />
+                        </div>
+                    </dd>
 
-                    <Label Text="@Strings.MapArchive_MapGeneratorLink" />
+                </dl>
+            </ResponsiveCard>
 
-                    <Label Text="@Map.MapGeneratorLink" CssClass="text-break-all" Style="grid-column: span 3;" />
-
-                    <Label Text="@Strings.MapArchive_MapArchiveLink" />
-
-                    <Label Text="@Map.MapArchiveLink" CssClass="text-break-all" Style="grid-column: span 3;" />
-
-                </GridLayout>
-
-                <VerticalSpace Height="20" />
-
-            </FlexColumnCenteredContainer>
-
-        </FlexColumnCenteredContainer>
-
-    </div>
+        </div>
+    }
 
 </Page>

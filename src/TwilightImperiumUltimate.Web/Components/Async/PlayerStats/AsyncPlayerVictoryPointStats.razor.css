@@ -1,0 +1,43 @@
+.async-player-vp-table-desktop,
+.async-player-vp-table-mobile {
+    width: 100%;
+}
+
+.async-player-vp-table-mobile {
+    display: none;
+}
+
+.async-player-vp-percentage-mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .async-player-vp-table-desktop {
+        display: none;
+    }
+
+    .async-player-vp-table-mobile {
+        display: block;
+    }
+
+    .async-player-vp-table-mobile ::deep .responsive-radzen-table .rz-grid-table th,
+    .async-player-vp-table-mobile ::deep .responsive-radzen-table .rz-grid-table td {
+        min-width: 4.5rem;
+        padding-left: var(--space-xs);
+        padding-right: var(--space-xs);
+    }
+
+    .async-player-vp-table-mobile ::deep .responsive-radzen-table .rz-grid-table th:first-child,
+    .async-player-vp-table-mobile ::deep .responsive-radzen-table .rz-grid-table td:first-child {
+        min-width: 5.5rem;
+        text-align: left;
+    }
+
+    .async-player-vp-percentage-non-mobile {
+        display: none;
+    }
+
+    .async-player-vp-percentage-mobile {
+        display: inline;
+    }
+}

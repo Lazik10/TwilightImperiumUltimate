@@ -1,8 +1,12 @@
 @page "/community/tigl/achievements"
 @using TwilightImperiumUltimate.Web.Components.Tigl
+@using TwilightImperiumUltimate.Web.Components.Shared.Text
+
+<PageTitle>@Strings.Page_TiglAchievements_PageTitle</PageTitle>
 
 <Page>
-    <StretchHeightContainer CssClass="background">
+    <StretchHeightContainer>
+        <ResponsiveHeading Level="1" Text="Achievements" />
         <AchievementsGrid />
     </StretchHeightContainer>
 </Page>

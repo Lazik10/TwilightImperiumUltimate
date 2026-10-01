@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Contracts.DTOs.Tigl;
+﻿using TwilightImperiumUltimate.Contracts.DTOs.Tigl;
 
 namespace TwilightImperiumUltimate.Business.Logic.Tigl.Achievements;
 
@@ -7,6 +7,8 @@ public class GetTiglUserAchievementsQueryHandler(IAchievementRepository achievem
 {
     public async Task<ItemListDto<TiglUserAchievementDto>> Handle(GetTiglUserAchievementsQuery request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var items = await achievementRepository.GetUserAchievements(request.TiglUserId, cancellationToken);
         var dtoItems = items.Select(a => new TiglUserAchievementDto
         {

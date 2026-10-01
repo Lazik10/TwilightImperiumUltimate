@@ -1,74 +1,124 @@
 ﻿@using TwilightImperiumUltimate.Contracts.Enums
+@using TwilightImperiumUltimate.Web.Components.Factions
 @using TwilightImperiumUltimate.Web.Components.Shared.Controls
-@using TwilightImperiumUltimate.Web.Components.Shared.GameVersions
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @using TwilightImperiumUltimate.Web.Components.Shared.Text
 @using TwilightImperiumUltimate.Web.Helpers.Resources;
-@using TwilightImperiumUltimate.Web.Resources;
-@using TwilightImperiumUltimate.Web.Components.Factions;
 
-<FactionIconRow 
-    EnableBanMode="true"
-    OnFactionClickGetFaction="UpdateSelectedFactions" 
-    BanAllFactions="true"
-    ShowDiscordantStars="true"
-    @ref="_factionIconRow"/>
+<ResponsiveTabMenu AriaLabel="Color Picker sections" CssClass="faction-style mb-md">
+    <ResponsiveTab Id="color-picker-draft-tab"
+                   ControlsId="color-picker-draft-panel"
+                   IsActive="@(!_showSettings)"
+                   OnClick="ShowDraft">
+        Draft
+    </ResponsiveTab>
+    <ResponsiveTabSeparator />
+    <ResponsiveTab Id="color-picker-settings-tab"
+                   ControlsId="color-picker-settings-panel"
+                   IsActive="@_showSettings"
+                   OnClick="ShowSettings">
+        Settings
+    </ResponsiveTab>
+</ResponsiveTabMenu>
 
-<FlexColumnCenteredContainer>
-    <HelpText Text="@Strings.ColorPicker_HelpText" CssClass="margin-top-10 handel" />
-</FlexColumnCenteredContainer>
+<section id="color-picker-draft-panel" role="tabpanel" aria-labelledby="color-picker-draft-tab" hidden="@_showSettings">
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="mt-3xl" JustifyContent="Enums.JustifyContent.Center">
+        <ResponsiveButton ButtonText="@GetPrimaryButtonText()"
+                          OnClick="HandlePrimaryButtonClick"
+                          IsDisabled="GetButtonState()"
+                          Width="40" />
+    </ResponsiveContainer>
 
-<FlexRowContainer CssClass="center" 
-    JustifyContent="Enums.JustifyContent.SpaceEvenly"
-    AlignItems="Enums.AlignItems.Center">
-    @foreach (var color in ColorPickerService.Colors)
+    @if (!HasEnoughSelectedFactions)
     {
-        <ColorCheckBox 
-            Color="@(color.Key)" 
-            IsChecked="@(color.Value)"
-            OnClick="HandleColorClick" />
-    }
-</FlexRowContainer>
+        <ResponsiveCard CssClass="mt-3xl">
+            <ResponsiveLabel Text="Preview" TextColor="TextColor.Red" CenterText="true" FontSize="xl" CssClass="mb-xs" />
+            <ResponsiveLabel Text="Navigate to Settings to choose your factions." TextColor="TextColor.Red" CenterText="true" FontSize="base" />
+        </ResponsiveCard>
 
-<FlexRowContainer CssClass="margin-top-50">
-    <Button ButtonText="@GetButtonStateText()"
-            OnClick="DraftColors" IsDisabled="GetButtonState()" />
-    <Button ButtonText="@Strings.DraftButton_ResetSelectedFactions"
-            OnClick="ResetSelectedFactions" />
-    <Button ButtonText="@Strings.DraftButton_ResetBannedColors"
-        OnClick="ResetBannedColors" />
-</FlexRowContainer>
-
-<StretchHeightContainer>
-    <FlexColumnCenteredContainer CssClass="margin-top-50">
-        @if (ColorPickerService.FactionColorDraftResults is not null && ColorPickerService.FactionColorDraftResults.Any())
+        @if (HasPreviewDraftResults)
         {
-            @foreach (var result in ColorPickerService.FactionColorDraftResults)
+            @foreach (var result in _previewDraftResults)
             {
-                <ColorPickerBackground 
-                    BackgroundColor="result.Color"
-                    CssClass="margin-top-10">
+                <ResponsiveCard CssClass="color-picker-faction-card mt-sm">
+                    <ColorPickerBackground BackgroundColor="result.Color">
+                        <ResponsiveHeading Level="3"
+                                           Text="@(result.FactionName.GetFactionUIText(FactionResourceType.Title))"
+                                           CenterText="true"
+                                           CssClass="faction mb-0" />
+                    </ColorPickerBackground>
+                </ResponsiveCard>
+            }
+        }
+        else
+        {
+            @foreach (var faction in _previewFactions)
+            {
+                <ResponsiveCard CssClass="color-picker-faction-card mt-sm">
+                    <ColorPickerBackground BackgroundColor="@(PlayerColor.Black)">
+                        <ResponsiveHeading Level="3"
+                                           Text="@(faction.FactionName.GetFactionUIText(FactionResourceType.Title))"
+                                           CenterText="true"
+                                           CssClass="faction mb-0" />
+                    </ColorPickerBackground>
+                </ResponsiveCard>
+            }
+        }
+    }
+    else
+    {
+        <ResponsiveCard CssClass="mt-3xl">
+            <ResponsiveHeading Level="3" Text="Draft" CenterText="true" />
+        </ResponsiveCard>
 
-                    <Title Text="@(result.FactionName.GetFactionUIText(FactionResourceType.Title))"
-                           MarginTop="0" 
-                           FontSize="24" />
-                </ColorPickerBackground>
+        @if (HasDraftResults)
+        {
+            @foreach (var result in ColorPickerService.FactionColorDraftResults!)
+            {
+                <ResponsiveCard CssClass="color-picker-faction-card mt-sm">
+                    <ColorPickerBackground BackgroundColor="result.Color">
+                        <ResponsiveHeading Level="3"
+                                           Text="@(result.FactionName.GetFactionUIText(FactionResourceType.Title))"
+                                           CenterText="true"
+                                           CssClass="mb-0" />
+                    </ColorPickerBackground>
+                </ResponsiveCard>
             }
         }
         else
         {
             @foreach (var faction in ColorPickerService.SelectedFactions)
             {
-                <ColorPickerBackground BackgroundColor="@(PlayerColor.Black)" CssClass="margin-top-10">
-
-                    <Title Text="@(faction.FactionName.GetFactionUIText(FactionResourceType.Title))"
-                           CssClass="faction hendel white shadow"
-                           MarginTop="0"
-                           FontSize="24" />
-                </ColorPickerBackground>
-
+                <ResponsiveCard CssClass="color-picker-faction-card mt-sm">
+                    <ColorPickerBackground BackgroundColor="@(PlayerColor.Black)">
+                        <ResponsiveHeading Level="3"
+                                           Text="@(faction.FactionName.GetFactionUIText(FactionResourceType.Title))"
+                                           CenterText="true"
+                                           CssClass="faction mb-0" />
+                    </ColorPickerBackground>
+                </ResponsiveCard>
             }
         }
-    </FlexColumnCenteredContainer>
-</StretchHeightContainer>
+    }
+</section>
+
+<section id="color-picker-settings-panel" role="tabpanel" aria-labelledby="color-picker-settings-tab" hidden="@(!_showSettings)">
+    <FactionMenuPicker OnFactionChanged="UpdateSelectedFactions"
+                       OnFactionsInitialized="InitializePreviewFactions"
+                       @ref="_factionMenuPicker" />
+
+    <ResponsiveCard CssClass="mt-lg mb-xl">
+        <ResponsiveHeading Level="4" Text="Available Colors" CenterText="true" CssClass="mb-0" />
+        <ResponsiveText Text="(click to exclude)" FontSize="sm" CenterText="true" />
+
+        <ResponsiveGridContainer Columns="4" TabletColumns="4" MobileColumns="2">
+            @foreach (var color in ColorPickerService.Colors)
+            {
+                <ColorCheckBox Color="@(color.Key)"
+                               IsChecked="@(color.Value)"
+                               OnClick="HandleColorClick" />
+            }
+        </ResponsiveGridContainer>
+    </ResponsiveCard>
+</section>
 

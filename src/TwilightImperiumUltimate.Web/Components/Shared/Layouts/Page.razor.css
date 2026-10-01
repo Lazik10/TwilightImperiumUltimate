@@ -1,0 +1,39 @@
+﻿::deep .page-template {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*main-axis*/
+    justify-items: center; /*main-axis*/
+    align-items: center; /*cross-axis*/
+    width: 100%;
+}
+
+/* Horizontal inset for page content. Desktop value comes from the HorizontalPadding
+   parameter (via inline style, default 10%); tablet/mobile always use the fixed
+   percentages below regardless of the parameter (!important beats the inline style).
+   ::deep is required: this class only ever renders on the div owned by the child
+   ResponsiveContainer component, never on an element authored directly in Page.razor. */
+@media (max-width: 1570px) {
+    ::deep .page-horizontal-padding {
+        padding-left: 3% !important;
+        padding-right: 3% !important;
+    }
+}
+
+@media (max-width: 1024px) {
+    ::deep .page-horizontal-padding {
+        padding-left: 2% !important;
+        padding-right: 2% !important;
+    }
+}
+
+@media (max-width: 768px) {
+    ::deep .page-horizontal-padding {
+        padding-left: 1% !important;
+        padding-right: 1% !important;
+    }
+}
+
+::deep .page-no-horizontal-padding {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}

@@ -1,10 +1,10 @@
-using Serilog;
 using System.Globalization;
+using Serilog;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
 
 namespace TwilightImperiumUltimate.Web.Components.MapGenerator;
 
-public partial class MapHexTile : TwilightImperiumBaseComponenet
+public partial class MapHexTile : TwilightImperiumBaseComponent, IDisposable
 {
     private TileRotation _tileRotation;
 
@@ -22,6 +22,9 @@ public partial class MapHexTile : TwilightImperiumBaseComponenet
     [Parameter]
     public EventCallback SwappedSystemTileFromMenu { get; set; }
 
+    [CascadingParameter(Name = "MapGeneratorMainGrid")]
+    public MapGeneratorMainGrid MapGeneratorMainGrid { get; set; } = default!;
+
     private string ImagePath => PathProvider.GetLargeTileImagePath(SystemTile?.SystemTileName ?? SystemTileName.TileEmpty);
 
     [Inject]
@@ -30,9 +33,14 @@ public partial class MapHexTile : TwilightImperiumBaseComponenet
     [Inject]
     private IMapGeneratorSettingsService MapGeneratorSettingsService { get; set; } = null!;
 
-    private SystemTileOverlay Overlay => MapGeneratorSettingsService.SystemTileOverlay;
+    private bool IsTileSelected =>
+        SystemTile is not null && MapGeneratorService.IsSystemTileSelected(SystemTile, MapPosition);
 
-    private string SystemTileOverlayText => MapGeneratorSettingsService.SystemTileOverlay switch
+    private SystemTileOverlay Overlay => MapPosition < 0
+        ? MapGeneratorSettingsService.MenuOverlay
+        : MapGeneratorSettingsService.MapOverlay;
+
+    private string SystemTileOverlayText => Overlay switch
     {
         SystemTileOverlay.Id => SystemTile?.SystemTileCode ?? string.Empty,
         SystemTileOverlay.Resources => SystemTile?.Resources.ToString(CultureInfo.InvariantCulture) ?? string.Empty,
@@ -40,7 +48,7 @@ public partial class MapHexTile : TwilightImperiumBaseComponenet
         _ => string.Empty,
     };
 
-    private string SystemTileOverlayColor => MapGeneratorSettingsService.SystemTileOverlay switch
+    private string SystemTileOverlayColor => Overlay switch
     {
 
         SystemTileOverlay.Id => "white",
@@ -56,15 +64,21 @@ public partial class MapHexTile : TwilightImperiumBaseComponenet
             await HandleInitialRotation();
     }
 
+    protected override void OnInitialized() =>
+        MapGeneratorService.TileSelectionChanged += HandleTileSelectionChanged;
+
+    public void Dispose() =>
+        MapGeneratorService.TileSelectionChanged -= HandleTileSelectionChanged;
+
     private Task HandleInitialRotation()
     {
         _tileRotation = SystemTile!.SystemTileCode switch
         {
-            string code when code.Contains("A1") || code.Contains("B1") => TileRotation.Rotation60,
-            string code when code.Contains("A2") || code.Contains("B2") => TileRotation.Rotation120,
-            string code when code.Contains("A3") || code.Contains("B3") => TileRotation.Rotation180,
-            string code when code.Contains("A4") || code.Contains("B4") => TileRotation.Rotation240,
-            string code when code.Contains("A5") || code.Contains("B5") => TileRotation.Rotation300,
+            string code when code.Contains("A1", StringComparison.Ordinal) || code.Contains("B1", StringComparison.Ordinal) => TileRotation.Rotation60,
+            string code when code.Contains("A2", StringComparison.Ordinal) || code.Contains("B2", StringComparison.Ordinal) => TileRotation.Rotation120,
+            string code when code.Contains("A3", StringComparison.Ordinal) || code.Contains("B3", StringComparison.Ordinal) => TileRotation.Rotation180,
+            string code when code.Contains("A4", StringComparison.Ordinal) || code.Contains("B4", StringComparison.Ordinal) => TileRotation.Rotation240,
+            string code when code.Contains("A5", StringComparison.Ordinal) || code.Contains("B5", StringComparison.Ordinal) => TileRotation.Rotation300,
             _ => TileRotation.Rotation0,
         };
 
@@ -83,7 +97,7 @@ public partial class MapHexTile : TwilightImperiumBaseComponenet
         }
     }
 
-    private void DropSystemTile(SystemTileModel? systemTile)
+    private async Task DropSystemTile(SystemTileModel? systemTile)
     {
         if (systemTile is not null)
         {
@@ -91,12 +105,15 @@ public partial class MapHexTile : TwilightImperiumBaseComponenet
             Log.Information("Dragged system tile was: {TileName}", draggedSystemTile.SystemTileName.ToString());
             Log.Information("Dropped on system tile: {TileName}", systemTile.SystemTileName.ToString());
             MapGeneratorService.SwapSystemTiles(systemTile, MapPosition);
-            SwappedTwoSystemTiles.InvokeAsync();
-            SwappedSystemTileFromMenu.InvokeAsync();
+            await SwappedTwoSystemTiles.InvokeAsync();
+            await SwappedSystemTileFromMenu.InvokeAsync();
             StateHasChanged();
             MapGeneratorService.ResetDraggingSystemTile(systemTile);
         }
     }
+
+    private Task RequestDropSystemTile() =>
+        MapGeneratorMainGrid.RequestSystemTileSwapAsync(() => DropSystemTile(SystemTile), MapPosition);
 
     private void DragOverSystemTile(SystemTileModel? systemTile)
     {
@@ -108,6 +125,48 @@ public partial class MapHexTile : TwilightImperiumBaseComponenet
         Log.Information("Drag ended for system tile: {TileName}", systemTile?.SystemTileName.ToString());
         SwappedSystemTileFromMenu.InvokeAsync();
     }
+
+    private Task HandleImageClick()
+    {
+        if (SystemTile?.SystemTileCategory == SystemTileCategory.Hyperlane)
+        {
+            Rotate();
+            return Task.CompletedTask;
+        }
+
+        return HandleTileClick();
+    }
+
+    private async Task HandleTileClick()
+    {
+        if (SystemTile is null)
+            return;
+
+        if (IsTileSelected)
+        {
+            MapGeneratorService.ResetDraggingSystemTile(SystemTile);
+            return;
+        }
+
+        if (MapGeneratorService.HasSelectedSystemTile)
+        {
+            if (MapPosition == -1 && MapGeneratorService.SelectedSystemTileMapPosition == -1)
+            {
+                StartDragSystemTile(SystemTile);
+                MapGeneratorService.SelectSystemTile(SystemTile, MapPosition);
+                return;
+            }
+
+            await RequestDropSystemTile();
+            return;
+        }
+
+        StartDragSystemTile(SystemTile);
+        MapGeneratorService.SelectSystemTile(SystemTile, MapPosition);
+    }
+
+    private void HandleTileSelectionChanged() =>
+        _ = InvokeAsync(StateHasChanged);
 
     private void Rotate()
     {
@@ -127,20 +186,20 @@ public partial class MapHexTile : TwilightImperiumBaseComponenet
 
         SystemTile.SystemTileCode = SystemTile.SystemTileCode switch
         {
-            string code when code.Contains('A') && code.Length == 3 => code.Replace("A", "A1"),
-            string code when code.Contains("A0") => code.Replace("A0", "A1"),
-            string code when code.Contains("A1") => code.Replace("A1", "A2"),
-            string code when code.Contains("A2") => code.Replace("A2", "A3"),
-            string code when code.Contains("A3") => code.Replace("A3", "A4"),
-            string code when code.Contains("A4") => code.Replace("A4", "A5"),
-            string code when code.Contains("A5") => code.Replace("A5", "A0"),
-            string code when code.Contains('B') && code.Length == 3 => code.Replace("B", "B1"),
-            string code when code.Contains("B0") => code.Replace("B0", "B1"),
-            string code when code.Contains("B1") => code.Replace("B1", "B2"),
-            string code when code.Contains("B2") => code.Replace("B2", "B3"),
-            string code when code.Contains("B3") => code.Replace("B3", "B4"),
-            string code when code.Contains("B4") => code.Replace("B4", "B5"),
-            string code when code.Contains("B5") => code.Replace("B5", "B0"),
+            string code when code.Contains('A', StringComparison.Ordinal) && code.Length == 3 => code.Replace("A", "A1", StringComparison.Ordinal),
+            string code when code.Contains("A0", StringComparison.Ordinal) => code.Replace("A0", "A1", StringComparison.Ordinal),
+            string code when code.Contains("A1", StringComparison.Ordinal) => code.Replace("A1", "A2", StringComparison.Ordinal),
+            string code when code.Contains("A2", StringComparison.Ordinal) => code.Replace("A2", "A3", StringComparison.Ordinal),
+            string code when code.Contains("A3", StringComparison.Ordinal) => code.Replace("A3", "A4", StringComparison.Ordinal),
+            string code when code.Contains("A4", StringComparison.Ordinal) => code.Replace("A4", "A5", StringComparison.Ordinal),
+            string code when code.Contains("A5", StringComparison.Ordinal) => code.Replace("A5", "A0", StringComparison.Ordinal),
+            string code when code.Contains('B', StringComparison.Ordinal) && code.Length == 3 => code.Replace("B", "B1", StringComparison.Ordinal),
+            string code when code.Contains("B0", StringComparison.Ordinal) => code.Replace("B0", "B1", StringComparison.Ordinal),
+            string code when code.Contains("B1", StringComparison.Ordinal) => code.Replace("B1", "B2", StringComparison.Ordinal),
+            string code when code.Contains("B2", StringComparison.Ordinal) => code.Replace("B2", "B3", StringComparison.Ordinal),
+            string code when code.Contains("B3", StringComparison.Ordinal) => code.Replace("B3", "B4", StringComparison.Ordinal),
+            string code when code.Contains("B4", StringComparison.Ordinal) => code.Replace("B4", "B5", StringComparison.Ordinal),
+            string code when code.Contains("B5", StringComparison.Ordinal) => code.Replace("B5", "B0", StringComparison.Ordinal),
             _ => string.Empty,
         };
     }

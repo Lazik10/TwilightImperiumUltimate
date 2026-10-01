@@ -14,7 +14,11 @@ public interface IColorPickerService
 
     void ResetSelectedFactions();
 
+    void ResetDraft();
+
     Task PerformDraft();
+
+    Task<IReadOnlyCollection<FactionColorDraftResult>> GetDraftResultsAsync(IReadOnlyCollection<FactionModel> factions);
 
     void UpdateSelectedFactions(IReadOnlyCollection<FactionModel>? factions, FactionModel faction);
 

@@ -1,4 +1,4 @@
-namespace TwilightImperiumUltimate.Business.Logic.Users;
+﻿namespace TwilightImperiumUltimate.Business.Logic.Users;
 
 public class RemoveRoleFromUserCommandHandler(
     IUserRepository userRepository)
@@ -8,6 +8,8 @@ public class RemoveRoleFromUserCommandHandler(
 
     public async Task<bool> Handle(RemoveRoleFromUserCommand request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         return await _userRepository.DeleteUserFromRole(request.UserId, request.RoleName);
     }
 }

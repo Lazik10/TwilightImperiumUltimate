@@ -1,4 +1,4 @@
-using FluentResults;
+﻿using FluentResults;
 using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Report;
 using TwilightImperiumUltimate.Contracts.Enums;
 using TwilightImperiumUltimate.Core.Entities.Tigl;
@@ -16,6 +16,8 @@ public class TiglMatchInserter(
 {
     public async Task<IResult<MatchReport>> InsertGameReport(GameReport gameReport, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(gameReport);
+
         var result = new Result<MatchReport>();
 
         var currentSeason = await seasonRepository.GetCurrentSeason(cancellationToken);

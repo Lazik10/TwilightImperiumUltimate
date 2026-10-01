@@ -1,0 +1,34 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Controls
+@using TwilightImperiumUltimate.Web.Components.Factions
+
+@*
+    Responsive equivalent of FactionPicker: same Value/OnDecrease/OnIncrease/arrow-symbol contract,
+    built from ResponsiveContainer/ResponsiveLabel so the optional label's text scales with the
+    site's --font-size-* tokens instead of raw px. The label can sit to the Left (Row, the default)
+    of or above (Column) the icon + arrow control via LabelPosition.
+*@
+
+<ResponsiveContainer Type="ContainerType.Flex"
+                      Padding="none"
+                      Width="@Width"
+                      Direction="@(LabelPosition == Enums.LabelPosition.Column ? Enums.FlexDirection.Column : Enums.FlexDirection.Row)"
+                      JustifyContent="Enums.JustifyContent.FlexStart"
+                      AlignItems="@(LabelPosition == Enums.LabelPosition.Column ? Enums.AlignItems.Stretch : Enums.AlignItems.Center)">
+    @if (!string.IsNullOrEmpty(Label))
+    {
+        <ResponsiveLabel Text="@Label"
+                          FontSize="@FontSize"
+                          TextColor="@LabelColor"
+                          CenterText="@CenterLabel"
+                          CssClass="@(LabelPosition == Enums.LabelPosition.Row ? "mr-md" : "mb-xs")" />
+    }
+    <ResponsiveContainer Type="ContainerType.Flex"
+                         Padding="none"
+                         Width="@(LabelPosition == Enums.LabelPosition.Row ? PickerWidth : 100)"
+                         JustifyContent="Enums.JustifyContent.SpaceEvenly"
+                         AlignItems="Enums.AlignItems.Center">
+        <ArrowButton ArrowSymbol="@LeftArrowSymbol" OnArrowClick="() => OnDecrease.InvokeAsync(null)" />
+        <FavoriteFactionIcon FactionName="@Value" />
+        <ArrowButton ArrowSymbol="@RightArrowSymbol" OnArrowClick="() => OnIncrease.InvokeAsync(null)" />
+    </ResponsiveContainer>
+</ResponsiveContainer>

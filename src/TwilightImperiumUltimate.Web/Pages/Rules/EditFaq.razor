@@ -2,68 +2,53 @@
 
 <Page>
 
-    <FlexColumnCenteredContainer>
-        <Label Text="@(FaqModel.ComponentName)" FontSize="24" CenterText />
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+        <ResponsiveLabel Text="@(FaqModel.ComponentName)" FontSize="xl" CenterText />
 
-        <VerticalSpace Height="50" />
-
-        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart">
             <img src="@(PathProvider.GetCultureIconPath(Strings.EnglishCulture))"
                  alt="English"
                  style="max-height: 100px;" />
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
-        <VerticalSpace Height="50" />
-
-        <FlexRowContainer>
-            <Label Text="@Strings.Faq_Question" Width="15" />
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
+            <ResponsiveLabel Text="@Strings.Faq_Question" CssClass="faq-field-label" />
             <RadzenTextBox Placeholder="@FaqModel.QuestionEnglish"
                            @bind-Value="FaqModel.QuestionEnglish"
                            class="w-100 flex-row title white handel" />
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
-        <VerticalSpace Height="20" />
-
-        <FlexRowContainer>
-            <Label Text="@Strings.Faq_Answer" Width="15" />
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
+            <ResponsiveLabel Text="@Strings.Faq_Answer" CssClass="faq-field-label" />
             <RadzenTextBox Placeholder="@FaqModel.AnswerEnglish"
                            @bind-Value="FaqModel.AnswerEnglish"
                            class="w-100 flex-row title white handel" />
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
-        <VerticalSpace Height="50" />
-
-        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart">
             <img src="@(PathProvider.GetCultureIconPath(Strings.CzechCulture))"
                  alt="Czech"
                  style="max-height: 100px;" />
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
-        <VerticalSpace Height="50" />
-
-        <FlexRowContainer>
-            <Label Text="@Strings.Faq_Question" Width="15" />
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
+            <ResponsiveLabel Text="@Strings.Faq_Question" CssClass="faq-field-label" />
             <RadzenTextBox Placeholder="@FaqModel.QuestionCzech"
                            @bind-Value="FaqModel.QuestionCzech"
                            class="w-100 flex-row title white handel" />
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
-        <VerticalSpace Height="20" />
-
-        <FlexRowContainer>
-            <Label Text="@Strings.Faq_Answer" Width="15" />
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
+            <ResponsiveLabel Text="@Strings.Faq_Answer" CssClass="faq-field-label" />
             <RadzenTextBox Placeholder="@FaqModel.AnswerCzech"
                            @bind-Value="FaqModel.AnswerCzech"
                            class="w-100 flex-row title white handel" />
-        </FlexRowContainer>
+        </ResponsiveContainer>
 
-        <VerticalSpace Height="50" />
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.Center" Width="50">
+            <ResponsiveButton Text="@Strings.Faq_Save" OnClick="Save" CssClass="button" ButtonType="ButtonType.Submit" />
+        </ResponsiveContainer>
 
-        <FlexRowContainer JustifyContent="Enums.JustifyContent.Center" Width="50">
-            <Button ButtonText="@Strings.Faq_Save" OnClick="Save" CssClass="button" ButtonType="ButtonType.Submit" />
-        </FlexRowContainer>
-
-
-    </FlexColumnCenteredContainer>
+    </ResponsiveContainer>
 
 </Page>

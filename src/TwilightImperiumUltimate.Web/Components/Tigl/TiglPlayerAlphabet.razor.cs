@@ -7,5 +7,8 @@ public partial class TiglPlayerAlphabet
     [Parameter]
     public EventCallback<char> OnLetterClick { get; set; }
 
+    [Parameter]
+    public char? SelectedLetter { get; set; }
+
     private void SelectLetter(char letter) => OnLetterClick.InvokeAsync(letter);
 }

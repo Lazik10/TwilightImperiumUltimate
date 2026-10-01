@@ -1,37 +1,50 @@
 ﻿
-<VerticalSpace Height="50" />
+    <StretchHeightContainer CssClass="mt-2xl">
 
-<StretchHeightContainer CssClass="background" >
-
-    <FlexColumnContainer>
-
-        <VerticalSpace Height="10" />
-
-        <FlexRowContainer JustifyContent="Enums.JustifyContent.Center" AlignItems="Enums.AlignItems.Center">
-            <HorizontalSpacer Width="33" />
-            <FlexColumnContainer AlignItems="Enums.AlignItems.Center">
-                <EnumPicker TEnum="PlayerStatisticsType"
-                        CurrentValue="@_selectedGamesType"
-                        CurrentValueChanged="@OnEnumChanged"
-                        Label="@Strings.AsyncStats_Filter"
-                        Width="50" />
-            </FlexColumnContainer>
-
-            <EnumPicker TEnum="QueryLimit"
-                        CurrentValue="@_selectedQueryLimit"
-                        CurrentValueChanged="@OnQueryLimitChanged"
-                        Width="33"
-                        ExcludeValues="_excludedQueryLimits"
-                        Label="@Strings.AsyncStats_QueryLimit" />
-        </FlexRowContainer>
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column">
 
         <CascadingValue Value="_selectedGamesType" Name="Filter">
 
             <CascadingValue Value="@GetQueryLimit()" Name="Limit">
 
-                <GridLayout Width="100" Style="grid-template-rows: auto; grid-template-columns: 15% 85%; align-items: start; justify-items: start; height: auto; min-height: 0;">
+                <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Direction="Enums.FlexDirection.Column" CssClass="async-statistics-content">
 
-                    <StatisticsMenu SelectedMenuITem="UpdateSelectedMenuItem" />
+                    <StatisticsMenu SelectedMenuItem="@_selectedMenuItem"
+                                    SelectedMenuItemChanged="UpdateSelectedMenuItem" />
+
+                    <div class="async-statistics-filters @(IsLimitHiddenStatistics ? "async-statistics-filters-single" : string.Empty)">
+                        <ResponsiveDropDown TValue="PlayerStatisticsType"
+                                            Id="async-statistics-filter"
+                                            Label="@Strings.AsyncStats_Filter"
+                                            LabelPosition="LabelPosition.Column"
+                                            Data="@_statisticsFilters"
+                                            TextProperty="DisplayName"
+                                            ValueProperty="Value"
+                                            Value="@_selectedGamesType"
+                                            ValueChanged="OnEnumChanged"
+                                            Width="100" />
+
+                        @if (!IsLimitHiddenStatistics)
+                        {
+                            <ResponsiveDropDown TValue="QueryLimit"
+                                                Id="async-statistics-query-limit"
+                                                Label="@Strings.AsyncStats_QueryLimit"
+                                                LabelPosition="LabelPosition.Column"
+                                                Data="@_queryLimitOptions"
+                                                TextProperty="Value"
+                                                ValueProperty="Key"
+                                                Value="@_selectedQueryLimit"
+                                                ValueChanged="@OnQueryLimitChanged"
+                                                Width="100" />
+                        }
+                    </div>
+
+                    @if (AsyncStatsProvider.SnapshotAge is { } snapshotAge)
+                    {
+                        <p class="async-statistics-snapshot-age" role="status">
+                            Snapshot age: @FormatSnapshotAge(snapshotAge)
+                        </p>
+                    }
 
                     @if(_selectedMenuItem == AsyncStatisticsTypeMenuItem.General)
                     {
@@ -88,13 +101,13 @@
                         <HistoryStatistics />
                     }
 
-                </GridLayout>
+                </ResponsiveContainer>
 
             </CascadingValue>
 
         </CascadingValue>
 
-    </FlexColumnContainer>
+    </ResponsiveContainer>
 
 </StretchHeightContainer>
 

@@ -1,43 +1,19 @@
-﻿@page "/about"
+@page "/about"
 
-<PageTitle>@Strings.Page_About</PageTitle>
+<PageTitle>@Strings.Page_About_PageTitle</PageTitle>
 
 <Page>
 
-    <FlexColumnContainer>
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none">
 
-        <Title Text="@Strings.About_Title"/>
+        <AboutSection HeadingText="@Strings.About_Title" Content="_aboutTheAuthor" />
 
-        <FlexColumnCenteredContainer>
-            <div class="about handel white shadow">
-                @_aboutTheAuthor
-            </div>
-        </FlexColumnCenteredContainer>
+        <AboutSection HeadingText="@Strings.About_DisclaimerTitle" Content="_disclaimer" />
 
-        <Title Text="@Strings.About_DisclaimerTitle"/>
+        <AboutSection HeadingText="@Strings.About_ThankYouTitle" Content="_thankYou" />
 
-        <FlexColumnCenteredContainer>
-            <div class="about handel white shadow">
-                @_disclaimer
-            </div>
-        </FlexColumnCenteredContainer>
+        <AboutSection HeadingText="@Strings.About_CreditsTitle" Content="_credits" />
 
-        <Title Text="@Strings.About_ThankYouTitle" />
-
-        <FlexColumnCenteredContainer>
-            <div class="about handel white shadow">
-                @_thankYou
-            </div>
-        </FlexColumnCenteredContainer>
-
-        <Title Text="@Strings.About_CreditsTitle" />
-
-        <FlexColumnCenteredContainer>
-            <div class="about handel white shadow">
-                @_credits
-            </div>
-        </FlexColumnCenteredContainer>
-
-    </FlexColumnContainer>
+    </ResponsiveContainer>
 
 </Page>

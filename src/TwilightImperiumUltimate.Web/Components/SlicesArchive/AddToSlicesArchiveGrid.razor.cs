@@ -54,7 +54,7 @@ public partial class AddToSlicesArchiveGrid
 
     private MarkupString CreatePreviewSlicesString()
     {
-        var slices = _sliceDraftModel.SliceDraftString.Replace("\n", "<br/>");
+        var slices = _sliceDraftModel.SliceDraftString.Replace("\n", "<br/>", StringComparison.Ordinal);
         return (MarkupString)slices;
     }
 
@@ -72,7 +72,7 @@ public partial class AddToSlicesArchiveGrid
             return;
 
         var sliceNames = _slices.Select(x => x.Name);
-        var correctedSliceNames = sliceNames.Select(x => x.Replace(",", string.Empty)).ToList();
+        var correctedSliceNames = sliceNames.Select(x => x.Replace(",", string.Empty, StringComparison.Ordinal)).ToList();
         _sliceDraftModel.SliceNames = string.Join(',', correctedSliceNames);
         _sliceDraftModel.SliceCount = _slices.Count;
 

@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Contracts.Enums;
+﻿using TwilightImperiumUltimate.Contracts.Enums;
 using TwilightImperiumUltimate.Core.Entities.RelationshipEntities;
 using TwilightImperiumUltimate.Core.Entities.Tigl;
 using TwilightImperiumUltimate.DataAccess.Repositories;
@@ -19,6 +19,8 @@ public sealed class UnderdogStoryAchievementEvaluator(
 
     public async Task EvaluateAsync(MatchReport matchReport, AchievementName achievementName, IReadOnlyCollection<TiglUserAchievement> usersAchievements, CancellationToken cancellationToken = default)
     {
+        ArgumentNullException.ThrowIfNull(matchReport);
+
         var playerRanks = new Dictionary<int, TiglRankName>();
 
         var users = await tiglUserRepository.GetUsersByIds(matchReport.PlayerResults.Select(pr => pr.TiglUserId!).ToHashSet(), cancellationToken);

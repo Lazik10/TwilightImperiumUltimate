@@ -104,15 +104,13 @@ public class SeasonLeaderboardService(IDbContextFactory<TwilightImperiumDbContex
                 .GroupBy(x => x.League)
                 .ToDictionary(
                     g => g.Key,
-                    g => g.ToDictionary(x => x.TiglUserId, x => new { x.Rating, x.Sigma, x.ConservativeRating })
-                );
+                    g => g.ToDictionary(x => x.TiglUserId, x => new { x.Rating, x.Sigma, x.ConservativeRating }));
 
             var aggregatesByLeague = gameWinAggregates
                 .GroupBy(x => x.League)
                 .ToDictionary(
                     g => g.Key,
-                    g => g.ToDictionary(x => x.TiglUserId, x => new { x.GamesPlayedThisSeason, x.WinsThisSeason, x.TotalGames, x.TotalWins, x.TotalGamesForActivity })
-                );
+                    g => g.ToDictionary(x => x.TiglUserId, x => new { x.GamesPlayedThisSeason, x.WinsThisSeason, x.TotalGames, x.TotalWins, x.TotalGamesForActivity }));
 
             // Standard and Fractured are the only public leaderboards. For Standard we
             // aggregate over ProphecyOfKings (seasons <= 13) or ProphecyOfKings+ThundersEdge (seasons >= 14).

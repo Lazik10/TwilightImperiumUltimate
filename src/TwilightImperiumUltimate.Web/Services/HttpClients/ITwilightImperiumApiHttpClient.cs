@@ -2,6 +2,9 @@ namespace TwilightImperiumUltimate.Web.Services.HttpClients;
 
 public interface ITwilightImperiumApiHttpClient
 {
+    Task<(TResponse? Response, HttpStatusCode StatusCode, string? ETag, DateTimeOffset? SnapshotGeneratedAtUtc)> GetWithValidationAsync<TResponse>(string endpointPath, string query = "", string? etag = null, CancellationToken cancellationToken = default)
+        where TResponse : class;
+
     Task<(TResponse? Response, HttpStatusCode StatusCode)> GetAsync<TResponse>(string endpointPath, string query = "", CancellationToken cancellationToken = default)
         where TResponse : class;
 

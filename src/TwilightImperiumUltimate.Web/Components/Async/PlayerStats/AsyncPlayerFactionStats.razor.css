@@ -1,1 +1,144 @@
-﻿
+.async-player-faction-stats {
+	width: 100%;
+}
+
+.async-player-faction-header {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 3.75rem;
+	padding: var(--space-sm) 3.5rem;
+	border: 1px solid var(--color-border, #466486);
+	border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+	background: var(--color-surface-dark, #050c15);
+}
+
+.async-player-faction-filter-toggle {
+	position: absolute;
+	right: var(--space-lg);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 2rem;
+	height: 2rem;
+	padding: 0;
+	border: 0;
+	background: none;
+	cursor: pointer;
+}
+
+.async-player-faction-filter-toggle:focus-visible {
+	outline: 2px solid var(--color-nav-hover, #8ecfff);
+	outline-offset: 2px;
+	border-radius: var(--border-radius-sm);
+}
+
+.async-player-faction-filter-toggle img {
+	display: block;
+	max-width: 1.625rem;
+	height: auto;
+}
+
+.async-player-faction-filters {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: var(--space-sm);
+	padding: var(--space-lg);
+	border-right: 1px solid var(--color-border, #466486);
+	border-left: 1px solid var(--color-border, #466486);
+	background: rgb(5 12 21 / 90%);
+}
+
+.async-player-faction-filter {
+	min-width: 0;
+}
+
+.async-player-faction-filter ::deep .responsive-dropdown-host.has-label.label-position-column {
+	align-items: center;
+	gap: 0;
+	min-width: 0;
+	width: 100%;
+}
+
+.async-player-faction-filter ::deep .responsive-dropdown-host.has-label.label-position-column .responsive-dropdown {
+	width: 100%;
+	min-width: 0;
+	max-width: 100%;
+}
+
+.async-player-faction-filter ::deep .responsive-dropdown-label {
+	margin-bottom: 0 !important;
+}
+
+.async-player-faction-grid,
+.async-player-faction-grid ::deep .responsive-radzen-grid-host {
+	width: 100%;
+}
+
+.async-player-faction-grid ::deep .faction-overview-grid {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.async-player-faction-grid ::deep .faction-overview-grid .rz-data-grid-data {
+	overflow-x: auto;
+}
+
+.async-player-faction-grid ::deep .faction-overview-grid .rz-grid-table th,
+.async-player-faction-grid ::deep .faction-overview-grid .rz-grid-table td {
+	white-space: nowrap;
+	word-break: normal;
+}
+
+.async-player-faction-grid ::deep .faction-overview-grid .rz-data-row:hover > td {
+	background-color: var(--rz-grid-header-background-color, var(--color-nav-hover-bg-solid));
+}
+
+.async-player-faction-identity {
+	display: flex;
+	align-items: center;
+	gap: var(--space-sm);
+}
+
+.async-player-faction-grid ::deep .faction-overview-grid .rz-cell-data,
+.async-player-faction-grid ::deep .faction-overview-grid .rz-column-title,
+.async-player-faction-grid ::deep .faction-overview-grid tbody span {
+	font-family: Handel, sans-serif !important;
+	text-shadow: var(--shadow-text);
+}
+
+@media (max-width: 1024px) {
+	.async-player-faction-filters {
+		grid-template-columns: 1fr;
+		gap: var(--space-sm);
+	}
+}
+
+@media (max-width: 768px) {
+	.async-player-faction-grid ::deep .faction-overview-grid .rz-grid-table th:nth-child(n + 5),
+	.async-player-faction-grid ::deep .faction-overview-grid .rz-grid-table td:nth-child(n + 5) {
+		display: none;
+	}
+
+	.async-player-faction-grid ::deep .faction-overview-grid .rz-grid-table {
+		min-width: 28rem;
+	}
+
+	.async-player-faction-identity {
+		justify-content: center;
+		gap: 0;
+	}
+
+	.async-player-faction-name {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
+	}
+}

@@ -1,0 +1,35 @@
+/* Matches #main-navbar's own background treatment (see MainNavigation.razor.css) so a
+   ResponsiveTabMenu placed on a page looks like part of the same navigation system. */
+.responsive-tab-menu {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.5) 10%, rgba(0,0,0,0.5) 90%, rgba(0,0,0,0));
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--border-radius-md);
+}
+
+.responsive-tab-menu.faction-style ::deep .responsive-tab,
+.responsive-tab-menu.faction-style ::deep .tab-nav-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0;
+    color: white;
+    font-size: var(--font-size-lg);
+    text-decoration: none;
+}
+
+.responsive-tab-menu.faction-style ::deep .responsive-tab-active,
+.responsive-tab-menu.faction-style ::deep .faction-info-tab-active {
+    color: var(--color-nav-hover) !important;
+    text-decoration: none;
+}
+
+.responsive-tab-menu.faction-style ::deep .responsive-tab-active .white,
+.responsive-tab-menu.faction-style ::deep .faction-info-tab-active .white {
+    color: var(--color-nav-hover) !important;
+}
+

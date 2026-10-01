@@ -8,7 +8,7 @@ public static class MiltyDraftOptions
 
     public static readonly int NumberOfSlices = 7;
 
-    public static readonly int NumberOfFactions = 9;
+    public static readonly int NumberOfFactions = 7;
 
     public static readonly int NumberOfLegendaryPlanets = 2;
 
@@ -26,7 +26,7 @@ public static class MiltyDraftOptions
 
     public static readonly WormholeDensity WormholeDensity = WormholeDensity.Random;
 
-    public static IReadOnlyList<GameVersion> GameVersions { get; set; } = [GameVersion.BaseGame, GameVersion.ProphecyOfKings];
+    public static IReadOnlyList<GameVersion> GameVersions { get; set; } = [GameVersion.BaseGame, GameVersion.ProphecyOfKings, GameVersion.ThundersEdge];
 
     public static IReadOnlyCollection<MiltyDraftInitiativeModel> Initiatives => new List<MiltyDraftInitiativeModel>()
     {

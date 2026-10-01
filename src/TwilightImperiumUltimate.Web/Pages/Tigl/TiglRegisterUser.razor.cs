@@ -5,6 +5,8 @@ namespace TwilightImperiumUltimate.Web.Pages.Tigl;
 
 public partial class TiglRegisterUser
 {
+    private readonly MarkupString _codeOfConductContent = (MarkupString)Strings.TiglRegisterUser_CodeOfConductContent;
+
     private bool _redirectScheduled;
 
     [Parameter]
@@ -69,8 +71,6 @@ public partial class TiglRegisterUser
     {
         return PlayerId == -1 && !string.IsNullOrEmpty(ErrorMessage);
     }
-
-    private void RedirectBack() => NavigationManager.NavigateTo(Pages.TiglLeaderboard);
 
     private void RegisterWithDiscord()
     {

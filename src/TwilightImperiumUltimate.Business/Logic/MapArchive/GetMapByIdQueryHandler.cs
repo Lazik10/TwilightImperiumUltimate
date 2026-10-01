@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Contracts.ApiContracts;
+﻿using TwilightImperiumUltimate.Contracts.ApiContracts;
 
 namespace TwilightImperiumUltimate.Business.Logic.MapArchive;
 
@@ -12,6 +12,8 @@ public class GetMapByIdQueryHandler(
 
     public async Task<ApiResponse<MapDto>> Handle(GetMapByIdQuery request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var map = await _mapArchiveRepository.GetMapById(request.Id, cancellationToken);
         if (map == null)
         {

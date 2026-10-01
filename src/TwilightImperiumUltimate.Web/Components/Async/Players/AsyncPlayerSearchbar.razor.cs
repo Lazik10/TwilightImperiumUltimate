@@ -1,5 +1,3 @@
-using TwilightImperiumUltimate.Contracts.DTOs.Async;
-
 namespace TwilightImperiumUltimate.Web.Components.Async.Players;
 
 public partial class AsyncPlayerSearchbar
@@ -9,5 +7,21 @@ public partial class AsyncPlayerSearchbar
 
     private string SearchText { get; set; } = string.Empty;
 
-    private void UpdatePlayerList(string searchText) => OnSearchUpdate.InvokeAsync(searchText);
+    public Task ResetSearchAsync()
+    {
+        SearchText = string.Empty;
+        return InvokeAsync(StateHasChanged);
+    }
+
+    private async Task UpdatePlayerList(string searchText)
+    {
+        var wasActiveSearch = SearchText.Length >= 3;
+        SearchText = searchText;
+
+        var isActiveSearch = searchText.Length >= 3;
+        if (!wasActiveSearch && !isActiveSearch)
+            return;
+
+        await OnSearchUpdate.InvokeAsync(searchText);
+    }
 }

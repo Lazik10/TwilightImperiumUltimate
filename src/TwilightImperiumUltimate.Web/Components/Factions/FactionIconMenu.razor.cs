@@ -1,0 +1,300 @@
+using TwilightImperiumUltimate.Web.Helpers.Enums;
+using TwilightImperiumUltimate.Web.Helpers.Factions;
+using TwilightImperiumUltimate.Web.Services.MapGenerators;
+
+namespace TwilightImperiumUltimate.Web.Components.Factions;
+
+public partial class FactionIconMenu : TwilightImperiumBaseComponent
+{
+    private List<FactionModel>? _factions = new List<FactionModel>();
+
+    [Parameter]
+    public EventCallback<FactionModel> OnFactionClickGetFaction { get; set; }
+
+    [Parameter]
+    public EventCallback<IReadOnlyCollection<FactionModel>> OnInitializeGetFactions { get; set; }
+
+    [Parameter]
+    public bool EnableBanMode { get; set; } = false;
+
+    [Parameter]
+    public bool BanAllFactions { get; set; } = false;
+
+    /// <summary>
+    /// Gets or sets the single faction source/expansion to isolate (e.g. for the Factions reference
+    /// page). When <see langword="null"/> (the default), every currently supported source is shown
+    /// together, matching this component's behavior when used for drafts/pickers/map generation.
+    /// </summary>
+    [Parameter]
+    public FactionSource? Source { get; set; }
+
+    [Parameter]
+    public List<FactionModel> ProvidedFactions { get; set; } = new List<FactionModel>();
+
+    [Parameter]
+    public string Faction { get; set; } = string.Empty;
+
+    public IReadOnlyCollection<FactionModel>? Factions => _factions;
+
+    [Inject]
+    private IMapGeneratorSettingsService MapGeneratorSettingsService { get; set; } = default!;
+
+    private bool ShowOfficialGroup => Source is null or FactionSource.Official;
+
+    private bool ShowDiscordantStarsGroup => Source is null or FactionSource.DiscordantStars;
+
+    private bool ShowOtherSourceGroup => Source is FactionSource.BlueRiverie or FactionSource.TwilightsFall or FactionSource.WhispersFromTheVoid;
+
+    private bool UseSplitRowsLayout
+    {
+        get
+        {
+            var factions = GetBaseGameFactions();
+            return Source == FactionSource.Official && factions.Count >= 24;
+        }
+    }
+
+    public void RefreshFactions()
+    {
+        _factions = MapGeneratorSettingsService.FactionsForMapGenerator;
+        StateHasChanged();
+    }
+
+    public void SetAllFactionsBanStatus(bool banStatus)
+    {
+        _factions?.ForEach(x => x.Banned = banStatus);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        // This is a hack so I can use this component in the map generator,
+        // unfortunatelly the componenet is initialized every time
+        if (ProvidedFactions.Count != 0)
+        {
+            _factions = ProvidedFactions;
+
+            await OnInitializeGetFactions.InvokeAsync(Factions);
+            MapGeneratorSettingsService.FactionsForMapGenerator = ProvidedFactions;
+            return;
+        }
+
+        await InitializeFactions();
+
+        if (Factions is not null && Factions.Count != 0)
+        {
+            var initialFaction = ResolveInitialFaction(Faction);
+            await OnFactionClickGetFaction.InvokeAsync(Factions.Single(x => x.FactionName == initialFaction));
+        }
+    }
+
+    private static bool IsCodexVersion(GameVersion gameVersion)
+    {
+        return gameVersion == GameVersion.CodexRecolo
+            || gameVersion == GameVersion.CodexOrdinian
+            || gameVersion == GameVersion.CodexAffinity
+            || gameVersion == GameVersion.CodexVigil
+            || gameVersion == GameVersion.CodexLiberation;
+    }
+
+    private static string GetFactionHref(FactionModel faction)
+    {
+        return $"/game/factions/{faction.FactionName}";
+    }
+
+    private static FactionName GetDefaultFactionForSource(FactionSource source) => source switch
+    {
+        FactionSource.DiscordantStars => FactionName.TheAugursOfIlyxum,
+        FactionSource.BlueRiverie => FactionName.AtokeraLegacy,
+        FactionSource.TwilightsFall => FactionName.TheRubyMonarch,
+        _ => FactionName.TheArborec,
+    };
+
+    private void FactionClicked(FactionModel selectedFaction)
+    {
+        if (EnableBanMode)
+            selectedFaction.Banned = !selectedFaction.Banned;
+
+        OnFactionClickGetFaction.InvokeAsync(selectedFaction);
+    }
+
+    private FactionName ResolveInitialFaction(string factionName)
+    {
+        if (!FactionNameAliasResolver.TryResolve(factionName, out var faction))
+        {
+            return Source is { } sourceWithNoMatch ? GetDefaultFactionForSource(sourceWithNoMatch) : FactionName.TheArborec;
+        }
+
+        if (Source is not { } selectedSource)
+        {
+            return faction;
+        }
+
+        return faction.GetFactionSource() == selectedSource ? faction : GetDefaultFactionForSource(selectedSource);
+    }
+
+    private async Task InitializeFactions()
+    {
+        var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<FactionDto>>>(Paths.ApiPath_Factions);
+        if (statusCode == HttpStatusCode.OK)
+        {
+            _factions = Mapper.Map<List<FactionModel>>(response!.Data!.Items);
+
+            await OnInitializeGetFactions.InvokeAsync(Factions);
+
+            if (BanAllFactions)
+                SetAllFactionsBanStatus(true);
+        }
+    }
+
+    private List<FactionModel> GetBaseGameFactions()
+    {
+        return GetFactionsBySource(FactionSource.Official);
+    }
+
+    private List<FactionModel> GetDiscordantStarsFactions()
+    {
+        return GetFactionsBySource(FactionSource.DiscordantStars);
+    }
+
+    private List<FactionModel> GetFactionsBySource(FactionSource source)
+    {
+        return _factions?.Where(x => x.FactionName.GetFactionSource() == source).ToList() ?? new List<FactionModel>();
+    }
+
+    private List<FactionModel> GetCompactFirstRowFactions()
+    {
+        var factions = GetBaseGameFactions();
+
+        var firstRow = factions
+            .Where(x => x.GameVersion == GameVersion.BaseGame)
+            .Take(17)
+            .ToList();
+
+        if (firstRow.Count < 17)
+        {
+            var remainder = factions
+                .Where(x => !firstRow.Contains(x))
+                .Take(17 - firstRow.Count)
+                .ToList();
+
+            firstRow.AddRange(remainder);
+        }
+
+        return firstRow;
+    }
+
+    private List<FactionModel?> GetCompactSecondRowWithPlaceholders()
+    {
+        var row = new List<FactionModel?>();
+        var factions = GetBaseGameFactions();
+        var firstRow = GetCompactFirstRowFactions().ToHashSet();
+
+        var expansionFactions = factions
+            .Where(x => x.GameVersion == GameVersion.ProphecyOfKings && !firstRow.Contains(x))
+            .Take(7)
+            .Cast<FactionModel?>()
+            .ToList();
+
+        var codexFaction = factions
+            .Where(x => IsCodexVersion(x.GameVersion) && !firstRow.Contains(x))
+            .Take(1)
+            .Cast<FactionModel?>()
+            .ToList();
+
+        var lastExpansionFactions = factions
+            .Where(x => x.GameVersion == GameVersion.ThundersEdge && !firstRow.Contains(x))
+            .Take(5)
+            .Cast<FactionModel?>()
+            .ToList();
+
+        var picked = expansionFactions
+            .Concat(codexFaction)
+            .Concat(lastExpansionFactions)
+            .Where(x => x is not null)
+            .Select(x => x!)
+            .ToHashSet();
+
+        var fallback = factions
+            .Where(x => !firstRow.Contains(x) && !picked.Contains(x))
+            .Cast<FactionModel?>()
+            .ToList();
+
+        while (expansionFactions.Count < 7 && fallback.Count > 0)
+        {
+            expansionFactions.Add(fallback[0]);
+            fallback.RemoveAt(0);
+        }
+
+        while (codexFaction.Count < 1 && fallback.Count > 0)
+        {
+            codexFaction.Add(fallback[0]);
+            fallback.RemoveAt(0);
+        }
+
+        while (lastExpansionFactions.Count < 5 && fallback.Count > 0)
+        {
+            lastExpansionFactions.Add(fallback[0]);
+            fallback.RemoveAt(0);
+        }
+
+        if (expansionFactions.Count < 7 || codexFaction.Count < 1 || lastExpansionFactions.Count < 5)
+        {
+            return factions
+                .Where(x => !firstRow.Contains(x))
+                .Take(17)
+                .Cast<FactionModel?>()
+                .ToList();
+        }
+
+        row.Add(null);
+        row.AddRange(expansionFactions);
+        row.Add(null);
+        row.AddRange(codexFaction);
+        row.Add(null);
+        row.AddRange(lastExpansionFactions);
+        row.Add(null);
+
+        return row;
+    }
+
+    private List<FactionModel> GetMobileRow1Factions()
+    {
+        return GetBaseGameFactions().Take(9).ToList();
+    }
+
+    private List<FactionModel> GetMobileRow2Factions()
+    {
+        return GetBaseGameFactions().Skip(9).Take(8).ToList();
+    }
+
+    private List<FactionModel?> GetMobileRow3FactionsWithPlaceholders()
+    {
+        var row = new List<FactionModel?>();
+        var rowFactions = GetBaseGameFactions().Skip(17).Take(7).Cast<FactionModel?>().ToList();
+
+        row.Add(null);
+        row.AddRange(rowFactions);
+        row.Add(null);
+
+        return row;
+    }
+
+    private List<FactionModel?> GetMobileRow4FactionsWithPlaceholder()
+    {
+        var row = new List<FactionModel?>();
+        var rowFactions = GetBaseGameFactions().Skip(24).Take(6).Cast<FactionModel?>().ToList();
+
+        if (rowFactions.Count == 0)
+        {
+            return row;
+        }
+
+        row.Add(null);
+        row.Add(rowFactions[0]);
+        row.Add(null);
+        row.AddRange(rowFactions.Skip(1));
+        row.Add(null);
+
+        return row;
+    }
+}

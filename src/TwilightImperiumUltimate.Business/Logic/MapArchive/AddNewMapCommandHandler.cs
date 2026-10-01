@@ -1,4 +1,4 @@
-namespace TwilightImperiumUltimate.Business.Logic.MapArchive;
+﻿namespace TwilightImperiumUltimate.Business.Logic.MapArchive;
 
 public class AddNewMapCommandHandler(
     IMapArchiveRepository mapArchiveRepository,
@@ -12,6 +12,8 @@ public class AddNewMapCommandHandler(
 
     public async Task<bool> Handle(AddNewMapCommand request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         await _gameStatisticsRepository.UpdateWebsiteStatistics(StatisticsType.MapsArchived, cancellationToken);
         var map = _mapper.Map<Map>(request.Map);
         return await _mapArchiveRepository.AddNewMap(map, cancellationToken);

@@ -7,4 +7,10 @@ public partial class SlicePreview
 
     [Parameter]
     public bool EditNameMode { get; set; }
+
+    [Parameter]
+    public bool ArchiveLayout { get; set; }
+
+    [Parameter]
+    public bool ShowName { get; set; } = true;
 }

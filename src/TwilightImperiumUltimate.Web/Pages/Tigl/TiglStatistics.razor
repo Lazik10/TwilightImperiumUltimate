@@ -1,8 +1,11 @@
 @page "/community/tigl/statistics"
 @using TwilightImperiumUltimate.Web.Components.Tigl
 
+<PageTitle>@Strings.Page_TiglStatistics_PageTitle</PageTitle>
+
 <Page>
-    <StretchHeightContainer CssClass="background">
+    <StretchHeightContainer>
+        <ResponsiveHeading Level="1" Text="@Strings.TiglStatistics_StatisticType" CenterText="true" />
         <TiglStatisticsGrid />
     </StretchHeightContainer>
 </Page>

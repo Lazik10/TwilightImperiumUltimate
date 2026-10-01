@@ -1,14 +1,17 @@
 using Microsoft.JSInterop;
 using TwilightImperiumUltimate.Web.Helpers.Maps;
+using TwilightImperiumUltimate.Web.Options.MapGenerators;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
 
 namespace TwilightImperiumUltimate.Web.Components.MapGenerator;
 
 public partial class MapGeneratorMainGrid
 {
-    private FactionIconRow? factionIconRowRef;
-
     private MapGeneratorMenuItem _selectedSegment;
+
+    private Func<Task>? _pendingDuplicateTilePlacement;
+
+    private bool _isDuplicateTileDialogOpen;
 
     public IReadOnlyDictionary<int, SystemTileModel> GeneratedPositionsWithSystemTiles { get; set; } = default!;
 
@@ -49,6 +52,21 @@ public partial class MapGeneratorMainGrid
     {
         StateHasChanged();
         return Task.CompletedTask;
+    }
+
+    public async Task RequestSystemTileSwapAsync(Func<Task> swapSystemTiles, int mapPosition)
+    {
+        ArgumentNullException.ThrowIfNull(swapSystemTiles);
+
+        if (MapGeneratorService.WouldPlacementCreateDuplicate(mapPosition))
+        {
+            _pendingDuplicateTilePlacement = swapSystemTiles;
+            _isDuplicateTileDialogOpen = true;
+            await InvokeAsync(StateHasChanged);
+            return;
+        }
+
+        await swapSystemTiles();
     }
 
     protected override async Task OnInitializedAsync()
@@ -97,46 +115,45 @@ public partial class MapGeneratorMainGrid
         StateHasChanged();
     }
 
+    private async Task ConfirmDuplicateTilePlacementAsync()
+    {
+        var pendingTilePlacement = _pendingDuplicateTilePlacement;
+        _pendingDuplicateTilePlacement = null;
+        _isDuplicateTileDialogOpen = false;
+        await InvokeAsync(StateHasChanged);
+
+        if (pendingTilePlacement is not null)
+            await pendingTilePlacement();
+    }
+
+    private void CancelDuplicateTilePlacement()
+    {
+        _pendingDuplicateTilePlacement = null;
+        _isDuplicateTileDialogOpen = false;
+        StateHasChanged();
+    }
+
     private void ChangeSegment(MapGeneratorMenuItem segment)
     {
         _selectedSegment = segment;
         StateHasChanged();
     }
 
-    private void ToggleFactionPick()
+    private void SetFactionPick(bool enableFactionPick)
     {
-        MapGeneratorSettingsService.EnableFactionPick = !MapGeneratorSettingsService.EnableFactionPick;
-        StateHasChanged();
-    }
-
-    private void HandleGameVersionClick(GameVersion gameVersion)
-    {
-        MapGeneratorSettingsService.GameVersionGlobalEnableDisable(gameVersion);
+        MapGeneratorSettingsService.EnableFactionPick = enableFactionPick;
         StateHasChanged();
     }
 
     private void HandleFactionClick(FactionModel faction)
     {
         MapGeneratorSettingsService.UpdateFactionBanStatus(faction);
-        factionIconRowRef?.RefreshFactions();
         StateHasChanged();
     }
 
     private async Task InitializeFactionsForFactionRow()
     {
         await MapGeneratorSettingsService.InitializeFactionsForMapGenerator();
-    }
-
-    private void IncreaseMapScale()
-    {
-        MapGeneratorSettingsService.IncreaseMapScale();
-        StateHasChanged();
-    }
-
-    private void DecreaseMapScale()
-    {
-        MapGeneratorSettingsService.DecreaseMapScale();
-        StateHasChanged();
     }
 
     private async Task DownloadMapImage()
@@ -153,10 +170,10 @@ public partial class MapGeneratorMainGrid
 
         if (iconType == IconType.Hashtag)
         {
-            if (MapGeneratorSettingsService.SystemTileOverlay != SystemTileOverlay.Id)
-                MapGeneratorSettingsService.SystemTileOverlay = SystemTileOverlay.Id;
+            if (MapGeneratorSettingsService.MapOverlay != SystemTileOverlay.Id)
+                MapGeneratorSettingsService.MapOverlay = SystemTileOverlay.Id;
             else
-                MapGeneratorSettingsService.SystemTileOverlay = SystemTileOverlay.None;
+                MapGeneratorSettingsService.MapOverlay = SystemTileOverlay.None;
 
             await UpdateMapOverlay();
         }

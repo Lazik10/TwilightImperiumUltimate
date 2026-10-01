@@ -1,4 +1,4 @@
-using FluentResults;
+﻿using FluentResults;
 using TwilightImperiumUltimate.Contracts.ApiContracts.AsyncTI4;
 using TwilightImperiumUltimate.Core.Entities.Async;
 
@@ -8,6 +8,8 @@ public class UpdateAsyncPlayerSettingsCommand : IRequest<Result>
 {
     public UpdateAsyncPlayerSettingsCommand(AsyncPlayerSettingsRequestDto request)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         PlayerDiscordId = request.PlayerDiscordId;
         PlayerProfileSettings = new AsyncPlayerProfileSettings
         {

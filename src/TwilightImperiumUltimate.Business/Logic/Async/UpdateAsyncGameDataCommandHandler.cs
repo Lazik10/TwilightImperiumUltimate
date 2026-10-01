@@ -1,4 +1,4 @@
-using System.Globalization;
+﻿using System.Globalization;
 using TwilightImperiumUltimate.Business.Helpers;
 using TwilightImperiumUltimate.Contracts.ApiContracts.AsyncTI4;
 using TwilightImperiumUltimate.Core.Entities.Async;
@@ -13,6 +13,8 @@ public class UpdateAsyncGameDataCommandHandler(
 
     public async Task<bool> Handle(UpdateAsyncGameDataCommand request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var gameData = request.GameData;
         var gameIds = await _asyncStatsRepository.GetAsyncGameIds(cancellationToken);
         var finishedGameIds = await _asyncStatsRepository.GetAsyncFinishedGameIds(cancellationToken);
@@ -134,4 +136,3 @@ public class UpdateAsyncGameDataCommandHandler(
         return playerStats;
     }
 }
-

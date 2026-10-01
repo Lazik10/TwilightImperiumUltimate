@@ -34,7 +34,7 @@ public class GalaxyProfile : Profile
                 x.Name,
                 x.EventName,
                 x.Description,
-                string.Join(",", x.SliceNames),
+                string.Join(",", (IEnumerable<char>)x.SliceNames),
                 x.SliceCount,
                 x.SliceDraftString,
                 x.SliceDraftGeneratorLink,

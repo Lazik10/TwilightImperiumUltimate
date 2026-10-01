@@ -1,4 +1,4 @@
-﻿using TwilightImperiumUltimate.Web.Models.Factions;
+using TwilightImperiumUltimate.Web.Models.Factions;
 
 namespace TwilightImperiumUltimate.Web.Models.Drafts;
 

@@ -5,7 +5,10 @@ namespace TwilightImperiumUltimate.Web.Components.Tigl;
 
 public partial class TiglGamesGrid
 {
+    private bool _areSeasonFiltersVisible;
+    private int _defaultSeasonNumber;
     private int _selectedSeasonNumber;
+    private TiglLeague _selectedLeague = TiglLeague.ProphecyOfKings;
     private List<MatchReportDto> _allStandard = new();
     private List<MatchReportDto> _allFractured = new();
     private bool _loading;
@@ -15,11 +18,29 @@ public partial class TiglGamesGrid
 
     private List<MatchReportDto> FilteredFracturedGames { get; set; } = new List<MatchReportDto>();
 
+    private List<MatchReportDto> FilteredGames => _selectedLeague == TiglLeague.Fractured
+        ? FilteredFracturedGames
+        : FilteredStandardGames;
+
+    private string ActiveTabId => _selectedLeague == TiglLeague.Fractured
+        ? "tigl-games-tab-fractured"
+        : "tigl-games-tab-standard";
+
+    private string SeasonFilterButtonLabel => (_areSeasonFiltersVisible ? "Hide season filter" : "Show season filter")
+        + (IsSeasonFilterApplied ? ", filter active" : string.Empty);
+
+    private string SeasonFilterIconPath => PathProvider.GetIconPath(_areSeasonFiltersVisible || IsSeasonFilterApplied ? IconType.FilterClicked : IconType.Filter);
+
+    private bool IsSeasonFilterApplied => _selectedSeasonNumber != _defaultSeasonNumber;
+
     [Inject]
     private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
 
     [Inject]
     private NavigationManager NavigationManager { get; set; } = default!;
+
+    [Inject]
+    private IPathProvider PathProvider { get; set; } = default!;
 
     protected override async Task OnInitializedAsync()
     {
@@ -29,10 +50,25 @@ public partial class TiglGamesGrid
         var gamesTask = LoadGameReports();
         await Task.WhenAll(seasonsTask, gamesTask);
 
-        _selectedSeasonNumber = _seasons.Count > 0 ? _seasons.Max(s => s.SeasonNumber) : 0;
+        _defaultSeasonNumber = _seasons.Count > 0 ? _seasons.Max(s => s.SeasonNumber) : 0;
+        _selectedSeasonNumber = _defaultSeasonNumber;
         UpdateSelectedGames();
 
         _loading = false;
+    }
+
+    private static string FormatEndDate(long endTs)
+    {
+        if (endTs <= 0)
+            return "-";
+
+        var dt = DateTimeOffset.FromUnixTimeMilliseconds(endTs).ToUniversalTime().DateTime;
+        return dt.ToString("yyyy-MM-dd HH:mm", System.Globalization.CultureInfo.InvariantCulture);
+    }
+
+    private static string GetGameDetailUrl(int id)
+    {
+        return $"{Pages.Pages.TiglGameDetail}?id={id}";
     }
 
     private async Task LoadSeasons()
@@ -62,72 +98,33 @@ public partial class TiglGamesGrid
         }
     }
 
-    private static string FormatEndDate(long endTs)
+    private void OnSeasonChanged(int seasonNumber)
     {
-        if (endTs <= 0)
-            return "-";
-
-        var dt = DateTimeOffset.FromUnixTimeMilliseconds(endTs).ToUniversalTime().DateTime;
-        return dt.ToString("dd/MM/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture);
-    }
-
-    private void DecreaseSeasonNumber()
-    {
-        if (_seasons.Count == 0)
-            return;
-
-        var maxSeason = _seasons.Max(x => x.SeasonNumber);
-        var minSeason = _seasons.Min(x => x.SeasonNumber);
-
-        if (_selectedSeasonNumber > minSeason)
-            _selectedSeasonNumber--;
-        else if (_selectedSeasonNumber == minSeason)
-            _selectedSeasonNumber = maxSeason;
+        _selectedSeasonNumber = seasonNumber;
 
         UpdateSelectedGames();
     }
 
-    private void IncreaseSeasonNumber()
+    private string GetSelectedTitle() => $"{FilteredGames.Count} Games";
+
+    private void ToggleSeasonFilters()
     {
-        if (_seasons.Count == 0)
-            return;
-
-        var maxSeason = _seasons.Max(x => x.SeasonNumber);
-        var minSeason = _seasons.Min(x => x.SeasonNumber);
-
-        if (_selectedSeasonNumber < maxSeason)
-            _selectedSeasonNumber++;
-        else if (_selectedSeasonNumber == maxSeason)
-            _selectedSeasonNumber = minSeason;
-
-        UpdateSelectedGames();
+        _areSeasonFiltersVisible = !_areSeasonFiltersVisible;
     }
 
-    private string GetStandardTitle()
+    private void OnLeagueChanged(TiglLeague league)
     {
-        var count = FilteredStandardGames.Count;
-        return count > 0
-            ? $"{Strings.TiglGames_CategoryStandard} ({count})"
-            : Strings.TiglGames_CategoryStandard;
+        _selectedLeague = league;
     }
 
-    private string GetFracturedTitle()
+    private void RedirectToGame(MatchReportDto game)
     {
-        var count = FilteredFracturedGames.Count;
-        return count > 0
-            ? $"{Strings.TiglGames_CategoryFractured} ({count})"
-            : Strings.TiglGames_CategoryFractured;
+        NavigationManager.NavigateTo(GetGameDetailUrl(game.Id));
     }
 
     private void UpdateSelectedGames()
     {
         FilteredStandardGames = _allStandard.Where(x => x.Season == _selectedSeasonNumber).ToList();
         FilteredFracturedGames = _allFractured.Where(x => x.Season == _selectedSeasonNumber).ToList();
-    }
-
-    private void RedirectToGameDetail(int id)
-    {
-        var returnUrl = Uri.EscapeDataString(Pages.Pages.TiglGames);
-        NavigationManager.NavigateTo($"{Pages.Pages.TiglGameDetail}?id={id}&returnUrl={returnUrl}");
     }
 }

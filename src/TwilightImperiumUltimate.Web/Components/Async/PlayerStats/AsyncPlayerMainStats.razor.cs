@@ -13,6 +13,12 @@ public partial class AsyncPlayerMainStats
     [CascadingParameter(Name = "AsyncPlayerStatisticsType")]
     public PlayerStatisticsType StatType { get; set; }
 
+    /// <summary>
+    /// Gets or sets content rendered between the profile summary and the main statistics table.
+    /// </summary>
+    [Parameter]
+    public RenderFragment? SummaryContent { get; set; }
+
     public AsyncPlayerMainStatsDto GameStats => StatType switch
     {
         PlayerStatisticsType.All => AsyncPlayerProfile.GameStats.All,
@@ -21,24 +27,17 @@ public partial class AsyncPlayerMainStats
         _ => AsyncPlayerProfile.GameStats.All,
     };
 
-    private string GetWinratePercentage() =>
-        $"Win rate:\u2003\u2003{
-            (AsyncPlayerProfile.Settings.ShowWinRates ?
-            GameStats.WinRate.ToStringWithPrecisionAndPercentage(3)
-            : Strings.AsyncPlayer_HiddenStat)}";
+    private TextColor MainStatsTextColor => AsyncPlayerProfile.Settings.ExcludeFromAsyncStats || !AsyncPlayerProfile.Settings.ShowWinRates
+        ? TextColor.White
+        : GameStats.WinRate.GetWinrateColor();
 
-    private string GetGamesFinished() =>
-        $"Finished games:\u2003\u2003{(AsyncPlayerProfile.Settings.ShowGames ?
-            GameStats.Finished
-            : Strings.AsyncPlayer_HiddenStat)}";
+    private string GetWinrateValue() => AsyncPlayerProfile.Settings.ShowWinRates
+        ? GameStats.WinRate.ToStringWithPrecisionAndPercentage(1)
+        : Strings.AsyncPlayer_HiddenStat;
 
-    private string ShowWinRate()
-    {
-        if (!AsyncPlayerProfile.Settings.ShowWinRates)
-            return Strings.AsyncPlayer_HiddenStat;
-
-        return GameStats.WinRate.ToStringWithPrecisionAndPercentage(3);
-    }
+    private string GetGamesFinishedValue() => AsyncPlayerProfile.Settings.ShowGames
+        ? GameStats.Finished.ToString(CultureInfo.InvariantCulture)
+        : Strings.AsyncPlayer_HiddenStat;
 
     private string ShowWins()
     {
@@ -48,8 +47,18 @@ public partial class AsyncPlayerMainStats
         return GameStats.Wins.ToString(CultureInfo.InvariantCulture);
     }
 
-    private MarkupString ComposeGeneralStats()
+    private string GetWinrateCssClass()
     {
-        return new MarkupString($"{GetWinratePercentage()}\u2003\u2003{GetGamesFinished()}");
+        if (AsyncPlayerProfile.Settings.ExcludeFromAsyncStats || !AsyncPlayerProfile.Settings.ShowWinRates)
+            return string.Empty;
+
+        return GameStats.WinRate.GetWinrateColor() switch
+        {
+            TextColor.Green => "green",
+            TextColor.Yellow => "yellow",
+            TextColor.Orange => "orange",
+            TextColor.Red => "red",
+            _ => string.Empty,
+        };
     }
 }

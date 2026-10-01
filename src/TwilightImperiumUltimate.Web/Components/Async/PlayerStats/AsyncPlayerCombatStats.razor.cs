@@ -30,5 +30,13 @@ public partial class AsyncPlayerCombatStats
         };
     }
 
+    private string GetDiceDeviationCssClass() => GetDiceDeviationTextColor() switch
+    {
+        TextColor.Red => "red",
+        TextColor.Green => "green",
+        TextColor.Yellow => "yellow",
+        _ => string.Empty,
+    };
+
     private string GetHitDeviationText() => $"{CombatStats.HitsDeviation.ToStringWithPrecisionAndPercentage(3)}";
 }

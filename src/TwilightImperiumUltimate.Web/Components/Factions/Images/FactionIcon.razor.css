@@ -1,0 +1,39 @@
+﻿::deep .responsive-icon {
+    display: flex;
+    flex: 1 1 auto;
+    max-width: 90%;
+    height: auto;
+    padding: 0.25em;
+    align-self: center;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+}
+
+::deep .responsive-icon-no-padding {
+    padding: 0;
+}
+
+.colorless {
+    filter: grayscale(100%);
+}
+
+img {
+    width: 100%;
+    max-width: 44px;
+    height: auto;
+    transition: transform 0.3s ease;
+    align-self: center;
+    justify-self: center;
+    /* Each icon is its own containment/paint boundary: this menu packs 40-60+ of these
+       tightly in a grid, so hovering over it while the mouse wheel scrolls the page under a
+       stationary cursor rapidly enters/exits :hover on many neighboring icons. Without
+       containment the browser has to consider repainting the surrounding row on every one of
+       those transitions, which is what caused the scroll stutter while the menu was on screen. */
+    contain: layout paint;
+    will-change: transform;
+}
+
+    img:hover {
+        transform: scale(1.375);
+    }

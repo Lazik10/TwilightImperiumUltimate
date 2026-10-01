@@ -2,7 +2,7 @@
 @using TwilightImperiumUltimate.Web.Helpers.Enums
 
 <Page>
-    <FlexColumnCenteredContainer>
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
 
         <GridLayout Columns="3" Gap="50">
 
@@ -13,13 +13,11 @@
 
         </GridLayout>
 
-    </FlexColumnCenteredContainer>
+    </ResponsiveContainer>
 
-    <FlexColumnCenteredContainer Width="70">
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="70">
 
-        <VerticalSpace Height="100" />
-
-        <GridLayout Columns="4" Gap="40">
+        <GridLayout Columns="4" Gap="40" CssClass="mt-3xl">
 
             <Label Text="@Strings.SlicesArchive_SliceDraftAuthor" />
             <Label Text="@_sliceDraftModel.UserName" Style="grid-column: span 3;" />
@@ -35,9 +33,7 @@
 
             <Label Text="@Strings.SlicesArchive_SliceDraftDescription" Style="grid-column: span 4;" />
 
-            <FlexColumnCenteredContainer Style="grid-column: span 4;">
-
-                <VerticalSpace Height="20" />
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Style="grid-column: span 4;" CssClass="mt-md">
 
                 @if (_enableEditModeForDescription)
                 {
@@ -52,16 +48,12 @@
                     </div>
                 }
 
-                <VerticalSpace Height="20" />
+                <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="mt-md mb-md">
+                    <ResponsiveButton ButtonText="@Strings.ButtonText_Preview" OnClick="() => ToggleEditDescription(false)" Width="30" />
+                    <ResponsiveButton ButtonText="@Strings.ButtonText_Edit" OnClick="() => ToggleEditDescription(true)" Width="30" />
+                </ResponsiveContainer>
 
-                <FlexRowContainer>
-                    <Button ButtonText="@Strings.ButtonText_Preview" OnClick="() => ToggleEditDescription(false)" />
-                    <Button ButtonText="@Strings.ButtonText_Edit" OnClick="() => ToggleEditDescription(true)" />
-                </FlexRowContainer>
-
-
-                <VerticalSpace Height="20" />
-            </FlexColumnCenteredContainer>
+            </ResponsiveContainer>
 
             <Label Text="@Strings.SlicesArchive_SlicesString" />
 
@@ -74,19 +66,16 @@
             <Label Text="@_sliceDraftModel.SliceDraftGeneratorLink" CssClass="text-break-all" Style="grid-column: span 3;" />
         </GridLayout>
 
-        <VerticalSpace Height="20" />
-
-        <FlexColumnCenteredContainer Width="80">
-            <Button ButtonText="@Strings.ButtonText_SaveSliceDraft" OnClick="SaveSliceDraft" ButtonType="ButtonType.Submit" IsDisabled="IsNameOrEventNotFilled()" />
-        </FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="80" CssClass="mt-md">
+            <ResponsiveButton ButtonText="@Strings.ButtonText_SaveSliceDraft" OnClick="SaveSliceDraft" ButtonType="ButtonType.Submit" IsDisabled="IsNameOrEventNotFilled()" Width="30" />
+        </ResponsiveContainer>
 
         @if (_showMapDuplicateError)
         {
-            <VerticalSpace Height="20" />
-            <FlexColumnCenteredContainer Width="80">
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="80" CssClass="mt-md">
                 <Label Text="@Strings.SlicesArchive_SliceDraftAlreadyExistsError" TextColor="TextColor.Red" />
-            </FlexColumnCenteredContainer>
+            </ResponsiveContainer>
         }
 
-    </FlexColumnCenteredContainer>
+    </ResponsiveContainer>
 </Page>

@@ -1,0 +1,29 @@
+@using TwilightImperiumUltimate.Web.Components.Cards
+
+@if (Components.Count > 0)
+{
+    <section class="faction-extras-vertical-card-group" aria-label="@Title">
+        <ResponsiveHeading Text="@Title" Level="3" CenterText="true" FontSize="md" CssClass="faction-component-section-title" />
+
+        <ResponsiveGridContainer Columns="3" TabletColumns="1" MobileColumns="1" Width="100" Gap="var(--space-xl)" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.Center">
+            @foreach (var specialComponent in Components.Take(3))
+            {
+                <div class="faction-vertical-card">
+                    <VerticalCard Name="@specialComponent.SpecialComponentName.ToString()" TypeOfCard="specialcomponents" />
+                </div>
+            }
+        </ResponsiveGridContainer>
+
+        @if (Components.Count > 3)
+        {
+            <ResponsiveGridContainer Columns="2" TabletColumns="1" MobileColumns="1" Width="100" Gap="var(--space-xl)" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.Center">
+                @foreach (var specialComponent in Components.Skip(3))
+                {
+                    <div class="faction-vertical-card">
+                        <VerticalCard Name="@specialComponent.SpecialComponentName.ToString()" TypeOfCard="specialcomponents" />
+                    </div>
+                }
+            </ResponsiveGridContainer>
+        }
+    </section>
+}

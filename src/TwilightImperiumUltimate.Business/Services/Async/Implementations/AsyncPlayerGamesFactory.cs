@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Business.Services.Async.Interfaces;
+﻿using TwilightImperiumUltimate.Business.Services.Async.Interfaces;
 using TwilightImperiumUltimate.Contracts.DTOs.Async.PlayerStats.GamesStats;
 using TwilightImperiumUltimate.Core.Entities.Async;
 
@@ -10,6 +10,8 @@ public class AsyncPlayerGamesFactory : IAsyncPlayerGamesFactory
 
     public Task<AsyncPlayerGamesSummaryDto> CreateAsyncPlayerGames(AsyncPlayerProfile playerProfile)
     {
+        ArgumentNullException.ThrowIfNull(playerProfile);
+
         var games = playerProfile.GameStatistics.Select(x => x.GameStats).ToList();
         var gamesDto = new List<AsyncPlayerGameDto>();
 
@@ -20,7 +22,7 @@ public class AsyncPlayerGamesFactory : IAsyncPlayerGamesFactory
             AsyncFactionName faction = AsyncFactionName.Unknown;
 
             var playerStats = game.PlayerStatistics.FirstOrDefault(x => x.DiscordUserID == playerProfile.DiscordUserId);
-            var isActiveFowGame = !game.HasWinner && game.EndedTimestamp is null && game.AsyncGameID.StartsWith(FogOfWar);
+            var isActiveFowGame = !game.HasWinner && game.EndedTimestamp is null && game.AsyncGameID.StartsWith(FogOfWar, StringComparison.Ordinal);
             var asyncGameId = isActiveFowGame ? FogOfWar : game.AsyncGameID;
 
             if (playerStats is not null)

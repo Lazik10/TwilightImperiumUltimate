@@ -17,6 +17,8 @@ public partial class TwilightImperiumDbContext : IdentityDbContext<TwilightImper
 
     public virtual DbSet<AsyncPlayerProfileSettings> AsyncPlayerStatisticsSettings { get; set; }
 
+    public virtual DbSet<AsyncStatisticsSnapshot> AsyncStatisticsSnapshots { get; set; }
+
     public virtual DbSet<GameStats> GameStats { get; set; }
 
     public virtual DbSet<PlayerStats> PlayerStats { get; set; }

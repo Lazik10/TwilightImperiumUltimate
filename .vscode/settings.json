@@ -1,0 +1,21 @@
+{
+    "resx.defaultResx": "src/TwilightImperiumUltimate.Web/Resources/Strings.resx",
+
+    "dotnet.backgroundAnalysis.analyzerDiagnosticsScope": "openFiles",
+    "dotnet.backgroundAnalysis.compilerDiagnosticsScope": "fullSolution",
+
+    "files.watcherExclude": {
+        "**/bin/**": true,
+        "**/obj/**": true
+    },
+
+    "search.exclude": {
+        "**/bin": true,
+        "**/obj": true
+    },
+
+    "files.exclude": {
+        "**/bin": true,
+        "**/obj": true
+    }
+}

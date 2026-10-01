@@ -1,4 +1,4 @@
-﻿using TwilightImperiumUltimate.Web.Options.MapGenerators;
+using TwilightImperiumUltimate.Web.Options.MapGenerators;
 
 namespace TwilightImperiumUltimate.Web.Components.MapGenerator.MapGrids.ThreePlayers;
 

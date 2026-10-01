@@ -7,30 +7,24 @@
 @using TwilightImperiumUltimate.Web.Components.Shared.Text
 @using TwilightImperiumUltimate.Web.Resources;
 
-<PageTitle>@Strings.Page_Faq</PageTitle>
+<PageTitle>@Strings.Page_Faq_PageTitle</PageTitle>
 
 <Page>
-    <Label Text="@Strings.Faq_SubmittedFaqs" CenterText="true" FontSize="24"/>
-
-    <VerticalSpace Height="50" />
+    <ResponsiveLabel Text="@Strings.Faq_SubmittedFaqs" CenterText="true" FontSize="xl"/>
 
     @foreach (var faq in Faqs)
     {
         <FaqRow Faq="@faq" Culture="@(CultureInfo.CurrentCulture.Name)" Width="80"/>
-        <VerticalSpace Height="20" />
-        <FlexRowContainer>
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
             <AuthorizeView Roles="Admin">
                 <Authorized>
-                    <FlexRowContainer Width="80">
-                        <Button ButtonText="Approve" OnClick="async () => await ApproveFaq(faq)" Width="100" />
-                        <HorizontalSpace Width="50" />
-                        <Button ButtonText="Edit" OnClick="async () => await EditFaq(faq.Id)" Width="100" />
-                        <HorizontalSpace Width="50" />
-                        <Button ButtonText="Reject" OnClick="async () => await RejectFaq(faq)" Width="100" />
-                    </FlexRowContainer>
+                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="80">
+                        <ResponsiveButton Text="Approve" OnClick="async () => await ApproveFaq(faq)" />
+                        <ResponsiveButton Text="Edit" OnClick="async () => await EditFaq(faq.Id)" />
+                        <ResponsiveButton Text="Reject" OnClick="async () => await RejectFaq(faq)" />
+                    </ResponsiveContainer>
                 </Authorized>
             </AuthorizeView>
-        </FlexRowContainer>
-        <VerticalSpace Height="50" />
+        </ResponsiveContainer>
     }
 </Page>

@@ -1,4 +1,4 @@
-﻿using TwilightImperiumUltimate.Web.Models.Galaxy;
+using TwilightImperiumUltimate.Web.Models.Galaxy;
 
 namespace TwilightImperiumUltimate.Web.Models.MapGenerators;
 

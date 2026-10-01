@@ -40,9 +40,4 @@ public partial class ResendConfirmationEmail
         _confirmationEmailSend = true;
         _disableButton = false;
     }
-
-    private bool GetDisabledState()
-    {
-        return _disableButton;
-    }
 }

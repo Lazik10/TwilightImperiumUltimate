@@ -1,0 +1,33 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Forms
+@typeparam TValue
+@using Microsoft.AspNetCore.Components.Forms
+
+@*
+    Label + input slot + validation message + optional help text, laid out as one grid cell.
+    The caller renders their own input as ChildContent and is responsible for giving it the same
+    Id (and ideally aria-describedby pointing at GetValidationMessageId()/GetHelpTextId()) so the
+    label and validation message stay correctly associated -- this component can't reach into
+    arbitrary child markup to wire that up automatically.
+*@
+
+<div class="responsive-form-field @CssClass">
+    <label for="@Id" class="@GetLabelCssClass()">
+        @Label
+        @if (Required)
+        {
+            <span class="responsive-form-field-required" aria-hidden="true">*</span>
+        }
+    </label>
+
+    @ChildContent
+
+    @if (For is not null && ShowFieldValidationMessage)
+    {
+        <ValidationMessage For="@For" id="@GetValidationMessageId()" class="responsive-form-field-error" />
+    }
+
+    @if (!string.IsNullOrWhiteSpace(HelpText))
+    {
+        <div id="@GetHelpTextId()" class="responsive-form-field-help">@HelpText</div>
+    }
+</div>

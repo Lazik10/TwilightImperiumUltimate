@@ -1,0 +1,67 @@
+.async-player-main-stats-summary {
+    align-items: center;
+    padding-left: var(--space-sm);
+    padding-right: var(--space-sm);
+    width: 100%;
+}
+
+.async-player-main-stats-summary ::deep .responsive-label {
+    min-width: 0;
+    white-space: nowrap;
+    overflow: visible;
+    text-overflow: clip;
+    padding: var(--space-lgm);
+}
+
+.async-player-main-stats-summary ::deep .async-player-main-stats-label {
+    text-align: left !important;
+}
+
+.async-player-main-stats-summary ::deep .async-player-main-stats-value {
+    text-align: center !important;
+}
+
+@media (min-width: 769px) {
+    .async-player-main-stats-summary ::deep .async-player-main-stats-value {
+        text-align: right !important;
+    }
+
+    .async-player-main-stats-summary ::deep > .async-player-main-stats-value:nth-child(2) {
+        padding-right: var(--space-md);
+    }
+
+    .async-player-main-stats-summary ::deep > .async-player-main-stats-label:nth-child(3) {
+        padding-left: var(--space-md);
+    }
+}
+
+.async-player-main-stats-table-mobile {
+    display: none;
+}
+
+.async-player-main-stats-table-desktop,
+.async-player-main-stats-table-mobile {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .async-player-main-stats-summary ::deep .responsive-label {
+        font-size: var(--font-size-lg) !important;
+    }
+
+    .async-player-main-stats-table-desktop {
+        display: none;
+    }
+
+    .async-player-main-stats-table-mobile {
+        display: block;
+    }
+
+    .async-player-main-stats-table-mobile ::deep .async-player-main-stats-mobile-header-row > th {
+        color: var(--color-nav-hover, #8ecfff);
+        background-color: var(--color-nav-hover-bg-solid, #123957);
+        border-bottom: 2px solid var(--color-nav-hover, #8ecfff);
+        font-family: Handel, sans-serif;
+        text-align: center;
+    }
+}

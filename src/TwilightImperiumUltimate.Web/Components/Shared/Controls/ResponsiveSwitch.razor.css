@@ -1,0 +1,17 @@
+/* Matches ResponsiveTab's design (Handel font, nav-hover palette) so the currently active
+   off/on label reads as part of the same design system as the rest of the nav. */
+.responsive-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.responsive-switch-label {
+    font-family: Handel, fallback, sans-serif;
+    font-size: var(--font-size-base);
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: var(--shadow-text);
+    color: white;
+    transition: color 0.2s ease;
+}

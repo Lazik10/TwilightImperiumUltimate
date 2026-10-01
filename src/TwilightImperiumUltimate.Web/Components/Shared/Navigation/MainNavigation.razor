@@ -1,0 +1,79 @@
+﻿@using TwilightImperiumUltimate.Web.Resources
+@using TwilightImperiumUltimate.Web.Pages
+
+<nav id="main-navbar" class="main-navbar-desktop" aria-label="@Strings.Nav_MainLabel">
+    <DesktopNavItem MenuKey="MainMenuKey.News" Text="@Strings.Page_News" Href="@Pages.Index" />
+    <DesktopNavItem MenuKey="MainMenuKey.Game" Text="@Strings.Page_Game" Items="_gameLinks" />
+    <DesktopNavItem MenuKey="MainMenuKey.Community" Text="@Strings.Page_Community" Items="_communityLinks" />
+    <DesktopNavItem MenuKey="MainMenuKey.Tigl" Text="@Strings.Page_Tigl" Items="_tiglLinks" />
+    <DesktopNavItem MenuKey="MainMenuKey.Tools" Text="@Strings.Page_Tools" Items="_toolsLinks" />
+    <DesktopNavItem MenuKey="MainMenuKey.Rules" Text="@Strings.Page_Rules" Items="_rulesLinks" />
+</nav>
+
+<nav class="mobile-nav-shell" aria-label="@Strings.Nav_MainLabel">
+    <button type="button" class="mobile-nav-toggle handel white shadow" @onclick="ToggleMobileMenu"
+            aria-label="@Strings.Nav_MenuToggleLabel" aria-expanded="@(_isMobileMenuVisible ? "true" : "false")" aria-controls="mobile-nav-panel">
+        <span aria-hidden="true">☰ MENU</span>
+    </button>
+
+    @if (_isMobileMenuVisible)
+    {
+        <div class="mobile-nav-panel" id="mobile-nav-panel">
+            <div class="mobile-nav-account-row">
+                <button type="button" class='mobile-nav-row mobile-nav-row--account @GetMainMenuClass(MainMenuKey.Account)' @onclick="ToggleAccountSection" aria-expanded="@(_isAccountSectionVisible ? "true" : "false")" aria-controls="mobile-submenu-account">
+                    @GetAccountHeaderText()
+                </button>
+                <div class="mobile-nav-account-tools">
+                    <CultureMenu InlineMode="true" CssClass="mobile-nav-culture-inline" />
+                    <InfoIcon MaxWidth="36" />
+                </div>
+            </div>
+            @if (_isAccountSectionVisible)
+            {
+                <div class="mobile-nav-submenu" id="mobile-submenu-account">
+                    @if (CurrentUserState.User is null)
+                    {
+                        <a href="@Pages.Login" class='@GetSubMenuClass("login")' @onclick="ClearMenuSelectionAndClose">@Strings.Page_AccountLogin</a>
+                        <a href="@Pages.Register" class='@GetSubMenuClass("register")' @onclick="ClearMenuSelectionAndClose">@Strings.Page_AccountRegister</a>
+                    }
+                    else
+                    {
+                        <AccountLinksList Items="AccountLinks.LoggedIn">
+                            <LinkTemplate Context="link">
+                                <a href="@link.Href" class='@GetSubMenuClass(link.Key)' @onclick='() => SelectSubMenuAndClose(MainMenuKey.Account, link.Key)'>@link.Text</a>
+                            </LinkTemplate>
+                        </AccountLinksList>
+                        <MenuButton CssClass="mobile-nav-submenu-action" OnClick="Logout">@Strings.Login_Logout</MenuButton>
+                    }
+                </div>
+            }
+
+            <div class="mobile-nav-divider"></div>
+
+            <a class='mobile-nav-row-link @GetMainMenuClass(MainMenuKey.News)' href="@Pages.Index" @onclick='() => SelectMenuAndClose(MainMenuKey.News)'>@Strings.Page_News</a>
+
+            <MobileNavSection MenuKey="MainMenuKey.Game" Text="@Strings.Page_Game" Items="_gameLinks"
+                               IsExpanded="_isGameSectionVisible" OnToggle="ToggleGameSection"
+                               OnSelectSubMenu="subMenuKey => SelectSubMenuAndClose(MainMenuKey.Game, subMenuKey)" />
+
+            <MobileNavSection MenuKey="MainMenuKey.Community" Text="@Strings.Page_Community" Items="_communityLinks"
+                               IsExpanded="_isCommunitySectionVisible" OnToggle="ToggleCommunitySection"
+                               OnSelectSubMenu="subMenuKey => SelectSubMenuAndClose(MainMenuKey.Community, subMenuKey)" />
+
+            <MobileNavSection MenuKey="MainMenuKey.Tigl" Text="@Strings.Page_Tigl" Items="_tiglLinks"
+                               IsExpanded="_isTiglSectionVisible" OnToggle="ToggleTiglSection"
+                               OnSelectSubMenu="subMenuKey => SelectSubMenuAndClose(MainMenuKey.Tigl, subMenuKey)" />
+
+            <MobileNavSection MenuKey="MainMenuKey.Tools" Text="@Strings.Page_Tools" Items="_toolsLinks"
+                               IsExpanded="_isToolsSectionVisible" OnToggle="ToggleToolsSection"
+                               OnSelectSubMenu="subMenuKey => SelectSubMenuAndClose(MainMenuKey.Tools, subMenuKey)" />
+
+            <MobileNavSection MenuKey="MainMenuKey.Rules" Text="@Strings.Page_Rules" Items="_rulesLinks"
+                               IsExpanded="_isRulesSectionVisible" OnToggle="ToggleRulesSection"
+                               OnSelectSubMenu="subMenuKey => SelectSubMenuAndClose(MainMenuKey.Rules, subMenuKey)" />
+        </div>
+    }
+</nav>
+
+
+

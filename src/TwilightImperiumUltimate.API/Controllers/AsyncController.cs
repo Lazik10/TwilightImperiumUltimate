@@ -1,20 +1,29 @@
+﻿using System.Diagnostics;
 using System.Text;
 using TwilightImperiumUltimate.API.Helpers;
+using TwilightImperiumUltimate.API.Services;
 using TwilightImperiumUltimate.Business.Logic.Async;
 using TwilightImperiumUltimate.Contracts.ApiContracts.AsyncTI4;
 using TwilightImperiumUltimate.Contracts.DTOs.Async;
 using TwilightImperiumUltimate.Contracts.DTOs.Async.AsyncStats;
 using TwilightImperiumUltimate.Contracts.DTOs.Async.Games;
 using TwilightImperiumUltimate.Contracts.DTOs.Async.Responses;
+using TwilightImperiumUltimate.Core.Helpers;
 
 namespace TwilightImperiumUltimate.API.Controllers;
 
 [Route("api/[controller]")]
 [ApiKeyStatsAuth]
 [ApiController]
-public class AsyncController(IMediator mediator) : ControllerBase
+public class AsyncController(
+    IMediator mediator,
+    IAsyncStatisticsSnapshotOperations snapshotOperations,
+    ILogger<AsyncController> logger) : ControllerBase
 {
     private readonly IMediator _mediator = mediator;
+    private readonly IAsyncStatisticsSnapshotOperations _snapshotOperations = snapshotOperations;
+    private readonly ILogger<AsyncController> _logger = logger;
+    private long? _snapshotVersion;
 
     // GET: api/async/player-profile/discordId/{discordId}
     [Route("player-profile/discordId/{asyncPlayerId:long}")]
@@ -90,6 +99,8 @@ public class AsyncController(IMediator mediator) : ControllerBase
     [HttpPost]
     public async Task<ActionResult<IApiResponse<ItemListDto<AsyncGameDto>>>> GetAsyncGamesByYearAndMonth(AsyncGamesByYearAndMonthRequest request)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var response = await _mediator.Send(new GetAllAsyncGamesByYearAndMonthQuery(request.Year, request.Month));
         return Ok(new ApiResponse<ItemListDto<AsyncGameDto>>() { Success = true, Data = new ItemListDto<AsyncGameDto>(response) });
     }
@@ -130,6 +141,8 @@ public class AsyncController(IMediator mediator) : ControllerBase
     [HttpPost]
     public async Task<ActionResult<IApiResponse<AsyncPlayerSettingsResponseDto>>> UpdateAsyncUserSettings(AsyncPlayerSettingsRequestDto request)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var result = await _mediator.Send(new UpdateAsyncPlayerSettingsCommand(request));
 
         if (result.IsFailed)
@@ -156,6 +169,8 @@ public class AsyncController(IMediator mediator) : ControllerBase
             ShowOpponents: request.ShowOpponents,
             ShowGames: request.ShowGames);
 
+        await _snapshotOperations.RequestRefreshAsync(HttpContext.RequestAborted);
+
         return Ok(new ApiResponse<AsyncPlayerSettingsResponseDto>() { Success = result.IsSuccess, Data = responseDto });
     }
 
@@ -164,6 +179,10 @@ public class AsyncController(IMediator mediator) : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IApiResponse<AsyncGeneralSummaryStatsDto>>> GetAsyncGeneralStats()
     {
+        using var telemetry = new EndpointTelemetry(_logger, "general", "all", null, () => _snapshotVersion);
+        if (await IsSnapshotNotModifiedAsync())
+            return StatusCode(Response.StatusCode);
+
         var generalStats = await _mediator.Send(new GetAsyncGeneralStatsSummaryQuery());
         return Ok(new ApiResponse<AsyncGeneralSummaryStatsDto>() { Success = true, Data = generalStats });
     }
@@ -173,6 +192,10 @@ public class AsyncController(IMediator mediator) : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IApiResponse<AsyncGamesSummaryStatsDto>>> GetAsyncGameStats([FromQuery] int limit)
     {
+        using var telemetry = new EndpointTelemetry(_logger, "games", "all", limit, () => _snapshotVersion);
+        if (await IsSnapshotNotModifiedAsync())
+            return StatusCode(Response.StatusCode);
+
         var gameStats = await _mediator.Send(new GetAsyncGamesStatsSummaryQuery(limit));
         return Ok(new ApiResponse<AsyncGamesSummaryStatsDto>() { Success = true, Data = gameStats });
     }
@@ -182,6 +205,10 @@ public class AsyncController(IMediator mediator) : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IApiResponse<AsyncWinsSummaryStatsDto>>> GetWinsGameStats([FromQuery] int limit)
     {
+        using var telemetry = new EndpointTelemetry(_logger, "wins", "all", limit, () => _snapshotVersion);
+        if (await IsSnapshotNotModifiedAsync())
+            return StatusCode(Response.StatusCode);
+
         var winStats = await _mediator.Send(new GetAsyncWinsStatsSummaryQuery(limit));
         return Ok(new ApiResponse<AsyncWinsSummaryStatsDto>() { Success = true, Data = winStats });
     }
@@ -191,6 +218,10 @@ public class AsyncController(IMediator mediator) : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IApiResponse<AsyncVpSummaryStatsDto>>> GetVpGameStats([FromQuery] int limit)
     {
+        using var telemetry = new EndpointTelemetry(_logger, "victory-points", "all", limit, () => _snapshotVersion);
+        if (await IsSnapshotNotModifiedAsync())
+            return StatusCode(Response.StatusCode);
+
         var vpStats = await _mediator.Send(new GetAsyncVpStatsSummaryQuery(limit));
         return Ok(new ApiResponse<AsyncVpSummaryStatsDto>() { Success = true, Data = vpStats });
     }
@@ -200,6 +231,10 @@ public class AsyncController(IMediator mediator) : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IApiResponse<AsyncEliminationsSummaryStatsDto>>> GetEliminationsGameStats([FromQuery] int limit)
     {
+        using var telemetry = new EndpointTelemetry(_logger, "eliminations", "all", limit, () => _snapshotVersion);
+        if (await IsSnapshotNotModifiedAsync())
+            return StatusCode(Response.StatusCode);
+
         var eliminationsStats = await _mediator.Send(new GetAsyncEliminationsStatsSummaryQuery(limit));
         return Ok(new ApiResponse<AsyncEliminationsSummaryStatsDto>() { Success = true, Data = eliminationsStats });
     }
@@ -209,6 +244,10 @@ public class AsyncController(IMediator mediator) : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IApiResponse<AsyncTurnsSummaryStatsDto>>> GetTurnsGameStats([FromQuery] int limit)
     {
+        using var telemetry = new EndpointTelemetry(_logger, "turns", "all", limit, () => _snapshotVersion);
+        if (await IsSnapshotNotModifiedAsync())
+            return StatusCode(Response.StatusCode);
+
         var turnsStats = await _mediator.Send(new GetAsyncTurnsStatsSummaryQuery(limit));
         return Ok(new ApiResponse<AsyncTurnsSummaryStatsDto>() { Success = true, Data = turnsStats });
     }
@@ -218,6 +257,10 @@ public class AsyncController(IMediator mediator) : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IApiResponse<AsyncCombatSummaryStatsDto>>> GetCombatGameStats([FromQuery] int limit)
     {
+        using var telemetry = new EndpointTelemetry(_logger, "combat", "all", limit, () => _snapshotVersion);
+        if (await IsSnapshotNotModifiedAsync())
+            return StatusCode(Response.StatusCode);
+
         var combatStats = await _mediator.Send(new GetAsyncCombatStatsSummaryQuery(limit));
         return Ok(new ApiResponse<AsyncCombatSummaryStatsDto>() { Success = true, Data = combatStats });
     }
@@ -227,6 +270,10 @@ public class AsyncController(IMediator mediator) : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IApiResponse<AsyncDurationsSummaryStatsDto>>> GetDurationsGameStats([FromQuery] int limit)
     {
+        using var telemetry = new EndpointTelemetry(_logger, "durations", "all", limit, () => _snapshotVersion);
+        if (await IsSnapshotNotModifiedAsync())
+            return StatusCode(Response.StatusCode);
+
         var combatStats = await _mediator.Send(new GetAsyncDurationsStatsSummaryQuery(limit));
         return Ok(new ApiResponse<AsyncDurationsSummaryStatsDto>() { Success = true, Data = combatStats });
     }
@@ -236,6 +283,10 @@ public class AsyncController(IMediator mediator) : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IApiResponse<AsyncFactionsSummaryStatsDto>>> GetFactionStats()
     {
+        using var telemetry = new EndpointTelemetry(_logger, "factions", "all", null, () => _snapshotVersion);
+        if (await IsSnapshotNotModifiedAsync())
+            return StatusCode(Response.StatusCode);
+
         var response = await _mediator.Send(new GetAsyncFactionsStatsQuery());
         return Ok(new ApiResponse<AsyncFactionsSummaryStatsDto>() { Data = response });
     }
@@ -245,6 +296,10 @@ public class AsyncController(IMediator mediator) : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IApiResponse<AsyncOpponentsSummaryStatsDto>>> GetOpponentsStats(int limit)
     {
+        using var telemetry = new EndpointTelemetry(_logger, "opponents", "all", limit, () => _snapshotVersion);
+        if (await IsSnapshotNotModifiedAsync())
+            return StatusCode(Response.StatusCode);
+
         var response = await _mediator.Send(new GetAsyncOpponentsStatsQuery(limit));
         return Ok(new ApiResponse<AsyncOpponentsSummaryStatsDto>() { Data = response });
     }
@@ -254,7 +309,55 @@ public class AsyncController(IMediator mediator) : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IApiResponse<AsyncHistorySummaryStatsDto>>> GetHistoryStats()
     {
+        using var telemetry = new EndpointTelemetry(_logger, "history", "all", null, () => _snapshotVersion);
+        if (await IsSnapshotNotModifiedAsync())
+            return StatusCode(Response.StatusCode);
+
         var response = await _mediator.Send(new GetAsyncHistoryStatsQuery());
         return Ok(new ApiResponse<AsyncHistorySummaryStatsDto>() { Data = response });
+    }
+
+    private async Task<bool> IsSnapshotNotModifiedAsync()
+    {
+        var snapshot = await _snapshotOperations.GetPublishedAsync(HttpContext.RequestAborted);
+        if (snapshot is null)
+        {
+            Response.StatusCode = StatusCodes.Status503ServiceUnavailable;
+            return true;
+        }
+
+        _snapshotVersion = snapshot.SnapshotVersion;
+        var etag = $"\"{snapshot.SnapshotVersion}\"";
+        var lastModified = snapshot.GeneratedAtUtc.ToUniversalTime();
+        var snapshotAge = Math.Max(0, (DateTimeOffset.UtcNow - lastModified).TotalSeconds);
+        Response.Headers.ETag = etag;
+        Response.Headers.LastModified = lastModified.ToString("R", System.Globalization.CultureInfo.InvariantCulture);
+        Response.Headers["X-Async-Snapshot-Generated-At"] = lastModified.ToString("O", System.Globalization.CultureInfo.InvariantCulture);
+        Response.Headers["X-Async-Snapshot-Age-Seconds"] = snapshotAge.ToString("F0", System.Globalization.CultureInfo.InvariantCulture);
+
+        var ifNoneMatch = Request.Headers.IfNoneMatch.ToString();
+        var modifiedSince = Request.GetTypedHeaders().IfModifiedSince;
+
+        // If-None-Match takes precedence over If-Modified-Since when both are sent.
+        var isNotModified = AsyncSnapshotHttpValidator.IsNotModified(ifNoneMatch, modifiedSince, etag, lastModified);
+        if (isNotModified)
+            Response.StatusCode = StatusCodes.Status304NotModified;
+
+        return isNotModified;
+    }
+
+    private sealed class EndpointTelemetry(
+        ILogger logger,
+        string category,
+        string filter,
+        int? limit,
+        Func<long?> snapshotVersion) : IDisposable
+    {
+        private readonly Stopwatch _stopwatch = Stopwatch.StartNew();
+
+        public void Dispose()
+        {
+            logger.LogInformation("Async statistics endpoint completed; SnapshotVersion={SnapshotVersion}, Category={Category}, Filter={Filter}, Limit={Limit}, DurationMilliseconds={DurationMilliseconds}", snapshotVersion(), category, filter, limit, _stopwatch.Elapsed.TotalMilliseconds);
+        }
     }
 }

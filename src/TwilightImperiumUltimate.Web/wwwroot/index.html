@@ -4,26 +4,40 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TI: Ultimate</title>
+    <title>TI4 Ultimate – Twilight Imperium 4 Tools &amp; Compendium</title>
+
     <link rel="icon" type="image/x-icon" href="resources/images/shared/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="resources/images/shared/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="resources/images/shared/favicon-16x16.png" />
     <base href="/" />
     <link href="css/app.css" rel="stylesheet" />
+    <link href="css/responsive-components.css" rel="stylesheet" />
     <link href="manifest.webmanifest" rel="manifest" />
-    <link href="_framework/blazor.boot.json" rel="preload" as="fetch" />
 
     <!-- If you add any scoped CSS files, uncomment the following to load them -->
     <link href="_content/Radzen.Blazor/css/material-base.css" rel="stylesheet">
     <link href="TwilightImperiumUltimate.Web.styles.css" rel="stylesheet" />
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "TI4 Ultimate",
+        "alternateName": [
+            "TI: Ultimate",
+            "ti4ultimate.com"
+        ],
+        "url": "https://ti4ultimate.com/"
+    }
+    </script>
 </head>
 
 <body>
     <div id="app">
-        <div class="loading-text">...LOADING...</div>
+        <div class="loading-text" data-nosnippet>...LOADING...</div>
     </div>
 
-    <div id="blazor-error-ui">
+    <div id="blazor-error-ui" data-nosnippet>
         An unhandled error has occurred.
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
@@ -33,22 +47,6 @@
         window.blazorCulture = {
             get: () => window.localStorage['BlazorCulture'],
             set: (value) => window.localStorage['BlazorCulture'] = value
-        };
-    </script>
-
-    <script>
-        window.checkForAppUpdate = async function () {
-            const currentVersion = localStorage.getItem('appVersion');
-            const response = await fetch('_framework/blazor.boot.json', { cache: 'no-store' });
-            const json = await response.json();
-
-            const newVersion = json.cacheBootResources;
-
-            if (currentVersion !== newVersion) {
-                localStorage.setItem('appVersion', newVersion);
-                return true;  // New version detected
-            }
-            return false;  // No new version
         };
     </script>
 

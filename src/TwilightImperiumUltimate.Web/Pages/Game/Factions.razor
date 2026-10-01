@@ -1,10 +1,32 @@
 ﻿@page "/game/factions"
+@page "/game/factions/{FactionOrSource}"
 @using TwilightImperiumUltimate.Web.Components.Factions
+@using TwilightImperiumUltimate.Web.Components.Shared.Controls
+@using TwilightImperiumUltimate.Web.Components.Factions.Menu
 
-<PageTitle>@Strings.Page_Factions</PageTitle>
+<PageTitle>@PageHeading</PageTitle>
 
 <Page>
-    <FactionIconRow OnFactionClickGetFaction="UpdateSelectedFaction" Faction="@Faction" />
 
-    <FactionInfoGrid @ref="factionInfoRef" />
+    @if (FactionProvider.CurrentFaction is not null)
+    {
+        <ResponsiveHeading Level="1" Text="@Strings.Page_Factions"/>
+
+        <section class="factions-source-selector mb-lg">
+            <ResponsiveText Text="@Strings.Page_Factions_SourceLabel" CenterText="true" CssClass="mb-xs" />
+            <ResponsiveDropDown Id="faction-source-select"
+                                TValue="FactionSource"
+                                Data="@GetFactionSourceOptions()"
+                                TextProperty="Value"
+                                ValueProperty="Key"
+                                Value="@FactionProvider.CurrentSource"
+                                ValueChanged="OnSourceChanged"
+                                FillWidth="false" />
+        </section>
+
+        <FactionMenu @key="FactionProvider.CurrentSource" />
+
+        <FactionTemplateGrid @key="@($"{FactionProvider.CurrentSource}:{FactionProvider.CurrentFactionName}")" @ref="_factionTemplateGridRef" InitialInfoType="_selectedInfoType" />
+    }
+
 </Page>

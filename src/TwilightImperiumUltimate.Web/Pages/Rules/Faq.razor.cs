@@ -17,7 +17,7 @@ public partial class Faq
 
     protected override async Task OnInitializedAsync()
     {
-        var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<FaqDto>>>(Paths.ApiPath_Faq, default);
+        var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<FaqDto>>>(Paths.ApiPath_Faq);
 
         if (statusCode == HttpStatusCode.OK)
         {

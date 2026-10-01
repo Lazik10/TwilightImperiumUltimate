@@ -11,4 +11,17 @@ public record AsyncGameDto(
     int PlayerCount,
     int Round,
     int Scoreboard,
-    bool IsTigl);
+    bool IsTigl)
+{
+    public double DurationHours
+    {
+        get
+        {
+            var endTimestamp = EndDate == 0
+                ? DateTimeOffset.UtcNow.ToUnixTimeSeconds()
+                : EndDate;
+
+            return Math.Max(0, endTimestamp - StartDate) / 3600d;
+        }
+    }
+}

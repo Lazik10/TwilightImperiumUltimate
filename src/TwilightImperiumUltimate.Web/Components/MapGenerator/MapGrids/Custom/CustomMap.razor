@@ -1,15 +1,11 @@
-﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
-@using TwilightImperiumUltimate.Web.Services.Path;
+@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @inherits BaseMap
 
-<VerticalSpace Height="50" />
+<div class="container mt-2xl">
 
-<div class="container">
-
-    @foreach (var mapPosition in MapPositions)
+    @if (GeneratedPositionsWithSystemTiles is not null && GeneratedPositionsWithSystemTiles.Keys.Count() == MapPositions.Count())
     {
-        if (GeneratedPositionsWithSystemTiles is not null
-            && GeneratedPositionsWithSystemTiles.Keys.Count() == MapPositions.Count())
+        foreach (var mapPosition in MapPositions)
         {
             CurrentSystemTile = GeneratedPositionsWithSystemTiles[mapPosition];
 

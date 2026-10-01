@@ -1,0 +1,17 @@
+@using TwilightImperiumUltimate.Web.Components.Technologies
+
+@if (Technologies.Count > 0)
+{
+    <section class="faction-component-section faction-component-section--full faction-technologies">
+        <ResponsiveHeading Text="Technologies" Level="2" CenterText="true" FontSize="lg" CssClass="faction-component-section-title" />
+
+        <ResponsiveGridContainer Columns="2" TabletColumns="1" MobileColumns="1" Width="100" Gap="var(--space-xl)">
+            @foreach (var technology in Technologies)
+            {
+                <div class="faction-horizontal-card">
+                    <TechnologyCard TechnologyName="@technology.TechnologyName" />
+                </div>
+            }
+        </ResponsiveGridContainer>
+    </section>
+}

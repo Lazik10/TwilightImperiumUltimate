@@ -1,10 +1,9 @@
-using Blazored.LocalStorage;
-using Newtonsoft.Json.Linq;
-using Serilog;
-using System.Net.Http.Headers;
+﻿using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Blazored.LocalStorage;
+using Serilog;
 using TwilightImperiumUltimate.Web.Models.Account;
 using TwilightImperiumUltimate.Web.Options.Api;
 
@@ -52,7 +51,7 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
     {
         try
         {
-            if (!string.IsNullOrEmpty(query) && query.Contains('?'))
+            if (!string.IsNullOrEmpty(query) && query.Contains('?', StringComparison.Ordinal))
                 endpointPath += query;
 
             Uri uri = new(string.Concat(_httpClient.BaseAddress, endpointPath));
@@ -95,12 +94,39 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
         }
     }
 
-    public async Task<bool> GetAsync(string query, string endpointPath, CancellationToken cancellationToken)
+    public async Task<bool> GetAsync(string query, string endpointPath, CancellationToken cancellationToken = default)
     {
         Uri uri = new(string.Concat(_httpClient.BaseAddress, endpointPath, query));
         HttpResponseMessage response = await _httpClient.GetAsync(uri, cancellationToken);
 
         return response.IsSuccessStatusCode;
+    }
+
+    public async Task<(TResponse? Response, HttpStatusCode StatusCode, string? ETag, DateTimeOffset? SnapshotGeneratedAtUtc)> GetWithValidationAsync<TResponse>(string endpointPath, string query = "", string? etag = null, CancellationToken cancellationToken = default)
+        where TResponse : class
+    {
+        if (!string.IsNullOrEmpty(query) && query.Contains('?', StringComparison.Ordinal))
+            endpointPath += query;
+
+        Uri uri = new(string.Concat(_httpClient.BaseAddress, endpointPath));
+        await SetAuthorizationHeaderAsync(cancellationToken);
+        using var request = new HttpRequestMessage(HttpMethod.Get, uri);
+        if (!string.IsNullOrWhiteSpace(etag))
+            request.Headers.TryAddWithoutValidation("If-None-Match", etag);
+
+        using var response = await _httpClient.SendAsync(request, cancellationToken);
+        var responseEtag = response.Headers.ETag?.Tag;
+        var generatedAt = response.Headers.TryGetValues("X-Async-Snapshot-Generated-At", out var generatedAtValues)
+            && DateTimeOffset.TryParse(generatedAtValues.FirstOrDefault(), out var parsedGeneratedAt)
+                ? parsedGeneratedAt
+                : (DateTimeOffset?)null;
+        if (response.StatusCode == HttpStatusCode.NotModified)
+            return (null, response.StatusCode, responseEtag, generatedAt);
+        if (!response.IsSuccessStatusCode)
+            return (null, response.StatusCode, responseEtag, generatedAt);
+
+        var result = await response.Content.ReadFromJsonAsync<TResponse>(_options, cancellationToken);
+        return (result, response.StatusCode, responseEtag, generatedAt);
     }
 
     public async Task<(TResponse Response, HttpStatusCode StatusCode)> PostAsync<TRequest, TResponse>(string endpointPath, TRequest request, CancellationToken cancellationToken = default)
@@ -306,20 +332,6 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
         }
     }
 
-    private async Task<string> GetAccessTokenAsync(CancellationToken cancellationToken)
-    {
-        var loginResponse = await _localStorageService.GetItemAsync<LoginResponse>("authentication", cancellationToken);
-
-        if (loginResponse is not null && loginResponse.AccessToken is not null)
-        {
-            return loginResponse.AccessToken;
-        }
-        else
-        {
-            return string.Empty;
-        }
-    }
-
     public async Task<(ApiResponse<TDto> Response, HttpStatusCode StatusCode)> PostApiAsync<TRequest, TDto>(string endpointPath, TRequest request, CancellationToken cancellationToken = default)
         where TRequest : class
         where TDto : class
@@ -335,7 +347,14 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
             ApiResponse<TDto>? api = null;
             ProblemDetailsDto? problem = null;
 
-            try { raw = await httpResponse.Content.ReadAsStringAsync(cancellationToken); } catch { raw = string.Empty; }
+            try
+            {
+                raw = await httpResponse.Content.ReadAsStringAsync(cancellationToken);
+            }
+            catch
+            {
+                raw = string.Empty;
+            }
 
             if (!string.IsNullOrWhiteSpace(raw))
             {
@@ -343,7 +362,10 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
                 {
                     api = JsonSerializer.Deserialize<ApiResponse<TDto>>(raw, _options);
                 }
-                catch { /* ignore and try problem details */ }
+                catch
+                {
+                    // ignore and try problem details
+                }
 
                 if (api is null)
                 {
@@ -351,7 +373,10 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
                     {
                         problem = JsonSerializer.Deserialize<ProblemDetailsDto>(raw, _options);
                     }
-                    catch { /* ignore */ }
+                    catch
+                    {
+                        // ignore
+                    }
                 }
             }
 
@@ -359,7 +384,10 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
             {
                 api = new ApiResponse<TDto>();
                 if (problem is not null)
+                {
                     api.ProblemDetails = problem;
+                }
+
                 api.Success = httpResponse.IsSuccessStatusCode;
             }
             else
@@ -394,6 +422,20 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
                 },
             },
             HttpStatusCode.InternalServerError);
+        }
+    }
+
+    private async Task<string> GetAccessTokenAsync(CancellationToken cancellationToken)
+    {
+        var loginResponse = await _localStorageService.GetItemAsync<LoginResponse>("authentication", cancellationToken);
+
+        if (loginResponse is not null && loginResponse.AccessToken is not null)
+        {
+            return loginResponse.AccessToken;
+        }
+        else
+        {
+            return string.Empty;
         }
     }
 }

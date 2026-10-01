@@ -1,2 +1,115 @@
-﻿body {
+﻿.map-detail-toolbar {
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+}
+
+.map-detail-area {
+    width: 100%;
+}
+
+/* The map keeps its original 70%-wide column; it is centered here because it is no longer nested
+   in a centering flex column. Passed via CssClass, so it renders in ResponsiveContainer's own
+   isolation scope and needs ::deep. */
+.map-detail-area ::deep .map-detail-map {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Both ratings are centered as a group with space between them, side by side when there is room,
+   stacked (one above the other) once the viewport no longer allows it, so neither label is ever
+   squeezed. */
+.map-detail-ratings {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-sm) var(--space-2xl);
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .map-detail-ratings {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.map-detail-rating {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    flex: 0 1 auto;
+    min-width: 0;
+}
+
+/* Passed into ResponsiveLabel via CssClass, so it is rendered inside the CHILD component's
+   isolation scope and needs ::deep. */
+.map-detail-rating ::deep .map-detail-rating-label {
+    width: auto;
+    flex: 0 0 auto;
+    white-space: nowrap;
+    padding-left: 0;
+}
+
+/* Label/value pairs: a two-column grid whose label column is only as wide as its longest label
+   (so labels are never truncated) and whose value column takes the rest and wraps. */
+.map-detail-meta {
+    display: grid;
+    grid-template-columns: minmax(0, max-content) minmax(0, 1fr);
+    gap: var(--space-sm) var(--space-xl);
+    align-items: start;
+    width: 100%;
+    margin: 0;
+}
+
+.map-detail-meta dt {
+    grid-column: 1;
+    min-width: 0;
+}
+
+.map-detail-meta dt ::deep .responsive-label {
+    color: var(--color-nav-hover) !important;
+}
+
+.map-detail-meta dd {
+    grid-column: 2;
+    margin: 0;
+    min-width: 0;
+}
+
+.map-detail-description {
+    width: 100%;
+    overflow-wrap: anywhere;
+}
+
+.map-detail-meta dd ::deep .map-detail-normal-text {
+    color: var(--color-white) !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: var(--rz-grid-cell-font-size, 0.875rem) !important;
+    text-shadow: none !important;
+}
+
+/* Passed into CopyButton via CssClass-less wrapper -- CopyButton is a project-owned component so
+   this only needs to center its own root, not reach inside it. */
+.map-detail-copy-row {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-xs);
+}
+
+/* Stacked label-above-value on narrow screens, where a two-column layout leaves the value column
+   too narrow to stay readable. */
+@media (max-width: 768px) {
+    .map-detail-meta {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--space-xs);
+    }
+
+    .map-detail-meta dt,
+    .map-detail-meta dd {
+        grid-column: 1 / -1;
+    }
+
+    .map-detail-meta dd {
+        margin-bottom: var(--space-sm);
+    }
 }

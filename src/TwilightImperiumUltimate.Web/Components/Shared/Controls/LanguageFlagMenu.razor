@@ -1,0 +1,22 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Controls
+@using TwilightImperiumUltimate.Web.Resources
+
+@*
+    Reusable English/Czech language flag switcher, used inside big-image overlays (cards,
+    planets, etc.) to pick which localized image variant is displayed.
+*@
+
+<div class="language-flag-menu @CssClass" @onclick:stopPropagation="true">
+    <img class="language-flag @GetLanguageFlagClass(Strings.EnglishCulture)"
+         src="@GetCultureIconPath(Strings.EnglishCulture)"
+         alt="English"
+         height="50"
+         @onclick="@(() => SelectCulture(Strings.EnglishCulture))"
+         @onclick:stopPropagation="true" />
+    <img class="language-flag @GetLanguageFlagClass(Strings.CzechCulture)"
+         src="@GetCultureIconPath(Strings.CzechCulture)"
+         alt="Czech"
+         height="50"
+         @onclick="@(() => SelectCulture(Strings.CzechCulture))"
+         @onclick:stopPropagation="true" />
+</div>

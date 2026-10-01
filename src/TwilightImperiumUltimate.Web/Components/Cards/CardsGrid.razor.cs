@@ -1,11 +1,11 @@
 using TwilightImperiumUltimate.Contracts.DTOs.Card;
+using TwilightImperiumUltimate.Web.Services.Cache;
 
 namespace TwilightImperiumUltimate.Web.Components.Cards;
 
 public partial class CardsGrid
 {
-    private bool _showNotes = true;
-    private bool _showFaq;
+    private static readonly TimedKeyedCache<string, IReadOnlyList<CardModel>> Cache = new(TimeSpan.FromHours(1));
 
     private IReadOnlyCollection<CardModel> _listOfCards = new List<CardModel>();
 
@@ -19,7 +19,7 @@ public partial class CardsGrid
 
     private string currentBigImageCulture = string.Empty;
 
-    private GameVersion? _currentGameVersion;
+    private GameVersion? _selectedGameVersion;
 
     [Parameter]
     public string TypeOfCard { get; set; } = Paths.ResourcePath_StrategyCard;
@@ -41,6 +41,7 @@ public partial class CardsGrid
     protected override async Task OnParametersSetAsync()
     {
         await InitializeCards();
+        EnsureValidGameVersionSelection();
 
         var result = await HttpClient.GetAsync<ApiResponse<ItemListDto<FaqDto>>>(Paths.ApiPath_Faq);
         var response = result.Response;
@@ -67,14 +68,9 @@ public partial class CardsGrid
         showBigImage = false;
     }
 
-    private string GetCultureIconPath(string culture)
-    {
-        return PathProvider.GetCultureIconPath(culture);
-    }
-
     private void SetBigImageAddress(string culture)
     {
-        currentBigImageSrc = currentBigImageSrc.Replace(currentBigImageCulture, culture);
+        currentBigImageSrc = currentBigImageSrc.Replace(currentBigImageCulture, culture, StringComparison.Ordinal);
         currentBigImageCulture = culture;
         StateHasChanged();
     }
@@ -100,38 +96,61 @@ public partial class CardsGrid
     private async Task InitializeCards()
     {
         var apiEndpoint = GetCorrectApiEndpoint();
-        var result = await HttpClient.GetAsync<ApiResponse<ItemListDto<BaseCardDto>>>(apiEndpoint);
-        var response = result.Response;
-        var statusCode = result.StatusCode;
 
-        if (statusCode == System.Net.HttpStatusCode.OK)
+        var cards = await Cache.GetOrLoadAsync(apiEndpoint, async () =>
         {
-            var cards = Mapper.Map<List<CardModel>>(response!.Data!.Items);
-            _listOfCards = cards.Where(x => x.GameVersion != GameVersion.Deprecated).ToList();
-            _listOfDeprecatedCards = cards.Where(x => x.GameVersion == GameVersion.Deprecated).ToList();
-        }
+            var result = await HttpClient.GetAsync<ApiResponse<ItemListDto<BaseCardDto>>>(apiEndpoint);
+            if (result.StatusCode != HttpStatusCode.OK)
+                return [];
+
+            return Mapper.Map<List<CardModel>>(result.Response!.Data!.Items);
+        });
+
+        _listOfCards = cards.Where(x => x.GameVersion != GameVersion.Deprecated).ToList();
+        _listOfDeprecatedCards = cards.Where(x => x.GameVersion == GameVersion.Deprecated).ToList();
 
         StateHasChanged();
     }
 
     private IEnumerable<IGrouping<GameVersion, CardModel>> GetSortedCards()
     {
-        return _listOfCards
+        return GetFilteredCards()
             .OrderBy(x => x.GameVersion)
-            .ThenBy(x => x.Id)
+            .ThenBy(x => x.Name)
             .GroupBy(x => x.GameVersion);
     }
 
-    private void ShowFaq()
+    private IEnumerable<CardModel> GetFilteredCards()
     {
-        _showNotes = false;
-        _showFaq = true;
+        return _selectedGameVersion.HasValue
+            ? _listOfCards.Where(x => x.GameVersion == _selectedGameVersion.Value)
+            : _listOfCards;
     }
 
-    private void ShowNotes()
+    private IEnumerable<GameVersion> GetAvailableGameVersions()
     {
-        _showFaq = false;
-        _showNotes = true;
+        return _listOfCards
+            .Select(x => x.GameVersion)
+            .Where(x => x != GameVersion.Deprecated)
+            .Distinct()
+            .OrderBy(x => x);
+    }
+
+    private void EnsureValidGameVersionSelection()
+    {
+        if (!_selectedGameVersion.HasValue)
+            return;
+
+        var availableVersions = GetAvailableGameVersions();
+        if (!availableVersions.Contains(_selectedGameVersion.Value))
+            _selectedGameVersion = null;
+    }
+
+    private Task OnGameVersionFilterChanged(GameVersion? gameVersion)
+    {
+        _selectedGameVersion = gameVersion;
+        StateHasChanged();
+        return Task.CompletedTask;
     }
 
     private List<FaqModel> GetSpecificCardFaqs()

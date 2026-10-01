@@ -1,4 +1,4 @@
-namespace TwilightImperiumUltimate.Business.Logic.GameStatistics;
+﻿namespace TwilightImperiumUltimate.Business.Logic.GameStatistics;
 
 public class AddNewGameStatisticsCommandHandler(
     IGameStatisticsRepository gameStatisticsRepository)
@@ -8,6 +8,8 @@ public class AddNewGameStatisticsCommandHandler(
 
     public async Task<bool> Handle(AddNewGameStatisticsCommand request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         await _gameStatisticsRepository.UpdateWebsiteStatistics(StatisticsType.GamesPlayed, cancellationToken);
 
         await _gameStatisticsRepository.AddNewGameStatistics(

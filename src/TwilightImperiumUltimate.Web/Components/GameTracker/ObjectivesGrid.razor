@@ -1,14 +1,12 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Cards
 @using TwilightImperiumUltimate.Web.Components.Factions
 
-<FlexRowContainer>
+<ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="mb-sm">
     <Label Text="@Strings.GameTracker_Round" FontSize="28" />
     <Label Text="@GameTrackerService.CurrentRound.ToString()" FontSize="28" />
     <Label Text="@Strings.GameTracker_Points" FontSize="28" />
     <Label Text="@GameTrackerSettingsService.NumberOfPoints.ToString()" FontSize="28" />
-</FlexRowContainer>
-
-<VerticalSpace Height="10" />
+</ResponsiveContainer>
 
 <GridLayout Columns="@GetColumnsCount()" Gap="0" Style="@(Style)">
 
@@ -24,7 +22,7 @@
 
                 @for(int i = 0; i < (GetNumberOfPlayers() - objective.ScoredFactions.Count); i++)
                 {
-                    <VerticalSpace Height="40" />
+                    <div style="height: clamp(1.25rem, 1.25rem + 1vw, 2.5rem);"></div>
                 }
             </GridLayout>
         </div>
@@ -47,7 +45,7 @@
 
                 @for (int i = 0; i < (GetNumberOfPlayers() - objective.ScoredFactions.Count); i++)
                 {
-                    <VerticalSpace Height="40" />
+                    <div style="height: clamp(1.25rem, 1.25rem + 1vw, 2.5rem);"></div>
                 }
             </GridLayout>
         </div>

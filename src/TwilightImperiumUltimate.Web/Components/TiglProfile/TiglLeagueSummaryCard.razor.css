@@ -1,0 +1,105 @@
+.tigl-summary {
+    width: 100%;
+    min-width: 0;
+}
+
+.tigl-summary ::deep .tigl-league-summary tbody th {
+    color: var(--rz-grid-header-color);
+    background-color: var(--rz-grid-header-background-color);
+    border-bottom: var(--rz-grid-header-cell-border-bottom);
+    text-align: center;
+}
+
+.tigl-summary ::deep .tigl-league-summary tbody th:not(:last-child) {
+    border-inline-end: var(--rz-grid-header-cell-border);
+}
+
+@media (max-width: 768px) {
+    .tigl-summary ::deep .tigl-league-summary .rz-grid-table {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .tigl-summary ::deep .tigl-league-summary .rz-grid-table caption {
+        grid-column: 1 / -1;
+    }
+
+    .tigl-summary ::deep .tigl-league-summary .rz-grid-table thead,
+    .tigl-summary ::deep .tigl-league-summary .rz-grid-table tbody,
+    .tigl-summary ::deep .tigl-league-summary .rz-grid-table tr {
+        display: contents;
+    }
+
+    .tigl-summary ::deep .rz-grid-table :where(th, td) {
+        grid-column: 1 / -1;
+    }
+
+    .tigl-summary ::deep #tigl-summary-games,
+    .tigl-summary ::deep #tigl-summary-win-rate,
+    .tigl-summary ::deep td[headers="tigl-summary-games"],
+    .tigl-summary ::deep td[headers="tigl-summary-win-rate"] {
+        grid-column: span 1;
+    }
+
+    .tigl-summary ::deep #tigl-summary-games,
+    .tigl-summary ::deep #tigl-summary-win-rate {
+        order: 1;
+    }
+
+    .tigl-summary ::deep td[headers="tigl-summary-games"],
+    .tigl-summary ::deep td[headers="tigl-summary-win-rate"] {
+        order: 2;
+    }
+
+    .tigl-summary ::deep #tigl-summary-prestige,
+    .tigl-summary ::deep #tigl-summary-rank,
+    .tigl-summary ::deep td[headers="tigl-summary-prestige"],
+    .tigl-summary ::deep td[headers="tigl-summary-rank"] {
+        grid-column: span 1;
+    }
+
+    .tigl-summary ::deep #tigl-summary-prestige,
+    .tigl-summary ::deep #tigl-summary-rank {
+        order: 3;
+    }
+
+    .tigl-summary ::deep td[headers="tigl-summary-prestige"],
+    .tigl-summary ::deep td[headers="tigl-summary-rank"] {
+        order: 4;
+    }
+
+    .tigl-summary ::deep #tigl-summary-trueskill-current {
+        order: 5;
+    }
+
+    .tigl-summary ::deep td[headers="tigl-summary-trueskill-current"] {
+        grid-column: span 1;
+        order: 6;
+    }
+
+    .tigl-summary ::deep #tigl-summary-glicko-current {
+        order: 7;
+    }
+
+    .tigl-summary ::deep td[headers="tigl-summary-glicko-current"] {
+        grid-column: span 1;
+        order: 8;
+    }
+
+    .tigl-summary ::deep #tigl-summary-async-current {
+        order: 9;
+    }
+
+    .tigl-summary ::deep td[headers="tigl-summary-async-current"] {
+        grid-column: span 1;
+        order: 10;
+    }
+
+    .tigl-summary ::deep .tigl-league-summary .rz-grid-table .rz-data-row:hover > td {
+        background-color: var(--rz-grid-stripe-odd-background-color);
+    }
+
+    .tigl-summary ::deep .tigl-league-summary .rz-grid-table .rz-data-row > td:hover {
+        background-color: var(--rz-grid-header-background-color, var(--color-nav-hover-bg-solid));
+    }
+}

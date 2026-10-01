@@ -1,7 +1,13 @@
-﻿.image-item {
+﻿/* border-radius uses a percentage so the corner radius always stays proportional to this
+   element's own rendered size (5-column vs 2-column grids render very differently sized
+   cards at the same viewport width). NOTE: do not use `container-type`/container query units
+   here -- .image-item sits inside ancestors (.planet-item, ClickableTile) that have no explicit
+   width and rely on shrink-to-fit sizing from the <img>'s intrinsic size; container-type
+   isolates this element from that intrinsic-size lookup and collapses the whole chain to 0
+   width, making the images disappear entirely. */
+.image-item {
     position: relative;
     display: inline-block;
-    margin-bottom: 20px;
     flex-grow: 1;
     flex-shrink: 1;
     width: 100%;
@@ -9,7 +15,7 @@
 
     .image-item img {
         display: block;
-        border-radius: 20px;
+        border-radius: 8%;
         flex-grow: 1;
         flex-shrink: 1;
         width: 100%;
@@ -25,30 +31,8 @@
         left: 0;
         right: 0;
         bottom: 0;
-        box-shadow: inset 0 0 0 5px #000;
-        pointer-events: none;
-        border-radius: 20px;
-    }
-
-@media (max-width: 1280px) {
-    .image-item img {
-        border-radius: 10px;
-    }
-
-    .image-item::before {
-        border-radius: 10px;
         box-shadow: inset 0 0 0 3px #000;
-    }
-}
-
-@media (max-width: 768px) {
-
-    .image-item img {
-        border-radius: 5px;
+        pointer-events: none;
+        border-radius: 8%;
     }
 
-    .image-item::before {
-        border-radius: 5px;
-        box-shadow: inset 0 0 0 2px #000;
-    }
-}

@@ -1,58 +1,102 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Shared.Controls
-@using TwilightImperiumUltimate.Web.Components.Shared.GameVersions
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @using TwilightImperiumUltimate.Web.Resources;
 @using TwilightImperiumUltimate.Web.Components.Factions;
 @using TwilightImperiumUltimate.Web.Components.Shared.Text;
 
-<FactionIconRow EnableBanMode="true"
-                OnFactionClickGetFaction="UpdateBanFactions"
-                OnInitializeGetFactions="InitializeBanFactions"
-                ShowDiscordantStars="true"
-                @ref="_factionIconRow" />
+<ResponsiveTabMenu AriaLabel="Faction Draft sections" CssClass="faction-style mb-md">
+    <ResponsiveTab Id="faction-draft-draft-tab"
+                   IsActive="@(!_showSettings)"
+                   OnClick="ShowDraft">
+        Draft
+    </ResponsiveTab>
+    <ResponsiveTabSeparator />
+    <ResponsiveTab Id="faction-draft-settings-tab"
+                   IsActive="@_showSettings"
+                   OnClick="ShowSettings">
+        Settings
+    </ResponsiveTab>
+</ResponsiveTabMenu>
 
-<GameVersionPicker OnVersionSelected="HandleGameVersionClick" />
+<section hidden="@_showSettings">
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CenteredItems="true" CssClass="mt-3xl">
+        <ResponsiveButton ButtonText="@(GetButtonStateText())"
+                IsDisabled=@(IsDraftButtonDisabled())
+                OnClick="DraftFactions" Width="30" />
+    </ResponsiveContainer>
 
-<FlexColumnCenteredContainer>
-    <HelpText Text="@Strings.FactionDraft_BanHelp" CssClass="margin-top-10 handel" />
-</FlexColumnCenteredContainer>
-
-<div class="setting-row">
-    <NumericPicker Title="@Strings.DraftText_NumberOfPlayers"
-                    Value="@FactionDraftService.NumberOfPlayers"
-                    OnDecrease="DecreasePlayerCount"
-                    OnIncrease="IncreasePlayerCount" />
-
-    <NumericPicker Title="@Strings.DraftText_NumberOfFactions"
-                    Value="@FactionDraftService.NumberOfDraftFactions"
-                    OnDecrease="DecreaseFactionCount"
-                    OnIncrease="IncreaseFactionCount" />
-</div>
-
-<FlexRowContainer CssClass="margin-top-50">
-    <Button ButtonText="@(GetButtonStateText())"
-            IsDisabled=@(IsDraftButtonDisabled())
-            OnClick="DraftFactions" />
-
-    <Button ButtonText="@Strings.DraftButton_ResetBans" 
-            OnClick="ResetBans" />
-</FlexRowContainer>
-
-@if (FactionDraftService.ToManyBans)
-{
-    <div class="flex-column-center margin-top-10">
-        <div class="flex-container-center text-small white handel shadow">
-            @Strings.DraftText_DraftNotPossible
-        </div>
-    </div>
-}
-
-<div class="faction-draft-players-container">
-    @{ int index = 0; }
-
-    @foreach (var factionDraftPlayer in FactionDraftService.Players)
+    @if (FactionDraftService.ToManyBans)
     {
-        index++;
-        <FactionDraftPlayerRow Player="@factionDraftPlayer" Index="@index" DraftStage="_draftStage" />
+        <div class="flex-column-center mt-sm">
+            <div class="flex-container-center text-small white handel shadow">
+                @Strings.DraftText_DraftNotPossible
+            </div>
+        </div>
     }
-</div>
+
+    <div class="faction-draft-players-container">
+        @{ int index = 0; }
+
+        @foreach (var factionDraftPlayer in FactionDraftService.Players)
+        {
+            index++;
+            <FactionDraftPlayerRow Player="@factionDraftPlayer" Index="@index" DraftStage="_draftStage" />
+        }
+    </div>
+</section>
+
+<section hidden="@(!_showSettings)">
+    <ResponsiveCard CssClass="mb-md">
+        <ResponsiveHeading Level="4" Text="General" CenterText="true" CssClass="mb-sm" />
+
+        <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Width="100" Gap="var(--space-xl)">
+            <ResponsiveDropDown Id="faction-draft-player-count"
+                                TValue="int"
+                                Label="@Strings.DraftText_NumberOfPlayers"
+                                LabelPosition="LabelPosition.Column"
+                                Value="@FactionDraftService.NumberOfPlayers"
+                                ValueChanged="SetPlayerCount"
+                                Data="@GetPlayerCountOptions()" />
+
+            <ResponsiveDropDown Id="faction-draft-faction-count"
+                                TValue="int"
+                                Label="@Strings.DraftText_NumberOfFactions"
+                                LabelPosition="LabelPosition.Column"
+                                Value="@FactionDraftService.NumberOfDraftFactions"
+                                ValueChanged="SetFactionCount"
+                                Data="@GetFactionCountOptions()" />
+
+            <ResponsiveDropDown Id="faction-draft-enable-player-names"
+                                TValue="bool"
+                                Label="Enable Player Names"
+                                LabelPosition="LabelPosition.Column"
+                                Value="@FactionDraftService.EnablePlayerNames"
+                                ValueChanged="SetPlayerNamesEnabled"
+                                Data="@BooleanOptions"
+                                ValueProperty="Key"
+                                TextProperty="Value" />
+        </ResponsiveGridContainer>
+    </ResponsiveCard>
+
+    @if (FactionDraftService.EnablePlayerNames)
+    {
+        <ResponsiveCard CssClass="mb-md">
+            <ResponsiveHeading Level="4" Text="Player Names" CenterText="true" CssClass="mb-sm" />
+
+            <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Width="100" Gap="var(--space-xl)">
+                @foreach (var (player, index) in FactionDraftService.Players.Select((player, index) => (player, index)))
+                {
+                    <ResponsiveTextBox Id="@($"faction-draft-settings-player-name-{index + 1}")"
+                                       Value="@player.Name"
+                                       ValueChanged="value => player.Name = value"
+                                       Placeholder="@Strings.Player" />
+                }
+            </ResponsiveGridContainer>
+        </ResponsiveCard>
+    }
+
+    <FactionMenuPicker BanAllFactions="false"
+                       OnFactionChanged="UpdateBanFactions"
+                       OnFactionsInitialized="InitializeBanFactions"
+                       @ref="_factionMenuPicker" />
+</section>

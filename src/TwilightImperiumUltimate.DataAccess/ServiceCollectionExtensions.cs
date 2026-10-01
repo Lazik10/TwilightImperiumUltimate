@@ -19,7 +19,7 @@ public static class ServiceCollectionExtensions
         return services;
     }
 
-    private static IServiceCollection RegisterDbContext(
+    private static void RegisterDbContext(
         this IServiceCollection services,
         IConfiguration configuration)
     {
@@ -35,11 +35,9 @@ public static class ServiceCollectionExtensions
         services.AddDbContextFactory<TwilightImperiumDbContext>(
             options =>
             options.UseSqlServer(configuration.GetConnectionString(DbConnectionStringName)));
-
-        return services;
     }
 
-    private static IServiceCollection RegisterRepositories(
+    private static void RegisterRepositories(
         this IServiceCollection services)
     {
         services.AddScoped<ICardRepository, CardRepository>();
@@ -54,7 +52,8 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IMapArchiveRepository, MapArchiveRepository>();
         services.AddScoped<ISlicesArchiveRepository, SlicesArchiveRepository>();
         services.AddScoped<IGameStatisticsRepository, GameStatisticsRepository>();
-        services.AddTransient<IAsyncStatsRepository, AsyncStatsRepository>();
+        services.AddScoped<IAsyncStatsRepository, AsyncStatsRepository>();
+        services.AddScoped<IAsyncStatisticsSnapshotRepository, AsyncStatisticsSnapshotRepository>();
         services.AddScoped<ITiglRepository, TiglRepository>();
         services.AddScoped<ITiglUserRepository, TiglUserRepository>();
         services.AddScoped<ISeasonRepository, SeasonRepository>();
@@ -62,7 +61,5 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IRankRepository, RankRepository>();
         services.AddScoped<IAchievementRepository, AchievementRepository>();
         services.AddScoped<IRankingsRepository, RankingsRepository>();
-
-        return services;
     }
 }

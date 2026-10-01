@@ -1,4 +1,4 @@
-namespace TwilightImperiumUltimate.Business.Logic.SlicesArchive;
+﻿namespace TwilightImperiumUltimate.Business.Logic.SlicesArchive;
 
 public class AddNewSliceDraftCommandHandler(
     ISlicesArchiveRepository slicesArchiveRepository,
@@ -12,6 +12,8 @@ public class AddNewSliceDraftCommandHandler(
 
     public async Task<bool> Handle(AddNewSliceDraftCommand request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         await _gameStatisticsRepository.UpdateWebsiteStatistics(StatisticsType.SlicesArchived, cancellationToken);
         var sliceDraft = _mapper.Map<SliceDraft>(request.SliceDraft);
         return await _slicesArchiveRepository.AddNewSliceDraft(sliceDraft, cancellationToken);

@@ -1,16 +1,18 @@
-using TwilightImperiumUltimate.Business.Services.Async.Interfaces;
+﻿using TwilightImperiumUltimate.Business.Services.Async.Interfaces;
 using TwilightImperiumUltimate.Contracts.DTOs.Async.AsyncStats;
 
 namespace TwilightImperiumUltimate.Business.Logic.Async;
 
 public class GetAsyncTurnsStatsSummaryQueryHandler(
-    IAsyncTurnsStatsFactory asyncTurnsStatsFactory)
+    IAsyncStatisticsSnapshotReader snapshotReader)
     : IRequestHandler<GetAsyncTurnsStatsSummaryQuery, AsyncTurnsSummaryStatsDto>
 {
-    private readonly IAsyncTurnsStatsFactory _asyncTurnsStatsFactory = asyncTurnsStatsFactory;
+    private readonly IAsyncStatisticsSnapshotReader _snapshotReader = snapshotReader;
 
     public async Task<AsyncTurnsSummaryStatsDto> Handle(GetAsyncTurnsStatsSummaryQuery request, CancellationToken cancellationToken)
     {
-        return await _asyncTurnsStatsFactory.CreateAsyncTurnsStatsSummary(request.Limit, cancellationToken);
+        ArgumentNullException.ThrowIfNull(request);
+
+        return await _snapshotReader.GetTurnsAsync(request.Limit, cancellationToken);
     }
 }

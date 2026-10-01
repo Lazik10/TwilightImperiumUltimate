@@ -1,6 +1,8 @@
+using Radzen;
 using TwilightImperiumUltimate.Contracts.DTOs.Async.AsyncStats;
+using TwilightImperiumUltimate.Web.Components.Charts;
+using TwilightImperiumUltimate.Web.Helpers.Enums;
 using TwilightImperiumUltimate.Web.Helpers.Numbers;
-using TwilightImperiumUltimate.Web.Models.Async;
 using TwilightImperiumUltimate.Web.Services.Async;
 
 namespace TwilightImperiumUltimate.Web.Components.Async.Statistics;
@@ -11,7 +13,6 @@ public partial class FactionStatistics
     private FactionStatisticsFilter _selectedFactionStatisticsFilter = FactionStatisticsFilter.Official;
     private FactionStatisticsVpFilter _selectedFactionVpStatisticsFilter = FactionStatisticsVpFilter.All;
     private FactionStatisticsSubstatsFilter _selectedFactionStatisticsSubstatsFilter = FactionStatisticsSubstatsFilter.All;
-    private int _row;
     private AsyncFactionsSummaryStatsDto _factionsSummaryStats = new AsyncFactionsSummaryStatsDto();
     private List<FactionStatisticsSubstatsFilter> _excludedValues = new List<FactionStatisticsSubstatsFilter>() { FactionStatisticsSubstatsFilter.MinVp, FactionStatisticsSubstatsFilter.MaxVp };
 
@@ -31,9 +32,6 @@ public partial class FactionStatistics
     [Inject]
     private IAsyncStatsProvider AsyncStatsProvider { get; set; } = default!;
 
-    [Inject]
-    private IAsyncFactionMinMaxStatsProvider AsyncFactionMinMaxStatsProvider { get; set; } = default!;
-
     protected override async Task OnInitializedAsync()
     {
         _isDataLoaded = false;
@@ -46,6 +44,12 @@ public partial class FactionStatistics
         if (FactionsStats is not null)
             FactionsForDisplay = GetFilteredFactionStats(FactionsStats);
     }
+
+    private static string FormatFactionWinPercentageValue(double value) => ((float)value).ToStringWithPrecisionAndPercentage(2);
+
+    private static string FormatFactionAverageVpValue(double value) => ((float)value).ToStringWithPrecision(2);
+
+    private static string FormatFactionAverageVpPercentageValue(double value) => ((float)value).ToStringWithPrecisionAndPercentage(1);
 
     private void OnFactionStatisticsFilterChanged(FactionStatisticsFilter filter)
     {
@@ -76,139 +80,77 @@ public partial class FactionStatistics
         };
     }
 
-    private AsyncFactionStatsByGameVpDto GetCorrectFactionStatsByVp(AsyncFactionsStatsDto factionStats)
+    private AsyncFactionStatsByGameVpDto GetCorrectFactionStatsByVp(AsyncFactionsStatsDto factionStats) => _selectedFactionVpStatisticsFilter switch
     {
-        return _selectedFactionVpStatisticsFilter switch
-        {
-            FactionStatisticsVpFilter.All => factionStats.All,
-            FactionStatisticsVpFilter.TenVp => factionStats.TenVp,
-            FactionStatisticsVpFilter.TwelveVp => factionStats.TwelveVp,
-            FactionStatisticsVpFilter.FourteenVp => factionStats.FourteenVp,
-            _ => factionStats.All,
-        };
+        FactionStatisticsVpFilter.TenVp => factionStats.TenVp,
+        FactionStatisticsVpFilter.TwelveVp => factionStats.TwelveVp,
+        FactionStatisticsVpFilter.FourteenVp => factionStats.FourteenVp,
+        _ => factionStats.All,
+    };
+
+    private float GetAverageVpValue(AsyncFactionsStatsDto factionStats)
+    {
+        var stats = GetCorrectFactionStatsByVp(factionStats);
+        return stats.Games == 0 ? 0 : (float)stats.Vp / stats.Games;
     }
 
-    private AsyncFactionsMaxStatValues GetAllCorrectMaxFactionStatsByVp()
-    {
-        var correctVpFactionStats = FactionsForDisplay
-            .Select(x => GetCorrectFactionStatsByVp(x))
-            .ToList();
+    private IReadOnlyCollection<RankingBarPoint> GetGamesData() => FactionsForDisplay
+        .OrderByDescending(faction => GetCorrectFactionStatsByVp(faction).Games)
+        .Select((faction, index) => new RankingBarPoint(
+            index.ToString(),
+            faction.FactionName.GetFactionUIText(FactionResourceType.Title),
+            GetCorrectFactionStatsByVp(faction).Games,
+            TextColor.Green.GetChartFillColor(),
+            null))
+        .ToList();
 
-        var maxGames = correctVpFactionStats.Max(x => x.Games);
-        var maxWins = correctVpFactionStats.Max(x => x.Wins);
-        var maxWinrate = correctVpFactionStats.Max(x => x.Games == 0 ? 0 : ((float)x.Wins / x.Games) * 100);
-        var maxEliminations = correctVpFactionStats.Max(x => x.Eliminations);
-        var averageVp = correctVpFactionStats.Max(x => x.Games == 0 ? 0 : (float)x.Vp / x.Games);
-        var averageVpPercentage = correctVpFactionStats.Max(x => x.VpPercentage);
+    private IReadOnlyCollection<RankingBarPoint> GetWinsData() => FactionsForDisplay
+        .OrderByDescending(faction => GetCorrectFactionStatsByVp(faction).Wins)
+        .Select((faction, index) => new RankingBarPoint(
+            index.ToString(),
+            faction.FactionName.GetFactionUIText(FactionResourceType.Title),
+            GetCorrectFactionStatsByVp(faction).Wins,
+            TextColor.Green.GetChartFillColor(),
+            null))
+        .ToList();
 
-        return new AsyncFactionsMaxStatValues()
-        {
-            Games = maxGames,
-            Wins = maxWins,
-            WinPercentage = maxWinrate,
-            Eliminations = maxEliminations,
-            AverageVp = averageVp,
-            AverageVpPrecentage = averageVpPercentage,
-        };
-    }
+    private IReadOnlyCollection<RankingBarPoint> GetWinPercentageData() => FactionsForDisplay
+        .OrderByDescending(faction => GetCorrectFactionStatsByVp(faction).WinsPercentage)
+        .Select((faction, index) => new RankingBarPoint(
+            index.ToString(),
+            faction.FactionName.GetFactionUIText(FactionResourceType.Title),
+            GetCorrectFactionStatsByVp(faction).WinsPercentage,
+            GetCorrectFactionStatsByVp(faction).WinsPercentage.GetWinrateColor().GetChartFillColor(),
+            null))
+        .ToList();
 
-    private AsyncPlayerFactionMinMaxValues GetMinMaxStatsForFaction(AsyncFactionStatsByGameVpDto factionStats)
-    {
-        var minMaxValues = AsyncFactionMinMaxStatsProvider.GetCorrectStatValues(GetAllCorrectMaxFactionStatsByVp(), factionStats, _selectedFactionStatisticsSubstatsFilter).GetAwaiter().GetResult();
-        return new AsyncPlayerFactionMinMaxValues(minMaxValues.Min, minMaxValues.Value, minMaxValues.Max);
-    }
+    private IReadOnlyCollection<RankingBarPoint> GetEliminationsData() => FactionsForDisplay
+        .OrderByDescending(faction => GetCorrectFactionStatsByVp(faction).Eliminations)
+        .Select((faction, index) => new RankingBarPoint(
+            index.ToString(),
+            faction.FactionName.GetFactionUIText(FactionResourceType.Title),
+            GetCorrectFactionStatsByVp(faction).Eliminations,
+            TextColor.Red.GetChartFillColor(),
+            null))
+        .ToList();
 
-    private string GetCorrectLabelText()
-    {
-        return _selectedFactionStatisticsSubstatsFilter switch
-        {
-            FactionStatisticsSubstatsFilter.Games => Strings.FactionStats_Games,
-            FactionStatisticsSubstatsFilter.Wins => Strings.FactionStats_Wins,
-            FactionStatisticsSubstatsFilter.WinPercentage => Strings.FactionStats_WinPercentage,
-            FactionStatisticsSubstatsFilter.Eliminations => Strings.FactionStats_Eliminations,
-            FactionStatisticsSubstatsFilter.MaxVp => Strings.FactionStats_MaxVp,
-            FactionStatisticsSubstatsFilter.AverageVp => Strings.FactionStats_AverageVp,
-            FactionStatisticsSubstatsFilter.MinVp => Strings.FactionStats_MinVp,
-            FactionStatisticsSubstatsFilter.AverageVpPercentage => Strings.FactionStats_AverageVpPercentage,
-            _ => Strings.FactionStats_All,
-        };
-    }
+    private IReadOnlyCollection<RankingBarPoint> GetAverageVpData() => FactionsForDisplay
+        .OrderByDescending(GetAverageVpValue)
+        .Select((faction, index) => new RankingBarPoint(
+            index.ToString(),
+            faction.FactionName.GetFactionUIText(FactionResourceType.Title),
+            GetAverageVpValue(faction),
+            TextColor.Green.GetChartFillColor(),
+            null))
+        .ToList();
 
-    private TextColor GetCorrectLabelColor()
-    {
-        return TextColor.White;
-    }
-
-    private string ToFormatedString(float value)
-    {
-        return _selectedFactionStatisticsSubstatsFilter switch
-        {
-            FactionStatisticsSubstatsFilter.AverageVpPercentage or
-            FactionStatisticsSubstatsFilter.WinPercentage
-            => value.ToStringWithPrecisionAndPercentage(2),
-            FactionStatisticsSubstatsFilter.AverageVp => value.ToStringWithPrecision(2),
-            _ => value.ToStringWithPrecision(0),
-        };
-    }
-
-    private TextColor GetSubstatsCorrectColor(float value)
-    {
-        return _selectedFactionStatisticsSubstatsFilter switch
-        {
-            FactionStatisticsSubstatsFilter.Games => TextColor.Yellow,
-            FactionStatisticsSubstatsFilter.Wins => GetWinColor((int)value),
-            FactionStatisticsSubstatsFilter.WinPercentage => value.GetWinrateColor(),
-            FactionStatisticsSubstatsFilter.Eliminations => TextColor.Red,
-            FactionStatisticsSubstatsFilter.AverageVpPercentage => value.GetAverageVpPercentageColor(),
-            FactionStatisticsSubstatsFilter.AverageVp => value.GetAverageVpColor(),
-            _ => TextColor.Yellow,
-        };
-    }
-
-    private TextColor GetCorrectProgressBarColor(float value)
-    {
-        return _selectedFactionStatisticsSubstatsFilter switch
-        {
-            FactionStatisticsSubstatsFilter.Games => TextColor.Green,
-            FactionStatisticsSubstatsFilter.Wins => TextColor.Green,
-            FactionStatisticsSubstatsFilter.WinPercentage => value.GetWinrateColor(),
-            FactionStatisticsSubstatsFilter.Eliminations => TextColor.Red,
-            FactionStatisticsSubstatsFilter.MinVp => TextColor.Red,
-            FactionStatisticsSubstatsFilter.AverageVp => value.GetAverageVpColor(),
-            FactionStatisticsSubstatsFilter.MaxVp => TextColor.Green,
-            FactionStatisticsSubstatsFilter.AverageVpPercentage => value.GetAverageVpPercentageColor(),
-            _ => TextColor.Green,
-        };
-    }
-
-    private bool IsWinrateEnabled() => true;
-
-    private bool ShowSubstatsValue()
-    {
-        if ((_selectedFactionStatisticsSubstatsFilter == FactionStatisticsSubstatsFilter.WinPercentage
-        || _selectedFactionStatisticsSubstatsFilter == FactionStatisticsSubstatsFilter.Wins)
-        && !IsWinrateEnabled())
-            return false;
-
-        return true;
-    }
-
-    private TextColor GetWinColor(int wins)
-    {
-        return IsWinrateEnabled() && wins > 0 ? TextColor.Green : TextColor.Red;
-    }
-
-    private IReadOnlyCollection<AsyncFactionsStatsDto> GetSortedFactionsForDisplayByStatistics()
-    {
-        return _selectedFactionStatisticsSubstatsFilter switch
-        {
-            FactionStatisticsSubstatsFilter.Games => FactionsForDisplay.OrderByDescending(x => GetCorrectFactionStatsByVp(x).Games).ToList(),
-            FactionStatisticsSubstatsFilter.Wins => FactionsForDisplay.OrderByDescending(x => GetCorrectFactionStatsByVp(x).Wins).ToList(),
-            FactionStatisticsSubstatsFilter.WinPercentage => FactionsForDisplay.OrderByDescending(x => GetCorrectFactionStatsByVp(x).WinsPercentage).ToList(),
-            FactionStatisticsSubstatsFilter.Eliminations => FactionsForDisplay.OrderByDescending(x => GetCorrectFactionStatsByVp(x).Eliminations).ToList(),
-            FactionStatisticsSubstatsFilter.AverageVp => FactionsForDisplay.OrderByDescending(x => GetCorrectFactionStatsByVp(x).Games == 0 ? 0 : (float)GetCorrectFactionStatsByVp(x).Vp / GetCorrectFactionStatsByVp(x).Games).ToList(),
-            FactionStatisticsSubstatsFilter.AverageVpPercentage => FactionsForDisplay.OrderByDescending(x => GetCorrectFactionStatsByVp(x).VpPercentage).ToList(),
-            _ => FactionsForDisplay,
-        };
-    }
+    private IReadOnlyCollection<RankingBarPoint> GetAverageVpPercentageData() => FactionsForDisplay
+        .OrderByDescending(faction => GetCorrectFactionStatsByVp(faction).VpPercentage)
+        .Select((faction, index) => new RankingBarPoint(
+            index.ToString(),
+            faction.FactionName.GetFactionUIText(FactionResourceType.Title),
+            GetCorrectFactionStatsByVp(faction).VpPercentage,
+            GetCorrectFactionStatsByVp(faction).VpPercentage.GetAverageVpPercentageColor().GetChartFillColor(),
+            null))
+        .ToList();
 }

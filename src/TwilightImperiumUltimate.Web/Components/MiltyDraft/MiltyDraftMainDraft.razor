@@ -1,138 +1,113 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.MapGenerator
 @using TwilightImperiumUltimate.Web.Helpers.Enums
 
-@if ((Initiatives is not null && Initiatives.Count > 0
-     && Slices is not null && Slices.Count > 0
-     && DraftState == MiltyDraftState.Initialized) ||
-    (Initiatives is not null && Initiatives.Count > 0
-    && Slices is not null && Slices.Count > 0
-    && DraftedFactions is not null && DraftedFactions.Count > 0
-    && DraftState != MiltyDraftState.Initialized))
-{
-    <FlexColumnCenteredContainer>
+<div class="milty-draft-main">
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
 
-        <VerticalSpace Height="20" />
-
-        <Button ButtonText="@(GetButtonText())" OnClick="StartMiltyDraft" IsDisabled="GetButtonStatus()" />
+        <ResponsiveButton ButtonText="@(GetButtonText())" OnClick="StartMiltyDraft" IsDisabled="GetButtonStatus()" Width="30" CssClass="milty-draft-primary-action" Style="--responsive-button-mobile-width: 80%; white-space: nowrap;" />
 
         @if (IsImportedSlicesEnabledAndImportedStringInvalid().Result)
         {
-            <VerticalSpace Height="20" />
-            <HelpText Text="@Strings.MiltyDraft_InvalidImportedSlicesStringFormat" TextColor="TextColor.Red" />
+            <HelpText Text="@Strings.MiltyDraft_InvalidImportedSlicesStringFormat" TextColor="TextColor.Red" CssClass="mt-md" />
         }
 
         @if (DraftState == MiltyDraftState.Started && !MiltyDraftService.FirstPickAssigned)
         {
-            <VerticalSpace Height="20" />
-            <FlexRowContainer>
-                <Button ButtonText="@Strings.MiltyDraft_NewPickOrder" OnClick="NewPickOrder" />
-                <Button ButtonText="@Strings.MiltyDraft_NewFactions" OnClick="NewFactions" />
-                <Button ButtonText="@Strings.MiltyDraft_NewSlices" OnClick="NewSlices" />
-            </FlexRowContainer>
+            <div class="milty-draft-regeneration-actions">
+                <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.SpaceBetween" CssClass="mt-md">
+                    <ResponsiveButton ButtonText="@Strings.MiltyDraft_NewPickOrder" OnClick="NewPickOrder" Width="30" MobileWidth="80" CssClass="milty-draft-first-regeneration-action" Style="white-space: nowrap;" />
+                    <ResponsiveButton ButtonText="@Strings.MiltyDraft_NewFactions" OnClick="NewFactions" Width="30" MobileWidth="80" Style="white-space: nowrap;" />
+                    <ResponsiveButton ButtonText="@Strings.MiltyDraft_NewSlices" OnClick="NewSlices" Width="30" MobileWidth="80" Style="white-space: nowrap;" />
+                </ResponsiveContainer>
+            </div>
         }
 
-        <VerticalSpace Height="50" />
-
-        <div style="border: 10px solid @(DraftState == MiltyDraftState.Started ? MiltyDraftService.ActivePlayer.PlayerColor.GetUIColor() : "transparent"); width: 100%; padding-left: 10px; padding-right: 10px;">
+        <div style="width: 100%; padding-left: 10px; padding-right: 10px;">
 
             @if (DraftState == MiltyDraftState.Started)
             {
-                <FlexColumnCenteredContainer CssClass="background">
+                <ResponsiveCard CssClass="mt-xl mb-xs">
+                    <ResponsiveHeading Level="5" Text="Picking" CenterText="true" CssClass="mb-xs" />
 
-                    <VerticalSpace Height="10" />
+                    <ResponsiveHeading Level="2" Text="@GetPlayerName(ActivePlayer)" CenterText="true" CssClass="mb-md" Style="@($"color: {ActivePlayerColor.GetTextColor().ConvertToString()} !important;")" />
 
-                    <GridLayout Columns="3" Gap="0" Width="100" >
-                        <Label Text="@Strings.MiltyDraft_ActivePlayer" FontSize="24" TextColor="TextColor.Green" PaddingLeft="40" />
-                        <Label Text="@GetPlayerName(ActivePlayer)" FontSize="36" CenterText="true" TextColor="ActivePlayerColor.GetTextColor()" />
-                    </GridLayout>
+                    <div class="milty-draft-next-picks">
+                        <ResponsiveGridContainer Columns="7" TabletColumns="4" MobileColumns="2" Width="100" Gap="var(--space-xs)" CssClass="milty-draft-next-picks-grid mb-sm">
+                            <ResponsiveLabel Text="@Strings.MiltyDraft_NextPicks" TextColor="TextColor.White" CssClass="milty-draft-next-picks-label" />
+                            @foreach (var player in PlayersOrderOfPicks)
+                            {
+                                <ResponsiveLabel Text="@GetPlayerName(player)" TextColor="player.PlayerColor.GetTextColor()" CenterText="true" Truncate="true" CssClass="milty-draft-next-picks-player" />
+                            }
+                        </ResponsiveGridContainer>
+                    </div>
 
-                    <VerticalSpace Height="20" />
-
-                    <FlexRowContainer>
-                        <Label Text="@Strings.MiltyDraft_NextPicks" TextColor="TextColor.White" PaddingLeft="20" />
-                        @foreach (var player in PlayersOrderOfPicks)
-                        {
-                            <Label Text="@GetPlayerName(player)" TextColor="player.PlayerColor.GetTextColor()" />
-                        }
-                    </FlexRowContainer>
-
-                    <VerticalSpace Height="10" />
-
-                </FlexColumnCenteredContainer>
+                </ResponsiveCard>
             }
             else if (DraftState == MiltyDraftState.Finished)
             {
-                <FlexColumnCenteredContainer CssClass="background">
-
-                    <VerticalSpace Height="10" />
-                    <Label Text="@Strings.MiltyDraft_Finnished" FontSize="36" TextColor="TextColor.Green" CenterText="true" />
-
-                </FlexColumnCenteredContainer>
+                <ResponsiveCard CssClass="mt-xl mb-xs">
+                    <ResponsiveHeading Level="2" Text="@Strings.MiltyDraft_Finnished" CenterText="true" CssClass="mb-0" />
+                </ResponsiveCard>
             }
 
-            <VerticalSpace Height="40" />
-
-            <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexEnd">
+            <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexEnd" CssClass="mb-sm">
                 <QuickMenuItem IconType="IconType.DownloadMapImage" IconTypeClicked="IconType.DownloadMapImageClicked" OnClick="HandleDownloadImage" />
-            </FlexRowContainer>
+            </ResponsiveContainer>
 
             <div id="draftArea">
 
-                <Label Text="@Strings.MiltyDraft_Positions" TextColor="TextColor.Green" FontSize="24" PaddingLeft="20" />
+                <ResponsiveCard CssClass="mt-sm">
+                    <ResponsiveHeading Level="3" Text="@Strings.MiltyDraft_Positions.TrimEnd(':')" CenterText="true" CssClass="mb-sm" />
 
-                <FlexColumnCenteredContainer CssClass="background">
+                    @if (Initiatives.Count > 0)
+                    {
+                        <GridLayout Columns="3" Gap="10" Width="100" CssClass="mb-sm">
+                            @foreach (var initiative in Initiatives)
+                            {
+                                <CascadingValue Value="this" Name="MiltyDraftMainDraft">
+                                    <MiltyDraftInitiativeOrder Initiative="initiative.Initiative" FontSize="28" IsPicked="initiative.Picked" Color="initiative.DraftColor" />
+                                </CascadingValue>
+                            }
+                        </GridLayout>
+                    }
+                    else
+                    {
+                        <ResponsiveLabel Text="@Strings.MiltyDraft_GeneratingDraft" CenterText="true" CssClass="mb-sm" />
+                    }
 
-                    <VerticalSpace Height="10" />
+                </ResponsiveCard>
 
-                    <FlexRowContainer>
-                        @foreach (var initiative in Initiatives)
+                <ResponsiveCard CssClass="mt-lg">
+                    <ResponsiveHeading Level="3" Text="@Strings.MiltyDraft_Factions.TrimEnd(':')" CenterText="true" CssClass="mb-sm" />
+
+                    <CascadingValue Value="this" Name="MiltyDraftMainDraft">
+                        <MiltyDraftFactionRow DraftedFactions="DraftedFactions" />
+                    </CascadingValue>
+                </ResponsiveCard>
+
+                <ResponsiveCard CssClass="milty-draft-slices-header-card mt-lg mb-sm">
+                    <ResponsiveHeading Level="3" Text="@Strings.MiltyDraft_Slices.TrimEnd(':')" CenterText="true" />
+                </ResponsiveCard>
+
+                @if (Slices.Count > 0)
+                {
+                    <div class="milty-draft-slices-grid">
+                        @foreach (var slice in Slices)
                         {
                             <CascadingValue Value="this" Name="MiltyDraftMainDraft">
-                                <MiltyDraftInitiativeOrder Initiative="initiative.Initiative" FontSize="28" IsPicked="initiative.Picked" Color="initiative.DraftColor" />
+                                <MiltyDraftSlice SliceModel="slice" />
                             </CascadingValue>
                         }
-                    </FlexRowContainer>
-
-                    <VerticalSpace Height="10" />
-
-                </FlexColumnCenteredContainer>
-
-                <VerticalSpace Height="50" />
-
-                <Label Text="@Strings.MiltyDraft_Factions" TextColor="TextColor.Green" FontSize="24" PaddingLeft="20" />
-
-                <CascadingValue Value="this" Name="MiltyDraftMainDraft">
-                    <MiltyDraftFactionRow DraftedFactions="DraftedFactions"/>
-                </CascadingValue>
-
-                <VerticalSpace Height="50" />
-
-                <Label Text="@Strings.MiltyDraft_Slices" TextColor="TextColor.Green" FontSize="24" PaddingLeft="20" />
-
-                <GridLayout Width="100" Gap="10" Columns="3">
-
-                    @foreach (var slice in Slices)
-                    {
-                        <CascadingValue Value="this" Name="MiltyDraftMainDraft">
-                            <MiltyDraftSlice SliceModel="slice" />
-                        </CascadingValue>
-                    }
-
-                    @for (var i = 0; i < (3 - (Slices.Count % 3)); i++)
-                    {
-                        <div class="background" style="width: 100%; height: 100%;" />    
-                    }
-
-                </GridLayout>
+                    </div>
+                }
+                else
+                {
+                    <ResponsiveLabel Text="@Strings.MiltyDraft_GeneratingDraft" CenterText="true" CssClass="mb-sm" />
+                }
 
             </div>
 
         </div>
 
-    </FlexColumnCenteredContainer>
-}
-else
-{
-    <VerticalSpace Height="150" />
-    <Title Text="@Strings.MiltyDraft_GeneratingDraft" FontSize="32" />
-}
+    </ResponsiveContainer>
+</div>

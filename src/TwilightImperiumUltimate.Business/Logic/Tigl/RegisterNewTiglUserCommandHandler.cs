@@ -1,4 +1,4 @@
-using FluentResults;
+﻿using FluentResults;
 
 namespace TwilightImperiumUltimate.Business.Logic.Tigl;
 
@@ -8,8 +8,12 @@ public class RegisterNewTiglUserCommandHandler(
 {
     public async Task<Result<int>> Handle(RegisterNewTiglUserCommand request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         if (request.DiscordId <= 0)
+        {
             return Result.Fail<int>("Invalid DiscordId.");
+        }
 
         var result = await tiglUserRepository.RegisterNewTiglUser(
             request.DiscordId,

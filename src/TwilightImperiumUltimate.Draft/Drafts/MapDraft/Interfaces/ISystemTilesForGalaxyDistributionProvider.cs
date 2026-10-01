@@ -5,7 +5,7 @@ namespace TwilightImperiumUltimate.Draft.Drafts.MapDraft.Interfaces;
 
 public interface ISystemTilesForGalaxyDistributionProvider
 {
-    public SystemTilesForGalaxyDistribution GetRemainingSystemTilesForMapDistribution(
+    SystemTilesForGalaxyDistribution GetRemainingSystemTilesForMapDistribution(
         Dictionary<(int X, int Y), Hex> galaxy,
         SystemTilesForMapSetup systemTilesForMapSetup,
         IMapSettings mapSettings,

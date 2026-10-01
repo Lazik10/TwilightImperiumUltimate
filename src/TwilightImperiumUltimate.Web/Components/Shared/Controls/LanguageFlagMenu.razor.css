@@ -1,0 +1,33 @@
+.language-flag-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-sm);
+    z-index: 999;
+}
+
+.language-flag {
+    display: block;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out, filter 0.2s ease;
+}
+
+.language-flag:hover {
+    transform: scale(1.1);
+}
+
+.language-flag-active {
+    opacity: 1;
+    filter: grayscale(0%);
+}
+
+.language-flag-inactive {
+    opacity: 0.5;
+    filter: grayscale(60%);
+}
+
+.language-flag-inactive:hover {
+    opacity: 0.8;
+}

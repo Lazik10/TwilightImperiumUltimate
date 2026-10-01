@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Contracts.ApiContracts;
+﻿using TwilightImperiumUltimate.Contracts.ApiContracts;
 
 namespace TwilightImperiumUltimate.Business.Logic.MapArchive;
 
@@ -12,6 +12,8 @@ public class AddOrUpdateUserMapRatingCommandHandler(
 
     public async Task<ApiResponse<MapRatingDto>> Handle(AddOrUpdateUserMapRatingCommand request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var userRating = await _mapArchiveRepository.AddOrUpdateUserMapRating(request.UserId, request.MapId, request.Rating, cancellationToken);
 
         var mapRatingDto = _mapper.Map<MapRatingDto>(userRating);

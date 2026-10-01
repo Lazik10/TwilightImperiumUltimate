@@ -1,0 +1,8 @@
+.slices-archive-grid ::deep .rz-custom-header {
+    width: 100%;
+}
+
+.slices-archive-grid ::deep .rz-grid-table tbody tr > td:first-child,
+.slices-archive-grid ::deep .rz-grid-table tbody tr > td:first-child .rz-cell-data {
+    text-align: left;
+}

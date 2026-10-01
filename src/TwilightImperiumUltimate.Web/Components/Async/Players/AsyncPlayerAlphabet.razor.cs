@@ -7,6 +7,9 @@ public partial class AsyncPlayerAlphabet
     [Parameter]
     public EventCallback<char> OnLetterClick { get; set; }
 
+    [Parameter]
+    public char? SelectedLetter { get; set; }
+
     private void SearchPlayer(char letter)
     {
         OnLetterClick.InvokeAsync(letter);

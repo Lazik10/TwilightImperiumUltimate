@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Prestige;
+﻿using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Prestige;
 
 namespace TwilightImperiumUltimate.Business.Logic.Tigl.Prestige;
 
@@ -7,6 +7,8 @@ public class RemovePrestigeRankCommandHandler(IDbContextFactory<TwilightImperium
 {
     public async Task<RemovePrestigeRankResponse> Handle(RemovePrestigeRankCommand request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         await using var db = await dbFactory.CreateDbContextAsync(cancellationToken);
         var r = request.Request;
 

@@ -12,10 +12,11 @@ public class AsyncHistoryStatsFactory(
 
     public async Task<AsyncHistorySummaryStatsDto> CreateAsyncHistoryStatsSummary(CancellationToken cancellationToken)
     {
-        var games = await _asyncStatsRepository.GetAllAsyncGames(cancellationToken);
+        var gameRows = await _asyncStatsRepository.GetAsyncStatisticsGameProjections(cancellationToken);
+        var games = gameRows.GroupBy(x => x.GameStatsId).Select(x => x.ToList()).ToList();
 
-        var tiglGames = games.Where(x => x.IsTigl).ToList();
-        var customGames = games.Where(x => !x.IsTigl).ToList();
+        var tiglGames = games.Where(x => x[0].IsTigl).ToList();
+        var customGames = games.Where(x => !x[0].IsTigl).ToList();
 
         var allHistoryStats = CreateHistoryStats(games);
         var tiglHistoryStats = CreateHistoryStats(tiglGames);
@@ -24,21 +25,22 @@ public class AsyncHistoryStatsFactory(
         return new AsyncHistorySummaryStatsDto(allHistoryStats, tiglHistoryStats, customHistoryStats);
     }
 
-    private AsyncHistoryStatsDto CreateHistoryStats(List<GameStats> games)
+    private AsyncHistoryStatsDto CreateHistoryStats(List<List<AsyncStatisticsGameProjection>> games)
     {
         var historyStats = CalculateAsyncGamesHistory(games);
+        var endedHistoryStats = CalculateAsyncEndedGamesHistory(games);
         var playersHistoryStats = CalculateAsyncPlayerHistory(games);
 
-        return new AsyncHistoryStatsDto(historyStats, playersHistoryStats);
+        return new AsyncHistoryStatsDto(historyStats, endedHistoryStats, playersHistoryStats);
     }
 
-    private List<AsyncGamesHistoryDto> CalculateAsyncGamesHistory(List<GameStats> games)
+    private List<AsyncGamesHistoryDto> CalculateAsyncGamesHistory(List<List<AsyncStatisticsGameProjection>> games)
     {
         var gameRecords = games
             .Select(game => new
             {
-                DateTimeOffset.FromUnixTimeSeconds(game.Timestamp).UtcDateTime.Year,
-                DateTimeOffset.FromUnixTimeSeconds(game.Timestamp).UtcDateTime.Month,
+                DateTimeOffset.FromUnixTimeSeconds(game[0].Timestamp).UtcDateTime.Year,
+                DateTimeOffset.FromUnixTimeSeconds(game[0].Timestamp).UtcDateTime.Month,
             })
             .GroupBy(x => new { x.Year, x.Month })
             .Select(g => new
@@ -62,25 +64,60 @@ public class AsyncHistoryStatsFactory(
                 entry.Year,
                 entry.Month,
                 cumulativeGames,
-                entry.Count));
+                entry.Count,
+                0));
         }
 
         return result;
     }
 
-    private List<AsyncPlayersHistoryDto> CalculateAsyncPlayerHistory(List<GameStats> games)
+    private List<AsyncGamesHistoryDto> CalculateAsyncEndedGamesHistory(List<List<AsyncStatisticsGameProjection>> games)
+    {
+        var endedGameRecords = games
+            .Where(game => game[0].HasWinner || game[0].EndedTimestamp.HasValue)
+            .Select(game =>
+            {
+                var endedTimestamp = game[0].EndedTimestamp ?? (long?)game[0].SetupTimestamp ?? game[0].Timestamp;
+                return new
+                {
+                    Year = DateTimeOffset.FromUnixTimeSeconds(endedTimestamp).UtcDateTime.Year,
+                    Month = DateTimeOffset.FromUnixTimeSeconds(endedTimestamp).UtcDateTime.Month,
+                };
+            })
+            .GroupBy(x => new { x.Year, x.Month })
+            .Select(g => new
+            {
+                g.Key.Year,
+                g.Key.Month,
+                Count = g.Count(),
+            })
+            .OrderBy(x => x.Year)
+            .ThenBy(x => x.Month)
+            .ToList();
+
+        return endedGameRecords
+            .Select(entry => new AsyncGamesHistoryDto(
+                entry.Year,
+                entry.Month,
+                entry.Count,
+                0,
+                entry.Count))
+            .ToList();
+    }
+
+    private List<AsyncPlayersHistoryDto> CalculateAsyncPlayerHistory(List<List<AsyncStatisticsGameProjection>> games)
     {
         var playerRecords = new List<(int Year, int Month, long DiscordUserID)>();
 
         foreach (var game in games)
         {
-            var dateTime = DateTimeOffset.FromUnixTimeSeconds(game.Timestamp).UtcDateTime;
+            var dateTime = DateTimeOffset.FromUnixTimeSeconds(game[0].Timestamp).UtcDateTime;
             int year = dateTime.Year;
             int month = dateTime.Month;
 
-            foreach (var player in game.PlayerStatistics)
+            foreach (var player in game.Where(x => x.DiscordUserId.HasValue))
             {
-                playerRecords.Add((year, month, player.DiscordUserID));
+                playerRecords.Add((year, month, player.DiscordUserId!.Value));
             }
         }
 

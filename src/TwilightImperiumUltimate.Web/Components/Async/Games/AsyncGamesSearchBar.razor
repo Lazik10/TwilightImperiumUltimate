@@ -1,15 +1,15 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Shared.Bars
 
-<FlexColumnCenteredContainer>
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
 
-    <FlexRowContainer Width="Width">
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="Width">
 
         <Label Text="@SearhTitle" CenterText="true" />
 
-        <AutoComplete Data=@GameNames ValueChanged="SelectGame" Value="@_selectedValue" />
+        <ResponsiveAutocomplete Id="async-games-search" Data="@GameNames" ValueChanged="SelectGame" Value="@_selectedValue" />
 
-        <Button ButtonText="Clear" OnClick="ClearSelectedGame" />
+        <ResponsiveButton ButtonText="Clear" OnClick="ClearSelectedGame" Width="30" />
 
-    </FlexRowContainer>
+    </ResponsiveContainer>
 
-</FlexColumnCenteredContainer>
+</ResponsiveContainer>

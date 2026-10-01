@@ -1,0 +1,36 @@
+<section class="section-container mb-xl">
+	<div class="tigl-opponents-desktop">
+		<TiglTopOpponentsDesktopTable @key="Opponents.Count" Opponents="Opponents" OnPlayerSelected="OnPlayerSelected" />
+	</div>
+
+	<div class="tigl-opponents-mobile">
+		<ResponsiveRadzenTable ZebraStripes="true" CssClass="statistics-row-handel" TableTitle="Top opponents">
+			<RadzenTableHeader>
+				<RadzenTableHeaderRow>
+					<RadzenTableHeaderCell scope="col">#</RadzenTableHeaderCell>
+					<RadzenTableHeaderCell scope="col">Player</RadzenTableHeaderCell>
+					<RadzenTableHeaderCell scope="col">Games</RadzenTableHeaderCell>
+				</RadzenTableHeaderRow>
+			</RadzenTableHeader>
+			<RadzenTableBody>
+				@foreach (var opponent in Opponents.Select((item, index) => (item, index)))
+				{
+					<RadzenTableRow>
+						<RadzenTableCell>@(opponent.index + 1).</RadzenTableCell>
+						<RadzenTableCell>
+							@if (opponent.item.TiglUserId == 0)
+							{
+								<span style="color: red;">Private Profile</span>
+							}
+							else
+							{
+								<span class="clickable-cell" tabindex="0" role="button" @onclick="() => OnPlayerSelected.InvokeAsync(opponent.item.TiglUserId)">@opponent.item.TiglUserName</span>
+							}
+						</RadzenTableCell>
+						<RadzenTableCell class="yellow">@opponent.item.GamesPlayed</RadzenTableCell>
+					</RadzenTableRow>
+				}
+			</RadzenTableBody>
+		</ResponsiveRadzenTable>
+	</div>
+</section>

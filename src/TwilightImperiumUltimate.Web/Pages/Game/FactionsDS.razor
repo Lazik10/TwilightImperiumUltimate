@@ -1,14 +1,3 @@
-﻿@page "/game/factions-discordant-stars"
-@using TwilightImperiumUltimate.Web.Components.Factions
-
-<PageTitle>@Strings.Page_FactionsDS</PageTitle>
-
-<Page>
-    <FactionIconRow
-        OnFactionClickGetFaction="UpdateSelectedFaction"
-        ShowBaseGame="false"
-        ShowDiscordantStars="true"
-        Faction="@Faction"/>
-
-    <FactionInfoGrid @ref="factionInfoRef" />
-</Page>
+﻿@* Kept only so old bookmarks/links/search-engine results for this URL keep working. *@
+@* All real faction logic now lives on the generic /game/factions[/{FactionOrSource}] page. *@
+@page "/game/factions-discordant-stars"

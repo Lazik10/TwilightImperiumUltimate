@@ -7,21 +7,29 @@ public static class AsyncPlayerStatsHelper
 {
     public static float GetFloatValue(this AsyncPlayerFactionStatsByGameVp instance, Func<AsyncPlayerFactionStatsByGameVp, float> propertySelector)
     {
-        return propertySelector(instance);
-    }
+        ArgumentNullException.ThrowIfNull(propertySelector);
 
-    public static int GetIntValue(this AsyncPlayerFactionStatsByGameVp instance, Func<AsyncPlayerFactionStatsByGameVp, int> propertySelector)
-    {
         return propertySelector(instance);
     }
 
     public static float GetFloatValue(this AsyncFactionStatsByGameVpDto instance, Func<AsyncFactionStatsByGameVpDto, float> propertySelector)
     {
+        ArgumentNullException.ThrowIfNull(propertySelector);
+
+        return propertySelector(instance);
+    }
+
+    public static int GetIntValue(this AsyncPlayerFactionStatsByGameVp instance, Func<AsyncPlayerFactionStatsByGameVp, int> propertySelector)
+    {
+        ArgumentNullException.ThrowIfNull(propertySelector);
+
         return propertySelector(instance);
     }
 
     public static int GetIntValue(this AsyncFactionStatsByGameVpDto instance, Func<AsyncFactionStatsByGameVpDto, int> propertySelector)
     {
+        ArgumentNullException.ThrowIfNull(propertySelector);
+
         return propertySelector(instance);
     }
 }

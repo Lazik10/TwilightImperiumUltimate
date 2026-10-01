@@ -1,4 +1,4 @@
-using System.Globalization;
+﻿using System.Globalization;
 using TwilightImperiumUltimate.Business.Helpers;
 using TwilightImperiumUltimate.Contracts.DTOs.Tigl;
 
@@ -16,6 +16,8 @@ public class GetPlayerRankHistoryQueryHandler(IDbContextFactory<TwilightImperium
 
     public async Task<ItemListDto<TiglPlayerRankHistoryDto>> Handle(GetPlayerRankHistoryQuery request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var requestedDiscordIds = request.DiscordUserIds
             .Distinct()
             .Where(id => id > 0)

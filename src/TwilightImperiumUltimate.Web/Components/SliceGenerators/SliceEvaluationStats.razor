@@ -1,12 +1,81 @@
-﻿<div class="handel white shadow" style="width: 100%;">
-    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+﻿@if (ArchiveLayout)
+{
+    <div class="slice-archive-stats">
+        <div class="slice-archive-stat-row">
+            <span class="slice-archive-stat-label slice-archive-stat-id-label">ID:</span>
+            <span class="slice-archive-stat-id-value handel shadow">@GetDisplaySliceId()</span>
+        </div>
+
+        <div class="slice-archive-stat-row">
+            <span class="slice-archive-stat-label">@Strings.SliceGenerator_Optimal</span>
+            <span class="slice-archive-resource handel shadow">@SliceEvaluation.OptimalResourcesSum</span>
+            <span class="handel shadow">/</span>
+            <span class="slice-archive-influence handel shadow">@SliceEvaluation.OptimalInfluenceSum</span>
+        </div>
+
+        <div class="slice-archive-stat-row">
+            <span class="slice-archive-stat-label">@Strings.SliceGenerator_Total</span>
+            <span class="slice-archive-resource handel shadow">@SliceEvaluation.Resources</span>
+            <span class="handel shadow">/</span>
+            <span class="slice-archive-influence handel shadow">@SliceEvaluation.Influence</span>
+        </div>
+
+        <div class="slice-archive-stat-row slice-archive-traits">
+            <span class="slice-archive-stat-label handel shadow">@Strings.SliceGenerator_Traits</span>
+            <span class="slice-archive-trait-groups">
+                <span class="slice-archive-trait-icons">
+                @foreach (var planetTrait in SliceEvaluation.PlanetTraits.Keys)
+                {
+                    for (var i = 0; i < SliceEvaluation.PlanetTraits[planetTrait]; i++)
+                    {
+                        <img src="@GetPlanetTraitPath(planetTrait)" class="max-height" alt="" />
+                    }
+                }
+
+                </span>
+
+                <span class="slice-archive-trait-icons">
+                @foreach (var technologyType in SliceEvaluation.TechnologySkips.Keys)
+                {
+                    for (var i = 0; i < SliceEvaluation.TechnologySkips[technologyType]; i++)
+                    {
+                        <img src="@GetTechnologyPath(technologyType)" class="max-height" alt="" />
+                    }
+                }
+
+                @for (var i = 0; i < SliceEvaluation.LegendariesCount; i++)
+                {
+                    <img src="@GetPlanetTraitPath(PlanetTrait.Legendary)" class="max-height" alt="" />
+                }
+
+                @for (var i = 0; i < SliceEvaluation.AlphaWormholesCount; i++)
+                {
+                    <img src="@GetPlanetTraitPath(PlanetTrait.AlphaWormhole)" class="max-height" alt="" />
+                }
+
+                @for (var i = 0; i < SliceEvaluation.BetaWormholesCount; i++)
+                {
+                    <img src="@GetPlanetTraitPath(PlanetTrait.BetaWormhole)" class="max-height" alt="" />
+                }
+
+                @for (var i = 0; i < SliceEvaluation.GammaWormholesCount; i++)
+                {
+                    <img src="@GetPlanetTraitPath(PlanetTrait.GammaWormhole)" class="max-height" alt="" />
+                }
+                </span>
+            </span>
+        </div>
+    </div>
+}
+else
+{
+<div class="handel white shadow" style="width: 100%;">
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" CssClass="mb-sm">
         <Label Text="@Strings.SliceGenerator_SliceId" FontSize="@(FontSize)" TextColor="TextColor.White" Width="20" CenterText="false" />
         <Label Text="@(GetDisplaySliceId())" FontSize="@(FontSize)" TextColor="TextColor.White" Width="20" CenterText="true" />
-    </FlexRowContainer>
+    </ResponsiveContainer>
 
-    <VerticalSpace Height="10" />
-
-    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" CssClass="mb-sm">
         <Label Text="@Strings.SliceGenerator_Traits" FontSize="@(FontSize)" TextColor="TextColor.White" Width="20" CenterText="false" />
 
         @foreach (var planetTrait in SliceEvaluation.PlanetTraits.Keys)
@@ -16,11 +85,9 @@
                 <img src="@GetPlanetTraitPath(planetTrait)" class="max-height" style="max-width: 40px;" />
             }
         }
-    </FlexRowContainer>
+    </ResponsiveContainer>
 
-    <VerticalSpace Height="10" />
-
-    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" CssClass="mb-sm">
         @foreach (var technologyType in SliceEvaluation.TechnologySkips.Keys)
         {
             for (int i = 0; i < SliceEvaluation.TechnologySkips[technologyType]; i++)
@@ -49,23 +116,20 @@
             <img src="@GetPlanetTraitPath(PlanetTrait.GammaWormhole)" class="max-height" style="max-width: 40px;" />
         }
 
-    </FlexRowContainer>
+    </ResponsiveContainer>
 
-    <VerticalSpace Height="10" />
-
-    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" CssClass="mb-sm">
         <Label Text="@Strings.SliceGenerator_Total" FontSize="@FontSize" TextColor="TextColor.White" Width="20" />
         <Label Text="@SliceEvaluation.Resources.ToString()" FontSize="@FontSize" TextColor="TextColor.Yellow" Width="20" CenterText="true" />
         /
         <Label Text="@SliceEvaluation.Influence.ToString()" FontSize="@FontSize" TextColor="TextColor.Deepskyblue" Width="20" CenterText="true" />
-    </FlexRowContainer>
+    </ResponsiveContainer>
 
-    <VerticalSpace Height="10" />
-
-    <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
+    <ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart">
         <Label Text="@Strings.SliceGenerator_Optimal" FontSize="@FontSize" TextColor="TextColor.White" Width="20" />
         <Label Text="@SliceEvaluation.OptimalResourcesSum.ToString()" FontSize="@FontSize" TextColor="TextColor.Yellow" Width="20" CenterText="true" />
         /
         <Label Text="@SliceEvaluation.OptimalInfluenceSum.ToString()" FontSize="@FontSize" TextColor="TextColor.Deepskyblue" Width="20" CenterText="true" />
-    </FlexRowContainer>
+    </ResponsiveContainer>
 </div>
+}

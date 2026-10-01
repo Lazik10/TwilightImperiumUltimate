@@ -1,0 +1,19 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Navigation
+
+@*
+    Reusable, accessible menu action/toggle button.
+    Renders a native <button> (so it is keyboard operable and announced correctly)
+    for menu triggers and actions that do not navigate to a URL. Visual styling is
+    provided by the caller via CssClass so it can adapt to any menu context and stay responsive.
+*@
+
+<button type="button"
+        class="menu-button @CssClass"
+        @onclick="HandleClickAsync"
+        aria-haspopup="@AriaHasPopupValue"
+        aria-expanded="@AriaExpandedValue"
+        aria-controls="@AriaControls"
+        aria-label="@AriaLabel"
+        title="@Title">
+    @ChildContent
+</button>

@@ -1,7 +1,7 @@
+using System.Globalization;
 using Discord;
 using Discord.WebSocket;
 using Microsoft.Extensions.Options;
-using System.Globalization;
 using TwilightImperiumUltimate.API.Discord.Services;
 using TwilightImperiumUltimate.API.Options;
 using TwilightImperiumUltimate.Core.Entities.Logging;

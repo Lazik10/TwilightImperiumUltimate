@@ -1,0 +1,180 @@
+﻿#main-navbar {
+    /* Opaque backing behind the fade gradient (same fix as ResponsiveTable's panel): this bar
+       sits at the very top of every page, so a translucent background here let the html
+       element's `background-attachment: fixed` starfield show through and forced a repaint of
+       that image on every scroll frame while the navbar was on screen. */
+    background-color: var(--color-nav-panel-bg);
+    background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.5) 10%, rgba(0,0,0,0.5) 90%, rgba(0,0,0,0));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: 80%;
+    height: 3.125rem;
+    min-height: 2.5rem;
+    margin-bottom: 3.125rem;
+    align-self: center;
+}
+
+@media (max-width: 1280px) {
+    #main-navbar {
+        height: auto;
+        flex-direction: row;
+        margin-bottom: 0;
+        background-color: var(--color-nav-panel-bg);
+        background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.5) 10%, rgba(0,0,0,0.5) 90%, rgba(0,0,0,0));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: nowrap;
+        width: 100%;
+        height: 3.125rem;
+        min-height: 2.5rem;
+        margin-bottom: 3.125rem;
+        align-self: center;
+    }
+}
+
+.mobile-nav-shell {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    #main-navbar {
+        display: none !important;
+    }
+
+    .mobile-nav-shell {
+        display: block;
+        width: 100%;
+        max-width: 96%;
+        margin: 0 auto var(--space-md);
+    }
+
+    .mobile-nav-toggle {
+        width: 100%;
+        border: 0.125rem solid black;
+        border-radius: var(--border-radius-md);
+        background-color: var(--color-nav-panel-bg);
+        color: white;
+        font-size: var(--font-size-2xl);
+        line-height: 1;
+        padding: var(--space-sm) var(--space-md);
+        text-align: center;
+        cursor: pointer;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .mobile-nav-toggle:hover {
+        background-color: var(--color-nav-hover-bg);
+        color: var(--color-nav-hover);
+    }
+
+    .mobile-nav-panel {
+        margin-top: var(--space-sm);
+        border-radius: var(--border-radius-md);
+        overflow: hidden;
+        background: linear-gradient(to right, rgba(0,0,0,0.2), rgba(0,0,0,0.55) 15%, rgba(0,0,0,0.55) 85%, rgba(0,0,0,0.2));
+    }
+
+    .mobile-nav-account-row {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        min-height: 3rem;
+    }
+
+    ::deep .mobile-nav-row,
+    .mobile-nav-row-link {
+        width: 100%;
+        display: block;
+        box-sizing: border-box;
+        border: none;
+        background: var(--color-nav-panel-bg);
+        color: white;
+        text-align: left;
+        font-family: Handel, fallback, sans-serif;
+        font-size: var(--font-size-2xl);
+        font-weight: bold;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: var(--space-sm) var(--space-md);
+        cursor: pointer;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .mobile-nav-row--account {
+        width: auto;
+        flex: 1;
+    }
+
+    .mobile-nav-account-tools {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        padding: 0 var(--space-sm);
+        background: var(--color-nav-panel-bg);
+    }
+
+    ::deep .mobile-nav-row:hover,
+    .mobile-nav-row-link:hover {
+        background: var(--color-nav-hover-bg);
+        color: var(--color-nav-hover);
+    }
+
+    ::deep .mobile-nav-row.menu-link-active,
+    .mobile-nav-row-link.menu-link-active {
+        background: var(--color-nav-panel-bg);
+        color: var(--color-nav-hover);
+        text-decoration: underline;
+        text-underline-offset: 0.25rem;
+    }
+
+    ::deep .mobile-nav-submenu {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: var(--space-xs);
+        overflow-x: hidden;
+        white-space: normal;
+        padding: var(--space-xs) var(--space-md) var(--space-sm);
+        background: rgba(0, 0, 0, 0.45);
+    }
+
+    ::deep .mobile-nav-submenu a,
+    ::deep .mobile-nav-submenu .menu-button {
+        color: white;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-family: Handel, fallback, sans-serif;
+        font-size: var(--font-size-lg);
+        padding: var(--space-xs) 0;
+        transition: color 0.2s ease;
+        display: block;
+        width: 100%;
+    }
+
+    ::deep .mobile-nav-submenu a:hover,
+    ::deep .mobile-nav-submenu .menu-button:hover {
+        color: var(--color-nav-hover);
+    }
+
+    ::deep .mobile-nav-submenu a.submenu-link-active {
+        color: var(--color-nav-hover);
+        font-weight: bold;
+    }
+
+    .mobile-nav-toggle:focus-visible,
+    ::deep .mobile-nav-row:focus-visible,
+    .mobile-nav-row-link:focus-visible,
+    ::deep .mobile-nav-submenu a:focus-visible {
+        outline: 0.125rem solid var(--color-nav-hover);
+        outline-offset: -0.125rem;
+        color: var(--color-nav-hover);
+    }
+
+    .mobile-nav-divider {
+        border-top: 1px solid rgba(255, 255, 255, 0.25);
+        margin: var(--space-xs) 0;
+    }
+}

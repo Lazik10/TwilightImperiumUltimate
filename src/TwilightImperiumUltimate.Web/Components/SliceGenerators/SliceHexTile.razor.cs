@@ -1,11 +1,11 @@
-using Serilog;
 using System.Globalization;
+using Serilog;
 using TwilightImperiumUltimate.Web.Pages.Tools;
 using TwilightImperiumUltimate.Web.Services.SliceGenerators;
 
 namespace TwilightImperiumUltimate.Web.Components.SliceGenerators;
 
-public partial class SliceHexTile : TwilightImperiumBaseComponenet
+public partial class SliceHexTile : TwilightImperiumBaseComponent, IDisposable
 {
     private TileRotation _tileRotation;
 
@@ -23,6 +23,9 @@ public partial class SliceHexTile : TwilightImperiumBaseComponenet
     [CascadingParameter(Name = "SliceGeneratorPage")]
     public SliceGenerator SliceGeneratorPage { get; set; } = default!;
 
+    [CascadingParameter(Name = "SliceGeneratorGrid")]
+    public SliceGeneratorGrid SliceGeneratorGrid { get; set; } = default!;
+
     [Parameter]
     public EventCallback SwappedTwoSystemTiles { get; set; }
 
@@ -37,9 +40,12 @@ public partial class SliceHexTile : TwilightImperiumBaseComponenet
     [Inject]
     private ISliceGeneratorSettingsService SliceGeneratorSettingsService { get; set; } = null!;
 
-    private SystemTileOverlay Overlay => SliceGeneratorSettingsService.SystemTileOverlay;
+    private bool IsTileSelected =>
+        SystemTile is not null && SliceGeneratorService.IsSystemTileSelected(SystemTile, Position, SliceId);
 
-    private string SystemTileOverlayText => SliceGeneratorSettingsService.SystemTileOverlay switch
+    private SystemTileOverlay Overlay => SliceGeneratorSettingsService.MenuOverlay;
+
+    private string SystemTileOverlayText => Overlay switch
     {
         SystemTileOverlay.Id => SystemTile?.SystemTileCode ?? string.Empty,
         SystemTileOverlay.Resources => SystemTile?.Resources.ToString(CultureInfo.InvariantCulture) ?? string.Empty,
@@ -47,7 +53,7 @@ public partial class SliceHexTile : TwilightImperiumBaseComponenet
         _ => string.Empty,
     };
 
-    private string SystemTileOverlayColor => SliceGeneratorSettingsService.SystemTileOverlay switch
+    private string SystemTileOverlayColor => Overlay switch
     {
 
         SystemTileOverlay.Id => "white",
@@ -63,15 +69,21 @@ public partial class SliceHexTile : TwilightImperiumBaseComponenet
             await HandleInitialRotation();
     }
 
+    protected override void OnInitialized() =>
+        SliceGeneratorService.TileSelectionChanged += HandleTileSelectionChanged;
+
+    public void Dispose() =>
+        SliceGeneratorService.TileSelectionChanged -= HandleTileSelectionChanged;
+
     private Task HandleInitialRotation()
     {
         _tileRotation = SystemTile!.SystemTileCode switch
         {
-            string code when code.Contains("A1") || code.Contains("B1") => TileRotation.Rotation60,
-            string code when code.Contains("A2") || code.Contains("B2") => TileRotation.Rotation120,
-            string code when code.Contains("A3") || code.Contains("B3") => TileRotation.Rotation180,
-            string code when code.Contains("A4") || code.Contains("B4") => TileRotation.Rotation240,
-            string code when code.Contains("A5") || code.Contains("B5") => TileRotation.Rotation300,
+            string code when code.Contains("A1", StringComparison.Ordinal) || code.Contains("B1", StringComparison.Ordinal) => TileRotation.Rotation60,
+            string code when code.Contains("A2", StringComparison.Ordinal) || code.Contains("B2", StringComparison.Ordinal) => TileRotation.Rotation120,
+            string code when code.Contains("A3", StringComparison.Ordinal) || code.Contains("B3", StringComparison.Ordinal) => TileRotation.Rotation180,
+            string code when code.Contains("A4", StringComparison.Ordinal) || code.Contains("B4", StringComparison.Ordinal) => TileRotation.Rotation240,
+            string code when code.Contains("A5", StringComparison.Ordinal) || code.Contains("B5", StringComparison.Ordinal) => TileRotation.Rotation300,
             _ => TileRotation.Rotation0,
         };
 
@@ -104,10 +116,56 @@ public partial class SliceHexTile : TwilightImperiumBaseComponenet
             Log.Information("Dragged system tile was: {TileName}", draggedSystemTile?.SystemTileCode);
             Log.Information("Dropped on system tile: {TileName}", SystemTile.SystemTileCode);
             await SliceGeneratorService.SwitchDraggingSystemTileWithDropSystemTile(SystemTile, SliceId, Position);
+            SliceGeneratorGrid.UpdateSliceHexTileMenu();
             await SliceGeneratorPage.Reload();
             StateHasChanged();
         }
     }
+
+    private Task RequestDropSystemTile() =>
+        SliceGeneratorGrid.RequestSystemTileSwapAsync(DropSystemTile, SliceId, Position);
+
+    private Task HandleImageClick()
+    {
+        if (SystemTile?.SystemTileCategory == SystemTileCategory.Hyperlane)
+        {
+            Rotate();
+            return Task.CompletedTask;
+        }
+
+        return HandleTileClick();
+    }
+
+    private async Task HandleTileClick()
+    {
+        if (SystemTile is null)
+            return;
+
+        if (IsTileSelected)
+        {
+            await SliceGeneratorService.ClearSystemTileSelection();
+            return;
+        }
+
+        if (SliceGeneratorService.HasSelectedSystemTile)
+        {
+            if (Position == -1 && SliceGeneratorService.SelectedSystemTileSlicePosition == -1)
+            {
+                await StartDragSystemTile();
+                await SliceGeneratorService.SelectSystemTile(SystemTile, Position, SliceId);
+                return;
+            }
+
+            await RequestDropSystemTile();
+            return;
+        }
+
+        await StartDragSystemTile();
+        await SliceGeneratorService.SelectSystemTile(SystemTile, Position, SliceId);
+    }
+
+    private void HandleTileSelectionChanged() =>
+        _ = InvokeAsync(StateHasChanged);
 
     private void Rotate()
     {
@@ -127,20 +185,20 @@ public partial class SliceHexTile : TwilightImperiumBaseComponenet
 
         SystemTile.SystemTileCode = SystemTile.SystemTileCode switch
         {
-            string code when code.Contains('A') && code.Length == 3 => code.Replace("A", "A1"),
-            string code when code.Contains("A0") => code.Replace("A0", "A1"),
-            string code when code.Contains("A1") => code.Replace("A1", "A2"),
-            string code when code.Contains("A2") => code.Replace("A2", "A3"),
-            string code when code.Contains("A3") => code.Replace("A3", "A4"),
-            string code when code.Contains("A4") => code.Replace("A4", "A5"),
-            string code when code.Contains("A5") => code.Replace("A5", "A0"),
-            string code when code.Contains('B') && code.Length == 3 => code.Replace("B", "B1"),
-            string code when code.Contains("B0") => code.Replace("B0", "B1"),
-            string code when code.Contains("B1") => code.Replace("B1", "B2"),
-            string code when code.Contains("B2") => code.Replace("B2", "B3"),
-            string code when code.Contains("B3") => code.Replace("B3", "B4"),
-            string code when code.Contains("B4") => code.Replace("B4", "B5"),
-            string code when code.Contains("B5") => code.Replace("B5", "B0"),
+            string code when code.Contains('A', StringComparison.Ordinal) && code.Length == 3 => code.Replace("A", "A1", StringComparison.Ordinal),
+            string code when code.Contains("A0", StringComparison.Ordinal) => code.Replace("A0", "A1", StringComparison.Ordinal),
+            string code when code.Contains("A1", StringComparison.Ordinal) => code.Replace("A1", "A2", StringComparison.Ordinal),
+            string code when code.Contains("A2", StringComparison.Ordinal) => code.Replace("A2", "A3", StringComparison.Ordinal),
+            string code when code.Contains("A3", StringComparison.Ordinal) => code.Replace("A3", "A4", StringComparison.Ordinal),
+            string code when code.Contains("A4", StringComparison.Ordinal) => code.Replace("A4", "A5", StringComparison.Ordinal),
+            string code when code.Contains("A5", StringComparison.Ordinal) => code.Replace("A5", "A0", StringComparison.Ordinal),
+            string code when code.Contains('B', StringComparison.Ordinal) && code.Length == 3 => code.Replace("B", "B1", StringComparison.Ordinal),
+            string code when code.Contains("B0", StringComparison.Ordinal) => code.Replace("B0", "B1", StringComparison.Ordinal),
+            string code when code.Contains("B1", StringComparison.Ordinal) => code.Replace("B1", "B2", StringComparison.Ordinal),
+            string code when code.Contains("B2", StringComparison.Ordinal) => code.Replace("B2", "B3", StringComparison.Ordinal),
+            string code when code.Contains("B3", StringComparison.Ordinal) => code.Replace("B3", "B4", StringComparison.Ordinal),
+            string code when code.Contains("B4", StringComparison.Ordinal) => code.Replace("B4", "B5", StringComparison.Ordinal),
+            string code when code.Contains("B5", StringComparison.Ordinal) => code.Replace("B5", "B0", StringComparison.Ordinal),
             _ => string.Empty,
         };
     }

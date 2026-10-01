@@ -1,38 +1,28 @@
 ﻿@using TwilightImperiumUltimate.Web.Models.Drafts;
-@using TwilightImperiumUltimate.Web.Resources;
 @using TwilightImperiumUltimate.Web.Services.Path;
+@using TwilightImperiumUltimate.Web.Components.Shared.Controls
+@using TwilightImperiumUltimate.Web.Components.Shared.Text
 @inject IPathProvider PathProvider
 
-<div class="flex-row margin-top-50">
-    <div class="title white handel shadow player-number flex-row">
-        <div>@Strings.Player @Index :</div>
-    </div>
+<div class="faction-draft-player-card">
+    <ResponsiveCard CssClass="@(Index == 1 ? "mt-xl" : string.Empty)">
+        <div class="faction-draft-player-row">
+            <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Width="100" Gap="var(--space-md)" JustifyItems="Enums.AlignItems.Stretch" CssClass="faction-draft-player-grid">
+                <div class="faction-draft-player-details">
+                    <ResponsiveLabel Text="@Player.Name" FontSize="2xl" />
+                </div>
 
-    @if (DraftStage != DraftStage.Draft)
-    {
-        <div class="title white handel shadow flex-row">
-            @Player.Name
+                <div class="faction-draft-player-factions">
+                    <div class="flex-row wrap">
+                        @foreach (var faction in Player.DraftedFactions)
+                        {
+                            <img class="factionicon" src="@PathProvider.GetFactionIconPath(faction)" />
+                        }
+                    </div>
+                </div>
+            </ResponsiveGridContainer>
         </div>
-    }
-    else
-    {
-        <RadzenTextBox Placeholder="@Player.Name"
-                        @bind-Value="Player.Name"
-                        class="w-100 flex-row title white handel" />
-    }
-
-    <div class="title white handel shadow factions-text">
-        <div class="flex-row factions-text">
-            @Strings.Factions
-        </div>
-    </div>
-
-    <div class="flex-row wrap">
-        @foreach (var faction in Player.DraftedFactions)
-        {
-            <img class="factionicon" src="@PathProvider.GetFactionIconPath(faction)" />
-        }
-    </div>
+    </ResponsiveCard>
 </div>
 
 

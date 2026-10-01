@@ -1,6 +1,6 @@
+﻿using System.Text;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using System.Text;
 using TwilightImperiumUltimate.Business.Helpers;
 using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl;
 using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Report;

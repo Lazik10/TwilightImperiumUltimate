@@ -7,11 +7,20 @@ public partial class RoleAssignment
 {
     private IReadOnlyCollection<TwilightImperiumUserDto> _users = new List<TwilightImperiumUserDto>();
 
-    private IReadOnlyCollection<TwilightImperiumUserDto> _filteredUsers = new List<TwilightImperiumUserDto>();
-
     private IReadOnlyCollection<RoleDto> _roles = new List<RoleDto>();
 
     private IReadOnlyCollection<RoleDto> _specificUserRoles = new List<RoleDto>();
+
+    /// <summary>
+    /// Every user's email and login (username), combined into a single alphabetically sorted
+    /// lookup list, so the autocomplete can offer both at once -- useful "just in case" the
+    /// exact email address isn't known. Computed once per <see cref="LoadUsers"/> call (NOT a
+    /// property recomputed on every render): RadzenAutoComplete's own internal filtering/open
+    /// state got unreliable when handed a freshly-materialized IEnumerable on every keystroke.
+    /// </summary>
+    private List<string> _userLookupSuggestions = [];
+
+    private string _userSearchText = string.Empty;
 
     private string _selectedUserEmail = string.Empty;
 
@@ -23,6 +32,8 @@ public partial class RoleAssignment
 
     [Inject]
     private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
+
+    private bool IsUserSelected => !string.IsNullOrEmpty(_selectedUserEmail);
 
     protected override async Task OnInitializedAsync()
     {
@@ -38,8 +49,13 @@ public partial class RoleAssignment
         if (statusCode == HttpStatusCode.OK)
         {
             _users = response!.Data!.Items;
-            _filteredUsers = response!.Data.Items;
-            _selectedUserEmail = _users.Select(x => x.Email).First() ?? string.Empty;
+            _userLookupSuggestions = _users
+                .SelectMany(u => new[] { u.Email, u.UserName })
+                .Where(value => !string.IsNullOrWhiteSpace(value))
+                .Select(value => value!)
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .OrderBy(value => value, StringComparer.OrdinalIgnoreCase)
+                .ToList();
         }
     }
 
@@ -62,14 +78,35 @@ public partial class RoleAssignment
         }
     }
 
-    private Task FilterUsersByEmail(string email)
+    /// <summary>
+    /// Handles typing/selection in the player lookup autocomplete. Only resolves and switches
+    /// the selected player once the text exactly matches a known email or login -- while the
+    /// user is still typing a partial value, the previously selected player is left untouched.
+    /// </summary>
+    private async Task OnUserSearchChanged(string value)
     {
-        if (email.Length < 3)
-            _filteredUsers = _users;
+        _userSearchText = value;
 
-        _filteredUsers = _users.Where(u => u.Email!.Contains(email)).ToList();
-        _selectedUserEmail = _filteredUsers.Select(x => x.Email).First() ?? string.Empty;
-        return Task.CompletedTask;
+        var user = _users.FirstOrDefault(x =>
+            string.Equals(x.Email, value, StringComparison.OrdinalIgnoreCase) ||
+            string.Equals(x.UserName, value, StringComparison.OrdinalIgnoreCase));
+
+        if (user is null)
+        {
+            _selectedUserEmail = string.Empty;
+            _specificUserRoles = [];
+            return;
+        }
+
+        _selectedUserEmail = user.Email ?? string.Empty;
+
+        await GetUserRoles();
+    }
+
+    private async Task OnRoleSelected(string role)
+    {
+        _selectedRole = role;
+        await GetUserRoles();
     }
 
     private async Task AddRoleToUser()
@@ -119,7 +156,10 @@ public partial class RoleAssignment
         _showRoleAddSuccess = false;
         _showRoleRemoveSuccess = false;
 
-        var userDto = _users.First(x => x.Email == _selectedUserEmail);
+        var userDto = _users.FirstOrDefault(x => x.Email == _selectedUserEmail);
+
+        if (userDto is null)
+            return;
 
         var result = await HttpClient.PostAsync<TwilightImperiumUserDto, ApiResponse<ItemListDto<RoleDto>>>(Paths.ApiPath_SpecificUserRoles, userDto);
         var response = result.Response;

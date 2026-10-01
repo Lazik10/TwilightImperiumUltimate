@@ -1,0 +1,26 @@
+.responsive-grid-container {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+    gap: var(--grid-gap);
+    padding-top: var(--space-xs);
+    padding-bottom: var(--space-xs);
+    box-sizing: border-box;
+}
+
+/* Auto-fit mode (MinItemWidth is set): as many columns as fit at that minimum width, reflowing
+   automatically at any viewport size instead of the fixed breakpoints below. */
+.responsive-grid-container--auto-fit {
+    grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-item-width), 1fr));
+}
+
+@media (max-width: 1024px) {
+    .responsive-grid-container:not(.responsive-grid-container--auto-fit) {
+        grid-template-columns: repeat(var(--grid-columns-tablet), minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .responsive-grid-container:not(.responsive-grid-container--auto-fit) {
+        grid-template-columns: repeat(var(--grid-columns-mobile), minmax(0, 1fr));
+    }
+}

@@ -1,26 +1,31 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
-@inherits TwilightImperiumBaseComponenet
+@inherits TwilightImperiumBaseComponent
 
-<div class="hex-container"
-     draggable="true" 
-     @ondragstart="@(() => StartDragSystemTile(SystemTile))"
-     @ondrop="@(() => DropSystemTile(SystemTile))"
-     @ondrop:preventDefault="true"
-     @ondragover="@(() => DragOverSystemTile(SystemTile))"
-     @ondragover:preventDefault="true"
-     @ondragend="@(() => EndDragSystemTile(SystemTile))"
-     title="@(SystemTile?.SystemTileName.ToString())">
+<button type="button"
+    class="hex-container @(IsTileSelected ? "hex-container-selected" : string.Empty)"
+    draggable="true"
+    aria-label="@($"Select {SystemTile?.SystemTileName}")"
+    aria-pressed="@IsTileSelected"
+    @onclick="HandleTileClick"
+    @ondragstart="@(() => StartDragSystemTile(SystemTile))"
+    @ondrop="RequestDropSystemTile"
+    @ondrop:preventDefault="true"
+    @ondragover="@(() => DragOverSystemTile(SystemTile))"
+    @ondragover:preventDefault="true"
+    @ondragend="@(() => EndDragSystemTile(SystemTile))"
+    title="@(SystemTile?.SystemTileName.ToString())">
 
     <img src="@ImagePath"
          style="transform: rotate(@(_degrees)deg);
                 transition: transform 0.5s ease;"
         alt="Hexagon" 
-        @onclick="Rotate">
+    @onclick="HandleImageClick"
+    @onclick:stopPropagation="true">
 
     @if (Overlay == SystemTileOverlay.Id || Overlay == SystemTileOverlay.Resources || Overlay == SystemTileOverlay.Influence)
     {
         <div class="hex-text @(SystemTileOverlayColor) handel shadow">
-            <FlexColumnCenteredContainer>
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                 @if (SystemTile!.SystemTileCategory == SystemTileCategory.Green && SystemTile.FactionName != FactionName.None
                || SystemTile.SystemTileName == SystemTileName.TileHome)
                 {
@@ -33,13 +38,13 @@
                 {
                     @SystemTileOverlayText
                 }
-            </FlexColumnCenteredContainer>
+            </ResponsiveContainer>
         </div>
     }
     else if (Overlay == SystemTileOverlay.ResourcesAndInfluence)
     {
         <div class="hex-text white handel shadow">
-            <FlexColumnCenteredContainer>
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
                 @if (SystemTile!.SystemTileCategory == SystemTileCategory.Green && SystemTile.FactionName != FactionName.None
                     || SystemTile.SystemTileName == SystemTileName.TileHome)
                 {
@@ -50,17 +55,17 @@
 
                 @if (SystemTile.SystemTileName != SystemTileName.TileHome)
                 {
-                    <FlexRowContainer>
-                        <div class="yellow">@SystemTile.Resources</div><HorizontalSpace Width="10" />/<HorizontalSpace Width="10" /><div class="blue">@SystemTile.Influence</div>
-                    </FlexRowContainer>
+                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
+                        <div class="yellow">@SystemTile.Resources</div><span class="ml-sm mr-sm">/</span><div class="blue">@SystemTile.Influence</div>
+                    </ResponsiveContainer>
                 }
 
-            </FlexColumnCenteredContainer>
+            </ResponsiveContainer>
         </div>
     }
     else if (Overlay == SystemTileOverlay.MapPosition)
     {
-        <FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
             <div class="hex-text @(SystemTileOverlayColor) handel shadow">
                 @if (SystemTile!.SystemTileCategory == SystemTileCategory.Green && SystemTile.FactionName != FactionName.None
                || SystemTile.SystemTileName == SystemTileName.TileHome)
@@ -74,7 +79,7 @@
                     @MapPosition
                 </div>
             </div>
-        </FlexColumnCenteredContainer>
+        </ResponsiveContainer>
     }
     else
     {
@@ -86,4 +91,5 @@
             </div>
         }
     }
-</div>
+</button>
+

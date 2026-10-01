@@ -1,76 +1,82 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Factions
 @using TwilightImperiumUltimate.Web.Components.Shared.Shapes
 
-<FlexColumnCenteredContainer>
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
 
-    <FlexColumnCenteredContainer Width="70">
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="70">
 
-        <Title Text="@Strings.GameTracker_Settings" FontSize="48"/>
-
-        <VerticalSpace Height="50" />
+        <ResponsiveHeading Level="1" Text="@Strings.GameTracker_Settings" CssClass="mb-2xl" />
 
         <GridLayout Columns="2" Gap="40" >
 
-            <NumericPicker Title="@Strings.GameTracker_ScorePoints"
-                Value="@GameTrackerSettingsService.NumberOfPoints"
-                OnDecrease="DecreaseScorePoints"
-                OnIncrease="IncreaseScorePoints"
-                Width="100"
-                FontSize="24"
-                CenteredText="false" />
+            <div class="game-tracker-settings-card">
+                <ResponsiveCard>
+                    <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Width="100" Gap="var(--space-xl)">
+                        <ResponsiveDropDown Id="game-tracker-score-points"
+                                            TValue="int"
+                                            Label="VP"
+                                            LabelPosition="LabelPosition.Column"
+                                            Value="@GameTrackerSettingsService.NumberOfPoints"
+                                            ValueChanged="SetScorePoints"
+                                            Data="@ScorePointOptions" />
 
-                <div />
+                        <ResponsiveDropDown Id="game-tracker-number-of-players"
+                                            TValue="int"
+                                            Label="@Strings.GameTracker_NumberOfPlayers"
+                                            LabelPosition="LabelPosition.Column"
+                                            Value="@GameTrackerSettingsService.NumberOfPlayers"
+                                            ValueChanged="SetPlayerCount"
+                                            Data="@PlayerCountOptions" />
 
-            <NumericPicker Title="@Strings.GameTracker_NumberOfPlayers"
-                           Value="@GameTrackerSettingsService.NumberOfPlayers"
-                           OnDecrease="DecreasePlayerCount"
-                           OnIncrease="IncreasePlayerCount"
-                           Width="100"
-                           FontSize="24"
-                           CenteredText="false" />
-
-            <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
-                <YesNoPicker Title="@Strings.GameTracker_EnablePlayerNames"
-                             DefaultValue="@GameTrackerSettingsService.EnablePlayerNames"
-                             OnValueChange="TogglePlayerNames"
-                             Width="100"
-                             FontSize="24" />
-            </FlexRowContainer>
+                        <div class="game-tracker-player-names-setting">
+                            <ResponsiveDropDown Id="game-tracker-enable-player-names"
+                                                TValue="bool"
+                                                Label="@Strings.GameTracker_EnablePlayerNames"
+                                                LabelPosition="LabelPosition.Column"
+                                                Value="@GameTrackerSettingsService.EnablePlayerNames"
+                                                ValueChanged="SetPlayerNamesEnabled"
+                                                Data="@BooleanOptions"
+                                                TextProperty="Value"
+                                                ValueProperty="Key" />
+                        </div>
+                    </ResponsiveGridContainer>
+                </ResponsiveCard>
+            </div>
 
             @foreach (var player in _players)
             {
-                <FlexRowContainer>
+                <ResponsiveCard @key="player.Id">
+                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
 
-                    <FlexRowContainer Width="20">
-                        <FactionIconImg FactionName="@player.FactionName" Height="50" />
-                    </FlexRowContainer>
+                        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="20" CssClass="mr-sm">
+                                <FactionIconImg FactionName="@player.FactionName" MaxHeight="50px" />
+                        </ResponsiveContainer>
 
-                    <HorizontalSpace Width="10" />
+                        <Rectangle Width="50" Height="50" Fill="@player.ColoTextName" OnClick="() => HandleRectangleClick(player)"/>
 
-                    <Rectangle Width="50" Height="50" Fill="@player.ColoTextName" OnClick="() => HandleRectangleClick(player)"/>
+                        @if(GameTrackerSettingsService.EnablePlayerNames)
+                        {
+                            <RadzenTextBox Placeholder="@player.DefaultName"
+                                           @bind-Value="@player.Name"
+                                           class="title white handel"
+                                           Style="max-height: 25px; margin-right: 20px; margin-left: 20px;" />
+                        }
+                        else
+                        {
+                            <Label Text="@player.DefaultName" CenterText="true" FontSize="20" />
+                        }
 
-                    @if(GameTrackerSettingsService.EnablePlayerNames)
-                    {
-                        <RadzenTextBox Placeholder="@player.DefaultName"
-                                       @bind-Value="@player.Name"
-                                       class="title white handel"
-                                       Style="max-height: 25px; margin-right: 20px; margin-left: 20px;" />
-                    }
-                    else
-                    {
-                        <Label Text="@player.DefaultName" CenterText="true" FontSize="20" />
-                    }
+                        <ResponsiveDropDown Id="@($"game-tracker-faction-{player.DefaultName}")"
+                                            TValue="FactionName"
+                                            Value="@player.FactionName"
+                                            ValueChanged="@(async (FactionName v) => { player.FactionName = v; await UpdatePlayerColors(); })"
+                                            Data="_factionNames"
+                                            TextProperty="Value"
+                                            ValueProperty="Key"
+                                            CssClass="title" />
 
-                    <RadzenDropDown Data="_factionNames" 
-                        TextProperty="Value" 
-                        ValueProperty="Key" 
-                        @bind-Value="player.FactionName"
-                        class="title handel"
-                        style="width: 100%;"
-                        @onchange="UpdatePlayerColors"
-                        Change="UpdatePlayerColors" />
-
-                </FlexRowContainer>
+                    </ResponsiveContainer>
+                </ResponsiveCard>
             }
 
             @if (_players.Count % 2 == 1)
@@ -78,21 +84,21 @@
                 <div />
             }
 
-            <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
-                <YesNoPicker Title="@Strings.GameVersion_ProphecyOfKings"
-                             DefaultValue="GameTrackerSettingsService.GameVersions.Contains(GameVersion.ProphecyOfKings)"
-                             OnValueChange="async () => await UpdateGameVersion(GameVersion.ProphecyOfKings)"
-                             Width="100"
-                             FontSize="24" />
-            </FlexRowContainer>
+            <ResponsiveDropDown Id="game-tracker-prophecy-of-kings"
+                                TValue="bool"
+                                Label="@Strings.GameVersion_ProphecyOfKings"
+                                LabelPosition="LabelPosition.Column"
+                                Value="@GameTrackerSettingsService.GameVersions.Contains(GameVersion.ProphecyOfKings)"
+                                ValueChanged="SetProphecyOfKingsEnabled"
+                                Data="@BooleanOptions"
+                                TextProperty="Value"
+                                ValueProperty="Key" />
 
             <div />
         </GridLayout>
 
-        <VerticalSpace Height="50" />
+        <ResponsiveButton ButtonText="@Strings.GameTracker_InitializePhaseComplete" Width="25" IsDisabled="!IsNextPhasePossible()" OnClick="ProceedToNextPhase" CssClass="mt-2xl"/>
 
-        <Button ButtonText="@Strings.GameTracker_InitializePhaseComplete" Width="25" IsDisabled="!IsNextPhasePossible()" OnClick="ProceedToNextPhase"/>
+    </ResponsiveContainer>
 
-    </FlexColumnCenteredContainer>
-
-</FlexColumnCenteredContainer>
+</ResponsiveContainer>

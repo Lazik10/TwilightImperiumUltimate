@@ -1,0 +1,33 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Overlays
+
+@*
+    Reusable full-screen "big image" lightbox overlay. Place this component anywhere on a page;
+    the host page owns the open/closed state and current image source (typically a couple of
+    private fields), and routes any element's OnClick into setting IsOpen/ImageSrc to show it.
+    Clicking the backdrop/image, or pressing Escape, raises OnClose so the host can hide it again.
+
+    ImageSrc is optional: when set, the overlay renders the image itself (the common case). When
+    omitted, the caller is expected to render its own image/layout via ChildContent (for example a
+    page that needs the image side-by-side with extra details in a custom grid) while still
+    getting the shared backdrop/close/focus/keyboard behavior.
+*@
+
+@if (IsOpen)
+{
+    <div class="big-image-overlay @CssClass"
+         role="dialog"
+         aria-modal="true"
+         aria-label="@AriaLabel"
+         tabindex="-1"
+         @ref="_overlayElement"
+         @onclick="HandleClose"
+         @onkeydown="HandleKeyDown">
+        @if (ImageSrc is not null)
+        {
+            <div class="image-container">
+                <img src="@ImageSrc" alt="@ImageAlt" @onclick="HandleClose" />
+            </div>
+        }
+        @ChildContent
+    </div>
+}

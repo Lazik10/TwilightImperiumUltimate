@@ -13,8 +13,10 @@ public class GetUserPrestigeRankHistoryQueryHandler(IDbContextFactory<TwilightIm
             .Include(x => x.PrestigeRank)
             .Where(x => x.TiglUserId == request.TiglUserId)
             .OrderByDescending(x => x.AchievedAt)
+            .ThenByDescending(x => x.Id)
             .Select(x => new PrestigeRankHistoryDto
             {
+                Id = x.Id,
                 League = x.PrestigeRank.League,
                 PrestigeRank = x.PrestigeRank.Name,
                 Faction = x.PrestigeRank.FactionName,

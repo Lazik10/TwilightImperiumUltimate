@@ -1,9 +1,8 @@
-﻿.center {
-    justify-content: center;
-    align-items: center;
-    justify-items: center;
+﻿.faction {
+    font-size: 1.5rem;
 }
 
-.faction {
-    font-size: 1.5rem;
+::deep .color-picker-faction-card {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
 }

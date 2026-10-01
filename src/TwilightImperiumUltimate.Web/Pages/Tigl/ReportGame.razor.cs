@@ -15,37 +15,6 @@ public partial class ReportGame
     private const int MaxStandardLeagueVictoryPoints = 14;
     private const int MaxVictoryPoints = 20;
     private const int VictoryPointStandardStep = 2;
-    private const int VictoryPointFracturedStep = 1;
-    private int _selectedVpCount = MinVictoryPoints;
-    private TiglLeague _selectedLeague = TiglLeague.ThundersEdge;
-    private int _round = 5;
-    private int _minRound = 1;
-    private int _maxRound = 9;
-    private GameReport gameReportRequest = new();
-    private List<PlayerResult> playerResults = new();
-    private bool isSubmitting;
-    private string errorMessage = string.Empty;
-    private string errorDetails = string.Empty;
-    private List<string> validationErrors = new List<string>();
-    private string successMessage = string.Empty;
-    private DateTime startGame;
-    private DateTime endGame;
-    private string? _clientTimeZoneId;
-    private IJSObjectReference? _module;
-
-    private int _currentPlayerIndex;
-    private List<RowViewMode> _rowModes = new();
-
-    private bool _loading = true;
-    private IList<TiglUserLiteDto> _users = Array.Empty<TiglUserLiteDto>();
-    private Dictionary<long, TiglUserLiteDto> _usersById = new();
-    private List<string> _availableFactionNames = new();
-
-    private enum RowViewMode
-    {
-        Search,
-        Edit,
-    }
 
     // Keep names in sync with TiglGalacticEventConverter map keys
     private static readonly List<string> _allGalacticEvents = new()
@@ -72,7 +41,40 @@ public partial class ReportGame
         "Conventions of War Abandoned",
     };
 
+    private static readonly List<TiglLeague> _excludedLeagues = new() { TiglLeague.ProphecyOfKings, TiglLeague.Test };
+
     private readonly HashSet<string> _selectedEvents = new(StringComparer.OrdinalIgnoreCase);
+
+    private int _selectedVpCount = MinVictoryPoints;
+    private TiglLeague _selectedLeague = TiglLeague.ThundersEdge;
+    private int _round = 5;
+    private int _minRound = 1;
+    private int _maxRound = 9;
+    private GameReport gameReportRequest = new();
+    private List<PlayerResult> playerResults = new();
+    private bool isSubmitting;
+    private string errorMessage = string.Empty;
+    private string errorDetails = string.Empty;
+    private List<string> validationErrors = new List<string>();
+    private string successMessage = string.Empty;
+    private DateTime startGame;
+    private DateTime endGame;
+    private string? _clientTimeZoneId;
+    private IJSObjectReference? _module;
+
+    private int _currentPlayerIndex;
+    private List<RowViewMode> _rowModes = new();
+
+    private bool _usersLoading;
+    private IList<TiglUserLiteDto> _users = Array.Empty<TiglUserLiteDto>();
+    private Dictionary<long, TiglUserLiteDto> _usersById = new();
+    private List<string> _availableFactionNames = new();
+
+    private enum RowViewMode
+    {
+        Search,
+        Edit,
+    }
 
     [Inject]
     private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
@@ -83,13 +85,12 @@ public partial class ReportGame
     [Inject]
     private IJSRuntime JSRuntime { get; set; } = default!;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        _loading = true;
         InitializeForm();
         UpdateFactionList();
-        await LoadUsersAsync();
-        _loading = false;
+        _usersLoading = true;
+        _ = LoadUsersAndRefreshAsync();
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -158,6 +159,19 @@ public partial class ReportGame
         }
     }
 
+    private async Task LoadUsersAndRefreshAsync()
+    {
+        try
+        {
+            await LoadUsersAsync();
+        }
+        finally
+        {
+            _usersLoading = false;
+            await InvokeAsync(StateHasChanged);
+        }
+    }
+
     private void UpdateFactionList()
     {
         var all = Enum.GetValues<TiglFactionName>()
@@ -174,6 +188,25 @@ public partial class ReportGame
             .Distinct()
             .ToList();
     }
+
+    private List<KeyValuePair<TiglLeague, string>> GetLeagueOptions() =>
+        Enum.GetValues<TiglLeague>()
+            .Except(_excludedLeagues)
+            .Select(league => new KeyValuePair<TiglLeague, string>(league, league.GetDisplayName()))
+            .ToList();
+
+    private List<KeyValuePair<ResultSource, string>> GetSourceOptions() =>
+        Enum.GetValues<ResultSource>()
+            .Select(source => new KeyValuePair<ResultSource, string>(source, source.GetDisplayName()))
+            .ToList();
+
+    private List<int> GetVpOptions() =>
+        _selectedLeague == TiglLeague.ThundersEdge
+            ? new List<int> { MinVictoryPoints, MinVictoryPoints + VictoryPointStandardStep, MaxStandardLeagueVictoryPoints }
+            : Enumerable.Range(MinVictoryPoints, MaxVictoryPoints - MinVictoryPoints + 1).ToList();
+
+    private List<int> GetRoundOptions() =>
+        Enumerable.Range(_minRound, _maxRound - _minRound + 1).ToList();
 
     private void ChangeLeague(TiglLeague league)
     {
@@ -310,20 +343,20 @@ public partial class ReportGame
 
             if (code == HttpStatusCode.OK && response is not null && response.Success)
             {
-                successMessage = $"Game report for '{gameReportRequest.GameId}' has been successfully submitted and processed!";
+                successMessage = string.Format(Strings.ReportGame_SuccessMessage, gameReportRequest.GameId);
                 ResetForm();
                 await Task.Delay(1000);
                 NavigationManager.NavigateTo(Pages.TiglGames);
             }
             else
             {
-                errorMessage = response?.ProblemDetails.Title ?? "Unknown error.";
+                errorMessage = response?.ProblemDetails.Title ?? Strings.ReportGame_ErrorUnknown;
                 errorDetails = response?.ProblemDetails.Detail ?? string.Empty;
             }
         }
         catch (Exception ex)
         {
-            errorMessage = $"Failed to submit game report: {ex.Message}";
+            errorMessage = string.Format(Strings.ReportGame_ErrorSubmitFailed, ex.Message);
         }
         finally
         {
@@ -335,11 +368,11 @@ public partial class ReportGame
     {
         // 1) GameId cannot be blank / whitespace
         if (string.IsNullOrWhiteSpace(gameReportRequest.GameId))
-            validationErrors.Add("Game ID is required.");
+            validationErrors.Add(Strings.ReportGame_ValidationGameIdRequired);
 
         // 2) League is bound via enum picker; ensure it's one of supported leagues
         if (_selectedLeague != TiglLeague.ThundersEdge && _selectedLeague != TiglLeague.Fractured)
-            validationErrors.Add("Invalid league selected.");
+            validationErrors.Add(Strings.ReportGame_ValidationInvalidLeague);
 
         // 3) Result source is bound via enum picker (already bound into model). No extra validation needed here.
 
@@ -348,56 +381,55 @@ public partial class ReportGame
         {
             var allowed = new HashSet<int> { 10, 12, 14 };
             if (!allowed.Contains(_selectedVpCount))
-                validationErrors.Add("Standard league supports VP of 10, 12 or 14 only.");
+                validationErrors.Add(Strings.ReportGame_ValidationStandardVp);
         }
-        else if (_selectedLeague == TiglLeague.Fractured)
+        else if (_selectedLeague == TiglLeague.Fractured && (_selectedVpCount < MinVictoryPoints || _selectedVpCount > MaxVictoryPoints))
         {
-            if (_selectedVpCount < MinVictoryPoints || _selectedVpCount > MaxVictoryPoints)
-                validationErrors.Add("Fractured league supports VP between 10 and 20.");
+            validationErrors.Add(Strings.ReportGame_ValidationFracturedVp);
         }
 
         // 5) Round between 1 and 9
         if (_round < _minRound || _round > _maxRound)
-            validationErrors.Add("Round must be between 1 and 9.");
+            validationErrors.Add(Strings.ReportGame_ValidationRoundRange);
 
         // 6) Dates must be bound (basic sanity: end >= start)
         if (startGame == default)
-            validationErrors.Add("Start date must be selected.");
+            validationErrors.Add(Strings.ReportGame_ValidationStartDateRequired);
         if (endGame == default)
-            validationErrors.Add("End date must be selected.");
+            validationErrors.Add(Strings.ReportGame_ValidationEndDateRequired);
         if (startGame != default && endGame != default && endGame < startGame)
-            validationErrors.Add("End date cannot be before start date.");
+            validationErrors.Add(Strings.ReportGame_ValidationEndBeforeStart);
 
         // 10) Player count restrictions per league
         if (_selectedLeague == TiglLeague.ThundersEdge && playerResults.Count != 6)
-            validationErrors.Add("Exactly 6 players are required for Standard league.");
+            validationErrors.Add(Strings.ReportGame_ValidationStandardPlayerCount);
 
         if (_selectedLeague == TiglLeague.Fractured && (playerResults.Count < 6 || playerResults.Count > 8))
-            validationErrors.Add("Fractured league supports 6 to 8 players.");
+            validationErrors.Add(Strings.ReportGame_ValidationFracturedPlayerCount);
 
         // Players and uniqueness
         if (playerResults.Any(p => p.DiscordId <= 0))
-            validationErrors.Add("All players must be selected from database (with TIGL name or DiscordTag).");
+            validationErrors.Add(Strings.ReportGame_ValidationPlayersMustBeSelected);
 
         if (playerResults.Select(x => x.DiscordId).Distinct().Count() != playerResults.Count)
-            validationErrors.Add($"Report needs {playerResults.Count} unique players.");
+            validationErrors.Add(string.Format(Strings.ReportGame_ValidationUniquePlayers, playerResults.Count));
 
         // 7) Only one winner can be selected
         var winners = playerResults.Count(p => p.IsWinner);
         if (winners != 1)
-            validationErrors.Add("Exactly one winner must be selected.");
+            validationErrors.Add(Strings.ReportGame_ValidationOneWinner);
 
         // 8) Each player score must be between 0 and game score
         if (playerResults.Any(p => p.Score < 0 || p.Score > _selectedVpCount))
-            validationErrors.Add("Each player's score must be between 0 and the game score.");
+            validationErrors.Add(Strings.ReportGame_ValidationScoreRange);
 
         // Ensure at least one player reached the winning score
         if (!playerResults.Any(p => p.Score == _selectedVpCount))
-            validationErrors.Add($"At least one player must reach the winning score of {_selectedVpCount}.");
+            validationErrors.Add(string.Format(Strings.ReportGame_ValidationWinningScoreRequired, _selectedVpCount));
 
         // 9) Each player must have faction selected
         if (playerResults.Any(p => string.IsNullOrWhiteSpace(p.Faction)))
-            validationErrors.Add("All players must have a faction assigned.");
+            validationErrors.Add(Strings.ReportGame_ValidationFactionRequired);
 
         // Faction validity per league (Standard limited set)
         if (_selectedLeague == TiglLeague.ThundersEdge)
@@ -418,53 +450,11 @@ public partial class ReportGame
                 .ToList();
 
             if (invalidPlayers.Count > 0)
-                validationErrors.Add($"Standard league disallows factions for: {string.Join(", ", invalidPlayers)}");
+                validationErrors.Add(string.Format(Strings.ReportGame_ValidationStandardFactionDisallowed, string.Join(", ", invalidPlayers)));
         }
 
         return validationErrors.Count == 0;
     }
-
-    private void OnVpIncrease(int vp)
-    {
-        if (_selectedLeague == TiglLeague.ThundersEdge)
-        {
-            if (vp + VictoryPointStandardStep <= MaxStandardLeagueVictoryPoints)
-                _selectedVpCount = vp + VictoryPointStandardStep;
-        }
-        else
-        {
-            if (vp + VictoryPointFracturedStep <= MaxVictoryPoints)
-                _selectedVpCount = vp + VictoryPointFracturedStep;
-        }
-    }
-
-    private void OnVpDecrease(int vp)
-    {
-        if (_selectedLeague == TiglLeague.ThundersEdge)
-        {
-            if (vp - VictoryPointStandardStep >= MinVictoryPoints)
-                _selectedVpCount = vp - VictoryPointStandardStep;
-        }
-        else
-        {
-            if (vp - VictoryPointFracturedStep >= MinVictoryPoints)
-                _selectedVpCount = vp - VictoryPointFracturedStep;
-        }
-    }
-
-    private void OnRoundIncrease()
-    {
-        if (_round < _maxRound)
-            _round++;
-    }
-
-    private void OnRoundDecrease()
-    {
-        if (_round > _minRound)
-            _round--;
-    }
-
-    private void RedirectBack() => NavigationManager.NavigateTo(Pages.TiglLeaderboard);
 
     private void ChangeSource(ResultSource source)
     {

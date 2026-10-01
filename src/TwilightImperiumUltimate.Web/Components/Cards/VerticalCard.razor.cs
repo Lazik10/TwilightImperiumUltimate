@@ -2,6 +2,9 @@ namespace TwilightImperiumUltimate.Web.Components.Cards;
 
 public partial class VerticalCard
 {
+    private bool _isImageLoaded;
+    private string _lastCardImagePath = string.Empty;
+
     [Parameter]
     public string Name { get; set; } = string.Empty;
 
@@ -11,8 +14,37 @@ public partial class VerticalCard
     [Inject]
     private IPathProvider PathProvider { get; set; } = default!;
 
-    private string GetCardImagePath()
+    private string CardImagePath => PathProvider.GetCardImagePath(Name, TypeOfCard);
+
+    protected override void OnParametersSet()
     {
-        return PathProvider.GetCardImagePath(Name, TypeOfCard);
+        var currentCardImagePath = CardImagePath;
+        if (!string.Equals(_lastCardImagePath, currentCardImagePath, StringComparison.Ordinal))
+        {
+            _isImageLoaded = false;
+            _lastCardImagePath = currentCardImagePath;
+        }
+    }
+
+    private string GetContainerClass()
+    {
+        var baseClass = TypeOfCard == Strings.StrategyCard ? "strategy-image-item" : "image-item";
+        return _isImageLoaded ? $"{baseClass} image-ready" : baseClass;
+    }
+
+    private string GetImageStyle() => _isImageLoaded
+        ? "visibility: visible; opacity: 1;"
+        : "visibility: hidden; opacity: 0;";
+
+    private void OnImageLoaded()
+    {
+        _isImageLoaded = true;
+        StateHasChanged();
+    }
+
+    private void OnImageError()
+    {
+        _isImageLoaded = true;
+        StateHasChanged();
     }
 }

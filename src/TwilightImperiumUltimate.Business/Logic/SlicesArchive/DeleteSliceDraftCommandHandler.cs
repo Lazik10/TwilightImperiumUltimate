@@ -1,4 +1,4 @@
-namespace TwilightImperiumUltimate.Business.Logic.SlicesArchive;
+﻿namespace TwilightImperiumUltimate.Business.Logic.SlicesArchive;
 
 public class DeleteSliceDraftCommandHandler(
     ISlicesArchiveRepository slicesArchiveRepository)
@@ -8,6 +8,8 @@ public class DeleteSliceDraftCommandHandler(
 
     public async Task<bool> Handle(DeleteSliceDraftCommand request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         return await _slicesArchiveRepository.DeleteSliceDraft(request.Id, cancellationToken);
     }
 }

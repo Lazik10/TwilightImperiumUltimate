@@ -1,0 +1,15 @@
+.responsive-label {
+    box-sizing: border-box;
+}
+
+/* Allow long words to wrap instead of overflowing, unless truncation is requested. */
+.responsive-label:not(.text-no-overflow) {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.responsive-label.centered-text {
+    width: 100%;
+    display: block;
+}

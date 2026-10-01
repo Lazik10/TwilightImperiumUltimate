@@ -1,21 +1,51 @@
 ﻿.image-item {
+    --card-min-width: 12rem;
+    --card-max-width: 20.875rem;
+
     position: relative;
-    display: inline-block;
-    margin-bottom: 20px;
+    display: block;
+    margin-bottom: 1.25rem;
+    flex-grow: 1;
+    flex-shrink: 1;
+    width: clamp(var(--card-min-width), 100%, var(--card-max-width));
+    max-width: 100%;
+    aspect-ratio: 2 / 3;
+    container-type: inline-size;
+}
+
+.card-image {
+    display: block;
+    border-radius: 6cqw;
     flex-grow: 1;
     flex-shrink: 1;
     width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity 0.2s ease;
 }
 
-    .image-item img {
+.image-item img {
         display: block;
-        border-radius: 20px;
+        border-radius: 6cqw;
         flex-grow: 1;
         flex-shrink: 1;
         width: 100%;
+        height: 100%;
+        object-fit: contain;
     }
 
-    .image-item::before {
+.card-image-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 6cqw;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.08));
+    animation: image-placeholder-pulse 1.2s ease-in-out infinite;
+}
+
+.image-item.image-ready::before {
         content: "";
         position: absolute;
         flex-grow: 1;
@@ -25,55 +55,62 @@
         left: 0;
         right: 0;
         bottom: 0;
-        box-shadow: inset 0 0 0 5px #000;
+        box-shadow: inset 0 0 0 1cqw #000;
         pointer-events: none;
-        border-radius: 20px;
+        border-radius: 6cqw;
     }
 
 .strategy-image-item {
+    --card-min-width: 12rem;
+    --card-max-width: 20.875rem;
+
     position: relative;
-    display: inline-block;
+    display: block;
     flex-grow: 1;
     flex-shrink: 1;
-    max-height: 300px;
-    max-width: 80%;
-    margin-bottom: 20px;
+    width: clamp(var(--card-min-width), 100%, var(--card-max-width));
+    max-width: 100%;
+    aspect-ratio: 2 / 3;
+    margin-bottom: 1.25rem;
+    container-type: inline-size;
 }
 
-    .strategy-image-item img {
-        display: block;
-        flex-grow: 1;
-        flex-shrink: 1;
-        max-height: 300px;
-    }
+.strategy-image-item .card-image,
+.strategy-image-item img {
+    display: block;
+    flex-grow: 1;
+    flex-shrink: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
 
 @media (max-width: 1280px) {
-    .strategy-image-item, .strategy-image-item img {
-        max-height: 200px;
+    .image-item,
+    .strategy-image-item {
+        --card-min-width: 11rem;
+        --card-max-width: 18rem;
     }
-
-    .image-item img {
-        border-radius: 10px;
-    }
-
-    .image-item::before {
-        border-radius: 10px;
-        box-shadow: inset 0 0 0 3px #000;
-    }
-
 }
 
 @media (max-width: 768px) {
-    .strategy-image-item, .strategy-image-item img {
-        max-height: 100px;
+    .image-item,
+    .strategy-image-item {
+        --card-min-width: 10rem;
+        --card-max-width: 15rem;
+    }
+}
+
+@keyframes image-placeholder-pulse {
+    0% {
+        opacity: 0.45;
     }
 
-    .image-item img {
-        border-radius: 5px;
+    50% {
+        opacity: 0.8;
     }
 
-    .image-item::before {
-        border-radius: 5px;
-        box-shadow: inset 0 0 0 2px #000;
+    100% {
+        opacity: 0.45;
     }
 }

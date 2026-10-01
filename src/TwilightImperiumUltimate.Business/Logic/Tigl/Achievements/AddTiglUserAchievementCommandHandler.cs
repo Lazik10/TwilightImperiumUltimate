@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Achievements;
+﻿using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Achievements;
 
 namespace TwilightImperiumUltimate.Business.Logic.Tigl.Achievements;
 
@@ -7,6 +7,8 @@ public class AddTiglUserAchievementCommandHandler(IAchievementRepository achieve
 {
     public async Task<AddUserAchievementResponse> Handle(AddTiglUserAchievementCommand request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var success = await achievementRepository.AddManualAchievement(request.TiglUserId, request.AchievementName, request.Faction, cancellationToken);
         if (!success)
             return new AddUserAchievementResponse { Success = false, TiglUserId = request.TiglUserId, AchievementName = request.AchievementName, Faction = request.Faction, ErrorTitle = "Add Achievement Failed", ErrorMessage = "Unable to add achievement." };

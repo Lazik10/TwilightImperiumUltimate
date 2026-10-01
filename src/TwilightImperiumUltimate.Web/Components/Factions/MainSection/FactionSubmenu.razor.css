@@ -1,0 +1,15 @@
+﻿::deep .faction-info-tab-label {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+::deep .faction-info-tab-active {
+    background: var(--color-nav-panel-bg);
+    border-radius: var(--border-radius-md);
+}
+
+/* Beats the global ".white { color: ... !important }" utility that ResponsiveLabel always applies. */
+::deep .faction-info-tab-active .faction-info-tab-label {
+    color: var(--color-nav-hover) !important;
+}
+

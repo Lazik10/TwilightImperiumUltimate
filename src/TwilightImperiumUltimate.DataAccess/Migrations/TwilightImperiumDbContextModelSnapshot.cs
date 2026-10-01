@@ -17,7 +17,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.16")
+                .HasAnnotation("ProductVersion", "10.0.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -52,24 +52,28 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         new
                         {
                             Id = "2147411d-19b7-4936-800a-b8d815271d00",
+                            ConcurrencyStamp = "b1a1e6b0-1f2a-4b3c-9d4e-5f6a7b8c9d01",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "cc4089b0-22e9-47df-b7c5-a4734b4423f4",
+                            ConcurrencyStamp = "b1a1e6b0-1f2a-4b3c-9d4e-5f6a7b8c9d02",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
                             Id = "5b2bee5c-e5ce-4472-a141-bff7e040ac78",
+                            ConcurrencyStamp = "b1a1e6b0-1f2a-4b3c-9d4e-5f6a7b8c9d03",
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
                         },
                         new
                         {
                             Id = "d3f1c4e2-3f4a-4e2b-8f4e-2c3b5e6d7f89",
+                            ConcurrencyStamp = "b1a1e6b0-1f2a-4b3c-9d4e-5f6a7b8c9d04",
                             Name = "TiglAdmin",
                             NormalizedName = "TIGLADMIN"
                         });
@@ -278,6 +282,42 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         .IsUnique();
 
                     b.ToTable("AsyncPlayerProfileSettings", "Statistics");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Async.AsyncStatisticsSnapshot", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("GeneratedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsPublished")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Payload")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("SnapshotVersion")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("SourceDataVersion")
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IsPublished")
+                        .IsUnique()
+                        .HasFilter("[IsPublished] = 1");
+
+                    b.HasIndex("IsPublished", "SnapshotVersion");
+
+                    b.ToTable("AsyncStatisticsSnapshots", "Statistics");
                 });
 
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Async.GameStats", b =>
@@ -32176,6 +32216,17 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         .HasColumnType("varchar(500)")
                         .HasColumnName("Description")
                         .HasColumnOrder(2);
+
+                    b.Property<string>("ImageContentType")
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("ImageContentType")
+                        .HasColumnOrder(5);
+
+                    b.Property<byte[]>("ImageData")
+                        .HasColumnType("varbinary(max)")
+                        .HasColumnName("ImageData")
+                        .HasColumnOrder(4);
 
                     b.Property<string>("Title")
                         .IsRequired()

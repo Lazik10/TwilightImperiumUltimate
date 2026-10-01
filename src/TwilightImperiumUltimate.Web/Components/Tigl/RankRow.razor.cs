@@ -1,4 +1,5 @@
 using System.Globalization;
+using Microsoft.AspNetCore.Components.Web;
 using TwilightImperiumUltimate.Web.Helpers.Enums;
 using TwilightImperiumUltimate.Web.Models.Rankings;
 
@@ -16,6 +17,26 @@ public partial class RankRow
     private NavigationManager NavigationManager { get; set; } = default!;
 
     private TextColor RankColor => GetRankRowColor();
+
+    private static string GetProfileUrl(int tiglUserId)
+    {
+        return $"{Pages.Pages.TiglPlayerProfile}?playerId={tiglUserId}";
+    }
+
+    private void NavigateToProfile(int tiglUserId)
+    {
+        NavigationManager.NavigateTo(GetProfileUrl(tiglUserId));
+    }
+
+    private void OnRowKeyDown(KeyboardEventArgs args)
+    {
+        if (args.Key is "Enter" or " ")
+            NavigateToProfile(Ranking.Id);
+    }
+
+            private string GetRankColorStyle() => $"color: {RankColor.ConvertToString()};";
+
+            private string GetPlayerNameStyle() => $"{GetRankColorStyle()} text-align: left;";
 
     private string GetRankText()
     {
@@ -79,11 +100,5 @@ public partial class RankRow
     private TextColor GetRankRowColor()
     {
         return Ranking.HasPrestigeRank ? GetPrestigeColor() : Ranking.Rank.GetRankColor();
-    }
-
-    private void NavigateToProfile(int tiglUserId)
-    {
-        var returnUrl = Uri.EscapeDataString(Pages.Pages.TiglRankings);
-        NavigationManager.NavigateTo($"{Pages.Pages.TiglPlayerProfile}?playerId={tiglUserId}&returnUrl={returnUrl}");
     }
 }

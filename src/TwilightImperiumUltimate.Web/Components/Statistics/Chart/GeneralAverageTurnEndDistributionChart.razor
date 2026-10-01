@@ -1,0 +1,10 @@
+@using TwilightImperiumUltimate.Web.Components.Charts
+
+<RankingBarChart Title="@Strings.AsyncGames_AverageEndTurnDistribution"
+                 Data="@Data"
+                 YAxisLabel="@Strings.AsyncStats_Games"
+                 XAxisLabel="@Strings.AsyncStats_Vp"
+                 SeriesTitle="@Strings.AsyncStats_AverageRounds"
+                 ValueFormatter="@FormatValue"
+                 IsLoading="@IsLoading"
+                 ShowValueAxis="true" />

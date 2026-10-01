@@ -14,6 +14,8 @@ public class RatingDecayRepository(
 
     public async Task InsertRatingDecays(IReadOnlyCollection<TiglUser> inactivePlayers, TiglLeague league, int season, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(inactivePlayers);
+
         if (inactivePlayers.Count == 0)
             return;
 

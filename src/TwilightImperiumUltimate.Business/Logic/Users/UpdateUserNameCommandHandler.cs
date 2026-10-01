@@ -1,4 +1,4 @@
-namespace TwilightImperiumUltimate.Business.Logic.Users;
+﻿namespace TwilightImperiumUltimate.Business.Logic.Users;
 
 public class UpdateUserNameCommandHandler(
     IUserRepository userRepository,
@@ -10,6 +10,8 @@ public class UpdateUserNameCommandHandler(
 
     public async Task<TwilightImperiumUserDto> Handle(UpdateUserNameCommand request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var dbUser = await _userRepository.UpdateInitialUserName(request.Email, request.UserName);
         return _mapper.Map<TwilightImperiumUserDto>(dbUser);
     }

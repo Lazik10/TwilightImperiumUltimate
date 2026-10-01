@@ -1,6 +1,6 @@
+﻿using System.Text;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using System.Text;
 using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl;
 using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Report;
 using TwilightImperiumUltimate.Contracts.Options;
@@ -15,12 +15,12 @@ public class ManualReportGameCommandHandler(
     ITiglFactionValidator tiglFactionValidator,
     ITiglResultValidator tiglResultValidator,
     IOptions<TiglOptions> tiglOptions,
-    ILogger<ReportGameCommandHandler> logger)
+    ILogger<ManualReportGameCommandHandler> logger)
     : IRequestHandler<ManualReportGameCommand, GameReportResult>
 {
     private const int MinimumRequiredPlayerCount = 6;
-    private readonly ILogger<ReportGameCommandHandler> _logger = logger;
-    private readonly TiglOptions _tiglOptions = tiglOptions.Value;
+    private readonly ILogger<ManualReportGameCommandHandler> _logger = logger;
+    private readonly TiglOptions _tiglOptions = tiglOptions is null ? throw new ArgumentNullException(nameof(tiglOptions)) : tiglOptions.Value;
 
     public async Task<GameReportResult> Handle(ManualReportGameCommand request, CancellationToken cancellationToken)
     {

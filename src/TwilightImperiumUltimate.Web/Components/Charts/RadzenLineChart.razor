@@ -1,0 +1,25 @@
+@namespace TwilightImperiumUltimate.Web.Components.Charts
+@using Radzen
+@using Radzen.Blazor
+@inherits RadzenChartBase
+
+<div class="radzen-line-chart">
+    @if (!string.IsNullOrWhiteSpace(ChartTitle))
+    {
+        <div class="radzen-line-chart-title handel white shadow">@ChartTitle</div>
+    }
+
+    <RadzenChart>
+        @ChildContent
+        <RadzenCategoryAxis Min="@CategoryMin" Max="@CategoryMax" Formatter="@CategoryFormatter" Stroke="white" StrokeWidth="2">
+            <RadzenAxisTitle Text="@CategoryTitle" />
+        </RadzenCategoryAxis>
+        <RadzenValueAxis Min="@Min" Max="@Max" Step="@Step" FormatString="@ValueFormatString" Stroke="white" StrokeWidth="2">
+            @if (!string.IsNullOrWhiteSpace(ValueTitle))
+            {
+                <RadzenAxisTitle Text="@ValueTitle" />
+            }
+        </RadzenValueAxis>
+        <RadzenLegend Visible="@ShowLegend" Position="LegendPosition.Bottom" />
+    </RadzenChart>
+</div>

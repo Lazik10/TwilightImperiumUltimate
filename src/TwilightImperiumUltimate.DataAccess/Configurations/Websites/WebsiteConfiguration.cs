@@ -33,5 +33,16 @@ internal class WebsiteConfiguration : IEntityTypeConfiguration<Website>
             .HasColumnType("varchar(255)")
             .HasColumnName(nameof(Website.WebsitePath))
             .HasColumnOrder(3);
+
+        builder.Property(x => x.ImageData)
+            .HasColumnType("varbinary(max)")
+            .HasColumnName(nameof(Website.ImageData))
+            .HasColumnOrder(4);
+
+        builder.Property(x => x.ImageContentType)
+            .HasMaxLength(100)
+            .HasColumnType("varchar(100)")
+            .HasColumnName(nameof(Website.ImageContentType))
+            .HasColumnOrder(5);
     }
 }

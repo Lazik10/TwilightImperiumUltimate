@@ -1,0 +1,82 @@
+.faction-extras {
+    --faction-extras-vertical-card-max-height: 26rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+}
+
+.faction-horizontal-card,
+.faction-vertical-card,
+.faction-token-card {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.faction-horizontal-card {
+    display: flex;
+    justify-content: center;
+}
+
+.faction-token-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-lg);
+}
+
+.faction-token-entry {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    width: min(100%, 12rem);
+}
+
+.faction-token-entry--large {
+    width: min(100%, 20rem) !important;
+}
+
+.faction-token-entry ::deep .faction-token-count {
+    flex: 0 0 auto;
+    width: auto;
+    white-space: nowrap;
+    overflow-wrap: normal;
+    word-break: keep-all;
+}
+
+.faction-vertical-card ::deep .image-item {
+    width: min(100%, calc(var(--faction-extras-vertical-card-max-height) * 0.6667));
+    max-width: calc(var(--faction-extras-vertical-card-max-height) * 0.6667);
+    margin-bottom: 0;
+}
+
+.faction-extra-system-tile {
+    display: flex;
+    justify-content: center;
+}
+
+.faction-system-tile-image {
+    width: min(100%, 28rem);
+}
+
+@media (max-width: 1248px) {
+    .faction-extras {
+        --faction-extras-vertical-card-max-height: 22rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .faction-extras {
+        --faction-extras-vertical-card-max-height: 18rem;
+    }
+
+    .faction-token-entry {
+        width: min(100%, 10rem);
+    }
+
+    .faction-token-entry--large {
+        width: min(100%, 16rem) !important;
+    }
+}

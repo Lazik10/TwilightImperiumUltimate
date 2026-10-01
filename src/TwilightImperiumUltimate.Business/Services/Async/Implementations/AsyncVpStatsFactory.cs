@@ -13,9 +13,10 @@ public class AsyncVpStatsFactory(
 
     public async Task<AsyncVpSummaryStatsDto> CreateAsyncVpStatsSummary(int limit, CancellationToken cancellationToken)
     {
-        var playerProfiles = await _asyncStatsRepository.GetAllAsyncPlayerProfiles(true, cancellationToken);
+        var playerProfiles = (await _asyncStatsRepository.GetAllAsyncPlayerProfiles(true, cancellationToken))
+            .ToDictionary(x => x.DiscordUserId);
 
-        var games = await _asyncStatsRepository.GetAllAsyncGames(cancellationToken);
+        var games = await _asyncStatsRepository.GetAsyncStatisticsGameProjections(cancellationToken);
         var allFinishedGames = games.Where(x => x.EndedTimestamp != null && x.HasWinner).ToList();
         var tiglGames = allFinishedGames.Where(x => x.IsTigl).ToList();
         var customGames = allFinishedGames.Where(x => !x.IsTigl).ToList();
@@ -27,11 +28,11 @@ public class AsyncVpStatsFactory(
         return new AsyncVpSummaryStatsDto(allGameStats, tiglGameStats, customGameStats);
     }
 
-    private AsyncVpStatsDto CreateVpStats(List<GameStats> games, List<AsyncPlayerProfile> playerProfiles, int limit)
+    private AsyncVpStatsDto CreateVpStats(List<AsyncStatisticsGameProjection> games, IReadOnlyDictionary<long, AsyncPlayerProfile> playerProfiles, int limit)
     {
         var players = games
-            .SelectMany(x => x.PlayerStatistics)
-            .GroupBy(x => x.DiscordUserID)
+            .Where(x => x.DiscordUserId.HasValue)
+            .GroupBy(x => x.DiscordUserId!.Value)
             .Where(x => x.Count() >= 20)
             .Select(g =>
             {
@@ -40,10 +41,12 @@ public class AsyncVpStatsFactory(
                 return new AsyncVpPlayerDto(
                     playerInfo.Id,
                     playerInfo.Name,
-                    g.Sum(x => x.Score),
+                    g.Sum(x => x.Score ?? 0),
                     games
-                        .Where(gs => gs.PlayerStatistics.Any(ps => ps.DiscordUserID == g.Key))
-                        .Sum(x => x.Scoreboard));
+                        .Where(gs => gs.DiscordUserId == g.Key)
+                        .GroupBy(x => x.GameStatsId)
+                        .Sum(x => x.First().Scoreboard),
+                    g.Select(x => x.GameStatsId).Distinct().Count());
             })
             .ToList();
 
@@ -62,9 +65,9 @@ public class AsyncVpStatsFactory(
         return new AsyncVpStatsDto(playersWithMostVpPercentage, playersWithMostVp);
     }
 
-    private (int Id, string Name) GetPlayerInfo(long discordUserId, List<AsyncPlayerProfile> playerProfiles)
+    private (int Id, string Name) GetPlayerInfo(long discordUserId, IReadOnlyDictionary<long, AsyncPlayerProfile> playerProfiles)
     {
-        var player = playerProfiles.Find(x => x.DiscordUserId == discordUserId);
+        playerProfiles.TryGetValue(discordUserId, out var player);
 
         if (player is not null && player.ProfileSettings is not null && player.ProfileSettings.ShowVpStats && !player.ProfileSettings.ExcludeFromAsyncStats)
             return (player.Id, player.DiscordUserName);

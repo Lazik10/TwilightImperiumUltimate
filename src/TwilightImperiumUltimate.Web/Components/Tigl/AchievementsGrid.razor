@@ -1,56 +1,66 @@
-@using TwilightImperiumUltimate.Contracts.DTOs.Rankings
 @using TwilightImperiumUltimate.Contracts.Enums
 @using TwilightImperiumUltimate.Web.Helpers.Enums
 
-<VerticalSpace Height="20" />
-<Label Text="Last 50 Achievements" FontSize="28" CenterText="true" />
-<VerticalSpace Height="20" />
-
-<GridLayout CssClass="background" Style="grid-template-columns: 3% 25% 25% 17% 15% 15%">
-    <VerticalSpace Height="10" CssClass="span-6" />
-    <Label />
-    <Label Text="Achievement" />
-    <Label Text="User" />
-    <Label Text="Faction" />
-    <Label Text="Match" />
-    <Label Text="Achieved" />
-    <VerticalSpace Height="10" CssClass="span-6" />
-</GridLayout>
-
-<VerticalSpace Height="50" />
-
-@if (_loading)
-{
-    <VerticalSpace Height="50" />
-    <Label Text="Loading achievements..." CenterText="true" />
-    <VerticalSpace Height="50" />
-}
-else if (_achievements.Count == 0)
-{
-    <VerticalSpace Height="50" />
-    <Label Text="No achievements found." CenterText="true" />
-    <VerticalSpace Height="50" />
-}
-else
-{
-    <FlexColumnCenteredContainer>
-
-        @foreach (var a in _achievements)
-        {
-            <FlexRowContainer CssClass="background" OnClick="@(() => NavigateToProfile(a.TiglUserId))">
-                <Label Width="3" />
-                <Label Text="@a.AchievementName.GetDisplayName()" Width="25" TextColor="TextColor.Yellow" />
-                <Label Text="@a.TiglUserName" Width="25" TextColor="TextColor.Green" />
-                <Label Text="@(a.Faction == TiglFactionName.None ? "-" : a.Faction.GetDisplayName())" Width="17" />
-                <div style="width: 15%" @onclick:stopPropagation="true">
-                    <TextButton Text="@a.MatchName" OnClick="() => RedirectToGameDetail(a.MatchId)" Width="100" JustifyContent="Enums.JustifyContent.FlexStart" />
-                </div>
-                <Label Text="@FormatDate(a.AchievedAt)" Width="15" />
-            </FlexRowContainer>
-            <VerticalSpace Height="5" />
-        }
-
-    </FlexColumnCenteredContainer>
-}
-
-<VerticalSpace Height="20" />
+<div id="achievements-panel">
+    <ResponsiveRadzenTable ZebraStripes="true" CssClass="achievements-table" TableTitle="Last 100">
+        <RadzenTableHeader>
+            <RadzenTableRow>
+                <RadzenTableHeaderCell class="achievements-header-cell" scope="col">Achievement</RadzenTableHeaderCell>
+                <RadzenTableHeaderCell class="achievements-header-cell" scope="col">User</RadzenTableHeaderCell>
+                <RadzenTableHeaderCell class="achievements-header-cell" scope="col">Faction</RadzenTableHeaderCell>
+                <RadzenTableHeaderCell class="achievements-header-cell" scope="col">Match</RadzenTableHeaderCell>
+                <RadzenTableHeaderCell class="achievements-header-cell" scope="col">Achieved</RadzenTableHeaderCell>
+            </RadzenTableRow>
+        </RadzenTableHeader>
+        <RadzenTableBody>
+            @if (_loading)
+            {
+                <RadzenTableRow>
+                    <RadzenTableCell colspan="5">
+                        <ResponsiveLabel Text="Loading achievements..." CenterText="true" UseHandelStyling="false" />
+                    </RadzenTableCell>
+                </RadzenTableRow>
+            }
+            else if (_achievements.Count == 0)
+            {
+                <RadzenTableRow>
+                    <RadzenTableCell colspan="5">
+                        <ResponsiveLabel Text="No achievements found." CenterText="true" UseHandelStyling="false" />
+                    </RadzenTableCell>
+                </RadzenTableRow>
+            }
+            else
+            {
+                @foreach (var achievement in _achievements)
+                {
+                    <RadzenTableRow class="achievement-player-row"
+                                    tabindex="@(achievement.TiglUserId == 0 ? -1 : 0)"
+                                    role="@(achievement.TiglUserId == 0 ? null : "link")"
+                                    @onclick="() => NavigateToProfile(achievement.TiglUserId)"
+                                    @onkeydown="eventArgs => OnRowKeyDown(eventArgs, achievement.TiglUserId)">
+                        <RadzenTableCell>
+                            <ResponsiveLabel Text="@achievement.AchievementName.GetDisplayName()" TextColor="@GetRarityTextColor(achievement.RarityPercent)" UseHandelStyling="false" />
+                        </RadzenTableCell>
+                        <RadzenTableCell>
+                            <ResponsiveLabel Text="@achievement.TiglUserName" Style="color: var(--color-nav-hover, #8ecfff) !important;" UseHandelStyling="false" />
+                        </RadzenTableCell>
+                        <RadzenTableCell class="achievement-faction-cell">
+                            @if (achievement.Faction != TiglFactionName.None)
+                            {
+                                <TiglFactionImg Faction="@achievement.Faction" Height="24" />
+                            }
+                        </RadzenTableCell>
+                        <RadzenTableCell>
+                            <a class="achievement-match-link"
+                               href="@GetGameDetailUrl(achievement.MatchId)"
+                               @onclick:stopPropagation="true">@achievement.MatchName</a>
+                        </RadzenTableCell>
+                        <RadzenTableCell>
+                            <ResponsiveLabel Text="@FormatDate(achievement.AchievedAt)" UseHandelStyling="false" />
+                        </RadzenTableCell>
+                    </RadzenTableRow>
+                }
+            }
+        </RadzenTableBody>
+    </ResponsiveRadzenTable>
+</div>

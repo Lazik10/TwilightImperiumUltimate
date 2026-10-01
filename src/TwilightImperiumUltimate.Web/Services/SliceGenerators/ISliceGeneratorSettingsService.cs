@@ -8,7 +8,9 @@ public interface ISliceGeneratorSettingsService
 
     WormholeDensity WormholeDensity { get; }
 
-    SystemTileOverlay SystemTileOverlay { get; }
+    SystemTileOverlay SliceOverlay { get; }
+
+    SystemTileOverlay MenuOverlay { get; }
 
     int NumberOfLegendaries { get; }
 
@@ -20,7 +22,9 @@ public interface ISliceGeneratorSettingsService
 
     Task UpdateGameVersion(GameVersion gameVersion);
 
-    Task UpdateSystemTileOverlay(SystemTileOverlay systemTileOverlay);
+    Task UpdateSliceOverlay(SystemTileOverlay systemTileOverlay);
+
+    Task UpdateMenuOverlay(SystemTileOverlay systemTileOverlay);
 
     Task UpdateWormholeDensity(WormholeDensity wormholeDensity);
 

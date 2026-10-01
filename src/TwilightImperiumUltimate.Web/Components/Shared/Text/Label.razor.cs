@@ -1,3 +1,4 @@
+using TwilightImperiumUltimate.Web.Helpers;
 using TwilightImperiumUltimate.Web.Helpers.Enums;
 
 namespace TwilightImperiumUltimate.Web.Components.Shared.Text;
@@ -40,5 +41,17 @@ public partial class Label
     [Parameter]
     public bool Visible { get; set; } = true;
 
+    /// <summary>
+    /// Gets or sets whether the label truncates overflowing text to one line.
+    /// </summary>
+    [Parameter]
+    public bool Truncate { get; set; } = true;
+
     public string SetColor() => TextColor.ConvertToString();
+
+    /// <summary>
+    /// Converts the pixel-based <see cref="FontSize"/> into a fluid <c>clamp()</c> value so existing
+    /// callers become responsive automatically, without changing the public <see cref="FontSize"/> API.
+    /// </summary>
+    public string GetFluidFontSize() => FluidSizing.GetFluidFontSize(FontSize);
 }

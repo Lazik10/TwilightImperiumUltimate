@@ -1,0 +1,9 @@
+@inherits StatusMessageBase
+
+@*
+    Generic error message. Use this instead of a page-specific error string so users always see a
+    consistent, accessible error regardless of which page/feature shows it. For API-unavailable
+    errors specifically, prefer <ApiErrorMessage> so every page shows the same actionable wording.
+*@
+
+<div class="@("handel shadow " + CssClass)" style="color: red;" role="alert">@Text</div>

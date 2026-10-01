@@ -1,10 +1,23 @@
 ﻿@page "/community/slices-archive"
+@using Microsoft.AspNetCore.Components.Authorization
 @using TwilightImperiumUltimate.Web.Components.SlicesArchive
 
-<Page>
+<PageTitle>@Strings.Page_SlicesArchive_PageTitle</PageTitle>
 
-    <Button ButtonText="@Strings.SlicesArchiveButton_NewSlice" OnClick="Redirect"/>
-    <VerticalSpace Height="20" />
+<Page>
+    <ResponsiveHeading Level="1" Text="@Strings.Page_SlicesArchive" />
+
+    <AuthorizeView>
+        <Authorized>
+            <ResponsiveContainer Type="ContainerType.Flex" JustifyContent="Enums.JustifyContent.Center" Padding="none" CssClass="mb-md">
+                <ResponsiveButton ButtonText="@Strings.SlicesArchiveButton_NewSlice" OnClick="Redirect" />
+            </ResponsiveContainer>
+        </Authorized>
+        <NotAuthorized>
+            <ResponsiveLabel Text="@Strings.SlicesArchive_RegisterToAddSlices" FontSize="sm" CenterText="true" CssClass="mb-md" />
+        </NotAuthorized>
+    </AuthorizeView>
+
     <SlicesArchiveGrid AllSliceDrafts="SliceDrafts" />
 
 </Page>

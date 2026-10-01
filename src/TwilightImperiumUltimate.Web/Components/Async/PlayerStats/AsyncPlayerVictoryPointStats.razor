@@ -1,73 +1,123 @@
 ﻿@using TwilightImperiumUltimate.Web.Helpers.Numbers
 
-<FlexRowContainer>
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="100">
 
-    <FlexColumnCenteredContainer Width="100">
-
-        @if (AsyncPlayerProfile is not null)
-        {
-            <Label Text="@Strings.VpStats_Title" FontSize="24" CenterText="true" />
-
-            <VerticalSpace Height="20" />
-
-            <GridLayout Columns="6" CssClass="background">
-
-                <VerticalSpace Height="20" Style="grid-column: span 6;" />
-
-                <Label Text="@Strings.VpStats_VictoryPoints" CenterText="true" />
-                <Label Text="@Strings.VpStats_Games" CenterText="true" />
-                <Label Text="@Strings.VpStats_TotalVp" CenterText="true" />
-                <Label Text="@Strings.VpStats_MaxPossibleVp" CenterText="true" />
-                <Label Text="@Strings.VpStats_AverageVp" CenterText="true" />
-                <Label Text="@Strings.VpStats_VpPercentageOfTotal" CenterText="true" />
-
-                <VerticalSpace Height="20" Style="grid-column: span 6;" />
-
-                @if (AsyncPlayerProfile.Settings.ShowVpStats)
+    @if (AsyncPlayerProfile is not null)
+    {
+        <div class="async-player-vp-table-desktop">
+            <ResponsiveRadzenTable ZebraStripes="true" EqualColumns="true" CssClass="statistics-row-handel" TableTitle="@Strings.VpStats_Title">
+            <RadzenTableHeader>
+                <RadzenTableHeaderRow>
+                    <RadzenTableHeaderCell scope="col">@Strings.VpStats_VictoryPoints</RadzenTableHeaderCell>
+                    <RadzenTableHeaderCell scope="col">@Strings.VpStats_Games</RadzenTableHeaderCell>
+                    <RadzenTableHeaderCell scope="col">@Strings.VpStats_TotalVp</RadzenTableHeaderCell>
+                    <RadzenTableHeaderCell scope="col">Max VP</RadzenTableHeaderCell>
+                    <RadzenTableHeaderCell scope="col">@Strings.VpStats_AverageVp</RadzenTableHeaderCell>
+                    <RadzenTableHeaderCell scope="col">@Strings.VpStats_VpPercentageOfTotal</RadzenTableHeaderCell>
+                </RadzenTableHeaderRow>
+            </RadzenTableHeader>
+            <RadzenTableBody>
+                @if (!AsyncPlayerProfile.Settings.ShowVpStats)
                 {
-                    foreach (var stats in VpStats.VpStatsByVpGame)
-                    {
-                        if (stats.Games == 0)
-                        {
-                            <Label Text="@stats.VpGameCategory.ToString()" CenterText="true" />
-                            <Label Text="@ShowGames(stats.Games)" CenterText="true" TextColor="TextColor.Yellow" />
-                            <Label CssClass="span-4" />
-                        }
-                        else
-                        {
-                            <Label Text="@stats.VpGameCategory.ToString()" CenterText="true" />
-                            <Label Text="@ShowGames(stats.Games)" CenterText="true" TextColor="TextColor.Yellow" />
-                            <Label Text="@stats.TotalVp.ToString()" CenterText="true" TextColor="TextColor.Yellow" />
-                            <Label Text="@stats.MaxPossibleVp.ToString()" CenterText="true" TextColor="TextColor.Yellow" />
-                            <Label Text="@stats.AverageVpPerGame.ToStringWithPrecision(2)" CenterText="true" TextColor="@stats.AverageVpPerGame.GetAverageVpColor()" />
-                            <Label Text="@stats.VpPercentageOfTotal.ToStringWithPrecisionAndPercentage(2)" CenterText="true" TextColor="@stats.VpPercentageOfTotal.GetAverageVpPercentageColor()" />
-                        }
-                    }
-
-                    <VerticalSpace Height="20" Style="grid-column: span 6;" />
-
-                    <Label Text="Total" CenterText="true" />
-                    <Label Text="@ShowGames(VpStats.VpStatsTotal.Games)" CenterText="true" TextColor="TextColor.Yellow" />
-                    <Label Text="@VpStats.VpStatsTotal.TotalVp.ToString()" CenterText="true" TextColor="TextColor.Yellow" />
-                    <Label Text="@VpStats.VpStatsTotal.MaxPossibleVp.ToString()" CenterText="true" TextColor="TextColor.Yellow" />
-                    <Label Text="@VpStats.VpStatsTotal.AverageVpPerGame.ToStringWithPrecision(2)" CenterText="true" TextColor="@VpStats.VpStatsTotal.AverageVpPerGame.GetAverageVpColor()" />
-                    <Label Text="@VpStats.VpStatsTotal.VpPercentageOfTotal.ToStringWithPrecisionAndPercentage(2)" CenterText="true" TextColor="@VpStats.VpStatsTotal.VpPercentageOfTotal.GetAverageVpPercentageColor()" />
+                    <RadzenTableRow>
+                        <RadzenTableCell colspan="6">
+                            <ResponsiveLabel Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" />
+                        </RadzenTableCell>
+                    </RadzenTableRow>
                 }
                 else
                 {
-                    <VerticalSpace MinHeight="100" Style="grid-column: span 6;" />
-                    <Label Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" Style="grid-column: span 6;" />
-                    <VerticalSpace MinHeight="100" Style="grid-column: span 6;" />
+                    @foreach (var stats in VpStats.VpStatsByVpGame)
+                    {
+                        <RadzenTableRow>
+                            <RadzenTableCell>@stats.VpGameCategory.ToString()</RadzenTableCell>
+                            <RadzenTableCell class="yellow">@ShowGames(stats.Games)</RadzenTableCell>
+                            @if (stats.Games == 0)
+                            {
+                                <RadzenTableCell colspan="4"></RadzenTableCell>
+                            }
+                            else
+                            {
+                                <RadzenTableCell class="yellow">@stats.TotalVp.ToString()</RadzenTableCell>
+                                <RadzenTableCell class="yellow">@stats.MaxPossibleVp.ToString()</RadzenTableCell>
+                                <RadzenTableCell class="@(GetAverageVpCssClass(stats.AverageVpPerGame))">@stats.AverageVpPerGame.ToStringWithPrecision(2)</RadzenTableCell>
+                                <RadzenTableCell class="@(GetAverageVpPercentageCssClass(stats.VpPercentageOfTotal))">
+                                    <span class="async-player-vp-percentage-non-mobile">@stats.VpPercentageOfTotal.ToStringWithPrecisionAndPercentage(2)</span>
+                                    <span class="async-player-vp-percentage-mobile">@stats.VpPercentageOfTotal.ToStringWithPrecisionAndPercentage(0)</span>
+                                </RadzenTableCell>
+                            }
+                        </RadzenTableRow>
+                    }
+
+                    <RadzenTableRow class="async-player-vp-total-row">
+                        <RadzenTableCell>Total</RadzenTableCell>
+                        <RadzenTableCell class="yellow">@ShowGames(VpStats.VpStatsTotal.Games)</RadzenTableCell>
+                        <RadzenTableCell class="yellow">@VpStats.VpStatsTotal.TotalVp.ToString()</RadzenTableCell>
+                        <RadzenTableCell class="yellow">@VpStats.VpStatsTotal.MaxPossibleVp.ToString()</RadzenTableCell>
+                        <RadzenTableCell class="@(GetAverageVpCssClass(VpStats.VpStatsTotal.AverageVpPerGame))">@VpStats.VpStatsTotal.AverageVpPerGame.ToStringWithPrecision(2)</RadzenTableCell>
+                        <RadzenTableCell class="@(GetAverageVpPercentageCssClass(VpStats.VpStatsTotal.VpPercentageOfTotal))">
+                            <span class="async-player-vp-percentage-non-mobile">@VpStats.VpStatsTotal.VpPercentageOfTotal.ToStringWithPrecisionAndPercentage(2)</span>
+                            <span class="async-player-vp-percentage-mobile">@VpStats.VpStatsTotal.VpPercentageOfTotal.ToStringWithPrecisionAndPercentage(0)</span>
+                        </RadzenTableCell>
+                    </RadzenTableRow>
                 }
+            </RadzenTableBody>
+            </ResponsiveRadzenTable>
+        </div>
 
-                <VerticalSpace Height="20" Style="grid-column: span 6;" />
+        <div class="async-player-vp-table-mobile">
+            <ResponsiveRadzenTable ZebraStripes="true" CssClass="statistics-row-handel" TableTitle="@Strings.VpStats_Title">
+                <RadzenTableHeader>
+                    <RadzenTableHeaderRow>
+                        <RadzenTableHeaderCell scope="col">@Strings.VpStats_VictoryPoints</RadzenTableHeaderCell>
+                        <RadzenTableHeaderCell scope="col">@string.Join(" / ", VpStats.VpStatsByVpGame.Select(stats => stats.VpGameCategory.ToString()))</RadzenTableHeaderCell>
+                        <RadzenTableHeaderCell scope="col">Total</RadzenTableHeaderCell>
+                    </RadzenTableHeaderRow>
+                </RadzenTableHeader>
+                <RadzenTableBody>
+                    @if (!AsyncPlayerProfile.Settings.ShowVpStats)
+                    {
+                        <RadzenTableRow>
+                            <RadzenTableCell colspan="3">
+                                <ResponsiveLabel Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" />
+                            </RadzenTableCell>
+                        </RadzenTableRow>
+                    }
+                    else
+                    {
+                        <RadzenTableRow>
+                            <RadzenTableCell>@Strings.VpStats_Games</RadzenTableCell>
+                            <RadzenTableCell class="yellow">@string.Join(" / ", VpStats.VpStatsByVpGame.Select(stats => ShowGames(stats.Games)))</RadzenTableCell>
+                            <RadzenTableCell class="yellow">@ShowGames(VpStats.VpStatsTotal.Games)</RadzenTableCell>
+                        </RadzenTableRow>
 
-            </GridLayout>
+                        <RadzenTableRow>
+                            <RadzenTableCell>@Strings.VpStats_TotalVp</RadzenTableCell>
+                            <RadzenTableCell class="yellow">@string.Join(" / ", VpStats.VpStatsByVpGame.Select(stats => stats.Games == 0 ? string.Empty : stats.TotalVp.ToString()))</RadzenTableCell>
+                            <RadzenTableCell class="yellow">@VpStats.VpStatsTotal.TotalVp.ToString()</RadzenTableCell>
+                        </RadzenTableRow>
 
-            <VerticalSpace Height="20" />
-        }
+                        <RadzenTableRow>
+                            <RadzenTableCell>Max VP</RadzenTableCell>
+                            <RadzenTableCell class="yellow">@string.Join(" / ", VpStats.VpStatsByVpGame.Select(stats => stats.Games == 0 ? string.Empty : stats.MaxPossibleVp.ToString()))</RadzenTableCell>
+                            <RadzenTableCell class="yellow">@VpStats.VpStatsTotal.MaxPossibleVp.ToString()</RadzenTableCell>
+                        </RadzenTableRow>
 
-    </FlexColumnCenteredContainer>
-    <FlexColumnCenteredContainer Width="20" />
+                        <RadzenTableRow>
+                            <RadzenTableCell>@Strings.VpStats_AverageVp</RadzenTableCell>
+                            <RadzenTableCell>@string.Join(" / ", VpStats.VpStatsByVpGame.Select(stats => stats.Games == 0 ? string.Empty : stats.AverageVpPerGame.ToStringWithPrecision(2)))</RadzenTableCell>
+                            <RadzenTableCell class="@(GetAverageVpCssClass(VpStats.VpStatsTotal.AverageVpPerGame))">@VpStats.VpStatsTotal.AverageVpPerGame.ToStringWithPrecision(2)</RadzenTableCell>
+                        </RadzenTableRow>
 
-</FlexRowContainer>
+                        <RadzenTableRow>
+                            <RadzenTableCell>@Strings.VpStats_VpPercentageOfTotal</RadzenTableCell>
+                            <RadzenTableCell>@string.Join(" / ", VpStats.VpStatsByVpGame.Select(stats => stats.Games == 0 ? string.Empty : stats.VpPercentageOfTotal.ToStringWithPrecisionAndPercentage(0)))</RadzenTableCell>
+                            <RadzenTableCell class="@(GetAverageVpPercentageCssClass(VpStats.VpStatsTotal.VpPercentageOfTotal))">@VpStats.VpStatsTotal.VpPercentageOfTotal.ToStringWithPrecisionAndPercentage(0)</RadzenTableCell>
+                        </RadzenTableRow>
+                    }
+                </RadzenTableBody>
+            </ResponsiveRadzenTable>
+        </div>
+    }
+
+</ResponsiveContainer>

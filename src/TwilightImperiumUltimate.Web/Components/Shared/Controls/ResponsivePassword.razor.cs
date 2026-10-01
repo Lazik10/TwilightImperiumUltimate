@@ -1,0 +1,88 @@
+using System.Linq.Expressions;
+using Microsoft.AspNetCore.Components.Forms;
+
+namespace TwilightImperiumUltimate.Web.Components.Shared.Controls;
+
+public partial class ResponsivePassword
+{
+    private FieldIdentifier? _fieldIdentifier;
+
+    [Parameter]
+    [EditorRequired]
+    public string Id { get; set; } = string.Empty;
+
+    [Parameter]
+    [EditorRequired]
+    public string Value { get; set; } = string.Empty;
+
+    [Parameter]
+    public string? Name { get; set; }
+
+    [Parameter]
+    public string? Placeholder { get; set; }
+
+    [Parameter]
+    public string? AutoComplete { get; set; }
+
+    [Parameter]
+    public string? AriaDescribedBy { get; set; }
+
+    [Parameter]
+    public bool Disabled { get; set; }
+
+    [Parameter]
+    public string CssClass { get; set; } = string.Empty;
+
+    [Parameter]
+    public int Width { get; set; } = 100;
+
+    [Parameter]
+    public string Style { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Gets or sets the font size token (xs/sm/base/md/lg/xl/2xl/3xl, matching the site's
+    /// --font-size-* scale) applied to the underlying Radzen input via its own
+    /// --rz-input-font-size custom property.
+    /// </summary>
+    [Parameter]
+    public string FontSize { get; set; } = "md";
+
+    [Parameter]
+    public EventCallback<string> ValueChanged { get; set; }
+
+    [Parameter]
+    public Expression<Func<string>>? ValueExpression { get; set; }
+
+    [CascadingParameter]
+    private EditContext? EditContext { get; set; }
+
+    private string ComputedCssClass => $"responsive-password responsive-input-height handel {CssClass}".Trim();
+
+    private string ComputedStyle => $"width: {Width}%; --rz-input-font-size: {GetFontSizeStyle()}; {Style}";
+
+    protected override void OnParametersSet()
+    {
+        _fieldIdentifier = ValueExpression is null ? null : FieldIdentifier.Create(ValueExpression);
+    }
+
+    private async Task OnValueChanged(string value)
+    {
+        Value = value;
+        await ValueChanged.InvokeAsync(value);
+        if (EditContext is not null && _fieldIdentifier is { } fieldIdentifier)
+            EditContext.NotifyFieldChanged(fieldIdentifier);
+    }
+
+    private string GetFontSizeStyle() => FontSize switch
+    {
+        "xs" => "var(--font-size-xs)",
+        "sm" => "var(--font-size-sm)",
+        "base" => "var(--font-size-base)",
+        "md" => "var(--font-size-md)",
+        "lg" => "var(--font-size-lg)",
+        "xl" => "var(--font-size-xl)",
+        "2xl" => "var(--font-size-2xl)",
+        "3xl" => "var(--font-size-3xl)",
+        _ => "var(--font-size-md)",
+    };
+}

@@ -6,6 +6,7 @@ namespace TwilightImperiumUltimate.Web.Components.Cards;
 
 public partial class ObjectiveCard
 {
+    private readonly string _dropdownId = $"objective-card-dropdown-{Guid.NewGuid():N}";
     private IReadOnlyCollection<KeyValuePair<ObjectiveCardName, string>> _objectives = default!;
     private ObjectiveCardName _selectedObjectiveCard = ObjectiveCardName.AMassWealth;
     private ObjectiveCardName _previousObjectiveCard = ObjectiveCardName.AMassWealth;

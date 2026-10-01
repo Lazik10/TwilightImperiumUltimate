@@ -1,0 +1,15 @@
+.async-games-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.async-games-table {
+    min-width: 0;
+}
+
+.async-games-table ::deep .rz-cell-data {
+    color: var(--color-white) !important;
+    font-family: Handel, fallback, sans-serif !important;
+    text-shadow: var(--shadow-text) !important;
+}
+

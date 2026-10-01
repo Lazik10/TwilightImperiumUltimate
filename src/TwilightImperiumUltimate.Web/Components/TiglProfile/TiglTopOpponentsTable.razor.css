@@ -1,0 +1,6 @@
+.tigl-opponents-mobile { display: none; }
+
+@media (max-width: 768px) {
+	.tigl-opponents-desktop { display: none; }
+	.tigl-opponents-mobile { display: block; }
+}

@@ -1,17 +1,12 @@
-﻿@using TwilightImperiumUltimate.Web.Helpers.Enums
-
-<FlexColumnContainer Width="@Width">
-
-    <Label Text="@Strings.AsyncStatisticsTypeMenuItem_CategoryTitle" TextColor="TextColor.Yellow" FontSize="24" CenterText="true" />
-
-    @if (_menuItems.Count > 0)
-    {
-        @foreach (var menuItem in _menuItems)
-        {
-            <VerticalSpace Height="5" />
-            <TextButton Text="@menuItem.GetDisplayName()" FontSize="14" Style="@GetMenuItemColor(menuItem)" OnClick="() => SelectedItemItem(menuItem)" />
-            <VerticalSpace Height="5" />
-        }
-    }
-
-</FlexColumnContainer>
+﻿<div class="async-statistics-menu">
+    <ResponsiveDropDown TValue="AsyncStatisticsTypeMenuItem"
+                        Id="async-statistics-category"
+                        Label="@Strings.AsyncStatisticsTypeMenuItem_CategoryTitle"
+                        LabelPosition="LabelPosition.Column"
+                        Data="@_menuItems"
+                        TextProperty="DisplayName"
+                        ValueProperty="Value"
+                        Value="@SelectedMenuItem"
+                        ValueChanged="SelectedItemItem"
+                        Width="100" />
+</div>

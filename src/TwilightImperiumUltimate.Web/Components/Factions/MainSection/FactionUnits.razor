@@ -1,0 +1,14 @@
+@using TwilightImperiumUltimate.Web.Components.Cards
+
+<section class="faction-component-section faction-component-section--full faction-units">
+    <ResponsiveHeading Text="Faction specific units" Level="2" CenterText="true" FontSize="lg" CssClass="faction-component-section-title" />
+
+    <ResponsiveGridContainer Columns="2" TabletColumns="1" MobileColumns="1" Width="100" Gap="var(--space-xl)">
+        @foreach (var imagePath in UnitImagePaths)
+        {
+            <div class="faction-horizontal-card">
+                <HorizontalCard ImagePath="@imagePath" />
+            </div>
+        }
+    </ResponsiveGridContainer>
+</section>

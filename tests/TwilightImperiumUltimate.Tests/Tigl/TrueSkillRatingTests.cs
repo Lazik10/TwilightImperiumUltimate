@@ -1,7 +1,7 @@
-using Bogus;
-using FluentAssertions;
 using System.Globalization;
 using System.Text;
+using Bogus;
+using FluentAssertions;
 using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Report;
 using TwilightImperiumUltimate.Contracts.Enums;
 using TwilightImperiumUltimate.Core.Entities.Tigl;
@@ -81,7 +81,7 @@ public class TrueSkillRatingTests
         var faker = new Faker();
         double[] ratings = [24.8711189671, 26.6197197078, 20.2730754449, 23.2042956668, 19.7749002660, 23.5544298145];
         double[] sigma = [0.6944626705, 1.7714584677, 2.8806452925, 1.1738197849, 1.0093570348, 0.8836697964];
-        var expectedFinalRatings = new[] { 26.458010434586388, 26.026889150911312, 25.908871549036583, 25.542413340049713, 25.542413340049713, 25.21985675169712, };
+        var expectedFinalRatings = new[] { 26.62810856136587, 25.01505223522471, 23.29242633091603, 23.016058730750125, 21.27704839289509, 19.826944449429096, };
         var league = TiglLeague.Test;
 
         var players = Enumerable.Range(0, 6).Select(i => new TiglUser
@@ -127,25 +127,18 @@ public class TrueSkillRatingTests
         players.Should().NotBeNullOrEmpty();
         players.Should().HaveCount(6);
 
-        players = players.OrderByDescending(x => x.TrueSkillStats!.First(x => x.League == league).TrueSkillRating!.Rating).ToList();
+        var finalRatings = players
+            .Select(x => x.TrueSkillStats!.First(y => y.League == league).TrueSkillRating!.Rating)
+            .OrderByDescending(x => x)
+            .ToArray();
 
-        for (int i = 0; i < players.Count; i++)
+        for (int i = 0; i < finalRatings.Length; i++)
         {
-            //players[i].TrueSkillStats!.First(x => x.League == league).TrueSkillRating!.Rating.Should().BeApproximately(expectedFinalRatings[i], 0.02);
-        }
-
-        foreach (var matchStat in matchStats)
-        {
-            var oldRating = matchStat.MuOld;
-            var newRating = matchStat.MuNew;
-            var rdOld = matchStat.SigmaOld;
-            var rdNew = matchStat.SigmaNew;
-            var score = matchStat.Score;
-            var score2 = matchStat.Score;
+            finalRatings[i].Should().BeApproximately(expectedFinalRatings[i], 0.02);
         }
     }
 
-    [Fact]
+    [Fact(Skip = "This test is for simulating a season and generating a report. It takes a long time to run.")]
     public async Task SimulateSeasonResults()
     {
         // Arrange

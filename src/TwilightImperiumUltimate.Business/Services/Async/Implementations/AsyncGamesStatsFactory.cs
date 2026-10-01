@@ -13,8 +13,9 @@ public class AsyncGamesStatsFactory(
 
     public async Task<AsyncGamesSummaryStatsDto> CreateAsyncGamesStatsSummary(int limit, CancellationToken cancellationToken)
     {
-        var allGames = await _asyncStatsRepository.GetAllAsyncGames(cancellationToken);
-        var playerProfiles = await _asyncStatsRepository.GetAllAsyncPlayerProfiles(true, cancellationToken);
+        var allGames = await _asyncStatsRepository.GetAsyncStatisticsGameProjections(cancellationToken);
+        var playerProfiles = (await _asyncStatsRepository.GetAllAsyncPlayerProfiles(true, cancellationToken))
+            .ToDictionary(x => x.DiscordUserId);
 
         var tiglGames = allGames.Where(x => x.IsTigl).ToList();
         var customGames = allGames.Where(x => !x.IsTigl).ToList();
@@ -26,12 +27,12 @@ public class AsyncGamesStatsFactory(
         return new AsyncGamesSummaryStatsDto(allGameStats, tiglGameStats, customGameStats);
     }
 
-    private AsyncGamesStatsDto CreateGameStats(List<GameStats> games, List<AsyncPlayerProfile> playerProfiles, int limit)
+    private AsyncGamesStatsDto CreateGameStats(List<AsyncStatisticsGameProjection> games, IReadOnlyDictionary<long, AsyncPlayerProfile> playerProfiles, int limit)
     {
         var playersWithMostGames = games
             .Where(x => x.EndedTimestamp != null && x.HasWinner)
-            .SelectMany(x => x.PlayerStatistics)
-            .GroupBy(x => x.DiscordUserID)
+                .Where(x => x.DiscordUserId.HasValue)
+                .GroupBy(x => x.DiscordUserId!.Value)
             .Select(g =>
             {
                 var playerInfo = GetPlayerInfo(g.Key, playerProfiles);
@@ -50,8 +51,8 @@ public class AsyncGamesStatsFactory(
         var activeGames = games.Where(x => x.EndedTimestamp == null).ToList();
 
         var playersWithMostActiveGames = activeGames
-            .SelectMany(x => x.PlayerStatistics)
-            .GroupBy(x => x.DiscordUserID)
+            .Where(x => x.DiscordUserId.HasValue)
+                .GroupBy(x => x.DiscordUserId!.Value)
             .Select(g =>
              {
                  var playerInfo = GetPlayerInfo(g.Key, playerProfiles);
@@ -70,9 +71,9 @@ public class AsyncGamesStatsFactory(
         return new AsyncGamesStatsDto(playersWithMostGames, playersWithMostActiveGames);
     }
 
-    private (int Id, string Name) GetPlayerInfo(long discordUserId, List<AsyncPlayerProfile> playerProfiles)
+    private (int Id, string Name) GetPlayerInfo(long discordUserId, IReadOnlyDictionary<long, AsyncPlayerProfile> playerProfiles)
     {
-        var player = playerProfiles.Find(x => x.DiscordUserId == discordUserId);
+        playerProfiles.TryGetValue(discordUserId, out var player);
 
         if (player is not null && player.ProfileSettings is not null && player.ProfileSettings.ShowGames && !player.ProfileSettings.ExcludeFromAsyncStats)
             return (player.Id, player.DiscordUserName);

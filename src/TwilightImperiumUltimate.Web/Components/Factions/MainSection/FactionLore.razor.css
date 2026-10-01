@@ -1,0 +1,26 @@
+﻿.lore {
+    color: white;
+    text-align: justify;
+    width: 100%;
+    line-height: 1.5;
+    text-indent: 2em;
+    display: block;
+}
+
+.lore::after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .lore {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .lore {
+        font-size: 10px;
+    }
+}

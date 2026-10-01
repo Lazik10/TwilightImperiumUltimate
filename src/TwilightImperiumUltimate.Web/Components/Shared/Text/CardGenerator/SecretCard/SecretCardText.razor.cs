@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components;
 using TwilightImperiumUltimate.Web.Helpers.Text;
 
 namespace TwilightImperiumUltimate.Web.Components.Shared.Text.CardGenerator.SecretCard;

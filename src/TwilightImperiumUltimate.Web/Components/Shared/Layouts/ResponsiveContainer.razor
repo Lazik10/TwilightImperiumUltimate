@@ -1,0 +1,19 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Layouts
+
+@*
+    Responsive container component for consistent page and section layouts.
+    Supports multiple container types and padding options.
+*@
+
+@if (OnClick.HasDelegate)
+{
+    <button type="button" class="responsive-container @GetContainerClass() @CssClass" style="@GetContainerStyle()" data-container-name="@Name" @onclick="OnClick">
+        @ChildContent
+    </button>
+}
+else
+{
+    <div class="responsive-container @GetContainerClass() @CssClass" style="@GetContainerStyle()" data-container-name="@Name">
+        @ChildContent
+    </div>
+}

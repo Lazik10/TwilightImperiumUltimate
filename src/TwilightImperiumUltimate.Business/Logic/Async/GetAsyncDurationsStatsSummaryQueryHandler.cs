@@ -4,13 +4,15 @@ using TwilightImperiumUltimate.Contracts.DTOs.Async.AsyncStats;
 namespace TwilightImperiumUltimate.Business.Logic.Async;
 
 public class GetAsyncDurationsStatsSummaryQueryHandler(
-    IAsyncDurationsStatsFactory asyncCombatStatsFactory)
+    IAsyncStatisticsSnapshotReader snapshotReader)
     : IRequestHandler<GetAsyncDurationsStatsSummaryQuery, AsyncDurationsSummaryStatsDto>
 {
-    private readonly IAsyncDurationsStatsFactory _asyncDurationsStatsFactory = asyncCombatStatsFactory;
+    private readonly IAsyncStatisticsSnapshotReader _snapshotReader = snapshotReader;
 
     public async Task<AsyncDurationsSummaryStatsDto> Handle(GetAsyncDurationsStatsSummaryQuery request, CancellationToken cancellationToken)
     {
-        return await _asyncDurationsStatsFactory.CreateAsyncDurationsStatsSummary(request.Limit, cancellationToken);
+        ArgumentNullException.ThrowIfNull(request);
+
+        return await _snapshotReader.GetDurationsAsync(request.Limit, cancellationToken);
     }
 }

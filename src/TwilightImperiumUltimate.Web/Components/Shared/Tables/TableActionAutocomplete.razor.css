@@ -1,0 +1,14 @@
+/*
+    Same technique as TableActionDropDown.razor.css -- see that file's comment for why the
+    combined ".table-action-autocomplete .responsive-input-height" selector reliably beats the
+    plain ".responsive-input-height" utility in app.css despite both being !important.
+*/
+.table-action-autocomplete {
+    display: contents;
+}
+
+.table-action-autocomplete ::deep .responsive-input-height {
+    --rz-input-height: 1.85rem !important;
+    --rz-input-padding-block: 0.1rem;
+    --rz-input-padding-inline: 0.4rem;
+}

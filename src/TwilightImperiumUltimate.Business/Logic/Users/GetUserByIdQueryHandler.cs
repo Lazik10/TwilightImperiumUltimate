@@ -1,4 +1,4 @@
-namespace TwilightImperiumUltimate.Business.Logic.Users;
+﻿namespace TwilightImperiumUltimate.Business.Logic.Users;
 
 public class GetUserByIdQueryHandler(
     IUserRepository userRepository,
@@ -10,6 +10,8 @@ public class GetUserByIdQueryHandler(
 
     public async Task<TwilightImperiumUserDto> Handle(GetUserByIdQuery request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var user = await _userRepository.GetUserById(request.Id);
         if (user is null)
             user = new TwilightImperiumUser();

@@ -1,0 +1,96 @@
+#ranks-panel ::deep .ranks-table tbody td {
+    font-family: Handel, sans-serif !important;
+    text-align: center;
+    text-shadow: var(--shadow-text) !important;
+}
+
+#ranks-panel ::deep .ranks-table th,
+#ranks-panel ::deep .ranks-table td,
+#ranks-panel ::deep .ranks-table .rz-cell-data,
+#ranks-panel ::deep .ranks-table .responsive-label {
+    white-space: nowrap;
+}
+
+#ranks-panel ::deep .ranks-table thead .ranks-header-cell {
+    color: var(--color-nav-hover, #8ecfff) !important;
+    text-align: center;
+}
+
+#ranks-panel ::deep .ranks-table thead .ranks-header-cell .rz-cell-data {
+    color: var(--color-nav-hover, #8ecfff) !important;
+    font-family: Handel, sans-serif !important;
+    text-shadow: var(--shadow-text) !important;
+}
+
+#ranks-panel ::deep .ranks-table .rank-player-row {
+    cursor: pointer;
+    font-family: Handel, sans-serif !important;
+}
+
+#ranks-panel ::deep .ranks-table .rank-player-row:focus-visible {
+    outline: 2px solid var(--color-nav-hover, #8ecfff);
+    outline-offset: -2px;
+}
+
+#ranks-panel ::deep .ranks-table .rank-player-row .responsive-label {
+    font-family: Handel, sans-serif !important;
+    text-align: center;
+    text-shadow: var(--shadow-text) !important;
+}
+
+#ranks-panel ::deep .ranks-table .rank-player-row .rank-player-name {
+    text-align: left;
+}
+
+#ranks-panel ::deep .ranks-table .rank-player-row td:first-child .rz-cell-data {
+    text-align: left;
+}
+
+#ranks-panel ::deep .rank-group-label {
+    font-family: Handel, sans-serif !important;
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    text-align: center;
+    text-shadow: var(--shadow-text) !important;
+}
+
+#ranks-panel ::deep .rank-group-count {
+    color: var(--color-nav-hover, #8ecfff);
+    text-shadow: var(--shadow-text) !important;
+}
+
+#ranks-panel ::deep .ranks-table .rank-show-all-row {
+    cursor: pointer;
+}
+
+#ranks-panel ::deep .ranks-table .rank-show-all-row .rz-cell-data {
+    text-align: center;
+}
+
+#ranks-panel ::deep .ranks-table .rank-show-all-label {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-family: Handel, sans-serif !important;
+    color: var(--color-nav-hover, #8ecfff);
+    text-shadow: var(--shadow-text) !important;
+}
+
+#ranks-panel ::deep .ranks-table .rank-show-all-row:focus-visible {
+    outline: 2px solid var(--color-nav-hover, #8ecfff);
+    outline-offset: -2px;
+}
+
+@media (max-width: 768px) {
+    #ranks-panel ::deep .ranks-table .rz-data-grid-data {
+        container-type: inline-size;
+    }
+
+    #ranks-panel ::deep .rank-group-label {
+        width: 100cqw;
+    }
+
+    #ranks-panel ::deep .ranks-table .rank-group-cell {
+        padding-inline: 0 !important;
+    }
+}

@@ -1,20 +1,76 @@
 ﻿@page "/account/tigl-admin"
 @using Microsoft.AspNetCore.Authorization
-@using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Season
-@using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Achievements
-@using TwilightImperiumUltimate.Contracts.Enums
-@using TwilightImperiumUltimate.Contracts.DTOs.Tigl
 @using TwilightImperiumUltimate.Web.Components.TiglAdmin
 
 @attribute [Authorize(Roles = "TiglAdmin")]
 
 <Page>
-    <Label Text="TIGL Administration" FontSize="30" CenterText="true" />
-    <VerticalSpace Height="30" />
+    
+    <ResponsiveHeading Level="1" Text="@Strings.Page_TiglAdmin" />
 
-    <FlexColumnCenteredContainer>
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
 
-        <AdminMainGrid />
+        <ResponsiveTabMenu AriaLabel="@Strings.TiglAdmin_TabsLabel" CssClass="mb-lg">
+            <ResponsiveTab Id="tigl-admin-tab-parameters"
+                           ControlsId="tigl-admin-panel-parameters"
+                           IsActive="@(_activeTab == TiglAdminTab.Parameters)"
+                           OnClick="@(() => SelectTab(TiglAdminTab.Parameters))">
+                @Strings.TiglAdmin_ParametersTab
+            </ResponsiveTab>
+            <ResponsiveTabSeparator />
 
-    </FlexColumnCenteredContainer>
+            <ResponsiveTab Id="tigl-admin-tab-seasons"
+                           ControlsId="tigl-admin-panel-seasons"
+                           IsActive="@(_activeTab == TiglAdminTab.Seasons)"
+                           OnClick="@(() => SelectTab(TiglAdminTab.Seasons))">
+                @Strings.TiglAdmin_SeasonsTab
+            </ResponsiveTab>
+            <ResponsiveTabSeparator />
+
+            <ResponsiveTab Id="tigl-admin-tab-register"
+                           ControlsId="tigl-admin-panel-register"
+                           IsActive="@(_activeTab == TiglAdminTab.Register)"
+                           OnClick="@(() => SelectTab(TiglAdminTab.Register))">
+                @Strings.TiglAdmin_RegisterTab
+            </ResponsiveTab>
+            <ResponsiveTabSeparator />
+
+            <ResponsiveTab Id="tigl-admin-tab-players"
+                           ControlsId="tigl-admin-panel-players"
+                           IsActive="@(_activeTab == TiglAdminTab.Players)"
+                           OnClick="@(() => SelectTab(TiglAdminTab.Players))">
+                @Strings.TiglAdmin_PlayersTab
+            </ResponsiveTab>
+            <ResponsiveTabSeparator />
+
+            <ResponsiveTab Id="tigl-admin-tab-games"
+                           ControlsId="tigl-admin-panel-games"
+                           IsActive="@(_activeTab == TiglAdminTab.Games)"
+                           OnClick="@(() => SelectTab(TiglAdminTab.Games))">
+                @Strings.TiglAdmin_GamesTab
+            </ResponsiveTab>
+        </ResponsiveTabMenu>
+
+        <div id="tigl-admin-panel-parameters" role="tabpanel" class=width-100" aria-labelledby="tigl-admin-tab-parameters" hidden="@(_activeTab != TiglAdminTab.Parameters)">
+            <ParametersDashboard />
+        </div>
+
+        <div id="tigl-admin-panel-seasons" role="tabpanel" class=width-100" aria-labelledby="tigl-admin-tab-seasons" hidden="@(_activeTab != TiglAdminTab.Seasons)">
+            <SeasonAdminDashboard />
+        </div>
+
+        <div id="tigl-admin-panel-register" role="tabpanel" class=width-100" aria-labelledby="tigl-admin-tab-register" hidden="@(_activeTab != TiglAdminTab.Register)">
+            <RegisterDashboard />
+        </div>
+
+        <div id="tigl-admin-panel-players" role="tabpanel" class=width-100" aria-labelledby="tigl-admin-tab-players" hidden="@(_activeTab != TiglAdminTab.Players)">
+            <PlayersDashboard />
+        </div>
+
+        <div id="tigl-admin-panel-games" role="tabpanel" class=width-100" aria-labelledby="tigl-admin-tab-games" hidden="@(_activeTab != TiglAdminTab.Games)">
+            <GameReportsDashboard />
+        </div>
+
+    </ResponsiveContainer>
+
 </Page>

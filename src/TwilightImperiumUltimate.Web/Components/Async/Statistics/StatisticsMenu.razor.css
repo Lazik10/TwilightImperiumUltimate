@@ -1,0 +1,9 @@
+.async-statistics-menu {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.async-statistics-menu ::deep .responsive-dropdown-host {
+    width: var(--async-statistics-control-width, min(100%, 20rem));
+}

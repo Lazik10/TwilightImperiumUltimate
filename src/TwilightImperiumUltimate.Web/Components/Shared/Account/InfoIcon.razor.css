@@ -1,0 +1,43 @@
+/*
+    The info icon is a solid-white .webp image, so a plain CSS "color" change (as used for the
+    text-based main navigation items) has no effect on it. Instead, an absolutely-positioned
+    ::after pseudo-element uses the same image as a CSS mask with the nav hover color as its
+    background, and is faded in/out opposite the real <img> on hover -- giving the same
+    "turns nav-hover blue on hover" behavior as the rest of the main navigation.
+*/
+.info-icon-hover {
+    display: inline-flex;
+    position: relative;
+    line-height: 0;
+}
+
+.info-icon-hover ::deep img {
+    display: block;
+    transition: opacity 0.2s ease;
+}
+
+.info-icon-hover::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-nav-hover);
+    -webkit-mask-image: url('/resources/images/shared/icons/info.webp');
+    mask-image: url('/resources/images/shared/icons/info.webp');
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+
+.info-icon-hover:hover ::deep img {
+    opacity: 0;
+}
+
+.info-icon-hover:hover::after {
+    opacity: 1;
+}

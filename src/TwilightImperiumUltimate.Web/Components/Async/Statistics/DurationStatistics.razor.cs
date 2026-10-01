@@ -9,7 +9,6 @@ public partial class DurationStatistics
 {
     private IJSObjectReference? _jsModule;
     private bool _isDataLoaded;
-    private int _row;
     private AsyncDurationsSummaryStatsDto _durationSummaryStats = new AsyncDurationsSummaryStatsDto();
 
     [CascadingParameter(Name = "Filter")]
@@ -58,26 +57,6 @@ public partial class DurationStatistics
         }
     }
 
-    private string GetDurationTime(long timestamp)
-    {
-        var duration = TimeSpan.FromSeconds(timestamp);
-
-        // Build the duration parts
-        List<string> parts = new List<string>();
-
-        if (duration.Days > 0)
-            parts.Add($"{duration.Days:D2} d");
-        if (duration.Hours > 0)
-            parts.Add($"{duration.Hours:D2} h");
-        if (duration.Minutes > 0)
-            parts.Add($"{duration.Minutes:D2} m");
-        if (duration.Seconds > 0)
-            parts.Add($"{duration.Seconds:D2} s");
-
-        // Return the result or default to "0s"
-        return parts.Count > 0 ? string.Join(" ", parts) : "0s";
-    }
-
     private async Task RedirectToGameDetails(string gameId)
     {
         if (_jsModule is null)
@@ -88,6 +67,4 @@ public partial class DurationStatistics
         var path = Configuration.GetSection(nameof(AsyncServerOptions))[nameof(AsyncServerOptions.BaseGameUrl)];
         _ = Task.Run(async () => await _jsModule.InvokeVoidAsync("openInNewTab", $"{path}{gameId}"));
     }
-
-    private string GetCssStyle() => string.Join(" ", "text-no-overflow", _row % 2 == 0 ? "background" : string.Empty);
 }

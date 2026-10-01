@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Business.Services.Async.Interfaces;
+﻿using TwilightImperiumUltimate.Business.Services.Async.Interfaces;
 using TwilightImperiumUltimate.Contracts.DTOs.Async.PlayerStats.FactionStats;
 using TwilightImperiumUltimate.Core.Entities.Async;
 
@@ -8,6 +8,8 @@ public class AsyncPlayerFactionStatsFactory : IAsyncPlayerFactionStatsFactory
 {
     public Task<AsyncPlayerFactionStatsSummaryDto> CreateAsyncPlayerFactionStats(AsyncPlayerProfile playerProfile)
     {
+        ArgumentNullException.ThrowIfNull(playerProfile);
+
         var endedGames = playerProfile.GameStatistics
             .Select(x => x.GameStats)
             .Where(x => x.EndedTimestamp != null && x.HasWinner)
@@ -89,7 +91,7 @@ public class AsyncPlayerFactionStatsFactory : IAsyncPlayerFactionStatsFactory
     {
         var factionStatsDict = new Dictionary<AsyncFactionName, AsyncPlayerFactionStatsDto>();
 
-        foreach (AsyncFactionName faction in Enum.GetValues(typeof(AsyncFactionName)))
+        foreach (AsyncFactionName faction in Enum.GetValues<AsyncFactionName>())
         {
             factionStatsDict[faction] = new AsyncPlayerFactionStatsDto() { FactionName = faction };
         }

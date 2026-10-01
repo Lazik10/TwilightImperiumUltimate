@@ -1,0 +1,24 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Tables
+
+@*
+    Compact ResponsiveSwitch for ResponsiveTable cells. Same OnText/OffText/
+    IsToggled contract, just shrunk to fit a narrow column -- see TableActionSwitch.razor.css.
+
+    The outer span exists ONLY so this component has a real root element of its own to attach its
+    scope attribute to (a wrapper whose entire template is a single child component tag has no DOM
+    node of its own, so its scoped CSS would never match anything -- display:contents keeps it out
+    of layout entirely, so it doesn't affect flex/grid placement of surrounding cells).
+*@
+
+<span class="table-action-switch">
+    <ResponsiveSwitch IsToggled="IsToggled"
+                      IsToggledChanged="IsToggledChanged"
+                      OnText="@OnText"
+                      OffText="@OffText"
+                      Name="@Name"
+                      Width="@Width"
+                      Theme="Theme"
+                      EnabledColor="EnabledColor"
+                      DisabledColor="DisabledColor"
+                      CssClass="@CssClass" />
+</span>

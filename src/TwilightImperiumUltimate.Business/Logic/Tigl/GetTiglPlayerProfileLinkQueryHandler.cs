@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Contracts.DTOs.Tigl;
+﻿using TwilightImperiumUltimate.Contracts.DTOs.Tigl;
 
 namespace TwilightImperiumUltimate.Business.Logic.Tigl;
 
@@ -9,6 +9,8 @@ public class GetTiglPlayerProfileLinkQueryHandler(IDbContextFactory<TwilightImpe
 
     public async Task<TiglPlayerProfileLinkDto> Handle(GetTiglPlayerProfileLinkQuery request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         await using var db = await dbFactory.CreateDbContextAsync(cancellationToken);
 
         var user = await db.TiglUsers

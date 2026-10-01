@@ -1,10 +1,12 @@
+using Microsoft.AspNetCore.Components.Web;
 using Microsoft.JSInterop;
 
 namespace TwilightImperiumUltimate.Web.Components.Shared;
 
-public partial class UpdateAvailable
+public partial class UpdateAvailable : IAsyncDisposable
 {
     private bool _newVersionAvailable;
+    private DotNetObjectReference<UpdateAvailable>? _dotNetReference;
 
     [Inject]
     private IJSRuntime JSRuntime { get; set; } = default!;
@@ -26,9 +28,24 @@ public partial class UpdateAvailable
 
     private async Task RegisterForUpdateAvailableNotification()
     {
+        _dotNetReference ??= DotNetObjectReference.Create(this);
+
         await JSRuntime.InvokeAsync<object>(
             identifier: "registerForUpdateAvailableNotification",
-            DotNetObjectReference.Create(this),
+            _dotNetReference,
             nameof(OnUpdateAvailable));
+    }
+
+    private async Task ReloadPage(MouseEventArgs args)
+    {
+        await JSRuntime.InvokeVoidAsync("reloadForUpdate");
+    }
+
+    public ValueTask DisposeAsync()
+    {
+        _dotNetReference?.Dispose();
+        _dotNetReference = null;
+
+        return ValueTask.CompletedTask;
     }
 }

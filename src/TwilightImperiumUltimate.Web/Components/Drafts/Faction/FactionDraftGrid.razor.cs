@@ -1,18 +1,29 @@
 using TwilightImperiumUltimate.Web.Services.Draft;
+using TwilightImperiumUltimate.Web.Options.Drafts;
 
 namespace TwilightImperiumUltimate.Web.Components.Drafts.Faction;
 
 public partial class FactionDraftGrid
 {
+    private readonly IReadOnlyCollection<KeyValuePair<bool, string>> _booleanOptions =
+    [
+        new(false, Strings.String_Disabled),
+        new(true, Strings.String_Enabled),
+    ];
+
     private DraftStage _draftStage = DraftStage.Draft;
 
-    private FactionIconRow? _factionIconRow = null!;
+    private FactionMenuPicker? _factionMenuPicker;
+
+    private bool _showSettings;
 
     [Inject]
     private ILogger<FactionDraftGrid> Logger { get; set; } = null!;
 
     [Inject]
     private IFactionDraftService FactionDraftService { get; set; } = null!;
+
+    private IReadOnlyCollection<KeyValuePair<bool, string>> BooleanOptions => _booleanOptions;
 
     protected override void OnInitialized()
     {
@@ -21,9 +32,9 @@ public partial class FactionDraftGrid
         FactionDraftService.OnFactionUpdate += HandleOnDataUpdated;
     }
 
-    private void UpdateBanFactions()
+    private void UpdateBanFactions(FactionModel faction)
     {
-        FactionDraftService.UpdateBanFactions(_factionIconRow?.Factions);
+        FactionDraftService.UpdateBanFactions(_factionMenuPicker?.Factions);
     }
 
     private void InitializeBanFactions(IReadOnlyCollection<FactionModel> factionsWithBanStatus)
@@ -31,25 +42,39 @@ public partial class FactionDraftGrid
         FactionDraftService.UpdateBanFactions(factionsWithBanStatus);
     }
 
-    private void IncreasePlayerCount()
+    private void SetPlayerCount(int numberOfPlayers)
     {
-        FactionDraftService.IncreasePlayerCount();
+        while (FactionDraftService.NumberOfPlayers > numberOfPlayers)
+            FactionDraftService.DecreasePlayerCount();
+
+        while (FactionDraftService.NumberOfPlayers < numberOfPlayers)
+            FactionDraftService.IncreasePlayerCount();
+
+        StateHasChanged();
     }
 
-    private void DecreasePlayerCount()
+    private void SetFactionCount(int numberOfFactions)
     {
-        FactionDraftService.DecreasePlayerCount();
+        while (FactionDraftService.NumberOfDraftFactions > numberOfFactions)
+            FactionDraftService.DecreaseFactionCount();
+
+        while (FactionDraftService.NumberOfDraftFactions < numberOfFactions)
+            FactionDraftService.IncreaseFactionCount();
+
+        StateHasChanged();
     }
 
-    private void IncreaseFactionCount()
+    private void SetPlayerNamesEnabled(bool enablePlayerNames)
     {
-        FactionDraftService.IncreaseFactionCount();
+        FactionDraftService.EnablePlayerNames = enablePlayerNames;
+        StateHasChanged();
     }
 
-    private void DecreaseFactionCount()
-    {
-        FactionDraftService.DecreaseFactionCount();
-    }
+    private static IReadOnlyCollection<int> GetPlayerCountOptions() =>
+        Enumerable.Range(FactionDraftOptions.MinNumberOfPlayers, (FactionDraftOptions.MaxNumberOfPlayers - FactionDraftOptions.MinNumberOfPlayers) + 1).ToArray();
+
+    private static IReadOnlyCollection<int> GetFactionCountOptions() =>
+        Enumerable.Range(FactionDraftOptions.MinNumberOfDraftFactions, (FactionDraftOptions.MumberOfFactions - FactionDraftOptions.MinNumberOfDraftFactions) + 1).ToArray();
 
     private string GetButtonStateText()
     {
@@ -96,11 +121,9 @@ public partial class FactionDraftGrid
         FactionDraftService.ResetPlayerFactions();
     }
 
-    private void ResetBans()
-    {
-        _factionIconRow?.SetAllFactionsBanStatus(false);
-        FactionDraftService.ResetBans();
-    }
+    private void ShowDraft() => _showSettings = false;
+
+    private void ShowSettings() => _showSettings = true;
 
     private bool IsDraftReady()
     {
@@ -121,9 +144,4 @@ public partial class FactionDraftGrid
         StateHasChanged();
     }
 
-    private void HandleGameVersionClick(GameVersion version)
-    {
-        FactionDraftService.GameVersionGlobalEnableDisable(version);
-        StateHasChanged();
-    }
 }

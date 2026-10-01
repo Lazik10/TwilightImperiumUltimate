@@ -1,0 +1,16 @@
+﻿.faction-leaders {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xl);
+}
+
+.faction-leader-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+::deep .faction-leader-section-title {
+    font-weight: bold;
+    text-transform: uppercase;
+}

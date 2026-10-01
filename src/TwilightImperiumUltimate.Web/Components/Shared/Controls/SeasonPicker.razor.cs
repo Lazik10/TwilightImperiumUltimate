@@ -22,7 +22,7 @@ public partial class SeasonPicker
     public int Width { get; set; } = 100;
 
     [Parameter]
-    public int FontSize { get; set; } = 24;
+    public string FontSize { get; set; } = "lg";
 
     [Inject]
     private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
@@ -53,7 +53,7 @@ public partial class SeasonPicker
         }
     }
 
-    private static IReadOnlyCollection<SeasonDto> AddAllOption(IReadOnlyCollection<SeasonDto> source)
+    private static List<SeasonDto> AddAllOption(IReadOnlyCollection<SeasonDto> source)
     {
         var list = source.ToList();
         if (!list.Any(s => s.SeasonNumber == -1))
@@ -82,11 +82,11 @@ public partial class SeasonPicker
         var idx = ordered.FindIndex(s => s.SeasonNumber == SeasonNumber);
         if (idx == -1)
         {
-            SeasonNumber = ordered.First().SeasonNumber;
+            SeasonNumber = ordered[0].SeasonNumber;
         }
         else
         {
-            SeasonNumber = idx > 0 ? ordered[idx - 1].SeasonNumber : ordered.Last().SeasonNumber;
+            SeasonNumber = idx > 0 ? ordered[idx - 1].SeasonNumber : ordered[^1].SeasonNumber;
         }
 
         await SeasonNumberChanged.InvokeAsync(SeasonNumber);
@@ -101,11 +101,11 @@ public partial class SeasonPicker
         var idx = ordered.FindIndex(s => s.SeasonNumber == SeasonNumber);
         if (idx == -1)
         {
-            SeasonNumber = ordered.First().SeasonNumber;
+            SeasonNumber = ordered[0].SeasonNumber;
         }
         else
         {
-            SeasonNumber = idx < ordered.Count - 1 ? ordered[idx + 1].SeasonNumber : ordered.First().SeasonNumber;
+            SeasonNumber = idx < ordered.Count - 1 ? ordered[idx + 1].SeasonNumber : ordered[0].SeasonNumber;
         }
 
         await SeasonNumberChanged.InvokeAsync(SeasonNumber);

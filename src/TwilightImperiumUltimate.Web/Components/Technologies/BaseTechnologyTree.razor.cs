@@ -2,7 +2,7 @@ using System.Globalization;
 
 namespace TwilightImperiumUltimate.Web.Components.Technologies;
 
-public partial class BaseTechnologyTree : TwilightImperiumBaseComponenet
+public partial class BaseTechnologyTree : TwilightImperiumBaseComponent
 {
     private bool _showNotes = true;
     private bool _showFaq;
@@ -24,13 +24,19 @@ public partial class BaseTechnologyTree : TwilightImperiumBaseComponenet
 
     protected override async Task OnParametersSetAsync()
     {
-        var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<FaqDto>>>(Paths.ApiPath_Faq, default);
+        var (response, statusCode) = await HttpClient.GetAsync<ApiResponse<ItemListDto<FaqDto>>>(Paths.ApiPath_Faq);
         if (statusCode == System.Net.HttpStatusCode.OK)
         {
             var faqs = Mapper.Map<List<FaqModel>>(response!.Data!.Items);
             Faqs = faqs.Where(f => f.FaqStatus == FaqStatus.Approved).ToList();
         }
     }
+
+    private static string GetTechnologyTileCssClass(TechnologyModel technology) =>
+        IsFullWidthTechnologyLevel(technology.Level) ? "technology-tile technology-tile-full" : "technology-tile";
+
+    private static bool IsFullWidthTechnologyLevel(TechnologyLevel level) =>
+        level is TechnologyLevel.Level2 or TechnologyLevel.Level3;
 
     private void ShowBigImage(TechnologyModel technology)
     {
@@ -45,19 +51,20 @@ public partial class BaseTechnologyTree : TwilightImperiumBaseComponenet
         _showBigImage = false;
     }
 
-    private string GetCultureIconPath(string culture)
-    {
-        return PathProvider.GetCultureIconPath(culture);
-    }
-
     private void SetBigImageAddress(string culture)
     {
-        _currentBigImageSrc = _currentBigImageSrc.Replace(_currentBigImageCulture, culture);
+        _currentBigImageSrc = _currentBigImageSrc.Replace(_currentBigImageCulture, culture, StringComparison.Ordinal);
         _currentBigImageCulture = culture;
         StateHasChanged();
     }
 
-    private int GetCorrectNumberOFColumns() => SelectedTechnologyType == TechnologyType.Faction ? 4 : 3;
+    private List<TechnologyModel> GetTechnologiesInLevelOrder()
+    {
+        return Technologies
+            .OrderBy(x => x.Level)
+            .ThenBy(x => x.TechnologyName)
+            .ToList();
+    }
 
     private void ShowFaq()
     {

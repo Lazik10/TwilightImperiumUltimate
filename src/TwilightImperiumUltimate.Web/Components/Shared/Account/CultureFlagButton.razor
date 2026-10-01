@@ -1,0 +1,11 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Account
+
+@*
+    A single selectable culture/language flag button. Renders its own active/inactive state by
+    comparing Culture against the current UI culture, so callers only need to supply the culture
+    code, its accessible label, and a callback for when it is activated.
+*@
+
+<button type="button" class="culture-flag-button" @onclick="HandleClick" aria-label="@Label">
+    <img class="culture-flag @GetFlagClass()" src="@GetIconPath()" alt="" />
+</button>

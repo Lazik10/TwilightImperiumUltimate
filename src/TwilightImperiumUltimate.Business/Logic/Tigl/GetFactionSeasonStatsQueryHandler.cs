@@ -1,4 +1,4 @@
-using Microsoft.Extensions.Caching.Memory;
+﻿using Microsoft.Extensions.Caching.Memory;
 using TwilightImperiumUltimate.Contracts.DTOs.Tigl;
 
 namespace TwilightImperiumUltimate.Business.Logic.Tigl;
@@ -13,6 +13,8 @@ public class GetFactionSeasonStatsQueryHandler(
 
     public async Task<ItemListDto<FactionSeasonStatsDto>> Handle(GetFactionSeasonStatsQuery request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var cacheKey = $"factionStats:{request.Season}:{request.League}";
         if (_cache.TryGetValue(cacheKey, out ItemListDto<FactionSeasonStatsDto>? cached))
             return cached!;
@@ -29,7 +31,7 @@ public class GetFactionSeasonStatsQueryHandler(
                 Faction = g.Key,
                 GamesPlayed = g.Count(),
                 Wins = g.Count(x => x.IsWinner),
-                WinRate = g.Count(x => x.IsWinner) == 0 ? 0 : (double)g.Count(x => x.IsWinner) / g.Count() * 100,
+                WinRate = g.Any(x => x.IsWinner) ? (double)g.Count(x => x.IsWinner) / g.Count() * 100 : 0,
                 TotalScore = g.Sum(x => x.Score),
                 AverageScore = g.Average(x => x.Score),
             })

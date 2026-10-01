@@ -1,61 +1,90 @@
-<VerticalSpace Height="20" />
+@*
+    Responsive via ResponsiveRadzenTable instead of the old fixed-percentage GridLayout/Label rows.
+    Category grouping (GroupRankingsStandard/GroupRankingsFractured in the code-behind) is
+    business logic and stays unchanged -- only the rendering of each group/row changed. See
+    blazor.instructions.md -- do not reintroduce Components/Shared/Tables/ResponsiveTable or
+    ResponsiveGrid, they are obsolete in this codebase.
+*@
 
-<FlexColumnCenteredContainer>
+<ResponsiveTabMenu AriaLabel="@Strings.TiglLeague_League" CssClass="faction-style mb-md">
+    <ResponsiveTab Id="ranks-tab-standard"
+                   ControlsId="ranks-panel"
+                   IsActive="@(_league == TiglLeague.ThundersEdge)"
+                   OnClick="@(() => ChangeLeague(TiglLeague.ThundersEdge))">
+        @Strings.TiglGames_CategoryStandard
+    </ResponsiveTab>
+    <ResponsiveTabSeparator />
+    <ResponsiveTab Id="ranks-tab-fractured"
+                   ControlsId="ranks-panel"
+                   IsActive="@(_league == TiglLeague.Fractured)"
+                   OnClick="@(() => ChangeLeague(TiglLeague.Fractured))">
+        @Strings.TiglGames_CategoryFractured
+    </ResponsiveTab>
+</ResponsiveTabMenu>
 
-    <EnumPicker TEnum="TiglLeague"
-        Label="@Strings.TiglLeague_League"
-        CenterText=true CurrentValue="_league" 
-        ExcludeValues="new List<TiglLeague>() { TiglLeague.Test }"
-        CurrentValueChanged="ChangeLeague"
-        Width="50"
-        MinChoiceWidth="70"/>
+<div id="ranks-panel" role="tabpanel" aria-labelledby="@ActiveTabId">
 
-</FlexColumnCenteredContainer>
-
-<VerticalSpace Height="20" />
-
-<FlexColumnCenteredContainer CssClass="background">
-    <VerticalSpace Height="20" />
-    <FlexRowContainer>
-        <Label Text="Username" PaddingLeft="50" Width="30" />
-        <Label Text="Prestige" CenterText=true Width="30" />
-        <Label Text="Rank" CenterText=true Width="30" />
-        <Label Text="Games" CenterText=true Width="10" />
-        <Label Text="Last Rank Up" CenterText=true Width="20" />
-    </FlexRowContainer>
-    <VerticalSpace Height="20" />
-</FlexColumnCenteredContainer>
-
-@if (!_loading)
-{
-    @if (_groupedRankings?.Count > 0)
-    {
-        @foreach (var group in _groupedRankings)
+<ResponsiveRadzenTable ZebraStripes="true" CssClass="ranks-table">
+    <RadzenTableHeader>
+        <RadzenTableHeaderRow>
+            <RadzenTableHeaderCell scope="col" class="ranks-header-cell">Username</RadzenTableHeaderCell>
+            <RadzenTableHeaderCell scope="col" class="ranks-header-cell">Prestige</RadzenTableHeaderCell>
+            <RadzenTableHeaderCell scope="col" class="ranks-header-cell">Rank</RadzenTableHeaderCell>
+            <RadzenTableHeaderCell scope="col" class="ranks-header-cell">Games</RadzenTableHeaderCell>
+            <RadzenTableHeaderCell scope="col" class="ranks-header-cell">Last Rank Up</RadzenTableHeaderCell>
+        </RadzenTableHeaderRow>
+    </RadzenTableHeader>
+    <RadzenTableBody>
+        @if (_loading)
         {
-            <VerticalSpace Height="50" />
-
-            <Label Text="@(group.Key + " (" + group.Value.Count + ")")" CenterText="true" TextColor="TextColor.Yellow" FontSize="16"/>
-
-            <VerticalSpace Height="5" />
-
-            @foreach (var rank in group.Value)
-            {
-                <RankRow Ranking="rank" PrestigeRankText="@group.Key" />
-            }
-
-            <VerticalSpace Height="20" />
+            <RadzenTableRow>
+                <RadzenTableCell colspan="5">
+                    <ResponsiveLabel Text="@Strings.Loading" CenterText="true" />
+                </RadzenTableCell>
+            </RadzenTableRow>
         }
-    }
-    else
-    {
-        <VerticalSpace Height="50" />
-        <Label Text="No Data" CenterText="true" />
-        <VerticalSpace Height="50" />
-    }
-}
-else
-{
-    <VerticalSpace Height="50" />
-    <Label Text="@Strings.Loading" CenterText="true" />
-    <VerticalSpace Height="50" />
-}
+        else if (_groupedRankings.Count == 0)
+        {
+            <RadzenTableRow>
+                <RadzenTableCell colspan="5">
+                    <ResponsiveLabel Text="No Data" CenterText="true" />
+                </RadzenTableCell>
+            </RadzenTableRow>
+        }
+        else
+        {
+                @foreach (var group in _groupedRankings)
+                {
+                    <RadzenTableRow>
+                        <RadzenTableCell colspan="5" class="rank-group-cell">
+                            <div class="rank-group-label">
+                                <span style="color: @GetGroupRankColor(group.Value).ConvertToString();">@group.Key</span>
+                                <span class="rank-group-count"> (@group.Value.Count)</span>
+                            </div>
+                        </RadzenTableCell>
+                    </RadzenTableRow>
+
+                    var visibleGroupRanks = GetVisibleRankingsForGroup(group.Key, group.Value);
+
+                    @foreach (var rank in visibleGroupRanks)
+                    {
+                        <RankRow @key="rank.Id" Ranking="rank" PrestigeRankText="@group.Key" />
+                    }
+
+                    @if (ShouldShowExpandRow(group.Key, group.Value))
+                    {
+                        <RadzenTableRow class="rank-show-all-row"
+                                        tabindex="0"
+                                        role="button"
+                                        @onclick="() => ExpandGroup(group.Key)"
+                                        @onkeydown="args => OnShowAllKeyDown(args, group.Key)">
+                            <RadzenTableCell colspan="5">
+                                <span class="rank-show-all-label">Show All</span>
+                            </RadzenTableCell>
+                        </RadzenTableRow>
+                    }
+                }
+        }
+    </RadzenTableBody>
+</ResponsiveRadzenTable>
+</div>

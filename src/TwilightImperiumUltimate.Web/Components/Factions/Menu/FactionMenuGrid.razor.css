@@ -1,0 +1,46 @@
+.faction-menu-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    width: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.5) 10%, rgba(0,0,0,0.5) 90%, rgba(0,0,0,0));
+}
+
+.faction-menu-grid-placeholder {
+    width: 100%;
+    min-height: 3rem;
+}
+
+/* Only one breakpoint variant is shown at a time; placeholder positions can differ structurally
+   per breakpoint, so each is rendered separately instead of just changing column counts via CSS. */
+.faction-menu-grid-desktop,
+.faction-menu-grid-tablet,
+.faction-menu-grid-mobile {
+    display: none;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.faction-menu-grid-desktop {
+    display: flex;
+}
+
+@media (max-width: 1024px) {
+    .faction-menu-grid-desktop {
+        display: none;
+    }
+
+    .faction-menu-grid-tablet {
+        display: flex;
+    }
+}
+
+@media (max-width: 768px) {
+    .faction-menu-grid-tablet {
+        display: none;
+    }
+
+    .faction-menu-grid-mobile {
+        display: flex;
+    }
+}

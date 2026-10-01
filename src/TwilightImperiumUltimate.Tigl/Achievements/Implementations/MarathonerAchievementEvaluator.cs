@@ -1,5 +1,4 @@
 using TwilightImperiumUltimate.Contracts.Enums;
-using TwilightImperiumUltimate.Core.Entities.RelationshipEntities;
 using TwilightImperiumUltimate.Core.Entities.Tigl;
 using TwilightImperiumUltimate.DataAccess.Repositories;
 using TwilightImperiumUltimate.Tigl.Achievements.Attributes;
@@ -17,6 +16,8 @@ public sealed class MarathonerAchievementEvaluator(
 {
     public async Task EvaluateAsync(Season season, AchievementName achievementName, CancellationToken cancellationToken = default)
     {
+        ArgumentNullException.ThrowIfNull(season);
+
         var slowestGameThundersEdge = await seasonRepository.GetSlowestGameInSeason(season.SeasonNumber, TiglLeague.ThundersEdge, cancellationToken);
         var slowestGameFractured = await seasonRepository.GetSlowestGameInSeason(season.SeasonNumber, TiglLeague.Fractured, cancellationToken);
 
@@ -25,19 +26,10 @@ public sealed class MarathonerAchievementEvaluator(
 
         var games = new List<MatchReport>() { slowestGameFractured, slowestGameThundersEdge };
 
-        foreach (var slowestGame in games)
+        foreach (var (slowestGame, player) in games.Where(slowestGame => slowestGame is not null)
+            .SelectMany(slowestGame => slowestGame.PlayerResults.Where(x => x.IsWinner).Select(player => (slowestGame, player))))
         {
-            if (slowestGame is not null)
-            {
-                foreach (var player in slowestGame.PlayerResults.Where(x => x.IsWinner))
-                {
-                    await achievementRepository.AwardAchievement(
-                        player.TiglUserId,
-                        slowestGame,
-                        achievementName,
-                        cancellationToken);
-                }
-            }
+            await achievementRepository.AwardAchievement(player.TiglUserId, slowestGame, achievementName, cancellationToken);
         }
     }
 }

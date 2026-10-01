@@ -1,0 +1,17 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Controls
+
+@*
+    Reusable "copy to clipboard" button. Wraps ResponsiveButton for consistent styling and shows a
+    brief accessible "Copied!" confirmation (an aria-live region, not color alone) after a
+    successful copy instead of silently doing nothing.
+*@
+
+<div class="copy-button @CssClass">
+    <ResponsiveButton Text="@ButtonLabel"
+                      CssClass="responsive-button-sm"
+                      OnClick="CopyAsync"
+                      @attributes="ButtonAttributes" />
+    <span class="copy-button-status" role="status" aria-live="polite">
+        @(_showCopiedMessage ? Strings.ButtonText_Copied : string.Empty)
+    </span>
+</div>

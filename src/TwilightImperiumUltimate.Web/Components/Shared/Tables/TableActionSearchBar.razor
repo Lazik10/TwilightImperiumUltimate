@@ -1,0 +1,28 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Tables
+@using TwilightImperiumUltimate.Web.Components.Shared.Bars
+
+@*
+    Compact ResponsiveSearchBar for ResponsiveTable cells (e.g. a per-column filter
+    trigger). Same Id/OnSearchChange contract, defaulting to no visible label and the smallest
+    FontSize token so it fits a narrow column -- see TableActionSearchBar.razor.css.
+
+    The outer span exists ONLY so this component has a real root element of its own to attach its
+    scope attribute to (a wrapper whose entire template is a single child component tag has no DOM
+    node of its own, so its scoped CSS would never match anything -- display:contents keeps it out
+    of layout entirely, so it doesn't affect flex/grid placement of surrounding cells).
+*@
+
+<span class="table-action-searchbar">
+    <ResponsiveSearchBar Id="@Id"
+                         Name="@Name"
+                         OnSearchChange="OnSearchChange"
+                         AriaDescribedBy="@AriaDescribedBy"
+                         EnableEmptySearch="EnableEmptySearch"
+                         HideText="HideText"
+                         Text="@Text"
+                         FontSize="@FontSize"
+                         Width="@Width"
+                         Style="@Style"
+                         CssClass="@CssClass" />
+</span>
+

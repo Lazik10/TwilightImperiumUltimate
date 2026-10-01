@@ -1,0 +1,57 @@
+.resource-link-row {
+    height: 100%;
+}
+
+.resource-card-link {
+    display: block;
+    height: 100%;
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.resource-link-row ::deep .resource-card {
+    height: 100%;
+    padding: 10px 16px;
+    border: 1px solid var(--color-nav-hover-bg-solid, #123957);
+    border-left: 3px solid var(--color-danger-hover-text);
+    border-radius: 6px;
+    background: rgba(8, 14, 24, 0.94);
+    transition: background 0.2s ease;
+}
+
+.resource-card-link:hover ::deep .resource-card,
+.resource-card-link:focus-visible ::deep .resource-card {
+    background: var(--color-nav-hover-bg-solid);
+}
+
+.resource-card-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 3.5rem;
+}
+
+.resource-card-icon {
+    flex: 0 0 auto;
+    width: 2.25rem;
+    height: 2.25rem;
+    object-fit: contain;
+}
+
+.resource-card-content ::deep .resource-card-title {
+    flex: 1 1 0;
+    min-width: 0;
+    font-weight: 600;
+}
+
+.resource-card-link:focus-visible {
+    outline: 2px solid var(--color-danger-hover-text);
+    outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+    .resource-card-content {
+        min-height: 3rem;
+    }
+}

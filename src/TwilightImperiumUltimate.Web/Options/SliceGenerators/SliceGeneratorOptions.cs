@@ -14,5 +14,7 @@ public static class SliceGeneratorOptions
         GameVersion.ProphecyOfKings,
     };
 
-    public static readonly SystemTileOverlay SystemTileOverlay = SystemTileOverlay.None;
+    public static readonly SystemTileOverlay SliceOverlay = SystemTileOverlay.None;
+
+    public static readonly SystemTileOverlay MenuOverlay = SystemTileOverlay.None;
 }

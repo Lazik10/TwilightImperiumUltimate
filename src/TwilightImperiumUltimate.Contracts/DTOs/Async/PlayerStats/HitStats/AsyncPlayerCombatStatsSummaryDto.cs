@@ -22,4 +22,3 @@ public record AsyncPlayerCombatStatsSummaryDto
 
     public AsyncPlayerCombatStatsDto Custom { get; init; } = new AsyncPlayerCombatStatsDto();
 }
-

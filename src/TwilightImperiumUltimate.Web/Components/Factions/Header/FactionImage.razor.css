@@ -1,0 +1,24 @@
+.faction-image-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 34rem;
+}
+
+    .faction-image-container img {
+        display: block;
+        border-radius: 20px;
+        max-width: 100%;
+    }
+
+    .faction-image-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        box-shadow: inset 0 0 0 3px #000;
+        border-radius: 20px;
+        pointer-events: none;
+    }

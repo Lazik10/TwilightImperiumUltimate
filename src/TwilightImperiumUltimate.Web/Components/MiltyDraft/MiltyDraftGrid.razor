@@ -1,9 +1,9 @@
 ﻿
-<MiltyDraftNavBar OnMenuItemClick="OnMenuItemClick"/>
+<MiltyDraftNavBar SelectedMenuItem="@_selectedMenuItem" OnMenuItemClick="OnMenuItemClick" />
 
 @if(_selectedMenuItem == MiltyDraftMenuItem.Draft)
 {
-    <MiltyDraftMainDraft />
+    <MiltyDraftMainDraft OnDraftCompleted="ShowPreview" />
 }
 else if (_selectedMenuItem == MiltyDraftMenuItem.Map)
 {

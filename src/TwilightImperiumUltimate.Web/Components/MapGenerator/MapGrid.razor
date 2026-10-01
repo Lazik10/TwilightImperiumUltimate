@@ -1,10 +1,7 @@
-﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
-@using TwilightImperiumUltimate.Web.Services.Path
-
 <div style="width:100%;">
-    @foreach (var mapPosition in MapPositions)
+    @if (GeneratedPositionsWithSystemTiles is not null && GeneratedPositionsWithSystemTiles.Keys.Any())
     {
-        if (GeneratedPositionsWithSystemTiles is not null && GeneratedPositionsWithSystemTiles.Keys.Any())
+        foreach (var mapPosition in MapPositions)
         {
             CurrentSystemTile = GeneratedPositionsWithSystemTiles[mapPosition];
 

@@ -50,4 +50,3 @@ public class GlickoPlayerMatchStatsDto
 
     public TiglRankName NewRank { get; set; }
 }
-

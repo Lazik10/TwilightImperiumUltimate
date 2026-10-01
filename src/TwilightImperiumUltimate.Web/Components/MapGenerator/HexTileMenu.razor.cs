@@ -26,13 +26,16 @@ public partial class HexTileMenu
 
     protected override void OnInitialized()
     {
-        _systemTileTypes = EnumExtensions.GetEnumValuesWithDisplayNames<SystemTileTypeFilter>();
+        _systemTileTypes = EnumExtensions.GetEnumValuesWithDisplayNames<SystemTileTypeFilter>()
+            .Where(x => x.Key != SystemTileTypeFilter.AscendantSun)
+            .ToArray();
         GetSystemTilesToShow();
     }
 
     private void GetSystemTilesToShow()
     {
-        SystemTiles = MapGeneratorService.GetSystemTilesToShow(_selectedSystemTileType);
+        SystemTiles = MapGeneratorService.GetSystemTilesToShow(_selectedSystemTileType)
+            .Where(x => x.GameVersion != GameVersion.AscendantSun);
     }
 
     private void ToggleTileMenu()

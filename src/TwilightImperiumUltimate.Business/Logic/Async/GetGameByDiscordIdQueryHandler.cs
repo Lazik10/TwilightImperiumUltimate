@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Contracts.DTOs.Async;
+﻿using TwilightImperiumUltimate.Contracts.DTOs.Async;
 
 namespace TwilightImperiumUltimate.Business.Logic.Async;
 
@@ -13,12 +13,14 @@ public class GetGameByDiscordIdQueryHandler(
 
     public async Task<AsyncGameDto> Handle(GetGameByDiscordIdQuery request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var game = await _asyncStatsRepository.GetAsyncGameByDiscordId(request.GameDiscordId, cancellationToken);
 
         if (game is not null)
         {
             // Make sure active fow games stays hidden
-            if (game.AsyncGameID.Contains(FogOfWar))
+            if (game.AsyncGameID.Contains(FogOfWar, StringComparison.Ordinal))
             {
                 game.AsyncGameID = FogOfWar;
             }

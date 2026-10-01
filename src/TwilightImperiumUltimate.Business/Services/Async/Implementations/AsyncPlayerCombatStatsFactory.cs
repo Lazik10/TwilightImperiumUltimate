@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Business.Services.Async.Interfaces;
+﻿using TwilightImperiumUltimate.Business.Services.Async.Interfaces;
 using TwilightImperiumUltimate.Contracts.DTOs.Async.PlayerStats.HitStats;
 using TwilightImperiumUltimate.Core.Entities.Async;
 
@@ -8,6 +8,8 @@ public class AsyncPlayerCombatStatsFactory : IAsyncPlayerCombatStatsFactory
 {
     public Task<AsyncPlayerCombatStatsSummaryDto> CreateAsyncPlayerCombatStats(AsyncPlayerProfile playerProfile)
     {
+        ArgumentNullException.ThrowIfNull(playerProfile);
+
         var games = playerProfile.GameStatistics
             .Select(x => x.GameStats)
             .Where(x => x.HasWinner && x.EndedTimestamp != null)

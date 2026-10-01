@@ -1,96 +1,159 @@
-﻿.tech-tree-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(1px, auto));
-    grid-template-rows: repeat(auto, auto);
-    grid-column-gap: 5%;
+﻿.technology-grid-shell {
     width: 80%;
-    padding: 0% 10%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Passed via ClickableTile's CssClass parameter, so it renders on ClickableTile's own element. */
+::deep .technology-tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+::deep .technology-tile-full {
+    grid-column: 1 / -1;
+}
+
+@media (max-width: 1024px) {
+    .technology-grid-shell {
+        width: 92%;
+    }
+}
+
+@media (max-width: 768px) {
+    .technology-grid-shell {
+        width: 98%;
+    }
+}
+
+.big-image-content-row {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    gap: var(--space-lg);
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .image-container {
-    position: relative;
+    width: min(100%, 31.25rem);
+    height: min(75vh, 46.875rem);
     max-width: 100%;
-    max-height: 100%;
-    padding: 2% 0%;
-}
-
-.container > :nth-child(5) {
-
-}
-
-.container > :nth-child(6) {
-    
-}
-
-.big-image-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    background-image: url('/resources/images/shared/Twilight_imperium_ultimate_background.webp');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    background-attachment: fixed;
+    max-height: 75vh;
     display: flex;
-    justify-content: center;
     align-items: center;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
 }
 
-    .big-image-overlay img {
+    .image-container img {
         position: relative;
         max-width: 100%;
         max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
         cursor: pointer;
-        border-radius: 20px;
+        border-radius: 1.25rem;
     }
 
-        .big-image-overlay img::before {
-            content: "";
-            position: absolute;
-            flex-grow: 1;
-            flex-shrink: 1;
-            width: 100%;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            box-shadow: inset 0 0 0 5px #000;
-            pointer-events: none;
-            margin-bottom: 20px;
-            border-radius: 20px;
-            z-index: 999;
-        }
-
-.image-container-big-image {
-    position: relative;
-    display: inline-block;
-    flex-shrink: 1;
+.big-image-content-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 100%;
-/*    height: 100%;*/
 }
 
-    .image-container-big-image img {
-        display: block;
-        width: 100%;
-        border-radius: 5%;
+.big-image-tab-row {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+    margin: 0 auto var(--space-xl);
+}
+
+.big-image-tab-label {
+    font-size: 1.5rem;
+}
+
+.faq-panel-container,
+.notes-panel-container {
+    display: flex;
+    justify-content: center;
+}
+
+.faq-action-row {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.language-menu-mobile {
+    display: none;
+}
+
+.language-menu-desktop {
+    display: flex;
+}
+
+.scrollable-element {
+    overflow: auto;
+    max-height: 60vh;
+    min-height: 60vh;
+    width: 80%;
+    margin: 0 auto;
+}
+
+    .scrollable-element::-webkit-scrollbar {
+        width: 12px;
     }
 
-    .image-container-big-image::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 999;
-        box-shadow: inset 0 0 0 10px #000;
-        pointer-events: none;
-        border-radius: 5%;
-        width: 100%;
+    .scrollable-element::-webkit-scrollbar-track {
+        background: #333;
     }
+
+    .scrollable-element::-webkit-scrollbar-thumb {
+        background: #0024ff;
+    }
+
+@media (max-width: 1024px) {
+    .big-image-content-row {
+        width: 90% !important;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .big-image-content-row {
+        width: 95% !important;
+        grid-template-columns: minmax(0, 1fr);
+        align-items: center;
+        justify-items: center;
+        gap: var(--space-sm);
+    }
+
+    .image-container {
+        width: min(92vw, 19rem);
+        height: min(42vh, 20rem);
+        max-height: 42vh;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .big-image-content-column {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .language-menu-mobile {
+        display: flex;
+    }
+
+    .language-menu-desktop {
+        display: none;
+    }
+}

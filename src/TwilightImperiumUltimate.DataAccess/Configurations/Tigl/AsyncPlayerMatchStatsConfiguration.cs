@@ -116,7 +116,7 @@ public class AsyncPlayerMatchStatsConfiguration : IEntityTypeConfiguration<Async
             .HasColumnType("int")
             .HasColumnOrder(13);
 
-        builder.Property(X => X.Faction)
+        builder.Property(x => x.Faction)
             .IsRequired()
             .HasColumnName(nameof(AsyncPlayerMatchStats.Faction))
             .HasConversion<string>()

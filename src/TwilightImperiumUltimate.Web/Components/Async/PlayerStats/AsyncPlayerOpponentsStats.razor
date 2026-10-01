@@ -1,103 +1,135 @@
 ﻿
-<FlexRowContainer>
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="100">
 
-    <FlexColumnCenteredContainer Width="100">
-
-        @if (AsyncPlayerProfile is not null)
+    @if (AsyncPlayerProfile is not null)
+    {
+        @if (!AsyncPlayerProfile.Settings.ShowOpponents)
         {
-            <Label Text="@Strings.OpponentStats_Opponents" FontSize="24" CenterText="true" />
-
-            <VerticalSpace Height="20" />
-
-            <GridLayout CssClass="background" Style="grid-template-columns: 5% 35% 10% 5% 35% 10%">
-
-                <VerticalSpace Height="20" Style="grid-column: span 6;" />
-
-                <Label />
-                <Label Text="@Strings.OpponentStats_DiscordUsername" />
-                <Label Text="@Strings.OpponentStats_Games" CenterText="true" />
-                <Label />
-                <Label Text="@Strings.OpponentStats_DiscordUsername" />
-                <Label Text="@Strings.OpponentStats_Games" CenterText="true" />
-
-
-                <VerticalSpace Height="20" Style="grid-column: span 6;" />
-
-                @if (AsyncPlayerProfile.Settings.ShowOpponents)
-                {
-                    var opponents = GetOpponentsByStatType();
-                    var midPoint = (int)Math.Ceiling(opponents.Count / 2.0);
-                    var opponentsFirstColumn = opponents.Take(midPoint).ToList();
-                    var opponentsSecondColumn = opponents.Skip(midPoint).ToList();
-                    var maxRows = Math.Max(opponentsFirstColumn.Count, opponentsSecondColumn.Count);
-
-                    @for (var i = 0; i < maxRows; i++)
-                    {
-                        var index = i;
-                        var orderLeft = i + 1;
-                        var orderRight = midPoint + i + 1;
-
-                        if (index < opponentsFirstColumn.Count)
-                        {
-                            if (opponentsFirstColumn[index].Id == 0)
-                            {
-                                <Label Text="@(orderLeft.ToString() + ". ")" CenterText="true" />
-                                <Label Text="@(opponentsFirstColumn[index].DiscordUserName)" TextColor="TextColor.Red" FontSize="14" />
-                                <Label Text="@(opponentsFirstColumn[index].Games.ToString())" CenterText="true" TextColor="TextColor.Yellow" />
-                            }
-                            else
-                            {
-                                <Label Text="@(orderLeft.ToString() + ". ")" CenterText="true" />
-                                <TextButton Text="@(opponentsFirstColumn[index].DiscordUserName)" TextAlign="left" FontSize="14" Style="color: lawngreen;" OnClick="@(() => ViewProfile(opponentsFirstColumn[index].Id))" JustifyContent="Enums.JustifyContent.FlexStart" />
-                                <Label Text="@(opponentsFirstColumn[index].Games.ToString())" CenterText="true" TextColor="TextColor.Yellow" />
-                            }
-                            orderLeft++;
-                        }
-                        else
-                        {
-                            <Label Text="@(orderLeft.ToString() + ". ")" CenterText="true" />
-                            <Label Text="" Style="grid-column: span 2;" />
-                        }
-
-                        if (index < opponentsSecondColumn.Count)
-                        {
-                            if (opponentsSecondColumn[index].Id == 0)
-                            {
-                                <Label Text="@(orderRight.ToString() + ". ")" CenterText="true" />
-                                <Label Text="@(opponentsSecondColumn[index].DiscordUserName)" TextColor="TextColor.Red" FontSize="14" />
-                                <Label Text="@(opponentsSecondColumn[index].Games.ToString())" CenterText="true" TextColor="TextColor.Yellow" />
-                            }
-                            else
-                            {
-                                <Label Text="@(orderRight.ToString() + ". ")" CenterText="true" />
-                                <TextButton Text="@(opponentsSecondColumn[index].DiscordUserName)" TextAlign="left" FontSize="14" Style="color: lawngreen;" OnClick="@(() => ViewProfile(opponentsSecondColumn[index].Id))" JustifyContent="Enums.JustifyContent.FlexStart" />
-                                <Label Text="@(opponentsSecondColumn[index].Games.ToString())" CenterText="true" TextColor="TextColor.Yellow" />
-                            }
-                            orderRight++;
-                        }
-                        else
-                        {
-                            <Label Text="@(orderLeft.ToString() + ". ")" CenterText="true" />
-                            <Label Text="" Style="grid-column: span 2;"/>
-                        }
-                    }
-                }
-                else
-                {
-                    <VerticalSpace MinHeight="300" Style="grid-column: span 6;" />
-                    <Label Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" Style="grid-column: span 6;" />
-                    <VerticalSpace MinHeight="300" Style="grid-column: span 6;" />
-                }
-
-                <VerticalSpace Height="20" Style="grid-column: span 6;" />
-
-            </GridLayout>
-
-            <VerticalSpace Height="20" />
+            <ResponsiveRadzenTable ZebraStripes="true" CssClass="statistics-row-handel" TableTitle="@Strings.OpponentStats_Opponents">
+                <RadzenTableHeader>
+                    <RadzenTableHeaderRow>
+                        <RadzenTableHeaderCell scope="col">#</RadzenTableHeaderCell>
+                        <RadzenTableHeaderCell scope="col">@Strings.OpponentStats_DiscordUsername</RadzenTableHeaderCell>
+                        <RadzenTableHeaderCell scope="col">@Strings.OpponentStats_Games</RadzenTableHeaderCell>
+                    </RadzenTableHeaderRow>
+                </RadzenTableHeader>
+                <RadzenTableBody>
+                    <RadzenTableRow>
+                        <RadzenTableCell colspan="3">
+                            <ResponsiveLabel Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" />
+                        </RadzenTableCell>
+                    </RadzenTableRow>
+                </RadzenTableBody>
+            </ResponsiveRadzenTable>
         }
+        else
+        {
+            var opponents = GetOpponentsByStatType().ToList();
+            var midPoint = (int)Math.Ceiling(opponents.Count / 2.0);
+            var opponentsFirstColumn = opponents.Take(midPoint).ToList();
+            var opponentsSecondColumn = opponents.Skip(midPoint).ToList();
+            var maxRows = Math.Max(opponentsFirstColumn.Count, opponentsSecondColumn.Count);
 
-    </FlexColumnCenteredContainer>
-    <FlexColumnCenteredContainer Width="20" />
+            <div class="async-opponents-desktop">
+                <ResponsiveRadzenTable ZebraStripes="true" CssClass="statistics-row-handel" TableTitle="@Strings.OpponentStats_Opponents">
+                    <RadzenTableHeader>
+                        <RadzenTableHeaderRow>
+                            <RadzenTableHeaderCell scope="col">#</RadzenTableHeaderCell>
+                            <RadzenTableHeaderCell scope="col">@Strings.OpponentStats_DiscordUsername</RadzenTableHeaderCell>
+                            <RadzenTableHeaderCell scope="col">@Strings.OpponentStats_Games</RadzenTableHeaderCell>
+                            <RadzenTableHeaderCell scope="col">#</RadzenTableHeaderCell>
+                            <RadzenTableHeaderCell scope="col">@Strings.OpponentStats_DiscordUsername</RadzenTableHeaderCell>
+                            <RadzenTableHeaderCell scope="col">@Strings.OpponentStats_Games</RadzenTableHeaderCell>
+                        </RadzenTableHeaderRow>
+                    </RadzenTableHeader>
+                    <RadzenTableBody>
+                        @for (var i = 0; i < maxRows; i++)
+                        {
+                            var index = i;
 
-</FlexRowContainer>
+                            <RadzenTableRow>
+                                @if (index < opponentsFirstColumn.Count)
+                                {
+                                    var opponent = opponentsFirstColumn[index];
+                                    <RadzenTableCell>@(index + 1).</RadzenTableCell>
+                                    <RadzenTableCell>
+                                        @if (opponent.Id == 0)
+                                        {
+                                            <span style="color: red;">@opponent.DiscordUserName</span>
+                                        }
+                                        else
+                                        {
+                                            <button type="button" class="clickable-cell" @onclick="() => ViewProfile(opponent.Id)"><ResponsiveLabel Text="@opponent.DiscordUserName" CenterText="true" FontSize="base" CssClass="clickable-cell-label" /></button>
+                                        }
+                                    </RadzenTableCell>
+                                    <RadzenTableCell class="yellow">@opponent.Games</RadzenTableCell>
+                                }
+                                else
+                                {
+                                    <RadzenTableCell colspan="3"></RadzenTableCell>
+                                }
+
+                                @if (index < opponentsSecondColumn.Count)
+                                {
+                                    var opponent = opponentsSecondColumn[index];
+                                    <RadzenTableCell>@(midPoint + index + 1).</RadzenTableCell>
+                                    <RadzenTableCell>
+                                        @if (opponent.Id == 0)
+                                        {
+                                            <span style="color: red;">@opponent.DiscordUserName</span>
+                                        }
+                                        else
+                                        {
+                                            <button type="button" class="clickable-cell" @onclick="() => ViewProfile(opponent.Id)"><ResponsiveLabel Text="@opponent.DiscordUserName" CenterText="true" FontSize="base" CssClass="clickable-cell-label" /></button>
+                                        }
+                                    </RadzenTableCell>
+                                    <RadzenTableCell class="yellow">@opponent.Games</RadzenTableCell>
+                                }
+                                else
+                                {
+                                    <RadzenTableCell colspan="3"></RadzenTableCell>
+                                }
+                            </RadzenTableRow>
+                        }
+                    </RadzenTableBody>
+                </ResponsiveRadzenTable>
+            </div>
+
+            <div class="async-opponents-mobile">
+                <ResponsiveRadzenTable ZebraStripes="true" CssClass="statistics-row-handel" TableTitle="@Strings.OpponentStats_Opponents">
+                    <RadzenTableHeader>
+                        <RadzenTableHeaderRow>
+                            <RadzenTableHeaderCell scope="col">#</RadzenTableHeaderCell>
+                            <RadzenTableHeaderCell scope="col">@Strings.OpponentStats_DiscordUsername</RadzenTableHeaderCell>
+                            <RadzenTableHeaderCell scope="col">@Strings.OpponentStats_Games</RadzenTableHeaderCell>
+                        </RadzenTableHeaderRow>
+                    </RadzenTableHeader>
+                    <RadzenTableBody>
+                        @for (var i = 0; i < opponents.Count; i++)
+                        {
+                            var index = i;
+                            var opponent = opponents[index];
+
+                            <RadzenTableRow>
+                                <RadzenTableCell>@(index + 1).</RadzenTableCell>
+                                <RadzenTableCell>
+                                    @if (opponent.Id == 0)
+                                    {
+                                        <span style="color: red;">@opponent.DiscordUserName</span>
+                                    }
+                                    else
+                                    {
+                                        <button type="button" class="clickable-cell" @onclick="() => ViewProfile(opponent.Id)"><ResponsiveLabel Text="@opponent.DiscordUserName" CenterText="true" FontSize="base" CssClass="clickable-cell-label" /></button>
+                                    }
+                                </RadzenTableCell>
+                                <RadzenTableCell class="yellow">@opponent.Games</RadzenTableCell>
+                            </RadzenTableRow>
+                        }
+                    </RadzenTableBody>
+                </ResponsiveRadzenTable>
+            </div>
+        }
+    }
+
+</ResponsiveContainer>
 

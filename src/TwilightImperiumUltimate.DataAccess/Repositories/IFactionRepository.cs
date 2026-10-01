@@ -5,4 +5,6 @@ public interface IFactionRepository
     Task<List<Faction>> GetAllFactions(CancellationToken cancellationToken);
 
     Task<Faction> GetFactionById(int id, CancellationToken cancellationToken);
+
+    Task<List<Faction>> GetFactionsByGameVersions(IReadOnlyCollection<GameVersion> gameVersions, CancellationToken cancellationToken);
 }

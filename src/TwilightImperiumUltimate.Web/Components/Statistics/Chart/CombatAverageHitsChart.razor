@@ -1,0 +1,10 @@
+@using TwilightImperiumUltimate.Web.Components.Charts
+
+<RankingBarChart Data="@Data"
+                   Title="@Strings.AsyncGames_MaxAverageHitsPerGameTitle"
+                   Subtitle="@Strings.AsyncGames_MinGamesCount"
+                   XAxisLabel="Avg. Hits per Game"
+                   SeriesTitle="@Strings.AsyncStats_AverageHits"
+                   ValueFormatter="@FormatValue"
+                   TagClick="@TagClick"
+                   IsLoading="@IsLoading" />

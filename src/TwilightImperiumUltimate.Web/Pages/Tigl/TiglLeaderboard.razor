@@ -1,8 +1,14 @@
 ﻿@page "/community/tigl/leaderboard"
 @using TwilightImperiumUltimate.Web.Components.Tigl
+@using TwilightImperiumUltimate.Web.Components.Shared.Text
+@using TwilightImperiumUltimate.Web.Resources
+
+<PageTitle>@Strings.Page_TiglLeaderboard_PageTitle</PageTitle>
 
 <Page>
-    <StretchHeightContainer CssClass="background">
+    <ResponsiveHeading Level="1" Text="Leaderboard" />
+
+    <StretchHeightContainer>
 
         <TiglLeaderboardGrid />
 

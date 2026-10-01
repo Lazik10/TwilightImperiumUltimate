@@ -19,15 +19,6 @@ public static class EnumExtensions
         return displayName ?? enumValue.GetType().ToString();
     }
 
-    public static string GetCardDisplayName<TEnum>(this TEnum enumValue)
-    {
-        ArgumentNullException.ThrowIfNull(enumValue);
-
-        string key = $"{enumValue.GetType().Name}_{enumValue}";
-        string? displayName = CardNameResourceManager.GetString(key, CultureInfo.InvariantCulture);
-        return displayName ?? string.Empty;
-    }
-
     public static string GetDisplayName(this TiglPrestigeRank enumValue)
     {
         string key = enumValue.ToString();
@@ -35,10 +26,29 @@ public static class EnumExtensions
         return displayName ?? string.Empty;
     }
 
+    /// <summary>
+    /// Gets whether a prestige rank is a league-level milestone rather than a faction-specific rank.
+    /// </summary>
+    public static bool IsLeagueMilestone(this TiglPrestigeRank prestigeRank, TiglLeague league) => league switch
+    {
+        TiglLeague.Fractured => prestigeRank == TiglPrestigeRank.Tyrant,
+        TiglLeague.ThundersEdge or TiglLeague.ProphecyOfKings => prestigeRank is TiglPrestigeRank.GalacticThreat or TiglPrestigeRank.PaxMagnificaBellumGloriosum,
+        _ => false,
+    };
+
     public static string GetDisplayName(this TiglFactionName enumValue)
     {
         string key = enumValue.ToString();
         string? displayName = TiglFactionsResourceManager.GetString(key, CultureInfo.InvariantCulture);
+        return displayName ?? string.Empty;
+    }
+
+    public static string GetCardDisplayName<TEnum>(this TEnum enumValue)
+    {
+        ArgumentNullException.ThrowIfNull(enumValue);
+
+        string key = $"{enumValue.GetType().Name}_{enumValue}";
+        string? displayName = CardNameResourceManager.GetString(key, CultureInfo.InvariantCulture);
         return displayName ?? string.Empty;
     }
 
@@ -53,10 +63,49 @@ public static class EnumExtensions
 
     public static IReadOnlyCollection<KeyValuePair<FactionName, string>> GetFactionValuesWithDisplayNames()
     {
-        return Enum.GetValues(typeof(FactionName))
-                   .Cast<FactionName>()
-                   .Select(x => new KeyValuePair<FactionName, string>(x, x.GetFactionUIText(FactionResourceType.Title)))
-                   .ToList();
+        return Enum.GetValues<FactionName>()
+            .Select(x => new KeyValuePair<FactionName, string>(x, x.GetFactionUIText(FactionResourceType.Title)))
+            .ToList();
+    }
+
+    public static FactionSource GetFactionSource(this FactionName factionName)
+    {
+        if (factionName >= FactionName.TheAugursOfIlyxum && factionName <= FactionName.TheNokarSellships)
+            return FactionSource.DiscordantStars;
+
+        if (factionName >= FactionName.AtokeraLegacy && factionName <= FactionName.XinCourt)
+            return FactionSource.BlueRiverie;
+
+        if (factionName >= FactionName.TheRubyMonarch && factionName <= FactionName.ASickeningLurch)
+            return FactionSource.TwilightsFall;
+
+        return FactionSource.Official;
+    }
+
+    public static FactionName GetFactionSourceDefaultFaction(this FactionSource source)
+    {
+        return source switch
+        {
+            FactionSource.Official => FactionName.TheArborec,
+            FactionSource.TwilightsFall => FactionName.TheRubyMonarch,
+            FactionSource.DiscordantStars => FactionName.TheAugursOfIlyxum,
+            FactionSource.BlueRiverie => FactionName.AtokeraLegacy,
+            FactionSource.WhispersFromTheVoid => FactionName.None,
+            _ => FactionName.None,
+        };
+    }
+
+    public static List<GameVersion> GetGameVersionsFromFactionSource(this FactionSource source)
+    {
+        return source switch
+        {
+            FactionSource.Official => [GameVersion.BaseGame, GameVersion.ProphecyOfKings, GameVersion.CodexVigil, GameVersion.ThundersEdge],
+            FactionSource.TwilightsFall => [GameVersion.TwilightFall],
+            FactionSource.DiscordantStars => [GameVersion.DiscordantStars],
+            FactionSource.BlueRiverie => [GameVersion.BlueRiverie],
+            FactionSource.WhispersFromTheVoid => [GameVersion.WhispersFromTheVoid],
+            _ => [],
+        };
     }
 
     public static string GetUIColor(this DraftColor color)
@@ -92,6 +141,21 @@ public static class EnumExtensions
         };
     }
 
+    /// <summary>Maps a semantic <see cref="TextColor"/> to a muted, website-consistent chart fill color.</summary>
+    public static string GetChartFillColor(this TextColor color)
+    {
+        return color switch
+        {
+            TextColor.Red => "#e05252",
+            TextColor.Orange => "#f2994a",
+            TextColor.Yellow => "#f2c94c",
+            TextColor.Green => "#35c46a",
+            TextColor.Blue => "#5aa9e6",
+            TextColor.Purple => "#9b7bd3",
+            _ => "#5aa9e6",
+        };
+    }
+
     public static TextColor GetTextColor(this DraftColor color, bool transparent = false)
     {
         if (transparent)
@@ -110,6 +174,7 @@ public static class EnumExtensions
             DraftColor.White => TextColor.White,
             DraftColor.Pink => TextColor.Pink,
             DraftColor.Orange => TextColor.Orange,
+            DraftColor.LightBlue => TextColor.LightBlue,
             _ => TextColor.White,
         };
     }
@@ -236,6 +301,18 @@ public static class EnumExtensions
             JustifyContent.SpaceBetween => "space-between;",
             JustifyContent.FlexStart => "flex-start;",
             _ => "center;",
+        };
+    }
+
+    public static string GetFlexDirectionString(this FlexDirection flexDirection)
+    {
+        return flexDirection switch
+        {
+            FlexDirection.Row => "row;",
+            FlexDirection.Column => "column;",
+            FlexDirection.RowReverse => "row-reverse;",
+            FlexDirection.ColumnReverse => "column-reverse;",
+            _ => "row;",
         };
     }
 

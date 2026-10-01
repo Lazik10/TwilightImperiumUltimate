@@ -1,94 +1,92 @@
 ﻿@using TwilightImperiumUltimate.Contracts.DTOs.Tigl
+@using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Season
 @using TwilightImperiumUltimate.Contracts.Enums
-@using TwilightImperiumUltimate.Web.Helpers.Enums
 @using TwilightImperiumUltimate.Web.Components.Shared.Controls
 
-<VerticalSpace Height="20" />
+@*
+    Standard/Fractured game results, responsive via ResponsiveGridContainer (side-by-side on
+    desktop, stacked on tablet/mobile) and ResponsiveRadzenDataGrid (horizontal scroll instead of
+    truncation on narrow viewports). See blazor.instructions.md -- do not reintroduce
+    Components/Shared/Tables/ResponsiveTable or ResponsiveGrid, they are obsolete in this codebase.
+*@
 
-<FlexColumnCenteredContainer>
+<ResponsiveTabMenu AriaLabel="TIGL leagues" CssClass="faction-style mb-md">
+    <ResponsiveTab Id="tigl-games-tab-standard"
+                   ControlsId="tigl-games-panel"
+                   IsActive="@(_selectedLeague != TiglLeague.Fractured)"
+                   OnClick="@(() => OnLeagueChanged(TiglLeague.ProphecyOfKings))">
+        @Strings.TiglGames_CategoryStandard
+    </ResponsiveTab>
+    <ResponsiveTabSeparator />
+    <ResponsiveTab Id="tigl-games-tab-fractured"
+                   ControlsId="tigl-games-panel"
+                   IsActive="@(_selectedLeague == TiglLeague.Fractured)"
+                   OnClick="@(() => OnLeagueChanged(TiglLeague.Fractured))">
+        @Strings.TiglGames_CategoryFractured
+    </ResponsiveTab>
+</ResponsiveTabMenu>
 
-<NumericPicker Title="@Strings.TiglLeaderboard_Season"
-              FontSize="18"
-              Value="@_selectedSeasonNumber"
-              OnDecrease="DecreaseSeasonNumber"
-              OnIncrease="IncreaseSeasonNumber"
-              Width="30" />
+<div id="tigl-games-panel" role="tabpanel" aria-labelledby="@ActiveTabId">
+        <ResponsiveRadzenDataGrid TItem="MatchReportDto"
+                                  Data="@FilteredGames"
+                                  IsLoading="@_loading"
+                                  AllowPaging="true"
+                                  PageSize="50"
+                                  AllowFiltering="true"
+                                  AllowColumnResize="false"
+                                  AllowAlternatingRows="true"
+                                  RowClick="RedirectToGame"
+                                  CssClass="mb-2xl tigl-games-grid">
+            <HeaderTemplate>
+                <div class="tigl-games-header-row">
+                    <ResponsiveHeading Level="2" Text="@GetSelectedTitle()" FontSize="lg" CenterText="true" CssClass="mb-0" />
+                    <button type="button"
+                            class="tigl-games-filter-toggle"
+                            aria-label="@SeasonFilterButtonLabel"
+                            title="@SeasonFilterButtonLabel"
+                            aria-expanded="@_areSeasonFiltersVisible.ToString().ToLowerInvariant()"
+                            aria-controls="@(_areSeasonFiltersVisible ? "tigl-games-season-filter" : null)"
+                            @onclick="ToggleSeasonFilters">
+                        <img src="@SeasonFilterIconPath" alt="" aria-hidden="true" />
+                    </button>
 
-</FlexColumnCenteredContainer>
-
-<VerticalSpace Height="20" />
-
-<FlexRowContainer>
-    <Label Text="@GetStandardTitle()" FontSize="24" CenterText="true" TextColor="TextColor.Yellow" />
-    <Label Text="@GetFracturedTitle()" FontSize="24" CenterText="true" TextColor="TextColor.Yellow" />
-</FlexRowContainer>
-
-<VerticalSpace Height="20" />
-
-<GridLayout Columns="2" Width="100" CssClass="background">
-    <FlexColumnCenteredContainer>
-        <GridLayout Columns="4" CssClass="handel white shadow background" Style="grid-template-columns: 3% 30% 25% 15% 27%">
-            <VerticalSpace Height="10" CssClass="span-5" />
-            <Label />
-            <Label Text="@Strings.TiglGames_GameId" TextColor="TextColor.Green" />
-            <Label Text="@Strings.TiglGames_Status" />
-            <Label Text="@Strings.TiglGames_Source" />
-            <Label Text="@Strings.TiglGames_Ended" />
-            <VerticalSpace Height="10" CssClass="span-5" />
-        </GridLayout>
-    </FlexColumnCenteredContainer>
-
-    <FlexColumnCenteredContainer>
-        <GridLayout Columns="4" CssClass="handel white shadow background" Style="grid-template-columns: 3% 30% 25% 15% 27%">
-            <VerticalSpace Height="10" CssClass="span-5" />
-            <Label />
-            <Label Text="@Strings.TiglGames_GameId" TextColor="TextColor.Green" />
-            <Label Text="@Strings.TiglGames_Status" />
-            <Label Text="@Strings.TiglGames_Source" />
-            <Label Text="@Strings.TiglGames_Ended" />
-            <VerticalSpace Height="10" CssClass="span-5" />
-        </GridLayout>
-    </FlexColumnCenteredContainer>
-</GridLayout>
-
-<VerticalSpace Height="20" />
-
-
-@if (_loading)
-{
-    <VerticalSpace Height="50" />
-    <Label Text="@Strings.TiglGames_LoadingGames" CenterText="true" />
-    <VerticalSpace Height="50" />
-}
-else
-{
-    <GridLayout Columns="2" Width="100" AlignItems="flex-start">
-        <FlexColumnCenteredContainer Width="100" >
-            <GridLayout Columns="4" CssClass="handel white shadow" Style="grid-template-columns: 3% 30% 25% 15% 27%">
-                @foreach (var g in FilteredStandardGames)
-                {
-                    <Label />
-                    <TextButton Text="@g.GameId" JustifyContent="Enums.JustifyContent.FlexStart" TextColor="TextColor.Green" OnClick="() => RedirectToGameDetail(g.Id)" />
-                    <Label Text="@g.State.GetDisplayName()" />
-                    <Label Text="@g.Source.GetDisplayName()" />
-                    <Label Text="@FormatEndDate(g.EndTimestamp)" />
-                }
-            </GridLayout>
-        </FlexColumnCenteredContainer>
-        <FlexColumnCenteredContainer Width="100">
-            <GridLayout Columns="4" CssClass="handel white shadow" Style="grid-template-columns: 3% 30% 25% 15% 27%">
-                @foreach (var g in FilteredFracturedGames)
-                {
-                    <Label />
-                    <TextButton Text="@g.GameId" JustifyContent="Enums.JustifyContent.FlexStart" TextColor="TextColor.Green" OnClick="() => RedirectToGameDetail(g.Id)" />
-                    <Label Text="@g.State.GetDisplayName()" />
-                    <Label Text="@g.Source.GetDisplayName()" />
-                    <Label Text="@FormatEndDate(g.EndTimestamp)" />
-                }
-            </GridLayout>
-        </FlexColumnCenteredContainer>
-    </GridLayout>
-}
-
-<VerticalSpace Height="50" />
+                    @if (_areSeasonFiltersVisible)
+                    {
+                        <div id="tigl-games-season-filter" class="tigl-games-season-filter">
+                            <ResponsiveDropDown TValue="int"
+                                                Id="tigl-games-season"
+                                                Label="@Strings.TiglLeaderboard_Season"
+                                                LabelPosition="LabelPosition.Column"
+                                                Data="@_seasons"
+                                                TextProperty="@nameof(SeasonDto.SeasonNumber)"
+                                                ValueProperty="@nameof(SeasonDto.SeasonNumber)"
+                                                Value="@_selectedSeasonNumber"
+                                                ValueChanged="@OnSeasonChanged"
+                                                Width="30" />
+                        </div>
+                    }
+                </div>
+            </HeaderTemplate>
+            <Columns>
+                <RadzenDataGridColumn TItem="MatchReportDto" Property="@nameof(MatchReportDto.GameId)" Title="@Strings.TiglGames_GameId" Filterable="true" TextAlign="TextAlign.Left">
+                    <Template Context="g">
+                        <ResponsiveLabel Text="@g.GameId"
+                                         UseHandelStyling="false"
+                                         CenterText="false"
+                                         CssClass="text-no-overflow"
+                                         Style="color: var(--color-nav-hover, #8ecfff) !important; text-align: left;" />
+                    </Template>
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="MatchReportDto" Property="@nameof(MatchReportDto.State)" Title="@Strings.TiglGames_Status">
+                    <Template Context="g">@g.State.GetDisplayName()</Template>
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="MatchReportDto" Property="@nameof(MatchReportDto.Source)" Title="@Strings.TiglGames_Source">
+                    <Template Context="g">@g.Source.GetDisplayName()</Template>
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="MatchReportDto" Property="@nameof(MatchReportDto.EndTimestamp)" Title="@Strings.TiglGames_Ended">
+                    <Template Context="g">@FormatEndDate(g.EndTimestamp)</Template>
+                </RadzenDataGridColumn>
+            </Columns>
+        </ResponsiveRadzenDataGrid>
+</div>
 

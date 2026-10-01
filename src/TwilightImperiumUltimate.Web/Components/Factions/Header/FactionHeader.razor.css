@@ -1,0 +1,139 @@
+.faction-header-layout {
+    --faction-texture-width: clamp(10rem, 16vw, 16rem);
+    --faction-title-right-padding: clamp(1rem, 4vw, 2.5rem);
+
+    width: 100%;
+}
+
+.faction-header {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.faction-header-texture {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: var(--faction-texture-width);
+    max-height: 100%;
+    display: flex;
+    align-items: flex-start;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.faction-header-texture ::deep img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: left top;
+}
+
+.faction-header-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.faction-title-line {
+    width: 100%;
+}
+
+::deep .faction-title {
+    font-size: clamp(0.75rem, 2.1rem + 0.9vw, 5.75rem) !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    width: auto !important;
+    flex: 0 1 auto;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+::deep .faction-title-row .faction-icon {
+    flex: 0 0 auto;
+}
+
+::deep .faction-header-body {
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: var(--faction-texture-width);
+}
+
+::deep .faction-title-row {
+    padding-left: var(--faction-texture-width);
+    padding-right: var(--faction-title-right-padding);
+    gap: var(--space-sm);
+    box-sizing: border-box;
+}
+
+::deep .faction-header-text-column {
+    padding-right: var(--space-md);
+    box-sizing: border-box;
+}
+
+@media (max-width: 1248px) {
+    .faction-header-layout {
+        --faction-texture-width: clamp(9rem, 14vw, 14rem);
+    }
+
+    .faction-header {
+        width: 96%;
+    }
+}
+
+@media (max-width: 992px) {
+    .faction-header-layout {
+        --faction-texture-width: clamp(6rem, 10vw, 9rem);
+    }
+
+    .faction-header {
+        width: 98%;
+    }
+}
+
+@media (max-width: 1024px) {
+    ::deep .faction-header-image-column {
+        order: -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .faction-header-texture {
+        display: none;
+    }
+
+    .faction-header-content {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .faction-title-line {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    ::deep .faction-title {
+        font-size: clamp(1.85rem, 1.75rem + 0.4vw, 1rem) !important;
+    }
+
+    ::deep .faction-header-body {
+        padding-left: 0;
+    }
+
+    ::deep .faction-title-row {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    ::deep .faction-header-text-column {
+        padding-right: 0;
+    }
+}

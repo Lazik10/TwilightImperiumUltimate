@@ -36,6 +36,9 @@ public class SliceSystemTilePreparer : ISliceSystemTilePreparer
         SystemTilesForSlices systemTilesForSliceRedistribution,
         SystemTilesForMapSetup systemTilesForMapSetup)
     {
+        ArgumentNullException.ThrowIfNull(systemTilesForSliceRedistribution);
+        ArgumentNullException.ThrowIfNull(systemTilesForMapSetup);
+
         var alreadyDraftedBlueTilesCount = systemTilesForSliceRedistribution.BlueSystemTiles.Count
             + systemTilesForSliceRedistribution.LegendarySystemTiles.Count(x => x.TileCategory == SystemTileCategory.Blue)
             + systemTilesForSliceRedistribution.WormholeSystemTiles.Count(x => x.TileCategory == SystemTileCategory.Blue);
@@ -59,6 +62,9 @@ public class SliceSystemTilePreparer : ISliceSystemTilePreparer
         SystemTilesForSlices systemTilesForSliceRedistribution,
         SystemTilesForMapSetup systemTilesForMapSetup)
     {
+        ArgumentNullException.ThrowIfNull(systemTilesForSliceRedistribution);
+        ArgumentNullException.ThrowIfNull(systemTilesForMapSetup);
+
         var alreadyDraftedRedTiles = systemTilesForSliceRedistribution.RedSystemTiles.Count
             + systemTilesForSliceRedistribution.LegendarySystemTiles.Count(x => x.TileCategory == SystemTileCategory.Red)
             + systemTilesForSliceRedistribution.WormholeSystemTiles.Count(x => x.TileCategory == SystemTileCategory.Red);
@@ -82,6 +88,9 @@ public class SliceSystemTilePreparer : ISliceSystemTilePreparer
         SystemTilesForSlices systemTilesForSliceRedistribution,
         SystemTilesForMapSetup systemTilesForMapSetup)
     {
+        ArgumentNullException.ThrowIfNull(systemTilesForSliceRedistribution);
+        ArgumentNullException.ThrowIfNull(systemTilesForMapSetup);
+
         var legendarySystemTiles = systemTilesForMapSetup.BlueTiles
             .Concat(systemTilesForMapSetup.RedTiles)
             .Where(x => x.HasLegendaryPlanet)
@@ -97,6 +106,9 @@ public class SliceSystemTilePreparer : ISliceSystemTilePreparer
 
     public Task<SystemTilesForSlices> PrepareWormholes(WormholeDensity wormholeDensity, SystemTilesForSlices systemTilesForSliceRedistribution, SystemTilesForMapSetup systemTilesForMapSetup)
     {
+        ArgumentNullException.ThrowIfNull(systemTilesForSliceRedistribution);
+        ArgumentNullException.ThrowIfNull(systemTilesForMapSetup);
+
         var allSystemTiles = systemTilesForMapSetup.BlueTiles.Concat(systemTilesForMapSetup.RedTiles).ToList();
         var selectedWormholes = new List<SystemTile>();
 

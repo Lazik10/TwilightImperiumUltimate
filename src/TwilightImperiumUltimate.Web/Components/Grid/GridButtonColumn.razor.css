@@ -1,0 +1,37 @@
+/*
+    Fills the entire Radzen table/grid cell so the whole column space acts as one big invisible
+    link instead of just the text itself. Requires the Radzen cell element (".rz-cell-data") to be
+    "position: relative", which is set from ResponsiveRadzenTable.razor.css /
+    ResponsiveRadzenDataGrid.razor.css -- the owning grid/table component can reach that ancestor
+    cell via "::deep" from its own directly-authored host wrapper, but this component cannot: that
+    <td> is rendered by an ANCESTOR component's markup, not something nested inside this
+    component's own render tree, so a "::deep" rule declared here would never reach it (see the
+    Blazor CSS-isolation notes in blazor.instructions.md).
+*/
+.grid-button-column {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    padding: var(--rz-grid-cell-padding, var(--space-sm) var(--space-md));
+    text-decoration: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.grid-button-column:hover {
+    background-color: var(--rz-grid-hover-background-color, var(--color-nav-hover-bg-solid));
+    color: var(--rz-grid-hover-color, white) !important;
+}
+
+.grid-button-column:focus-visible {
+    outline: 2px solid var(--color-nav-hover);
+    outline-offset: -2px;
+}
+
+.grid-button-column-text {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}

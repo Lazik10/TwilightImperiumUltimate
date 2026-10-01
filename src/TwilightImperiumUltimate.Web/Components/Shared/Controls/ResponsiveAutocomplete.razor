@@ -1,0 +1,18 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Controls
+
+@*
+    Thin wrapper around RadzenAutoComplete that applies this app's responsive input sizing
+    (matching ResponsiveTextBox/ResponsiveDropDown) so pages don't need to repeat raw Radzen
+    markup by hand.
+*@
+
+<RadzenAutoComplete id="@Id"
+                    Name="@Name"
+                    Data="@Data"
+                    aria-describedby="@AriaDescribedBy"
+                    Placeholder="@Placeholder"
+                    Value="@Value"
+                    ValueChanged="OnValueChanged"
+                    Disabled="Disabled"
+                    class="@ComputedCssClass"
+                    style="@ComputedStyle" />

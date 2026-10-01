@@ -1,1 +1,6 @@
-﻿
+﻿.rules-notes-toggle {
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+	margin-bottom: var(--space-md);
+}

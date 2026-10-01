@@ -1,0 +1,27 @@
+<div class="tigl-profile-overview">
+	<ResponsiveRadzenTable ZebraStripes="true" CssClass="mb-xl statistics-row-handel" TableTitle="Overview">
+		<RadzenTableHeader>
+			<RadzenTableHeaderRow>
+				<RadzenTableHeaderCell scope="col">League</RadzenTableHeaderCell>
+				<RadzenTableHeaderCell scope="col">Prestige</RadzenTableHeaderCell>
+				<RadzenTableHeaderCell scope="col">Rank</RadzenTableHeaderCell>
+			</RadzenTableHeaderRow>
+		</RadzenTableHeader>
+		<RadzenTableBody>
+			@foreach (var row in Rows)
+			{
+				<RadzenTableRow>
+					<RadzenTableCell>@row.Name</RadzenTableCell>
+					<RadzenTableCell>
+						<span class="tigl-profile-overview-mobile-header">Prestige</span>
+						<ResponsiveLabel Text="@row.Prestige" TextColor="@row.PrestigeColor" CenterText="true" />
+					</RadzenTableCell>
+					<RadzenTableCell>
+						<span class="tigl-profile-overview-mobile-header">Rank</span>
+						<ResponsiveLabel Text="@row.Rank" TextColor="@row.RankColor" CenterText="true" />
+					</RadzenTableCell>
+				</RadzenTableRow>
+			}
+		</RadzenTableBody>
+	</ResponsiveRadzenTable>
+</div>

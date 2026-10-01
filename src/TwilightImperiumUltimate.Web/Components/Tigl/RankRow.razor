@@ -1,13 +1,23 @@
 @using TwilightImperiumUltimate.Web.Helpers.Enums
 
-<FlexRowContainer CssClass="background" OnClick="@(() => NavigateToProfile(Ranking.Id))">
-
-    <Label Text="@Ranking.TiglUserName" Width="30" PaddingLeft="50" TextColor="@RankColor" />
-    <Label Text="@GetPrestigeRankText()" CenterText=true Width="30" TextColor="@RankColor" />
-    <Label Text="@GetRankText()" CenterText=true Width="30" TextColor="@RankColor" />
-    <Label Text="@Ranking.GamesPlayed.ToString()" CenterText=true Width="10" TextColor="@RankColor" />
-    <Label Text="@GetDurationTime()" CenterText=true Width="20" TextColor="@RankColor" />
-
-</FlexRowContainer>
-
-<VerticalSpace Height="5" />
+<RadzenTableRow class="rank-player-row"
+                tabindex="0"
+                role="link"
+                @onclick="() => NavigateToProfile(Ranking.Id)"
+                @onkeydown="OnRowKeyDown">
+    <RadzenTableCell>
+        <ResponsiveLabel Text="@Ranking.TiglUserName" CenterText="false" TextColor="@RankColor" UseHandelStyling="false" CssClass="rank-player-name" Style="@GetPlayerNameStyle()" />
+    </RadzenTableCell>
+    <RadzenTableCell>
+                    <ResponsiveLabel Text="@GetPrestigeRankText()" CenterText="true" TextColor="@RankColor" UseHandelStyling="false" Style="@GetRankColorStyle()" />
+    </RadzenTableCell>
+    <RadzenTableCell>
+                    <ResponsiveLabel Text="@GetRankText()" CenterText="true" TextColor="@Ranking.Rank.GetRankColor()" UseHandelStyling="false" />
+    </RadzenTableCell>
+    <RadzenTableCell>
+                    <ResponsiveLabel Text="@Ranking.GamesPlayed.ToString(CultureInfo.InvariantCulture)" CenterText="true" TextColor="TextColor.Yellow" UseHandelStyling="false" />
+    </RadzenTableCell>
+    <RadzenTableCell>
+                    <ResponsiveLabel Text="@GetDurationTime()" CenterText="true" TextColor="@RankColor" UseHandelStyling="false" Style="@GetRankColorStyle()" />
+    </RadzenTableCell>
+</RadzenTableRow>

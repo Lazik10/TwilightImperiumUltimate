@@ -16,7 +16,7 @@ public interface IMiltyDraftSettingsService
 
     string ImportedSlicesString { get; set; }
 
-    public MapTemplate MapTemplate { get; set; }
+    MapTemplate MapTemplate { get; set; }
 
     IReadOnlyCollection<MiltyDraftPlayerModel> Players { get; }
 

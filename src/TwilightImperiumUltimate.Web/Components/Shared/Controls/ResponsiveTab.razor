@@ -1,0 +1,15 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Controls
+@implements IDisposable
+
+<button type="button"
+        id="@Id"
+        role="tab"
+        class="@ComputedCssClass"
+        aria-selected="@(IsActive ? "true" : "false")"
+        aria-controls="@ControlsId"
+        tabindex="@(IsActive ? 0 : -1)"
+        @ref="_buttonRef"
+        @onclick="HandleClickAsync"
+        @onkeydown="HandleKeyDownAsync">
+    @ChildContent
+</button>

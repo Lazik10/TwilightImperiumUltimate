@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc.Filters;
+﻿using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Options;
 using TwilightImperiumUltimate.API.Options;
 
@@ -12,6 +12,8 @@ public sealed class ApiKeyStatsAuthAttribute : Attribute, IAuthorizationFilter
 
     public void OnAuthorization(AuthorizationFilterContext context)
     {
+        ArgumentNullException.ThrowIfNull(context);
+
         var request = context.HttpContext.Request;
         var serviceProvider = context.HttpContext.RequestServices;
 
@@ -33,4 +35,3 @@ public sealed class ApiKeyStatsAuthAttribute : Attribute, IAuthorizationFilter
         }
     }
 }
-

@@ -1,0 +1,17 @@
+@using TwilightImperiumUltimate.Web.Components.Cards
+
+@if (PromissoryNotes.Count > 0)
+{
+    <section class="faction-component-section faction-component-section--full faction-promissory-notes">
+        <ResponsiveHeading Text="Promissory Notes" Level="2" CenterText="true" FontSize="lg" CssClass="faction-component-section-title" />
+
+        <ResponsiveGridContainer Columns="@DesktopColumns" TabletColumns="@TouchColumns" MobileColumns="@TouchColumns" Width="100" Gap="var(--space-md)">
+            @foreach (var promissoryNote in PromissoryNotes)
+            {
+                <div class="faction-vertical-card">
+                    <VerticalCard Name="@promissoryNote.PromissoryNoteCardName.ToString()" TypeOfCard="@Paths.ResourcePath_PromissoryCard" />
+                </div>
+            }
+        </ResponsiveGridContainer>
+    </section>
+}

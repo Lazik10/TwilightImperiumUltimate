@@ -1,6 +1,9 @@
 <div class="alphabet-row">
     @foreach (var letter in Alphabet)
     {
-        <TextButton Text="@letter.ToString()" OnClick="() => SelectLetter(letter)" FontSize="14" />
+        <ResponsiveButton Text="@letter.ToString()"
+                  CssClass="@(letter == SelectedLetter ? "tigl-letter-active" : string.Empty)"
+                  OnClick="() => SelectLetter(letter)"
+                  FontSize="14" />
     }
 </div>

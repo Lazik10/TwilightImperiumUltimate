@@ -126,9 +126,4 @@ public partial class Register
         _showRegistrationFailed = true;
         StateHasChanged();
     }
-
-    private bool GetDisabledState()
-    {
-        return _registeringUser;
-    }
 }

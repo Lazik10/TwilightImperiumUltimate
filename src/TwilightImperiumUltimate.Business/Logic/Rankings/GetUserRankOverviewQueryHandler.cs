@@ -1,4 +1,4 @@
-using MediatR;
+﻿using MediatR;
 using TwilightImperiumUltimate.Contracts.DTOs.Rankings;
 using TwilightImperiumUltimate.DataAccess.Repositories;
 
@@ -9,6 +9,8 @@ public class GetUserRankOverviewQueryHandler(IRankingsRepository rankingsReposit
 {
     public async Task<RankingsUserDto> Handle(GetUserRankOverviewQuery request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var rows = await rankingsRepository.GetUsersRankingsOverview(cancellationToken);
         var grouped = rows
             .Where(r => r.TiglUserId == request.TiglUserId)

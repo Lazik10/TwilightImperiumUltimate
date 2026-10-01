@@ -1,8 +1,12 @@
 @page "/community/tigl/players"
 @using TwilightImperiumUltimate.Web.Components.Tigl
+@using TwilightImperiumUltimate.Web.Components.Shared.Text
+
+<PageTitle>@Strings.Page_TiglPlayers_PageTitle</PageTitle>
 
 <Page>
-    <StretchHeightContainer CssClass="background">
+    <StretchHeightContainer>
+        <ResponsiveHeading Level="1" Text="Players" />
         <TiglPlayersGrid />
     </StretchHeightContainer>
 </Page>

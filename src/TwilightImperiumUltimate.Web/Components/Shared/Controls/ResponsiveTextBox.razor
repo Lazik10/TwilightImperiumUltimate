@@ -1,0 +1,22 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Controls
+
+@*
+    Thin wrapper around RadzenTextBox that applies this app's responsive input sizing
+    (width:100% + the .responsive-input-height utility -- taller on desktop, shorter on
+    tablet/mobile) so pages don't need to repeat those classes (or stale/no-op ones) by hand.
+*@
+
+<span class="responsive-textbox-host">
+    <RadzenTextBox id="@Id"
+                   Name="@Name"
+                   autocomplete="@AutoComplete"
+                   aria-describedby="@AriaDescribedBy"
+                   Placeholder="@Placeholder"
+                   Value="@Value"
+                   ValueChanged="OnValueChanged"
+                   @oninput="OnInput"
+                   Disabled="Disabled"
+                   MaxLength="@MaxLength"
+                   class="@ComputedCssClass"
+                   style="@ComputedStyle" />
+</span>

@@ -16,6 +16,8 @@ public class MapRatingsController(
     [HttpPost]
     public async Task<ActionResult<MapRatingDto>> GetUserMapRating(UserMapRatingRequest request)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var response = await _mediator.Send(new GetUserMapRatingQuery(request.UserId, request.MapId));
 
         if (!response.Success)
@@ -29,6 +31,8 @@ public class MapRatingsController(
     [HttpPut]
     public async Task<ActionResult<MapRatingDto>> UpdateUserMapRating(UserMapRatingRequest request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var response = await _mediator.Send(
             new AddOrUpdateUserMapRatingCommand(request.UserId, request.MapId, request.Rating), cancellationToken);
 

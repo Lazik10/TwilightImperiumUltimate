@@ -1,0 +1,72 @@
+<section class="section-container mb-xl">
+	<div class="tigl-player-games-host">
+		<ResponsiveRadzenTable ZebraStripes="true" CssClass="statistics-row-handel" TableTitle="Games">
+			<TableTitleActions>
+				<ResponsiveCheckbox Label="Expand All"
+									IsChecked="@_allExpanded"
+									IsCheckedChanged="OnExpandAllChanged"
+									CssClass="tigl-player-games-expand-all-checkbox" />
+			</TableTitleActions>
+			<ChildContent>
+			<RadzenTableHeader>
+				<RadzenTableHeaderRow>
+					<RadzenTableHeaderCell scope="col">Game</RadzenTableHeaderCell>
+					<RadzenTableHeaderCell scope="col">Fun Game Name</RadzenTableHeaderCell>
+					<RadzenTableHeaderCell scope="col">W</RadzenTableHeaderCell>
+					<RadzenTableHeaderCell scope="col">VP</RadzenTableHeaderCell>
+					<RadzenTableHeaderCell scope="col">Faction</RadzenTableHeaderCell>
+					<RadzenTableHeaderCell scope="col">Duration</RadzenTableHeaderCell>
+				</RadzenTableHeaderRow>
+			</RadzenTableHeader>
+			<RadzenTableBody>
+				@if (!Games.Any())
+				{
+					<RadzenTableRow>
+						<RadzenTableCell colspan="6">
+							<ResponsiveLabel Text="No games played." CenterText="true" />
+						</RadzenTableCell>
+					</RadzenTableRow>
+				}
+				else
+				{
+					@foreach (var year in GroupedGames)
+					{
+						var yearIsExpanded = IsYearExpanded(year.Year);
+
+						<RadzenTableRow class="tigl-player-games-year-row" tabindex="0" role="button" aria-expanded="@(yearIsExpanded ? "true" : "false")" @onclick="() => ToggleYear(year.Year)" @onkeydown="eventArgs => OnYearKeyDown(eventArgs, year.Year)">
+							<RadzenTableCell colspan="6">@(yearIsExpanded ? "▾" : "▸") @year.Year</RadzenTableCell>
+						</RadzenTableRow>
+
+						@if (yearIsExpanded)
+						{
+							@foreach (var month in year.Months)
+							{
+								var monthIsExpanded = IsMonthExpanded(year.Year, month.Month);
+
+								<RadzenTableRow class="tigl-player-games-month-row" tabindex="0" role="button" aria-expanded="@(monthIsExpanded ? "true" : "false")" @onclick="() => ToggleMonth(year.Year, month.Month)" @onkeydown="eventArgs => OnMonthKeyDown(eventArgs, year.Year, month.Month)">
+									<RadzenTableCell colspan="6">@(monthIsExpanded ? "▾" : "▸") @GetMonthName(month.Month)</RadzenTableCell>
+								</RadzenTableRow>
+
+								@if (monthIsExpanded)
+								{
+									@foreach (var game in month.Games)
+									{
+										<RadzenTableRow class="tigl-player-games-game-row" tabindex="0" role="link" @onclick="() => OnGameSelected.InvokeAsync(game.MatchReportId)" @onkeydown="eventArgs => OnGameKeyDown(eventArgs, game.MatchReportId)">
+											<RadzenTableCell><span class="tigl-link">@game.GameId</span></RadzenTableCell>
+											<RadzenTableCell class="tigl-player-games-fun-name-cell"></RadzenTableCell>
+											<RadzenTableCell class="tigl-player-games-win-cell"><span style="color: yellow;">@(game.IsWinner ? "W" : string.Empty)</span></RadzenTableCell>
+											<RadzenTableCell class="tigl-player-games-vp-cell"><span style="color: @(game.IsWinner ? "yellow" : "var(--color-white)");">@game.Score / @game.MaxScore</span></RadzenTableCell>
+											<RadzenTableCell class="tigl-player-games-faction-cell"><TiglFactionIconImg FactionName="@game.Faction" Height="24" /></RadzenTableCell>
+											<RadzenTableCell>@GetDuration(game)</RadzenTableCell>
+										</RadzenTableRow>
+									}
+								}
+							}
+						}
+					}
+				}
+			</RadzenTableBody>
+			</ChildContent>
+		</ResponsiveRadzenTable>
+	</div>
+</section>

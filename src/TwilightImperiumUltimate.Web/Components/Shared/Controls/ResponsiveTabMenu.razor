@@ -1,0 +1,14 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Controls
+
+@*
+    Generic, reusable tab bar matching the main navigation's design (Handel font, uppercase,
+    --color-nav-hover blue active/hover state, --color-nav-panel-bg active background). Renders
+    the WAI-ARIA "tablist" container; individual tabs are supplied as ChildContent, typically
+    ResponsiveTab instances.
+*@
+
+<CascadingValue Value="this" IsFixed="true">
+    <div class="responsive-tab-menu @CssClass" role="tablist" aria-label="@AriaLabel">
+        @ChildContent
+    </div>
+</CascadingValue>

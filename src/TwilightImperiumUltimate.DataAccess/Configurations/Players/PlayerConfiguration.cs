@@ -17,7 +17,7 @@ internal sealed class PlayerConfiguration : IEntityTypeConfiguration<Player>
         builder.Property(e => e.Name)
             .IsRequired()
             .HasColumnName(nameof(Player.Name))
-            .HasMaxLength(Constraints.MaxPlayerNameLength)
+            .HasMaxLength(Constraint.MaxPlayerNameLength)
             .HasColumnType("nvarchar")
             .HasColumnOrder(1);
 

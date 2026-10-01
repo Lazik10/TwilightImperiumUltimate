@@ -1,0 +1,39 @@
+/*
+    The host anchors CSS isolation while `display: contents` keeps it out of flex and grid layout.
+    Width is controlled by the Width parameter's inline style (default 100%).
+*/
+.responsive-textbox-host {
+    display: contents;
+}
+
+.responsive-textbox-host ::deep .responsive-textbox,
+.responsive-textbox-host ::deep .responsive-textbox:hover,
+.responsive-textbox-host ::deep .responsive-textbox:focus {
+    --rz-input-background-color: var(--color-black);
+    --rz-input-hover-background-color: var(--color-black);
+    --rz-input-border: 1px solid #0024ff;
+    --rz-input-border-block-end: 1px solid #0024ff;
+    --rz-input-hover-border: 1px solid #0024ff;
+    --rz-input-hover-border-block-end: 1px solid #0024ff;
+    --rz-input-value-color: var(--color-white);
+    background-color: var(--color-black) !important;
+    border-color: #0024ff !important;
+    color: var(--color-white) !important;
+}
+
+.responsive-textbox-host ::deep .responsive-textbox:focus-visible {
+    box-shadow: none;
+    outline: none;
+}
+
+.responsive-textbox-host ::deep .responsive-textbox:focus {
+    --rz-input-border: 1px solid transparent;
+    --rz-input-border-block-end: 1px solid transparent;
+    border-color: transparent !important;
+}
+
+.responsive-textbox-host ::deep .responsive-textbox::placeholder {
+    font-family: Handel, fallback, sans-serif !important;
+    color: var(--color-white) !important;
+    opacity: 0.8;
+}

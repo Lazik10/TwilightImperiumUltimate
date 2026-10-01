@@ -11,7 +11,7 @@ public class GetAllTiglUsersQueryHandler(IDbContextFactory<TwilightImperiumDbCon
 
         var items = await db.TiglUsers
             .AsNoTracking()
-            .Select(u => new TiglUserLiteDto { Id = u.Id, DiscordUserId = u.DiscordId , TiglUserName = u.TiglUserName, DiscordUserName = u.DiscordTag })
+            .Select(u => new TiglUserLiteDto { Id = u.Id, DiscordUserId = u.DiscordId, TiglUserName = u.TiglUserName, DiscordUserName = u.DiscordTag })
             .OrderBy(u => u.TiglUserName)
             .ToListAsync(cancellationToken);
 

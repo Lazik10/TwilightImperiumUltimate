@@ -1,57 +1,62 @@
-﻿@page "/game/planets"
-@using System.Globalization
-@using TwilightImperiumUltimate.Web.Components.Cards
-@using TwilightImperiumUltimate.Web.Components.Galaxy
-@using TwilightImperiumUltimate.Web.Components.Shared
-@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
-@using TwilightImperiumUltimate.Web.Helpers.Enums
-@using TwilightImperiumUltimate.Web.Resources
+@page "/game/planets"
+
+<PageTitle>@Strings.Page_Planets_PageTitle</PageTitle>
 
 <Page>
-    @{
-        _currentGameVersion = null;
-    }
-    @foreach (var gameVersion in _planets.GroupBy(x => x.GameVersion))
-    {
-        if (_currentGameVersion != gameVersion.Key)
+
+    <ResponsiveHeading Level="1" Text="@Strings.Page_Planets"/>
+
+    <div class="planets-filters-wrapper">
+        <ResponsiveContainer Type="ContainerType.Flex" JustifyContent="Enums.JustifyContent.Center" AlignItems="Enums.AlignItems.FlexStart" CssClass="planets-filters-container">
+            <GameVersionFilterDropdown GameVersions="GetAvailableGameVersions()"
+                                       SelectedGameVersion="@_selectedGameVersion"
+                                       SelectedGameVersionChanged="OnGameVersionFilterChanged"
+                                       Label="@Strings.PlanetsFilter_ByExpansion"
+                                       LabelPosition="LabelPosition.Column"
+                                       CssClass="planets-filter-dropdown" />
+
+            <ResponsiveDropDown Id="planets-filter-by-trait"
+                                TValue="string"
+                                Label="@Strings.PlanetsFilter_ByTrait"
+                                LabelPosition="LabelPosition.Column"
+                                Data="@GetPlanetFilterOptions()"
+                                TextProperty="Label"
+                                ValueProperty="Value"
+                                Value="@_selectedPlanetFilter"
+                                ValueChanged="OnPlanetFilterChanged"
+                                CssClass="planets-filter-dropdown" />
+        </ResponsiveContainer>
+    </div>
+
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none">
+        @foreach (var gameVersion in GetVisiblePlanets())
         {
-            _currentGameVersion = gameVersion.Key;
-            <Label Text="@_currentGameVersion.GetDisplayName()" FontSize="24" CenterText="true" />
+            @if (!_selectedGameVersion.HasValue)
+            {
+                <ResponsiveHeading Level="3" Text="@gameVersion.Key.GetDisplayName()" CenterText="true" />
+            }
+
+            <div class="planets-grid-shell" @key="gameVersion.Key">
+                <ResponsiveGridContainer Columns="5" TabletColumns="3" MobileColumns="2" Width="100" Gap="1rem" CssClass="mb-2xl">
+                    @foreach (var planet in gameVersion)
+                    {
+                        <ClickableTile @key="planet.PlanetName" OnClick="@(() => ShowBigImage(planet, CultureInfo.CurrentCulture.Name))">
+                            <PlanetCard Name="@planet.PlanetName.ToString()" />
+                        </ClickableTile>
+                    }
+                </ResponsiveGridContainer>
+            </div>
         }
 
-        <GridLayout Columns="5" Gap="10">
-            @foreach (var planet in gameVersion)
-            {
-                <FlexColumnCenteredContainer>
-                    <div class="clickable" @onclick="@(() => ShowBigImage(planet, CultureInfo.CurrentCulture.Name))">
-                        <PlanetCard Name="@planet.PlanetName.ToString()" />
-                    </div>
-                    <VerticalSpace Height="50" />
-                </FlexColumnCenteredContainer>
-            }
-        </GridLayout>
+        @if (HasMorePlanetsToLoad)
+        {
+            <InfiniteScrollSentinel OnIntersect="LoadMorePlanets" />
+        }
+    </ResponsiveContainer>
 
-        <VerticalSpace Height="50" />
-    }
-
-    @if (_showBigImage)
-    {
-        <div class="big-image-overlay" @onclick="HideBigImage">
-            <div class="image-container">
-                <img src="@_currentBigImageSrc" @onclick="HideBigImage" />
-            </div>
-            <div id="language-menu">
-                <img src="@(GetCultureIconPath(Strings.EnglishCulture))"
-                        alt="English"
-                        height="50"
-                        @onclick="@(() => SetBigImageAddress(Strings.EnglishCulture))"
-                        @onclick:stopPropagation="true" />
-                <img src="@(GetCultureIconPath(Strings.CzechCulture))"
-                        alt="Czech"
-                        height="50"
-                        @onclick="@(() => SetBigImageAddress(Strings.CzechCulture))"
-                        @onclick:stopPropagation="true" />
-            </div>
+    <BigImageOverlay IsOpen="_showBigImage" ImageSrc="@_currentBigImageSrc" ImageAlt="@_currentBigImageAlt" OnClose="HideBigImage" AriaLabel="@Strings.Page_Planets">
+        <div class="mt-md">
+            <LanguageFlagMenu CurrentCulture="@_currentBigImageCulture" CultureSelected="SetBigImageAddress" />
         </div>
-    }
+    </BigImageOverlay>
 </Page>

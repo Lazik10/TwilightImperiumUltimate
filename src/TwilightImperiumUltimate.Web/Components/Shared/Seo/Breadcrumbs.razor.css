@@ -1,0 +1,31 @@
+.breadcrumbs {
+    max-width: 100%;
+    margin: var(--space-sm) auto 0;
+    padding: 0 var(--space-md);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+.breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.breadcrumbs li:not(:last-child)::after {
+    margin-left: var(--space-xs);
+    content: "/";
+}
+
+.breadcrumbs a {
+    color: inherit;
+}
+
+.breadcrumbs a:focus-visible {
+    outline: 0.125rem solid currentColor;
+    outline-offset: 0.125rem;
+}

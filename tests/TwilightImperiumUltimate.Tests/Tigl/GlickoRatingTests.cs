@@ -1,7 +1,7 @@
-using Bogus;
-using FluentAssertions;
 using System.Globalization;
 using System.Text;
+using Bogus;
+using FluentAssertions;
 using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Report;
 using TwilightImperiumUltimate.Contracts.Enums;
 using TwilightImperiumUltimate.Core.Entities.Tigl;
@@ -74,7 +74,6 @@ public class GlickoRatingTests
     }
 
     [Fact]
-/*    [Fact(Skip = "Unable to confirm the results yet")]*/
     public async Task CalculateRatingCorrectlyForAdvancedPlayers()
     {
         // Arrange
@@ -84,7 +83,7 @@ public class GlickoRatingTests
         double[] ratings = [1566.5733236524, 1578.7017568149, 1350.0544643849, 1454.0996842929, 1269.2556133809, 1443.2382439912];
         double[] rds = [41.2217409940, 62.0482490192, 102.8972232820, 47.0583781913, 45.5159316340, 41.6659251473];
         double[] volatility = [0.0618362785, 0.0602514116, 0.0600075489, 0.0602109603, 0.0601568714, 0.0605718185];
-        var expectedFinalRatings = new[] { 1580.3384848732132, 1238.4004657243272, 1202.9054293885006, 1195.9383219904944, 916.3648037100828, 672.1940768149205, };
+        var expectedFinalRatings = new[] { 1588.4810826472665, 1581.9039179129904, 1441.348416829956, 1418.951620452423, 1404.7479391667339, 1272.6976776541217, };
         var league = TiglLeague.Test;
 
         var players = Enumerable.Range(0, 6).Select(i => new TiglUser
@@ -130,29 +129,18 @@ public class GlickoRatingTests
         players.Should().NotBeNullOrEmpty();
         players.Should().HaveCount(6);
 
-        players = players.OrderByDescending(x => x.GlickoStats!.First(x => x.League == league).Rating!.Rating).ToList();
+        var finalRatings = players
+            .Select(x => x.GlickoStats!.First(y => y.League == league).Rating!.Rating)
+            .OrderByDescending(x => x)
+            .ToArray();
 
-        for (int i = 0; i < players.Count; i++)
+        for (int i = 0; i < finalRatings.Length; i++)
         {
-/*            players[i].GlickoStats!.First(x => x.League == league).Rating!.Rating.Should().BeApproximately(expectedFinalRatings[i], 0.01);
-            if (i == 0)
-                players[i].GlickoStats!.First(x => x.League == league).Rating!.Rd.Should().Be(208.34860980027898);*/
-        }
-
-        foreach (var matchStat in matchStats)
-        {
-            var oldRating = matchStat.RatingOld;
-            var newRating = matchStat.RatingNew;
-            var rdOld = matchStat.RdOld;
-            var rdNew = matchStat.RdNew;
-            var volatilityOld = matchStat.VolatilityOld;
-            var volatilityNew = matchStat.VolatilityNew;
-            var score = matchStat.Score;
-            var score2 = matchStat.Score;
+            finalRatings[i].Should().BeApproximately(expectedFinalRatings[i], 0.01);
         }
     }
 
-    [Fact]
+    [Fact(Skip = "This test is for simulating a season and generating a report. It takes a long time to run.")]
     public async Task SimulateSeasonResults()
     {
         // Arrange

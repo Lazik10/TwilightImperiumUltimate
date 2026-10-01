@@ -1,4 +1,7 @@
 using TwilightImperiumUltimate.Contracts.DTOs.Async.AsyncStats;
+using TwilightImperiumUltimate.Web.Components.Charts;
+using TwilightImperiumUltimate.Web.Helpers.Charts;
+using TwilightImperiumUltimate.Web.Helpers.Numbers;
 using TwilightImperiumUltimate.Web.Services.Async;
 
 namespace TwilightImperiumUltimate.Web.Components.Async.Statistics;
@@ -6,7 +9,6 @@ namespace TwilightImperiumUltimate.Web.Components.Async.Statistics;
 public partial class CombatStatistics
 {
     private bool _isDataLoaded;
-    private int _row;
     private AsyncCombatSummaryStatsDto _combatSummaryStats = new AsyncCombatSummaryStatsDto();
 
     [CascadingParameter(Name = "Filter")]
@@ -44,8 +46,49 @@ public partial class CombatStatistics
         _isDataLoaded = true;
     }
 
-    private void RedirectToPlayerProfile(int id)
+    private static string FormatHitsPrecision(double value) => ((float)value).ToStringWithPrecision(2);
+
+    private static string FormatHitsDeviation(double value) => ((float)value).ToStringWithPrecisionAndPercentage(4);
+
+    private IReadOnlyCollection<RankingBarPoint> GetTotalHitsData() => PlayerRankingChartHelper.BuildPoints(
+        CombatStats.TotalHitsPlayers,
+        user => user.Id,
+        user => user.UserName,
+        user => user.Hits,
+        TextColor.Green,
+        user => $"{user.Games}");
+
+    private IReadOnlyCollection<RankingBarPoint> GetMaxHitsPerGameData() => PlayerRankingChartHelper.BuildPoints(
+        CombatStats.MaxHitsPerGamePlayers,
+        user => user.Id,
+        user => user.UserName,
+        user => user.MaxHitPerGame,
+        TextColor.Green);
+
+    private IReadOnlyCollection<RankingBarPoint> GetMaxAverageHitsPerGameData() => PlayerRankingChartHelper.BuildPoints(
+        CombatStats.MaxAverageHitsPerGamePlayers,
+        user => user.Id,
+        user => user.UserName,
+        user => user.AverageHits,
+        TextColor.Green);
+
+    private IReadOnlyCollection<RankingBarPoint> GetBestHitsDeviationData() => PlayerRankingChartHelper.BuildPoints(
+        CombatStats.BestHitsDeviationPlayers,
+        user => user.Id,
+        user => user.UserName,
+        user => user.HitsDeviation,
+        TextColor.Green);
+
+    private IReadOnlyCollection<RankingBarPoint> GetWorstHitsDeviationData() => PlayerRankingChartHelper.BuildPoints(
+        CombatStats.WorstHitsDeviationPlayers,
+        user => user.Id,
+        user => user.UserName,
+        user => Math.Abs(user.HitsDeviation),
+        TextColor.Red);
+
+    private void OnPlayerClick(object? tag)
     {
-        NavigationManager.NavigateTo($"{Pages.Pages.AsyncProfile}?playerId={id}");
+        if (tag is int playerId)
+            NavigationManager.NavigateTo($"{Pages.Pages.AsyncProfile}?playerId={playerId}");
     }
 }

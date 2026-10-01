@@ -1,4 +1,4 @@
-using FluentResults;
+﻿using FluentResults;
 using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Report;
 using TwilightImperiumUltimate.Contracts.Enums;
 using TwilightImperiumUltimate.Tigl.Helpers;
@@ -9,6 +9,8 @@ public class TiglFactionValidator : ITiglFactionValidator
 {
     public Task<Result<bool>> AllTiglFactionsAreValid(IGameReport gameReport)
     {
+        ArgumentNullException.ThrowIfNull(gameReport);
+
         var result = new Result<bool>();
         var validFactions = new List<TiglFactionName>();
         var allParsedSuccessfully = true;
@@ -20,7 +22,7 @@ public class TiglFactionValidator : ITiglFactionValidator
                 var faction = TiglFactionParser.ParseFaction(playerResult.Faction);
                 validFactions.Add(faction);
             }
-            catch (ArgumentException ex)
+            catch (ArgumentException)
             {
                 allParsedSuccessfully = false;
                 result.WithError($"Cannot parse faction: {playerResult.Faction} for player {playerResult.DiscordTag}.");

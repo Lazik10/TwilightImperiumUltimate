@@ -1,0 +1,34 @@
+/*
+    ResponsiveSwitch's own label font-size (var(--font-size-base), see ResponsiveSwitch.razor.css)
+    is the main contributor to its size in a table cell -- shrinking it wins reliably here since
+    that rule isn't !important. RadzenSwitch itself doesn't expose a documented sizing CSS
+    variable, so its rendered root (the direct child of .responsive-switch that isn't one of the
+    two off/on label spans -- this avoids hard-coding Radzen's internal class names) is shrunk with
+    `zoom`, which genuinely reduces its layout footprint (unlike `transform: scale`, which only
+    changes appearance and leaves the original box size reserved). `zoom` is supported by every
+    evergreen browser (Chrome/Edge/Safari always, Firefox since v126).
+
+    Track/circle colors are no longer overridden here -- ResponsiveSwitch now sets those same
+    custom properties itself (see ResponsiveSwitch.razor.cs's ComputedStyle), resolved from its
+    Theme/EnabledColor/DisabledColor parameters, directly on its own root element (closer to the
+    RadzenSwitch than this span), so anything set here would just be overridden anyway.
+*/
+.table-action-switch {
+    display: contents;
+}
+
+.table-action-switch ::deep .responsive-switch {
+    gap: var(--space-xs);
+}
+
+.table-action-switch ::deep .responsive-switch-label {
+    font-size: var(--font-size-xs) !important;
+}
+
+.table-action-switch ::deep .responsive-switch > *:not(.responsive-switch-label) {
+    zoom: 0.8;
+}
+
+.table-action-switch ::deep .responsive-switch > *:not(.responsive-switch-label) {
+    zoom: 0.8;
+}

@@ -1,9 +1,11 @@
 ﻿@page "/tools/slice-generator"
 @using TwilightImperiumUltimate.Web.Components.SliceGenerators
 
-<PageTitle>@Strings.Page_SliceGenerator</PageTitle>
+<PageTitle>@Strings.Page_SliceGenerator_PageTitle</PageTitle>
 
-<Page>
+<Page HorizontalPadding="0">
+    <ResponsiveHeading Level="1" Text="Slice Generator" />
+
     <CascadingValue Value="this" Name="SliceGeneratorPage">
         <CascadingValue Value="TilesImported" Name="TilesValue">
             <SliceGeneratorGrid />

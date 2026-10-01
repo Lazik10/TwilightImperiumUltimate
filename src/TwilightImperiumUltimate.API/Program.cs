@@ -22,10 +22,18 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 
 app.UseSerilogRequestLogging();
 app.UseRouting();
+
+var allowedOrigins = new[] { app.Configuration["Frontend:Url"], app.Configuration["Frontend:LocalUrl"], app.Configuration["Frontend:LocalUrlIisExpress"], app.Configuration["Frontend:ProductionUrl"] }
+    .Where(origin => !string.IsNullOrWhiteSpace(origin))
+    .Select(origin => origin!.TrimEnd('/'))
+    .Distinct()
+    .ToArray();
+
 app.UseCors(builder => builder
-    .AllowAnyOrigin()
-       .AllowAnyMethod()
-          .AllowAnyHeader());
+    .WithOrigins(allowedOrigins)
+    .AllowAnyMethod()
+    .AllowAnyHeader());
+
 app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();

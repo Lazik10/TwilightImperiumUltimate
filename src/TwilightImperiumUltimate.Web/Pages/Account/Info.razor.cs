@@ -1,5 +1,6 @@
 using TwilightImperiumUltimate.Web.Models.Users;
 using TwilightImperiumUltimate.Web.Services.User;
+using TwilightImperiumUltimate.Web.Helpers.Enums;
 
 namespace TwilightImperiumUltimate.Web.Pages.Account;
 
@@ -10,11 +11,9 @@ public partial class Info
 
     private int Age { get; set; }
 
-    private int FavoriteFactionNumber { get; set; }
-
     private FactionName FavoriteFaction { get; set; }
 
-    private IReadOnlyCollection<FactionName> FactionNames { get; set; } = new List<FactionName>();
+    private IReadOnlyCollection<KeyValuePair<FactionName, string>> FactionNames { get; } = EnumExtensions.GetFactionValuesWithDisplayNames();
 
     [Inject]
     private IUserService UserService { get; set; } = default!;
@@ -23,42 +22,12 @@ public partial class Info
 
     protected override async Task OnInitializedAsync()
     {
-        var factions = Enum.GetValues<FactionName>().ToList();
-        FactionNames = factions;
-
         User = await UserService.GetCurrentUserAsync();
         if (User is not null)
         {
             Age = User.Age ?? 0;
-            FavoriteFactionNumber = (int)User.FavoriteFaction;
             FavoriteFaction = User.FavoriteFaction;
         }
-    }
-
-    private void ShowNextFaction()
-    {
-        if (FavoriteFactionNumber < FactionNames.Count - 1)
-            FavoriteFactionNumber++;
-
-        FavoriteFaction = (FactionName)FavoriteFactionNumber;
-    }
-
-    private void ShowPreviousFaction()
-    {
-        if (FavoriteFactionNumber > 0)
-            FavoriteFactionNumber--;
-
-        FavoriteFaction = (FactionName)FavoriteFactionNumber;
-
-        StateHasChanged();
-    }
-
-    private void IncreaaeAge() => Age++;
-
-    private void DecreaseAge()
-    {
-        if (Age > 0)
-            Age--;
     }
 
     private async Task SaveInfo()
@@ -67,7 +36,10 @@ public partial class Info
         _infoSaved = false;
 
         if (User is not null)
+        {
+            User.Age = Age;
             User.FavoriteFaction = FavoriteFaction;
+        }
 
         var result = await UserService.UpdateUserInfoAsync(User, default);
 

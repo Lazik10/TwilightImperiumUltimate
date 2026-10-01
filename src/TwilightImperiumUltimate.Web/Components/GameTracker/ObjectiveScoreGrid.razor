@@ -1,17 +1,15 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Cards
 @using TwilightImperiumUltimate.Web.Components.Factions
 
-<FlexRowContainer Width="60" JustifyContent="Enums.JustifyContent.SpaceBetween">
-    <FlexColumnCenteredContainer>
-        <Button ButtonText="@Strings.ButtonText_Reveal" OnClick="RevealNextObjective" Width="50" />
-    </FlexColumnCenteredContainer>
+<ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="60" JustifyContent="Enums.JustifyContent.SpaceBetween" CssClass="mb-md">
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+        <ResponsiveButton ButtonText="@Strings.ButtonText_Reveal" OnClick="RevealNextObjective" Width="50" />
+    </ResponsiveContainer>
     <YesNoPicker DefaultValue="ObjectiveCardTracker.ManualPickEnabled" Title="@Strings.GameTracker_ManualObjectivePick" OnValueChange="ManualPickChange" Width="50"/>
-</FlexRowContainer>
-
-<VerticalSpace Height="20" />
+</ResponsiveContainer>
 
 <CascadingValue Value="this" Name="ObjectiveScoreGrid">
-    <GridLayout Columns="@GetColumnsCount()" Gap="10" Width="60">
+    <GridLayout Columns="@GetColumnsCount()" Gap="10" Width="60" CssClass="mb-sm">
         @foreach (var objective in _stageOneObjectives)
         {
             <div style="max-width: 100%;">
@@ -26,18 +24,12 @@
                 <GridLayout Columns="4" CssClass="background" >
                     @foreach (var player in _players)
                     {
-                        <div @onclick="() => ScoreObjective(objective, player)"
-                            class="clickable"
-                            style="filter: @GetScoreStatus(objective, player); -webkit-filter: @GetScoreStatus(objective, player);">
-                            <FactionIconImg FactionName="@player.FactionName" />
-                        </div>
+                        <ScorePlayerIcon FactionName="@player.FactionName" ScoreStatusFilter="@GetScoreStatus(objective, player)" OnClick="() => ScoreObjective(objective, player)" />
                     }
                 </GridLayout>
             </div>
         }
     </GridLayout>
-
-    <VerticalSpace Height="10" />
 
     <GridLayout Columns="@GetColumnsCount()" Gap="10" Width="60">
         @foreach (var objective in _stageTwoObjectives)

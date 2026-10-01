@@ -1,6 +1,10 @@
 ﻿.hex-container {
     width: 100%;
     height: 100%;
+    display: block;
+    padding: 0;
+    border: 0;
+    background: transparent;
     position: relative;
     cursor: grab !important;
 }
@@ -12,6 +16,20 @@
 
 [draggable=true] {
     cursor: grab !important;
+}
+
+.hex-container-selected::after {
+    position: absolute;
+    inset: 0;
+    clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+    background: rgba(34, 197, 94, 0.45);
+    content: "";
+    pointer-events: none;
+}
+
+.hex-container:focus-visible {
+    outline: 3px solid var(--color-nav-hover);
+    outline-offset: 2px;
 }
 
 .hex-text {

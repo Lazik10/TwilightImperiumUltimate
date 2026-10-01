@@ -1,11 +1,15 @@
 ﻿@page "/tools/color-picker"
 @using TwilightImperiumUltimate.Web.Components.Drafts.Color
-@using TwilightImperiumUltimate.Web.Components.Shared
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Components.Shared.Text
 @using TwilightImperiumUltimate.Web.Resources;
 
-<PageTitle>@Strings.Page_ColorPicker</PageTitle>
+<PageTitle>@Strings.Page_ColorPicker_PageTitle</PageTitle>
 
 <Page>
+
+    <ResponsiveHeading Level="1" Text="@Strings.ColorPicker_Title" />
+    
     <ColorPickerGrid />
+    
 </Page>

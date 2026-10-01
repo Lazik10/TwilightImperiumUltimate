@@ -1,0 +1,10 @@
+@using TwilightImperiumUltimate.Web.Components.Charts
+
+<section class="async-history-section" style="width: 100%;" aria-label="Most active games">
+    <RankingBarChart Data="@Data"
+                     Title="@Title"
+                     XAxisLabel="Games"
+                     SeriesTitle="@SeriesTitle"
+                     TagClick="@TagClick"
+                     IsLoading="@IsLoading" />
+</section>

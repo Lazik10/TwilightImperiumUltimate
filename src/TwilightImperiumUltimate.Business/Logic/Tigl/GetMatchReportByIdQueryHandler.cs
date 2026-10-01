@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Contracts.DTOs.Tigl;
+﻿using TwilightImperiumUltimate.Contracts.DTOs.Tigl;
 using TwilightImperiumUltimate.Tigl.Helpers;
 
 namespace TwilightImperiumUltimate.Business.Logic.Tigl;
@@ -11,6 +11,8 @@ public class GetMatchReportByIdQueryHandler(
 {
     public async Task<MatchReportDto?> Handle(GetMatchReportByIdQuery request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var matchReport = await tiglRepository.GetMatchReportWithPlayerResults(request.Id, cancellationToken);
         var tiglUsers = await tiglUserRepository.GetTiglUsersBaseInfoById(
             matchReport?.PlayerResults?.Select(pr => pr.TiglUserId).ToList() ?? new List<int>(),
@@ -23,7 +25,7 @@ public class GetMatchReportByIdQueryHandler(
 
         foreach (var playerResultDto in matchReportDto.PlayerResults)
         {
-            var tiglUser = tiglUsers.FirstOrDefault(u => u.Id == playerResultDto.TiglUserId);
+            var tiglUser = tiglUsers.FirstOrDefault(u => u?.Id == playerResultDto.TiglUserId);
             if (tiglUser != null)
             {
                 playerResultDto.DiscordUserName = tiglUser.DiscordTag;

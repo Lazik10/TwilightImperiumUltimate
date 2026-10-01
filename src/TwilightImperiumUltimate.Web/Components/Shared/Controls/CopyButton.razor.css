@@ -1,0 +1,16 @@
+.copy-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.copy-button ::deep .responsive-button {
+    border-color: var(--color-nav-hover) !important;
+}
+
+.copy-button-status {
+    min-height: 1.2em;
+    font-size: var(--font-size-sm);
+    color: var(--color-nav-hover, #8ecfff);
+}

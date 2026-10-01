@@ -1,33 +1,42 @@
 using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Season;
 using TwilightImperiumUltimate.Contracts.DTOs.Tigl;
+using TwilightImperiumUltimate.Web.Helpers.Enums;
 using TwilightImperiumUltimate.Web.Services.Tigl;
 
 namespace TwilightImperiumUltimate.Web.Components.Tigl;
 
 public partial class TiglLeaderboardGrid
 {
-    private const int PageSize = 50;
-    private int _currentPage = 1;
+    private readonly Dictionary<int, Dictionary<TiglLeague, List<PlayerSeasonResultDto>>> _seasonLeagueResults = [];
 
     private bool _loading;
-    private int _placement;
+    private bool _areDropdownFiltersVisible;
     private TiglLeague _selectedLeague = TiglLeague.ProphecyOfKings;
     private TiglLeagueFilter _selectedLeagueFilter = TiglLeagueFilter.Standard;
     private RankingSystem _selectedRankingSystem = RankingSystem.TrueSkill;
     private IReadOnlyCollection<SeasonDto> _seasons = Array.Empty<SeasonDto>();
-
     private bool _onlyActive = true;
     private bool _onlyConfident = true;
-
-    // Key: SeasonNumber => Value: League => List of results
-    private readonly Dictionary<int, Dictionary<TiglLeague, List<PlayerSeasonResultDto>>> _seasonLeagueResults = [];
-
-    // Currently selected season (last season by default once loaded)
+    private int _defaultSeasonNumber;
     private int _selectedSeasonNumber;
-
-    // Convenience cache of rows for currently selected season & league
     private List<PlayerSeasonResultDto> _currentRows = [];
-    private int _filteredCount = -1;
+
+    private IReadOnlyCollection<KeyValuePair<TiglLeagueFilter, string>> LeagueOptions =>
+        EnumExtensions.GetEnumValuesWithDisplayNames<TiglLeagueFilter>();
+
+    private IReadOnlyCollection<KeyValuePair<RankingSystem, string>> RankingSystemOptions =>
+        EnumExtensions.GetEnumValuesWithDisplayNames<RankingSystem>();
+
+    private IReadOnlyList<PlayerSeasonResultDto> DisplayedRows => GetSortedRows();
+
+    private string DropdownFilterButtonLabel => (_areDropdownFiltersVisible ? "Hide leaderboard filters" : "Show leaderboard filters")
+        + (AreDropdownFiltersApplied ? ", filters active" : string.Empty);
+
+    private string DropdownFilterIconPath => PathProvider.GetIconPath(_areDropdownFiltersVisible || AreDropdownFiltersApplied ? IconType.FilterClicked : IconType.Filter);
+
+    private bool AreDropdownFiltersApplied => _selectedSeasonNumber != _defaultSeasonNumber
+        || _selectedLeagueFilter != TiglLeagueFilter.Standard
+        || _selectedRankingSystem != RankingSystem.TrueSkill;
 
     [Inject]
     private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
@@ -38,11 +47,17 @@ public partial class TiglLeaderboardGrid
     [Inject]
     private NavigationManager NavigationManager { get; set; } = default!;
 
+    [Inject]
+    private IPathProvider PathProvider { get; set; } = default!;
+
     public static TextColor GetWinrateColor(double winrate)
     {
-        if (winrate > 16.67f) return TextColor.Green;
-        if (winrate > 12.0f) return TextColor.Yellow;
-        if (winrate > 8.0f) return TextColor.Orange;
+        if (winrate > 16.67)
+            return TextColor.Green;
+        if (winrate > 12.0)
+            return TextColor.Yellow;
+        if (winrate > 8.0)
+            return TextColor.Orange;
         return TextColor.Red;
     }
 
@@ -56,8 +71,6 @@ public partial class TiglLeaderboardGrid
         _loading = true;
 
         await LoadSeasons();
-        StateHasChanged();
-
         if (_selectedSeasonNumber > 0)
         {
             await LoadSeasonResults(_selectedSeasonNumber);
@@ -79,16 +92,18 @@ public partial class TiglLeaderboardGrid
             _seasons = Array.Empty<SeasonDto>();
         }
 
-        _selectedSeasonNumber = _seasons.Count > 0 ? _seasons.Max(s => s.SeasonNumber) : 0;
+        _defaultSeasonNumber = _seasons.Count > 0 ? _seasons.Max(s => s.SeasonNumber) : 0;
+        _selectedSeasonNumber = _defaultSeasonNumber;
     }
 
-    // Loads leaderboard for a season and stores grouped by league if not already loaded
+    private void ToggleDropdownFilters()
+    {
+        _areDropdownFiltersVisible = !_areDropdownFiltersVisible;
+    }
+
     private async Task LoadSeasonResults(int seasonNumber)
     {
-        if (seasonNumber <= 0)
-            return;
-
-        if (_seasonLeagueResults.ContainsKey(seasonNumber))
+        if (seasonNumber <= 0 || _seasonLeagueResults.ContainsKey(seasonNumber))
             return;
 
         var cached = TiglCache.GetLeaderboard(seasonNumber);
@@ -98,19 +113,19 @@ public partial class TiglLeaderboardGrid
             return;
         }
 
-        var (lbResponse, lbStatus) = await HttpClient.GetAsync<ApiResponse<ItemListDto<PlayerSeasonResultDto>>>(string.Concat(Paths.ApiPath_SeasonLeaderboard, seasonNumber));
-        if (lbStatus == HttpStatusCode.OK && lbResponse?.Data?.Items is not null && lbResponse.Data.Items.Count != 0)
+        var (leaderboardResponse, leaderboardStatus) = await HttpClient.GetAsync<ApiResponse<ItemListDto<PlayerSeasonResultDto>>>(string.Concat(Paths.ApiPath_SeasonLeaderboard, seasonNumber));
+        if (leaderboardStatus == HttpStatusCode.OK && leaderboardResponse?.Data?.Items is not null && leaderboardResponse.Data.Items.Count != 0)
         {
-            TiglCache.UpdateLeaderboard(seasonNumber, lbResponse.Data.Items.ToList());
-            GroupAndStore(seasonNumber, lbResponse.Data.Items);
+            TiglCache.UpdateLeaderboard(seasonNumber, leaderboardResponse.Data.Items.ToList());
+            GroupAndStore(seasonNumber, leaderboardResponse.Data.Items);
         }
     }
 
     private void GroupAndStore(int seasonNumber, IReadOnlyCollection<PlayerSeasonResultDto> items)
     {
         var grouped = items
-            .GroupBy(r => r.League)
-            .ToDictionary(g => g.Key, g => g.ToList());
+            .GroupBy(result => result.League)
+            .ToDictionary(group => group.Key, group => group.ToList());
 
         if (grouped.Count > 0)
         {
@@ -118,28 +133,34 @@ public partial class TiglLeaderboardGrid
         }
     }
 
+    private async Task OnSeasonChanged(int seasonNumber)
+    {
+        _selectedSeasonNumber = seasonNumber;
+        _loading = true;
+
+        await LoadSeasonResults(seasonNumber);
+        UpdateCurrentRows();
+
+        _loading = false;
+    }
+
     private void OnLeagueChanged(TiglLeagueFilter leagueFilter)
     {
-        if (leagueFilter == TiglLeagueFilter.Standard)
-            _selectedLeague = TiglLeague.ProphecyOfKings;
-        else
-            _selectedLeague = TiglLeague.Fractured;
-
+        _selectedLeague = leagueFilter == TiglLeagueFilter.Standard
+            ? TiglLeague.ProphecyOfKings
+            : TiglLeague.Fractured;
         _selectedLeagueFilter = leagueFilter;
-
         UpdateCurrentRows();
     }
 
     private void OnRankingSystemChanged(RankingSystem rankingSystem)
     {
         _selectedRankingSystem = rankingSystem;
-        _currentPage = 1;
-        _filteredCount = -1;
     }
 
     private void UpdateCurrentRows()
     {
-        if (_seasonLeagueResults.TryGetValue(_selectedSeasonNumber, out var leagueDict) && leagueDict.TryGetValue(_selectedLeague, out var rows))
+        if (_seasonLeagueResults.TryGetValue(_selectedSeasonNumber, out var leagueResults) && leagueResults.TryGetValue(_selectedLeague, out var rows))
         {
             _currentRows = rows;
         }
@@ -147,66 +168,21 @@ public partial class TiglLeaderboardGrid
         {
             _currentRows = [];
         }
-
-        _currentPage = 1;
-        _filteredCount = -1;
-    }
-
-    private async Task DecreaseSeasonNumber()
-    {
-        _loading = true;
-        StateHasChanged();
-
-        var maxSeason = _seasons.Max(x => x.SeasonNumber);
-        var minSeason = _seasons.Min(x => x.SeasonNumber);
-
-        if (_selectedSeasonNumber > minSeason)
-            _selectedSeasonNumber--;
-        else if (_selectedSeasonNumber == minSeason)
-            _selectedSeasonNumber = maxSeason;
-
-        await LoadSeasonResults(_selectedSeasonNumber);
-        UpdateCurrentRows();
-
-        _loading = false;
-        StateHasChanged();
-    }
-
-    private async Task IncreaseSeasonNumber()
-    {
-        _loading = true;
-        StateHasChanged();
-
-        var maxSeason = _seasons.Max(x => x.SeasonNumber);
-        var minSeason = _seasons.Min(x => x.SeasonNumber);
-
-        if (_selectedSeasonNumber < maxSeason)
-            _selectedSeasonNumber++;
-        else if (_selectedSeasonNumber == maxSeason)
-            _selectedSeasonNumber = minSeason;
-
-        await LoadSeasonResults(_selectedSeasonNumber);
-        UpdateCurrentRows();
-
-        _loading = false;
-        StateHasChanged();
     }
 
     private List<PlayerSeasonResultDto> GetSortedRows()
     {
         return ApplyFilters(_currentRows)
-            .OrderByDescending(r =>
-            {
-                if (_selectedRankingSystem == RankingSystem.Async)
-                    return r.AsyncRating;
-                if (_selectedRankingSystem == RankingSystem.Glicko2)
-                    return r.GlickoRating;
-                return r.TrueSkillConservativeRating;
-            })
-            .Skip((_currentPage - 1) * PageSize)
-            .Take(PageSize)
+            .OrderByDescending(GetRating)
             .ToList();
     }
+
+    private double GetRating(PlayerSeasonResultDto playerResult) => _selectedRankingSystem switch
+    {
+        RankingSystem.Async => playerResult.AsyncRating,
+        RankingSystem.Glicko2 => playerResult.GlickoRating,
+        _ => playerResult.TrueSkillConservativeRating,
+    };
 
     private IEnumerable<PlayerSeasonResultDto> ApplyFilters(IEnumerable<PlayerSeasonResultDto> source)
     {
@@ -214,59 +190,37 @@ public partial class TiglLeaderboardGrid
 
         if (_onlyActive)
         {
-            query = query.Where(r => r.IsActive);
+            query = query.Where(result => result.IsActive);
         }
 
         if (_onlyConfident)
         {
-            if (_selectedRankingSystem == RankingSystem.Glicko2)
+            query = _selectedRankingSystem switch
             {
-                query = query.Where(r => r.GlickoRd < 42.0);
-            }
-            else if (_selectedRankingSystem == RankingSystem.TrueSkill)
-            {
-                query = query.Where(r => r.TrueSkillSigma < 0.8);
-            }
-            else if (_selectedRankingSystem == RankingSystem.Async)
-            {
-                query = query.Where(r => r.GamesPlayed >= 40);
-            }
+                RankingSystem.Glicko2 => query.Where(result => result.GlickoRd < 42.0),
+                RankingSystem.TrueSkill => query.Where(result => result.TrueSkillSigma < 0.8),
+                RankingSystem.Async => query.Where(result => result.GamesPlayed >= 40),
+                _ => query,
+            };
         }
 
         return query;
     }
 
-    private void OnPageChanged(int newPage)
-    {
-        _currentPage = newPage;
-    }
-
-    private int GetTotalFilteredCount()
-    {
-        if (_filteredCount >= 0)
-            return _filteredCount;
-
-        _filteredCount = ApplyFilters(_currentRows).Count();
-        return _filteredCount;
-    }
+    private int GetPlacement(PlayerSeasonResultDto playerResult) => DisplayedRows.ToList().IndexOf(playerResult) + 1;
 
     private void OnOnlyActiveChanged(bool value)
     {
         _onlyActive = value;
-        _currentPage = 1;
-        _filteredCount = -1;
     }
 
     private void OnOnlyConfidentChanged(bool value)
     {
         _onlyConfident = value;
-        _currentPage = 1;
-        _filteredCount = -1;
     }
 
-    private void RedirectToPlayer(int playerId)
+    private void RedirectToPlayer(PlayerSeasonResultDto playerResult)
     {
-        var returnUrl = Uri.EscapeDataString(Pages.Pages.TiglLeaderboard);
-        NavigationManager.NavigateTo($"{Pages.Pages.TiglPlayerProfile}?playerId={playerId}&returnUrl={returnUrl}");
+        NavigationManager.NavigateTo($"{Pages.Pages.TiglPlayerProfile}?playerId={playerResult.TiglUserId}");
     }
 }

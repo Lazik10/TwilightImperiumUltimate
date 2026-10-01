@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using TwilightImperiumUltimate.Core.Entities.Logging;
 using TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium;
 
@@ -11,6 +11,8 @@ public class DiscordRoleChangePublisher(
 {
     public async Task<bool> PublishLogToDatabase(DiscordRoleChangeLog log)
     {
+        ArgumentNullException.ThrowIfNull(log);
+
         using var db = contextFactory.CreateDbContext();
 
         var user = await db.TiglUsers.FirstOrDefaultAsync(x => x.DiscordId == log.UserId);

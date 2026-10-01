@@ -13,8 +13,9 @@ public class AsyncEliminationsStatsFactory(
 
     public async Task<AsyncEliminationsSummaryStatsDto> CreateAsyncEliminationsStatsSummary(int limit, CancellationToken cancellationToken)
     {
-        var games = await _asyncStatsRepository.GetAllAsyncGames(cancellationToken);
-        var playerProfiles = await _asyncStatsRepository.GetAllAsyncPlayerProfiles(true, cancellationToken);
+        var games = await _asyncStatsRepository.GetAsyncStatisticsGameProjections(cancellationToken);
+        var playerProfiles = (await _asyncStatsRepository.GetAllAsyncPlayerProfiles(true, cancellationToken))
+            .ToDictionary(x => x.DiscordUserId);
 
         var allGames = games
             .Where(x => x.EndedTimestamp != null && x.HasWinner)
@@ -29,11 +30,11 @@ public class AsyncEliminationsStatsFactory(
         return new AsyncEliminationsSummaryStatsDto(allGameStats, tiglGameStats, customGameStats);
     }
 
-    private AsyncEliminationsStatsDto CreateEliminationsStats(List<GameStats> games, List<AsyncPlayerProfile> playerProfiles, int limit)
+    private AsyncEliminationsStatsDto CreateEliminationsStats(List<AsyncStatisticsGameProjection> games, IReadOnlyDictionary<long, AsyncPlayerProfile> playerProfiles, int limit)
     {
         var playerDtos = games
-            .SelectMany(x => x.PlayerStatistics)
-            .GroupBy(x => x.DiscordUserID)
+            .Where(x => x.DiscordUserId.HasValue)
+            .GroupBy(x => x.DiscordUserId!.Value)
             .Select(g =>
             {
                 var playerInfo = GetPlayerInfo(g.Key, playerProfiles);
@@ -41,7 +42,7 @@ public class AsyncEliminationsStatsFactory(
                 return new AsyncEliminationsPlayerDto(
                 playerInfo.Id,
                 playerInfo.Name,
-                g.Count(x => x.Eliminated),
+                g.Count(x => x.Eliminated == true),
                 g.Count());
             })
             .Where(x => x.Games >= 20)
@@ -64,9 +65,9 @@ public class AsyncEliminationsStatsFactory(
         return new AsyncEliminationsStatsDto(mostEliminationsPlayers, mostEliminationsPercentagePlayers);
     }
 
-    private (int Id, string Name) GetPlayerInfo(long discordUserId, List<AsyncPlayerProfile> playerProfiles)
+    private (int Id, string Name) GetPlayerInfo(long discordUserId, IReadOnlyDictionary<long, AsyncPlayerProfile> playerProfiles)
     {
-        var player = playerProfiles.Find(x => x.DiscordUserId == discordUserId);
+        playerProfiles.TryGetValue(discordUserId, out var player);
 
         if (player is not null && player.ProfileSettings is not null && player.ProfileSettings.ShowGames && !player.ProfileSettings.ExcludeFromAsyncStats)
             return (player.Id, player.DiscordUserName);

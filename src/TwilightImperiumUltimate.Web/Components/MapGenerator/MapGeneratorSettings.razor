@@ -1,137 +1,124 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Shared.Controls
+@using TwilightImperiumUltimate.Web.Components.Factions
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @using TwilightImperiumUltimate.Web.Components.Shared.Text
 @using TwilightImperiumUltimate.Web.Resources
 
-<FlexColumnCenteredContainer>
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
+    <ResponsiveCard CssClass="mb-md">
+        <ResponsiveHeading Level="4" Text="General" CenterText="true" CssClass="mb-sm" />
 
-    <GridLayout Columns="2" Gap="40" Width="80" >
+        <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Width="100" Gap="var(--space-xl)">
+            <ResponsiveDropDown Id="map-generator-settings-map-template"
+                                TValue="MapTemplate"
+                                Label="@Strings.MapGeneratorSettings_MapTemplate.TrimEnd(':')"
+                                LabelPosition="LabelPosition.Column"
+                                Value="@SelectedMapTemplate"
+                                ValueChanged="SetMapTemplate"
+                                Data="@_mapTemplates"
+                                ValueProperty="Key"
+                                TextProperty="Value" />
 
-        <FlexRowContainer AlignItems="Enums.AlignItems.Center">
-            <Label Text="@Strings.MapGeneratorSettings_MapTemplate" FontSize="18" />
-            <RadzenDropDown @bind-Value="SelectedMapTemplate"
-                            Data="@_mapTemplates"
-                            Change="() => SetMapTemplate(SelectedMapTemplate)"
-                            ValueProperty="Key"
-                            TextProperty="Value"
-                            Style="width: 80%; max-width: 400px;"
-                            class="title handel" />
-        </FlexRowContainer>
+            <ResponsiveDropDown Id="map-generator-settings-placement-style"
+                                TValue="PlacementStyle"
+                                Label="@Strings.MapGeneratorSettings_PlacementStyle.TrimEnd(':')"
+                                LabelPosition="LabelPosition.Column"
+                                Value="@SelectedPlacementStyle"
+                                ValueChanged="SetPlacementStyle"
+                                Data="@_placementStyles"
+                                ValueProperty="Key"
+                                TextProperty="Value" />
 
-        <FlexRowContainer>
-            <Label Text="@Strings.MapGeneratorSettings_TilesOverlay" FontSize="18"/>
-            <RadzenDropDown @bind-Value="SelectedSystemTileOverlay"
-                            Data="@_systemTileOverlays"
-                            Change="() => SetSystemTileOverlay(SelectedSystemTileOverlay)"
-                            ValueProperty="Key"
-                            TextProperty="Value"
-                            Style="width: 80%; max-width: 400px;"
-                            class="title handel" />
-        </FlexRowContainer>
+            <ResponsiveDropDown Id="map-generator-settings-system-weight"
+                                TValue="SystemWeight"
+                                Label="@Strings.MapGeneratorSettings_SystemWeight.TrimEnd(':')"
+                                LabelPosition="LabelPosition.Column"
+                                Value="@SelectedSystemWeight"
+                                ValueChanged="SetSystemWeight"
+                                Data="@_systemWeights"
+                                ValueProperty="Key"
+                                TextProperty="Value" />
+        </ResponsiveGridContainer>
+    </ResponsiveCard>
 
-        <FlexRowContainer>
-            <Label Text="@Strings.MapGeneratorSettings_PlacementStyle" FontSize="18" />
-            <RadzenDropDown @bind-Value="SelectedPlacementStyle"
-                            Data=@_placementStyles
-                            Change="() => SetPlacementStyle(SelectedPlacementStyle)"
-                            ValueProperty="Key"
-                            TextProperty="Value"
-                            Style="width: 80%; max-width: 400px;"
-                            class="title handel" />
-        </FlexRowContainer>
+    <ResponsiveCard CssClass="mb-md">
+        <ResponsiveHeading Level="4" Text="Overlays" CenterText="true" CssClass="mb-sm" />
 
-        <FlexRowContainer>
-            <Label Text="@Strings.MapGeneratorSettings_SystemWeight" FontSize="18" />
-            <RadzenDropDown @bind-Value="SelectedSystemWeight"
-                            Data="@_systemWeights"
-                            Change="() => SetSystemWeight(SelectedSystemWeight)"
-                            ValueProperty="Key"
-                            TextProperty="Value"
-                            Style="width: 80%; max-width: 400px;"
-                            class="title handel" />
-        </FlexRowContainer>
+        <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Width="100" Gap="var(--space-xl)">
+            <ResponsiveDropDown Id="map-generator-settings-map-overlay"
+                                TValue="SystemTileOverlay"
+                                Label="Map"
+                                LabelPosition="LabelPosition.Column"
+                                Value="@SelectedMapOverlay"
+                                ValueChanged="SetMapOverlay"
+                                Data="@_systemTileOverlays"
+                                ValueProperty="Key"
+                                TextProperty="Value" />
 
-        <VerticalSpace Height="20" />
+            <ResponsiveDropDown Id="map-generator-settings-menu-overlay"
+                                TValue="SystemTileOverlay"
+                                Label="Menu"
+                                LabelPosition="LabelPosition.Column"
+                                Value="@SelectedMenuOverlay"
+                                ValueChanged="SetMenuOverlay"
+                                Data="@_systemTileOverlays"
+                                ValueProperty="Key"
+                                TextProperty="Value" />
+        </ResponsiveGridContainer>
+    </ResponsiveCard>
 
-        <VerticalSpace Height="20" />
+    <ResponsiveCard CssClass="mb-md">
+        <ResponsiveHeading Level="4" Text="@Strings.MapGeneratorSettings_SystemTiles.TrimEnd(':')" CenterText="true" CssClass="mb-sm" />
 
-        <Label Text="@Strings.MapGeneratorSettings_SystemTiles" FontSize="18"/>
+        <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Width="100" Gap="var(--space-xl)">
+            <ResponsiveDropDown Id="map-generator-settings-prophecy-of-kings" TValue="bool" Label="@Strings.GameVersion_ProphecyOfKings" LabelPosition="LabelPosition.Column" Value="@MapGeneratorSettingsService.GameVersions.Contains(GameVersion.ProphecyOfKings)" ValueChanged="value => SetGameVersion(GameVersion.ProphecyOfKings, value)" Data="@BooleanOptions" ValueProperty="Key" TextProperty="Value" />
 
-        <div />
+            <ResponsiveDropDown Id="map-generator-settings-thunders-edge" TValue="bool" Label="@Strings.GameVersion_ThundersEdge" LabelPosition="LabelPosition.Column" Value="@MapGeneratorSettingsService.GameVersions.Contains(GameVersion.ThundersEdge)" ValueChanged="value => SetGameVersion(GameVersion.ThundersEdge, value)" Data="@BooleanOptions" ValueProperty="Key" TextProperty="Value" />
 
-        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
-            <YesNoPicker Title="@Strings.GameVersion_ProphecyOfKings" 
-                DefaultValue="MapGeneratorSettingsService.GameVersions.Contains(GameVersion.ProphecyOfKings)" 
-                OnValueChange="() => UpdateGameVersion(GameVersion.ProphecyOfKings)"
-                Width="100"/>
-        </FlexRowContainer>
+            <ResponsiveDropDown Id="map-generator-settings-uncharted-space" TValue="bool" Label="@Strings.GameVersion_UnchartedSpace" LabelPosition="LabelPosition.Column" Value="@MapGeneratorSettingsService.GameVersions.Contains(GameVersion.UnchartedSpace)" ValueChanged="value => SetGameVersion(GameVersion.UnchartedSpace, value)" Data="@BooleanOptions" ValueProperty="Key" TextProperty="Value" />
+        </ResponsiveGridContainer>
+    </ResponsiveCard>
 
-        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
-            <YesNoPicker 
-                Title="@Strings.GameVersion_UnchartedSpace" 
-                DefaultValue="MapGeneratorSettingsService.GameVersions.Contains(GameVersion.UnchartedSpace)" 
-                OnValueChange="() => UpdateGameVersion(GameVersion.UnchartedSpace)" 
-                Width="100"/>
-        </FlexRowContainer>
+    <ResponsiveCard CssClass="mb-md">
+        <ResponsiveHeading Level="4" Text="Other" CenterText="true" CssClass="mb-sm" />
 
-        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
-            <YesNoPicker Title="@Strings.GameVersion_AscendantSun"
-                         DefaultValue="MapGeneratorSettingsService.GameVersions.Contains(GameVersion.AscendantSun)"
-                         OnValueChange="() => UpdateGameVersion(GameVersion.AscendantSun)"
-                         Width="100" />
-        </FlexRowContainer>
+        <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Width="100" Gap="var(--space-xl)">
+            <ResponsiveDropDown Id="map-generator-settings-legendary-planets" TValue="int" Label="@Strings.MapGeneratorSettings_NumberOfLegendaryPlanets.TrimEnd(':')" LabelPosition="LabelPosition.Column" Value="@MapGeneratorSettingsService.NumberOfLegendaryPlanets" ValueChanged="SetNumberOfLegendaryPlanets" Data="@GetLegendaryPlanetOptions()" />
 
-        <div />
+            <ResponsiveDropDown Id="map-generator-settings-legendaries-in-equidistant" TValue="bool" Label="@Strings.MapGeneratorSettings_LegendariesInEquidistant.TrimEnd(':')" LabelPosition="LabelPosition.Column" Value="@MapGeneratorSettingsService.LegendaryPriorityInEquidistant" ValueChanged="SetLegendaryPriorityInEquidistant" Data="@BooleanOptions" ValueProperty="Key" TextProperty="Value" />
 
-        <VerticalSpace Height="20" />
+            <ResponsiveDropDown Id="map-generator-settings-wormhole-density" TValue="WormholeDensity" Label="@Strings.WormholeDensityPicker_WormholeDensity.TrimEnd(':')" LabelPosition="LabelPosition.Column" Value="@MapGeneratorSettingsService.WormholeDensity" ValueChanged="SetWormholeDensity" Data="@_wormholeDensities" ValueProperty="Key" TextProperty="Value" />
+        </ResponsiveGridContainer>
+    </ResponsiveCard>
 
-        <VerticalSpace Height="20" />
+    <ResponsiveCard CssClass="mb-md">
+        <ResponsiveHeading Level="4" Text="Faction pick" CenterText="true" CssClass="mb-sm" />
 
-        <NumericPicker Title="@Strings.MapGeneratorSettings_NumberOfLegendaryPlanets"
-                       Value="@MapGeneratorSettingsService.NumberOfLegendaryPlanets"
-                       OnDecrease="DecreaseNumberOfLegendaryPlanets"
-                       OnIncrease="IncreaseNumberOfLegendaryPlanets"
-                       Width="100"
-                       FontSize="18"
-                       CenteredText="false"/>
+        <div class="map-generator-settings-toggle">
+            <ResponsiveDropDown Id="map-generator-enable-faction-pick" TValue="bool" Label="@Strings.MapGeneratorSettings_EnableFactionPick.TrimEnd(':')" LabelPosition="LabelPosition.Column" Value="@MapGeneratorSettingsService.EnableFactionPick" ValueChanged="OnFactionPickChanged" Data="@BooleanOptions" ValueProperty="Key" TextProperty="Value" />
+        </div>
+    </ResponsiveCard>
 
-        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
-            <YesNoPicker Title="@Strings.MapGeneratorSettings_LegendariesInEquidistant"
-                         DefaultValue="@MapGeneratorSettingsService.LegendaryPriorityInEquidistant"
-                         OnValueChange="() => ToggleLegendaryPriorityInEquidistant()"
-                         Width="100" />
-        </FlexRowContainer>
+    @if (MapGeneratorSettingsService.EnableFactionPick)
+    {
+        <FactionMenuPicker ProvidedFactions="@MapGeneratorSettingsService.FactionsForMapGenerator" OnFactionChanged="OnFactionChanged" />
+    }
 
-        <WormholeDensityPicker Width="100" WormholeDensity="MapGeneratorSettingsService.WormholeDensity" />
+    <ResponsiveCard CssClass="mb-md">
+        <ResponsiveHeading Level="4" Text="Players" CenterText="true" CssClass="mb-sm" />
 
-        <div />
+        <div class="map-generator-settings-toggle">
+            <ResponsiveDropDown Id="map-generator-settings-enable-player-names" TValue="bool" Label="@Strings.MapGeneratorSettings_EnablePlaerNames.TrimEnd(':')" LabelPosition="LabelPosition.Column" Value="@MapGeneratorSettingsService.EnablePlayerNames" ValueChanged="SetPlayerNamesEnabled" Data="@BooleanOptions" ValueProperty="Key" TextProperty="Value" />
+        </div>
 
-    </GridLayout>
-
-    <VerticalSpace Height="20" />
-
-    <GridLayout Columns="2" Gap="40" Width="80" >
-
-        <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
-            <YesNoPicker Title="@Strings.MapGeneratorSettings_EnablePlaerNames"
-                         DefaultValue="@MapGeneratorSettingsService.EnablePlayerNames"
-                         OnValueChange="TogglePlayerNames"
-                         Width="100" />
-        </FlexRowContainer>
-
-    </GridLayout>
-
-    <GridLayout Columns="2" Gap="20" Width="80" >
-        @if(@MapGeneratorSettingsService.EnablePlayerNames)
+        @if (MapGeneratorSettingsService.EnablePlayerNames)
         {
-            foreach (var player in MapGeneratorSettingsService.Players)
-            {
-                <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
-                    <RadzenTextBox Placeholder="@Strings.Player"
-                                    @bind-Value="player.PlayerName"
-                                    class="w-100 flex-row title white handel" />
-                </FlexRowContainer>
-            }
+            <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Width="100" Gap="var(--space-xl)">
+                @foreach (var player in MapGeneratorSettingsService.Players)
+                {
+                    <ResponsiveTextBox Id="@($"map-generator-player-name-{MapGeneratorSettingsService.Players.IndexOf(player)}")" Value="@player.PlayerName" ValueChanged="value => player.PlayerName = value" Placeholder="@Strings.Player" />
+                }
+            </ResponsiveGridContainer>
         }
-    </GridLayout>
-</FlexColumnCenteredContainer>
+    </ResponsiveCard>
+</ResponsiveContainer>

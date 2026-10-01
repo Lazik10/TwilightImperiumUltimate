@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 using Quartz;
 using TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium;
@@ -20,6 +20,8 @@ public class SeasonLeaderboardRefreshJob(
 
     public async Task Execute(IJobExecutionContext context)
     {
+        ArgumentNullException.ThrowIfNull(context);
+
         try
         {
             using var db = await _contextFactory.CreateDbContextAsync(context.CancellationToken);

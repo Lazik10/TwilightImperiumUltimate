@@ -2,13 +2,11 @@
 
 <Page>
 
-    <FlexColumnCenteredContainer Width="70" >
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="70" >
 
         @DynamicComponent
 
-        <VerticalSpace Height="100" />
-
-        <GridLayout Columns="4" Gap="40">
+        <GridLayout Columns="4" Gap="40" CssClass="mt-3xl">
 
             <Label Text="@Strings.MapArchive_MapAuthor" />
             <Label Text="@_mapModel.UserName" Style="grid-column: span 3;"/>
@@ -24,9 +22,7 @@
 
             <Label Text="@Strings.MapArchive_MapDescription" Style="grid-column: span 4;" />
 
-            <FlexColumnCenteredContainer Style="grid-column: span 4;">
-
-                <VerticalSpace Height="20" />
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Style="grid-column: span 4;" CssClass="mt-md">
 
                 @if (_enableEditModeForDescription)
                 {
@@ -41,16 +37,12 @@
                     </div>
                 }
 
-                <VerticalSpace Height="20" />
+                <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="mt-md mb-md">
+                    <ResponsiveButton ButtonText="@Strings.ButtonText_Preview" OnClick="() => ToggleEditDescription(false)" Width="30" />
+                    <ResponsiveButton ButtonText="@Strings.ButtonText_Edit" OnClick="() => ToggleEditDescription(true)" Width="30" />
+                </ResponsiveContainer>
 
-                <FlexRowContainer>
-                    <Button ButtonText="@Strings.ButtonText_Preview" OnClick="() => ToggleEditDescription(false)" />
-                    <Button ButtonText="@Strings.ButtonText_Edit" OnClick="() => ToggleEditDescription(true)" />
-                </FlexRowContainer>
-
-                <VerticalSpace Height="20" />
-
-            </FlexColumnCenteredContainer>
+            </ResponsiveContainer>
 
             <Label Text="@Strings.MapArchive_TtsString" />
 
@@ -61,19 +53,16 @@
             <Label Text="@_mapModel.MapGeneratorLink" CssClass="text-break-all" Style="grid-column: span 3;"/>
         </GridLayout>
 
-        <VerticalSpace Height="20" />
-
-        <FlexColumnCenteredContainer Width="80" >
-            <Button ButtonText="@Strings.MapArchive_SaveMap" OnClick="SaveMap" ButtonType="ButtonType.Submit" IsDisabled="IsNameOrEventNotFilled()" />
-        </FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="80" CssClass="mt-md">
+            <ResponsiveButton ButtonText="@Strings.MapArchive_SaveMap" OnClick="SaveMap" ButtonType="ButtonType.Submit" IsDisabled="IsNameOrEventNotFilled()" Width="30" />
+        </ResponsiveContainer>
 
         @if (_showMapDuplicateError)
         {
-            <VerticalSpace Height="20" />
-            <FlexColumnCenteredContainer Width="80" >
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="80" CssClass="mt-md">
                 <Label Text="@Strings.MapsArchive_MapAlreadyExistsError" TextColor="TextColor.Red" />
-            </FlexColumnCenteredContainer>
+            </ResponsiveContainer>
         }
 
-    </FlexColumnCenteredContainer>
+    </ResponsiveContainer>
 </Page>

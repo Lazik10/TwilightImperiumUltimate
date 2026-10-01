@@ -1,4 +1,4 @@
-using System.Text;
+﻿using System.Text;
 
 namespace TwilightImperiumUltimate.Web.Services.MapGenerators;
 
@@ -19,6 +19,8 @@ public class SlicesDraftToStringConverter(
 
     public Task<string> ConvertSlicesDraftToString(IReadOnlyCollection<SliceModel> slices)
     {
+        ArgumentNullException.ThrowIfNull(slices);
+
         StringBuilder sliceString = new();
         foreach (var slice in slices)
         {
@@ -49,6 +51,8 @@ public class SlicesDraftToStringConverter(
 
     public Task<List<SliceModel>> ConvertStringToSlicesDraft(string slicesDraftString)
     {
+        ArgumentNullException.ThrowIfNull(slicesDraftString);
+
         var importedSlices = slicesDraftString
             .Trim()
             .Split('\n')

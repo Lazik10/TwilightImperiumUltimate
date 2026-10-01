@@ -1,0 +1,14 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Controls
+
+<ResponsiveDropDown Id="@_dropdownId"
+                    TValue="string"
+                    Label="@Label"
+                    LabelPosition="LabelPosition"
+                    Data="@GetDropdownItems()"
+                    TextProperty="Label"
+                    ValueProperty="Value"
+                    Value="@GetSelectedValue()"
+                    ValueChanged="@OnRadzenSelectionChanged"
+                    CssClass="@GetCssClass()"
+                    Style="@GetStyle()"
+                    FillWidth="false" />

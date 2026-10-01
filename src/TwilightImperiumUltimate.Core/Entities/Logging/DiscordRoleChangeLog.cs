@@ -22,5 +22,4 @@ public class DiscordRoleChangeLog : IEntity
     public long Timestamp { get; set; }
 
     public DiscordRoleChangeStatus Result { get; set; }
-
 }

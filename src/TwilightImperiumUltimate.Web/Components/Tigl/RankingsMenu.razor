@@ -1,15 +1,15 @@
-﻿<FlexColumnCenteredContainer>
+﻿<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
     <div class="ranking-navbar">
-        <FlexRowContainer Width="100" JustifyContent="Enums.JustifyContent.SpaceEvenly">
-            <div class="clickable" style="min-width: 33%;" @onclick="() => OnMenuItemClick.InvokeAsync(RankingsMenuItem.Ranks)">
-                <Label Text="@Strings.RankingsMenu_Ranks" FontSize="28" CenterText="true" Style="font-size: 1rem;" />
-            </div>
-            <div class="clickable" style="width: 33%;" @onclick="() => OnMenuItemClick.InvokeAsync(RankingsMenuItem.Leaders)">
-                <Label Text="@Strings.RankingsMenu_Leaders" FontSize="28" CenterText="true" Style="font-size: 1rem;" />
-            </div>
-            <div class="clickable" style="width: 33%;" @onclick="() => OnMenuItemClick.InvokeAsync(RankingsMenuItem.Achievements)">
-                <Label Text="@Strings.RankingsMenu_Achievements" FontSize="28" CenterText="true" Style="font-size: 1rem;"  />
-            </div>
-        </FlexRowContainer>
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="100" JustifyContent="Enums.JustifyContent.SpaceEvenly">
+            <TabNavItem Width="33%" OnClick="() => OnMenuItemClick.InvokeAsync(RankingsMenuItem.Ranks)">
+                <ResponsiveLabel Text="@Strings.RankingsMenu_Ranks" CenterText="true" FontSize="base" />
+            </TabNavItem>
+            <TabNavItem Width="33%" OnClick="() => OnMenuItemClick.InvokeAsync(RankingsMenuItem.Leaders)">
+                <ResponsiveLabel Text="@Strings.RankingsMenu_Leaders" CenterText="true" FontSize="base" />
+            </TabNavItem>
+            <TabNavItem Width="33%" OnClick="() => OnMenuItemClick.InvokeAsync(RankingsMenuItem.Achievements)">
+                <ResponsiveLabel Text="@Strings.RankingsMenu_Achievements" CenterText="true" FontSize="base" />
+            </TabNavItem>
+        </ResponsiveContainer>
     </div>
-</FlexColumnCenteredContainer>
+</ResponsiveContainer>

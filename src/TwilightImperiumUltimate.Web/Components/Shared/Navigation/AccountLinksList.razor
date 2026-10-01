@@ -1,0 +1,23 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Navigation
+@using Microsoft.AspNetCore.Components.Authorization
+
+@*
+    Renders AccountLinks.LoggedIn, wrapping role-gated entries in AuthorizeView. Callers supply
+    LinkTemplate to control exactly how each link looks and behaves (desktop dropdown vs. mobile
+    collapsible section render/click differently), while this component owns the shared link data
+    and role-gating so both stay in sync.
+*@
+
+@foreach (var item in Items)
+{
+    @if (string.IsNullOrEmpty(item.Roles))
+    {
+        @LinkTemplate(item)
+    }
+    else
+    {
+        <AuthorizeView Roles="@item.Roles">
+            @LinkTemplate(item)
+        </AuthorizeView>
+    }
+}

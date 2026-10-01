@@ -1,52 +1,58 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Async.PlayerStats
 
-<FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart" AlignItems="Enums.AlignItems.FlexStart" CssClass="background padding">
+<ResponsiveContainer Type="ContainerType.Flex" Padding="none" JustifyContent="Enums.JustifyContent.FlexStart" AlignItems="Enums.AlignItems.FlexStart" Style="margin-top: calc(-1 * var(--space-2xl));">
 
     @if (AsyncPlayerProfile is not null)
     {
-        <TitleTexture Width="15" Texture="Enums.Texture.TopLeft" />
+        <div class="async-player-profile-texture">
+            <TitleTexture Width="100" Texture="Enums.Texture.TopLeft" />
+        </div>
 
-        <FlexColumnCenteredContainer>
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-2xl-non-mobile" Style="min-width: 0;">
 
             <AsyncPlayerNameLabel />
 
-            <FlexRowContainer JustifyContent="Enums.JustifyContent.Center">
-                <EnumPicker 
-                    TEnum="PlayerStatisticsType"
-                    CurrentValue="@CurentStatisticsType"
-                    CurrentValueChanged="@OnEnumChanged"
-                    Width="35"
-                    Label="@Strings.AsyncStats_Filter" />
-                <Label Width="20" />
-            </FlexRowContainer>
-
-            <VerticalSpace Height="50" />
-
             <CascadingValue Value="@CurentStatisticsType" Name="AsyncPlayerStatisticsType">
 
-                <AsyncPlayerMainStats />
+                <div class="mb-2xl">
+                    <AsyncPlayerMainStats>
+                        <SummaryContent>
+                            <div class="async-player-profile-filter mb-2xl">
+                                <ResponsiveDropDown TValue="PlayerStatisticsType"
+                                                    Id="async-player-profile-statistics-filter"
+                                                    Data="@GetStatisticsTypeOptions()"
+                                                    TextProperty="Value"
+                                                    ValueProperty="Key"
+                                                    Value="@CurentStatisticsType"
+                                                    ValueChanged="@OnEnumChanged"
+                                                    Label="@Strings.AsyncStats_Filter"
+                                                    LabelPosition="LabelPosition.Column" />
+                            </div>
+                        </SummaryContent>
+                    </AsyncPlayerMainStats>
+                </div>
 
-                <AsyncPlayerVictoryPointStats />
+                <div class="mb-2xl" style="width: 100%;"><AsyncPlayerVictoryPointStats /></div>
 
-                <AsyncPlayerTurnStats />
+                <div class="mb-2xl"><AsyncPlayerTurnStats /></div>
 
-                <AsyncPlayerCombatStats />
+                <div class="mb-2xl"><AsyncPlayerCombatStats /></div>
 
-                <AsyncPlayerFactionStats />
+                <div class="mb-2xl" style="width: 100%;"><AsyncPlayerFactionStats /></div>
 
-                <AsyncPlayerOpponentsStats />
+                <div class="mb-2xl" style="width: 100%;"><AsyncPlayerOpponentsStats /></div>
 
-                <AsyncPlayerGamesStats />
+                <div style="width: 100%;"><AsyncPlayerGamesStats /></div>
 
             </CascadingValue>
 
-            <VerticalSpace Height="100" />
+        </ResponsiveContainer>
 
-        </FlexColumnCenteredContainer>
+        <div class="async-player-profile-texture-spacer"></div>
     }
     else
     {
         <StretchHeightContainer />
     }
-
-</FlexRowContainer>
+    
+</ResponsiveContainer>

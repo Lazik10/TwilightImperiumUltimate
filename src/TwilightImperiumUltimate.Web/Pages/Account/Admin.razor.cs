@@ -1,17 +1,10 @@
-using TwilightImperiumUltimate.Web.Models.Users;
+using TwilightImperiumUltimate.Web.Enums;
 
 namespace TwilightImperiumUltimate.Web.Pages.Account;
 
 public partial class Admin
 {
-    [Inject]
-    ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
+    private AdminTab _activeTab = AdminTab.Roles;
 
-    private List<TwilightImperiumUser> Users { get; set; } = new List<TwilightImperiumUser>();
-
-    protected override Task OnInitializedAsync()
-    {
-        /*        var users = HttpClient.GetAsync(Paths.ApiPath_Users);*/
-        return base.OnInitializedAsync();
-    }
+    private void SelectTab(AdminTab tab) => _activeTab = tab;
 }

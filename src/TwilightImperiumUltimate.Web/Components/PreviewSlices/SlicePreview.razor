@@ -1,9 +1,24 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.PreviewMaps
 @using TwilightImperiumUltimate.Web.Components.SliceGenerators
 
-<div>
+<div class="slice-preview @(ArchiveLayout ? "slice-preview-archive" : string.Empty)">
 
-    <div class="slice-grid">
+    @if (ShowName)
+    {
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mb-sm">
+            @if (EditNameMode)
+            {
+                <Label Text="@Strings.SliceArchive_SliceName" CenterText="true" />
+                <RadzenTextBox @bind-Value=SliceModel.Name class="title white" Placeholder="Optional" />
+            }
+            else
+            {
+                <Label Text=@SliceModel.Name CenterText="true" />
+            }
+        </ResponsiveContainer>
+    }
+
+    <div class="slice-grid mb-2xl">
 
         @foreach(var systemTile in SliceModel.SystemTiles)
         {
@@ -14,22 +29,6 @@
 
     </div>
 
-    <VerticalSpace Height="100" />
-    <FlexColumnCenteredContainer>
-        @if (EditNameMode)
-        {
-            <Label Text="@Strings.SliceArchive_SliceName" CenterText="true" />
-            <RadzenTextBox @bind-Value=SliceModel.Name class="title white" Placeholder="Optional" />
-        }
-        else
-        {
-            <Label Text=@SliceModel.Name CenterText="true" />
-        }
-    </FlexColumnCenteredContainer>
+    <SliceEvaluationStats SliceModel="SliceModel" ArchiveLayout="ArchiveLayout" />
 
-    <VerticalSpace Height="10" />
-
-    <SliceEvaluationStats SliceModel="SliceModel" />
-
-    <VerticalSpace Height="20" />
 </div>

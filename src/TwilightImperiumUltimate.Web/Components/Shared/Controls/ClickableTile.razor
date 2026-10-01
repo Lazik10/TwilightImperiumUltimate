@@ -1,0 +1,21 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Controls
+
+@*
+    Accessible replacement for the repeated "clickable <div>" image-tile / text-tile pattern
+    (grid tiles that open a big-image overlay, faction sheet buttons, etc.). Renders a real
+    <button> so the tile is keyboard operable and reachable by assistive technology, while
+    keeping the same CSS classes so existing tile/grid styling is preserved.
+*@
+
+@if (string.IsNullOrEmpty(Href))
+{
+    <button type="button" class="clickable-tile @CssClass" style="@Style" @onclick="HandleClickAsync">
+        @ChildContent
+    </button>
+}
+else
+{
+    <a href="@Href" class="clickable-tile @CssClass" style="@Style" @onclick="HandleClickAsync">
+        @ChildContent
+    </a>
+}

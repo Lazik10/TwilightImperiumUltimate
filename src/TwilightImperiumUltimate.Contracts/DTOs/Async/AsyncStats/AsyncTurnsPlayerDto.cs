@@ -4,7 +4,8 @@ public record AsyncTurnsPlayerDto(
     int Id,
     string UserName,
     int Turns,
-    long TotalTurnTime)
+    long TotalTurnTime,
+    int Games)
 {
     public long AverageTurnTime => TotalTurnTime / Turns;
 }

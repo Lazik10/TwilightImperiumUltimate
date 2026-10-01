@@ -50,4 +50,13 @@ public partial class AsyncPlayerTurnStats
 
         return TextColor.Green;
     }
+
+    private string GetAverageTurnCssClass() => GetAverageTurnColor() switch
+    {
+        TextColor.Red => "red",
+        TextColor.Orange => "orange",
+        TextColor.Yellow => "yellow",
+        TextColor.Green => "green",
+        _ => string.Empty,
+    };
 }

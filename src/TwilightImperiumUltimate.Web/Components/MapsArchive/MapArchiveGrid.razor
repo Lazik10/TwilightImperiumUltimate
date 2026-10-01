@@ -1,51 +1,36 @@
-﻿@using TwilightImperiumUltimate.Web.Components.Shared.Bars
-@using TwilightImperiumUltimate.Web.Helpers.Enums
+@using TwilightImperiumUltimate.Web.Components.Shared.Bars
+@using TwilightImperiumUltimate.Web.Models.MapArchive
 
-<div style="overflow-x: auto; white-space: nowrap;">
+<div class="map-archive-grid">
+    <ResponsiveRadzenDataGrid TItem="MapModel"
+                              Data="FilteredMaps"
+                              AllowPaging="false"
+                              AllowSorting="true"
+                              AllowFiltering="true"
+                              AllowAlternatingRows="true"
+                              RowClick="@(map => NavigationManager.NavigateTo(GetMapDetailsUrl(map.Id)))"
+                              CssClass="mb-md">
+        <HeaderTemplate>
+            <ResponsiveHeading Level="4" Text="Maps" CenterText="true" CssClass="mb-0" />
+        </HeaderTemplate>
+        <Columns>
+            <RadzenDataGridColumn TItem="MapModel" Property="Name" Title="@Strings.MapArchive_MapName" TextAlign="TextAlign.Center" />
 
-    <div class="grid-header background">
-        <GridLayout Columns="6" Gap="5" Style="grid-template-columns: 18% 19% 15% 15% 20% 10%;">
+            <RadzenDataGridColumn TItem="MapModel" Property="Rating" Title="@Strings.MapArchive_MapRating" Filterable="false" TextAlign="TextAlign.Center">
+                <Template Context="map">
+                    <StarRating IsReadOnly="true" Rating="@map.Rating" />
+                </Template>
+            </RadzenDataGridColumn>
 
-            <Label Text="@Strings.MapArchive_MapName" CenterText="true" />
-            <Label Text="@Strings.MapArchive_MapEvent" CenterText="true" />
-            <Label Text="@Strings.MapArchive_MapAuthor" CenterText="true" />
-            <Label Text="@Strings.MapArchive_MapTemplate" CenterText="true "/>
-            <Label Text="@Strings.MapArchive_MapRating" CenterText="true" />
-            <div />
+            <RadzenDataGridColumn TItem="MapModel" Property="EventName" Title="@Strings.MapArchive_MapEvent" TextAlign="TextAlign.Center" />
 
-            <SearchBar HideText="true" OnSearchChange="ApplyMapFilter" EnableEmptySearch="true" @ref=_nameSearchBar Height="65" />
-            <SearchBar HideText="true" OnSearchChange="ApplyEventFilter" EnableEmptySearch="true" @ref=_eventSearchBar Height="65"/>
-            <SearchBar HideText="true" OnSearchChange="ApplyUserFilter" EnableEmptySearch="true" @ref=_userSearchBar Height="65"/>
-            <RadzenDropDown @bind-Value="SelectedMapTemplate"
-                            Data="@_mapTemplates"
-                            Change="() => ApplyMapTemplateFilter()"
-                            ValueProperty="Key"
-                            TextProperty="Value"
-                            Style="width: 100%; height: 100%;"
-                            class="title handel" />
-            <RadzenDropDown @bind-Value="SelectedFilterOrder"
-                            Data="@_filterOrders"
-                            Change="() => ApplyOrderFilter()"
-                            ValueProperty="Key"
-                            TextProperty="Value"
-                            Style="width: 100%; height: 100%;"
-                            class="title handel" />
-            <Button ButtonText="@Strings.ButtonText_Clear" Width="100" OnClick="ResetSearch" />
-        </GridLayout>
-    </div>
+            <RadzenDataGridColumn TItem="MapModel" Property="UserName" Title="@Strings.MapArchive_MapAuthor" TextAlign="TextAlign.Center" />
 
-    <VerticalSpace Height="20" />
-
-    <GridLayout Columns="6" Gap="5" Style="grid-template-columns: 18% 19% 15% 15% 20% 10%;">
-        @foreach (var map in FilteredMaps)
-        {
-            <Label Text="@map.Name" />
-            <Label Text="@map.EventName" />
-            <Label Text="@map.UserName" />
-            <Label Text="@map.MapTemplate.GetDisplayName()" CenterText="true"/>
-            <StarRating IsReadOnly="true" Rating="@map.Rating" />
-            <Button ButtonText="@Strings.ButtonText_View" Width="100" OnClick="() => RedirectToMapDetails(map.Id)" />
-        }
-    </GridLayout>
-
+            <RadzenDataGridColumn TItem="MapModel" Property="MapTemplate" Title="@Strings.MapArchive_MapTemplate" TextAlign="TextAlign.Center">
+                <Template Context="map">
+                    @map.MapTemplate.GetDisplayName()
+                </Template>
+            </RadzenDataGridColumn>
+        </Columns>
+    </ResponsiveRadzenDataGrid>
 </div>

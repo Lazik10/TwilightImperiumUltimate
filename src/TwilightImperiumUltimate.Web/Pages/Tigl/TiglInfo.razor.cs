@@ -4,7 +4,15 @@ namespace TwilightImperiumUltimate.Web.Pages.Tigl;
 
 public partial class TiglInfo
 {
-    private int _sectionFontSize = 32;
+    private readonly MarkupString _overviewContent = (MarkupString)Strings.TiglInfo_OverviewContent;
+
+    private readonly MarkupString _tiglContent = (MarkupString)Strings.TiglInfo_TiglContent;
+
+    private readonly MarkupString _codeOfConductContent = (MarkupString)Strings.TiglInfo_CodeOfConductContent;
+
+    private readonly MarkupString _gettingStartedContent = (MarkupString)Strings.TiglInfo_GettingStartedContent;
+
+    private readonly MarkupString _allowedContent = (MarkupString)Strings.TiglInfo_AllowedContent;
 
     [Inject]
     private NavigationManager NavigationManager { get; set; } = default!;

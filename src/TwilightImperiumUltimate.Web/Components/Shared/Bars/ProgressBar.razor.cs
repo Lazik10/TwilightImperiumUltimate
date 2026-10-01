@@ -11,6 +11,12 @@ public partial class ProgressBar
     [Parameter]
     public int MinValue { get; set; } = 0;
 
+    /// <summary>
+    /// Gets or sets whether the minimum and maximum values are displayed beside the bar.
+    /// </summary>
+    [Parameter]
+    public bool ShowBounds { get; set; } = true;
+
     [Parameter]
     public int Width { get; set; } = 100;
 

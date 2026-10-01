@@ -1,0 +1,9 @@
+﻿@inherits TwilightImperiumBaseComponent
+
+<ClickableTile CssClass="@GetIconCssClass()" Href="@Href" OnClick="() => OnClick.InvokeAsync(Faction)">
+    <img class="icon @GetBanIconState()"
+         src="@GetFactionIconPath()"
+         alt="icon for @Name"
+         title="@Name">
+</ClickableTile>
+

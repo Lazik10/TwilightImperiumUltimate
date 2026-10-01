@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Contracts.DTOs.Rankings;
+﻿using TwilightImperiumUltimate.Contracts.DTOs.Rankings;
 using TwilightImperiumUltimate.Contracts.DTOs.Tigl;
 
 namespace TwilightImperiumUltimate.Business.Logic.Rankings;
@@ -10,6 +10,8 @@ public class GetTiglPlayerProfileQueryHandler(IDbContextFactory<TwilightImperium
 
     public async Task<TiglPlayerProfileDto> Handle(GetTiglPlayerProfileQuery request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         await using var db = await dbFactory.CreateDbContextAsync(cancellationToken);
 
         var userId = request.TiglUserId;
@@ -90,8 +92,10 @@ public class GetTiglPlayerProfileQueryHandler(IDbContextFactory<TwilightImperium
             .AsNoTracking()
             .Where(p => p.TiglUserId == userId)
             .OrderByDescending(p => p.AchievedAt)
+            .ThenByDescending(p => p.Id)
             .Select(p => new PrestigeRankHistoryDto
             {
+                Id = p.Id,
                 League = p.PrestigeRank.League,
                 PrestigeRank = p.PrestigeRank.Name,
                 Faction = p.PrestigeRank.FactionName,
@@ -185,7 +189,6 @@ public class GetTiglPlayerProfileQueryHandler(IDbContextFactory<TwilightImperium
             .ToListAsync(cancellationToken);
 
         var matchIdSet = matchIdsWithUser.Select(m => m.Id).ToHashSet();
-        var matchLeagueMap = matchIdsWithUser.ToDictionary(m => m.Id, m => m.League);
 
         var opponentResults = await db.GameReports
             .AsNoTracking()

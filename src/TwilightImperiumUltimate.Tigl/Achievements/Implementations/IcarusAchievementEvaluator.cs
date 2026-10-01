@@ -26,9 +26,9 @@ public sealed class IcarusAchievementEvaluator(
             .Where(pr => !pr.IsWinner && !usersAchievements.Any(ua => ua.TiglUserId == pr.TiglUserId && ua.Achievement.Name == achievementName))
             .ToList();
 
-        foreach (var player in nonWinners)
+        foreach (var playerId in nonWinners.Select(winner => winner.TiglUserId))
         {
-            var previousResults = await tiglUserRepository.GetTiglUserMatchReports(player.TiglUserId, matchReport.EndTimestamp, cancellationToken, false, null, MaxStreakToCheck);
+            var previousResults = await tiglUserRepository.GetTiglUserMatchReports(playerId, matchReport.EndTimestamp, cancellationToken, false, null, MaxStreakToCheck);
             var orderedResults = previousResults
                 .OrderByDescending(gr => gr.EndTimestamp)
                 .ToList();
@@ -36,7 +36,7 @@ public sealed class IcarusAchievementEvaluator(
             var winningStreak = 0;
             foreach (var gameResult in orderedResults)
             {
-                var playerResult = gameResult.PlayerResults.SingleOrDefault(pr => pr.TiglUserId == player.TiglUserId);
+                var playerResult = gameResult.PlayerResults.SingleOrDefault(pr => pr.TiglUserId == playerId);
                 if (playerResult is null || !playerResult.IsWinner)
                     break;
 
@@ -44,7 +44,7 @@ public sealed class IcarusAchievementEvaluator(
             }
 
             if (RequiredStreaks.Contains(winningStreak))
-                await achievementRepository.AwardAchievement(player.TiglUserId, matchReport, achievementName, cancellationToken);
+                await achievementRepository.AwardAchievement(playerId, matchReport, achievementName, cancellationToken);
         }
     }
 }

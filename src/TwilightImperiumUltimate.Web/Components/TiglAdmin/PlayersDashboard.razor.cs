@@ -40,6 +40,20 @@ public partial class PlayersDashboard
         await LoadUsersAsync();
     }
 
+    private static string GetLeagueRank(RankingsUserDto overview, TiglLeague league)
+    {
+        var l = overview.Leagues.FirstOrDefault(x => x.League == league);
+        return l is null ? TiglRankName.Unranked.GetDisplayName() : l.CurrentRank.GetDisplayName();
+    }
+
+    private static string FormatTimestamp(long ts)
+    {
+        if (ts <= 0)
+            return "-";
+        var dt = DateTimeOffset.FromUnixTimeMilliseconds(ts).ToLocalTime().DateTime;
+        return dt.ToString("dd/MM/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture);
+    }
+
     private List<TiglRankName> GetExcludedRanksForLeague()
     {
         if (_selectedLeague == TiglLeague.ProphecyOfKings || _selectedLeague == TiglLeague.ThundersEdge)
@@ -119,24 +133,10 @@ public partial class PlayersDashboard
             _prestigeHistory = prestigeHistoryResult.Response.Data.Items;
     }
 
-    private static string GetLeagueRank(RankingsUserDto overview, TiglLeague league)
-    {
-        var l = overview.Leagues.FirstOrDefault(x => x.League == league);
-        return l is null ? TiglRankName.Unranked.GetDisplayName() : l.CurrentRank.GetDisplayName();
-    }
-
     private TextColor GetLeagueRankTextColor(RankingsUserDto overview, TiglLeague league)
     {
         var l = overview.Leagues.FirstOrDefault(x => x.League == league);
         return l?.CurrentRank.GetRankColor() ?? TextColor.White;
-    }
-
-    private static string FormatTimestamp(long ts)
-    {
-        if (ts <= 0)
-            return "-";
-        var dt = DateTimeOffset.FromUnixTimeMilliseconds(ts).ToLocalTime().DateTime;
-        return dt.ToString("dd/MM/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture);
     }
 
     private void ChangeLeague(TiglLeague league)

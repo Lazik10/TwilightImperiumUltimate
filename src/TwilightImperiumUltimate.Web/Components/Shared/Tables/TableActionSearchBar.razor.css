@@ -1,0 +1,15 @@
+/*
+    Same technique as TableActionDropDown.razor.css -- see that file's comment for why the
+    combined selector reliably beats the plain ".responsive-input-height" utility in app.css
+    despite both being !important. Reaches three component layers deep (this wrapper -> 
+    ResponsiveSearchBar -> ResponsiveTextBox), which ::deep handles regardless of nesting depth.
+*/
+.table-action-searchbar {
+    display: contents;
+}
+
+.table-action-searchbar ::deep .responsive-input-height {
+    --rz-input-height: 1.85rem !important;
+    --rz-input-padding-block: 0.1rem;
+    --rz-input-padding-inline: 0.4rem;
+}

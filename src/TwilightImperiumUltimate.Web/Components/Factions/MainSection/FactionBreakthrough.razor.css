@@ -1,0 +1,13 @@
+.faction-breakthrough {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.faction-horizontal-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}

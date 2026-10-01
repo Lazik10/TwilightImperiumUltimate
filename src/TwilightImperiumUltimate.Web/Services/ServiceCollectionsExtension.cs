@@ -1,19 +1,21 @@
+﻿using System.Reflection;
 using Blazored.LocalStorage;
 using FluentValidation;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
 using Radzen;
-using System.Reflection;
 using TwilightImperiumUltimate.Web.Options.Api;
 using TwilightImperiumUltimate.Web.Options.Async;
 using TwilightImperiumUltimate.Web.Services.Async;
 using TwilightImperiumUltimate.Web.Services.Authentication;
 using TwilightImperiumUltimate.Web.Services.Draft;
+using TwilightImperiumUltimate.Web.Services.Factions;
 using TwilightImperiumUltimate.Web.Services.GameTracker;
 using TwilightImperiumUltimate.Web.Services.Language;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
 using TwilightImperiumUltimate.Web.Services.MiltyDraft;
+using TwilightImperiumUltimate.Web.Services.Navigation;
 using TwilightImperiumUltimate.Web.Services.Rankings;
 using TwilightImperiumUltimate.Web.Services.SliceGenerators;
 using TwilightImperiumUltimate.Web.Services.Tigl;
@@ -38,9 +40,11 @@ public static class ServiceCollectionsExtension
         });
 
         services.AddScoped<ICultureProvider, CultureProvider>();
+        services.AddScoped<IMenuSelectionState, MenuSelectionState>();
         services.AddScoped<IPathProvider, PathProvider>();
         services.AddSingleton<IRankingsDataCache, RankingsDataCache>();
         services.AddSingleton<ITiglDataCache, TiglDataCache>();
+        services.AddScoped<IFactionProvider, FactionProvider>();
         services.AddScoped<IFactionDraftService, FactionDraftService>();
         services.AddScoped<IColorPickerService, ColorPickerService>();
         services.AddScoped<IMapGeneratorService, MapGeneratorService>();
@@ -73,14 +77,17 @@ public static class ServiceCollectionsExtension
         services.AddCascadingAuthenticationState();
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<ILoginService, LoginService>();
+        services.AddScoped<ICurrentUserState, CurrentUserState>();
 
-        services.AddAutoMapper(Assembly.GetExecutingAssembly());
+        services.AddAutoMapper(cfg => cfg.AddMaps(Assembly.GetExecutingAssembly()));
 
         return services;
     }
 
     public static WebAssemblyHostBuilder ApplyCorrectAppsettingsFile(this WebAssemblyHostBuilder builder)
     {
+        ArgumentNullException.ThrowIfNull(builder);
+
         var environment = builder.HostEnvironment.Environment;
 
         builder.Configuration

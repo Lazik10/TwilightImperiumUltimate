@@ -8,7 +8,12 @@ public class AsyncStatsProvider(
     : IAsyncStatsProvider
 {
     private static readonly int[] AllowedLimits = { 20, 50, 100, 200 };
+
     private readonly ITwilightImperiumApiHttpClient _httpClient = httpClient;
+    private readonly ConcurrentDictionary<string, Lazy<Task<object?>>> _inFlightRequests = new();
+    private readonly ConcurrentDictionary<string, object> _responseCache = new();
+    private readonly ConcurrentDictionary<string, string> _etags = new();
+    private readonly ConcurrentDictionary<string, DateTimeOffset> _cacheTimes = new();
     private readonly ConcurrentDictionary<int, AsyncGamesSummaryStatsDto> _gamesStatsCache = new();
     private readonly ConcurrentDictionary<int, AsyncWinsSummaryStatsDto> _winsStatsCache = new();
     private readonly ConcurrentDictionary<int, AsyncVpSummaryStatsDto> _vpStatsCache = new();
@@ -17,19 +22,52 @@ public class AsyncStatsProvider(
     private readonly ConcurrentDictionary<int, AsyncCombatSummaryStatsDto> _combatStatsCache = new();
     private readonly ConcurrentDictionary<int, AsyncDurationsSummaryStatsDto> _durationsStatsCache = new();
     private readonly ConcurrentDictionary<int, AsyncOpponentsSummaryStatsDto> _opponentsStatsCache = new();
+    private string? _snapshotEtag;
     private AsyncFactionsSummaryStatsDto _factionsStats = new();
     private AsyncGeneralSummaryStatsDto _generalStats = new();
     private AsyncHistorySummaryStatsDto _historyStats = new();
+    private bool _hasFactionsStats;
+    private bool _hasGeneralStats;
+    private bool _hasHistoryStats;
+
+    public DateTimeOffset? SnapshotGeneratedAtUtc { get; private set; }
+
+    public TimeSpan? SnapshotAge => SnapshotGeneratedAtUtc is { } generatedAt
+        ? DateTimeOffset.UtcNow - generatedAt
+        : null;
+
+    public void InvalidateCache()
+    {
+        _gamesStatsCache.Clear();
+        _winsStatsCache.Clear();
+        _vpStatsCache.Clear();
+        _eliminationsStatsCache.Clear();
+        _turnsStatsCache.Clear();
+        _combatStatsCache.Clear();
+        _durationsStatsCache.Clear();
+        _opponentsStatsCache.Clear();
+        _cacheTimes.Clear();
+        _responseCache.Clear();
+        _etags.Clear();
+        _snapshotEtag = null;
+        SnapshotGeneratedAtUtc = null;
+        _hasFactionsStats = false;
+        _hasGeneralStats = false;
+        _hasHistoryStats = false;
+    }
 
     public async Task<AsyncGeneralSummaryStatsDto> GetGeneralStatistics()
     {
-        if (_generalStats.All.Games > 0)
+        var cacheKey = GetCacheKey(nameof(GetGeneralStatistics));
+        if (_hasGeneralStats && IsFresh(cacheKey))
             return _generalStats;
 
-        var result = await _httpClient.GetAsync<ApiResponse<AsyncGeneralSummaryStatsDto>>(Paths.ApiPath_AsyncGeneralStats);
-        if (result.StatusCode == HttpStatusCode.OK)
+        var result = await GetStatisticsAsync<AsyncGeneralSummaryStatsDto>(cacheKey, Paths.ApiPath_AsyncGeneralStats);
+        if (result is not null)
         {
-            _generalStats = result.Response!.Data!;
+            _generalStats = result;
+            _hasGeneralStats = true;
+            MarkFresh(cacheKey);
             return _generalStats;
         }
 
@@ -41,14 +79,16 @@ public class AsyncStatsProvider(
         if (!AllowedLimits.Contains(limit))
             return new AsyncGamesSummaryStatsDto();
 
-        if (_gamesStatsCache.TryGetValue(limit, out var cachedStats))
+        var cacheKey = GetCacheKey($"{nameof(GetGamesStatistics)}:{limit}");
+        if (_gamesStatsCache.TryGetValue(limit, out var cachedStats) && IsFresh(cacheKey))
             return cachedStats;
 
-        var result = await _httpClient.GetAsync<ApiResponse<AsyncGamesSummaryStatsDto>>(Paths.ApiPath_AsyncGamesStats, GetLimitQuery(limit));
-        if (result.StatusCode == HttpStatusCode.OK)
+        var result = await GetStatisticsAsync<AsyncGamesSummaryStatsDto>(cacheKey, Paths.ApiPath_AsyncGamesStats, GetLimitQuery(limit));
+        if (result is not null)
         {
-            _gamesStatsCache[limit] = result.Response!.Data!;
-            return result.Response!.Data!;
+            _gamesStatsCache[limit] = result;
+            MarkFresh(cacheKey);
+            return result;
         }
 
         return new AsyncGamesSummaryStatsDto();
@@ -59,14 +99,16 @@ public class AsyncStatsProvider(
         if (!AllowedLimits.Contains(limit))
             return new AsyncWinsSummaryStatsDto();
 
-        if (_winsStatsCache.TryGetValue(limit, out var cachedStats))
+        var cacheKey = GetCacheKey($"{nameof(GetWinsStatistics)}:{limit}");
+        if (_winsStatsCache.TryGetValue(limit, out var cachedStats) && IsFresh(cacheKey))
             return cachedStats;
 
-        var result = await _httpClient.GetAsync<ApiResponse<AsyncWinsSummaryStatsDto>>(Paths.ApiPath_AsyncWinsStats, GetLimitQuery(limit));
-        if (result.StatusCode == HttpStatusCode.OK)
+        var result = await GetStatisticsAsync<AsyncWinsSummaryStatsDto>(cacheKey, Paths.ApiPath_AsyncWinsStats, GetLimitQuery(limit));
+        if (result is not null)
         {
-            _winsStatsCache[limit] = result.Response!.Data!;
-            return result.Response!.Data!;
+            _winsStatsCache[limit] = result;
+            MarkFresh(cacheKey);
+            return result;
         }
 
         return new AsyncWinsSummaryStatsDto();
@@ -77,14 +119,16 @@ public class AsyncStatsProvider(
         if (!AllowedLimits.Contains(limit))
             return new AsyncVpSummaryStatsDto();
 
-        if (_vpStatsCache.TryGetValue(limit, out var cachedStats))
+        var cacheKey = GetCacheKey($"{nameof(GetVpStatistics)}:{limit}");
+        if (_vpStatsCache.TryGetValue(limit, out var cachedStats) && IsFresh(cacheKey))
             return cachedStats;
 
-        var result = await _httpClient.GetAsync<ApiResponse<AsyncVpSummaryStatsDto>>(Paths.ApiPath_AsyncVpStats, GetLimitQuery(limit));
-        if (result.StatusCode == HttpStatusCode.OK)
+        var result = await GetStatisticsAsync<AsyncVpSummaryStatsDto>(cacheKey, Paths.ApiPath_AsyncVpStats, GetLimitQuery(limit));
+        if (result is not null)
         {
-            _vpStatsCache[limit] = result.Response!.Data!;
-            return result.Response!.Data!;
+            _vpStatsCache[limit] = result;
+            MarkFresh(cacheKey);
+            return result;
         }
 
         return new AsyncVpSummaryStatsDto();
@@ -95,14 +139,16 @@ public class AsyncStatsProvider(
         if (!AllowedLimits.Contains(limit))
             return new AsyncEliminationsSummaryStatsDto();
 
-        if (_eliminationsStatsCache.TryGetValue(limit, out var cachedStats))
+        var cacheKey = GetCacheKey($"{nameof(GetEliminationsStatistics)}:{limit}");
+        if (_eliminationsStatsCache.TryGetValue(limit, out var cachedStats) && IsFresh(cacheKey))
             return cachedStats;
 
-        var result = await _httpClient.GetAsync<ApiResponse<AsyncEliminationsSummaryStatsDto>>(Paths.ApiPath_AsyncEliminationsStats, GetLimitQuery(limit));
-        if (result.StatusCode == HttpStatusCode.OK)
+        var result = await GetStatisticsAsync<AsyncEliminationsSummaryStatsDto>(cacheKey, Paths.ApiPath_AsyncEliminationsStats, GetLimitQuery(limit));
+        if (result is not null)
         {
-            _eliminationsStatsCache[limit] = result.Response!.Data!;
-            return result.Response!.Data!;
+            _eliminationsStatsCache[limit] = result;
+            MarkFresh(cacheKey);
+            return result;
         }
 
         return new AsyncEliminationsSummaryStatsDto();
@@ -113,14 +159,16 @@ public class AsyncStatsProvider(
         if (!AllowedLimits.Contains(limit))
             return new AsyncTurnsSummaryStatsDto();
 
-        if (_turnsStatsCache.TryGetValue(limit, out var cachedStats))
+        var cacheKey = GetCacheKey($"{nameof(GetTurnsStatistics)}:{limit}");
+        if (_turnsStatsCache.TryGetValue(limit, out var cachedStats) && IsFresh(cacheKey))
             return cachedStats;
 
-        var result = await _httpClient.GetAsync<ApiResponse<AsyncTurnsSummaryStatsDto>>(Paths.ApiPath_AsyncTurnsStats, GetLimitQuery(limit));
-        if (result.StatusCode == HttpStatusCode.OK)
+        var result = await GetStatisticsAsync<AsyncTurnsSummaryStatsDto>(cacheKey, Paths.ApiPath_AsyncTurnsStats, GetLimitQuery(limit));
+        if (result is not null)
         {
-            _turnsStatsCache[limit] = result.Response!.Data!;
-            return result.Response!.Data!;
+            _turnsStatsCache[limit] = result;
+            MarkFresh(cacheKey);
+            return result;
         }
 
         return new AsyncTurnsSummaryStatsDto();
@@ -131,14 +179,16 @@ public class AsyncStatsProvider(
         if (!AllowedLimits.Contains(limit))
             return new AsyncCombatSummaryStatsDto();
 
-        if (_combatStatsCache.TryGetValue(limit, out var cachedStats))
+        var cacheKey = GetCacheKey($"{nameof(GetCombatStatistics)}:{limit}");
+        if (_combatStatsCache.TryGetValue(limit, out var cachedStats) && IsFresh(cacheKey))
             return cachedStats;
 
-        var result = await _httpClient.GetAsync<ApiResponse<AsyncCombatSummaryStatsDto>>(Paths.ApiPath_AsyncCombatStats, GetLimitQuery(limit));
-        if (result.StatusCode == HttpStatusCode.OK)
+        var result = await GetStatisticsAsync<AsyncCombatSummaryStatsDto>(cacheKey, Paths.ApiPath_AsyncCombatStats, GetLimitQuery(limit));
+        if (result is not null)
         {
-            _combatStatsCache[limit] = result.Response!.Data!;
-            return result.Response!.Data!;
+            _combatStatsCache[limit] = result;
+            MarkFresh(cacheKey);
+            return result;
         }
 
         return new AsyncCombatSummaryStatsDto();
@@ -149,14 +199,16 @@ public class AsyncStatsProvider(
         if (!AllowedLimits.Contains(limit))
             return new AsyncDurationsSummaryStatsDto();
 
-        if (_durationsStatsCache.TryGetValue(limit, out var cachedStats))
+        var cacheKey = GetCacheKey($"{nameof(GetDurationsStatistics)}:{limit}");
+        if (_durationsStatsCache.TryGetValue(limit, out var cachedStats) && IsFresh(cacheKey))
             return cachedStats;
 
-        var result = await _httpClient.GetAsync<ApiResponse<AsyncDurationsSummaryStatsDto>>(Paths.ApiPath_AsyncDurationsStats, GetLimitQuery(limit));
-        if (result.StatusCode == HttpStatusCode.OK)
+        var result = await GetStatisticsAsync<AsyncDurationsSummaryStatsDto>(cacheKey, Paths.ApiPath_AsyncDurationsStats, GetLimitQuery(limit));
+        if (result is not null)
         {
-            _durationsStatsCache[limit] = result.Response!.Data!;
-            return result.Response!.Data!;
+            _durationsStatsCache[limit] = result;
+            MarkFresh(cacheKey);
+            return result;
         }
 
         return new AsyncDurationsSummaryStatsDto();
@@ -167,14 +219,16 @@ public class AsyncStatsProvider(
         if (!AllowedLimits.Contains(limit))
             return new AsyncOpponentsSummaryStatsDto();
 
-        if (_opponentsStatsCache.TryGetValue(limit, out var cachedStats))
+        var cacheKey = GetCacheKey($"{nameof(GetOpponentsStatistics)}:{limit}");
+        if (_opponentsStatsCache.TryGetValue(limit, out var cachedStats) && IsFresh(cacheKey))
             return cachedStats;
 
-        var result = await _httpClient.GetAsync<ApiResponse<AsyncOpponentsSummaryStatsDto>>(Paths.ApiPath_AsyncOpponentsStats, GetLimitQuery(limit));
-        if (result.StatusCode == HttpStatusCode.OK)
+        var result = await GetStatisticsAsync<AsyncOpponentsSummaryStatsDto>(cacheKey, Paths.ApiPath_AsyncOpponentsStats, GetLimitQuery(limit));
+        if (result is not null)
         {
-            _opponentsStatsCache[limit] = result.Response!.Data!;
-            return result.Response!.Data!;
+            _opponentsStatsCache[limit] = result;
+            MarkFresh(cacheKey);
+            return result;
         }
 
         return new AsyncOpponentsSummaryStatsDto();
@@ -182,13 +236,16 @@ public class AsyncStatsProvider(
 
     public async Task<AsyncHistorySummaryStatsDto> GetHistoryStatistics()
     {
-        if (_historyStats.All.GamesHistory.Count > 0)
+        var cacheKey = GetCacheKey(nameof(GetHistoryStatistics));
+        if (_hasHistoryStats && IsFresh(cacheKey))
             return _historyStats;
 
-        var result = await _httpClient.GetAsync<ApiResponse<AsyncHistorySummaryStatsDto>>(Paths.ApiPath_AsyncHistoryStats);
-        if (result.StatusCode == HttpStatusCode.OK)
+        var result = await GetStatisticsAsync<AsyncHistorySummaryStatsDto>(cacheKey, Paths.ApiPath_AsyncHistoryStats);
+        if (result is not null)
         {
-            _historyStats = result.Response!.Data!;
+            _historyStats = result;
+            _hasHistoryStats = true;
+            MarkFresh(cacheKey);
             return _historyStats;
         }
 
@@ -197,18 +254,94 @@ public class AsyncStatsProvider(
 
     public async Task<AsyncFactionsSummaryStatsDto> GetFactionsStatistics()
     {
-        if (_factionsStats.All.Count > 0)
+        var cacheKey = GetCacheKey(nameof(GetFactionsStatistics));
+        if (_hasFactionsStats && IsFresh(cacheKey))
             return _factionsStats;
 
-        var result = await _httpClient.GetAsync<ApiResponse<AsyncFactionsSummaryStatsDto>>(Paths.ApiPath_AsyncFactionStats);
-        if (result.StatusCode == HttpStatusCode.OK)
+        var result = await GetStatisticsAsync<AsyncFactionsSummaryStatsDto>(cacheKey, Paths.ApiPath_AsyncFactionStats);
+        if (result is not null)
         {
-            _factionsStats = result.Response!.Data!;
-            return result.Response!.Data!;
+            _factionsStats = result;
+            _hasFactionsStats = true;
+            MarkFresh(cacheKey);
+            return result;
         }
 
         return new AsyncFactionsSummaryStatsDto();
     }
 
     private static string GetLimitQuery(int limit) => $"?limit={limit}";
+
+    private string GetCacheKey(string requestKey)
+    {
+        var version = _snapshotEtag?.Trim('"');
+        return $"{requestKey}:snapshot:{version ?? "unknown"}";
+    }
+
+    private bool IsFresh(string key)
+    {
+        return _cacheTimes.TryGetValue(key, out var fetchedAt)
+            && DateTimeOffset.UtcNow - fetchedAt < TimeSpan.FromMinutes(15);
+    }
+
+    private void MarkFresh(string key)
+    {
+        _cacheTimes[key] = DateTimeOffset.UtcNow;
+    }
+
+    private async Task<T?> GetStatisticsAsync<T>(string key, string path, string query = "")
+        where T : class
+    {
+        var request = new Lazy<Task<object?>>(
+            () => FetchStatisticsAsync<T>(key, path, query),
+            LazyThreadSafetyMode.ExecutionAndPublication);
+        var inFlightRequest = _inFlightRequests.GetOrAdd(key, request);
+
+        try
+        {
+            return (T?)await inFlightRequest.Value;
+        }
+        finally
+        {
+            if (inFlightRequest.IsValueCreated && inFlightRequest.Value.IsCompleted)
+            {
+                _inFlightRequests.TryRemove(new KeyValuePair<string, Lazy<Task<object?>>>(key, inFlightRequest));
+            }
+        }
+    }
+
+    private async Task<object?> FetchStatisticsAsync<T>(string key, string path, string query)
+        where T : class
+    {
+        var result = await _httpClient.GetWithValidationAsync<ApiResponse<T>>(path, query, _etags.GetValueOrDefault(key));
+        SnapshotGeneratedAtUtc = result.SnapshotGeneratedAtUtc ?? SnapshotGeneratedAtUtc;
+        if (result.StatusCode == HttpStatusCode.NotModified && _responseCache.TryGetValue(key, out var cached))
+            return cached;
+        if (result.StatusCode != HttpStatusCode.OK || result.Response?.Data is not T data)
+            return null;
+
+        if (!string.IsNullOrWhiteSpace(result.ETag)
+            && _snapshotEtag is not null
+            && !string.Equals(_snapshotEtag, result.ETag, StringComparison.Ordinal))
+        {
+            if (long.TryParse(result.ETag.Trim('"'), out var candidateVersion)
+                && long.TryParse(_snapshotEtag.Trim('"'), out var currentVersion)
+                && candidateVersion > currentVersion)
+            {
+                InvalidateCache();
+            }
+            else
+            {
+                return data;
+            }
+        }
+
+        _snapshotEtag = result.ETag ?? _snapshotEtag;
+
+        _responseCache[key] = data;
+        if (!string.IsNullOrWhiteSpace(result.ETag))
+            _etags[key] = result.ETag;
+
+        return data;
+    }
 }

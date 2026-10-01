@@ -1,8 +1,12 @@
 @page "/community/tigl/leaders"
 @using TwilightImperiumUltimate.Web.Components.Tigl
+@using TwilightImperiumUltimate.Web.Components.Shared.Text
+
+<PageTitle>@Strings.Page_TiglLeaders_PageTitle</PageTitle>
 
 <Page>
-    <StretchHeightContainer CssClass="background">
+    <StretchHeightContainer>
+        <ResponsiveHeading Level="1" Text="Leaders" />
         <LeadersGrid Leaders="_leaders" />
     </StretchHeightContainer>
 </Page>

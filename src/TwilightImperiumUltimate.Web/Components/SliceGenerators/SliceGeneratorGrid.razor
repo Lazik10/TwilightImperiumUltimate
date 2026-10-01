@@ -1,50 +1,49 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.MapGenerator
+@using TwilightImperiumUltimate.Web.Components.Shared.Controls
 
-<SliceGeneratorNavBar OnMenuItemClick="OnMenuItemClick" />
+<div class="slice-generator-grid">
 
-@if(_selectedMenuItem == SliceGeneratorMenuItem.SliceGenerator)
-{
-    <VerticalSpace Height="20" />
+    <SliceGeneratorNavBar SelectedMenuItem="@_selectedMenuItem" OnMenuItemClick="OnMenuItemClick" />
 
-    <FlexColumnCenteredContainer>
-        <Button ButtonText="@Strings.SliceGenerator_GenerateRandomSlices" OnClick="GenerateSlices" />
-    </FlexColumnCenteredContainer>
+    @if(_selectedMenuItem == SliceGeneratorMenuItem.SliceGenerator)
+    {
+        <CascadingValue Value="this" Name="SliceGeneratorGrid">
+            <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-md">
+                <ResponsiveButton ButtonText="@Strings.SliceGenerator_GenerateRandomSlices" OnClick="GenerateSlices" Width="30" />
+            </ResponsiveContainer>
 
-    <FlexColumnCenteredContainer>
+            <div class="slice-controls">
+                <SliceHexTileMenu @ref="_sliceHexTileMenu" />
 
-        <div id="sliceArea">
-            <GridLayout Width="100" Gap="50" Columns="3">
+                <SliceQuickMenu OnMenuIconClick="HandleQuickMenuClick" />
+            </div>
 
-                <CascadingValue Value="this" Name="SliceGeneratorGrid">
+            <div id="sliceArea" class="slice-generator-slices-grid">
+                @foreach (var slice in Slices)
+                {
+                    <Slice SliceModel="slice" />
+                }
+            </div>
+        </CascadingValue>
+    }
+    else if (_selectedMenuItem == SliceGeneratorMenuItem.SliceEvaluation)
+    {
+        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="mt-md mb-md">
+            <ResponsiveButton ButtonText="@Strings.SliceGenerator_GenerateRandomSlices" OnClick="GenerateSlices" Width="30" />
+        </ResponsiveContainer>
 
-                    <SliceHexTileMenu @ref="_sliceHexTileMenu" />
+        <SliceEvaluationGrid Slices="Slices" />
+    }
+    else if (_selectedMenuItem == SliceGeneratorMenuItem.Settings)
+    {
+        <SliceGeneratorSettings OnSettingsChange="async () =>  await UpdateSlices()" />
+    }
+</div>
 
-                    <SliceQuickMenu OnMenuIconClick="HandleQuickMenuClick"/>
-
-                    @foreach (var slice in Slices)
-                    {
-                        <Slice SliceModel="slice" />
-                    }
-                </CascadingValue>
-
-            </GridLayout>
-        </div>
-
-    </FlexColumnCenteredContainer>
-}
-else if (_selectedMenuItem == SliceGeneratorMenuItem.SliceEvaluation)
-{
-    <VerticalSpace Height="20" />
-
-    <FlexColumnCenteredContainer>
-        <Button ButtonText="@Strings.SliceGenerator_GenerateRandomSlices" OnClick="GenerateSlices" />
-    </FlexColumnCenteredContainer>
-
-    <VerticalSpace Height="20" />
-
-    <SliceEvaluationGrid Slices="Slices" />
-}
-else if (_selectedMenuItem == SliceGeneratorMenuItem.Settings)
-{
-    <SliceGeneratorSettings OnSettingsChange="async () =>  await UpdateSlices()" />
-}
+<ResponsiveConfirmDialog IsOpen="_isDuplicateTileDialogOpen"
+                         Title="Duplicate system tile"
+                         Message="This placement would add a duplicate system tile to the slices. Do you want to continue?"
+                         ConfirmText="Place tile"
+                         CancelText="Cancel"
+                         OnConfirm="ConfirmDuplicateTilePlacementAsync"
+                         OnCancel="CancelDuplicateTilePlacement" />

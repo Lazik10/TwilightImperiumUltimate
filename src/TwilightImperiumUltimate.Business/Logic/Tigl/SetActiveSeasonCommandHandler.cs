@@ -1,5 +1,5 @@
+﻿using Microsoft.Extensions.Caching.Memory;
 using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Season;
-using Microsoft.Extensions.Caching.Memory;
 
 namespace TwilightImperiumUltimate.Business.Logic.Tigl;
 
@@ -12,7 +12,9 @@ public class SetActiveSeasonCommandHandler(
 
     public async Task<SetActiveSeasonResponse> Handle(SetActiveSeasonCommand request, CancellationToken cancellationToken)
     {
-        var result = await tiglRepository.SetActiveSeason(request.SeasonNumber, cancellationToken);
+        ArgumentNullException.ThrowIfNull(request);
+
+        var result = await tiglRepository.SetActiveSeason(request.SeasonNumber, cancellationToken).ConfigureAwait(false);
         if (result.IsFailed)
         {
             return new SetActiveSeasonResponse

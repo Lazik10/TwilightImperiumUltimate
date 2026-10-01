@@ -1,291 +1,676 @@
-# Remove the line below if you want to inherit .editorconfig settings from higher directories
 root = true
 
-# C# files
-[*.cs]
-
-#### Core EditorConfig Options ####
-
-# Indentation and spacing
-[*.cs]
+###############################################################################################################
+#                                        Global settings for all files                                        #
+###############################################################################################################
+[*]
 indent_style = space
+end_of_line = crlf
+insert_final_newline = true
+charset = utf-8
+
+#--------------------------------------------  Indentation  --------------------------------------------------#
+
+[*.{cs,csx,vb,vbx}]
 indent_size = 4
 tab_width = 4
-charset = utf-8
-trim_trailing_whitespace = true
 
-# New line preferences
-end_of_line = crlf
-insert_final_newline = false
+# Xml project files
+[*.{csproj,vbproj,vcxproj,vcxproj.filters,proj,projitems,shproj}]
+indent_size = 4
 
-#### .NET Coding Conventions ####
+# Xml config files
+[*.{props,targets,ruleset,config,nuspec,resx,vsixmanifest,vsct}]
+indent_size = 2
 
-# Organize usings
-dotnet_separate_import_directive_groups = false
-dotnet_sort_system_directives_first = false
-file_header_template = unset
+# JSON files
+[*.json]
+indent_size = 2
 
-# this. and Me. preferences
-dotnet_style_qualification_for_event = false
-dotnet_style_qualification_for_field = false
-dotnet_style_qualification_for_method = false
-dotnet_style_qualification_for_property = false
+# TT files
+[*.tt]
+indent_size = 4
 
-# Language keywords vs BCL types preferences
-dotnet_style_predefined_type_for_locals_parameters_members = true
-dotnet_style_predefined_type_for_member_access = true
+###############################################################################################################
+#                                        Rules for C# and VB code files                                       #
+###############################################################################################################
+[*.{cs,vb}]
 
-# Parentheses preferences
-dotnet_style_parentheses_in_arithmetic_binary_operators = always_for_clarity
-dotnet_style_parentheses_in_other_binary_operators = always_for_clarity
-dotnet_style_parentheses_in_other_operators = never_if_unnecessary
-dotnet_style_parentheses_in_relational_binary_operators = always_for_clarity
+#--------------------------------------------  Code styles  --------------------------------------------------#
 
-# Modifier preferences
-dotnet_style_require_accessibility_modifiers = for_non_interface_members
-
-# Expression-level preferences
-dotnet_style_coalesce_expression = true
-dotnet_style_collection_initializer = true
-dotnet_style_explicit_tuple_names = true
-dotnet_style_namespace_match_folder = true
-dotnet_style_null_propagation = true
-dotnet_style_object_initializer = true
+# Sort using directives placing all System.* namespaces before other usings for consistency.
+dotnet_sort_system_directives_first = true
+# Prefer accessing instance fields without this. unless needed to disambiguate.
+dotnet_style_qualification_for_field = false:suggestion
+# Prefer accessing properties without this. qualifier unless required.
+dotnet_style_qualification_for_property = false:suggestion
+# Prefer calling instance methods without this. unless there is a naming conflict.
+dotnet_style_qualification_for_method = false:suggestion
+# Prefer accessing events without this. unless needed for clarity or disambiguation.
+dotnet_style_qualification_for_event = false:suggestion
+# Use C# keywords (int, string, bool) for local variables, parameters, and members instead of framework type names (Int32, String, Boolean).
+dotnet_style_predefined_type_for_locals_parameters_members = true:warning
+# Use predefined type keywords when referring to static members (e.g., int.MaxValue instead of Int32.MaxValue).
+dotnet_style_predefined_type_for_member_access = true:warning
+# Explicitly specify access modifiers (public/private/etc.) on non-interface members to avoid ambiguity.
+dotnet_style_require_accessibility_modifiers = for_non_interface_members:warning
+# Prefer object initializers (new Foo { A = 1 }) instead of setting properties in separate statements.
+dotnet_style_object_initializer = true:suggestion
+# Prefer collection initializers (new List<int> { 1, 2 }) instead of Add calls immediately after construction.
+dotnet_style_collection_initializer = true:suggestion
+# Use explicit tuple element names (e.g., (int count, string name)) instead of relying on Item1, Item2.
+dotnet_style_explicit_tuple_names = true:suggestion
+# When tuple element names can be inferred from variable names, omit explicit naming (var count = 1; var t = (count, name)).
+dotnet_style_prefer_inferred_tuple_names = true:suggestion
+# In anonymous types, omit redundant member names when they match variable names (new { count, name }).
+dotnet_style_prefer_inferred_anonymous_type_member_names = true:suggestion
+# Use ?? and ??= where possible instead of verbose null checks.
+dotnet_style_coalesce_expression = true:suggestion
+# Use ?. and ?[] null-conditional operators instead of explicit if (x != null) patterns.
+dotnet_style_null_propagation = true:suggestion
+# Use ‘is null’ / ‘is not null’ pattern rather than object.ReferenceEquals(x, null).
+dotnet_style_prefer_is_null_check_over_reference_equality_method = true:suggestion
+# Use auto-properties instead of properties with trivial backing fields.
+dotnet_style_prefer_auto_properties = true:suggestion
+# Simplify boolean logic (avoid redundant == true / unnecessary parentheses).
+dotnet_style_prefer_simplified_boolean_expressions = true:suggestion
+# Use ternary operator for simple conditional assignments instead of if/else blocks.
+dotnet_style_prefer_conditional_expression_over_assignment = true:suggestion
+# Use ternary operator for simple conditional returns instead of if/else.
+dotnet_style_prefer_conditional_expression_over_return = true:suggestion
+# Use compound operators (+=, -=, *=, etc.) instead of expanded forms (x = x + y).
+dotnet_style_prefer_compound_assignment = true:suggestion
+# Simplify interpolated strings (e.g., $"{x}" instead of string.Format, remove redundant ToString()).
+dotnet_style_prefer_simplified_interpolation = true:suggestion
+# Encourage namespace declarations that mirror the physical folder structure.
+dotnet_style_namespace_match_folder = true:suggestion
+# Place binary operators at the beginning of wrapped lines for readability in multiline expressions.
 dotnet_style_operator_placement_when_wrapping = beginning_of_line
-dotnet_style_prefer_auto_properties = true
-dotnet_style_prefer_compound_assignment = true
-dotnet_style_prefer_conditional_expression_over_assignment = true
-dotnet_style_prefer_conditional_expression_over_return = true
-dotnet_style_prefer_foreach_explicit_cast_in_source = when_strongly_typed
-dotnet_style_prefer_inferred_anonymous_type_member_names = true
-dotnet_style_prefer_inferred_tuple_names = true
-dotnet_style_prefer_is_null_check_over_reference_equality_method = true
-dotnet_style_prefer_simplified_boolean_expressions = true
-dotnet_style_prefer_simplified_interpolation = true
+# Prefer file-scoped namespaces for modern C#
+csharp_style_namespace_declarations = file_scoped:warning
 
-# Field preferences
-dotnet_style_readonly_field = true
+###############################################################################################################
+#                                              C# specific rules                                              #
+###############################################################################################################
+[*.cs]
 
-# Parameter preferences
-dotnet_code_quality_unused_parameters = all
+#------------------------------------------------  Global C# --------------------------------------------------#
 
-# Suppression preferences
-dotnet_remove_unnecessary_suppression_exclusions = none
-
-# New line preferences
-dotnet_style_allow_multiple_blank_lines_experimental = true
-dotnet_style_allow_statement_immediately_after_block_experimental = true
-
-#### C# Coding Conventions ####
-
-# var preferences
-csharp_style_var_elsewhere = false
-csharp_style_var_for_built_in_types = false
-csharp_style_var_when_type_is_apparent = false
-
-# Expression-bodied members
-csharp_style_expression_bodied_accessors = true:silent
-csharp_style_expression_bodied_constructors = false:silent
-csharp_style_expression_bodied_indexers = true:silent
-csharp_style_expression_bodied_lambdas = true:silent
-csharp_style_expression_bodied_local_functions = false:silent
-csharp_style_expression_bodied_methods = false:silent
-csharp_style_expression_bodied_operators = false:silent
-csharp_style_expression_bodied_properties = true:silent
-
-# Pattern matching preferences
-csharp_style_pattern_matching_over_as_with_null_check = true
-csharp_style_pattern_matching_over_is_with_cast_check = true:suggestion
-csharp_style_prefer_extended_property_pattern = true
-csharp_style_prefer_not_pattern = true
-csharp_style_prefer_pattern_matching = true
-csharp_style_prefer_switch_expression = true
-
-# Null-checking preferences
-csharp_style_conditional_delegate_call = true:suggestion
-
-# Modifier preferences
-csharp_prefer_static_local_function = true:suggestion
-csharp_preferred_modifier_order = public,private,protected,internal,file,static,extern,new,virtual,abstract,sealed,override,readonly,unsafe,required,volatile,async
-csharp_style_prefer_readonly_struct = true
-csharp_style_prefer_readonly_struct_member = true
-
-# Code-block preferences
-csharp_prefer_braces = true:silent
+# Prefer the C# 8 simplified 'using' statement form (using var x = ...) over a using block.
 csharp_prefer_simple_using_statement = true:suggestion
-csharp_style_namespace_declarations = file_scoped:silent
-csharp_style_prefer_method_group_conversion = true:silent
-csharp_style_prefer_primary_constructors = true:suggestion
-csharp_style_prefer_top_level_statements = true:silent
+# Prefer always using braces around control blocks (if/for/etc.) even for single statements.
+csharp_prefer_braces = true:suggestion
+# Suggest ordering modifiers in the specified canonical sequence for consistency.
+csharp_preferred_modifier_order = public,private,protected,internal,file,static,extern,new,virtual,abstract,sealed,override,readonly,unsafe,required,volatile,async:suggestion
+# Prefer explicit built-in types (int, string) instead of 'var' when declaring locals.
+csharp_style_var_for_built_in_types = false:silent
+# Use 'var' when the right-hand side makes the type obvious (e.g., new Customer()).
+csharp_style_var_when_type_is_apparent = true:suggestion
+# Prefer explicit types for other local declarations when the type is not immediately apparent.
+csharp_style_var_elsewhere = false:silent
+# Prefer expression-bodied form for lambdas when possible (x => x + 1).
+csharp_style_expression_bodied_lambdas = true:suggestion
+# Do not prefer expression-bodied syntax for local functions; keep block form.
+csharp_style_expression_bodied_local_functions = false:suggestion
+# Use direct null checks (x is null) rather than type checks followed by casts just to test null.
+csharp_style_prefer_null_check_over_type_check = true:suggestion
+# Place using directives at top of file, outside the namespace declaration.
+csharp_using_directive_placement = outside_namespace:suggestion
 
-# Expression-level preferences
-csharp_prefer_simple_default_expression = true
-csharp_style_deconstructed_variable_declaration = true
-csharp_style_implicit_object_creation_when_type_is_apparent = true
-csharp_style_inlined_variable_declaration = true
-csharp_style_prefer_index_operator = true
-csharp_style_prefer_local_over_anonymous_function = true:suggestion
-csharp_style_prefer_null_check_over_type_check = true
-csharp_style_prefer_range_operator = true
-csharp_style_prefer_tuple_swap = true
-csharp_style_prefer_utf8_string_literals = true
-csharp_style_throw_expression = true
-csharp_style_unused_value_assignment_preference = discard_variable
-csharp_style_unused_value_expression_statement_preference = discard_variable
+#-------------------------------------  Expression-bodied members preference ----------------------------------#
 
-# 'using' directive preferences
-csharp_using_directive_placement = outside_namespace:silent
+# Suggest using expression-bodied syntax (e.g., int Add(int a, int b) => a + b;) only when the entire method fits on one line.
+csharp_style_expression_bodied_methods = when_on_single_line:suggestion
+# Suggest using expression-bodied constructors only when the entire body fits on one line.
+csharp_style_expression_bodied_constructors = when_on_single_line:suggestion
+# Suggest using expression-bodied operator overloads only when the entire body fits on one line.
+csharp_style_expression_bodied_operators = when_on_single_line:suggestion
+# Suggest using expression-bodied form (e.g., string Name => _name;) when the getter (and optional setter) is a single simple expression.
+csharp_style_expression_bodied_properties = when_on_single_line:suggestion
+# Suggest expression-bodied indexers (e.g., string this[int i] => _items[i];) when the implementation is a single expression.
+csharp_style_expression_bodied_indexers = when_on_single_line:suggestion
+# Suggest expression-bodied accessors (get/set/add/remove) only when each accessor’s body is a single expression.
+csharp_style_expression_bodied_accessors = when_on_single_line:suggestion
 
-# New line preferences
-csharp_style_allow_blank_line_after_colon_in_constructor_initializer_experimental = true
-csharp_style_allow_blank_line_after_token_in_arrow_expression_clause_experimental = true
-csharp_style_allow_blank_line_after_token_in_conditional_expression_experimental = true
-csharp_style_allow_blank_lines_between_consecutive_braces_experimental = true
-csharp_style_allow_embedded_statements_on_same_line_experimental = true
+#-------------------------------------------  Newline and spacing rules ----------------------------------------#
 
-#### C# Formatting Rules ####
-
-# New line preferences
-csharp_new_line_before_catch = true
-csharp_new_line_before_else = true
-csharp_new_line_before_finally = true
-csharp_new_line_before_members_in_anonymous_types = true
-csharp_new_line_before_members_in_object_initializers = true
+# Place an opening brace on a new line for all constructs (types, methods, properties, control blocks, etc.).
 csharp_new_line_before_open_brace = all
+# Put else on a new line after the closing brace of the preceding if block.
+csharp_new_line_before_else = true
+# Put catch on a new line after the closing brace of the try block.
+csharp_new_line_before_catch = true
+# Put finally on a new line after the closing brace of the catch (or try if no catch).
+csharp_new_line_before_finally = true
+# Each member assignment inside an object initializer starts on its own line.
+csharp_new_line_before_members_in_object_initializers = true
+# Each member inside an anonymous type initializer starts on its own line.
+csharp_new_line_before_members_in_anonymous_types = true
+# Place each clause of a query expression on its own line for readability.
 csharp_new_line_between_query_expression_clauses = true
 
-# Indentation preferences
-csharp_indent_block_contents = true
-csharp_indent_braces = false
+# Indent the statements inside each case block in a switch.
 csharp_indent_case_contents = true
-csharp_indent_case_contents_when_block = true
-csharp_indent_labels = one_less_than_current
+# Indent switch labels (case/default) relative to the switch block.
 csharp_indent_switch_labels = true
+# Labels are outdented by one level relative to surrounding code (custom override for readability).
+csharp_indent_labels = one_less_than_current
+# Indent the contents of blocks by one level.
+csharp_indent_block_contents = true
+# Do not indent braces that open and close a block.
+csharp_indent_braces = false
 
-# Space preferences
+# Keep single-line statements on one line; avoid forced wrapping.
+csharp_preserve_single_line_statements = true
+# Keep simple blocks (e.g., { return x; }) on a single line if already written that way.
+csharp_preserve_single_line_blocks = true
+
+# Do not insert a space after a cast (e.g., (int)x not (int) x).
 csharp_space_after_cast = false
-csharp_space_after_colon_in_inheritance_clause = true
-csharp_space_after_comma = true
-csharp_space_after_dot = false
+# Add a space after control flow keywords (if (, for (, while (, etc.).
 csharp_space_after_keywords_in_control_flow_statements = true
-csharp_space_after_semicolon_in_for_statement = true
-csharp_space_around_binary_operators = before_and_after
-csharp_space_around_declaration_statements = false
-csharp_space_before_colon_in_inheritance_clause = true
-csharp_space_before_comma = false
-csharp_space_before_dot = false
-csharp_space_before_open_square_brackets = false
-csharp_space_before_semicolon_in_for_statement = false
-csharp_space_between_empty_square_brackets = false
-csharp_space_between_method_call_empty_parameter_list_parentheses = false
-csharp_space_between_method_call_name_and_opening_parenthesis = false
-csharp_space_between_method_call_parameter_list_parentheses = false
-csharp_space_between_method_declaration_empty_parameter_list_parentheses = false
-csharp_space_between_method_declaration_name_and_open_parenthesis = false
+# No space immediately inside parentheses in method declarations (void M(int x) not void M( int x )).
 csharp_space_between_method_declaration_parameter_list_parentheses = false
+# No space immediately inside parentheses in method calls (Do(x, y) not Do( x, y )).
+csharp_space_between_method_call_parameter_list_parentheses = false
+# Adds a space after the colon in base type declarations (e.g., class MyClass : BaseClass).
+csharp_space_after_colon_in_inheritance_clause = true
+# Adds a space after commas in argument lists, parameter lists, etc. (e.g., Do(x, y)).
+csharp_space_after_comma = true
+# No space after the dot operator (e.g., obj.Method(), not obj. Method()).
+csharp_space_after_dot = false
+# Adds a space after semicolons in for loops (e.g., for (int i = 0; i < n; i++)).
+csharp_space_after_semicolon_in_for_statement = true
+# Adds spaces before and after binary operators (e.g., x + y, not x+y).
+csharp_space_around_binary_operators = before_and_after
+# Do not ignore extra spaces in declaration statements; flag them for correction.
+csharp_space_around_declaration_statements = do_not_ignore
+# Adds a space before the colon in base type declarations (e.g., class MyClass : BaseClass).
+csharp_space_before_colon_in_inheritance_clause = true
+# No space before commas in lists (e.g., Do(x, y), not Do(x , y)).
+csharp_space_before_comma = false
+# No space before the dot operator (e.g., obj.Method(), not obj .Method()).
+csharp_space_before_dot = false
+# No space before opening square brackets (e.g., array[index], not array [index]).
+csharp_space_before_open_square_brackets = false
+# No space before semicolons in for loops.
+csharp_space_before_semicolon_in_for_statement = false
+# No space between empty square brackets (e.g., new int[] {}, not new int[ ] {}).
+csharp_space_between_empty_square_brackets = false
+# No space between parentheses in empty method calls (e.g., Do(), not Do( )).
+csharp_space_between_method_call_empty_parameter_list_parentheses = false
+# No space between parentheses in empty method declarations (e.g., void M(), not void M( )).
+csharp_space_between_method_declaration_empty_parameter_list_parentheses = false
+# No space between method name and opening parenthesis (e.g., Do(), not Do ()).
+csharp_space_between_method_declaration_name_and_open_parenthesis = false
+# No space immediately inside parentheses (e.g., Do(x), not Do( x )).
 csharp_space_between_parentheses = false
+# No space immediately inside square brackets (e.g., array[index], not array[ index ])
 csharp_space_between_square_brackets = false
 
-# Wrapping preferences
-csharp_preserve_single_line_blocks = true
-csharp_preserve_single_line_statements = true
+#----------------------------------------------------  Styles ---------------------------------------------------#
 
-#### Naming styles ####
+# Suggest replacing trivial anonymous delegates (delegate(...) { ... }) with local functions for clarity/reuse when appropriate.
+csharp_style_prefer_local_over_anonymous_function = true:suggestion
+# Prefer the ^ index-from-end operator (e.g., array[^1]) over length-based indexing (e.g., array[array.Length - 1]).
+csharp_style_prefer_index_operator = true:suggestion
+# Suggest using the range operator (collection[start..end]) instead of manual Skip/Take patterns.
+csharp_style_prefer_range_operator = true:suggestion
+# Use target-typed new (e.g., MyType x = new();) when the type can be inferred from the left side.
+csharp_style_implicit_object_creation_when_type_is_apparent = true:suggestion
+# Prefer tuple swap syntax ((a, b) = (b, a)) instead of using a temporary variable.
+csharp_style_prefer_tuple_swap = true:suggestion
+# Assign unused values to a discard (_) rather than dummy variables (e.g., _ = DoWork();).
+csharp_style_unused_value_assignment_preference = discard_variable:suggestion
+# Prefer passing method groups (Foo) instead of lambdas (x => Foo(x)) when signatures match.
+csharp_style_prefer_method_group_conversion = true:suggestion
+# Prefer top-level statements for simple programs instead of explicit Program/Main boilerplate.
+csharp_style_prefer_top_level_statements = true:suggestion
+# Suggest using primary constructor syntax in eligible types (e.g., class C(string name) { ... }) for concise parameter/property capture.
+csharp_style_prefer_primary_constructors = true:suggestion
+# Allow single embedded statements (e.g., if (x) Do();) on one line without braces in experimental style scenarios.
+csharp_style_allow_embedded_statements_on_same_line_experimental = true:suggestion
+# Prefer using System.Threading.Lock type over locking on arbitrary objects for type-safe synchronization.
+csharp_prefer_system_threading_lock = true:suggestion
+# Prevents multiple consecutive blank lines in code. When set to false, the formatter will collapse extra blank lines to a single blank line for cleaner layout.
+dotnet_style_allow_multiple_blank_lines_experimental = false
+# Suggests using collection expressions (e.g., [1, 2, 3]) instead of constructors like new List<int> { 1, 2, 3 } for brevity and modern syntax.
+dotnet_style_prefer_collection_expression = true:suggestion
+# Suggests using UTF-8 string literals (e.g., "text"u8) for performance and memory efficiency when working with UTF-8 encoded data.
+csharp_style_prefer_utf8_string_literals = true:suggestion
 
-# Naming rules
+#----------------------------------------------------  Naming ---------------------------------------------------#
 
+# Interfaces should begin with 'I' and use PascalCase (e.g., IMyInterface).
 dotnet_naming_rule.interface_should_be_begins_with_i.severity = suggestion
-dotnet_naming_rule.interface_should_be_begins_with_i.symbols = interface
 dotnet_naming_rule.interface_should_be_begins_with_i.style = begins_with_i
+dotnet_naming_rule.interface_should_be_begins_with_i.symbols = interface
 
-dotnet_naming_rule.types_should_be_pascal_case.severity = suggestion
-dotnet_naming_rule.types_should_be_pascal_case.symbols = types
-dotnet_naming_rule.types_should_be_pascal_case.style = pascal_case
-
+# Non-field members (methods, properties, events) should use PascalCase.
 dotnet_naming_rule.non_field_members_should_be_pascal_case.severity = suggestion
-dotnet_naming_rule.non_field_members_should_be_pascal_case.symbols = non_field_members
 dotnet_naming_rule.non_field_members_should_be_pascal_case.style = pascal_case
+dotnet_naming_rule.non_field_members_should_be_pascal_case.symbols = non_field_members
 
-# Symbol specifications
+# Types (classes, structs, enums) should use PascalCase.
+dotnet_naming_rule.types_should_be_pascal_case.severity = suggestion
+dotnet_naming_rule.types_should_be_pascal_case.style = pascal_case
+dotnet_naming_rule.types_should_be_pascal_case.symbols = types
 
-dotnet_naming_symbols.interface.applicable_kinds = interface
+# Private or internal fields should use camelCase with underscore prefix (e.g., _myField).
+dotnet_naming_rule.camel_case_for_private_internal_fields.severity = suggestion
+dotnet_naming_rule.camel_case_for_private_internal_fields.style = camel_case_underscore_style
+dotnet_naming_rule.camel_case_for_private_internal_fields.symbols = private_internal_fields
+
+# Constant fields should use PascalCase (e.g., MyConstant).
+dotnet_naming_rule.constant_fields_should_be_pascal_case.severity = suggestion
+dotnet_naming_rule.constant_fields_should_be_pascal_case.style = pascal_case_style
+dotnet_naming_rule.constant_fields_should_be_pascal_case.symbols = constant_fields
+
+# Applies to all interface types regardless of accessibility.
 dotnet_naming_symbols.interface.applicable_accessibilities = public, internal, private, protected, protected_internal, private_protected
+dotnet_naming_symbols.interface.applicable_kinds = interface
 dotnet_naming_symbols.interface.required_modifiers = 
 
-dotnet_naming_symbols.types.applicable_kinds = class, struct, interface, enum
-dotnet_naming_symbols.types.applicable_accessibilities = public, internal, private, protected, protected_internal, private_protected
-dotnet_naming_symbols.types.required_modifiers = 
-
-dotnet_naming_symbols.non_field_members.applicable_kinds = property, event, method
+# Applies to non-field members (properties, events, methods) across all accessibilities.
 dotnet_naming_symbols.non_field_members.applicable_accessibilities = public, internal, private, protected, protected_internal, private_protected
+dotnet_naming_symbols.non_field_members.applicable_kinds = property, event, method
 dotnet_naming_symbols.non_field_members.required_modifiers = 
 
-# Naming styles
+# Applies to all types (classes, structs, enums) across all accessibilities.
+dotnet_naming_symbols.types.applicable_accessibilities = public, internal, private, protected, protected_internal, private_protected
+dotnet_naming_symbols.types.applicable_kinds = class, struct, enum
+dotnet_naming_symbols.types.required_modifiers = 
 
-dotnet_naming_style.pascal_case.required_prefix = 
-dotnet_naming_style.pascal_case.required_suffix = 
-dotnet_naming_style.pascal_case.word_separator = 
-dotnet_naming_style.pascal_case.capitalization = pascal_case
+# Applies to constant fields only (requires `const` modifier).
+dotnet_naming_symbols.constant_fields.applicable_kinds = field
+dotnet_naming_symbols.constant_fields.required_modifiers = const
 
+# Applies to private or internal fields.
+dotnet_naming_symbols.private_internal_fields.applicable_accessibilities = private, internal
+dotnet_naming_symbols.private_internal_fields.applicable_kinds = field
+
+# Interfaces should begin with 'I' and use PascalCase (e.g., IMyInterface).
+dotnet_naming_style.begins_with_i.capitalization = pascal_case
 dotnet_naming_style.begins_with_i.required_prefix = I
 dotnet_naming_style.begins_with_i.required_suffix = 
 dotnet_naming_style.begins_with_i.word_separator = 
-dotnet_naming_style.begins_with_i.capitalization = pascal_case
 
-# Analyzers
+# PascalCase style for types and members (e.g., MyClass, MyProperty).
+dotnet_naming_style.pascal_case.capitalization = pascal_case
+dotnet_naming_style.pascal_case.required_prefix = 
+dotnet_naming_style.pascal_case.required_suffix = 
+dotnet_naming_style.pascal_case.word_separator = 
 
-dotnet_diagnostic.SA0001.severity = none
-dotnet_diagnostic.SA1101.severity = none
-dotnet_diagnostic.SA1200.severity = none
-dotnet_diagnostic.SA1503.severity = none
-dotnet_diagnostic.SA1512.severity = none
-dotnet_diagnostic.SA1518.severity = none
+# CamelCase style with underscore prefix for private/internal fields (e.g., _myField).
+dotnet_naming_style.camel_case_underscore_style.capitalization = camel_case
+dotnet_naming_style.camel_case_underscore_style.required_prefix = _
+
+# PascalCase style for constants (e.g., MyConstant).
+dotnet_naming_style.pascal_case_style.capitalization = pascal_case
+
+#----------------------------------------------  Modern C# features ---------------------------------------------#
+
+# Suggest replacing old style `if (x is T) { var t = (T)x; ... }` with pattern matching `if (x is T t) { ... }`.
+csharp_style_pattern_matching_over_is_with_cast_check = true:suggestion
+# Suggest using pattern matching `if (x is T t)` instead of `var t = x as T; if (t != null) ...`.
+csharp_style_pattern_matching_over_as_with_null_check = true:suggestion
+# Prefer inline `if (int.TryParse(s, out var value))` declarations instead of pre-declaring the variable.
+csharp_style_inlined_variable_declaration = true:suggestion
+# Suggest using `default` instead of verbose forms like `default(int)` or `default(string)` where the type is apparent.
+csharp_prefer_simple_default_expression = true:suggestion
+# Encourage tuple deconstruction syntax `(a, b) = GetPair();` instead of separate assignments.
+csharp_style_deconstructed_variable_declaration = true:suggestion
+# Suggest inline throw expressions (e.g., value ?? throw new ArgumentNullException()) instead of multi-line if/throw blocks.
+csharp_style_throw_expression = true:suggestion
+# Encourage using conditional delegate invocation `handler?.Invoke(args)` instead of explicit null checks.
+csharp_style_conditional_delegate_call = true:suggestion
+
+#########################################################################################
+#                                    Diagnostics                                        #
+#########################################################################################
+
+#------------------------ (StyleCop and Roslyn conflicts) ------------------------------#
+
+# SA1000: Ensures language keywords (e.g., new, typeof, default) and certain contextual
+# keywords are followed and preceded by correct spacing (no runs of spaces or missing required space).
+dotnet_diagnostic.SA1000.severity = none
+# SA1001: Commas should be spaced correctly (no space before comma, space after comma).
+dotnet_diagnostic.SA1001.severity = none
+# SA1002: Semicolons should be spaced correctly (no space before semicolon).
+dotnet_diagnostic.SA1002.severity = none
+# SA1003: Operator and symbol spacing should be correct (e.g., spaces around binary operators).
+dotnet_diagnostic.SA1003.severity = none
+# SA1005: Single-line comments should begin with a single space (e.g., // comment, not //comment).
+dotnet_diagnostic.SA1005.severity = none
+# SA1010: Opening square brackets should be spaced correctly (no space before '[').
+dotnet_diagnostic.SA1010.severity = none
+# SA1028: Code must not contain trailing whitespace
+dotnet_diagnostic.SA1028.severity = none
+
+#------  Disable documentation for interfaces, exposed, internal, private elements ------#
+
+# Elements must be documented
 dotnet_diagnostic.SA1600.severity = none
+# Partial elements must be documented
 dotnet_diagnostic.SA1601.severity = none
+# Enumeration items must be documented
 dotnet_diagnostic.SA1602.severity = none
+# Element documentation should have summary
+dotnet_diagnostic.SA1604.severity = none
+# Element documentation should have summary text
+dotnet_diagnostic.SA1606.severity = none
+# Element documentation should not have default summary
+dotnet_diagnostic.SA1608.severity = none
+# Element parameters must be documented
+dotnet_diagnostic.SA1611.severity = none
+# Element return value must be documented
+dotnet_diagnostic.SA1615.severity = none
+# Generic type parameters must be documented
+dotnet_diagnostic.SA1618.severity = none
+# Property summary documentation should match accessors (Gets or sets, Gets, Sets).
+dotnet_diagnostic.SA1623.severity = silent
+# Documentation text should end with a period.
+dotnet_diagnostic.SA1629.severity = silent
+# SA1601: Set documentation culture to en-US.
+dotnet_diagnostic.SA1601.documentation_culture = en-US
+
+#----------------------------------   S - diagnostics   ----------------------------------#
+
+# S101: Type names should comply with a naming convention (e.g., PascalCase, no underscores).
+dotnet_diagnostic.S101.severity = suggestion
+# S107: Methods should not have too many parameters; consider grouping them into an object.
+dotnet_diagnostic.S107.severity = suggestion
+# S2245: Use cryptographically strong random number generator
+dotnet_diagnostic.S2245.severity = suggestion
+# S2325: Methods and properties that don’t access instance data should be static
+dotnet_diagnostic.S2325.severity = suggestion
+# S3267: Loops should be simplified with "LINQ" expressions
+dotnet_diagnostic.S3267.severity = suggestion
+# S4457: Parameter validation in async methods should be wrapped in a separate synchronous method.
+dotnet_diagnostic.S4457.severity = suggestion
+# S6966: Prefer using the async version of a method when one is available.
+dotnet_diagnostic.S6966.severity = suggestion
+
+#----------------------------------   SA - diagnostics   ---------------------------------#
+
+# SA0001: XML comment analysis is disabled (disabled; team does not use XML comments).
+dotnet_diagnostic.SA0001.severity = none
+# SA1101: Prefix local calls with this
+dotnet_diagnostic.SA1101.severity = none
+# SA1208: System using directives should be placed before other using directives
+dotnet_diagnostic.SA1208.severity = suggestion
+# SA1300: Element names (types, methods, etc.) must begin with an upper-case letter.
+dotnet_diagnostic.SA1300.severity = warning
+# SA1309: Field names should not begin with underscore (disabled; team uses underscore prefix for private fields).
+dotnet_diagnostic.SA1309.severity = none
+# SA1503: Braces should not be omitted
+dotnet_diagnostic.SA1503.severity = none
+# SA1633: File must have a standard header (company copyright, etc.).
 dotnet_diagnostic.SA1633.severity = none
 
-dotnet_diagnostic.CA1711.severity = none
-dotnet_diagnostic.CA1724.severity = none
-dotnet_diagnostic.CA5392.severity = none
-dotnet_diagnostic.CA1515.severity = none
-dotnet_diagnostic.SA1309.severity = silent
-dotnet_diagnostic.S1135.severity = suggestion
+#----------------------------------   CA - diagnostics   ---------------------------------#
 
-# CS1591: Missing XML comment for publicly visible type or member
-dotnet_diagnostic.CS1591.severity = silent
-dotnet_diagnostic.SA1010.severity = none
-csharp_prefer_system_threading_lock = true:suggestion
-csharp_style_prefer_simple_property_accessors = true:suggestion
-
-[*.{cs,vb}]
-dotnet_style_operator_placement_when_wrapping = beginning_of_line
-tab_width = 4
-indent_size = 4
-end_of_line = crlf
-dotnet_style_coalesce_expression = true:suggestion
-dotnet_style_null_propagation = true:suggestion
-dotnet_style_prefer_is_null_check_over_reference_equality_method = true:suggestion
-dotnet_style_prefer_auto_properties = true:silent
-dotnet_diagnostic.CA1062.severity = suggestion
-dotnet_diagnostic.CA1822.severity = suggestion
-dotnet_style_object_initializer = true:suggestion
-dotnet_diagnostic.CA2007.severity = silent
-dotnet_diagnostic.CA1308.severity = silent
-dotnet_diagnostic.CA1307.severity = silent
-dotnet_style_collection_initializer = false:suggestion
-dotnet_diagnostic.CA5394.severity = none
-dotnet_style_prefer_simplified_boolean_expressions = true:suggestion
-dotnet_style_prefer_conditional_expression_over_assignment = true:silent
-dotnet_style_prefer_conditional_expression_over_return = true:silent
-dotnet_diagnostic.CA1848.severity = silent
+# CA1002: Avoid exposing generic lists in public APIs; use collection interfaces instead (e.g., IList<T>).
+dotnet_diagnostic.CA1002.severity = suggestion
+# CA1003: Use generic EventHandler<T> instead of custom delegate types for events.
+dotnet_diagnostic.CA1003.severity = suggestion
+# CA1008: Enums should define a zero-valued member named 'None' for clarity and default behavior.
+dotnet_diagnostic.CA1008.severity = suggestion
+# CA1014: Mark assemblies with [CLSCompliant(true)] to ensure cross-language compatibility.
+dotnet_diagnostic.CA1014.severity = suggestion
+# CA1019: Provide accessors for all attributes' arguments to ensure usability.
+dotnet_diagnostic.CA1019.severity = suggestion
+# CA1031: Do not catch general exception types (e.g., Exception); catch specific exceptions for clarity.
 dotnet_diagnostic.CA1031.severity = suggestion
-dotnet_diagnostic.IDE0090.severity = silent
-dotnet_diagnostic.IDE0028.severity = silent
-dotnet_diagnostic.IDE0300.severity = none
-dotnet_style_explicit_tuple_names = true:suggestion
-dotnet_style_prefer_inferred_tuple_names = true:suggestion
-dotnet_style_prefer_inferred_anonymous_type_member_names = true:suggestion
-dotnet_style_prefer_compound_assignment = true:suggestion
-dotnet_style_prefer_collection_expression = when_types_loosely_match:suggestion
-dotnet_style_predefined_type_for_locals_parameters_members = true:silent
+# CA1036: Override comparison operators and methods (Equals, CompareTo) for types implementing IComparable.
+dotnet_diagnostic.CA1036.severity = suggestion
+# CA1054: Uri parameters should be of type System.Uri instead of string for correctness and safety.
+dotnet_diagnostic.CA1054.severity = suggestion
+# CA1056: URI properties should use System.Uri type instead of string for correctness and safety.
+dotnet_diagnostic.CA1056.severity = suggestion
+# CA1508: Avoid redundant conditions (e.g., unnecessary null checks or boolean comparisons).
+dotnet_diagnostic.CA1508.severity = suggestion
+# CA1515: Consider making public types in executable projects internal to reduce API surface.
+dotnet_diagnostic.CA1515.severity = suggestion
+# CA1305: Specify IFormatProvider when formatting strings or numbers to ensure culture correctness.
+dotnet_diagnostic.CA1305.severity = suggestion
+# CA1308: Normalize strings to uppercase
+dotnet_diagnostic.CA1308.severity = none
+# CA1711: Identifiers should not have incorrect suffix (e.g., avoid naming enums with 'Enum' suffix).
+dotnet_diagnostic.CA1711.severity = suggestion
+# CA1724: Type Names Should Not Match Namespaces
+dotnet_diagnostic.CA1724.severity = suggestion
+# CA1725: Parameter names should match names in overridden or implemented methods.
+dotnet_diagnostic.CA1725.severity = suggestion
+# CA1805: Do not initialize variables to their default values unnecessarily (e.g., int x = 0;).
+dotnet_diagnostic.CA1805.severity = suggestion
+# CA1812: Avoid uninstantiated internal classes (remove unused internal classes).
+dotnet_diagnostic.CA1812.severity = suggestion
+# CA1819: Properties should not return arrays (use collections or read-only wrappers instead).
+dotnet_diagnostic.CA1819.severity = suggestion
+# CA1822: Mark members as static when they do not access instance data.
+dotnet_diagnostic.CA1822.severity = suggestion
+# CA1834: Use StringBuilder.Append(char) instead of Append(string) for single characters.
+dotnet_diagnostic.CA1834.severity = warning
+# CA1839: Use Environment.ProcessPath instead of Process.GetCurrentProcess().MainModule.FileName.
+dotnet_diagnostic.CA1839.severity = warning
+# CA1840: Use Environment.CurrentManagedThreadId instead of Thread.CurrentThread.ManagedThreadId.
+dotnet_diagnostic.CA1840.severity = warning
+# CA1841: Prefer Dictionary.ContainsKey over Dictionary.Keys.Contains for better performance.
+dotnet_diagnostic.CA1841.severity = suggestion
+# CA1842: Do not use 'WhenAll' with a single task; await the task directly.
+dotnet_diagnostic.CA1842.severity = warning
+# CA1843: Do not use 'WhenAny' with a single task; await the task directly.
+dotnet_diagnostic.CA1843.severity = warning
+# CA1844: Provide Memory-based overrides of async Stream methods in subclasses.
+dotnet_diagnostic.CA1844.severity = suggestion
+# CA1845: Use span-based 'string.Concat' instead of 'Substring' with concatenation.
+dotnet_diagnostic.CA1845.severity = suggestion
+# CA1846: Prefer 'AsSpan' over 'Substring' when passed to span-based overloads.
+dotnet_diagnostic.CA1846.severity = suggestion
+# CA1847: Use char literal instead of single-character string literal for string search methods.
+dotnet_diagnostic.CA1847.severity = suggestion
+# CA1848: Use LoggerMessage delegates for structured logging instead of string interpolation.
+dotnet_diagnostic.CA1848.severity = suggestion
+# CA1849: Call async methods when in an async method instead of sync equivalents.
+dotnet_diagnostic.CA1849.severity = suggestion
+# CA1851: Possible multiple enumerations of IEnumerable collection; consider materializing.
+dotnet_diagnostic.CA1851.severity = suggestion
+# CA1852: Seal internal types that are not subclassed for performance.
+dotnet_diagnostic.CA1852.severity = suggestion
+# CA1854: Prefer using 'Dictionary.TryGetValue' instead of ContainsKey + indexer.
+dotnet_diagnostic.CA1854.severity = suggestion
+# CA1860: Avoid using 'Enumerable.Any()' extension; prefer 'Length', 'Count', or 'IsEmpty'.
+dotnet_diagnostic.CA1860.severity = suggestion
+# CA1863: Use 'CompositeFormat' for cached format strings in repeated formatting calls.
+dotnet_diagnostic.CA1863.severity = suggestion
+# CA1873: Avoid potentially expensive logging
+dotnet_diagnostic.CA1873.severity = suggestion
+# CA2007: Consider calling ConfigureAwait on awaited tasks for library code.
+dotnet_diagnostic.CA2007.severity = none
+# CA2153: Do not catch corrupted state exceptions (e.g., AccessViolationException).
+dotnet_diagnostic.CA2153.severity = error
+# CA2201: Do not raise reserved exception types (e.g., Exception, SystemException); use specific types.
+dotnet_diagnostic.CA2201.severity = suggestion
+# CA2227: Collection properties should be read-only to prevent unintended modifications.
+dotnet_diagnostic.CA2227.severity = suggestion
+# CA2254: Use structured logging message templates instead of string interpolation.
+dotnet_diagnostic.CA2254.severity = warning
+# CA2300: Do not use insecure deserializer BinaryFormatter.
+dotnet_diagnostic.CA2300.severity = suggestion
+# CA2264: Do not pass a non-nullable value to 'ArgumentNullException.ThrowIfNull'.
+dotnet_diagnostic.CA2264.severity = suggestion
+# CA2302: Ensure BinaryFormatter.Binder is set before calling BinaryFormatter.Deserialize.
+dotnet_diagnostic.CA2302.severity = error
+# CA2305: Do not use insecure deserializer LosFormatter.
+dotnet_diagnostic.CA2305.severity = error
+# CA2310: Do not use insecure deserializer NetDataContractSerializer.
+dotnet_diagnostic.CA2310.severity = suggestion
+# CA2311: Do not deserialize without first setting NetDataContractSerializer.Binder.
+dotnet_diagnostic.CA2311.severity = error
+# CA2312: Ensure NetDataContractSerializer.Binder is set before deserializing.
+dotnet_diagnostic.CA2312.severity = error
+# CA2315: Do not use insecure deserializer ObjectStateFormatter.
+dotnet_diagnostic.CA2315.severity = error
+# CA2321: Do not deserialize with JavaScriptSerializer using a SimpleTypeResolver.
+dotnet_diagnostic.CA2321.severity = error
+# CA2322: Ensure JavaScriptSerializer is not initialized with SimpleTypeResolver before deserializing.
+dotnet_diagnostic.CA2322.severity = suggestion
+# CA2326: Do not use TypeNameHandling values other than None in JsonSerializerSettings.
+dotnet_diagnostic.CA2326.severity = suggestion
+# CA2327: Do not use insecure JsonSerializerSettings.
+dotnet_diagnostic.CA2327.severity = suggestion
+# CA2328: Ensure that JsonSerializerSettings are secure.
+dotnet_diagnostic.CA2328.severity = error
+# CA2329: Do not deserialize with JsonSerializer using an insecure configuration.
+dotnet_diagnostic.CA2329.severity = error
+# CA2330: Ensure that JsonSerializer has a secure configuration when deserializing.
+dotnet_diagnostic.CA2330.severity = error
+# CA2350: Do not use DataTable.ReadXml() with untrusted input.
+dotnet_diagnostic.CA2350.severity = suggestion
+# CA2351: Do not use DataSet.ReadXml() with untrusted input.
+dotnet_diagnostic.CA2351.severity = suggestion
+# CA2352: Unsafe DataSet or DataTable in a serializable type can be vulnerable to attacks.
+dotnet_diagnostic.CA2352.severity = suggestion
+# CA2353: Unsafe DataSet or DataTable in a serializable type.
+dotnet_diagnostic.CA2353.severity = suggestion
+# CA2354: Unsafe DataSet or DataTable in a deserialized object graph can be vulnerable.
+dotnet_diagnostic.CA2354.severity = suggestion
+# CA2355: Unsafe DataSet or DataTable type found in deserializable object graph.
+dotnet_diagnostic.CA2355.severity = suggestion
+# CA2356: Unsafe DataSet or DataTable type in a web-deserializable object graph.
+dotnet_diagnostic.CA2356.severity = suggestion
+# CA2361: Ensure auto-generated class containing DataSet.ReadXml() is not used with untrusted input.
+dotnet_diagnostic.CA2361.severity = suggestion
+# CA2362: Unsafe DataSet or DataTable in an auto-generated serializable type can be vulnerable.
+dotnet_diagnostic.CA2362.severity = suggestion
+# CA3061: Do not add schema by URL; use safe XML processing without DTD.
+dotnet_diagnostic.CA3061.severity = error
+# CA3075: Insecure DTD processing in XML; use XmlReaderSettings with DtdProcessing.Prohibit.
+dotnet_diagnostic.CA3075.severity = error
+# CA3076: Insecure XSLT script processing.
+dotnet_diagnostic.CA3076.severity = error
+# CA3077: Insecure processing in API design, XmlDocument, or XmlTextReader.
+dotnet_diagnostic.CA3077.severity = error
+# CA3147: Mark verb handlers with ValidateAntiForgeryToken in ASP.NET MVC.
+dotnet_diagnostic.CA3147.severity = error
+# CA5350: Do not use weak cryptographic algorithms (e.g., TripleDES).
+dotnet_diagnostic.CA5350.severity = error
+# CA5351: Do not use broken cryptographic algorithms (e.g., MD5, DES, RC2).
+dotnet_diagnostic.CA5351.severity = error
+# CA5358: Do not use unsafe cipher mode.
+dotnet_diagnostic.CA5358.severity = error
+# CA5359: Do not disable certificate validation.
+dotnet_diagnostic.CA5359.severity = suggestion
+# CA5361: Do not disable SChannel use of strong crypto.
+dotnet_diagnostic.CA5361.severity = error
+# CA5364: Do not use deprecated security protocols (e.g., SSL3, TLS 1.0).
+dotnet_diagnostic.CA5364.severity = error
+# CA5366: Use XmlReader for DataSet.ReadXml() to prevent XXE attacks.
+dotnet_diagnostic.CA5366.severity = suggestion
+# CA5369: Use XmlReader for deserialization.
+dotnet_diagnostic.CA5369.severity = suggestion
+# CA5370: Use XmlReader for validating reader.
+dotnet_diagnostic.CA5370.severity = suggestion
+# CA5371: Use XmlReader for schema read.
+dotnet_diagnostic.CA5371.severity = suggestion
+# CA5372: Use XmlReader for XPathDocument.
+dotnet_diagnostic.CA5372.severity = suggestion
+# CA5374: Do not use XslTransform.
+dotnet_diagnostic.CA5374.severity = suggestion
+# CA5378: Do not disable ServicePointManagerSecurityProtocols.
+dotnet_diagnostic.CA5378.severity = error
+# CA5380: Do not add certificates to the root store.
+dotnet_diagnostic.CA5380.severity = suggestion
+# CA5381: Ensure certificates are not added to the root store.
+dotnet_diagnostic.CA5381.severity = suggestion
+# CA5386: Avoid hardcoding SecurityProtocolType value.
+dotnet_diagnostic.CA5386.severity = suggestion
+# CA5391: Use antiforgery tokens in ASP.NET Core MVC controllers.
+dotnet_diagnostic.CA5391.severity = suggestion
+# CA5395: Missing HttpVerb attribute for action method.
+dotnet_diagnostic.CA5395.severity = suggestion
+# CA5396: Set HttpOnly to true for HttpCookie.
+dotnet_diagnostic.CA5396.severity = suggestion
+# CA5397: Do not use deprecated SslProtocols values.
+dotnet_diagnostic.CA5397.severity = error
+# CA5394: Do not use insecure randomness (e.g., System.Random for security-sensitive scenarios).
+dotnet_diagnostic.CA5394.severity = suggestion
+# CA5398: Avoid hardcoded SslProtocols values.
+dotnet_diagnostic.CA5398.severity = suggestion
+
+#----------------------------------   CS - diagnostics   ---------------------------------#
+
+# CS0618: The code uses an obsolete member marked with [Obsolete]. This error prevents usage of deprecated APIs.
+dotnet_diagnostic.CS0618.severity = warning
+# CS1573: Missing XML documentation for one or more parameters in a publicly visible method.
+dotnet_diagnostic.CS1573.severity = suggestion
+# CS1587: XML comment is not placed on a valid language element (e.g., misplaced documentation).
+dotnet_diagnostic.CS1587.severity = suggestion
+# CS1589: XML comment contains badly formed or invalid XML tags.
+dotnet_diagnostic.CS1589.severity = suggestion
+# CS1591: Missing XML comment for publicly visible type or member.
+dotnet_diagnostic.CS1591.severity = suggestion
+
+#----------------------------------------   Other   ---------------------------------------#
+
+# VSTHRD004: Await SwitchToMainThreadAsync; do not call synchronous switching methods.
+dotnet_diagnostic.VSTHRD004.severity = error
+# VSTHRD010: Invoke single-threaded types on the main thread.
+dotnet_diagnostic.VSTHRD010.severity = warning
+# VSTHRD011: Use AsyncLazy<T> for lazy async initialization.
+dotnet_diagnostic.VSTHRD011.severity = suggestion
+# VSTHRD012: Provide JoinableTaskFactory where allowed.
+dotnet_diagnostic.VSTHRD012.severity = warning
+# VSTHRD100: Avoid 'async void' methods; return Task instead.
+dotnet_diagnostic.VSTHRD100.severity = warning
+# VSTHRD111: Use .ConfigureAwait(bool) in async methods.
+dotnet_diagnostic.VSTHRD111.severity = suggestion
+# VSTHRD200: Use "Async" suffix for async methods to follow naming conventions.
+dotnet_diagnostic.VSTHRD200.severity = suggestion
+# IDE0011: Add braces to if/else/for/while statements for clarity and maintainability.
+dotnet_diagnostic.IDE0011.severity = none
+# IDE0035: Remove unreachable code.
+dotnet_diagnostic.IDE0035.severity = warning
+# IDE0036: Order modifiers in the canonical sequence (public, private, static, etc.).
+dotnet_diagnostic.IDE0036.severity = warning
+# IDE0044: Add readonly modifier to fields that are never reassigned after initialization.
+dotnet_diagnostic.IDE0044.severity = suggestion
+# IDE0051: Suggest removing unused private members (fields, methods) to clean up code.
+dotnet_diagnostic.IDE0051.severity = suggestion
+# IDE0052: Remove unread private members.
+dotnet_diagnostic.IDE0052.severity = suggestion
+# IDE0059: Suggest removing unnecessary assignments (e.g., assigning a variable that is never used).
+dotnet_diagnostic.IDE0059.severity = suggestion
+# IDE0073: Require file header to match configured template.
+dotnet_diagnostic.IDE0073.severity = warning
+# IDE0290: Suggest using primary constructor syntax in eligible types for concise initialization.
+dotnet_diagnostic.IDE0290.severity = suggestion
+# IDE2000: Disallow multiple consecutive blank lines (formatting).
+dotnet_diagnostic.IDE2000.severity = warning
+
+# BL0007: Blazor component parameters should be auto-properties.
+# This rule ensures proper parameter declaration for Blazor components to maintain consistency and avoid runtime issues.
+dotnet_diagnostic.BL0007.severity = suggestion
+
+# SYSLIB0014: WebRequest, HttpWebRequest, ServicePoint, and WebClient are obsolete. Use HttpClient instead.
+# This rule warns against using legacy networking APIs and recommends HttpClient as a modern alternative.
+dotnet_diagnostic.SYSLIB0014.severity = suggestion
+
+############################################################################################
+#                                   Code Quality                                           #
+############################################################################################
+dotnet_code_quality.CA1716.analyzed_symbol_kinds = NamedType, Method, Property, Event
+
+############################################################################################
+#           EF Core migrations (DataAccess) — scaffolded/tool-generated, don't lint        #
+############################################################################################
+# Files under Migrations/ (including the ModelSnapshot) are generated by `dotnet ef migrations
+# add`/`remove` and are re-scaffolded on every schema change. Only the *.Designer.cs and the
+# ModelSnapshot carry the "<auto-generated />" header that analyzers normally honor; the main
+# migration *.cs files (Up/Down) do not, so they still get flagged. Treat the whole folder as
+# generated and silence all analyzer diagnostics (StyleCop/CA/Sonar/IDE) for it so it never
+# shows up as something to "fix".
+[src/TwilightImperiumUltimate.DataAccess/Migrations/**.cs]
+generated_code = true
+dotnet_analyzer_diagnostic.severity = none

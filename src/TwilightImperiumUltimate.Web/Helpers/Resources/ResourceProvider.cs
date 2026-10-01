@@ -1,6 +1,6 @@
-using Serilog;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Resources;
+using Serilog;
 
 namespace TwilightImperiumUltimate.Web.Helpers.Resources;
 

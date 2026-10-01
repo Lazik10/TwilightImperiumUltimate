@@ -1,0 +1,12 @@
+.milty-draft-player-info-content {
+    height: 100%;
+}
+
+.milty-draft-player-info-content ::deep .milty-draft-player-info-name {
+    grid-column: 1 / -1;
+}
+
+.milty-draft-player-info-content ::deep .milty-draft-player-info-detail-label {
+    justify-self: start;
+    text-align: left;
+}

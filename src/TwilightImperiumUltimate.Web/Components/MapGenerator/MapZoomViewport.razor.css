@@ -1,0 +1,19 @@
+.map-zoom-viewport {
+    width: 100%;
+    overflow: hidden;
+    touch-action: pan-y;
+}
+
+.map-zoom-viewport:focus-visible {
+    outline: 2px solid var(--color-nav-hover, #8ecfff);
+    outline-offset: 2px;
+}
+
+.map-zoom-content {
+    transform-origin: center;
+    will-change: transform;
+}
+
+.map-zoom-viewport ::deep .hex-container {
+    touch-action: none;
+}

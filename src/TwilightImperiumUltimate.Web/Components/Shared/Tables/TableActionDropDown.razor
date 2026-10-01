@@ -1,0 +1,34 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Tables
+@typeparam TValue
+
+@*
+    Compact ResponsiveDropDown for ResponsiveTable cells. Same Data/Value/
+    TextProperty/ValueProperty contract, defaulting to the smallest FontSize token and a shorter
+    input height so it fits a narrow column -- see TableActionDropDown.razor.css.
+
+    The outer span exists ONLY so this component has a real root element of its own to attach its
+    scope attribute to (a wrapper whose entire template is a single child component tag has no DOM
+    node of its own, so its scoped CSS would never match anything -- display:contents keeps it out
+    of layout entirely, so it doesn't affect flex/grid placement of surrounding cells).
+*@
+
+<span class="table-action-dropdown">
+    <ResponsiveDropDown TValue="TValue"
+                        Id="@Id"
+                        Name="@Name"
+                        Data="@Data"
+                        TextProperty="@TextProperty"
+                        ValueProperty="@ValueProperty"
+                        Placeholder="@Placeholder"
+                        AriaDescribedBy="@AriaDescribedBy"
+                        Disabled="Disabled"
+                        AllowClear="AllowClear"
+                        AllowFiltering="AllowFiltering"
+                        AllowVirtualization="AllowVirtualization"
+                        Value="@Value"
+                        ValueChanged="OnValueChanged"
+                        FontSize="@FontSize"
+                        Width="@Width"
+                        Style="@Style"
+                        CssClass="@CssClass" />
+</span>

@@ -1,17 +1,18 @@
 using Microsoft.Extensions.Logging;
 using TwilightImperiumUltimate.Core.Entities.Logging;
-using TwilightImperiumUltimate.Core.Entities.Statistics;
 using TwilightImperiumUltimate.Core.Entities.Tigl;
 
 namespace TwilightImperiumUltimate.DataAccess.Repositories;
 
 public class AchievementRepository(
     IDbContextFactory<TwilightImperiumDbContext> context,
-    ILogger<GameStatistics> logger)
+    ILogger<AchievementRepository> logger)
     : IAchievementRepository
 {
     public async Task AwardFactionAchievement(int tiglUserId, MatchReport matchReport, AchievementName achievementName, TiglFactionName faction, int minWins, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(matchReport);
+
         await using var dbContext = await context.CreateDbContextAsync(cancellationToken);
 
         var achievement = await dbContext.Achievements
@@ -67,23 +68,10 @@ public class AchievementRepository(
         }
     }
 
-    private AchievementLog CreateAchievementLog(long timestamp, AchievementName achievement, TiglFactionName faction, int tiglUserId, string tiglUserName, long tiglUserDiscordId, int matchId = 0)
-    {
-        return new AchievementLog
-        {
-            Timestamp = timestamp,
-            AchievementName = achievement,
-            Faction = faction,
-            TiglUserId = tiglUserId,
-            TiglUserName = tiglUserName,
-            TiglUserDiscordId = tiglUserDiscordId,
-            Published = false,
-            MatchId = matchId,
-        };
-    }
-
     public async Task AwardAchievement(int tiglUserId, MatchReport matchReport, AchievementName achievementName, CancellationToken cancellationToken, TiglFactionName faction = TiglFactionName.None)
     {
+        ArgumentNullException.ThrowIfNull(matchReport);
+
         await using var dbContext = await context.CreateDbContextAsync(cancellationToken);
 
         var achievement = await dbContext.Achievements
@@ -155,6 +143,25 @@ public class AchievementRepository(
             .ToListAsync(cancellationToken);
     }
 
+    public async Task<int> GetTotalTiglUsers(CancellationToken cancellationToken)
+    {
+        await using var dbContext = await context.CreateDbContextAsync(cancellationToken);
+        return await dbContext.TiglUsers.CountAsync(cancellationToken);
+    }
+
+    public async Task<Dictionary<AchievementName, int>> GetAchievementPlayerCounts(CancellationToken cancellationToken)
+    {
+        await using var dbContext = await context.CreateDbContextAsync(cancellationToken);
+
+        var achievementCounts = await dbContext.TiglUserAchievements
+            .AsNoTracking()
+            .GroupBy(a => a.AchievementName)
+            .Select(g => new { Name = g.Key, Count = g.Select(a => a.TiglUserId).Distinct().Count() })
+            .ToListAsync(cancellationToken);
+
+        return achievementCounts.ToDictionary(a => a.Name, a => a.Count);
+    }
+
     public async Task<bool> AddManualAchievement(int tiglUserId, AchievementName achievementName, TiglFactionName faction, CancellationToken cancellationToken)
     {
         await using var dbContext = await context.CreateDbContextAsync(cancellationToken);
@@ -198,5 +205,20 @@ public class AchievementRepository(
         dbContext.TiglUserAchievements.Remove(existing);
         await dbContext.SaveChangesAsync(cancellationToken);
         return true;
+    }
+
+    private AchievementLog CreateAchievementLog(long timestamp, AchievementName achievement, TiglFactionName faction, int tiglUserId, string tiglUserName, long tiglUserDiscordId, int matchId = 0)
+    {
+        return new AchievementLog
+        {
+            Timestamp = timestamp,
+            AchievementName = achievement,
+            Faction = faction,
+            TiglUserId = tiglUserId,
+            TiglUserName = tiglUserName,
+            TiglUserDiscordId = tiglUserDiscordId,
+            Published = false,
+            MatchId = matchId,
+        };
     }
 }

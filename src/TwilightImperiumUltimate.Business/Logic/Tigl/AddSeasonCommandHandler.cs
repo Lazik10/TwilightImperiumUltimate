@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Season;
+﻿using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Season;
 
 namespace TwilightImperiumUltimate.Business.Logic.Tigl;
 
@@ -8,6 +8,8 @@ public class AddSeasonCommandHandler(
 {
     public async Task<AddSeasonResponse> Handle(AddSeasonCommand request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var result = await seasonRepository.AddNewSeason(request.SeasonNumber, request.SeasonName, cancellationToken);
         if (result.IsFailed)
         {
@@ -19,6 +21,6 @@ public class AddSeasonCommandHandler(
             };
         }
 
-        return new AddSeasonResponse{ Success = true, SeasonNumber = result.Value.SeasonNumber, SeasonName = result.Value.Name };
+        return new AddSeasonResponse { Success = true, SeasonNumber = result.Value.SeasonNumber, SeasonName = result.Value.Name };
     }
 }

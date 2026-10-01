@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace TwilightImperiumUltimate.Contracts.Enums;
 
 public enum PlanetName
@@ -251,6 +253,7 @@ public enum PlanetName
     ElansRest,
     Verdis,
     Brilenci,
+    [SuppressMessage("Naming", "CA1720", Justification = "Char is the correct in-universe planet name.")]
     Char,
     Dognui,
     Fyrain,

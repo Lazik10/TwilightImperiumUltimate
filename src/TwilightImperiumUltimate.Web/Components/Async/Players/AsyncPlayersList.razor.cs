@@ -6,7 +6,11 @@ namespace TwilightImperiumUltimate.Web.Components.Async.Players;
 public partial class AsyncPlayersList
 {
     private List<AsyncPlayerProfileDto>? _filteredPlayerProfiles = new();
-    private char _selectedLetter = 'A';
+    private IReadOnlyCollection<AsyncPlayerProfileDto>? _cachedPlayerProfileNames;
+    private List<AsyncPlayerProfileDto> _orderedPlayerProfiles = [];
+    private Dictionary<char, List<AsyncPlayerProfileDto>> _playerGroups = [];
+    private AsyncPlayerSearchbar? _searchbar;
+    private char? _selectedLetter = 'A';
     private char _digitGroup = '1';
     private char _othersGroup = '*';
 
@@ -19,85 +23,73 @@ public partial class AsyncPlayersList
     [Inject]
     private NavigationManager NavigationManager { get; set; } = default!;
 
-    private List<IGrouping<char, AsyncPlayerProfileDto>> GroupedPlayers =>
-        PlayerProfileNames.GroupBy(x =>
-        {
-            var firstChar = x.DiscordUsername.ToUpperInvariant().First();
-            if (char.IsLetter(firstChar))
-            {
-                return firstChar;
-            }
-            else if (char.IsDigit(firstChar))
-            {
-                return _digitGroup;
-            }
-            else
-            {
-                return _othersGroup;
-            }
-        })
-        .ToList();
-
     protected override void OnParametersSet()
     {
+        CachePlayerProfiles();
+
         if (!string.IsNullOrEmpty(Letter))
         {
             _selectedLetter = Letter.ToUpper(CultureInfo.InvariantCulture)[0];
         }
 
-        var playerGroup = GroupedPlayers
-            .Find(group => group.Key == _selectedLetter)
-            ?.ToList();
+        _playerGroups.TryGetValue(_selectedLetter ?? char.MinValue, out var playerGroup);
 
-        _filteredPlayerProfiles = playerGroup is null ? PlayerProfileNames.ToList() : playerGroup;
+        _filteredPlayerProfiles = playerGroup is null ? [.. _orderedPlayerProfiles] : [.. playerGroup];
 
-        OrderPlayerList();
+        _filteredPlayerProfiles = _filteredPlayerProfiles.OrderBy(x => x.DiscordUsername).ToList();
     }
 
-    private void SearchPlayerGroup(char letter)
+    private void CachePlayerProfiles()
+    {
+        if (ReferenceEquals(_cachedPlayerProfileNames, PlayerProfileNames))
+            return;
+
+        _cachedPlayerProfileNames = PlayerProfileNames;
+        _orderedPlayerProfiles = PlayerProfileNames.OrderBy(x => x.DiscordUsername).ToList();
+        _playerGroups = PlayerProfileNames
+            .GroupBy(x =>
+            {
+                var firstChar = x.DiscordUsername.ToUpperInvariant().First();
+                if (char.IsLetter(firstChar))
+                {
+                    return firstChar;
+                }
+                else if (char.IsDigit(firstChar))
+                {
+                    return _digitGroup;
+                }
+                else
+                {
+                    return _othersGroup;
+                }
+            })
+            .ToDictionary(group => group.Key, group => group.OrderBy(x => x.DiscordUsername).ToList());
+    }
+
+    private async Task SearchPlayerGroup(char letter)
     {
         _selectedLetter = letter;
+        await (_searchbar?.ResetSearchAsync() ?? Task.CompletedTask);
 
-        _filteredPlayerProfiles = GroupedPlayers
-            .Find(group => group.Key == letter)
-            ?.ToList();
-
-        OrderPlayerList();
+        _playerGroups.TryGetValue(letter, out var playerGroup);
+        _filteredPlayerProfiles = playerGroup is null ? [] : [.. playerGroup];
     }
 
     private void SearchPlayerGroup(string search)
     {
-        if (search.Length == 0)
-        {
-            _filteredPlayerProfiles = GroupedPlayers
-                .Find(group => group.Key == _selectedLetter)
-                ?.ToList();
-        }
-        else if (_selectedLetter != search[0])
-        {
-            _selectedLetter = search[0];
-        }
+        _selectedLetter = 'A';
 
-        var group = GroupedPlayers
-            .Find(group => group.Key == _selectedLetter)
-            ?.ToList();
-
-        if (group is null)
+        if (search.Length < 3)
         {
-            _filteredPlayerProfiles = PlayerProfileNames.ToList();
+            _playerGroups.TryGetValue(_selectedLetter.Value, out var playerGroup);
+            _filteredPlayerProfiles = playerGroup is null ? [] : [.. playerGroup];
             return;
         }
 
-        _filteredPlayerProfiles = group
+        _selectedLetter = null;
+        _filteredPlayerProfiles = _orderedPlayerProfiles
             .Where(profile => profile.DiscordUsername.Contains(search, StringComparison.OrdinalIgnoreCase))
             .ToList();
-
-        OrderPlayerList();
-    }
-
-    private void OrderPlayerList()
-    {
-        _filteredPlayerProfiles = _filteredPlayerProfiles?.OrderBy(x => x.DiscordUsername).ToList();
     }
 
     private void RedirectToPlayerProfile(int id)

@@ -1,0 +1,25 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Tables
+
+@*
+    Compact action button for ResponsiveTable cells. Same Text/ChildContent/OnClick/
+    TextColor/disabled contract as ResponsiveButton, but implemented as its own lightweight <button>
+    instead of wrapping ResponsiveButton -- ResponsiveButton's CSS uses !important padding/font-size
+    tuned for full-size page buttons, which would need equal-or-higher specificity !important
+    overrides to shrink; a dedicated compact style is simpler and avoids that fragility.
+*@
+
+<button type="@GetButtonType()"
+        class="table-action-button clickable handel shadow @CssClass"
+        style="color: @TextColor.ConvertToString(); @Style"
+        disabled="@IsDisabled"
+        @onclick="OnClickHandler"
+        @attributes="AdditionalAttributes">
+    @if (ChildContent is not null)
+    {
+        @ChildContent
+    }
+    else
+    {
+        @Text
+    }
+</button>

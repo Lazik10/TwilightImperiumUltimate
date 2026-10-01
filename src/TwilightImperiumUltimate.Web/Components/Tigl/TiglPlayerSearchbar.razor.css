@@ -1,0 +1,35 @@
+.tigl-player-searchbar ::deep .tigl-player-search-label {
+    flex: 0 0 auto;
+    white-space: nowrap !important;
+    width: max-content;
+}
+
+.tigl-player-searchbar ::deep .tigl-player-search-note {
+    margin-top: var(--space-xs);
+}
+
+.tigl-player-searchbar ::deep .responsive-textbox {
+    --rz-input-background-color: var(--color-nav-panel-bg);
+    --rz-input-hover-background-color: var(--color-nav-panel-bg);
+    --rz-input-border: 1px solid var(--color-nav-hover-bg-solid, #123957);
+    --rz-input-border-block-end: 1px solid var(--color-nav-hover-bg-solid, #123957);
+    --rz-input-hover-border: 1px solid var(--color-nav-hover-bg-solid, #123957);
+    --rz-input-hover-border-block-end: 1px solid var(--color-nav-hover-bg-solid, #123957);
+    --rz-input-value-color: var(--color-white);
+    background-color: var(--color-nav-panel-bg) !important;
+    border-color: var(--color-nav-hover-bg-solid, #123957) !important;
+    color: var(--color-white) !important;
+    font-family: Handel, fallback, sans-serif !important;
+}
+
+.tigl-player-searchbar ::deep .responsive-textbox:hover,
+.tigl-player-searchbar ::deep .responsive-textbox:focus {
+    background-color: var(--color-nav-panel-bg) !important;
+    border-color: var(--color-nav-hover-bg-solid, #123957) !important;
+    color: var(--color-white) !important;
+}
+
+.tigl-player-searchbar ::deep .responsive-textbox::placeholder {
+    color: var(--color-white) !important;
+    opacity: 1;
+}

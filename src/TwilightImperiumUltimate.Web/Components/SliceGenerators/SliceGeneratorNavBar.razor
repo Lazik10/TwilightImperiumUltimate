@@ -1,15 +1,19 @@
-﻿<FlexColumnCenteredContainer>
-    <div class="slice-generator-navbar">
-        <FlexRowContainer Width="100" JustifyContent="Enums.JustifyContent.SpaceEvenly">
-            <div class="clickable" style="min-width: 33%;" @onclick="() => OnMenuItemClick.InvokeAsync(SliceGeneratorMenuItem.SliceGenerator)">
-                <Label Text="@Strings.SliceGeneratorMenu_Slices" FontSize="28" CenterText="true" Style="font-size: 1rem;" />
-            </div>
-            <div class="clickable" style="width: 33%;" @onclick="() => OnMenuItemClick.InvokeAsync(SliceGeneratorMenuItem.SliceEvaluation)">
-                <Label Text="@Strings.SliceGeneratorMenu_Stats" FontSize="28" CenterText="true" Style="font-size: 1rem;" />
-            </div>
-            <div class="clickable" style="width: 33%;" @onclick="() => OnMenuItemClick.InvokeAsync(SliceGeneratorMenuItem.Settings)">
-                <Label Text="@Strings.SliceGeneratorMenu_Settings" FontSize="28" CenterText="true" Style="font-size: 1rem;" />
-            </div>
-        </FlexRowContainer>
-    </div>
-</FlexColumnCenteredContainer>
+﻿<ResponsiveTabMenu AriaLabel="@Strings.Page_SliceGenerator_PageTitle" CssClass="faction-style mb-md">
+    <ResponsiveTab Id="slice-generator-slices-tab"
+                   IsActive="@(SelectedMenuItem == SliceGeneratorMenuItem.SliceGenerator)"
+                   OnClick="() => OnMenuItemClick.InvokeAsync(SliceGeneratorMenuItem.SliceGenerator)">
+        @Strings.SliceGeneratorMenu_Slices
+    </ResponsiveTab>
+    <ResponsiveTabSeparator />
+    <ResponsiveTab Id="slice-generator-stats-tab"
+                   IsActive="@(SelectedMenuItem == SliceGeneratorMenuItem.SliceEvaluation)"
+                   OnClick="() => OnMenuItemClick.InvokeAsync(SliceGeneratorMenuItem.SliceEvaluation)">
+        @Strings.SliceGeneratorMenu_Stats
+    </ResponsiveTab>
+    <ResponsiveTabSeparator />
+    <ResponsiveTab Id="slice-generator-settings-tab"
+                   IsActive="@(SelectedMenuItem == SliceGeneratorMenuItem.Settings)"
+                   OnClick="() => OnMenuItemClick.InvokeAsync(SliceGeneratorMenuItem.Settings)">
+        @Strings.SliceGeneratorMenu_Settings
+    </ResponsiveTab>
+</ResponsiveTabMenu>

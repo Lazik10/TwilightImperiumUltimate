@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Contracts.ApiContracts.Faqs;
+﻿using TwilightImperiumUltimate.Contracts.ApiContracts.Faqs;
 
 namespace TwilightImperiumUltimate.API.Controllers;
 
@@ -25,6 +25,8 @@ public class FaqsController(IMediator mediator) : ControllerBase
     [HttpPost]
     public async Task<ActionResult<IApiResponse<FaqDto>>> InsertNewFaq(InsertFaqRequest request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var faq = await _mediator.Send(new InsertNewFaqCommand(request.Faq), cancellationToken);
         return Ok(new ApiResponse<FaqDto>() { Success = true, Data = faq });
     }
@@ -32,6 +34,8 @@ public class FaqsController(IMediator mediator) : ControllerBase
     [HttpPut]
     public async Task<ActionResult<IApiResponse<FaqDto>>> UpdateFaq(UpdateFaqRequest request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var faq = await _mediator.Send(new UpdateFaqCommand(request.Faq), cancellationToken);
         return Ok(new ApiResponse<FaqDto>() { Success = true, Data = faq });
     }

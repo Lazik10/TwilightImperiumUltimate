@@ -14,13 +14,9 @@ public interface IGameTrackerSettingsService
 
     IReadOnlyCollection<GameVersion> GameVersions { get; }
 
-    Task IncreasePlayerCount();
+    Task SetNumberOfPlayers(int numberOfPlayers);
 
-    Task DecreasePlayerCount();
+    Task SetNumberOfPoints(int numberOfPoints);
 
-    Task IncreaseScorePoints();
-
-    Task DecreaseScorePoints();
-
-    Task UpdateGameVersion(GameVersion gameVersion);
+    Task SetGameVersion(GameVersion gameVersion, bool isEnabled);
 }

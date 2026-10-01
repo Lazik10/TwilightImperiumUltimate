@@ -1,0 +1,43 @@
+using TwilightImperiumUltimate.Contracts.DTOs.Rankings;
+using TwilightImperiumUltimate.Contracts.DTOs.Tigl;
+using TwilightImperiumUltimate.Web.Helpers.Enums;
+using TwilightImperiumUltimate.Web.Helpers.Numbers;
+
+namespace TwilightImperiumUltimate.Web.Components.TiglProfile;
+
+public partial class TiglLeagueSummaryCard
+{
+    [Parameter]
+    [EditorRequired]
+    public TiglLeagueProfileDto Profile { get; set; } = default!;
+
+    [Parameter]
+    public PrestigeRankHistoryDto? Prestige { get; set; }
+
+    [Parameter]
+    [EditorRequired]
+    public IReadOnlyList<TiglProfileGameDto> Games { get; set; } = [];
+
+    private TextColor PrestigeColor => Prestige?.PrestigeRank switch
+    {
+        TiglPrestigeRank.PaxMagnificaBellumGloriosum => TextColor.Pmbg,
+        TiglPrestigeRank.GalacticThreat => TextColor.GalacticThreat,
+        TiglPrestigeRank.Tyrant => TextColor.Tyrant,
+        _ => TextColor.White,
+    };
+
+    private string PrestigeText => Prestige switch
+    {
+        { Level: > 0 } prestige => $"{prestige.PrestigeRank.GetDisplayName()} {prestige.Level.ToRomanNumeral()}",
+        not null => Prestige.PrestigeRank.GetDisplayName(),
+        _ => "-",
+    };
+
+    private double WinRate => Games.Count == 0 ? 0 : Games.Count(game => game.IsWinner) / (double)Games.Count * 100;
+
+    private double MaxTrueSkill => Profile.TrueSkillMatchHistory.Count == 0 ? Profile.TrueSkillConservative : Profile.TrueSkillMatchHistory.Max(item => item.MuNew);
+
+    private double MaxGlicko => Profile.GlickoMatchHistory.Count == 0 ? Profile.GlickoRating : Profile.GlickoMatchHistory.Max(item => item.RatingNew);
+
+    private double MaxAsync => Profile.AsyncMatchHistory.Count == 0 ? Profile.AsyncRating : Profile.AsyncMatchHistory.Max(item => item.RatingNew);
+}

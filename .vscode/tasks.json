@@ -1,0 +1,101 @@
+{
+    "version": "2.0.0",
+
+    "tasks": [
+        {
+            "label": "build-api",
+            "type": "process",
+            "command": "dotnet",
+            "args": [
+                "build",
+                "${workspaceFolder}/src/TwilightImperiumUltimate.API/TwilightImperiumUltimate.API.csproj",
+                "--no-restore",
+                "--configuration",
+                "Debug",
+                "--verbosity",
+                "minimal"
+            ],
+            "options": {
+                "env": {
+                    "DOTNET_CLI_USE_MSBUILD_SERVER": "1"
+                }
+            },
+            "group": "build",
+            "problemMatcher": "$msCompile"
+        },
+
+        {
+            "label": "build-web",
+            "type": "process",
+            "command": "dotnet",
+            "args": [
+                "build",
+                "${workspaceFolder}/src/TwilightImperiumUltimate.Web/TwilightImperiumUltimate.Web.csproj",
+                "--no-restore",
+                "--configuration",
+                "Debug",
+                "--verbosity",
+                "minimal"
+            ],
+            "options": {
+                "env": {
+                    "DOTNET_CLI_USE_MSBUILD_SERVER": "1"
+                }
+            },
+            "group": "build",
+            "problemMatcher": "$msCompile"
+        },
+
+        {
+            "label": "free-web-port",
+            "detail": "Kill orphaned processes using the Web development ports.",
+            "type": "process",
+            "command": "powershell",
+            "args": [
+                "-NoProfile",
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "${workspaceFolder}/.vscode/free-ports.ps1",
+                "-Ports",
+                "7299,5166"
+            ],
+            "presentation": {
+                "reveal": "silent",
+                "panel": "shared",
+                "clear": true
+            },
+            "problemMatcher": []
+        },
+
+        {
+            "label": "wait-for-api",
+            "detail": "Wait until the API is accepting HTTP requests.",
+            "type": "process",
+            "command": "powershell",
+            "args": [
+                "-NoProfile",
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "${workspaceFolder}/.vscode/wait-for-api.ps1"
+            ],
+            "presentation": {
+                "reveal": "silent",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+
+        {
+            "label": "prepare-web",
+            "detail": "Prepare the Web dev server and wait until the API is ready.",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "free-web-port",
+                "wait-for-api"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}

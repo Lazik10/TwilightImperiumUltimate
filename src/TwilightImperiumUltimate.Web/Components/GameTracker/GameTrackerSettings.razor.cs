@@ -1,11 +1,24 @@
 using TwilightImperiumUltimate.Web.Helpers.Enums;
 using TwilightImperiumUltimate.Web.Models.GameTracker;
+using TwilightImperiumUltimate.Web.Options.GameTracker;
 using TwilightImperiumUltimate.Web.Services.GameTracker;
 
 namespace TwilightImperiumUltimate.Web.Components.GameTracker;
 
 public partial class GameTrackerSettings
 {
+    private static readonly IReadOnlyCollection<KeyValuePair<bool, string>> BooleanOptions =
+    [
+        new(false, Strings.String_Disabled),
+        new(true, Strings.String_Enabled),
+    ];
+
+    private static readonly IReadOnlyCollection<int> PlayerCountOptions = Enumerable.Range(3, 6).ToArray();
+
+    private static readonly IReadOnlyCollection<int> ScorePointOptions = Enumerable.Range(
+        GameTrackerOptions.MinimumNumberOfPoints,
+        GameTrackerOptions.MaximumNumberOfPoints - GameTrackerOptions.MinimumNumberOfPoints + 1).ToArray();
+
     private IReadOnlyCollection<GameTrackerPlayerModel> _players = new List<GameTrackerPlayerModel>();
 
     private IReadOnlyCollection<KeyValuePair<FactionName, string>> _factionNames = new Dictionary<FactionName, string>();
@@ -28,38 +41,24 @@ public partial class GameTrackerSettings
         _players = GameTrackerSettingsService.Players;
     }
 
-    private async Task IncreasePlayerCount()
+    private async Task SetPlayerCount(int playerCount)
     {
-        await GameTrackerSettingsService.IncreasePlayerCount();
+        await GameTrackerSettingsService.SetNumberOfPlayers(playerCount);
         _players = GameTrackerSettingsService.Players;
         StateHasChanged();
     }
 
-    private async Task DecreasePlayerCount()
+    private Task SetScorePoints(int scorePoints) => GameTrackerSettingsService.SetNumberOfPoints(scorePoints);
+
+    private void SetPlayerNamesEnabled(bool isEnabled)
     {
-        await GameTrackerSettingsService.DecreasePlayerCount();
-        _players = GameTrackerSettingsService.Players;
+        GameTrackerSettingsService.EnablePlayerNames = isEnabled;
         StateHasChanged();
     }
 
-    private async Task IncreaseScorePoints()
+    private async Task SetProphecyOfKingsEnabled(bool isEnabled)
     {
-        await GameTrackerSettingsService.IncreaseScorePoints();
-    }
-
-    private async Task DecreaseScorePoints()
-    {
-        await GameTrackerSettingsService.DecreaseScorePoints();
-    }
-
-    private async Task UpdateGameVersion(GameVersion gameVersion)
-    {
-        await GameTrackerSettingsService.UpdateGameVersion(gameVersion);
-    }
-
-    private void TogglePlayerNames()
-    {
-        GameTrackerSettingsService.EnablePlayerNames = !GameTrackerSettingsService.EnablePlayerNames;
+        await GameTrackerSettingsService.SetGameVersion(GameVersion.ProphecyOfKings, isEnabled);
         StateHasChanged();
     }
 

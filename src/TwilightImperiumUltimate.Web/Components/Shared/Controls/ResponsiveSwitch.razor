@@ -1,0 +1,11 @@
+<div class="responsive-switch @CssClass" style="@ComputedStyle">
+    <span class="responsive-switch-label" style="@(!IsToggled ? $"color: {ResolvedDisabledColor.ConvertToString()};" : string.Empty)">
+        @OffText
+    </span>
+
+    <RadzenSwitch Name="@Name" Value="@IsToggled" ValueChanged="HandleValueChangedAsync" />
+
+    <span class="responsive-switch-label" style="@(IsToggled ? $"color: {ResolvedEnabledColor.ConvertToString()};" : string.Empty)">
+        @OnText
+    </span>
+</div>

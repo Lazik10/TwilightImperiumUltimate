@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
 using System;
+using Microsoft.AspNetCore.Components;
 using TwilightImperiumUltimate.Web.Enums;
 using TwilightImperiumUltimate.Web.Helpers.Enums;
 
@@ -23,9 +23,8 @@ public partial class CardTypeSelector
 
     protected override void OnInitialized()
     {
-        CardTypes = Enum.GetValues(typeof(CardGenerationType))
-                           .Cast<CardGenerationType>()
-                           .Select(x => new KeyValuePair<CardGenerationType, string>(x, x.GetDisplayName()))
-                           .ToList();
+        CardTypes = Enum.GetValues<CardGenerationType>()
+            .Select(x => new KeyValuePair<CardGenerationType, string>(x, x.GetDisplayName()))
+            .ToList();
     }
 }

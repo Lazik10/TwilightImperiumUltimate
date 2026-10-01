@@ -1,35 +1,25 @@
 ﻿
-<FlexColumnCenteredContainer CssClass="background">
+<div class="milty-draft-faction-grid">
 
-    <VerticalSpace Height="10" />
-
-    <GridLayout Width="100" Gap="10" Columns="GetGridColumns()">
-
-        @if (GetMiltyDraftState() == MiltyDraftState.Initialized)
+    @if (GetMiltyDraftState() == MiltyDraftState.Initialized)
+    {
+        for (int i = 0; i < MiltyDraftSettingsService.NumberOfFactions; i++)
         {
-            for (int i = 0; i < MiltyDraftSettingsService.NumberOfFactions; i++)
-            {
-                <FlexColumnCenteredContainer>
-                    <MiltyDraftFaction Faction="FactionName.None" />
-                    <VerticalSpace Height="10" />
-                    <Button ButtonText="@Strings.MiltyDraft_PickOption" IsDisabled="true" Width="100" />
-                </FlexColumnCenteredContainer>
-            }
+            <div class="milty-draft-faction-item">
+                <MiltyDraftFaction Faction="FactionName.None" IsDisabled="true" />
+                <ResponsiveLabel Text="Unpicked" TextColor="TextColor.White" CenterText="true" CssClass="mt-sm" />
+            </div>
         }
-        else
+    }
+    else
+    {
+        @foreach (var faction in DraftedFactions)
         {
-            @foreach (var faction in DraftedFactions)
-            {
-                <FlexColumnCenteredContainer>
-                    <MiltyDraftFaction Faction="faction.FactionName" IsPicked="faction.IsPicked" Color="faction.Color" IsColorless="IsColorless(faction)" />
-                    <VerticalSpace Height="10" />
-                    <Button ButtonText="@Strings.MiltyDraft_PickOption" OnClick="async () => await PickFaction(faction)" IsDisabled="IsDisabled(faction)" Width="100" />
-                </FlexColumnCenteredContainer>
-            }
+            <div class="milty-draft-faction-item">
+                <MiltyDraftFaction Faction="faction.FactionName" IsPicked="faction.IsPicked" Color="faction.Color" IsColorless="IsColorless(faction)" IsDisabled="IsDisabled(faction)" OnClick="async () => await PickFaction(faction)" />
+                <ResponsiveLabel Text="@GetFactionLabel(faction)" TextColor="@GetFactionTextColor(faction)" CenterText="true" CssClass="mt-sm" />
+            </div>
         }
+    }
 
-    </GridLayout>
-
-    <VerticalSpace Height="10" />
-
-</FlexColumnCenteredContainer>
+</div>

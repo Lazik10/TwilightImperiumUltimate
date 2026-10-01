@@ -11,4 +11,5 @@ public enum DraftColor
     Purple,
     Pink,
     White,
+    LightBlue,
 }

@@ -1,0 +1,10 @@
+@inherits TwilightImperiumBaseComponent
+
+<FactionMenuGrid TItem="FactionDto" Items="_factions" Layouts="_layout">
+    <ItemTemplate Context="faction">
+        <FactionMenuIcon FactionName="@faction.FactionName" OnClick="() => HandleFactionClick(faction)" />
+    </ItemTemplate>
+    <PlaceholderTemplate>
+        <div class="faction-menu-grid-placeholder"></div>
+    </PlaceholderTemplate>
+</FactionMenuGrid>

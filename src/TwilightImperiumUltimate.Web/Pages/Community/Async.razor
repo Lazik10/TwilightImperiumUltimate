@@ -1,7 +1,13 @@
 ﻿@page "/community/async"
 @using TwilightImperiumUltimate.Web.Components.Async
+@using TwilightImperiumUltimate.Web.Components.Shared.Text
+@using TwilightImperiumUltimate.Web.Resources
+
+<PageTitle>@Strings.Page_Async_PageTitle</PageTitle>
 
 <Page>
+    <ResponsiveHeading Level="1" Text="@Strings.Page_Async" />
+
     <CascadingValue Value="_playerProfileNames" Name="AsyncPlayerProfileNames">
         <CascadingValue Value="Category" Name="Category">
             <CascadingValue Value="Letter" Name="Letter">

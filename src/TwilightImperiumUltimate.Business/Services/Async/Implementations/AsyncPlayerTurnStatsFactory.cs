@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Business.Services.Async.Interfaces;
+﻿using TwilightImperiumUltimate.Business.Services.Async.Interfaces;
 using TwilightImperiumUltimate.Contracts.DTOs.Async.PlayerStats.TurnStats;
 using TwilightImperiumUltimate.Core.Entities.Async;
 
@@ -8,6 +8,8 @@ public class AsyncPlayerTurnStatsFactory : IAsyncPlayerTurnStatsFactory
 {
     public Task<AsyncPlayerTurnStatsSummaryDto> CreateAsyncPlayerTurnStats(AsyncPlayerProfile playerProfile)
     {
+        ArgumentNullException.ThrowIfNull(playerProfile);
+
         var games = playerProfile.GameStatistics.Select(x => x.GameStats).ToList();
         var tiglGames = games.Where(x => x.IsTigl).ToList();
         var customGames = games.Where(x => !x.IsTigl).ToList();

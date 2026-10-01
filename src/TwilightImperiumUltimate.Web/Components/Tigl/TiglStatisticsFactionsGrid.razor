@@ -1,111 +1,108 @@
 ﻿@using TwilightImperiumUltimate.Contracts.DTOs.Tigl
+@using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Season
 @using TwilightImperiumUltimate.Web.Components.Tigl
 @using TwilightImperiumUltimate.Web.Components.Shared
 @using TwilightImperiumUltimate.Web.Components.Shared.Layouts
 @using TwilightImperiumUltimate.Web.Helpers.Enums
 @using TwilightImperiumUltimate.Web.Helpers.Numbers
 
-<FlexRowContainer>
-    <EnumPicker TEnum="TiglFactionStatsShowBy"
-                Label="Filter By"
-                CurrentValue="_showBy"
-                CurrentValueChanged="OnShowByChanged"
-                Width="100" />
-</FlexRowContainer>
+<section class="tigl-statistics-factions" aria-label="Faction statistics">
+    <ResponsiveRadzenDataGrid TItem="FactionSeasonStatsDto"
+                              Data="@_rows.OrderByDescending(row => row.WinRate).ThenByDescending(row => row.AverageScore).ThenBy(row => row.GamesPlayed)"
+                              IsLoading="@_loading"
+                              AllowPaging="false"
+                              AllowSorting="true"
+                              AllowColumnResize="false"
+                              AllowAlternatingRows="true"
+                              CssClass="faction-overview-grid">
+        <HeaderTemplate>
+            <ResponsiveHeading Level="2" Text="Factions" FontSize="lg" CenterText="true" CssClass="mb-0" />
+            <button type="button"
+                    class="tigl-statistics-faction-filter-toggle"
+                    aria-label="@FilterButtonLabel"
+                    title="@FilterButtonLabel"
+                    aria-expanded="@_areFiltersVisible.ToString().ToLowerInvariant()"
+                    aria-controls="@(_areFiltersVisible ? "tigl-statistics-faction-filters" : null)"
+                    @onclick="ToggleFilters">
+                <img src="@FilterIconPath" alt="" aria-hidden="true" />
+            </button>
 
-@if (_showBy == TiglFactionStatsShowBy.Era)
-{
-    <FlexRowContainer>
-        <EnumPicker TEnum="TiglFactionStatsEra"
-                    Label="Expansion"
-                    CurrentValue="_era"
-                    CurrentValueChanged="OnEraChanged"
-                    Width="100" />
-    </FlexRowContainer>
-}
-else
-{
-    <FlexRowContainer>
-        <SeasonPicker FontSize="18"
-                      SeasonNumberChanged="OnSeasonChanged"
-                      Width="100" />
-    </FlexRowContainer>
-}
+            @if (_areFiltersVisible)
+            {
+                <ResponsiveDropDown TValue="TiglFactionStatsShowBy"
+                                    Id="tigl-faction-statistics-show-by"
+                                    Data="@ShowByOptions"
+                                    TextProperty="Value"
+                                    ValueProperty="Key"
+                                    Value="@_showBy"
+                                    ValueChanged="@OnShowByChanged"
+                                    Label="Filter by"
+                                    LabelPosition="LabelPosition.Column"
+                                    Width="100" />
 
-@if (ShouldShowLeagueFilter)
-{
-    <FlexRowContainer>
-        <EnumPicker TEnum="TiglFactionStatsLeague"
-                    Label="League"
-                    CurrentValue="_leagueFilter"
-                    CurrentValueChanged="OnLeagueFilterChanged"
-                    Width="100" />
-    </FlexRowContainer>
-}
-else
-{
-    <FlexRowContainer>
-        <Label Text="" Width="100" />
-    </FlexRowContainer>
-}
+                @if (_showBy == TiglFactionStatsShowBy.Era)
+                {
+                    <ResponsiveDropDown TValue="TiglFactionStatsEra"
+                                        Id="tigl-faction-statistics-era"
+                                        Data="@EraOptions"
+                                        TextProperty="Value"
+                                        ValueProperty="Key"
+                                        Value="@_era"
+                                        ValueChanged="@OnEraChanged"
+                                        Label="Expansion"
+                                        LabelPosition="LabelPosition.Column"
+                                        Width="100" />
+                }
+                else
+                {
+                    <ResponsiveDropDown TValue="int"
+                                        Id="tigl-faction-statistics-season"
+                                        Data="@_seasons"
+                                        TextProperty="@nameof(SeasonDto.Name)"
+                                        ValueProperty="@nameof(SeasonDto.SeasonNumber)"
+                                        Value="@_season"
+                                        ValueChanged="@OnSeasonChanged"
+                                        Label="Season"
+                                        LabelPosition="LabelPosition.Column"
+                                        Width="100" />
+                }
 
-<VerticalSpace Height="20" />
-
-<GridLayout Columns="6" CssClass="handel white shadow background" Style="grid-template-columns: 5% 35% 12% 12% 18% 18%">
-
-    <VerticalSpace Height="20" CssClass="span-6" />
-    <Label />
-    <Label Text="Faction" TextColor="TextColor.Yellow" />
-    <Label Text="Games" TextColor="TextColor.Yellow" CenterText="true" />
-    <Label Text="Wins" TextColor="TextColor.Yellow" CenterText="true" />
-    <Label Text="Win Rate" TextColor="TextColor.Yellow" CenterText="true" />
-    <Label Text="Avg Score" TextColor="TextColor.Yellow" CenterText="true" />
-    <VerticalSpace Height="15" CssClass="span-6" />
-
-</GridLayout>
-
-<VerticalSpace Height="20" />
-
-@if (_loading)
-{
-    <GridLayout Columns="1" CssClass="handel white shadow background">
-        <StretchHeightContainer>
-        <VerticalSpace Height="50" CssClass="span-1" />
-        <Label Text="...Loading faction stats..." CenterText="true" />
-        <VerticalSpace Height="50" CssClass="span-1" />
-        </StretchHeightContainer>
-    </GridLayout>
-}
-else if (_rows.Count == 0)
-{
-    <GridLayout Columns="1" CssClass="handel white shadow background">
-        <StretchHeightContainer>
-        <VerticalSpace Height="50" CssClass="span-1" />
-        <Label Text="No data" CenterText="true" />
-        <VerticalSpace Height="50" CssClass="span-1" />
-        </StretchHeightContainer>
-    </GridLayout>
-}
-else
-{
-    <GridLayout Columns="6" CssClass="handel white shadow background" Style="grid-template-columns: 5% 35% 12% 12% 18% 18%">
-
-        <VerticalSpace Height="20" CssClass="span-6" />
-
-        @foreach (var r in _rows.OrderByDescending(x => x.WinRate).ThenByDescending(x => x.AverageScore).ThenBy(x => x.GamesPlayed))
-        {
-            <Label />
-            <FlexRowContainer JustifyContent="Enums.JustifyContent.FlexStart">
-                <TiglFactionImg Faction="@r.Faction" Width="30" />
-                <Label Text="@r.Faction.GetDisplayName()" />
-            </FlexRowContainer>
-            <Label Text="@r.GamesPlayed.ToString()" CenterText="true" TextColor="TextColor.Yellow" />
-            <Label Text="@r.Wins.ToString()" CenterText="true" TextColor="TextColor.Green" />
-            <Label Text="@($"{r.WinRate.ToString("F2")}%")" CenterText="true" TextColor="GetWinrateColor(r.WinRate)" />
-            <Label Text="@r.AverageScore.ToString("F2")" CenterText="true" TextColor="@r.AverageScore.GetAverageVpColor()" />
-        }
-
-        <VerticalSpace Height="20" CssClass="span-6" />
-
-    </GridLayout>
-}
+                @if (ShouldShowLeagueFilter)
+                {
+                    <ResponsiveDropDown TValue="TiglFactionStatsLeague"
+                                        Id="tigl-faction-statistics-league"
+                                        Data="@LeagueOptions"
+                                        TextProperty="Value"
+                                        ValueProperty="Key"
+                                        Value="@_leagueFilter"
+                                        ValueChanged="@OnLeagueFilterChanged"
+                                        Label="League"
+                                        LabelPosition="LabelPosition.Column"
+                                        Width="100" />
+                }
+            }
+        </HeaderTemplate>
+        <Columns>
+            <RadzenDataGridColumn TItem="FactionSeasonStatsDto" Property="@nameof(FactionSeasonStatsDto.Faction)" Title="Faction">
+                <Template Context="faction">
+                    <div class="tigl-statistics-faction-identity">
+                        <TiglFactionImg Faction="@faction.Faction" Width="30" />
+                        <span class="tigl-statistics-faction-name">@faction.Faction.GetDisplayName()</span>
+                    </div>
+                </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FactionSeasonStatsDto" Property="@nameof(FactionSeasonStatsDto.GamesPlayed)" Title="Games" TextAlign="TextAlign.Center">
+                <Template Context="faction"><span class="tigl-statistics-faction-games">@faction.GamesPlayed</span></Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FactionSeasonStatsDto" Property="@nameof(FactionSeasonStatsDto.WinRate)" Title="Win %" TextAlign="TextAlign.Center">
+                <Template Context="faction"><span style="color: @GetWinrateColor(faction.WinRate).ConvertToString();">@faction.WinRate.ToString("F2")<span class="tigl-statistics-faction-percent">%</span></span></Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FactionSeasonStatsDto" Property="@nameof(FactionSeasonStatsDto.Wins)" Title="Wins" TextAlign="TextAlign.Center">
+                <Template Context="faction"><span class="tigl-statistics-faction-wins">@faction.Wins</span></Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FactionSeasonStatsDto" Property="@nameof(FactionSeasonStatsDto.AverageScore)" Title="Avg score" TextAlign="TextAlign.Center">
+                <Template Context="faction"><span style="color: @faction.AverageScore.GetAverageVpColor().ConvertToString();">@faction.AverageScore.ToString("F2")</span></Template>
+            </RadzenDataGridColumn>
+        </Columns>
+    </ResponsiveRadzenDataGrid>
+</section>

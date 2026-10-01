@@ -187,6 +187,8 @@ public class SeasonRepository(
 
     public async Task<bool> UpdateSeason(Season season, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(season);
+
         await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);
         dbContext.Seasons.Update(season);
         try

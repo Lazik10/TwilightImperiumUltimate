@@ -439,6 +439,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to api/factions/by-game-versions.
+        /// </summary>
+        public static string ApiPath_FactionsByGameVersions {
+            get {
+                return ResourceManager.GetString("ApiPath_FactionsByGameVersions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to api/faqs.
         /// </summary>
         public static string ApiPath_Faq {
@@ -561,6 +570,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string ApiPath_News {
             get {
                 return ResourceManager.GetString("ApiPath_News", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to api/websites.
+        /// </summary>
+        public static string ApiPath_Websites {
+            get {
+                return ResourceManager.GetString("ApiPath_Websites", resourceCulture);
             }
         }
         

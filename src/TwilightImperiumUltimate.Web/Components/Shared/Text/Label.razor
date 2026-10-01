@@ -1,5 +1,5 @@
-﻿<div class="label handel white shadow text-no-overflow @(Vertical ? "vertical-text" : "") @(Visible ? "" : "invisible-text") @(CssClass)"
-     style="font-size:@(FontSize)px;
+﻿<div class="label handel white shadow @(Truncate ? "text-no-overflow" : string.Empty) @(Vertical ? "vertical-text" : "") @(Visible ? "" : "invisible-text") @(CssClass)"
+     style="font-size:@(GetFluidFontSize());
             max-width:@(MaxWidth)%;
             min-width:@(MinWidth)%;
             width:@(Width)%;

@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Contracts.ApiContracts;
+﻿using TwilightImperiumUltimate.Contracts.ApiContracts;
 
 namespace TwilightImperiumUltimate.Business.Logic.Users;
 
@@ -12,6 +12,8 @@ public class UpdateUserCommandHandler(
 
     public async Task<ApiResponse<TwilightImperiumUserDto>> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var user = _mapper.Map<TwilightImperiumUser>(request.User);
         var updateSuccessful = await _userRepository.UpdateUser(user);
 

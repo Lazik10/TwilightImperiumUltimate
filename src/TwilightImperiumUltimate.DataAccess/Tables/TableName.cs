@@ -11,6 +11,8 @@ internal static class TableName
 
     internal const string AsyncPlayerProfileSettings = "AsyncPlayerProfileSettings";
 
+    internal const string AsyncStatisticsSnapshots = "AsyncStatisticsSnapshots";
+
     // Cards
     internal const string ActionCards = "ActionCards";
 
@@ -70,7 +72,7 @@ internal static class TableName
 
     internal const string GamePublishLogs = "GamePublishLogs";
 
-   internal  const string DiscordRoleChangeLogs = "DiscordRoleChangeLogs";
+    internal const string DiscordRoleChangeLogs = "DiscordRoleChangeLogs";
 
     // News
     internal const string NewsArticles = "NewsArticles";

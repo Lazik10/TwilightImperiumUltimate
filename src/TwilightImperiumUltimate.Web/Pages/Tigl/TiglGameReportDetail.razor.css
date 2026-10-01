@@ -1,30 +1,207 @@
-﻿.position-badge {
-    background: #6c757d;
-    color: white;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
+﻿.tigl-game-report-title {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.tigl-game-report-overview {
+    overflow: hidden;
+    border: 2px solid var(--color-nav-hover-bg-solid, #123957);
+    border-radius: var(--border-radius-md);
+    background-color: rgba(8, 14, 24, 0.94);
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-family: Handel, sans-serif;
+    text-shadow: var(--shadow-text);
+}
+
+.tigl-game-report-overview ::deep .responsive-heading {
+    padding: var(--space-sm) var(--space-md);
+    color: #fff;
+}
+
+.tigl-game-report-overview-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.tigl-game-report-overview-table th,
+.tigl-game-report-overview-table td {
+    padding: var(--space-sm) var(--space-md);
+    border-top: 1px solid rgba(142, 207, 255, 0.3);
+    line-height: 1.5;
+    text-align: center;
+}
+
+.tigl-game-report-overview-table th:not(:last-child),
+.tigl-game-report-overview-table td:not(:last-child) {
+    border-inline-end: 1px solid rgba(142, 207, 255, 0.3);
+}
+
+.tigl-game-report-overview-headers {
+    background-color: var(--color-nav-hover-bg-solid, #123957);
+    color: var(--color-nav-hover, #8ecfff);
+}
+
+.tigl-game-report-overview-headers th {
+    border-bottom: 2px solid var(--color-nav-hover, #8ecfff);
+}
+
+.tigl-game-report-overview-table tbody > tr:first-child th {
+    border-top: 0;
+}
+
+.tigl-game-report-overview-table td {
+    color: #fff;
+    transition: background-color 0.15s ease;
+}
+
+.tigl-game-report-overview-table tr:not(.tigl-game-report-overview-headers):hover > td {
+    background-color: var(--color-nav-hover-bg-solid, #123957);
+}
+
+.tigl-game-report-overview-player {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    text-shadow: inherit;
+    cursor: pointer;
+}
+
+.tigl-game-report-faction {
+    display: flex;
+    gap: var(--space-sm);
+    align-items: center;
+}
+
+.tigl-game-report-overview-faction {
+    justify-content: center;
+}
+
+.tigl-game-report-player-name {
+    display: inline-flex;
+    gap: var(--space-xs);
+    align-items: center;
+}
+
+.tigl-game-report-player-name img {
+    width: 1.25rem;
+    height: 1.25rem;
+    object-fit: contain;
+}
+
+.tigl-game-report-winner-name {
+    color: yellow;
+}
+
+.tigl-game-report-change {
+    margin-left: var(--space-xs);
+}
+
+.tigl-game-report-ratings-header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
-    font-size: 0.875rem;
+    gap: var(--space-sm);
+    width: 100%;
 }
 
-.position-badge.winner {
-    background: linear-gradient(45deg, #ffd700, #ffed4e);
-    color: #333;
-    box-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);
+.tigl-game-report-ratings-filter-toggle {
+    position: absolute;
+    top: -0.25rem;
+    right: var(--space-lg);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
 }
 
-.player-row {
-    transition: all 0.2s ease;
+.tigl-game-report-ratings-filter-toggle:focus-visible {
+    outline: 2px solid var(--color-nav-hover, #8ecfff);
+    outline-offset: 2px;
+    border-radius: var(--border-radius-sm);
 }
 
-    .player-row:hover {
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+.tigl-game-report-ratings-filter-toggle img {
+    display: block;
+    max-width: 1.625rem;
+    height: auto;
+}
+
+.tigl-game-report-ranking-system-filter {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.tigl-game-report-ranking-system-filter ::deep .responsive-dropdown-host {
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .tigl-game-report-ratings-filter-toggle {
+        right: var(--space-sm);
     }
+}
 
-.border-warning {
-    background-color: rgba(255, 193, 7, 0.05);
+.tigl-game-report-detail ::deep .responsive-radzen-grid-host,
+.tigl-game-report-detail ::deep .tigl-game-report-grid,
+.tigl-game-report-detail ::deep .tigl-game-report-grid .rz-data-grid-data {
+    min-height: 0 !important;
+}
+
+.tigl-game-report-detail ::deep .tigl-game-report-grid .rz-data-row > td:first-child {
+    text-align: left;
+}
+
+.tigl-game-report-detail ::deep .tigl-game-report-handel-grid,
+.tigl-game-report-detail ::deep .tigl-game-report-handel-grid *:not(.rz-dropdown-trigger-icon) {
+    font-family: Handel, sans-serif !important;
+    text-shadow: var(--shadow-text);
+}
+
+.tigl-game-report-detail ::deep .tigl-game-report-handel-grid .rz-dropdown-trigger-icon {
+    font-family: var(--rz-icon-font-family) !important;
+    text-shadow: none;
+}
+
+.tigl-game-report-detail ::deep .tigl-game-report-handel-grid .rz-column-title {
+    justify-content: center;
+    text-align: center;
+    text-shadow: var(--shadow-text) !important;
+}
+
+.tigl-game-report-detail ::deep .tigl-game-report-handel-grid .rz-grid-table-composite th:first-child .rz-column-title {
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.tigl-game-report-detail ::deep .tigl-game-report-handel-grid .rz-grid-table-composite th:not(:last-child),
+.tigl-game-report-detail ::deep .tigl-game-report-handel-grid .rz-grid-table-composite td:not(:last-child) {
+    border-inline-end: 1px solid rgba(142, 207, 255, 0.3) !important;
+}
+
+.tigl-game-report-detail ::deep .tigl-game-report-handel-grid .rz-grid-table-composite {
+    --rz-grid-right-cell-border: 1px solid rgba(142, 207, 255, 0.3);
+    --rz-grid-header-cell-border: 1px solid rgba(142, 207, 255, 0.3);
+    border-inline-end: 1px solid rgba(142, 207, 255, 0.3) !important;
+}
+
+.tigl-game-report-detail ::deep .tigl-game-report-handel-grid .rz-grid-table-composite th {
+    border-bottom: 1px solid rgba(142, 207, 255, 0.3) !important;
 }

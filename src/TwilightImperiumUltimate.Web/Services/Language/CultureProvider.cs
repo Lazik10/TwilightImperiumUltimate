@@ -1,6 +1,6 @@
+using System.Globalization;
 using Microsoft.JSInterop;
 using Serilog;
-using System.Globalization;
 
 namespace TwilightImperiumUltimate.Web.Services.Language;
 

@@ -1,110 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
+  <!--
+    Microsoft ResX Schema
+  
     Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
+  
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
     associated with the data types.
-    
+  
     Example:
-    
-    ... ado.net/XML headers & schema ...
-    <resheader name="resmimetype">text/microsoft-resx</resheader>
-    <resheader name="version">2.0</resheader>
-    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-        <value>[base64 mime encoded serialized .NET Framework object]</value>
-    </data>
-    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-        <comment>This is a comment</comment>
-    </data>
-                
-    There are any number of "resheader" rows that contain simple 
-    name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
-    mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
-    extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
-    read any of the formats listed below.
-    
-    mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-            : and then encoded with base64 encoding.
-    
-    mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-            : and then encoded with base64 encoding.
+  
+    ... ado.net/XML headers/schema ...
+    <resheader name="resmimetype">
+      <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+      <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+      <value>System.Resources.ResXResourceReader, System.Windows.Forms, ...</value>
+    </resheader>
+    <resheader name="writer">
+      <value>System.Resources.ResXResourceWriter, System.Windows.Forms, ...</value>
+    </resheader>
+  -->
 
-    mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
-            : using a System.ComponentModel.TypeConverter
-            : and then encoded with base64 encoding.
-    -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
   <resheader name="resmimetype">
     <value>text/microsoft-resx</value>
   </resheader>
@@ -117,1266 +39,2108 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+
+  <data name="Name1" xml:space="preserve">
+    <value>this is my long string</value>
+    <comment>this is a comment</comment>
+  </data>
+
   <data name="AccountInfo_Save" xml:space="preserve">
     <value>Save</value>
   </data>
+
+  <data name="Api_UnavailableMessage" xml:space="preserve">
+    <value>The API is currently unavailable. If this continues for more than a few minutes, please contact me on Discord (lazik2110).</value>
+  </data>
+
   <data name="ActionCard" xml:space="preserve">
     <value>action</value>
   </data>
+
   <data name="AgendaCard" xml:space="preserve">
     <value>agenda</value>
   </data>
+
   <data name="BackSlash" xml:space="preserve">
     <value>\</value>
   </data>
+
   <data name="ButtonLeftArrow" xml:space="preserve">
     <value>&amp;#8249;</value>
   </data>
+
   <data name="ButtonRightArrow" xml:space="preserve">
     <value>&amp;#8250;</value>
   </data>
+
   <data name="CardGenerationType_Action" xml:space="preserve">
     <value>Action Card</value>
   </data>
+
   <data name="CardGenerationType_AgendaDirective" xml:space="preserve">
     <value>Agenda Card (Directive)</value>
   </data>
+
   <data name="CardGenerationType_AgendaLaw" xml:space="preserve">
     <value>Agenda Card (Law)</value>
   </data>
+
   <data name="CardGenerationType_PublicObjectiveStageOne" xml:space="preserve">
     <value>Objective Card (Stage One)</value>
   </data>
+
   <data name="CardGenerationType_PublicObjectiveStageTwo" xml:space="preserve">
     <value>Objective Card (Stage Two)</value>
   </data>
+
   <data name="CardGenerationType_SecretObjectiveActionPhase" xml:space="preserve">
     <value>Secret Card (Action)</value>
   </data>
+
   <data name="CardGenerationType_SecretObjectiveAgendaPhase" xml:space="preserve">
     <value>Secret Card (Agenda)</value>
   </data>
+
   <data name="CardGenerationType_SecretObjectiveStatusPhase" xml:space="preserve">
     <value>Secret Card (Status)</value>
   </data>
+
   <data name="CardTitle_Action" xml:space="preserve">
     <value>Action</value>
   </data>
+
   <data name="CardTitle_Agenda" xml:space="preserve">
     <value>Agenda</value>
   </data>
+
   <data name="CardTitle_Exploration" xml:space="preserve">
     <value>Exploration</value>
   </data>
+
   <data name="CardTitle_Frontier" xml:space="preserve">
     <value>Frontier</value>
   </data>
+
   <data name="CardTitle_ObjectiveOne" xml:space="preserve">
     <value>Objective One</value>
   </data>
+
   <data name="CardTitle_ObjectiveTwo" xml:space="preserve">
     <value>Onjective Two</value>
   </data>
+
   <data name="CardTitle_PromissoryNote" xml:space="preserve">
     <value>Promissory Note</value>
   </data>
+
   <data name="CardTitle_Relic" xml:space="preserve">
     <value>Relic</value>
   </data>
+
   <data name="CardTitle_Secret" xml:space="preserve">
     <value>Secret</value>
   </data>
+
   <data name="CardTitle_Strategy" xml:space="preserve">
     <value>Strategy</value>
   </data>
+
   <data name="Card_DeprecatedCategory" xml:space="preserve">
     <value>Deprecated</value>
   </data>
+
   <data name="ColorPcikerButton_Drafting" xml:space="preserve">
     <value>...Picking colors...</value>
   </data>
+
   <data name="ColorPickerButton_DraftReady" xml:space="preserve">
     <value>Pick colors</value>
   </data>
+
   <data name="ColorPickerButton_NotEnoughColors" xml:space="preserve">
     <value>Not enough colors</value>
   </data>
+
+  <data name="ColorPickerButton_ResetDraft" xml:space="preserve">
+    <value>Reset Draft</value>
+  </data>
+
   <data name="ColorPicker_HelpText" xml:space="preserve">
     <value>(Select factions from the row above)</value>
   </data>
+
   <data name="ColorPicker_Title" xml:space="preserve">
     <value>Color Picker</value>
   </data>
+
   <data name="ConfirmEmail_Title" xml:space="preserve">
     <value>Confirm Email</value>
   </data>
+
+  <data name="ConfirmEmail_Title_PageTitle" xml:space="preserve">
+    <value>Confirm Email | TI4 Ultimate</value>
+  </data>
+
   <data name="ConfirmEmail_UserEmailValidationFailed" xml:space="preserve">
     <value>Email confirmation failed.</value>
   </data>
+
   <data name="ConfirmEmail_UserEmailValidationSuccess" xml:space="preserve">
     <value>Email confirmed successfully.</value>
   </data>
+
   <data name="ConfirmEmail_UserId" xml:space="preserve">
     <value>Confirming email for user ID: {0}</value>
   </data>
+
   <data name="CultureKey" xml:space="preserve">
     <value>BlazorCulture</value>
   </data>
+
   <data name="CzechCulture" xml:space="preserve">
     <value>cs-CZ</value>
   </data>
+
   <data name="Discord_Asynchronous" xml:space="preserve">
     <value>TI4 Asynchronous Hub</value>
   </data>
+
   <data name="Discord_Asynchronous1" xml:space="preserve">
     <value>TI4 Asynchronous Hub</value>
   </data>
+
   <data name="Discord_AsynchronousInvite" xml:space="preserve">
     <value>https://discord.gg/VTFeYeg9bx</value>
   </data>
+
   <data name="Discord_Homebrew" xml:space="preserve">
     <value>TI4 Homebrew Hub</value>
   </data>
+
   <data name="Discord_HomebrewInvite" xml:space="preserve">
     <value>https://discord.gg/7CZR5Huekx</value>
   </data>
+
   <data name="Discord_Online" xml:space="preserve">
     <value>TI4 Online</value>
   </data>
+
   <data name="Discord_OnlineInvite" xml:space="preserve">
     <value>https://discord.gg/zAz7tbSN6e</value>
   </data>
+
   <data name="Discord_PreviewImage" xml:space="preserve">
     <value>Discord</value>
   </data>
+
   <data name="Discord_SpaceCatsPeaceTurtles" xml:space="preserve">
     <value>Space Cats Peace Turtles</value>
   </data>
+
   <data name="Discord_SpaceCatsPeaceTurtlesInvite" xml:space="preserve">
     <value>https://discord.gg/YbZGA8ttcZ</value>
   </data>
+
   <data name="DoubleBackslash" xml:space="preserve">
     <value>\\</value>
   </data>
+
   <data name="DraftButton_BanToMany" xml:space="preserve">
     <value>Not enough factions</value>
   </data>
+
   <data name="DraftButton_DraftColors" xml:space="preserve">
     <value>Draft colors</value>
   </data>
+
   <data name="DraftButton_DraftInProgress" xml:space="preserve">
     <value>...Drafting...</value>
   </data>
+
   <data name="DraftButton_DraftReady" xml:space="preserve">
     <value>Draft</value>
   </data>
+
   <data name="DraftButton_Reset" xml:space="preserve">
     <value>Reset Draft</value>
   </data>
+
   <data name="DraftButton_ResetBannedColors" xml:space="preserve">
     <value>Reset colors</value>
   </data>
+
   <data name="DraftButton_ResetBans" xml:space="preserve">
     <value>Reset bans</value>
   </data>
+
   <data name="DraftButton_ResetSelectedFactions" xml:space="preserve">
     <value>Reset factions</value>
   </data>
+
   <data name="DraftText_DraftNotPossible" xml:space="preserve">
     <value>To many bans for a draft to be possible. Please reduce the number of bans or decrease the number of factions drafted per player or number of players.</value>
   </data>
+
   <data name="DraftText_NumberOfFactions" xml:space="preserve">
     <value>Number of factions per player:</value>
   </data>
+
   <data name="DraftText_NumberOfPlayers" xml:space="preserve">
     <value>Number of players:</value>
   </data>
+
   <data name="EnglishCulture" xml:space="preserve">
     <value>en-US</value>
   </data>
+
   <data name="ExplorationCard" xml:space="preserve">
     <value>exploration</value>
   </data>
+
   <data name="FactionDraft_BanHelp" xml:space="preserve">
     <value>(To ban a faction, click on the faction icon above)</value>
   </data>
+
   <data name="FactionDraft_Title" xml:space="preserve">
     <value>Faction Draft</value>
   </data>
+
   <data name="Factions" xml:space="preserve">
     <value>Factions:</value>
   </data>
+
   <data name="FactionSheet" xml:space="preserve">
     <value>FactionSheet</value>
   </data>
+
   <data name="FactionSheetBack" xml:space="preserve">
     <value>FactionSheetBack</value>
   </data>
+
+  <data name="FactionSource_Official" xml:space="preserve">
+    <value>Official</value>
+  </data>
+
+  <data name="FactionSource_TwilightsFall" xml:space="preserve">
+    <value>Twillight's Fall</value>
+  </data>
+
+  <data name="FactionSource_DiscordantStars" xml:space="preserve">
+    <value>Discordant Stars</value>
+  </data>
+
+  <data name="FactionSource_BlueRiverie" xml:space="preserve">
+    <value>Blue Riverie</value>
+  </data>
+
+  <data name="FactionSource_WhispersFromTheVoid" xml:space="preserve">
+    <value>Whispers from the Void</value>
+  </data>
+
   <data name="Faction_Ability" xml:space="preserve">
     <value>Abilities</value>
   </data>
+
   <data name="Faction_AddFaq" xml:space="preserve">
     <value>Add new FAQ</value>
   </data>
+
   <data name="Faction_Agent" xml:space="preserve">
     <value>Agent</value>
   </data>
+
   <data name="Faction_AgentRequirement" xml:space="preserve">
     <value>At Game Start</value>
   </data>
+
   <data name="Faction_BackSheet" xml:space="preserve">
     <value>Faction Sheet Back</value>
   </data>
+
   <data name="Faction_Commander" xml:space="preserve">
     <value>Commander</value>
   </data>
+
   <data name="Faction_ComplexityRating" xml:space="preserve">
     <value>Complexity Rating: </value>
   </data>
+
   <data name="Faction_FactionComponents" xml:space="preserve">
     <value>Faction Components</value>
   </data>
+
   <data name="Faction_Faq" xml:space="preserve">
     <value>FAQ</value>
   </data>
+
+  <data name="Faction_InfoTabsLabel" xml:space="preserve">
+    <value>Faction information sections</value>
+  </data>
+
+  <data name="Faction_Rules" xml:space="preserve">
+    <value>Rules</value>
+  </data>
+
   <data name="Faction_Flagship" xml:space="preserve">
     <value>Flagship</value>
   </data>
+
   <data name="Faction_FrontSheet" xml:space="preserve">
     <value>Faction Sheet Front</value>
   </data>
+
   <data name="Faction_Hero" xml:space="preserve">
     <value>Hero</value>
   </data>
+
   <data name="Faction_HeroRequirement" xml:space="preserve">
     <value>Have 3 Scored Objectives</value>
   </data>
+
   <data name="Faction_Leaders" xml:space="preserve">
     <value>Leaders</value>
   </data>
+
   <data name="Faction_Lore" xml:space="preserve">
     <value>Lore</value>
   </data>
+
   <data name="Faction_Mech" xml:space="preserve">
     <value>Mech</value>
   </data>
+
   <data name="Faction_Notes" xml:space="preserve">
     <value>RULE NOTES</value>
   </data>
+
   <data name="Faction_Setup" xml:space="preserve">
     <value>Setup</value>
   </data>
+
   <data name="Faction_SetupChooseEdynTechnologies" xml:space="preserve">
     <value>Choose any three technologies that have different colors.</value>
   </data>
+
   <data name="Faction_SetupChooseKeleresTechnologies" xml:space="preserve">
     <value>Choose two non-faction technologies owned by other players.</value>
   </data>
+
   <data name="Faction_SetupChooseOneTechnology" xml:space="preserve">
     <value>Choose one of the following:</value>
   </data>
+
   <data name="Faction_SetupChooseTwoTechnologies" xml:space="preserve">
     <value>Choose two of the following:</value>
   </data>
+
   <data name="Faq_Answer" xml:space="preserve">
     <value>Answer:</value>
   </data>
+
   <data name="Faq_Question" xml:space="preserve">
     <value>Question:</value>
   </data>
+
   <data name="Faq_Save" xml:space="preserve">
     <value>Save</value>
   </data>
+
   <data name="Faq_Submit" xml:space="preserve">
     <value>Submit</value>
   </data>
+
   <data name="Faq_SubmitSuccess" xml:space="preserve">
     <value>Your FAQ was submitted successfully!</value>
   </data>
+
   <data name="Faq_SubmittedFaqs" xml:space="preserve">
     <value>Submitted FAQs</value>
   </data>
+
   <data name="FileExtensionPng" xml:space="preserve">
     <value>.png</value>
   </data>
+
   <data name="FileExtensionWebp" xml:space="preserve">
     <value>.webp</value>
   </data>
+
   <data name="ForwardSlash" xml:space="preserve">
     <value>/</value>
   </data>
+
   <data name="FrontierCard" xml:space="preserve">
     <value>frontier</value>
   </data>
+
   <data name="GameVersion_AscendantSun" xml:space="preserve">
     <value>Ascendant Sun</value>
   </data>
+
   <data name="GameVersion_BaseGame" xml:space="preserve">
     <value>Base Game</value>
   </data>
+
   <data name="GameVersion_CodexAffinity" xml:space="preserve">
     <value>Codex Affinity</value>
   </data>
+
   <data name="GameVersion_CodexOrdinian" xml:space="preserve">
     <value>Codex Ordinian</value>
   </data>
+
   <data name="GameVersion_CodexRecolo" xml:space="preserve">
     <value>Codex Recolo</value>
   </data>
+
   <data name="GameVersion_CodexVigil" xml:space="preserve">
     <value>Codex Vigil</value>
   </data>
+
   <data name="GameVersion_Custom" xml:space="preserve">
     <value>Custom</value>
   </data>
+
   <data name="GameVersion_Deprecated" xml:space="preserve">
     <value>Deprecated</value>
   </data>
+
   <data name="GameVersion_DiscordantStars" xml:space="preserve">
     <value>Discordant Stars</value>
   </data>
+
   <data name="GameVersion_ProphecyOfKings" xml:space="preserve">
     <value>Prophecy of Kings</value>
   </data>
+
   <data name="GameVersion_SelectVersion" xml:space="preserve">
-    <value>Game Versions:</value>
+     <value>Game Versions</value>
   </data>
+
   <data name="GameVersion_TtsHyperlines" xml:space="preserve">
     <value>TTS Custom Hyperlines</value>
   </data>
+
   <data name="GameVersion_UnchartedSpace" xml:space="preserve">
     <value>Uncharted Space</value>
   </data>
+
   <data name="High" xml:space="preserve">
     <value>High</value>
   </data>
+
   <data name="Keyword_CzechAction" xml:space="preserve">
     <value>Akce:</value>
   </data>
+
   <data name="Keyword_EnglishAction" xml:space="preserve">
     <value>Action:</value>
   </data>
+
   <data name="Keyword_KeywordSplit" xml:space="preserve">
     <value>:</value>
   </data>
+
   <data name="Keyword_Split" xml:space="preserve">
     <value>,</value>
   </data>
+
   <data name="LanguagePlaceholder" xml:space="preserve">
     <value>{language}</value>
   </data>
+
   <data name="Login_ConfirmationEmail" xml:space="preserve">
     <value>Resend confirmation email</value>
   </data>
+
   <data name="Login_ConfirmationEmailSent" xml:space="preserve">
     <value>The confirmation email has been successfully sent.</value>
   </data>
+
   <data name="Login_ConfirmationEmailSentFail" xml:space="preserve">
     <value>Your email has already been confirmed or account with this email address doesn't exist.</value>
   </data>
+
   <data name="Login_Email" xml:space="preserve">
     <value>Email</value>
   </data>
+
   <data name="Login_FailedUknown" xml:space="preserve">
     <value>Login failed for unknown reason.</value>
   </data>
+
   <data name="Login_FailedUnauthorized" xml:space="preserve">
     <value>Login failed. Check your credentials or make sure your email is confirmed!</value>
   </data>
+
   <data name="Login_ForgotPassword" xml:space="preserve">
     <value>Restore Password</value>
   </data>
+
   <data name="Login_ForgotPasswordEmail" xml:space="preserve">
     <value>Email</value>
   </data>
+
   <data name="Login_Login" xml:space="preserve">
     <value>Log In</value>
   </data>
+
   <data name="Login_Logout" xml:space="preserve">
     <value>Logout</value>
   </data>
+
   <data name="Login_Password" xml:space="preserve">
     <value>Password</value>
   </data>
+
   <data name="Login_PasswordRecovery" xml:space="preserve">
     <value>Password Recovery</value>
   </data>
+
   <data name="Login_PasswordRecoveryEmailSend" xml:space="preserve">
     <value>The password recovery code has been successfully sent.</value>
   </data>
+
   <data name="Login_PasswordRecoveryEmailSendFailed" xml:space="preserve">
     <value>Email for password recovery couldn't be send because there is no account registered with this email address.</value>
   </data>
+
   <data name="Login_ResendConfirmationEmail" xml:space="preserve">
     <value>Resend confirmation email</value>
   </data>
+
   <data name="Login_ResendPasswordRecoveryEmail" xml:space="preserve">
     <value>Send password recovery email</value>
   </data>
+
   <data name="Login_SendPasswordResetCode" xml:space="preserve">
     <value>Restore</value>
   </data>
+
   <data name="Login_Title" xml:space="preserve">
     <value>Login</value>
   </data>
+
   <data name="Low" xml:space="preserve">
     <value>Low</value>
   </data>
+
   <data name="MapGeneratorMenu_Map" xml:space="preserve">
     <value>MAP</value>
   </data>
+
   <data name="MapGeneratorMenu_Settings" xml:space="preserve">
     <value>SETTINGS</value>
   </data>
+
   <data name="MapGeneratorMenu_Stats" xml:space="preserve">
     <value>STATS</value>
   </data>
+
   <data name="MapGeneratorSettings_EnableFactionPick" xml:space="preserve">
     <value>Enable faction pick:</value>
   </data>
+
   <data name="MapGeneratorSettings_EnablePlaerNames" xml:space="preserve">
     <value>Player names:</value>
   </data>
+
   <data name="MapGeneratorSettings_LegendariesInEquidistant" xml:space="preserve">
     <value>Legendaries in equidistant:</value>
   </data>
+
   <data name="MapGeneratorSettings_MapScale" xml:space="preserve">
     <value>Map Scale</value>
   </data>
+
   <data name="MapGeneratorSettings_MapTemplate" xml:space="preserve">
     <value>Map template:</value>
   </data>
+
   <data name="MapGeneratorSettings_NumberOfLegendaryPlanets" xml:space="preserve">
     <value>Min legendary planets:</value>
   </data>
+
   <data name="MapGeneratorSettings_PlacementStyle" xml:space="preserve">
     <value>Placement style:</value>
   </data>
+
   <data name="MapGeneratorSettings_SystemTiles" xml:space="preserve">
     <value>System tiles:</value>
   </data>
+
   <data name="MapGeneratorSettings_SystemWeight" xml:space="preserve">
     <value>System weight:</value>
   </data>
+
   <data name="MapGeneratorSettings_TilesOverlay" xml:space="preserve">
     <value>Tiles overlay:</value>
   </data>
+
   <data name="MapGeneratorStats_CulturalPlanetsBarTitle" xml:space="preserve">
     <value>Cultural:</value>
   </data>
+
   <data name="MapGeneratorStats_FrontiersBarTitle" xml:space="preserve">
     <value>Frontiers:</value>
   </data>
+
   <data name="MapGeneratorStats_HazardousBarTitle" xml:space="preserve">
     <value>Hazardous:</value>
   </data>
+
   <data name="MapGeneratorStats_IndustrialPlanetsBarTitle" xml:space="preserve">
     <value>Industrial:</value>
   </data>
+
   <data name="MapGeneratorStats_InfluenceBarTitle" xml:space="preserve">
     <value>Influence:</value>
   </data>
+
   <data name="MapGeneratorStats_LegendariesBarTitle" xml:space="preserve">
     <value>Legendaries:</value>
   </data>
+
   <data name="MapGeneratorStats_MapStats" xml:space="preserve">
     <value>Map statistics</value>
   </data>
+
   <data name="MapGeneratorStats_PlanetsBarTitle" xml:space="preserve">
     <value>Planets:</value>
   </data>
+
   <data name="MapGeneratorStats_ResourcesBarTitle" xml:space="preserve">
     <value>Resources:</value>
   </data>
+
   <data name="MapGeneratorStats_SliceStats" xml:space="preserve">
     <value>Slice statistics</value>
   </data>
+
   <data name="MapGeneratorStats_WormholesBarTitle" xml:space="preserve">
     <value>Wormholes:</value>
   </data>
+
   <data name="MapGenerator_AllTiles" xml:space="preserve">
     <value>All Tiles</value>
   </data>
+
   <data name="MapGenerator_GenerateMap" xml:space="preserve">
     <value>Generate</value>
   </data>
+
   <data name="MapGenerator_ToggleTileMenuOff" xml:space="preserve">
     <value>Hide Tiles</value>
   </data>
+
   <data name="MapGenerator_ToggleTileMenuOn" xml:space="preserve">
     <value>Show Tiles</value>
   </data>
+
   <data name="MapGenerator_UnusedTiles" xml:space="preserve">
     <value>Unused Tiles</value>
   </data>
+
   <data name="MapTemplate_CustomMap" xml:space="preserve">
     <value>Playground</value>
   </data>
+
   <data name="MapTemplateFilter_CustomMap" xml:space="preserve">
     <value>Playground</value>
   </data>
+
   <data name="MapTemplate_EightPlayersLargeMap" xml:space="preserve">
     <value>8P Large</value>
   </data>
+
   <data name="MapTemplateFilter_EightPlayersLargeMap" xml:space="preserve">
     <value>8P Large</value>
   </data>
+
   <data name="MapTemplate_EightPlayersLargeWarpMap" xml:space="preserve">
     <value>8P Warp</value>
   </data>
+
   <data name="MapTemplateFilter_EightPlayersLargeWarpMap" xml:space="preserve">
     <value>8P Warp</value>
   </data>
+
   <data name="MapTemplate_FivePlayersLargeFlatMap" xml:space="preserve">
     <value>5P Flat</value>
   </data>
+
   <data name="MapTemplateFilter_FivePlayersLargeFlatMap" xml:space="preserve">
     <value>5P Flat</value>
   </data>
+
   <data name="MapTemplate_FivePlayersMediumDiamondMap" xml:space="preserve">
     <value>5P Diamond</value>
   </data>
+
   <data name="MapTemplateFilter_FivePlayersMediumDiamondMap" xml:space="preserve">
     <value>5P Diamond</value>
   </data>
+
   <data name="MapTemplate_FivePlayersMediumHyperlineMap" xml:space="preserve">
     <value>5P Hyperline</value>
   </data>
+
   <data name="MapTemplateFilter_FivePlayersMediumHyperlineMap" xml:space="preserve">
     <value>5P Hyperline</value>
   </data>
+
   <data name="MapTemplate_FivePlayersMediumMap" xml:space="preserve">
     <value>5P Normal</value>
   </data>
+
   <data name="MapTemplateFilter_FivePlayersMediumMap" xml:space="preserve">
     <value>5P Normal</value>
   </data>
+
   <data name="MapTemplate_FourPlayersMediumDoubleWarpMap" xml:space="preserve">
     <value>4P Double Warp</value>
   </data>
+
   <data name="MapTemplateFilter_FourPlayersMediumDoubleWarpMap" xml:space="preserve">
     <value>4P Double Warp</value>
   </data>
+
   <data name="MapTemplate_FourPlayersMediumGapsMap" xml:space="preserve">
     <value>4P Gaps</value>
   </data>
+
   <data name="MapTemplateFilter_FourPlayersMediumGapsMap" xml:space="preserve">
     <value>4P Gaps</value>
   </data>
+
   <data name="MapTemplate_FourPlayersMediumHorizontalMap" xml:space="preserve">
     <value>4P Horizontal</value>
   </data>
+
   <data name="MapTemplateFilter_FourPlayersMediumHorizontalMap" xml:space="preserve">
     <value>4P Horizontal</value>
   </data>
+
   <data name="MapTemplate_FourPlayersMediumMap" xml:space="preserve">
     <value>4P Normal</value>
   </data>
+
   <data name="MapTemplateFilter_FourPlayersMediumMap" xml:space="preserve">
     <value>4P Normal</value>
   </data>
+
   <data name="MapTemplate_FourPlayersMediumMiniWarpMap" xml:space="preserve">
     <value>4P Mini Warp</value>
   </data>
+
   <data name="MapTemplateFilter_FourPlayersMediumMiniWarpMap" xml:space="preserve">
     <value>4P Mini Warp</value>
   </data>
+
   <data name="MapTemplate_FourPlayersMediumVerticalMap" xml:space="preserve">
     <value>4P Vertical</value>
   </data>
+
   <data name="MapTemplateFilter_FourPlayersMediumVerticalMap" xml:space="preserve">
     <value>4P Vertical</value>
   </data>
+
   <data name="MapTemplate_FourPlayersMediumWarpMap" xml:space="preserve">
     <value>4P Warp</value>
   </data>
+
   <data name="MapTemplateFilter_FourPlayersMediumWarpMap" xml:space="preserve">
     <value>4P Warp</value>
   </data>
+
   <data name="MapTemplate_SevenPlayersLargeHyperlineMap" xml:space="preserve">
     <value>7P Hyperline</value>
   </data>
+
   <data name="MapTemplateFilter_SevenPlayersLargeHyperlineMap" xml:space="preserve">
     <value>7P Hyperline</value>
   </data>
+
   <data name="MapTemplate_SevenPlayersLargeWarpMap" xml:space="preserve">
     <value>7P Warp</value>
   </data>
+
   <data name="MapTemplateFilter_SevenPlayersLargeWarpMap" xml:space="preserve">
     <value>7P Warp</value>
   </data>
+
   <data name="MapTemplate_SixPlayersLargeMap" xml:space="preserve">
     <value>6P Large</value>
   </data>
+
   <data name="MapTemplateFilter_SixPlayersLargeMap" xml:space="preserve">
     <value>6P Large</value>
   </data>
+
   <data name="MapTemplate_SixPlayersMediumMap" xml:space="preserve">
     <value>6P Normal</value>
   </data>
+
   <data name="MapTemplateFilter_SixPlayersMediumMap" xml:space="preserve">
     <value>6P Normal</value>
   </data>
+
   <data name="MapTemplate_SixPlayersMediumSpiralMap" xml:space="preserve">
     <value>6P Spiral</value>
   </data>
+
   <data name="MapTemplateFilter_SixPlayersMediumSpiralMap" xml:space="preserve">
     <value>6P Spiral</value>
   </data>
+
   <data name="MapTemplate_ThreePlayersMediumMantaRayMap" xml:space="preserve">
     <value>3P Manta Ray</value>
   </data>
+
   <data name="MapTemplateFilter_ThreePlayersMediumMantaRayMap" xml:space="preserve">
     <value>3P Manta Ray</value>
   </data>
+
   <data name="MapTemplate_ThreePlayersMediumRexMap" xml:space="preserve">
     <value>3P Rex</value>
   </data>
+
   <data name="MapTemplateFilter_ThreePlayersMediumRexMap" xml:space="preserve">
     <value>3P Rex</value>
   </data>
+
   <data name="MapTemplate_ThreePlayersMediumSnowflakeMap" xml:space="preserve">
     <value>3P Snowflake</value>
   </data>
+
   <data name="MapTemplateFilter_ThreePlayersMediumSnowflakeMap" xml:space="preserve">
     <value>3P Snowflake</value>
   </data>
+
   <data name="MapTemplate_ThreePlayersMediumTriangleMap" xml:space="preserve">
     <value>3P Triangle</value>
   </data>
+
   <data name="MapTemplateFilter_ThreePlayersMediumTriangleMap" xml:space="preserve">
     <value>3P Triangle</value>
   </data>
+
   <data name="MapTemplate_ThreePlayersMediumTriangleNarrowMap" xml:space="preserve">
     <value>3P Triangle (Narrow)</value>
   </data>
+
   <data name="MapTemplateFilter_ThreePlayersMediumTriangleNarrowMap" xml:space="preserve">
     <value>3P Triangle (Narrow)</value>
   </data>
+
   <data name="MapTemplate_ThreePlayersMediumTridentMap" xml:space="preserve">
     <value>3P Trident</value>
   </data>
+
   <data name="MapTemplateFilter_ThreePlayersMediumTridentMap" xml:space="preserve">
     <value>3P Trident</value>
   </data>
+
   <data name="MapTemplate_ThreePlayersSmallAlternateMap" xml:space="preserve">
     <value>3P Small (Alternate)</value>
   </data>
+
   <data name="MapTemplateFilter_ThreePlayersSmallAlternateMap" xml:space="preserve">
     <value>3P Small (Alternate)</value>
   </data>
+
   <data name="MapTemplate_ThreePlayersSmallMap" xml:space="preserve">
     <value>3P Small</value>
   </data>
+
   <data name="MapTemplateFilter_ThreePlayersSmallMap" xml:space="preserve">
     <value>3P Small</value>
   </data>
+
   <data name="MapTemplate_TwoPlayersMediumMap" xml:space="preserve">
     <value>2P Normal</value>
   </data>
+
   <data name="MapTemplateFilter_TwoPlayersMediumMap" xml:space="preserve">
     <value>2P Normal</value>
   </data>
+
   <data name="Medium" xml:space="preserve">
     <value>Medium</value>
   </data>
+
   <data name="ObjectiveCardSecret" xml:space="preserve">
     <value>secret</value>
   </data>
+
   <data name="ObjectiveCardStageOne" xml:space="preserve">
     <value>stageoneobjective</value>
   </data>
+
   <data name="ObjectiveCardStageTwo" xml:space="preserve">
     <value>stagetwoobjective</value>
   </data>
+
   <data name="Page_About" xml:space="preserve">
     <value>About</value>
   </data>
+
+  <data name="Page_About_PageTitle" xml:space="preserve">
+    <value>About | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_AccountClaims" xml:space="preserve">
     <value>Claims</value>
   </data>
+
   <data name="Page_AccountInfo" xml:space="preserve">
     <value>Account Info</value>
   </data>
+
+  <data name="Page_AccountInfo_PageTitle" xml:space="preserve">
+    <value>Account Info | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_AccountLogin" xml:space="preserve">
     <value>Login</value>
   </data>
+
+  <data name="Page_AccountLogin_PageTitle" xml:space="preserve">
+    <value>Login | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_AccountPasswordReset" xml:space="preserve">
     <value>Password Reset</value>
   </data>
+
+  <data name="Page_AccountPasswordReset_PageTitle" xml:space="preserve">
+    <value>Password Reset | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_AccountRegister" xml:space="preserve">
     <value>Register</value>
   </data>
+
+  <data name="Page_AccountRegister_PageTitle" xml:space="preserve">
+    <value>Register | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_Admin" xml:space="preserve">
     <value>Admin</value>
   </data>
+
+  <data name="Page_Admin_PageTitle" xml:space="preserve">
+    <value>Admin | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_BattleCalculator" xml:space="preserve">
     <value>Battle Calculator</value>
   </data>
+
+  <data name="Page_BattleCalculator_PageTitle" xml:space="preserve">
+    <value>Battle Calculator | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_CardGenerator" xml:space="preserve">
     <value>Card Generator</value>
   </data>
+
+  <data name="Page_CardGenerator_PageTitle" xml:space="preserve">
+    <value>Card Generator | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_Cards" xml:space="preserve">
     <value>Cards</value>
   </data>
+
+  <data name="Page_Cards_PageTitle" xml:space="preserve">
+    <value>Cards | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_ChatGPT" xml:space="preserve">
     <value>TI4 ChatGPT</value>
   </data>
+
+  <data name="Page_ChatGPT_PageTitle" xml:space="preserve">
+    <value>TI4 ChatGPT | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_ColorPicker" xml:space="preserve">
     <value>Color Picker</value>
   </data>
+
+  <data name="Page_ColorPicker_PageTitle" xml:space="preserve">
+    <value>Color Picker | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_Community" xml:space="preserve">
     <value>Community</value>
   </data>
+
   <data name="Page_Discord" xml:space="preserve">
     <value>Discord</value>
   </data>
+
+  <data name="Page_Discord_PageTitle" xml:space="preserve">
+    <value>Discord | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_Diy" xml:space="preserve">
     <value>DIY</value>
   </data>
+
+  <data name="Page_Diy_PageTitle" xml:space="preserve">
+    <value>DIY | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_Draft" xml:space="preserve">
     <value>Draft</value>
   </data>
+
   <data name="Page_DraftRooms" xml:space="preserve">
     <value>Draft Rooms</value>
   </data>
+
+  <data name="Page_DraftRooms_PageTitle" xml:space="preserve">
+    <value>Draft Rooms | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_Events" xml:space="preserve">
     <value>Events</value>
   </data>
+
+  <data name="Page_Events_PageTitle" xml:space="preserve">
+    <value>Events | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_FactionDraft" xml:space="preserve">
     <value>Faction Draft</value>
   </data>
+
+  <data name="Page_FactionDraft_PageTitle" xml:space="preserve">
+    <value>Faction Draft | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_FactionGuides" xml:space="preserve">
     <value>Faction Guides</value>
   </data>
+
+  <data name="Page_FactionGuides_PageTitle" xml:space="preserve">
+    <value>Faction Guides | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_Factions" xml:space="preserve">
     <value>Factions</value>
   </data>
+
+  <data name="Page_Factions_PageTitle" xml:space="preserve">
+    <value>{0} Faction Overview | TI4 Ultimate</value>
+  </data>
+
+  <data name="Page_Factions_PageTitleDefault" xml:space="preserve">
+    <value>Factions | TI4 Ultimate</value>
+  </data>
+
+  <data name="Page_Factions_MetaDescription" xml:space="preserve">
+    <value>Learn about the {0} faction in Twilight Imperium 4th Edition - abilities, faction sheet, leaders, technology, and starting setup.</value>
+  </data>
+
+  <data name="Page_Factions_MetaDescriptionDefault" xml:space="preserve">
+    <value>Browse every faction in Twilight Imperium 4th Edition, including abilities, faction sheets, leaders, technology, and starting setup.</value>
+  </data>
+
+  <data name="Page_Factions_SourceLabel" xml:space="preserve">
+    <value>Source</value>
+  </data>
+
   <data name="Page_FactionsDS" xml:space="preserve">
     <value>DS Factions</value>
   </data>
+
   <data name="Page_Faq" xml:space="preserve">
     <value>Faq</value>
   </data>
+
+  <data name="Page_Faq_PageTitle" xml:space="preserve">
+    <value>FAQ | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_Game" xml:space="preserve">
     <value>Game</value>
   </data>
+
   <data name="Page_MapGenerator" xml:space="preserve">
     <value>Map Generator</value>
   </data>
+
+  <data name="Page_MapGenerator_PageTitle" xml:space="preserve">
+    <value>Map Generator | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_Maps" xml:space="preserve">
     <value>Maps</value>
   </data>
+
   <data name="Page_Moderator" xml:space="preserve">
     <value>Moderator</value>
   </data>
+
   <data name="Page_News" xml:space="preserve">
     <value>News</value>
   </data>
+
+  <data name="Page_News_PageTitle" xml:space="preserve">
+    <value>News | TI4 Ultimate</value>
+  </data>
+
+  <data name="Page_Home_PageTitle" xml:space="preserve">
+    <value>TI4 Ultimate – Twilight Imperium 4 Tools &amp; Compendium</value>
+  </data>
+
+  <data name="Home_IntroHeading" xml:space="preserve">
+    <value>TI4 Ultimate</value>
+  </data>
+
+  <data name="Home_IntroDescription" xml:space="preserve">
+    <value>TI4 Ultimate offers information about factions and game components, free tools such as slice and map generators, rules, a game tracker, statistics for asynchronous Discord games, TIGL league game tracking and statistics, and community resources.</value>
+  </data>
+
   <data name="Page_OtherWebsites" xml:space="preserve">
     <value>Other Websites</value>
   </data>
+
+  <data name="Page_OtherWebsites_PageTitle" xml:space="preserve">
+    <value>Other Websites | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_PasswordRecovery" xml:space="preserve">
     <value>Password Recovery</value>
   </data>
+
+  <data name="Page_PasswordRecovery_PageTitle" xml:space="preserve">
+    <value>Password Recovery | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_Planets" xml:space="preserve">
     <value>Planets</value>
   </data>
+
+  <data name="Page_Planets_PageTitle" xml:space="preserve">
+    <value>Planets | TI4 Ultimate</value>
+  </data>
+
+  <data name="PlanetsFilter_ByExpansion" xml:space="preserve">
+    <value>Expansion</value>
+  </data>
+
+  <data name="PlanetsFilter_ByTrait" xml:space="preserve">
+    <value>Trait</value>
+  </data>
+
   <data name="Page_PlayOfTheMonth" xml:space="preserve">
     <value>Play of the Month</value>
   </data>
+
+  <data name="Page_PlayOfTheMonth_PageTitle" xml:space="preserve">
+    <value>Play of the Month | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_ResendConfirmationEmail" xml:space="preserve">
     <value>Resend confirmation email</value>
   </data>
+
+  <data name="Page_ResendConfirmationEmail_PageTitle" xml:space="preserve">
+    <value>Resend Confirmation Email | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_Resources" xml:space="preserve">
     <value>Resources</value>
   </data>
+
+  <data name="Page_Resources_PageTitle" xml:space="preserve">
+    <value>Resources | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_Rules" xml:space="preserve">
     <value>Rules</value>
   </data>
+
+  <data name="Page_Rules_PageTitle" xml:space="preserve">
+    <value>Rules | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_SliceGenerator" xml:space="preserve">
     <value>Slice Generator</value>
   </data>
+
+  <data name="Page_SliceGenerator_PageTitle" xml:space="preserve">
+    <value>Slice Generator | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_Statistics" xml:space="preserve">
     <value>Statistics</value>
   </data>
+
+  <data name="Page_Statistics_PageTitle" xml:space="preserve">
+    <value>Statistics | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_SystemTiles" xml:space="preserve">
     <value>System Tiles</value>
   </data>
+
+  <data name="Page_SystemTiles_PageTitle" xml:space="preserve">
+    <value>System Tiles | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_Technologies" xml:space="preserve">
     <value>Technologies</value>
   </data>
+
+  <data name="Page_Technologies_PageTitle" xml:space="preserve">
+    <value>Technologies | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_Tools" xml:space="preserve">
     <value>Tools</value>
   </data>
+
   <data name="PasswordReset_CredentialsInvalid" xml:space="preserve">
     <value>Unable to reset password. Credentials does not meet requirements or reset code is invalid!</value>
   </data>
+
   <data name="PasswordReset_FailedUnknown" xml:space="preserve">
     <value>Password reset failed!</value>
   </data>
+
   <data name="Password_PasswordReset" xml:space="preserve">
     <value>Change passowrd</value>
   </data>
+
   <data name="Password_ResetCode" xml:space="preserve">
     <value>Reset Code</value>
   </data>
+
   <data name="Password_ResetTitle" xml:space="preserve">
     <value>Password Reset</value>
   </data>
+
   <data name="PlacementStyle_Home" xml:space="preserve">
     <value>Home</value>
   </data>
+
   <data name="PlacementStyle_Initial" xml:space="preserve">
     <value>Initial</value>
   </data>
+
   <data name="PlacementStyle_Random" xml:space="preserve">
     <value>Random</value>
   </data>
+
   <data name="PlacementStyle_Slice" xml:space="preserve">
     <value>Slice</value>
   </data>
+
   <data name="Player" xml:space="preserve">
     <value>Player</value>
   </data>
+
   <data name="PlayerNamePlaceholder" xml:space="preserve">
     <value>Player {0}</value>
   </data>
+
   <data name="PromissoryNoteCard" xml:space="preserve">
     <value>promissorynote</value>
   </data>
+
   <data name="Register_ConfirmPassword" xml:space="preserve">
     <value>Confirm Password</value>
   </data>
+
   <data name="Register_Email" xml:space="preserve">
     <value>Email</value>
   </data>
+
   <data name="Register_FailedBadRequest" xml:space="preserve">
     <value>Account with this email address / username already exists.</value>
   </data>
+
   <data name="Register_FailedCredentials" xml:space="preserve">
     <value>Unable to register new account. Credential requirements were not met.</value>
   </data>
+
   <data name="Register_FailedUnknown" xml:space="preserve">
     <value>Unable to register new account with these credentials.</value>
   </data>
+
   <data name="Register_Password" xml:space="preserve">
     <value>Password</value>
   </data>
+
   <data name="Register_Redirect" xml:space="preserve">
     <value>You will be redirected to login page shortly.</value>
   </data>
+
   <data name="Register_Register" xml:space="preserve">
     <value>Register</value>
   </data>
+
   <data name="Register_RegistrationSucceeded" xml:space="preserve">
     <value>Your account has been registered successfully! Please visit your email to confirm your account.</value>
   </data>
+
   <data name="Register_Title" xml:space="preserve">
     <value>Register New Account</value>
   </data>
+
   <data name="RelicCard" xml:space="preserve">
     <value>relic</value>
   </data>
+
+  <data name="ReportGame_AddPlayerSlot" xml:space="preserve">
+    <value>+ Add Player Slot</value>
+  </data>
+
+  <data name="ReportGame_ByDiscordName" xml:space="preserve">
+    <value>By Discord Name: </value>
+  </data>
+
+  <data name="ReportGame_ByTiglName" xml:space="preserve">
+    <value>By TIGL Name: </value>
+  </data>
+
+  <data name="ReportGame_ClearPlayer" xml:space="preserve">
+    <value>X - Clear Player</value>
+  </data>
+
+  <data name="ReportGame_DiscordTag" xml:space="preserve">
+    <value>Discord Tag</value>
+  </data>
+
+  <data name="ReportGame_EndDate" xml:space="preserve">
+    <value>End Date</value>
+  </data>
+
+  <data name="ReportGame_ErrorSubmitFailed" xml:space="preserve">
+    <value>Failed to submit game report: {0}</value>
+  </data>
+
+  <data name="ReportGame_ErrorUnknown" xml:space="preserve">
+    <value>Unknown error.</value>
+  </data>
+
+  <data name="ReportGame_Faction" xml:space="preserve">
+    <value>Faction</value>
+  </data>
+
+  <data name="ReportGame_FindPlayer" xml:space="preserve">
+    <value>Player {0}:</value>
+  </data>
+
+  <data name="ReportGame_GalacticEventsHeading" xml:space="preserve">
+    <value>Galactic Events</value>
+  </data>
+
+  <data name="ReportGame_GameId" xml:space="preserve">
+    <value>Game ID</value>
+  </data>
+
+  <data name="ReportGame_GameIdAsyncHint" xml:space="preserve">
+    <value>For Async games: pbdXXXXX</value>
+  </data>
+
+  <data name="ReportGame_GameIdOtherHint" xml:space="preserve">
+    <value>For Other platforms: your custom name</value>
+  </data>
+
+  <data name="ReportGame_LeagueLabel" xml:space="preserve">
+    <value>League</value>
+  </data>
+
+  <data name="ReportGame_Loading" xml:space="preserve">
+    <value>...Loading...</value>
+  </data>
+
+  <data name="ReportGame_OpenSearch" xml:space="preserve">
+    <value>Search</value>
+  </data>
+
+  <data name="ReportGame_PlayerHeader" xml:space="preserve">
+    <value>Player {0}</value>
+  </data>
+
+  <data name="ReportGame_PlayersHeading" xml:space="preserve">
+    <value>Players</value>
+  </data>
+
+  <data name="ReportGame_RemovePlayerSlot" xml:space="preserve">
+    <value>- Remove Player Slot</value>
+  </data>
+
+  <data name="ReportGame_RoundLabel" xml:space="preserve">
+    <value>Round</value>
+  </data>
+
+  <data name="ReportGame_Score" xml:space="preserve">
+    <value>Score</value>
+  </data>
+
+  <data name="ReportGame_SelectFaction" xml:space="preserve">
+    <value>Select faction</value>
+  </data>
+
+  <data name="ReportGame_SourceLabel" xml:space="preserve">
+    <value>Source</value>
+  </data>
+
+  <data name="ReportGame_StartDate" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
+
+  <data name="ReportGame_SubmitButton" xml:space="preserve">
+    <value>Submit Game Report</value>
+  </data>
+
+  <data name="ReportGame_SuccessMessage" xml:space="preserve">
+    <value>Game report for '{0}' has been successfully submitted and processed!</value>
+  </data>
+
+  <data name="ReportGame_TiglUsername" xml:space="preserve">
+    <value>Tigl Username</value>
+  </data>
+
+  <data name="ReportGame_TypeDiscordTag" xml:space="preserve">
+    <value>Type Discord Tag...</value>
+  </data>
+
+  <data name="ReportGame_TypeTiglName" xml:space="preserve">
+    <value>Type TIGL name...</value>
+  </data>
+
+  <data name="ReportGame_ValidationBullet" xml:space="preserve">
+    <value>• {0}</value>
+  </data>
+
+  <data name="ReportGame_ValidationEndBeforeStart" xml:space="preserve">
+    <value>End date cannot be before start date.</value>
+  </data>
+
+  <data name="ReportGame_ValidationEndDateRequired" xml:space="preserve">
+    <value>End date must be selected.</value>
+  </data>
+
+  <data name="ReportGame_ValidationFactionRequired" xml:space="preserve">
+    <value>All players must have a faction assigned.</value>
+  </data>
+
+  <data name="ReportGame_ValidationFracturedPlayerCount" xml:space="preserve">
+    <value>Fractured league supports 6 to 8 players.</value>
+  </data>
+
+  <data name="ReportGame_ValidationFracturedVp" xml:space="preserve">
+    <value>Fractured league supports VP between 10 and 20.</value>
+  </data>
+
+  <data name="ReportGame_ValidationGameIdRequired" xml:space="preserve">
+    <value>Game ID is required.</value>
+  </data>
+
+  <data name="ReportGame_ValidationInvalidLeague" xml:space="preserve">
+    <value>Invalid league selected.</value>
+  </data>
+
+  <data name="ReportGame_ValidationOneWinner" xml:space="preserve">
+    <value>Exactly one winner must be selected.</value>
+  </data>
+
+  <data name="ReportGame_ValidationPlayersMustBeSelected" xml:space="preserve">
+    <value>All players must be selected from database (with TIGL name or DiscordTag).</value>
+  </data>
+
+  <data name="ReportGame_ValidationRoundRange" xml:space="preserve">
+    <value>Round must be between 1 and 9.</value>
+  </data>
+
+  <data name="ReportGame_ValidationScoreRange" xml:space="preserve">
+    <value>Each player's score must be between 0 and the game score.</value>
+  </data>
+
+  <data name="ReportGame_ValidationStandardFactionDisallowed" xml:space="preserve">
+    <value>Standard league disallows factions for: {0}</value>
+  </data>
+
+  <data name="ReportGame_ValidationStandardPlayerCount" xml:space="preserve">
+    <value>Exactly 6 players are required for Standard league.</value>
+  </data>
+
+  <data name="ReportGame_ValidationStandardVp" xml:space="preserve">
+    <value>Standard league supports VP of 10, 12 or 14 only.</value>
+  </data>
+
+  <data name="ReportGame_ValidationStartDateRequired" xml:space="preserve">
+    <value>Start date must be selected.</value>
+  </data>
+
+  <data name="ReportGame_ValidationUniquePlayers" xml:space="preserve">
+    <value>Report needs {0} unique players.</value>
+  </data>
+
+  <data name="ReportGame_ValidationWinningScoreRequired" xml:space="preserve">
+    <value>At least one player must reach the winning score of {0}.</value>
+  </data>
+
+  <data name="ReportGame_VpLabel" xml:space="preserve">
+    <value>VP</value>
+  </data>
+
+  <data name="ReportGame_Winner" xml:space="preserve">
+    <value>Winner</value>
+  </data>
+
   <data name="ResetPassword_ConfirmNewPassword" xml:space="preserve">
     <value>Confirm New Password</value>
   </data>
+
   <data name="ResetPassword_NewPassword" xml:space="preserve">
     <value>New Password</value>
   </data>
+
   <data name="ResetPassword_NewPasswordPlaceholder" xml:space="preserve">
     <value>Password</value>
   </data>
+
   <data name="RulesResource_AgendaPhase" xml:space="preserve">
     <value>Twilight Imperium 4th Edition - Agenda Phase</value>
   </data>
+
   <data name="RulesResource_AgendaPhaseLink" xml:space="preserve">
     <value>https://1drv.ms/b/s!AifcqLzbdKjHhb1tZx48jC7FiraxGg?e=JGF9LS</value>
   </data>
+
   <data name="RulesResource_Cheatsheet" xml:space="preserve">
     <value>Twilight Imperium I4th Edition - Cheat Sheets</value>
   </data>
+
   <data name="RulesResource_CheatSheetLink" xml:space="preserve">
     <value>https://1drv.ms/b/s!AifcqLzbdKjHhb1v8h5opo6OTgEXmQ?e=XiU3EH</value>
   </data>
+
   <data name="RulesResource_CompleteReference" xml:space="preserve">
     <value>Twilight Imperium 4th Edition - Complete Rules Reference</value>
   </data>
+
   <data name="RulesResource_CompleteReferenceLink" xml:space="preserve">
     <value>https://1drv.ms/b/s!AifcqLzbdKjHhb1yLoTYaLElMJktIA?e=9ttGNg</value>
   </data>
+
   <data name="RulesResource_Faq" xml:space="preserve">
     <value>Twilight Imperium 4th Edition PoK - FAQ</value>
   </data>
+
   <data name="RulesResource_FaqLink" xml:space="preserve">
     <value>https://1drv.ms/b/s!AifcqLzbdKjHhb1qrRBKws0lA1w70g?e=8W14l9</value>
   </data>
+
   <data name="RulesResource_FaqTwo" xml:space="preserve">
     <value>Twilight Imperium 4th Edition PoK - FAQ 2</value>
   </data>
+
   <data name="RulesResource_FaqTwoLink" xml:space="preserve">
     <value>https://1drv.ms/b/s!AifcqLzbdKjHhb1pixA2M8ZsaSCPQA?e=Dw6XMv</value>
   </data>
+
   <data name="RulesResource_GuideToTheImperium" xml:space="preserve">
     <value>Twilight Imperium 4th Edition - Guide to the Imperium</value>
   </data>
+
   <data name="RulesResource_GuideToTheImperiumLink" xml:space="preserve">
     <value>https://1drv.ms/b/s!AifcqLzbdKjHhb1zqcFRel3kBZQBaQ?e=mpawsK</value>
   </data>
+
   <data name="RulesResource_LearnToPlay" xml:space="preserve">
     <value>Twilight Imperium 4th Edition - Learn to play</value>
   </data>
+
   <data name="RulesResource_LearnToPlayLink" xml:space="preserve">
     <value>https://1drv.ms/b/s!AifcqLzbdKjHhb1xhbggvUq79x9bZA?e=r43tJE</value>
   </data>
+
   <data name="RulesResource_LivingRulesReference" xml:space="preserve">
     <value>Twilight Imperium 4th Edition - Living Rules Reference 1.3</value>
   </data>
+
   <data name="RulesResource_LivingRulesReferenceLink" xml:space="preserve">
     <value>https://1drv.ms/b/s!AifcqLzbdKjHhb1wH3jl9_jRf9ORUQ?e=owQWyN</value>
   </data>
+
   <data name="RulesResource_LivingRulesReferenceTwo" xml:space="preserve">
     <value>Twilight Imperium 4th Edition - Living Rules Reference 2.0</value>
   </data>
+
   <data name="RulesResource_LivingRulesReferenceTwoLink" xml:space="preserve">
     <value>https://1drv.ms/b/s!AifcqLzbdKjHhb1seeEV4fgxH9dSew?e=tu5cbx</value>
   </data>
+
   <data name="RulesResource_ProphecyOfKingsRules" xml:space="preserve">
     <value>Twilight Imperium 4th Edition PoK - Rules</value>
   </data>
+
   <data name="RulesResource_ProphecyOfKingsRulesLink" xml:space="preserve">
     <value>https://1drv.ms/b/s!AifcqLzbdKjHhb1uuHwko2H0ZSd6gg?e=6QYhbc</value>
   </data>
+
   <data name="RulesResource_Summary" xml:space="preserve">
     <value>Twilight Imperium 4th Edition - Summary Reference</value>
   </data>
+
   <data name="RulesResource_SummaryLink" xml:space="preserve">
     <value>https://1drv.ms/b/s!AifcqLzbdKjHhb1r25l5s_4Vz2oXvw?e=gur9lZ</value>
   </data>
+
   <data name="Rules_Notes" xml:space="preserve">
     <value>Notes:</value>
   </data>
-  <data name="Rules_ShowNotes" xml:space="preserve">
-    <value>Show notes:</value>
+
+  <data name="Rules_Keyword" xml:space="preserve">
+    <value>Keyword</value>
   </data>
+
+  <data name="Rules_ShowNotes" xml:space="preserve">
+    <value>Show notes</value>
+  </data>
+
   <data name="SearchForKeyword" xml:space="preserve">
     <value>Search: </value>
   </data>
+
   <data name="SliceEvaluation_Id" xml:space="preserve">
     <value># ID</value>
   </data>
+
   <data name="SliceEvaluation_LegendaryCount" xml:space="preserve">
     <value># Legendaries</value>
   </data>
+
   <data name="SliceEvaluation_PlanetTraits" xml:space="preserve">
     <value>Planet Traits</value>
   </data>
+
   <data name="SliceEvaluation_TechnologySkips" xml:space="preserve">
     <value>Tech Skips</value>
   </data>
+
   <data name="SliceEvaluation_TotalInfluence" xml:space="preserve">
-    <value>Influence</value>
+    <value>Inf</value>
   </data>
+
   <data name="SliceEvaluation_TotalOptimalValue" xml:space="preserve">
     <value>Opt Value</value>
   </data>
+
   <data name="SliceEvaluation_TotalOptimalValueInfluence" xml:space="preserve">
-    <value>Opt Influence</value>
+    <value>Opt Inf</value>
   </data>
+
   <data name="SliceEvaluation_TotalOptimalValueResources" xml:space="preserve">
-    <value>Opt Resources</value>
+    <value>Opt Res</value>
   </data>
+
   <data name="SliceEvaluation_TotalResource" xml:space="preserve">
-    <value>Resources</value>
+    <value>Res</value>
   </data>
+
   <data name="SliceGeneratorMenu_Settings" xml:space="preserve">
     <value>SETTINGS</value>
   </data>
+
   <data name="SliceGeneratorMenu_Slices" xml:space="preserve">
     <value>SLICES</value>
   </data>
+
   <data name="SliceGeneratorMenu_Stats" xml:space="preserve">
     <value>STATS</value>
   </data>
+
   <data name="SliceGeneratorSettings_TilesOverlay" xml:space="preserve">
     <value>Tiles overlay:</value>
   </data>
+
   <data name="SliceGenerator_GenerateRandomSlices" xml:space="preserve">
     <value>Generate Slices</value>
   </data>
+
   <data name="SliceGenerator_NumberOfSlices" xml:space="preserve">
     <value>Number of slices:</value>
   </data>
+
   <data name="SliceGenerator_Optimal" xml:space="preserve">
     <value>Optimal:</value>
   </data>
+
   <data name="SliceGenerator_SliceId" xml:space="preserve">
     <value>Slice ID:</value>
   </data>
+
   <data name="SliceGenerator_Total" xml:space="preserve">
     <value>Total:</value>
   </data>
+
   <data name="SliceGenerator_Traits" xml:space="preserve">
     <value>Traits:</value>
   </data>
+
   <data name="StrategyCard" xml:space="preserve">
     <value>strategy</value>
   </data>
+
   <data name="SystemTileOverlay_Id" xml:space="preserve">
     <value>Id</value>
   </data>
+
   <data name="SystemTileOverlay_Influence" xml:space="preserve">
     <value>Influence</value>
   </data>
+
   <data name="SystemTileOverlay_None" xml:space="preserve">
     <value>None</value>
   </data>
+
   <data name="SystemTileOverlay_Resources" xml:space="preserve">
     <value>Resources</value>
   </data>
+
   <data name="SystemTileOverlay_ResourcesAndInfluence" xml:space="preserve">
     <value>Resource and Influence</value>
   </data>
+
   <data name="SystemTileTypeFilter_All" xml:space="preserve">
     <value>All</value>
   </data>
+
   <data name="SystemTileTypeFilter_Anomalies" xml:space="preserve">
     <value>Anomalies</value>
   </data>
+
   <data name="SystemTileTypeFilter_BaseGame" xml:space="preserve">
     <value>Base Game</value>
   </data>
+
   <data name="SystemTileTypeFilter_BlueTiles" xml:space="preserve">
     <value>Blue Tiles</value>
   </data>
+
   <data name="SystemTileTypeFilter_Custom" xml:space="preserve">
     <value>Custom</value>
   </data>
+
   <data name="SystemTileTypeFilter_DiscordantStars" xml:space="preserve">
     <value>Discordant Stars</value>
   </data>
+
   <data name="SystemTileTypeFilter_Empty" xml:space="preserve">
     <value>Empty</value>
   </data>
+
   <data name="SystemTileTypeFilter_HomeSystems" xml:space="preserve">
     <value>Home Systems</value>
   </data>
+
   <data name="SystemTileTypeFilter_Hyperlanes" xml:space="preserve">
     <value>Hyperlanes</value>
   </data>
+
   <data name="SystemTileTypeFilter_MecatolRex" xml:space="preserve">
     <value>Mecatol Rex</value>
   </data>
+
   <data name="SystemTileTypeFilter_ProphecyOfKings" xml:space="preserve">
     <value>Prophecy of Kings</value>
   </data>
+
   <data name="SystemTileTypeFilter_RedTiles" xml:space="preserve">
     <value>Red Tiles</value>
   </data>
+
   <data name="SystemTileTypeFilter_UnchartedSpace" xml:space="preserve">
     <value>Uncharted Space</value>
   </data>
+
   <data name="SystemTileTypeFilter_Unused" xml:space="preserve">
     <value>Unused</value>
   </data>
+
   <data name="SystemWeight_Balanced" xml:space="preserve">
     <value>Balanced</value>
   </data>
+
   <data name="SystemWeight_Influence" xml:space="preserve">
     <value>Influence</value>
   </data>
+
   <data name="SystemWeight_Random" xml:space="preserve">
     <value>Random</value>
   </data>
+
   <data name="SystemWeight_Resources" xml:space="preserve">
     <value>Resources</value>
   </data>
+
   <data name="TechnologyType_Biotic" xml:space="preserve">
     <value>Biotic</value>
   </data>
+
   <data name="TechnologyType_Cybernetic" xml:space="preserve">
     <value>Cybernetic</value>
   </data>
+
   <data name="TechnologyType_Faction" xml:space="preserve">
     <value>Faction</value>
   </data>
+
   <data name="TechnologyType_Propulsion" xml:space="preserve">
     <value>Propulsion</value>
   </data>
+
   <data name="TechnologyType_UnitUpgrade" xml:space="preserve">
     <value>Unit Upgrade</value>
   </data>
+
   <data name="TechnologyType_Warfare" xml:space="preserve">
     <value>Warfare</value>
   </data>
+
   <data name="User_AccountInfo" xml:space="preserve">
     <value>Account Info</value>
   </data>
+
   <data name="User_Age" xml:space="preserve">
     <value>Age:</value>
   </data>
+
   <data name="User_DiscordId" xml:space="preserve">
     <value>Discord:</value>
   </data>
+
   <data name="User_Email" xml:space="preserve">
     <value>Email:</value>
   </data>
+
   <data name="User_FavoriteFaction" xml:space="preserve">
     <value>Favorite faction:</value>
   </data>
+
   <data name="User_FirstName" xml:space="preserve">
     <value>First name:</value>
   </data>
+
   <data name="User_LastName" xml:space="preserve">
     <value>Last name:</value>
   </data>
+
   <data name="User_PhoneNumber" xml:space="preserve">
     <value>Phone number:</value>
   </data>
+
   <data name="User_SteamId" xml:space="preserve">
     <value>Steam:</value>
   </data>
+
   <data name="User_UserInfo" xml:space="preserve">
     <value>User info:</value>
   </data>
+
   <data name="User_UserName" xml:space="preserve">
     <value>Username:</value>
   </data>
+
   <data name="WormholeDensityPicker_WormholeDensity" xml:space="preserve">
     <value>Wormhole density:</value>
   </data>
+
   <data name="WormholeDensity_AtLeastOnePair" xml:space="preserve">
     <value>At least one pair</value>
   </data>
+
   <data name="WormholeDensity_AtLeastTwoPairs" xml:space="preserve">
     <value>At least two pairs</value>
   </data>
+
   <data name="WormholeDensity_None" xml:space="preserve">
     <value>None</value>
   </data>
+
   <data name="WormholeDensity_Random" xml:space="preserve">
     <value>Random</value>
   </data>
+
   <data name="SystemTileTypeFilter_AscendantSun" xml:space="preserve">
     <value>Ascendant Sun</value>
   </data>
+
   <data name="MiltyDraft_Title" xml:space="preserve">
     <value>Milty Draft</value>
   </data>
+
+  <data name="MiltyDraft_Title_PageTitle" xml:space="preserve">
+    <value>Milty Draft | TI4 Ultimate</value>
+  </data>
+
   <data name="MiltyDraft_NumberOfPlayers" xml:space="preserve">
     <value>Number of players:</value>
   </data>
+
   <data name="MiltyDraft_NumberOfSlices" xml:space="preserve">
     <value>Number of slices:</value>
   </data>
+
   <data name="MiltyDraft_NumberOfFactions" xml:space="preserve">
     <value>Number of factions:</value>
   </data>
+
   <data name="MiltyDraft_StartMiltyDraft" xml:space="preserve">
     <value>Start Draft</value>
   </data>
+
   <data name="Page_MiltyDraft" xml:space="preserve">
     <value>Milty Draft</value>
   </data>
+
   <data name="MiltyDraftInitiative_None" xml:space="preserve">
     <value>None</value>
   </data>
+
   <data name="MiltyDraftInitiative_Speaker" xml:space="preserve">
     <value>Speaker</value>
   </data>
+
   <data name="MiltyDraftInitiative_Second" xml:space="preserve">
     <value>2nd</value>
   </data>
+
   <data name="MiltyDraftInitiative_Third" xml:space="preserve">
     <value>3rd</value>
   </data>
+
   <data name="MiltyDraftInitiative_Fourth" xml:space="preserve">
     <value>4th</value>
   </data>
+
   <data name="MiltyDraftInitiative_Fifth" xml:space="preserve">
     <value>5th</value>
   </data>
+
   <data name="MiltyDraftInitiative_Sixth" xml:space="preserve">
     <value>6th</value>
   </data>
+
   <data name="MiltyDraftInitiative_Seventh" xml:space="preserve">
     <value>7th</value>
   </data>
+
   <data name="MiltyDraftInitiative_Eighth" xml:space="preserve">
     <value>8th</value>
   </data>
+
   <data name="MiltyDraft_Positions" xml:space="preserve">
     <value>Positions:</value>
   </data>
+
   <data name="MiltyDraft_Slices" xml:space="preserve">
     <value>Slices:</value>
   </data>
+
   <data name="MiltyDraft_Factions" xml:space="preserve">
     <value>Factions:</value>
   </data>
+
   <data name="MiltyDraft_PlayerNames" xml:space="preserve">
     <value>Player names:</value>
   </data>
+
   <data name="MiltyDraft_Draft" xml:space="preserve">
     <value>DRAFT</value>
   </data>
+
   <data name="MiltyDraft_DraftPreview" xml:space="preserve">
     <value>PREVIEW</value>
   </data>
+
   <data name="MiltyDraft_Settings" xml:space="preserve">
     <value>SETTINGS</value>
   </data>
+
   <data name="MiltyDraft_NextPicks" xml:space="preserve">
     <value>Next -&gt;</value>
   </data>
+
   <data name="MiltyDraft_ActivePlayer" xml:space="preserve">
     <value>Current player to pick:</value>
   </data>
+
   <data name="MiltyDraft_Finnished" xml:space="preserve">
-    <value>Milty draft finished!</value>
+    <value>Milty draft has finished!</value>
   </data>
+
   <data name="MiltyDraft_ResetDraft" xml:space="preserve">
     <value>Reset Draft</value>
   </data>
+
   <data name="MiltyDraft_PickOption" xml:space="preserve">
     <value>Pick</value>
   </data>
+
   <data name="MiltyDraft_NotEnoughFactions" xml:space="preserve">
     <value>Not enough factions</value>
   </data>
+
+  <data name="MiltyDraft_PreparingDraft" xml:space="preserve">
+    <value>Preparing draft...</value>
+  </data>
+
   <data name="MiltyDraft_DraftNotInProgress" xml:space="preserve">
     <value>Current draft is not in progress.</value>
   </data>
+
   <data name="MiltyDraft_PlayerName" xml:space="preserve">
     <value>Player:</value>
   </data>
+
   <data name="MiltyDraft_PlayerFaction" xml:space="preserve">
     <value>Faction:</value>
   </data>
+
   <data name="MiltyDraft_PlayerSliceId" xml:space="preserve">
     <value>Slice ID:</value>
   </data>
+
   <data name="MiltyDraft_PlayerInitiative" xml:space="preserve">
     <value>Position:</value>
   </data>
+
   <data name="MiltyDraft_MapString" xml:space="preserve">
     <value>Map string: </value>
   </data>
+
   <data name="MiltyDraft_GeneratingDraft" xml:space="preserve">
     <value>...Generating Draft...</value>
   </data>
+
   <data name="MiltyDraft_NewSlices" xml:space="preserve">
     <value>New slices</value>
   </data>
+
   <data name="MiltyDraft_NewPickOrder" xml:space="preserve">
     <value>New pick order</value>
   </data>
+
   <data name="MiltyDraft_NewFactions" xml:space="preserve">
     <value>New factions</value>
   </data>
+
   <data name="MiltyDraft_ImportSlices" xml:space="preserve">
     <value>Import slices:</value>
   </data>
+
   <data name="MiltyDraft_ImportSlicesPlaceholder" xml:space="preserve">
     <value>0,0,0,0,0
 0,0,0,0,0
@@ -1385,12 +2149,15 @@
 0,0,0,0,0
 0,0,0,0,0</value>
   </data>
+
   <data name="MiltyDraft_InvalidImportedSlicesStringFormat" xml:space="preserve">
     <value>Your provided string for slices is invalid. It may contain less slices than set in settings or the format is corrupted. Please check your imported string or disable imported slices.</value>
   </data>
+
   <data name="About_Title" xml:space="preserve">
     <value>About the author</value>
   </data>
+
   <data name="About_AboutMe" xml:space="preserve">
     <value>&lt;p&gt;Hello there! I was fortunate enough to be introduced to Twilight Imperium 4th Edition a few years back, and ever since, it has been my favorite game of all time. I fell in love with every aspect of it. Unfortunately, I don't get to play as often as I'd like, but that doesn't stop me from thinking about the game constantly.&lt;/p&gt;
 &lt;/br&gt;
@@ -1398,11 +2165,12 @@
 &lt;/br&gt;
 &lt;p&gt;I've spent countless hours on this project—gathering resources, formatting and resizing images, building an API backend, creating a SQL database, learning Blazor, improving my C# skills, and diving into algorithms. By now, I've likely invested over 1,000 hours into it. The codebase has grown to over 42,000 lines of code (though about one-third of that is boilerplate and copied resources), which feels crazy to me. But I have no regrets about starting this project (though my girlfriend might have a different opinion ^^).&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;This project is documented on GitHub: &lt;a href="https://github.com/Lazik10/TwilightImperiumUltimate" style="color: yellow; text-decoration: none;"&gt;Twilight Imperium Ultimate Project&lt;/a&gt;
+&lt;p&gt;This project is documented on GitHub: &lt;a href=&quot;https://github.com/Lazik10/TwilightImperiumUltimate&quot; style=&quot;color: yellow; text-decoration: none;&quot;&gt;Twilight Imperium Ultimate Project&lt;/a&gt;
 .&lt;/p&gt;
 &lt;/br&gt;
-&lt;p&gt;If you find any bugs or things that aren't working as they should, please contact me on my &lt;a href="https://discord.gg/YZzUMj7dDj" style="color: yellow; text-decoration: none;"&gt;Discord Server&lt;/a&gt; or create an issue on GitHub (link above). I'll do my best to fix it. The same applies if you have ideas for improvements or new feature requests—sky's the limit (and time, of course).&lt;/p&gt;</value>
+&lt;p&gt;If you find any bugs or things that aren't working as they should, please contact me on my &lt;a href=&quot;https://discord.gg/YZzUMj7dDj&quot; style=&quot;color: yellow; text-decoration: none;&quot;&gt;Discord Server&lt;/a&gt; or create an issue on GitHub (link above). I'll do my best to fix it. The same applies if you have ideas for improvements or new feature requests—sky's the limit (and time, of course).&lt;/p&gt;</value>
   </data>
+
   <data name="About_Disclaimer" xml:space="preserve">
     <value>&lt;p&gt;The content on this website is intended to serve as a guide, compendium, and FAQ source for new players looking to explore the gameplay and lore of the Twilight Imperium franchise. Additionally, it offers tools to facilitate easier and faster setup before game day.&lt;/p&gt;
 &lt;/br&gt;
@@ -1411,12 +2179,15 @@
 &lt;p&gt;Twilight Imperium™ and all its expansions are the property of Fantasy Flight Games® (not affiliated with this website).&lt;/p&gt;
 </value>
   </data>
+
   <data name="About_DisclaimerTitle" xml:space="preserve">
     <value>Disclaimer</value>
   </data>
+
   <data name="About_ThankYouTitle" xml:space="preserve">
     <value>Thank you</value>
   </data>
+
   <data name="About_ThankYou" xml:space="preserve">
     <value>&lt;p&gt;I would personally wanted to thank to all people from Fintasy Flight Games who were behind creating this beautiful game.&lt;/p&gt;
 &lt;/br&gt;
@@ -1424,51 +2195,167 @@
 &lt;/br&gt;
 &lt;p&gt;And last thank you goes to all the creators who created a homebrew factions, cards, system tiles and any other stuff out there. I would like to give a credit to you all but I have no idea where to gather all the names. If you want to be mentioned here, let me know and I will add the list for sure!&lt;/p&gt;</value>
   </data>
+
   <data name="SearchForPlayer" xml:space="preserve">
-    <value>Find player with email:</value>
+    <value>Find player by email or login:</value>
   </data>
+
+  <data name="NewsAdmin_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+
+  <data name="NewsAdmin_ContentLabel" xml:space="preserve">
+    <value>Content</value>
+  </data>
+
+  <data name="NewsAdmin_Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+
+  <data name="NewsAdmin_CreateHeading" xml:space="preserve">
+    <value>Create news article</value>
+  </data>
+
+  <data name="NewsAdmin_CreateSuccess" xml:space="preserve">
+    <value>News article created successfully.</value>
+  </data>
+
+  <data name="NewsAdmin_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+
+  <data name="NewsAdmin_DeleteConfirmMessage" xml:space="preserve">
+    <value>Are you sure you want to delete this news article? This cannot be undone.</value>
+  </data>
+
+  <data name="NewsAdmin_DeleteConfirmTitle" xml:space="preserve">
+    <value>Delete news article</value>
+  </data>
+
+  <data name="NewsAdmin_DeleteSuccess" xml:space="preserve">
+    <value>News article deleted successfully.</value>
+  </data>
+
+  <data name="NewsAdmin_Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+
+  <data name="NewsAdmin_EditHeading" xml:space="preserve">
+    <value>Edit news article</value>
+  </data>
+
+  <data name="NewsAdmin_EditMode" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+
+  <data name="NewsAdmin_ExistingArticlesHeading" xml:space="preserve">
+    <value>Existing articles</value>
+  </data>
+
+  <data name="NewsAdmin_PreviewMode" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+
+  <data name="NewsAdmin_TitleLabel" xml:space="preserve">
+    <value>Title</value>
+  </data>
+
+  <data name="NewsAdmin_Update" xml:space="preserve">
+    <value>Save changes</value>
+  </data>
+
+  <data name="NewsAdmin_UpdateSuccess" xml:space="preserve">
+    <value>News article updated successfully.</value>
+  </data>
+
   <data name="Admin_AddUserRole" xml:space="preserve">
     <value>Add role</value>
   </data>
+
   <data name="Admin_AddRoleToUserSuccess" xml:space="preserve">
     <value>Role was successfully added to the user.</value>
   </data>
-  <data name="Admin_UserRoles" xml:space="preserve">
-    <value>Seleceted user roles: </value>
+
+  <data name="Admin_NewsTab" xml:space="preserve">
+    <value>News</value>
   </data>
+
+  <data name="Admin_WebsitesTab" xml:space="preserve">
+    <value>Websites</value>
+  </data>
+
+  <data name="Admin_NoUserSelected" xml:space="preserve">
+    <value>User not selected</value>
+  </data>
+
+  <data name="Admin_PlayerLookupPlaceholder" xml:space="preserve">
+    <value>User name or Email</value>
+  </data>
+
+  <data name="Admin_RolesTab" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+
+  <data name="Admin_SelectedLogin" xml:space="preserve">
+    <value>Login:</value>
+  </data>
+
+  <data name="Admin_TabsLabel" xml:space="preserve">
+    <value>Admin sections</value>
+  </data>
+
+  <data name="Admin_UserRoles" xml:space="preserve">
+    <value>Current user roles: </value>
+  </data>
+
   <data name="SelectedPlayer" xml:space="preserve">
     <value>Player:</value>
   </data>
+
   <data name="SelectedRole" xml:space="preserve">
     <value>Role:</value>
   </data>
+
   <data name="Admin_UserRoleSection" xml:space="preserve">
     <value>User Roles</value>
   </data>
+
   <data name="Admin_RemoveUserRole" xml:space="preserve">
     <value>Remove role</value>
   </data>
+
   <data name="Admin_RemoveRoleFromUserSuccess" xml:space="preserve">
     <value>Role was removed sucessfully from the user.</value>
   </data>
+
   <data name="CardGenerator_CardTitle" xml:space="preserve">
     <value>Title</value>
   </data>
+
   <data name="CardGenerator_CardText" xml:space="preserve">
     <value>Text</value>
   </data>
+
   <data name="CardGenerator_FlavoredText" xml:space="preserve">
     <value>Flavored text</value>
   </data>
+
   <data name="CardGenerator_CardKeywords" xml:space="preserve">
     <value>Keywords</value>
   </data>
+
   <data name="CardGenerator_KeywordsInfo" xml:space="preserve">
     <value>To use keywords separate them by comma. E.g. sustain damage, space cannon, etc...</value>
   </data>
+
   <data name="Page_GameTracker" xml:space="preserve">
     <value>Game Tracker</value>
   </data>
+
+  <data name="Page_GameTracker_PageTitle" xml:space="preserve">
+    <value>Game Tracker | TI4 Ultimate</value>
+  </data>
+
   <data name="About_Credits" xml:space="preserve">
     <value>&lt;p&gt;FOURTH EDITION DEVELOPMENT: Dane Beltrami with Corey Konieczka&lt;/p&gt;
 &lt;p&gt;ORIGINAL GAME DESIGN: Christian T. Petersen&lt;/p&gt;
@@ -1515,117 +2402,191 @@ Kramer Straube, Taylor Swain, AJ Swanson, Zach Tedford, Zeb Tedford, James Thorn
 Tighe, Regine Mualla Tighe, Aaron Uchytil, Jan-cees Voogd, Joris Voogd, Mark Wilkie, and
 Brandon Williams&lt;/p&gt;</value>
   </data>
+
   <data name="About_CreditsTitle" xml:space="preserve">
     <value>Credits</value>
   </data>
+
   <data name="Footer_DevelopedBy" xml:space="preserve">
-    <value>Developed by "Lázik" (2023-2026)</value>
+    <value>Developed by &quot;Lázik&quot; (2023-2026)</value>
   </data>
+
   <data name="Footer_Disclaimer" xml:space="preserve">
     <value>TI4 Ultimate is not affiliated with or sponsored by Fantasy Flight Games®</value>
   </data>
+
   <data name="Footer_Property" xml:space="preserve">
     <value>Twilight Imperium™ and all associated images are the property of Fantasy Flight Games®</value>
   </data>
+
   <data name="SystemTileTypeFilter_Wormholes" xml:space="preserve">
     <value>Wormholes</value>
   </data>
+
   <data name="SystemTileTypeFilter_OnePlanet" xml:space="preserve">
     <value>1 Planet</value>
   </data>
+
   <data name="SystemTileTypeFilter_TwoPlanets" xml:space="preserve">
     <value>2 Planets</value>
   </data>
+
   <data name="SystemTileTypeFilter_ThreePlanets" xml:space="preserve">
     <value>3 Planets</value>
   </data>
+
   <data name="SystemTileTypeFilter_Legendary" xml:space="preserve">
     <value>Legendaries</value>
   </data>
+
   <data name="GameTracker_EnablePlayerNames" xml:space="preserve">
     <value>Enable player names:</value>
   </data>
+
   <data name="GameTracker_Settings" xml:space="preserve">
     <value>Game Settings</value>
   </data>
+
   <data name="GameTracker_NumberOfPlayers" xml:space="preserve">
     <value>Number of players:</value>
   </data>
+
   <data name="GameTracker_ScorePoints" xml:space="preserve">
     <value>Score points:</value>
   </data>
+
   <data name="GameTracker_InitializePhaseComplete" xml:space="preserve">
     <value>Begin Game</value>
   </data>
+
   <data name="GameTracker_PlayersInTableOrder" xml:space="preserve">
     <value>( Important: Fill the players information in order from the speaker! )</value>
   </data>
+
   <data name="Page_MapArchive" xml:space="preserve">
-    <value>Map archive</value>
+     <value>Map Archive</value>
   </data>
+
+  <data name="Page_MapArchive_PageTitle" xml:space="preserve">
+    <value>Map Archive | TI4 Ultimate</value>
+  </data>
+
+    <data name="Page_NewMap_PageTitle" xml:space="preserve">
+      <value>New Map | TI4 Ultimate</value>
+    </data>
+
+  <data name="Page_MapDetail_PageTitle" xml:space="preserve">
+    <value>Map Detail | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_SlicesArchive" xml:space="preserve">
-    <value>Slices archive</value>
+     <value>Slices Archive</value>
   </data>
+
+  <data name="Page_SlicesArchive_PageTitle" xml:space="preserve">
+    <value>Slices Archive | TI4 Ultimate</value>
+  </data>
+
+    <data name="Page_NewSlices_PageTitle" xml:space="preserve">
+      <value>New Slices | TI4 Ultimate</value>
+    </data>
+
+      <data name="MapArchive_RegisterToAddMap" xml:space="preserve">
+        <value>Please register if you want to add your own map.</value>
+      </data>
+
+      <data name="SlicesArchive_RegisterToAddSlices" xml:space="preserve">
+        <value>Please register if you want to add your own slices.</value>
+      </data>
+
   <data name="MapArchive_MapName" xml:space="preserve">
     <value>Name:</value>
   </data>
+
   <data name="MapArchive_MapRating" xml:space="preserve">
     <value>Overall:</value>
   </data>
+
   <data name="MapArchive_MapEvent" xml:space="preserve">
     <value>Event:</value>
   </data>
+
   <data name="MapArchive_MapDescription" xml:space="preserve">
     <value>Description:</value>
   </data>
+
   <data name="MapArchive_MapAuthor" xml:space="preserve">
     <value>Author:</value>
   </data>
+
   <data name="MapArchive_TtsString" xml:space="preserve">
     <value>TTS String:</value>
   </data>
+
   <data name="MapArchive_MapGeneratorLink" xml:space="preserve">
     <value>Map generator link:</value>
   </data>
+
   <data name="MapArchive_MapArchiveLink" xml:space="preserve">
     <value>Archive link:</value>
   </data>
+
   <data name="MapArchive_DescriptionPlaceholder" xml:space="preserve">
     <value>Copy map description here (supports HTML tags and inline CSS styles)</value>
   </data>
+
   <data name="MapArchive_MapTemplate" xml:space="preserve">
     <value>Map template:</value>
   </data>
+
   <data name="MapArchive_SaveMap" xml:space="preserve">
     <value>Save map</value>
   </data>
+
   <data name="MapsArchive_MapAlreadyExistsError" xml:space="preserve">
     <value>Unable to add the map to the database because map with this name and event name already exists!</value>
   </data>
+
   <data name="FilterOrder_Descending" xml:space="preserve">
     <value>Descending</value>
   </data>
+
   <data name="FilterOrder_Ascending" xml:space="preserve">
     <value>Ascending</value>
   </data>
+
   <data name="MapArchive_UserRating" xml:space="preserve">
     <value>Your:</value>
   </data>
+
+  <data name="StarRating_GroupLabel" xml:space="preserve">
+    <value>Rating</value>
+  </data>
+
+  <data name="StarRating_StarsLabel" xml:space="preserve">
+    <value>{0} out of 5 stars</value>
+  </data>
+
   <data name="ButtonBack" xml:space="preserve">
     <value>&amp;#8249;  Back</value>
   </data>
+
   <data name="MapArchiveButton_NewMap" xml:space="preserve">
     <value>New map</value>
   </data>
+
   <data name="MapTemplateFilter_All" xml:space="preserve">
     <value>All</value>
   </data>
+
   <data name="Register_UserName" xml:space="preserve">
     <value>Username</value>
   </data>
+
   <data name="MapGenerator_EnterMapString" xml:space="preserve">
     <value>Enter import string</value>
   </data>
+
   <data name="SlicesGenerator_EnterSlicesString" xml:space="preserve">
     <value>0,0,0,0,0
 0,0,0,0,0
@@ -1634,1354 +2595,2271 @@ Brandon Williams&lt;/p&gt;</value>
 0,0,0,0,0
 0,0,0,0,0</value>
   </data>
+
   <data name="ButtonText_LoadMap" xml:space="preserve">
     <value>Load map</value>
   </data>
+
   <data name="ButtonText_LoadSlices" xml:space="preserve">
     <value>Load slices</value>
   </data>
+
   <data name="SlicesArchive_SliceDraftAuthor" xml:space="preserve">
     <value>Author:</value>
   </data>
+
   <data name="SlicesArchive_SliceDraftName" xml:space="preserve">
     <value>Name:</value>
   </data>
+
   <data name="SlicesArchive_SliceDraftEventName" xml:space="preserve">
     <value>Event:</value>
   </data>
+
   <data name="SlicesArchive_SlicesCount" xml:space="preserve">
     <value>Count:</value>
   </data>
+
   <data name="SlicesArchive_SliceDraftDescription" xml:space="preserve">
     <value>Description:</value>
   </data>
+
   <data name="SlicesArchive_DescriptionPlaceholder" xml:space="preserve">
     <value>Copy slice draft description here (supports HTML tags and inline CSS styles)</value>
   </data>
+
   <data name="ButtonText_Preview" xml:space="preserve">
     <value>Preview</value>
   </data>
+
   <data name="ButtonText_Edit" xml:space="preserve">
     <value>Edit</value>
   </data>
+
   <data name="SlicesArchive_SlicesString" xml:space="preserve">
     <value>Slices:</value>
   </data>
+
   <data name="SlicesArchive_SliceGeneratorLink" xml:space="preserve">
     <value>Slices generator link:</value>
   </data>
+
   <data name="ButtonText_SaveMap" xml:space="preserve">
     <value>Save map</value>
   </data>
+
   <data name="ButtonText_SaveSliceDraft" xml:space="preserve">
     <value>Save slice draft</value>
   </data>
+
   <data name="SlicesArchive_SliceDraftAlreadyExistsError" xml:space="preserve">
     <value>Unable to add the slice draft to the database because slice draft with this name and event name already exists!</value>
   </data>
+
   <data name="SliceArchive_SliceName" xml:space="preserve">
     <value>Slice name</value>
   </data>
+
   <data name="SlicesArchiveButton_NewSlice" xml:space="preserve">
     <value>Add new slice</value>
   </data>
+
   <data name="SlicesArchive_SliceDraftRating" xml:space="preserve">
     <value>Rating:</value>
   </data>
+
   <data name="SlicesArchive_SliceDraftSliseCount" xml:space="preserve">
     <value>Slices:</value>
   </data>
+
   <data name="ButtonText_Clear" xml:space="preserve">
     <value>Clear</value>
   </data>
+
+  <data name="ButtonText_ClearFilters" xml:space="preserve">
+    <value>Clear Filters</value>
+  </data>
+
+  <data name="ButtonText_Copy" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+
+  <data name="ButtonText_Copied" xml:space="preserve">
+    <value>Copied!</value>
+  </data>
+
+  <data name="Table_ResizeColumnHandle" xml:space="preserve">
+    <value>Resize column</value>
+  </data>
+
   <data name="ButtonText_View" xml:space="preserve">
     <value>View</value>
   </data>
+
   <data name="SliceCountFilter_All" xml:space="preserve">
     <value>All</value>
   </data>
+
   <data name="SliceCountFilter_ThreeSlices" xml:space="preserve">
     <value>3</value>
   </data>
+
   <data name="SliceCountFilter_FourSlices" xml:space="preserve">
     <value>4</value>
   </data>
+
   <data name="SliceCountFilter_FiveSlices" xml:space="preserve">
     <value>5</value>
   </data>
+
   <data name="SliceCountFilter_SixSlices" xml:space="preserve">
     <value>6</value>
   </data>
+
   <data name="SliceCountFilter_SevenSlices" xml:space="preserve">
     <value>7</value>
   </data>
+
   <data name="SliceCountFilter_EightSlices" xml:space="preserve">
     <value>8</value>
   </data>
+
   <data name="SliceCountFilter_NineSlices" xml:space="preserve">
     <value>9</value>
   </data>
+
   <data name="SlicesArchive_SliceDraftUserRating" xml:space="preserve">
     <value>Your:</value>
   </data>
+
   <data name="SlicesArchive_SliceDraftArchiveLink" xml:space="preserve">
     <value>Archive link:</value>
   </data>
+
   <data name="Registration_UsernameExists" xml:space="preserve">
     <value>Account with this username already exists.</value>
   </data>
+
   <data name="Registration_EmailExists" xml:space="preserve">
     <value>Account with this email already exists.</value>
   </data>
+
   <data name="Login_Username" xml:space="preserve">
     <value>Username</value>
   </data>
+
   <data name="UserInfo_UpdateSuccess" xml:space="preserve">
     <value>Update completed successfully.</value>
   </data>
+
   <data name="UserInfo_UpdateFailed" xml:space="preserve">
     <value>Update failed.</value>
   </data>
+
   <data name="Page_GalaxyMap" xml:space="preserve">
     <value>Galaxy Map</value>
   </data>
+
+  <data name="Page_GalaxyMap_PageTitle" xml:space="preserve">
+    <value>Galaxy Map | TI4 Ultimate</value>
+  </data>
+
   <data name="GameTracker_StageOneObjectives" xml:space="preserve">
     <value>Stage I</value>
   </data>
+
   <data name="GameTracker_StageTwoObjectives" xml:space="preserve">
     <value>Stage II</value>
   </data>
+
   <data name="ButtonText_Play" xml:space="preserve">
     <value>&amp;#10148;</value>
   </data>
+
   <data name="ButtonText_Pause" xml:space="preserve">
     <value>&amp;#10073;&amp;#10073;</value>
   </data>
+
   <data name="ButtonText_Reset" xml:space="preserve">
     <value>&amp;#9723;</value>
   </data>
+
   <data name="ButtonText_Reveal" xml:space="preserve">
     <value>Reveal</value>
   </data>
+
   <data name="ObjectiveGrid_ManualPick" xml:space="preserve">
     <value>Manual pick:</value>
   </data>
+
   <data name="ObjectiveGrid_ScoreMode" xml:space="preserve">
     <value>Enable scoring:</value>
   </data>
+
   <data name="GameTracker_StrategyCards" xml:space="preserve">
     <value>Strategy</value>
   </data>
+
   <data name="GameTracker_Agenda" xml:space="preserve">
     <value>Agenda</value>
   </data>
+
   <data name="GameTracker_BonusPoints" xml:space="preserve">
     <value>Bonus Points</value>
   </data>
+
   <data name="GameTracker_Objectives" xml:space="preserve">
     <value>Objectives</value>
   </data>
+
   <data name="GameTracker_Overview" xml:space="preserve">
     <value>Overview</value>
   </data>
+
   <data name="GameTracker_PublicObjectives" xml:space="preserve">
     <value>Public</value>
   </data>
+
   <data name="GameTracker_SecretObjectives" xml:space="preserve">
     <value>Secret</value>
   </data>
+
   <data name="GameTracker_ManualObjectivePick" xml:space="preserve">
     <value>Manual Pick</value>
   </data>
+
   <data name="GameTracker_Scoring" xml:space="preserve">
     <value>Scoring</value>
   </data>
+
   <data name="ButtonText_Agenda" xml:space="preserve">
     <value>Agenda</value>
   </data>
+
   <data name="GameTracker_Round" xml:space="preserve">
     <value>Round: </value>
   </data>
+
   <data name="GameTracker_Points" xml:space="preserve">
     <value>Points: </value>
   </data>
+
   <data name="Update_Notification" xml:space="preserve">
     <value>There is newer version of the website app. Please update your version by clicking on this update button:</value>
   </data>
+
   <data name="ButtonText_Reload" xml:space="preserve">
     <value>Reload</value>
   </data>
+
   <data name="SliceEvaluation_Specifications" xml:space="preserve">
     <value>Specifications</value>
   </data>
+
   <data name="MapTemplate_FourPlayersMediumHyperlineMap" xml:space="preserve">
     <value>4P Hyperline</value>
   </data>
+
   <data name="MapTemplate_ThreePlayersMediumHyperlineMap" xml:space="preserve">
     <value>3P Hyperline</value>
   </data>
+
   <data name="MapTemplateFilter_FourPlayersMediumHyperlineMap" xml:space="preserve">
     <value>4P Hyperline</value>
   </data>
+
   <data name="MapTemplateFilter_ThreePlayersMediumHyperlineMap" xml:space="preserve">
     <value>3P Hyperline</value>
   </data>
+
   <data name="SystemTileOverlay_MapPosition" xml:space="preserve">
     <value>Map position</value>
   </data>
+
   <data name="Page_Async" xml:space="preserve">
     <value>Async</value>
   </data>
+
+  <data name="Page_Async_PageTitle" xml:space="preserve">
+    <value>Async | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_Tigl" xml:space="preserve">
     <value>TIGL</value>
   </data>
+
   <data name="Page_TiglReportGame" xml:space="preserve">
     <value>Report Game</value>
   </data>
+
+  <data name="Page_TiglReportGame_PageTitle" xml:space="preserve">
+    <value>TIGL Report Game | TI4 Ultimate</value>
+  </data>
+
   <data name="Page_TiglRegister" xml:space="preserve">
     <value>Register</value>
   </data>
+
+  <data name="Page_TiglRegister_PageTitle" xml:space="preserve">
+    <value>TIGL Registration | TI4 Ultimate</value>
+  </data>
+
   <data name="AsyncMenu_Games" xml:space="preserve">
     <value>GAMES</value>
   </data>
+
   <data name="AsyncMenu_Players" xml:space="preserve">
     <value>PLAYERS</value>
   </data>
+
   <data name="PlayerStatisticsType_Picker" xml:space="preserve">
     <value>Statistics:</value>
   </data>
+
   <data name="PlayerStatisticsType_All" xml:space="preserve">
     <value>All</value>
   </data>
+
   <data name="PlayerStatisticsType_Tigl" xml:space="preserve">
     <value>TIGL</value>
   </data>
+
   <data name="PlayerStatisticsType_Custom" xml:space="preserve">
-    <value>Custom</value>
+     <value>Casual</value>
   </data>
+
   <data name="CombatStats_Title" xml:space="preserve">
     <value>Combat Stats</value>
   </data>
+
   <data name="CombatStats_ExpectedHits" xml:space="preserve">
     <value>Expected Hits</value>
   </data>
+
   <data name="CombatStats_ActualHits" xml:space="preserve">
     <value>Actual Hits</value>
   </data>
+
   <data name="CombatStats_HitsDeviation" xml:space="preserve">
     <value>Hits Deviation</value>
   </data>
+
   <data name="CombatStats_MinHits" xml:space="preserve">
     <value>Min Hits</value>
   </data>
+
   <data name="CombatStats_AverageHits" xml:space="preserve">
     <value>Average Hits</value>
   </data>
+
   <data name="CombatStats_MaxHits" xml:space="preserve">
     <value>Max Hits</value>
   </data>
+
   <data name="AsyncGeneralStats_Title" xml:space="preserve">
     <value>Game Stats</value>
   </data>
+
   <data name="AsyncStats_Games" xml:space="preserve">
     <value>Games</value>
   </data>
+
   <data name="GameStats_Games" xml:space="preserve">
     <value>Games</value>
   </data>
+
   <data name="AsyncStats_Wins" xml:space="preserve">
     <value>Wins</value>
   </data>
+
   <data name="GameStats_Wins" xml:space="preserve">
     <value>Wins</value>
   </data>
+
   <data name="AsyncStats_Active" xml:space="preserve">
     <value>Active</value>
   </data>
+
   <data name="GameStats_Active" xml:space="preserve">
     <value>Active</value>
   </data>
+
   <data name="AsyncStats_Finished" xml:space="preserve">
     <value>Finished</value>
   </data>
+
   <data name="GameStats_Finished" xml:space="preserve">
     <value>Finished</value>
   </data>
+
   <data name="AsyncStats_Eliminations" xml:space="preserve">
     <value>Eliminations</value>
   </data>
+
   <data name="GameStats_Eliminations" xml:space="preserve">
     <value>Eliminated</value>
   </data>
+
   <data name="TurnStats_NumberOfTurns" xml:space="preserve">
     <value>Number of turns</value>
   </data>
+
   <data name="TurnStats_AverageTurnTime" xml:space="preserve">
     <value>Average time</value>
   </data>
+
   <data name="VpStats_Title" xml:space="preserve">
     <value>VP Stats</value>
   </data>
+
   <data name="VpStats_AverageVp" xml:space="preserve">
     <value>Avg VP/G</value>
   </data>
+
   <data name="VpStats_Games" xml:space="preserve">
     <value>Games</value>
   </data>
+
   <data name="VpStats_10VP" xml:space="preserve">
     <value>10 VP</value>
   </data>
+
   <data name="VpStats_12VP" xml:space="preserve">
     <value>12 VP</value>
   </data>
+
   <data name="VpStats_14VP" xml:space="preserve">
     <value>14 VP</value>
   </data>
+
   <data name="AsyncGameStats_GameType" xml:space="preserve">
     <value>Games:</value>
   </data>
+
   <data name="AsyncStats_Winrate" xml:space="preserve">
     <value>Winrate</value>
   </data>
+
   <data name="GameStats_Winrate" xml:space="preserve">
     <value>Winrate</value>
   </data>
+
   <data name="VpStats_VictoryPoints" xml:space="preserve">
     <value>Category</value>
   </data>
+
   <data name="AsyncStats_Filter" xml:space="preserve">
-    <value>Filter:</value>
+     <value>Filter</value>
   </data>
+
   <data name="FactionStats_Factions" xml:space="preserve">
     <value>Factions:</value>
   </data>
+
   <data name="FactionStatisticsFilter_Official" xml:space="preserve">
     <value>Official</value>
   </data>
+
   <data name="FactionStatisticsFilter_DiscordantStars" xml:space="preserve">
     <value>Unofficial</value>
   </data>
+
   <data name="FactionStatisticsFilter_Others" xml:space="preserve">
     <value>Others</value>
   </data>
+
   <data name="AsyncMenu_Statistics" xml:space="preserve">
     <value>STATISTICS</value>
   </data>
+
   <data name="AsyncPlayers_DiscordNameSearch" xml:space="preserve">
     <value>Discord Name:</value>
   </data>
+
   <data name="FactionStatisticsVpFilter_All" xml:space="preserve">
     <value>All</value>
   </data>
+
   <data name="FactionStatisticsVpFilter_TenVp" xml:space="preserve">
     <value>10 VP</value>
   </data>
+
   <data name="FactionStatisticsVpFilter_TwelveVp" xml:space="preserve">
     <value>12 VP</value>
   </data>
+
   <data name="FactionStatisticsVpFilter_FourteenVp" xml:space="preserve">
     <value>14 VP</value>
   </data>
+
   <data name="FactionStats_VpCount" xml:space="preserve">
     <value>VP:</value>
   </data>
+
   <data name="OpponentStats_Opponents" xml:space="preserve">
     <value>Top 20 opponents</value>
   </data>
+
   <data name="OpponentStats_DiscordUsername" xml:space="preserve">
-    <value>Discord Username</value>
+    <value>Player</value>
   </data>
+
   <data name="OpponentStats_Games" xml:space="preserve">
     <value>Games</value>
   </data>
+
   <data name="OpponentStats_Profile" xml:space="preserve">
     <value>Async profile</value>
   </data>
+
   <data name="OpponentStats_ViewProfile" xml:space="preserve">
     <value>View</value>
   </data>
+
   <data name="FactionStats_Statistics" xml:space="preserve">
     <value>Statistics:</value>
   </data>
+
   <data name="FactionStats_Faction" xml:space="preserve">
     <value>Faction</value>
   </data>
+
   <data name="FactionStats_Games" xml:space="preserve">
     <value>Games</value>
   </data>
+
   <data name="FactionStats_Wins" xml:space="preserve">
     <value>Wins</value>
   </data>
+
   <data name="FactionStats_WinPercentage" xml:space="preserve">
     <value>Win %</value>
   </data>
+
   <data name="FactionStats_Eliminations" xml:space="preserve">
     <value>Eliminated</value>
   </data>
+
   <data name="FactionStats_MinVp" xml:space="preserve">
     <value>Min VP</value>
   </data>
+
   <data name="FactionStats_AverageVp" xml:space="preserve">
     <value>Avg VP</value>
   </data>
+
   <data name="FactionStats_MaxVp" xml:space="preserve">
     <value>Max VP</value>
   </data>
+
   <data name="FactionStats_AverageVpPercentage" xml:space="preserve">
     <value>Avg VP %</value>
   </data>
+
   <data name="FactionStats_All" xml:space="preserve">
-    <value>All</value>
+    <value>Overall</value>
   </data>
+
   <data name="FactionStatisticsSubstatsFilter_All" xml:space="preserve">
-    <value>All</value>
+    <value>Overall</value>
   </data>
+
   <data name="FactionStatisticsSubstatsFilter_Games" xml:space="preserve">
     <value>Games</value>
   </data>
+
   <data name="FactionStatisticsSubstatsFilter_Wins" xml:space="preserve">
     <value>Wins</value>
   </data>
+
   <data name="FactionStatisticsSubstatsFilter_WinPercentage" xml:space="preserve">
     <value>Win %</value>
   </data>
+
   <data name="FactionStatisticsSubstatsFilter_Eliminations" xml:space="preserve">
     <value>Eliminated</value>
   </data>
+
   <data name="FactionStatisticsSubstatsFilter_MinVp" xml:space="preserve">
     <value>Min VP</value>
   </data>
+
   <data name="FactionStatisticsSubstatsFilter_AverageVp" xml:space="preserve">
     <value>Average VP</value>
   </data>
+
   <data name="FactionStatisticsSubstatsFilter_MaxVp" xml:space="preserve">
     <value>Max VP</value>
   </data>
+
   <data name="FactionStatisticsSubstatsFilter_AverageVpPercentage" xml:space="preserve">
     <value>Avg VP %</value>
   </data>
+
   <data name="AsyncPlayer_Statistics_Private" xml:space="preserve">
     <value>Statistics are unavailable due to the user's privacy preferences.</value>
   </data>
+
   <data name="AsyncPlayer_HiddenStat" xml:space="preserve">
     <value>???</value>
   </data>
+
   <data name="AsyncPlayersList_NoPlayersFound" xml:space="preserve">
     <value>... Searching for players ...</value>
   </data>
+
   <data name="AsyncPlayer_GamesStatsTitle" xml:space="preserve">
     <value>Games</value>
   </data>
+
+  <data name="AsyncPlayer_GamesStatsExpandAll" xml:space="preserve">
+    <value>Expand All</value>
+  </data>
+
+  <data name="AsyncPlayer_GamesStatsCollapseAll" xml:space="preserve">
+    <value>Collapse All</value>
+  </data>
+
   <data name="AsyncPlayer_GamesStatsYear" xml:space="preserve">
     <value>Year</value>
   </data>
+
   <data name="AsyncPlayer_GamesStatsMonth" xml:space="preserve">
     <value>Month</value>
   </data>
+
   <data name="AsyncPlayer_GamesStatsVp" xml:space="preserve">
     <value>VP</value>
   </data>
+
+  <data name="AsyncPlayer_GamesStatsWin" xml:space="preserve">
+    <value>W</value>
+  </data>
+
   <data name="AsyncPlayer_GamesStatsDuration" xml:space="preserve">
     <value>Duration</value>
   </data>
+
   <data name="AsyncPlayer_GamesStatsGame" xml:space="preserve">
     <value>Game</value>
   </data>
+
   <data name="AsyncPlayer_GamesStatsPlayerCount" xml:space="preserve">
     <value>Players</value>
   </data>
+
   <data name="AsyncGameType_All" xml:space="preserve">
     <value>All</value>
   </data>
+
   <data name="AsyncGameType_Tigl" xml:space="preserve">
     <value>TIGL</value>
   </data>
+
   <data name="AsyncGameType_Custom" xml:space="preserve">
-    <value>Custom</value>
+     <value>Casual</value>
   </data>
+
   <data name="AsyncPlayer_GamesStatsFaction" xml:space="preserve">
     <value>Faction</value>
   </data>
+
   <data name="AsyncPlayer_GamesStatsFunGame" xml:space="preserve">
     <value>Fun Game Name</value>
   </data>
+
   <data name="Loading" xml:space="preserve">
     <value>... LOADING ...</value>
   </data>
+
   <data name="AsyncGameStats_GameStatus" xml:space="preserve">
     <value>Status: </value>
   </data>
+
   <data name="AsyncGameStatusFilter_All" xml:space="preserve">
     <value>All</value>
   </data>
+
   <data name="AsyncGameStatusFilter_Active" xml:space="preserve">
     <value>Active</value>
   </data>
+
   <data name="AsyncGameStatusFilter_Finished" xml:space="preserve">
     <value>Finished</value>
   </data>
+
   <data name="AsyncStatisticsTypeMenuItem_General" xml:space="preserve">
     <value>General</value>
   </data>
+
   <data name="AsyncStatisticsTypeMenuItem_Turns" xml:space="preserve">
     <value>Turns</value>
   </data>
+
   <data name="AsyncStatisticsTypeMenuItem_Combat" xml:space="preserve">
     <value>Combat</value>
   </data>
+
   <data name="AsyncStatisticsTypeMenuItem_History" xml:space="preserve">
     <value>History</value>
   </data>
+
   <data name="AsyncStatisticsTypeMenuItem_Factions" xml:space="preserve">
     <value>Factions</value>
   </data>
+
   <data name="AsyncStatisticsTypeMenuItem_CategoryTitle" xml:space="preserve">
     <value>Category</value>
   </data>
+
   <data name="AsyncStatisticsTypeMenuItem_Vp" xml:space="preserve">
     <value>Victory points</value>
   </data>
+
   <data name="AsyncGames_GamesStatsTitle" xml:space="preserve">
     <value>Games</value>
   </data>
+
   <data name="AsyncGames_MostGamesTitle" xml:space="preserve">
     <value>Most Games Played</value>
   </data>
+
   <data name="AsyncGames_MostActivePlayerActive" xml:space="preserve">
     <value>Active</value>
   </data>
+
   <data name="AsyncGames_MostActivePlayerEliminated" xml:space="preserve">
     <value>Eliminated</value>
   </data>
+
   <data name="AsyncGames_MostActivePlayerFinished" xml:space="preserve">
     <value>Finished</value>
   </data>
+
   <data name="AsyncGames_MostActivePlayerGames" xml:space="preserve">
     <value>Games</value>
   </data>
+
   <data name="AsyncGames_MostActivePlayerName" xml:space="preserve">
     <value>Username</value>
   </data>
+
   <data name="AsyncGames_MostActiveGames" xml:space="preserve">
     <value>Most Active Games</value>
   </data>
+
   <data name="AsyncGames_MostActiveGamesTitle" xml:space="preserve">
     <value>Most Active Games</value>
   </data>
+
   <data name="AsyncGames_MostEliminationsTitle" xml:space="preserve">
     <value>Most Eliminated Players</value>
   </data>
+
   <data name="AsyncGames_MostWinsTitle" xml:space="preserve">
     <value>Most Total Wins</value>
   </data>
+
   <data name="AsyncGames_Wins" xml:space="preserve">
     <value>Wins</value>
   </data>
+
   <data name="AsyncGames_WinsPercentage" xml:space="preserve">
     <value>Win %</value>
   </data>
+
   <data name="AsyncStats_Players" xml:space="preserve">
     <value>Players</value>
   </data>
+
   <data name="AsyncStats_ActivePlayers" xml:space="preserve">
     <value>Active Players</value>
   </data>
+
   <data name="GameStats_Title" xml:space="preserve">
     <value>Games</value>
   </data>
+
   <data name="AsyncStatisticsTypeMenuItem_Games" xml:space="preserve">
     <value>Games</value>
   </data>
+
   <data name="AsyncStatisticsTypeMenuItem_Wins" xml:space="preserve">
     <value>Wins</value>
   </data>
+
   <data name="AsyncStatisticsTypeMenuItem_Eliminations" xml:space="preserve">
     <value>Eliminations</value>
   </data>
+
   <data name="AsyncGames_PlayersStatsTitle" xml:space="preserve">
     <value>Players</value>
   </data>
+
   <data name="AsyncStats_Username" xml:space="preserve">
     <value>Username</value>
   </data>
+
   <data name="AsyncStats_MostGames" xml:space="preserve">
     <value>Most games</value>
   </data>
+
   <data name="AsyncGames_MostWinPercentageTitle" xml:space="preserve">
     <value>Win %</value>
   </data>
+
   <data name="AsyncGames_MostVpPercentageTitle" xml:space="preserve">
     <value>VP %</value>
   </data>
+
   <data name="AsyncStats_VpPercentage" xml:space="preserve">
     <value>VP %</value>
   </data>
+
   <data name="AsyncStats_VpPossibleTotal" xml:space="preserve">
     <value>Possible VP</value>
   </data>
+
   <data name="AsyncStats_VpTotal" xml:space="preserve">
     <value>Total VP</value>
   </data>
+
   <data name="AsyncGames_MostEliminationsPercentageTitle" xml:space="preserve">
     <value>Players With Highest Eliminated %</value>
   </data>
+
   <data name="AsyncStats_EliminationsPercentage" xml:space="preserve">
     <value>Eliminated %</value>
   </data>
+
   <data name="AsyncGames_MostWinsDeviationTitle" xml:space="preserve">
     <value>Highest Win Deviation %</value>
   </data>
+
   <data name="AsyncStats_WinDeviation" xml:space="preserve">
     <value>Win Deviation %</value>
   </data>
+
   <data name="AsyncGames_MostTurnsTitle" xml:space="preserve">
     <value>Most Turns</value>
   </data>
+
   <data name="AsyncGames_FastestPlayersTitle" xml:space="preserve">
     <value>Fastest Players</value>
   </data>
+
   <data name="AsyncStats_AverageTurnTime" xml:space="preserve">
     <value>Average Turn Time</value>
   </data>
+
   <data name="AsyncStats_Turns" xml:space="preserve">
     <value>Turns</value>
   </data>
+
   <data name="AsyncStats_Hits" xml:space="preserve">
     <value>Hits</value>
   </data>
+
   <data name="AsyncGames_MostHitsTitle" xml:space="preserve">
     <value>Total Hits</value>
   </data>
+
   <data name="AsyncGames_MostAverageHits" xml:space="preserve">
     <value>Average Hits</value>
   </data>
+
   <data name="AsyncGames_MaxAverageHitsPerGameTitle" xml:space="preserve">
     <value>Average Hits</value>
   </data>
+
   <data name="AsyncStats_AverageHits" xml:space="preserve">
     <value>Average Hits</value>
   </data>
+
   <data name="AsyncGames_MaxHitsPerGameTitle" xml:space="preserve">
     <value>Max Hits per Game</value>
   </data>
+
   <data name="AsyncStats_MaxHits" xml:space="preserve">
     <value>Max Hits</value>
   </data>
+
   <data name="AsyncGames_HighestHitsDeviationTitle" xml:space="preserve">
     <value>Highest Hits Deviation%</value>
   </data>
+
   <data name="AsyncStats_HitsDeviation" xml:space="preserve">
     <value>Hits Deviation %</value>
   </data>
+
   <data name="AsyncGames_LowestHitsDeviationTitle" xml:space="preserve">
     <value>Lowest Hits Deviation %</value>
   </data>
+
   <data name="AsyncGames_MinGamesCount" xml:space="preserve">
     <value>(min. 20 games)</value>
   </data>
+
   <data name="AsyncGames_MinTurns" xml:space="preserve">
     <value>(min. 500 turns)</value>
   </data>
+
   <data name="AsyncStatisticsTypeMenuItem_Durations" xml:space="preserve">
     <value>Durations</value>
   </data>
+
   <data name="AsyncGames_FastestGamesTitle" xml:space="preserve">
     <value>Fastest Games</value>
   </data>
+
   <data name="AsyncGames_MinSixPlayers" xml:space="preserve">
     <value>(min. 6 players)</value>
   </data>
+
   <data name="AsyncStats_Game" xml:space="preserve">
     <value>Game</value>
   </data>
+
   <data name="AsyncStats_FunGameName" xml:space="preserve">
     <value>Fun Game Name</value>
   </data>
+
   <data name="AsyncStats_Vp" xml:space="preserve">
     <value>VP</value>
   </data>
+
   <data name="AsyncStats_Duration" xml:space="preserve">
     <value>Duration</value>
   </data>
+
   <data name="AsyncGames_FastestGames" xml:space="preserve">
     <value>Fastest Games</value>
   </data>
+
   <data name="AsyncGames_LongestGamesTitle" xml:space="preserve">
     <value>Longest Games</value>
   </data>
+
   <data name="AsyncGames_GameStatsVpDistribution" xml:space="preserve">
     <value>Games By VP Distribution</value>
   </data>
+
   <data name="AsyncGames_PlayerCountDistribution" xml:space="preserve">
     <value>Games By Player Count Distribution</value>
   </data>
+
   <data name="AsyncGames_AverageEndTurnDistribution" xml:space="preserve">
     <value>Average End Round</value>
   </data>
+
   <data name="AsyncStats_QueryLimit" xml:space="preserve">
     <value>Limit</value>
   </data>
+
   <data name="QueryLimit_Twenty" xml:space="preserve">
     <value>20</value>
   </data>
+
   <data name="QueryLimit_Fifty" xml:space="preserve">
     <value>50</value>
   </data>
+
   <data name="QueryLimit_Hundred" xml:space="preserve">
     <value>100</value>
   </data>
+
   <data name="QueryLimit_TwoHundred" xml:space="preserve">
     <value>200</value>
   </data>
+
   <data name="QueryLimit_None" xml:space="preserve">
     <value>-</value>
   </data>
+
   <data name="AsyncStats_AverageRounds" xml:space="preserve">
     <value>Avg Round</value>
   </data>
+
   <data name="AsyncStats_Total" xml:space="preserve">
     <value>Total</value>
   </data>
+
   <data name="AsyncPlayersList_NoPlayerMatch" xml:space="preserve">
     <value>No player matches this filter.</value>
   </data>
+
   <data name="AsyncGames_MostVpTitle" xml:space="preserve">
     <value>Players With Most VP</value>
   </data>
+
   <data name="AsyncGames_MostUniqueOpponentsTitle" xml:space="preserve">
     <value>Most Unique Opponents</value>
   </data>
+
   <data name="AsyncStats_UniqueOpponents" xml:space="preserve">
     <value>Opponents</value>
   </data>
+
   <data name="AsyncStatisticsTypeMenuItem_Opponents" xml:space="preserve">
     <value>Opponents</value>
   </data>
+
   <data name="AsyncGames_GamesHistoryTitle" xml:space="preserve">
     <value>Games Count History</value>
   </data>
+
   <data name="AsyncStats_Year" xml:space="preserve">
     <value>Year</value>
   </data>
+
   <data name="AsyncStats_Month" xml:space="preserve">
     <value>Month</value>
   </data>
+
   <data name="AsyncGames_PlayersHistoryTitle" xml:space="preserve">
     <value>Player Count History</value>
   </data>
+
   <data name="AsyncGames_NewPlayersHistoryTitle" xml:space="preserve">
     <value>New Players Growth Per Month</value>
   </data>
+
   <data name="AsyncGames_NewGamesPerMonthHistoryTitle" xml:space="preserve">
     <value>New Games Per Month</value>
   </data>
+
   <data name="AsyncGameStatusFilter_Forfeited" xml:space="preserve">
     <value>Forfeited</value>
   </data>
+
   <data name="AsyncStats_Inactive" xml:space="preserve">
     <value>Inactive</value>
   </data>
+
   <data name="AsyncStats_InactiveMoreThanThreeMonths" xml:space="preserve">
     <value>&gt; 3m Inactive</value>
   </data>
+
   <data name="AsyncStats_InactiveLessThanThreeMonths" xml:space="preserve">
     <value>&lt; 3m Inactive</value>
   </data>
+
   <data name="AsyncStats_Cancelled" xml:space="preserve">
     <value>Cancelled</value>
   </data>
+
   <data name="AsyncStats_TimerCategory" xml:space="preserve">
     <value>Category</value>
   </data>
+
   <data name="AsyncGames_PlayersByAverageTimerDistributionTitle" xml:space="preserve">
     <value>Players By Average Timer Distribution</value>
   </data>
+
   <data name="VpStats_TotalVp" xml:space="preserve">
     <value>Total</value>
   </data>
+
   <data name="VpStats_MaxPossibleVp" xml:space="preserve">
     <value>Max Possible</value>
   </data>
+
   <data name="VpStats_AverageVpPercentage" xml:space="preserve">
     <value>Avg VP%/G</value>
   </data>
+
   <data name="VpStats_VpPercentageOfTotal" xml:space="preserve">
     <value>% of Total</value>
   </data>
+
   <data name="AsyncStats_SearchByGameIdTitle" xml:space="preserve">
     <value>Game ID:</value>
   </data>
+
   <data name="AsyncStats_SearchByGameFunNameTitle" xml:space="preserve">
     <value>Fun Name:</value>
   </data>
+
   <data name="AsyncGames_MinTurns100" xml:space="preserve">
     <value>(min. 100 turns)</value>
   </data>
+
   <data name="GameVersion_CodexLiberation" xml:space="preserve">
     <value>Codex Liberation</value>
   </data>
+
   <data name="TiglMenu_Leaderboard" xml:space="preserve">
     <value>LEADERBOARD</value>
   </data>
+
+  <data name="Page_TiglLeaderboard" xml:space="preserve">
+    <value>Leaderboard</value>
+  </data>
+
+  <data name="Page_TiglLeaderboard_PageTitle" xml:space="preserve">
+    <value>TIGL Leaderboard | TI4 Ultimate</value>
+  </data>
+
   <data name="RankingsMenu_Ranks" xml:space="preserve">
     <value>RANKS</value>
   </data>
+
+  <data name="Page_TiglRanks" xml:space="preserve">
+    <value>Rankings</value>
+  </data>
+
+  <data name="Page_TiglRanks_PageTitle" xml:space="preserve">
+    <value>TIGL Rankings | TI4 Ultimate</value>
+  </data>
+
   <data name="RankingsMenu_Leaders" xml:space="preserve">
     <value>LEADERS</value>
   </data>
+
+  <data name="Page_TiglLeaders" xml:space="preserve">
+    <value>Leaders</value>
+  </data>
+
+  <data name="Page_TiglLeaders_PageTitle" xml:space="preserve">
+    <value>TIGL Leaders | TI4 Ultimate</value>
+  </data>
+
   <data name="RankingsMenu_Achievements" xml:space="preserve">
     <value>ACHIEVEMENTS</value>
   </data>
+
+  <data name="Page_TiglAchievements" xml:space="preserve">
+    <value>Achievements</value>
+  </data>
+
+  <data name="Page_TiglAchievements_PageTitle" xml:space="preserve">
+    <value>TIGL Achievements | TI4 Ultimate</value>
+  </data>
+
   <data name="TiglMenu_Players" xml:space="preserve">
     <value>PLAYERS</value>
   </data>
+
+  <data name="Page_TiglPlayers" xml:space="preserve">
+    <value>Players</value>
+  </data>
+
+  <data name="Page_TiglPlayers_PageTitle" xml:space="preserve">
+    <value>TIGL Players | TI4 Ultimate</value>
+  </data>
+
   <data name="TiglMenu_Statistics" xml:space="preserve">
     <value>STATISTICS</value>
   </data>
+
+  <data name="Page_TiglStatistics" xml:space="preserve">
+    <value>Statistics</value>
+  </data>
+
+  <data name="Page_TiglStatistics_PageTitle" xml:space="preserve">
+    <value>TIGL Statistics | TI4 Ultimate</value>
+  </data>
+
   <data name="Rankings_PrestigeRankCategory_Pmbg" xml:space="preserve">
     <value>Pax Magnifica Bellum Gloriosum</value>
   </data>
+
   <data name="Rankings_PrestigeRankCategory_GalacticThreatOne" xml:space="preserve">
     <value>Galactic Threat I</value>
   </data>
+
   <data name="Rankings_PrestigeRankCategory_GalacticThreatTwo" xml:space="preserve">
     <value>Galactic Threat II</value>
   </data>
+
   <data name="Rankings_PrestigeRankCategory_GalacticThreatThree" xml:space="preserve">
     <value>Galactic Threat III</value>
   </data>
+
   <data name="Rankings_PrestigeRankCategory_GalacticThreatFour" xml:space="preserve">
     <value>Galactic Threat IV</value>
   </data>
+
   <data name="Rankings_PrestigeRankCategory_GalacticThreatFive" xml:space="preserve">
     <value>Galactic Threat V</value>
   </data>
+
   <data name="Rankings_PrestigeRankCategory_Hero" xml:space="preserve">
     <value>Hero</value>
   </data>
+
   <data name="Rankings_PrestigeRankCategory_Commander" xml:space="preserve">
     <value>Commander</value>
   </data>
+
   <data name="Rankings_PrestigeRankCategory_Agent" xml:space="preserve">
     <value>Agent</value>
   </data>
+
   <data name="Rankings_PrestigeRankCategory_Minister" xml:space="preserve">
     <value>Minister</value>
   </data>
+
   <data name="Rankings_PrestigeRankCategory_Unranked" xml:space="preserve">
     <value>Unranked</value>
   </data>
+
   <data name="TiglLeague_Fractured" xml:space="preserve">
     <value>Fractured</value>
   </data>
+
   <data name="TiglLeague_ProphecyOfKings" xml:space="preserve">
     <value>Legacy</value>
   </data>
+
   <data name="TiglLeague_ThundersEdge" xml:space="preserve">
     <value>Standard</value>
   </data>
+
   <data name="TiglLeague_League" xml:space="preserve">
     <value>League</value>
   </data>
+
   <data name="TiglPrestigeRank_PaxMagnificaBellumGloriosum" xml:space="preserve">
     <value>Pax Magnifica Bellum Gloriosum</value>
   </data>
+
   <data name="TiglPrestigeRank_Tyrant" xml:space="preserve">
     <value>Tyrant</value>
   </data>
+
   <data name="TiglPrestigeRank_GalacticThreat" xml:space="preserve">
     <value>Galactic Threat</value>
   </data>
+
   <data name="TiglRankName_Unranked" xml:space="preserve">
     <value>Unranked</value>
   </data>
+
   <data name="TiglRankName_Minister" xml:space="preserve">
     <value>Minister</value>
   </data>
+
   <data name="TiglRankName_Agent" xml:space="preserve">
     <value>Agent</value>
   </data>
+
   <data name="Page_Rankings" xml:space="preserve">
     <value>TIGL Ranks</value>
   </data>
+
   <data name="TiglRankName_Commander" xml:space="preserve">
     <value>Commander</value>
   </data>
+
   <data name="TiglRankName_Hero" xml:space="preserve">
     <value>Hero</value>
   </data>
+
   <data name="TiglRankName_Thrall" xml:space="preserve">
     <value>Thrall</value>
   </data>
+
   <data name="TiglRankName_Acolyte" xml:space="preserve">
     <value>Acolyte</value>
   </data>
+
   <data name="TiglRankName_Legionnaire" xml:space="preserve">
     <value>Legionnaire</value>
   </data>
+
   <data name="TiglRankName_Starlancer" xml:space="preserve">
     <value>Starlancer</value>
   </data>
+
   <data name="TiglRankName_GeneSorcerer" xml:space="preserve">
     <value>Gene-Sorcerer</value>
   </data>
+
   <data name="TiglRankName_IxthLord" xml:space="preserve">
     <value>Ixth-Lord</value>
   </data>
+
   <data name="TiglRankName_Archon" xml:space="preserve">
     <value>Archon</value>
   </data>
+
   <data name="TiglMenu_GameReports" xml:space="preserve">
     <value>GAMES</value>
   </data>
+
+  <data name="Page_TiglGameReports" xml:space="preserve">
+    <value>Games</value>
+  </data>
+
+  <data name="Page_TiglGameReports_PageTitle" xml:space="preserve">
+    <value>TIGL Games | TI4 Ultimate</value>
+  </data>
+
+  <data name="Page_TiglGameReportDetail_PageTitle" xml:space="preserve">
+    <value>TIGL {0} | TI4 Ultimate</value>
+  </data>
+
+  <data name="Page_TiglPlayerProfile_PageTitle" xml:space="preserve">
+    <value>TIGL {0} | TI4 Ultimate</value>
+  </data>
+
+  <data name="Page_AsyncPlayerProfile_PageTitle" xml:space="preserve">
+    <value>Async {0} | TI4 Ultimate</value>
+  </data>
+
   <data name="TiglLeaderboard_Rank" xml:space="preserve">
     <value># Rank</value>
   </data>
+
   <data name="TiglLeaderboard_Player" xml:space="preserve">
     <value>Player</value>
   </data>
+
   <data name="TiglLeaderboard_GamesPlayed" xml:space="preserve">
     <value>Games</value>
   </data>
+
   <data name="TiglLeaderboard_WinPercentage" xml:space="preserve">
     <value>Win %</value>
   </data>
+
   <data name="TiglLeaderboard_Rating" xml:space="preserve">
     <value>Rating</value>
   </data>
+
   <data name="TiglLeaderboard_Season" xml:space="preserve">
     <value>Season</value>
   </data>
+
   <data name="TiglLeaderboard_League" xml:space="preserve">
     <value>League</value>
   </data>
+
   <data name="TiglLeaderboard_RankingSystem" xml:space="preserve">
     <value>Ranking system</value>
   </data>
+
   <data name="TiglLeaderboard_TrueSkillConservativeRating" xml:space="preserve">
     <value>Conservative Rating</value>
   </data>
+
   <data name="TiglLeaderboard_TrueSkillMu" xml:space="preserve">
     <value>Rating (Mu)</value>
   </data>
+
   <data name="TiglLeaderboard_TrueSkillSigma" xml:space="preserve">
     <value>Sigma</value>
   </data>
+
   <data name="TiglLeaderboard_GlickoRating" xml:space="preserve">
     <value>Rating</value>
   </data>
+
   <data name="TiglLeaderboard_GlickoRd" xml:space="preserve">
     <value>RD</value>
   </data>
+
   <data name="TiglLeaderboard_GlickoVolatility" xml:space="preserve">
     <value>Volatility</value>
   </data>
+
   <data name="TiglLeaderboard_AsyncRating" xml:space="preserve">
     <value>Rating</value>
   </data>
+
   <data name="TiglLeaderboard_AussieScore" xml:space="preserve">
     <value>Aussie Score</value>
   </data>
+
   <data name="RankingSystem_TrueSkill" xml:space="preserve">
     <value>True Skill</value>
   </data>
+
   <data name="RankingSystem_Glicko2" xml:space="preserve">
     <value>Glicko-2</value>
   </data>
+
   <data name="RankingSystem_Async" xml:space="preserve">
     <value>Async</value>
   </data>
+
   <data name="TiglLeague_Test" xml:space="preserve">
     <value>Test</value>
   </data>
+
   <data name="TiglProfileCategory_All" xml:space="preserve">
     <value>All</value>
   </data>
+
   <data name="TiglProfileCategory_ProphecyOfKings" xml:space="preserve">
     <value>Legacy</value>
   </data>
+
   <data name="TiglProfileCategory_ThundersEdge" xml:space="preserve">
     <value>Standard</value>
   </data>
+
   <data name="TiglProfileCategory_Fractured" xml:space="preserve">
     <value>Fractured</value>
   </data>
+
   <data name="TiglPlayersList_NoPlayersFound" xml:space="preserve">
     <value>No players found.</value>
   </data>
+
   <data name="TiglPlayersList_NoPlayerMatch" xml:space="preserve">
     <value>No players match this criteria.</value>
   </data>
+
+  <data name="TiglPlayers_NameSearch" xml:space="preserve">
+    <value>Player Name:</value>
+  </data>
+
   <data name="TiglGames_CategoryStandard" xml:space="preserve">
     <value>Standard</value>
   </data>
+
   <data name="TiglGames_CategoryFractured" xml:space="preserve">
     <value>Fractured</value>
   </data>
+
   <data name="TiglGames_GameId" xml:space="preserve">
     <value>ID</value>
   </data>
+
   <data name="TiglGames_Status" xml:space="preserve">
     <value>Status</value>
   </data>
+
   <data name="TiglGames_Source" xml:space="preserve">
     <value>Source</value>
   </data>
+
   <data name="TiglGames_Ended" xml:space="preserve">
     <value>Ended</value>
   </data>
+
   <data name="TiglGames_LoadingGames" xml:space="preserve">
     <value>...Loading match reports...</value>
   </data>
+
+  <data name="TiglInfo_MainTitle" xml:space="preserve">
+    <value>What is TIGL?</value>
+  </data>
+
+  <data name="TiglInfo_Subtitle" xml:space="preserve">
+    <value>Twilight Imperium Global League</value>
+  </data>
+
+  <data name="TiglInfo_OverviewHeading" xml:space="preserve">
+    <value>Overview</value>
+  </data>
+
+  <data name="TiglInfo_OverviewContent" xml:space="preserve">
+    <value>&lt;p&gt;TIGL is a fun way to get bonuses and bragging rights for winning competitive games of Twilight Imperium.&lt;/p&gt;
+&lt;p&gt;It doesn't matter where you play TI. You can use any platform you wan't. Even IRL games can be reported for TI Global League. If you plan to play outside of Async environment make sure you register with your discord first. You can find button at the bottom of this page. If you only play on AsyncTI4 Discord server, you don't need to register as registration will be done automatically when game report is sent to this website.&lt;/p&gt;
+&lt;p&gt;By winning games, you can earn ranks (Minister, Agent, Commander, Hero, and others), rating and achievements. The general idea is that if you win a competitive game of TI (that is, a TIGL game, which will be described later), you gain the first rank: Minister (or Thrall). To rank up further, all the players in your game must be your rank or higher at the start of the game.&lt;/p&gt;
+&lt;p&gt;For example, if 6 Ministers play a TIGL game, the winner will rank up to Agent. If Ministers and Agents start a game, a Minister who wins will rank up, but an Agent who wins will not, and so forth.&lt;/p&gt;
+&lt;p&gt;You may not skip ranks, and the only way to lose ranks is by violating the Code of Conduct or by gaining a prestige rank that also causes you to lose other ranks.&lt;/p&gt;
+&lt;p&gt;The whole thing is silly, but people seem to like it, so have fun! If you have questions or concerns, please reach out to BLT or ping the &lt;strong&gt;@TIGL Admin&lt;/strong&gt; role.&lt;/p&gt;</value>
+  </data>
+
+  <data name="TiglInfo_TiglHeading" xml:space="preserve">
+    <value>TIGL</value>
+  </data>
+
+  <data name="TiglInfo_TiglContent" xml:space="preserve">
+    <value>&lt;p&gt;The Twilight Imperium Global League (TIGL) was founded by BigAlCupaChino as a larger effort to track competitive TI. For simplicity, alignment, and the desire not to divert players away from TIGL, competitive async games must be flagged as TIGL games at the start of the game setup.&lt;/p&gt;
+&lt;p&gt;TIGL has a lot of cool features, such as seasons (12 weeks long), season champions, ELO and Aussie points (both season and lifetime), the ability to log real-time or IRL games, and more.&lt;/p&gt;
+&lt;p&gt;This document will focus primarily on the ranks aspect of TIGL, but you can enjoy the other benefits of TIGL even if ranks are all you really care about.&lt;/p&gt;</value>
+  </data>
+
+  <data name="TiglInfo_CodeOfConductHeading" xml:space="preserve">
+    <value>Code of Conduct</value>
+  </data>
+
+  <data name="TiglInfo_CodeOfConductContent" xml:space="preserve">
+    <value>&lt;h3&gt;Summary&lt;/h3&gt;
+&lt;p&gt;To ensure people have a good experience with their fellow humans, the Async TI server and TIGL have Codes of Conduct. They won't keep people from taking your home system, but they do compel people to play by two primary rules:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;You will play the game in good faith.&lt;/li&gt;
+&lt;li&gt;You will treat your fellow players with respect.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Violations of the Code of Conduct will result in losing all TIGL Ranks. If you feel a violation has occurred, please contact an Admin (&lt;strong&gt;@admin&lt;/strong&gt;) or BLT.&lt;/p&gt;
+&lt;p&gt;Note that violations that don't result in a full server ban can still result in losing TIGL Ranks, and players can regain ranks by winning games again.&lt;/p&gt;
+&lt;h3&gt;TIGL Code of Conduct&lt;/h3&gt;
+&lt;p&gt;For reference, the full TIGL Code of Conduct is shared verbatim. Since it was originally imagined as a 12-week in-person league, some of the rules don't apply directly to Async TIGL games, especially the bits about using Rules as Written (we adhere to Rules as Explained by Dane, which are often not quite the same as they are written) and playing &quot;each week&quot;, which was specific to live games.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;All players in the TIGL are to adhere to the code of conduct:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Respect each other and play with honor and dignity. Don't be rude, argumentative, vulgar or abusive.&lt;/li&gt;
+&lt;li&gt;Sportsmanship is more important than winning. This includes no collusion outside the game in progress.&lt;/li&gt;
+&lt;li&gt;Play within the spirit of the game, allow everyone to have fun and enjoy the game.&lt;/li&gt;
+&lt;li&gt;In game Rules as Written (RAW). Anything goes on the board BUT:
+&lt;ul&gt;
+&lt;li&gt;Above table no abuse, discrimination, intimidation or other unacceptable behavior.&lt;/li&gt;
+&lt;li&gt;Beyond table no collusion or attempt to subvert the league.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Playing each week with same 6 players is legal but discouraged. League encourages players to mingle and play with broader groups.&lt;/li&gt;
+&lt;li&gt;All games are subject to Rules as Written (RAW).&lt;/li&gt;
+&lt;li&gt;Players who sign up for a game and then no show or last minute cancel may be removed from league.&lt;/li&gt;
+&lt;li&gt;If at anytime you feel unsafe or a player's conduct is unbecoming contact an admin.&lt;/li&gt;
+&lt;li&gt;Players may be removed from league at the sole discretion of the TIGL admin team.&lt;/li&gt;
+&lt;li&gt;By signing up for league you agree to have your discord name [and discord tag/id] and your match results being made public.&lt;/li&gt;
+&lt;/ol&gt;</value>
+  </data>
+
+  <data name="TiglInfo_GettingStartedHeading" xml:space="preserve">
+    <value>How Do I Get Started?</value>
+  </data>
+
+  <data name="TiglInfo_GettingStartedSignUpHeading" xml:space="preserve">
+    <value>Do I need to sign up for TIGL first?</value>
+  </data>
+
+  <data name="TiglInfo_GettingStartedContent" xml:space="preserve">
+    <value>&lt;p&gt;Not if you're playing async. If you've never finished an async game, and you're submitting a TIGL played outside async (e.g., TTPG or around a table), you'll need to sign up here for the reporting form to be able to find your name. If you're playing async, finishing an async game will sign you up.&lt;/p&gt;
+&lt;p&gt;Starting a TIGL game is much like starting any game in the Discord server. Head to &lt;strong&gt;#making-new-games&lt;/strong&gt; and make a post explaining the type of game you're looking for, including that it will be TIGL. Some other things worth posting:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Will this be a standard TIGL game? If not, which variants are you including?&lt;/li&gt;
+&lt;li&gt;How many points will be needed to win?&lt;/li&gt;
+&lt;li&gt;About how often do you expect people to be available to respond to deals and conversations, to take turns, etc.? This can range from &quot;once or twice a day&quot; to &quot;more or less constantly besides sleep&quot;, and people tend to prefer to play in games where people check in at similar cadences.&lt;/li&gt;
+&lt;li&gt;Support for the Throne considerations&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You'll also need to make sure to tag the game as TIGL, which is usually done with a button in the game creation thread. If for any reason that button doesn't appear or doesn't work, use the slash command to tag it: &lt;code&gt;/game setup is_tigl_game:True&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;If you forget to do this there are manual ways around it, but at the current scale it makes a big difference when games are logged automatically, so thank you 🙂&lt;/p&gt;
+&lt;p&gt;If you are playing a game in the Fractured Ladder (described below) and aren't using the button, you'll also need to run &lt;code&gt;/tigl is_fractured is_fractured:True&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;You can also join a game that somebody else has posted about, by asking in the game creation thread if you can join. Be aware that some games may be looking for people at a certain rank or higher to ensure the winner can rank up.&lt;/p&gt;</value>
+  </data>
+
+  <data name="TiglInfo_AllowedHeading" xml:space="preserve">
+    <value>What's Allowed in Our Games?</value>
+  </data>
+
+  <data name="TiglInfo_AllowedContent" xml:space="preserve">
+    <value>&lt;p&gt;TIGL was originally designed to be very standardized — no homebrew, 10 points every game, a very strict ruleset. Thunder's Edge, and Codex 4 before it, brought Events as a new way to change the rules of standard Twilight Imperium that isn't quite homebrew, but is not &quot;standard TI&quot;.&lt;/p&gt;
+&lt;p&gt;But just because a game goes to 14 or 16 points, or includes a well-tested homebrew faction or component, or wants to use Minor Factions or another event, doesn't mean the players don't still want a competitive game.&lt;/p&gt;
+&lt;p&gt;So, for the first time, we're introducing two separate &quot;ladders&quot; of ranks. Enough people enjoy the competitive aspect of TIGL games, even for non-standard play modes, that we are accommodating them. We are also ensuring that a standardized way to play competitive TI still exists.&lt;/p&gt;</value>
+  </data>
+
+  <data name="TiglInfo_RegisterButton" xml:space="preserve">
+    <value>Register</value>
+  </data>
+
+  <data name="TiglInfo_ReportGameButton" xml:space="preserve">
+    <value>Report Game</value>
+  </data>
+
+  <data name="TiglInfo_JoinDiscordButton" xml:space="preserve">
+    <value>Join Discord</value>
+  </data>
+
+  <data name="TiglInfo_ManifestButton" xml:space="preserve">
+    <value>TIGL Manifest</value>
+  </data>
+
+  <data name="TiglRegisterUser_MainTitle" xml:space="preserve">
+    <value>TIGL Registration</value>
+  </data>
+
+  <data name="TiglRegisterUser_Subtitle" xml:space="preserve">
+    <value>(Twilight Imperium Global League)</value>
+  </data>
+
+  <data name="TiglRegisterUser_SuccessTitle" xml:space="preserve">
+    <value>Registration process succeeded!</value>
+  </data>
+
+  <data name="TiglRegisterUser_SuccessRedirectMessage" xml:space="preserve">
+    <value>You will be redirected shortly to your TIGL profile.</value>
+  </data>
+
+  <data name="TiglRegisterUser_FailureTitle" xml:space="preserve">
+    <value>Registration process failure!</value>
+  </data>
+
+  <data name="TiglRegisterUser_FailureRedirectMessage" xml:space="preserve">
+    <value>You will be redirected in 5s.</value>
+  </data>
+
+  <data name="TiglRegisterUser_CodeOfConductContent" xml:space="preserve">
+    <value>&lt;h3&gt;TIGL Code of Conduct&lt;/h3&gt;
+&lt;p&gt;All players in the TIGL are to adhere to the code of conduct. By registering you agree to these terms.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Respect each other and play with honor and dignity. Do not be rude, argumentative, vulgar or abusive.&lt;/li&gt;
+&lt;li&gt;Sportsmanship is more important than winning. This includes no collusion outside the game in progress.&lt;/li&gt;
+&lt;li&gt;Play within the spirit of the game; allow everyone to have fun and enjoy the game.&lt;/li&gt;
+&lt;li&gt;In‑game (RAW) anything goes on the board, BUT above the table no abuse, discrimination, intimidation or other unacceptable behavior.&lt;/li&gt;
+&lt;li&gt;Beyond the table: no collusion or attempt to subvert the league.&lt;/li&gt;
+&lt;li&gt;Playing each week with the same 6 players is legal but discouraged; the league encourages mingling.&lt;/li&gt;
+&lt;li&gt;All games are subject to Rules as Written (RAW).&lt;/li&gt;
+&lt;li&gt;Players who sign up for a game and then no‑show or cancel last minute may be removed from the league.&lt;/li&gt;
+&lt;li&gt;If at any time you feel unsafe or a player's conduct is unbecoming, contact an admin.&lt;/li&gt;
+&lt;li&gt;Players may be removed from the league at the sole discretion of the TIGL admin team.&lt;/li&gt;
+&lt;li&gt;By signing up you agree your Discord name and match results may be made public.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To participate you must register with your Discord account so we can track game statistics and create your TIGL player profile.&lt;/p&gt;</value>
+  </data>
+
+  <data name="TiglRegisterUser_RegisterButton" xml:space="preserve">
+    <value>Register With Discord</value>
+  </data>
+
   <data name="MatchState_New" xml:space="preserve">
     <value>Waiting for approval</value>
   </data>
+
   <data name="MatchState_AddedInQueue" xml:space="preserve">
     <value>In queue</value>
   </data>
+
   <data name="MatchState_Evaluated" xml:space="preserve">
     <value>Evaluated</value>
   </data>
+
   <data name="ResultSource_Async" xml:space="preserve">
     <value>Async</value>
   </data>
+
   <data name="ResultSource_TTPG" xml:space="preserve">
     <value>TTPG</value>
   </data>
+
   <data name="ResultSource_Test" xml:space="preserve">
     <value>Test</value>
   </data>
+
   <data name="ResultSource_IRL" xml:space="preserve">
     <value>IRL</value>
   </data>
+
   <data name="ResultSource_Steam" xml:space="preserve">
     <value>TI Digital</value>
   </data>
+
   <data name="ResultSource_TTS" xml:space="preserve">
     <value>TTS</value>
   </data>
+
   <data name="ResultSource_TwilightWars" xml:space="preserve">
     <value>Twilight Wars</value>
   </data>
+
   <data name="ResultSource_BGA" xml:space="preserve">
     <value>BGA</value>
   </data>
+
   <data name="TiglStatistics_StatisticType" xml:space="preserve">
     <value>Statistics</value>
   </data>
+
   <data name="TiglStatistics_Season" xml:space="preserve">
     <value>Season</value>
   </data>
+
   <data name="TiglStatisticsType_Factions" xml:space="preserve">
     <value>Factions</value>
   </data>
+
   <data name="TiglStatisticsType_Games" xml:space="preserve">
     <value>Games</value>
   </data>
+
   <data name="TiglStatisticsType_Players" xml:space="preserve">
     <value>Players</value>
   </data>
+
   <data name="TiglFactionStatsShowBy_Era" xml:space="preserve">
     <value>Expansion</value>
   </data>
+
   <data name="TiglFactionStatsShowBy_Seasons" xml:space="preserve">
     <value>Seasons</value>
   </data>
+
   <data name="TiglFactionStatsEra_All" xml:space="preserve">
     <value>All</value>
   </data>
+
   <data name="TiglFactionStatsEra_ThundersEdge" xml:space="preserve">
     <value>Thunder's Edge</value>
   </data>
+
   <data name="TiglFactionStatsEra_ProphecyOfKings" xml:space="preserve">
     <value>PoK</value>
   </data>
+
   <data name="TiglFactionStatsLeague_Standard" xml:space="preserve">
     <value>Standard</value>
   </data>
+
   <data name="TiglFactionStatsLeague_Fractured" xml:space="preserve">
     <value>Fractured</value>
   </data>
+
   <data name="AchievementName_FactionAmateur" xml:space="preserve">
     <value>Faction Amateur</value>
   </data>
+
   <data name="AchievementName_DrFrankenstein" xml:space="preserve">
     <value>Dr. Frankenstein</value>
   </data>
+
   <data name="AchievementName_TyrantsGauntlet" xml:space="preserve">
     <value>Tyrants Gauntlet</value>
   </data>
+
   <data name="AchievementName_TheLongWar" xml:space="preserve">
     <value>The Long War</value>
   </data>
+
   <data name="AchievementName_DozenDone" xml:space="preserve">
     <value>Dozen Done</value>
   </data>
+
   <data name="AchievementName_Centurion" xml:space="preserve">
     <value>Centurion</value>
   </data>
+
   <data name="AchievementName_Decathlon" xml:space="preserve">
     <value>Decathlon</value>
   </data>
+
   <data name="AchievementName_SpeedDemon" xml:space="preserve">
     <value>Speed Demon</value>
   </data>
+
   <data name="AchievementName_SeasonedVeteran" xml:space="preserve">
     <value>Seasoned Veteran</value>
   </data>
+
   <data name="AchievementName_InTheGroove" xml:space="preserve">
     <value>In The Groove</value>
   </data>
+
   <data name="AchievementName_GettingWarmedUp" xml:space="preserve">
     <value>Getting Warmed Up</value>
   </data>
+
   <data name="AchievementName_FirstSteps" xml:space="preserve">
     <value>First Steps</value>
   </data>
+
   <data name="AchievementName_LiveInInterestingTimes" xml:space="preserve">
     <value>Live In Interesting Times</value>
   </data>
+
   <data name="AchievementName_UnderdogStory" xml:space="preserve">
     <value>Underdog Story</value>
   </data>
+
   <data name="AchievementName_Overachiever" xml:space="preserve">
     <value>Overachiever</value>
   </data>
+
   <data name="AchievementName_Collector" xml:space="preserve">
     <value>Collector</value>
   </data>
+
   <data name="AchievementName_Versatile" xml:space="preserve">
     <value>Versatile</value>
   </data>
+
   <data name="AchievementName_Completionist" xml:space="preserve">
     <value>Completionist</value>
   </data>
+
   <data name="AchievementName_Inconceivable" xml:space="preserve">
     <value>Inconceivable</value>
   </data>
+
   <data name="AchievementName_BackToBack" xml:space="preserve">
     <value>Back To Back</value>
   </data>
+
   <data name="AchievementName_IGotBetter" xml:space="preserve">
     <value>I Got Better</value>
   </data>
+
   <data name="AchievementName_LongHauler" xml:space="preserve">
     <value>Long Hauler</value>
   </data>
+
   <data name="AchievementName_BlinkAndYouWillMissIt" xml:space="preserve">
     <value>Blink And You Will Miss It</value>
   </data>
+
   <data name="AchievementName_MarrowEnjoyer" xml:space="preserve">
     <value>Marrow Enjoyer</value>
   </data>
+
   <data name="AchievementName_CrusherOfEnemies" xml:space="preserve">
     <value>Crusher Of Enemies</value>
   </data>
+
   <data name="AchievementName_HomeSystemWhoNeedsThat" xml:space="preserve">
     <value>Home System Who Needs That</value>
   </data>
+
   <data name="AchievementName_AllThatsSilverIsGold" xml:space="preserve">
     <value>All Thats Silver Is Gold</value>
   </data>
+
   <data name="AchievementName_GottaCatchEmAllPartTwo" xml:space="preserve">
     <value>Gotta Catch 'Em All (Part Two)</value>
   </data>
+
   <data name="AchievementName_GottaCatchEmAllPartOne" xml:space="preserve">
     <value>Gotta Catch 'Em All (Part One)</value>
   </data>
+
   <data name="AchievementName_ICookedThisMyself" xml:space="preserve">
     <value>I Cooked This Myself</value>
   </data>
+
   <data name="AchievementName_BlueDaBaDee" xml:space="preserve">
     <value>Blue Da Ba Dee</value>
   </data>
+
   <data name="AchievementName_ThirtyIsNotEnough" xml:space="preserve">
     <value>Thirty Is Not Enough</value>
   </data>
+
   <data name="AchievementName_BringTheThunder" xml:space="preserve">
     <value>Bring The Thunder</value>
   </data>
+
   <data name="AchievementName_TheTribunii" xml:space="preserve">
     <value>The Tribunii</value>
   </data>
+
   <data name="AchievementName_TheProphesiedKing" xml:space="preserve">
     <value>The Prophesied King</value>
   </data>
+
   <data name="AchievementName_BaseGameBoss" xml:space="preserve">
     <value>Base Game Boss</value>
   </data>
+
   <data name="AchievementName_IAmAnOG" xml:space="preserve">
     <value>I Am An OG</value>
   </data>
+
   <data name="AchievementName_FlauntingIt" xml:space="preserve">
     <value>Flaunting It</value>
   </data>
+
   <data name="AchievementName_FactionExpert" xml:space="preserve">
     <value>Faction Expert</value>
   </data>
+
   <data name="AchievementName_FactionEnthusiast" xml:space="preserve">
     <value>Faction Enthusiast</value>
   </data>
+
   <data name="AchievementName_Marathoner" xml:space="preserve">
     <value>Marathoner</value>
   </data>
+
   <data name="Page_TiglAdmin" xml:space="preserve">
     <value>TIGL Admin</value>
   </data>
+
   <data name="TiglAdmin_SeasonName" xml:space="preserve">
     <value>Name</value>
   </data>
+
   <data name="TiglAdmin_Edit" xml:space="preserve">
     <value>Edit</value>
   </data>
+
   <data name="TiglAdmin_EndDate" xml:space="preserve">
     <value>End Date</value>
   </data>
+
   <data name="TiglAdmin_StartDate" xml:space="preserve">
     <value>Start Date</value>
   </data>
+
   <data name="TiglAdmin_Status" xml:space="preserve">
     <value>Status</value>
   </data>
+
   <data name="TiglAdmin_SeasonId" xml:space="preserve">
     <value>#</value>
   </data>
+
   <data name="TiglAdmin_LoadingSeasons" xml:space="preserve">
     <value>...Loading seasons...</value>
   </data>
+
   <data name="TiglAdmin_Actions" xml:space="preserve">
     <value>Actions</value>
   </data>
+
   <data name="DateTimeFormat_EU" xml:space="preserve">
     <value>dd-MM-yyyy</value>
   </data>
+
   <data name="TiglAdmin_ActiveYes" xml:space="preserve">
     <value>Yes</value>
   </data>
+
   <data name="TiglAdmin_ActiveNo" xml:space="preserve">
     <value>No</value>
   </data>
+
   <data name="TiglAdmin_SetActive" xml:space="preserve">
     <value>Set Active</value>
   </data>
+
   <data name="TiglAdmin_Save" xml:space="preserve">
     <value>Save</value>
   </data>
+
   <data name="TiglAdmin_EndSeason" xml:space="preserve">
     <value>End Season</value>
   </data>
+
   <data name="TiglAdmin_AddNewSeason" xml:space="preserve">
     <value>Add New Season</value>
   </data>
+
   <data name="TiglAdmin_AddSeasonButtonText" xml:space="preserve">
     <value>Add Season</value>
   </data>
+
   <data name="TiglAdmin_SeasonAdministration" xml:space="preserve">
     <value>Season Administration</value>
   </data>
+
   <data name="TiglAdmin_GameReportsAdministration" xml:space="preserve">
     <value>Reported Games Administration</value>
   </data>
+
   <data name="TiglAdmin_PlayersAdministration" xml:space="preserve">
     <value>Players Administration</value>
   </data>
+
   <data name="TiglAdmin_ParametersAdministration" xml:space="preserve">
     <value>Parameters Administration</value>
   </data>
+
+  <data name="TiglAdmin_ParametersTab" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+
+  <data name="TiglAdmin_SeasonsTab" xml:space="preserve">
+    <value>Seasons</value>
+  </data>
+
+  <data name="TiglAdmin_RegisterTab" xml:space="preserve">
+    <value>Register</value>
+  </data>
+
+  <data name="TiglAdmin_PlayersTab" xml:space="preserve">
+    <value>Players</value>
+  </data>
+
+  <data name="TiglAdmin_GamesTab" xml:space="preserve">
+    <value>Games</value>
+  </data>
+
+  <data name="TiglAdmin_TabsLabel" xml:space="preserve">
+    <value>TIGL administration sections</value>
+  </data>
+
   <data name="TiglParameterName_RankingUp" xml:space="preserve">
     <value>Allow ranking up</value>
   </data>
+
   <data name="TiglParameterName_ManualGameReview" xml:space="preserve">
     <value>Allow forced manual game review</value>
   </data>
+
   <data name="TiglParameterName_EvaluateGames" xml:space="preserve">
     <value>Allow games evaluation</value>
   </data>
+
   <data name="Rankings_PrestigeRankCategory_Tyrant" xml:space="preserve">
     <value>Tyrant</value>
   </data>
+
   <data name="Rankings_PrestigeRankCategory_Thrall" xml:space="preserve">
     <value>Thrall</value>
   </data>
+
   <data name="Rankings_PrestigeRankCategory_Acolyte" xml:space="preserve">
     <value>Acolyte</value>
   </data>
+
   <data name="Rankings_PrestigeRankCategory_Legionnaire" xml:space="preserve">
     <value>Legionnaire</value>
   </data>
+
   <data name="Rankings_PrestigeRankCategory_Starlancer" xml:space="preserve">
     <value>Starlancer</value>
   </data>
+
   <data name="Rankings_PrestigeRankCategory_GeneSorcerer" xml:space="preserve">
     <value>Gene-Sorcerer</value>
   </data>
+
   <data name="Rankings_PrestigeRankCategory_IxthLord" xml:space="preserve">
     <value>Ixth Lord</value>
   </data>
+
   <data name="Rankings_PrestigeRankCategory_Archon" xml:space="preserve">
     <value>Archon</value>
   </data>
+
   <data name="TiglParameterName_RankingUpProphecyOfKings" xml:space="preserve">
     <value>Allow ranking up in PoK</value>
   </data>
+
   <data name="TiglParameterName_TiglTestUserRegistrations" xml:space="preserve">
     <value>Allow test user registrations</value>
   </data>
+
   <data name="TiglParameterName_DiscordInteraction" xml:space="preserve">
     <value>Allow discord interractions</value>
   </data>
+
   <data name="TiglParameterName_OnlyThundersEdgeEra" xml:space="preserve">
     <value>Allow only game reports after 1.12.2025</value>
   </data>
+
   <data name="TiglParameterName_RankUpPublish" xml:space="preserve">
     <value>Allow publish ranking up to Discord</value>
   </data>
+
   <data name="TiglParameterName_HeroPublish" xml:space="preserve">
     <value>Allow publish hero changes to Discord</value>
   </data>
+
   <data name="TiglParameterName_AchievementsPublish" xml:space="preserve">
     <value>Allow publish achievements to Discord</value>
   </data>
+
   <data name="TiglParameterName_OnlyImportReports" xml:space="preserve">
     <value>Allow only imported games</value>
   </data>
+
   <data name="TiglLeagueFilter_Standard" xml:space="preserve">
     <value>Standard</value>
   </data>
+
   <data name="TiglLeagueFilter_Fractured" xml:space="preserve">
     <value>Fractured</value>
   </data>
+
   <data name="GameVersion_ThundersEdge" xml:space="preserve">
     <value>Thunder's Edge</value>
   </data>
+
   <data name="Faction_SetupChooseDeepwroughtTechnologies" xml:space="preserve">
     <value>During setup, research technology twice.</value>
   </data>
+
   <data name="Faction_SetupChooseCrimsonTechnologies" xml:space="preserve">
     <value>Choose 1 blue or red technology with no prerequisites.</value>
   </data>
+
   <data name="Faction_SetupChooseBastionTechnologies" xml:space="preserve">
     <value>Choose 1 blue or yellow technology with no prerequisites.</value>
   </data>
+
   <data name="Faction_SetupChooseFirmamentTechnologies" xml:space="preserve">
     <value>Choose 1 green or yellow technology with no prerequisites.</value>
   </data>
+
   <data name="Faction_SetupChooseRalNelTechnologies" xml:space="preserve">
     <value>Choose 1 green or red technology with no prerequisites.</value>
   </data>
+
   <data name="Faction_FrontSheetFirmament" xml:space="preserve">
     <value>Front Sheet (Firmament)</value>
   </data>
+
   <data name="Faction_BackSheetFirmament" xml:space="preserve">
     <value>Back Sheet (Firmament)</value>
   </data>
+
   <data name="Faction_FrontSheetObsidian" xml:space="preserve">
     <value>Front Sheet (Obsidian)</value>
   </data>
+
   <data name="Faction_BackSheetObsidian" xml:space="preserve">
     <value>Back Sheet (Obsidian)</value>
   </data>
+
+  <data name="News_AuthorLabel" xml:space="preserve">
+    <value>Author:</value>
+  </data>
+
+  <data name="News_DateLabel" xml:space="preserve">
+    <value>Date:</value>
+  </data>
+
+  <data name="News_Loading" xml:space="preserve">
+    <value>...LOADING...</value>
+  </data>
+
+  <data name="News_Empty" xml:space="preserve">
+    <value>No news articles yet.</value>
+  </data>
+
+  <data name="Nav_MenuToggleLabel" xml:space="preserve">
+    <value>Toggle navigation menu</value>
+  </data>
+
+  <data name="Nav_MainLabel" xml:space="preserve">
+    <value>Main</value>
+  </data>
+
+  <data name="SkipToContent" xml:space="preserve">
+    <value>Skip to main content</value>
+  </data>
+
   <data name="Page_TiglInfo" xml:space="preserve">
     <value>Info</value>
   </data>
+
+  <data name="Page_TiglInfo_PageTitle" xml:space="preserve">
+    <value>TIGL Info | TI4 Ultimate</value>
+  </data>
+
+  <data name="TiglAdmin_LoadingParameters" xml:space="preserve">
+    <value>... Loading parameters ...</value>
+  </data>
+
+  <data name="TiglAdmin_NoParametersFound" xml:space="preserve">
+    <value>... No parameters found. ...</value>
+  </data>
+
+  <data name="String_Enabled" xml:space="preserve">
+    <value>Enabled</value>
+  </data>
+
+  <data name="String_Disabled" xml:space="preserve">
+    <value>Disabled</value>
+  </data>
+
+  <data name="String_On" xml:space="preserve">
+    <value>ON</value>
+  </data>
+
+  <data name="String_Off" xml:space="preserve">
+    <value>OFF</value>
+  </data>
+
+  <data name="TiglAdmin_ManualRegistrationTitle" xml:space="preserve">
+    <value>Manual User Registration</value>
+  </data>
+
+  <data name="TiglAdmin_LoadingRegistrationParameters" xml:space="preserve">
+    <value>...Loading registration parameters...</value>
+  </data>
+
+  <data name="TiglAdmin_ManualRegistrationDisabled" xml:space="preserve">
+    <value>Manual registration is disabled. Enable 'Test Registrations' in Parameters to use this form.</value>
+  </data>
+
+  <data name="TiglAdmin_TestRegistrationTitle" xml:space="preserve">
+    <value>Test Registration (Manual)</value>
+  </data>
+
+  <data name="TiglAdmin_TestRegistrationHelp" xml:space="preserve">
+    <value>This form is visible because 'Test Registrations' parameter is enabled.</value>
+  </data>
+
+  <data name="TiglAdmin_DiscordId" xml:space="preserve">
+    <value>Discord ID</value>
+  </data>
+
+  <data name="TiglAdmin_DiscordTag" xml:space="preserve">
+    <value>Discord Tag (Username)</value>
+  </data>
+
+  <data name="TiglAdmin_TiglUserName" xml:space="preserve">
+    <value>TIGL Username</value>
+  </data>
+
+  <data name="TiglAdmin_RegisterUserSuccess" xml:space="preserve">
+    <value>User registered successfully.</value>
+  </data>
+
+  <data name="TiglAdmin_RegisterUserButton" xml:space="preserve">
+    <value>Register User</value>
+  </data>
+
+  <data name="TiglAdmin_RegisterValidationError" xml:space="preserve">
+    <value>Please provide a valid Discord ID and TIGL Username.</value>
+  </data>
+
+  <data name="TiglAdmin_RegisterUserFailed" xml:space="preserve">
+    <value>Registration failed.</value>
+  </data>
+
+  <data name="WebsiteAdmin_CreateHeading" xml:space="preserve">
+    <value>Add website</value>
+  </data>
+
+  <data name="WebsiteAdmin_TitleLabel" xml:space="preserve">
+    <value>Title</value>
+  </data>
+
+  <data name="WebsiteAdmin_DescriptionLabel" xml:space="preserve">
+    <value>Description</value>
+  </data>
+
+  <data name="WebsiteAdmin_WebsitePathLabel" xml:space="preserve">
+    <value>Website link</value>
+  </data>
+
+  <data name="WebsiteAdmin_ImageLabel" xml:space="preserve">
+    <value>Preview image (optional)</value>
+  </data>
+
+  <data name="WebsiteAdmin_ImageHelpText" xml:space="preserve">
+    <value>If no image is chosen, the site will try to match the title to one of its built-in preview images.</value>
+  </data>
+
+  <data name="WebsiteAdmin_Create" xml:space="preserve">
+    <value>Add website</value>
+  </data>
+
+  <data name="WebsiteAdmin_CreateSuccess" xml:space="preserve">
+    <value>Website added successfully.</value>
+  </data>
+
+  <data name="WebsiteAdmin_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+
+  <data name="WebsiteAdmin_DeleteConfirmTitle" xml:space="preserve">
+    <value>Delete website</value>
+  </data>
+
+  <data name="WebsiteAdmin_DeleteConfirmMessage" xml:space="preserve">
+    <value>Are you sure you want to delete this website? This cannot be undone.</value>
+  </data>
+
+  <data name="WebsiteAdmin_DeleteSuccess" xml:space="preserve">
+    <value>Website deleted successfully.</value>
+  </data>
+
+  <data name="WebsiteAdmin_ExistingWebsitesHeading" xml:space="preserve">
+    <value>Existing websites</value>
+  </data>
+
+  <data name="WebsiteAdmin_Loading" xml:space="preserve">
+    <value>...Loading websites...</value>
+  </data>
+
+  <data name="WebsiteAdmin_Empty" xml:space="preserve">
+    <value>No websites found.</value>
+  </data>
+
 </root>

@@ -1,0 +1,105 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Tables
+@typeparam TItem
+@inherits ResponsiveDataViewBase<TItem>
+
+@*
+    Fully responsive, filterable HTML table. See ResponsiveTable.razor.cs summary for details.
+*@
+
+<CascadingValue Value="(IResponsiveTableHost<TItem>)this" IsFixed="true">
+    <div style="display:none" aria-hidden="true">@ChildContent</div>
+</CascadingValue>
+
+<div class="responsive-table-wrapper @(EnableXScroll ? "responsive-table-scroll" : string.Empty) @CssClass" style="@WrapperStyle">
+    @if (IsLoading)
+    {
+        <div class="responsive-table-state" role="status" aria-live="polite">@LoadingText</div>
+    }
+    else
+    {
+        var visibleItems = ApplyFilters(Items).ToList();
+
+        <table class="responsive-table @(ZebraStripes ? "responsive-table-zebra" : string.Empty) @(StickyHeader ? "responsive-table-sticky-header" : string.Empty)" style="@TableStyle">
+            @if (!string.IsNullOrEmpty(Caption))
+            {
+                <caption class="responsive-table-caption handel shadow">@Caption</caption>
+            }
+            <thead>
+                <tr>
+                    @foreach (var column in Columns)
+                    {
+                        <ResponsiveColumn IsHeader="true"
+                                          Resizable="true"
+                                          Vertical="column.Vertical"
+                                          CssClass="@($"{GetStickyClass(column)} {column.CssClass}".Trim())"
+                                          Style="@GetColumnStyle(column)"
+                                          Text="@column.ResolvedHeader"
+                                          Align="@column.HeaderAlign"
+                                          TextColor="@(column.HeaderTextColor ?? TextColor.LightBlue)" />
+                    }
+                </tr>
+                @if (HasAnyFilter)
+                {
+                    <tr class="responsive-table-filter-row">
+                        @foreach (var column in Columns)
+                        {
+                            <td class="@GetStickyClass(column)" style="@GetStickyStyle(column)">
+                                @if (column.Filter != ResponsiveFilterType.None)
+                                {
+                                    <ResponsiveColumnFilterControl TItem="TItem"
+                                                                    Column="column"
+                                                                    State="GetFilterState(column)"
+                                                                    InputId="@($"filter-{GetColumnId(column)}")"
+                                                                    OnChanged="NotifyFilterChangedAsync" />
+                                }
+                            </td>
+                        }
+                    </tr>
+                    @if (HasActiveFilters)
+                    {
+                        <tr class="responsive-table-clear-filters-row">
+                            <td colspan="@Math.Max(Columns.Count, 1)">
+                                <ResponsiveButton ButtonText="@Strings.ButtonText_ClearFilters"
+                                                  Width="100"
+                                                  OnClick="ClearAllFiltersAsync"
+                                                  CssClass="responsive-button-sm" />
+                            </td>
+                        </tr>
+                    }
+                }
+            </thead>
+            <tbody>
+                @if (visibleItems.Count == 0)
+                {
+                    <tr>
+                        <td colspan="@Math.Max(Columns.Count, 1)" class="responsive-table-state">@EmptyText</td>
+                    </tr>
+                }
+                else
+                {
+                    @foreach (var item in visibleItems)
+                    {
+                        <ResponsiveRow>
+                            @foreach (var column in Columns)
+                            {
+                                <ResponsiveColumn TextColor="column.TextColor"
+                                                  CssClass="@($"{GetStickyClass(column)} {column.CssClass}".Trim())"
+                                                  Style="@GetColumnStyle(column)"
+                                                  Align="@column.Align">
+                                    @if (column.CellTemplate is not null)
+                                    {
+                                        @column.CellTemplate(item)
+                                    }
+                                    else
+                                    {
+                                        @column.Accessor(item)
+                                    }
+                                </ResponsiveColumn>
+                            }
+                        </ResponsiveRow>
+                    }
+                }
+            </tbody>
+        </table>
+    }
+</div>

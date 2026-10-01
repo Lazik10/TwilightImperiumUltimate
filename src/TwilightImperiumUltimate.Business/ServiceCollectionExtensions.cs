@@ -1,6 +1,6 @@
+using System.Reflection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System.Reflection;
 using TwilightImperiumUltimate.Business.Services.Async.Implementations;
 using TwilightImperiumUltimate.Business.Services.Async.Interfaces;
 using TwilightImperiumUltimate.DataAccess;
@@ -15,7 +15,7 @@ public static class ServiceCollectionExtensions
         this IServiceCollection services,
         IConfiguration configuration)
     {
-        services.AddAutoMapper(Assembly.GetExecutingAssembly());
+        services.AddAutoMapper(cfg => cfg.AddMaps(Assembly.GetExecutingAssembly()));
 
         services.AddMediatR(configuration =>
             configuration.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
@@ -51,6 +51,8 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IAsyncFactionStatsFactory, AsyncFactionStatsFactory>();
         services.AddScoped<IAsyncOpponentsStatsFactory, AsyncOpponentsStatsFactory>();
         services.AddScoped<IAsyncHistoryStatsFactory, AsyncHistoryStatsFactory>();
+        services.AddScoped<IAsyncStatisticsSnapshotBuilder, AsyncStatisticsSnapshotBuilder>();
+        services.AddScoped<IAsyncStatisticsSnapshotReader, AsyncStatisticsSnapshotReader>();
 
         return services;
     }

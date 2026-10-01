@@ -1,0 +1,9 @@
+@inherits StatusMessageBase
+
+@*
+    Generic success/confirmation message (e.g. "saved successfully"). Use this instead of a
+    page-specific success string so users always see a consistent, accessible confirmation
+    regardless of which page/feature succeeded.
+*@
+
+<div class="@("handel shadow " + CssClass)" style="color: green;" role="status" aria-live="polite">@Text</div>

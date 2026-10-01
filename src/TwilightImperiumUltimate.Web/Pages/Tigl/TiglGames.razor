@@ -1,8 +1,12 @@
 @page "/community/tigl/games"
 @using TwilightImperiumUltimate.Web.Components.Tigl
+@using TwilightImperiumUltimate.Web.Components.Shared.Text
+
+<PageTitle>@Strings.Page_TiglGameReports_PageTitle</PageTitle>
 
 <Page>
-    <StretchHeightContainer CssClass="background">
+    <StretchHeightContainer>
+        <ResponsiveHeading Level="1" Text="Games" />
         <TiglGamesGrid />
     </StretchHeightContainer>
 </Page>

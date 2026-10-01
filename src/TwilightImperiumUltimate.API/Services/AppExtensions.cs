@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 using TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium;
@@ -14,6 +15,7 @@ internal static class AppExtensions
         await context.Database.MigrateAsync();
     }
 
+    [SuppressMessage("SonarLint", "S2139", Justification = "Log.Fatal + rethrow is intentional: logs context before propagating to host.")]
     public static async Task AppRunAsync(this WebApplication app)
     {
         ArgumentNullException.ThrowIfNull(app);
@@ -35,7 +37,7 @@ internal static class AppExtensions
         }
         catch (Exception ex)
         {
-            Log.Fatal(ex, "Application Twilight Imperium Ultimate API start-up failed");
+            Log.Fatal(ex, "Application Twilight Imperium Ultimate API start-up failed: {Message}", ex.Message);
             throw;
         }
         finally

@@ -8,6 +8,8 @@ public static class OptionsCollectionsExtension
     public static IServiceCollection RegisterOptions(
         this IServiceCollection services, IConfiguration configuration)
     {
+        ArgumentNullException.ThrowIfNull(configuration);
+
         services.Configure<TwilightImperiumApiOptions>(configuration.GetSection(nameof(TwilightImperiumApiOptions)));
         services.Configure<AsyncServerOptions>(configuration.GetSection(nameof(AsyncServerOptions)));
         return services;

@@ -1,0 +1,251 @@
+﻿.faction-info-content {
+    min-height: min(66vh, 46rem);
+}
+
+@media (max-width: 1248px) {
+    .faction-info-content {
+        min-height: min(50vh, 32rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .faction-info-content {
+        min-height: min(50vh, 28rem);
+    }
+}.faction-overview-shell,
+.faction-dynamic-content-shell {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.faction-overview-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    grid-template-areas:
+        "title hero"
+        "quote hero"
+        "system hero"
+        "sheets hero";
+    gap: var(--space-md);
+    align-items: start;
+}
+
+.faction-overview-layout {
+    display: grid;
+    grid-template-columns: 15% minmax(0, 1fr);
+    gap: var(--space-sm);
+    align-items: start;
+}
+
+.faction-overview-texture {
+    display: block;
+    width: 100%;
+}
+
+.faction-title-block {
+    grid-area: title;
+}
+
+.faction-hero-block {
+    grid-area: hero;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.faction-quote-block {
+    grid-area: quote;
+    align-self: start;
+    justify-self: start;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.faction-quote-block ::deep .faction-quote {
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: left;
+}
+
+.faction-system-block {
+    grid-area: system;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.faction-sheets-block {
+    grid-area: sheets;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.faction-sheets-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-sm);
+}
+
+.firmament-sheet-row-spacer {
+    display: none;
+}
+
+.complexity-rating-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.complexity-rating-container img {
+    width: min(50%, 12rem);
+    height: auto;
+}
+
+.complexity-text {
+    color: white;
+    font-family: Handel, fallback, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 0px 2px 6px rgba(0, 0, 0, 1), 2px 0px 6px rgba(0, 0, 0, 1), 0px -2px 6px rgba(0, 0, 0, 1), -2px 0px 6px rgba(0, 0, 0, 1), 1px 1px 6px rgba(0, 0, 0, 1), 1px -1px 6px rgba(0, 0, 0, 1), -1px 1px 6px rgba(0, 0, 0, 1), -1px -1px 6px rgba(0, 0, 0, 1);
+}
+
+::deep .faction-sheet-button {
+    width: 100%;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    color: white;
+    font-family: Handel, fallback, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 0px 2px 6px rgba(0, 0, 0, 1), 2px 0px 6px rgba(0, 0, 0, 1), 0px -2px 6px rgba(0, 0, 0, 1), -2px 0px 6px rgba(0, 0, 0, 1), 1px 1px 6px rgba(0, 0, 0, 1), 1px -1px 6px rgba(0, 0, 0, 1), -1px 1px 6px rgba(0, 0, 0, 1), -1px -1px 6px rgba(0, 0, 0, 1);
+}
+
+.big-image-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+    .big-image-overlay img {
+        position: relative;
+        max-width: 90%;
+        max-height: 90%;
+        cursor: pointer;
+        border-radius: 20px;
+    }
+
+        .big-image-overlay img::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            box-shadow: inset 0 0 0 5px #000;
+            pointer-events: none;
+            border-radius: 20px;
+            z-index: 2;
+        }
+
+.image-container {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+    .image-container img {
+        display: block;
+        max-width: 100%;
+        max-height: 100%;
+        cursor: pointer;
+        border-radius: 20px;
+    }
+
+    .image-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        box-shadow: inset 0 0 0 5px #000;
+        pointer-events: none;
+        border-radius: 20px;
+    }
+
+.commodities-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+}
+
+.commodities-value {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1;
+}
+
+
+
+@media (max-width: 1024px) {
+    .faction-overview-shell,
+    .faction-dynamic-content-shell {
+        width: 92%;
+    }
+
+    .faction-overview-grid {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+            "title"
+            "hero"
+            "quote"
+            "system"
+            "sheets";
+    }
+
+    .faction-overview-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .faction-overview-texture {
+        display: none;
+    }
+}
+
+@media (max-width: 1248px) {
+    ::deep .faction-sheet-button, .complexity-rating-container {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .faction-overview-shell,
+    .faction-dynamic-content-shell {
+        width: 98%;
+    }
+
+    ::deep .faction-sheet-button, .complexity-rating-container {
+        font-size: 10px;
+    }
+
+    .firmament-sheet-row-spacer {
+        display: block;
+    }
+
+}

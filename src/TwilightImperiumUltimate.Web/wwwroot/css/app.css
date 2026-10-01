@@ -62,13 +62,140 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Inter';
+    src: url('/resources/fonts/Inter.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Inter Italic';
+    src: url('/resources/fonts/Inter Italic.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* ResponsiveDatePicker's calendar popup is rendered outside the component tree, so its
+   dark theme must be global rather than CSS-isolated. */
+.responsive-date-picker-popup,
+.rz-datepicker-panel {
+    background-color: var(--color-nav-panel-bg) !important;
+    border-color: var(--color-nav-hover) !important;
+    color: var(--color-white) !important;
+    font-family: Handel, fallback, sans-serif !important;
+}
+
+.rz-datepicker-panel .rz-calendar,
+.rz-datepicker-panel .rz-calendar-header,
+.rz-datepicker-panel .rz-calendar-view,
+.rz-datepicker-panel .rz-calendar-view td,
+.rz-datepicker-panel .rz-calendar-view th {
+    background-color: var(--color-nav-panel-bg) !important;
+    color: var(--color-white) !important;
+    font-family: Handel, fallback, sans-serif !important;
+}
+
+.rz-datepicker-panel .rz-calendar-view td:hover,
+.rz-datepicker-panel .rz-calendar-view td.rz-state-selected,
+.rz-datepicker-panel .rz-calendar-view td.rz-state-focused {
+    background-color: var(--color-nav-hover-bg-solid) !important;
+    color: var(--color-nav-hover) !important;
+}
+
+/* ==================== CSS VARIABLES ====================== */
+:root {
+    /* Spacing Scale (rem-based) */
+    --space-xs: 0.25rem;    /* 4px */
+    --space-sm: 0.5rem;     /* 8px */
+    --space-md: 1rem;       /* 16px */
+    --space-lg: 1.5rem;     /* 24px */
+    --space-xl: 2rem;       /* 32px */
+    --space-2xl: 3rem;      /* 48px */
+    --space-3xl: 4rem;      /* 64px */
+    
+    /* Font Sizes (fluid typography) */
+    --font-size-xs: clamp(0.625rem, 0.5rem + 0.5vw, 0.75rem);        /* 10-12px */
+    --font-size-sm: clamp(0.75rem, 0.7rem + 0.5vw, 0.875rem);        /* 12-14px */
+    --font-size-base: clamp(0.875rem, 0.8rem + 0.5vw, 1rem);         /* 14-16px */
+    --font-size-md: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);           /* 16-18px */
+    --font-size-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);          /* 18-24px */
+    --font-size-xl: clamp(1.5rem, 1.2rem + 1vw, 2rem);               /* 24-32px */
+    --font-size-2xl: clamp(1.75rem, 1.5rem + 1.5vw, 2.625rem);       /* 28-42px */
+    --font-size-3xl: clamp(2rem, 1.5rem + 2vw, 3rem);                /* 32-48px */
+    
+    /* Colors */
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-blue: #0024ff;
+    --color-gray-dark: #333;
+    --color-gray-medium: #808080;
+
+    /* Navigation hover/active state */
+    --color-nav-hover: #8ecfff;
+    --color-nav-hover-bg: rgba(18, 57, 87, 0.94);
+    --color-nav-hover-bg-solid: rgb(18, 57, 87);
+    --color-nav-default-bg: rgba(0, 0, 0, 0.7);
+    --color-nav-panel-bg: rgb(8, 14, 24);
+
+    /* Danger/destructive action state (e.g. ResponsiveDangerButton) -- same darker-to-lighter
+       hover behavior as the nav palette above, just in red. Hover TEXT uses a lighter red (rather
+       than the deeper danger reds above) so it stays readable against the lighter hover
+       background instead of red-on-red. */
+    --color-danger-bg-solid: rgb(90, 20, 20);
+    --color-danger-hover-bg-solid: rgb(150, 30, 30);
+    --color-danger-hover-text: #ff8080;
+    
+    /* Layout */
+    --max-content-width: 1920px;
+    --border-radius-sm: 0.5rem;
+    --border-radius-md: 0.625rem;
+    
+    /* Shadows */
+    --shadow-text: 0px 2px 6px rgba(0, 0, 0, 1), 
+                   2px 0px 6px rgba(0, 0, 0, 1), 
+                   0px -2px 6px rgba(0, 0, 0, 1), 
+                   -2px 0px 6px rgba(0, 0, 0, 1), 
+                   1px 1px 6px rgba(0, 0, 0, 1), 
+                   1px -1px 6px rgba(0, 0, 0, 1), 
+                   -1px 1px 6px rgba(0, 0, 0, 1), 
+                   -1px -1px 6px rgba(0, 0, 0, 1);
+}
+
+@media (max-width: 1024px) {
+    :root {
+        --space-2xl: 2.5rem;
+        --space-3xl: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --space-lg: 1.25rem;
+        --space-xl: 1.5rem;
+        --space-2xl: 2rem;
+        --space-3xl: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --space-md: 0.75rem;
+        --space-lg: 1rem;
+        --space-xl: 1.25rem;
+        --space-2xl: 1.5rem;
+        --space-3xl: 2rem;
+    }
+}
+
 .background {
     background: rgba(0,0,0,0.5);
     height: auto;
 }
 
 .padding {
-    padding: 2% 2% 2% 2%;
+    padding: 2%;
 }
 
 /* ====================== SCROLLBAR ========================= */
@@ -91,88 +218,299 @@ html::-webkit-scrollbar-button {
 
 html {
     overflow-y: scroll;
+    overflow-x: clip;
+    font-size: 16px; /* Base font size for rem calculations */
 
     background-image: url('/resources/images/shared/Twilight_imperium_ultimate_background.webp');
     background-position: center center;
     background-repeat: repeat-y;
-    background-size: cover; /* always cover viewport */
-    background-attachment: fixed; /* stays fixed across pages and scrolls */
-    background-color: #000; /* fallback */
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: var(--color-black);
+}
+
+body {
+    overflow-x: clip;
+}
+
+/*
+   The desktop rules above look wrong on tablet/mobile: this wide (~2.37:1) landscape image gets
+   forced into an extreme zoomed-in crop by background-size:cover on a tall/narrow viewport, and
+   repeat-y then tiles that crop disjointedly down the page. Tablet has no dedicated asset yet, so
+   it falls back to the plain dark background-color.
+
+   Mobile now uses a dedicated image cropped directly from the desktop source at an exact 9:19.5
+   portrait ratio (665x1440, centered on the nebula/ring), matching real phone viewports (~0.46-0.5
+   ratio) far more closely than the previous 1080x1439 (~0.75 ratio) asset did. Because the ratio
+   now matches, background-size:cover needs no letterboxing/contain workaround and won't force the
+   big height-driven upscale that caused the earlier "zoomed as hell"/pixelated look.
+*/
+@media (max-width: 768px) {
+    html {
+        background-image: url('/resources/images/shared/Twilight_imperium_ultimate_background_mobile.webp');
+    }
+}
+
+/* Respect the user's reduced-motion preference. */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
 
 /* ========================= TEXT =========================== */
+p {
+    margin: 0;
+    padding: 0;
+    font-family: Handel, sans-serif;
+    font-size: var(--font-size-base);
+    color: var(--color-white) !important;
+    text-shadow: var(--shadow-text) !important;
+}
+
 .bodoni {
-    font-family: Bodoni, fallback, sans-serif;
+    font-family: Bodoni, sans-serif !important;
 }
 
 .handel {
-    font-family: Handel, fallback, sans-serif;
+    font-family: Handel, sans-serif !important;
 }
 
 .handel-cz {
-    font-family: Handel CZ, fallback, sans-serif;
+    font-family: Handel CZ, sans-serif !important;
 }
 
 .myriad-pro-regular {
-    font-family: Myriad Pro Regular, fallback, sans-serif;
+    font-family: Myriad Pro Regular, sans-serif !important;
 }
 
 .myriad-pro-italic {
-    font-family: Myriad Pro Italic, fallback, sans-serif;
+    font-family: Myriad Pro Italic, sans-serif !important;
 }
 
 .myriad-pro-bold {
-    font-family: Myriad Pro Bold, fallback, sans-serif;
+    font-family: Myriad Pro Bold, sans-serif !important;
 }
 
 .myriad-title {
-    font-family: Myriad Title, fallback, sans-serif;
+    font-family: Myriad Title, sans-serif !important;
 }
 
 .proda-sans-italic {
-    font-family: Proda Sans, fallback, sans-serif;
+    font-family: Proda Sans, sans-serif !important;
 }
 
 .slider {
-    font-family: Slider, fallback, sans-serif;
+    font-family: Slider, sans-serif !important;
+}
+
+.inter {
+    font-family: Inter, sans-serif !important;
+}
+
+.inter-italic {
+    font-family: Inter Italic, sans-serif !important;
 }
 
 .shadow {
-    text-shadow: 0px 2px 6px rgba(0, 0, 0, 1), 2px 0px 6px rgba(0, 0, 0, 1), 0px -2px 6px rgba(0, 0, 0, 1), -2px 0px 6px rgba(0, 0, 0, 1), 1px 1px 6px rgba(0, 0, 0, 1), 1px -1px 6px rgba(0, 0, 0, 1), -1px 1px 6px rgba(0, 0, 0, 1), -1px -1px 6px rgba(0, 0, 0, 1);
+    text-shadow: var(--shadow-text) !important;
+}
+
+/* Radzen dropdown popup items are rendered in a global popup container,
+   so font styling must be applied globally (component-scoped styles won't reach it). */
+.rz-dropdown-panel .rz-dropdown-item,
+.rz-dropdown-panel .rz-dropdown-item span,
+.rz-dropdown-items .rz-dropdown-item,
+.rz-dropdown-items .rz-dropdown-item span {
+    cursor: pointer;
+    font-family: Handel, fallback, sans-serif !important;
+}
+
+/* Radzen dropdowns and their popup panels are global/portal-rendered. Keep every shared
+   ResponsiveDropDown dark, including hover states and the searchable popup input. */
+.rz-dropdown,
+.rz-dropdown:hover,
+.rz-dropdown-panel,
+.rz-dropdown-filter-container,
+.rz-dropdown-filter-container input,
+.rz-dropdown-panel .rz-dropdown-item,
+.rz-dropdown-panel .rz-dropdown-item:hover,
+.rz-dropdown-panel .rz-dropdown-item.rz-state-highlight,
+.rz-dropdown-panel .rz-dropdown-item.rz-state-focused {
+    background-color: var(--color-nav-panel-bg) !important;
+    color: var(--color-white) !important;
+    font-family: Handel, fallback, sans-serif !important;
+}
+
+.rz-dropdown,
+.rz-dropdown:hover,
+.rz-dropdown:focus-within {
+    --rz-input-background-color: var(--color-nav-panel-bg);
+    --rz-input-hover-background-color: var(--color-nav-panel-bg);
+    --rz-input-border: 1px solid var(--color-nav-hover);
+    --rz-input-border-block-end: 1px solid var(--color-nav-hover);
+    --rz-input-hover-border: 1px solid var(--color-nav-hover);
+    --rz-input-hover-border-block-end: 1px solid var(--color-nav-hover);
+    --rz-input-value-color: var(--color-white);
+}
+
+.rz-dropdown-panel,
+.rz-dropdown-panel:hover,
+.rz-dropdown-panel .rz-dropdown-filter-container,
+.rz-dropdown-panel .rz-dropdown-filter-container input {
+    background-color: var(--color-black) !important;
+    color: var(--color-white) !important;
+    font-family: Handel, fallback, sans-serif !important;
+}
+
+.rz-dropdown-panel .rz-dropdown-filter-container {
+    border-bottom: 1px solid var(--color-nav-hover) !important;
+}
+
+.rz-dropdown-panel .rz-dropdown-filter-container input {
+    border: 0 !important;
+    color: var(--color-white) !important;
+    outline: none !important;
+}
+
+/* Match Radzen's exact pager selector so every shared data grid centers its pager controls. */
+.responsive-radzen-grid .rz-pager.rz-align-left > .rz-pager-pages,
+.responsive-radzen-grid .rz-pager.rz-align-right > .rz-pager-pages,
+.responsive-radzen-grid .rz-pager.rz-align-center > .rz-pager-pages {
+    justify-content: center !important;
+}
+
+.responsive-radzen-grid .rz-pager-first,
+.responsive-radzen-grid .rz-pager-prev,
+.responsive-radzen-grid .rz-pager-next,
+.responsive-radzen-grid .rz-pager-last {
+    visibility: visible !important;
+}
+
+.responsive-radzen-grid .rz-pager-first.rz-state-disabled,
+.responsive-radzen-grid .rz-pager-prev.rz-state-disabled,
+.responsive-radzen-grid .rz-pager-next.rz-state-disabled,
+.responsive-radzen-grid .rz-pager-last.rz-state-disabled {
+    color: var(--color-nav-hover) !important;
+    opacity: 0.55;
+}
+
+.responsive-radzen-grid .rz-pager-first .rzi,
+.responsive-radzen-grid .rz-pager-prev .rzi,
+.responsive-radzen-grid .rz-pager-next .rzi,
+.responsive-radzen-grid .rz-pager-last .rzi {
+    color: var(--color-nav-hover) !important;
+}
+
+.rz-dropdown-panel .rz-dropdown-item:hover,
+.rz-dropdown-panel .rz-dropdown-item.rz-state-highlight,
+.rz-dropdown-panel .rz-dropdown-item.rz-state-focused {
+    background-color: var(--color-nav-hover-bg-solid) !important;
+    color: var(--color-nav-hover) !important;
+}
+
+/* Keep Radzen dropdown list scrollbars consistent with the page and data-grid scrollbars. */
+.rz-dropdown-panel .rz-dropdown-items-wrapper,
+.rz-dropdown-panel .rz-multiselect-items-wrapper {
+    scrollbar-width: thin;
+    scrollbar-color: #0024ff #333;
+}
+
+.rz-dropdown-panel .rz-dropdown-items-wrapper::-webkit-scrollbar,
+.rz-dropdown-panel .rz-multiselect-items-wrapper::-webkit-scrollbar {
+    width: 12px;
+}
+
+.rz-dropdown-panel .rz-dropdown-items-wrapper::-webkit-scrollbar-track,
+.rz-dropdown-panel .rz-multiselect-items-wrapper::-webkit-scrollbar-track {
+    background: #333;
+}
+
+.rz-dropdown-panel .rz-dropdown-items-wrapper::-webkit-scrollbar-thumb,
+.rz-dropdown-panel .rz-multiselect-items-wrapper::-webkit-scrollbar-thumb {
+    background: #0024ff;
+}
+
+/* RadzenDatePicker popup surfaces are rendered outside the component scope. Set both the
+   visible colors and Radzen's header variables so the calendar header cannot fall back to white. */
+.rz-datepicker-popup-container,
+.rz-datepicker-popup-container .rz-calendar,
+.rz-datepicker-popup-container .rz-calendar-header,
+.rz-datepicker-popup-container .rz-calendar-view-container,
+.rz-datepicker-popup-container .rz-calendar-view,
+.rz-datepicker-popup-container .rz-calendar-view th,
+.rz-datepicker-popup-container .rz-calendar-view td,
+.rz-datepicker-popup-container .rz-calendar-month-dropdown,
+.rz-datepicker-popup-container .rz-calendar-year-dropdown {
+    --rz-datepicker-header-background-color: var(--color-black) !important;
+    --rz-datepicker-header-color: var(--color-white) !important;
+    --rz-datepicker-calendar-color: var(--color-white) !important;
+    background-color: var(--color-black) !important;
+    color: var(--color-white) !important;
+    font-family: Handel, fallback, sans-serif !important;
+}
+
+.rz-datepicker-popup-container .rz-calendar-view td:hover .rz-state-default,
+.rz-datepicker-popup-container .rz-state-active,
+.rz-datepicker-popup-container .rz-state-focused,
+.rz-datepicker-popup-container .rz-calendar-today {
+    background-color: var(--color-nav-hover-bg-solid) !important;
+    color: var(--color-nav-hover) !important;
+}
+
+.rz-datepicker-popup-container .rz-calendar-view td .rz-calendar-today,
+.rz-datepicker-popup-container .rz-calendar-view td .rz-calendar-today:hover,
+.rz-datepicker-popup-container .rz-calendar-view td .rz-calendar-today.rz-state-focused {
+    background-color: rgb(31, 92, 54) !important;
+    color: var(--color-white) !important;
+    box-shadow: inset 0 0 0 1px rgb(55, 130, 78) !important;
+}
+
+/* Same as above but for RadzenAutoComplete's popup (used by ResponsiveAutocomplete). */
+.rz-autocomplete-panel .rz-autocomplete-list-item,
+.rz-autocomplete-panel .rz-autocomplete-list-item span {
+    font-family: Handel, fallback, sans-serif !important;
 }
 
 .loading-text {
-    position: fixed; /* stays in screen center */
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
     z-index: 9999;
-    pointer-events: none; /* avoid blocking clicks if Blazor loads slowly */
-
+    pointer-events: none;
+    
     font-family: Handel, fallback, sans-serif !important;
-    font-size: 48px !important;
+    font-size: var(--font-size-3xl) !important;
     font-weight: bold !important;
-    color: white !important;
-
+    color: var(--color-white) !important;
     text-align: center !important;
     text-transform: uppercase !important;
-    text-shadow: 0px 2px 6px rgba(0, 0, 0, 1), 2px 0px 6px rgba(0, 0, 0, 1), 0px -2px 6px rgba(0, 0, 0, 1), -2px 0px 6px rgba(0, 0, 0, 1), 1px 1px 6px rgba(0, 0, 0, 1), 1px -1px 6px rgba(0, 0, 0, 1), -1px 1px 6px rgba(0, 0, 0, 1), -1px -1px 6px rgba(0, 0, 0, 1) !important;
+    text-shadow: var(--shadow-text) !important;
 }
 
 .title {
-    font-size: 28px;
+    font-size: var(--font-size-2xl);
 }
 
 .text-small {
-    font-size: 12px;
+    font-size: var(--font-size-xs);
+}
+
+.api-error-message-centered {
+    text-align: center;
 }
 
 .text-break {
     word-wrap: break-word;
     overflow-wrap: break-word;
     white-space: normal;
-    word-break: break-all;
+    word-break: break-word;
 }
 
 .text-break-all {
@@ -189,24 +527,199 @@ html {
 }
 
 .white {
-    color: white;
+    color: var(--color-white) !important;
 }
 
-.margin-top-10 {
-    margin-top: 10px;
+.width-100 {
+    width: 100%;
 }
 
-.margin-top-50 {
-    margin-top: 50px;
+/* ==================== LAYOUT UTILITIES ====================== */
+
+/* Centered, responsively-narrowing column: more breathing room around content on desktop,
+   using progressively more of the available width as the viewport shrinks (little/no side
+   margin left on mobile). Useful for single-column forms/actions that shouldn't stretch
+   edge-to-edge on wide screens but also shouldn't waste space on small ones. */
+.responsive-narrow-column {
+    width: 100%;
+    max-width: 28rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.mr-15 {
-    margin-right: 15px;
+@media (max-width: 1024px) {
+    .responsive-narrow-column {
+        max-width: 60%;
+    }
 }
 
-.ml-15 {
-    margin-left: 15px;
+@media (max-width: 768px) {
+    .responsive-narrow-column {
+        max-width: 85%;
+    }
 }
+
+@media (max-width: 480px) {
+    .responsive-narrow-column {
+        max-width: 100%;
+    }
+}
+
+/* Responsive input height: taller on desktop, progressively shorter on tablet/mobile. Overrides
+   Radzen's own --rz-input-height custom property (consumed by .rz-textbox/.rz-input-md/etc.), so
+   it applies regardless of cascade order -- a plain "height" declaration would have to fight
+   Radzen's own more specific rules, but overriding the custom property they already read from
+   works reliably instead. !important is required because Radzen's OWN .rz-input-md rule (which
+   also sets --rz-input-height) has the same specificity (single class) and loads AFTER this
+   stylesheet, so it would otherwise win by source order alone. */
+.responsive-input-height {
+    --rz-input-height: 3rem !important;
+}
+
+@media (max-width: 1024px) {
+    .responsive-input-height {
+        --rz-input-height: 2.75rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .responsive-input-height {
+        --rz-input-height: 2.5rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .responsive-input-height {
+        --rz-input-height: 2.25rem !important;
+    }
+}
+
+/*
+    Unpaged data grids (e.g. the "Factions" overview grid on the Async Statistics and player
+    profile pages) render every row at once. RadzenDataGrid itself has no Blazor CSS scope
+    attribute, so this plain global selector reaches it fine without ::deep from either consumer.
+*/
+
+/* Never show a horizontal scrollbar for this grid -- wrap column content/shrink columns to fit
+   the available width instead of the default nowrap+overflow-x:auto columns use elsewhere. */
+.faction-overview-grid .rz-data-grid-data {
+    overflow-x: hidden;
+}
+
+.faction-overview-grid .rz-grid-table th,
+.faction-overview-grid .rz-grid-table td {
+    white-space: normal;
+    word-break: break-word;
+}
+
+/* ==================== SPACING UTILITIES ====================== */
+
+
+/* Padding/margin utility classes. Token values (xs..3xl) map to the responsive
+   --space-* scale defined above; ".p-0"/".m-0" reset padding/margin to zero
+   (the default box model behavior everywhere else already, but explicit for
+   overriding a browser/element default like <ul>/<p>). For one-off explicit
+   rem values not covered by the scale, use the component's own Style parameter
+   instead of adding new classes here (e.g. Style="padding-top: 1.375rem;").
+   These use !important deliberately: Blazor CSS isolation adds a scope
+   attribute selector (e.g. .responsive-heading[b-xxxx]) to a component's own
+   base rules, which gives that rule higher specificity than a plain global
+   utility class like .mb-xl -- so without !important here, any component
+   whose own scoped CSS sets margin/padding (even just a reset like
+   "margin: 0") silently wins over these utilities regardless of source
+   order. !important makes these utilities behave as the intentional,
+   always-wins override they are meant to be, everywhere they're used via
+   CssClass, without having to audit every component's own scoped CSS. */
+.p-0 { padding: 0 !important; }
+.p-xs { padding: var(--space-xs) !important; }
+.p-sm { padding: var(--space-sm) !important; }
+.p-md { padding: var(--space-md) !important; }
+.p-lg { padding: var(--space-lg) !important; }
+.p-xl { padding: var(--space-xl) !important; }
+.p-2xl { padding: var(--space-2xl) !important; }
+.p-3xl { padding: var(--space-3xl) !important; }
+
+.pt-0 { padding-top: 0 !important; }
+.pt-xs { padding-top: var(--space-xs) !important; }
+.pt-sm { padding-top: var(--space-sm) !important; }
+.pt-md { padding-top: var(--space-md) !important; }
+.pt-lg { padding-top: var(--space-lg) !important; }
+.pt-xl { padding-top: var(--space-xl) !important; }
+.pt-2xl { padding-top: var(--space-2xl) !important; }
+.pt-3xl { padding-top: var(--space-3xl) !important; }
+
+.pr-0 { padding-right: 0 !important; }
+.pr-xs { padding-right: var(--space-xs) !important; }
+.pr-sm { padding-right: var(--space-sm) !important; }
+.pr-md { padding-right: var(--space-md) !important; }
+.pr-lg { padding-right: var(--space-lg) !important; }
+.pr-xl { padding-right: var(--space-xl) !important; }
+.pr-2xl { padding-right: var(--space-2xl) !important; }
+.pr-3xl { padding-right: var(--space-3xl) !important; }
+
+.pb-0 { padding-bottom: 0 !important; }
+.pb-xs { padding-bottom: var(--space-xs) !important; }
+.pb-sm { padding-bottom: var(--space-sm) !important; }
+.pb-md { padding-bottom: var(--space-md) !important; }
+.pb-lg { padding-bottom: var(--space-lg) !important; }
+.pb-xl { padding-bottom: var(--space-xl) !important; }
+.pb-2xl { padding-bottom: var(--space-2xl) !important; }
+.pb-3xl { padding-bottom: var(--space-3xl) !important; }
+
+.pl-0 { padding-left: 0 !important; }
+.pl-xs { padding-left: var(--space-xs) !important; }
+.pl-sm { padding-left: var(--space-sm) !important; }
+.pl-md { padding-left: var(--space-md) !important; }
+.pl-lg { padding-left: var(--space-lg) !important; }
+.pl-xl { padding-left: var(--space-xl) !important; }
+.pl-2xl { padding-left: var(--space-2xl) !important; }
+.pl-3xl { padding-left: var(--space-3xl) !important; }
+
+.m-0 { margin: 0 !important; }
+.m-xs { margin: var(--space-xs) !important; }
+.m-sm { margin: var(--space-sm) !important; }
+.m-md { margin: var(--space-md) !important; }
+.m-lg { margin: var(--space-lg) !important; }
+.m-xl { margin: var(--space-xl) !important; }
+.m-2xl { margin: var(--space-2xl) !important; }
+.m-3xl { margin: var(--space-3xl) !important; }
+
+.mt-0 { margin-top: 0 !important; }
+.mt-xs { margin-top: var(--space-xs) !important; }
+.mt-sm { margin-top: var(--space-sm) !important; }
+.mt-md { margin-top: var(--space-md) !important; }
+.mt-lg { margin-top: var(--space-lg) !important; }
+.mt-xl { margin-top: var(--space-xl) !important; }
+.mt-2xl { margin-top: var(--space-2xl) !important; }
+.mt-2xl-non-mobile { margin-top: var(--space-2xl) !important; }
+.mt-3xl { margin-top: var(--space-3xl) !important; }
+
+.mr-0 { margin-right: 0 !important; }
+.mr-xs { margin-right: var(--space-xs) !important; }
+.mr-sm { margin-right: var(--space-sm) !important; }
+.mr-md { margin-right: var(--space-md) !important; }
+.mr-lg { margin-right: var(--space-lg) !important; }
+.mr-xl { margin-right: var(--space-xl) !important; }
+.mr-2xl { margin-right: var(--space-2xl) !important; }
+.mr-3xl { margin-right: var(--space-3xl) !important; }
+
+.mb-0 { margin-bottom: 0 !important; }
+.mb-xs { margin-bottom: var(--space-xs) !important; }
+.mb-sm { margin-bottom: var(--space-sm) !important; }
+.mb-md { margin-bottom: var(--space-md) !important; }
+.mb-lg { margin-bottom: var(--space-lg) !important; }
+.mb-xl { margin-bottom: var(--space-xl) !important; }
+.mb-2xl { margin-bottom: var(--space-2xl) !important; }
+.mb-3xl { margin-bottom: var(--space-3xl) !important; }
+
+.ml-0 { margin-left: 0 !important; }
+.ml-xs { margin-left: var(--space-xs) !important; }
+.ml-sm { margin-left: var(--space-sm) !important; }
+.ml-md { margin-left: var(--space-md) !important; }
+.ml-lg { margin-left: var(--space-lg) !important; }
+.ml-xl { margin-left: var(--space-xl) !important; }
+.ml-2xl { margin-left: var(--space-2xl) !important; }
+.ml-3xl { margin-left: var(--space-3xl) !important; }
 
 .span-1 {
     grid-column: span 1;
@@ -263,18 +776,74 @@ body {
     margin: 0;
     padding: 0;
     background: transparent;
+    font-size: var(--font-size-base);
 }
 
 #app {
     width: 100%;
-    display: flex;
 }
 
-main {
-    height: 100%;
-    width: 1920px;
+.site-shell {
+    /* Taller than one viewport on purpose: on short pages this pushes the footer just below the
+       fold so it takes a little scrolling to reach, instead of always sitting flush at the bottom
+       of the initial view (which made the site feel "short"). */
+    min-height: calc(100vh + 20rem);
+    display: flex;
+    flex-direction: column;
+    max-width: var(--max-content-width);
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
     position: relative;
     box-sizing: border-box;
+}
+
+/* Mobile optimization */
+@media screen and (max-width: 768px) {
+    .site-shell {
+        padding: 0;
+    }
+
+    .mt-2xl-non-mobile {
+        margin-top: 0 !important;
+    }
+}
+
+/* Skip to main content link (visible on keyboard focus). */
+.skip-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    margin: var(--space-xs);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--color-black);
+    color: var(--color-white);
+    font-family: Handel, fallback, sans-serif;
+    text-decoration: none;
+    border-radius: var(--border-radius-sm);
+    transform: translateY(-200%);
+    transition: transform 0.15s ease;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+    transform: translateY(0);
+    outline: 0.125rem solid yellow;
+    outline-offset: 0.125rem;
+}
+
+/* The main region is a programmatic focus target for the skip link. */
+.site-main:focus {
+    outline: none;
+}
+
+/* Sticky-footer layout pattern (NOT position:sticky/fixed -- footer stays in normal document
+   flow always). .site-shell is a flex column at least one viewport tall; .site-main grows to
+   fill any leftover space, so the footer sits flush at the bottom on short pages and simply
+   follows the content on long pages, exactly like any other in-flow element. */
+.site-main {
+    flex: 1 0 auto;
 }
 
 .clickable {
@@ -306,25 +875,25 @@ main {
 }
 
 .button {
-    border-radius: 10px;
-    border: 2px solid black;
+    border-radius: var(--border-radius-md);
+    border: 2px solid var(--color-black);
     background-color: rgba(0, 0, 255, 0.3);
     transition: background-color 0.3s ease;
-    padding: 10px;
+    padding: var(--space-sm) var(--space-md);
     box-sizing: border-box;
 }
 
 .button-disabled {
-    border-radius: 10px;
-    border: 2px solid black;
+    border-radius: var(--border-radius-md);
+    border: 2px solid var(--color-black);
     background-color: rgba(128, 128, 128, 0.3);
     transition: background-color 0.3s ease;
-    padding: 10px;
+    padding: var(--space-sm) var(--space-md);
     box-sizing: border-box;
 }
 
 .button:hover {
-    background-color: white;
+    background-color: var(--color-white);
 }
 
 /* ========== RADZEN CHART OVERRIDES ========== */
@@ -388,7 +957,7 @@ main {
     }
 
 .blazor-error-boundary {
-    background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTYiIGhlaWdodD0iNDkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIG92ZXJmbG93PSJoaWRkZW4iPjxkZWZzPjxjbGlwUGF0aCBpZD0iY2xpcDAiPjxyZWN0IHg9IjIzNSIgeT0iNTEiIHdpZHRoPSI1NiIgaGVpZ2h0PSI0OSIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMCkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMzUgLTUxKSI+PHBhdGggZD0iTTI2My41MDYgNTFDMjY0LjcxNyA1MSAyNjUuODEzIDUxLjQ4MzcgMjY2LjYwNiA1Mi4yNjU4TDI2Ny4wNTIgNTIuNzk4NyAyNjcuNTM5IDUzLjYyODMgMjkwLjE4NSA5Mi4xODMxIDI5MC41NDUgOTIuNzk1IDI5MC42NTYgOTIuOTk2QzI5MC44NzcgOTMuNTEzIDI5MSA5NC4wODE1IDI5MSA5NC42NzgyIDI5MSA5Ny4wNjUxIDI4OS4wMzggOTkgMjg2LjYxNyA5OUwyNDAuMzgzIDk5QzIzNy45NjMgOTkgMjM2IDk3LjA2NTEgMjM2IDk0LjY3ODIgMjM2IDk0LjM3OTkgMjM2LjAzMSA5NC4wODg2IDIzNi4wODkgOTMuODA3MkwyMzYuMzM4IDkzLjAxNjIgMjM2Ljg1OCA5Mi4xMzE0IDI1OS40NzMgNTMuNjI5NCAyNTkuOTYxIDUyLjc5ODUgMjYwLjQwNyA1Mi4yNjU4QzI2MS4yIDUxLjQ4MzcgMjYyLjI5NiA1MSAyNjMuNTA2IDUxWk0yNjMuNTg2IDY2LjAxODNDMjYwLjczNyA2Ni4wMTgzIDI1OS4zMTMgNjcuMTI0NSAyNTkuMzEzIDY5LjMzNyAyNTkuMzEzIDY5LjYxMDIgMjU5LjMzMiA2OS44NjA4IDI1OS4zNzEgNzAuMDg4N0wyNjEuNzk1IDg0LjAxNjEgMjY1LjM4IDg0LjAxNjEgMjY3LjgyMSA2OS43NDc1QzI2Ny44NiA2OS43MzA5IDI2Ny44NzkgNjkuNTg3NyAyNjcuODc5IDY5LjMxNzkgMjY3Ljg3OSA2Ny4xMTgyIDI2Ni40NDggNjYuMDE4MyAyNjMuNTg2IDY2LjAxODNaTTI2My41NzYgODYuMDU0N0MyNjEuMDQ5IDg2LjA1NDcgMjU5Ljc4NiA4Ny4zMDA1IDI1OS43ODYgODkuNzkyMSAyNTkuNzg2IDkyLjI4MzcgMjYxLjA0OSA5My41Mjk1IDI2My41NzYgOTMuNTI5NSAyNjYuMTE2IDkzLjUyOTUgMjY3LjM4NyA5Mi4yODM3IDI2Ny4zODcgODkuNzkyMSAyNjcuMzg3IDg3LjMwMDUgMjY2LjExNiA4Ni4wNTQ3IDI2My41NzYgODYuMDU0N1oiIGZpbGw9IiNGRkU1MDAiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvZz48L3N2Zz4=) no-repeat 1rem/1.8rem, #b32121;
+    background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTYiIGhlaWdodD0iNDkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIG92ZXJmbG93PSJoaWRkZW4iPjxkZWZzPjxjbGlwUGF0aCBpZD0iY2xpcDAiPjxyZWN0IHg9IjIzNSIgeT0iNTEiIHdpZHRoPSI1NiIgaGVpZ2h0PSI0OSIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMCkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMzUgLTUxKSI+PHBhdGggZD0iTTI2My41MDYgNTFDMjY0LjcxNyA1MSAyNjUuODEzIDUxLjQ4MzcgMjY2LjYwNiA1Mi4yNjU4TDI2Ny4wNTIgNTIuNzk4NyAyNjcuNTM5IDUzLjYyODMgMjkwLjE4NSA5Mi4xODMxIDI5MC41NDUgOTIuNzk1IDI5MC42NTYgOTIuOTk2QzI5MC44NzcgOTMuNTEzIDI5MSA5NC4wODE1IDI5MSA5NC42NzgyIDI5MSA5Ny4wNjUxIDI4OS4wMzggOTkgMjg2LjYxNyA5OUwyNDAuMzgzIDk5QzIzNy45NjMgOTkgMjM2IDk3LjA2NTEgMjM2IDk0LjY3ODIgMjM2IDk0LjM3OTkgMjM2LjAzMSA5NC4wODg2IDIzNi4wODkgOTMuODA3MkwyMzYuMzM4IDkzLjAxNjIgMjM2Ljg1OCA5Mi4xMzE0IDI1OS40NzMgNTMuNjI5NCAyNTkuOTYxIDUyLjc5ODUgMjYwLjQwNyA1Mi4yNjU4QzI2MS4yIDUxLjQ4MzcgMjYyLjI5NiA1MSAyNjMuNTA2IDUxWk0yNjMuNTg2IDY2LjAxODNDMjYwLjczNyA2Ni4wMTgzIDI1OS4zMTMgNjcuMTI0NSAyNTkuMzEzIDY5LjMzNyAyNTkuMzEzIDY5LjYxMDIgMjU5LjMzMiA2OS44NjA4IDI1OS4zNzEgNzAuMDg4N0wyNjEuNzk1IDg0LjAxNjEgMjY1LjM4IDg0LjAxNjEgMjY3LjgyMSA2OS43NDc1QzI2Ny44NiA2OS43MzA5IDI2Ny44NzkgNjkuNTg3NyAyNjcuODc5IDY5LjMxNzkgMjY3Ljg3OSA2Ny4xMTgyIDI2Ni40NDg2MDAgNjYuMDE4MyAyNjMuNTg2IDY2LjAxODNaTTI2My41NzYgODYuMDU0N0MyNjEuMDQ5IDg2LjA1NDcgMjU5Ljc4NiA4Ny4zMDA1IDI1OS43ODYgODkuNzkyMSAyNTkuNzg2IDkyLjI4MzcgMjYxLjA0OSA5My41Mjk1IDI2My41NzYgOTMuNTI5NSAyNjYuMTE2IDkzLjUyOTUgMjY3LjM4NyA5Mi4yODM3IDI2Ny4zODcgODkuNzkyMSAyNjcuMzg3IDg3LjMwMDUgMjY2LjExNiA4Ni4wNTQ3IDI2My41NzYgODYuMDU0N1oiIGZpbGw9IiNGRkU1MDAiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvZz48L3N2Zz4=) no-repeat 1rem/1.8rem, #b32121;
     padding: 1rem 1rem 1rem 3.7rem;
     color: white;
 }

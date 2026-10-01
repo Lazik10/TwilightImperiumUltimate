@@ -52,14 +52,12 @@ internal class ThreePlayersMediumHyperlineMapSettings : IMapSettings, IHyperline
         { (4, 6, "85A", "4") },
         { (6, 6, "84A", "4") },
         { (7, 5, "87A", "4") },
-
         { (9, 3, "86A", "0") },
         { (10, 4, "88A", "0") },
         { (12, 4, "83A", "0") },
         { (13, 3, "85A", "0") },
         { (12, 2, "84A", "0") },
         { (10, 2, "87A", "0") },
-
         { (6, 2, "86A", "2") },
         { (7, 1, "88A", "2") },
         { (6, 0, "83A", "2") },
@@ -78,7 +76,6 @@ internal class ThreePlayersMediumHyperlineMapSettings : IMapSettings, IHyperline
         { (5, 5, 8, 6) },
         { (5, 3, 8, 4) },
         { (2, 4, 8, 6) },
-
         { (11, 3, 8, 4) },
         { (11, 3, 9, 5) },
         { (11, 3, 11, 5) },
@@ -87,7 +84,6 @@ internal class ThreePlayersMediumHyperlineMapSettings : IMapSettings, IHyperline
         { (11, 3, 8, 2) },
         { (8, 4, 8, 2) },
         { (11, 1, 11, 5) },
-
         { (5, 1, 8, 2) },
         { (5, 1, 9, 1) },
         { (5, 1, 8, 0) },

@@ -1,0 +1,18 @@
+/*
+    ResponsiveEnumPicker's value/label text already shrinks via the FontSize token passed through
+    (defaulted to "xs" here instead of "md", see TableActionEnumPicker.razor.cs), but the +/-
+    ArrowButton controls hard-code their own 46px inline font-size (see ArrowButton.razor)
+    regardless of FontSize -- any !important external rule beats a plain inline style outright, so
+    no extra specificity is needed to override it here.
+*/
+.table-action-enum-picker {
+    display: inline-flex;
+}
+
+.table-action-enum-picker ::deep .arrow-button div {
+    font-size: var(--font-size-sm) !important;
+}
+
+.table-action-enum-picker ::deep .arrow-button {
+    padding: 0;
+}

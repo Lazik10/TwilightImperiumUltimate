@@ -1,0 +1,32 @@
+@using TwilightImperiumUltimate.Web.Components.Technologies
+@using TwilightImperiumUltimate.Web.Components.Units
+@inherits FactionInfoComponentBase
+
+<div class="faction-starting-units">
+    @foreach (var unit in _startingUnits)
+    {
+        for (var i = 0; i < unit.Count; i++)
+        {
+            <UnitImage UnitName="@unit.UnitName" MaxWidth="@_startingUnitMaxWidth" />
+        }
+    }
+</div>
+
+@if (_showTechnologyPickMessage)
+{
+    <ResponsiveText Text="@_technologyPickMessage" CenterText="true" />
+}
+
+@if (_startingTechnologies.Count > 0)
+{
+    <div class="responsive-content-width">
+        <ResponsiveGridContainer Columns="@_technologyColumns" TabletColumns="@_technologyColumns" MobileColumns="1" Width="100" Gap="10px">
+            @foreach (var startingTechnology in _startingTechnologies)
+            {
+                <div class="faction-technology-image-container">
+                    <TechnologyCard TechnologyName="@startingTechnology.TechnologyName" />
+                </div>
+            }
+        </ResponsiveGridContainer>
+    </div>
+}

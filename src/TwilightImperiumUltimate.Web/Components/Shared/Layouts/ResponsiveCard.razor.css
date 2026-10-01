@@ -1,0 +1,27 @@
+.responsive-card {
+    width: 100%;
+    box-sizing: border-box;
+    padding: var(--space-lg);
+    border: 2px solid var(--color-nav-hover-bg-solid, #123957);
+    border-radius: var(--border-radius-md);
+    background-color: rgba(8, 14, 24, 0.94);
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.5);
+}
+
+.responsive-card-no-horizontal-padding {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.responsive-card-interactive {
+    cursor: pointer;
+}
+
+.responsive-card-interactive[aria-disabled="true"] {
+    cursor: not-allowed;
+}
+
+.responsive-card-interactive:focus-visible {
+    outline: 2px solid var(--color-nav-hover);
+    outline-offset: 2px;
+}

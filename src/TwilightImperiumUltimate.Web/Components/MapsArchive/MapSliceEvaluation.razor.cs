@@ -1,3 +1,6 @@
+using System.Globalization;
+using System.Text;
+using TwilightImperiumUltimate.Web.Helpers.Enums;
 using TwilightImperiumUltimate.Web.Models.MapGenerators.MapData;
 using TwilightImperiumUltimate.Web.Services.MapGenerators;
 
@@ -17,7 +20,14 @@ public partial class MapSliceEvaluation
     [Inject]
     private IMapDataProvider SliceDataProvider { get; set; } = default!;
 
-    private IMapData SliceData { get; set; } = default!;
+    /// <summary>
+    /// Gets the evaluated slices. Computed once per parameter change instead of on every render,
+    /// because the evaluation walks every system tile of every slice.
+    /// </summary>
+    private IReadOnlyList<SliceEvaluation> SliceEvaluations { get; set; } = [];
+
+    /// <inheritdoc />
+    protected override void OnParametersSet() => SliceEvaluations = GetSliceEvaluations();
 
     private static float GetOptimalInfluenceValue(PlanetModel planetModel)
     {
@@ -39,6 +49,42 @@ public partial class MapSliceEvaluation
             var resources when resources < planetModel.Influence => 0.0f,
             _ => 0.0f,
         };
+    }
+
+    private static string GetPlanetTraitsLabel(SliceEvaluation sliceEvaluation)
+    {
+        var builder = new StringBuilder();
+
+        foreach (var (planetTrait, count) in sliceEvaluation.PlanetTraits)
+            AppendCount(builder, count, planetTrait.ToString());
+
+        return builder.Length == 0 ? string.Empty : builder.ToString();
+    }
+
+    private static string GetTechnologySkipsLabel(SliceEvaluation sliceEvaluation)
+    {
+        var builder = new StringBuilder();
+
+        foreach (var (technologyType, count) in sliceEvaluation.TechnologySkips)
+            AppendCount(builder, count, technologyType.GetDisplayName());
+
+        AppendCount(builder, sliceEvaluation.LegendariesCount, PlanetTrait.Legendary.ToString());
+        AppendCount(builder, sliceEvaluation.AlphaWormholesCount, PlanetTrait.AlphaWormhole.ToString());
+        AppendCount(builder, sliceEvaluation.BetaWormholesCount, PlanetTrait.BetaWormhole.ToString());
+        AppendCount(builder, sliceEvaluation.GammaWormholesCount, PlanetTrait.GammaWormhole.ToString());
+
+        return builder.Length == 0 ? string.Empty : builder.ToString();
+    }
+
+    private static void AppendCount(StringBuilder builder, int count, string name)
+    {
+        if (count <= 0)
+            return;
+
+        if (builder.Length > 0)
+            builder.Append(", ");
+
+        builder.Append(count.ToString(CultureInfo.CurrentCulture)).Append(' ').Append(name);
     }
 
     private string GetPlanetTraitPath(PlanetTrait planetTrait)

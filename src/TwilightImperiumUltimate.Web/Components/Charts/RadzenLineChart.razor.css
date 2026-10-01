@@ -1,0 +1,28 @@
+.radzen-line-chart {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    min-height: 18rem;
+    padding: var(--space-md);
+    border: 1px solid var(--color-nav-hover-bg-solid);
+    border-radius: var(--border-radius-sm);
+    background: rgba(8, 14, 24, 0.94);
+}
+
+.radzen-line-chart-title {
+    width: 100%;
+    margin-bottom: var(--space-md);
+    color: var(--color-white);
+    font-size: var(--font-size-md);
+    line-height: 1.2;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.radzen-line-chart ::deep .rz-chart {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 16rem;
+}

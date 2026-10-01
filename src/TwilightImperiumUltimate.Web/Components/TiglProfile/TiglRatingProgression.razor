@@ -1,0 +1,64 @@
+@using Radzen
+@using Radzen.Blazor
+@using TwilightImperiumUltimate.Web.Components.Charts
+
+<section class="section-container mb-xl" aria-labelledby="tigl-rating-heading">
+	<ResponsiveCard CssClass="rating-progression-title-card">
+		<div class="rating-progression-title-row">
+			<ResponsiveLabel Text="Rating progression" FontSize="lg" CenterText="true" />
+		</div>
+	</ResponsiveCard>
+
+	@if (!Series.Any())
+	{
+		<ResponsiveLabel Text="No match history available." CenterText="true" TextColor="TextColor.Grey" />
+	}
+
+	@foreach (var chart in Series)
+	{
+		var bounds = GetBounds(chart);
+
+		<div class="tigl-chart mb-xl">
+			<div class="rating-progression-desktop-chart">
+				<RadzenLineChart @key="chart.Title"
+								 ChartTitle="@chart.Title"
+								 Min="@bounds.Min"
+								 Max="@bounds.Max"
+								 Step="@bounds.Step"
+								 CategoryMin="1"
+								 CategoryMax="@chart.MaxGame"
+								 CategoryFormatter="@chart.CategoryFormatter"
+								 CategoryTitle="Games"
+								 ValueTitle="Rating"
+								 ValueFormatString="{0:F1}"
+								 ShowLegend="false">
+					<RadzenLineSeries Data="@chart.Points"
+									  CategoryProperty="Game"
+									  ValueProperty="Rating"
+									  Title="@chart.Title"
+									  Smooth="true" />
+				</RadzenLineChart>
+			</div>
+			<div class="rating-progression-mobile-chart">
+				<RadzenLineChart @key="chart.Title"
+								 ChartTitle="@chart.Title"
+								 Min="@bounds.Min"
+								 Max="@bounds.Max"
+								 Step="@bounds.Step"
+								 CategoryMin="1"
+								 CategoryMax="@chart.MaxGame"
+								 CategoryFormatter="@chart.CategoryFormatter"
+								 CategoryTitle="Games"
+								 ValueTitle=""
+								 ValueFormatString="{0:F1}"
+								 ShowLegend="false">
+					<RadzenLineSeries Data="@chart.Points"
+									  CategoryProperty="Game"
+									  ValueProperty="Rating"
+									  Title="@chart.Title"
+									  Smooth="true" />
+				</RadzenLineChart>
+			</div>
+		</div>
+	}
+</section>

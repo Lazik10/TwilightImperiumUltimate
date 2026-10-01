@@ -1,20 +1,16 @@
 namespace TwilightImperiumUltimate.Web.Pages.Game;
 
+/// <summary>
+/// Legacy route kept for backward compatibility with existing bookmarks, links, and search engine
+/// results. Redirects to the generic Discordant Stars faction route.
+/// </summary>
 public partial class FactionsDS
 {
-    private FactionInfoGrid? factionInfoRef;
+    [Inject]
+    private NavigationManager NavigationManager { get; set; } = default!;
 
-    [Parameter]
-    [SupplyParameterFromQuery(Name = "faction")]
-    public string Faction { get; set; } = string.Empty;
-
-    [Parameter]
-    [SupplyParameterFromQuery(Name = "info")]
-    public string Info { get; set; } = string.Empty;
-
-    private void UpdateSelectedFaction(FactionModel selectedFaction)
+    protected override void OnInitialized()
     {
-        factionInfoRef?.UpdateSelectedFaction(selectedFaction);
-        factionInfoRef?.SetFactionInfo(Info);
+        NavigationManager.NavigateTo("/game/factions/discordantstars", replace: true);
     }
 }

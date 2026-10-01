@@ -1,4 +1,4 @@
-namespace TwilightImperiumUltimate.Business.Logic.MapArchive;
+﻿namespace TwilightImperiumUltimate.Business.Logic.MapArchive;
 
 public class DeleteMapCommandHandler(
     IMapArchiveRepository mapArchiveRepository)
@@ -8,6 +8,8 @@ public class DeleteMapCommandHandler(
 
     public async Task<bool> Handle(DeleteMapCommand request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         return await _mapArchiveRepository.DeleteMap(request.Id, cancellationToken);
     }
 }

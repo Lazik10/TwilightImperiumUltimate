@@ -63,6 +63,8 @@ public class MapToStringConverter(
 
     public Task<string> ConvertMapToTtsString(MapTemplate mapTemplate, IReadOnlyDictionary<int, SystemTileModel> map)
     {
+        ArgumentNullException.ThrowIfNull(map);
+
         var ttsPositions = TiUltimatePositionsFromTtsPositions(mapTemplate);
         string ttsString = GenerateTtsString(ttsPositions, map);
 
@@ -71,6 +73,8 @@ public class MapToStringConverter(
 
     public async Task ConvertTtsStringToMap(MapTemplate mapTemplate, string ttsString)
     {
+        ArgumentNullException.ThrowIfNull(ttsString);
+
         var ttsPositions = TiUltimatePositionsFromTtsPositions(mapTemplate);
         var importedTtsSystemTileCodes = ttsString.Split(' ').ToList();
 
@@ -247,7 +251,7 @@ public class MapToStringConverter(
 
         for (var i = 0; i < tiUltimatePositionsWithoutMecatolRex.Count; i++)
         {
-            if (map.TryGetValue(tiUltimatePositionsWithoutMecatolRex[i], out var systemTile))
+            if (map.TryGetValue(tiUltimatePositionsWithoutMecatolRex[i], out var _))
             {
                 _logger.LogInformation(
                     "Handling position: {Position}, searching for system tile with Code: {SystemTileCode}",
@@ -274,10 +278,10 @@ public class MapToStringConverter(
                     var stringNumber = systemTileCodes[i];
                     _logger.LogInformation("Handling hyperlane: {Hyperlane}", stringNumber);
 
-                    if (stringNumber.Contains('A') || stringNumber.Contains('B'))
+                    if (stringNumber.Contains('A', StringComparison.Ordinal) || stringNumber.Contains('B', StringComparison.Ordinal))
                     {
-                        int startIndexA = stringNumber.IndexOf('A') + 1;
-                        int startIndexB = stringNumber.IndexOf('B') + 1;
+                        int startIndexA = stringNumber.IndexOf('A', StringComparison.Ordinal) + 1;
+                        int startIndexB = stringNumber.IndexOf('B', StringComparison.Ordinal) + 1;
 
                         var index = startIndexA != 0 ? startIndexA : startIndexB;
 

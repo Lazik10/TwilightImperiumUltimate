@@ -1,15 +1,19 @@
-﻿<FlexColumnCenteredContainer>
-    <div class="map-generator-navbar">
-        <FlexRowContainer Width="100" JustifyContent="Enums.JustifyContent.SpaceEvenly">
-            <div class="clickable" style="min-width: 33%;" @onclick="() => OnMenuItemClick.InvokeAsync(MapGeneratorMenuItem.MapGenerator)">
-                <Label Text="@Strings.MapGeneratorMenu_Map" FontSize="28" CenterText="true" Style="font-size: 1rem;" />
-            </div>
-            <div class="clickable" style="width: 33%;" @onclick="() => OnMenuItemClick.InvokeAsync(MapGeneratorMenuItem.MapEvaluation)">
-                <Label Text="@Strings.MapGeneratorMenu_Stats" FontSize="28" CenterText="true" Style="font-size: 1rem;" />
-            </div>
-            <div class="clickable" style="width: 33%;" @onclick="() => OnMenuItemClick.InvokeAsync(MapGeneratorMenuItem.Settings)">
-                <Label Text="@Strings.MapGeneratorMenu_Settings" FontSize="28" CenterText="true" Style="font-size: 1rem;" />
-            </div>
-        </FlexRowContainer>
-    </div>
-</FlexColumnCenteredContainer>
+﻿<ResponsiveTabMenu AriaLabel="@Strings.Page_MapGenerator_PageTitle" CssClass="faction-style mb-md">
+    <ResponsiveTab Id="map-generator-map-tab"
+                   IsActive="@(SelectedMenuItem == MapGeneratorMenuItem.MapGenerator)"
+                   OnClick="() => OnMenuItemClick.InvokeAsync(MapGeneratorMenuItem.MapGenerator)">
+        @Strings.MapGeneratorMenu_Map
+    </ResponsiveTab>
+    <ResponsiveTabSeparator />
+    <ResponsiveTab Id="map-generator-stats-tab"
+                   IsActive="@(SelectedMenuItem == MapGeneratorMenuItem.MapEvaluation)"
+                   OnClick="() => OnMenuItemClick.InvokeAsync(MapGeneratorMenuItem.MapEvaluation)">
+        @Strings.MapGeneratorMenu_Stats
+    </ResponsiveTab>
+    <ResponsiveTabSeparator />
+    <ResponsiveTab Id="map-generator-settings-tab"
+                   IsActive="@(SelectedMenuItem == MapGeneratorMenuItem.Settings)"
+                   OnClick="() => OnMenuItemClick.InvokeAsync(MapGeneratorMenuItem.Settings)">
+        @Strings.MapGeneratorMenu_Settings
+    </ResponsiveTab>
+</ResponsiveTabMenu>

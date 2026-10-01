@@ -1,0 +1,130 @@
+﻿.account-menu-auth,
+.account-menu-tools {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+}
+
+/*
+    Login/Register (and the "/" divider between them) use the same fluid/responsive font-size
+    tokens as the rest of the site (bigger on desktop, shrinking on smaller viewports) and the
+    same hover color system as the main navigation (--color-nav-hover) -- but, unlike navigation
+    links, they never get a background, on hover or otherwise; only the font color changes.
+    Color is set here (rather than via the global `.white` utility class, which is `!important`
+    and would otherwise always beat this a:hover rule regardless of specificity) so hover can
+    actually override it.
+*/
+.account-menu-auth a,
+.account-menu-auth div {
+    color: white;
+    font-size: var(--font-size-lg);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.account-menu-auth a {
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+    .account-menu-auth a:hover {
+        color: var(--color-nav-hover);
+        text-decoration: underline;
+        text-underline-offset: 0.25rem;
+    }
+
+.menu-container {
+    position: relative;
+    min-width: 5%;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+    font-size: 1.375rem;
+}
+
+    .menu-container ::deep .account-trigger {
+        color: white;
+        font-family: Handel, fallback, sans-serif;
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-decoration: none;
+        text-transform: uppercase;
+        /* Extra left/right breathing room so the nickname isn't crowded against the culture
+           flag/info icon tools group next to it. */
+        padding: 0 var(--space-3xl);
+        text-shadow: 0px 2px 6px rgba(0, 0, 0, 1), 2px 0px 6px rgba(0, 0, 0, 1), 0px -2px 6px rgba(0, 0, 0, 1), -2px 0px 6px rgba(0, 0, 0, 1), 1px 1px 6px rgba(0, 0, 0, 1), 1px -1px 6px rgba(0, 0, 0, 1), -1px 1px 6px rgba(0, 0, 0, 1), -1px -1px 6px rgba(0, 0, 0, 1);
+    }
+
+/*
+    Sized by content (min/max-width) rather than a percentage of `.menu-container` (which only
+    ever measured as wide as the shortest possible trigger text), so labels like "PASSWORD RESET"
+    always have room. Centered under the trigger (matching the main navigation's dropdown
+    behavior) via left: 50% + translateX(-50%); max-width is capped with a vw-based clamp so it
+    still can't push past the edge of the viewport even though `.menu-container` sits near the
+    right edge of the header.
+*/
+.dropdown {
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: max-content;
+    min-width: 12rem;
+    max-width: min(90vw, 16rem);
+    z-index: 1000;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+
+    .dropdown:hover {
+        display: block;
+        animation: none;
+    }
+
+    /* Matches the main navigation's dropdown styling (background, spacing, hover/focus colors)
+       so the account submenu looks and behaves consistently with the rest of the site nav. */
+    .dropdown a,
+    .dropdown ::deep .account-logout {
+        font-size: 1.0625rem;
+        font-family: Handel, fallback, sans-serif;
+        background: var(--color-nav-panel-bg);
+        color: white;
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        white-space: nowrap;
+        margin: 0;
+        padding: 0.125rem 0.5rem;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .dropdown a + a,
+    .dropdown ::deep .account-logout {
+        border-top: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+        .dropdown a:hover,
+        .dropdown ::deep .account-logout:hover {
+            background: var(--color-nav-hover-bg-solid);
+            color: var(--color-nav-hover);
+            text-decoration: underline;
+            text-underline-offset: 0.25rem;
+        }
+
+        .dropdown a:focus-visible {
+            outline: 0.125rem solid yellow;
+            outline-offset: -0.125rem;
+            color: yellow;
+        }
+
+    .menu-container:hover .dropdown,
+    .menu-container:focus-within .dropdown {
+        opacity: 1;
+        visibility: visible;
+    }
+

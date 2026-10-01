@@ -1,4 +1,5 @@
 using Microsoft.JSInterop;
+using System.Text.Json;
 using TwilightImperiumUltimate.Contracts.ApiContracts.SliceDrafts;
 using TwilightImperiumUltimate.Web.Models.SlicesArchive;
 using TwilightImperiumUltimate.Web.Models.Users;
@@ -42,6 +43,28 @@ public partial class SliceDraftDetail
 
     private MarkupString SlicesString => CreatePreviewSlicesString();
 
+    private string SliceDraftStructuredData => !_slices.Any()
+        ? string.Empty
+        : JsonSerializer.Serialize(new
+        {
+            @context = "https://schema.org",
+            @type = "CreativeWork",
+            name = SliceDraft.Name,
+            description = SliceDraft.Description,
+            url = $"https://ti4ultimate.com/community/slices-archive/slice-draft/{SliceDraftId}",
+            author = new
+            {
+                @type = "Person",
+                name = SliceDraft.UserName,
+            },
+            isPartOf = new
+            {
+                @type = "CollectionPage",
+                name = "Twilight Imperium 4 Slice Archive",
+                url = "https://ti4ultimate.com/community/slices-archive",
+            },
+        });
+
     protected override async Task OnInitializedAsync()
     {
         _user = await UserService.GetCurrentUserAsync();
@@ -51,7 +74,7 @@ public partial class SliceDraftDetail
 
     private MarkupString CreatePreviewSlicesString()
     {
-        var slices = SliceDraft.SliceDraftString.Replace("\n", "<br/>");
+        var slices = SliceDraft.SliceDraftString.Replace("\n", "<br/>", StringComparison.Ordinal);
         return (MarkupString)slices;
     }
 

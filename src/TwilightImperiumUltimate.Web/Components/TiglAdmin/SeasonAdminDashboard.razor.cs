@@ -1,3 +1,4 @@
+using System.Globalization;
 using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Season;
 using TwilightImperiumUltimate.Web.Models.TiglAdmin;
 
@@ -17,9 +18,19 @@ public partial class SeasonAdminDashboard : ComponentBase
     [Inject]
     private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
 
+    private static string FormatDate(DateOnly date) => date.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+
     protected override async Task OnInitializedAsync()
     {
         await LoadSeasonsAsync();
+    }
+
+    private static void BeginEdit(SeasonEditModel model) => model.IsEditing = true;
+
+    private static void CancelEdit(SeasonEditModel model)
+    {
+        model.Reset();
+        model.IsEditing = false;
     }
 
     private async Task LoadSeasonsAsync()
@@ -39,14 +50,6 @@ public partial class SeasonAdminDashboard : ComponentBase
         }
 
         _loading = false;
-    }
-
-    private static void BeginEdit(SeasonEditModel model) => model.IsEditing = true;
-
-    private static void CancelEdit(SeasonEditModel model)
-    {
-        model.Reset();
-        model.IsEditing = false;
     }
 
     private async Task SaveSeasonAsync(SeasonEditModel model)
@@ -134,5 +137,5 @@ public partial class SeasonAdminDashboard : ComponentBase
         _sendingRequest = false;
     }
 
-    private string GetActiveSeasonNumber() => $"Active season: {_seasonEdits.FirstOrDefault(x => x.IsActive)?.SeasonName.ToString() ?? string.Empty}";
+    private string GetActiveSeasonName() => _seasonEdits.FirstOrDefault(x => x.IsActive)?.SeasonName ?? string.Empty;
 }

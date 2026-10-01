@@ -1,0 +1,12 @@
+@using TwilightImperiumUltimate.Web.Enums
+
+<article class="resource-link-row">
+    <a class="resource-card-link" href="@Link" target="_blank" rel="noopener noreferrer" aria-label="@LinkText">
+        <ResponsiveCard CssClass="resource-card">
+            <div class="resource-card-content">
+                <img class="resource-card-icon" src="@(PathProvider.GetIconPath(IconType.PdfDownload))" alt="" />
+                <ResponsiveLabel Text="@LinkText" FontSize="base" TextColor="TextColor.White" CssClass="resource-card-title" />
+            </div>
+        </ResponsiveCard>
+    </a>
+</article>

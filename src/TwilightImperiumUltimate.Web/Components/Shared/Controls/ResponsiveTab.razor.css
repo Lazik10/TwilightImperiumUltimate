@@ -1,0 +1,36 @@
+/* Matches the main navigation's tab/link styling (see DesktopNavItem.razor.css .menu-item > a)
+   so an admin/feature tab bar built from ResponsiveTabMenu/ResponsiveTab looks consistent with
+   the rest of the site's navigation. */
+.responsive-tab {
+    display: inline-block;
+    background: none;
+    border: none;
+    margin: 0;
+    cursor: pointer;
+    color: white;
+    font-family: Handel, fallback, sans-serif;
+    font-size: 1.125rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: var(--shadow-text);
+    padding: 0.35rem 0.9rem;
+    border-radius: var(--border-radius-sm);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.responsive-tab:hover {
+    color: var(--color-nav-hover);
+    text-decoration: underline;
+    text-underline-offset: 0.25rem;
+}
+
+.responsive-tab-active {
+    color: var(--color-nav-hover);
+    text-decoration: underline;
+    text-underline-offset: 0.25rem;
+}
+
+.responsive-tab:focus-visible {
+    outline: 2px solid var(--color-nav-hover);
+    outline-offset: 2px;
+}

@@ -1,0 +1,6 @@
+.responsive-tab-separator {
+    color: var(--color-white);
+    font-family: Handel, fallback, sans-serif;
+    font-size: var(--font-size-lg);
+    font-weight: bold;
+}

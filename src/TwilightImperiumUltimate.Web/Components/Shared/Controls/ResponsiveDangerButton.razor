@@ -1,0 +1,26 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Controls
+
+@*
+    Thin themed wrapper around ResponsiveButton (see its code-behind summary): same markup,
+    parameters, and Handel/shadow text styling, just with the red danger palette applied via
+    inline custom properties instead of the default nav-blue one.
+
+    ChildContent is forwarded as an attribute (not as markup between the tags) so ResponsiveButton
+    only receives it when this component was actually given child content -- markup like
+    "<ResponsiveButton>@ChildContent</ResponsiveButton>" would always produce a non-null
+    RenderFragment for ResponsiveButton's ChildContent parameter even when ours is null, which
+    permanently hides its ButtonText/Text fallback rendering (the bug this replaced).
+*@
+
+<ResponsiveButton Text="@Text"
+                   ButtonText="@ButtonText"
+                   CssClass="@CssClass"
+                   Style="@ComputedStyle"
+                   IsDisabled="IsDisabled"
+                   Disabled="Disabled"
+                   ButtonType="ButtonType"
+                   OnClick="OnClick"
+                   OnClickMouse="OnClickMouse"
+                   Width="Width"
+                   ChildContent="ChildContent"
+                   @ref="_buttonRef" />

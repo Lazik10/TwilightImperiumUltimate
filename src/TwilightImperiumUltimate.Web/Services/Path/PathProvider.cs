@@ -5,8 +5,8 @@ namespace TwilightImperiumUltimate.Web.Services.Path;
 public class PathProvider : IPathProvider
 {
     private const string _basePath = "resources\\images";
-    private readonly string _language = CultureInfo.CurrentCulture.Name;
     private static Random _random = new Random();
+    private readonly string _language = CultureInfo.CurrentCulture.Name;
 
     public string GetCultureIconPath(string fileName)
     {
@@ -94,7 +94,11 @@ public class PathProvider : IPathProvider
 
     public string GetIconPath(IconType iconType)
     {
-        return $"{Paths.ResourcePath_IconPath}{Strings.BackSlash}{iconType}{Strings.FileExtensionWebp}";
+        var iconFileName = iconType is IconType.Winner or IconType.WinnerTrophy
+            ? iconType.ToString()
+            : iconType.ToString().ToLowerInvariant();
+
+        return $"{Paths.ResourcePath_IconPath}{Strings.ForwardSlash}{iconFileName}{Strings.FileExtensionWebp}";
     }
 
     public string GetTexturePath(Texture texture)
@@ -160,7 +164,6 @@ public class PathProvider : IPathProvider
 
     public string GetWebsitePreviewImagePath(string fileName)
     {
-        // TODO: This is bad, should be handled differently, but I don't have the time to refactor this now.
         var websitePath = fileName switch
         {
             "Fantasy Flight Games" => "FFG",
@@ -214,6 +217,6 @@ public class PathProvider : IPathProvider
 
     private string GetCorrectLanguagePath(string path)
     {
-        return path.Replace(Strings.LanguagePlaceholder, _language);
+        return path.Replace(Strings.LanguagePlaceholder, _language, StringComparison.Ordinal);
     }
 }

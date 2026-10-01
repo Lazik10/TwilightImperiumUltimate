@@ -16,7 +16,7 @@ public static class TiglGalacticEventConverter
         { "Minor Factions", GalacticEvent.MinorFactions },
         { "Stellar Atomics", GalacticEvent.StellarAtomics },
         { "Age of Fighters", GalacticEvent.AgeOfFighters },
-        { "Total War", GalacticEvent.TotalWar},
+        { "Total War", GalacticEvent.TotalWar },
         { "Wild Wild Galaxy", GalacticEvent.WildWildGalaxy },
         { "Weird Wormholes", GalacticEvent.WeirdWormholes },
         { "Monuments to the Ages", GalacticEvent.MonumentsToTheAges },
@@ -33,6 +33,8 @@ public static class TiglGalacticEventConverter
 
     public static long ConvertToFlags(IEnumerable<string> eventNames)
     {
+        ArgumentNullException.ThrowIfNull(eventNames);
+
         GalacticEvent result = GalacticEvent.None;
 
         foreach (var name in eventNames)

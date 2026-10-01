@@ -1,0 +1,83 @@
+.responsive-date-picker-host {
+    display: inline-block;
+    min-width: 0;
+    font-family: Handel, fallback, sans-serif;
+    color: var(--color-white);
+    text-shadow: var(--shadow-text);
+}
+
+.responsive-date-picker-host ::deep .rz-datepicker,
+.responsive-date-picker-host ::deep .rz-datepicker input,
+.responsive-date-picker-host ::deep .rz-inputtext {
+    background-color: var(--color-nav-panel-bg);
+    border: 1px solid #0024ff !important;
+    border-block-end: 1px solid #0024ff !important;
+    color: var(--color-white);
+    font-family: Handel, fallback, sans-serif;
+}
+
+.responsive-date-picker-host ::deep .rz-datepicker,
+.responsive-date-picker-host ::deep .rz-datepicker:hover,
+.responsive-date-picker-host ::deep .rz-datepicker:focus-within {
+    --rz-input-height: 2.75rem !important;
+    --rz-input-background-color: var(--color-nav-panel-bg);
+    --rz-input-hover-background-color: var(--color-nav-panel-bg);
+    --rz-input-border: 1px solid #0024ff;
+    --rz-input-border-block-end: 1px solid #0024ff;
+    --rz-input-hover-border: 1px solid #0024ff;
+    --rz-input-hover-border-block-end: 1px solid #0024ff;
+    --rz-input-value-color: var(--color-white);
+}
+
+.responsive-date-picker-host ::deep .rz-datepicker input::placeholder {
+    color: var(--color-nav-hover);
+    opacity: 1;
+}
+
+.responsive-date-picker-host ::deep .rz-datepicker:focus-within,
+.responsive-date-picker-host ::deep .rz-datepicker input:focus {
+    border: 1px solid #0024ff !important;
+    border-block-end: 1px solid #0024ff !important;
+    box-shadow: 0 0 0 2px var(--color-nav-hover-bg-solid);
+    outline: none;
+}
+
+.responsive-date-picker-host ::deep .rz-datepicker:hover,
+.responsive-date-picker-host ::deep .rz-datepicker:focus-within,
+.responsive-date-picker-host ::deep .rz-datepicker:hover .rz-inputtext,
+.responsive-date-picker-host ::deep .rz-datepicker:focus-within .rz-inputtext,
+.responsive-date-picker-host ::deep .rz-datepicker input:focus {
+    background-color: var(--color-nav-panel-bg) !important;
+    border: 1px solid #0024ff !important;
+    border-block-end: 1px solid #0024ff !important;
+    color: var(--color-white) !important;
+}
+
+/* Keep the calendar popup dark even though Radzen renders it inside a popup surface. */
+.responsive-date-picker-host ::deep .rz-datepicker-popup-container,
+.responsive-date-picker-host ::deep .rz-datepicker-popup-container .rz-calendar,
+.responsive-date-picker-host ::deep .rz-datepicker-popup-container .rz-calendar-header,
+.responsive-date-picker-host ::deep .rz-datepicker-popup-container .rz-calendar-view-container,
+.responsive-date-picker-host ::deep .rz-datepicker-popup-container .rz-calendar-view,
+.responsive-date-picker-host ::deep .rz-datepicker-popup-container .rz-calendar-view th,
+.responsive-date-picker-host ::deep .rz-datepicker-popup-container .rz-calendar-view td {
+    background-color: var(--color-black) !important;
+    color: var(--color-white) !important;
+    font-family: Handel, fallback, sans-serif !important;
+}
+
+.responsive-date-picker-host ::deep .rz-datepicker-popup-container .rz-calendar-view td:hover .rz-state-default,
+.responsive-date-picker-host ::deep .rz-datepicker-popup-container .rz-state-active,
+.responsive-date-picker-host ::deep .rz-datepicker-popup-container .rz-state-focused,
+.responsive-date-picker-host ::deep .rz-datepicker-popup-container .rz-calendar-today {
+    background-color: var(--color-nav-hover-bg-solid) !important;
+    color: var(--color-nav-hover) !important;
+}
+
+.responsive-date-picker-host ::deep .rz-datepicker-trigger,
+.responsive-date-picker-host ::deep .rz-datepicker-trigger:hover,
+.responsive-date-picker-host ::deep .rz-datepicker-trigger:focus,
+.responsive-date-picker-host ::deep .rz-datepicker-trigger:active,
+.responsive-date-picker-host ::deep .rz-datepicker-trigger .rzi-calendar {
+    color: var(--color-nav-hover) !important;
+}

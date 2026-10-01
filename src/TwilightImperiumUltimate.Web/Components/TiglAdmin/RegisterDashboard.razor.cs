@@ -51,24 +51,31 @@ public partial class RegisterDashboard
 
         if (_newUser.DiscordId <= 0 || string.IsNullOrWhiteSpace(_newUser.TiglUserName))
         {
-            _manualRegisterError = "Please provide a valid Discord ID and TIGL Username.";
+            _manualRegisterError = Strings.TiglAdmin_RegisterValidationError;
             _manualRegistering = false;
             StateHasChanged();
             return;
         }
 
-        var (resp, status) = await HttpClient.PostAsync<NewTiglUserRequest, ApiResponse<NewTiglUserResponse>>(Paths.ApiPath_TiglRegisterUser, _newUser);
-        if (status == HttpStatusCode.OK && resp?.Success == true && resp.Data?.Success == true)
+        var (resp, status) = await HttpClient.PostApiAsync<NewTiglUserRequest, NewTiglUserResponse>(Paths.ApiPath_TiglRegisterUser, _newUser);
+        if (status == HttpStatusCode.OK && resp.Success && resp.Data?.Success == true)
         {
             _manualRegisterSuccess = true;
             _newUser = new();
         }
         else
         {
-            _manualRegisterError = resp?.ProblemDetails?.Detail ?? "Registration failed.";
+            _manualRegisterError = !string.IsNullOrWhiteSpace(resp.ProblemDetails.Detail)
+                ? resp.ProblemDetails.Detail
+                : Strings.TiglAdmin_RegisterUserFailed;
         }
 
         _manualRegistering = false;
         StateHasChanged();
+    }
+
+    private void OnDiscordIdChanged(string value)
+    {
+        _newUser.DiscordId = long.TryParse(value, out var discordId) ? discordId : 0;
     }
 }

@@ -1,7 +1,7 @@
+using System.Collections.Concurrent;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using System.Collections.Concurrent;
 using TwilightImperiumUltimate.Core.Entities.RelationshipEntities;
 using TwilightImperiumUltimate.Core.Entities.Tigl;
 using TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium;
@@ -83,7 +83,7 @@ public class AchievementService(
         }
     }
 
-    public async Task EvaluateEndOfSeasonAchievements(Season season, CancellationToken cancellationToken)
+    public async Task EvaluateEndOfSeasonAchievements(Season season, CancellationToken cancellationToken = default)
     {
         using (var scope = serviceScopeFactory.CreateScope())
         {

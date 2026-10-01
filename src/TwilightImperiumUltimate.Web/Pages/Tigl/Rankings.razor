@@ -1,7 +1,15 @@
 ﻿@page "/community/tigl/rankings"
 
 @using TwilightImperiumUltimate.Web.Components.Tigl
+@using TwilightImperiumUltimate.Web.Components.Shared.Text
+
+<PageTitle>@Strings.Page_TiglRanks_PageTitle</PageTitle>
 
 <Page>
-    <RankingsMainGrid />
+    <StretchHeightContainer>
+        <ResponsiveHeading Level="1" Text="Rankings" />
+
+        <RanksGrid />
+    </StretchHeightContainer>
+
 </Page>

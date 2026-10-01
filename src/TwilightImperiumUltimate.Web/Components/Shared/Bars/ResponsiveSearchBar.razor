@@ -1,0 +1,23 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Bars
+
+@*
+    Responsive equivalent of SearchBar -- same OnSearchChange/Text/Width/HideText/EnableEmptySearch
+    contract, but the underlying input uses ResponsiveTextBox's responsive height/font-size
+    mechanism (--rz-input-height / --rz-input-font-size custom properties) instead of a fixed
+    Height percentage, and the optional label uses ResponsiveLabel instead of the deprecated
+    Label + HorizontalSpace pairing (see refactoring.instructions.md).
+*@
+
+<ResponsiveContainer Type="ContainerType.Flex" Padding="none" Width="@Width" JustifyContent="Enums.JustifyContent.Center" AlignItems="Enums.AlignItems.Center" CssClass="@CssClass" Style="@Style">
+    @if (!HideText)
+    {
+        <ResponsiveLabel Text="@Text" FontSize="@FontSize" CssClass="mr-lg" />
+    }
+    <ResponsiveTextBox Id="@Id"
+                       Name="@Name"
+                       Placeholder="@SearchPlaceholder"
+                       AriaDescribedBy="@AriaDescribedBy"
+                       FontSize="@FontSize"
+                       Value="@SearchTerm"
+                       ValueChanged="OnSearchTermChanged" />
+</ResponsiveContainer>

@@ -1,8 +1,28 @@
-﻿@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
-@using TwilightImperiumUltimate.Web.Components.Shared.Text
-@using TwilightImperiumUltimate.Web.Resources
-@inherits TwilightImperiumBaseComponenet
+﻿@inherits TwilightImperiumBaseComponent
 
-<TechnologyNavbar OnTechnologyTypeChange="TechnologyTypeChange"/>
+@if (SelectedTechnologyType == TechnologyType.Faction)
+{
+    <div class="technology-grid-filter-row mb-2xl">
+        <ResponsiveDropDown Id="faction-tech-game-version"
+                            TValue="GameVersion"
+                            Label="@Strings.GameVersion_SelectVersion"
+                            LabelPosition="LabelPosition.Column"
+                            Value="_selectedFactionTechGameVersion"
+                            ValueChanged="OnFactionTechGameVersionChanged"
+                            Data="GetFactionTechGameVersions()"
+                            TextProperty="Value"
+                            ValueProperty="Key" />
 
-<BaseTechnologyTree Technologies="TechnologiesToShow()" SelectedTechnologyType="_selectedTechnologyType"/>
+        <ResponsiveDropDown Id="faction-tech-faction"
+                            TValue="FactionName"
+                            Label="@Strings.ReportGame_SelectFaction"
+                            LabelPosition="LabelPosition.Column"
+                            Value="_selectedFactionTechFaction"
+                            ValueChanged="OnFactionTechFactionChanged"
+                            Data="GetFactionTechFactions()"
+                            TextProperty="Value"
+                            ValueProperty="Key" />
+    </div>
+}
+
+<BaseTechnologyTree Technologies="TechnologiesToShow()" SelectedTechnologyType="SelectedTechnologyType" />

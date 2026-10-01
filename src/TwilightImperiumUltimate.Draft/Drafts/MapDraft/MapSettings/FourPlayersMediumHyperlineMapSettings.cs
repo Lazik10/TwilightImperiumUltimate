@@ -54,7 +54,6 @@ internal class FourPlayersMediumHyperlineMapSettings : IMapSettings, IHyperlineS
         { (1, 3, "85A", "3") },
         { (2, 4, "84A", "3") },
         { (4, 4, "87A", "3") },
-
         { (9, 3, "86A", "0") },
         { (10, 4, "88A", "0") },
         { (12, 4, "83A", "0") },
@@ -73,7 +72,6 @@ internal class FourPlayersMediumHyperlineMapSettings : IMapSettings, IHyperlineS
         { (3, 3, 6, 4) },
         { (6, 2, 6, 4) },
         { (3, 1, 3, 5) },
-
         { (11, 3, 8, 4) },
         { (11, 3, 9, 5) },
         { (11, 3, 11, 5) },

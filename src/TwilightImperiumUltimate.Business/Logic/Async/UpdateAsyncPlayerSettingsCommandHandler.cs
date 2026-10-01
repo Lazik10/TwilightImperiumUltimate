@@ -1,4 +1,4 @@
-using FluentResults;
+﻿using FluentResults;
 
 namespace TwilightImperiumUltimate.Business.Logic.Async;
 
@@ -10,6 +10,8 @@ public class UpdateAsyncPlayerSettingsCommandHandler(
 
     public async Task<Result> Handle(UpdateAsyncPlayerSettingsCommand request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var result = ValidateRequest(request);
 
         if (result.IsFailed)

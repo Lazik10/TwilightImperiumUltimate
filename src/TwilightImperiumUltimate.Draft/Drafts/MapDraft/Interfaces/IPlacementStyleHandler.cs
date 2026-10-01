@@ -5,13 +5,13 @@ namespace TwilightImperiumUltimate.Draft.Drafts.MapDraft.Interfaces;
 
 internal interface IPlacementStyleHandler
 {
-    public Task HandleRemainingPositions(
+    Task HandleRemainingPositions(
         Dictionary<(int X, int Y), Hex> galaxy,
         IMapSettings mapSettings,
         SystemTilesForMapSetup systemTilesForMapSetup,
         GenerateMapRequest request);
 
-    public Task HandleRemainingNonSlicePositions(
+    Task HandleRemainingNonSlicePositions(
         Dictionary<(int X, int Y), Hex> galaxy,
         IMapSettings mapSettings,
         SystemTilesForMapSetup systemTilesForMapSetup);

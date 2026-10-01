@@ -10,6 +10,9 @@ public partial class SliceEvaluationStats
     [Parameter]
     public int FontSize { get; set; } = 18;
 
+    [Parameter]
+    public bool ArchiveLayout { get; set; }
+
     [Inject]
     private IPathProvider PathProvider { get; set; } = default!;
 

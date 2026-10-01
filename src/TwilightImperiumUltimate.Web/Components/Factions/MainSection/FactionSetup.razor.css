@@ -1,0 +1,13 @@
+﻿.faction-starting-units {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: calc(var(--space-xl) * 2);
+}
+
+.faction-technology-image-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}

@@ -61,6 +61,114 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Username is required..
+        /// </summary>
+        public static string Login_EmptyUsername {
+            get {
+                return ResourceManager.GetString("Login_EmptyUsername", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password is required..
+        /// </summary>
+        public static string Login_EmptyPassword {
+            get {
+                return ResourceManager.GetString("Login_EmptyPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title is required..
+        /// </summary>
+        public static string NewsAdmin_EmptyTitle {
+            get {
+                return ResourceManager.GetString("NewsAdmin_EmptyTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title must be 255 characters or fewer..
+        /// </summary>
+        public static string NewsAdmin_TitleTooLong {
+            get {
+                return ResourceManager.GetString("NewsAdmin_TitleTooLong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Content is required..
+        /// </summary>
+        public static string NewsAdmin_EmptyContent {
+            get {
+                return ResourceManager.GetString("NewsAdmin_EmptyContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title is required..
+        /// </summary>
+        public static string WebsiteAdmin_EmptyTitle {
+            get {
+                return ResourceManager.GetString("WebsiteAdmin_EmptyTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title must be 100 characters or fewer..
+        /// </summary>
+        public static string WebsiteAdmin_TitleTooLong {
+            get {
+                return ResourceManager.GetString("WebsiteAdmin_TitleTooLong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description is required..
+        /// </summary>
+        public static string WebsiteAdmin_EmptyDescription {
+            get {
+                return ResourceManager.GetString("WebsiteAdmin_EmptyDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description must be 500 characters or fewer..
+        /// </summary>
+        public static string WebsiteAdmin_DescriptionTooLong {
+            get {
+                return ResourceManager.GetString("WebsiteAdmin_DescriptionTooLong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Website link is required..
+        /// </summary>
+        public static string WebsiteAdmin_EmptyWebsitePath {
+            get {
+                return ResourceManager.GetString("WebsiteAdmin_EmptyWebsitePath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Website link must be a valid absolute URL..
+        /// </summary>
+        public static string WebsiteAdmin_WebsitePathNotValid {
+            get {
+                return ResourceManager.GetString("WebsiteAdmin_WebsitePathNotValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Image must be 2 MB or smaller..
+        /// </summary>
+        public static string WebsiteAdmin_ImageTooLarge {
+            get {
+                return ResourceManager.GetString("WebsiteAdmin_ImageTooLarge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Passwords must match..
         /// </summary>
         public static string Register_ConfirmPasswordMatch {

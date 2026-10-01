@@ -52,8 +52,7 @@ public sealed class GottaCatchEmAllPartOneAchievementEvaluator(
                 .ToHashSet();
 
             bool hasKeleresWin = games.SelectMany(g => g.PlayerResults)
-                .Where(pr => pr.TiglUserId == winner.TiglUserId && KeleresFactions.Contains(pr.Faction))
-                .Any();
+                .Any(pr => pr.TiglUserId == winner.TiglUserId && KeleresFactions.Contains(pr.Faction));
 
             if (!KeleresFactions.Contains(winner.Faction))
                 uniqueFactionWins.Add(winner.Faction);

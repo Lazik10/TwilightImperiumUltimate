@@ -1,0 +1,41 @@
+.tigl-profile-league-picker {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.tigl-profile-name-line {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+@media (min-width: 769px) {
+    .tigl-profile-name-line ::deep img {
+        width: 96vw !important;
+        max-width: 96vw !important;
+        transform: translate(0%, 0%) !important;
+    }
+}
+
+@media (min-width: 1025px) {
+    .tigl-profile-name-line ::deep img {
+        flex: 0 0 96vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .tigl-profile-name-line-top {
+        margin-top: var(--space-xl);
+    }
+
+    .tigl-profile-name-line ::deep img {
+        width: 95% !important;
+        max-width: 95% !important;
+        transform: translate(0%, 0%) !important;
+    }
+
+    .tigl-profile-name-line-bottom {
+        margin-bottom: var(--space-sm);
+    }
+}

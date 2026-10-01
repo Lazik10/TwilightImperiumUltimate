@@ -1,0 +1,20 @@
+/* Neutral button reset so the button visually matches the surrounding menu links.
+   Callers supply the look through CssClass; the parent may style .menu-button via ::deep. */
+.menu-button {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    font: inherit;
+    color: inherit;
+    text-align: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Visible keyboard focus indicator (bullet 7). */
+.menu-button:focus-visible {
+    outline: 0.125rem solid yellow;
+    outline-offset: 0.125rem;
+    border-radius: var(--border-radius-sm);
+}

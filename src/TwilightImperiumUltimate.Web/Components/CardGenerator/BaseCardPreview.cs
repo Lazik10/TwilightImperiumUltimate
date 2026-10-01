@@ -14,6 +14,5 @@ public abstract class BaseCardPreview : ComponentBase
     [Inject]
     protected virtual IPathProvider PathProvider { get; set; } = null!;
 
-    protected virtual string BackgroundImagePath => PathProvider
-        .GetCardGeneratorImageBackground(CardType.ToString().ToLowerInvariant());
+    protected virtual string BackgroundImagePath => PathProvider.GetCardGeneratorImageBackground(CardType.ToString().ToLowerInvariant());
 }

@@ -1,0 +1,87 @@
+.radzen-bar-chart {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    position: relative;
+    margin-bottom: var(--space-2xl);
+    padding: var(--space-md);
+    border: 1px solid var(--color-nav-hover-bg-solid);
+    border-radius: var(--border-radius-sm);
+    background: rgba(8, 14, 24, 0.94);
+}
+
+.radzen-bar-chart ::deep .radzen-bar-chart-title {
+    color: var(--color-white) !important;
+}
+
+.radzen-bar-chart ::deep .radzen-bar-chart-subtitle {
+    width: 100%;
+    text-align: center;
+    color: yellow !important;
+}
+
+.radzen-bar-chart-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    pointer-events: none;
+}
+
+.radzen-bar-chart ::deep .rz-chart {
+    width: 100%;
+    max-width: 100%;
+    min-height: 0;
+}
+
+.radzen-bar-chart ::deep .rz-category-axis .rz-tick-text {
+    font-family: Handel, fallback, sans-serif;
+    fill: var(--color-white);
+}
+
+.radzen-bar-chart ::deep .rz-value-axis .rz-private-category {
+    fill: #e05252 !important;
+    cursor: default;
+}
+
+.radzen-bar-chart ::deep .rz-value-axis .rz-player-stat-value {
+    fill: yellow !important;
+}
+
+.radzen-bar-chart ::deep .rz-value-axis .rz-tick-text:not(.rz-private-category) {
+    cursor: pointer;
+}
+
+.radzen-bar-chart ::deep .rz-value-axis {
+    display: block;
+}
+
+.radzen-bar-chart ::deep .rz-series-data-label-chip {
+    display: none;
+}
+
+.radzen-bar-chart ::deep .rz-series-data-label {
+    fill: var(--color-white);
+    font-family: Handel, fallback, sans-serif;
+    font-weight: 600;
+    text-shadow: var(--shadow-text);
+}
+
+.radzen-bar-chart ::deep .rz-chart-series-hover .rz-bar-series path,
+.radzen-bar-chart ::deep .rz-chart-series-hover .rz-bar-series path:hover,
+.radzen-bar-chart ::deep .rz-series-hover .rz-bar-series path,
+.radzen-bar-chart ::deep .rz-series-hover .rz-bar-series path:hover {
+    opacity: 1 !important;
+    filter: none !important;
+}
+
+@media (max-width: 768px) {
+    .radzen-bar-chart {
+        padding: var(--space-sm);
+    }
+
+    .radzen-bar-chart ::deep .rz-chart {
+        min-height: 0;
+    }
+}

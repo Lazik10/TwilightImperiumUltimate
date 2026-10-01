@@ -1,4 +1,4 @@
-using Microsoft.JSInterop;
+using System.Globalization;
 using TwilightImperiumUltimate.Contracts.DTOs.Tigl;
 using TwilightImperiumUltimate.Web.Helpers.Enums;
 using TwilightImperiumUltimate.Web.Options.Async;
@@ -7,45 +7,57 @@ namespace TwilightImperiumUltimate.Web.Pages.Tigl;
 
 public partial class TiglGameReportDetail
 {
-    private int _placement;
-    private IJSObjectReference? _jsModule;
+    private bool _isRankingSystemFilterVisible;
     private RankingSystem _selectedRankingSystem = RankingSystem.TrueSkill;
 
     [Parameter]
     [SupplyParameterFromQuery(Name = "id")]
     public int Id { get; set; }
 
-    [Parameter]
-    [SupplyParameterFromQuery(Name = "returnUrl")]
-    public string? ReturnUrl { get; set; }
-
     private MatchReportDto? MatchReport { get; set; }
+
+    private string PageTitle => Strings.Page_TiglGameReportDetail_PageTitle.FormatWith(MatchReport?.GameId ?? Strings.Page_TiglGameReports);
 
     private List<PlayerResultDto> Winners => GetWinners();
 
-    [Inject]
-    private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
+    private IEnumerable<PlayerResultDto> OrderedPlayerResults => MatchReport!.PlayerResults
+        .OrderBy(player => !player.IsWinner)
+        .ThenByDescending(player => player.Score);
 
-    [Inject]
-    private IJSRuntime JSRuntime { get; set; } = default!;
+    private string RankingSystemFilterButtonLabel => _isRankingSystemFilterVisible
+        ? "Hide ranking system filter"
+        : "Show ranking system filter";
+
+    private string RankingSystemFilterIconPath => PathProvider.GetIconPath(_isRankingSystemFilterVisible ? IconType.FilterClicked : IconType.Filter);
+
+    private IReadOnlyCollection<KeyValuePair<RankingSystem, string>> RankingSystemOptions =>
+        EnumExtensions.GetEnumValuesWithDisplayNames<RankingSystem>();
 
     [Inject]
     private IConfiguration Configuration { get; set; } = default!;
 
     [Inject]
+    private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
+
+    [Inject]
     private NavigationManager NavigationManager { get; set; } = default!;
+
+    [Inject]
+    private IPathProvider PathProvider { get; set; } = default!;
 
     protected override async Task OnInitializedAsync()
     {
         await LoadGameReport();
     }
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
+    private static string FormatTimestamp(long timestamp)
     {
-        if (firstRender)
-        {
-            _jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./Pages/Tigl/TiglGameReportDetail.razor.js");
-        }
+        if (timestamp == 0)
+            return "Unknown";
+
+        return DateTimeOffset.FromUnixTimeMilliseconds(timestamp)
+            .ToLocalTime()
+            .ToString("yyyy-MM-dd - HH:mm", CultureInfo.InvariantCulture);
     }
 
     private static string GetUserName(PlayerResultDto player)
@@ -65,17 +77,6 @@ public partial class TiglGameReportDetail
         }
     }
 
-    private async Task RedirectToGameDetails(string gameId)
-    {
-        if (_jsModule is null)
-        {
-            _jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./Pages/Tigl/TiglGameReportDetail.razor.js");
-        }
-
-        var path = Configuration.GetSection(nameof(AsyncServerOptions))[nameof(AsyncServerOptions.BaseGameUrl)];
-        _ = Task.Run(async () => await _jsModule.InvokeVoidAsync("openInNewTab", $"{path}{gameId}"));
-    }
-
     private TiglRankName GetGameRank()
     {
         if (MatchReport is not null && MatchReport.PlayerMatchAsyncStats is not null && MatchReport.PlayerMatchAsyncStats.Count > 0)
@@ -90,6 +91,20 @@ public partial class TiglGameReportDetail
     {
         _selectedRankingSystem = rankingSystem;
         StateHasChanged();
+    }
+
+    private void ToggleRankingSystemFilter()
+    {
+        _isRankingSystemFilterVisible = !_isRankingSystemFilterVisible;
+    }
+
+    private void NavigateToAsyncGame()
+    {
+        var baseGameUrl = Configuration.GetSection(nameof(AsyncServerOptions))[nameof(AsyncServerOptions.BaseGameUrl)];
+        if (!string.IsNullOrWhiteSpace(baseGameUrl))
+        {
+            NavigationManager.NavigateTo($"{baseGameUrl}{MatchReport!.GameId}", forceLoad: true);
+        }
     }
 
     private AsyncPlayerMatchStatsDto GetPlayersAsyncData(int playerId)
@@ -107,30 +122,9 @@ public partial class TiglGameReportDetail
         return MatchReport!.PlayerMatchTrueSkillStats.FirstOrDefault(x => x.TiglUserId == playerId) ?? new TrueSkillPlayerMatchStatsDto();
     }
 
-    private string GetGameRankString()
+    private void NavigateToPlayerProfile(PlayerResultDto player)
     {
-        return $"Game Rank: {GetGameRank().GetDisplayName()}";
-    }
-
-    private string GetGameLeagueString() => $"League: {MatchReport!.League.GetDisplayName()}";
-
-    private void RedirectBack()
-    {
-        if (!string.IsNullOrEmpty(ReturnUrl))
-        {
-            NavigationManager.NavigateTo(ReturnUrl);
-        }
-        else
-        {
-            NavigationManager.NavigateTo(Pages.TiglGames);
-        }
-    }
-
-    private void NavigateToPlayerProfile(int tiglUserId)
-    {
-        var currentPath = $"/{NavigationManager.ToBaseRelativePath(NavigationManager.Uri)}";
-        var targetUrl = $"{Pages.TiglPlayerProfile}?playerId={tiglUserId}&returnUrl={Uri.EscapeDataString(currentPath)}";
-        NavigationManager.NavigateTo(targetUrl);
+        NavigationManager.NavigateTo($"{Pages.TiglPlayerProfile}?playerId={player.TiglUserId}");
     }
 
     private TextColor GetChangeColor(double value)

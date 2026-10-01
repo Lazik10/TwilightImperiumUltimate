@@ -1,0 +1,136 @@
+/*
+    Host span for the RadzenDropDown child component -- see the comment in ResponsiveDropDown.razor.
+    display:contents removes it from layout entirely so it doesn't affect flex/grid placement
+    around the dropdown, while still existing as a real element carrying this component's own
+    scope attribute for the ::deep selectors below to anchor from.
+*/
+.responsive-dropdown-host {
+    display: contents;
+}
+
+/*
+    app.css already makes Radzen dropdown POPUP items use Handel (they're rendered in a global
+    popup container, so that has to be done globally there -- see the comment next to
+    `.rz-dropdown-panel .rz-dropdown-item` in app.css). The closed dropdown's own selected-value
+    display, however, stays in the normal component DOM tree (no portal), so it can be reached
+    from here. The "handel" utility class alone (applied in ComputedCssClass) isn't enough: Radzen
+    renders the selected text inside a nested element that doesn't inherit font-family the way a
+    plain <div>/<span> would.
+
+    The `.rz-inputtext` rule is intentionally scoped to exclude Radzen's `.rz-state-empty` state
+    (no value selected). When empty, `.rz-dropdown-label` only contains a `&nbsp;` placeholder --
+    the Handel display font renders that whitespace-only content as a stray visible glyph (looks
+    like an "@"/"(R)" symbol) instead of blank space, confirmed via live DOM/computed-style
+    inspection. Real selected values render fine in Handel, so only the empty state is excluded.
+*/
+.responsive-dropdown-host ::deep .rz-dropdown,
+.responsive-dropdown-host ::deep .rz-dropdown:not(.rz-state-empty) .rz-inputtext,
+.responsive-dropdown-host ::deep .rz-dropdown input {
+    font-family: Handel, fallback, sans-serif;
+}
+
+/* The dropdown's chevron is a Radzen icon glyph, not display text. */
+.responsive-dropdown-host ::deep .rz-dropdown-trigger .rzi {
+    font-family: var(--rz-icon-font-family) !important;
+}
+
+.responsive-dropdown-host ::deep .rz-dropdown,
+.responsive-dropdown-host ::deep .rz-dropdown:hover,
+.responsive-dropdown-host ::deep .rz-dropdown:focus-within {
+    --rz-input-background-color: var(--color-nav-panel-bg);
+    --rz-input-hover-background-color: var(--color-nav-panel-bg);
+    --rz-input-border: 1px solid #0024ff;
+    --rz-input-border-block-end: 1px solid #0024ff;
+    --rz-input-hover-border: 1px solid #0024ff;
+    --rz-input-hover-border-block-end: 1px solid #0024ff;
+    --rz-input-value-color: var(--color-white);
+    background-color: var(--color-nav-panel-bg);
+    color: var(--color-white);
+}
+
+/*
+    .rz-dropdown is `display: inline-flex; flex-direction: column;` with its selected-value label
+    (.rz-dropdown-label, a block element) as the sole flex item. Radzen's default label
+    padding/line-height is tuned for its own default --rz-input-height; our `.responsive-input-height`
+    utility overrides that to a taller value, but the label's own height still just matches its
+    text content, so the column flex container's default `justify-content: flex-start` leaves the
+    extra height as blank space BELOW the label instead of centering it -- the label visually sits
+    too high.
+
+    width/min-width/max-width give the dropdown a sane, predictable footprint by device tier
+    instead of shrinking to content (or growing unbounded) -- same --responsive-*-width custom
+    property mechanism ResponsiveButton uses for its Width/MobileWidth, extended with a tablet
+    tier. Mobile's min-width is intentionally the largest of the three (wider relative to its own
+    narrow viewport) since a single stacked dropdown there should read as a full-width control.
+*/
+.responsive-dropdown-host ::deep .rz-dropdown {
+    cursor: pointer;
+    justify-content: center;
+    width: var(--responsive-dropdown-width, auto);
+    min-width: 16rem;
+    max-width: 26rem;
+}
+
+@media (max-width: 1024px) {
+    .responsive-dropdown-host ::deep .rz-dropdown {
+        width: var(--responsive-dropdown-tablet-width, var(--responsive-dropdown-width, auto));
+        min-width: 14rem;
+        max-width: 22rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .responsive-dropdown-host ::deep .rz-dropdown {
+        width: var(--responsive-dropdown-mobile-width, var(--responsive-dropdown-tablet-width, var(--responsive-dropdown-width, auto)));
+        min-width: 18rem;
+        max-width: 100%;
+    }
+}
+
+/*
+    When Label is set, the host switches from `display: contents` to a real flex layout so the
+    label and the dropdown lay out together -- row (label to the left) by default, column (label
+    above) when LabelPosition is Column, both collapsing to column below the 768px breakpoint
+    regardless. When no Label is set, `.has-label` is absent and the host stays `display:
+    contents`, so existing consumers without a Label are unaffected.
+*/
+.responsive-dropdown-host.has-label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.responsive-dropdown-host.has-label.label-position-column {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-xs);
+}
+
+.responsive-dropdown-host.has-label ::deep .responsive-dropdown-label {
+    flex-shrink: 0;
+}
+
+/*
+    In row layout the dropdown grows to fill whatever space the label doesn't need, bounded by
+    the width/min-width/max-width rules above. In column layout the label sits above a full-width
+    dropdown instead (still bounded by the same min/max-width).
+*/
+.responsive-dropdown-host.has-label ::deep .rz-dropdown {
+    flex: 1 1 auto;
+}
+
+.responsive-dropdown-host.has-label.label-position-column ::deep .rz-dropdown {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .responsive-dropdown-host.has-label {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-xs);
+    }
+
+    .responsive-dropdown-host.has-label ::deep .rz-dropdown {
+        width: 100%;
+    }
+}

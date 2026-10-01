@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Business.Services.Async.Interfaces;
+﻿using TwilightImperiumUltimate.Business.Services.Async.Interfaces;
 using TwilightImperiumUltimate.Contracts.DTOs.Async.Responses;
 
 namespace TwilightImperiumUltimate.Business.Logic.Async;
@@ -13,6 +13,8 @@ public class GetAsyncPlayerInfoByPlayerProfileQueryHandler(
 
     public async Task<AsyncPlayerProfileSummaryStatsDto> Handle(GetAsyncPlayerInfoByPlayerProfileQuery request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var asyncPlayerProfile = await _asyncStatsRepository.GetAsyncPlayerProfileByPlayerRequest(request.DiscordId, request.Name, request.PlayerId, cancellationToken);
         if (asyncPlayerProfile is null)
         {

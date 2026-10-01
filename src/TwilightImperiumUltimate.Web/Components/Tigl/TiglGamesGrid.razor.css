@@ -1,0 +1,88 @@
+.tigl-games-header-row {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    width: 100%;
+}
+
+.tigl-games-filter-toggle {
+    position: absolute;
+    top: -0.25rem;
+    right: var(--space-lg);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.tigl-games-filter-toggle:focus-visible {
+    outline: 2px solid var(--color-nav-hover, #8ecfff);
+    outline-offset: 2px;
+    border-radius: var(--border-radius-sm);
+}
+
+.tigl-games-filter-toggle img {
+    display: block;
+    max-width: 1.625rem;
+    height: auto;
+}
+
+.tigl-games-season-filter {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.tigl-games-season-filter ::deep .responsive-dropdown-host.has-label.label-position-column {
+    align-items: center;
+    width: 100%;
+}
+
+.tigl-games-season-filter ::deep .responsive-dropdown-host.has-label.label-position-column .rz-dropdown {
+    min-width: 12rem;
+}
+
+#tigl-games-panel ::deep .tigl-games-grid,
+#tigl-games-panel ::deep .tigl-games-grid *:not(.rz-grid-filter-icon):not(.rz-sortable-column-icon):not(.rz-dropdown-trigger-icon) {
+    font-family: Handel, sans-serif !important;
+    text-shadow: var(--shadow-text);
+}
+
+#tigl-games-panel ::deep .tigl-games-grid .rz-grid-filter-icon,
+#tigl-games-panel ::deep .tigl-games-grid .rz-sortable-column-icon,
+#tigl-games-panel ::deep .tigl-games-grid .rz-dropdown-trigger-icon {
+    font-family: var(--rz-icon-font-family) !important;
+    text-shadow: none;
+}
+
+#tigl-games-panel ::deep .tigl-games-grid .rz-pager,
+#tigl-games-panel ::deep .tigl-games-grid .rz-pager * {
+    font-family: Inter, sans-serif !important;
+    text-shadow: none !important;
+}
+
+#tigl-games-panel ::deep .tigl-games-grid .rz-pager .rzi {
+    font-family: "Material Symbols" !important;
+}
+
+#tigl-games-panel ::deep .tigl-games-grid .rz-pager .rzi::before {
+    font-family: "Material Symbols" !important;
+}
+
+#tigl-games-panel ::deep .tigl-games-grid .rz-column-resizer {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .tigl-games-filter-toggle {
+        right: var(--space-sm);
+    }
+}

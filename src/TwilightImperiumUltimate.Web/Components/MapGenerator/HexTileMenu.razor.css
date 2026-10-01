@@ -2,7 +2,7 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    left: -10%;
+    left: 3%;
     top: 10%;
 /*    transform: translateY(-30%);*/
     z-index: 1000;
@@ -15,18 +15,55 @@
     font-family: Handel, fallback, sans-serif !important;
 }
 
-.radzen-dropdown {
+::deep .tile-menu-toggle {
+    width: max-content;
+    white-space: nowrap;
+}
+
+/* .tile-menu-card and .radzen-dropdown are rendered by child components, so ::deep is required. */
+::deep .tile-menu-card {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1001;
+    width: auto;
+    padding: var(--space-md) 0 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+
+.tile-menu-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+::deep .tile-menu-card .radzen-dropdown {
     font-family: Handel, fallback, sans-serif !important;
+    box-sizing: border-box;
+    align-self: center;
+    width: min(100%, 26rem) !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
 }
 
 .scrollbar-area {
-    overflow-y: auto;
-    overflow-x: hidden;
-    height: 100%;
+    display: flex;
+    gap: var(--space-sm);
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+}
+
+::deep .scrollbar-area .hex-container {
+    flex: 0 0 clamp(8.1rem, 14.4vw, 13.5rem);
+    width: clamp(8.1rem, 14.4vw, 13.5rem);
+    height: auto;
 }
 
 .scrollbar-area::-webkit-scrollbar {
-    width: 12px;
+    display: none;
 }
 
 .scrollbar-area::-webkit-scrollbar-track {

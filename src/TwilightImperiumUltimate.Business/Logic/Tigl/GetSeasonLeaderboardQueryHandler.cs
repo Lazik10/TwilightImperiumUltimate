@@ -1,6 +1,6 @@
-using TwilightImperiumUltimate.Contracts.DTOs.Tigl;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
-using Microsoft.EntityFrameworkCore;
+using TwilightImperiumUltimate.Contracts.DTOs.Tigl;
 
 namespace TwilightImperiumUltimate.Business.Logic.Tigl;
 
@@ -13,6 +13,8 @@ public class GetSeasonLeaderboardQueryHandler(
 
     public async Task<ItemListDto<PlayerSeasonResultDto>> Handle(GetSeasonLeaderboardQuery request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         using var db = await contextFactory.CreateDbContextAsync(cancellationToken);
 
         // Determine current active season number
@@ -26,10 +28,8 @@ public class GetSeasonLeaderboardQueryHandler(
         if (isActiveSeasonRequest)
         {
             var cacheKey = CacheKeyPrefix + request.Season;
-            if (cache.TryGetValue(cacheKey, out ItemListDto<PlayerSeasonResultDto>? cachedResult))
-            {
+            if (cache.TryGetValue(cacheKey, out ItemListDto<PlayerSeasonResultDto>? cachedResult) && cachedResult is not null)
                 return cachedResult;
-            }
         }
 
         var data = await db.SeasonLeaderboard

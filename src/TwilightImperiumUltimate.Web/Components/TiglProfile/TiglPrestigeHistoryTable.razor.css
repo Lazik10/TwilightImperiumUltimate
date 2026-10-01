@@ -1,0 +1,6 @@
+::deep .prestige-history-table .rz-cell-data,
+::deep .prestige-history-table .rz-column-title,
+::deep .prestige-history-table tbody span {
+    font-family: Handel, sans-serif !important;
+    text-shadow: var(--shadow-text);
+}

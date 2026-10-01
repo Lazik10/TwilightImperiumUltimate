@@ -1,0 +1,29 @@
+.async-player-profile-texture,
+.async-player-profile-texture-spacer {
+    flex: 0 0 15%;
+    min-width: 15%;
+    max-width: 15%;
+}
+
+.async-player-profile-texture ::deep img {
+    display: block;
+    width: 100%;
+}
+
+.async-player-profile-filter {
+    width: fit-content;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.async-player-profile-filter ::deep .responsive-dropdown-host.has-label.label-position-column {
+    align-items: center;
+    width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .async-player-profile-texture,
+    .async-player-profile-texture-spacer {
+        display: none;
+    }
+}

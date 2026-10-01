@@ -1,5 +1,5 @@
-using Microsoft.Extensions.Logging;
 using System.Globalization;
+using Microsoft.Extensions.Logging;
 
 namespace TwilightImperiumUltimate.DataAccess.Repositories;
 
@@ -14,6 +14,9 @@ public class UserRepository(
 
     public static void UpdateDbUser(TwilightImperiumUser dbUser, TwilightImperiumUser user)
     {
+        ArgumentNullException.ThrowIfNull(dbUser);
+        ArgumentNullException.ThrowIfNull(user);
+
         dbUser.UserName = user.UserName;
         dbUser.FirstName = user.FirstName;
         dbUser.LastName = user.LastName;
@@ -55,6 +58,8 @@ public class UserRepository(
 
     public async Task<bool> UpdateUser(TwilightImperiumUser user)
     {
+        ArgumentNullException.ThrowIfNull(user);
+
         await using var dbContext = await _context.CreateDbContextAsync();
         var dbUser = await dbContext.Users.FindAsync(user.Id);
 

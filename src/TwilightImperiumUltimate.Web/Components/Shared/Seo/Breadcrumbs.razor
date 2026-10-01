@@ -1,0 +1,22 @@
+@implements IDisposable
+
+@if (Items.Count > 1)
+{
+    <nav class="breadcrumbs" aria-label="Breadcrumb" hidden>
+        <ol>
+            @foreach (var item in Items)
+            {
+                <li @key="item.Url">
+                    @if (item.IsCurrent)
+                    {
+                        <span aria-current="page">@item.Label</span>
+                    }
+                    else
+                    {
+                        <a href="@item.Url">@item.Label</a>
+                    }
+                </li>
+            }
+        </ol>
+    </nav>
+}

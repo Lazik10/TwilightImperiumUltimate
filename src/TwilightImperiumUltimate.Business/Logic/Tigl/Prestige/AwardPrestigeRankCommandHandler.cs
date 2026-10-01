@@ -1,8 +1,6 @@
-using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Prestige;
-using TwilightImperiumUltimate.Contracts.Enums;
+﻿using TwilightImperiumUltimate.Contracts.ApiContracts.Tigl.Prestige;
 using TwilightImperiumUltimate.Core.Entities.RelationshipEntities;
 using TwilightImperiumUltimate.Core.Entities.Tigl.Ranks;
-using TwilightImperiumUltimate.DataAccess.DbContexts;
 
 namespace TwilightImperiumUltimate.Business.Logic.Tigl.Prestige;
 
@@ -11,6 +9,8 @@ public class AwardPrestigeRankCommandHandler(IDbContextFactory<TwilightImperiumD
 {
     public async Task<AwardPrestigeRankResponse> Handle(AwardPrestigeRankCommand request, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         await using var db = await dbFactory.CreateDbContextAsync(cancellationToken);
         var r = request.Request;
 

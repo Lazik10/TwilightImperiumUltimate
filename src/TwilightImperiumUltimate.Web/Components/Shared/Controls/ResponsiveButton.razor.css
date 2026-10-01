@@ -1,0 +1,77 @@
+/*
+    Padding uses the --space-* scale (already responsive: shrinks automatically at the
+    1024/768/480px breakpoints) so the button is bigger on desktop and progressively smaller on
+    narrower screens. At the 480px breakpoint, padding-top/bottom is further reduced to
+    --space-sm (below the already-shrunk --space-md) so mobile buttons stay a bit shorter.
+    font-size overrides the C# FontSize parameter's inline px value with the fluid
+    --font-size-md token (!important is required to beat that inline style) -- slightly bigger
+    than the previous fixed 16px on desktop, shrinking smoothly with the viewport instead of a
+    flat pixel value.
+
+    Width is read from the --responsive-button-width custom property (set from the C# Width
+    parameter) with a fallback to auto (shrink-to-fit, matching the previous behavior when no
+    width was set). The optional MobileWidth parameter sets --responsive-button-mobile-width,
+    which takes over at the 1024px breakpoint (tablet and below, falling back to the desktop
+    width, then auto, if not set) -- lets a button be narrower on desktop but wider/more
+    tappable on tablet and mobile.
+
+    Background/hover colors are read from --responsive-button-* custom properties (falling back
+    to the navigation palette) instead of being hardcoded, so a themed variant like
+    ResponsiveDangerButton can override just the palette -- via inline style custom properties on
+    the wrapped <ResponsiveButton>, e.g. `--responsive-button-bg: var(--color-danger-bg-solid);`
+    -- without needing to fight this component's own CSS specificity/!important from another
+    component's stylesheet.
+*/
+.responsive-button {
+    display: inline-flex;
+    box-sizing: border-box;
+    width: var(--responsive-button-width, auto);
+    max-width: 50rem;
+    padding: var(--space-md) var(--space-2xl);
+    background-color: var(--responsive-button-bg, var(--color-nav-hover-bg-solid));
+    border: 2px solid black;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    text-decoration: none;
+    font-size: var(--font-size-md) !important;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* Opt-in modifier for buttons that need to stay compact/short (e.g. a "Clear filters" action
+   next to a table) instead of the full page-button height. Combined with the base class on the
+   same element (two classes = higher specificity than the single-class base rule, and it's also
+   declared after it in this same file) so it reliably wins regardless of source order elsewhere. */
+.responsive-button-sm {
+    padding: var(--space-xs) var(--space-lg);
+}
+
+.responsive-button:hover:not(:disabled) {
+    background-color: var(--responsive-button-hover-bg, var(--color-nav-panel-bg));
+    border-color: var(--responsive-button-bg, var(--color-nav-hover-bg-solid));
+    color: var(--responsive-button-hover-color, var(--color-nav-hover)) !important;
+}
+
+.responsive-button:focus-visible {
+    outline: 2px solid var(--color-nav-hover);
+    outline-offset: 2px;
+}
+
+.responsive-button:disabled {
+    background-color: rgba(128, 128, 128, 0.3);
+    cursor: not-allowed;
+}
+
+@media (max-width: 1024px) {
+    .responsive-button {
+        width: var(--responsive-button-mobile-width, var(--responsive-button-width, auto));
+    }
+}
+
+@media (max-width: 480px) {
+    .responsive-button {
+        padding-top: var(--space-sm);
+        padding-bottom: var(--space-sm);
+        font-size: var(--font-size-sm) !important;
+    }
+}
+

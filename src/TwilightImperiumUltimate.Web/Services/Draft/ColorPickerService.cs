@@ -26,7 +26,9 @@ public class ColorPickerService : IColorPickerService
 
     public IReadOnlyCollection<FactionColorDraftResult>? FactionColorDraftResults => _factionColorDraftResults;
 
-    public bool IsDraftPossible() => Colors.Count(x => !x.Value) >= SelectedFactions.Count;
+    public bool IsDraftPossible() =>
+        SelectedFactions.Count >= ColorDraftOptions.MinNumberOfFactions
+        && Colors.Count(x => !x.Value) >= SelectedFactions.Count;
 
     public PlayerColor GetRandomColor() => Colors.Keys.ToList()[_random.Next(Colors.Count)];
 
@@ -34,6 +36,12 @@ public class ColorPickerService : IColorPickerService
     {
         _selectedFactions = [];
         _factionColorDraftResults = [];
+    }
+
+    public void ResetDraft()
+    {
+        ResetSelectedFactions();
+        OnFactionUpdate?.Invoke(this, EventArgs.Empty);
     }
 
     public void ResetBannedColors() => InitializeColors();
@@ -60,7 +68,32 @@ public class ColorPickerService : IColorPickerService
     public async Task PerformDraft()
     {
         await GetRandomResultsAsync();
-        await GetColorDraftResults();
+        _factionColorDraftResults = await GetDraftResultsAsync(_selectedFactions);
+    }
+
+    public async Task<IReadOnlyCollection<FactionColorDraftResult>> GetDraftResultsAsync(IReadOnlyCollection<FactionModel> factions)
+    {
+        ArgumentNullException.ThrowIfNull(factions);
+
+        ColorDraftRequest request = new()
+        {
+            Factions = factions.Select(x => x.FactionName).ToList(),
+            Colors = _colors.Where(x => !x.Value).Select(x => x.Key).ToList(),
+        };
+
+        var (response, statusCode) = await _httpClient.PostAsync<ColorDraftRequest, ApiResponse<FactionColorDraftResultDto>>(Paths.ApiPath_ColorDraft, request);
+
+        if (statusCode != HttpStatusCode.OK)
+            return [];
+
+        return response!.Data!.FactionColorDraftResults
+            .Select(factionColorDraftResult => new FactionColorDraftResult
+            {
+                FactionName = factionColorDraftResult.Key,
+                Color = factionColorDraftResult.Value,
+            })
+            .OrderBy(x => x.FactionName)
+            .ToList();
     }
 
     private async Task GetRandomResultsAsync()
@@ -94,32 +127,4 @@ public class ColorPickerService : IColorPickerService
             .ToDictionary(x => x, x => false);
     }
 
-    private async Task GetColorDraftResults()
-    {
-        ColorDraftRequest request = new()
-        {
-            Factions = _selectedFactions.Select(x => x.FactionName).ToList(),
-            Colors = _colors.Where(x => !x.Value).Select(x => x.Key).ToList(),
-        };
-
-        var (response, statusCode) = await _httpClient.PostAsync<ColorDraftRequest, ApiResponse<FactionColorDraftResultDto>>(Paths.ApiPath_ColorDraft, request);
-
-        if (statusCode == HttpStatusCode.OK)
-        {
-            var factionColorDraftResults = response!.Data!.FactionColorDraftResults;
-
-            _factionColorDraftResults = factionColorDraftResults
-                .Select(factionColorDraftResult => new FactionColorDraftResult
-                {
-                    FactionName = factionColorDraftResult.Key,
-                    Color = factionColorDraftResult.Value,
-                })
-                .OrderBy(x => x.FactionName)
-                .ToList();
-        }
-        else
-        {
-            _factionColorDraftResults = new List<FactionColorDraftResult>();
-        }
-    }
 }

@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using TwilightImperiumUltimate.Contracts.Enums;
 using TwilightImperiumUltimate.Core.Entities.Tigl;
 using TwilightImperiumUltimate.Core.Entities.Tigl.History;
@@ -5,6 +6,7 @@ using TwilightImperiumUltimate.Tigl.Extensions;
 
 namespace TwilightImperiumUltimate.Tigl.Glicko2Rating;
 
+[SuppressMessage("Style", "SA1312:Naming Styles", Justification = "Glicko-2 uses Greek letters for its variables.")]
 public class GlickoRatingCalculatorService : IGlickoRatingCalculatorService
 {
     private const double Scale = 173.7178;
@@ -19,7 +21,7 @@ public class GlickoRatingCalculatorService : IGlickoRatingCalculatorService
     private const double VInvFloor = 1e-6;            // avoid v = 1/0 => ∞
     private const double SigmaMin = 1e-12;            // avoid log(0)
     private const double SigmaGrowthCap = 2.0;        // max × growth of sigma per update
-    private static readonly double PhiPrimeCap = MaxRD / Scale; // keep update consistent with stored RD cap
+    private const double PhiPrimeCap = MaxRD / Scale; // keep update consistent with stored RD cap
 
     public async Task UpdatePlayerMatchStats(IReadOnlyCollection<GlickoPlayerMatchStats> matchStats, int season)
     {
@@ -44,12 +46,20 @@ public class GlickoRatingCalculatorService : IGlickoRatingCalculatorService
         {
             var (mu_i, phi_i, sigma_i, _) = transformed[player.DiscordUserId];
 
-            var opponents = new List<(double mu_j, double phi_j, double s_ij)>(matchStats.Count - 1);
+            var opponents = new List<(double Mu_j, double Phi_j, double S_ij)>(matchStats.Count - 1);
             foreach (var opp in matchStats)
             {
                 if (opp.DiscordUserId == player.DiscordUserId) continue;
 
-                double s = player.Placement < opp.Placement ? 1.0 : player.Placement > opp.Placement ? 0.0 : 0.5;
+                double s;
+                if (player.Placement > opp.Placement)
+                {
+                    s = player.Placement < opp.Placement ? 1.0 : 0.0;
+                }
+                else
+                {
+                    s = player.Placement < opp.Placement ? 1.0 : 0.5;
+                }
 
                 var (mu_j, phi_j, _, _) = transformed[opp.DiscordUserId];
                 opponents.Add((mu_j, phi_j, s));
@@ -84,6 +94,7 @@ public class GlickoRatingCalculatorService : IGlickoRatingCalculatorService
 
             double sigmaPrime = SolveVolatility(sigma_i, phi_i, delta, v);
             if (!double.IsFinite(sigmaPrime) || sigmaPrime <= 0) sigmaPrime = sigma_i;
+
             // Limit per-update growth to prevent runaway explosion on adversarial data
             double sigmaMaxThisUpdate = Math.Max(SigmaMin, sigma_i * SigmaGrowthCap);
             if (sigmaPrime > sigmaMaxThisUpdate) sigmaPrime = sigmaMaxThisUpdate;
@@ -130,6 +141,39 @@ public class GlickoRatingCalculatorService : IGlickoRatingCalculatorService
         }
 
         return Task.CompletedTask;
+    }
+
+    private static double G(double phi)
+    {
+        double denom = Math.Sqrt(1.0 + (3.0 * phi * phi / (Math.PI * Math.PI)));
+        return 1.0 / denom;
+    }
+
+    // Numerically stable logistic
+    private static double EFunc(double mu, double mu_j, double phi_j)
+    {
+        double g = G(phi_j);
+        double d = g * (mu - mu_j);
+        if (d >= 0)
+        {
+            double z = Math.Exp(-d);
+            return 1.0 / (1.0 + z);
+        }
+        else
+        {
+            double z = Math.Exp(d);
+            return z / (1.0 + z);
+        }
+    }
+
+    private double F(double x, double a, double delta, double phi, double v)
+    {
+        double ex = Math.Exp(x);
+        double num = ex * ((delta * delta) - (phi * phi) - v - ex);
+        double denom = 2.0 * Math.Pow((phi * phi) + v + ex, 2.0);
+        double term1 = num / denom;
+        double term2 = (x - a) / (Tau * Tau);
+        return term1 - term2;
     }
 
     private double SolveVolatility(double sigma, double phi, double delta, double v)
@@ -182,38 +226,5 @@ public class GlickoRatingCalculatorService : IGlickoRatingCalculatorService
         double x = A;
         double sigmaPrime = Math.Exp(x / 2.0);
         return sigmaPrime;
-    }
-
-    private double F(double x, double a, double delta, double phi, double v)
-    {
-        double ex = Math.Exp(x);
-        double num = ex * ((delta * delta) - (phi * phi) - v - ex);
-        double denom = 2.0 * Math.Pow((phi * phi) + v + ex, 2.0);
-        double term1 = num / denom;
-        double term2 = (x - a) / (Tau * Tau);
-        return term1 - term2;
-    }
-
-    private static double G(double phi)
-    {
-        double denom = Math.Sqrt(1.0 + (3.0 * phi * phi / (Math.PI * Math.PI)));
-        return 1.0 / denom;
-    }
-
-    // Numerically stable logistic
-    private static double EFunc(double mu, double mu_j, double phi_j)
-    {
-        double g = G(phi_j);
-        double d = g * (mu - mu_j);
-        if (d >= 0)
-        {
-            double z = Math.Exp(-d);
-            return 1.0 / (1.0 + z);
-        }
-        else
-        {
-            double z = Math.Exp(d);
-            return z / (1.0 + z);
-        }
     }
 }

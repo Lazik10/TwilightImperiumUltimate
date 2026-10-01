@@ -16,6 +16,10 @@ public class GalaxyRedPositionSolver(
 
     public Task<Dictionary<(int X, int Y), Hex>> SolveRedPositions(IMapSettings mapSettings, Dictionary<(int X, int Y), Hex> galaxy, GenerateMapRequest request)
     {
+        ArgumentNullException.ThrowIfNull(mapSettings);
+        ArgumentNullException.ThrowIfNull(galaxy);
+        ArgumentNullException.ThrowIfNull(request);
+
         if (mapSettings is IHyperlineSettings hyperlineSettings)
         {
             foreach (var customNeighbor in hyperlineSettings.CustomNeighbors)

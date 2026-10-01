@@ -2,49 +2,51 @@ namespace TwilightImperiumUltimate.Web.Services.MapGenerators;
 
 public interface IMapGeneratorSettingsService
 {
-    public int MapScale { get; set; }
+    int MapScale { get; set; }
 
-    public MapTemplate MapTemplate { get; set; }
+    MapTemplate MapTemplate { get; set; }
 
-    public PlacementStyle PlacementStyle { get; set; }
+    PlacementStyle PlacementStyle { get; set; }
 
-    public SystemWeight SystemWeight { get; set; }
+    SystemWeight SystemWeight { get; set; }
 
-    public List<GameVersion> GameVersions { get; set; }
+    List<GameVersion> GameVersions { get; set; }
 
-    public List<FactionModel> FactionsForMapGenerator { get; set; }
+    List<FactionModel> FactionsForMapGenerator { get; set; }
 
-    public List<MapGeneratorPlayerModel> Players { get; set; }
+    List<MapGeneratorPlayerModel> Players { get; set; }
 
-    public SystemTileOverlay SystemTileOverlay { get; set; }
+    SystemTileOverlay MapOverlay { get; set; }
 
-    public WormholeDensity WormholeDensity { get; set; }
+    SystemTileOverlay MenuOverlay { get; set; }
 
-    public int NumberOfLegendaryPlanets { get; set; }
+    WormholeDensity WormholeDensity { get; set; }
 
-    public bool LegendaryPriorityInEquidistant { get; set; }
+    int NumberOfLegendaryPlanets { get; set; }
 
-    public bool EnableFactionPick { get; set; }
+    bool LegendaryPriorityInEquidistant { get; set; }
 
-    public bool EnablePlayerNames { get; set; }
+    bool EnableFactionPick { get; set; }
 
-    public void IncreaseMapScale();
+    bool EnablePlayerNames { get; set; }
 
-    public void DecreaseMapScale();
+    void IncreaseMapScale();
 
-    public void UpdateGameVersion(GameVersion gameVersion);
+    void DecreaseMapScale();
 
-    public void UpdateWormholeDensity(WormholeDensity wormholeDensity);
+    void UpdateGameVersion(GameVersion gameVersion);
 
-    public void UpdateFactionBanStatus(FactionModel factionModel);
+    void UpdateWormholeDensity(WormholeDensity wormholeDensity);
 
-    public void GameVersionGlobalEnableDisable(GameVersion gameVersion);
+    void UpdateFactionBanStatus(FactionModel factionModel);
 
-    public Task InitializeFactionsForMapGenerator();
+    void GameVersionGlobalEnableDisable(GameVersion gameVersion);
 
-    public Task InitializePlayersForMapGenerator();
+    Task InitializeFactionsForMapGenerator();
 
-    public int GetMapTemplatePlayerCount();
+    Task InitializePlayersForMapGenerator();
 
-    public IReadOnlyCollection<string> GetPlayerNames();
+    int GetMapTemplatePlayerCount();
+
+    IReadOnlyCollection<string> GetPlayerNames();
 }

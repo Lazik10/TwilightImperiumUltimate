@@ -1,33 +1,41 @@
-using Microsoft.Extensions.Options;
-using Quartz;
 using System.Net;
 using System.Text.Json;
+using Microsoft.Extensions.Options;
+using Quartz;
 using TwilightImperiumUltimate.API.Options;
 using TwilightImperiumUltimate.Business.Logic.Async;
 using TwilightImperiumUltimate.Contracts.ApiContracts.AsyncTI4;
 
 namespace TwilightImperiumUltimate.API.Jobs;
 
+[DisallowConcurrentExecution]
 public class AsyncGameDataJob(
     ILogger<AsyncGameDataJob> logger,
     IOptions<AsyncStatsOptions> asyncOptions,
-    IMediator mediator)
+    IMediator mediator,
+    ISchedulerFactory schedulerFactory)
     : IJob
 {
     private readonly ILogger<AsyncGameDataJob> _logger = logger;
     private readonly AsyncStatsOptions _asyncOptions = asyncOptions.Value;
     private readonly IMediator _mediator = mediator;
+    private readonly ISchedulerFactory _schedulerFactory = schedulerFactory;
 
     public async Task Execute(IJobExecutionContext context)
     {
+        ArgumentNullException.ThrowIfNull(context);
+
         _logger.LogInformation("Data sync job started at: {Time}", DateTime.Now);
 
         try
         {
+            var syncSucceeded = true;
             using var handler = new HttpClientHandler
             {
                 AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate,
+                CheckCertificateRevocationList = true,
             };
+
             using var client = new HttpClient(handler)
             {
                 BaseAddress = _asyncOptions.Url,
@@ -71,6 +79,7 @@ public class AsyncGameDataJob(
 
                     if (!ok)
                     {
+                        syncSucceeded = false;
                         _logger.LogError("An error occurred while syncing JSON data batch.");
                     }
                 }
@@ -81,8 +90,17 @@ public class AsyncGameDataJob(
                 var ok = await _mediator.Send(new UpdateAsyncGameDataCommand(batch), context.CancellationToken);
                 if (!ok)
                 {
+                    syncSucceeded = false;
                     _logger.LogError("An error occurred while syncing JSON data final batch.");
                 }
+            }
+
+            if (syncSucceeded)
+            {
+                var scheduler = await _schedulerFactory.GetScheduler(context.CancellationToken);
+                await scheduler.TriggerJob(
+                    new JobKey(nameof(AsyncStatisticsSnapshotJob)),
+                    context.CancellationToken);
             }
 
             _logger.LogInformation("JSON data synced successfully. {Time}", DateTime.Now);

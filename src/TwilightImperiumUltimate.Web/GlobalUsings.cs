@@ -1,6 +1,8 @@
+global using System.Collections.Generic;
+global using System.Linq;
+global using System.Net;
 global using AutoMapper;
 global using Microsoft.AspNetCore.Components;
-global using System.Net;
 global using TwilightImperiumUltimate.Contracts.ApiContracts;
 global using TwilightImperiumUltimate.Contracts.DTOs;
 global using TwilightImperiumUltimate.Contracts.DTOs.Faction;
@@ -33,5 +35,6 @@ global using TwilightImperiumUltimate.Web.Models.Technologies;
 global using TwilightImperiumUltimate.Web.Models.Unit;
 global using TwilightImperiumUltimate.Web.Models.Website;
 global using TwilightImperiumUltimate.Web.Resources;
+global using TwilightImperiumUltimate.Web.Services.Factions;
 global using TwilightImperiumUltimate.Web.Services.HttpClients;
 global using TwilightImperiumUltimate.Web.Services.Path;

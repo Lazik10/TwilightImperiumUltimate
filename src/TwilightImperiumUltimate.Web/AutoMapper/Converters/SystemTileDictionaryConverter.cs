@@ -4,6 +4,9 @@ public class SystemTileDictionaryConverter : IValueResolver<Dictionary<int, Syst
 {
     public Dictionary<int, SystemTileModel> Resolve(Dictionary<int, SystemTileDto> source, Dictionary<int, SystemTileModel> destination, Dictionary<int, SystemTileModel> destMember, ResolutionContext context)
     {
+        ArgumentNullException.ThrowIfNull(source);
+        ArgumentNullException.ThrowIfNull(context);
+
         var result = new Dictionary<int, SystemTileModel>();
         foreach (var item in source)
         {

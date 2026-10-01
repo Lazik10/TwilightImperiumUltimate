@@ -1,67 +1,48 @@
 ﻿@using TwilightImperiumUltimate.Web.Helpers.Numbers
 
-<FlexRowContainer>
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="100">
 
-    <FlexColumnCenteredContainer Width="100">
+    @if (AsyncPlayerProfile is not null)
+    {
+        <div class="combat-stats-table-host">
+            <ResponsiveRadzenTable ZebraStripes="true" EqualColumns="true" CssClass="statistics-row-handel combat-stats-table" TableTitle="@Strings.CombatStats_Title">
+                <RadzenTableHeader>
+                    <RadzenTableHeaderRow>
+                        <RadzenTableHeaderCell scope="col"><span class="combat-stats-header-desktop">@Strings.CombatStats_ExpectedHits</span><span class="combat-stats-header-mobile">Expected</span></RadzenTableHeaderCell>
+                        <RadzenTableHeaderCell scope="col"><span class="combat-stats-header-desktop">@Strings.CombatStats_ActualHits</span><span class="combat-stats-header-mobile">Actual</span></RadzenTableHeaderCell>
+                        <RadzenTableHeaderCell scope="col"><span class="combat-stats-header-desktop">@Strings.CombatStats_HitsDeviation</span><span class="combat-stats-header-mobile">Deviation</span></RadzenTableHeaderCell>
+                    </RadzenTableHeaderRow>
+                </RadzenTableHeader>
+                <RadzenTableBody>
+                    @if (!AsyncPlayerProfile.Settings.ShowCombatStats)
+                    {
+                        <RadzenTableRow>
+                            <RadzenTableCell colspan="3">
+                                <ResponsiveLabel Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" />
+                            </RadzenTableCell>
+                        </RadzenTableRow>
+                    }
+                    else
+                    {
+                        <RadzenTableRow>
+                            <RadzenTableCell class="yellow">@CombatStats.ExpectedHits.ToStringWithPrecision(2)</RadzenTableCell>
+                            <RadzenTableCell class="yellow">@CombatStats.ActualHits.ToStringWithPrecision(0)</RadzenTableCell>
+                            <RadzenTableCell class="@(GetDiceDeviationCssClass())">@GetHitDeviationText()</RadzenTableCell>
+                        </RadzenTableRow>
+                        <RadzenTableRow>
+                            <RadzenTableHeaderCell scope="col"><span class="combat-stats-header-desktop">@Strings.CombatStats_MinHits</span><span class="combat-stats-header-mobile">Min</span></RadzenTableHeaderCell>
+                            <RadzenTableHeaderCell scope="col"><span class="combat-stats-header-desktop">@Strings.CombatStats_AverageHits</span><span class="combat-stats-header-mobile">Avg</span></RadzenTableHeaderCell>
+                            <RadzenTableHeaderCell scope="col"><span class="combat-stats-header-desktop">@Strings.CombatStats_MaxHits</span><span class="combat-stats-header-mobile">Max</span></RadzenTableHeaderCell>
+                        </RadzenTableRow>
+                        <RadzenTableRow>
+                            <RadzenTableCell class="yellow">@CombatStats.MinHitsPerGame.ToStringWithPrecision(0)</RadzenTableCell>
+                            <RadzenTableCell class="yellow">@CombatStats.AverageHitsPerGame.ToStringWithPrecision(0)</RadzenTableCell>
+                            <RadzenTableCell class="yellow">@CombatStats.MaxHitsPerGame.ToStringWithPrecision(0)</RadzenTableCell>
+                        </RadzenTableRow>
+                    }
+                </RadzenTableBody>
+            </ResponsiveRadzenTable>
+        </div>
+    }
 
-        @if (AsyncPlayerProfile is not null)
-        {
-            <Label Text="@Strings.CombatStats_Title" FontSize="24" CenterText="true" />
-
-            <VerticalSpace Height="20" />
-
-            <GridLayout Columns="3" CssClass="background">
-
-                <VerticalSpace Height="20" Style="grid-column: span 3;" />
-
-                <Label Text="@Strings.CombatStats_ExpectedHits" CenterText="true" />
-                <Label Text="@Strings.CombatStats_ActualHits" CenterText="true" />
-                <Label Text="@Strings.CombatStats_HitsDeviation" CenterText="true" />
-
-                <VerticalSpace Height="20" Style="grid-column: span 3;" />
-
-                @if (AsyncPlayerProfile.Settings.ShowCombatStats)
-                {
-                    <Label Text="@CombatStats.ExpectedHits.ToStringWithPrecision(2)" CenterText="true" TextColor="TextColor.Yellow" />
-                    <Label Text="@CombatStats.ActualHits.ToStringWithPrecision(0)" CenterText="true" TextColor="TextColor.Yellow" />
-                    <Label Text="@GetHitDeviationText()" CenterText="true" TextColor="@GetDiceDeviationTextColor()" />
-                }
-                else
-                {
-                    <VerticalSpace Height="10" Style="grid-column: span 3;" />
-                    <Label Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" Style="grid-column: span 3;" />
-                    <VerticalSpace Height="10" Style="grid-column: span 3;" />
-                }
-
-                <VerticalSpace Height="20" Style="grid-column: span 3;" />
-
-                <Label Text="@Strings.CombatStats_MinHits" CenterText="true" />
-                <Label Text="@Strings.CombatStats_AverageHits" CenterText="true" />
-                <Label Text="@Strings.CombatStats_MaxHits" CenterText="true" />
-
-                <VerticalSpace Height="20" Style="grid-column: span 3;" />
-
-                @if (AsyncPlayerProfile.Settings.ShowCombatStats)
-                {
-                    <Label Text="@CombatStats.MinHitsPerGame.ToStringWithPrecision(0)" CenterText="true" TextColor="TextColor.Yellow" />
-                    <Label Text="@CombatStats.AverageHitsPerGame.ToStringWithPrecision(0)" CenterText="true" TextColor="TextColor.Yellow" />
-                    <Label Text="@CombatStats.MaxHitsPerGame.ToStringWithPrecision(0)" CenterText="true" TextColor="TextColor.Yellow" />
-                }
-                else
-                {
-                    <VerticalSpace Height="10" Style="grid-column: span 3;" />
-                    <Label Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" Style="grid-column: span 3;" />
-                    <VerticalSpace Height="10" Style="grid-column: span 3;" />
-                }
-
-                <VerticalSpace Height="20" Style="grid-column: span 3;" />
-
-            </GridLayout>
-
-            <VerticalSpace Height="20" />
-        }
-
-    </FlexColumnCenteredContainer>
-    <FlexColumnCenteredContainer Width="20" />
-
-</FlexRowContainer>
+</ResponsiveContainer>

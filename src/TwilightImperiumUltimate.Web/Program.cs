@@ -1,7 +1,7 @@
+using System.Globalization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Serilog;
-using System.Globalization;
 using TwilightImperiumUltimate.Web;
 using TwilightImperiumUltimate.Web.Helpers.Culture;
 using TwilightImperiumUltimate.Web.Services;

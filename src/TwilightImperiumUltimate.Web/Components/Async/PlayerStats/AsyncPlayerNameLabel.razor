@@ -1,29 +1,26 @@
 ﻿@using TwilightImperiumUltimate.Web.Components.Factions
 
-<FlexColumnCenteredContainer Width="100" >
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="100" CssClass="mt-sm" >
 
-    <VerticalSpace Height="10" />
+    <div class="async-player-name-line async-player-name-line-top">
+        <TitleLine TransformXCss="-3%" Width="140" MaxWidth="140" />
+    </div>
 
-    <TitleLine TransformX="-10" Width="115" MaxWidth="115" />
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" CssClass="title handel white shadow">
 
-    <FlexColumnCenteredContainer CssClass="title handel white shadow">
+        @if (AsyncPlayerProfile is not null)
+        {
+            <ResponsiveHeading Level="1" Text="@AsyncPlayerProfile.PlayerInfo.DiscordUserName.ToUpperInvariant()" FontSize="2xl" CenterText="true" CssClass="mb-0" />
+        }
+        else
+        {
+            <div style="height: clamp(1.125rem, 1.125rem + 1vw, 2.25rem);"></div>
+        }
 
-        <FlexRowContainer JustifyContent="Enums.JustifyContent.SpaceBetween">
-            @if (AsyncPlayerProfile is not null)
-            {
-                <Label Text="@AsyncPlayerProfile.PlayerInfo.DiscordUserName.ToUpper()" CenterText="true" FontSize="36" />
-            }
-            else
-            {
-                <VerticalSpace Height="36" />
-            }
+    </ResponsiveContainer>
 
-            <div style="min-width: 20%;" />
+    <div class="async-player-name-line async-player-name-line-bottom mb-lg">
+        <TitleLine TransformXCss="-3%" Width="140" MaxWidth="140" />
+    </div>
 
-        </FlexRowContainer>
-
-    </FlexColumnCenteredContainer>
-
-    <TitleLine TransformX="-10" Width="115" MaxWidth="115"/>
-
-</FlexColumnCenteredContainer>
+</ResponsiveContainer>

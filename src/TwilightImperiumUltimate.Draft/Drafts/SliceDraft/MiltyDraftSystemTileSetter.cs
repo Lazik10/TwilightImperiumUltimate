@@ -1,4 +1,4 @@
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using TwilightImperiumUltimate.Draft.Drafts.MapDraft.Extensions;
 using TwilightImperiumUltimate.Draft.ValueObjects;
 
@@ -13,6 +13,8 @@ public class MiltyDraftSystemTileSetter(
 
     public Task<List<Slice>> SetSystemTilesForSlices(SystemTilesForSlices preparedSystemTiles, List<Slice> slices)
     {
+        ArgumentNullException.ThrowIfNull(slices);
+
         for (int i = 0; i < slices.Count; i++)
         {
             slices[i] = ReorderSystemTilesToComplyWithRedTilesPlacement(slices[i]);

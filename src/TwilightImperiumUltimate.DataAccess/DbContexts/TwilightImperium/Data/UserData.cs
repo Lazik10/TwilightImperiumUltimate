@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium.Data;
 
 internal static class UserData
@@ -7,6 +9,7 @@ internal static class UserData
         CreateUser(),
     ];
 
+    [SuppressMessage("Security", "S2068:Hard-coded credentials should not be used", Justification = "This is a seeded test user for development purposes only.")]
     internal static TwilightImperiumUser CreateUser()
     {
         var user = new TwilightImperiumUser()

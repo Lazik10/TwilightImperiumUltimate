@@ -1,4 +1,3 @@
-
 using TwilightImperiumUltimate.Contracts.DTOs.Async;
 
 namespace TwilightImperiumUltimate.Business.Logic.Async;

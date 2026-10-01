@@ -1,0 +1,19 @@
+.clickable-tile {
+    display: inline-block;
+    width: 100%;
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    text-align: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.clickable-tile:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}

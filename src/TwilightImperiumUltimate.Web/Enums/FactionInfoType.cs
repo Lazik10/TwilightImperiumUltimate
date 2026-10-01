@@ -7,5 +7,5 @@ public enum FactionInfoType
     Components,
     Leaders,
     History,
-    Faq,
+    Rules,
 }

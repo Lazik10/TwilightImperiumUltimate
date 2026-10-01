@@ -1,0 +1,33 @@
+@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Resources
+@using TwilightImperiumUltimate.Web.Pages;
+
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CssClass="flex-row account-menu" AlignItems="Enums.AlignItems.Center" JustifyContent="Enums.JustifyContent.FlexEnd">
+    <div class="account-menu-auth">
+        @if(CurrentUserState.User is null)
+        {
+            <a href="@Pages.Login" class="handel shadow" @onclick="ClearMenuSelection">@Strings.Page_AccountLogin</a>
+            <div class="handel white shadow" aria-hidden="true">/</div>
+            <a href="@Pages.Register" class="handel shadow" @onclick="ClearMenuSelection">@Strings.Page_AccountRegister</a>
+        }
+        else
+        {
+            <div class="menu-container" @onmouseenter="OpenAccountDropdown" @onmouseleave="CloseAccountDropdown" @onfocusin="OpenAccountDropdown" @onfocusout="CloseAccountDropdown">
+                <MenuButton CssClass="account-trigger" AriaHasPopup="true" AriaExpanded="_isAccountDropdownOpen" AriaControls="account-dropdown">@CurrentUserState.User.UserName</MenuButton>
+                <div class="dropdown" id="account-dropdown">
+                    <AccountLinksList Items="AccountLinks.LoggedIn">
+                        <LinkTemplate Context="link">
+                            <a href="@link.Href">@link.Text</a>
+                        </LinkTemplate>
+                    </AccountLinksList>
+                    <MenuButton CssClass="account-logout" OnClick="Logout">@Strings.Login_Logout</MenuButton>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="account-menu-tools">
+        <CultureMenu />
+        <InfoIcon />
+    </div>
+</ResponsiveContainer>

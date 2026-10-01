@@ -1,50 +1,42 @@
-<VerticalSpace Height="20" />
+@using TwilightImperiumUltimate.Contracts.DTOs.Tigl
 
-<TiglPlayerSearchbar OnSearchUpdate="SearchPlayers" />
+<div class="mt-md mb-md">
+    <TiglPlayerSearchbar @ref="_searchbar" OnSearchUpdate="SearchPlayers" />
+</div>
 
-<VerticalSpace Height="20" />
+<div class="mb-md">
+    <TiglPlayerAlphabet SelectedLetter="@_selectedLetter" OnLetterClick="FilterByLetter" />
+</div>
 
-<TiglPlayerAlphabet OnLetterClick="FilterByLetter" />
-
-<VerticalSpace Height="20" />
-
-<StretchHeightContainer CssClass="background">
+<StretchHeightContainer>
 
     @if (Loading)
     {
-        <VerticalSpace Height="100" />
-        <Label Text="@Strings.Loading" FontSize="24" CenterText="true" TextColor="TextColor.White" />
-        <VerticalSpace Height="100" />
+        <Label Text="@Strings.Loading" FontSize="24" CenterText="true" TextColor="TextColor.White" CssClass="mt-3xl mb-3xl" />
     }
     else if (Users is not null)
     {
         if (!Users.Any())
         {
-            <VerticalSpace Height="100" />
-            <Label Text="@Strings.TiglPlayersList_NoPlayerMatch" FontSize="24" CenterText="true" TextColor="TextColor.White" />
-            <VerticalSpace Height="100" />
+            <Label Text="@Strings.TiglPlayersList_NoPlayerMatch" FontSize="24" CenterText="true" TextColor="TextColor.White" CssClass="mt-3xl mb-3xl" />
         }
         else if (_filteredUsers is not null && _filteredUsers.Any())
         {
             <div class="players-grid">
                 @foreach (var user in _filteredUsers)
                 {
-                    <TextButton Text="@(GetUserName(user))" FontSize="14" OnClick="() => RedirectToPlayer(user.Id)" />
+                    <ResponsiveButton Text="@(GetUserName(user))" FontSize="14" OnClick="() => RedirectToPlayer(user)" />
                 }
             </div>
         }
         else
         {
-            <VerticalSpace Height="100" />
-            <Label Text="@Strings.TiglPlayersList_NoPlayerMatch" FontSize="24" CenterText="true" TextColor="TextColor.White" />
-            <VerticalSpace Height="100" />
+            <Label Text="@Strings.TiglPlayersList_NoPlayerMatch" FontSize="24" CenterText="true" TextColor="TextColor.White" CssClass="mt-3xl mb-3xl" />
         }
     }
     else
     {
-        <VerticalSpace Height="100" />
-        <Label Text="@Strings.TiglPlayersList_NoPlayersFound" FontSize="24" CenterText="true" TextColor="TextColor.White" />
-        <VerticalSpace Height="100" />
+        <Label Text="@Strings.TiglPlayersList_NoPlayersFound" FontSize="24" CenterText="true" TextColor="TextColor.White" CssClass="mt-3xl mb-3xl" />
     }
 
 </StretchHeightContainer>

@@ -14,7 +14,7 @@ public class MiltyDraftPlayerModel
 
     public MiltyDraftInitiative Initiative { get; set; }
 
-    public SliceModel Slice { get; set; }
+    public SliceModel Slice { get; set; } = new SliceModel();
 
     public int DraftOrder { get; set; }
 }

@@ -1,4 +1,4 @@
-using QuickGraph;
+﻿using QuickGraph;
 using TwilightImperiumUltimate.Draft.ValueObjects;
 
 namespace TwilightImperiumUltimate.Draft.Drafts.MapDraft.Extensions;
@@ -38,7 +38,10 @@ public static class GraphExtensions
 
     public static string GetMapLayoutLog(this Dictionary<(int X, int Y), Hex> universe, int n, int m)
     {
-        var logString = "\nGenerated Map Layout: \n";
+        ArgumentNullException.ThrowIfNull(universe);
+
+        var logString = new System.Text.StringBuilder();
+        logString.Append("\nGenerated Map Layout: \n");
 
         for (int x = 0; x < n; x++)
         {
@@ -48,24 +51,24 @@ public static class GraphExtensions
                 {
                     if (universe[(x, y)].Name == " _ ")
                     {
-                        logString += " _ ";
+                        logString.Append(" _ ");
                     }
                     else
                     {
-                        logString += "{" + $"{universe[(x, y)].Name}" + "}";
+                        logString.Append("{" + $"{universe[(x, y)].Name}" + "}");
                     }
                 }
                 else
                 {
-                    logString += "   ";
+                    logString.Append("   ");
                 }
             }
 
-            logString += "\n";
+            logString.Append('\n');
         }
 
-        logString += "\n";
+        logString.Append('\n');
 
-        return logString;
+        return logString.ToString();
     }
 }

@@ -1,0 +1,17 @@
+﻿.faction-components-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: var(--space-2xl);
+    width: 100%;
+}
+
+::deep .faction-component-section--full {
+    grid-column: 1 / -1;
+}
+
+@media (max-width: 1248px) {
+    .faction-components-grid {
+        grid-template-columns: 1fr;
+    }
+}

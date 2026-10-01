@@ -27,13 +27,21 @@ public partial class MapEvaluation
 
     private List<SystemTileModel> AllSystemTiles { get; set; } = new List<SystemTileModel>();
 
+    private bool IsEvaluationAvailable => MapGeneratorSettingsService.MapTemplate != MapTemplate.CustomMap;
+
     protected override async Task OnParametersSetAsync()
     {
+        if (!IsEvaluationAvailable)
+            return;
+
         MapEvaluations = await GetMapEvaluation();
     }
 
     protected override async Task OnInitializedAsync()
     {
+        if (!IsEvaluationAvailable)
+            return;
+
         SliceData = SliceDataProvider.GetMapData(MapGeneratorSettingsService.MapTemplate);
 
         if (AllSystemTiles is null || AllSystemTiles.Count == 0)

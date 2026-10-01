@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Business.Services.Async.Interfaces;
+﻿using TwilightImperiumUltimate.Business.Services.Async.Interfaces;
 using TwilightImperiumUltimate.Contracts.DTOs.Async;
 using TwilightImperiumUltimate.Contracts.DTOs.Async.PlayerStats.FactionStats;
 using TwilightImperiumUltimate.Contracts.DTOs.Async.PlayerStats.GamesStats;
@@ -27,6 +27,8 @@ public class AsyncPlayerAllStatsFactory(
 {
     public async Task<AsyncPlayerProfileSummaryStatsDto> CreateAsyncPlayerStats(AsyncPlayerProfile playerProfile)
     {
+        ArgumentNullException.ThrowIfNull(playerProfile);
+
         var playerInfo = await asyncPlayerInfoFactory.CreateAsyncPlayerInfoAsync(playerProfile);
         var profileSettings = mapper.Map<AsyncPlayerProfileSettingsDto>(playerProfile.ProfileSettings);
         var gameStats = await asyncPlayerGameStatsFactory.CreateAsyncPlayerGameStats(playerProfile);

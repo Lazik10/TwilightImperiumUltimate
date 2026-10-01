@@ -1,0 +1,40 @@
+﻿/*
+    NOTE: these rules target `.account-menu`, a CssClass forwarded into `<ResponsiveContainer>`
+    (a child component with no isolated CSS of its own) from `AccountMenu.razor`. Because of that,
+    `.account-menu`'s rendered element has NO ancestor carrying AccountMenu's own scope attribute
+    (its own scope only appears on ITS children, e.g. `.account-menu-auth`/`.account-menu-tools`) -
+    so `AccountMenu.razor.css` itself can never validly reach it, even with `::deep`. `.site-header`
+    (directly rendered by THIS component, MainLayout) IS a real ancestor of `.account-menu`, so
+    `.site-header ::deep .account-menu` correctly scopes from here instead, regardless of how many
+    child-component boundaries sit between `.site-header` and the actual `.account-menu` element.
+*/
+.site-header ::deep .account-menu {
+    position: absolute;
+    top: 0;
+    right: 1%;
+    min-width: 20%;
+    /* Doubled from --space-lg (1.5rem) so the logged-in nickname/menu isn't cramped against the
+       culture flag + info icon tools group. */
+    gap: var(--space-2xl);
+}
+
+@media (max-width: 1200px) {
+    .site-header ::deep .account-menu {
+        position: relative;
+        top: 0;
+        right: 1%;
+        width: 100%;
+    }
+}
+
+.site-header ::deep .account-menu a:focus-visible {
+    outline: 0.125rem solid yellow;
+    outline-offset: 0.125rem;
+    border-radius: var(--border-radius-sm);
+}
+
+@media (max-width: 768px) {
+    .site-header ::deep .account-menu {
+        display: none !important;
+    }
+}

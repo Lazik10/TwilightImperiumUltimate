@@ -14,7 +14,6 @@ public class UnitProfile : Profile
                 x.Cost,
                 x.Combat,
                 x.Move,
-                x.Capacity
-            ));
+                x.Capacity));
     }
 }

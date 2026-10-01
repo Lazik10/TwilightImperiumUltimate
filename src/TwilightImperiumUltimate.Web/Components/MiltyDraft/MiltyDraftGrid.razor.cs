@@ -8,4 +8,9 @@ public partial class MiltyDraftGrid
     {
         _selectedMenuItem = menuItem;
     }
+
+    private void ShowPreview()
+    {
+        _selectedMenuItem = MiltyDraftMenuItem.Map;
+    }
 }

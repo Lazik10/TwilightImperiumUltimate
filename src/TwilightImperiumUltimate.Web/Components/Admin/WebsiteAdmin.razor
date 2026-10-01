@@ -1,0 +1,137 @@
+@inherits TwilightImperiumBaseComponent
+@using Microsoft.AspNetCore.Components.Forms
+@using TwilightImperiumUltimate.Web.Models.Website
+
+<section class="website-admin" aria-label="@Strings.WebsiteAdmin_CreateHeading">
+
+    <ResponsiveHeading Level="2" Text="@Strings.WebsiteAdmin_CreateHeading" />
+
+    @if (_showCreateSuccess)
+    {
+        <ResponsiveText Text="@Strings.WebsiteAdmin_CreateSuccess" CenterText="true" TextColor="TextColor.Green" FontSize="lg" CssClass="mb-lg" />
+    }
+
+    @if (_showDeleteSuccess)
+    {
+        <ResponsiveText Text="@Strings.WebsiteAdmin_DeleteSuccess" CenterText="true" TextColor="TextColor.Green" FontSize="lg" CssClass="mb-lg" />
+    }
+
+    @if (_hasSubmitError)
+    {
+        <ApiErrorMessage CssClass="mb-lg" />
+    }
+
+    <ResponsiveForm Model="_formModel"
+                    OnValidSubmit="HandleValidSubmitAsync"
+                    IsSubmitting="_isSubmitting"
+                    ValidationDisplay="Enums.ValidationDisplay.Summary"
+                    Columns="1"
+                    NarrowColumn="false"
+                    CssClass="mb-xl">
+
+        <ChildContent>
+            <ResponsiveFormField Id="website-admin-title" Label="@Strings.WebsiteAdmin_TitleLabel" For="@(() => _formModel.Title)" Required="true">
+                <ResponsiveTextBox Id="website-admin-title" @bind-Value="_formModel.Title" />
+            </ResponsiveFormField>
+
+            <ResponsiveFormField Id="website-admin-description" Label="@Strings.WebsiteAdmin_DescriptionLabel" For="@(() => _formModel.Description)" Required="true">
+                <ResponsiveTextArea Id="website-admin-description" Rows="3" @bind-Value="_formModel.Description" />
+            </ResponsiveFormField>
+
+            <ResponsiveFormField Id="website-admin-path" Label="@Strings.WebsiteAdmin_WebsitePathLabel" For="@(() => _formModel.WebsitePath)" Required="true">
+                <ResponsiveTextBox Id="website-admin-path" @bind-Value="_formModel.WebsitePath" Placeholder="https://..." />
+            </ResponsiveFormField>
+
+            <ResponsiveFormField TValue="string" Id="website-admin-image" Label="@Strings.WebsiteAdmin_ImageLabel" HelpText="@Strings.WebsiteAdmin_ImageHelpText">
+                <InputFile id="website-admin-image" OnChange="OnImageSelectedAsync" accept="image/*" />
+                @if (!string.IsNullOrEmpty(_formModel.ImageFileName))
+                {
+                    <ResponsiveText Text="@_formModel.ImageFileName" FontSize="sm" CssClass="mt-xs" />
+                }
+                @if (!string.IsNullOrEmpty(_imageError))
+                {
+                    <ResponsiveText Text="@_imageError" TextColor="TextColor.Red" FontSize="sm" CssClass="mt-xs" />
+                }
+            </ResponsiveFormField>
+        </ChildContent>
+
+        <FooterContent>
+            <ResponsiveButton ButtonType="ButtonType.Submit" IsDisabled="_isSubmitting" ButtonText="@Strings.WebsiteAdmin_Create" />
+        </FooterContent>
+    </ResponsiveForm>
+
+    <ResponsiveHeading Level="2" Text="@Strings.WebsiteAdmin_ExistingWebsitesHeading" FontSize="lg" />
+
+    @if (_hasError)
+    {
+        <ApiErrorMessage CssClass="mb-lg" />
+    }
+
+    @*
+    <ResponsiveTable TItem="WebsiteModel"
+                     Items="_websites"
+                     IsLoading="_isLoading"
+                     LoadingText="@Strings.WebsiteAdmin_Loading"
+                     EmptyText="@Strings.WebsiteAdmin_Empty"
+                     StickyHeader="false"
+                     CssClass="mb-xl">
+
+        <ResponsiveTableColumn Field="x => x.Title" Header="@Strings.WebsiteAdmin_TitleLabel" />
+
+        <ResponsiveTableColumn Field="x => x.Description" Header="@Strings.WebsiteAdmin_DescriptionLabel" CssClass="responsive-table-wrap-cell" />
+
+        <ResponsiveTableColumn Field="x => x.WebsitePath" Header="@Strings.WebsiteAdmin_WebsitePathLabel" CssClass="responsive-table-wrap-cell">
+            <CellTemplate Context="website">
+                <a href="@website.WebsitePath" target="_blank" rel="noopener noreferrer">@website.WebsitePath</a>
+            </CellTemplate>
+        </ResponsiveTableColumn>
+
+        HeaderAlign="center" Align="center"
+        <ResponsiveTableColumn Field="x => x.Id" Header="@Strings.WebsiteAdmin_Delete">
+            <CellTemplate Context="website">
+                <TableActionButton Text="@Strings.WebsiteAdmin_Delete" OnClick="@(() => RequestDelete(website))" />
+            </CellTemplate>
+        </ResponsiveTableColumn>
+
+    </ResponsiveTable>
+    *@
+
+    @* Radzen DataGrid comparison table -- visual-only, added alongside the ResponsiveTable above
+       to compare rendering/scroll behavior. Styled directly by ResponsiveRadzenDataGrid itself. *@
+    <ResponsiveHeading Level="2" Text="@($"{Strings.WebsiteAdmin_ExistingWebsitesHeading} (Radzen)")" FontSize="lg" />
+
+    <ResponsiveRadzenDataGrid TItem="WebsiteModel"
+                              Data="_websites"
+                              AllowPaging="false"
+                              AllowSorting="true"
+                              AllowFiltering="false"
+                              AllowAlternatingRows="true"
+                              CssClass="mb-xl">
+        <Columns>
+            <RadzenDataGridColumn TItem="WebsiteModel"  Property="Title" Title="@Strings.WebsiteAdmin_TitleLabel" />
+
+            <RadzenDataGridColumn TItem="WebsiteModel" Property="Description" Title="@Strings.WebsiteAdmin_DescriptionLabel" />
+
+            <RadzenDataGridColumn TItem="WebsiteModel" Property="WebsitePath" Title="@Strings.WebsiteAdmin_WebsitePathLabel" CssClass="rz-text-nowrap">
+                <Template Context="website">
+                    <a href="@website.WebsitePath" target="_blank" rel="noopener noreferrer">@website.WebsitePath</a>
+                </Template>
+            </RadzenDataGridColumn>
+
+            <RadzenDataGridColumn TItem="WebsiteModel" Property="Id" Title="@Strings.WebsiteAdmin_Delete" Sortable="false" Filterable="false">
+                <Template Context="website">
+                    <TableActionButton Text="@Strings.WebsiteAdmin_Delete" />
+                </Template>
+            </RadzenDataGridColumn>
+        </Columns>
+    </ResponsiveRadzenDataGrid>
+
+</section>
+
+<ResponsiveConfirmDialog IsOpen="_isDeleteDialogOpen"
+                         Title="@Strings.WebsiteAdmin_DeleteConfirmTitle"
+                         Message="@Strings.WebsiteAdmin_DeleteConfirmMessage"
+                         ConfirmText="@Strings.WebsiteAdmin_Delete"
+                         CancelText="@Strings.NewsAdmin_Cancel"
+                         OnConfirm="ConfirmDeleteAsync"
+                         OnCancel="CancelDelete" />

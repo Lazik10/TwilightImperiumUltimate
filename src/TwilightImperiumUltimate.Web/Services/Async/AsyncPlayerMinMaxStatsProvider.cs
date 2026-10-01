@@ -1,4 +1,4 @@
-using TwilightImperiumUltimate.Contracts.DTOs.Async.AsyncStats;
+﻿using TwilightImperiumUltimate.Contracts.DTOs.Async.AsyncStats;
 using TwilightImperiumUltimate.Contracts.DTOs.Async.PlayerStats.FactionStats;
 using TwilightImperiumUltimate.Web.Helpers;
 using TwilightImperiumUltimate.Web.Models.Async;
@@ -12,6 +12,9 @@ public class AsyncPlayerMinMaxStatsProvider : IAsyncPlayerMinMaxStatsProvider
         AsyncPlayerFactionStatsByGameVp factionStats,
         FactionStatisticsSubstatsFilter statsFilter)
     {
+        ArgumentNullException.ThrowIfNull(maxStats);
+        ArgumentNullException.ThrowIfNull(factionStats);
+
         AsyncPlayerFactionMinMaxValues result = statsFilter switch
         {
             FactionStatisticsSubstatsFilter.Games => new(factionStats.GetFloatValue(x => x.Games), maxStats.Games < 1 ? 1 : maxStats.Games),

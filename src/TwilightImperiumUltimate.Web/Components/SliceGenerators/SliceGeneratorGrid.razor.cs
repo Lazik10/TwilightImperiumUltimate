@@ -9,6 +9,10 @@ public partial class SliceGeneratorGrid
 {
     private SliceGeneratorMenuItem _selectedMenuItem = SliceGeneratorMenuItem.SliceGenerator;
 
+    private Func<Task>? _pendingDuplicateTilePlacement;
+
+    private bool _isDuplicateTileDialogOpen;
+
     private SliceHexTileMenu? _sliceHexTileMenu;
 
     private List<SliceModel> _slices = new List<SliceModel>();
@@ -41,6 +45,21 @@ public partial class SliceGeneratorGrid
         _sliceHexTileMenu?.RefreshSystemTilesMenu();
     }
 
+    public async Task RequestSystemTileSwapAsync(Func<Task> swapSystemTiles, int sliceId, int slicePosition)
+    {
+        ArgumentNullException.ThrowIfNull(swapSystemTiles);
+
+        if (SliceGeneratorService.WouldPlacementCreateDuplicate(sliceId, slicePosition))
+        {
+            _pendingDuplicateTilePlacement = swapSystemTiles;
+            _isDuplicateTileDialogOpen = true;
+            await InvokeAsync(StateHasChanged);
+            return;
+        }
+
+        await swapSystemTiles();
+    }
+
     protected override async Task OnInitializedAsync()
     {
         await SlicesDraftToStringConverter.InitializeSystemTiles();
@@ -54,7 +73,7 @@ public partial class SliceGeneratorGrid
         }
         else
         {
-            await SliceGeneratorService.GeneratePreviewSlices();
+            await SliceGeneratorService.InitializeEmptySlices(SliceGeneratorSettingsService.NumberOfSlices);
             _slices = GetUpdatedSlices();
         }
     }
@@ -77,6 +96,24 @@ public partial class SliceGeneratorGrid
         StateHasChanged();
     }
 
+    private async Task ConfirmDuplicateTilePlacementAsync()
+    {
+        var pendingTilePlacement = _pendingDuplicateTilePlacement;
+        _pendingDuplicateTilePlacement = null;
+        _isDuplicateTileDialogOpen = false;
+        await InvokeAsync(StateHasChanged);
+
+        if (pendingTilePlacement is not null)
+            await pendingTilePlacement();
+    }
+
+    private void CancelDuplicateTilePlacement()
+    {
+        _pendingDuplicateTilePlacement = null;
+        _isDuplicateTileDialogOpen = false;
+        StateHasChanged();
+    }
+
     private Task UpdateSlices()
     {
         _slices = GetUpdatedSlices();
@@ -91,10 +128,10 @@ public partial class SliceGeneratorGrid
 
         if (iconType == IconType.Hashtag)
         {
-            if (SliceGeneratorSettingsService.SystemTileOverlay != SystemTileOverlay.Id)
-                await SliceGeneratorSettingsService.UpdateSystemTileOverlay(SystemTileOverlay.Id);
+            if (SliceGeneratorSettingsService.SliceOverlay != SystemTileOverlay.Id)
+                await SliceGeneratorSettingsService.UpdateSliceOverlay(SystemTileOverlay.Id);
             else
-                await SliceGeneratorSettingsService.UpdateSystemTileOverlay(SystemTileOverlay.None);
+                await SliceGeneratorSettingsService.UpdateSliceOverlay(SystemTileOverlay.None);
 
             await UpdateSlices();
 

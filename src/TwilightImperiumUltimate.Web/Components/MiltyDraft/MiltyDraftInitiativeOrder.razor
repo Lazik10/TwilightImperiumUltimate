@@ -1,12 +1,6 @@
 ﻿@using TwilightImperiumUltimate.Web.Helpers.Enums
 
-<div style="@(IsColorless())">
-    <FlexColumnCenteredContainer>
-        <Label Text="@(Initiative.GetDisplayName())" FontSize="24" TextColor="Color.GetTextColor(!IsPicked)" CenterText="true" />
-
-        <VerticalSpace Height="10" />
-
-        <Button ButtonText="@Strings.MiltyDraft_PickOption" OnClick="PickInitiative" IsDisabled="IsDisabled()" Width="100" />
-
-    </FlexColumnCenteredContainer>
+<div style="width: 100%; @(IsColorless())">
+    <ResponsiveButton ButtonText="@(Initiative.GetDisplayName())" OnClick="PickInitiative" IsDisabled="IsDisabled()" Style="width: 100%;" />
+    <ResponsiveLabel Text="@GetInitiativeLabel()" TextColor="@GetInitiativeTextColor()" CenterText="true" CssClass="mt-sm" />
 </div>

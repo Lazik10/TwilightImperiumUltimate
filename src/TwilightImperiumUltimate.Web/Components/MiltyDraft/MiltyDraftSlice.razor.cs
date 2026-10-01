@@ -1,3 +1,4 @@
+using TwilightImperiumUltimate.Web.Helpers.Enums;
 using TwilightImperiumUltimate.Web.Services.MiltyDraft;
 
 namespace TwilightImperiumUltimate.Web.Components.MiltyDraft;
@@ -15,6 +16,9 @@ public partial class MiltyDraftSlice
 
     [Inject]
     private IMiltyDraftService MiltyDraftService { get; set; } = default!;
+
+    [Inject]
+    private IMiltyDraftSettingsService MiltyDraftSettingsService { get; set; } = default!;
 
     private async Task PickSlice()
     {
@@ -39,4 +43,23 @@ public partial class MiltyDraftSlice
         return !SliceModel.IsPicked && MiltyDraftService.Slices.Count(x => x.IsPicked) >= MiltyDraftService.Players.Count
             ? "filter: grayscale(100%); -webkit-filter: grayscale(100%);" : string.Empty;
     }
+
+    private string GetSliceOwnerLabel()
+    {
+        var player = GetSliceOwner();
+        return player is null
+            ? "Unpicked"
+            : MiltyDraftSettingsService.EnablePlayerNames
+                ? player.PlayerName
+                : player.PlayerDefaultName;
+    }
+
+    private TextColor GetSliceOwnerTextColor()
+    {
+        var player = GetSliceOwner();
+        return player is null ? TextColor.White : player.PlayerColor.GetTextColor();
+    }
+
+    private MiltyDraftPlayerModel? GetSliceOwner() => MiltyDraftService.Players.FirstOrDefault(player =>
+        player.Slice.IsPicked && player.Slice.Id == SliceModel.Id);
 }

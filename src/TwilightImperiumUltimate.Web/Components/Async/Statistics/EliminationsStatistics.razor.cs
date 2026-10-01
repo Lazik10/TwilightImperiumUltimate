@@ -1,4 +1,7 @@
 using TwilightImperiumUltimate.Contracts.DTOs.Async.AsyncStats;
+using TwilightImperiumUltimate.Web.Components.Charts;
+using TwilightImperiumUltimate.Web.Helpers.Charts;
+using TwilightImperiumUltimate.Web.Helpers.Numbers;
 using TwilightImperiumUltimate.Web.Services.Async;
 
 namespace TwilightImperiumUltimate.Web.Components.Async.Statistics;
@@ -6,7 +9,6 @@ namespace TwilightImperiumUltimate.Web.Components.Async.Statistics;
 public partial class EliminationsStatistics
 {
     private bool _isDataLoaded;
-    private int _row;
     private AsyncEliminationsSummaryStatsDto _eliminationsSummaryStats = new AsyncEliminationsSummaryStatsDto();
 
     [CascadingParameter(Name = "Filter")]
@@ -15,9 +17,6 @@ public partial class EliminationsStatistics
     [CascadingParameter(Name = "Limit")]
     public int QueryLimit { get; set; }
 
-    [Inject]
-    private NavigationManager NavigationManager { get; set; } = default!;
-
     public AsyncEliminationsStatsDto EliminationsStats => Filter switch
     {
         PlayerStatisticsType.All => _eliminationsSummaryStats.All,
@@ -25,6 +24,9 @@ public partial class EliminationsStatistics
         PlayerStatisticsType.Custom => _eliminationsSummaryStats.Custom,
         _ => _eliminationsSummaryStats.All,
     };
+
+    [Inject]
+    private NavigationManager NavigationManager { get; set; } = default!;
 
     [Inject]
     private IAsyncStatsProvider AsyncStatsProvider { get; set; } = default!;
@@ -44,8 +46,27 @@ public partial class EliminationsStatistics
         _isDataLoaded = true;
     }
 
-    private void RedirectToPlayerProfile(int id)
+    private static string FormatPercentage(double value) => ((float)value).ToStringWithPrecisionAndPercentage(2);
+
+    private IReadOnlyCollection<RankingBarPoint> GetEliminationsPercentageData() => PlayerRankingChartHelper.BuildPoints(
+        EliminationsStats.MostEliminationsPercentagePlayers,
+        user => user.Id,
+        user => user.UserName,
+        user => user.EliminationsPercentage,
+        TextColor.Red,
+        user => $"{user.Games}");
+
+    private IReadOnlyCollection<RankingBarPoint> GetEliminationsData() => PlayerRankingChartHelper.BuildPoints(
+        EliminationsStats.MostEliminationsPlayers,
+        user => user.Id,
+        user => user.UserName,
+        user => user.Eliminations,
+        TextColor.Red,
+        user => $"{user.Games}");
+
+    private void OnPlayerClick(object? tag)
     {
-        NavigationManager.NavigateTo($"{Pages.Pages.AsyncProfile}?playerId={id}");
+        if (tag is int playerId)
+            NavigationManager.NavigateTo($"{Pages.Pages.AsyncProfile}?playerId={playerId}");
     }
 }

@@ -1,9 +1,9 @@
+using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 using Quartz;
 using Quartz.Simpl;
-using System.Text.Json.Serialization;
 using TwilightImperiumUltimate.API.Discord;
 using TwilightImperiumUltimate.API.Discord.Services;
 using TwilightImperiumUltimate.API.Email;
@@ -26,13 +26,15 @@ internal static class ServiceCollectionExtensions
         services.AddAuthentication()
             .AddBearerToken();
         services.AddScoped<ApiKeyStatsAuthAttribute>();
+        services.AddScoped<IAsyncStatisticsSnapshotOperations, AsyncStatisticsSnapshotOperations>();
 
         services.AddAuthorization();
         services.AddEndpointsApiExplorer();
         services.AddIdentityApiEndpoints<TwilightImperiumUser>(options =>
-        {
-            options.SignIn.RequireConfirmedEmail = true;
-        })
+            {
+                options.SignIn.RequireConfirmedEmail = true;
+            })
+            .AddRoles<IdentityRole>()
             .AddEntityFrameworkStores<TwilightImperiumDbContext>();
         services.AddScoped<IRoleStore<IdentityRole>, RoleStore<IdentityRole, TwilightImperiumDbContext>>();
         services.AddScoped<IUserStore<TwilightImperiumUser>, UserStore<TwilightImperiumUser, IdentityRole, TwilightImperiumDbContext>>();
@@ -68,7 +70,7 @@ internal static class ServiceCollectionExtensions
         return services;
     }
 
-    private static IServiceCollection RegisterDiscordServices(this IServiceCollection services)
+    private static void RegisterDiscordServices(this IServiceCollection services)
     {
         services.AddSingleton<DiscordBotClient>();
         services.AddSingleton<IDiscordClient>(sp => sp.GetRequiredService<DiscordBotClient>());
@@ -81,11 +83,9 @@ internal static class ServiceCollectionExtensions
         services.AddTransient<IGameLogPublishWorkflow, GameLogPublishWorkflow>();
 
         services.AddSingleton<IDiscordRoleChangePublisher, DiscordRoleChangePublisher>();
-
-        return services;
     }
 
-    private static IServiceCollection RegisterSwagger(this IServiceCollection services)
+    private static void RegisterSwagger(this IServiceCollection services)
     {
         services.AddSwaggerGen(options =>
         {
@@ -111,37 +111,15 @@ internal static class ServiceCollectionExtensions
                 Type = SecuritySchemeType.ApiKey,
                 Scheme = "ApiKeyScheme",
             });
-            options.AddSecurityRequirement(new OpenApiSecurityRequirement
+            options.AddSecurityRequirement(document => new OpenApiSecurityRequirement
             {
-                {
-                    new OpenApiSecurityScheme
-                    {
-                        Reference = new OpenApiReference
-                        {
-                            Type = ReferenceType.SecurityScheme,
-                            Id = "Bearer",
-                        },
-                    },
-                    Array.Empty<string>()
-                },
-                {
-                    new OpenApiSecurityScheme
-                    {
-                        Reference = new OpenApiReference
-                        {
-                            Type = ReferenceType.SecurityScheme,
-                            Id = "ApiKey",
-                        },
-                    },
-                    Array.Empty<string>()
-                },
+                [new OpenApiSecuritySchemeReference("Bearer", document)] = [],
+                [new OpenApiSecuritySchemeReference("ApiKey", document)] = [],
             });
         });
-
-        return services;
     }
 
-    private static IServiceCollection RegisterQuartzJobs(
+    private static void RegisterQuartzJobs(
         this IServiceCollection services,
         IConfiguration configuration)
     {
@@ -158,7 +136,21 @@ internal static class ServiceCollectionExtensions
                 .WithIdentity($"{nameof(AsyncGameDataJob)}-trigger")
                 .WithCronSchedule(croneExpression ?? defaultCroneExpression));
 
-            // Season leaderboard refresh: run immediately at startup, then every 5 minutes
+            var snapshotJobKey = new JobKey(nameof(AsyncStatisticsSnapshotJob));
+            const string defaultSnapshotCronExpression = "0 10 * * * ?";
+            var snapshotCronExpression = configuration.GetValue<string>("AsyncStats:SnapshotCronExpression");
+            q.AddJob<AsyncStatisticsSnapshotJob>(opts => opts.WithIdentity(snapshotJobKey));
+            q.AddTrigger(opts => opts
+                .ForJob(snapshotJobKey)
+                .WithIdentity($"{nameof(AsyncStatisticsSnapshotJob)}-startup-trigger")
+                .UsingJobData("SkipIfPublished", true)
+                .StartNow());
+            q.AddTrigger(opts => opts
+                .ForJob(snapshotJobKey)
+                .WithIdentity($"{nameof(AsyncStatisticsSnapshotJob)}-trigger")
+                .WithCronSchedule(snapshotCronExpression ?? defaultSnapshotCronExpression));
+
+            // Season leaderboard refresh: run immediately at startup, then every 1 hour
             var seasonLeaderboardJobKey = new JobKey(nameof(SeasonLeaderboardRefreshJob));
             q.AddJob<SeasonLeaderboardRefreshJob>(opts => opts.WithIdentity(seasonLeaderboardJobKey));
             q.AddTrigger(opts => opts
@@ -183,9 +175,8 @@ internal static class ServiceCollectionExtensions
         });
 
         services.AddTransient<AsyncGameDataJob>();
+        services.AddTransient<AsyncStatisticsSnapshotJob>();
         services.AddTransient<SeasonLeaderboardRefreshJob>();
         services.AddTransient<GameLogsPublishJob>();
-
-        return services;
     }
 }

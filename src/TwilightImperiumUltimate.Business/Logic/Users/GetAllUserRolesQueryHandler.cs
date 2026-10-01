@@ -1,4 +1,4 @@
-namespace TwilightImperiumUltimate.Business.Logic.Users;
+﻿namespace TwilightImperiumUltimate.Business.Logic.Users;
 
 public class GetAllUserRolesQueryHandler(
     IUserRepository userRepository)
@@ -8,7 +8,9 @@ public class GetAllUserRolesQueryHandler(
 
     public async Task<ItemListDto<RoleDto>> Handle(GetAllUserRolesQuery request, CancellationToken cancellationToken)
     {
-        var userRoles = await _userRepository.GetpecificUserRoles(request.Id);
+        ArgumentNullException.ThrowIfNull(request);
+
+        var userRoles = await _userRepository.GetpecificUserRoles(request.Id).ConfigureAwait(false);
 
         var userRolesStrings = new List<RoleDto>();
 

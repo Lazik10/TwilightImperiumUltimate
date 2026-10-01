@@ -1,0 +1,36 @@
+.async-player-searchbar ::deep .async-player-search-label {
+    flex: 0 0 auto;
+    white-space: nowrap !important;
+    width: max-content;
+}
+
+.async-player-searchbar ::deep .async-player-search-note {
+    margin-top: var(--space-xs);
+}
+
+.async-player-searchbar ::deep .responsive-textbox {
+    --rz-input-height: 2.5rem !important;
+    --rz-input-background-color: var(--color-nav-panel-bg);
+    --rz-input-hover-background-color: var(--color-nav-panel-bg);
+    --rz-input-border: 1px solid var(--color-nav-hover-bg-solid, #123957);
+    --rz-input-border-block-end: 1px solid var(--color-nav-hover-bg-solid, #123957);
+    --rz-input-hover-border: 1px solid var(--color-nav-hover-bg-solid, #123957);
+    --rz-input-hover-border-block-end: 1px solid var(--color-nav-hover-bg-solid, #123957);
+    --rz-input-value-color: var(--color-white);
+    background-color: var(--color-nav-panel-bg) !important;
+    border-color: var(--color-nav-hover-bg-solid, #123957) !important;
+    color: var(--color-white) !important;
+    font-family: Handel, fallback, sans-serif !important;
+}
+
+.async-player-searchbar ::deep .responsive-textbox:hover,
+.async-player-searchbar ::deep .responsive-textbox:focus {
+    background-color: var(--color-nav-panel-bg) !important;
+    border-color: var(--color-nav-hover-bg-solid, #123957) !important;
+    color: var(--color-white) !important;
+}
+
+.async-player-searchbar ::deep .responsive-textbox::placeholder {
+    color: var(--color-white) !important;
+    opacity: 1;
+}

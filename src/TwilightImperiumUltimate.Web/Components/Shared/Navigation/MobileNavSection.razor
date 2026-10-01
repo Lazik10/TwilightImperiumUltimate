@@ -1,0 +1,30 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Navigation
+
+@*
+    Single collapsible mobile navigation section: a toggle row that expands to reveal its
+    links. Reads the shared IMenuSelectionState directly for active-state styling; expand/collapse
+    state and link selection are owned by the parent so sibling sections can collapse together
+    and the mobile panel can be closed after navigating.
+*@
+
+<button type="button"
+        class="mobile-nav-row @GetActiveCssClass()"
+        @onclick="OnToggle"
+        aria-expanded="@(IsExpanded ? "true" : "false")"
+        aria-controls="@SubMenuId">
+    @Text
+</button>
+@if (IsExpanded)
+{
+    <div class="mobile-nav-submenu" id="@SubMenuId">
+        @foreach (var item in Items)
+        {
+            <a href="@item.Href"
+               target="@item.Target"
+               class="@GetSubMenuCssClass(item.Key)"
+               @onclick="() => OnSelectSubMenu.InvokeAsync(item.Key)">
+                @item.Text
+            </a>
+        }
+    </div>
+}

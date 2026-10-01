@@ -1,59 +1,93 @@
 ﻿@using TwilightImperiumUltimate.Web.Helpers.Numbers
 
-<FlexRowContainer>
+<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="100">
 
-    <FlexColumnCenteredContainer Width="100">
+    @if (AsyncPlayerProfile is not null)
+    {
+        <ResponsiveGridContainer Columns="4" TabletColumns="2" MobileColumns="1" Width="100" Gap="var(--space-sm)" CssClass="async-player-main-stats-summary mb-lg">
+            <ResponsiveLabel Text="Win rate" FontSize="lg" TextColor="@MainStatsTextColor" CssClass="text-no-overflow async-player-main-stats-label" />
+            <ResponsiveLabel Text="@GetWinrateValue()" FontSize="lg" CenterText="true" TextColor="@MainStatsTextColor" CssClass="async-player-main-stats-value" />
+            <ResponsiveLabel Text="Finished games" FontSize="lg" TextColor="@MainStatsTextColor" CssClass="text-no-overflow async-player-main-stats-label" />
+            <ResponsiveLabel Text="@GetGamesFinishedValue()" FontSize="lg" CenterText="true" TextColor="@MainStatsTextColor" CssClass="async-player-main-stats-value" />
+        </ResponsiveGridContainer>
 
-        @if (AsyncPlayerProfile is not null)
-        {
-            <FlexColumnCenteredContainer CssClass="padding" >
-                <MarkupStringLabel Text="@(ComposeGeneralStats())" FontSize="28" TextColor="@(AsyncPlayerProfile.Settings.ExcludeFromAsyncStats ? TextColor.White : GameStats.WinRate.GetWinrateColor())" CenterText="true" />
-            </FlexColumnCenteredContainer>
+        @SummaryContent
 
-            <VerticalSpace Height="50" />
+        <div class="async-player-main-stats-table-desktop">
+            <ResponsiveRadzenTable ZebraStripes="true" EqualColumns="true" CssClass="statistics-row-handel" TableTitle="@Strings.GameStats_Title">
+                <RadzenTableHeader>
+                    <RadzenTableHeaderRow>
+                        <RadzenTableHeaderCell scope="col">@Strings.GameStats_Games</RadzenTableHeaderCell>
+                        <RadzenTableHeaderCell scope="col">@Strings.GameStats_Active</RadzenTableHeaderCell>
+                        <RadzenTableHeaderCell scope="col">@Strings.GameStats_Finished</RadzenTableHeaderCell>
+                        <RadzenTableHeaderCell scope="col">@Strings.GameStats_Wins</RadzenTableHeaderCell>
+                        <RadzenTableHeaderCell scope="col">@Strings.GameStats_Winrate</RadzenTableHeaderCell>
+                        <RadzenTableHeaderCell scope="col">@Strings.GameStats_Eliminations</RadzenTableHeaderCell>
+                    </RadzenTableHeaderRow>
+                </RadzenTableHeader>
+                <RadzenTableBody>
+                    @if (!AsyncPlayerProfile.Settings.ShowGames)
+                    {
+                        <RadzenTableRow>
+                            <RadzenTableCell colspan="6">
+                                <ResponsiveLabel Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" />
+                            </RadzenTableCell>
+                        </RadzenTableRow>
+                    }
+                    else
+                    {
+                        <RadzenTableRow>
+                            <RadzenTableCell class="yellow">@GameStats.GamesCount.ToString()</RadzenTableCell>
+                            <RadzenTableCell class="green">@GameStats.Active.ToString()</RadzenTableCell>
+                            <RadzenTableCell class="red">@GameStats.Finished.ToString()</RadzenTableCell>
+                            <RadzenTableCell class="green">@ShowWins()</RadzenTableCell>
+                            <RadzenTableCell class="@(GetWinrateCssClass())">@GetWinrateValue()</RadzenTableCell>
+                            <RadzenTableCell class="red">@GameStats.Eliminations.ToString()</RadzenTableCell>
+                        </RadzenTableRow>
+                    }
+                </RadzenTableBody>
+            </ResponsiveRadzenTable>
+        </div>
 
-            <Label Text="@Strings.GameStats_Title" FontSize="24" CenterText="true" />
+        <div class="async-player-main-stats-table-mobile">
+            <ResponsiveRadzenTable ZebraStripes="true" EqualColumns="true" CssClass="statistics-row-handel" TableTitle="@Strings.GameStats_Title">
+                <RadzenTableHeader>
+                    <RadzenTableHeaderRow>
+                        <RadzenTableHeaderCell scope="col">@Strings.GameStats_Games</RadzenTableHeaderCell>
+                        <RadzenTableHeaderCell scope="col">@Strings.GameStats_Active</RadzenTableHeaderCell>
+                        <RadzenTableHeaderCell scope="col">@Strings.GameStats_Finished</RadzenTableHeaderCell>
+                    </RadzenTableHeaderRow>
+                </RadzenTableHeader>
+                <RadzenTableBody>
+                    @if (!AsyncPlayerProfile.Settings.ShowGames)
+                    {
+                        <RadzenTableRow>
+                            <RadzenTableCell colspan="3">
+                                <ResponsiveLabel Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" />
+                            </RadzenTableCell>
+                        </RadzenTableRow>
+                    }
+                    else
+                    {
+                        <RadzenTableRow>
+                            <RadzenTableCell class="yellow">@GameStats.GamesCount.ToString()</RadzenTableCell>
+                            <RadzenTableCell class="green">@GameStats.Active.ToString()</RadzenTableCell>
+                            <RadzenTableCell class="red">@GameStats.Finished.ToString()</RadzenTableCell>
+                        </RadzenTableRow>
+                        <RadzenTableRow class="async-player-main-stats-mobile-header-row">
+                            <RadzenTableHeaderCell scope="col">@Strings.GameStats_Wins</RadzenTableHeaderCell>
+                            <RadzenTableHeaderCell scope="col">@Strings.GameStats_Winrate</RadzenTableHeaderCell>
+                            <RadzenTableHeaderCell scope="col">@Strings.GameStats_Eliminations</RadzenTableHeaderCell>
+                        </RadzenTableRow>
+                        <RadzenTableRow>
+                            <RadzenTableCell class="green">@ShowWins()</RadzenTableCell>
+                            <RadzenTableCell class="@(GetWinrateCssClass())">@GetWinrateValue()</RadzenTableCell>
+                            <RadzenTableCell class="red">@GameStats.Eliminations.ToString()</RadzenTableCell>
+                        </RadzenTableRow>
+                    }
+                </RadzenTableBody>
+            </ResponsiveRadzenTable>
+        </div>
+    }
 
-            <VerticalSpace Height="20" />
-
-            <GridLayout Columns="6" CssClass="background">
-
-                <VerticalSpace Height="20" Style="grid-column: span 6;" />
-
-                <Label Text="@Strings.GameStats_Games" CenterText="true"/>
-                <Label Text="@Strings.GameStats_Active" CenterText="true" />
-                <Label Text="@Strings.GameStats_Finished" CenterText="true" />
-                <Label Text="@Strings.GameStats_Wins" CenterText="true" />
-                <Label Text="@Strings.GameStats_Winrate" CenterText="true" />
-                <Label Text="@Strings.GameStats_Eliminations" CenterText="true" />
-
-                <VerticalSpace Height="20" Style="grid-column: span 6;" />
-
-                @if (AsyncPlayerProfile.Settings.ShowGames)
-                {
-                    <Label Text="@GameStats.GamesCount.ToString()" CenterText="true" TextColor="TextColor.Yellow" />
-                    <Label Text="@GameStats.Active.ToString()" CenterText="true" TextColor="TextColor.Green" />
-                    <Label Text="@GameStats.Finished.ToString()" CenterText="true" TextColor="TextColor.Red" />
-                    <Label Text="@ShowWins()" CenterText="true" TextColor="TextColor.Green" />
-                    <Label Text="@ShowWinRate()" CenterText="true" TextColor="@(GameStats.WinRate.GetWinrateColor())" />
-                    <Label Text="@GameStats.Eliminations.ToString()" CenterText="true" TextColor="TextColor.Red" />
-                }
-                else
-                {
-                    <VerticalSpace Height="10" Style="grid-column: span 6;" />
-                    <Label Text="@Strings.AsyncPlayer_Statistics_Private" CenterText="true" TextColor="TextColor.Red" Style="grid-column: span 6;" />
-                    <VerticalSpace Height="10" Style="grid-column: span 6;" />
-                }
-
-                <VerticalSpace Height="20" Style="grid-column: span 6;" />
-
-            </GridLayout>
-
-            <VerticalSpace Height="20" />
-        }
-
-    </FlexColumnCenteredContainer>
-
-    <FlexColumnCenteredContainer Width="20" />
-
-</FlexRowContainer>
+</ResponsiveContainer>

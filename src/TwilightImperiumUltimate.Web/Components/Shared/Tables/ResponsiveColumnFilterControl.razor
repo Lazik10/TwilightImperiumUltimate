@@ -1,0 +1,63 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Tables
+@typeparam TItem
+
+@*
+    Renders the appropriate filter input for a single column's Filter type. Shared by
+    ResponsiveTable, rendered in a dedicated filter row below the column headers.
+*@
+
+@switch (Column.Filter)
+{
+    case ResponsiveFilterType.Text:
+        <ResponsiveTextBox Id="@InputId"
+                           Value="@(State.TextValue ?? string.Empty)"
+                           ValueChanged="OnTextValueChanged"
+                           FontSize="sm"
+                           FillWidth="false"
+                           Style="min-width: 5rem;" />
+        break;
+
+    case ResponsiveFilterType.Value:
+        <ResponsiveContainer Type="ContainerType.Flex" Padding="none" CssClass="responsive-table-value-filter">
+            <ResponsiveDropDown TValue="ResponsiveValueFilterOperator"
+                                Id="@($"{InputId}-op")"
+                                Data="Enum.GetValues<ResponsiveValueFilterOperator>()"
+                                Value="State.ValueOperator"
+                                ValueChanged="OnValueOperatorChanged"
+                                FontSize="sm"
+                                Width="45" />
+            <ResponsiveTextBox Id="@InputId"
+                               Value="@(State.TextValue ?? string.Empty)"
+                               ValueChanged="OnTextValueChanged"
+                               FontSize="sm"
+                               Width="55"
+                               Style="min-width: 3.5rem;" />
+        </ResponsiveContainer>
+        break;
+
+    case ResponsiveFilterType.Boolean:
+        <ResponsiveDropDown TValue="bool?"
+                            Id="@InputId"
+                            Data="BooleanFilterOptions.All"
+                            Value="State.BooleanValue"
+                            ValueChanged="OnBooleanValueChanged"
+                            AllowClear="true"
+                            FontSize="sm"
+                            FillWidth="false"
+                            Style="min-width: 5rem;" />
+        break;
+
+    case ResponsiveFilterType.Enum:
+        <ResponsiveDropDown TValue="object"
+                            Id="@InputId"
+                            Data="EnumOptions"
+                            TextProperty="Display"
+                            ValueProperty="Value"
+                            Value="State.EnumValue"
+                            ValueChanged="OnEnumValueChanged"
+                            AllowClear="true"
+                            FontSize="sm"
+                            FillWidth="false"
+                            Style="min-width: 8rem;" />
+        break;
+}
