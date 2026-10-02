@@ -17,11 +17,14 @@ self.addEventListener('fetch', event => {
     event.respondWith(onFetch(event));
 });
 
-const cacheVersion = 'v1.0.1';
-const cacheNamePrefix = `offline-cache-${cacheVersion}`;
-const cacheName = `${cacheNamePrefix}${self.assetsManifest.version}`;
-const offlineAssetsInclude = [ /\.dll$/, /\.pdb$/, /\.wasm/, /\.html/, /\.js$/, /\.json$/, /\.css$/, /\.woff$/, /\.png$/, /\.jpe?g$/, /\.gif$/, /\.ico$/, /\.blat$/, /\.dat$/ ];
-const offlineAssetsExclude = [ /^service-worker\.js$/ ];
+const cacheVersion = 'v1.1.0';
+const cacheNamePrefix = 'offline-cache-';
+const cacheName = `${cacheNamePrefix}${cacheVersion}-${self.assetsManifest.version}`;
+const applicationAssetsInclude = [ /\.dll$/, /\.pdb$/, /\.wasm/, /\.webcil$/, /\.html$/, /\.js$/, /\.json$/, /\.css$/, /\.woff2?$/, /\.blat$/, /\.dat$/ ];
+const applicationAssetsExclude = [
+    /^service-worker(?:-assets|-registrator)?\.js$/,
+    /(^|\/)appsettings(?:\.[^.]+)?\.json$/i
+];
 
 // Replace with your base path if you are hosting on a subfolder. Ensure there is a trailing '/'.
 const base = "/";
@@ -31,19 +34,20 @@ const manifestUrlList = self.assetsManifest.assets.map(asset => new URL(asset.ur
 async function onInstall(event) {
     console.info('Service worker: Install');
 
-    // Activate this worker as soon as it finishes installing, instead of staying "waiting"
-    // until every open tab of the previous worker closes. That waiting window is exactly what
-    // let stale asset references (old fingerprinted dll/pdb/wasm names) linger after a rebuild.
-    self.skipWaiting();
-
-    // Fetch and cache all matching items from the assets manifest
+    // Cache the complete startup bundle before this worker can become available. Images use the
+    // browser's normal HTTP cache so a new application deployment does not re-download them.
     const assetsRequests = self.assetsManifest.assets
-        .filter(asset => offlineAssetsInclude.some(pattern => pattern.test(asset.url)))
-        .filter(asset => !offlineAssetsExclude.some(pattern => pattern.test(asset.url)))
+        .filter(asset => applicationAssetsInclude.some(pattern => pattern.test(asset.url)))
+        .filter(asset => !applicationAssetsExclude.some(pattern => pattern.test(asset.url)))
         .map(asset => new Request(asset.url, { cache: 'no-cache' }));
     const cache = await caches.open(cacheName);
-    await Promise.all(
-        assetsRequests.map(request => cache.add(request).catch(() => null)));
+
+    try {
+        await cache.addAll(assetsRequests);
+    } catch (error) {
+        await caches.delete(cacheName);
+        throw error;
+    }
 }
 
 async function onActivate(event) {
@@ -63,6 +67,10 @@ async function onFetch(event) {
     const requestUrl = new URL(event.request.url);
     if (requestUrl.origin !== self.location.origin) {
         return fetch(event.request);
+    }
+
+    if (/\/appsettings(?:\.[^.]+)?\.json$/i.test(requestUrl.pathname)) {
+        return fetch(event.request, { cache: 'no-store' });
     }
 
     const cache = await caches.open(cacheName);
@@ -92,7 +100,7 @@ async function onFetch(event) {
     }
 
     try {
-        return await fetch(event.request, { cache: 'no-store' });
+        return await fetch(event.request);
     } catch {
         return new Response('Resource unavailable', { status: 503, statusText: 'Offline' });
     }

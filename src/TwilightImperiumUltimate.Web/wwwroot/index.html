@@ -19,17 +19,19 @@
     <link href="TwilightImperiumUltimate.Web.styles.css" rel="stylesheet" />
 
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "TI4 Ultimate",
-        "alternateName": [
-            "TI: Ultimate",
-            "ti4ultimate.com"
-        ],
-        "url": "https://ti4ultimate.com/"
-    }
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "TI4 Ultimate",
+            "alternateName": [
+                "TI: Ultimate",
+                "ti4ultimate.com"
+            ],
+            "url": "https://ti4ultimate.com/"
+        }
     </script>
+    <script type="importmap"></script>
+    <link rel="preload" id="webassembly" />
 </head>
 
 <body>
@@ -52,7 +54,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.3/html2canvas.min.js"></script>
     <script src="_content/Radzen.Blazor/Radzen.Blazor.js"></script>
-    <script src="_framework/blazor.webassembly.js"></script>
+    <script src="_framework/blazor.webassembly#[.{fingerprint}].js"></script>
     <script src="service-worker-registrator.js"></script>
 </body>
 

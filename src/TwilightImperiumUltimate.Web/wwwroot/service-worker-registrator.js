@@ -48,9 +48,8 @@ if (isDevelopmentHost) {
 } else {
     window.updateAvailable = new Promise((resolve, reject) => {
         if (!('serviceWorker' in navigator)) {
-            const errorMessage = `This browser doesn't support service workers`;
-            console.error(errorMessage);
-            reject(errorMessage);
+            console.info('Service workers are unavailable; offline support and update notifications are disabled.');
+            resolve(false);
             return;
         }
 
@@ -104,14 +103,18 @@ if (isDevelopmentHost) {
 
     window.reloadForUpdate = async () => {
         const registration = await navigator.serviceWorker.getRegistration();
-        if (registration) {
-            await registration.update();
-
-            // Published workers call skipWaiting during installation. Retain this message for
-            // compatibility if that policy changes in a future worker revision.
-            registration.waiting?.postMessage({ type: 'SKIP_WAITING' });
+        const waitingServiceWorker = registration?.waiting;
+        if (!waitingServiceWorker) {
+            window.location.reload();
+            return;
         }
 
+        const controllerChanged = new Promise(resolve => {
+            navigator.serviceWorker.addEventListener('controllerchange', resolve, { once: true });
+        });
+
+        waitingServiceWorker.postMessage({ type: 'SKIP_WAITING' });
+        await controllerChanged;
         window.location.reload();
     };
 

@@ -1,9 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <OverrideHtmlAssetPlaceholders>true</OverrideHtmlAssetPlaceholders>
     <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
     <BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
     <SignAssembly>False</SignAssembly>
@@ -150,7 +151,7 @@
     <Exec Command="dotnet run --project &quot;$(MSBuildProjectDirectory)\..\..\tools\TwilightImperiumUltimate.SitemapGenerator\TwilightImperiumUltimate.SitemapGenerator.csproj&quot; --configuration $(Configuration) -- --repository-root &quot;$(MSBuildProjectDirectory)\..\..&quot; --api-base-url &quot;$(SitemapApiBaseUrl)&quot;" />
   </Target>
 
-  <Target Name="UseProjectWebConfig" AfterTargets="_ProcessPublishFilesForBlazor">
+  <Target Name="UseProjectWebConfig" AfterTargets="_FilterIISAssets" BeforeTargets="CopyFilesToPublishDirectory">
     <ItemGroup>
       <ResolvedFileToPublish Remove="@(ResolvedFileToPublish)" Condition="'%(ResolvedFileToPublish.RelativePath)' == 'web.config'" />
       <ResolvedFileToPublish Include="$(MSBuildProjectDirectory)\web.config">
