@@ -23,7 +23,7 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 app.UseSerilogRequestLogging();
 app.UseRouting();
 
-var allowedOrigins = new[] { app.Configuration["Frontend:Url"], app.Configuration["Frontend:LocalUrl"], app.Configuration["Frontend:LocalUrlIisExpress"], app.Configuration["Frontend:ProductionUrl"] }
+var allowedOrigins = new[] { app.Configuration["Frontend:Url"], app.Configuration["Frontend:LocalUrl"], app.Configuration["Frontend:LocalUrlIisExpress"], app.Configuration["Frontend:ProductionUrl"], app.Configuration["Frontend:WwwUrl"] }
     .Where(origin => !string.IsNullOrWhiteSpace(origin))
     .Select(origin => origin!.TrimEnd('/'))
     .Distinct()
