@@ -4,7 +4,7 @@ namespace TwilightImperiumUltimate.Contracts.DTOs.Tigl;
 
 public class TiglPlayerRankHistoryEntryDto
 {
-    public string Date { get; init; } = string.Empty;
+    public long Timestamp { get; init; }
 
     public string League { get; init; } = string.Empty;
 

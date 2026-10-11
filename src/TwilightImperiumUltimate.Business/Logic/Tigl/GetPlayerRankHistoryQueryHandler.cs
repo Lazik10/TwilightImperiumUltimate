@@ -1,4 +1,3 @@
-﻿using System.Globalization;
 using TwilightImperiumUltimate.Business.Helpers;
 using TwilightImperiumUltimate.Contracts.DTOs.Tigl;
 
@@ -299,7 +298,7 @@ public class GetPlayerRankHistoryQueryHandler(IDbContextFactory<TwilightImperium
 
                             return new TiglPlayerRankHistoryEntryDto
                             {
-                                Date = DateTimeOffset.FromUnixTimeMilliseconds(x.AchievedAt).ToString("yyyy-MM-dd", CultureInfo.InvariantCulture),
+                                Timestamp = x.AchievedAt,
                                 League = MapLeagueName(x.League),
                                 RankName = x.RankName,
                                 Duration = Math.Max(0, durationDays),
@@ -316,7 +315,7 @@ public class GetPlayerRankHistoryQueryHandler(IDbContextFactory<TwilightImperium
                 g => g.Key,
                 g => g.SelectMany(x => x.Value)
                     .OrderBy(x => GetLeagueOrder(x.League))
-                    .ThenBy(x => x.Date)
+                    .ThenByDescending(x => x.Timestamp)
                     .ToList());
 
         var result = requestedDiscordIds
