@@ -5,7 +5,10 @@
 
 <FactionSubmenu SelectedType="_selectedInfoType" OnFactionInfoTypeChange="OnInfoTypeChanged" />
 
-<section class="faction-info-content mt-3xl">
+<section id="faction-info-content"
+         class="faction-info-content mt-3xl"
+         role="tabpanel"
+         aria-labelledby="@($"faction-info-tab-{_selectedInfoType.ToString().ToLowerInvariant()}")">
     @switch (_selectedInfoType)
     {
         case FactionInfoType.Ability:

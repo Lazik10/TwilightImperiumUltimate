@@ -47,16 +47,16 @@ internal class LeaderUpdateService(
         {
             duration = previousUpdate == 0 ? 0 : now - previousUpdate;
 
-            if (leader.ShortestDuration == 0 || duration < leader.ShortestDuration)
+            if (previousOwnerId > 0 && (leader.ShortestDuration == 0 || duration < leader.ShortestDuration))
             {
                 leader.ShortestDuration = duration;
-                leader.ShortestHolderId = player.Id;
+                leader.ShortestHolderId = previousOwnerId;
             }
 
-            if (leader.LongestDuration == 0 || duration > leader.LongestDuration)
+            if (previousOwnerId > 0 && (leader.LongestDuration == 0 || duration > leader.LongestDuration))
             {
                 leader.LongestDuration = duration;
-                leader.LongestHolderId = player.Id;
+                leader.LongestHolderId = previousOwnerId;
             }
 
             leader.PreviousOwnerId = previousOwnerId;

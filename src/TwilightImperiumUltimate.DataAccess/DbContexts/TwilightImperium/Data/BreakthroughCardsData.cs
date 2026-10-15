@@ -72,5 +72,25 @@ internal static class BreakthroughCardsData
         new BreakthroughCard() { Id = 65, EnumName = BreakthroughName.StrainDispersa, FactionName = FactionName.TheKyroSodality, Type = CardType.Breakthrough, GameVersion = GameVersion.ThundersEdge },
         new BreakthroughCard() { Id = 66, EnumName = BreakthroughName.ErasureCorps, FactionName = FactionName.TheLanefirRemnants, Type = CardType.Breakthrough, GameVersion = GameVersion.ThundersEdge },
         new BreakthroughCard() { Id = 67, EnumName = BreakthroughName.MercenaryCaptains, FactionName = FactionName.TheNokarSellships, Type = CardType.Breakthrough, GameVersion = GameVersion.ThundersEdge },
+
+        new BreakthroughCard() { Id = 68, EnumName = BreakthroughName.ExperimentalMechanisms, FactionName = FactionName.TheArvaxiCovenant, Type = CardType.Breakthrough, GameVersion = GameVersion.WhispersFromTheVoid },
+        new BreakthroughCard() { Id = 69, EnumName = BreakthroughName.KineticProbeNetwork, FactionName = FactionName.TheConstituentsOfXan, Type = CardType.Breakthrough, GameVersion = GameVersion.WhispersFromTheVoid },
+        new BreakthroughCard() { Id = 70, EnumName = BreakthroughName.BypassOperations, FactionName = FactionName.TheKaloraSwarm, Type = CardType.Breakthrough, GameVersion = GameVersion.WhispersFromTheVoid },
+        new BreakthroughCard() { Id = 71, EnumName = BreakthroughName.DarkSideExploitation, FactionName = FactionName.TheLunariumConspiracies, Type = CardType.Breakthrough, GameVersion = GameVersion.WhispersFromTheVoid },
+        new BreakthroughCard() { Id = 72, EnumName = BreakthroughName.StyxAndStones, FactionName = FactionName.TheOnyxxaComplex, Type = CardType.Breakthrough, GameVersion = GameVersion.WhispersFromTheVoid },
+        new BreakthroughCard() { Id = 73, EnumName = BreakthroughName.NonLinearTimeProgression, FactionName = FactionName.TheTyrisContinuum, Type = CardType.Breakthrough, GameVersion = GameVersion.WhispersFromTheVoid },
+        new BreakthroughCard() { Id = 74, EnumName = BreakthroughName.MoraySystem, FactionName = FactionName.TheVyserixAscendancy, Type = CardType.Breakthrough, GameVersion = GameVersion.WhispersFromTheVoid },
+        new BreakthroughCard() { Id = 75, EnumName = BreakthroughName.SubdueChancellor, FactionName = FactionName.TheZephyrionPursuit, Type = CardType.Breakthrough, GameVersion = GameVersion.WhispersFromTheVoid },
+
+        new BreakthroughCard() { Id = 76, EnumName = BreakthroughName.PanoplyAnimus, FactionName = FactionName.AtokeraLegacy, Type = CardType.Breakthrough, GameVersion = GameVersion.BlueRiverie },
+        new BreakthroughCard() { Id = 77, EnumName = BreakthroughName.TrinityStockpile, FactionName = FactionName.BelkoseaAlliedStates, Type = CardType.Breakthrough, GameVersion = GameVersion.BlueRiverie },
+        new BreakthroughCard() { Id = 78, EnumName = BreakthroughName.HiddenVaults, FactionName = FactionName.PharadnOrder, Type = CardType.Breakthrough, GameVersion = GameVersion.BlueRiverie },
+        new BreakthroughCard() { Id = 79, EnumName = BreakthroughName.EchoOperatives, FactionName = FactionName.PrincipalityOfKaltrim, Type = CardType.Breakthrough, GameVersion = GameVersion.BlueRiverie },
+        new BreakthroughCard() { Id = 80, EnumName = BreakthroughName.DuraniumOutfitting, FactionName = FactionName.QhetRepublic, Type = CardType.Breakthrough, GameVersion = GameVersion.BlueRiverie },
+        new BreakthroughCard() { Id = 81, EnumName = BreakthroughName.Gravehold, FactionName = FactionName.SarcosaDrift, Type = CardType.Breakthrough, GameVersion = GameVersion.BlueRiverie },
+        new BreakthroughCard() { Id = 82, EnumName = BreakthroughName.ShameixsBaneHonor, FactionName = FactionName.ToldarConcordat, Type = CardType.Breakthrough, GameVersion = GameVersion.BlueRiverie },
+        new BreakthroughCard() { Id = 83, EnumName = BreakthroughName.ShameixsBaneDishonor, FactionName = FactionName.ToldarConcordat, Type = CardType.Breakthrough, GameVersion = GameVersion.BlueRiverie },
+        new BreakthroughCard() { Id = 84, EnumName = BreakthroughName.PrescientWarriors, FactionName = FactionName.UydaiConclave, Type = CardType.Breakthrough, GameVersion = GameVersion.BlueRiverie },
+        new BreakthroughCard() { Id = 85, EnumName = BreakthroughName.HarmoniousDiplomacy, FactionName = FactionName.XinCourt, Type = CardType.Breakthrough, GameVersion = GameVersion.BlueRiverie },
     };
 }

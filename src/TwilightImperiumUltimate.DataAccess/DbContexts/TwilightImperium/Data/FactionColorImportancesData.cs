@@ -1,3 +1,5 @@
+using System.Net.NetworkInformation;
+
 namespace TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium.Data;
 
 internal static class FactionColorImportancesData
@@ -97,6 +99,23 @@ internal static class FactionColorImportancesData
             { FactionName.TheFirmamentTheObsidian, CreateColorMapping(0, 7, 1, 0, 0, 4, 5, 6) },
             { FactionName.TheDeepwroughtScholarate, CreateColorMapping(0, 0, 3, 0, 9, 7, 0, 6) },
             { FactionName.TheRalNelConsortium, CreateColorMapping(0, 1, 5, 9, 4, 0, 0, 0) },
+            { FactionName.TheArvaxiCovenant, CreateColorMapping(1, 2, 7, 9, 3, 0, 0, 0) },
+            { FactionName.TheConstituentsOfXan, CreateColorMapping(0, 8, 1, 9, 4, 0, 0, 2) },
+            { FactionName.TheKaloraSwarm, CreateColorMapping(0, 9, 2, 5, 8, 0, 0, 0) },
+            { FactionName.TheLunariumConspiracies, CreateColorMapping(9, 3, 0, 0, 2, 0, 0, 8) },
+            { FactionName.TheOnyxxaComplex, CreateColorMapping(2, 9, 3, 0, 6, 0, 1, 0) },
+            { FactionName.TheTyrisContinuum, CreateColorMapping(0, 1, 5, 9, 4, 0, 0, 0) },
+            { FactionName.TheVyserixAscendancy, CreateColorMapping(0, 7, 1, 0, 0, 4, 5, 6) },
+            { FactionName.TheZephyrionPursuit, CreateColorMapping(0, 0, 3, 0, 9, 7, 0, 6) },
+            { FactionName.AtokeraLegacy, CreateColorMapping(6, 9, 5, 1, 0, 0, 2, 0) },
+            { FactionName.BelkoseaAlliedStates, CreateColorMapping(0, 0, 0, 4, 6, 7, 0, 8) },
+            { FactionName.PharadnOrder, CreateColorMapping(0, 9, 8, 2, 0, 0, 1, 6) },
+            { FactionName.PrincipalityOfKaltrim, CreateColorMapping(0, 0, 1, 10, 0, 0, 0, 8) },
+            { FactionName.QhetRepublic, CreateColorMapping(0, 0, 3, 7, 8, 0, 0, 0) },
+            { FactionName.SarcosaDrift, CreateColorMapping(0, 2, 3, 0, 6, 7, 9, 0) },
+            { FactionName.ToldarConcordat, CreateColorMapping(5, 3, 0, 9, 0, 1, 0, 6) },
+            { FactionName.UydaiConclave, CreateColorMapping(0, 8, 2, 0, 9, 1, 0, 3) },
+            { FactionName.XinCourt, CreateColorMapping(0, 5, 7, 8, 0, 0, 4, 3) },
         };
     }
 

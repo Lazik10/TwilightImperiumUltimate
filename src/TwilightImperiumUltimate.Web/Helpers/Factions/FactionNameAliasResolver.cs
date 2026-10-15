@@ -105,6 +105,16 @@ public static class FactionNameAliasResolver
         [FactionName.IlNaViroset] = Array.Empty<string>(),
         [FactionName.ElNenJanovet] = Array.Empty<string>(),
         [FactionName.ASickeningLurch] = Array.Empty<string>(),
+
+        // Whispers from the Void - 8 factions
+        [FactionName.TheArvaxiCovenant] = Array.Empty<string>(),
+        [FactionName.TheConstituentsOfXan] = Array.Empty<string>(),
+        [FactionName.TheKaloraSwarm] = Array.Empty<string>(),
+        [FactionName.TheLunariumConspiracies] = Array.Empty<string>(),
+        [FactionName.TheOnyxxaComplex] = Array.Empty<string>(),
+        [FactionName.TheTyrisContinuum] = Array.Empty<string>(),
+        [FactionName.TheVyserixAscendancy] = Array.Empty<string>(),
+        [FactionName.TheZephyrionPursuit] = Array.Empty<string>(),
     };
 
     public static bool TryResolve(string? value, out FactionName factionName)

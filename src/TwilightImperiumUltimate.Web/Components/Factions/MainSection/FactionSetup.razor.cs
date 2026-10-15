@@ -88,6 +88,18 @@ public partial class FactionSetup : FactionInfoComponentBase
             FactionName.TheFirmamentTheObsidian
             => (true, Strings.Faction_SetupChooseFirmamentTechnologies),
 
+            FactionName.ToldarConcordat
+            => (true, Strings.Faction_SetupChooseToldarTechnologies),
+
+            FactionName.BelkoseaAlliedStates
+            => (true, Strings.Faction_SetupChooseBelkoseaTechnologies),
+
+            FactionName.PrincipalityOfKaltrim
+            => (true, Strings.Faction_SetupKaltrim),
+
+            FactionName.XinCourt
+            => (true, Strings.Faction_SetupXinCourt),
+
             _ => (false, string.Empty),
         };
 

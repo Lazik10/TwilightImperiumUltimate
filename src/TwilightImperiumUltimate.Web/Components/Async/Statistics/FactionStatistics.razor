@@ -5,298 +5,144 @@
 @using TwilightImperiumUltimate.Web.Components.Statistics.Chart
 @using TwilightImperiumUltimate.Web.Helpers.Numbers
 
-<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="100">
-    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-        <ResponsiveEnumPicker TEnum="FactionStatisticsFilter"
-                              CurrentValue="@_selectedFactionStatisticsFilter"
-                              CurrentValueChanged="OnFactionStatisticsFilterChanged"
-                              Label="@Strings.FactionStats_Factions"
-                              Width="60"
-                              ButtonWidth="10" />
-    </ResponsiveContainer>
-
-    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-        <ResponsiveEnumPicker TEnum="FactionStatisticsVpFilter"
-                              CurrentValue="@_selectedFactionVpStatisticsFilter"
-                              CurrentValueChanged="OnFactionStatisticsVpFilterChanged"
-                              Label="@Strings.FactionStats_VpCount"
-                              Width="60"
-                              ButtonWidth="10" />
-    </ResponsiveContainer>
-
-    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-        <ResponsiveEnumPicker TEnum="FactionStatisticsSubstatsFilter"
-                              CurrentValue="@_selectedFactionStatisticsSubstatsFilter"
-                              ExcludeValues="@_excludedValues"
-                              CurrentValueChanged="OnFactionStatisticsSubstatsFilterChanged"
-                              Label="@Strings.FactionStats_Statistics"
-                              Width="60"
-                              ButtonWidth="10" />
-    </ResponsiveContainer>
-
-    @if (_selectedFactionStatisticsSubstatsFilter == FactionStatisticsSubstatsFilter.All)
-    {
-        <ResponsiveRadzenDataGrid TItem="AsyncFactionsStatsDto"
-                                  Data="@FactionsForDisplay"
-                                  IsLoading="@(!_isDataLoaded)"
-                                  AllowPaging="false"
-                                  AllowSorting="true"
-                                  AllowAlternatingRows="true"
-                                  CssClass="faction-overview-grid">
-            <Columns>
-                <RadzenDataGridColumn TItem="AsyncFactionsStatsDto" Title="@Strings.FactionStats_Faction" Sortable="true">
-                    <Template Context="faction">
-                        <div style="display:flex; align-items:center; gap:0.5rem;">
-                            <AsyncFactionIconImg FactionName="@faction.FactionName" Height="20" />
-                            <span>@faction.FactionName.GetFactionUIText(FactionResourceType.Title)</span>
-                        </div>
-                    </Template>
-                </RadzenDataGridColumn>
-                <RadzenDataGridColumn TItem="AsyncFactionsStatsDto" Title="@Strings.FactionStats_Games" Sortable="true">
-                    <Template Context="faction">@GetCorrectFactionStatsByVp(faction).Games</Template>
-                </RadzenDataGridColumn>
-                <RadzenDataGridColumn TItem="AsyncFactionsStatsDto" Title="@Strings.FactionStats_Wins" Sortable="true">
-                    <Template Context="faction">@GetCorrectFactionStatsByVp(faction).Wins</Template>
-                </RadzenDataGridColumn>
-                <RadzenDataGridColumn TItem="AsyncFactionsStatsDto" Title="@Strings.FactionStats_WinPercentage" Sortable="true">
-                    <Template Context="faction">@GetCorrectFactionStatsByVp(faction).WinsPercentage.ToStringWithPrecisionAndPercentage(2)</Template>
-                </RadzenDataGridColumn>
-                <RadzenDataGridColumn TItem="AsyncFactionsStatsDto" Title="@Strings.FactionStats_Eliminations" Sortable="true">
-                    <Template Context="faction">@GetCorrectFactionStatsByVp(faction).Eliminations</Template>
-                </RadzenDataGridColumn>
-                <RadzenDataGridColumn TItem="AsyncFactionsStatsDto" Title="@Strings.FactionStats_AverageVp" Sortable="true">
-                    <Template Context="faction">@GetAverageVpValue(faction).ToStringWithPrecision(2)</Template>
-                </RadzenDataGridColumn>
-                <RadzenDataGridColumn TItem="AsyncFactionsStatsDto" Title="@Strings.FactionStats_AverageVpPercentage" Sortable="true">
-                    <Template Context="faction">@GetCorrectFactionStatsByVp(faction).VpPercentage.ToStringWithPrecisionAndPercentage(1)</Template>
-                </RadzenDataGridColumn>
-            </Columns>
-        </ResponsiveRadzenDataGrid>
-    }
-    else
-    {
-        @switch (_selectedFactionStatisticsSubstatsFilter)
+<section class="faction-statistics" aria-label="Faction statistics">
+    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="100">
+        @if (_selectedFactionStatisticsSubstatsFilter == FactionStatisticsSubstatsFilter.All)
         {
-            case FactionStatisticsSubstatsFilter.Games:
-                <RankingBarChart Data="@GetGamesData()"
-                                Title="@Strings.FactionStats_Games"
-                                XAxisLabel="@Strings.FactionStats_Games"
-                                SeriesTitle="@Strings.FactionStats_Games"
-                                IsLoading="@(!_isDataLoaded)" />
-                break;
-            case FactionStatisticsSubstatsFilter.Wins:
-                <RankingBarChart Data="@GetWinsData()"
-                                Title="@Strings.FactionStats_Wins"
-                                XAxisLabel="@Strings.FactionStats_Wins"
-                                SeriesTitle="@Strings.FactionStats_Wins"
-                                IsLoading="@(!_isDataLoaded)" />
-                break;
-            case FactionStatisticsSubstatsFilter.WinPercentage:
-                <RankingBarChart Data="@GetWinPercentageData()"
-                                Title="@Strings.FactionStats_WinPercentage"
-                                XAxisLabel="@Strings.FactionStats_WinPercentage"
-                                SeriesTitle="@Strings.FactionStats_WinPercentage"
-                                ValueFormatter="FormatFactionWinPercentageValue"
-                                IsLoading="@(!_isDataLoaded)" />
-                break;
-            case FactionStatisticsSubstatsFilter.Eliminations:
-                <RankingBarChart Data="@GetEliminationsData()"
-                                Title="@Strings.FactionStats_Eliminations"
-                                XAxisLabel="@Strings.FactionStats_Eliminations"
-                                SeriesTitle="@Strings.FactionStats_Eliminations"
-                                IsLoading="@(!_isDataLoaded)" />
-                break;
-            case FactionStatisticsSubstatsFilter.AverageVp:
-                <RankingBarChart Data="@GetAverageVpData()"
-                                Title="@Strings.FactionStats_AverageVp"
-                                XAxisLabel="@Strings.FactionStats_AverageVp"
-                                SeriesTitle="@Strings.FactionStats_AverageVp"
-                                ValueFormatter="FormatFactionAverageVpValue"
-                                IsLoading="@(!_isDataLoaded)" />
-                break;
-            case FactionStatisticsSubstatsFilter.AverageVpPercentage:
-                <RankingBarChart Data="@GetAverageVpPercentageData()"
-                                Title="@Strings.FactionStats_AverageVpPercentage"
-                                XAxisLabel="@Strings.FactionStats_AverageVpPercentage"
-                                SeriesTitle="@Strings.FactionStats_AverageVpPercentage"
-                                ValueFormatter="FormatFactionAverageVpPercentageValue"
-                                IsLoading="@(!_isDataLoaded)" />
-                break;
-            default:
-                <ResponsiveLabel Text="@Strings.Loading" CenterText="true" />
-                break;
-        }
-    }
-</ResponsiveContainer>
-@*
-@using TwilightImperiumUltimate.Web.Components.Statistics.DataGrid
-
-<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="100">
-    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-        <ResponsiveEnumPicker TEnum="FactionStatisticsFilter"
-                              CurrentValue="@_selectedFactionStatisticsFilter"
-                              CurrentValueChanged="OnFactionStatisticsFilterChanged"
-                              Label="@Strings.FactionStats_Factions"
-                              Width="60"
-                              ButtonWidth="10" />
-    </ResponsiveContainer>
-
-    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-        <ResponsiveEnumPicker TEnum="FactionStatisticsVpFilter"
-                              CurrentValue="@_selectedFactionVpStatisticsFilter"
-                              CurrentValueChanged="OnFactionStatisticsVpFilterChanged"
-                              Label="@Strings.FactionStats_VpCount"
-                              Width="60"
-                              ButtonWidth="10" />
-    </ResponsiveContainer>
-
-    <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-        <ResponsiveEnumPicker TEnum="FactionStatisticsSubstatsFilter"
-                              CurrentValue="@_selectedFactionStatisticsSubstatsFilter"
-                              ExcludeValues="@_excludedValues"
-                              CurrentValueChanged="OnFactionStatisticsSubstatsFilterChanged"
-                              Label="@Strings.FactionStats_Statistics"
-                              Width="60"
-                              ButtonWidth="10" />
-    </ResponsiveContainer>
-
-    <FactionStatisticsTable FactionsForDisplay="@FactionsForDisplay"
-                            SelectedVpFilter="@_selectedFactionVpStatisticsFilter"
-                            SelectedSubstatsFilter="@_selectedFactionStatisticsSubstatsFilter"
-                            IsLoading="@(!_isDataLoaded)" />
-</ResponsiveContainer>@using TwilightImperiumUltimate.Web.Components.Factions
-@using TwilightImperiumUltimate.Web.Components.Shared.Bars
-@using TwilightImperiumUltimate.Web.Helpers.Numbers
-
-<ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column" Width="100">
-
-    @if (_isDataLoaded && FactionsStats.Count > 0)
-    {
-        <Label Text="Faction stats" FontSize="24" CenterText="true" CssClass="mt-md mb-md" />
-
-        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-            <ResponsiveEnumPicker TEnum="FactionStatisticsFilter"
-                        CurrentValue="@_selectedFactionStatisticsFilter"
-                        CurrentValueChanged="OnFactionStatisticsFilterChanged"
-                        Label="@Strings.FactionStats_Factions"
-                        Width="60"
-                        ButtonWidth="10" />
-        </ResponsiveContainer>
-
-        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-            <ResponsiveEnumPicker TEnum="FactionStatisticsVpFilter"
-                        CurrentValue="@_selectedFactionVpStatisticsFilter"
-                        CurrentValueChanged="OnFactionStatisticsVpFilterChanged"
-                        Label="@Strings.FactionStats_VpCount"
-                        Width="60"
-                        ButtonWidth="10" />
-        </ResponsiveContainer>
-
-        <ResponsiveContainer Type="ContainerType.Fluid" Padding="none" CenteredItems="true" Direction="Enums.FlexDirection.Column">
-            <ResponsiveEnumPicker TEnum="FactionStatisticsSubstatsFilter"
-                        CurrentValue="@_selectedFactionStatisticsSubstatsFilter"
-                        ExcludeValues="@(_excludedValues)"
-                        CurrentValueChanged="OnFactionStatisticsSubstatsFilterChanged"
-                        Label="@Strings.FactionStats_Statistics"
-                        Width="60"
-                        ButtonWidth="10" />
-        </ResponsiveContainer>
-
-        <StretchHeightContainer CssClass="background mb-xl">
-
-            <GridLayout Columns="9"
-                        Gap="2"
-                        CssClass="padding"
-                        Width="104"
-                        Style="grid-template-columns: 5% 30% 9% 9% 9% 9% 9% 9% 5%">
-
-                <Label />
-                <Label Text="@Strings.FactionStats_Faction" CenterText="true" />
-
-                @if (_selectedFactionStatisticsSubstatsFilter == FactionStatisticsSubstatsFilter.All)
-                {
-                    <Label Text="@Strings.FactionStats_Games" CenterText="true" Vertical="true" />
-                    <Label Text="@Strings.FactionStats_Wins" CenterText="true" Vertical="true" />
-                    <Label Text="@Strings.FactionStats_WinPercentage" CenterText="true" Vertical="true" />
-                    <Label Text="@Strings.FactionStats_Eliminations" CenterText="true" Vertical="true" />
-                    <Label Text="@Strings.FactionStats_AverageVp" CenterText="true" Vertical="true" />
-                    <Label Text="@Strings.FactionStats_AverageVpPercentage" CenterText="true" Vertical="true" />
-                }
-                else
-                {
-                    Dummy label to match the elimination column title, not visible
-                    <Label Text="@Strings.FactionStats_Eliminations" CenterText="true" Vertical="true" Visible="false" />
-                    <Label Text="@GetCorrectLabelText()" CenterText="true" TextColor="@GetCorrectLabelColor()" Style="grid-column: span 4;" />
-                    <Label />
-                }
-                <Label />
-
-                @foreach (var faction in GetSortedFactionsForDisplayByStatistics())
-                {
-                    var factionStats = GetCorrectFactionStatsByVp(faction);
-                    var background = _row % 2 == 0 ? "background" : string.Empty;
-
-                    <Label />
-                    <ResponsiveContainer Type="ContainerType.Flex" Padding="none">
-                        <AsyncFactionIconImg FactionName="@faction.FactionName" Height="20" />
-                        <Label Text="@faction.FactionName.GetFactionUIText(FactionResourceType.Title)" PaddingLeft="10" CssClass="@(background)" />
-                    </ResponsiveContainer>
-
-                    if (factionStats.Games > 0)
+            <ResponsiveRadzenDataGrid TItem="AsyncFactionsStatsDto"
+                                    Data="@FactionsForDisplay"
+                                    IsLoading="@(!_isDataLoaded)"
+                                    AllowPaging="false"
+                                    AllowSorting="true"
+                                    AllowAlternatingRows="true"
+                                    CssClass="faction-overview-grid">
+                <HeaderTemplate>
+                    <header class="faction-statistics-header">
+                        <ResponsiveHeading Level="2" Text="@RemoveTrailingColon(Strings.FactionStats_Factions)" FontSize="lg" CenterText="true" CssClass="mb-0" />
+                        <button type="button"
+                                class="faction-statistics-filter-toggle"
+                                aria-label="@FilterButtonLabel"
+                                title="@FilterButtonLabel"
+                                aria-expanded="@_areFiltersVisible.ToString().ToLowerInvariant()"
+                                aria-controls="@(_areFiltersVisible ? "async-faction-statistics-filters" : null)"
+                                @onclick="ToggleFilters">
+                            <img src="@FilterIconPath" alt="" aria-hidden="true" />
+                        </button>
+                    </header>
+                    @if (_areFiltersVisible)
                     {
-                        if (_selectedFactionStatisticsSubstatsFilter == FactionStatisticsSubstatsFilter.All)
-                        {
-                            <Label Text="@factionStats.Games.ToString()" CenterText="true" TextColor="TextColor.Yellow" CssClass="@(background)" />
-                            <Label Text="@factionStats.Wins.ToString()" CenterText="true" TextColor="@(GetWinColor(factionStats.Wins))" CssClass="@(background)" />
-                            <Label Text="@factionStats.WinsPercentage.ToStringWithPrecisionAndPercentage(2)" CenterText="true" TextColor="@(factionStats.WinsPercentage.GetWinrateColor())" CssClass="@(background)" />
-                            <Label Text="@factionStats.Eliminations.ToString()" CenterText="true" TextColor="TextColor.Red" CssClass="@(background)" />
-                            <Label Text="@(((float)factionStats.Vp / factionStats.Games).ToStringWithPrecision(2))" CenterText="true" TextColor="TextColor.Green" CssClass="@(background)" />
-                            <Label Text="@factionStats.VpPercentage.ToStringWithPrecisionAndPercentage(1)" CenterText="true" TextColor="@(factionStats.VpPercentage.GetAverageVpPercentageColor())" CssClass="@(background)" />
-                        }
-                        else
-                        {
-                            var factionMinMaxStats = GetMinMaxStatsForFaction(factionStats);
-
-                            <Label Text="@(ShowSubstatsValue() ? ToFormatedString(factionMinMaxStats.Value) : Strings.AsyncPlayer_HiddenStat)" CssClass="@(background)" Style="height: 100%;" TextColor="@(GetSubstatsCorrectColor(factionMinMaxStats.Value))" />
-                            <div style="grid-column: span 5; width:100%;">
-                                <AsyncPlayerProgressBar TextColor="@GetCorrectProgressBarColor(factionMinMaxStats.Value)"
-                                                        MinValue="factionMinMaxStats.Min"
-                                                        Value="factionMinMaxStats.Value"
-                                                        MaxValue="factionMinMaxStats.Max"
-                                                        CssClass="@(background)" />
+                        <div id="async-faction-statistics-filters" class="faction-statistics-filters">
+                            <ResponsiveDropDown TValue="FactionStatisticsFilter" Id="async-faction-statistics-filter" Data="@FactionFilterOptions" TextProperty="Value" ValueProperty="Key" Value="@_selectedFactionStatisticsFilter" ValueChanged="OnFactionStatisticsFilterChanged" Label="@RemoveTrailingColon(Strings.FactionStats_Factions)" LabelPosition="LabelPosition.Column" Width="100" />
+                            <ResponsiveDropDown TValue="FactionStatisticsVpFilter" Id="async-faction-statistics-vp-filter" Data="@FactionVpFilterOptions" TextProperty="Value" ValueProperty="Key" Value="@_selectedFactionVpStatisticsFilter" ValueChanged="OnFactionStatisticsVpFilterChanged" Label="@RemoveTrailingColon(Strings.FactionStats_VpCount)" LabelPosition="LabelPosition.Column" Width="100" />
+                            <ResponsiveDropDown TValue="FactionStatisticsSubstatsFilter" Id="async-faction-statistics-substats-filter" Data="@FactionSubstatsFilterOptions" TextProperty="Value" ValueProperty="Key" Value="@_selectedFactionStatisticsSubstatsFilter" ValueChanged="OnFactionStatisticsSubstatsFilterChanged" Label="@RemoveTrailingColon(Strings.FactionStats_Statistics)" LabelPosition="LabelPosition.Column" Width="100" />
+                        </div>
+                    }
+                </HeaderTemplate>
+                <Columns>
+                    <RadzenDataGridColumn TItem="AsyncFactionsStatsDto" Title="@Strings.FactionStats_Faction" Sortable="true">
+                        <Template Context="faction">
+                            <div style="display:flex; align-items:center; gap:0.5rem;">
+                                <AsyncFactionIconImg FactionName="@faction.FactionName" Height="20" />
+                                <span>@faction.FactionName.GetFactionUIText(FactionResourceType.Title)</span>
                             </div>
-                        }
-                    }
-                    else
-                    {
-                        <Label CenterText="true" CssClass="@(background)" Style="height: 100%; grid-column: span 6;" />
-                    }
-                    <Label />
-
-                    if (_row == FactionsForDisplay.Count - 1)
-                    {
-                        _row = 0;
-                    }
-                    else
-                    {
-                        _row++;
-                    }
+                        </Template>
+                    </RadzenDataGridColumn>
+                    <RadzenDataGridColumn TItem="AsyncFactionsStatsDto" Title="@Strings.FactionStats_Games" Sortable="true">
+                        <Template Context="faction"><span style="color: @(TextColor.Yellow.ConvertToString());">@GetCorrectFactionStatsByVp(faction).Games</span></Template>
+                    </RadzenDataGridColumn>
+                    <RadzenDataGridColumn TItem="AsyncFactionsStatsDto" Title="@Strings.FactionStats_Wins" Sortable="true">
+                        <Template Context="faction"><span style="color: @(TextColor.Green.ConvertToString());">@GetCorrectFactionStatsByVp(faction).Wins</span></Template>
+                    </RadzenDataGridColumn>
+                    <RadzenDataGridColumn TItem="AsyncFactionsStatsDto" Title="@Strings.FactionStats_WinPercentage" Sortable="true">
+                        <Template Context="faction"><span style="color: @(GetCorrectFactionStatsByVp(faction).WinsPercentage.GetWinrateColor().ConvertToString());">@GetCorrectFactionStatsByVp(faction).WinsPercentage.ToStringWithPrecisionAndPercentage(2)</span></Template>
+                    </RadzenDataGridColumn>
+                    <RadzenDataGridColumn TItem="AsyncFactionsStatsDto" Title="@Strings.FactionStats_Eliminations" Sortable="true">
+                        <Template Context="faction"><span style="color: @(TextColor.Red.ConvertToString());">@GetCorrectFactionStatsByVp(faction).Eliminations</span></Template>
+                    </RadzenDataGridColumn>
+                    <RadzenDataGridColumn TItem="AsyncFactionsStatsDto" Title="@Strings.FactionStats_AverageVp" Sortable="true">
+                        <Template Context="faction"><span style="color: @(GetAverageVpValue(faction).GetAverageVpColor().ConvertToString());">@GetAverageVpValue(faction).ToStringWithPrecision(2)</span></Template>
+                    </RadzenDataGridColumn>
+                    <RadzenDataGridColumn TItem="AsyncFactionsStatsDto" Title="@Strings.FactionStats_AverageVpPercentage" Sortable="true">
+                        <Template Context="faction"><span style="color: @(GetCorrectFactionStatsByVp(faction).VpPercentage.GetAverageVpPercentageColor().ConvertToString());">@GetCorrectFactionStatsByVp(faction).VpPercentage.ToStringWithPrecisionAndPercentage(1)</span></Template>
+                    </RadzenDataGridColumn>
+                </Columns>
+            </ResponsiveRadzenDataGrid>
+        }
+        else
+        {
+            <div class="faction-statistics-chart-header">
+                <header class="faction-statistics-header">
+                    <ResponsiveHeading Level="2" Text="@RemoveTrailingColon(Strings.FactionStats_Factions)" FontSize="lg" CenterText="true" CssClass="mb-0" />
+                    <button type="button"
+                            class="faction-statistics-filter-toggle"
+                            aria-label="@FilterButtonLabel"
+                            title="@FilterButtonLabel"
+                            aria-expanded="@_areFiltersVisible.ToString().ToLowerInvariant()"
+                            aria-controls="@(_areFiltersVisible ? "async-faction-statistics-filters" : null)"
+                            @onclick="ToggleFilters">
+                        <img src="@FilterIconPath" alt="" aria-hidden="true" />
+                    </button>
+                </header>
+                @if (_areFiltersVisible)
+                {
+                    <div id="async-faction-statistics-filters" class="faction-statistics-filters">
+                        <ResponsiveDropDown TValue="FactionStatisticsFilter" Id="async-faction-statistics-filter" Data="@FactionFilterOptions" TextProperty="Value" ValueProperty="Key" Value="@_selectedFactionStatisticsFilter" ValueChanged="OnFactionStatisticsFilterChanged" Label="@RemoveTrailingColon(Strings.FactionStats_Factions)" LabelPosition="LabelPosition.Column" Width="100" />
+                        <ResponsiveDropDown TValue="FactionStatisticsVpFilter" Id="async-faction-statistics-vp-filter" Data="@FactionVpFilterOptions" TextProperty="Value" ValueProperty="Key" Value="@_selectedFactionVpStatisticsFilter" ValueChanged="OnFactionStatisticsVpFilterChanged" Label="@RemoveTrailingColon(Strings.FactionStats_VpCount)" LabelPosition="LabelPosition.Column" Width="100" />
+                        <ResponsiveDropDown TValue="FactionStatisticsSubstatsFilter" Id="async-faction-statistics-substats-filter" Data="@FactionSubstatsFilterOptions" TextProperty="Value" ValueProperty="Key" Value="@_selectedFactionStatisticsSubstatsFilter" ValueChanged="OnFactionStatisticsSubstatsFilterChanged" Label="@RemoveTrailingColon(Strings.FactionStats_Statistics)" LabelPosition="LabelPosition.Column" Width="100" />
+                    </div>
                 }
-
-            </GridLayout>
-
-        </StretchHeightContainer>
-    }
-    else
-    {
-        <Label Text="@Strings.Loading" FontSize="24" CenterText="true" CssClass="mt-3xl mb-3xl" />
-    }
-
-</ResponsiveContainer>
-
-                            <FactionStatisticsTable FactionsForDisplay="@FactionsForDisplay"
-                                                    SelectedVpFilter="@_selectedFactionVpStatisticsFilter"
-                                                    SelectedSubstatsFilter="@_selectedFactionStatisticsSubstatsFilter"
-                                                    IsLoading="@(!_isDataLoaded)" />
-*@
-
+            </div>
+            @switch (_selectedFactionStatisticsSubstatsFilter)
+            {
+                case FactionStatisticsSubstatsFilter.Games:
+                    <RankingBarChart Data="@GetGamesData()"
+                                    Title="@Strings.FactionStats_Games"
+                                    XAxisLabel="@Strings.FactionStats_Games"
+                                    SeriesTitle="@Strings.FactionStats_Games"
+                                    IsLoading="@(!_isDataLoaded)" />
+                    break;
+                case FactionStatisticsSubstatsFilter.Wins:
+                    <RankingBarChart Data="@GetWinsData()"
+                                    Title="@Strings.FactionStats_Wins"
+                                    XAxisLabel="@Strings.FactionStats_Wins"
+                                    SeriesTitle="@Strings.FactionStats_Wins"
+                                    IsLoading="@(!_isDataLoaded)" />
+                    break;
+                case FactionStatisticsSubstatsFilter.WinPercentage:
+                    <RankingBarChart Data="@GetWinPercentageData()"
+                                    Title="@Strings.FactionStats_WinPercentage"
+                                    XAxisLabel="@Strings.FactionStats_WinPercentage"
+                                    SeriesTitle="@Strings.FactionStats_WinPercentage"
+                                    ValueFormatter="FormatFactionWinPercentageValue"
+                                    IsLoading="@(!_isDataLoaded)" />
+                    break;
+                case FactionStatisticsSubstatsFilter.Eliminations:
+                    <RankingBarChart Data="@GetEliminationsData()"
+                                    Title="@Strings.FactionStats_Eliminations"
+                                    XAxisLabel="@Strings.FactionStats_Eliminations"
+                                    SeriesTitle="@Strings.FactionStats_Eliminations"
+                                    IsLoading="@(!_isDataLoaded)" />
+                    break;
+                case FactionStatisticsSubstatsFilter.AverageVp:
+                    <RankingBarChart Data="@GetAverageVpData()"
+                                    Title="@Strings.FactionStats_AverageVp"
+                                    XAxisLabel="@Strings.FactionStats_AverageVp"
+                                    SeriesTitle="@Strings.FactionStats_AverageVp"
+                                    ValueFormatter="FormatFactionAverageVpValue"
+                                    IsLoading="@(!_isDataLoaded)" />
+                    break;
+                case FactionStatisticsSubstatsFilter.AverageVpPercentage:
+                    <RankingBarChart Data="@GetAverageVpPercentageData()"
+                                    Title="@Strings.FactionStats_AverageVpPercentage"
+                                    XAxisLabel="@Strings.FactionStats_AverageVpPercentage"
+                                    SeriesTitle="@Strings.FactionStats_AverageVpPercentage"
+                                    ValueFormatter="FormatFactionAverageVpPercentageValue"
+                                    IsLoading="@(!_isDataLoaded)" />
+                    break;
+                default:
+                    <ResponsiveLabel Text="@Strings.Loading" CenterText="true" />
+                    break;
+            }
+        }
+    </ResponsiveContainer>
+</section>

@@ -62,6 +62,7 @@ public sealed class AsyncOpponentsStatsFactoryTests
         false,
         0,
         0,
+        0,
         gameStatsId == 1,
         false,
         false,

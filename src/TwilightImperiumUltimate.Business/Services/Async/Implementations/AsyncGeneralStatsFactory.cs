@@ -12,7 +12,22 @@ public class AsyncGeneralStatsFactory(
 
     public async Task<AsyncGeneralSummaryStatsDto> CreateAsyncGeneralStatsSummary(CancellationToken cancellationToken)
     {
-        var allGameRows = await _asyncStatsRepository.GetAsyncGeneralStatsGameProjections(cancellationToken);
+        var allGameRows = (await _asyncStatsRepository.GetAsyncStatisticsGameProjections(cancellationToken))
+            .Select(game => new AsyncGeneralStatsGameProjection(
+                game.GameStatsId,
+                game.IsTigl,
+                game.SetupTimestamp,
+                game.EndedTimestamp,
+                game.HasWinner,
+                game.NumberOfPlayers,
+                game.Round,
+                game.Scoreboard,
+                game.DiscordUserId,
+                game.Eliminated,
+                game.TotalNumberOfTurns,
+                game.TotalTurnTime))
+            .ToList();
+
         var allGames = GroupGames(allGameRows);
         var tiglGames = allGames.Where(x => x.Details.IsTigl).ToList();
         var customGames = allGames.Where(x => !x.Details.IsTigl).ToList();

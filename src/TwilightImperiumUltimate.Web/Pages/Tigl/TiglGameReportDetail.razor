@@ -271,24 +271,17 @@
                 </Columns>
             </ResponsiveRadzenDataGrid>
 
-            @if (MatchReport.League == TiglLeague.Fractured)
+            @if (MatchReport.GalacticEvents.Any())
             {
-                <ResponsiveRadzenDataGrid TItem="string"
-                                          Data="@MatchReport.GalacticEvents"
-                                          AllowPaging="false"
-                                          AllowSorting="false"
-                                          AllowColumnResize="false"
-                                          AllowAlternatingRows="true"
-                                          CssClass="mb-md tigl-game-report-grid">
-                    <HeaderTemplate>
-                        <ResponsiveHeading Level="2" Text="Galactic Events" FontSize="lg" CenterText="true" CssClass="mb-0" />
-                    </HeaderTemplate>
-                    <Columns>
-                        <RadzenDataGridColumn TItem="string" Title="Event">
-                            <Template Context="galacticEvent">@galacticEvent</Template>
-                        </RadzenDataGridColumn>
-                    </Columns>
-                </ResponsiveRadzenDataGrid>
+                <ResponsiveCard CssClass="tigl-game-report-events mb-md">
+                    <ResponsiveHeading Level="2" Text="Galactic Events" FontSize="lg" CenterText="true" CssClass="mb-md" />
+                    <ResponsiveGridContainer Columns="2" TabletColumns="2" MobileColumns="1" Width="100" Gap="var(--space-sm)">
+                        @foreach (var galacticEvent in MatchReport.GalacticEvents)
+                        {
+                            <ResponsiveLabel Text="@galacticEvent" CenterText="true" />
+                        }
+                    </ResponsiveGridContainer>
+                </ResponsiveCard>
             }
         }
 

@@ -26,9 +26,6 @@ public static class EnumExtensions
         return displayName ?? string.Empty;
     }
 
-    /// <summary>
-    /// Gets whether a prestige rank is a league-level milestone rather than a faction-specific rank.
-    /// </summary>
     public static bool IsLeagueMilestone(this TiglPrestigeRank prestigeRank, TiglLeague league) => league switch
     {
         TiglLeague.Fractured => prestigeRank == TiglPrestigeRank.Tyrant,
@@ -79,6 +76,9 @@ public static class EnumExtensions
         if (factionName >= FactionName.TheRubyMonarch && factionName <= FactionName.ASickeningLurch)
             return FactionSource.TwilightsFall;
 
+        if (factionName >= FactionName.TheArvaxiCovenant && factionName <= FactionName.TheZephyrionPursuit)
+            return FactionSource.WhispersFromTheVoid;
+
         return FactionSource.Official;
     }
 
@@ -90,7 +90,7 @@ public static class EnumExtensions
             FactionSource.TwilightsFall => FactionName.TheRubyMonarch,
             FactionSource.DiscordantStars => FactionName.TheAugursOfIlyxum,
             FactionSource.BlueRiverie => FactionName.AtokeraLegacy,
-            FactionSource.WhispersFromTheVoid => FactionName.None,
+            FactionSource.WhispersFromTheVoid => FactionName.TheArvaxiCovenant,
             _ => FactionName.None,
         };
     }

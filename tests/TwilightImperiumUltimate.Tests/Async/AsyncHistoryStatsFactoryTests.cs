@@ -35,8 +35,8 @@ public sealed class AsyncHistoryStatsFactoryTests
             .Setup(x => x.GetAsyncStatisticsGameProjections(It.IsAny<CancellationToken>()))
             .ReturnsAsync(
             [
-                new(1, "game-1", string.Empty, 1735689600, 1735689600, null, true, 6, 0, true, false, false, 1001, null, 10, 5, 600, 0, 0, null, null),
-                new(1, "game-1", string.Empty, 1735689600, 1735689600, null, true, 6, 0, true, false, false, 1002, null, 15, 7, 600, 0, 0, null, null),
+                new(1, "game-1", string.Empty, 1735689600, 1735689600, null, true, 6, 0, 0, true, false, false, 1001, null, 10, 5, 600, 0, 0, null, null),
+                new(1, "game-1", string.Empty, 1735689600, 1735689600, null, true, 6, 0, 0, true, false, false, 1002, null, 15, 7, 600, 0, 0, null, null),
             ]);
 
         var factory = new AsyncHistoryStatsFactory(repository.Object);
@@ -55,11 +55,11 @@ public sealed class AsyncHistoryStatsFactoryTests
 
         return
         [
-            new(1, "game-1", string.Empty, januarySetup, januarySetup, januaryEnded, true, 6, 0, true, false, false, 1001, null, 10, 5, 600, 0, 0, null, null),
-            new(1, "game-1", string.Empty, januarySetup, januarySetup, januaryEnded, true, 6, 0, true, false, false, 1002, null, 15, 7, 600, 0, 0, null, null),
-            new(2, "game-2", string.Empty, januarySetup, januarySetup, januaryEnded, true, 6, 0, false, false, false, 1003, null, 20, 8, 600, 0, 0, null, null),
-            new(2, "game-2", string.Empty, januarySetup, januarySetup, januaryEnded, true, 6, 0, false, false, false, 1004, null, 5, 4, 600, 0, 0, null, null),
-            new(3, "game-3", string.Empty, februarySetup, februarySetup, februaryEnded, true, 6, 0, true, false, false, 1005, null, 18, 6, 600, 0, 0, null, null),
+            new(1, "game-1", string.Empty, januarySetup, januarySetup, januaryEnded, true, 6, 0, 0, true, false, false, 1001, null, 10, 5, 600, 0, 0, null, null),
+            new(1, "game-1", string.Empty, januarySetup, januarySetup, januaryEnded, true, 6, 0, 0, true, false, false, 1002, null, 15, 7, 600, 0, 0, null, null),
+            new(2, "game-2", string.Empty, januarySetup, januarySetup, januaryEnded, true, 6, 0, 0, false, false, false, 1003, null, 20, 8, 600, 0, 0, null, null),
+            new(2, "game-2", string.Empty, januarySetup, januarySetup, januaryEnded, true, 6, 0, 0, false, false, false, 1004, null, 5, 4, 600, 0, 0, null, null),
+            new(3, "game-3", string.Empty, februarySetup, februarySetup, februaryEnded, true, 6, 0, 0, true, false, false, 1005, null, 18, 6, 600, 0, 0, null, null),
         ];
     }
 }

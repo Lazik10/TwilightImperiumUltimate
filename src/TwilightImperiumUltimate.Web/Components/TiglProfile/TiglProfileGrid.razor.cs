@@ -18,8 +18,11 @@ public partial class TiglProfileGrid
     [CascadingParameter(Name = "TiglPlayerProfile")]
     public TiglPlayerProfileDto Profile { get; set; } = default!;
 
-    [Inject] private NavigationManager NavigationManager { get; set; } = default!;
-    [Inject] private IPathProvider PathProvider { get; set; } = default!;
+    [Inject] 
+    private NavigationManager NavigationManager { get; set; } = default!;
+
+    [Inject]
+    private IPathProvider PathProvider { get; set; } = default!;
 
     private static IReadOnlyList<KeyValuePair<TiglProfileCategory, string>> Options =>
     [
@@ -52,26 +55,34 @@ public partial class TiglProfileGrid
     private string FilterIconPath => PathProvider.GetIconPath(_areFactionFiltersVisible || AreFactionFiltersApplied ? IconType.FilterClicked : IconType.Filter);
 
     private TiglLeagueProfileDto? SelectedLeagueProfile => Profile?.LeagueProfiles.FirstOrDefault(profile => profile.League == SelectedLeague);
+    
     private PrestigeRankHistoryDto? SelectedPrestige => Profile?.PrestigeRankHistory
         .Where(prestige => prestige.League == SelectedLeague && prestige.PrestigeRank.IsLeagueMilestone(SelectedLeague))
         .OrderByDescending(prestige => prestige.Level)
         .ThenByDescending(prestige => prestige.AchievedAt)
         .FirstOrDefault();
+    
     private IReadOnlyList<RankHistoryDto> FilteredRankHistory => Profile?.RankHistory.Where(rank => rank.League == SelectedLeague).OrderByDescending(rank => rank.AchievedAt).ToList() ?? [];
+    
     private IReadOnlyList<PrestigeRankHistoryDto> FilteredPrestigeRanks => Profile?.PrestigeRankHistory
         .Where(prestige => prestige.League == SelectedLeague)
         .OrderByDescending(prestige => prestige.AchievedAt)
         .ThenByDescending(prestige => prestige.Id)
         .ToList() ?? [];
+    
     private IReadOnlyList<TiglProfileGameDto> FilteredGameHistory => Profile?.GameHistory.Where(game => game.League == SelectedLeague).OrderByDescending(game => game.EndTimestamp).ToList() ?? [];
+    
     private IReadOnlyList<TiglTopOpponentDto> FilteredTopOpponents => Profile?.TopOpponents.Where(opponent => opponent.League == SelectedLeague).OrderByDescending(opponent => opponent.GamesPlayed).Take(20).ToList() ?? [];
+    
     private IReadOnlyList<TiglProfileFactionStatsDto> FilteredFactionStats => Enum.GetValues<TiglFactionName>()
         .Where(faction => faction != TiglFactionName.None)
         .Where(IsFactionVisible)
         .Select(faction => Profile.FactionStats.FirstOrDefault(stats => stats.League == SelectedLeague && stats.Faction == faction)
             ?? new TiglProfileFactionStatsDto { Faction = faction, League = SelectedLeague })
         .ToList();
+    
     private IReadOnlyList<TiglProfileSeasonSummary> FilteredSeasons => FilteredGameHistory.GroupBy(game => game.Season).OrderByDescending(group => group.Key).Select(group => new TiglProfileSeasonSummary(group.Key, group.ToList())).ToList();
+    
     private IReadOnlyList<AchievementDisplayEntry> DisplayedAchievements => GetDisplayedAchievements();
 
     private void OnCategoryChanged(TiglProfileCategory category)
@@ -89,7 +100,9 @@ public partial class TiglProfileGrid
     private void ToggleFactionFilters() => _areFactionFiltersVisible = !_areFactionFiltersVisible;
 
     private void NavigateToGameDetail(int matchReportId) => NavigationManager.NavigateTo($"{Web.Pages.Pages.TiglGameDetail}?id={matchReportId}");
+    
     private void NavigateToPlayerProfile(int tiglUserId) => NavigationManager.NavigateTo($"{Web.Pages.Pages.TiglPlayerProfile}?playerId={tiglUserId}");
+    
     private double GetRarityPercent(AchievementName name) => Profile is null || Profile.TotalTiglUsers == 0 ? 0 : Profile.AchievementPlayerCounts.TryGetValue(name.ToString(), out var count) ? (double)count / Profile.TotalTiglUsers * 100 : 0;
 
     private IReadOnlyList<AchievementDisplayEntry> GetDisplayedAchievements()
@@ -106,9 +119,11 @@ public partial class TiglProfileGrid
 
     private bool IsFactionVisible(TiglFactionName faction) => EffectiveFactionStatisticsFilter switch
     {
+        FactionStatisticsFilter.TwilightsFall => faction is >= TiglFactionName.TheRubyMonarch and <= TiglFactionName.ASickeningLurch,
         FactionStatisticsFilter.DiscordantStars => faction is >= TiglFactionName.TheAugursOfIlyxum and <= TiglFactionName.TheZelianPurifier,
-        FactionStatisticsFilter.Others => faction is >= TiglFactionName.TheRubyMonarch and <= TiglFactionName.ASickeningLurch
-            || faction is >= TiglFactionName.UydaiConclave and <= TiglFactionName.TwilightsFall,
+        FactionStatisticsFilter.BlueRiverie => faction is >= TiglFactionName.AtokeraLegacy and <= TiglFactionName.XinCourt,
+        FactionStatisticsFilter.WhispersFromTheVoid => faction is >= TiglFactionName.TheArvaxiCovenant and <= TiglFactionName.TheZephyrionPursuit,
+        FactionStatisticsFilter.Others => faction is >= TiglFactionName.Franken and <= TiglFactionName.Homebrew,
         _ => faction is >= TiglFactionName.TheArborec and <= TiglFactionName.TheRalNelConsortium,
     };
 

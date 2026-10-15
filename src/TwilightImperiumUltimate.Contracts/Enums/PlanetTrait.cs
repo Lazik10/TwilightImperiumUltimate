@@ -16,5 +16,7 @@ public enum PlanetTrait
     HazardousIndustrial,
     IndustrialCultural,
 
+    LegendarySpaceStation,
+
     Relic,
 }

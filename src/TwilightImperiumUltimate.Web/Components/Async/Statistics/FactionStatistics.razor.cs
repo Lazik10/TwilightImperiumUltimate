@@ -9,6 +9,7 @@ namespace TwilightImperiumUltimate.Web.Components.Async.Statistics;
 
 public partial class FactionStatistics
 {
+    private bool _areFiltersVisible;
     private bool _isDataLoaded;
     private FactionStatisticsFilter _selectedFactionStatisticsFilter = FactionStatisticsFilter.Official;
     private FactionStatisticsVpFilter _selectedFactionVpStatisticsFilter = FactionStatisticsVpFilter.All;
@@ -32,6 +33,31 @@ public partial class FactionStatistics
     [Inject]
     private IAsyncStatsProvider AsyncStatsProvider { get; set; } = default!;
 
+    [Inject]
+    private IPathProvider PathProvider { get; set; } = default!;
+
+    private static IReadOnlyList<KeyValuePair<FactionStatisticsFilter, string>> FactionFilterOptions => Enum.GetValues<FactionStatisticsFilter>()
+        .Select(value => new KeyValuePair<FactionStatisticsFilter, string>(value, value.GetDisplayName()))
+        .ToList();
+
+    private static IReadOnlyList<KeyValuePair<FactionStatisticsVpFilter, string>> FactionVpFilterOptions => Enum.GetValues<FactionStatisticsVpFilter>()
+        .Select(value => new KeyValuePair<FactionStatisticsVpFilter, string>(value, value.GetDisplayName()))
+        .ToList();
+
+    private IReadOnlyList<KeyValuePair<FactionStatisticsSubstatsFilter, string>> FactionSubstatsFilterOptions => Enum.GetValues<FactionStatisticsSubstatsFilter>()
+        .Except(_excludedValues)
+        .Select(value => new KeyValuePair<FactionStatisticsSubstatsFilter, string>(value, value.GetDisplayName()))
+        .ToList();
+
+    private string FilterButtonLabel => (_areFiltersVisible ? "Hide faction filters" : "Show faction filters")
+        + (AreFiltersApplied ? ", filters active" : string.Empty);
+
+    private string FilterIconPath => PathProvider.GetIconPath(_areFiltersVisible || AreFiltersApplied ? IconType.FilterClicked : IconType.Filter);
+
+    private bool AreFiltersApplied => _selectedFactionStatisticsFilter != FactionStatisticsFilter.Official
+        || _selectedFactionVpStatisticsFilter != FactionStatisticsVpFilter.All
+        || _selectedFactionStatisticsSubstatsFilter != FactionStatisticsSubstatsFilter.All;
+
     protected override async Task OnInitializedAsync()
     {
         _isDataLoaded = false;
@@ -50,6 +76,10 @@ public partial class FactionStatistics
     private static string FormatFactionAverageVpValue(double value) => ((float)value).ToStringWithPrecision(2);
 
     private static string FormatFactionAverageVpPercentageValue(double value) => ((float)value).ToStringWithPrecisionAndPercentage(1);
+
+    private static string RemoveTrailingColon(string value) => value.TrimEnd(':');
+
+    private void ToggleFilters() => _areFiltersVisible = !_areFiltersVisible;
 
     private void OnFactionStatisticsFilterChanged(FactionStatisticsFilter filter)
     {
@@ -74,9 +104,12 @@ public partial class FactionStatistics
     {
         return _selectedFactionStatisticsFilter switch
         {
-            FactionStatisticsFilter.DiscordantStars => factionStats.Skip(32).Take(40).ToList(),
-            FactionStatisticsFilter.Others => factionStats.Skip(72).Where(x => x.FactionName != AsyncFactionName.Unknown && x.FactionName != AsyncFactionName.TwilightsFall).ToList(),
-            _ => factionStats.Take(32).ToList(),
+            FactionStatisticsFilter.TwilightsFall => factionStats.Where(faction => faction.FactionName is >= AsyncFactionName.TheRubyMonarch and <= AsyncFactionName.ASickeningLurch).ToList(),
+            FactionStatisticsFilter.DiscordantStars => factionStats.Where(faction => faction.FactionName is >= AsyncFactionName.TheAugursOfIlyxum and <= AsyncFactionName.TheZelianPurifier).ToList(),
+            FactionStatisticsFilter.BlueRiverie => factionStats.Where(faction => faction.FactionName is >= AsyncFactionName.AtokeraLegacy and <= AsyncFactionName.XinCourt).ToList(),
+            FactionStatisticsFilter.WhispersFromTheVoid => factionStats.Where(faction => faction.FactionName is >= AsyncFactionName.TheArvaxiCovenant and <= AsyncFactionName.TheZephyrionPursuit).ToList(),
+            FactionStatisticsFilter.Others => factionStats.Where(faction => faction.FactionName is >= AsyncFactionName.Franken and <= AsyncFactionName.Homebrew).ToList(),
+            _ => factionStats.Where(faction => faction.FactionName is >= AsyncFactionName.TheArborec and <= AsyncFactionName.TheRalNelConsortium).ToList(),
         };
     }
 

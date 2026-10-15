@@ -52,4 +52,6 @@ public enum AchievementName
     Collector, // Earn 5 different achievements
     Overachiever, // Earn 15 different achievements
     Completionist, // Earn 30 different achievements
+
+    StayFirm, // Win a game as The Firmament without flipping to The Obsidian.
 }

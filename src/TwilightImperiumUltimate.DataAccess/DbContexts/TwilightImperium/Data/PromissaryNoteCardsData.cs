@@ -86,5 +86,24 @@ internal static class PromissaryNoteCardsData
         new() { Id = 77, EnumName = PromissoryNoteCardName.BlackOps, Faction = FactionName.TheFirmamentTheObsidian, GameVersion = GameVersion.ThundersEdge },
         new() { Id = 78, EnumName = PromissoryNoteCardName.Malevolency, Faction = FactionName.TheFirmamentTheObsidian, GameVersion = GameVersion.ThundersEdge },
         new() { Id = 79, EnumName = PromissoryNoteCardName.ShareKnowledge, Faction = FactionName.TheDeepwroughtScholarate, GameVersion = GameVersion.ThundersEdge },
+
+        new() { Id = 80, EnumName = PromissoryNoteCardName.AbsoluteSecrecy, Faction = FactionName.TheArvaxiCovenant, GameVersion = GameVersion.WhispersFromTheVoid },
+        new() { Id = 81, EnumName = PromissoryNoteCardName.WarlordsDecree, Faction = FactionName.TheConstituentsOfXan, GameVersion = GameVersion.WhispersFromTheVoid },
+        new() { Id = 82, EnumName = PromissoryNoteCardName.SharedTreasure, Faction = FactionName.TheKaloraSwarm, GameVersion = GameVersion.WhispersFromTheVoid },
+        new() { Id = 83, EnumName = PromissoryNoteCardName.TheoryRenovation, Faction = FactionName.TheLunariumConspiracies, GameVersion = GameVersion.WhispersFromTheVoid },
+        new() { Id = 84, EnumName = PromissoryNoteCardName.SilentAccord, Faction = FactionName.TheOnyxxaComplex, GameVersion = GameVersion.WhispersFromTheVoid },
+        new() { Id = 85, EnumName = PromissoryNoteCardName.FatesBargain, Faction = FactionName.TheTyrisContinuum, GameVersion = GameVersion.WhispersFromTheVoid },
+        new() { Id = 86, EnumName = PromissoryNoteCardName.LockdownProtocol, Faction = FactionName.TheVyserixAscendancy, GameVersion = GameVersion.WhispersFromTheVoid },
+        new() { Id = 87, EnumName = PromissoryNoteCardName.MercenaryDefenseContract, Faction = FactionName.TheZephyrionPursuit, GameVersion = GameVersion.WhispersFromTheVoid },
+
+        new() { Id = 88, EnumName = PromissoryNoteCardName.TriWeaveShielding, Faction = FactionName.AtokeraLegacy, GameVersion = GameVersion.BlueRiverie },
+        new() { Id = 89, EnumName = PromissoryNoteCardName.MercenarySortie, Faction = FactionName.BelkoseaAlliedStates, GameVersion = GameVersion.BlueRiverie },
+        new() { Id = 90, EnumName = PromissoryNoteCardName.DeathBinding, Faction = FactionName.PharadnOrder, GameVersion = GameVersion.BlueRiverie },
+        new() { Id = 91, EnumName = PromissoryNoteCardName.KaltrimAmbassadors, Faction = FactionName.PrincipalityOfKaltrim, GameVersion = GameVersion.BlueRiverie },
+        new() { Id = 92, EnumName = PromissoryNoteCardName.AlloyShipment, Faction = FactionName.QhetRepublic, GameVersion = GameVersion.BlueRiverie },
+        new() { Id = 93, EnumName = PromissoryNoteCardName.Plunderers, Faction = FactionName.SarcosaDrift, GameVersion = GameVersion.BlueRiverie },
+        new() { Id = 94, EnumName = PromissoryNoteCardName.ConcordatAllegiant, Faction = FactionName.ToldarConcordat, GameVersion = GameVersion.BlueRiverie },
+        new() { Id = 95, EnumName = PromissoryNoteCardName.EeriePredictions, Faction = FactionName.UydaiConclave, GameVersion = GameVersion.BlueRiverie },
+        new() { Id = 96, EnumName = PromissoryNoteCardName.StatecraftMentor, Faction = FactionName.XinCourt, GameVersion = GameVersion.BlueRiverie },
     };
 }

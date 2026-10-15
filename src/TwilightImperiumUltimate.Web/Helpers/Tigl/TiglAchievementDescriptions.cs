@@ -47,6 +47,7 @@ public static class TiglAchievementDescriptions
         [AchievementName.Completionist] = ("Completionist", "Earn 30 different achievements"),
         [AchievementName.Icarus] = ("Icarus", "Lose a game in which you would have gained Inconceivable or Mythical achievement"),
         [AchievementName.Mythical] = ("Mythical", "Win 10 games in a row"),
+        [AchievementName.StayFirm] = ("Stay Firm!", "Win a game as The Firmament without flipping to The Obsidian."),
     };
 
     public static string GetDisplayName(AchievementName name)

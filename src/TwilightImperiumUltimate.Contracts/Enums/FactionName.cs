@@ -82,8 +82,8 @@ public enum FactionName
     // Blue Riverie
     AtokeraLegacy,
     BelkoseaAlliedStates,
-    PrincipalityOfKaltrim,
     PharadnOrder,
+    PrincipalityOfKaltrim,
     QhetRepublic,
     SarcosaDrift,
     ToldarConcordat,
@@ -99,4 +99,14 @@ public enum FactionName
     IlNaViroset,
     ElNenJanovet,
     ASickeningLurch,
+
+    // Whispers from the Void - Balacasi
+    TheArvaxiCovenant,
+    TheConstituentsOfXan,
+    TheKaloraSwarm,
+    TheLunariumConspiracies,
+    TheOnyxxaComplex,
+    TheTyrisContinuum,
+    TheVyserixAscendancy,
+    TheZephyrionPursuit,
 }

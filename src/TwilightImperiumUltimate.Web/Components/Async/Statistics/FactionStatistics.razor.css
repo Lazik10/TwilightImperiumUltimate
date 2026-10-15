@@ -1,0 +1,97 @@
+.faction-statistics {
+    width: 100%;
+}
+
+.faction-statistics ::deep .faction-overview-grid .rz-custom-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.faction-statistics-header {
+    display: grid;
+    grid-row: 1;
+    grid-column: 1;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
+}
+
+.faction-statistics-chart-header {
+    align-self: stretch;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    box-sizing: border-box;
+    padding: var(--space-lg);
+    border: 1px solid var(--color-border, #466486);
+    border-radius: var(--border-radius-md);
+    background: var(--color-surface-dark, #050c15);
+}
+
+.faction-statistics-header ::deep .responsive-heading {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.faction-statistics-filter-toggle {
+    grid-row: 1;
+    grid-column: 1;
+    justify-self: end;
+    align-self: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    margin-right: var(--space-lg);
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.faction-statistics-filter-toggle:focus-visible {
+    outline: 2px solid var(--color-nav-hover, #8ecfff);
+    outline-offset: 2px;
+    border-radius: var(--border-radius-sm);
+}
+
+.faction-statistics-filter-toggle img {
+    display: block;
+    max-width: 1.625rem;
+    height: auto;
+}
+
+.faction-statistics-filters {
+    display: grid;
+    grid-column: 1;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-sm);
+    padding: var(--space-lg);
+}
+
+.faction-statistics-filters ::deep .responsive-dropdown-host.has-label.label-position-column {
+    align-items: center;
+    gap: 0;
+    min-width: 0;
+    width: 100%;
+}
+
+.faction-statistics-filters ::deep .responsive-dropdown-host.has-label.label-position-column .responsive-dropdown {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+}
+
+.faction-statistics-filters ::deep .responsive-dropdown-label {
+    margin-bottom: 0 !important;
+}
+
+@media (max-width: 768px) {
+    .faction-statistics-filter-toggle {
+        margin-right: var(--space-sm);
+    }
+
+    .faction-statistics-filters {
+        grid-template-columns: 1fr;
+    }
+}

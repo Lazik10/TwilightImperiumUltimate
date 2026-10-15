@@ -83,4 +83,23 @@ public enum PromissoryNoteCardName
     BlackOps,
     Malevolency,
     ShareKnowledge,
+
+    AbsoluteSecrecy,
+    WarlordsDecree,
+    SharedTreasure,
+    TheoryRenovation,
+    SilentAccord,
+    FatesBargain,
+    LockdownProtocol,
+    MercenaryDefenseContract,
+
+    TriWeaveShielding,
+    MercenarySortie,
+    KaltrimAmbassadors,
+    DeathBinding,
+    AlloyShipment,
+    Plunderers,
+    ConcordatAllegiant,
+    EeriePredictions,
+    StatecraftMentor,
 }

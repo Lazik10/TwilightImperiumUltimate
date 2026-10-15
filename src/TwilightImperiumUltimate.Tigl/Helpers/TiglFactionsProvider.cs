@@ -43,7 +43,7 @@ public static class TiglFactionsProvider
         TiglFactionName.TheRalNelConsortium,
     ];
 
-    public static IReadOnlyCollection<TiglFactionName> ShatteredLeagueFactions =>
+    public static IReadOnlyCollection<TiglFactionName> FracturedLeagueFactions =>
     [
         TiglFactionName.TheArborec,
         TiglFactionName.TheBaronyOfLetnev,
@@ -131,5 +131,17 @@ public static class TiglFactionsProvider
         TiglFactionName.AtokeraLegacy,
         TiglFactionName.BelkoseaAlliedStates,
         TiglFactionName.ToldarConcordat,
+        TiglFactionName.PrincipalityOfKaltrim,
+        TiglFactionName.SarcosaDrift,
+        TiglFactionName.XinCourt,
+
+        TiglFactionName.TheArvaxiCovenant,
+        TiglFactionName.TheConstituentsOfXan,
+        TiglFactionName.TheKaloraSwarm,
+        TiglFactionName.TheLunariumConspiracies,
+        TiglFactionName.TheOnyxxaComplex,
+        TiglFactionName.TheTyrisContinuum,
+        TiglFactionName.TheVyserixAscendancy,
+        TiglFactionName.TheZephyrionPursuit,
     ];
 }

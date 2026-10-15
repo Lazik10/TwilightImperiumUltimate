@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -126,6 +126,9 @@
   <data name="AiroShirAur" xml:space="preserve">
     <value>Airo Shir Aur</value>
   </data>
+  <data name="AnimaScrutatorVoiceOfTheVeil" xml:space="preserve">
+    <value>Anima Scrutator</value>
+  </data>
   <data name="ASickeningLurch" xml:space="preserve">
     <value>A Sickening Lurch</value>
   </data>
@@ -146,6 +149,9 @@
   </data>
   <data name="CadhAcamontConcordatMarshall" xml:space="preserve">
     <value>Cadh Acamont</value>
+  </data>
+  <data name="CardossaFlightPirateQueen" xml:space="preserve">
+    <value>Cardossa Flight</value>
   </data>
   <data name="CEOKenTuccVisionaryExplorer" xml:space="preserve">
     <value>C.E.O. Ken Tucc</value>
@@ -177,6 +183,9 @@
   <data name="DorrahnGriphynTheCollector" xml:space="preserve">
     <value>Dorrahn Griphyn</value>
   </data>
+  <data name="DreathosTheFinalGuard" xml:space="preserve">
+    <value>Dreathos</value>
+  </data>
   <data name="DylnHarthuulViceAdmiralOfFleetGroup15" xml:space="preserve">
     <value>Dyln Harthuul</value>
   </data>
@@ -186,6 +195,12 @@
   <data name="Entity4X41AApollo" xml:space="preserve">
     <value>Entity 4X41A Apollo</value>
   </data>
+  <data name="FatebreakerAzhurakSelfOrdainedSavior" xml:space="preserve">
+    <value>Fatebreaker Azhurak</value>
+  </data>
+  <data name="FlaviusStellariusWarEconomist" xml:space="preserve">
+    <value>Flavius Stellarius</value>
+  </data>
   <data name="Franken" xml:space="preserve">
     <value>Franken</value>
   </data>
@@ -194,6 +209,9 @@
   </data>
   <data name="GorthrimChiefOfExpeditions" xml:space="preserve">
     <value>Gorthrim</value>
+  </data>
+  <data name="GrandmasterXelKorAncientOne" xml:space="preserve">
+    <value>Grandmaster Xel'Kor</value>
   </data>
   <data name="GurnoAggero" xml:space="preserve">
     <value>Gurno Aggero</value>
@@ -227,6 +245,12 @@
   </data>
   <data name="JaceX4thAirLegion" xml:space="preserve">
     <value>JaceX 4th Air Legion</value>
+  </data>
+  <data name="JodekanJodarPrinceOfKaltrim" xml:space="preserve">
+    <value>Jodekan Jodar</value>
+  </data>
+  <data name="KaelenTheInvincibleSpearhead" xml:space="preserve">
+    <value>Kaelen, the Invincible</value>
   </data>
   <data name="KapokoVuiGreatSpirit" xml:space="preserve">
     <value>Kapoko Vui</value>
@@ -263,6 +287,9 @@
   </data>
   <data name="MobiusSpikeTheReaper" xml:space="preserve">
     <value>Mobius Spike</value>
+  </data>
+  <data name="MonturakHomotolApexPredator" xml:space="preserve">
+    <value>Monturak Homotol</value>
   </data>
   <data name="NmenmedeGhotiAllMother" xml:space="preserve">
     <value>Nmenmede</value>
@@ -339,6 +366,9 @@
   <data name="TitusFlaviusCouncilman" xml:space="preserve">
     <value>Titus Flavius</value>
   </data>
+  <data name="TSaoGrandAdministrator" xml:space="preserve">
+    <value>T'Sao</value>
+  </data>
   <data name="TurraSveyarShadowCouncilor" xml:space="preserve">
     <value>Turra Sveyar</value>
   </data>
@@ -356,6 +386,9 @@
   </data>
   <data name="UNITDSGNFLAYESH" xml:space="preserve">
     <value>UNITDSGNFLAYESH</value>
+  </data>
+  <data name="VaxeluundrTheProphet" xml:space="preserve">
+    <value>Vaxeluundr</value>
   </data>
   <data name="VehlTikarArchDruid" xml:space="preserve">
     <value>Vehl Tikar</value>

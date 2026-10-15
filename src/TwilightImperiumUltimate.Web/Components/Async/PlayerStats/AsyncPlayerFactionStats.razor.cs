@@ -95,9 +95,12 @@ public partial class AsyncPlayerFactionStats
     {
         return _selectedFactionStatisticsFilter switch
         {
-            FactionStatisticsFilter.DiscordantStars => factionStats.Skip(32).Take(40).ToList(),
-            FactionStatisticsFilter.Others => factionStats.Skip(72).Where(x => x.FactionName != AsyncFactionName.Unknown && x.FactionName != AsyncFactionName.TwilightsFall).ToList(),
-            _ => factionStats.Take(32).ToList(),
+            FactionStatisticsFilter.TwilightsFall => factionStats.Where(faction => faction.FactionName is >= AsyncFactionName.TheRubyMonarch and <= AsyncFactionName.ASickeningLurch).ToList(),
+            FactionStatisticsFilter.DiscordantStars => factionStats.Where(faction => faction.FactionName is >= AsyncFactionName.TheAugursOfIlyxum and <= AsyncFactionName.TheZelianPurifier).ToList(),
+            FactionStatisticsFilter.BlueRiverie => factionStats.Where(faction => faction.FactionName is >= AsyncFactionName.AtokeraLegacy and <= AsyncFactionName.XinCourt).ToList(),
+            FactionStatisticsFilter.WhispersFromTheVoid => factionStats.Where(faction => faction.FactionName is >= AsyncFactionName.TheArvaxiCovenant and <= AsyncFactionName.TheZephyrionPursuit).ToList(),
+            FactionStatisticsFilter.Others => factionStats.Where(faction => faction.FactionName is >= AsyncFactionName.Franken and <= AsyncFactionName.Homebrew).ToList(),
+            _ => factionStats.Where(faction => faction.FactionName is >= AsyncFactionName.TheArborec and <= AsyncFactionName.TheRalNelConsortium).ToList(),
         };
     }
 

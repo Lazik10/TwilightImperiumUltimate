@@ -22,14 +22,17 @@
     text-decoration: none;
 }
 
-.responsive-tab-menu.faction-style ::deep .responsive-tab-active,
-.responsive-tab-menu.faction-style ::deep .faction-info-tab-active {
+.responsive-tab-menu.faction-style {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.responsive-tab-menu.faction-style ::deep .responsive-tab-active {
     color: var(--color-nav-hover) !important;
     text-decoration: none;
 }
 
 .responsive-tab-menu.faction-style ::deep .responsive-tab-active .white,
-.responsive-tab-menu.faction-style ::deep .faction-info-tab-active .white {
+.responsive-tab-menu.faction-style ::deep .responsive-tab:hover .white {
     color: var(--color-nav-hover) !important;
 }
 

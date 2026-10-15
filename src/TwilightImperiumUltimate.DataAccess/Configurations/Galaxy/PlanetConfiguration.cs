@@ -60,8 +60,8 @@ internal sealed class PlanetConfiguration : IEntityTypeConfiguration<Planet>
             .IsRequired()
             .HasColumnName(nameof(Planet.PlanetTrait))
             .HasConversion<string>()
-            .HasColumnType("varchar(20)")
-            .HasMaxLength(20)
+            .HasColumnType("varchar(30)")
+            .HasMaxLength(30)
             .HasColumnOrder(6);
 
         builder.Property(x => x.SystemTileName)

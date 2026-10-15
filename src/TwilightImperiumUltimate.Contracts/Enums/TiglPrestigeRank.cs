@@ -90,9 +90,12 @@ public enum TiglPrestigeRank
     KapokoVuiGreatSpirit, // Atokera Legacy
     MobiusSpikeTheReaper, // Belkosea Allied States
     PharadnTheImmortalImperishableUnifier, // Pharad’n Order
+    JodekanJodarPrinceOfKaltrim, // Principality of Kaltrim
     TvorKhageShieldOfQhet, // Qhet Republic
+    CardossaFlightPirateQueen, // Sarkosa Drift
     CadhAcamontConcordatMarshall, // Toldar Concordat
     LondorIIGodEmperor, // Uydai Conclave
+    TSaoGrandAdministrator, // Xin Court
 
     // Galactic Emperor game winner
     DeposedEmperor,
@@ -108,4 +111,14 @@ public enum TiglPrestigeRank
     Franken,
     Homebrew,
     TwilightsFall,
+
+    // Whispers from the Void
+    KaelenTheInvincibleSpearhead, // The Arvaxi Covenant
+    FlaviusStellariusWarEconomist, // The Constituants of Xan
+    DreathosTheFinalGuard, // The Kalora Swarm
+    AnimaScrutatorVoiceOfTheVeil, // The Lunarium Conspiracies
+    GrandmasterXelKorAncientOne, // The Onyxxa Complex
+    FatebreakerAzhurakSelfOrdainedSavior, // The Tyris Continuum
+    VaxeluundrTheProphet, // The Vyserix Ascendancy
+    MonturakHomotolApexPredator, // The Zephyrion Pursuit
 }

@@ -27,7 +27,9 @@ public partial class StatisticsGrid
     private ILogger<StatisticsGrid> Logger { get; set; } = default!;
 
     private bool IsLimitHiddenStatistics =>
-        _selectedMenuItem is AsyncStatisticsTypeMenuItem.General or AsyncStatisticsTypeMenuItem.History;
+        _selectedMenuItem is AsyncStatisticsTypeMenuItem.General
+            or AsyncStatisticsTypeMenuItem.Factions
+            or AsyncStatisticsTypeMenuItem.History;
 
     private void UpdateSelectedMenuItem(AsyncStatisticsTypeMenuItem menuItem)
     {

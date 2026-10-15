@@ -644,6 +644,8 @@ dotnet_diagnostic.IDE0052.severity = suggestion
 dotnet_diagnostic.IDE0059.severity = suggestion
 # IDE0073: Require file header to match configured template.
 dotnet_diagnostic.IDE0073.severity = warning
+# IDE0090: new expression can be simplified
+dotnet_diagnostic.IDE0090.severity = none
 # IDE0290: Suggest using primary constructor syntax in eligible types for concise initialization.
 dotnet_diagnostic.IDE0290.severity = suggestion
 # IDE2000: Disallow multiple consecutive blank lines (formatting).

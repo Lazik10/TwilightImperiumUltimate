@@ -79,4 +79,23 @@ public enum FlagshipName
     Auriga,
     MemoryOfDusk,
     AnnahRegia,
+
+    WrathOfTheCovenant,
+    AegisAscendant,
+    RazorsEdge,
+    UmbraVas,
+    IgneousKhan,
+    Paradox,
+    TheOblivion,
+    MarkOfTheHunter,
+
+    Kohi,
+    Ascendancy,
+    JewelOfTheRose,
+    Sedtra,
+    Khage,
+    Nauclis,
+    Errant,
+    DesertSage,
+    CelestialDragon,
 }

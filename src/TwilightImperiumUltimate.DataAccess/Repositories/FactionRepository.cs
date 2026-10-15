@@ -9,38 +9,42 @@ public class FactionRepository(
     public async Task<List<Faction>> GetAllFactions(CancellationToken cancellationToken)
     {
         await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);
-        return dbContext.Factions
+        return await dbContext.Factions
+            .AsNoTracking()
             .Include(x => x.FactionUnits)
             .ThenInclude(fu => fu.Unit)
             .Include(x => x.FactionTechnologies)
             .ThenInclude(ft => ft.Technology)
-            .AsEnumerable()
-            .OrderBy(x => x.FactionName)
-            .ToList();
+            .OrderBy(x => x.Id)
+            .AsSplitQuery()
+            .ToListAsync(cancellationToken);
     }
 
     public async Task<Faction> GetFactionById(int id, CancellationToken cancellationToken)
     {
         await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);
         return await dbContext.Factions
+            .AsNoTracking()
             .Include(x => x.FactionUnits)
             .ThenInclude(fu => fu.Unit)
             .Include(x => x.FactionTechnologies)
             .ThenInclude(ft => ft.Technology)
+            .AsSplitQuery()
             .SingleAsync(x => x.FactionName == (FactionName)id, cancellationToken);
     }
 
     public async Task<List<Faction>> GetFactionsByGameVersions(IReadOnlyCollection<GameVersion> gameVersions, CancellationToken cancellationToken)
     {
         await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);
-        return dbContext.Factions
+        return await dbContext.Factions
+            .AsNoTracking()
             .Include(x => x.FactionUnits)
             .ThenInclude(fu => fu.Unit)
             .Include(x => x.FactionTechnologies)
             .ThenInclude(ft => ft.Technology)
             .Where(x => gameVersions.Contains(x.GameVersion))
-            .AsEnumerable()
-            .OrderBy(x => x.FactionName)
-            .ToList();
+            .OrderBy(x => x.Id)
+            .AsSplitQuery()
+            .ToListAsync(cancellationToken);
     }
 }

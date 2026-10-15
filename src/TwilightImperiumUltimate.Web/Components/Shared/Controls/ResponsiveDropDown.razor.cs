@@ -114,7 +114,7 @@ public partial class ResponsiveDropDown<TValue>
 
     private bool HasLabel => !string.IsNullOrWhiteSpace(Label);
 
-    private string ComputedCssClass => $"responsive-dropdown responsive-input-height handel {CssClass}".Trim();
+    private string ComputedCssClass => $"responsive-dropdown responsive-input-height {CssClass}".Trim();
 
     private string ComputedHostClass =>
         $"responsive-dropdown-host{(HasLabel ? " has-label" : string.Empty)}{(HasLabel && LabelPosition == LabelPosition.Column ? " label-position-column" : string.Empty)}";

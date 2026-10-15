@@ -1,7 +1,16 @@
+.async-player-searchbar ::deep .async-player-search-fields {
+    width: 50% !important;
+}
+
 .async-player-searchbar ::deep .async-player-search-label {
     flex: 0 0 auto;
     white-space: nowrap !important;
     width: max-content;
+}
+
+.async-player-searchbar ::deep .responsive-textbox-host {
+    flex: 1 1 auto;
+    min-width: 0;
 }
 
 .async-player-searchbar ::deep .async-player-search-note {
@@ -33,4 +42,19 @@
 .async-player-searchbar ::deep .responsive-textbox::placeholder {
     color: var(--color-white) !important;
     opacity: 1;
+}
+
+@media (max-width: 1024px) {
+    .async-player-searchbar ::deep .async-player-search-fields {
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+
+    .async-player-searchbar ::deep .async-player-search-label {
+        margin-right: 0 !important;
+    }
+
+    .async-player-searchbar ::deep .responsive-textbox-host {
+        width: 100%;
+    }
 }

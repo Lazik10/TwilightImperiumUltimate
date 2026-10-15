@@ -179,5 +179,19 @@ internal static class PrestigeRankData
         new PrestigeRank() { Id = 148, Name = TiglPrestigeRank.DeposedEmperor, FactionName = TiglFactionName.None, League = TiglLeague.ProphecyOfKings },
         new PrestigeRank() { Id = 149, Name = TiglPrestigeRank.DeposedEmperor, FactionName = TiglFactionName.None, League = TiglLeague.ThundersEdge },
         new PrestigeRank() { Id = 150, Name = TiglPrestigeRank.DeposedEmperor, FactionName = TiglFactionName.None, League = TiglLeague.Fractured },
+
+        // Important - this has to start from 156 because 151-155 are PoK TE heroes added via script
+        new PrestigeRank() { Id = 156, Name = TiglPrestigeRank.KaelenTheInvincibleSpearhead, FactionName = TiglFactionName.TheArvaxiCovenant, League = TiglLeague.Fractured },
+        new PrestigeRank() { Id = 157, Name = TiglPrestigeRank.FlaviusStellariusWarEconomist, FactionName = TiglFactionName.TheConstituentsOfXan, League = TiglLeague.Fractured },
+        new PrestigeRank() { Id = 158, Name = TiglPrestigeRank.DreathosTheFinalGuard, FactionName = TiglFactionName.TheKaloraSwarm, League = TiglLeague.Fractured },
+        new PrestigeRank() { Id = 159, Name = TiglPrestigeRank.AnimaScrutatorVoiceOfTheVeil, FactionName = TiglFactionName.TheLunariumConspiracies, League = TiglLeague.Fractured },
+        new PrestigeRank() { Id = 160, Name = TiglPrestigeRank.GrandmasterXelKorAncientOne, FactionName = TiglFactionName.TheOnyxxaComplex, League = TiglLeague.Fractured },
+        new PrestigeRank() { Id = 161, Name = TiglPrestigeRank.FatebreakerAzhurakSelfOrdainedSavior, FactionName = TiglFactionName.TheTyrisContinuum, League = TiglLeague.Fractured },
+        new PrestigeRank() { Id = 162, Name = TiglPrestigeRank.VaxeluundrTheProphet, FactionName = TiglFactionName.TheVyserixAscendancy, League = TiglLeague.Fractured },
+        new PrestigeRank() { Id = 163, Name = TiglPrestigeRank.MonturakHomotolApexPredator, FactionName = TiglFactionName.TheZephyrionPursuit, League = TiglLeague.Fractured },
+
+        new PrestigeRank() { Id = 164, Name = TiglPrestigeRank.JodekanJodarPrinceOfKaltrim, FactionName = TiglFactionName.PrincipalityOfKaltrim, League = TiglLeague.Fractured },
+        new PrestigeRank() { Id = 165, Name = TiglPrestigeRank.CardossaFlightPirateQueen, FactionName = TiglFactionName.SarcosaDrift, League = TiglLeague.Fractured },
+        new PrestigeRank() { Id = 166, Name = TiglPrestigeRank.TSaoGrandAdministrator, FactionName = TiglFactionName.XinCourt, League = TiglLeague.Fractured },
     };
 }

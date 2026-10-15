@@ -128,7 +128,7 @@ button.responsive-container:focus-visible {
 /* Mobile Optimization */
 @media screen and (max-width: 768px) {
     .responsive-container {
-        padding: 0 !important;
+        padding: var(--space-xs) !important;
     }
 
     .responsive-radzen-grid {

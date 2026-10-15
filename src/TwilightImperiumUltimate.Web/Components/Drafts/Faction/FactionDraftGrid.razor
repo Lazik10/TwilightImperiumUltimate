@@ -95,7 +95,7 @@
         </ResponsiveCard>
     }
 
-    <FactionMenuPicker BanAllFactions="false"
+    <FactionMenuPicker InitiallyEnabledGameVersions="@DefaultEnabledGameVersions"
                        OnFactionChanged="UpdateBanFactions"
                        OnFactionsInitialized="InitializeBanFactions"
                        @ref="_factionMenuPicker" />

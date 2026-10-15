@@ -1,16 +1,30 @@
-using TwilightImperiumUltimate.Contracts.DTOs.Tigl;
 using Radzen;
+using TwilightImperiumUltimate.Contracts.DTOs.Tigl;
 
 namespace TwilightImperiumUltimate.Web.Components.TiglProfile;
+
 public partial class TiglFactionStatisticsTable
 {
-    [Parameter] public IReadOnlyList<TiglProfileFactionStatsDto> Stats { get; set; } = [];
-    [Parameter] public bool ShowFilters { get; set; }
-    [Parameter] public bool AreFiltersVisible { get; set; }
-    [Parameter] public string FilterButtonLabel { get; set; } = string.Empty;
-    [Parameter] public string FilterIconPath { get; set; } = string.Empty;
-    [Parameter] public EventCallback OnToggleFilters { get; set; }
-    [Parameter] public RenderFragment? FilterContent { get; set; }
+    [Parameter] 
+    public IReadOnlyList<TiglProfileFactionStatsDto> Stats { get; set; } = [];
+    
+    [Parameter] 
+    public bool ShowFilters { get; set; }
+    
+    [Parameter] 
+    public bool AreFiltersVisible { get; set; }
+    
+    [Parameter] 
+    public string FilterButtonLabel { get; set; } = string.Empty;
+    
+    [Parameter] 
+    public string FilterIconPath { get; set; } = string.Empty;
+    
+    [Parameter] 
+    public EventCallback OnToggleFilters { get; set; }
+    
+    [Parameter] 
+    public RenderFragment? FilterContent { get; set; }
 
     private static void OnCellRender(DataGridCellRenderEventArgs<TiglProfileFactionStatsDto> args)
     {

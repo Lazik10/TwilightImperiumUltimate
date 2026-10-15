@@ -4,3 +4,7 @@
     font-family: Handel, sans-serif !important;
     text-shadow: var(--shadow-text);
 }
+
+::deep .prestige-history-table .responsive-label {
+    white-space: nowrap;
+}

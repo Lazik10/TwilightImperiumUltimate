@@ -10,6 +10,7 @@ Before non-trivial changes, check `docs/solution-overview.md`, `docs/project-str
 - Reuse existing services/components/models. Don't add abstractions, packages, or rename public APIs/routes/DTOs/files without explaining impact.
 - Never remove tests, validation, error handling, or accessibility without a better replacement.
 - Update tests/docs when behavior, architecture, commands, or conventions change. Summarize changed files and assumptions.
+- Fix data issues via seed source lists rather than manual migration edits.
 
 ## Architecture (dependency direction)
 

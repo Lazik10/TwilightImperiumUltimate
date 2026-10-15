@@ -42,6 +42,16 @@ public enum AsyncFactionName
     LastBastion,
     TheRalNelConsortium,
 
+    // Twilight's Fall
+    TheRubyMonarch,
+    RadiantAur,
+    AvariceRex,
+    IlSaiLakoeHeraldOfThorns,
+    TheSaintOfSwords,
+    IlNaViroset,
+    ElNenJanovet,
+    ASickeningLurch,
+
     // Discordant Stars - 34 factions
     TheAugursOfIlyxum,
     TheBentorConglomerate,
@@ -79,27 +89,30 @@ public enum AsyncFactionName
     TheZelianPurifier,
 
     // BlueRiverie - 6 factions
-    UydaiConclave,
-    PharadnOrder,
-    QhetRepublic,
     AtokeraLegacy,
     BelkoseaAlliedStates,
+    PharadnOrder,
+    PrincipalityOfKaltrim,
+    QhetRepublic,
+    SarcosaDrift,
     ToldarConcordat,
+    UydaiConclave,
+    XinCourt,
+
+    // Whispers from the Void - Balacasi
+    TheArvaxiCovenant,
+    TheConstituentsOfXan,
+    TheKaloraSwarm,
+    TheLunariumConspiracies,
+    TheOnyxxaComplex,
+    TheTyrisContinuum,
+    TheVyserixAscendancy,
+    TheZephyrionPursuit,
 
     // Other
     Franken,
     Homebrew,
     TwilightsFall,
-
-    // Twilight's Fall
-    TheRubyMonarch,
-    RadiantAur,
-    AvariceRex,
-    IlSaiLakoeHeraldOfThorns,
-    TheSaintOfSwords,
-    IlNaViroset,
-    ElNenJanovet,
-    ASickeningLurch,
 
     // Unknown
     Unknown,
