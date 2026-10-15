@@ -11,6 +11,7 @@ public sealed record AsyncStatisticsGameProjection(
     long? EndedTimestamp,
     bool HasWinner,
     int NumberOfPlayers,
+    int Round,
     int Scoreboard,
     bool IsTigl,
     bool AbsolMode,

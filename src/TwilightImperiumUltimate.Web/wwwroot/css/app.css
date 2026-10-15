@@ -344,7 +344,6 @@ p {
 .rz-dropdown-panel .rz-dropdown-item.rz-state-focused {
     background-color: var(--color-nav-panel-bg) !important;
     color: var(--color-white) !important;
-    font-family: Handel, fallback, sans-serif !important;
 }
 
 .rz-dropdown,
@@ -357,6 +356,27 @@ p {
     --rz-input-hover-border: 1px solid var(--color-nav-hover);
     --rz-input-hover-border-block-end: 1px solid var(--color-nav-hover);
     --rz-input-value-color: var(--color-white);
+}
+
+/*
+   Radzen's chevron is an icon-font ligature (`arrow_drop_down`), which flashes as text while
+   Material Symbols loads. Shared responsive dropdowns use a CSS triangle instead so first paint
+   is independent of that webfont.
+*/
+.responsive-dropdown .rz-dropdown-trigger .rzi-chevron-down {
+    position: relative;
+    font-size: 0;
+}
+
+.responsive-dropdown .rz-dropdown-trigger .rzi-chevron-down::before {
+    content: "" !important;
+    position: absolute;
+    inset: 0;
+    width: 0;
+    height: 0;
+    margin: auto;
+    border-top: 0.5rem solid currentColor;
+    border-inline: 0.375rem solid transparent;
 }
 
 .rz-dropdown-panel,

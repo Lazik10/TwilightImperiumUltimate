@@ -14,7 +14,7 @@ public sealed class AsyncGeneralStatsFactoryTests
     {
         var repository = new Mock<IAsyncStatsRepository>();
         repository
-            .Setup(x => x.GetAsyncGeneralStatsGameProjections(It.IsAny<CancellationToken>()))
+            .Setup(x => x.GetAsyncStatisticsGameProjections(It.IsAny<CancellationToken>()))
             .ReturnsAsync(CreateGameRows());
         var factory = new AsyncGeneralStatsFactory(repository.Object);
 
@@ -35,11 +35,11 @@ public sealed class AsyncGeneralStatsFactoryTests
         result.All.DistributionByPlayerTimers.Should().Contain(x => x.Timer == 1 && x.Count == 2);
         result.Tigl.Games.Should().Be(2);
         result.Custom.Games.Should().Be(1);
-        repository.Verify(x => x.GetAsyncGeneralStatsGameProjections(It.IsAny<CancellationToken>()), Times.Once);
+        repository.Verify(x => x.GetAsyncStatisticsGameProjections(It.IsAny<CancellationToken>()), Times.Once);
         repository.Verify(x => x.GetAllAsyncGames(It.IsAny<CancellationToken>()), Times.Never);
     }
 
-    private static List<AsyncGeneralStatsGameProjection> CreateGameRows()
+    private static List<AsyncStatisticsGameProjection> CreateGameRows()
     {
         var now = DateTimeOffset.UtcNow;
         var oneMonthAgo = now.AddMonths(-1).ToUnixTimeSeconds();
@@ -47,11 +47,11 @@ public sealed class AsyncGeneralStatsFactoryTests
 
         return
         [
-            new(1, true, now.ToUnixTimeSeconds(), null, false, 6, 3, 10, 1001, false, 120, 180000000),
-            new(1, true, now.ToUnixTimeSeconds(), null, false, 6, 3, 10, 1002, false, 80, 180000000),
-            new(2, false, fourMonthsAgo, fourMonthsAgo, false, 9, 5, 12, 1001, true, 200, 720000000),
-            new(2, false, fourMonthsAgo, fourMonthsAgo, false, 9, 5, 12, 1003, false, 0, 0),
-            new(3, true, oneMonthAgo, oneMonthAgo, true, 8, 7, 14, 1003, false, 120, 360000000),
+            new(1, "g1", "fun1", now.ToUnixTimeSeconds(), now.ToUnixTimeSeconds(), null, false, 6, 3, 10, true, false, false, 1001, null, null, 120, 180000000, null, null, false, null),
+            new(1, "g1", "fun1", now.ToUnixTimeSeconds(), now.ToUnixTimeSeconds(), null, false, 6, 3, 10, true, false, false, 1002, null, null, 80, 180000000, null, null, false, null),
+            new(2, "g2", "fun2", fourMonthsAgo, fourMonthsAgo, fourMonthsAgo, false, 9, 5, 12, false, false, false, 1001, null, null, 200, 720000000, null, null, true, null),
+            new(2, "g2", "fun2", fourMonthsAgo, fourMonthsAgo, fourMonthsAgo, false, 9, 5, 12, false, false, false, 1003, null, null, 0, 0, null, null, false, null),
+            new(3, "g3", "fun3", oneMonthAgo, oneMonthAgo, oneMonthAgo, true, 8, 7, 14, true, false, false, 1003, null, null, 120, 360000000, null, null, false, null),
         ];
     }
 }

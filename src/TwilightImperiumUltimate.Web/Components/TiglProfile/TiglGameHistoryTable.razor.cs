@@ -17,14 +17,14 @@ public partial class TiglGameHistoryTable
     public EventCallback<int> OnGameSelected { get; set; }
 
     private IEnumerable<GamesByYear> GroupedGames => Games
-        .GroupBy(game => DateTimeOffset.FromUnixTimeMilliseconds(game.StartTimestamp).Year)
+        .GroupBy(game => DateTimeOffset.FromUnixTimeMilliseconds(game.EndTimestamp).Year)
         .OrderByDescending(yearGroup => yearGroup.Key)
         .Select(yearGroup => new GamesByYear(
             yearGroup.Key,
             yearGroup
-                .GroupBy(game => DateTimeOffset.FromUnixTimeMilliseconds(game.StartTimestamp).Month)
+                .GroupBy(game => DateTimeOffset.FromUnixTimeMilliseconds(game.EndTimestamp).Month)
                 .OrderByDescending(monthGroup => monthGroup.Key)
-                .Select(monthGroup => new GamesByMonth(monthGroup.Key, monthGroup.OrderByDescending(game => game.StartTimestamp).ToList()))
+                .Select(monthGroup => new GamesByMonth(monthGroup.Key, monthGroup.OrderByDescending(game => game.EndTimestamp).ToList()))
                 .ToList()));
 
     protected override void OnParametersSet()

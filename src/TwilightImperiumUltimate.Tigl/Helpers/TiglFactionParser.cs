@@ -95,6 +95,18 @@ public static class TiglFactionParser
             "Atokera Legacy" => TiglFactionName.AtokeraLegacy,
             "Belkosea Allied States" => TiglFactionName.BelkoseaAlliedStates,
             "Toldar Concordat" => TiglFactionName.ToldarConcordat,
+            "Principality of Kaltrim" => TiglFactionName.PrincipalityOfKaltrim,
+            "Sarcosa Drift" => TiglFactionName.SarcosaDrift,
+            "Xin Court" => TiglFactionName.XinCourt,
+
+            "The Arvaxi Covenant" => TiglFactionName.TheArvaxiCovenant,
+            "The Constituents of Xan" => TiglFactionName.TheConstituentsOfXan,
+            "The Kalora Swarm" => TiglFactionName.TheKaloraSwarm,
+            "The Lunarium Conspiracies" => TiglFactionName.TheLunariumConspiracies,
+            "The Onyxxa Complex" => TiglFactionName.TheOnyxxaComplex,
+            "The Tyris Continuum" => TiglFactionName.TheTyrisContinuum,
+            "The Vyserix Ascendancy" => TiglFactionName.TheVyserixAscendancy,
+            "The Zephyrion Pursuit" => TiglFactionName.TheZephyrionPursuit,
 
             "Franken" => TiglFactionName.Franken,
             "Franken 1" => TiglFactionName.Franken,

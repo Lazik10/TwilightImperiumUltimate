@@ -3666,5 +3666,179 @@ internal static class SystemTilesData
             TileCategory = SystemTileCategory.ExternalMapTile,
             GameVersion = GameVersion.ThundersEdge,
         },
+
+        // Shispers from the Void Home Systems
+        new SystemTile()
+        {
+            Id = 366,
+            SystemTileName = SystemTileName.TileWftV01,
+            SystemTileCode = "WftV01",
+            FactionName = FactionName.TheArvaxiCovenant,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Green,
+            GameVersion = GameVersion.WhispersFromTheVoid,
+        },
+        new SystemTile()
+        {
+            Id = 367,
+            SystemTileName = SystemTileName.TileWftV02,
+            SystemTileCode = "WftV02",
+            FactionName = FactionName.TheConstituentsOfXan,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Green,
+            GameVersion = GameVersion.WhispersFromTheVoid,
+        },
+        new SystemTile()
+        {
+            Id = 368,
+            SystemTileName = SystemTileName.TileWftV03,
+            SystemTileCode = "WftV03",
+            FactionName = FactionName.TheKaloraSwarm,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Green,
+            GameVersion = GameVersion.WhispersFromTheVoid,
+        },
+        new SystemTile()
+        {
+            Id = 369,
+            SystemTileName = SystemTileName.TileWftV04,
+            SystemTileCode = "WftV04",
+            FactionName = FactionName.TheLunariumConspiracies,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Green,
+            GameVersion = GameVersion.WhispersFromTheVoid,
+        },
+        new SystemTile()
+        {
+            Id = 370,
+            SystemTileName = SystemTileName.TileWftV05,
+            SystemTileCode = "WftV05",
+            FactionName = FactionName.TheOnyxxaComplex,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Green,
+            GameVersion = GameVersion.WhispersFromTheVoid,
+        },
+        new SystemTile()
+        {
+            Id = 371,
+            SystemTileName = SystemTileName.TileWftV06,
+            SystemTileCode = "WftV06",
+            FactionName = FactionName.TheTyrisContinuum,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Green,
+            GameVersion = GameVersion.WhispersFromTheVoid,
+        },
+        new SystemTile()
+        {
+            Id = 372,
+            SystemTileName = SystemTileName.TileWftV07,
+            SystemTileCode = "WftV07",
+            FactionName = FactionName.TheVyserixAscendancy,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Green,
+            GameVersion = GameVersion.WhispersFromTheVoid,
+        },
+        new SystemTile()
+        {
+            Id = 373,
+            SystemTileName = SystemTileName.TileWftV08,
+            SystemTileCode = "WftV08",
+            FactionName = FactionName.TheZephyrionPursuit,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Green,
+            GameVersion = GameVersion.WhispersFromTheVoid,
+        },
+
+        // Blue Riverie Home Systems
+        new SystemTile()
+        {
+            Id = 374,
+            SystemTileName = SystemTileName.TileBr01,
+            SystemTileCode = "Br01",
+            FactionName = FactionName.AtokeraLegacy,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Green,
+            GameVersion = GameVersion.BlueRiverie,
+        },
+        new SystemTile()
+        {
+            Id = 375,
+            SystemTileName = SystemTileName.TileBr02,
+            SystemTileCode = "Br02",
+            FactionName = FactionName.BelkoseaAlliedStates,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Green,
+            GameVersion = GameVersion.BlueRiverie,
+        },
+        new SystemTile()
+        {
+            Id = 376,
+            SystemTileName = SystemTileName.TileBr03,
+            SystemTileCode = "Br03",
+            FactionName = FactionName.PharadnOrder,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Green,
+            GameVersion = GameVersion.BlueRiverie,
+        },
+        new SystemTile()
+        {
+            Id = 377,
+            SystemTileName = SystemTileName.TileBr04,
+            SystemTileCode = "Br04",
+            FactionName = FactionName.PrincipalityOfKaltrim,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Green,
+            GameVersion = GameVersion.BlueRiverie,
+        },
+        new SystemTile()
+        {
+            Id = 378,
+            SystemTileName = SystemTileName.TileBr05,
+            SystemTileCode = "Br05",
+            FactionName = FactionName.QhetRepublic,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Green,
+            GameVersion = GameVersion.BlueRiverie,
+        },
+        new SystemTile()
+        {
+            Id = 379,
+            SystemTileName = SystemTileName.TileBr06,
+            SystemTileCode = "Br06",
+            FactionName = FactionName.SarcosaDrift,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Green,
+            GameVersion = GameVersion.BlueRiverie,
+        },
+        new SystemTile()
+        {
+            Id = 380,
+            SystemTileName = SystemTileName.TileBr07,
+            SystemTileCode = "Br07",
+            FactionName = FactionName.ToldarConcordat,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Green,
+            GameVersion = GameVersion.BlueRiverie,
+        },
+        new SystemTile()
+        {
+            Id = 381,
+            SystemTileName = SystemTileName.TileBr08,
+            SystemTileCode = "Br08",
+            FactionName = FactionName.UydaiConclave,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Green,
+            GameVersion = GameVersion.BlueRiverie,
+        },
+        new SystemTile()
+        {
+            Id = 382,
+            SystemTileName = SystemTileName.TileBr09,
+            SystemTileCode = "Br09",
+            FactionName = FactionName.XinCourt,
+            Anomaly = AnomalyName.None,
+            TileCategory = SystemTileCategory.Green,
+            GameVersion = GameVersion.BlueRiverie,
+        },
     };
 }

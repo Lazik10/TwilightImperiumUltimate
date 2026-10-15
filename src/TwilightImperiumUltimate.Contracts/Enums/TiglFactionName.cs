@@ -91,12 +91,25 @@ public enum TiglFactionName
     TheZelianPurifier,
 
     // BlueRiverie
-    UydaiConclave,
-    PharadnOrder,
-    QhetRepublic,
     AtokeraLegacy,
     BelkoseaAlliedStates,
+    PharadnOrder,
+    PrincipalityOfKaltrim,
+    QhetRepublic,
+    SarcosaDrift,
     ToldarConcordat,
+    UydaiConclave,
+    XinCourt,
+
+    // Whispers from the Void - Balacasi
+    TheArvaxiCovenant,
+    TheConstituentsOfXan,
+    TheKaloraSwarm,
+    TheLunariumConspiracies,
+    TheOnyxxaComplex,
+    TheTyrisContinuum,
+    TheVyserixAscendancy,
+    TheZephyrionPursuit,
 
     // Other
     Franken,

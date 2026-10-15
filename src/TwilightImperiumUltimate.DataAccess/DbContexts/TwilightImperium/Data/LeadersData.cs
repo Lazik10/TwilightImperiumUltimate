@@ -134,5 +134,18 @@ internal static class LeadersData
         new Leader() { Id = 113, Name = TiglPrestigeRank.Franken, Faction = TiglFactionName.Franken, League = TiglLeague.Fractured },
         new Leader() { Id = 114, Name = TiglPrestigeRank.Homebrew, Faction = TiglFactionName.Homebrew, League = TiglLeague.Fractured },
         new Leader() { Id = 115, Name = TiglPrestigeRank.TwilightsFall, Faction = TiglFactionName.TwilightsFall, League = TiglLeague.Fractured },
+
+        new Leader() { Id = 116, Name = TiglPrestigeRank.KaelenTheInvincibleSpearhead, Faction = TiglFactionName.TheArvaxiCovenant, League = TiglLeague.Fractured },
+        new Leader() { Id = 117, Name = TiglPrestigeRank.FlaviusStellariusWarEconomist, Faction = TiglFactionName.TheConstituentsOfXan, League = TiglLeague.Fractured },
+        new Leader() { Id = 118, Name = TiglPrestigeRank.DreathosTheFinalGuard, Faction = TiglFactionName.TheKaloraSwarm, League = TiglLeague.Fractured },
+        new Leader() { Id = 119, Name = TiglPrestigeRank.AnimaScrutatorVoiceOfTheVeil, Faction = TiglFactionName.TheLunariumConspiracies, League = TiglLeague.Fractured },
+        new Leader() { Id = 120, Name = TiglPrestigeRank.GrandmasterXelKorAncientOne, Faction = TiglFactionName.TheOnyxxaComplex, League = TiglLeague.Fractured },
+        new Leader() { Id = 121, Name = TiglPrestigeRank.FatebreakerAzhurakSelfOrdainedSavior, Faction = TiglFactionName.TheTyrisContinuum, League = TiglLeague.Fractured },
+        new Leader() { Id = 122, Name = TiglPrestigeRank.VaxeluundrTheProphet, Faction = TiglFactionName.TheVyserixAscendancy, League = TiglLeague.Fractured },
+        new Leader() { Id = 123, Name = TiglPrestigeRank.MonturakHomotolApexPredator, Faction = TiglFactionName.TheZephyrionPursuit, League = TiglLeague.Fractured },
+
+        new Leader() { Id = 124, Name = TiglPrestigeRank.JodekanJodarPrinceOfKaltrim, Faction = TiglFactionName.PrincipalityOfKaltrim, League = TiglLeague.Fractured },
+        new Leader() { Id = 125, Name = TiglPrestigeRank.CardossaFlightPirateQueen, Faction = TiglFactionName.SarcosaDrift, League = TiglLeague.Fractured },
+        new Leader() { Id = 126, Name = TiglPrestigeRank.TSaoGrandAdministrator, Faction = TiglFactionName.XinCourt, League = TiglLeague.Fractured },
     };
 }

@@ -14,6 +14,11 @@
     margin-bottom: var(--space-lg);
 }
 
+/* Filter options always render a visible "All" label for an empty value. */
+.planets-filters-wrapper ::deep .planets-filter-dropdown .rz-dropdown-label {
+    font-family: Handel, fallback, sans-serif;
+}
+
 @media (max-width: 1024px) {
     .planets-grid-shell {
         width: 95%;

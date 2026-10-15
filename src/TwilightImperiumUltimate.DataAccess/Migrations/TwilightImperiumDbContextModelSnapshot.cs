@@ -3108,6 +3108,168 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             GameVersion = "ThundersEdge",
                             Text = "",
                             Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 68,
+                            EnumName = "ExperimentalMechanisms",
+                            FactionName = "TheArvaxiCovenant",
+                            GameVersion = "WhispersFromTheVoid",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 69,
+                            EnumName = "KineticProbeNetwork",
+                            FactionName = "TheConstituentsOfXan",
+                            GameVersion = "WhispersFromTheVoid",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 70,
+                            EnumName = "BypassOperations",
+                            FactionName = "TheKaloraSwarm",
+                            GameVersion = "WhispersFromTheVoid",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 71,
+                            EnumName = "DarkSideExploitation",
+                            FactionName = "TheLunariumConspiracies",
+                            GameVersion = "WhispersFromTheVoid",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 72,
+                            EnumName = "StyxAndStones",
+                            FactionName = "TheOnyxxaComplex",
+                            GameVersion = "WhispersFromTheVoid",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 73,
+                            EnumName = "NonLinearTimeProgression",
+                            FactionName = "TheTyrisContinuum",
+                            GameVersion = "WhispersFromTheVoid",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 74,
+                            EnumName = "MoraySystem",
+                            FactionName = "TheVyserixAscendancy",
+                            GameVersion = "WhispersFromTheVoid",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 75,
+                            EnumName = "SubdueChancellor",
+                            FactionName = "TheZephyrionPursuit",
+                            GameVersion = "WhispersFromTheVoid",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 76,
+                            EnumName = "PanoplyAnimus",
+                            FactionName = "AtokeraLegacy",
+                            GameVersion = "BlueRiverie",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 77,
+                            EnumName = "TrinityStockpile",
+                            FactionName = "BelkoseaAlliedStates",
+                            GameVersion = "BlueRiverie",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 78,
+                            EnumName = "HiddenVaults",
+                            FactionName = "PharadnOrder",
+                            GameVersion = "BlueRiverie",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 79,
+                            EnumName = "EchoOperatives",
+                            FactionName = "PrincipalityOfKaltrim",
+                            GameVersion = "BlueRiverie",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 80,
+                            EnumName = "DuraniumOutfitting",
+                            FactionName = "QhetRepublic",
+                            GameVersion = "BlueRiverie",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 81,
+                            EnumName = "Gravehold",
+                            FactionName = "SarcosaDrift",
+                            GameVersion = "BlueRiverie",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 82,
+                            EnumName = "ShameixsBaneHonor",
+                            FactionName = "ToldarConcordat",
+                            GameVersion = "BlueRiverie",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 83,
+                            EnumName = "ShameixsBaneDishonor",
+                            FactionName = "ToldarConcordat",
+                            GameVersion = "BlueRiverie",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 84,
+                            EnumName = "PrescientWarriors",
+                            FactionName = "UydaiConclave",
+                            GameVersion = "BlueRiverie",
+                            Text = "",
+                            Type = "Breakthrough"
+                        },
+                        new
+                        {
+                            Id = 85,
+                            EnumName = "HarmoniousDiplomacy",
+                            FactionName = "XinCourt",
+                            GameVersion = "BlueRiverie",
+                            Text = "",
+                            Type = "Breakthrough"
                         });
                 });
 
@@ -4195,6 +4357,159 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             EnumName = "AnnahRegia",
                             FactionName = "TheNokarSellships",
                             GameVersion = "DiscordantStars",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 76,
+                            EnumName = "WrathOfTheCovenant",
+                            FactionName = "TheArvaxiCovenant",
+                            GameVersion = "WhispersFromTheVoid",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 77,
+                            EnumName = "AegisAscendant",
+                            FactionName = "TheConstituentsOfXan",
+                            GameVersion = "WhispersFromTheVoid",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 78,
+                            EnumName = "RazorsEdge",
+                            FactionName = "TheKaloraSwarm",
+                            GameVersion = "WhispersFromTheVoid",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 79,
+                            EnumName = "UmbraVas",
+                            FactionName = "TheLunariumConspiracies",
+                            GameVersion = "WhispersFromTheVoid",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 80,
+                            EnumName = "IgneousKhan",
+                            FactionName = "TheOnyxxaComplex",
+                            GameVersion = "WhispersFromTheVoid",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 81,
+                            EnumName = "Paradox",
+                            FactionName = "TheTyrisContinuum",
+                            GameVersion = "WhispersFromTheVoid",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 82,
+                            EnumName = "TheOblivion",
+                            FactionName = "TheVyserixAscendancy",
+                            GameVersion = "WhispersFromTheVoid",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 83,
+                            EnumName = "MarkOfTheHunter",
+                            FactionName = "TheZephyrionPursuit",
+                            GameVersion = "WhispersFromTheVoid",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 84,
+                            EnumName = "Kohi",
+                            FactionName = "AtokeraLegacy",
+                            GameVersion = "BlueRiverie",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 85,
+                            EnumName = "Ascendancy",
+                            FactionName = "BelkoseaAlliedStates",
+                            GameVersion = "BlueRiverie",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 86,
+                            EnumName = "Sedtra",
+                            FactionName = "PharadnOrder",
+                            GameVersion = "BlueRiverie",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 87,
+                            EnumName = "JewelOfTheRose",
+                            FactionName = "PrincipalityOfKaltrim",
+                            GameVersion = "BlueRiverie",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 88,
+                            EnumName = "Khage",
+                            FactionName = "QhetRepublic",
+                            GameVersion = "BlueRiverie",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 89,
+                            EnumName = "Nauclis",
+                            FactionName = "SarcosaDrift",
+                            GameVersion = "BlueRiverie",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 90,
+                            EnumName = "Errant",
+                            FactionName = "ToldarConcordat",
+                            GameVersion = "BlueRiverie",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 91,
+                            EnumName = "DesertSage",
+                            FactionName = "UydaiConclave",
+                            GameVersion = "BlueRiverie",
+                            Text = "",
+                            Type = "Flagship"
+                        },
+                        new
+                        {
+                            Id = 92,
+                            EnumName = "CelestialDragon",
+                            FactionName = "XinCourt",
+                            GameVersion = "BlueRiverie",
                             Text = "",
                             Type = "Flagship"
                         });
@@ -6022,6 +6337,159 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             EnumName = "ShareKnowledge",
                             Faction = "TheDeepwroughtScholarate",
                             GameVersion = "ThundersEdge",
+                            Text = "",
+                            Type = "Promissary"
+                        },
+                        new
+                        {
+                            Id = 80,
+                            EnumName = "AbsoluteSecrecy",
+                            Faction = "TheArvaxiCovenant",
+                            GameVersion = "WhispersFromTheVoid",
+                            Text = "",
+                            Type = "Promissary"
+                        },
+                        new
+                        {
+                            Id = 81,
+                            EnumName = "WarlordsDecree",
+                            Faction = "TheConstituentsOfXan",
+                            GameVersion = "WhispersFromTheVoid",
+                            Text = "",
+                            Type = "Promissary"
+                        },
+                        new
+                        {
+                            Id = 82,
+                            EnumName = "SharedTreasure",
+                            Faction = "TheKaloraSwarm",
+                            GameVersion = "WhispersFromTheVoid",
+                            Text = "",
+                            Type = "Promissary"
+                        },
+                        new
+                        {
+                            Id = 83,
+                            EnumName = "TheoryRenovation",
+                            Faction = "TheLunariumConspiracies",
+                            GameVersion = "WhispersFromTheVoid",
+                            Text = "",
+                            Type = "Promissary"
+                        },
+                        new
+                        {
+                            Id = 84,
+                            EnumName = "SilentAccord",
+                            Faction = "TheOnyxxaComplex",
+                            GameVersion = "WhispersFromTheVoid",
+                            Text = "",
+                            Type = "Promissary"
+                        },
+                        new
+                        {
+                            Id = 85,
+                            EnumName = "FatesBargain",
+                            Faction = "TheTyrisContinuum",
+                            GameVersion = "WhispersFromTheVoid",
+                            Text = "",
+                            Type = "Promissary"
+                        },
+                        new
+                        {
+                            Id = 86,
+                            EnumName = "LockdownProtocol",
+                            Faction = "TheVyserixAscendancy",
+                            GameVersion = "WhispersFromTheVoid",
+                            Text = "",
+                            Type = "Promissary"
+                        },
+                        new
+                        {
+                            Id = 87,
+                            EnumName = "MercenaryDefenseContract",
+                            Faction = "TheZephyrionPursuit",
+                            GameVersion = "WhispersFromTheVoid",
+                            Text = "",
+                            Type = "Promissary"
+                        },
+                        new
+                        {
+                            Id = 88,
+                            EnumName = "TriWeaveShielding",
+                            Faction = "AtokeraLegacy",
+                            GameVersion = "BlueRiverie",
+                            Text = "",
+                            Type = "Promissary"
+                        },
+                        new
+                        {
+                            Id = 89,
+                            EnumName = "MercenarySortie",
+                            Faction = "BelkoseaAlliedStates",
+                            GameVersion = "BlueRiverie",
+                            Text = "",
+                            Type = "Promissary"
+                        },
+                        new
+                        {
+                            Id = 90,
+                            EnumName = "DeathBinding",
+                            Faction = "PharadnOrder",
+                            GameVersion = "BlueRiverie",
+                            Text = "",
+                            Type = "Promissary"
+                        },
+                        new
+                        {
+                            Id = 91,
+                            EnumName = "KaltrimAmbassadors",
+                            Faction = "PrincipalityOfKaltrim",
+                            GameVersion = "BlueRiverie",
+                            Text = "",
+                            Type = "Promissary"
+                        },
+                        new
+                        {
+                            Id = 92,
+                            EnumName = "AlloyShipment",
+                            Faction = "QhetRepublic",
+                            GameVersion = "BlueRiverie",
+                            Text = "",
+                            Type = "Promissary"
+                        },
+                        new
+                        {
+                            Id = 93,
+                            EnumName = "Plunderers",
+                            Faction = "SarcosaDrift",
+                            GameVersion = "BlueRiverie",
+                            Text = "",
+                            Type = "Promissary"
+                        },
+                        new
+                        {
+                            Id = 94,
+                            EnumName = "ConcordatAllegiant",
+                            Faction = "ToldarConcordat",
+                            GameVersion = "BlueRiverie",
+                            Text = "",
+                            Type = "Promissary"
+                        },
+                        new
+                        {
+                            Id = 95,
+                            EnumName = "EeriePredictions",
+                            Faction = "UydaiConclave",
+                            GameVersion = "BlueRiverie",
+                            Text = "",
+                            Type = "Promissary"
+                        },
+                        new
+                        {
+                            Id = 96,
+                            EnumName = "StatecraftMentor",
+                            Faction = "XinCourt",
+                            GameVersion = "BlueRiverie",
                             Text = "",
                             Type = "Promissary"
                         });
@@ -7853,6 +8321,677 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             SpecialType = "Token",
                             Text = "",
                             Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 136,
+                            Count = 1,
+                            EnumName = "ArvaxiMobilizationEngineBoon",
+                            FactionName = "TheArvaxiCovenant",
+                            GameVersion = "WhispersFromTheVoid",
+                            SpecialType = "Other",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 137,
+                            Count = 1,
+                            EnumName = "ArvaxiMobilizationEngineCurse",
+                            FactionName = "TheArvaxiCovenant",
+                            GameVersion = "WhispersFromTheVoid",
+                            SpecialType = "Other",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 138,
+                            Count = 1,
+                            EnumName = "GalacticCitadel",
+                            FactionName = "TheConstituentsOfXan",
+                            GameVersion = "WhispersFromTheVoid",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 139,
+                            Count = 1,
+                            EnumName = "StellarArchitect",
+                            FactionName = "TheConstituentsOfXan",
+                            GameVersion = "WhispersFromTheVoid",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 140,
+                            Count = 1,
+                            EnumName = "Stinger",
+                            FactionName = "TheKaloraSwarm",
+                            GameVersion = "WhispersFromTheVoid",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 141,
+                            Count = 1,
+                            EnumName = "CrypticHauler",
+                            FactionName = "TheLunariumConspiracies",
+                            GameVersion = "WhispersFromTheVoid",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 142,
+                            Count = 1,
+                            EnumName = "PhaseTrooper",
+                            FactionName = "TheTyrisContinuum",
+                            GameVersion = "WhispersFromTheVoid",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 143,
+                            Count = 1,
+                            EnumName = "HarmonicBastion",
+                            FactionName = "TheVyserixAscendancy",
+                            GameVersion = "WhispersFromTheVoid",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 144,
+                            Count = 1,
+                            EnumName = "ZephyrHound",
+                            FactionName = "TheZephyrionPursuit",
+                            GameVersion = "WhispersFromTheVoid",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 145,
+                            Count = 3,
+                            EnumName = "BountyToken",
+                            FactionName = "TheZephyrionPursuit",
+                            GameVersion = "WhispersFromTheVoid",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 146,
+                            Count = 1,
+                            EnumName = "Mirrorshard",
+                            FactionName = "AtokeraLegacy",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 147,
+                            Count = 1,
+                            EnumName = "Wyvern",
+                            FactionName = "BelkoseaAlliedStates",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 148,
+                            Count = 1,
+                            EnumName = "SOLGIndustriesGroup",
+                            FactionName = "BelkoseaAlliedStates",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "HorizontalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 149,
+                            Count = 1,
+                            EnumName = "AvailynToken",
+                            FactionName = "BelkoseaAlliedStates",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 150,
+                            Count = 1,
+                            EnumName = "CaledToken",
+                            FactionName = "BelkoseaAlliedStates",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 151,
+                            Count = 1,
+                            EnumName = "GlatisonToken",
+                            FactionName = "BelkoseaAlliedStates",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 152,
+                            Count = 1,
+                            EnumName = "GromToken",
+                            FactionName = "BelkoseaAlliedStates",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 153,
+                            Count = 1,
+                            EnumName = "MorsToken",
+                            FactionName = "BelkoseaAlliedStates",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 154,
+                            Count = 1,
+                            EnumName = "Availyn",
+                            FactionName = "BelkoseaAlliedStates",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 155,
+                            Count = 1,
+                            EnumName = "Caled",
+                            FactionName = "BelkoseaAlliedStates",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 156,
+                            Count = 1,
+                            EnumName = "Glatison",
+                            FactionName = "BelkoseaAlliedStates",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 157,
+                            Count = 1,
+                            EnumName = "Grom",
+                            FactionName = "BelkoseaAlliedStates",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 158,
+                            Count = 1,
+                            EnumName = "Mors",
+                            FactionName = "BelkoseaAlliedStates",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 159,
+                            Count = 1,
+                            EnumName = "Immortal",
+                            FactionName = "PharadnOrder",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 160,
+                            Count = 14,
+                            EnumName = "TombToken",
+                            FactionName = "PharadnOrder",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 161,
+                            Count = 1,
+                            EnumName = "Consulate",
+                            FactionName = "PrincipalityOfKaltrim",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 162,
+                            Count = 8,
+                            EnumName = "ShrineCard",
+                            FactionName = "PrincipalityOfKaltrim",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 163,
+                            Count = 7,
+                            EnumName = "GenericShrineToken",
+                            FactionName = "PrincipalityOfKaltrim",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 164,
+                            Count = 1,
+                            EnumName = "KaltrimCrownShrineToken",
+                            FactionName = "PrincipalityOfKaltrim",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 165,
+                            Count = 1,
+                            EnumName = "Commando",
+                            FactionName = "QhetRepublic",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 166,
+                            Count = 1,
+                            EnumName = "Battlecruiser",
+                            FactionName = "QhetRepublic",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 167,
+                            Count = 1,
+                            EnumName = "Ravager",
+                            FactionName = "SarcosaDrift",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 168,
+                            Count = 1,
+                            EnumName = "Leviathan",
+                            FactionName = "SarcosaDrift",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "HorizontalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 169,
+                            Count = 8,
+                            EnumName = "HonorToken",
+                            FactionName = "ToldarConcordat",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 170,
+                            Count = 8,
+                            EnumName = "DishonorToken",
+                            FactionName = "ToldarConcordat",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 171,
+                            Count = 1,
+                            EnumName = "Bestow",
+                            FactionName = "ToldarConcordat",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 172,
+                            Count = 1,
+                            EnumName = "Thwart",
+                            FactionName = "ToldarConcordat",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 173,
+                            Count = 1,
+                            EnumName = "Reflect",
+                            FactionName = "ToldarConcordat",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 174,
+                            Count = 1,
+                            EnumName = "Deceive",
+                            FactionName = "ToldarConcordat",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 175,
+                            Count = 1,
+                            EnumName = "Ascend",
+                            FactionName = "ToldarConcordat",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 176,
+                            Count = 1,
+                            EnumName = "Scourge",
+                            FactionName = "ToldarConcordat",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 177,
+                            Count = 8,
+                            EnumName = "PathToken",
+                            FactionName = "UydaiConclave",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 178,
+                            Count = 1,
+                            EnumName = "PlanTactician",
+                            FactionName = "UydaiConclave",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 179,
+                            Count = 1,
+                            EnumName = "PlanSpymaster",
+                            FactionName = "UydaiConclave",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 180,
+                            Count = 1,
+                            EnumName = "Harvest",
+                            FactionName = "UydaiConclave",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "HorizontalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 181,
+                            Count = 1,
+                            EnumName = "PlanStrategist",
+                            FactionName = "UydaiConclave",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 182,
+                            Count = 1,
+                            EnumName = "DeathCommandos",
+                            FactionName = "UydaiConclave",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 183,
+                            Count = 1,
+                            EnumName = "SentinelSteel",
+                            FactionName = "XinCourt",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 184,
+                            Count = 8,
+                            EnumName = "StarToken",
+                            FactionName = "XinCourt",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 185,
+                            Count = 8,
+                            EnumName = "SteelToken",
+                            FactionName = "XinCourt",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "Token",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 186,
+                            Count = 1,
+                            EnumName = "LevyTheSectors",
+                            FactionName = "XinCourt",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 187,
+                            Count = 1,
+                            EnumName = "LogisticalIntervention",
+                            FactionName = "XinCourt",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 188,
+                            Count = 1,
+                            EnumName = "OmenOfTheBlade",
+                            FactionName = "XinCourt",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 189,
+                            Count = 1,
+                            EnumName = "RecruitSpies",
+                            FactionName = "XinCourt",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 190,
+                            Count = 1,
+                            EnumName = "MeteorGambit",
+                            FactionName = "XinCourt",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 191,
+                            Count = 1,
+                            EnumName = "CommissionTheArtisans",
+                            FactionName = "XinCourt",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 192,
+                            Count = 1,
+                            EnumName = "DeftLegislation",
+                            FactionName = "XinCourt",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 193,
+                            Count = 1,
+                            EnumName = "CallOfTheCosmos",
+                            FactionName = "XinCourt",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 194,
+                            Count = 1,
+                            EnumName = "SecureFavor",
+                            FactionName = "XinCourt",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 195,
+                            Count = 1,
+                            EnumName = "DeclareMandate",
+                            FactionName = "XinCourt",
+                            GameVersion = "BlueRiverie",
+                            SpecialType = "VerticalCard",
+                            Text = "",
+                            Type = "SpecialComponent"
+                        },
+                        new
+                        {
+                            Id = 196,
+                            Count = 1,
+                            EnumName = "ZGravEidolon",
+                            FactionName = "TheNaazRokhaAlliance",
+                            GameVersion = "ProphecyOfKings",
+                            SpecialType = "FactionUnit",
+                            Text = "",
+                            Type = "SpecialComponent"
                         });
                 });
 
@@ -9018,6 +10157,244 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Quote = "TheRalNelConsortium_Quote",
                             SystemInfo = "TheRalNelConsortium_SystemInfo",
                             SystemStats = "TheRalNelConsortium_SystemStats"
+                        },
+                        new
+                        {
+                            FactionName = "TheArvaxiCovenant",
+                            Action = "TheArvaxiCovenant_Action",
+                            Commodities = 3,
+                            ComplexityRating = "Low",
+                            GameVersion = "WhispersFromTheVoid",
+                            History = "TheArvaxiCovenant_History",
+                            HomeSystem = "TileWftV01",
+                            Id = 65,
+                            Quote = "TheArvaxiCovenant_Quote",
+                            SystemInfo = "TheArvaxiCovenant_SystemInfo",
+                            SystemStats = "TheArvaxiCovenant_SystemStats"
+                        },
+                        new
+                        {
+                            FactionName = "TheConstituentsOfXan",
+                            Action = "TheConstituentsOfXan_Action",
+                            Commodities = 4,
+                            ComplexityRating = "Medium",
+                            GameVersion = "WhispersFromTheVoid",
+                            History = "TheConstituentsOfXan_History",
+                            HomeSystem = "TileWftV02",
+                            Id = 66,
+                            Quote = "TheConstituentsOfXan_Quote",
+                            SystemInfo = "TheConstituentsOfXan_SystemInfo",
+                            SystemStats = "TheConstituentsOfXan_SystemStats"
+                        },
+                        new
+                        {
+                            FactionName = "TheKaloraSwarm",
+                            Action = "TheKaloraSwarm_Action",
+                            Commodities = 2,
+                            ComplexityRating = "Medium",
+                            GameVersion = "WhispersFromTheVoid",
+                            History = "TheKaloraSwarm_History",
+                            HomeSystem = "TileWftV03",
+                            Id = 67,
+                            Quote = "TheKaloraSwarm_Quote",
+                            SystemInfo = "TheKaloraSwarm_SystemInfo",
+                            SystemStats = "TheKaloraSwarm_SystemStats"
+                        },
+                        new
+                        {
+                            FactionName = "TheLunariumConspiracies",
+                            Action = "TheLunariumConspiracies_Action",
+                            Commodities = 3,
+                            ComplexityRating = "High",
+                            GameVersion = "WhispersFromTheVoid",
+                            History = "TheLunariumConspiracies_History",
+                            HomeSystem = "TileWftV04",
+                            Id = 68,
+                            Quote = "TheLunariumConspiracies_Quote",
+                            SystemInfo = "TheLunariumConspiracies_SystemInfo",
+                            SystemStats = "TheLunariumConspiracies_SystemStats"
+                        },
+                        new
+                        {
+                            FactionName = "TheOnyxxaComplex",
+                            Action = "TheOnyxxaComplex_Action",
+                            Commodities = 3,
+                            ComplexityRating = "High",
+                            GameVersion = "WhispersFromTheVoid",
+                            History = "TheOnyxxaComplex_History",
+                            HomeSystem = "TileWftV05",
+                            Id = 69,
+                            Quote = "TheOnyxxaComplex_Quote",
+                            SystemInfo = "TheOnyxxaComplex_SystemInfo",
+                            SystemStats = "TheOnyxxaComplex_SystemStats"
+                        },
+                        new
+                        {
+                            FactionName = "TheTyrisContinuum",
+                            Action = "TheTyrisContinuum_Action",
+                            Commodities = 3,
+                            ComplexityRating = "High",
+                            GameVersion = "WhispersFromTheVoid",
+                            History = "TheTyrisContinuum_History",
+                            HomeSystem = "TileWftV06",
+                            Id = 70,
+                            Quote = "TheTyrisContinuum_Quote",
+                            SystemInfo = "TheTyrisContinuum_SystemInfo",
+                            SystemStats = "TheTyrisContinuum_SystemStats"
+                        },
+                        new
+                        {
+                            FactionName = "TheVyserixAscendancy",
+                            Action = "TheVyserixAscendancy_Action",
+                            Commodities = 3,
+                            ComplexityRating = "Medium",
+                            GameVersion = "WhispersFromTheVoid",
+                            History = "TheVyserixAscendancy_History",
+                            HomeSystem = "TileWftV07",
+                            Id = 71,
+                            Quote = "TheVyserixAscendancy_Quote",
+                            SystemInfo = "TheVyserixAscendancy_SystemInfo",
+                            SystemStats = "TheVyserixAscendancy_SystemStats"
+                        },
+                        new
+                        {
+                            FactionName = "TheZephyrionPursuit",
+                            Action = "TheZephyrionPursuit_Action",
+                            Commodities = 2,
+                            ComplexityRating = "Low",
+                            GameVersion = "WhispersFromTheVoid",
+                            History = "TheZephyrionPursuit_History",
+                            HomeSystem = "TileWftV08",
+                            Id = 72,
+                            Quote = "TheZephyrionPursuit_Quote",
+                            SystemInfo = "TheZephyrionPursuit_SystemInfo",
+                            SystemStats = "TheZephyrionPursuit_SystemStats"
+                        },
+                        new
+                        {
+                            FactionName = "AtokeraLegacy",
+                            Action = "AtokeraLegacy_Action",
+                            Commodities = 3,
+                            ComplexityRating = "Low",
+                            GameVersion = "BlueRiverie",
+                            History = "AtokeraLegacy_History",
+                            HomeSystem = "TileBr01",
+                            Id = 73,
+                            Quote = "AtokeraLegacy_Quote",
+                            SystemInfo = "AtokeraLegacy_SystemInfo",
+                            SystemStats = "AtokeraLegacy_SystemStats"
+                        },
+                        new
+                        {
+                            FactionName = "BelkoseaAlliedStates",
+                            Action = "BelkoseaAlliedStates_Action",
+                            Commodities = 1,
+                            ComplexityRating = "Low",
+                            GameVersion = "BlueRiverie",
+                            History = "BelkoseaAlliedStates_History",
+                            HomeSystem = "TileBr02",
+                            Id = 74,
+                            Quote = "BelkoseaAlliedStates_Quote",
+                            SystemInfo = "BelkoseaAlliedStates_SystemInfo",
+                            SystemStats = "BelkoseaAlliedStates_SystemStats"
+                        },
+                        new
+                        {
+                            FactionName = "PharadnOrder",
+                            Action = "PharadnOrder_Action",
+                            Commodities = 2,
+                            ComplexityRating = "Low",
+                            GameVersion = "BlueRiverie",
+                            History = "PharadnOrder_History",
+                            HomeSystem = "TileBr03",
+                            Id = 75,
+                            Quote = "PharadnOrder_Quote",
+                            SystemInfo = "PharadnOrder_SystemInfo",
+                            SystemStats = "PharadnOrder_SystemStats"
+                        },
+                        new
+                        {
+                            FactionName = "PrincipalityOfKaltrim",
+                            Action = "PrincipalityOfKaltrim_Action",
+                            Commodities = 3,
+                            ComplexityRating = "Low",
+                            GameVersion = "BlueRiverie",
+                            History = "PrincipalityOfKaltrim_History",
+                            HomeSystem = "TileBr04",
+                            Id = 76,
+                            Quote = "PrincipalityOfKaltrim_Quote",
+                            SystemInfo = "PrincipalityOfKaltrim_SystemInfo",
+                            SystemStats = "PrincipalityOfKaltrim_SystemStats"
+                        },
+                        new
+                        {
+                            FactionName = "QhetRepublic",
+                            Action = "QhetRepublic_Action",
+                            Commodities = 2,
+                            ComplexityRating = "Low",
+                            GameVersion = "BlueRiverie",
+                            History = "QhetRepublic_History",
+                            HomeSystem = "TileBr05",
+                            Id = 77,
+                            Quote = "QhetRepublic_Quote",
+                            SystemInfo = "QhetRepublic_SystemInfo",
+                            SystemStats = "QhetRepublic_SystemStats"
+                        },
+                        new
+                        {
+                            FactionName = "SarcosaDrift",
+                            Action = "SarcosaDrift_Action",
+                            Commodities = 3,
+                            ComplexityRating = "Low",
+                            GameVersion = "BlueRiverie",
+                            History = "SarcosaDrift_History",
+                            HomeSystem = "TileBr06",
+                            Id = 78,
+                            Quote = "SarcosaDrift_Quote",
+                            SystemInfo = "SarcosaDrift_SystemInfo",
+                            SystemStats = "SarcosaDrift_SystemStats"
+                        },
+                        new
+                        {
+                            FactionName = "ToldarConcordat",
+                            Action = "ToldarConcordat_Action",
+                            Commodities = 3,
+                            ComplexityRating = "Low",
+                            GameVersion = "BlueRiverie",
+                            History = "ToldarConcordat_History",
+                            HomeSystem = "TileBr07",
+                            Id = 79,
+                            Quote = "ToldarConcordat_Quote",
+                            SystemInfo = "ToldarConcordat_SystemInfo",
+                            SystemStats = "ToldarConcordat_SystemStats"
+                        },
+                        new
+                        {
+                            FactionName = "UydaiConclave",
+                            Action = "UydaiConclave_Action",
+                            Commodities = 5,
+                            ComplexityRating = "Low",
+                            GameVersion = "BlueRiverie",
+                            History = "UydaiConclave_History",
+                            HomeSystem = "TileBr08",
+                            Id = 80,
+                            Quote = "UydaiConclave_Quote",
+                            SystemInfo = "UydaiConclave_SystemInfo",
+                            SystemStats = "UydaiConclave_SystemStats"
+                        },
+                        new
+                        {
+                            FactionName = "XinCourt",
+                            Action = "XinCourt_Action",
+                            Commodities = 4,
+                            ComplexityRating = "Low",
+                            GameVersion = "BlueRiverie",
+                            History = "XinCourt_History",
+                            HomeSystem = "TileBr09",
+                            Id = 81,
+                            Quote = "XinCourt_Quote",
+                            SystemInfo = "XinCourt_SystemInfo",
+                            SystemStats = "XinCourt_SystemStats"
                         });
                 });
 
@@ -12635,6 +14012,958 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Color = "Black",
                             FactionName = "TheRalNelConsortium",
                             Importance = 0
+                        },
+                        new
+                        {
+                            Id = 513,
+                            Color = "Red",
+                            FactionName = "TheArvaxiCovenant",
+                            Importance = 1
+                        },
+                        new
+                        {
+                            Id = 514,
+                            Color = "Orange",
+                            FactionName = "TheArvaxiCovenant",
+                            Importance = 2
+                        },
+                        new
+                        {
+                            Id = 515,
+                            Color = "Yellow",
+                            FactionName = "TheArvaxiCovenant",
+                            Importance = 7
+                        },
+                        new
+                        {
+                            Id = 516,
+                            Color = "Green",
+                            FactionName = "TheArvaxiCovenant",
+                            Importance = 9
+                        },
+                        new
+                        {
+                            Id = 517,
+                            Color = "Blue",
+                            FactionName = "TheArvaxiCovenant",
+                            Importance = 3
+                        },
+                        new
+                        {
+                            Id = 518,
+                            Color = "Purple",
+                            FactionName = "TheArvaxiCovenant",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 519,
+                            Color = "Pink",
+                            FactionName = "TheArvaxiCovenant",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 520,
+                            Color = "Black",
+                            FactionName = "TheArvaxiCovenant",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 521,
+                            Color = "Red",
+                            FactionName = "TheConstituentsOfXan",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 522,
+                            Color = "Orange",
+                            FactionName = "TheConstituentsOfXan",
+                            Importance = 8
+                        },
+                        new
+                        {
+                            Id = 523,
+                            Color = "Yellow",
+                            FactionName = "TheConstituentsOfXan",
+                            Importance = 1
+                        },
+                        new
+                        {
+                            Id = 524,
+                            Color = "Green",
+                            FactionName = "TheConstituentsOfXan",
+                            Importance = 9
+                        },
+                        new
+                        {
+                            Id = 525,
+                            Color = "Blue",
+                            FactionName = "TheConstituentsOfXan",
+                            Importance = 4
+                        },
+                        new
+                        {
+                            Id = 526,
+                            Color = "Purple",
+                            FactionName = "TheConstituentsOfXan",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 527,
+                            Color = "Pink",
+                            FactionName = "TheConstituentsOfXan",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 528,
+                            Color = "Black",
+                            FactionName = "TheConstituentsOfXan",
+                            Importance = 2
+                        },
+                        new
+                        {
+                            Id = 529,
+                            Color = "Red",
+                            FactionName = "TheKaloraSwarm",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 530,
+                            Color = "Orange",
+                            FactionName = "TheKaloraSwarm",
+                            Importance = 9
+                        },
+                        new
+                        {
+                            Id = 531,
+                            Color = "Yellow",
+                            FactionName = "TheKaloraSwarm",
+                            Importance = 2
+                        },
+                        new
+                        {
+                            Id = 532,
+                            Color = "Green",
+                            FactionName = "TheKaloraSwarm",
+                            Importance = 5
+                        },
+                        new
+                        {
+                            Id = 533,
+                            Color = "Blue",
+                            FactionName = "TheKaloraSwarm",
+                            Importance = 8
+                        },
+                        new
+                        {
+                            Id = 534,
+                            Color = "Purple",
+                            FactionName = "TheKaloraSwarm",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 535,
+                            Color = "Pink",
+                            FactionName = "TheKaloraSwarm",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 536,
+                            Color = "Black",
+                            FactionName = "TheKaloraSwarm",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 537,
+                            Color = "Red",
+                            FactionName = "TheLunariumConspiracies",
+                            Importance = 9
+                        },
+                        new
+                        {
+                            Id = 538,
+                            Color = "Orange",
+                            FactionName = "TheLunariumConspiracies",
+                            Importance = 3
+                        },
+                        new
+                        {
+                            Id = 539,
+                            Color = "Yellow",
+                            FactionName = "TheLunariumConspiracies",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 540,
+                            Color = "Green",
+                            FactionName = "TheLunariumConspiracies",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 541,
+                            Color = "Blue",
+                            FactionName = "TheLunariumConspiracies",
+                            Importance = 2
+                        },
+                        new
+                        {
+                            Id = 542,
+                            Color = "Purple",
+                            FactionName = "TheLunariumConspiracies",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 543,
+                            Color = "Pink",
+                            FactionName = "TheLunariumConspiracies",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 544,
+                            Color = "Black",
+                            FactionName = "TheLunariumConspiracies",
+                            Importance = 8
+                        },
+                        new
+                        {
+                            Id = 545,
+                            Color = "Red",
+                            FactionName = "TheOnyxxaComplex",
+                            Importance = 2
+                        },
+                        new
+                        {
+                            Id = 546,
+                            Color = "Orange",
+                            FactionName = "TheOnyxxaComplex",
+                            Importance = 9
+                        },
+                        new
+                        {
+                            Id = 547,
+                            Color = "Yellow",
+                            FactionName = "TheOnyxxaComplex",
+                            Importance = 3
+                        },
+                        new
+                        {
+                            Id = 548,
+                            Color = "Green",
+                            FactionName = "TheOnyxxaComplex",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 549,
+                            Color = "Blue",
+                            FactionName = "TheOnyxxaComplex",
+                            Importance = 6
+                        },
+                        new
+                        {
+                            Id = 550,
+                            Color = "Purple",
+                            FactionName = "TheOnyxxaComplex",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 551,
+                            Color = "Pink",
+                            FactionName = "TheOnyxxaComplex",
+                            Importance = 1
+                        },
+                        new
+                        {
+                            Id = 552,
+                            Color = "Black",
+                            FactionName = "TheOnyxxaComplex",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 553,
+                            Color = "Red",
+                            FactionName = "TheTyrisContinuum",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 554,
+                            Color = "Orange",
+                            FactionName = "TheTyrisContinuum",
+                            Importance = 1
+                        },
+                        new
+                        {
+                            Id = 555,
+                            Color = "Yellow",
+                            FactionName = "TheTyrisContinuum",
+                            Importance = 5
+                        },
+                        new
+                        {
+                            Id = 556,
+                            Color = "Green",
+                            FactionName = "TheTyrisContinuum",
+                            Importance = 9
+                        },
+                        new
+                        {
+                            Id = 557,
+                            Color = "Blue",
+                            FactionName = "TheTyrisContinuum",
+                            Importance = 4
+                        },
+                        new
+                        {
+                            Id = 558,
+                            Color = "Purple",
+                            FactionName = "TheTyrisContinuum",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 559,
+                            Color = "Pink",
+                            FactionName = "TheTyrisContinuum",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 560,
+                            Color = "Black",
+                            FactionName = "TheTyrisContinuum",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 561,
+                            Color = "Red",
+                            FactionName = "TheVyserixAscendancy",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 562,
+                            Color = "Orange",
+                            FactionName = "TheVyserixAscendancy",
+                            Importance = 7
+                        },
+                        new
+                        {
+                            Id = 563,
+                            Color = "Yellow",
+                            FactionName = "TheVyserixAscendancy",
+                            Importance = 1
+                        },
+                        new
+                        {
+                            Id = 564,
+                            Color = "Green",
+                            FactionName = "TheVyserixAscendancy",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 565,
+                            Color = "Blue",
+                            FactionName = "TheVyserixAscendancy",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 566,
+                            Color = "Purple",
+                            FactionName = "TheVyserixAscendancy",
+                            Importance = 4
+                        },
+                        new
+                        {
+                            Id = 567,
+                            Color = "Pink",
+                            FactionName = "TheVyserixAscendancy",
+                            Importance = 5
+                        },
+                        new
+                        {
+                            Id = 568,
+                            Color = "Black",
+                            FactionName = "TheVyserixAscendancy",
+                            Importance = 6
+                        },
+                        new
+                        {
+                            Id = 569,
+                            Color = "Red",
+                            FactionName = "TheZephyrionPursuit",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 570,
+                            Color = "Orange",
+                            FactionName = "TheZephyrionPursuit",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 571,
+                            Color = "Yellow",
+                            FactionName = "TheZephyrionPursuit",
+                            Importance = 3
+                        },
+                        new
+                        {
+                            Id = 572,
+                            Color = "Green",
+                            FactionName = "TheZephyrionPursuit",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 573,
+                            Color = "Blue",
+                            FactionName = "TheZephyrionPursuit",
+                            Importance = 9
+                        },
+                        new
+                        {
+                            Id = 574,
+                            Color = "Purple",
+                            FactionName = "TheZephyrionPursuit",
+                            Importance = 7
+                        },
+                        new
+                        {
+                            Id = 575,
+                            Color = "Pink",
+                            FactionName = "TheZephyrionPursuit",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 576,
+                            Color = "Black",
+                            FactionName = "TheZephyrionPursuit",
+                            Importance = 6
+                        },
+                        new
+                        {
+                            Id = 577,
+                            Color = "Red",
+                            FactionName = "AtokeraLegacy",
+                            Importance = 6
+                        },
+                        new
+                        {
+                            Id = 578,
+                            Color = "Orange",
+                            FactionName = "AtokeraLegacy",
+                            Importance = 9
+                        },
+                        new
+                        {
+                            Id = 579,
+                            Color = "Yellow",
+                            FactionName = "AtokeraLegacy",
+                            Importance = 5
+                        },
+                        new
+                        {
+                            Id = 580,
+                            Color = "Green",
+                            FactionName = "AtokeraLegacy",
+                            Importance = 1
+                        },
+                        new
+                        {
+                            Id = 581,
+                            Color = "Blue",
+                            FactionName = "AtokeraLegacy",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 582,
+                            Color = "Purple",
+                            FactionName = "AtokeraLegacy",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 583,
+                            Color = "Pink",
+                            FactionName = "AtokeraLegacy",
+                            Importance = 2
+                        },
+                        new
+                        {
+                            Id = 584,
+                            Color = "Black",
+                            FactionName = "AtokeraLegacy",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 585,
+                            Color = "Red",
+                            FactionName = "BelkoseaAlliedStates",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 586,
+                            Color = "Orange",
+                            FactionName = "BelkoseaAlliedStates",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 587,
+                            Color = "Yellow",
+                            FactionName = "BelkoseaAlliedStates",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 588,
+                            Color = "Green",
+                            FactionName = "BelkoseaAlliedStates",
+                            Importance = 4
+                        },
+                        new
+                        {
+                            Id = 589,
+                            Color = "Blue",
+                            FactionName = "BelkoseaAlliedStates",
+                            Importance = 6
+                        },
+                        new
+                        {
+                            Id = 590,
+                            Color = "Purple",
+                            FactionName = "BelkoseaAlliedStates",
+                            Importance = 7
+                        },
+                        new
+                        {
+                            Id = 591,
+                            Color = "Pink",
+                            FactionName = "BelkoseaAlliedStates",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 592,
+                            Color = "Black",
+                            FactionName = "BelkoseaAlliedStates",
+                            Importance = 8
+                        },
+                        new
+                        {
+                            Id = 593,
+                            Color = "Red",
+                            FactionName = "PharadnOrder",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 594,
+                            Color = "Orange",
+                            FactionName = "PharadnOrder",
+                            Importance = 9
+                        },
+                        new
+                        {
+                            Id = 595,
+                            Color = "Yellow",
+                            FactionName = "PharadnOrder",
+                            Importance = 8
+                        },
+                        new
+                        {
+                            Id = 596,
+                            Color = "Green",
+                            FactionName = "PharadnOrder",
+                            Importance = 2
+                        },
+                        new
+                        {
+                            Id = 597,
+                            Color = "Blue",
+                            FactionName = "PharadnOrder",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 598,
+                            Color = "Purple",
+                            FactionName = "PharadnOrder",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 599,
+                            Color = "Pink",
+                            FactionName = "PharadnOrder",
+                            Importance = 1
+                        },
+                        new
+                        {
+                            Id = 600,
+                            Color = "Black",
+                            FactionName = "PharadnOrder",
+                            Importance = 6
+                        },
+                        new
+                        {
+                            Id = 601,
+                            Color = "Red",
+                            FactionName = "PrincipalityOfKaltrim",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 602,
+                            Color = "Orange",
+                            FactionName = "PrincipalityOfKaltrim",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 603,
+                            Color = "Yellow",
+                            FactionName = "PrincipalityOfKaltrim",
+                            Importance = 1
+                        },
+                        new
+                        {
+                            Id = 604,
+                            Color = "Green",
+                            FactionName = "PrincipalityOfKaltrim",
+                            Importance = 10
+                        },
+                        new
+                        {
+                            Id = 605,
+                            Color = "Blue",
+                            FactionName = "PrincipalityOfKaltrim",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 606,
+                            Color = "Purple",
+                            FactionName = "PrincipalityOfKaltrim",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 607,
+                            Color = "Pink",
+                            FactionName = "PrincipalityOfKaltrim",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 608,
+                            Color = "Black",
+                            FactionName = "PrincipalityOfKaltrim",
+                            Importance = 8
+                        },
+                        new
+                        {
+                            Id = 609,
+                            Color = "Red",
+                            FactionName = "QhetRepublic",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 610,
+                            Color = "Orange",
+                            FactionName = "QhetRepublic",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 611,
+                            Color = "Yellow",
+                            FactionName = "QhetRepublic",
+                            Importance = 3
+                        },
+                        new
+                        {
+                            Id = 612,
+                            Color = "Green",
+                            FactionName = "QhetRepublic",
+                            Importance = 7
+                        },
+                        new
+                        {
+                            Id = 613,
+                            Color = "Blue",
+                            FactionName = "QhetRepublic",
+                            Importance = 8
+                        },
+                        new
+                        {
+                            Id = 614,
+                            Color = "Purple",
+                            FactionName = "QhetRepublic",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 615,
+                            Color = "Pink",
+                            FactionName = "QhetRepublic",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 616,
+                            Color = "Black",
+                            FactionName = "QhetRepublic",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 617,
+                            Color = "Red",
+                            FactionName = "SarcosaDrift",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 618,
+                            Color = "Orange",
+                            FactionName = "SarcosaDrift",
+                            Importance = 2
+                        },
+                        new
+                        {
+                            Id = 619,
+                            Color = "Yellow",
+                            FactionName = "SarcosaDrift",
+                            Importance = 3
+                        },
+                        new
+                        {
+                            Id = 620,
+                            Color = "Green",
+                            FactionName = "SarcosaDrift",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 621,
+                            Color = "Blue",
+                            FactionName = "SarcosaDrift",
+                            Importance = 6
+                        },
+                        new
+                        {
+                            Id = 622,
+                            Color = "Purple",
+                            FactionName = "SarcosaDrift",
+                            Importance = 7
+                        },
+                        new
+                        {
+                            Id = 623,
+                            Color = "Pink",
+                            FactionName = "SarcosaDrift",
+                            Importance = 9
+                        },
+                        new
+                        {
+                            Id = 624,
+                            Color = "Black",
+                            FactionName = "SarcosaDrift",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 625,
+                            Color = "Red",
+                            FactionName = "ToldarConcordat",
+                            Importance = 5
+                        },
+                        new
+                        {
+                            Id = 626,
+                            Color = "Orange",
+                            FactionName = "ToldarConcordat",
+                            Importance = 3
+                        },
+                        new
+                        {
+                            Id = 627,
+                            Color = "Yellow",
+                            FactionName = "ToldarConcordat",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 628,
+                            Color = "Green",
+                            FactionName = "ToldarConcordat",
+                            Importance = 9
+                        },
+                        new
+                        {
+                            Id = 629,
+                            Color = "Blue",
+                            FactionName = "ToldarConcordat",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 630,
+                            Color = "Purple",
+                            FactionName = "ToldarConcordat",
+                            Importance = 1
+                        },
+                        new
+                        {
+                            Id = 631,
+                            Color = "Pink",
+                            FactionName = "ToldarConcordat",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 632,
+                            Color = "Black",
+                            FactionName = "ToldarConcordat",
+                            Importance = 6
+                        },
+                        new
+                        {
+                            Id = 633,
+                            Color = "Red",
+                            FactionName = "UydaiConclave",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 634,
+                            Color = "Orange",
+                            FactionName = "UydaiConclave",
+                            Importance = 8
+                        },
+                        new
+                        {
+                            Id = 635,
+                            Color = "Yellow",
+                            FactionName = "UydaiConclave",
+                            Importance = 2
+                        },
+                        new
+                        {
+                            Id = 636,
+                            Color = "Green",
+                            FactionName = "UydaiConclave",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 637,
+                            Color = "Blue",
+                            FactionName = "UydaiConclave",
+                            Importance = 9
+                        },
+                        new
+                        {
+                            Id = 638,
+                            Color = "Purple",
+                            FactionName = "UydaiConclave",
+                            Importance = 1
+                        },
+                        new
+                        {
+                            Id = 639,
+                            Color = "Pink",
+                            FactionName = "UydaiConclave",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 640,
+                            Color = "Black",
+                            FactionName = "UydaiConclave",
+                            Importance = 3
+                        },
+                        new
+                        {
+                            Id = 641,
+                            Color = "Red",
+                            FactionName = "XinCourt",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 642,
+                            Color = "Orange",
+                            FactionName = "XinCourt",
+                            Importance = 5
+                        },
+                        new
+                        {
+                            Id = 643,
+                            Color = "Yellow",
+                            FactionName = "XinCourt",
+                            Importance = 7
+                        },
+                        new
+                        {
+                            Id = 644,
+                            Color = "Green",
+                            FactionName = "XinCourt",
+                            Importance = 8
+                        },
+                        new
+                        {
+                            Id = 645,
+                            Color = "Blue",
+                            FactionName = "XinCourt",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 646,
+                            Color = "Purple",
+                            FactionName = "XinCourt",
+                            Importance = 0
+                        },
+                        new
+                        {
+                            Id = 647,
+                            Color = "Pink",
+                            FactionName = "XinCourt",
+                            Importance = 4
+                        },
+                        new
+                        {
+                            Id = 648,
+                            Color = "Black",
+                            FactionName = "XinCourt",
+                            Importance = 3
                         });
                 });
 
@@ -12881,8 +15210,8 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
 
                     b.Property<string>("PlanetTrait")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("varchar(20)")
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)")
                         .HasColumnName("PlanetTrait")
                         .HasColumnOrder(6);
 
@@ -17017,6 +19346,342 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Resources = 2,
                             SystemTileName = "TileEmpty",
                             TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Lirastra",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 340,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 2,
+                            SystemTileName = "TileWftV01",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Vraxil",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 341,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 1,
+                            SystemTileName = "TileWftV01",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Krax",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 342,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 5,
+                            SystemTileName = "TileWftV02",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "TerraNovus",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 343,
+                            Influence = 0,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 3,
+                            SystemTileName = "TileWftV03",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Luna",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 344,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 1,
+                            SystemTileName = "TileWftV03",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Velarune",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 345,
+                            Influence = 4,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 3,
+                            SystemTileName = "TileWftV04",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "XelVorr",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 346,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 3,
+                            SystemTileName = "TileWftV05",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "VaelThunn",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 347,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 1,
+                            SystemTileName = "TileWftV05",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "HexaraTwo",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 348,
+                            Influence = 3,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 0,
+                            SystemTileName = "TileWftV06",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "VyseraThree",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 349,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 2,
+                            SystemTileName = "TileWftV06",
+                            TechnologySkip = "Propulsion"
+                        },
+                        new
+                        {
+                            PlanetName = "TalaNine",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 350,
+                            Influence = 0,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 1,
+                            SystemTileName = "TileWftV06",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Xan",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 351,
+                            Influence = 4,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 2,
+                            SystemTileName = "TileWftV07",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Thar",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 352,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 1,
+                            SystemTileName = "TileWftV07",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Zephyrax",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 353,
+                            Influence = 0,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 2,
+                            SystemTileName = "TileWftV08",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Dralius",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 354,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 2,
+                            SystemTileName = "TileWftV08",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Magna",
+                            GameVersion = "BlueRiverie",
+                            Id = 355,
+                            Influence = 4,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 4,
+                            SystemTileName = "TileBr01",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Conviction",
+                            GameVersion = "BlueRiverie",
+                            Id = 356,
+                            Influence = 0,
+                            IsLegendary = "true",
+                            PlanetTrait = "LegendarySpaceStation",
+                            Resources = 1,
+                            SystemTileName = "TileBr02",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Iterum",
+                            GameVersion = "BlueRiverie",
+                            Id = 357,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 3,
+                            SystemTileName = "TileBr02",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Phar",
+                            GameVersion = "BlueRiverie",
+                            Id = 358,
+                            Influence = 0,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 1,
+                            SystemTileName = "TileBr03",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "AvKHo",
+                            GameVersion = "BlueRiverie",
+                            Id = 359,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 2,
+                            SystemTileName = "TileBr04",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Kaltrim",
+                            GameVersion = "BlueRiverie",
+                            Id = 360,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 3,
+                            SystemTileName = "TileBr04",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Drakkol",
+                            GameVersion = "BlueRiverie",
+                            Id = 361,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 1,
+                            SystemTileName = "TileBr05",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Qhet",
+                            GameVersion = "BlueRiverie",
+                            Id = 362,
+                            Influence = 2,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 3,
+                            SystemTileName = "TileBr05",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Sarcosa",
+                            GameVersion = "BlueRiverie",
+                            Id = 363,
+                            Influence = 3,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 3,
+                            SystemTileName = "TileBr06",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Khodd",
+                            GameVersion = "BlueRiverie",
+                            Id = 364,
+                            Influence = 4,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 2,
+                            SystemTileName = "TileBr07",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Dyrun",
+                            GameVersion = "BlueRiverie",
+                            Id = 365,
+                            Influence = 1,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 3,
+                            SystemTileName = "TileBr07",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Uikos",
+                            GameVersion = "BlueRiverie",
+                            Id = 366,
+                            Influence = 1,
+                            IsLegendary = "true",
+                            PlanetTrait = "Legendary",
+                            Resources = 1,
+                            SystemTileName = "TileBr08",
+                            TechnologySkip = "None"
+                        },
+                        new
+                        {
+                            PlanetName = "Yu",
+                            GameVersion = "BlueRiverie",
+                            Id = 367,
+                            Influence = 5,
+                            IsLegendary = "false",
+                            PlanetTrait = "None",
+                            Resources = 3,
+                            SystemTileName = "TileBr09",
+                            TechnologySkip = "None"
                         });
                 });
 
@@ -20976,6 +23641,176 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 365,
                             SystemTileCode = "Fracture7",
                             TileCategory = "ExternalMapTile"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileWftV01",
+                            Anomaly = "None",
+                            FactionName = "TheArvaxiCovenant",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 366,
+                            SystemTileCode = "WftV01",
+                            TileCategory = "Green"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileWftV02",
+                            Anomaly = "None",
+                            FactionName = "TheConstituentsOfXan",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 367,
+                            SystemTileCode = "WftV02",
+                            TileCategory = "Green"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileWftV03",
+                            Anomaly = "None",
+                            FactionName = "TheKaloraSwarm",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 368,
+                            SystemTileCode = "WftV03",
+                            TileCategory = "Green"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileWftV04",
+                            Anomaly = "None",
+                            FactionName = "TheLunariumConspiracies",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 369,
+                            SystemTileCode = "WftV04",
+                            TileCategory = "Green"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileWftV05",
+                            Anomaly = "None",
+                            FactionName = "TheOnyxxaComplex",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 370,
+                            SystemTileCode = "WftV05",
+                            TileCategory = "Green"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileWftV06",
+                            Anomaly = "None",
+                            FactionName = "TheTyrisContinuum",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 371,
+                            SystemTileCode = "WftV06",
+                            TileCategory = "Green"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileWftV07",
+                            Anomaly = "None",
+                            FactionName = "TheVyserixAscendancy",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 372,
+                            SystemTileCode = "WftV07",
+                            TileCategory = "Green"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileWftV08",
+                            Anomaly = "None",
+                            FactionName = "TheZephyrionPursuit",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 373,
+                            SystemTileCode = "WftV08",
+                            TileCategory = "Green"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileBr01",
+                            Anomaly = "None",
+                            FactionName = "AtokeraLegacy",
+                            GameVersion = "BlueRiverie",
+                            Id = 374,
+                            SystemTileCode = "Br01",
+                            TileCategory = "Green"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileBr02",
+                            Anomaly = "None",
+                            FactionName = "BelkoseaAlliedStates",
+                            GameVersion = "BlueRiverie",
+                            Id = 375,
+                            SystemTileCode = "Br02",
+                            TileCategory = "Green"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileBr03",
+                            Anomaly = "None",
+                            FactionName = "PharadnOrder",
+                            GameVersion = "BlueRiverie",
+                            Id = 376,
+                            SystemTileCode = "Br03",
+                            TileCategory = "Green"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileBr04",
+                            Anomaly = "None",
+                            FactionName = "PrincipalityOfKaltrim",
+                            GameVersion = "BlueRiverie",
+                            Id = 377,
+                            SystemTileCode = "Br04",
+                            TileCategory = "Green"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileBr05",
+                            Anomaly = "None",
+                            FactionName = "QhetRepublic",
+                            GameVersion = "BlueRiverie",
+                            Id = 378,
+                            SystemTileCode = "Br05",
+                            TileCategory = "Green"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileBr06",
+                            Anomaly = "None",
+                            FactionName = "SarcosaDrift",
+                            GameVersion = "BlueRiverie",
+                            Id = 379,
+                            SystemTileCode = "Br06",
+                            TileCategory = "Green"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileBr07",
+                            Anomaly = "None",
+                            FactionName = "ToldarConcordat",
+                            GameVersion = "BlueRiverie",
+                            Id = 380,
+                            SystemTileCode = "Br07",
+                            TileCategory = "Green"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileBr08",
+                            Anomaly = "None",
+                            FactionName = "UydaiConclave",
+                            GameVersion = "BlueRiverie",
+                            Id = 381,
+                            SystemTileCode = "Br08",
+                            TileCategory = "Green"
+                        },
+                        new
+                        {
+                            SystemTileName = "TileBr09",
+                            Anomaly = "None",
+                            FactionName = "XinCourt",
+                            GameVersion = "BlueRiverie",
+                            Id = 382,
+                            SystemTileCode = "Br09",
+                            TileCategory = "Green"
                         });
                 });
 
@@ -22204,7 +25039,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         new
                         {
                             FactionName = "TheArborec",
-                            TechnologyName = "MagenDefenseGridOmega",
+                            TechnologyName = "MagenDefenseGridOmegaOmega",
                             StartingTechnology = "true"
                         },
                         new
@@ -22774,7 +25609,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         new
                         {
                             FactionName = "TheCheiranHordes",
-                            TechnologyName = "MagenDefenseGridOmega",
+                            TechnologyName = "MagenDefenseGridOmegaOmega",
                             StartingTechnology = "true"
                         },
                         new
@@ -23063,6 +25898,204 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             FactionName = "TheRalNelConsortium",
                             TechnologyName = "NeuralMotivator",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "TheArvaxiCovenant",
+                            TechnologyName = "NeuralMotivator",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "TheArvaxiCovenant",
+                            TechnologyName = "AIDevelopmentAlgorithm",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "TheConstituentsOfXan",
+                            TechnologyName = "SarweenTools",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "TheConstituentsOfXan",
+                            TechnologyName = "AIDevelopmentAlgorithm",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "TheKaloraSwarm",
+                            TechnologyName = "DarkEnergyTap",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "TheKaloraSwarm",
+                            TechnologyName = "PlasmaScoring",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "TheLunariumConspiracies",
+                            TechnologyName = "PredictiveIntelligence",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "TheLunariumConspiracies",
+                            TechnologyName = "Psychoarchaeology",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "TheOnyxxaComplex",
+                            TechnologyName = "PredictiveIntelligence",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "TheTyrisContinuum",
+                            TechnologyName = "DarkEnergyTap",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "TheTyrisContinuum",
+                            TechnologyName = "NeuralMotivator",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "TheVyserixAscendancy",
+                            TechnologyName = "Psychoarchaeology",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "TheVyserixAscendancy",
+                            TechnologyName = "MagenDefenseGridOmegaOmega",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "TheZephyrionPursuit",
+                            TechnologyName = "SarweenTools",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "TheZephyrionPursuit",
+                            TechnologyName = "SelfAssemblyRoutines",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "AtokeraLegacy",
+                            TechnologyName = "GravitonLaserSystem",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "AtokeraLegacy",
+                            TechnologyName = "MagenDefenseGridOmegaOmega",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "BelkoseaAlliedStates",
+                            TechnologyName = "SarweenTools",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "BelkoseaAlliedStates",
+                            TechnologyName = "ScanlinkDroneNetwork",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "BelkoseaAlliedStates",
+                            TechnologyName = "PlasmaScoring",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "BelkoseaAlliedStates",
+                            TechnologyName = "AIDevelopmentAlgorithm",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "PharadnOrder",
+                            TechnologyName = "IntegratedEconomy",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "PrincipalityOfKaltrim",
+                            TechnologyName = "AssaultCannon",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "QhetRepublic",
+                            TechnologyName = "SlingRelay",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "QhetRepublic",
+                            TechnologyName = "SelfAssemblyRoutines",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "SarcosaDrift",
+                            TechnologyName = "LightWaveDeflector",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "ToldarConcordat",
+                            TechnologyName = "NeuralMotivator",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "ToldarConcordat",
+                            TechnologyName = "Psychoarchaeology",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "ToldarConcordat",
+                            TechnologyName = "AntimassDeflectors",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "ToldarConcordat",
+                            TechnologyName = "DarkEnergyTap",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "UydaiConclave",
+                            TechnologyName = "DacxiveAnimators",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "UydaiConclave",
+                            TechnologyName = "GravityDrive",
+                            StartingTechnology = "true"
+                        },
+                        new
+                        {
+                            FactionName = "XinCourt",
+                            TechnologyName = "X89BacterialWeaponOmegaOmega",
                             StartingTechnology = "true"
                         });
                 });
@@ -25303,6 +28336,570 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             FactionName = "TheRalNelConsortium",
                             UnitName = "Dreadnought",
                             Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheArvaxiCovenant",
+                            UnitName = "SpaceDock",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheArvaxiCovenant",
+                            UnitName = "Pds",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheArvaxiCovenant",
+                            UnitName = "Infantry",
+                            Count = 3
+                        },
+                        new
+                        {
+                            FactionName = "TheArvaxiCovenant",
+                            UnitName = "Fighter",
+                            Count = 2
+                        },
+                        new
+                        {
+                            FactionName = "TheArvaxiCovenant",
+                            UnitName = "Carrier",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheArvaxiCovenant",
+                            UnitName = "Cruiser",
+                            Count = 2
+                        },
+                        new
+                        {
+                            FactionName = "TheConstituentsOfXan",
+                            UnitName = "SpaceDock",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheConstituentsOfXan",
+                            UnitName = "Infantry",
+                            Count = 4
+                        },
+                        new
+                        {
+                            FactionName = "TheConstituentsOfXan",
+                            UnitName = "Fighter",
+                            Count = 2
+                        },
+                        new
+                        {
+                            FactionName = "TheConstituentsOfXan",
+                            UnitName = "Carrier",
+                            Count = 2
+                        },
+                        new
+                        {
+                            FactionName = "TheConstituentsOfXan",
+                            UnitName = "Destroyer",
+                            Count = 2
+                        },
+                        new
+                        {
+                            FactionName = "TheKaloraSwarm",
+                            UnitName = "SpaceDock",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheKaloraSwarm",
+                            UnitName = "Infantry",
+                            Count = 4
+                        },
+                        new
+                        {
+                            FactionName = "TheKaloraSwarm",
+                            UnitName = "Fighter",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheKaloraSwarm",
+                            UnitName = "Carrier",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheKaloraSwarm",
+                            UnitName = "Cruiser",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheKaloraSwarm",
+                            UnitName = "Dreadnought",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheLunariumConspiracies",
+                            UnitName = "SpaceDock",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheLunariumConspiracies",
+                            UnitName = "Infantry",
+                            Count = 5
+                        },
+                        new
+                        {
+                            FactionName = "TheLunariumConspiracies",
+                            UnitName = "Fighter",
+                            Count = 2
+                        },
+                        new
+                        {
+                            FactionName = "TheLunariumConspiracies",
+                            UnitName = "Carrier",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheLunariumConspiracies",
+                            UnitName = "Destroyer",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheLunariumConspiracies",
+                            UnitName = "Dreadnought",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheOnyxxaComplex",
+                            UnitName = "SpaceDock",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheOnyxxaComplex",
+                            UnitName = "Infantry",
+                            Count = 3
+                        },
+                        new
+                        {
+                            FactionName = "TheOnyxxaComplex",
+                            UnitName = "Fighter",
+                            Count = 2
+                        },
+                        new
+                        {
+                            FactionName = "TheOnyxxaComplex",
+                            UnitName = "Carrier",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheOnyxxaComplex",
+                            UnitName = "Destroyer",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheOnyxxaComplex",
+                            UnitName = "Dreadnought",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheTyrisContinuum",
+                            UnitName = "SpaceDock",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheTyrisContinuum",
+                            UnitName = "Infantry",
+                            Count = 3
+                        },
+                        new
+                        {
+                            FactionName = "TheTyrisContinuum",
+                            UnitName = "Fighter",
+                            Count = 3
+                        },
+                        new
+                        {
+                            FactionName = "TheTyrisContinuum",
+                            UnitName = "Carrier",
+                            Count = 2
+                        },
+                        new
+                        {
+                            FactionName = "TheTyrisContinuum",
+                            UnitName = "Destroyer",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheVyserixAscendancy",
+                            UnitName = "SpaceDock",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheVyserixAscendancy",
+                            UnitName = "Pds",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheVyserixAscendancy",
+                            UnitName = "Infantry",
+                            Count = 4
+                        },
+                        new
+                        {
+                            FactionName = "TheVyserixAscendancy",
+                            UnitName = "Fighter",
+                            Count = 2
+                        },
+                        new
+                        {
+                            FactionName = "TheVyserixAscendancy",
+                            UnitName = "Carrier",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheVyserixAscendancy",
+                            UnitName = "Destroyer",
+                            Count = 2
+                        },
+                        new
+                        {
+                            FactionName = "TheZephyrionPursuit",
+                            UnitName = "SpaceDock",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheZephyrionPursuit",
+                            UnitName = "Pds",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheZephyrionPursuit",
+                            UnitName = "Infantry",
+                            Count = 3
+                        },
+                        new
+                        {
+                            FactionName = "TheZephyrionPursuit",
+                            UnitName = "Fighter",
+                            Count = 2
+                        },
+                        new
+                        {
+                            FactionName = "TheZephyrionPursuit",
+                            UnitName = "Carrier",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "TheZephyrionPursuit",
+                            UnitName = "Cruiser",
+                            Count = 2
+                        },
+                        new
+                        {
+                            FactionName = "AtokeraLegacy",
+                            UnitName = "SpaceDock",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "AtokeraLegacy",
+                            UnitName = "Infantry",
+                            Count = 3
+                        },
+                        new
+                        {
+                            FactionName = "AtokeraLegacy",
+                            UnitName = "Fighter",
+                            Count = 5
+                        },
+                        new
+                        {
+                            FactionName = "AtokeraLegacy",
+                            UnitName = "Carrier",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "AtokeraLegacy",
+                            UnitName = "Destroyer",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "AtokeraLegacy",
+                            UnitName = "Dreadnought",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "BelkoseaAlliedStates",
+                            UnitName = "SpaceDock",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "BelkoseaAlliedStates",
+                            UnitName = "Pds",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "BelkoseaAlliedStates",
+                            UnitName = "Infantry",
+                            Count = 3
+                        },
+                        new
+                        {
+                            FactionName = "BelkoseaAlliedStates",
+                            UnitName = "Fighter",
+                            Count = 5
+                        },
+                        new
+                        {
+                            FactionName = "BelkoseaAlliedStates",
+                            UnitName = "Carrier",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "BelkoseaAlliedStates",
+                            UnitName = "Cruiser",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "BelkoseaAlliedStates",
+                            UnitName = "Dreadnought",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "PharadnOrder",
+                            UnitName = "SpaceDock",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "PharadnOrder",
+                            UnitName = "Infantry",
+                            Count = 8
+                        },
+                        new
+                        {
+                            FactionName = "PharadnOrder",
+                            UnitName = "Fighter",
+                            Count = 2
+                        },
+                        new
+                        {
+                            FactionName = "PharadnOrder",
+                            UnitName = "Carrier",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "PharadnOrder",
+                            UnitName = "Cruiser",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "PharadnOrder",
+                            UnitName = "Dreadnought",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "PrincipalityOfKaltrim",
+                            UnitName = "SpaceDock",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "PrincipalityOfKaltrim",
+                            UnitName = "Infantry",
+                            Count = 3
+                        },
+                        new
+                        {
+                            FactionName = "PrincipalityOfKaltrim",
+                            UnitName = "Fighter",
+                            Count = 2
+                        },
+                        new
+                        {
+                            FactionName = "PrincipalityOfKaltrim",
+                            UnitName = "Carrier",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "PrincipalityOfKaltrim",
+                            UnitName = "Dreadnought",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "QhetRepublic",
+                            UnitName = "SpaceDock",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "QhetRepublic",
+                            UnitName = "Infantry",
+                            Count = 3
+                        },
+                        new
+                        {
+                            FactionName = "QhetRepublic",
+                            UnitName = "Fighter",
+                            Count = 2
+                        },
+                        new
+                        {
+                            FactionName = "QhetRepublic",
+                            UnitName = "Carrier",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "QhetRepublic",
+                            UnitName = "Cruiser",
+                            Count = 2
+                        },
+                        new
+                        {
+                            FactionName = "SarcosaDrift",
+                            UnitName = "SpaceDock",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "SarcosaDrift",
+                            UnitName = "Infantry",
+                            Count = 3
+                        },
+                        new
+                        {
+                            FactionName = "SarcosaDrift",
+                            UnitName = "Fighter",
+                            Count = 4
+                        },
+                        new
+                        {
+                            FactionName = "SarcosaDrift",
+                            UnitName = "Carrier",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "SarcosaDrift",
+                            UnitName = "Cruiser",
+                            Count = 2
+                        },
+                        new
+                        {
+                            FactionName = "ToldarConcordat",
+                            UnitName = "SpaceDock",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "ToldarConcordat",
+                            UnitName = "Infantry",
+                            Count = 3
+                        },
+                        new
+                        {
+                            FactionName = "ToldarConcordat",
+                            UnitName = "Fighter",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "ToldarConcordat",
+                            UnitName = "Carrier",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "ToldarConcordat",
+                            UnitName = "Destroyer",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "ToldarConcordat",
+                            UnitName = "Dreadnought",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "UydaiConclave",
+                            UnitName = "Infantry",
+                            Count = 5
+                        },
+                        new
+                        {
+                            FactionName = "UydaiConclave",
+                            UnitName = "Fighter",
+                            Count = 4
+                        },
+                        new
+                        {
+                            FactionName = "UydaiConclave",
+                            UnitName = "Carrier",
+                            Count = 3
+                        },
+                        new
+                        {
+                            FactionName = "XinCourt",
+                            UnitName = "SpaceDock",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "XinCourt",
+                            UnitName = "Infantry",
+                            Count = 4
+                        },
+                        new
+                        {
+                            FactionName = "XinCourt",
+                            UnitName = "Fighter",
+                            Count = 5
+                        },
+                        new
+                        {
+                            FactionName = "XinCourt",
+                            UnitName = "Carrier",
+                            Count = 1
+                        },
+                        new
+                        {
+                            FactionName = "XinCourt",
+                            UnitName = "Cruiser",
+                            Count = 2
                         });
                 });
 
@@ -26450,7 +30047,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             TechnologyName = "X89BacterialWeaponOmega",
                             FactionName = "None",
-                            GameVersion = "BaseGame",
+                            GameVersion = "Deprecated",
                             Id = 7,
                             IsFactionTechnology = "false",
                             Level = "Level3",
@@ -26626,7 +30223,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             TechnologyName = "MagenDefenseGridOmega",
                             FactionName = "None",
-                            GameVersion = "BaseGame",
+                            GameVersion = "Deprecated",
                             Id = 23,
                             IsFactionTechnology = "false",
                             Level = "Level1",
@@ -26637,7 +30234,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             TechnologyName = "SelfAssemblyRoutines",
                             FactionName = "None",
-                            GameVersion = "ProphecyOfKings",
+                            GameVersion = "BaseGame",
                             Id = 24,
                             IsFactionTechnology = "false",
                             Level = "Level1",
@@ -28249,6 +31846,424 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Level = "Level2",
                             Text = "",
                             Type = "Cybernetic"
+                        },
+                        new
+                        {
+                            TechnologyName = "UnyieldingWill",
+                            FactionName = "TheArvaxiCovenant",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 168,
+                            IsFactionTechnology = "true",
+                            Level = "Level2",
+                            Text = "",
+                            Type = "Biotic"
+                        },
+                        new
+                        {
+                            TechnologyName = "WartimeInnovation",
+                            FactionName = "TheArvaxiCovenant",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 169,
+                            IsFactionTechnology = "true",
+                            Level = "Level2",
+                            Text = "",
+                            Type = "Cybernetic"
+                        },
+                        new
+                        {
+                            TechnologyName = "StellarArchitectTwo",
+                            FactionName = "TheConstituentsOfXan",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 170,
+                            IsFactionTechnology = "true",
+                            Level = "Level4",
+                            Text = "",
+                            Type = "UnitUpgrade"
+                        },
+                        new
+                        {
+                            TechnologyName = "GalacticCitadelTwo",
+                            FactionName = "TheConstituentsOfXan",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 171,
+                            IsFactionTechnology = "true",
+                            Level = "Level2",
+                            Text = "",
+                            Type = "UnitUpgrade"
+                        },
+                        new
+                        {
+                            TechnologyName = "ChitinShielding",
+                            FactionName = "TheKaloraSwarm",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 172,
+                            IsFactionTechnology = "true",
+                            Level = "Level2",
+                            Text = "",
+                            Type = "Warfare"
+                        },
+                        new
+                        {
+                            TechnologyName = "StingerTwo",
+                            FactionName = "TheKaloraSwarm",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 173,
+                            IsFactionTechnology = "true",
+                            Level = "Level3",
+                            Text = "",
+                            Type = "UnitUpgrade"
+                        },
+                        new
+                        {
+                            TechnologyName = "SubliminalIntuition",
+                            FactionName = "TheLunariumConspiracies",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 174,
+                            IsFactionTechnology = "true",
+                            Level = "Level2",
+                            Text = "",
+                            Type = "Biotic"
+                        },
+                        new
+                        {
+                            TechnologyName = "CrypticHaulerTwo",
+                            FactionName = "TheLunariumConspiracies",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 175,
+                            IsFactionTechnology = "true",
+                            Level = "Level2",
+                            Text = "",
+                            Type = "UnitUpgrade"
+                        },
+                        new
+                        {
+                            TechnologyName = "StrategicInversion",
+                            FactionName = "TheOnyxxaComplex",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 176,
+                            IsFactionTechnology = "true",
+                            Level = "Level1",
+                            Text = "",
+                            Type = "Biotic"
+                        },
+                        new
+                        {
+                            TechnologyName = "SacrificialCommand",
+                            FactionName = "TheOnyxxaComplex",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 177,
+                            IsFactionTechnology = "true",
+                            Level = "Level2",
+                            Text = "",
+                            Type = "Cybernetic"
+                        },
+                        new
+                        {
+                            TechnologyName = "TemporalDisplacement",
+                            FactionName = "TheTyrisContinuum",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 178,
+                            IsFactionTechnology = "true",
+                            Level = "Level1",
+                            Text = "",
+                            Type = "Cybernetic"
+                        },
+                        new
+                        {
+                            TechnologyName = "PhaseTrooperTwo",
+                            FactionName = "TheTyrisContinuum",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 179,
+                            IsFactionTechnology = "true",
+                            Level = "Level2",
+                            Text = "",
+                            Type = "UnitUpgrade"
+                        },
+                        new
+                        {
+                            TechnologyName = "ConduitMatrix",
+                            FactionName = "TheVyserixAscendancy",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 180,
+                            IsFactionTechnology = "true",
+                            Level = "Level3",
+                            Text = "",
+                            Type = "Propulsion"
+                        },
+                        new
+                        {
+                            TechnologyName = "HarmonicBastionTwo",
+                            FactionName = "TheVyserixAscendancy",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 181,
+                            IsFactionTechnology = "true",
+                            Level = "Level2",
+                            Text = "",
+                            Type = "UnitUpgrade"
+                        },
+                        new
+                        {
+                            TechnologyName = "HuntingGrounds",
+                            FactionName = "TheZephyrionPursuit",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 182,
+                            IsFactionTechnology = "true",
+                            Level = "Level1",
+                            Text = "",
+                            Type = "Cybernetic"
+                        },
+                        new
+                        {
+                            TechnologyName = "ZephyrHoundTwo",
+                            FactionName = "TheZephyrionPursuit",
+                            GameVersion = "WhispersFromTheVoid",
+                            Id = 183,
+                            IsFactionTechnology = "true",
+                            Level = "Level3",
+                            Text = "",
+                            Type = "UnitUpgrade"
+                        },
+                        new
+                        {
+                            TechnologyName = "MirrorshardTwo",
+                            FactionName = "AtokeraLegacy",
+                            GameVersion = "BlueRiverie",
+                            Id = 184,
+                            IsFactionTechnology = "true",
+                            Level = "Level3",
+                            Text = "",
+                            Type = "UnitUpgrade"
+                        },
+                        new
+                        {
+                            TechnologyName = "ModularDesigns",
+                            FactionName = "AtokeraLegacy",
+                            GameVersion = "BlueRiverie",
+                            Id = 185,
+                            IsFactionTechnology = "true",
+                            Level = "Level3",
+                            Text = "",
+                            Type = "Cybernetic"
+                        },
+                        new
+                        {
+                            TechnologyName = "WyvernTwo",
+                            FactionName = "BelkoseaAlliedStates",
+                            GameVersion = "BlueRiverie",
+                            Id = 186,
+                            IsFactionTechnology = "true",
+                            Level = "Level2",
+                            Text = "",
+                            Type = "UnitUpgrade"
+                        },
+                        new
+                        {
+                            TechnologyName = "SynchronyMatrix",
+                            FactionName = "BelkoseaAlliedStates",
+                            GameVersion = "BlueRiverie",
+                            Id = 187,
+                            IsFactionTechnology = "true",
+                            Level = "Level2",
+                            Text = "",
+                            Type = "Cybernetic"
+                        },
+                        new
+                        {
+                            TechnologyName = "ImmortalTwo",
+                            FactionName = "PharadnOrder",
+                            GameVersion = "BlueRiverie",
+                            Id = 188,
+                            IsFactionTechnology = "true",
+                            Level = "Level2",
+                            Text = "",
+                            Type = "UnitUpgrade"
+                        },
+                        new
+                        {
+                            TechnologyName = "RealityFieldImpactor",
+                            FactionName = "PharadnOrder",
+                            GameVersion = "BlueRiverie",
+                            Id = 189,
+                            IsFactionTechnology = "true",
+                            Level = "Level1",
+                            Text = "",
+                            Type = "Propulsion"
+                        },
+                        new
+                        {
+                            TechnologyName = "ConsulateTwo",
+                            FactionName = "PrincipalityOfKaltrim",
+                            GameVersion = "BlueRiverie",
+                            Id = 190,
+                            IsFactionTechnology = "true",
+                            Level = "Level2",
+                            Text = "",
+                            Type = "UnitUpgrade"
+                        },
+                        new
+                        {
+                            TechnologyName = "KaldurArrestField",
+                            FactionName = "PrincipalityOfKaltrim",
+                            GameVersion = "BlueRiverie",
+                            Id = 191,
+                            IsFactionTechnology = "true",
+                            Level = "Level2",
+                            Text = "",
+                            Type = "Warfare"
+                        },
+                        new
+                        {
+                            TechnologyName = "BattlecruiserTwo",
+                            FactionName = "QhetRepublic",
+                            GameVersion = "BlueRiverie",
+                            Id = 192,
+                            IsFactionTechnology = "true",
+                            Level = "Level3",
+                            Text = "",
+                            Type = "UnitUpgrade"
+                        },
+                        new
+                        {
+                            TechnologyName = "CommandoTwo",
+                            FactionName = "QhetRepublic",
+                            GameVersion = "BlueRiverie",
+                            Id = 193,
+                            IsFactionTechnology = "true",
+                            Level = "Level2",
+                            Text = "",
+                            Type = "UnitUpgrade"
+                        },
+                        new
+                        {
+                            TechnologyName = "RavagerTwo",
+                            FactionName = "SarcosaDrift",
+                            GameVersion = "BlueRiverie",
+                            Id = 194,
+                            IsFactionTechnology = "true",
+                            Level = "Level2",
+                            Text = "",
+                            Type = "UnitUpgrade"
+                        },
+                        new
+                        {
+                            TechnologyName = "InfiltrationNetworks",
+                            FactionName = "SarcosaDrift",
+                            GameVersion = "BlueRiverie",
+                            Id = 195,
+                            IsFactionTechnology = "true",
+                            Level = "Level2",
+                            Text = "",
+                            Type = "Biotic"
+                        },
+                        new
+                        {
+                            TechnologyName = "EmergencyModifications",
+                            FactionName = "ToldarConcordat",
+                            GameVersion = "BlueRiverie",
+                            Id = 196,
+                            IsFactionTechnology = "true",
+                            Level = "Level1",
+                            Text = "",
+                            Type = "Propulsion"
+                        },
+                        new
+                        {
+                            TechnologyName = "VIRTraining",
+                            FactionName = "ToldarConcordat",
+                            GameVersion = "BlueRiverie",
+                            Id = 197,
+                            IsFactionTechnology = "true",
+                            Level = "Level1",
+                            Text = "",
+                            Type = "Warfare"
+                        },
+                        new
+                        {
+                            TechnologyName = "MessiahProtocols",
+                            FactionName = "UydaiConclave",
+                            GameVersion = "BlueRiverie",
+                            Id = 198,
+                            IsFactionTechnology = "true",
+                            Level = "Level2",
+                            Text = "",
+                            Type = "Biotic"
+                        },
+                        new
+                        {
+                            TechnologyName = "NavigationRelays",
+                            FactionName = "UydaiConclave",
+                            GameVersion = "BlueRiverie",
+                            Id = 199,
+                            IsFactionTechnology = "true",
+                            Level = "Level3",
+                            Text = "",
+                            Type = "Propulsion"
+                        },
+                        new
+                        {
+                            TechnologyName = "AstromanticCloakSteel",
+                            FactionName = "XinCourt",
+                            GameVersion = "BlueRiverie",
+                            Id = 200,
+                            IsFactionTechnology = "true",
+                            Level = "Level2",
+                            Text = "",
+                            Type = "Biotic"
+                        },
+                        new
+                        {
+                            TechnologyName = "AstromanticCloakStar",
+                            FactionName = "XinCourt",
+                            GameVersion = "BlueRiverie",
+                            Id = 201,
+                            IsFactionTechnology = "true",
+                            Level = "Level2",
+                            Text = "",
+                            Type = "Biotic"
+                        },
+                        new
+                        {
+                            TechnologyName = "VeiledNetworkingSteel",
+                            FactionName = "XinCourt",
+                            GameVersion = "BlueRiverie",
+                            Id = 202,
+                            IsFactionTechnology = "true",
+                            Level = "Level2",
+                            Text = "",
+                            Type = "Cybernetic"
+                        },
+                        new
+                        {
+                            TechnologyName = "VeiledNetworkingStar",
+                            FactionName = "XinCourt",
+                            GameVersion = "BlueRiverie",
+                            Id = 203,
+                            IsFactionTechnology = "true",
+                            Level = "Level2",
+                            Text = "",
+                            Type = "Cybernetic"
+                        },
+                        new
+                        {
+                            TechnologyName = "X89BacterialWeaponOmegaOmega",
+                            FactionName = "None",
+                            GameVersion = "CodexLiberation",
+                            Id = 204,
+                            IsFactionTechnology = "false",
+                            Level = "Level3",
+                            Text = "",
+                            Type = "Biotic"
+                        },
+                        new
+                        {
+                            TechnologyName = "MagenDefenseGridOmegaOmega",
+                            FactionName = "None",
+                            GameVersion = "CodexLiberation",
+                            Id = 205,
+                            IsFactionTechnology = "false",
+                            Level = "Level1",
+                            Text = "",
+                            Type = "Warfare"
                         });
                 });
 
@@ -28590,6 +32605,13 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Category = "Wins",
                             Faction = "None",
                             Name = "Icarus"
+                        },
+                        new
+                        {
+                            Id = 44,
+                            Category = "Wins",
+                            Faction = "None",
+                            Name = "StayFirm"
                         });
                 });
 
@@ -30052,6 +34074,94 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Faction = "TwilightsFall",
                             League = "Fractured",
                             Name = "TwilightsFall"
+                        },
+                        new
+                        {
+                            Id = 116,
+                            ChangeCount = 0,
+                            Faction = "TheArvaxiCovenant",
+                            League = "Fractured",
+                            Name = "KaelenTheInvincibleSpearhead"
+                        },
+                        new
+                        {
+                            Id = 117,
+                            ChangeCount = 0,
+                            Faction = "TheConstituentsOfXan",
+                            League = "Fractured",
+                            Name = "FlaviusStellariusWarEconomist"
+                        },
+                        new
+                        {
+                            Id = 118,
+                            ChangeCount = 0,
+                            Faction = "TheKaloraSwarm",
+                            League = "Fractured",
+                            Name = "DreathosTheFinalGuard"
+                        },
+                        new
+                        {
+                            Id = 119,
+                            ChangeCount = 0,
+                            Faction = "TheLunariumConspiracies",
+                            League = "Fractured",
+                            Name = "AnimaScrutatorVoiceOfTheVeil"
+                        },
+                        new
+                        {
+                            Id = 120,
+                            ChangeCount = 0,
+                            Faction = "TheOnyxxaComplex",
+                            League = "Fractured",
+                            Name = "GrandmasterXelKorAncientOne"
+                        },
+                        new
+                        {
+                            Id = 121,
+                            ChangeCount = 0,
+                            Faction = "TheTyrisContinuum",
+                            League = "Fractured",
+                            Name = "FatebreakerAzhurakSelfOrdainedSavior"
+                        },
+                        new
+                        {
+                            Id = 122,
+                            ChangeCount = 0,
+                            Faction = "TheVyserixAscendancy",
+                            League = "Fractured",
+                            Name = "VaxeluundrTheProphet"
+                        },
+                        new
+                        {
+                            Id = 123,
+                            ChangeCount = 0,
+                            Faction = "TheZephyrionPursuit",
+                            League = "Fractured",
+                            Name = "MonturakHomotolApexPredator"
+                        },
+                        new
+                        {
+                            Id = 124,
+                            ChangeCount = 0,
+                            Faction = "PrincipalityOfKaltrim",
+                            League = "Fractured",
+                            Name = "JodekanJodarPrinceOfKaltrim"
+                        },
+                        new
+                        {
+                            Id = 125,
+                            ChangeCount = 0,
+                            Faction = "SarcosaDrift",
+                            League = "Fractured",
+                            Name = "CardossaFlightPirateQueen"
+                        },
+                        new
+                        {
+                            Id = 126,
+                            ChangeCount = 0,
+                            Faction = "XinCourt",
+                            League = "Fractured",
+                            Name = "TSaoGrandAdministrator"
                         });
                 });
 
@@ -31354,6 +35464,83 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             FactionName = "None",
                             League = "Fractured",
                             Name = "DeposedEmperor"
+                        },
+                        new
+                        {
+                            Id = 156,
+                            FactionName = "TheArvaxiCovenant",
+                            League = "Fractured",
+                            Name = "KaelenTheInvincibleSpearhead"
+                        },
+                        new
+                        {
+                            Id = 157,
+                            FactionName = "TheConstituentsOfXan",
+                            League = "Fractured",
+                            Name = "FlaviusStellariusWarEconomist"
+                        },
+                        new
+                        {
+                            Id = 158,
+                            FactionName = "TheKaloraSwarm",
+                            League = "Fractured",
+                            Name = "DreathosTheFinalGuard"
+                        },
+                        new
+                        {
+                            Id = 159,
+                            FactionName = "TheLunariumConspiracies",
+                            League = "Fractured",
+                            Name = "AnimaScrutatorVoiceOfTheVeil"
+                        },
+                        new
+                        {
+                            Id = 160,
+                            FactionName = "TheOnyxxaComplex",
+                            League = "Fractured",
+                            Name = "GrandmasterXelKorAncientOne"
+                        },
+                        new
+                        {
+                            Id = 161,
+                            FactionName = "TheTyrisContinuum",
+                            League = "Fractured",
+                            Name = "FatebreakerAzhurakSelfOrdainedSavior"
+                        },
+                        new
+                        {
+                            Id = 162,
+                            FactionName = "TheVyserixAscendancy",
+                            League = "Fractured",
+                            Name = "VaxeluundrTheProphet"
+                        },
+                        new
+                        {
+                            Id = 163,
+                            FactionName = "TheZephyrionPursuit",
+                            League = "Fractured",
+                            Name = "MonturakHomotolApexPredator"
+                        },
+                        new
+                        {
+                            Id = 164,
+                            FactionName = "PrincipalityOfKaltrim",
+                            League = "Fractured",
+                            Name = "JodekanJodarPrinceOfKaltrim"
+                        },
+                        new
+                        {
+                            Id = 165,
+                            FactionName = "SarcosaDrift",
+                            League = "Fractured",
+                            Name = "CardossaFlightPirateQueen"
+                        },
+                        new
+                        {
+                            Id = 166,
+                            FactionName = "XinCourt",
+                            League = "Fractured",
+                            Name = "TSaoGrandAdministrator"
                         });
                 });
 

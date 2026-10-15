@@ -3,34 +3,34 @@
 <div class="faction-submenu">
     <ResponsiveTabMenu AriaLabel="@Strings.Faction_InfoTabsLabel" CssClass="responsive-content-width mb-xl faction-style">
 
-        <TabNavItem CssClass="@GetTabCssClass(FactionInfoType.Ability)" OnClick="() => OnInfoTypeClick(FactionInfoType.Ability)">
-            <ResponsiveLabel Text="@Strings.Faction_Ability" CenterText="true" FontSize="lg" CssClass="faction-info-tab-label" />
-        </TabNavItem>
+        <ResponsiveTab Id="faction-info-tab-ability" ControlsId="faction-info-content" IsActive="@(SelectedType == FactionInfoType.Ability)" OnClick="() => OnInfoTypeClick(FactionInfoType.Ability)">
+            <ResponsiveLabel Text="@Strings.Faction_Ability" CenterText="true" FontSize="lg" CssClass="faction-info-tab-label" Style="color: inherit !important;" />
+        </ResponsiveTab>
         <ResponsiveTabSeparator />
 
-        <TabNavItem CssClass="@GetTabCssClass(FactionInfoType.Setup)" OnClick="() => OnInfoTypeClick(FactionInfoType.Setup)">
-            <ResponsiveLabel Text="@Strings.Faction_Setup" CenterText="true" FontSize="lg" CssClass="faction-info-tab-label" />
-        </TabNavItem>
+        <ResponsiveTab Id="faction-info-tab-setup" ControlsId="faction-info-content" IsActive="@(SelectedType == FactionInfoType.Setup)" OnClick="() => OnInfoTypeClick(FactionInfoType.Setup)">
+            <ResponsiveLabel Text="@Strings.Faction_Setup" CenterText="true" FontSize="lg" CssClass="faction-info-tab-label" Style="color: inherit !important;" />
+        </ResponsiveTab>
         <ResponsiveTabSeparator />
 
-        <TabNavItem CssClass="@GetTabCssClass(FactionInfoType.Components)" OnClick="() => OnInfoTypeClick(FactionInfoType.Components)">
-            <ResponsiveLabel Text="@Strings.Faction_FactionComponents" CenterText="true" FontSize="lg" CssClass="faction-info-tab-label" />
-        </TabNavItem>
+        <ResponsiveTab Id="faction-info-tab-components" ControlsId="faction-info-content" IsActive="@(SelectedType == FactionInfoType.Components)" OnClick="() => OnInfoTypeClick(FactionInfoType.Components)">
+            <ResponsiveLabel Text="@Strings.Faction_FactionComponents" CenterText="true" FontSize="lg" CssClass="faction-info-tab-label" Style="color: inherit !important;" />
+        </ResponsiveTab>
         <ResponsiveTabSeparator />
 
-        <TabNavItem CssClass="@GetTabCssClass(FactionInfoType.Leaders)" OnClick="() => OnInfoTypeClick(FactionInfoType.Leaders)">
-            <ResponsiveLabel Text="@Strings.Faction_Leaders" CenterText="true" FontSize="lg" CssClass="faction-info-tab-label" />
-        </TabNavItem>
+        <ResponsiveTab Id="faction-info-tab-leaders" ControlsId="faction-info-content" IsActive="@(SelectedType == FactionInfoType.Leaders)" OnClick="() => OnInfoTypeClick(FactionInfoType.Leaders)">
+            <ResponsiveLabel Text="@Strings.Faction_Leaders" CenterText="true" FontSize="lg" CssClass="faction-info-tab-label" Style="color: inherit !important;" />
+        </ResponsiveTab>
         <ResponsiveTabSeparator />
 
-        <TabNavItem CssClass="@GetTabCssClass(FactionInfoType.History)" OnClick="() => OnInfoTypeClick(FactionInfoType.History)">
-            <ResponsiveLabel Text="@Strings.Faction_Lore" CenterText="true" FontSize="lg" CssClass="faction-info-tab-label" />
-        </TabNavItem>
+        <ResponsiveTab Id="faction-info-tab-history" ControlsId="faction-info-content" IsActive="@(SelectedType == FactionInfoType.History)" OnClick="() => OnInfoTypeClick(FactionInfoType.History)">
+            <ResponsiveLabel Text="@Strings.Faction_Lore" CenterText="true" FontSize="lg" CssClass="faction-info-tab-label" Style="color: inherit !important;" />
+        </ResponsiveTab>
         <ResponsiveTabSeparator />
 
-        <TabNavItem CssClass="@GetTabCssClass(FactionInfoType.Rules)" OnClick="() => OnInfoTypeClick(FactionInfoType.Rules)">
-            <ResponsiveLabel Text="@Strings.Faction_Rules" CenterText="true" FontSize="lg" CssClass="faction-info-tab-label" />
-        </TabNavItem>
+        <ResponsiveTab Id="faction-info-tab-rules" ControlsId="faction-info-content" IsActive="@(SelectedType == FactionInfoType.Rules)" OnClick="() => OnInfoTypeClick(FactionInfoType.Rules)">
+            <ResponsiveLabel Text="@Strings.Faction_Rules" CenterText="true" FontSize="lg" CssClass="faction-info-tab-label" Style="color: inherit !important;" />
+        </ResponsiveTab>
 
     </ResponsiveTabMenu>
 </div>

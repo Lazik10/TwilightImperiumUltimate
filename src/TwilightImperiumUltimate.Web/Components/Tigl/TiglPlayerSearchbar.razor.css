@@ -1,7 +1,16 @@
+.tigl-player-searchbar ::deep .tigl-player-search-fields {
+    width: 50% !important;
+}
+
 .tigl-player-searchbar ::deep .tigl-player-search-label {
     flex: 0 0 auto;
     white-space: nowrap !important;
     width: max-content;
+}
+
+.tigl-player-searchbar ::deep .responsive-textbox-host {
+    flex: 1 1 auto;
+    min-width: 0;
 }
 
 .tigl-player-searchbar ::deep .tigl-player-search-note {
@@ -32,4 +41,19 @@
 .tigl-player-searchbar ::deep .responsive-textbox::placeholder {
     color: var(--color-white) !important;
     opacity: 1;
+}
+
+@media (max-width: 1024px) {
+    .tigl-player-searchbar ::deep .tigl-player-search-fields {
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+
+    .tigl-player-searchbar ::deep .tigl-player-search-label {
+        margin-right: 0 !important;
+    }
+
+    .tigl-player-searchbar ::deep .responsive-textbox-host {
+        width: 100%;
+    }
 }

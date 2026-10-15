@@ -98,9 +98,22 @@ public static class DiscordRoleMappings
             { TiglPrestigeRank.KapokoVuiGreatSpirit, Make("TIGL - Kapoko Vui - Great Spirit", "0", "#000000", "KapokoVuiGreatSpirit:1495557627315224707") },
             { TiglPrestigeRank.MobiusSpikeTheReaper, Make("TIGL - Mobius Spike - The Reaper", "0", "#000000", "MobiusSpikeTheReaper:1495558007621288147") },
             { TiglPrestigeRank.PharadnTheImmortalImperishableUnifier, Make("TIGL - Pharad'n The Immortal - Imperishable Unifier", "0", "#000000", "PharadnTheImmortal:1495560228911976609") },
+            { TiglPrestigeRank.JodekanJodarPrinceOfKaltrim, Make("TIGL - Jodekan Jodar - Prince of Kaltrim", "0", "#000000", "JodekanJodarPrinceOfKaltrim:1559218664018944020") },
             { TiglPrestigeRank.TvorKhageShieldOfQhet, Make("TIGL - Tvor Khage - Shield of Qhet", "0", "#000000", "TvorKhageShieldOfQhet:1495558567527452804") },
+            { TiglPrestigeRank.CardossaFlightPirateQueen, Make("TIGL - Cardossa Flight - Pirate Queen", "0", "#000000", "CardossaFlightPirateQueen:1559219061383241882") },
             { TiglPrestigeRank.CadhAcamontConcordatMarshall, Make("TIGL - Cadh Acamont - Concordat Marshall", "0", "#000000", "CadhAcamontConcordatMarshall:1495559150384713809") },
             { TiglPrestigeRank.LondorIIGodEmperor, Make("TIGL - Londor II - God Emperor", "0", "#000000", "LondorIIGodEmperor:1495559423983091815") },
+            { TiglPrestigeRank.TSaoGrandAdministrator, Make("TIGL - T'Sao - Grand Administrator", "0", "#000000", "TSaoGrandAdministrator:1559219278509506560") },
+
+            // Whispers from the Void
+            { TiglPrestigeRank.KaelenTheInvincibleSpearhead, Make("TIGL - Kaelen, The Invincible - Spearhead", "0", "#000000", string.Empty) },
+            { TiglPrestigeRank.FlaviusStellariusWarEconomist, Make("TIGL - Flavius Stellarius - War Economist", "0", "#000000", string.Empty) },
+            { TiglPrestigeRank.DreathosTheFinalGuard, Make("TIGL - Dreathos - The Final Guard", "0", "#000000", string.Empty) },
+            { TiglPrestigeRank.AnimaScrutatorVoiceOfTheVeil, Make("TIGL - Anima Scrutator - Voice of the Veil", "0", "#000000", string.Empty) },
+            { TiglPrestigeRank.GrandmasterXelKorAncientOne, Make("TIGL - Grandmaster Xel'Kor - Ancient One", "0", "#000000", string.Empty) },
+            { TiglPrestigeRank.FatebreakerAzhurakSelfOrdainedSavior, Make("TIGL - Fatebreaker Azhurak - Self-Ordained Savior", "0", "#000000", string.Empty) },
+            { TiglPrestigeRank.VaxeluundrTheProphet, Make("TIGL - Vaxeluundr - The Prophet", "0", "#000000", string.Empty) },
+            { TiglPrestigeRank.MonturakHomotolApexPredator, Make("TIGL - Monturak Homotol - Apex Predator", "0", "#000000", string.Empty) },
 
             // Galactic Emperor winner
             { TiglPrestigeRank.DeposedEmperor, Make("TIGL - Deposed Emperor", "0", "#000000", string.Empty) },

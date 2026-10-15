@@ -11,6 +11,7 @@ public class AsyncStatsRepository(
     ILogger<AsyncStatsRepository> logger)
     : IAsyncStatsRepository
 {
+    private const int AsyncStatisticsProjectionCommandTimeoutSeconds = 120;
     private readonly IDbContextFactory<TwilightImperiumDbContext> _context = context;
     private readonly ILogger<AsyncStatsRepository> _logger = logger;
     private Task<List<AsyncStatisticsGameProjection>>? _statisticsProjectionTask;
@@ -51,39 +52,6 @@ public class AsyncStatsRepository(
             games.Sum(x => x.PlayerStatistics.Count));
 
         return games;
-    }
-
-    public async Task<List<AsyncGeneralStatsGameProjection>> GetAsyncGeneralStatsGameProjections(CancellationToken cancellationToken)
-    {
-        await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);
-        var stopwatch = Stopwatch.StartNew();
-        var gameRows = await dbContext.GameStats
-            .AsNoTracking()
-            .SelectMany(
-                game => game.PlayerStatistics.DefaultIfEmpty(),
-                (game, player) => new AsyncGeneralStatsGameProjection(
-                    game.Id,
-                    game.IsTigl,
-                    game.SetupTimestamp,
-                    game.EndedTimestamp,
-                    game.HasWinner,
-                    game.NumberOfPlayers,
-                    game.Round,
-                    game.Scoreboard,
-                    player == null ? null : player.DiscordUserID,
-                    player == null ? null : player.Eliminated,
-                    player == null ? null : player.TotalNumberOfTurns,
-                    player == null ? null : player.TotalTurnTime))
-            .ToListAsync(cancellationToken);
-
-        stopwatch.Stop();
-        _logger.LogInformation(
-            "Async general statistics projection completed in {ElapsedMilliseconds} ms with {GameCount} games and {PlayerRowCount} player rows",
-            stopwatch.ElapsedMilliseconds,
-            gameRows.Select(x => x.GameStatsId).Distinct().Count(),
-            gameRows.Count(x => x.DiscordUserId.HasValue));
-
-        return gameRows;
     }
 
     public Task<List<AsyncStatisticsGameProjection>> GetAsyncStatisticsGameProjections(CancellationToken cancellationToken)
@@ -544,6 +512,8 @@ public class AsyncStatsRepository(
     private async Task<List<AsyncStatisticsGameProjection>> LoadStatisticsGameProjectionsAsync(CancellationToken cancellationToken)
     {
         await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);
+        dbContext.Database.SetCommandTimeout(AsyncStatisticsProjectionCommandTimeoutSeconds);
+
         var stopwatch = Stopwatch.StartNew();
         var gameRows = await dbContext.GameStats
             .AsNoTracking()
@@ -558,6 +528,7 @@ public class AsyncStatsRepository(
                     game.EndedTimestamp,
                     game.HasWinner,
                     game.NumberOfPlayers,
+                    game.Round,
                     game.Scoreboard,
                     game.IsTigl,
                     game.AbsolMode,

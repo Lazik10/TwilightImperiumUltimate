@@ -14,6 +14,12 @@ public partial class FactionMenuPicker : TwilightImperiumBaseComponent
     public bool BanAllFactions { get; set; } = true;
 
     /// <summary>
+    /// Gets or sets the game versions enabled when this picker loads its own faction list.
+    /// </summary>
+    [Parameter]
+    public IReadOnlyCollection<GameVersion>? InitiallyEnabledGameVersions { get; set; }
+
+    /// <summary>
     /// Gets or sets the factions rendered by the picker instead of loading the default faction list.
     /// </summary>
     [Parameter]
@@ -45,8 +51,17 @@ public partial class FactionMenuPicker : TwilightImperiumBaseComponent
         var factions = await FactionProvider.GetAllFactions();
         _factions = Mapper.Map<List<FactionModel>>(factions);
 
-        if (BanAllFactions)
+        if (InitiallyEnabledGameVersions is not null)
+        {
+            foreach (var faction in _factions)
+            {
+                faction.Banned = !InitiallyEnabledGameVersions.Contains(faction.GameVersion);
+            }
+        }
+        else if (BanAllFactions)
+        {
             SetAllFactionsBanStatus(true);
+        }
 
         await OnFactionsInitialized.InvokeAsync(Factions);
     }
@@ -58,6 +73,8 @@ public partial class FactionMenuPicker : TwilightImperiumBaseComponent
         GameVersion.CodexVigil => Strings.GameVersion_CodexVigil,
         GameVersion.DiscordantStars => Strings.GameVersion_DiscordantStars,
         GameVersion.ThundersEdge => Strings.GameVersion_ThundersEdge,
+        GameVersion.BlueRiverie => Strings.GameVersion_BlueRiverie,
+        GameVersion.WhispersFromTheVoid => Strings.GameVersion_WhispersFromTheVoid,
         _ => gameVersion.ToString(),
     };
 

@@ -19,7 +19,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Leaders {
@@ -88,6 +88,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Anima Scrutator.
+        /// </summary>
+        public static string AnimaScrutatorVoiceOfTheVeil {
+            get {
+                return ResourceManager.GetString("AnimaScrutatorVoiceOfTheVeil", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to A Sickening Lurch.
         /// </summary>
         public static string ASickeningLurch {
@@ -147,6 +156,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string CadhAcamontConcordatMarshall {
             get {
                 return ResourceManager.GetString("CadhAcamontConcordatMarshall", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cardossa Flight.
+        /// </summary>
+        public static string CardossaFlightPirateQueen {
+            get {
+                return ResourceManager.GetString("CardossaFlightPirateQueen", resourceCulture);
             }
         }
         
@@ -241,6 +259,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dreathos.
+        /// </summary>
+        public static string DreathosTheFinalGuard {
+            get {
+                return ResourceManager.GetString("DreathosTheFinalGuard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dyln Harthuul.
         /// </summary>
         public static string DylnHarthuulViceAdmiralOfFleetGroup15 {
@@ -268,6 +295,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fatebreaker Azhurak.
+        /// </summary>
+        public static string FatebreakerAzhurakSelfOrdainedSavior {
+            get {
+                return ResourceManager.GetString("FatebreakerAzhurakSelfOrdainedSavior", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flavius Stellarius.
+        /// </summary>
+        public static string FlaviusStellariusWarEconomist {
+            get {
+                return ResourceManager.GetString("FlaviusStellariusWarEconomist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Franken.
         /// </summary>
         public static string Franken {
@@ -291,6 +336,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string GorthrimChiefOfExpeditions {
             get {
                 return ResourceManager.GetString("GorthrimChiefOfExpeditions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grandmaster Xel&apos;Kor.
+        /// </summary>
+        public static string GrandmasterXelKorAncientOne {
+            get {
+                return ResourceManager.GetString("GrandmasterXelKorAncientOne", resourceCulture);
             }
         }
         
@@ -390,6 +444,24 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string JaceX4thAirLegion {
             get {
                 return ResourceManager.GetString("JaceX4thAirLegion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jodekan Jodar.
+        /// </summary>
+        public static string JodekanJodarPrinceOfKaltrim {
+            get {
+                return ResourceManager.GetString("JodekanJodarPrinceOfKaltrim", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kaelen, the Invincible.
+        /// </summary>
+        public static string KaelenTheInvincibleSpearhead {
+            get {
+                return ResourceManager.GetString("KaelenTheInvincibleSpearhead", resourceCulture);
             }
         }
         
@@ -498,6 +570,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string MobiusSpikeTheReaper {
             get {
                 return ResourceManager.GetString("MobiusSpikeTheReaper", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Monturak Homotol.
+        /// </summary>
+        public static string MonturakHomotolApexPredator {
+            get {
+                return ResourceManager.GetString("MonturakHomotolApexPredator", resourceCulture);
             }
         }
         
@@ -727,6 +808,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to T&apos;Sao.
+        /// </summary>
+        public static string TSaoGrandAdministrator {
+            get {
+                return ResourceManager.GetString("TSaoGrandAdministrator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Turra Sveyar.
         /// </summary>
         public static string TurraSveyarShadowCouncilor {
@@ -777,6 +867,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string UNITDSGNFLAYESH {
             get {
                 return ResourceManager.GetString("UNITDSGNFLAYESH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vaxeluundr.
+        /// </summary>
+        public static string VaxeluundrTheProphet {
+            get {
+                return ResourceManager.GetString("VaxeluundrTheProphet", resourceCulture);
             }
         }
         

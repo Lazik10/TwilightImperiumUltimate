@@ -26,6 +26,10 @@
 }
 
 @media (max-width: 1024px) {
+    .faction-menu-grid ::deep .faction-menu-grid-row {
+        background: rgba(0, 0, 0, 0.5);
+    }
+
     .faction-menu-grid-desktop {
         display: none;
     }

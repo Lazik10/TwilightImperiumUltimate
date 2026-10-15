@@ -70,7 +70,94 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Atokera Legacy.
+        ///   Looks up a localized string similar to &lt;h2&gt;Synthesis&lt;/h2&gt;
+        ///&lt;p&gt;Readied planets you control have PLANETARY SHIELD and PRODUCTION 0 as if they were units. Apply +1 to the PRODUCTION value of each of your units with PRODUCTION.&lt;/p&gt;
+        ///&lt;/br&gt; 
+        ///&lt;h2&gt;Living Metals&lt;/h2&gt; 
+        ///&lt;p&gt;Agenda outcomes and action cards that have component actions cannot remove or destroy your units, or place other player’s units on planets you control.&lt;/p&gt;
+        ///.
+        /// </summary>
+        internal static string AtokeraLegacy_Ability {
+            get {
+                return ResourceManager.GetString("AtokeraLegacy_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cast more votes for an outcome than any other player..
+        /// </summary>
+        internal static string AtokeraLegacy_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("AtokeraLegacy_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string AtokeraLegacy_Lore {
+            get {
+                return ResourceManager.GetString("AtokeraLegacy_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string AtokeraLegacy_Notes {
+            get {
+                return ResourceManager.GetString("AtokeraLegacy_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string AtokeraLegacy_PromissaryNote {
+            get {
+                return ResourceManager.GetString("AtokeraLegacy_PromissaryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Harmony within the Legacy; Duty to the Atokera&quot; - Atokera saying .
+        /// </summary>
+        internal static string AtokeraLegacy_Quote {
+            get {
+                return ResourceManager.GetString("AtokeraLegacy_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The home system of the Legacy
+        ///contains such a complex
+        ///network of ideal conditions for
+        ///its inhabitants that some have
+        ///begun to question if its
+        ///suitability was in fact designed..
+        /// </summary>
+        internal static string AtokeraLegacy_SystemInfo {
+            get {
+                return ResourceManager.GetString("AtokeraLegacy_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;AWHEKOTAL SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;3 billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Democracy&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;The Henge&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Compassionate&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Expansionist&lt;/p&gt;.
+        /// </summary>
+        internal static string AtokeraLegacy_SystemStats {
+            get {
+                return ResourceManager.GetString("AtokeraLegacy_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Atokera Legacy.
         /// </summary>
         internal static string AtokeraLegacy_Title {
             get {
@@ -88,7 +175,93 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Belkosea Allied States.
+        ///   Looks up a localized string similar to &lt;h2&gt;Classified Developments&lt;/h2&gt;
+        ///&lt;p&gt;ACTION: Spend a combined total of 5 resources or influence to place 1 superweapon on a planet you control, and gain its superweapon card.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;h2&gt;Arrogance&lt;/h2&gt;
+        ///&lt;p&gt;Superweapons you control are structures and cannot be destroyed by abilities. Each planet can contain a maximum of 1 superweapon. When a superweapon is destroyed, instead purge it and its superweapon card.&lt;/p&gt;.
+        /// </summary>
+        internal static string BelkoseaAlliedStates_Ability {
+            get {
+                return ResourceManager.GetString("BelkoseaAlliedStates_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have 1 superweapon in your play area..
+        /// </summary>
+        internal static string BelkoseaAlliedStates_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("BelkoseaAlliedStates_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string BelkoseaAlliedStates_Lore {
+            get {
+                return ResourceManager.GetString("BelkoseaAlliedStates_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string BelkoseaAlliedStates_Notes {
+            get {
+                return ResourceManager.GetString("BelkoseaAlliedStates_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string BelkoseaAlliedStates_PromissaryNote {
+            get {
+                return ResourceManager.GetString("BelkoseaAlliedStates_PromissaryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Let&apos;s make some martyrs.&quot; - Solare Wald.
+        /// </summary>
+        internal static string BelkoseaAlliedStates_Quote {
+            get {
+                return ResourceManager.GetString("BelkoseaAlliedStates_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Belkosea home system is
+        ///haunted by the remnants of the
+        ///cataclysmic impact that nearly
+        ///destroyed their civilization as
+        ///well as the engineering marvels
+        ///they developed to survive..
+        /// </summary>
+        internal static string BelkoseaAlliedStates_SystemInfo {
+            get {
+                return ResourceManager.GetString("BelkoseaAlliedStates_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;PRIORITY SYSTEM B7R&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;10.6 billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Oligarchy&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Autarch&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Patriotic&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Military&lt;/p&gt;.
+        /// </summary>
+        internal static string BelkoseaAlliedStates_SystemStats {
+            get {
+                return ResourceManager.GetString("BelkoseaAlliedStates_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Belkosea Allied States.
         /// </summary>
         internal static string BelkoseaAlliedStates_Title {
             get {
@@ -142,14 +315,14 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;LIBERATE:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;LIBERATE:&lt;/h2&gt;
         ///&lt;p&gt;When you gain control of a planet, ready that planet if it contains a number of your infantry equal to or greater than that planet&apos;s resource value; otherwise, place 1 infantry on that planet.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;GALVANIZE:&lt;/p&gt;
+        ///&lt;h2&gt;GALVANIZE:&lt;/h2&gt;
         ///&lt;p&gt;When a game effect instructs a player to galvanize a unit, they place a galvanize token beneath it, if it does not have one. Galvanized units roll 1 additional die for combat rolls and unit abilities.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;PHOENIX STANDARD:&lt;/p&gt;
-        ///&lt;p&gt;At the end of combat,  [rest of string was truncated]&quot;;.
+        ///&lt;h2&gt;PHOENIX STANDARD:&lt;/h2&gt;
+        ///&lt;p&gt;At the end of co [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string LastBastion_Ability {
             get {
@@ -216,12 +389,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TAXIS SYSTEM:;
-        ///✧Population:.2,100,000;
-        ///✧Government:.Command Authority;
-        ///✧Leadership:.Harrugh Gefhara;
-        ///✧Disposition:.Stoic;
-        ///✧Tendencies:.Military.
+        ///   Looks up a localized string similar to &lt;p&gt;TAXIS SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;2,100,000&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Command Authority&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Harrugh Gefhara&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Stoic&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Military&lt;/p&gt;.
         /// </summary>
         internal static string LastBastion_SystemStats {
             get {
@@ -235,6 +408,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string LastBastion_Title {
             get {
                 return ResourceManager.GetString("LastBastion_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to this is my long string.
+        /// </summary>
+        internal static string Name1 {
+            get {
+                return ResourceManager.GetString("Name1", resourceCulture);
             }
         }
         
@@ -311,7 +493,112 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pharadn Order.
+        ///   Looks up a localized string similar to &lt;h2&gt;Ancient Empire&lt;/h2&gt;
+        ///&lt;p&gt;During setup, place 1 tomb token on each of up to 14 planets. 
+        ///When you gain control of a planet that contains a tomb token, purge that token to capture 2 infantry from the supply.&lt;/p&gt;
+        ///&lt;/br&gt; 
+        ///&lt;h2&gt;Dark Purpose&lt;/h2&gt;
+        ///&lt;p&gt;When you score an objective, gain 1 command token.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;h2&gt;Mark of Pharad’n&lt;/h2&gt;
+        ///&lt;p&gt;Abilities that would allow you to place infantry on the game board instead allow you to produce those units. When you produce infantry, you must return 1 of your captured [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string PharadnOrder_Ability {
+            get {
+                return ResourceManager.GetString("PharadnOrder_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Destroy 2 of your infantry on each of 5 planets.
+        /// </summary>
+        internal static string PharadnOrder_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("PharadnOrder_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h2&gt;THE PHARAD&apos;N ORDER&lt;/h2&gt;
+        ///
+        ///&lt;p&gt;I AM PHARAD&apos;N THE IMMORTAL, IMPERISHABLE
+        ///UNIFIER OF PHAR, SORCERER OF THE BLACK STAR,
+        ///ETERNAL EMPEROR, BRINGER OF ORDER, GREAT
+        ///KING, OPENER OF THE WAY, WIELDER OF THE
+        ///DIVINE FLAME, THE UNQUENCHABLE BLAZE,
+        ///COMMANDER OF THE IMMORTAL LEGIONS,
+        ///SACRED OF APPEARANCE, BRINGER OF LIGHT,
+        ///BUILDER OF CITIES, KEEPER OF THE HOURS,
+        ///CHOSEN, HIGH STEWARD OF THE HORIZON,
+        ///SENTINEL OF THE TWO REALMS, THE UNDISPUTED,
+        ///BEGETTER OF THE BEGAT, SCOURGE OF THE
+        ///FAITHLESS, CHAMPION OF THE DEATH ARENA,
+        ///M [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string PharadnOrder_Lore {
+            get {
+                return ResourceManager.GetString("PharadnOrder_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string PharadnOrder_Notes {
+            get {
+                return ResourceManager.GetString("PharadnOrder_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string PharadnOrder_PromissaryNote {
+            get {
+                return ResourceManager.GetString("PharadnOrder_PromissaryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To live is to exist..
+        /// </summary>
+        internal static string PharadnOrder_Quote {
+            get {
+                return ResourceManager.GetString("PharadnOrder_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Order&apos;s origin is a secret lost
+        ///deep in the ancient ruins of their
+        ///tomb worlds, which themselves
+        ///predate all known records. Any
+        ///attempts to understand their
+        ///apparent immortality have
+        ///similarly resulted in total failure..
+        /// </summary>
+        internal static string PharadnOrder_SystemInfo {
+            get {
+                return ResourceManager.GetString("PharadnOrder_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;PHAR&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Dictatorship&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Emperor&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Detached&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Objective&lt;/p&gt;.
+        /// </summary>
+        internal static string PharadnOrder_SystemStats {
+            get {
+                return ResourceManager.GetString("PharadnOrder_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pharad&apos;n Order.
         /// </summary>
         internal static string PharadnOrder_Title {
             get {
@@ -320,7 +607,197 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Qhet Republic.
+        ///   Looks up a localized string similar to &lt;h2&gt;Lost Crown of Kaltrim&lt;/h2&gt;
+        ///&lt;p&gt;After setup, distribute 1 shrine attachment and token to each other player at random, including the Kaltrim Crown token. Each of those players must attach that shrine to a planet in a system adjacent to their home system or the Mecatol Rex system.&lt;/p&gt; 
+        ///&lt;/br&gt;
+        ///&lt;h2&gt;Shrines&lt;/h2&gt;
+        ///&lt;p&gt;Shrine attachments do not count toward scoring objectives and their tokens can only be looked at or revealed by your abilities.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;h2&gt;Questing Prince&lt;/h2&gt;
+        ///&lt;p&gt;When you gain control of a [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string PrincipalityOfKaltrim_Ability {
+            get {
+                return ResourceManager.GetString("PrincipalityOfKaltrim_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have the Kaltrim Crown on your faction sheet..
+        /// </summary>
+        internal static string PrincipalityOfKaltrim_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("PrincipalityOfKaltrim_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string PrincipalityOfKaltrim_Lore {
+            get {
+                return ResourceManager.GetString("PrincipalityOfKaltrim_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string PrincipalityOfKaltrim_Notes {
+            get {
+                return ResourceManager.GetString("PrincipalityOfKaltrim_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string PrincipalityOfKaltrim_PromissaryNote {
+            get {
+                return ResourceManager.GetString("PrincipalityOfKaltrim_PromissaryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to N/A.
+        /// </summary>
+        internal static string PrincipalityOfKaltrim_Quote {
+            get {
+                return ResourceManager.GetString("PrincipalityOfKaltrim_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to At the core of the principality
+        ///lies their impressive capital,
+        ///home to the Lord Regent, the
+        ///wandering prince&apos;s empty
+        ///throne, and not one polite
+        ///question of how the crown
+        ///was ever lost in the first place..
+        /// </summary>
+        internal static string PrincipalityOfKaltrim_SystemInfo {
+            get {
+                return ResourceManager.GetString("PrincipalityOfKaltrim_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;KALTRIM SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;12.4 billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Principality&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Prince&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Adventurous&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Military&lt;/p&gt;.
+        /// </summary>
+        internal static string PrincipalityOfKaltrim_SystemStats {
+            get {
+                return ResourceManager.GetString("PrincipalityOfKaltrim_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Principality of Kaltrim .
+        /// </summary>
+        internal static string PrincipalityOfKaltrim_Title {
+            get {
+                return ResourceManager.GetString("PrincipalityOfKaltrim_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h2&gt;Data Recovery&lt;/h2&gt;
+        ///&lt;p&gt;Once per action, after 1 or more of your units is destroyed, you may place 1 of the active player’s control tokens on your faction sheet.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;h2&gt;Black Ops&lt;/h2&gt;
+        ///&lt;p&gt;After you win a combat as the attacker, you may remove 3 of your opponent’s control tokens from your faction sheet to gain 1 command token, draw 2 action cards, or draw 1 secret objective.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;h2&gt;Tempest Squads&lt;/h2&gt;
+        ///&lt;p&gt;While you are the active player, 2 infantry in the active system do not count again [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string QhetRepublic_Ability {
+            get {
+                return ResourceManager.GetString("QhetRepublic_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Win 2 combats in 1 turn..
+        /// </summary>
+        internal static string QhetRepublic_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("QhetRepublic_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string QhetRepublic_Lore {
+            get {
+                return ResourceManager.GetString("QhetRepublic_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string QhetRepublic_Notes {
+            get {
+                return ResourceManager.GetString("QhetRepublic_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string QhetRepublic_PromissaryNote {
+            get {
+                return ResourceManager.GetString("QhetRepublic_PromissaryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;You fear war, you run from death,
+        ///but these are all we have known,
+        ///and we will never again suffer
+        ///oppression.&quot;
+        ///- Torv Khage.
+        /// </summary>
+        internal static string QhetRepublic_Quote {
+            get {
+                return ResourceManager.GetString("QhetRepublic_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Among the Qhet, war drives the
+        ///industrial complex, and the
+        ///industrial complex drives war; a
+        ///perverse circle of life for profit..
+        /// </summary>
+        internal static string QhetRepublic_SystemInfo {
+            get {
+                return ResourceManager.GetString("QhetRepublic_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;LIBERTY SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;13.37 billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Republic&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;C.E.O.&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Mirthless&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Expansionist&lt;/p&gt;.
+        /// </summary>
+        internal static string QhetRepublic_SystemStats {
+            get {
+                return ResourceManager.GetString("QhetRepublic_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Qhet Republic.
         /// </summary>
         internal static string QhetRepublic_Title {
             get {
@@ -338,14 +815,14 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;INDUSTRIOUS:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;INDUSTRIOUS:&lt;/h2&gt;
         ///&lt;p&gt;After you place a space dock in a system that contains no other players&apos; ships, you may spend 6 resources and remove that space dock to place 1 war sun in that system&apos;s space area.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;RECYCLED MATERIALS:&lt;/p&gt;
+        ///&lt;h2&gt;RECYCLED MATERIALS:&lt;/h2&gt;
         ///&lt;p&gt;After you activate a system, you may return 1 cruiser, carrier, or dreadnought you control in that system to your reinforcements to gain a number of trade goods equal to 1 less than that unit’s cost value.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;ORBITAL FOUNDRIES:&lt;/p&gt;
-        ///&lt;p&gt;For the purpose  [rest of string was truncated]&quot;;.
+        ///&lt;h2&gt;ORBITAL FOUNDRIES:&lt;/h2&gt;
+        ///&lt;p&gt;For the pu [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RohDhnaMechatronics_Ability {
             get {
@@ -401,18 +878,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PRIND SYSTEM:;
-        ///
-        ///✧ 
-        ///Population:.2,63 Billion;
-        ///
-        ///✧ Government:.Executive Board;
-        ///
-        ///✧ Leadership:.Chief Officer;
-        ///
-        ///✧ Disposition:.Productive
-        ///;
-        ///✧ Tendencies:.Economic.
+        ///   Looks up a localized string similar to &lt;p&gt;PRIND SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population:&lt;/p&gt;&lt;p&gt;2,63 Billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government:&lt;/p&gt;&lt;p&gt;Executive Board&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership:&lt;/p&gt;&lt;p&gt;Chief Officer&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition:&lt;/p&gt;&lt;p&gt;Productive&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies:&lt;/p&gt;&lt;p&gt;Economic&lt;/p&gt;.
         /// </summary>
         internal static string RohDhnaMechatronics_SystemStats {
             get {
@@ -430,7 +901,109 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;UNRELENTING:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;Raider Coves&lt;/h2&gt;
+        ///&lt;p&gt;When you commit units to a planet another player controls, you may choose for your units to coexist; if you do, gain 2 trade goods.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;h2&gt;Evasive&lt;/h2&gt;
+        ///&lt;p&gt;Your units do not stop coexisting unless another player ends coexistence with those units or they are removed from that planet. Other players must spend 2 influence to end coexistence with your units on a planet.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;h2&gt;Mutineers&lt;/h2&gt;
+        ///&lt;p&gt;ACTION: Place 1 token from your strategy pool in a non-home system that c [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string SarcosaDrift_Ability {
+            get {
+                return ResourceManager.GetString("SarcosaDrift_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have coexisting units on 2 planets..
+        /// </summary>
+        internal static string SarcosaDrift_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("SarcosaDrift_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string SarcosaDrift_Lore {
+            get {
+                return ResourceManager.GetString("SarcosaDrift_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string SarcosaDrift_Notes {
+            get {
+                return ResourceManager.GetString("SarcosaDrift_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string SarcosaDrift_PromissaryNote {
+            get {
+                return ResourceManager.GetString("SarcosaDrift_PromissaryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Yeah, this is our ship now.
+        ///But don&apos;t worry, we put the
+        ///&apos;party&apos; in &apos;raiding party.&apos;&quot;
+        ///- Cardossa.
+        /// </summary>
+        internal static string SarcosaDrift_Quote {
+            get {
+                return ResourceManager.GetString("SarcosaDrift_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Drift&apos;s home planet is
+        ///predominantly an open sea
+        ///dotted with islands surrounded
+        ///by sprawling reefs. Most major
+        ///planetside infrastructure joins
+        ///countless legends of buried
+        ///riches, hidden under the waves..
+        /// </summary>
+        internal static string SarcosaDrift_SystemInfo {
+            get {
+                return ResourceManager.GetString("SarcosaDrift_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;SHOAL SPACE&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Pirate Queen&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Cardossa&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Individualist&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Economic&lt;/p&gt;.
+        /// </summary>
+        internal static string SarcosaDrift_SystemStats {
+            get {
+                return ResourceManager.GetString("SarcosaDrift_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Sarcosa Drift.
+        /// </summary>
+        internal static string SarcosaDrift_Title {
+            get {
+                return ResourceManager.GetString("SarcosaDrift_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h2&gt;UNRELENTING:&lt;/h2&gt;
         ///&lt;p&gt;Apply +1 to the result of each of your unit&apos;s combat rolls.&lt;/p&gt;.
         /// </summary>
         internal static string SardakkNorr_Ability {
@@ -527,12 +1100,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SARDAKK SYSTEM:;
-        ///✧ Population.28,71 billion;
-        ///✧ Government.Veiled Brood;
-        ///✧ Leadership.The Envoy;
-        ///✧ Disposition.Aggressive;
-        ///✧ Tendencies.Military.
+        ///   Looks up a localized string similar to &lt;p&gt;SARDAKK SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;28,71 billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Veiled Brood&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;The Envoy&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Aggressive&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Military&lt;/p&gt;.
         /// </summary>
         internal static string SardakkNorr_SystemStats {
             get {
@@ -550,7 +1123,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;MITOSIS:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;MITOSIS:&lt;/h2&gt;
         ///&lt;p&gt;Your space docks cannot produce infantry.  At the start of the status phase , place 1 infantry from your reinforcements on any planet you control.&lt;/p&gt;.
         /// </summary>
         internal static string TheArborec_Ability {
@@ -646,12 +1219,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to FARRUBAN SYSTEM:;
-        ///✧ Population.1;
-        ///✧ Government.Hivemind;
-        ///✧ Leadership.The Arborec;
-        ///✧ Disposition.Mysterious;
-        ///✧ Tendencies.Expansionist.
+        ///   Looks up a localized string similar to &lt;h3&gt;FARRUBAN SYSTEM:&lt;/h3&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;1&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Hivemind&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;The Arborec&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Mysterious&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Expansionist&lt;/p&gt;.
         /// </summary>
         internal static string TheArborec_SystemStats {
             get {
@@ -669,13 +1242,13 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;ZEAL:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h3&gt;ZEAL:&lt;/h3&gt;
         ///&lt;p&gt;You always vote first during the agenda phase. When you cast at least 1 vote, cast 1 additional vote for each player in the game including you.&lt;/p&gt;
         ///&lt;br/&gt;
-        ///&lt;p&gt;RAID FORMATION:&lt;/p&gt;
+        ///&lt;h2&gt;RAID FORMATION:&lt;/h2&gt;
         ///&lt;p&gt;When 1 or more of your units uses ANTI-FIGHTER BARRAGE, for each hit produced in excess of your opponent&apos;s Fighters, choose 1 of your opponent&apos;s ships that has SUSTAIN DAMAGE to become damaged.&lt;/p&gt;
         ///&lt;br/&gt;
-        ///&lt;p&gt;Note: The “Anti-Fighter Barrage” step can occur even if a player’s opponent has no fighters in the comb [rest of string was truncated]&quot;;.
+        ///&lt;p&gt;Note: The “Anti-Fighter Barrage” step can occur even if a player’s opponent has no fighters in the  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheArgentFlight_Ability {
             get {
@@ -760,12 +1333,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ATHARAL GAS TORUS:;
-        ///✧ Population.1,84 billion;
-        ///✧ Government.Confederation;
-        ///✧ Leadership.The Murmeration;
-        ///✧ Disposition.Dedicated;
-        ///✧ Tendencies.Military.
+        ///   Looks up a localized string similar to &lt;p&gt;ATHARAL GAS TORUS&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;1,84 billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Confederation&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;The Murmeration&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Dedicated&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Military&lt;/p&gt;.
         /// </summary>
         internal static string TheArgentFlight_SystemStats {
             get {
@@ -783,14 +1356,102 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;ORACLE AI:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;Underhanded Maneuver&lt;/h2&gt;
+        ///&lt;p&gt;At the start of the strategy phase, choose 1 of your neighbours. That player must give you 1 action card from their hand, if able.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;h2&gt;Scrap Metal&lt;/h2&gt;
+        ///&lt;p&gt;After you discard an action card without resolving its effects, gain 1 commodity or convert 1 commodity to a trade good. Game effects cannot prevent you from playing action cards.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;h2&gt;Ultimate Authority&lt;/h2&gt;
+        ///&lt;p&gt;Apply +1 to the influence value of planets that contain 3 or more of your units. After [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheArvaxiCovenant_Ability {
+            get {
+                return ResourceManager.GetString("TheArvaxiCovenant_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Discard an action card after you win a combat.
+        /// </summary>
+        internal static string TheArvaxiCovenant_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheArvaxiCovenant_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheArvaxiCovenant_Lore {
+            get {
+                return ResourceManager.GetString("TheArvaxiCovenant_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheArvaxiCovenant_Notes {
+            get {
+                return ResourceManager.GetString("TheArvaxiCovenant_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheArvaxiCovenant_PromissaryNote {
+            get {
+                return ResourceManager.GetString("TheArvaxiCovenant_PromissaryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheArvaxiCovenant_Quote {
+            get {
+                return ResourceManager.GetString("TheArvaxiCovenant_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheArvaxiCovenant_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheArvaxiCovenant_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheArvaxiCovenant_SystemStats {
+            get {
+                return ResourceManager.GetString("TheArvaxiCovenant_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Arvaxi Covenant.
+        /// </summary>
+        internal static string TheArvaxiCovenant_Title {
+            get {
+                return ResourceManager.GetString("TheArvaxiCovenant_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h2&gt;ORACLE AI:&lt;/h2&gt;
         ///&lt;p&gt;After the speaker reveals an unrevealed public objective, choose 1 unrevealed public objective card and place that card on your faction sheet. You may look at the card on your faction sheet at any time.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;LIMITED VISION:&lt;/p&gt;
+        ///&lt;h2&gt;LIMITED VISION:&lt;/h2&gt;
         ///&lt;p&gt;You may not place a stage II objective card on your faction sheet until all stage I objectives have been revealed.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;PROBABILITY ALGORITHMS:&lt;/p&gt;
-        ///&lt;p&gt;When the speaker would reveal the next public objective, they must reveal the public o [rest of string was truncated]&quot;;.
+        ///&lt;h2&gt;PROBABILITY ALGORITHMS:&lt;/h2&gt;
+        ///&lt;p&gt;When the speaker would reveal the next public objective, they must reveal the pu [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheAugursOfIlyxum_Ability {
             get {
@@ -844,16 +1505,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to THE CRADLE OF ILYXUM:;
-        ///✧ Population:.11,03 Billion
-        ///;
-        ///✧ Government:.Predictive AI;
-        ///
-        ///✧ Leadership:.The Oracle;
-        ///
-        ///✧ Disposition:.Cryptic;
-        ///
-        ///✧ Tendencies:.Scientific.
+        ///   Looks up a localized string similar to &lt;p&gt;THE CRADLE OF ILYXUM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;11,03 Billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Predictive AI&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;The Oracle&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Cryptic&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Scientific&lt;/p&gt;.
         /// </summary>
         internal static string TheAugursOfIlyxum_SystemStats {
             get {
@@ -871,10 +1528,10 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;MUNITIONS RESERVES:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;MUNITIONS RESERVES:&lt;/h2&gt;
         ///&lt;p&gt;At the start of each round of space combat, you may spend 2 trade goods;  you may re-roll any number of your dice during that combat round.&lt;/p&gt;
         ///&lt;br/&gt;
-        ///&lt;p&gt;ARMADA:&lt;/p&gt;
+        ///&lt;h2&gt;ARMADA:&lt;/h2&gt;
         ///&lt;p&gt;The maximum number of non-fighter ships you can have in each system is equal to 2 more than the number of tokens in your fleet pool.&lt;/p&gt;.
         /// </summary>
         internal static string TheBaronyOfLetnev_Ability {
@@ -980,12 +1637,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to BARONY SPACE:;
-        ///✧ Population.10,47 billion;
-        ///✧ Government.Barony;
-        ///✧ Leadership.Daz Emmiciel Werqan III;
-        ///✧ Disposition.Disdainful;
-        ///✧ Tendencies.Military.
+        ///   Looks up a localized string similar to &lt;p&gt;BARONY SPACE&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;10,47 billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Barony&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Daz Emmiciel Werqan III&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Disdainful&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Military&lt;/p&gt;.
         /// </summary>
         internal static string TheBaronyOfLetnev_SystemStats {
             get {
@@ -1003,14 +1660,14 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;SECRET MAPS:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;SECRET MAPS:&lt;/h2&gt;
         ///&lt;p&gt;At the end of your tactical actions, you may explore 1 planet in the active system that is or contains 1 of your units with PRODUCTION that you did not explore during that tactical action.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;FORTUNE SEEKERS:&lt;/p&gt;
+        ///&lt;h2&gt;FORTUNE SEEKERS:&lt;/h2&gt;
         ///&lt;p&gt;Once per action, after you explore a planet or frontier token, you may gain 1 commodity.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;ANCIENT BLUEPRINTS:&lt;/p&gt;
-        ///&lt;p&gt;The first time you gain a cultural, hazardous, industrial, or unknown relic fragment, place the corresponding “Fragment” token  [rest of string was truncated]&quot;;.
+        ///&lt;h2&gt;ANCIENT BLUEPRINTS:&lt;/h2&gt;
+        ///&lt;p&gt;The first time you gain a cultural, hazardous, industrial, or unknown relic fragment, place the corresponding “Fragment”  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheBentorConglomerate_Ability {
             get {
@@ -1066,18 +1723,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to BENTOR SYSTEM
-        ///
-        ///:;
-        ///✧ Population:.9,57 Billion;
-        ///✧ 
-        ///Government:.Directorship;
-        ///✧ 
-        ///Leadership:.CEO Kenn Tucc
-        ///;
-        ///✧ Disposition:.Corporate
-        ///;
-        ///✧ Tendencies:.Economic.
+        ///   Looks up a localized string similar to &lt;p&gt;BENTOR SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;9,57 Billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Directorship&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;CEO Kenn Tucc&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Corporate&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Economic&lt;/p&gt;.
         /// </summary>
         internal static string TheBentorConglomerate_SystemStats {
             get {
@@ -1095,14 +1746,14 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;GLORY:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;GLORY:&lt;/h2&gt;
         ///&lt;p&gt;After you win a combat, you may place or move a Glory token into the active system, or spend 1 token from your strategy pool to research a unit upgrade technology of the same type as 1 of your units that participated in that combat.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;HEROISM:&lt;/p&gt;
+        ///&lt;h2&gt;HEROISM:&lt;/h2&gt;
         ///&lt;p&gt;Capture your fighters and infantry that are destroyed during combat. When you pass, for each Glory token on the game board, you may return 4 of your captured units to gain 1 command token.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;VALOR:&lt;/p&gt;
-        ///&lt;p&gt;When units [rest of string was truncated]&quot;;.
+        ///&lt;h2&gt;VALOR:&lt;/h2&gt;
+        ///&lt;p&gt;When [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheBerserkersOfKjalengard_Ability {
             get {
@@ -1158,18 +1809,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VJOLLHALL
-        ///
-        ///:;
-        ///✧ Population:.7,72 Billion;
-        ///
-        ///✧ Government:.Kingdom;
-        ///
-        ///✧ Leadership:.Grand Skald
-        ///;
-        ///✧ Disposition:.Spirited
-        ///;
-        ///✧ Tendencies:.Scientific.
+        ///   Looks up a localized string similar to &lt;p&gt;VJOLLHALL&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;7,72 Billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Kingdom&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Grand Skald&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Spirited&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Scientific&lt;/p&gt;.
         /// </summary>
         internal static string TheBerserkersOfKjalengard_SystemStats {
             get {
@@ -1187,10 +1832,10 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;PROJECTION OF POWER:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;PROJECTION OF POWER:&lt;/h2&gt;
         ///&lt;p&gt;At the start of any space combat in a system that is adjacent to or contains 1 or more of your space docks, choose up to 1 ship in that system to gain ANTI-FIGHTER BARRAGE 6 during that combat.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;INDUSTRIALISTS:&lt;/p&gt;
+        ///&lt;h2&gt;INDUSTRIALISTS:&lt;/h2&gt;
         ///&lt;p&gt;During setup, place 1 additional space dock in your reinforcements.&lt;/p&gt;.
         /// </summary>
         internal static string TheCeldauriTradeConfederation_Ability {
@@ -1245,18 +1890,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to AKLYON SYSTEM
-        ///
-        ///;
-        ///✧ Population:.11,56 Billion
-        ///;
-        ///✧ Government:.Trade Union;
-        ///✧ 
-        ///Leadership:.High Councilor
-        ///;
-        ///✧ Disposition:.Optimistic;
-        ///✧ 
-        ///Tendencies:.Economic.
+        ///   Looks up a localized string similar to &lt;p&gt;AKLYON SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;11,56 Billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Trade Union&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;High Councilor&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Optimistic&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Economic&lt;/p&gt;.
         /// </summary>
         internal static string TheCeldauriTradeConfederation_SystemStats {
             get {
@@ -1274,13 +1913,13 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;TEEMING:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;TEEMING:&lt;/h2&gt;
         ///&lt;p&gt;During setup, place 2 additional dreadnoughts and 1 additional mech in your reinforcements.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;MOULT:&lt;/p&gt;
+        ///&lt;h2&gt;MOULT:&lt;/h2&gt;
         ///&lt;p&gt;After you win a space combat as the defender, you may produce 1 ship in the active system, reducing the cost by 1 for each of your non-fighter ships destroyed during that combat.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;BYSSUS:&lt;/p&gt;
+        ///&lt;h2&gt;BYSSUS:&lt;/h2&gt;
         ///&lt;p&gt;You may treat your mechs on planets you control as structures for any purpose other than scoring objectives.&lt;/p&gt;.
         /// </summary>
         internal static string TheCheiranHordes_Ability {
@@ -1327,18 +1966,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CHEIRAN REACH
-        ///
-        ///:;
-        ///✧ Population:.Unknown
-        ///;
-        ///✧ Government:.Demarchy
-        ///;
-        ///✧ Leadership:.Polemarch
-        ///;
-        ///✧ Disposition:.Pragmatic;
-        ///✧ 
-        ///Tendencies:.Objective.
+        ///   Looks up a localized string similar to &lt;p&gt;CHEIRAN REACH&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Demarchy&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Polemarch&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Pragmatic&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Objective&lt;/p&gt;.
         /// </summary>
         internal static string TheCheiranHordes_SystemStats {
             get {
@@ -1356,10 +1989,10 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;SCAVENGE:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;SCAVENGE:&lt;/h2&gt;
         ///&lt;p&gt;After you gain control of a planet, gain 1 trade good.&lt;/p&gt;
         ///&lt;br/&gt;
-        ///&lt;p&gt;NOMADIC:&lt;/p&gt;
+        ///&lt;h2&gt;NOMADIC:&lt;/h2&gt;
         ///&lt;p&gt;You can score objectives even if you do not control the planets in your home system.&lt;/p&gt;.
         /// </summary>
         internal static string TheClanOfSaar_Ability {
@@ -1452,12 +2085,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to JORUN ASTEROID FIELD:;
-        ///✧ Population.1,01 billion;
-        ///✧ Government.Admiralty;
-        ///✧ Leadership.Council of Captains;
-        ///✧ Disposition.Melancholy;
-        ///✧ Tendencies.Objective.
+        ///   Looks up a localized string similar to &lt;p&gt;JORUN ASTEROID FIELD&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;1,01 billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Admiralty&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Council of Captains&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Melancholy&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Objective&lt;/p&gt;.
         /// </summary>
         internal static string TheClanOfSaar_SystemStats {
             get {
@@ -1475,14 +2108,100 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;THE TRIBUNII:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;Quantum Fabrication&lt;/h2&gt; 
+        ///&lt;p&gt;Once per action, when you place a space dock on a planet in a non-home system you may use its PRODUCTION ability immediately.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;h2&gt;Transformation Protocol&lt;/h2&gt;
+        ///&lt;p&gt;When casting votes on an agenda, you may choose up to 2 of your ships that have SUSTAIN DAMAGE to become damaged. For each ship chosen, cast 4 additional votes.&lt;/p&gt;
+        ///.
+        /// </summary>
+        internal static string TheConstituentsOfXan_Ability {
+            get {
+                return ResourceManager.GetString("TheConstituentsOfXan_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have damaged units with a combined cost of at least 12.
+        /// </summary>
+        internal static string TheConstituentsOfXan_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheConstituentsOfXan_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheConstituentsOfXan_Lore {
+            get {
+                return ResourceManager.GetString("TheConstituentsOfXan_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheConstituentsOfXan_Notes {
+            get {
+                return ResourceManager.GetString("TheConstituentsOfXan_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheConstituentsOfXan_PromissaryNote {
+            get {
+                return ResourceManager.GetString("TheConstituentsOfXan_PromissaryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheConstituentsOfXan_Quote {
+            get {
+                return ResourceManager.GetString("TheConstituentsOfXan_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheConstituentsOfXan_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheConstituentsOfXan_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheConstituentsOfXan_SystemStats {
+            get {
+                return ResourceManager.GetString("TheConstituentsOfXan_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Constituents Of Xan.
+        /// </summary>
+        internal static string TheConstituentsOfXan_Title {
+            get {
+                return ResourceManager.GetString("TheConstituentsOfXan_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h2&gt;THE TRIBUNII:&lt;/h2&gt;
         ///&lt;p&gt;During setup, choose an unplayed faction from among the Mentak, the Xxcha and The Argent Flight; take that faction&apos;s home system, command tokens and control markers. Additionally, take the Keleres Hero that corresponds to that faction.&lt;/p&gt;
         ///&lt;br/&gt;
-        ///&lt;p&gt;COUNCIL PATRONAGE:&lt;/p&gt;
+        ///&lt;h2&gt;COUNCIL PATRONAGE:&lt;/h2&gt;
         ///&lt;p&gt;Replenish your commodities at the start of the strategy phase, then gain 1 trade good.&lt;/p&gt;
         ///&lt;br/&gt;
-        ///&lt;p&gt;LAW&apos;S ORDER:&lt;/p&gt;
-        ///&lt;p&gt;You may spend 1 influence at the start of your turn to treat all laws as blank until t [rest of string was truncated]&quot;;.
+        ///&lt;h2&gt;LAW&apos;S ORDER:&lt;/h2&gt;
+        ///&lt;p&gt;You may spend 1 influence at the start of your turn to treat all laws as blank u [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheCouncilKeleres_Ability {
             get {
@@ -1568,12 +2287,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to IMPERIAL INTELLIGENCE HQ:;
-        ///✧ Location.Mecatol City;
-        ///✧ Leadership.The Tribunii;
-        ///✧ Agents.Classified;
-        ///✧ Support Staff.~5000;
-        ///✧ Ongoing Ops.Classified.
+        ///   Looks up a localized string similar to &lt;p&gt;IMPERIAL INTELLIGENCE HQ&lt;/p&gt;
+        ///&lt;p&gt;✧ Location&lt;/p&gt;&lt;p&gt;Mecatol City&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;The Tribunii&lt;/p&gt;
+        ///&lt;p&gt;✧ Agents&lt;/p&gt;&lt;p&gt;Classified&lt;/p&gt;
+        ///&lt;p&gt;✧ Support Staff&lt;/p&gt;&lt;p&gt;~5000&lt;/p&gt;
+        ///&lt;p&gt;✧ Ongoing Ops&lt;/p&gt;&lt;p&gt;Classified&lt;/p&gt;.
         /// </summary>
         internal static string TheCouncilKeleres_SystemStats {
             get {
@@ -1618,14 +2337,14 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;SUNDERED:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;SUNDERED:&lt;/h2&gt;
         ///&lt;p&gt;You cannot use wormholes other than epsilon wormholes. Other players&apos; units that move or are placed into your home system are destroyed.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;INCURSION:&lt;/p&gt;
+        ///&lt;h2&gt;INCURSION:&lt;/h2&gt;
         ///&lt;p&gt;When you activate a system that contains a breach, you may flip that breach; systems that contain active breaches are adjacent. At the end of the status phase, any player with ships in a system that contain an active breach may remove that breach.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;THE SORROW:&lt;/p&gt;
-        ///&lt;p&gt;When you create the game board, place [rest of string was truncated]&quot;;.
+        ///&lt;h2&gt;THE SORROW:&lt;/h2&gt;
+        ///&lt;p&gt;When you create the game board, [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheCrimsonRebellion_Ability {
             get {
@@ -1645,7 +2364,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;When the Creuss discovered the records leading to the ancient world of Ixth, they saw their chance to unearth a galactic monomyth and use the resulting glory to step to the forefront of all other major civilizations. Instead, they uncovered the homeworld of the dreaded Mahact gene-sorcerers.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;When the Mahact awoke, they dominated the entire armada the Creuss had sent to Ixth. With the high technology of their homeworld, they rewrote the frequency of the Creuss’ energistic structure as one mig [rest of string was truncated]&quot;;.
+        ///&lt;p&gt;When the Mahact awoke, they dominated the entire armada the Creuss had sent to Ixth. With the high technology of their homeworld, they rewrote the frequency of the Creuss’ energistic structure as one m [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheCrimsonRebellion_Lore {
             get {
@@ -1699,18 +2418,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to UNKNOWN DIMENSION
-        ///:;
-        ///✦
-        ///Population:.10 Million
-        ///;
-        ///✦ Government:.Communal Anarchy
-        ///;
-        ///✦ Leadership:.None
-        ///;
-        ///✦ Disposition:.Despairing
-        ///;
-        ///✦ Tendencies:.Military.
+        ///   Looks up a localized string similar to &lt;p&gt;UNKNOWN DIMENSION&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;10 Million&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Communal Anarchy&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;None&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Despairing&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Military&lt;/p&gt;.
         /// </summary>
         internal static string TheCrimsonRebellion_SystemStats {
             get {
@@ -1728,10 +2441,10 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;RESEARCH TEAM:&lt;/p&gt; 
+        ///   Looks up a localized string similar to &lt;h2&gt;RESEARCH TEAM:&lt;/h2&gt; 
         ///&lt;p&gt;When ground forces are committed, if your units on the planet are not already coexisting, you may choose for your units to coexist.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;OCEANBOUND:&lt;/p&gt; 
+        ///&lt;h2&gt;OCEANBOUND:&lt;/h2&gt; 
         ///&lt;p&gt;When your units begin coexisting on a planet, gain an ocean card and ready it. Any time you have more ocean cards than there are planets that have your coexisting units, discard ocean cards until you do not.&lt;/p&gt;.
         /// </summary>
         internal static string TheDeepwroughtScholarate_Ability {
@@ -1752,7 +2465,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;Facing grave threats to the galaxy, some factions within the great powers sought to work together, creating the Keleres and striving for better relations between all.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;One of these factions was the Universities of Jol-Nar. They sought a way to break the domination of the Mahact’s most dangerous thralls, the infamous Crimson Legionnaires—and most importantly to prevent similar mind-control from affecting any Hylar victims. The newly developed Waveform Arbitrator could shatter the Mahact contro [rest of string was truncated]&quot;;.
+        ///&lt;p&gt;One of these factions was the Universities of Jol-Nar. They sought a way to break the domination of the Mahact’s most dangerous thralls, the infamous Crimson Legionnaires—and most importantly to prevent similar mind-control from affecting any Hylar victims. The newly developed Waveform Arbitrator could shatter the Mahact cont [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheDeepwroughtScholarate_Lore {
             get {
@@ -1815,22 +2528,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to IKATOL SYSTEM:
-        ///;
-        ///✦
-        ///Population:.9,1 billion
-        ///;
-        ///✦
-        ///Government:.Conclave of Singers
-        ///;
-        ///✦
-        ///Leadership:.Ta Zern
-        ///;
-        ///✦
-        ///Disposition:.Cooperative
-        ///;
-        ///✦
-        ///Tendencies:.Scientific.
+        ///   Looks up a localized string similar to &lt;p&gt;IKATOL SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;9,1 billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Conclave of Singers&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Ta Zern&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Cooperative&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Scientific&lt;/p&gt;.
         /// </summary>
         internal static string TheDeepwroughtScholarate_SystemStats {
             get {
@@ -1848,13 +2551,13 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;CAPITAL FLEET:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;CAPITAL FLEET:&lt;/h2&gt;
         ///&lt;p&gt;Destroyers count as 1/2 of a ship against your fleet pool.&lt;p&gt;
         ///&lt;/br&gt;
         ///&lt;p&gt;MIGRANT EXPLORERS:&lt;/p&gt;
         ///&lt;p&gt;After you explore a frontier token in a system, you may explore a planet you control that is adjacent to that system.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;FLOTILLA:&lt;/p&gt;
+        ///&lt;h2&gt;FLOTILLA:&lt;/h2&gt;
         ///&lt;p&gt;You cannot have more infantry than non-fighter ships in the space area of a system.&lt;/p&gt;.
         /// </summary>
         internal static string TheDihMohnFlotilla_Ability {
@@ -1909,17 +2612,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to NEW REST
-        ///:;
-        ///✧ Population:.5,22 Billion
-        ///;
-        ///✧ Government:.Admiralty
-        ///;
-        ///✧ Leadership:.First Admiral
-        ///;
-        ///✧ Disposition:.Unified
-        ///;
-        ///✧ Tendencies:.Expansionist.
+        ///   Looks up a localized string similar to &lt;p&gt;NEW REST&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;5,22 Billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Admiralty&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;First Admiral&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Unified&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Expansionist&lt;/p&gt;.
         /// </summary>
         internal static string TheDihMohnFlotilla_SystemStats {
             get {
@@ -1937,14 +2635,14 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;GRACE:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;GRACE:&lt;/h2&gt;
         ///&lt;p&gt;Once per action phase, after you resolve the primary ability of a strategy card, you may resolve the secondary ability of 1 readied or unchosen strategy card with a lower printed initiative number than that strategy card.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;DECREE:&lt;/p&gt;
+        ///&lt;h2&gt;DECREE:&lt;/h2&gt;
         ///&lt;p&gt;You may prevent ships from moving through anomalies that contain your ground forces.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;RADIANCE:&lt;/p&gt;
-        ///&lt;p&gt;After an agenda is revealed, you may predict aloud the outcome of that agenda. If your prediction is correct, place 1 comma [rest of string was truncated]&quot;;.
+        ///&lt;h2&gt;RADIANCE:&lt;/h2&gt;
+        ///&lt;p&gt;After an agenda is revealed, you may predict aloud the outcome of that agenda. If your prediction is correct, place 1 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheEdynMandate_Ability {
             get {
@@ -2000,19 +2698,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to THE TWILIGHT THRONE
-        ///
-        ///:;
-        ///✧ Population:.28,4 Billion
-        ///;
-        ///✧ Government:.The Mandate
-        ///;
-        ///✧ Leadership:.Living Will
-        ///;
-        ///✧ Disposition:.Graceful
-        ///;
-        ///✧ 
-        ///Tendencies:.Objective.
+        ///   Looks up a localized string similar to &lt;p&gt;THE TWILIGHT THRONE&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;28,4 Billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;The Mandate&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Living Will&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Graceful&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Objective&lt;/p&gt;.
         /// </summary>
         internal static string TheEdynMandate_SystemStats {
             get {
@@ -2030,10 +2721,10 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;STAR FORGE:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;STAR FORGE:&lt;/h2&gt;
         ///&lt;p&gt;ACTION: Spend 1 token from your strategy pool to place either 2 fighters or 1 destroyer from your reinforcements in a system that contains 1 or more of your war suns.&lt;/p&gt;
         ///&lt;br/&gt;
-        ///&lt;p&gt;GASHLAI PHYSIOLOGY:&lt;/p&gt;
+        ///&lt;h2&gt;GASHLAI PHYSIOLOGY:&lt;/h2&gt;
         ///&lt;p&gt;Your ships can move through supernovas.&lt;/p&gt;
         ///&lt;br/&gt;
         ///&lt;p&gt;Note: Moving through a system is distinct from moving into a system. See Movement rules for details.&lt;/p&gt;.
@@ -2134,12 +2825,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MUAAT SYSTEM:;
-        ///✧ Population.7,39 billion;
-        ///✧ Government.Tribunal;
-        ///✧ Leadership.Sushon Azh;
-        ///✧ Disposition.Grim;
-        ///✧ Tendencies.Military.
+        ///   Looks up a localized string similar to &lt;p&gt;MUAAT SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;7,39 billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Tribunal&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Sushon Azh&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Grim&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Military&lt;/p&gt;.
         /// </summary>
         internal static string TheEmbersOfMuaat_SystemStats {
             get {
@@ -2157,13 +2848,13 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;MASTERS OF TRADE:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;MASTERS OF TRADE:&lt;/h2&gt;
         ///&lt;p&gt;You do not have to spend a command token to resolve the secondary ability of the &quot;Trade&quot; strategy card.&lt;/p&gt;
         ///&lt;br/&gt;
-        ///&lt;p&gt;GUILD SHIPS:&lt;/p&gt;
+        ///&lt;h2&gt;GUILD SHIPS:&lt;/h2&gt;
         ///&lt;p&gt;You can negotiate transactions with players who are not your neighbor.&lt;/p&gt;
         ///&lt;br/&gt;
-        ///&lt;p&gt;ARBITERS:&lt;/p&gt;
+        ///&lt;h2&gt;ARBITERS:&lt;/h2&gt;
         ///&lt;p&gt;When you are negotiating a transaction, action cards can be exchanged as part of that transaction.&lt;/p&gt;.
         /// </summary>
         internal static string TheEmiratesOfHacan_Ability {
@@ -2259,12 +2950,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to KENARA SYSTEM:;
-        ///✧ Population.8,82 billion;
-        ///✧ Government.United Emirates;
-        ///✧ Leadership.Quieron;
-        ///✧ Disposition.Nomadic;
-        ///✧ Tendencies.Economic.
+        ///   Looks up a localized string similar to &lt;p&gt;KENARA SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;8,82 billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;United Emirates&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Quieron&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Nomadic&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Economic&lt;/p&gt;.
         /// </summary>
         internal static string TheEmiratesOfHacan_SystemStats {
             get {
@@ -2282,13 +2973,13 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;VOIDBORN:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;VOIDBORN:&lt;/h2&gt;
         ///&lt;p&gt;Nebulae do not affect your ships&apos; movement.&lt;/p&gt;
         ///&lt;br/&gt;
-        ///&lt;p&gt;AETHERPASSAGE:&lt;/p&gt;
+        ///&lt;h2&gt;AETHERPASSAGE:&lt;/h2&gt;
         ///&lt;p&gt;After a player activates a system, you may allow that player to move their ships through systems that contain your ships.&lt;/p&gt;
         ///&lt;br/&gt;
-        ///&lt;p&gt;DARK WHISPERS:&lt;/p&gt;
+        ///&lt;h2&gt;DARK WHISPERS:&lt;/h2&gt;
         ///&lt;p&gt;During setup, take the additional Empyrean faction promissory note; you have 2 faction promissory notes&lt;/p&gt;..
         /// </summary>
         internal static string TheEmpyrean_Ability {
@@ -2380,12 +3071,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to THE DARK:;
-        ///✧ Population.Fluctuates;
-        ///✧ Government.Collective;
-        ///✧ Leadership.None;
-        ///✧ Disposition.Contemplative;
-        ///✧ Tendencies.Political.
+        ///   Looks up a localized string similar to &lt;p&gt;THE DARK&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;Fluctuates&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Collective&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;None&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Contemplative&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Political&lt;/p&gt;.
         /// </summary>
         internal static string TheEmpyrean_SystemStats {
             get {
@@ -2403,10 +3094,10 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;ORBITAL DROP:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;ORBITAL DROP:&lt;/h2&gt;
         ///&lt;p&gt;ACTION: Spend 1 token from your strategy pool to place 2 infantry from your reinforcements on 1 planet you control.&lt;/p&gt;
         ///&lt;br/&gt;
-        ///&lt;p&gt;VERSATILE:&lt;/p&gt;
+        ///&lt;h2&gt;VERSATILE:&lt;/h2&gt;
         ///&lt;p&gt;When you gain command tokens during the status phase, gain 1 additional command token.&lt;/p&gt;.
         /// </summary>
         internal static string TheFederationOfSol_Ability {
@@ -2506,12 +3197,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SOL SYSTEM:;
-        ///✧ Population.16,44 billion;
-        ///✧ Government.Federation;
-        ///✧ Leadership.Juan Salvador Tao;
-        ///✧ Disposition.Determined;
-        ///✧ Tendencies.Expansionist.
+        ///   Looks up a localized string similar to &lt;p&gt;SOL SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;16,44 billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Federation&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Juan Salvador Tao&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Determined&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Expansionist&lt;/p&gt;.
         /// </summary>
         internal static string TheFederationOfSol_SystemStats {
             get {
@@ -2531,11 +3222,11 @@ namespace TwilightImperiumUltimate.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to &lt;h1&gt;The Firmament&lt;/h1&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;PLOTS WITHIN PLOTS:&lt;/p&gt;
+        ///&lt;h2&gt;PLOTS WITHIN PLOTS:&lt;/h2&gt;
         ///&lt;p&gt;You can score secret objectives already scored by other players, if you fulfill their requirements; This does not count against your secret objective limit or the number you can score in a round. When you score another player&apos;s secret objective do not score a victory point. Instead, place a face down plot card into your play area with that player&apos;s control token on it.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;PUPPETS OF THE BLADE:&lt;/p&gt;
-        ///&lt;p&gt;If you have at least one plot car [rest of string was truncated]&quot;;.
+        ///&lt;h2&gt;PUPPETS OF THE BLADE:&lt;/h2&gt;
+        ///&lt;p&gt;If you have at least one plot [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheFirmamentTheObsidian_Ability {
             get {
@@ -2555,7 +3246,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;Whether the Firmament is a collection of revolutionary idealists or a sprawling and secretive criminal empire is a matter of perspective. To the Great Powers, the important question is: who will be the next to inherit the Imperial throne? But the founders of the Firmament dared to ask: Why should there be an Imperial throne at all?&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;To these philosophers, diplomats, and soldiers, assuming that empire was the galaxy’s natural state was a monumental folly. After all, twenty-four millennia of th [rest of string was truncated]&quot;;.
+        ///&lt;p&gt;To these philosophers, diplomats, and soldiers, assuming that empire was the galaxy’s natural state was a monumental folly. After all, twenty-four millennia of  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheFirmamentTheObsidian_Lore {
             get {
@@ -2607,12 +3298,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to HEAVENSFALL COMMAND:;
-        ///✧ Location:.Nepheme System;
-        ///✧ Leadership:.The Constellation;
-        ///✧ Agents:.Est: 250,000~;
-        ///✧ Threat Level:.Epsilon;
-        ///✧ Priority:.Alpha.
+        ///   Looks up a localized string similar to &lt;p&gt;HEAVENSFALL COMMAND&lt;/p&gt;
+        ///&lt;p&gt;✧ Location&lt;/p&gt;&lt;p&gt;Nepheme System&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;The Constellation&lt;/p&gt;
+        ///&lt;p&gt;✧ Agents&lt;/p&gt;&lt;p&gt;Est: 250,000~&lt;/p&gt;
+        ///&lt;p&gt;✧ Threat Level&lt;/p&gt;&lt;p&gt;Epsilon&lt;/p&gt;
+        ///&lt;p&gt;✧ Priority&lt;/p&gt;&lt;p&gt;Alpha&lt;/p&gt;.
         /// </summary>
         internal static string TheFirmamentTheObsidian_SystemStats {
             get {
@@ -2630,14 +3321,13 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;MERCENARIES:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;MERCENARIES:&lt;/h2&gt;
         ///&lt;p&gt;At the start of a space combat, you may remove up to 2 fighters you control in a system adjacent to the active system. Then, choose 1 player participating in that combat; that player places the same number of fighters from their reinforcements in the active system.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;DATA LEAK:&lt;/p&gt;
+        ///&lt;h2&gt;DATA LEAK:&lt;/h2&gt;
         ///&lt;p&gt;When you would gain a relic, you may draw 1 additional card; choose 1 to gain and return the rest to the relic deck. Then, shuffle the relic deck.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;SHADOW MARKETS:&lt;/p&gt;
-        ///&lt;p&gt;Wh [rest of string was truncated]&quot;;.
+        ///&lt;h2&gt;SHADOW MARKETS:&lt;/h2&gt;        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheFlorzenProfiteers_Ability {
             get {
@@ -2691,18 +3381,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to FLORZEN SYSTEM
-        ///
-        ///:;
-        ///✧ Population:.6,75 Billion
-        ///;
-        ///✧ Government:.Administration
-        ///;
-        ///✧ Leadership:.It That Knows;
-        ///✧ 
-        ///Disposition:.Conspiratorial
-        ///;
-        ///✧ Tendencies:.Political.
+        ///   Looks up a localized string similar to &lt;p&gt;FLORZEN SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;6,75 Billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Administration&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;It That Knows&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Conspiratorial&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Political&lt;/p&gt;.
         /// </summary>
         internal static string TheFlorzenProfiteers_SystemStats {
             get {
@@ -2720,14 +3404,14 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;RALLY TO THE CAUSE:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;RALLY TO THE CAUSE:&lt;/h2&gt;
         ///&lt;p&gt;Once per action, after you produce 1 or more ships in your home system, you may produce up to 2 ships in a system that contains a cultural, hazardous, or industrial planet and does not contain a legendary planet or other players’ units.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;DIPLOMATS:&lt;/p&gt;
+        ///&lt;h2&gt;DIPLOMATS:&lt;/h2&gt;
         ///&lt;p&gt;Once per action, you may exhaust 1 uncontrolled planet’s planet card that is on the game board to spend its resources or influence.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;FREE PEOPLE:&lt;/p&gt;
-        ///&lt;p&gt;During setup, for each non-home planet oth [rest of string was truncated]&quot;;.
+        ///&lt;h2&gt;FREE PEOPLE:&lt;/h2&gt;
+        ///&lt;p&gt;During setup, for each non-home plan [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheFreeSystemsCompact_Ability {
             get {
@@ -2783,18 +3467,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to HOPE&apos;S HEART SYSTEM
-        ///
-        ///:;
-        ///✧ Population:.17,57 Billion;
-        ///✧ 
-        ///Government:.Democracy;
-        ///✧ 
-        ///Leadership:.President Cyhn
-        ///;
-        ///✧ Disposition:.Placative;
-        ///✧ 
-        ///Tendencies:.Political.
+        ///   Looks up a localized string similar to &lt;p&gt;HOPE&apos;S HEART SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;17,57 Billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Democracy&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;President Cyhn&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Placative&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Political&lt;/p&gt;.
         /// </summary>
         internal static string TheFreeSystemsCompact_SystemStats {
             get {
@@ -2812,10 +3490,10 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;THE LADY &amp; THE LORD:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;THE LADY &amp; THE LORD:&lt;/h2&gt;
         ///&lt;p&gt;During setup, place 1 additional flagship in your reinforcements and the additional Ghemina Hero next to your faction sheet. This additional flagship has the abilities and attributes listed on the Lord flagship card. You have 2 Heroes.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;RULE OF TWO:&lt;/p&gt;
+        ///&lt;h2&gt;RULE OF TWO:&lt;/h2&gt;
         ///&lt;p&gt;During a round of combat in a system that contains exactly 2 of your non-fighter ships, if those ships have the same unit type, apply +2 to the result of each of those unit’s combat rolls.&lt;/p&gt;.
         /// </summary>
         internal static string TheGheminaRaiders_Ability {
@@ -2870,18 +3548,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to THE TWINS
-        ///
-        ///:;
-        ///✧ Population:.2 Billion
-        ///;
-        ///✧ Government:.United Clans;
-        ///
-        ///✧ Leadership:.Lord and Lady
-        ///;
-        ///✧ Disposition:.Vigorous
-        ///;
-        ///✧ Tendencies:.Expansionist.
+        ///   Looks up a localized string similar to &lt;p&gt;THE TWINS&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;2 Billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;United Clans&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Lord and Lady&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Vigorous&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Expansionist&lt;/p&gt;.
         /// </summary>
         internal static string TheGheminaRaiders_SystemStats {
             get {
@@ -2899,14 +3571,14 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;QUANTUM ENTANGLEMENT:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;QUANTUM ENTANGLEMENT:&lt;/h2&gt;
         ///&lt;p&gt;You treat all systems that contain either an alpha or beta wormhole as adjacent to each other. Game effects cannot prevent you from using this ability.&lt;/p&gt;
         ///&lt;br/&gt;
-        ///&lt;p&gt;SLIPSTREAM:&lt;/p&gt;
+        ///&lt;h2&gt;SLIPSTREAM:&lt;/h2&gt;
         ///&lt;p&gt;During your tactical actions, apply +1 to the move value of each of your ships that starts its movement in your home system  or in a system that contains either an alpha or beta wormhole.&lt;/p&gt;
         ///&lt;br/&gt;
-        ///&lt;p&gt;CREUSS GATE:&lt;/p&gt;
-        ///&lt;p&gt;When you create the game board, place the Creuss Gate (tile 17) wher [rest of string was truncated]&quot;;.
+        ///&lt;h2&gt;CREUSS GATE:&lt;/h2&gt;
+        ///&lt;p&gt;When you create the game board, place the Creuss Gate (tile 17 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheGhostsOfCreuss_Ability {
             get {
@@ -2998,12 +3670,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SHALERI PASSAGE:;
-        ///✧ Population.Unknown;
-        ///✧ Government.Unknown;
-        ///✧ Leadership.Unknown;
-        ///✧ Disposition.Enigmatic;
-        ///✧ Tendencies.Expansionist.
+        ///   Looks up a localized string similar to &lt;p&gt;SHALERI PASSAGE&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Enigmatic&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Expansionist&lt;/p&gt;.
         /// </summary>
         internal static string TheGhostsOfCreuss_SystemStats {
             get {
@@ -3021,14 +3693,14 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;ABYSSAL EMBRACE:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;ABYSSAL EMBRACE:&lt;/h2&gt;
         ///&lt;p&gt;When you create the game board, place the Ghoti Space tile where your home system would normally be placed. The Ghoti Space system is not a home system.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;MOBILE COMMAND:&lt;/p&gt;
+        ///&lt;h2&gt;MOBILE COMMAND:&lt;/h2&gt;
         ///&lt;p&gt;The system that contains your flagship is your home system. Your flagship cannot be captured and you cannot score public objectives if your flagship is not on the game board.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;SPAWNING GROUNDS:&lt;/p&gt;
-        ///&lt;p&gt;During setup, gain and ready the Ghoti planet card and its planet ability ca [rest of string was truncated]&quot;;.
+        ///&lt;h2&gt;SPAWNING GROUNDS:&lt;/h2&gt;
+        ///&lt;p&gt;During setup, gain and ready the Ghoti planet card and its planet abil [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheGhotiWayfarers_Ability {
             get {
@@ -3084,18 +3756,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to GHOTI SPACE
-        ///
-        ///:;
-        ///✧ Population:.Unknown
-        ///;
-        ///✧ Government:.None
-        ///;
-        ///✧ Leadership:.All-Mother
-        ///;
-        ///✧ Disposition:.Protective
-        ///;
-        ///✧ Tendencies:.Expansionist.
+        ///   Looks up a localized string similar to &lt;p&gt;GHOTI SPACE&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;None&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;All-Mother&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Protective&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Expansionist&lt;/p&gt;.
         /// </summary>
         internal static string TheGhotiWayfarers_SystemStats {
             get {
@@ -3113,14 +3779,14 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;MANTLE CRACKING:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;MANTLE CRACKING:&lt;/h2&gt;
         ///&lt;p&gt;ACTION: Place 1 &quot;Core&quot; token on a non-home planet you control other than Mecatol Rex that does not contain a Core token to gain up to 4 trade goods.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;CELESTIAL RECLAMATION:&lt;/p&gt;
+        ///&lt;h2&gt;CELESTIAL RECLAMATION:&lt;/h2&gt;
         ///&lt;p&gt;Planets that contain Core tokens have a base resource value of 2 and influence value of 0. Core tokens cannot be removed from the planet that contains them.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;DEEP MINING:&lt;/p&gt;
-        ///&lt;p&gt;When you would explore a planet that contains 1 of your mechs or structures, you may instead gai [rest of string was truncated]&quot;;.
+        ///&lt;h2&gt;DEEP MINING:&lt;/h2&gt;
+        ///&lt;p&gt;When you would explore a planet that contains 1 of your mechs or structures, you may inste [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheGledgeUnion_Ability {
             get {
@@ -3174,18 +3840,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to THE FRINGE
-        ///
-        ///:;
-        ///✧ Population:.917 Million;
-        ///✧ 
-        ///Government:.Contractorship
-        ///;
-        ///✧ Leadership:.Chief Delegate
-        ///;
-        ///✧ Disposition:.Inventive;
-        ///✧ 
-        ///Tendencies:.Expansionist.
+        ///   Looks up a localized string similar to &lt;p&gt;THE FRINGE&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;917 Million&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Contractorship&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Chief Delegate&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Inventive&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Expansionist&lt;/p&gt;.
         /// </summary>
         internal static string TheGledgeUnion_SystemStats {
             get {
@@ -3203,11 +3863,11 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;FACSIMILE:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;FACSIMILE:&lt;/h2&gt;
         ///&lt;p&gt;At the start of a space combat while you are the defender, you may spend influence equal to the cost value of 1 of your opponent&apos;s ships in the active system to place 1 unit of that type from your reinforcements in that system.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;ILLUSORY PRESENCE:&lt;/p&gt;
-        ///&lt;p&gt;During the agenda phase, after another player casts votes, you may exhaust up to 2 planets you control; that player casts an additional number of votes equal to 1 more than the combined influence values of those planets. [rest of string was truncated]&quot;;.
+        ///&lt;h2&gt;ILLUSORY PRESENCE:&lt;/h2&gt;
+        ///&lt;p&gt;During the agenda phase, after another player casts votes, you may exhaust up to 2 planets you control; that player casts an additional number of votes equal to 1 more than the combined influence values of those plan [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheGlimmerOfMortheus_Ability {
             get {
@@ -3263,18 +3923,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SHIMMERING VEIL:;
-        ///✧ 
-        ///
-        ///Population:.Unknown
-        ///;
-        ///✧ Government:.Unknown
-        ///;
-        ///✧ Leadership:.Unknown
-        ///;
-        ///✧ Disposition:.Reflective
-        ///;
-        ///✧ Tendencies:.Unknown.
+        ///   Looks up a localized string similar to &lt;p&gt;SHIMMERING VEIL&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Reflective&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;.
         /// </summary>
         internal static string TheGlimmerOfMortheus_SystemStats {
             get {
@@ -3288,6 +3942,85 @@ namespace TwilightImperiumUltimate.Web.Resources {
         internal static string TheGlimmerOfMortheus_Title {
             get {
                 return ResourceManager.GetString("TheGlimmerOfMortheus_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h2&gt;Eusociality&lt;/h2&gt;
+        ///&lt;p&gt;When you retreat during a space combat in a system that doesn&apos;t contain your command tokens, you do not place a command token into the target system. You may treat “Skilled Retreat” action cards as a retreat for the purpose of your abilities.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;h2&gt;Carapace Regeneration&lt;/h2&gt;
+        ///&lt;p&gt;After you retreat during a space combat, repair all of your damaged ships that retreated.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;h2&gt;Primordial&lt;/h2&gt;
+        ///&lt;p&gt;When you score a public objective, if you are the first to score that o [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheKaloraSwarm_Ability {
+            get {
+                return ResourceManager.GetString("TheKaloraSwarm_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheKaloraSwarm_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheKaloraSwarm_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheKaloraSwarm_Lore {
+            get {
+                return ResourceManager.GetString("TheKaloraSwarm_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheKaloraSwarm_Notes {
+            get {
+                return ResourceManager.GetString("TheKaloraSwarm_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheKaloraSwarm_PromissaryNote {
+            get {
+                return ResourceManager.GetString("TheKaloraSwarm_PromissaryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheKaloraSwarm_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheKaloraSwarm_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheKaloraSwarm_SystemStats {
+            get {
+                return ResourceManager.GetString("TheKaloraSwarm_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Kalora Swarm.
+        /// </summary>
+        internal static string TheKaloraSwarm_Title {
+            get {
+                return ResourceManager.GetString("TheKaloraSwarm_Title", resourceCulture);
             }
         }
         
@@ -3319,14 +4052,14 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;CLOAKED FLEETS:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;CLOAKED FLEETS:&lt;/h2&gt;
         ///&lt;p&gt;After you produce 1 or more ships, you may place up to 2 of those ships on your faction sheet, those ships are captured.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;SHROUD OF LITH:&lt;/p&gt;
+        ///&lt;h2&gt;SHROUD OF LITH:&lt;/h2&gt;
         ///&lt;p&gt;After movement, if the active system contains 1 or more of your non-fighter ships, you may place up to 2 of your captured ships and 2 of your captured ground forces from your faction sheet in that system’s space area.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;TREASURE HUNTERS:&lt;/p&gt;
-        ///&lt;p&gt;At the start of your turn, you may look at the top card of the cul [rest of string was truncated]&quot;;.
+        ///&lt;h2&gt;TREASURE HUNTERS:&lt;/h2&gt;
+        ///&lt;p&gt;At the start of your turn, you may look at the top card of t [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheKolleccSociety_Ability {
             get {
@@ -3380,18 +4113,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SUROS SPACE
-        ///
-        ///:;
-        ///✧ Population:.8,32 Billion;
-        ///✧ 
-        ///Government:.Bureaucracy
-        ///;
-        ///✧ Leadership:.Control
-        ///;
-        ///✧ Disposition:.Professional
-        ///;
-        ///✧ Tendencies:.Scientific.
+        ///   Looks up a localized string similar to &lt;p&gt;SUROS SPACE&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;8,32 Billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Bureaucracy&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Control&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Professional&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Scientific&lt;/p&gt;.
         /// </summary>
         internal static string TheKolleccSociety_SystemStats {
             get {
@@ -3409,10 +4136,10 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;ZEALOUS:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;ZEALOUS:&lt;/h2&gt;
         ///&lt;p&gt;When you spend a command token to resolve the secondary ability of the &quot;Warfare&quot; strategy card, you may resolve the primary ability instead.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;RUTHLESS:&lt;/p&gt;
+        ///&lt;h2&gt;RUTHLESS:&lt;/h2&gt;
         ///&lt;p&gt;At the start of a ground combat on an exhausted planet you do not control, you may produce 1 hit and assign it to 1 of your opponent&apos;s ground forces on that planet.&lt;/p&gt;.
         /// </summary>
         internal static string TheKortaliTribunal_Ability {
@@ -3471,18 +4198,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to KORTALI SYSTEM:;
-        ///✧ 
-        ///
-        ///Population:.18,7 Billion
-        ///;
-        ///✧ Government:.Kritarchy
-        ///;
-        ///✧ Leadership:.Tribunes
-        ///;
-        ///✧ Disposition:.Unrelenting
-        ///;
-        ///✧ Tendencies:.Military.
+        ///   Looks up a localized string similar to &lt;p&gt;KORTALI SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;18,7 Billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Kritarchy&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Tribunes&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Unrelenting&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Military&lt;/p&gt;.
         /// </summary>
         internal static string TheKortaliTribunal_SystemStats {
             get {
@@ -3500,13 +4221,13 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;CONTAGION:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;CONTAGION:&lt;/h2&gt;
         ///&lt;p&gt;After you resolve the primary or secondary ability of the &quot;Politics&quot; strategy card, commit 1 infantry from your reinforcements to a planet that is in or adjacent to a system that contains a planet you control; resolve invasion on that planet.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;PLAGUE RESERVOIR:&lt;/p&gt;
+        ///&lt;h2&gt;PLAGUE RESERVOIR:&lt;/h2&gt;
         ///&lt;p&gt;Once per action, during invasion on a planet that contains your units, you may resolve ground combat on that planet, even if it does not contain another player&apos;s ground forces.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;SUBVERSIVE:&lt;/p [rest of string was truncated]&quot;;.
+        ///&lt;h2&gt;SUBVERSIV [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheKyroSodality_Ability {
             get {
@@ -3560,18 +4281,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ROTHOLD:;
-        ///✧ 
-        ///
-        ///Population:.Unknown
-        ///;
-        ///✧ Government:.Unknown
-        ///;
-        ///✧ Leadership:.Unknown
-        ///;
-        ///✧ Disposition:.Dangerous
-        ///;
-        ///✧ Tendencies:.Unknown.
+        ///   Looks up a localized string similar to &lt;p&gt;ROTHOLD&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Dangerous&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;.
         /// </summary>
         internal static string TheKyroSodality_SystemStats {
             get {
@@ -3589,10 +4304,10 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;ASSIMILATE:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;ASSIMILATE:&lt;/h2&gt;
         ///&lt;p&gt;When you gain control of a planet, replace each PDS and space dock that is on that planet with a matching unit from your reinforcements.&lt;/p&gt;
         ///&lt;br/&gt;
-        ///&lt;p&gt;HARROW:&lt;/p&gt;
+        ///&lt;h2&gt;HARROW:&lt;/h2&gt;
         ///&lt;p&gt;At the end of each round of ground combat, your ships in the active system may use their Bombardment abilities against your opponent&apos;s ground forces on the planet.&lt;/p&gt;.
         /// </summary>
         internal static string TheL1z1xMindnet_Ability {
@@ -3691,12 +4406,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to UNKNOWN SYSTEM:;
-        ///✧ Population.Unknown;
-        ///✧ Government.Unknown;
-        ///✧ Leadership.Ibna Vel Syd;
-        ///✧ Disposition.Calculating;
-        ///✧ Tendencies.Scientific.
+        ///   Looks up a localized string similar to &lt;p&gt;UNKNOWN SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Ibna Vel Syd&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Calculating&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Scientific&lt;/p&gt;.
         /// </summary>
         internal static string TheL1z1xMindnet_SystemStats {
             get {
@@ -3714,14 +4429,14 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;A NEW EDIFICE:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;A NEW EDIFICE:&lt;/h2&gt;
         ///&lt;p&gt;You may not use technology specialties. When you would gain a relic, instead purge it and explore up to 3 planets you control.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;ICONOCLASM:&lt;/p&gt;
+        ///&lt;h2&gt;ICONOCLASM:&lt;/h2&gt;
         ///&lt;p&gt;When researching a non-unit upgrade technology, you may purge 1 of your relic fragments to ignore 1 prerequisite on the technology you are researching.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;WAR STORIES:&lt;/p&gt;
-        ///&lt;p&gt;Once per action, after you win a combat, you may explore 1 planet you control, or if the active system does not contain any planets, the [rest of string was truncated]&quot;;.
+        ///&lt;h2&gt;WAR STORIES:&lt;/h2&gt;
+        ///&lt;p&gt;Once per action, after you win a combat, you may explore 1 planet you control, or if the active system does not contain any planet [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheLanefirRemnants_Ability {
             get {
@@ -3775,18 +4490,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LANEFIR SYSTEM
-        ///
-        ///:;
-        ///✧ Population:.734 Million
-        ///;
-        ///✧ Government:.Conclave
-        ///;
-        ///✧ Leadership:.Myth Keeper
-        ///;
-        ///✧ Disposition:.Revolutionary
-        ///;
-        ///✧ Tendencies:.Political.
+        ///   Looks up a localized string similar to &lt;p&gt;LANEFIR SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;734 Million&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Conclave&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Myth Keeper&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Revolutionary&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Political&lt;/p&gt;.
         /// </summary>
         internal static string TheLanefirRemnants_SystemStats {
             get {
@@ -3804,10 +4513,10 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;CUNNING:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;CUNNING:&lt;/h2&gt;
         ///&lt;p&gt;After you perform a tactical action in a system, you may attach 1 “Trap” card from your reinforcements to a planet in that system that contains 1 or more of your infantry units.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;SUBTERFUGE:&lt;/p&gt;
+        ///&lt;h2&gt;SUBTERFUGE:&lt;/h2&gt;
         ///&lt;p&gt;Trap attachments are attached face-down and remain hidden until revealed; you may look at Trap attachments at any time. You do not count trap attachments toward fulfilling objectives.&lt;/p&gt;.
         /// </summary>
         internal static string TheLiZhoDynasty_Ability {
@@ -3864,18 +4573,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PAX SYSTEM
-        ///
-        ///:;
-        ///✧ Population:.9,07 Billion;
-        ///✧ 
-        ///Government:.High Council
-        ///;
-        ///✧ Leadership:.Khaz-Rin Li-Zho
-        ///;
-        ///✧ Disposition:.Honorable
-        ///;
-        ///✧ Tendencies:.Political.
+        ///   Looks up a localized string similar to &lt;p&gt;PAX SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;9,07 Billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;High Council&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Khaz-Rin Li-Zho&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Honorable&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Political&lt;/p&gt;.
         /// </summary>
         internal static string TheLiZhoDynasty_SystemStats {
             get {
@@ -3893,14 +4596,14 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;LITHOIDS:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;LITHOIDS:&lt;/h2&gt;
         ///&lt;p&gt;During the agenda phase, the number of votes you cast is instead equal to the combined resource value of the planets that you exhaust.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;GARDEN WORLDS:&lt;/p&gt;
+        ///&lt;h2&gt;GARDEN WORLDS:&lt;/h2&gt;
         ///&lt;p&gt;Apply +1 to the resource values of your planets that do not contain 1 or more ground forces.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;METEOR SLINGS:&lt;/p&gt;
-        ///&lt;p&gt;When your units use BOMBARDMENT against a planet another player controls, you may cancel any number of hits you produce to place that many infantry from your reinforcements onto that plan [rest of string was truncated]&quot;;.
+        ///&lt;h2&gt;METEOR SLINGS:&lt;/h2&gt;
+        ///&lt;p&gt;When your units use BOMBARDMENT against a planet another player controls, you may cancel any number of hits you produce to place that many infantry from your reinforcements onto tha [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheLTokkKhrask_Ability {
             get {
@@ -3956,18 +4659,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to GROVE OF L&apos;TOKK
-        ///:;
-        ///✧ 
-        ///Population:.Unknown
-        ///;
-        ///✧ Government:.Elder Conclave
-        ///;
-        ///✧ Leadership:.Archdruid
-        ///;
-        ///✧ Disposition:.Pensive
-        ///;
-        ///✧ Tendencies:.Political.
+        ///   Looks up a localized string similar to &lt;p&gt;GROVE OF L&apos;TOKK&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Elder Conclave&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Archdruid&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Pensive&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Political&lt;/p&gt;.
         /// </summary>
         internal static string TheLTokkKhrask_SystemStats {
             get {
@@ -3985,14 +4682,103 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;EDICT:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;Initiation&lt;/h2&gt;
+        ///&lt;p&gt;During setup, place 1 command token from your reinforcements on your faction sheet.&lt;/p&gt; 
+        ///&lt;/br&gt;
+        ///&lt;h2&gt;Expanding Minds&lt;/h2&gt;
+        ///&lt;p&gt;You may have up to 6 command tokens on your faction sheet. Your secret objective limit is equal to the number of command tokens on your faction sheet.&lt;/p&gt; 
+        ///&lt;/br&gt;
+        ///&lt;h2&gt;Multitasking&lt;/h2&gt;
+        ///&lt;p&gt;When you redistribute command tokens or draw a secret objective, you may move any number of command tokens between your fleet pool and your faction sheet.&lt;/p&gt;
+        ///.
+        /// </summary>
+        internal static string TheLunariumConspiracies_Ability {
+            get {
+                return ResourceManager.GetString("TheLunariumConspiracies_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have 4 carriers on the game board.
+        /// </summary>
+        internal static string TheLunariumConspiracies_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheLunariumConspiracies_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheLunariumConspiracies_Lore {
+            get {
+                return ResourceManager.GetString("TheLunariumConspiracies_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheLunariumConspiracies_Notes {
+            get {
+                return ResourceManager.GetString("TheLunariumConspiracies_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheLunariumConspiracies_PromissaryNote {
+            get {
+                return ResourceManager.GetString("TheLunariumConspiracies_PromissaryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheLunariumConspiracies_Quote {
+            get {
+                return ResourceManager.GetString("TheLunariumConspiracies_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheLunariumConspiracies_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheLunariumConspiracies_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheLunariumConspiracies_SystemStats {
+            get {
+                return ResourceManager.GetString("TheLunariumConspiracies_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Lunarium Conspiracies.
+        /// </summary>
+        internal static string TheLunariumConspiracies_Title {
+            get {
+                return ResourceManager.GetString("TheLunariumConspiracies_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h2&gt;EDICT:&lt;/h2&gt;
         ///&lt;p&gt;When you win a combat, place 1 command token from your opponent&apos;s reinforcements in your fleet pool if it does not already contain 1 of that player&apos;s tokens; other player&apos;s tokens in your fleet pool increase your fleet limit but cannot be redistributed.&lt;/p&gt;
         ///&lt;br/&gt;
-        ///&lt;p&gt;IMPERIA:&lt;/p&gt;
+        ///&lt;h2&gt;IMPERIA:&lt;/h2&gt;
         ///&lt;p&gt;While another player&apos;s command token is in your fleet pool, you can use the ability of that player&apos;s commander, if it is unlocked.&lt;/p&gt;
         ///&lt;br/&gt;
-        ///&lt;p&gt;HUBRIS:&lt;/p&gt;
-        ///&lt;p&gt;During setup, purge your &quot;Alliance&quot; promissory [rest of string was truncated]&quot;;.
+        ///&lt;h2&gt;HUBRIS:&lt;/h2&gt;
+        ///&lt;p&gt;During setup, purge your &quot;Alliance&quot; prom [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheMahactGeneSorcerers_Ability {
             get {
@@ -4071,12 +4857,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to IXTH:;
-        ///✧ Population.Unknown;
-        ///✧ Government.Coalition;
-        ///✧ Leadership.Vertar Auran Oblis;
-        ///✧ Disposition.Imperious;
-        ///✧ Tendencies.Objective.
+        ///   Looks up a localized string similar to &lt;p&gt;IXTH&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Coalition&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Vertar Auran Oblis&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Imperious&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Objective&lt;/p&gt;.
         /// </summary>
         internal static string TheMahactGeneSorcerers_SystemStats {
             get {
@@ -4094,10 +4880,10 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;AMBUSH:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;AMBUSH:&lt;/h2&gt;
         ///&lt;p&gt;At the start of a space combat, you may roll 1 die for each of up to 2 of your cruisers or destroyers in the system.  For each result equal to or greater than that ship&apos;s combat value, produce 1 hit; your opponent must assign it to 1 of their ships.&lt;/p&gt;
         ///&lt;br/&gt;
-        ///&lt;p&gt;PILLAGE:&lt;/p&gt;
+        ///&lt;h2&gt;PILLAGE:&lt;/h2&gt;
         ///&lt;p&gt;After 1 of your neighbors gains trade goods or resolves a transaction, if they have 3 or more trade goods, you may take 1 of their trade goods or commodities.&lt;/p&gt;.
         /// </summary>
         internal static string TheMentakCoalition_Ability {
@@ -4189,12 +4975,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MOLL SYSTEM:;
-        ///✧ Population.2,55 billion;
-        ///✧ Government.Table of Captains;
-        ///✧ Leadership.Erwan’s Hand;
-        ///✧ Disposition.Rebellious;
-        ///✧ Tendencies.Economic.
+        ///   Looks up a localized string similar to &lt;p&gt;MOLL SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;2,55 billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Table of Captains&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Erwan’s Hand&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Rebellious&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Economic&lt;/p&gt;.
         /// </summary>
         internal static string TheMentakCoalition_SystemStats {
             get {
@@ -4212,11 +4998,11 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;PRIVILEGED CITIZENRY:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;PRIVILEGED CITIZENRY:&lt;/h2&gt;
         ///&lt;p&gt;Each system can contain a number of your PDS equal to the number of command tokens in your fleet pool. For the purpose of scoring objectives, you may treat each of your PDS units as though it is a structure on any planet you control.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;COMBAT DRONES:&lt;/p&gt;
-        ///&lt;p&gt;Your space docks cannot produce infantry. At the start of invasion, you may replace each of your fighters in the active system with 1 infantry unit. During invasion, your infantry in the space area of the ac [rest of string was truncated]&quot;;.
+        ///&lt;h2&gt;COMBAT DRONES:&lt;/h2&gt;
+        ///&lt;p&gt;Your space docks cannot produce infantry. At the start of invasion, you may replace each of your fighters in the active system with 1 infantry unit. During invasion, your infantry in the space area of th [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheMirvedaProtectorate_Ability {
             get {
@@ -4270,18 +5056,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to THE BASTION
-        ///
-        ///:;
-        ///✧ Population:.11,12 Billion
-        ///;
-        ///✧ Government:.Custodianship
-        ///;
-        ///✧ Leadership:.AI Cluster
-        ///;
-        ///✧ Disposition:.Vigilant
-        ///;
-        ///✧ Tendencies:.Scientific.
+        ///   Looks up a localized string similar to &lt;p&gt;THE BASTION&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;11,12 Billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Custodianship&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;AI Cluster&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Vigilant&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Scientific&lt;/p&gt;.
         /// </summary>
         internal static string TheMirvedaProtectorate_SystemStats {
             get {
@@ -4299,14 +5079,14 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;STARFALL GUNNERY:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;STARFALL GUNNERY:&lt;/h2&gt;
         ///&lt;p&gt;During movement, while you are not the active player, you may only use 1 of your unit&apos;s SPACE CANNON. During each of your actions, up to 3 of your non-fighter ships gain SPACE CANNON 8.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;DELIBERATE ACTION:&lt;/p&gt;
+        ///&lt;h2&gt;DELIBERATE ACTION:&lt;/h2&gt;
         ///&lt;p&gt;You cannot redistribute command tokens during the status phase. When you pass, you may place 1 command token from your reinforcements in 1 pool on your command sheet that contains no command tokens.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;MEDITATION: ACTION:&lt;/p&gt;
-        ///&lt;p&gt;Spend 1 comma [rest of string was truncated]&quot;;.
+        ///&lt;h2&gt;MEDITATION: ACTION:&lt;/h2&gt;
+        ///&lt;p&gt;Spend 1 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheMonksOfKolume_Ability {
             get {
@@ -4360,18 +5140,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to STARLIT TEMPLE
-        ///:;
-        ///✧ 
-        ///Population:.33,3 Million
-        ///;
-        ///✧ Government:.Faculty
-        ///;
-        ///✧ Leadership:.Grandmaster
-        ///;
-        ///✧ Disposition:.Meditative
-        ///;
-        ///✧ Tendencies:.Scientific.
+        ///   Looks up a localized string similar to &lt;p&gt;STARLIT TEMPLE&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;33,3 Million&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Faculty&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Grandmaster&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Meditative&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Scientific&lt;/p&gt;.
         /// </summary>
         internal static string TheMonksOfKolume_SystemStats {
             get {
@@ -4389,14 +5163,14 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;PRESCIENT MEMORIES:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;PRESCIENT MEMORIES:&lt;/h2&gt;
         ///&lt;p&gt;You have 4 “Omen” Dice. At the start of the strategy phase, roll all 4 Omen dice and place them near your faction sheet.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;DIVINATION:&lt;/p&gt;
+        ///&lt;h2&gt;DIVINATION:&lt;/h2&gt;
         ///&lt;p&gt;Before you would roll a die, you may instead return 1 Omen die near your faction sheet to your reinforcements to resolve that roll as if it had the result of that die.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;NECROPHAGE:&lt;/p&gt;
-        ///&lt;p&gt;Apply +1 to your commodity value for each space dock you control. After the first round of combat, gain 1 commodity or con [rest of string was truncated]&quot;;.
+        ///&lt;h2&gt;NECROPHAGE:&lt;/h2&gt;
+        ///&lt;p&gt;Apply +1 to your commodity value for each space dock you control. After the first round of combat, gain 1 commodity  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheMykoMentori_Ability {
             get {
@@ -4450,17 +5224,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SHAI-HALAUM
-        ///
-        ///:;
-        ///✧ Population:.Unknown
-        ///;
-        ///✧ Government:.Elder Council
-        ///;
-        ///✧ Leadership:.High Shamans
-        ///;
-        ///✧ Disposition:.Eccentric;
-        ///✧ Tendencies:.Objective.
+        ///   Looks up a localized string similar to &lt;p&gt;SHAI-HALAUM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Elder Council&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;High Shamans&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Eccentric&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Objective&lt;/p&gt;.
         /// </summary>
         internal static string TheMykoMentori_SystemStats {
             get {
@@ -4493,10 +5262,10 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;TELEPATHIC:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;TELEPATHIC:&lt;/h2&gt;
         ///&lt;p&gt;At the end of the strategy phase, place the Naalu &quot;0&quot; token on your strategy card; you are first in initiative order.&lt;/p&gt;
         ///&lt;br/&gt;
-        ///&lt;p&gt;FORESIGHT:&lt;/p&gt;
+        ///&lt;h2&gt;FORESIGHT:&lt;/h2&gt;
         ///&lt;p&gt;After another player moves ships into a system that contains 1 or more of your ships, you may place 1 token from your strategy pool in an adjacent system that does not contain another player&apos;s ships;  move your ships from the active system into that system.&lt;/p&gt;.
         /// </summary>
         internal static string TheNaaluCollective_Ability {
@@ -4576,12 +5345,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MALLAC SYSTEM:;
-        ///✧ Population.4,72 billion;
-        ///✧ Government.Collective;
-        ///✧ Leadership.Q’uesh Sish;
-        ///✧ Disposition.Seductive;
-        ///✧ Tendencies.Military.
+        ///   Looks up a localized string similar to &lt;p&gt;MALLAC SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;4,72 billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Collective&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Q’uesh Sish&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Seductive&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Military&lt;/p&gt;.
         /// </summary>
         internal static string TheNaaluCollective_SystemStats {
             get {
@@ -4599,10 +5368,10 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;DISTANT SUNS:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;DISTANT SUNS:&lt;/h2&gt;
         ///&lt;p&gt;When you explore a planet that contains 1 of your mechs, you may draw 1 additional card; choose 1 to resolve and discard the rest.&lt;/p&gt;
         ///&lt;br/&gt;
-        ///&lt;p&gt;FABRICATION:&lt;/p&gt;
+        ///&lt;h2&gt;FABRICATION:&lt;/h2&gt;
         ///&lt;p&gt;ACTION: Either purge 2 of your relic fragments of the same type to gain 1 relic; or purge 1 of your relic fragments to gain 1 command token.&lt;/p&gt;.
         /// </summary>
         internal static string TheNaazRokhaAlliance_Ability {
@@ -4688,12 +5457,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to NAAZIR-ROKHA DUAL SYSTEM:;
-        ///✧ Population.12,7 billion;
-        ///✧ Government.Alliance;
-        ///✧ Leadership.The Tetrarchy;
-        ///✧ Disposition.Optimistic;
-        ///✧ Tendencies.Scientific.
+        ///   Looks up a localized string similar to &lt;p&gt;NAAZIR-ROKHA DUAL SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;12,7 billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Alliance&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;The Tetrarchy&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Optimistic&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Scientific&lt;/p&gt;.
         /// </summary>
         internal static string TheNaazRokhaAlliance_SystemStats {
             get {
@@ -4711,14 +5480,14 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;GALACTIC THREAT:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;GALACTIC THREAT:&lt;/h2&gt;
         ///&lt;p&gt;You cannot vote on agendas.  Once per agenda phase, after an agenda is revealed, you may predict aloud the outcome of that agenda.  If your prediction is correct, gain 1 technology that is owned by a player who voted how you predicted.&lt;/p&gt;
         ///&lt;br/&gt;
-        ///&lt;p&gt;TECHNOLOGICAL SINGULARITY:&lt;/p&gt;
+        ///&lt;h2&gt;TECHNOLOGICAL SINGULARITY:&lt;/h2&gt;
         ///&lt;p&gt;Once per combat, after 1 of your opponent&apos;s units is destroyed, you may gain 1 technology that is owned by that player.&lt;/p&gt;
         ///&lt;br/&gt;
-        ///&lt;p&gt;PROPAGATION:&lt;/p&gt;
-        ///&lt;p&gt;You cannot research technology.  When you  [rest of string was truncated]&quot;;.
+        ///&lt;h2&gt;PROPAGATION:&lt;/h2&gt;
+        ///&lt;p&gt;You cannot research technology.  Whe [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheNekroVirus_Ability {
             get {
@@ -4812,12 +5581,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ERROR:;
-        ///✧ Population._error;
-        ///✧ Government._error;
-        ///✧ Surface._error;
-        ///✧ Surface Temp._error;
-        ///✧ Surface Area._error.
+        ///   Looks up a localized string similar to &lt;p&gt;ERROR&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;_error&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;_error&lt;/p&gt;
+        ///&lt;p&gt;✧ Surface&lt;/p&gt;&lt;p&gt;_error&lt;/p&gt;
+        ///&lt;p&gt;✧ Surface Temp&lt;/p&gt;&lt;p&gt;_error&lt;/p&gt;
+        ///&lt;p&gt;✧ Surface Area&lt;/p&gt;&lt;p&gt;_error&lt;/p&gt;.
         /// </summary>
         internal static string TheNekroVirus_SystemStats {
             get {
@@ -4835,14 +5604,14 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;CELESTIAL GUIDES:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;CELESTIAL GUIDES:&lt;/h2&gt;
         ///&lt;p&gt;Your units do not roll for gravity rifts. You may ignore the movement effects of anomalies in systems that contain or are adjacent to 1 or more of your structures.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;SINGULARITY POINT:&lt;/p&gt;
+        ///&lt;h2&gt;SINGULARITY POINT:&lt;/h2&gt;
         ///&lt;p&gt;The system that contains the “Wound” token is a nebula and a gravity rift.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;VOIDSAILORS:&lt;/p&gt;
-        ///&lt;p&gt;When you explore a frontier token, you may draw 1 additional card; choose 1 to resolve and return the rest to the frontier exploration deck. Then, shuffle that deck.&lt; [rest of string was truncated]&quot;;.
+        ///&lt;h2&gt;VOIDSAILORS:&lt;/h2&gt;
+        ///&lt;p&gt;When you explore a frontier token, you may draw 1 additional card; choose 1 to resolve and return the rest to the frontier exploration deck. Then, shuffle that  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheNivynStarKings_Ability {
             get {
@@ -4898,18 +5667,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SUNDERED HAVEN
-        ///
-        ///:;
-        ///✧ Population:.817 Million
-        ///;
-        ///✧ Government:.Hierarchy
-        ///;
-        ///✧ Leadership:.King Drakkon
-        ///;
-        ///✧ Disposition:.Retributive
-        ///;
-        ///✧ Tendencies:.Expansionist.
+        ///   Looks up a localized string similar to &lt;p&gt;SUNDERED HAVEN&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;817 Million&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Hierarchy&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;King Drakkon&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Retributive&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Expansionist&lt;/p&gt;.
         /// </summary>
         internal static string TheNivynStarKings_SystemStats {
             get {
@@ -4927,14 +5690,14 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;HIRED GUNS:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;HIRED GUNS:&lt;/h2&gt;
         ///&lt;p&gt;After a system is activated, you may choose up to 3 of your ships. Those ships are also treated as the active player’s and participate in combat as their units. At the end of this tactical action, that player may replace each of those ships in the active system with their own of the same unit type. Then, remove the rest from the game board.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;PRIVATE FLEET:&lt;/p&gt;
+        ///&lt;h2&gt;PRIVATE FLEET:&lt;/h2&gt;
         ///&lt;p&gt;During setup, place 4 additional destroyers in your reinforcements.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;DESPERADOS:&lt;/p&gt;
-        ///&lt;p&gt;When  [rest of string was truncated]&quot;;.
+        ///&lt;h2&gt;DESPERADOS:&lt;/h2&gt;
+        ///&lt;p [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheNokarSellships_Ability {
             get {
@@ -4988,18 +5751,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to NOKK-ZARR SYSTEM
-        ///
-        ///:;
-        ///✧ Population:.5,37 Billion
-        ///;
-        ///✧ Government:.Pirate Lords
-        ///;
-        ///✧ Leadership:.Starsails
-        ///;
-        ///✧ Disposition:.Mercenary
-        ///;
-        ///✧ Tendencies:.Military.
+        ///   Looks up a localized string similar to &lt;p&gt;NOKK-ZARR SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;5,37 Billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Pirate Lords&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Starsails&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Mercenary&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Military&lt;/p&gt;.
         /// </summary>
         internal static string TheNokarSellships_SystemStats {
             get {
@@ -5017,10 +5774,10 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;THE COMPANY:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;THE COMPANY:&lt;/h2&gt;
         ///&lt;p&gt;During setup, take the 2 additional Nomad faction agents and place them next to your faction sheet; you have 3 agents.&lt;/p&gt;
         ///&lt;br/&gt;
-        ///&lt;p&gt;FUTURE SIGHT:&lt;/p&gt;
+        ///&lt;h2&gt;FUTURE SIGHT:&lt;/h2&gt;
         ///&lt;p&gt;During the Agenda phase, after an outcome that you voted for or predicted is resolved, gain 1 trade good.&lt;/p&gt;.
         /// </summary>
         internal static string TheNomad_Ability {
@@ -5105,12 +5862,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SPACE STATION SUMERIAN:;
-        ///✧ Population.167 million;
-        ///✧ Government.Station Master;
-        ///✧ Leadership.The Nomad;
-        ///✧ Disposition.Altruistic;
-        ///✧ Tendencies.Economic.
+        ///   Looks up a localized string similar to &lt;p&gt;SPACE STATION SUMERIAN&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;167 million&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Station Master&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;The Nomad&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Altruistic&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Economic&lt;/p&gt;.
         /// </summary>
         internal static string TheNomad_SystemStats {
             get {
@@ -5128,7 +5885,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;POLICIES:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;POLICIES:&lt;/h2&gt;
         ///&lt;p&gt;When you gather your starting components, place the 3 “Policy” cards near your faction sheet, choose which side of each card to place face up. This faction has the abilities and effects listed on the face up side of each Policy card.&lt;/p&gt;.
         /// </summary>
         internal static string TheOlradinLeague_Ability {
@@ -5185,18 +5942,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SANCTUARY SYSTEM
-        ///
-        ///:;
-        ///✧ Population:.16,31 Billion
-        ///;
-        ///✧ Government:.Egotaracy
-        ///;
-        ///✧ Leadership:.Council Speaker
-        ///;
-        ///✧ Disposition:.Communal
-        ///;
-        ///✧ Tendencies:.Political.
+        ///   Looks up a localized string similar to &lt;p&gt;SANCTUARY SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;16,31 Billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Egotaracy&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Council Speaker&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Communal&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Political&lt;/p&gt;.
         /// </summary>
         internal static string TheOlradinLeague_SystemStats {
             get {
@@ -5214,11 +5965,98 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;SURVIVAL INSTINCT:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;Patience&lt;/h2&gt; 
+        ///&lt;p&gt;At the end of the strategy phase, place the Onyxxa Infinity token on your strategy card; you are last in initiative order.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;h2&gt;Detachment&lt;/h2&gt;
+        ///&lt;p&gt;During the strategy phase, you cannot choose or be given the “Politics” strategy card if there is another unchosen strategy card. When you perform a strategic action using the strategy card with the lowest initiative value in your play area, resolve its secondary ability if able; otherwise, resolve no ability.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;h2&gt;St [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheOnyxxaComplex_Ability {
+            get {
+                return ResourceManager.GetString("TheOnyxxaComplex_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resolve the primary ability of a strategy card in 1 of your neighbor&apos;s play areas..
+        /// </summary>
+        internal static string TheOnyxxaComplex_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheOnyxxaComplex_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheOnyxxaComplex_Lore {
+            get {
+                return ResourceManager.GetString("TheOnyxxaComplex_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheOnyxxaComplex_Notes {
+            get {
+                return ResourceManager.GetString("TheOnyxxaComplex_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheOnyxxaComplex_PromissaryNote {
+            get {
+                return ResourceManager.GetString("TheOnyxxaComplex_PromissaryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheOnyxxaComplex_Quote {
+            get {
+                return ResourceManager.GetString("TheOnyxxaComplex_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheOnyxxaComplex_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheOnyxxaComplex_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheOnyxxaComplex_SystemStats {
+            get {
+                return ResourceManager.GetString("TheOnyxxaComplex_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Onyxxa Complex.
+        /// </summary>
+        internal static string TheOnyxxaComplex_Title {
+            get {
+                return ResourceManager.GetString("TheOnyxxaComplex_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h2&gt;SURVIVAL INSTINCT:&lt;/h2&gt;
         ///&lt;p&gt;After a player activates a system that contains your ships, you may move up to 2 of your ships into the active system from adjacent systems that do not contain your command tokens.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;MINIATURIZATION:&lt;/p&gt;
-        ///&lt;p&gt;Your structures can be transported by any ships; this does not require or count against capacity. While your structures are in the space area, they cannot use their unit abilities. At the end of your tactical action, you may place your structures that are in sp [rest of string was truncated]&quot;;.
+        ///&lt;h2&gt;MINIATURIZATION:&lt;/h2&gt;
+        ///&lt;p&gt;Your structures can be transported by any ships; this does not require or count against capacity. While your structures are in the space area, they cannot use their unit abilities. At the end of your tactical action, you may place your structures that are i [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheRalNelConsortium_Ability {
             get {
@@ -5238,7 +6076,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;The Ral Nel are known for their fast ships, their advanced microprocessor technology, and their frustrating refusal to share either with the galaxy at large, except on their own terms, for cash in hand. After all, the rest of the galaxy can’t be trusted to honor their debts, and the twin worlds of Ral Nel run on a system of finely balanced obligation.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;Mez Lo Orz Fei Zsha is the more heavily populated world. From orbit, one can spot the huge circular cities scattered across the surface and th [rest of string was truncated]&quot;;.
+        ///&lt;p&gt;Mez Lo Orz Fei Zsha is the more heavily populated world. From orbit, one can spot the huge circular cities scattered across the surface and  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheRalNelConsortium_Lore {
             get {
@@ -5295,12 +6133,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to IRK TRO KESH SYSTEM:;
-        ///✧ Population:.6,5 billion;
-        ///✧ Government:.Corporate Oligarchy;
-        ///✧ Leadership:.The Zio;
-        ///✧ Disposition:.Paranoid;
-        ///✧ Tendencies:.Economic.
+        ///   Looks up a localized string similar to &lt;p&gt;IRK TRO KESH SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;6,5 billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Corporate Oligarchy&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;The Zio&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Paranoid&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Economic&lt;/p&gt;.
         /// </summary>
         internal static string TheRalNelConsortium_SystemStats {
             get {
@@ -5336,11 +6174,11 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;AUTONETIC MEMORY:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;AUTONETIC MEMORY:&lt;/h2&gt;
         ///&lt;p&gt;When you would draw 1 or more action cards, you may draw 1 less card to either choose 1 card from the action card discard pile and add it to your hand, or place 1 infantry from your reinforcements on a planet you control.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;CYBERNETIC MADNESS:&lt;/p&gt;
-        ///&lt;p&gt;After you add an action card from the discard pile to your hand using your AUTONETIC MEMORY faction ability, you must discard 1 action card. After you fully resolve an action card’s ability text, purge that card instea [rest of string was truncated]&quot;;.
+        ///&lt;h2&gt;CYBERNETIC MADNESS:&lt;/h2&gt;
+        ///&lt;p&gt;After you add an action card from the discard pile to your hand using your AUTONETIC MEMORY faction ability, you must discard 1 action card. After you fully resolve an action card’s ability text, purge that card in [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheSavagesOfCymiae_Ability {
             get {
@@ -5396,18 +6234,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CYMIAE SYSTEM
-        ///
-        ///:;
-        ///✧ Population:.270 Million
-        ///;
-        ///✧ Government:.The Voices
-        ///;
-        ///✧ Leadership:.Psionic Chorus
-        ///;
-        ///✧ Disposition:.Erratic
-        ///;
-        ///✧ Tendencies:.Objective.
+        ///   Looks up a localized string similar to &lt;p&gt;CYMIAE SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;270 Million&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;The Voices&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Psionic Chorus&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Erratic&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Objective&lt;/p&gt;.
         /// </summary>
         internal static string TheSavagesOfCymiae_SystemStats {
             get {
@@ -5425,11 +6257,11 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;MILITARY INDUSTRIAL COMPLEX:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;MILITARY INDUSTRIAL COMPLEX:&lt;/h2&gt;
         ///&lt;p&gt;After you gain or replenish commodities, you may spend a number of commodities equal to the combined cost listed on any number of &quot;Axis Order&quot; cards in your reinforcements to place those cards in your play area. You cannot give your commodities to other players as part of a transaction.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;ARMS DEALERS:&lt;/p&gt;
-        ///&lt;p&gt;When a player negotiates a transaction, they may exchange Axis Order cards in their play area as part of that transaction. You cannot resolve the e [rest of string was truncated]&quot;;.
+        ///&lt;h2&gt;ARMS DEALERS:&lt;/h2&gt;
+        ///&lt;p&gt;When a player negotiates a transaction, they may exchange Axis Order cards in their play area as part of that transaction. You cannot resolve t [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheShipwrightsofAxis_Ability {
             get {
@@ -5485,18 +6317,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to THE ANVIL:;
-        ///✧ 
-        ///
-        ///Population:.32,9 Billion
-        ///;
-        ///✧ Government:.The Hive
-        ///;
-        ///✧ Leadership:.Hive Queens
-        ///;
-        ///✧ Disposition:.Diligent
-        ///;
-        ///✧ Tendencies:.Economic.
+        ///   Looks up a localized string similar to &lt;p&gt;THE ANVIL&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;32,9 Billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;The Hive&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Hive Queens&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Diligent&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Economic&lt;/p&gt;.
         /// </summary>
         internal static string TheShipwrightsofAxis_SystemStats {
             get {
@@ -5514,14 +6340,14 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;TERRAGENESIS:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;TERRAGENESIS:&lt;/h2&gt;
         ///&lt;p&gt;After you explore a planet that does not have a sleeper token, you may place or move 1 sleeper token onto that planet.&lt;/p&gt;
         ///&lt;br/&gt;
-        ///&lt;p&gt;AWAKEN:&lt;/p&gt;
+        ///&lt;h2&gt;AWAKEN:&lt;/h2&gt;
         ///&lt;p&gt;After you activate a system that contains 1 or more of your sleeper tokens, you may replace each of those tokens with 1 PDS from your reinforcements.&lt;/p&gt;
         ///&lt;br/&gt;
-        ///&lt;p&gt;COALESCENCE:&lt;/p&gt;
-        ///&lt;p&gt;If your flagship or your AWAKEN faction ability places your units into the same space area or onto the same planet as another player&apos;s units, your unit [rest of string was truncated]&quot;;.
+        ///&lt;h2&gt;COALESCENCE:&lt;/h2&gt;
+        ///&lt;p&gt;If your flagship or your AWAKEN faction ability places your units into the same space area or onto the same planet as another player&apos;s units, you [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheTitansOfUl_Ability {
             get {
@@ -5604,12 +6430,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ELYSIUM:;
-        ///✧ Population.750 million;
-        ///✧ Government.Total Hierarchy;
-        ///✧ Leadership.The Ul;
-        ///✧ Disposition.Patient;
-        ///✧ Tendencies.Expansionist;.
+        ///   Looks up a localized string similar to &lt;p&gt;ELYSIUM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;750 million&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Total Hierarchy&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;The Ul&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Patient&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Expansionist&lt;/p&gt;.
         /// </summary>
         internal static string TheTitansOfUl_SystemStats {
             get {
@@ -5627,13 +6453,13 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;PLAUSIBLE DENIABILITY:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;PLAUSIBLE DENIABILITY:&lt;/h2&gt;
         ///&lt;p&gt;When you draw 1 or more secret objective cards, draw 1 additional secret objective card. Then, return 1 secret objective card to the secret objective deck; shuffle that deck.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;INFORMATION BROKERS:&lt;/p&gt;
+        ///&lt;h2&gt;INFORMATION BROKERS:&lt;/h2&gt;
         ///&lt;p&gt;You may have 1 additional unscored secret objective.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;STEALTH INSERTION:&lt;/p&gt;
+        ///&lt;h2&gt;STEALTH INSERTION:&lt;/h2&gt;
         ///&lt;p&gt;If you place units onto the same planet as another player&apos;s units, your units must participate in combat during the &quot;Ground Combat&quot; step.&lt;/p&gt;.
         /// </summary>
         internal static string TheTnelisSyndicate_Ability {
@@ -5688,18 +6514,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DISCORDIA
-        ///
-        ///:;
-        ///✧ Population:.4,33 Billion
-        ///;
-        ///✧ Government:.Anocracy
-        ///;
-        ///✧ Leadership:.Crime Families
-        ///;
-        ///✧ Disposition:.Patriotic
-        ///;
-        ///✧ Tendencies:.Objective.
+        ///   Looks up a localized string similar to &lt;p&gt;DISCORDIA&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;4,33 Billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Anocracy&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Crime Families&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Patriotic&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Objective&lt;/p&gt;.
         /// </summary>
         internal static string TheTnelisSyndicate_SystemStats {
             get {
@@ -5717,10 +6537,98 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;BRILLIANT:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;Rewrite Destiny&lt;/h2&gt;
+        ///&lt;p&gt;Once per status phase, when the speaker reveals a public objective, you may spend 1 command token from your strategy pool to discard that objective. The speaker then reveals a new public objective from the same deck and reshuffles it.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;h2&gt;Arrow of Time&lt;/h2&gt;
+        ///&lt;p&gt;During each of your turns in the action phase, you may take an additional non-strategic action.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;h2&gt;Phantom Energy&lt;/h2&gt;
+        ///&lt;p&gt;After you explore a frontier token during a tactical action, you may plac [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TheTyrisContinuum_Ability {
+            get {
+                return ResourceManager.GetString("TheTyrisContinuum_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have 5 infantry that are not in or adjacent to your home system.
+        /// </summary>
+        internal static string TheTyrisContinuum_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheTyrisContinuum_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheTyrisContinuum_Lore {
+            get {
+                return ResourceManager.GetString("TheTyrisContinuum_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheTyrisContinuum_Notes {
+            get {
+                return ResourceManager.GetString("TheTyrisContinuum_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheTyrisContinuum_PromissaryNote {
+            get {
+                return ResourceManager.GetString("TheTyrisContinuum_PromissaryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheTyrisContinuum_Quote {
+            get {
+                return ResourceManager.GetString("TheTyrisContinuum_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheTyrisContinuum_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheTyrisContinuum_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheTyrisContinuum_SystemStats {
+            get {
+                return ResourceManager.GetString("TheTyrisContinuum_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Tyris Continuum.
+        /// </summary>
+        internal static string TheTyrisContinuum_Title {
+            get {
+                return ResourceManager.GetString("TheTyrisContinuum_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h2&gt;BRILLIANT:&lt;/h2&gt;
         ///&lt;p&gt;When you spend a command token to resolve the secondary ability of the &quot;Technology&quot; strategy card, you may resolve the primary ability instead.&lt;/p&gt;
         ///&lt;br/&gt;
-        ///&lt;p&gt;ANALYTICAL:&lt;/p&gt;
+        ///&lt;h2&gt;ANALYTICAL:&lt;/h2&gt;
         ///&lt;p&gt;When you research a technology that is not a unit upgrade technology, you may ignore 1 prerequisite.&lt;/p&gt;.
         /// </summary>
         internal static string TheUniversitiesOfJolNar_Ability {
@@ -5824,12 +6732,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to GARIAN SYSTEM:;
-        ///✧ Population.3,22 billion;
-        ///✧ Government.Circle of Regents;
-        ///✧ Leadership.Headmaster;
-        ///✧ Disposition.Aloof;
-        ///✧ Tendencies.Scientific.
+        ///   Looks up a localized string similar to &lt;p&gt;GARIAN SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;3,22 billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Circle of Regents&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Headmaster&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Aloof&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Scientific&lt;/p&gt;.
         /// </summary>
         internal static string TheUniversitiesOfJolNar_SystemStats {
             get {
@@ -5847,14 +6755,14 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;FINE PRINT:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;FINE PRINT:&lt;/h2&gt;
         ///&lt;p&gt;After a player resolves the secondary ability of 1 of your strategy cards, place up to 1 of their control tokens on your faction sheet.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;COLLATERALIZED LOANS:&lt;/p&gt;
+        ///&lt;h2&gt;COLLATERALIZED LOANS:&lt;/h2&gt;
         ///&lt;p&gt;After 1 of your opponent’s ships is destroyed during a round of space combat, you may remove 1 of that player’s control tokens from your faction sheet to place 1 ship of that type from your reinforcements in the active system.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;BINDING DEBTS:&lt;/p&gt;
-        ///&lt;p&gt;Other players may place their control token [rest of string was truncated]&quot;;.
+        ///&lt;h2&gt;BINDING DEBTS:&lt;/h2&gt;
+        ///&lt;p&gt;Other players may place their control [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheVadenBankingClans_Ability {
             get {
@@ -5908,18 +6816,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to THE AITEMRAS SYSTEM
-        ///
-        ///:;
-        ///✧ Population:.6,1 Billion
-        ///;
-        ///✧ Government:.Banking Council
-        ///;
-        ///✧ Leadership:.Putriv Sirvonks
-        ///;
-        ///✧ Disposition:.Greedy
-        ///;
-        ///✧ Tendencies:.Economic.
+        ///   Looks up a localized string similar to &lt;p&gt;THE AITEMRAS SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;6,1 Billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Banking Council&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Putriv Sirvonks&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Greedy&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Economic&lt;/p&gt;.
         /// </summary>
         internal static string TheVadenBankingClans_SystemStats {
             get {
@@ -5937,13 +6839,13 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;CARGO RAIDERS:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;CARGO RAIDERS:&lt;/h2&gt;
         ///&lt;p&gt;During the first round of a space combat, you may prevent your opponent from declaring a retreat unless they spend 1 trade good.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;SCOUR:&lt;/p&gt;
+        ///&lt;h2&gt;SCOUR:&lt;/h2&gt;
         ///&lt;p&gt;Once per tactical action, after you gain control of a planet, you may discard 1 action card to ready that planet.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;RAZE:&lt;/p&gt;
+        ///&lt;h2&gt;RAZE:&lt;/h2&gt;
         ///&lt;p&gt;After 1 or more of another player&apos;s structures are destroyed on a planet that contains your units, you may replenish your commodities.&lt;/p&gt;.
         /// </summary>
         internal static string TheVaylerianScourge_Ability {
@@ -5998,18 +6900,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VAYLAR
-        ///
-        ///:;
-        ///✧ Population:.1,2 Billion
-        ///;
-        ///✧ Government:.Clan Council
-        ///;
-        ///✧ Leadership:.High Chieftain
-        ///;
-        ///✧ Disposition:.Opportunistic;
-        ///✧ 
-        ///Tendencies:.Expansionist.
+        ///   Looks up a localized string similar to &lt;p&gt;VAYLAR&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;1,2 Billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Clan Council&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;High Chieftain&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Opportunistic&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Expansionist&lt;/p&gt;.
         /// </summary>
         internal static string TheVaylerianScourge_SystemStats {
             get {
@@ -6027,14 +6923,14 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;CORPORATE ENTITY:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;CORPORATE ENTITY:&lt;/h2&gt;
         ///&lt;p&gt;During setup, take the additional Veldyr faction promissory notes; you have 4 faction promissory notes. “Branch Office” attachments do not count toward scoring objectives.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;HOLDING COMPANY:&lt;/p&gt;
+        ///&lt;h2&gt;HOLDING COMPANY:&lt;/h2&gt;
         ///&lt;p&gt;At the start of the status phase, for each planet that has a Branch Office attachment, you may gain 1 commodity or convert 1 of your commodities to a trade good.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;TARGETED ACQUISITION:&lt;/p&gt;
-        ///&lt;p&gt;At the start of the status phase, you may give 1 of your faction [rest of string was truncated]&quot;;.
+        ///&lt;h2&gt;TARGETED ACQUISITION:&lt;/h2&gt;
+        ///&lt;p&gt;At the start of the status phase, you may give 1 of your f [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheVeldyrSovereignty_Ability {
             get {
@@ -6090,18 +6986,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to THE SYLVARI VEIL
-        ///
-        ///:;
-        ///✧ Population:.14,28 Billion
-        ///;
-        ///✧ Government:.Executive Board
-        ///;
-        ///✧ Leadership:.Auberon Elyrin
-        ///;
-        ///✧ Disposition:.Proud
-        ///;
-        ///✧ Tendencies:.Economic.
+        ///   Looks up a localized string similar to &lt;p&gt;THE SYLVARI VEIL&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;14,28 Billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Executive Board&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Auberon Elyrin&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Proud&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Economic&lt;/p&gt;.
         /// </summary>
         internal static string TheVeldyrSovereignty_SystemStats {
             get {
@@ -6119,13 +7009,13 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;DEVOUR:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;DEVOUR:&lt;/h2&gt;
         ///&lt;p&gt;Capture your opponent&apos;s non-structure units that are destroyed during combat.&lt;/p&gt;
         ///&lt;br/&gt;
-        ///&lt;p&gt;AMALGAMATION:&lt;/p&gt;
+        ///&lt;h2&gt;AMALGAMATION:&lt;/h2&gt;
         ///&lt;p&gt;When you produce a unit, you may return 1 captured unit of that type to produce that unit without spending resources.&lt;/p&gt;
         ///&lt;br/&gt;
-        ///&lt;p&gt;RIFTMELD:&lt;/p&gt;
+        ///&lt;h2&gt;RIFTMELD:&lt;/h2&gt;
         ///&lt;p&gt;When you research a unit upgrade technology, you may return 1 captured unit of that type to ignore all of the technology&apos;s prerequisites.&lt;/p&gt;.
         /// </summary>
         internal static string TheVuilRaithCabal_Ability {
@@ -6209,12 +7099,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ACHERON VORTEX:;
-        ///✧ Population.Unknown;
-        ///✧ Government.Cabal;
-        ///✧ Leadership.None;
-        ///✧ Disposition.Voracious;
-        ///✧ Tendencies.Military.
+        ///   Looks up a localized string similar to &lt;p&gt;ACHERON VORTEX&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Cabal&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;None&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Voracious&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Military&lt;/p&gt;.
         /// </summary>
         internal static string TheVuilRaithCabal_SystemStats {
             get {
@@ -6232,10 +7122,95 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;BLOOD TIES:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;Veiled Ember Forge&lt;/h2&gt;
+        ///&lt;p&gt;After you gain control of a planet with a technology specialty, you may place 1 PDS on that planet.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;h2&gt;Scattered Legions&lt;/h2&gt;
+        ///&lt;p&gt;At the end of your turns, you may not have more ground forces on a non-home planet than the greater of its resource or influence values. Place any excess on a planet you control in your home system, or return them to your reinforcements.&lt;/p&gt;.
+        /// </summary>
+        internal static string TheVyserixAscendancy_Ability {
+            get {
+                return ResourceManager.GetString("TheVyserixAscendancy_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Control 3 planets with technology specialties..
+        /// </summary>
+        internal static string TheVyserixAscendancy_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheVyserixAscendancy_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheVyserixAscendancy_Lore {
+            get {
+                return ResourceManager.GetString("TheVyserixAscendancy_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheVyserixAscendancy_Notes {
+            get {
+                return ResourceManager.GetString("TheVyserixAscendancy_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheVyserixAscendancy_PromissaryNote {
+            get {
+                return ResourceManager.GetString("TheVyserixAscendancy_PromissaryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheVyserixAscendancy_Quote {
+            get {
+                return ResourceManager.GetString("TheVyserixAscendancy_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheVyserixAscendancy_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheVyserixAscendancy_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheVyserixAscendancy_SystemStats {
+            get {
+                return ResourceManager.GetString("TheVyserixAscendancy_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Vyserix Ascendancy.
+        /// </summary>
+        internal static string TheVyserixAscendancy_Title {
+            get {
+                return ResourceManager.GetString("TheVyserixAscendancy_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h2&gt;BLOOD TIES:&lt;/h2&gt;
         ///&lt;p&gt;You do not have to spend influence to remove the custodians token from Mecatol Rex.&lt;/p&gt;
         ///&lt;br/&gt;
-        ///&lt;p&gt;RECLAMATION:&lt;/p&gt;
+        ///&lt;h2&gt;RECLAMATION:&lt;/h2&gt;
         ///&lt;p&gt;After you resolve a tactical action during which you gained control of Mecatol Rex, you may place 1 PDS and 1 space dock from your reinforcements on Mecatol Rex.&lt;/p&gt;.
         /// </summary>
         internal static string TheWinnu_Ability {
@@ -6339,12 +7314,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to WINNU SYSTEM:;
-        ///✧ Population.13,77 billion;
-        ///✧ Government.Imperial;
-        ///✧ Leadership.Muad Di Faruuq;
-        ///✧ Disposition.Righteous;
-        ///✧ Tendencies.Objective.
+        ///   Looks up a localized string similar to &lt;p&gt;WINNU SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;13,77 billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Imperial&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Muad Di Faruuq&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Righteous&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Objective&lt;/p&gt;.
         /// </summary>
         internal static string TheWinnu_SystemStats {
             get {
@@ -6362,10 +7337,10 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;PEACE ACCORDS:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;PEACE ACCORDS:&lt;/h2&gt;
         ///&lt;p&gt;After you resolve the primary or secondary ability of the &quot;Diplomacy&quot; strategy card, you may gain control of 1 planet other than Mecatol Rex that does not contain any units and is in a system that is adjacent to a planet you control.&lt;/p&gt;
         ///&lt;br/&gt;
-        ///&lt;p&gt;QUASH:&lt;/p&gt;
+        ///&lt;h2&gt;QUASH:&lt;/h2&gt;
         ///&lt;p&gt;When an agenda is revealed, you may spend 1 token from your strategy pool to discard that agenda and reveal 1 agenda from the top of the deck.  Players vote on this agenda instead.&lt;/p&gt;.
         /// </summary>
         internal static string TheXxchaKingdom_Ability {
@@ -6461,12 +7436,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to XXLAK SYSTEM:;
-        ///✧ Population.8,16 billion;
-        ///✧ Government.Monarchy;
-        ///✧ Leadership.Ccrysus;
-        ///✧ Disposition.Diplomatic;
-        ///✧ Tendencies.Political.
+        ///   Looks up a localized string similar to &lt;p&gt;XXLAK SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;8,16 billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Monarchy&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Ccrysus&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Diplomatic&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Political&lt;/p&gt;.
         /// </summary>
         internal static string TheXxchaKingdom_SystemStats {
             get {
@@ -6484,10 +7459,10 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;INDOCTRINATION:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;INDOCTRINATION:&lt;/h2&gt;
         ///&lt;p&gt;At the start of a ground combat, you may spend 2 influence to replace 1 of your opponent&apos;s participating infantry with 1 infantry from your reinforcements.&lt;/p&gt;
         ///&lt;br/&gt;
-        ///&lt;p&gt;DEVOTION:&lt;/p&gt;
+        ///&lt;h2&gt;DEVOTION:&lt;/h2&gt;
         ///&lt;p&gt;After each space battle round, you may destroy 1 of your cruisers or destroyers in the active system to produce 1 hit and assign it to 1 of your opponent&apos;s ships in that system.&lt;/p&gt;.
         /// </summary>
         internal static string TheYinBrotherhood_Ability {
@@ -6586,12 +7561,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LAEL SYSTEM:;
-        ///✧ Population.1,81 billion;
-        ///✧ Government.The Blessed;
-        ///✧ Leadership.The Elder Brother;
-        ///✧ Disposition.Zealous;
-        ///✧ Tendencies.Military.
+        ///   Looks up a localized string similar to &lt;p&gt;LAEL SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;1,81 billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;The Blessed&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;The Elder Brother&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Zealous&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Military&lt;/p&gt;.
         /// </summary>
         internal static string TheYinBrotherhood_SystemStats {
             get {
@@ -6609,13 +7584,13 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;STALL TACTICS:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;STALL TACTICS:&lt;/h2&gt;
         ///&lt;p&gt;ACTION: Discard 1 action card from your hand.&lt;/p&gt;
         ///&lt;br/&gt;
-        ///&lt;p&gt;SCHEMING:&lt;/p&gt;
+        ///&lt;h2&gt;SCHEMING:&lt;/h2&gt;
         ///&lt;p&gt;When you draw 1 or more action cards, draw 1 additional action card.  Then, choose and discard 1 action card from your hand.&lt;/p&gt;
         ///&lt;br/&gt;
-        ///&lt;p&gt;CRAFTY:&lt;/p&gt;
+        ///&lt;h2&gt;CRAFTY:&lt;/h2&gt;
         ///&lt;p&gt;You can have any number of action cards in your hand.  Game effects cannot prevent you from using this ability.&lt;/p&gt;.
         /// </summary>
         internal static string TheYssarilTribes_Ability {
@@ -6709,12 +7684,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MYOCK SYSTEM:;
-        ///✧ Population.Unknown;
-        ///✧ Government.Guild of Spies;
-        ///✧ Leadership.The Cqaark;
-        ///✧ Disposition.Secretive;
-        ///✧ Tendencies.Political.
+        ///   Looks up a localized string similar to &lt;p&gt;MYOCK SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;Unknown&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Guild of Spies&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;The Cqaark&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Secretive&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Political&lt;/p&gt;.
         /// </summary>
         internal static string TheYssarilTribes_SystemStats {
             get {
@@ -6732,10 +7707,10 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;CONSPIRATORS:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;CONSPIRATORS:&lt;/h2&gt;
         ///&lt;p&gt;Once per agenda phase, after an agenda is revealed, if you are not the speaker, you may choose to vote after the speaker on that agenda.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;ANCIENT KNOWLEDGE:&lt;/p&gt;
+        ///&lt;h2&gt;ANCIENT KNOWLEDGE:&lt;/h2&gt;
         ///&lt;p&gt;When you use a technology specialty to ignore a prerequisite on a technology card you are researching, you may ignore 1 additional prerequisite of the same color. After you exhaust a planet to use its technology specialty, you may gain 1 commodity.&lt;/p&gt;.
         /// </summary>
         internal static string TheZealotsOfRhodun_Ability {
@@ -6792,18 +7767,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ORAD SYSTEM
-        ///
-        ///;
-        ///✧ Population:.2,13 Billion;
-        ///✧ 
-        ///Government:.Theocracy
-        ///;
-        ///✧ Leadership:.The Prophet
-        ///;
-        ///✧ Disposition:.Fervent
-        ///;
-        ///✧ Tendencies:.Scientific.
+        ///   Looks up a localized string similar to &lt;p&gt;ORAD SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;2,13 Billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Theocracy&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;The Prophet&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Fervent&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Scientific&lt;/p&gt;.
         /// </summary>
         internal static string TheZealotsOfRhodun_SystemStats {
             get {
@@ -6821,14 +7790,14 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;OBSESSIVE DESIGNS:&lt;/p&gt;
+        ///   Looks up a localized string similar to &lt;h2&gt;OBSESSIVE DESIGNS:&lt;/h2&gt;
         ///&lt;p&gt;During the action phase, after you research a unit upgrade technology, you may use the PRODUCTION ability of 1 of your space docks in your home system to produce units of that type, reducing the combined cost of the produced units by 2.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;BIOPHOBIC:&lt;/p&gt;
+        ///&lt;h2&gt;BIOPHOBIC:&lt;/h2&gt;
         ///&lt;p&gt;During the agenda phase, the number of votes you cast is instead equal to the number of planets you exhaust to cast votes.&lt;/p&gt;
         ///&lt;/br&gt;
-        ///&lt;p&gt;PARANOIA:&lt;/p&gt;
-        ///&lt;p&gt;Game effects other than your command tokens cannot prev [rest of string was truncated]&quot;;.
+        ///&lt;h2&gt;PARANOIA:&lt;/h2&gt;
+        ///&lt;p&gt;Game effects other than your command tokens canno [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TheZelianPurifier_Ability {
             get {
@@ -6884,18 +7853,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ZELIAN SYSTEM
-        ///
-        ///:;
-        ///✧ Population:.1;
-        ///✧ 
-        ///Government:.None
-        ///;
-        ///✧ Leadership:.Zelian
-        ///;
-        ///✧ Disposition:.Seething
-        ///;
-        ///✧ Tendencies:.Objective.
+        ///   Looks up a localized string similar to &lt;p&gt;ZELIAN SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;1&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;None&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Zelian&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Seething&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Objective&lt;/p&gt;.
         /// </summary>
         internal static string TheZelianPurifier_SystemStats {
             get {
@@ -6913,7 +7876,186 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Toldar Concordat.
+        ///   Looks up a localized string similar to &lt;h2&gt;Marked Prey&lt;/h2&gt;
+        ///&lt;p&gt;At the start of the strategy phase, place any number of your bounty tokens from your reinforcements on the unit space of non-fighter ships on other players’ factions sheets. You can have a maximum of 1 bounty token on each unit space.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;h2&gt;Confirmed Kill&lt;/h2&gt;
+        ///&lt;p&gt;During your turn, if a ship with a bounty token on its unit space is destroyed, return the bounty token to your reinforcements and gain 3 trade goods.&lt;/p&gt;.
+        /// </summary>
+        internal static string TheZephyrionPursuit_Ability {
+            get {
+                return ResourceManager.GetString("TheZephyrionPursuit_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheZephyrionPursuit_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("TheZephyrionPursuit_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheZephyrionPursuit_Lore {
+            get {
+                return ResourceManager.GetString("TheZephyrionPursuit_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheZephyrionPursuit_Notes {
+            get {
+                return ResourceManager.GetString("TheZephyrionPursuit_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheZephyrionPursuit_PromissaryNote {
+            get {
+                return ResourceManager.GetString("TheZephyrionPursuit_PromissaryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheZephyrionPursuit_Quote {
+            get {
+                return ResourceManager.GetString("TheZephyrionPursuit_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheZephyrionPursuit_SystemInfo {
+            get {
+                return ResourceManager.GetString("TheZephyrionPursuit_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TheZephyrionPursuit_SystemStats {
+            get {
+                return ResourceManager.GetString("TheZephyrionPursuit_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Zephyrion Pursuit.
+        /// </summary>
+        internal static string TheZephyrionPursuit_Title {
+            get {
+                return ResourceManager.GetString("TheZephyrionPursuit_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h2&gt;Honor-Bound&lt;/h2&gt;
+        ///&lt;p&gt;When you gain honor, place or flip 1 code token on your faction sheet face up, if able. When you gain dishonor, instead place or flip 1 code token face down, if able.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;h2&gt;Pride&lt;/h2&gt;
+        ///&lt;p&gt;When you win a combat as the attacker, gain 1 honor if your opponent has more victory points than you, or gain 1 dishonor if they have fewer victory points than you; otherwise, gain 1 honor or 1 dishonor and ignore this ability until the end of your turn.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;h2&gt;The Code&lt;/h2&gt;
+        ///&lt;p [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ToldarConcordat_Ability {
+            get {
+                return ResourceManager.GetString("ToldarConcordat_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have a Code card..
+        /// </summary>
+        internal static string ToldarConcordat_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("ToldarConcordat_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string ToldarConcordat_Lore {
+            get {
+                return ResourceManager.GetString("ToldarConcordat_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string ToldarConcordat_Notes {
+            get {
+                return ResourceManager.GetString("ToldarConcordat_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string ToldarConcordat_PromissaryNote {
+            get {
+                return ResourceManager.GetString("ToldarConcordat_PromissaryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;What is a Toldar without their steed?
+        ///But what is the steed without their
+        ///Toldar? Toldar and steed, noble and
+        ///peasant; on such relationships is the
+        ///Concordat built.&quot;.
+        /// </summary>
+        internal static string ToldarConcordat_Quote {
+            get {
+                return ResourceManager.GetString("ToldarConcordat_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visitors to the Ceanhut system
+        ///are well-cautioned that the
+        ///Concordat has long been
+        ///defined by its adherence to the
+        ///rigid code that governs its
+        ///people, and their unblinking
+        ///execution of its directives..
+        /// </summary>
+        internal static string ToldarConcordat_SystemInfo {
+            get {
+                return ResourceManager.GetString("ToldarConcordat_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;CEANHUT SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;4.69 billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Coalition&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;The Concordat&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Dualistic&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Objective&lt;/p&gt;.
+        /// </summary>
+        internal static string ToldarConcordat_SystemStats {
+            get {
+                return ResourceManager.GetString("ToldarConcordat_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Toldar Concordat.
         /// </summary>
         internal static string ToldarConcordat_Title {
             get {
@@ -6931,11 +8073,200 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Uydai Conclave.
+        ///   Looks up a localized string similar to &lt;h2&gt;Prescience&lt;/h2&gt;
+        ///&lt;p&gt;At the end of your turn, if you have not passed, place 1 of the plan cards on your faction sheet, face down.&lt;/p&gt;
+        ///&lt;p&gt;At the start of your turn, reveal and resolve the plan card on your faction sheet, if able.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;h2&gt;The Starlit Path&lt;/h2&gt;
+        ///&lt;p&gt;At the end of your turn, you may spend 5 path tokens to resolve the secondary ability of any strategy card, or 8 path tokens to do so without spending a command token.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;h2&gt;Narrow Way&lt;/h2&gt;
+        ///&lt;p&gt;At any time, you may spend 1 path [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string UydaiConclave_Ability {
+            get {
+                return ResourceManager.GetString("UydaiConclave_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lose control of a planet..
+        /// </summary>
+        internal static string UydaiConclave_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("UydaiConclave_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string UydaiConclave_Lore {
+            get {
+                return ResourceManager.GetString("UydaiConclave_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string UydaiConclave_Notes {
+            get {
+                return ResourceManager.GetString("UydaiConclave_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string UydaiConclave_PromissaryNote {
+            get {
+                return ResourceManager.GetString("UydaiConclave_PromissaryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Climb high, look far, and always
+        ///move within your vision.&quot;
+        ///- Uydai proverb.
+        /// </summary>
+        internal static string UydaiConclave_Quote {
+            get {
+                return ResourceManager.GetString("UydaiConclave_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What happens to a people
+        ///crushed by industry, once their
+        ///adversity has been sewn into
+        ///them by fable and myth?.
+        /// </summary>
+        internal static string UydaiConclave_SystemInfo {
+            get {
+                return ResourceManager.GetString("UydaiConclave_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;UDUL SYSTEM&lt;p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;15 million&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Tribal&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Elders&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Fanatical&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Military&lt;/p&gt;.
+        /// </summary>
+        internal static string UydaiConclave_SystemStats {
+            get {
+                return ResourceManager.GetString("UydaiConclave_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Uydai Conclave.
         /// </summary>
         internal static string UydaiConclave_Title {
             get {
                 return ResourceManager.GetString("UydaiConclave_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;h2&gt;Matters of State&lt;/h2&gt;
+        ///&lt;p&gt;After you perform an action or resolve an action card, gain 1 balance token or flip 1 balance token on your faction sheet.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;h2&gt;Intrigue&lt;/h2&gt;
+        ///&lt;p&gt;At the end of a player&apos;s turn, you may spend 1 token from your strategy pool and 1 Intrigue card&apos;s listed balance token cost; resolve that card&apos;s ability. Then, you may place 1 infantry from your reinforcements into coexistence on a non-home planet the active player controls to gain 1 command token.&lt;/p&gt;
+        ///&lt;/br&gt;
+        ///&lt;h2&gt;Harmony&lt; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string XinCourt_Ability {
+            get {
+                return ResourceManager.GetString("XinCourt_Ability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have units on 3 planets that have different traits, and 1 legendary planet..
+        /// </summary>
+        internal static string XinCourt_CommanderRequirement {
+            get {
+                return ResourceManager.GetString("XinCourt_CommanderRequirement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string XinCourt_Lore {
+            get {
+                return ResourceManager.GetString("XinCourt_Lore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string XinCourt_Notes {
+            get {
+                return ResourceManager.GetString("XinCourt_Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string XinCourt_PromissaryNote {
+            get {
+                return ResourceManager.GetString("XinCourt_PromissaryNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;Yield, and overcome.&quot;
+        ///- Uroh, Celestial emperor of Star
+        ///and Steel.
+        /// </summary>
+        internal static string XinCourt_Quote {
+            get {
+                return ResourceManager.GetString("XinCourt_Quote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Xin home system is,
+        ///unsurprisingly, the
+        ///predominant political,
+        ///administrative, intellectual,
+        ///and commercial nexus of the
+        ///Courts&apos; domain..
+        /// </summary>
+        internal static string XinCourt_SystemInfo {
+            get {
+                return ResourceManager.GetString("XinCourt_SystemInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;XIN SYSTEM&lt;/p&gt;
+        ///&lt;p&gt;✧ Population&lt;/p&gt;&lt;p&gt;8.8 billion&lt;/p&gt;
+        ///&lt;p&gt;✧ Government&lt;/p&gt;&lt;p&gt;Royal Court&lt;/p&gt;
+        ///&lt;p&gt;✧ Leadership&lt;/p&gt;&lt;p&gt;Emperor&lt;/p&gt;
+        ///&lt;p&gt;✧ Disposition&lt;/p&gt;&lt;p&gt;Mindful&lt;/p&gt;
+        ///&lt;p&gt;✧ Tendencies&lt;/p&gt;&lt;p&gt;Objective&lt;/p&gt;.
+        /// </summary>
+        internal static string XinCourt_SystemStats {
+            get {
+                return ResourceManager.GetString("XinCourt_SystemStats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Xin Court.
+        /// </summary>
+        internal static string XinCourt_Title {
+            get {
+                return ResourceManager.GetString("XinCourt_Title", resourceCulture);
             }
         }
     }

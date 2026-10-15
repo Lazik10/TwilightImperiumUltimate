@@ -182,4 +182,42 @@ public enum TechnologyName
 
     ExecutiveOrder,
     AgencySupplyNetworkThundersEdge,
+
+    UnyieldingWill,
+    WartimeInnovation,
+    StellarArchitectTwo, // F
+    GalacticCitadelTwo, // F
+    ChitinShielding,
+    StingerTwo, // F
+    SubliminalIntuition,
+    CrypticHaulerTwo, // F
+    StrategicInversion,
+    SacrificialCommand,
+    TemporalDisplacement,
+    PhaseTrooperTwo, // F
+    ConduitMatrix,
+    HarmonicBastionTwo, // F
+    HuntingGrounds,
+    ZephyrHoundTwo, // F
+
+    MirrorshardTwo, // F
+    ModularDesigns,
+    WyvernTwo, // F
+    SynchronyMatrix,
+    ConsulateTwo, // F
+    KaldurArrestField,
+    ImmortalTwo,
+    RealityFieldImpactor,
+    CommandoTwo, // F
+    BattlecruiserTwo, // F
+    RavagerTwo, // F
+    InfiltrationNetworks,
+    EmergencyModifications,
+    VIRTraining,
+    MessiahProtocols,
+    NavigationRelays,
+    AstromanticCloakSteel,
+    AstromanticCloakStar,
+    VeiledNetworkingSteel,
+    VeiledNetworkingStar,
 }

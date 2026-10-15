@@ -19,7 +19,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class TiglFactions {
@@ -70,7 +70,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Atokera Legacy.
+        ///   Looks up a localized string similar to The Atokera Legacy.
         /// </summary>
         public static string AtokeraLegacy {
             get {
@@ -88,7 +88,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Belkosea Allied States.
+        ///   Looks up a localized string similar to The Belkosea Allied States.
         /// </summary>
         public static string BelkoseaAlliedStates {
             get {
@@ -160,7 +160,7 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pharadn Order.
+        ///   Looks up a localized string similar to The Pharadn Order.
         /// </summary>
         public static string PharadnOrder {
             get {
@@ -169,7 +169,16 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Qhet Republic.
+        ///   Looks up a localized string similar to The Principality Of Kaltrim.
+        /// </summary>
+        public static string PrincipalityOfKaltrim {
+            get {
+                return ResourceManager.GetString("PrincipalityOfKaltrim", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Qhet Republic.
         /// </summary>
         public static string QhetRepublic {
             get {
@@ -192,6 +201,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string RohDhnaMechatronics {
             get {
                 return ResourceManager.GetString("RohDhnaMechatronics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Sarcosa Drift.
+        /// </summary>
+        public static string SarcosaDrift {
+            get {
+                return ResourceManager.GetString("SarcosaDrift", resourceCulture);
             }
         }
         
@@ -219,6 +237,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string TheArgentFlight {
             get {
                 return ResourceManager.GetString("TheArgentFlight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Arvaxi Covenant.
+        /// </summary>
+        public static string TheArvaxiCovenant {
+            get {
+                return ResourceManager.GetString("TheArvaxiCovenant", resourceCulture);
             }
         }
         
@@ -282,6 +309,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string TheClanOfSaar {
             get {
                 return ResourceManager.GetString("TheClanOfSaar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Constituents Of Xan.
+        /// </summary>
+        public static string TheConstituentsOfXan {
+            get {
+                return ResourceManager.GetString("TheConstituentsOfXan", resourceCulture);
             }
         }
         
@@ -457,6 +493,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Kalora Swarm.
+        /// </summary>
+        public static string TheKaloraSwarm {
+            get {
+                return ResourceManager.GetString("TheKaloraSwarm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The Kollecc Society.
         /// </summary>
         public static string TheKolleccSociety {
@@ -516,6 +561,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string TheLTokkKhrask {
             get {
                 return ResourceManager.GetString("TheLTokkKhrask", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Lunarium Conspiracies.
+        /// </summary>
+        public static string TheLunariumConspiracies {
+            get {
+                return ResourceManager.GetString("TheLunariumConspiracies", resourceCulture);
             }
         }
         
@@ -628,6 +682,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Onyxxa Complex.
+        /// </summary>
+        public static string TheOnyxxaComplex {
+            get {
+                return ResourceManager.GetString("TheOnyxxaComplex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The Ral Nel Consortium.
         /// </summary>
         public static string TheRalNelConsortium {
@@ -691,6 +754,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Tyris Continuum.
+        /// </summary>
+        public static string TheTyrisContinuum {
+            get {
+                return ResourceManager.GetString("TheTyrisContinuum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The Universities Of Jol-Nar.
         /// </summary>
         public static string TheUniversitiesOfJolNar {
@@ -732,6 +804,15 @@ namespace TwilightImperiumUltimate.Web.Resources {
         public static string TheVuilRaithCabal {
             get {
                 return ResourceManager.GetString("TheVuilRaithCabal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Vyserix Ascendancy.
+        /// </summary>
+        public static string TheVyserixAscendancy {
+            get {
+                return ResourceManager.GetString("TheVyserixAscendancy", resourceCulture);
             }
         }
         
@@ -790,7 +871,16 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Toldar Concordat.
+        ///   Looks up a localized string similar to The Zephyrion Pursuit.
+        /// </summary>
+        public static string TheZephyrionPursuit {
+            get {
+                return ResourceManager.GetString("TheZephyrionPursuit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Toldar Concordat.
         /// </summary>
         public static string ToldarConcordat {
             get {
@@ -808,11 +898,20 @@ namespace TwilightImperiumUltimate.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Uydai Conclave.
+        ///   Looks up a localized string similar to The Uydai Conclave.
         /// </summary>
         public static string UydaiConclave {
             get {
                 return ResourceManager.GetString("UydaiConclave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Xin Court.
+        /// </summary>
+        public static string XinCourt {
+            get {
+                return ResourceManager.GetString("XinCourt", resourceCulture);
             }
         }
     }

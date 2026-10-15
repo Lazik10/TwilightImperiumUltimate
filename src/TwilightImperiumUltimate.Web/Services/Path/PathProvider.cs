@@ -134,12 +134,6 @@ public class PathProvider : IPathProvider
     public string GetTiglFactionIconPath(TiglFactionName faction)
     {
         var factionString = faction.ToString();
-        if (faction == TiglFactionName.TheFirmamentTheObsidian)
-        {
-            var variants = new List<string> { "TheFirmament", "TheObsidian" };
-            factionString = variants[_random.Next(variants.Count)].ToString();
-        }
-
         return $"{Paths.ResourcePath_FactionIconPath}{Strings.BackSlash}{factionString}{Strings.FileExtensionWebp}";
     }
 

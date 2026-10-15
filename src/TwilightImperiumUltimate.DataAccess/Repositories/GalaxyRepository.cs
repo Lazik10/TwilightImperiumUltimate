@@ -132,6 +132,7 @@ public class GalaxyRepository(
         return dbContext.SystemTiles
             .Include(x => x.Planets)
             .Include(x => x.Wormholes)
+            .AsSplitQuery()
             .AsEnumerable()
             .OrderBy(x => x.SystemTileName)
             .ToList();

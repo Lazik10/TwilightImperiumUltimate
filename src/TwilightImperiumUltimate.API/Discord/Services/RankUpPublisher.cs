@@ -1,18 +1,25 @@
 using System.Globalization;
 using System.Text;
-using FluentResults;
+using Microsoft.EntityFrameworkCore;
 using TwilightImperiumUltimate.Core.Entities.Logging;
+using TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium;
 using TwilightImperiumUltimate.Tigl.Discord;
 
 namespace TwilightImperiumUltimate.API.Discord.Services;
 
-internal sealed class RankUpPublisher(IDiscordClient discordClient, ILogger<RankUpPublisher> logger) : IRankUpPublisher
+internal sealed class RankUpPublisher(
+    IDbContextFactory<TwilightImperiumDbContext> dbContextFactory,
+    IDiscordClient discordClient,
+    ILogger<RankUpPublisher> logger) : IRankUpPublisher
 {
     private readonly CompositeFormat _resetRankToUnrankedFmt =
         CompositeFormat.Parse("<@{0}>'s rank has been reset to rank **{1}**. Good luck with your next climb!");
 
     private readonly CompositeFormat _rankUpFormatFmt =
         CompositeFormat.Parse("<@{0}> has been promoted to rank **{1}** after {2}!");
+
+    private readonly CompositeFormat _gamesPlayedFormatFmt =
+        CompositeFormat.Parse("Games: {0}");
 
     private readonly List<TiglRankName> standardRanks = new()
     {
@@ -35,7 +42,7 @@ internal sealed class RankUpPublisher(IDiscordClient discordClient, ILogger<Rank
 
     public async Task<bool> PublishAsync(RankUpLog log, CancellationToken cancellationToken)
     {
-        var content = BuildRankUpContent(log);
+        var content = await BuildRankUpContentAsync(log, cancellationToken);
 
         // Publish the rank-up notification in discord channel
         var notificationPublished = await PublishRankUpAsync(log.League, content, cancellationToken);
@@ -84,16 +91,47 @@ internal sealed class RankUpPublisher(IDiscordClient discordClient, ILogger<Rank
         return string.Join(" ", parts);
     }
 
-    private string BuildRankUpContent(RankUpLog log)
+    private async Task<string> BuildRankUpContentAsync(RankUpLog log, CancellationToken cancellationToken)
     {
-        var sb = new StringBuilder();
-
         if (log.NewRank == TiglRankName.Unranked)
-            sb.AppendLine(string.Format(CultureInfo.InvariantCulture, _resetRankToUnrankedFmt, log.TiglUserDiscordId, GetRankText(log.NewRank)));
-        else
-            sb.AppendLine(string.Format(CultureInfo.InvariantCulture, _rankUpFormatFmt, log.TiglUserDiscordId, GetRankText(log.NewRank), GetDuration(log.Duration)));
+            return string.Format(CultureInfo.InvariantCulture, _resetRankToUnrankedFmt, log.TiglUserDiscordId, GetRankText(log.NewRank));
 
-        return sb.ToString();
+        var content = string.Format(CultureInfo.InvariantCulture, _rankUpFormatFmt, log.TiglUserDiscordId, GetRankText(log.NewRank), GetDuration(log.Duration));
+
+        var gameCount = await GetGameCountSincePreviousRankAsync(log, cancellationToken);
+        if (gameCount is not null)
+            content += $" {string.Format(CultureInfo.InvariantCulture, _gamesPlayedFormatFmt, gameCount.Value)}";
+
+        return content;
+    }
+
+    private async Task<int?> GetGameCountSincePreviousRankAsync(RankUpLog log, CancellationToken cancellationToken)
+    {
+        if (log.TiglUserId is not int tiglUserId)
+            return null;
+
+        await using var dbContext = await dbContextFactory.CreateDbContextAsync(cancellationToken);
+
+        var previousRankAchievedAt = await dbContext.Ranks
+            .AsNoTracking()
+            .Where(rank => rank.TiglUserId == tiglUserId && rank.League == log.League && rank.AchievedAt < log.Timestamp)
+            .OrderByDescending(rank => rank.AchievedAt)
+            .Select(rank => (long?)rank.AchievedAt)
+            .FirstOrDefaultAsync(cancellationToken);
+
+        if (previousRankAchievedAt is null)
+        {
+            logger.LogWarning("Previous rank was not found for rank-up log {LogId}", log.Id);
+            return null;
+        }
+
+        return await dbContext.GameReports
+            .AsNoTracking()
+            .Where(match => match.League == log.League
+                && match.PlayerResults.Any(player => player.TiglUserId == tiglUserId)
+                && match.StartTimestamp > previousRankAchievedAt.Value
+                && match.EndTimestamp <= log.Timestamp)
+            .CountAsync(cancellationToken);
     }
 
     private Task<bool> PublishRankUpAsync(TiglLeague league, string content, CancellationToken cancellationToken)

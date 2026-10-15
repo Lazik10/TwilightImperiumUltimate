@@ -5,6 +5,14 @@ namespace TwilightImperiumUltimate.Web.Components.Drafts.Faction;
 
 public partial class FactionDraftGrid
 {
+    private static readonly IReadOnlyCollection<GameVersion> DefaultEnabledGameVersions =
+    [
+        GameVersion.BaseGame,
+        GameVersion.ProphecyOfKings,
+        GameVersion.CodexVigil,
+        GameVersion.ThundersEdge,
+    ];
+
     private readonly IReadOnlyCollection<KeyValuePair<bool, string>> _booleanOptions =
     [
         new(false, Strings.String_Disabled),

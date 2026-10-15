@@ -50,6 +50,7 @@ public static class DiscordAchievementDescriptions
             [AchievementName.Completionist] = new("Completionist", "Earn 30 different achievements"),
             [AchievementName.Mythical] = new("Mythical", "Win 10 games in a row"),
             [AchievementName.Icarus] = new("Icarus", "Lose a game in which you would have gained Inconceivable or Mythical achievement"),
+            [AchievementName.StayFirm] = new("Stay Firm!", "Win a game as The Firmament without flipping to The Obsidian."),
         };
 
     public static string GetDetail(this AchievementName name)

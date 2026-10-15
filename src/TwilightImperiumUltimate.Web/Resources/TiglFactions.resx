@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -121,13 +121,13 @@
     <value>A Sickening Lurch</value>
   </data>
   <data name="AtokeraLegacy" xml:space="preserve">
-    <value>Atokera Legacy</value>
+    <value>The Atokera Legacy</value>
   </data>
   <data name="AvariceRex" xml:space="preserve">
     <value>Avarice Rex</value>
   </data>
   <data name="BelkoseaAlliedStates" xml:space="preserve">
-    <value>Belkosea Allied States</value>
+    <value>The Belkosea Allied States</value>
   </data>
   <data name="ElNenJanovet" xml:space="preserve">
     <value>El Nen Janovet</value>
@@ -151,16 +151,22 @@
     <value>None</value>
   </data>
   <data name="PharadnOrder" xml:space="preserve">
-    <value>Pharadn Order</value>
+    <value>The Pharadn Order</value>
+  </data>
+  <data name="PrincipalityOfKaltrim" xml:space="preserve">
+    <value>The Principality Of Kaltrim</value>
   </data>
   <data name="QhetRepublic" xml:space="preserve">
-    <value>Qhet Republic</value>
+    <value>The Qhet Republic</value>
   </data>
   <data name="RadiantAur" xml:space="preserve">
     <value>Radiant Aur</value>
   </data>
   <data name="RohDhnaMechatronics" xml:space="preserve">
     <value>Roh Dhna Mechatronics</value>
+  </data>
+  <data name="SarcosaDrift" xml:space="preserve">
+    <value>The Sarcosa Drift</value>
   </data>
   <data name="SardakkNorr" xml:space="preserve">
     <value>Sardakk N'orr</value>
@@ -170,6 +176,9 @@
   </data>
   <data name="TheArgentFlight" xml:space="preserve">
     <value>The Argent Flight</value>
+  </data>
+  <data name="TheArvaxiCovenant" xml:space="preserve">
+    <value>The Arvaxi Covenant</value>
   </data>
   <data name="TheAugursOfIlyxum" xml:space="preserve">
     <value>The Augurs Of Ilyxum</value>
@@ -191,6 +200,9 @@
   </data>
   <data name="TheClanOfSaar" xml:space="preserve">
     <value>The Clan Of Saar</value>
+  </data>
+  <data name="TheConstituentsOfXan" xml:space="preserve">
+    <value>The Constituents Of Xan</value>
   </data>
   <data name="TheCouncilKeleresArgent" xml:space="preserve">
     <value>The Council Keleres - Argent</value>
@@ -249,6 +261,9 @@
   <data name="TheGlimmerOfMortheus" xml:space="preserve">
     <value>The Glimmer Of Mortheus</value>
   </data>
+  <data name="TheKaloraSwarm" xml:space="preserve">
+    <value>The Kalora Swarm</value>
+  </data>
   <data name="TheKolleccSociety" xml:space="preserve">
     <value>The Kollecc Society</value>
   </data>
@@ -269,6 +284,9 @@
   </data>
   <data name="TheLTokkKhrask" xml:space="preserve">
     <value>The L'tokk Khrask</value>
+  </data>
+  <data name="TheLunariumConspiracies" xml:space="preserve">
+    <value>The Lunarium Conspiracies</value>
   </data>
   <data name="TheMahactGeneSorcerers" xml:space="preserve">
     <value>The Mahact Gene Sorcerers</value>
@@ -306,6 +324,9 @@
   <data name="TheOlradinLeague" xml:space="preserve">
     <value>The Olradin League</value>
   </data>
+  <data name="TheOnyxxaComplex" xml:space="preserve">
+    <value>The Onyxxa Complex</value>
+  </data>
   <data name="TheRalNelConsortium" xml:space="preserve">
     <value>The Ral Nel Consortium</value>
   </data>
@@ -327,6 +348,9 @@
   <data name="TheTnelisSyndicate" xml:space="preserve">
     <value>The Tnelis Syndicate</value>
   </data>
+  <data name="TheTyrisContinuum" xml:space="preserve">
+    <value>The Tyris Continuum</value>
+  </data>
   <data name="TheUniversitiesOfJolNar" xml:space="preserve">
     <value>The Universities Of Jol-Nar</value>
   </data>
@@ -341,6 +365,9 @@
   </data>
   <data name="TheVuilRaithCabal" xml:space="preserve">
     <value>The Vuil'raith Cabal</value>
+  </data>
+  <data name="TheVyserixAscendancy" xml:space="preserve">
+    <value>The Vyserix Ascendancy</value>
   </data>
   <data name="TheWinnu" xml:space="preserve">
     <value>The Winnu</value>
@@ -360,13 +387,19 @@
   <data name="TheZelianPurifier" xml:space="preserve">
     <value>The Zelian Purifier</value>
   </data>
+  <data name="TheZephyrionPursuit" xml:space="preserve">
+    <value>The Zephyrion Pursuit</value>
+  </data>
   <data name="ToldarConcordat" xml:space="preserve">
-    <value>Toldar Concordat</value>
+    <value>The Toldar Concordat</value>
   </data>
   <data name="TwilightsFall" xml:space="preserve">
     <value>Twilight's Fall</value>
   </data>
   <data name="UydaiConclave" xml:space="preserve">
-    <value>Uydai Conclave</value>
+    <value>The Uydai Conclave</value>
+  </data>
+  <data name="XinCourt" xml:space="preserve">
+    <value>The Xin Court</value>
   </data>
 </root>

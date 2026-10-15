@@ -15,9 +15,7 @@ public class AsyncFactionStatsFactory(
         var games = await _asyncStatsRepository.GetAsyncStatisticsGameProjections(cancellationToken);
 
         var allGames = games
-            .Where(x =>
-                x.EndedTimestamp != null
-                && !x.FrankenGame)
+            .Where(x => x.EndedTimestamp != null)
             .ToList();
 
         var tiglGames = allGames.Where(x => x.IsTigl).ToList();

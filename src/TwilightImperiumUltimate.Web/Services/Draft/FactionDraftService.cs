@@ -22,7 +22,7 @@ public class FactionDraftService(ITwilightImperiumApiHttpClient httpClient)
     public int NumberOfDraftFactions { get; set; } = FactionDraftOptions.MinNumberOfDraftFactions;
 
     public bool ToManyBans => FactionsWithUpdatedBanStatus
-        .Count(x => x.Banned) > FactionDraftOptions.MumberOfFactions - (NumberOfPlayers * NumberOfDraftFactions);
+        .Count(x => !x.Banned) < NumberOfPlayers * NumberOfDraftFactions;
 
     public bool EnablePlayerNames { get; set; }
 

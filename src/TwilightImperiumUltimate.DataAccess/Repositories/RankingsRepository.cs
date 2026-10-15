@@ -113,27 +113,75 @@ public class RankingsRepository(
     {
         using var db = await contextFactory.CreateDbContextAsync(cancellationToken);
 
+        var leaderDurationHistory = await db.LeaderLogHistory
+            .AsNoTracking()
+            .Where(log => log.Duration > 0 && log.PreviousOwnerId.HasValue)
+            .Select(log => new
+            {
+                log.Name,
+                log.Faction,
+                log.League,
+                log.Duration,
+                log.Timestamp,
+                log.PreviousOwner,
+            })
+            .ToListAsync(cancellationToken);
+
+        var historicalDurations = leaderDurationHistory
+            .GroupBy(log => (log.Name, log.Faction, log.League))
+            .ToDictionary(
+                group => group.Key,
+                group =>
+                {
+                    var shortest = group.OrderBy(log => log.Duration).ThenBy(log => log.Timestamp).First();
+                    var longest = group.OrderByDescending(log => log.Duration).ThenBy(log => log.Timestamp).First();
+
+                    return (
+                        ShortestDuration: shortest.Duration,
+                        ShortestHolderName: shortest.PreviousOwner,
+                        LongestDuration: longest.Duration,
+                        LongestHolderName: longest.PreviousOwner);
+                });
+
         var leaders = await db.Leaders
             .Include(x => x.CurrentOwner)
             .Include(x => x.ShortestHolder)
             .Include(x => x.LongestHolder)
             .AsNoTracking()
-            .Select(l => new RankingsLeaderDto
+            .Select(leader => new
             {
-                TiglUserId = l.CurrentOwnerId ?? 0,
-                Name = l.Name,
-                Faction = l.Faction,
-                League = l.League,
-                UserName = l.CurrentOwner != null ? l.CurrentOwner.TiglUserName : string.Empty,
-                LastUpdate = l.LastUpdate,
-                ChangeCount = l.ChangeCount,
-                ShortestDuration = l.ShortestDuration,
-                LongestDuration = l.LongestDuration,
-                ShortestHolderName = l.ShortestHolder != null ? l.ShortestHolder.TiglUserName : string.Empty,
-                LongestHolderName = l.LongestHolder != null ? l.LongestHolder.TiglUserName : string.Empty,
+                TiglUserId = leader.CurrentOwnerId ?? 0,
+                leader.Name,
+                leader.Faction,
+                leader.League,
+                UserName = leader.CurrentOwner != null ? leader.CurrentOwner.TiglUserName : string.Empty,
+                leader.LastUpdate,
+                leader.ChangeCount,
+                leader.ShortestDuration,
+                leader.LongestDuration,
+                ShortestHolderName = leader.ShortestHolder != null ? leader.ShortestHolder.TiglUserName : string.Empty,
+                LongestHolderName = leader.LongestHolder != null ? leader.LongestHolder.TiglUserName : string.Empty,
             })
             .ToListAsync(cancellationToken);
 
-        return leaders;
+        return leaders.Select(leader =>
+        {
+            var hasHistoricalDuration = historicalDurations.TryGetValue((leader.Name, leader.Faction, leader.League), out var history);
+
+            return new RankingsLeaderDto
+            {
+                TiglUserId = leader.TiglUserId,
+                Name = leader.Name,
+                Faction = leader.Faction,
+                League = leader.League,
+                UserName = leader.UserName,
+                LastUpdate = leader.LastUpdate,
+                ChangeCount = leader.ChangeCount,
+                ShortestDuration = hasHistoricalDuration ? history.ShortestDuration : leader.ShortestDuration,
+                LongestDuration = hasHistoricalDuration ? history.LongestDuration : leader.LongestDuration,
+                ShortestHolderName = hasHistoricalDuration ? history.ShortestHolderName : leader.ShortestHolderName,
+                LongestHolderName = hasHistoricalDuration ? history.LongestHolderName : leader.LongestHolderName,
+            };
+        }).ToList();
     }
 }

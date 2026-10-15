@@ -232,4 +232,98 @@ public enum SpecialComponentName
     // The Nokar Sellships
     Sabre,
     NokarAdditionalDestroyerToken, // 4x
+
+    // The Arvaxi Covenant
+    ArvaxiMobilizationEngineBoon,
+    ArvaxiMobilizationEngineCurse,
+
+    // The Constituents of Xan
+    GalacticCitadel,
+    StellarArchitect,
+
+    // The Kalora Swarm
+    Stinger,
+
+    // The Lunarium Conspiracies
+    CrypticHauler,
+
+    // The Tyris Continuum
+    PhaseTrooper,
+
+    // The Vyserix Ascendancy
+    HarmonicBastion,
+
+    // The Zephyrion Pursuit
+    ZephyrHound,
+    BountyToken, // 3x
+
+    // Atokera Legacy
+    Mirrorshard,
+
+    // Belkosea Allied States
+    Wyvern,
+    SOLGIndustriesGroup,
+    AvailynToken,
+    CaledToken,
+    GlatisonToken,
+    GromToken,
+    MorsToken,
+    Availyn,
+    Caled,
+    Glatison,
+    Grom,
+    Mors,
+
+    // Pharad'n Order
+    Immortal,
+    TombToken, // 14x
+
+    // Principality of Kaltrim
+    Consulate,
+    ShrineCard, // 8x
+    GenericShrineToken, // 7x
+    KaltrimCrownShrineToken,
+
+    // Qhet Republic
+    Commando,
+    Battlecruiser,
+
+    // Sarcosa Drift
+    Ravager,
+    Leviathan,
+
+    // Toldar Concordat
+    HonorToken, // 8x - shared double-sided with DishonorToken
+    DishonorToken, // 8x - shared double-sided with HonorToken
+    Bestow, // +2
+    Thwart, // -2
+    Reflect, // +5
+    Deceive, // -5
+    Ascend, // +8
+    Scourge, // -8
+
+    // Uydai Conclave
+    Harvest,
+    PathToken, // 8x
+    PlanTactician,
+    PlanSpymaster,
+    PlanStrategist,
+    DeathCommandos,
+
+    // Xin Court
+    StarToken, // 8x shared sides with Steel Token
+    SteelToken, // 8x shared sides with Star Token
+    LevyTheSectors,
+    LogisticalIntervention,
+    OmenOfTheBlade,
+    RecruitSpies,
+    MeteorGambit,
+    CommissionTheArtisans,
+    DeftLegislation,
+    CallOfTheCosmos,
+    SecureFavor,
+    DeclareMandate,
+
+    ZGravEidolon,
+    SentinelSteel,
 }
