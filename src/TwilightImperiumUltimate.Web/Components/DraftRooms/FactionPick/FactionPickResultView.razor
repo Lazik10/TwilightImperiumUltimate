@@ -1,0 +1,69 @@
+@using TwilightImperiumUltimate.Web.Helpers.Enums
+
+<dl>
+    <dt>@Text("GameVersions")</dt>
+    <dd>@string.Join(", ", _result.GameVersions.Select(version => version.GetDisplayName()))</dd>
+    <dt>@Text("PicksPerPlayer")</dt>
+    <dd>@_result.PicksPerPlayer</dd>
+    <dt>@Text("BansMode")</dt>
+    <dd>@_result.BansMode.GetDisplayName()</dd>
+    <dt>@Text("BansPerPlayer")</dt>
+    <dd>@_result.BansPerPlayer</dd>
+    <dt>@Text("HostBanCount")</dt>
+    <dd>@_result.HostBanCount</dd>
+    <dt>@Text("PickOrder")</dt>
+    <dd>@Text(_result.PickOrderMode == TwilightImperiumUltimate.Contracts.Enums.FactionPickOrderMode.Random ? "RandomOrder" : "HostDefinedOrder")</dd>
+    <dt>@Text("Snake")</dt>
+    <dd>@Text(_result.Snake ? "ResultsEnabled" : "ResultsDisabled")</dd>
+</dl>
+<div class="result-seats">
+    @foreach (var seat in _result.Seats)
+    {
+        <section @key="seat.SeatIndex">
+            <ResponsiveHeading Level="3" Text="@SeatName(seat)" />
+            <ol>
+                @foreach (var pick in seat.Picks)
+                {
+                    <li @key="pick.Round">
+                        @pick.Faction.GetFactionUIText(FactionResourceType.Title)
+                        @if (pick.DecidedByDisplayName is not null)
+                        {
+                            <span>@Decider(pick.DecidedByDisplayName)</span>
+                        }
+                    </li>
+                }
+            </ol>
+        </section>
+    }
+</div>
+<ResponsiveHeading Level="3" Text="@Text("ResultsBans")" />
+@if (_result.Bans.Count == 0)
+{
+    <p>@Text("NoFactions")</p>
+}
+else
+{
+    <ul>
+        @foreach (var ban in _result.Bans)
+        {
+            <li @key="ban">
+                @ban.Faction.GetFactionUIText(FactionResourceType.Title)
+                @if (ban.SeatIndex is int index)
+                {
+                    <span>(@SeatLabel(index))</span>
+                }
+                @if (ban.DecidedByDisplayName is not null)
+                {
+                    <span>@Decider(ban.DecidedByDisplayName)</span>
+                }
+            </li>
+        }
+    </ul>
+}
+<ResponsiveHeading Level="3" Text="@Text("PickOrder")" />
+<ol>
+    @foreach (var index in _result.SeatOrder)
+    {
+        <li @key="index">@SeatLabel(index)</li>
+    }
+</ol>

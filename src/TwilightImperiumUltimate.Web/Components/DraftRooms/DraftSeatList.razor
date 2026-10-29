@@ -1,0 +1,69 @@
+@namespace TwilightImperiumUltimate.Web.Components.DraftRooms
+@using TwilightImperiumUltimate.Contracts.DraftRooms
+
+@if (Room is { } room)
+{
+    <section class="draft-seat-list" aria-label="@Strings.DraftRooms_SeatsHeading">
+        <ResponsiveHeading Level="2" Text="@Strings.DraftRooms_SeatsHeading" />
+
+        @if (room.Me.CanManageSeats)
+        {
+            <div class="draft-seat-list__add">
+                <ResponsiveButton Text="@Strings.DraftRooms_AddSeat"
+                                  IsDisabled="@(_isProcessing || room.Seats.Count >= DraftRoomLimits.MaxSeatCount)"
+                                  aria-describedby="@(room.Seats.Count >= DraftRoomLimits.MaxSeatCount ? "draft-room-max-seats-reason" : null)"
+                                  OnClick="AddSeatAsync" />
+                @if (room.Seats.Count >= DraftRoomLimits.MaxSeatCount)
+                {
+                    <p id="draft-room-max-seats-reason">@Strings.DraftRooms_MaxSeatsReached</p>
+                }
+            </div>
+        }
+
+        @if (room.Seats.Count == 0)
+        {
+            <ResponsiveText Text="@Strings.DraftRooms_NoSeats" />
+        }
+        else
+        {
+            <ul class="draft-seat-list__items" aria-label="@Strings.DraftRooms_SeatList">
+                @foreach (var seat in room.Seats.OrderBy(seat => seat.Index))
+                {
+                    var occupant = seat.ParticipantId is Guid participantId
+                        ? room.Participants.FirstOrDefault(participant => participant.Id == participantId)
+                        : null;
+
+                    <li @key="seat.Id">
+                        <DraftSeatCard Room="room"
+                                       Seat="seat"
+                                       Occupant="occupant"
+                                       IsProcessing="_isProcessing"
+                                       OnClaimSeat="ClaimSeatAsync"
+                                       OnLeaveSeat="LeaveSeatAsync"
+                                       OnUnclaimSeat="UnclaimSeatAsync"
+                                       OnRemoveSeat="RemoveSeatAsync" />
+                        @if (seat.CanAssign && seat.AssignableParticipantIds.Count > 0)
+                        {
+                            <label for="@($"draft-assign-{seat.Id}")">@AssignLabel(seat.Index)</label>
+                            <select id="@($"draft-assign-{seat.Id}")" disabled="@_isProcessing"
+                                    @onchange="@(args => AssignAsync(seat.Id, args))">
+                                <option value="">@AssignPrompt</option>
+                                @foreach (var participant in room.Participants.Where(item => seat.AssignableParticipantIds.Contains(item.Id)))
+                                {
+                                    <option @key="participant.Id" value="@participant.Id">@participant.DisplayName</option>
+                                }
+                            </select>
+                        }
+                    </li>
+                }
+            </ul>
+        }
+
+        @if (_showActionError)
+        {
+            <div role="alert">
+                <ResponsiveText Text="@Strings.DraftRooms_SeatActionFailed" TextColor="TextColor.Red" />
+            </div>
+        }
+    </section>
+}

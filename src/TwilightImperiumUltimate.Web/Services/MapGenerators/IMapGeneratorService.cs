@@ -2,17 +2,17 @@ namespace TwilightImperiumUltimate.Web.Services.MapGenerators;
 
 public interface IMapGeneratorService
 {
+    event Action? TileSelectionChanged;
+
     IEnumerable<SystemTileModel> AllSystemTiles { get; set; }
 
     IReadOnlyDictionary<int, SystemTileModel> GeneratedPositionsWithSystemTiles { get; }
 
-    Task<Dictionary<int, SystemTileModel>> GenerateMapAsync(bool previewMap, CancellationToken ct);
-
-    event Action? TileSelectionChanged;
-
     bool HasSelectedSystemTile { get; }
 
     int SelectedSystemTileMapPosition { get; }
+
+    Task<Dictionary<int, SystemTileModel>> GenerateMapAsync(bool previewMap, CancellationToken ct);
 
     Task<Dictionary<int, SystemTileModel>> GenerateMapLayoutPreview(MapTemplate mapTemplate);
 

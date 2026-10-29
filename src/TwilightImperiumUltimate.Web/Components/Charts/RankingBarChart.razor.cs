@@ -76,7 +76,7 @@ public partial class RankingBarChart
 
     private double AxisStep => ValueAxisStep ?? CalculateAxisStep();
 
-    private IReadOnlyCollection<string> GetPrivateCategoryLabels() => Data
+    private List<string> GetPrivateCategoryLabels() => Data
         .Where(point => point.IsPrivateProfile)
         .Select(point => point.Label)
         .ToList();

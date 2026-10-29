@@ -1,0 +1,89 @@
+@namespace TwilightImperiumUltimate.Web.Components.DraftRooms
+@using TwilightImperiumUltimate.Contracts.Enums
+
+@if (Room is { } room)
+{
+    <section class="draft-participant-list"
+             aria-label="@Strings.DraftRooms_ParticipantsHeading"
+             tabindex="-1"
+             @ref="_participantListRef">
+        <ResponsiveHeading Level="2" Text="@Strings.DraftRooms_ParticipantsHeading" />
+
+        @if (room.Participants.Count == 0)
+        {
+            <ResponsiveText Text="@Strings.DraftRooms_NoParticipants" />
+        }
+        else
+        {
+            <ul class="draft-participant-list__items" aria-label="@Strings.DraftRooms_ParticipantList">
+                @foreach (var participant in room.Participants)
+                {
+                    <li @key="participant.Id">
+                        <article class="draft-participant-card" aria-label="@participant.DisplayName">
+                            <div class="draft-participant-card__identity">
+                                <ResponsiveHeading Level="3" Text="@participant.DisplayName" />
+                                <span class="draft-participant-card__role">@GetRoleLabel(participant.Role)</span>
+                                <DraftPresenceIndicator IsOnline="@participant.IsOnline" />
+                                @if (participant.IsGuest)
+                                {
+                                    <span class="draft-participant-card__guest">@Strings.DraftRooms_Guest</span>
+                                }
+                                <p>@GetSeatLabel(room, participant)</p>
+                            </div>
+
+                            @if (HasActions(room, participant))
+                            {
+                                <div class="draft-participant-card__actions"
+                                     role="group"
+                                     aria-label="@string.Format(CultureInfo.CurrentCulture, Strings.DraftRooms_ParticipantActions, participant.DisplayName)">
+                                    @if (CanChangeParticipantRole(room, participant))
+                                    {
+                                        @if (participant.Role == DraftRoomRole.Member)
+                                        {
+                                            <ResponsiveButton Text="@Strings.DraftRooms_MakeCoHost"
+                                                              IsDisabled="_isProcessing"
+                                                              OnClick="@(() => ChangeRoleAsync(participant.Id, DraftRoomRole.CoHost))" />
+                                        }
+                                        else
+                                        {
+                                            <ResponsiveButton Text="@Strings.DraftRooms_RemoveCoHost"
+                                                              IsDisabled="_isProcessing"
+                                                              OnClick="@(() => ChangeRoleAsync(participant.Id, DraftRoomRole.Member))" />
+                                        }
+                                    }
+                                    @if (CanUnclaimSeat(room, participant))
+                                    {
+                                        <ResponsiveButton Text="@Strings.DraftRooms_UnclaimParticipantSeat"
+                                                          IsDisabled="_isProcessing"
+                                                          OnClick="@(() => UnclaimParticipantSeatAsync(participant))" />
+                                    }
+                                    @if (CanKickParticipant(room, participant))
+                                    {
+                                        <ResponsiveDangerButton Text="@Strings.DraftRooms_KickParticipant"
+                                                                IsDisabled="_isProcessing"
+                                                                OnClick="@(() => RequestKick(participant))" />
+                                    }
+                                </div>
+                            }
+                        </article>
+                    </li>
+                }
+            </ul>
+        }
+
+        @if (_showActionError)
+        {
+            <div role="alert">
+                <ResponsiveText Text="@Strings.DraftRooms_ParticipantActionFailed" TextColor="TextColor.Red" />
+            </div>
+        }
+
+        <ResponsiveConfirmDialog IsOpen="_isKickConfirmationOpen"
+                                 Title="@Strings.DraftRooms_ConfirmKickTitle"
+                                 Message="@KickConfirmationMessage"
+                                 ConfirmText="@Strings.DraftRooms_KickParticipant"
+                                 CancelText="@Strings.DraftRooms_Cancel"
+                                 OnConfirm="ConfirmKickAsync"
+                                 OnCancel="CancelKickAsync" />
+    </section>
+}

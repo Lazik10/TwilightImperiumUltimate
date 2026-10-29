@@ -389,6 +389,132 @@ namespace TwilightImperiumUltimate.Web.Resources {
                 return ResourceManager.GetString("ApiPath_ColorDraft", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to api/draft-rooms.
+        /// </summary>
+        public static string ApiPath_DraftRooms {
+            get {
+                return ResourceManager.GetString("ApiPath_DraftRooms", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to api/draft-rooms/mine.
+        /// </summary>
+        public static string ApiPath_DraftRoomsMine {
+            get {
+                return ResourceManager.GetString("ApiPath_DraftRoomsMine", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to api/draft-rooms/join.
+        /// </summary>
+        public static string ApiPath_DraftRoomsJoin {
+            get {
+                return ResourceManager.GetString("ApiPath_DraftRoomsJoin", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to api/draft-rooms/{0}/link-account.
+        /// </summary>
+        public static string ApiPath_DraftRoomsLinkAccount {
+            get {
+                return ResourceManager.GetString("ApiPath_DraftRoomsLinkAccount", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to api/draft-rooms/{0}.
+        /// </summary>
+        public static string ApiPath_DraftRoomsByCode {
+            get {
+                return ResourceManager.GetString("ApiPath_DraftRoomsByCode", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to api/draft-rooms/{0}/leave.
+        /// </summary>
+        public static string ApiPath_DraftRoomsLeave {
+            get {
+                return ResourceManager.GetString("ApiPath_DraftRoomsLeave", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to api/draft-rooms/{0}/participants/{1}/kick.
+        /// </summary>
+        public static string ApiPath_DraftRoomsParticipantKick {
+            get {
+                return ResourceManager.GetString("ApiPath_DraftRoomsParticipantKick", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to api/draft-rooms/{0}/participants/{1}/role.
+        /// </summary>
+        public static string ApiPath_DraftRoomsParticipantRole {
+            get {
+                return ResourceManager.GetString("ApiPath_DraftRoomsParticipantRole", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to api/draft-rooms/{0}/password.
+        /// </summary>
+        public static string ApiPath_DraftRoomsPassword {
+            get {
+                return ResourceManager.GetString("ApiPath_DraftRoomsPassword", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to api/draft-rooms/{0}/seats/{1}.
+        /// </summary>
+        public static string ApiPath_DraftRoomsSeat {
+            get {
+                return ResourceManager.GetString("ApiPath_DraftRoomsSeat", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to api/draft-rooms/{0}/seats/{1}/claim.
+        /// </summary>
+        public static string ApiPath_DraftRoomsSeatClaim {
+            get {
+                return ResourceManager.GetString("ApiPath_DraftRoomsSeatClaim", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to api/draft-rooms/{0}/seats/{1}/unclaim.
+        /// </summary>
+        public static string ApiPath_DraftRoomsSeatUnclaim {
+            get {
+                return ResourceManager.GetString("ApiPath_DraftRoomsSeatUnclaim", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to api/draft-rooms/{0}/seats.
+        /// </summary>
+        public static string ApiPath_DraftRoomsSeats {
+            get {
+                return ResourceManager.GetString("ApiPath_DraftRoomsSeats", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to api/draft-rooms/{0}/settings.
+        /// </summary>
+        public static string ApiPath_DraftRoomsSettings {
+            get {
+                return ResourceManager.GetString("ApiPath_DraftRoomsSettings", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to api/game-statistics/game.

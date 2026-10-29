@@ -1,0 +1,122 @@
+.draft-room-lobby {
+    display: grid;
+    min-width: 0;
+    grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr);
+    gap: clamp(1rem, 2vw, 1.5rem);
+    align-items: start;
+}
+
+.draft-room-account-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+    margin-block: 1rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-nav-hover);
+    border-radius: var(--border-radius-md);
+    background-color: var(--color-nav-hover-bg-solid);
+    color: var(--color-white);
+}
+
+.draft-room-account-banner p {
+    margin: 0;
+}
+
+.draft-room-account-banner nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.draft-room-account-banner a {
+    color: var(--color-white);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
+.draft-room-account-banner a:focus-visible {
+    outline: 2px solid var(--color-white);
+    outline-offset: 3px;
+}
+
+.draft-room-lobby__mobile-tabs {
+    display: none;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+}
+
+.draft-room-lobby__mobile-tabs ::deep button {
+    flex: 1 1 0;
+    min-width: 0;
+    padding-inline: var(--space-sm);
+    overflow-wrap: anywhere;
+}
+
+.draft-room-lobby__mobile-tabs ::deep button[aria-expanded="true"] {
+    border-color: var(--color-nav-hover);
+    text-decoration: underline;
+    text-underline-offset: 0.25rem;
+}
+
+.draft-room-lobby__panel {
+    min-width: 0;
+}
+
+.draft-room-lobby__panel--seats {
+    grid-column: 1;
+}
+
+.draft-room-lobby__side-panel {
+    display: flex;
+    min-width: 0;
+    grid-column: 2;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.draft-room-lobby ::deep .draft-room-lobby__unread-count {
+    display: inline-flex;
+    min-width: 1.25rem;
+    justify-content: center;
+    padding: 0 0.25rem;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+}
+
+.draft-room-lobby ::deep .draft-room-lobby__visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+}
+
+@media (max-width: 768px) {
+    .draft-room-lobby {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .draft-room-lobby__mobile-tabs {
+        display: flex;
+        grid-column: 1;
+        min-width: 0;
+    }
+
+    .draft-room-lobby__side-panel {
+        display: contents;
+    }
+
+    .draft-room-lobby__panel {
+        grid-column: 1;
+    }
+
+    .draft-room-lobby__panel:not(.draft-room-lobby__panel--active) {
+        display: none;
+    }
+}

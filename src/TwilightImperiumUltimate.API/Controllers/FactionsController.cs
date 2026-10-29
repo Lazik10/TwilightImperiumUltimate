@@ -23,6 +23,8 @@ public class FactionsController(IMediator mediator) : ControllerBase
     [HttpGet("by-game-versions")]
     public async Task<ActionResult<IApiResponse<ItemListDto<FactionDto>>>> GetFactionsByGameVersions([FromQuery] GetFactionsByGameVersionsRequest request, CancellationToken ct)
     {
+        ArgumentNullException.ThrowIfNull(request);
+
         var factions = await _mediator.Send(new GetFactionsByGameVersionsQuery(request.GameVersions), ct);
         return Ok(new ApiResponse<ItemListDto<FactionDto>>() { Success = true, Data = factions });
     }

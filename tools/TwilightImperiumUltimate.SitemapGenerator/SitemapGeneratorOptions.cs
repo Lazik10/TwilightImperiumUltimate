@@ -19,9 +19,9 @@ internal sealed class SitemapGeneratorOptions
         };
     }
 
-    private static string? GetArgument(IReadOnlyList<string> arguments, string name)
+    private static string? GetArgument(string[] arguments, string name)
     {
-        for (var index = 0; index < arguments.Count - 1; index++)
+        for (var index = 0; index < arguments.Length - 1; index++)
         {
             if (string.Equals(arguments[index], name, StringComparison.Ordinal))
                 return arguments[index + 1];

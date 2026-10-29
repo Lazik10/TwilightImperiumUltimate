@@ -80,6 +80,12 @@ public partial class ResponsiveForm : IDisposable
     public Enums.ValidationDisplay ValidationDisplay { get; set; } = Enums.ValidationDisplay.Field;
 
     /// <summary>
+    /// Gets or sets whether a validation summary is shown alongside field-level messages.
+    /// </summary>
+    [Parameter]
+    public bool ShowValidationSummary { get; set; }
+
+    /// <summary>
     /// Gets or sets a value indicating whether the form is currently submitting. While true, the
     /// submit button is disabled and shows <see cref="SubmittingText"/> instead of
     /// <see cref="SubmitText"/>. The caller owns this flag (matches the existing

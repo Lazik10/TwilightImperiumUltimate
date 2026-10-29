@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using TwilightImperiumUltimate.Core.Entities.Async;
+using TwilightImperiumUltimate.Core.Entities.DraftRooms;
 using TwilightImperiumUltimate.Core.Entities.Logging;
 using TwilightImperiumUltimate.Core.Entities.Statistics;
 using TwilightImperiumUltimate.Core.Entities.Tigl;
@@ -22,6 +23,29 @@ public partial class TwilightImperiumDbContext : IdentityDbContext<TwilightImper
     public virtual DbSet<GameStats> GameStats { get; set; }
 
     public virtual DbSet<PlayerStats> PlayerStats { get; set; }
+
+    // Draft rooms
+    public virtual DbSet<DraftRoom> DraftRooms { get; set; }
+
+    public virtual DbSet<DraftRoomParticipant> DraftRoomParticipants { get; set; }
+
+    public virtual DbSet<DraftRoomSeat> DraftRoomSeats { get; set; }
+
+    public virtual DbSet<DraftRoomChatMessage> DraftRoomChatMessages { get; set; }
+
+    public virtual DbSet<DraftRoomLogEntry> DraftRoomLogEntries { get; set; }
+
+    public virtual DbSet<DraftResult> DraftResults { get; set; }
+
+    public virtual DbSet<DraftResultPlayer> DraftResultPlayers { get; set; }
+
+    public virtual DbSet<FactionPickSettings> FactionPickSettings { get; set; }
+
+    public virtual DbSet<FactionPickState> FactionPickStates { get; set; }
+
+    public virtual DbSet<FactionPickSelection> FactionPickSelections { get; set; }
+
+    public virtual DbSet<FactionPickTurnEntry> FactionPickTurnOrder { get; set; }
 
     // Cards
     public virtual DbSet<ActionCard> ActionCards { get; set; }

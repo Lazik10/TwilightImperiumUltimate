@@ -147,6 +147,48 @@
   <data name="ApiPath_ColorDraft" xml:space="preserve">
     <value>api/drafts/color</value>
   </data>
+  <data name="ApiPath_DraftRooms" xml:space="preserve">
+    <value>api/draft-rooms</value>
+  </data>
+  <data name="ApiPath_DraftRoomsMine" xml:space="preserve">
+    <value>api/draft-rooms/mine</value>
+  </data>
+  <data name="ApiPath_DraftRoomsByCode" xml:space="preserve">
+    <value>api/draft-rooms/{0}</value>
+  </data>
+  <data name="ApiPath_DraftRoomsJoin" xml:space="preserve">
+    <value>api/draft-rooms/join</value>
+  </data>
+  <data name="ApiPath_DraftRoomsLinkAccount" xml:space="preserve">
+    <value>api/draft-rooms/{0}/link-account</value>
+  </data>
+  <data name="ApiPath_DraftRoomsLeave" xml:space="preserve">
+    <value>api/draft-rooms/{0}/leave</value>
+  </data>
+  <data name="ApiPath_DraftRoomsParticipantKick" xml:space="preserve">
+    <value>api/draft-rooms/{0}/participants/{1}/kick</value>
+  </data>
+  <data name="ApiPath_DraftRoomsParticipantRole" xml:space="preserve">
+    <value>api/draft-rooms/{0}/participants/{1}/role</value>
+  </data>
+  <data name="ApiPath_DraftRoomsPassword" xml:space="preserve">
+    <value>api/draft-rooms/{0}/password</value>
+  </data>
+  <data name="ApiPath_DraftRoomsSeat" xml:space="preserve">
+    <value>api/draft-rooms/{0}/seats/{1}</value>
+  </data>
+  <data name="ApiPath_DraftRoomsSeatClaim" xml:space="preserve">
+    <value>api/draft-rooms/{0}/seats/{1}/claim</value>
+  </data>
+  <data name="ApiPath_DraftRoomsSeatUnclaim" xml:space="preserve">
+    <value>api/draft-rooms/{0}/seats/{1}/unclaim</value>
+  </data>
+  <data name="ApiPath_DraftRoomsSeats" xml:space="preserve">
+    <value>api/draft-rooms/{0}/seats</value>
+  </data>
+  <data name="ApiPath_DraftRoomsSettings" xml:space="preserve">
+    <value>api/draft-rooms/{0}/settings</value>
+  </data>
   <data name="ApiPath_ExplorationCards" xml:space="preserve">
     <value>api/cards/exploration</value>
   </data>

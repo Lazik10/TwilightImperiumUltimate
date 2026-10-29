@@ -2,11 +2,19 @@ namespace TwilightImperiumUltimate.Web.Services.SliceGenerators;
 
 public interface ISliceGeneratorService
 {
+    event Action? TileSelectionChanged;
+
     IReadOnlyList<SystemTileModel> AllSystemTiles { get; }
 
-    Task InitializeEmptySlices(int numberOfSlices);
-
     IReadOnlyList<SliceModel> Slices { get; }
+
+    bool HasSelectedSystemTile { get; }
+
+    int SelectedSystemTileSliceId { get; }
+
+    int SelectedSystemTileSlicePosition { get; }
+
+    Task InitializeEmptySlices(int numberOfSlices);
 
     Task InitializeAllSystemTilesForSliceGenerator();
 
@@ -15,14 +23,6 @@ public interface ISliceGeneratorService
     Task GeneratePreviewSlices();
 
     Task GenerateSlices(bool previewSlices);
-
-    event Action? TileSelectionChanged;
-
-    bool HasSelectedSystemTile { get; }
-
-    int SelectedSystemTileSliceId { get; }
-
-    int SelectedSystemTileSlicePosition { get; }
 
     Task SetImportedSlices(IReadOnlyCollection<SliceModel> slices);
 

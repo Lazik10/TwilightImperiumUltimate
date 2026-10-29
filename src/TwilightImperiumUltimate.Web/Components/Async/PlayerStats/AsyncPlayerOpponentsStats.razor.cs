@@ -27,10 +27,4 @@ public partial class AsyncPlayerOpponentsStats
     }
 
     private void ViewProfile(int id) => NavigationManager.NavigateTo($"{Pages.Pages.AsyncProfile}?playerId={id}");
-
-    private void OnOpponentKeyDown(KeyboardEventArgs e, int id)
-    {
-        if (e.Key is "Enter" or " ")
-            ViewProfile(id);
-    }
 }

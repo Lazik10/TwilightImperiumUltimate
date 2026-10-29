@@ -31,7 +31,7 @@ public partial class GeneralStatistics
         _isDataLoaded = true;
     }
 
-    private static IReadOnlyCollection<RankingBarPoint> ApplyDistributionColors(
+    private static List<RankingBarPoint> ApplyDistributionColors(
         IReadOnlyCollection<RankingBarPoint> points)
     {
         var orderedPoints = points.OrderByDescending(point => point.Value).ToList();
@@ -63,7 +63,7 @@ public partial class GeneralStatistics
         _ => TextColor.Red,
     };
 
-    private IReadOnlyCollection<RankingBarPoint> GetTimerDistributionData() => GeneralStats.DistributionByPlayerTimers
+    private List<RankingBarPoint> GetTimerDistributionData() => GeneralStats.DistributionByPlayerTimers
         .OrderBy(timer => timer.Timer)
         .Select((timer, index) => new RankingBarPoint(
             index.ToString(),
@@ -73,11 +73,11 @@ public partial class GeneralStatistics
             null))
         .ToList();
 
-    private IReadOnlyCollection<string> GetTimerBarColors() => GetTimerDistributionData()
+    private List<string> GetTimerBarColors() => GetTimerDistributionData()
         .Select(point => point.Fill)
         .ToList();
 
-    private IReadOnlyCollection<RankingBarPoint> GetVpDistributionData() => GeneralStats.DistributionByVp
+    private List<RankingBarPoint> GetVpDistributionData() => GeneralStats.DistributionByVp
         .Where(vpCategory => vpCategory.Vp != -1)
         .OrderByDescending(vpCategory => vpCategory.Games)
         .Select((vpCategory, index) => new RankingBarPoint(
@@ -88,7 +88,7 @@ public partial class GeneralStatistics
             null))
         .ToList() is var points ? ApplyDistributionColors(points) : [];
 
-    private IReadOnlyCollection<RankingBarPoint> GetPlayerCountDistributionData() => GeneralStats.DistributionByPlayerCount
+    private List<RankingBarPoint> GetPlayerCountDistributionData() => GeneralStats.DistributionByPlayerCount
         .OrderByDescending(playerCount => playerCount.PlayerCount)
         .Select((playerCount, index) => new RankingBarPoint(
             index.ToString(),
@@ -98,7 +98,7 @@ public partial class GeneralStatistics
             null))
         .ToList() is var points ? ApplyDistributionColors(points) : [];
 
-    private IReadOnlyCollection<RankingBarPoint> GetAverageTurnEndDistributionData() => GeneralStats.DistributionByAverageTurnEnd
+    private List<RankingBarPoint> GetAverageTurnEndDistributionData() => GeneralStats.DistributionByAverageTurnEnd
         .Where(vpCategory => vpCategory.Vp != -1)
         .OrderByDescending(vpCategory => vpCategory.Vp)
         .Select((vpCategory, index) => new RankingBarPoint(

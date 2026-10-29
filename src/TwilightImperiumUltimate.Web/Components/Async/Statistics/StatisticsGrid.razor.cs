@@ -31,6 +31,32 @@ public partial class StatisticsGrid
             or AsyncStatisticsTypeMenuItem.Factions
             or AsyncStatisticsTypeMenuItem.History;
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && !_prefetchStarted)
+        {
+            _prefetchStarted = true;
+            await PrefetchStatisticsAsync();
+        }
+    }
+
+    private static string FormatSnapshotAge(TimeSpan age)
+    {
+        if (age.TotalDays >= 1)
+        {
+            return $"{(int)age.TotalDays}d {age.Hours}h";
+        }
+
+        if (age.TotalHours >= 1)
+        {
+            return $"{(int)age.TotalHours}h {age.Minutes}m";
+        }
+
+        return age.TotalMinutes >= 1
+            ? $"{(int)age.TotalMinutes}m"
+            : "less than 1m";
+    }
+
     private void UpdateSelectedMenuItem(AsyncStatisticsTypeMenuItem menuItem)
     {
         _selectedMenuItem = menuItem;
@@ -49,15 +75,6 @@ public partial class StatisticsGrid
         StateHasChanged();
     }
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender && !_prefetchStarted)
-        {
-            _prefetchStarted = true;
-            await PrefetchStatisticsAsync();
-        }
-    }
-
     private int GetQueryLimit()
     {
         return _selectedQueryLimit switch
@@ -67,23 +84,6 @@ public partial class StatisticsGrid
             QueryLimit.TwoHundred => 200,
             _ => 20,
         };
-    }
-
-    private static string FormatSnapshotAge(TimeSpan age)
-    {
-        if (age.TotalDays >= 1)
-        {
-            return $"{(int)age.TotalDays}d {age.Hours}h";
-        }
-
-        if (age.TotalHours >= 1)
-        {
-            return $"{(int)age.TotalHours}h {age.Minutes}m";
-        }
-
-        return age.TotalMinutes >= 1
-            ? $"{(int)age.TotalMinutes}m"
-            : "less than 1m";
     }
 
     private async Task PrefetchStatisticsAsync()

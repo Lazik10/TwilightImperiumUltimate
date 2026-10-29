@@ -76,6 +76,8 @@ public partial class RadzenBarChart : IAsyncDisposable
             await _jsModule.InvokeVoidAsync("disposePrivateCategories", _chartElement);
             await _jsModule.DisposeAsync();
         }
+
+        GC.SuppressFinalize(this);
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)

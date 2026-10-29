@@ -2,6 +2,7 @@ using System.Net;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Forms;
+using TwilightImperiumUltimate.Web.Helpers;
 using TwilightImperiumUltimate.Web.Models.Account;
 using TwilightImperiumUltimate.Web.Resources;
 using TwilightImperiumUltimate.Web.Services.Authentication;
@@ -22,6 +23,9 @@ public partial class Login
 
     [Inject]
     private AuthenticationStateProvider AuthenticationStateProvider { get; set; } = default!;
+
+    [SupplyParameterFromQuery(Name = "returnUrl")]
+    private string? ReturnUrl { get; set; }
 
     private LoginModel LoginModel { get; set; } = new LoginModel();
 
@@ -44,7 +48,10 @@ public partial class Login
                 await authStateProvider.NotifyUserLogin();
             }
 
-            NavigationManager.NavigateTo(Pages.Index);
+            var destination = ReturnUrl is { } returnUrl && LocalUrlHelper.IsLocalPath(returnUrl)
+                ? returnUrl
+                : Pages.Index;
+            NavigationManager.NavigateTo(destination);
         }
         else
         {

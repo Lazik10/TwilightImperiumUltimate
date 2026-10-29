@@ -46,9 +46,9 @@ internal static class Program
         await writer.WriteEndDocumentAsync();
     }
 
-    private static async Task AddArchiveDetailPathsAsync(HttpClient httpClient, string endpoint, string routePrefix, ISet<string> paths)
+    private static async Task AddArchiveDetailPathsAsync(HttpClient httpClient, string endpoint, string routePrefix, SortedSet<string> paths)
     {
-        using var response = await httpClient.GetAsync(endpoint);
+        using var response = await httpClient.GetAsync(new Uri(endpoint, UriKind.Relative));
         response.EnsureSuccessStatusCode();
 
         await using var stream = await response.Content.ReadAsStreamAsync();

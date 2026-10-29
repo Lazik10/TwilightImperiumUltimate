@@ -1,0 +1,21 @@
+.draft-presence-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+}
+
+.draft-presence-indicator__dot {
+    width: 0.55rem;
+    height: 0.55rem;
+    flex: 0 0 auto;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+}
+
+.draft-presence-indicator__dot--online {
+    background-color: #298a45;
+}
+
+.draft-presence-indicator__dot--offline {
+    background-color: transparent;
+}

@@ -25,6 +25,18 @@ public partial class ResponsiveSwitch
     [Parameter]
     public string? Name { get; set; }
 
+    /// <summary>
+    /// Gets or sets the accessible name applied to the underlying switch control.
+    /// </summary>
+    [Parameter]
+    public string? AriaLabel { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the switch is disabled.
+    /// </summary>
+    [Parameter]
+    public bool Disabled { get; set; }
+
     [Parameter]
     public string CssClass { get; set; } = string.Empty;
 

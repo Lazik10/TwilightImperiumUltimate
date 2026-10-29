@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using Microsoft.Extensions.Options;
 using TwilightImperiumUltimate.API.Discord;

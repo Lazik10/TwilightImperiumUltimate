@@ -3,7 +3,11 @@
         @OffText
     </span>
 
-    <RadzenSwitch Name="@Name" Value="@IsToggled" ValueChanged="HandleValueChangedAsync" />
+    <RadzenSwitch Name="@Name"
+                  Value="@IsToggled"
+                  ValueChanged="HandleValueChangedAsync"
+                  Disabled="@Disabled"
+                  aria-label="@AriaLabel" />
 
     <span class="responsive-switch-label" style="@(IsToggled ? $"color: {ResolvedEnabledColor.ConvertToString()};" : string.Empty)">
         @OnText

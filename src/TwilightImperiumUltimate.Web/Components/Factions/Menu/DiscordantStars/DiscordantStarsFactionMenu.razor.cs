@@ -14,7 +14,7 @@ public partial class DiscordantStarsFactionMenu : TwilightImperiumBaseComponent
 
     [Inject]
     private IFactionProvider FactionProvider { get; set; } = default!;
-    
+
     protected override async Task OnInitializedAsync()
     {
         _factions = await FactionProvider.GetFactionsBySource(FactionSource.DiscordantStars);

@@ -1,0 +1,100 @@
+@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
+@using TwilightImperiumUltimate.Web.Components.Shared.Controls
+
+<section class="my-rooms">
+    <ResponsiveHeading Level="2" Text="@Strings.DraftRooms_MyRoomsHeading" />
+    <ResponsiveContainer Padding="none">
+        @if (_isLoading)
+        {
+            <p role="status">@Strings.DraftRooms_MyRoomsLoading</p>
+        }
+        else if (_loadErrorMessage is not null)
+        {
+            <div role="alert">
+                <p>@_loadErrorMessage</p>
+                <ResponsiveButton Text="@Strings.DraftRooms_MyRoomsRetry" OnClick="LoadRoomsAsync" />
+            </div>
+        }
+        else
+        {
+            @if (_actionErrorMessage is not null)
+            {
+                <p role="alert">@_actionErrorMessage</p>
+            }
+
+            @if (CurrentUserState.User is not null)
+            {
+                @if (_accountRooms.Count == 0)
+                {
+                    <p role="status">@Strings.DraftRooms_MyRoomsAccountEmpty</p>
+                }
+                else
+                {
+                    <ul class="my-rooms__list">
+                        @foreach (var room in _accountRooms)
+                        {
+                            <li @key="room.Code">
+                                <article class="my-rooms__entry">
+                                    <h3>@room.Name</h3>
+                                    <p>@Strings.DraftRooms_RoomCode: @room.Code</p>
+                                    <div class="my-rooms__details">
+                                        <span>@Format(Strings.DraftRooms_MyRoomStatus, room.Status)</span>
+                                        <span>@Format(Strings.DraftRooms_MyRoomRole, room.Role)</span>
+                                        @if (room.SeatIndex is int seatIndex)
+                                        {
+                                            <span>@Format(Strings.DraftRooms_MyRoomSeat, seatIndex + 1)</span>
+                                        }
+                                    </div>
+                                    <div class="my-rooms__actions">
+                                        <ResponsiveButton Text="@Strings.DraftRooms_MyRoomsEnter"
+                                                          aria-label="@Format(Strings.DraftRooms_MyRoomsEnterNamed, room.Name)"
+                                                          OnClick="@(() => OpenRoomAsync(room.Code))" />
+                                        @if (string.Equals(_roomNeedingFallback, room.Code, StringComparison.OrdinalIgnoreCase))
+                                        {
+                                            <a href="@BuildRoomUrl(room.Code)" target="_blank" rel="noopener noreferrer">
+                                                @Strings.DraftRooms_OpenRoom
+                                            </a>
+                                        }
+                                    </div>
+                                </article>
+                            </li>
+                        }
+                    </ul>
+                }
+            }
+            else if (_guestRooms.Count == 0)
+            {
+                <p role="status">@Strings.DraftRooms_MyRoomsGuestEmpty</p>
+            }
+            else
+            {
+                <ul class="my-rooms__list">
+                    @foreach (var room in _guestRooms)
+                    {
+                        var roomName = string.IsNullOrWhiteSpace(room.RoomName) ? room.Code : room.RoomName;
+                        <li @key="room.Code">
+                            <article class="my-rooms__entry">
+                                <h3>@roomName</h3>
+                                <p>@Strings.DraftRooms_RoomCode: @room.Code</p>
+                                <div class="my-rooms__actions">
+                                    <ResponsiveButton Text="@Strings.DraftRooms_MyRoomsEnter"
+                                                      aria-label="@Format(Strings.DraftRooms_MyRoomsEnterNamed, roomName)"
+                                                      OnClick="@(() => OpenRoomAsync(room.Code))" />
+                                    <ResponsiveButton Text="@Strings.DraftRooms_MyRoomsForget"
+                                                      aria-label="@Format(Strings.DraftRooms_MyRoomsForgetNamed, roomName)"
+                                                      OnClick="@(() => ForgetRoomAsync(room.Code))" />
+                                    @if (string.Equals(_roomNeedingFallback, room.Code, StringComparison.OrdinalIgnoreCase))
+                                    {
+                                        <a href="@BuildRoomUrl(room.Code)" target="_blank" rel="noopener noreferrer">
+                                            @Strings.DraftRooms_OpenRoom
+                                        </a>
+                                    }
+                                </div>
+                            </article>
+                        </li>
+                    }
+                </ul>
+            }
+        }
+    </ResponsiveContainer>
+</section>

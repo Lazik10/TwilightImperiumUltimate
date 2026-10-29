@@ -1,0 +1,11 @@
+<section aria-label="@Text("ResultsHeading")">
+    <ResponsiveHeading Level="2" Text="@Text("ResultsHeading")" />
+    <p>@Result.RoomName</p>
+    <p><time datetime="@Result.FinishedAtUtc.ToString("O")">@Result.FinishedAtUtc.ToLocalTime().ToString("g")</time></p>
+    <DynamicComponent Type="@UiRegistry.GetResultView(Result.DraftType)" Parameters="@_parameters" />
+    <ResponsiveContainer Padding="none">
+        <CopyButton TextToCopy="@Result.Text" Label="@Text("CopyResult")" />
+        <a href="@ShareUrl" target="_blank" rel="noopener noreferrer">@Text("OpenSharedResult")</a>
+        <CopyButton TextToCopy="@ShareUrl" Label="@Text("CopyResultLink")" />
+    </ResponsiveContainer>
+</section>

@@ -23,6 +23,10 @@ public static class Pages
 
     public const string DraftRooms = "/tools/draft-rooms";
 
+    public const string DraftRoomPrefix = "/tools/draft-rooms/";
+
+    public const string DraftRoomResultPrefix = "/tools/draft-rooms/results/";
+
     public const string MiltyDraft = "/tools/milty-draft";
 
     public const string ColorPicker = "/tools/color-picker";

@@ -1,0 +1,92 @@
+@namespace TwilightImperiumUltimate.Web.Components.DraftRooms
+@using TwilightImperiumUltimate.Contracts.Enums
+@using TwilightImperiumUltimate.Web.Services.DraftRooms
+
+@if (Room is { } room)
+{
+    <header class="draft-room-header">
+        <div class="draft-room-header__identity">
+            <ResponsiveHeading Level="1" Text="@room.Name" />
+            <span class="draft-room-role-badge">@GetRoleLabel(room.Me.Role)</span>
+        </div>
+
+        <dl class="draft-room-header__details">
+            <div>
+                <dt>@Strings.DraftRooms_RoomCode</dt>
+                <dd>
+                    <code>@room.Code</code>
+                    <CopyButton TextToCopy="@room.Code"
+                                Label="@Strings.DraftRooms_CopyRoomCode"
+                                AriaLabel="@Strings.DraftRooms_CopyRoomCodeAriaLabel" />
+                </dd>
+            </div>
+            <div>
+                <dt>@Strings.DraftRooms_RoomLink</dt>
+                <dd>
+                    <a href="@GetRoomUrl(room)" target="_blank" rel="noopener noreferrer">
+                        @Strings.DraftRooms_OpenRoomLink
+                    </a>
+                    <CopyButton TextToCopy="@GetRoomUrl(room)"
+                                Label="@Strings.DraftRooms_CopyRoomLink"
+                                AriaLabel="@Strings.DraftRooms_CopyRoomLinkAriaLabel" />
+                </dd>
+            </div>
+        </dl>
+
+        <DraftRoomConnectionStatus State="@DraftRoomSession.ConnectionState" />
+
+        <div class="draft-room-header__actions"
+             role="group"
+             aria-label="@Strings.DraftRooms_RoomActions">
+            @if (CanLinkAccount)
+            {
+                <ResponsiveButton Text="@Strings.DraftRooms_UseMyAccount"
+                                  IsDisabled="@IsLinkingAccount"
+                                  OnClick="OnLinkAccount" />
+            }
+            @if (DraftRoomSession.ConnectionState == DraftRoomConnectionState.Offline)
+            {
+                <ResponsiveButton Text="@Strings.DraftRooms_RefreshRoom"
+                                  IsDisabled="@(_isProcessing || DraftRoomSession.IsLoading)"
+                                  OnClick="RefreshAsync" />
+            }
+            @if (room.Me.Role == DraftRoomRole.Member)
+            {
+                <ResponsiveButton @ref="_leaveButton"
+                                  Text="@Strings.DraftRooms_LeaveRoom"
+                                  IsDisabled="_isProcessing"
+                                  OnClick="RequestLeave" />
+            }
+            @if (room.Me.CanClose)
+            {
+                <ResponsiveDangerButton @ref="_closeButton"
+                                        Text="@Strings.DraftRooms_CloseRoom"
+                                        IsDisabled="_isProcessing"
+                                        OnClick="RequestClose" />
+            }
+        </div>
+
+        @if (_showActionError)
+        {
+            <div role="alert">
+                <ResponsiveText Text="@Strings.DraftRooms_RoomActionFailed" TextColor="TextColor.Red" />
+            </div>
+        }
+
+        <ResponsiveConfirmDialog IsOpen="_isLeaveConfirmationOpen"
+                                 Title="@Strings.DraftRooms_ConfirmLeaveTitle"
+                                 Message="@Strings.DraftRooms_ConfirmLeaveMessage"
+                                 ConfirmText="@Strings.DraftRooms_LeaveRoom"
+                                 CancelText="@Strings.DraftRooms_Cancel"
+                                 OnConfirm="ConfirmLeaveAsync"
+                                 OnCancel="CancelLeaveAsync" />
+
+        <ResponsiveConfirmDialog IsOpen="_isCloseConfirmationOpen"
+                                 Title="@Strings.DraftRooms_ConfirmCloseTitle"
+                                 Message="@Strings.DraftRooms_ConfirmCloseMessage"
+                                 ConfirmText="@Strings.DraftRooms_CloseRoom"
+                                 CancelText="@Strings.DraftRooms_Cancel"
+                                 OnConfirm="ConfirmCloseAsync"
+                                 OnCancel="CancelCloseAsync" />
+    </header>
+}

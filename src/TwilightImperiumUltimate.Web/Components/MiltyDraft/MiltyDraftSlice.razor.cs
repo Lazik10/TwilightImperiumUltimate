@@ -47,11 +47,10 @@ public partial class MiltyDraftSlice
     private string GetSliceOwnerLabel()
     {
         var player = GetSliceOwner();
-        return player is null
-            ? "Unpicked"
-            : MiltyDraftSettingsService.EnablePlayerNames
-                ? player.PlayerName
-                : player.PlayerDefaultName;
+        if (player is null)
+            return "Unpicked";
+
+        return MiltyDraftSettingsService.EnablePlayerNames ? player.PlayerName : player.PlayerDefaultName;
     }
 
     private TextColor GetSliceOwnerTextColor()

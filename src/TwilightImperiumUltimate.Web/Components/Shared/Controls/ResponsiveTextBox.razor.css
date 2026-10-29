@@ -23,13 +23,8 @@
 
 .responsive-textbox-host ::deep .responsive-textbox:focus-visible {
     box-shadow: none;
-    outline: none;
-}
-
-.responsive-textbox-host ::deep .responsive-textbox:focus {
-    --rz-input-border: 1px solid transparent;
-    --rz-input-border-block-end: 1px solid transparent;
-    border-color: transparent !important;
+    outline: 2px solid var(--color-white);
+    outline-offset: 2px;
 }
 
 .responsive-textbox-host ::deep .responsive-textbox::placeholder {

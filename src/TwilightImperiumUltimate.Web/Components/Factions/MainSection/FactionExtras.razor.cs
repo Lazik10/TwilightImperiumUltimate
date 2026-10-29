@@ -26,9 +26,9 @@ public partial class FactionExtras
         _ => null,
     };
 
-    private static IReadOnlyList<IReadOnlyList<SpecialComponentCardModel>> ChunkByColumns(IReadOnlyList<SpecialComponentCardModel> cards, int columns)
+    private static List<List<SpecialComponentCardModel>> ChunkByColumns(List<SpecialComponentCardModel> cards, int columns)
     {
-        var rows = new List<IReadOnlyList<SpecialComponentCardModel>>();
+        var rows = new List<List<SpecialComponentCardModel>>();
 
         for (var i = 0; i < cards.Count; i += columns)
             rows.Add(cards.Skip(i).Take(columns).ToList());
@@ -36,9 +36,9 @@ public partial class FactionExtras
         return rows;
     }
 
-    private static IReadOnlyList<IReadOnlyList<SpecialComponentCardModel>> ChunkByRowSizes(IReadOnlyList<SpecialComponentCardModel> cards, IReadOnlyList<int> rowSizes)
+    private static List<List<SpecialComponentCardModel>> ChunkByRowSizes(List<SpecialComponentCardModel> cards, IReadOnlyList<int> rowSizes)
     {
-        var rows = new List<IReadOnlyList<SpecialComponentCardModel>>();
+        var rows = new List<List<SpecialComponentCardModel>>();
         var index = 0;
 
         foreach (var rowSize in rowSizes)
@@ -58,7 +58,7 @@ public partial class FactionExtras
         return rows;
     }
 
-    private IReadOnlyList<SpecialComponentCardModel> GetCardComponents() => SpecialComponentCards
+    private List<SpecialComponentCardModel> GetCardComponents() => SpecialComponentCards
         .Where(x => x.SpecialType is not SpecialComponentType.Token
             and not SpecialComponentType.PlanetToken
             and not SpecialComponentType.FactionUnit
@@ -71,7 +71,7 @@ public partial class FactionExtras
     // instead of sitting left-aligned in a mostly-empty 3-column track. Some factions need an
     // explicit row-size sequence instead of even chunking (e.g. LastBastion wants 2 then 3, not
     // the greedy 3-then-2 that even chunking by 3 columns would produce).
-    private IReadOnlyList<IReadOnlyList<SpecialComponentCardModel>> GetCardComponentRows()
+    private List<List<SpecialComponentCardModel>> GetCardComponentRows()
     {
         var cards = GetCardComponents();
 
@@ -84,15 +84,15 @@ public partial class FactionExtras
         };
     }
 
-    private IReadOnlyList<SpecialComponentCardModel> GetPlotComponents() => SpecialComponentCards
+    private List<SpecialComponentCardModel> GetPlotComponents() => SpecialComponentCards
         .Where(x => x.SpecialType == SpecialComponentType.Plot)
         .ToList();
 
-    private IReadOnlyList<SpecialComponentCardModel> GetOceanComponents() => SpecialComponentCards
+    private List<SpecialComponentCardModel> GetOceanComponents() => SpecialComponentCards
         .Where(x => x.SpecialType == SpecialComponentType.Ocean)
         .ToList();
 
-    private IReadOnlyList<SpecialComponentCardModel> GetTokenComponents() => SpecialComponentCards
+    private List<SpecialComponentCardModel> GetTokenComponents() => SpecialComponentCards
         .Where(x => x.SpecialType is SpecialComponentType.Token or SpecialComponentType.PlanetToken)
         .ToList();
 

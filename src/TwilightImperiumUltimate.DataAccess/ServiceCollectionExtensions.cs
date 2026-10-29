@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TwilightImperiumUltimate.DataAccess.Repositories;
+using TwilightImperiumUltimate.DataAccess.UnitOfWork;
 
 namespace TwilightImperiumUltimate.DataAccess;
 
@@ -51,6 +52,10 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IMapArchiveRepository, MapArchiveRepository>();
         services.AddScoped<ISlicesArchiveRepository, SlicesArchiveRepository>();
+        services.AddScoped<IDraftRoomRepository, DraftRoomRepository>();
+        services.AddScoped<IFactionPickRepository, FactionPickRepository>();
+        services.AddScoped<IDraftResultRepository, DraftResultRepository>();
+        services.AddSingleton<IDraftRoomUnitOfWork, DraftRoomUnitOfWork>();
         services.AddScoped<IGameStatisticsRepository, GameStatisticsRepository>();
         services.AddScoped<IAsyncStatsRepository, AsyncStatsRepository>();
         services.AddScoped<IAsyncStatisticsSnapshotRepository, AsyncStatisticsSnapshotRepository>();

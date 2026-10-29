@@ -1,13 +1,193 @@
-﻿@page "/tools/draft-rooms"
-@using TwilightImperiumUltimate.Web.Components.Shared
-@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
-@using TwilightImperiumUltimate.Web.Components.Shared.Text
-@using TwilightImperiumUltimate.Web.Resources;
+@layout DraftRoomLayout
+@page "/tools/draft-rooms/{Code}"
+@using TwilightImperiumUltimate.Web.Components.DraftRooms
+@using TwilightImperiumUltimate.Web.Pages.Layouts
 
-<PageTitle>@Strings.Page_DraftRooms_PageTitle</PageTitle>
+@if (!HasActiveRoom)
+{
+    <PageTitle>@RoomDocumentTitle</PageTitle>
+}
 
-<Page>
-    <StretchHeightContainer>
+<ResponsiveContainer Type="ContainerType.Centered" Padding="none">
+    @if (_isLoading)
+    {
+        <div role="status">
+            <ResponsiveText Text="@Strings.DraftRooms_RoomLoading" />
+        </div>
+    }
+    else if (_roomNotFound)
+    {
+        <section @ref="_roomShellElement"
+                 aria-label="@Strings.DraftRooms_RoomNotFoundHeading"
+                 tabindex="-1">
+            <ResponsiveHeading Level="1" Text="@Strings.DraftRooms_RoomNotFoundHeading" />
+            <ResponsiveText Text="@Strings.DraftRooms_RoomNotFoundMessage" />
+        </section>
+    }
+    else if (_roomRemoved)
+    {
+        <section @ref="_roomShellElement"
+                 aria-label="@Strings.DraftRooms_RoomRemovedHeading"
+                 tabindex="-1">
+            <ResponsiveHeading Level="1" Text="@Strings.DraftRooms_RoomRemovedHeading" />
+            <ResponsiveText Text="@Strings.DraftRooms_RoomRemovedMessage" />
+        </section>
+    }
+    else if (_roomClosed)
+    {
+        <section @ref="_roomShellElement"
+                 aria-label="@Strings.DraftRooms_RoomClosedHeading"
+                 tabindex="-1">
+            <ResponsiveHeading Level="1" Text="@Strings.DraftRooms_RoomClosedHeading" />
+            <ResponsiveText Text="@Strings.DraftRooms_RoomClosedMessage" />
+        </section>
+    }
+    else if (_showLoadError)
+    {
+        <div @ref="_roomShellElement" role="alert" tabindex="-1">
+            <ResponsiveText Text="@Strings.DraftRooms_RoomLoadFailed" TextColor="TextColor.Red" />
+        </div>
+    }
+    else if (_room is not null)
+    {
+        <CascadingValue Value="@DraftRoomSession" IsFixed="true">
+            <section @ref="_roomShellElement"
+                     aria-label="@Strings.DraftRooms_RoomDetailsHeading"
+                     tabindex="-1">
+                <DraftRoomHeader CanLinkAccount="@CanLinkAccount"
+                                 IsLinkingAccount="@_isLinkingAccount"
+                                 OnLinkAccount="OpenAccountLinkDialog" />
+                <TurnAlertTitle NormalTitle="@RoomDocumentTitle" MyActionRequired="@(DraftRoomSession.View?.Draft?.MyActionRequired == true)" />
+                @if (_isLinkingAccount)
+                {
+                    <div role="status">
+                        <ResponsiveText Text="@Strings.DraftRooms_LinkAccountInProgress" />
+                    </div>
+                }
+                @if (ShowGuestAccountBanner)
+                {
+                    <aside class="draft-room-account-banner">
+                        <p>@Strings.DraftRooms_GuestAccountPrompt</p>
+                        <nav aria-label="@Strings.DraftRooms_GuestAccountActions">
+                            <a href="@LoginUrl">@Strings.Login_Login</a>
+                            <a href="@RegisterUrl">@Strings.Page_AccountRegister</a>
+                        </nav>
+                    </aside>
+                }
+                @if (_accountLinkError is not null)
+                {
+                    <div role="alert" class="draft-room-account-error">
+                        <ResponsiveText Text="@_accountLinkError" TextColor="TextColor.Red" />
+                    </div>
+                }
+                <ResponsiveConfirmDialog IsOpen="_isAccountLinkDialogOpen"
+                                         Title="@Strings.DraftRooms_LinkAccountTitle"
+                                         Message="@Strings.DraftRooms_LinkAccountMessage"
+                                         ConfirmText="@Strings.DraftRooms_UseMyAccount"
+                                         CancelText="@Strings.DraftRooms_KeepPlayingAsGuest"
+                                         OnConfirm="ConfirmAccountLinkAsync"
+                                         OnCancel="CancelAccountLinkAsync" />
+                <ResponsiveText Text="@ParticipantDescription" />
+                <div class="draft-room-lobby">
+                    <nav aria-label="@Strings.DraftRooms_RoomSections" class="draft-room-lobby__mobile-tabs">
+                        <ResponsiveButton id="draft-room-mobile-seats-tab"
+                                       aria-controls="draft-room-seats-panel"
+                                       aria-expanded="@GetMobileExpanded(DraftRoomMobileTab.Seats)"
+                                       OnClick="@(() => SelectMobileTab(DraftRoomMobileTab.Seats))">
+                            @Strings.DraftRooms_SeatsTab
+                        </ResponsiveButton>
+                        <ResponsiveButton id="draft-room-mobile-people-tab"
+                                       aria-controls="draft-room-people-panel"
+                                       aria-expanded="@GetMobileExpanded(DraftRoomMobileTab.People)"
+                                       OnClick="@(() => SelectMobileTab(DraftRoomMobileTab.People))">
+                            @Strings.DraftRooms_PeopleTab
+                        </ResponsiveButton>
+                        @if (CanChangeRoomSettings)
+                        {
+                            <ResponsiveButton id="draft-room-mobile-settings-tab"
+                                           aria-controls="draft-room-settings-panel"
+                                           aria-expanded="@GetMobileExpanded(DraftRoomMobileTab.Settings)"
+                                           OnClick="@(() => SelectMobileTab(DraftRoomMobileTab.Settings))">
+                                @Strings.DraftRooms_SettingsTab
+                            </ResponsiveButton>
+                        }
+                        <ResponsiveButton id="draft-room-mobile-chat-tab"
+                                       aria-controls="draft-room-chat-panel"
+                                       aria-expanded="@GetMobileExpanded(DraftRoomMobileTab.Chat)"
+                                       OnClick="@(() => SelectMobileTab(DraftRoomMobileTab.Chat))">
+                            @GetString("DraftRooms_ChatTab")
+                            @if (_unreadChatCount > 0)
+                            {
+                                <span class="draft-room-lobby__unread-count" aria-hidden="true">@_unreadChatCount</span>
+                                <span class="draft-room-lobby__visually-hidden">@GetUnreadCountLabel("DraftRooms_UnreadChatMessages", _unreadChatCount)</span>
+                            }
+                        </ResponsiveButton>
+                        <ResponsiveButton id="draft-room-mobile-log-tab"
+                                       aria-controls="draft-room-log-panel"
+                                       aria-expanded="@GetMobileExpanded(DraftRoomMobileTab.Log)"
+                                       OnClick="@(() => SelectMobileTab(DraftRoomMobileTab.Log))">
+                            @GetString("DraftRooms_LogTab")
+                            @if (_unreadLogCount > 0)
+                            {
+                                <span class="draft-room-lobby__unread-count" aria-hidden="true">@_unreadLogCount</span>
+                                <span class="draft-room-lobby__visually-hidden">@GetUnreadCountLabel("DraftRooms_UnreadLogEntries", _unreadLogCount)</span>
+                            }
+                        </ResponsiveButton>
+                    </nav>
 
-    </StretchHeightContainer>
-</Page>
+                    <div id="draft-room-seats-panel"
+                         class="draft-room-lobby__panel draft-room-lobby__panel--seats @GetMobilePanelState(DraftRoomMobileTab.Seats)"
+                         role="region"
+                         aria-label="@Strings.DraftRooms_SeatsTab"
+                         tabindex="0">
+                        <DraftSeatList />
+                        <DraftRoomDraftPanel />
+                    </div>
+
+                    <div class="draft-room-lobby__side-panel">
+                        <div id="draft-room-people-panel"
+                             class="draft-room-lobby__panel draft-room-lobby__panel--people @GetMobilePanelState(DraftRoomMobileTab.People)"
+                             role="region"
+                             aria-label="@Strings.DraftRooms_PeopleTab"
+                             tabindex="0">
+                            <DraftParticipantList />
+                        </div>
+                        @if (CanChangeRoomSettings)
+                        {
+                            <div id="draft-room-settings-panel"
+                                 class="draft-room-lobby__panel draft-room-lobby__panel--settings @GetMobilePanelState(DraftRoomMobileTab.Settings)"
+                                 role="region"
+                                 aria-label="@Strings.DraftRooms_SettingsTab"
+                                 tabindex="0">
+                                <DraftRoomHostSettings />
+                            </div>
+                        }
+                        <div id="draft-room-chat-panel"
+                             class="draft-room-lobby__panel draft-room-lobby__panel--chat @GetMobilePanelState(DraftRoomMobileTab.Chat)"
+                             role="region"
+                             aria-label="@GetString("DraftRooms_ChatTab")"
+                             tabindex="0">
+                            <DraftRoomChatPanel />
+                        </div>
+                        <div id="draft-room-log-panel"
+                             class="draft-room-lobby__panel draft-room-lobby__panel--log @GetMobilePanelState(DraftRoomMobileTab.Log)"
+                             role="region"
+                             aria-label="@GetString("DraftRooms_LogTab")"
+                             tabindex="0">
+                            <DraftRoomLogPanel />
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </CascadingValue>
+    }
+    else if (_showJoinForm)
+    {
+        <section aria-label="@Strings.DraftRooms_JoinRoomHeading">
+            <ResponsiveHeading Level="1" Text="@Strings.DraftRooms_JoinRoomHeading" />
+            <JoinDraftRoomForm ForcedCode="@NormalizedCode"
+                               OpenInNewTab="false"
+                               OnJoined="HandleJoinedAsync" />
+        </section>
+    }
+</ResponsiveContainer>

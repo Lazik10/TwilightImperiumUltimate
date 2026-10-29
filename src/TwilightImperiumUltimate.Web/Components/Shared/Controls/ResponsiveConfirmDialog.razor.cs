@@ -1,25 +1,23 @@
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.JSInterop;
 
 namespace TwilightImperiumUltimate.Web.Components.Shared.Controls;
 
 /// <summary>
-/// Small reusable confirmation popup (e.g. "Delete this article?") rendered as an accessible
-/// modal alert dialog. The caller owns the open/closed state and both the confirm and cancel
-/// actions; this component only renders the dialog shell, moves focus into it when it opens, and
-/// closes on Escape or backdrop click (invoking <see cref="OnCancel"/>).
+/// Small reusable confirmation popup (e.g. "Delete this article?") rendered as a native modal
+/// alert dialog. The caller owns the open/closed state and both the confirm and cancel actions.
 /// </summary>
 /// <remarks>
-/// Focus is moved to the dialog itself on open. Returning focus to whatever element triggered
-/// the dialog (e.g. a specific row's delete button) is the caller's responsibility, since this
-/// component has no knowledge of which element opened it -- callers should capture an
-/// <see cref="ElementReference"/> to their trigger and call <c>FocusAsync()</c> on it from their
-/// own <see cref="OnConfirm"/>/<see cref="OnCancel"/> handlers after closing.
+/// The browser manages modal focus containment and restores focus to the element that opened the
+/// dialog. Escape invokes <see cref="OnCancel"/> without allowing the browser to close the dialog
+/// outside the caller-owned state.
 /// </remarks>
-public partial class ResponsiveConfirmDialog
+public partial class ResponsiveConfirmDialog : IAsyncDisposable
 {
     private readonly string _titleId = $"confirm-dialog-title-{Guid.NewGuid():N}";
     private readonly string _messageId = $"confirm-dialog-message-{Guid.NewGuid():N}";
     private ElementReference _dialogRef;
+    private IJSObjectReference? _jsModule;
     private bool _wasOpen;
 
     [Parameter]
@@ -46,11 +44,40 @@ public partial class ResponsiveConfirmDialog
     [Parameter]
     public EventCallback OnCancel { get; set; }
 
+    [Inject]
+    private IJSRuntime JSRuntime { get; set; } = default!;
+
+    public async ValueTask DisposeAsync()
+    {
+        if (_jsModule is not null)
+        {
+            if (_wasOpen)
+            {
+                await _jsModule.InvokeVoidAsync("closeModal", _dialogRef);
+            }
+
+            await _jsModule.DisposeAsync();
+        }
+
+        GC.SuppressFinalize(this);
+    }
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        if (IsOpen && !_wasOpen)
+        if (IsOpen != _wasOpen)
         {
-            await _dialogRef.FocusAsync();
+            _jsModule ??= await JSRuntime.InvokeAsync<IJSObjectReference>(
+                "import",
+                "./Components/Shared/Controls/ResponsiveConfirmDialog.razor.js");
+
+            if (IsOpen)
+            {
+                await _jsModule.InvokeVoidAsync("showModal", _dialogRef);
+            }
+            else
+            {
+                await _jsModule.InvokeVoidAsync("closeModal", _dialogRef);
+            }
         }
 
         _wasOpen = IsOpen;

@@ -1,4 +1,4 @@
-﻿using System.Web;
+using System.Web;
 using MailKit.Net.Smtp;
 using Microsoft.Extensions.Options;
 using MimeKit;

@@ -39,11 +39,11 @@ public partial class FactionComponents : FactionInfoComponentBase
 
     private SystemTileModel GetObsidianSystemTile() => _systemTiles.Single(x => x.SystemTileName == SystemTileName.TileTE96B);
 
-    private IReadOnlyList<PlanetModel> GetFirmamentPlanets() => _planets
+    private List<PlanetModel> GetFirmamentPlanets() => _planets
         .Where(x => x.PlanetName is PlanetName.Cronos or PlanetName.Tallin)
         .ToList();
 
-    private IReadOnlyList<PlanetModel> GetObsidianPlanets() => _planets
+    private List<PlanetModel> GetObsidianPlanets() => _planets
         .Where(x => x.PlanetName is PlanetName.CronosHollow or PlanetName.TallinHollow)
         .ToList();
 

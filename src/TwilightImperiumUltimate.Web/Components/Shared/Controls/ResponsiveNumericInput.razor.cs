@@ -49,6 +49,26 @@ public partial class ResponsiveNumericInput
 
     private string ComputedStyle => $"width: {Width}%; {Style}";
 
+    private Dictionary<string, object> InputAttributes
+    {
+        get
+        {
+            var attributes = new Dictionary<string, object>();
+            if (!string.IsNullOrWhiteSpace(AriaDescribedBy))
+            {
+                attributes["aria-describedby"] = AriaDescribedBy;
+            }
+
+            if (!string.IsNullOrWhiteSpace(AriaLabel))
+            {
+                // Radzen renders its own aria-label after InputAttributes; a label reference is preserved.
+                attributes["aria-labelledby"] = $"{Id}-accessible-label";
+            }
+
+            return attributes;
+        }
+    }
+
     private async Task OnValueChanged(int value)
     {
         Value = value;

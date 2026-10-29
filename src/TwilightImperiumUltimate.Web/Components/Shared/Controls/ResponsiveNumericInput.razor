@@ -1,11 +1,14 @@
 @namespace TwilightImperiumUltimate.Web.Components.Shared.Controls
 
 <span class="responsive-numeric-input-host">
+    @if (!string.IsNullOrWhiteSpace(AriaLabel))
+    {
+        <span id="@($"{Id}-accessible-label")" class="responsive-numeric-input__label">@AriaLabel</span>
+    }
     <RadzenNumeric TValue="int"
-                   id="@Id"
-                   Name="@Name"
-                   aria-describedby="@AriaDescribedBy"
-                   aria-label="@AriaLabel"
+                   id="@(Name is not null && Name != Id ? Id : null)"
+                   Name="@(Name ?? Id)"
+                   InputAttributes="@InputAttributes"
                    Min="@Min"
                    Max="@Max"
                    Step="@Step.ToString(System.Globalization.CultureInfo.InvariantCulture)"

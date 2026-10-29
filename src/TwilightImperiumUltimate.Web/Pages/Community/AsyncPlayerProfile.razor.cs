@@ -42,5 +42,4 @@ public partial class AsyncPlayerProfile
             PlayerProfile = response!.Response!.Data!;
         }
     }
-
 }

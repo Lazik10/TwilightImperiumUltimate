@@ -4,7 +4,9 @@ namespace TwilightImperiumUltimate.Web.Components.Statistics.Chart;
 
 public partial class HistoryGameCountsChart
 {
-    [Parameter] public HistoryBarSeries Series { get; set; } = new("Year", [], []);
-    
-    [Parameter] public bool IsLoading { get; set; }
+    [Parameter]
+    public HistoryBarSeries Series { get; set; } = new("Year", [], []);
+
+    [Parameter]
+    public bool IsLoading { get; set; }
 }

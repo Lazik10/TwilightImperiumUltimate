@@ -1,0 +1,5 @@
+fieldset :is(select, li):focus-visible,
+fieldset ::deep button:focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 3px;
+}

@@ -46,6 +46,12 @@ public partial class ResponsiveDangerButton
     [Parameter]
     public int Width { get; set; } = 100;
 
+    /// <summary>
+    /// Gets or sets additional HTML attributes forwarded to the underlying button.
+    /// </summary>
+    [Parameter(CaptureUnmatchedValues = true)]
+    public IReadOnlyDictionary<string, object>? AdditionalAttributes { get; set; }
+
     private string ComputedStyle =>
         "--responsive-button-bg: var(--color-danger-bg-solid); " +
         "--responsive-button-hover-bg: var(--color-danger-hover-bg-solid); " +

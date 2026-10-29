@@ -18,12 +18,12 @@ public partial class SeasonAdminDashboard : ComponentBase
     [Inject]
     private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
 
-    private static string FormatDate(DateOnly date) => date.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
-
     protected override async Task OnInitializedAsync()
     {
         await LoadSeasonsAsync();
     }
+
+    private static string FormatDate(DateOnly date) => date.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
 
     private static void BeginEdit(SeasonEditModel model) => model.IsEditing = true;
 

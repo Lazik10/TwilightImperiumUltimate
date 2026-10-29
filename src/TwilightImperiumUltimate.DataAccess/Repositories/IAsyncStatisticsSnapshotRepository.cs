@@ -11,4 +11,4 @@ public interface IAsyncStatisticsSnapshotRepository
         string? sourceDataVersion,
         string payload,
         CancellationToken cancellationToken);
-    }
+}

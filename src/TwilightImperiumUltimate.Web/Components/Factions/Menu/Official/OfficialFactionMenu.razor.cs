@@ -14,7 +14,7 @@ public partial class OfficialFactionMenu : TwilightImperiumBaseComponent
 
     [Inject]
     private IFactionProvider FactionProvider { get; set; } = default!;
-    
+
     protected override async Task OnInitializedAsync()
     {
         _factions = await FactionProvider.GetFactionsBySource(FactionSource.Official);

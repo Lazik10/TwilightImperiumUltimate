@@ -1,8 +1,8 @@
+using Microsoft.AspNetCore.Components.Web;
 using TwilightImperiumUltimate.Contracts.DTOs.Rankings;
 using TwilightImperiumUltimate.Web.Helpers.Enums;
 using TwilightImperiumUltimate.Web.Models.Rankings;
 using TwilightImperiumUltimate.Web.Services.Rankings;
-using Microsoft.AspNetCore.Components.Web;
 
 namespace TwilightImperiumUltimate.Web.Components.Tigl;
 
@@ -59,31 +59,6 @@ public partial class RanksGrid
 
             _loading = false;
         }
-    }
-
-    private IReadOnlyCollection<TiglUserRanking> GetVisibleRankingsForGroup(string groupKey, IReadOnlyCollection<TiglUserRanking> rankings)
-    {
-        if (_expandedGroups.Contains(groupKey) || rankings.Count <= MaxPlayersPerRankSection)
-            return rankings;
-
-        return rankings.Take(MaxPlayersPerRankSection).ToList();
-    }
-
-    private bool ShouldShowExpandRow(string groupKey, IReadOnlyCollection<TiglUserRanking> rankings)
-    {
-        return rankings.Count > MaxPlayersPerRankSection && !_expandedGroups.Contains(groupKey);
-    }
-
-    private void ExpandGroup(string groupKey)
-    {
-        if (_expandedGroups.Add(groupKey))
-            StateHasChanged();
-    }
-
-    private void OnShowAllKeyDown(KeyboardEventArgs args, string groupKey)
-    {
-        if (args.Key is "Enter" or " ")
-            ExpandGroup(groupKey);
     }
 
     private static TextColor GetGroupRankColor(IReadOnlyCollection<TiglUserRanking> rankings)
@@ -173,6 +148,31 @@ public partial class RanksGrid
             .ThenBy(x => x.LastAchievedAt));
 
         return result;
+    }
+
+    private IReadOnlyCollection<TiglUserRanking> GetVisibleRankingsForGroup(string groupKey, IReadOnlyCollection<TiglUserRanking> rankings)
+    {
+        if (_expandedGroups.Contains(groupKey) || rankings.Count <= MaxPlayersPerRankSection)
+            return rankings;
+
+        return rankings.Take(MaxPlayersPerRankSection).ToList();
+    }
+
+    private bool ShouldShowExpandRow(string groupKey, IReadOnlyCollection<TiglUserRanking> rankings)
+    {
+        return rankings.Count > MaxPlayersPerRankSection && !_expandedGroups.Contains(groupKey);
+    }
+
+    private void ExpandGroup(string groupKey)
+    {
+        if (_expandedGroups.Add(groupKey))
+            StateHasChanged();
+    }
+
+    private void OnShowAllKeyDown(KeyboardEventArgs args, string groupKey)
+    {
+        if (args.Key is "Enter" or " ")
+            ExpandGroup(groupKey);
     }
 
     private Dictionary<string, List<TiglUserRanking>> GroupRankingsFractured(List<TiglUserRanking> list)

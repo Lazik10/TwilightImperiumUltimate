@@ -4,7 +4,7 @@
 
 This solution is a C# / Blazor WebAssembly application.
 
-TwilightImperiumUltimate is a .NET 8 solution that provides a full companion platform for Twilight Imperium 4th Edition players.
+TwilightImperiumUltimate is a .NET 10 solution that provides a full companion platform for Twilight Imperium 4th Edition players.
 
 The application allows users to:
 
@@ -26,11 +26,12 @@ Keep this document short and practical. Its purpose is to help developers and AI
 - Backend/API: ASP.NET Core Web API + Identity API endpoints
 - Authentication: ASP.NET Core Identity + bearer token auth
 - Data storage: Entity Framework Core + SQL Server
-- Testing: xUnit + FluentAssertions + Moq + Bogus + coverlet
+- Testing: xUnit + FluentAssertions + Moq + Bogus + coverlet, bUnit, Playwright
+- Live Draft Rooms: ASP.NET Core SignalR; account or persistent browser guest identities
 - Package management: NuGet
 - IDEs/editors: Visual Studio Code, Visual Studio 2026 Insiders
 - AI assistance: GitHub Copilot
-- Runtime: .NET 8
+- Runtime: .NET 10
 - Client auth state: custom `AuthenticationStateProvider` + local storage
 - Scheduling/background jobs: Quartz.NET
 - Logging: Serilog (API file/console, web browser console)
@@ -56,6 +57,9 @@ src/
   TwilightImperiumUltimate.Web/
 tests/
   TwilightImperiumUltimate.Tests/
+  TwilightImperiumUltimate.ComponentTests/
+  TwilightImperiumUltimate.IntegrationTests/
+  TwilightImperiumUltimate.E2ETests/
 ```
 
 Typical responsibilities:
@@ -65,7 +69,7 @@ Typical responsibilities:
 | `TwilightImperiumUltimate.Web` | Blazor WebAssembly frontend |
 | `TwilightImperiumUltimate.Contracts` | Shared DTOs, contracts, enums, and option models |
 | `TwilightImperiumUltimate.API` | Backend/API project |
-| `tests` | Unit tests (currently concentrated in `TwilightImperiumUltimate.Tests`) |
+| `tests` | Unit, bUnit component, isolated SQL Server integration, and Playwright browser tests |
 
 ---
 
@@ -307,9 +311,9 @@ Current test setup:
 When adding or changing features:
 
 - Add unit tests for reusable business logic.
-- Add component tests for important UI behavior when bUnit tests are introduced.
+- Add bUnit component tests for important UI behavior.
 - Add integration tests for API/service behavior where practical.
-- Add end-to-end tests for critical user flows if/when an E2E framework is added.
+- Use the Playwright E2E project for critical multi-browser journeys; publish the Web project first and install Chromium as documented in the build/test runbook.
 - Update existing tests when behavior intentionally changes.
 
 ---

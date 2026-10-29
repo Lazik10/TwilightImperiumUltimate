@@ -1,0 +1,35 @@
+@page "/tools/draft-rooms"
+@using TwilightImperiumUltimate.Web.Components.DraftRooms
+
+<PageTitle>@Strings.Page_DraftRooms_PageTitle</PageTitle>
+
+<Page>
+    <ResponsiveHeading Level="1" Text="@Strings.Page_DraftRooms" />
+
+    <MyRoomsList />
+    <MyDraftsList />
+
+    <ResponsiveButtonGroup CssClass="mb-lg" GroupStyle="ButtonGroupStyle.RowFill">
+        <ResponsiveButton Text="@Strings.DraftRooms_CreateDraft"
+                          OnClick="SelectCreate"
+                          aria-pressed="@GetPressedState(DraftRoomsLandingMode.Create)" />
+        <ResponsiveButton Text="@Strings.DraftRooms_JoinDraft"
+                          OnClick="SelectJoin"
+                          aria-pressed="@GetPressedState(DraftRoomsLandingMode.Join)" />
+    </ResponsiveButtonGroup>
+
+    @if (_landingMode == DraftRoomsLandingMode.Create)
+    {
+        <section aria-label="@Strings.DraftRooms_CreateDraft" aria-live="polite">
+            <ResponsiveHeading Level="2" Text="@Strings.DraftRooms_CreateDraft" />
+            <CreateDraftRoomForm @ref="_createRoomForm" />
+        </section>
+    }
+    else if (_landingMode == DraftRoomsLandingMode.Join)
+    {
+        <section aria-label="@Strings.DraftRooms_JoinDraft" aria-live="polite">
+            <ResponsiveHeading Level="2" Text="@Strings.DraftRooms_JoinDraft" />
+            <JoinDraftRoomForm @ref="_joinRoomForm" />
+        </section>
+    }
+</Page>

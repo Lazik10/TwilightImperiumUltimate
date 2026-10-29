@@ -4,9 +4,9 @@ namespace TwilightImperiumUltimate.Web.Components.Statistics.Chart;
 
 public partial class HistoryEndedGamesChart
 {
-    [Parameter] 
+    [Parameter]
     public HistoryBarSeries Series { get; set; } = new("Year", [], []);
-    
-    [Parameter] 
+
+    [Parameter]
     public bool IsLoading { get; set; }
 }

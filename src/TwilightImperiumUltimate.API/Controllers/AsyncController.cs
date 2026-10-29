@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using System.Text;
 using TwilightImperiumUltimate.API.Helpers;
 using TwilightImperiumUltimate.API.Services;

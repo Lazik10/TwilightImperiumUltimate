@@ -18,12 +18,6 @@ public partial class TiglProfileGrid
     [CascadingParameter(Name = "TiglPlayerProfile")]
     public TiglPlayerProfileDto Profile { get; set; } = default!;
 
-    [Inject] 
-    private NavigationManager NavigationManager { get; set; } = default!;
-
-    [Inject]
-    private IPathProvider PathProvider { get; set; } = default!;
-
     private static IReadOnlyList<KeyValuePair<TiglProfileCategory, string>> Options =>
     [
         new(TiglProfileCategory.ThundersEdge, "Standard"),
@@ -31,9 +25,11 @@ public partial class TiglProfileGrid
         new(TiglProfileCategory.ProphecyOfKings, "Legacy"),
     ];
 
-    private static IReadOnlyList<KeyValuePair<FactionStatisticsFilter, string>> FactionFilterOptions => Enum.GetValues<FactionStatisticsFilter>()
-        .Select(filter => new KeyValuePair<FactionStatisticsFilter, string>(filter, filter.GetDisplayName()))
-        .ToList();
+    [Inject]
+    private NavigationManager NavigationManager { get; set; } = default!;
+
+    [Inject]
+    private IPathProvider PathProvider { get; set; } = default!;
 
     private TiglLeague SelectedLeague => CurrentCategory switch
     {
@@ -55,35 +51,37 @@ public partial class TiglProfileGrid
     private string FilterIconPath => PathProvider.GetIconPath(_areFactionFiltersVisible || AreFactionFiltersApplied ? IconType.FilterClicked : IconType.Filter);
 
     private TiglLeagueProfileDto? SelectedLeagueProfile => Profile?.LeagueProfiles.FirstOrDefault(profile => profile.League == SelectedLeague);
-    
+
     private PrestigeRankHistoryDto? SelectedPrestige => Profile?.PrestigeRankHistory
         .Where(prestige => prestige.League == SelectedLeague && prestige.PrestigeRank.IsLeagueMilestone(SelectedLeague))
         .OrderByDescending(prestige => prestige.Level)
         .ThenByDescending(prestige => prestige.AchievedAt)
         .FirstOrDefault();
-    
-    private IReadOnlyList<RankHistoryDto> FilteredRankHistory => Profile?.RankHistory.Where(rank => rank.League == SelectedLeague).OrderByDescending(rank => rank.AchievedAt).ToList() ?? [];
-    
-    private IReadOnlyList<PrestigeRankHistoryDto> FilteredPrestigeRanks => Profile?.PrestigeRankHistory
+
+    private static List<KeyValuePair<FactionStatisticsFilter, string>> GetFactionFilterOptions() => Enum.GetValues<FactionStatisticsFilter>()
+        .Select(filter => new KeyValuePair<FactionStatisticsFilter, string>(filter, filter.GetDisplayName()))
+        .ToList();
+
+    private List<RankHistoryDto> GetFilteredRankHistory() => Profile?.RankHistory.Where(rank => rank.League == SelectedLeague).OrderByDescending(rank => rank.AchievedAt).ToList() ?? [];
+
+    private List<PrestigeRankHistoryDto> GetFilteredPrestigeRanks() => Profile?.PrestigeRankHistory
         .Where(prestige => prestige.League == SelectedLeague)
         .OrderByDescending(prestige => prestige.AchievedAt)
         .ThenByDescending(prestige => prestige.Id)
         .ToList() ?? [];
-    
-    private IReadOnlyList<TiglProfileGameDto> FilteredGameHistory => Profile?.GameHistory.Where(game => game.League == SelectedLeague).OrderByDescending(game => game.EndTimestamp).ToList() ?? [];
-    
-    private IReadOnlyList<TiglTopOpponentDto> FilteredTopOpponents => Profile?.TopOpponents.Where(opponent => opponent.League == SelectedLeague).OrderByDescending(opponent => opponent.GamesPlayed).Take(20).ToList() ?? [];
-    
-    private IReadOnlyList<TiglProfileFactionStatsDto> FilteredFactionStats => Enum.GetValues<TiglFactionName>()
+
+    private List<TiglProfileGameDto> GetFilteredGameHistory() => Profile?.GameHistory.Where(game => game.League == SelectedLeague).OrderByDescending(game => game.EndTimestamp).ToList() ?? [];
+
+    private List<TiglTopOpponentDto> GetFilteredTopOpponents() => Profile?.TopOpponents.Where(opponent => opponent.League == SelectedLeague).OrderByDescending(opponent => opponent.GamesPlayed).Take(20).ToList() ?? [];
+
+    private List<TiglProfileFactionStatsDto> GetFilteredFactionStats() => Enum.GetValues<TiglFactionName>()
         .Where(faction => faction != TiglFactionName.None)
         .Where(IsFactionVisible)
         .Select(faction => Profile.FactionStats.FirstOrDefault(stats => stats.League == SelectedLeague && stats.Faction == faction)
             ?? new TiglProfileFactionStatsDto { Faction = faction, League = SelectedLeague })
         .ToList();
-    
-    private IReadOnlyList<TiglProfileSeasonSummary> FilteredSeasons => FilteredGameHistory.GroupBy(game => game.Season).OrderByDescending(group => group.Key).Select(group => new TiglProfileSeasonSummary(group.Key, group.ToList())).ToList();
-    
-    private IReadOnlyList<AchievementDisplayEntry> DisplayedAchievements => GetDisplayedAchievements();
+
+    private List<TiglProfileSeasonSummary> GetFilteredSeasons() => GetFilteredGameHistory().GroupBy(game => game.Season).OrderByDescending(group => group.Key).Select(group => new TiglProfileSeasonSummary(group.Key, group.ToList())).ToList();
 
     private void OnCategoryChanged(TiglProfileCategory category)
     {
@@ -100,12 +98,20 @@ public partial class TiglProfileGrid
     private void ToggleFactionFilters() => _areFactionFiltersVisible = !_areFactionFiltersVisible;
 
     private void NavigateToGameDetail(int matchReportId) => NavigationManager.NavigateTo($"{Web.Pages.Pages.TiglGameDetail}?id={matchReportId}");
-    
-    private void NavigateToPlayerProfile(int tiglUserId) => NavigationManager.NavigateTo($"{Web.Pages.Pages.TiglPlayerProfile}?playerId={tiglUserId}");
-    
-    private double GetRarityPercent(AchievementName name) => Profile is null || Profile.TotalTiglUsers == 0 ? 0 : Profile.AchievementPlayerCounts.TryGetValue(name.ToString(), out var count) ? (double)count / Profile.TotalTiglUsers * 100 : 0;
 
-    private IReadOnlyList<AchievementDisplayEntry> GetDisplayedAchievements()
+    private void NavigateToPlayerProfile(int tiglUserId) => NavigationManager.NavigateTo($"{Web.Pages.Pages.TiglPlayerProfile}?playerId={tiglUserId}");
+
+    private double GetRarityPercent(AchievementName name)
+    {
+        if (Profile is null || Profile.TotalTiglUsers == 0)
+            return 0;
+
+        return Profile.AchievementPlayerCounts.TryGetValue(name.ToString(), out var count)
+            ? (double)count / Profile.TotalTiglUsers * 100
+            : 0;
+    }
+
+    private List<AchievementDisplayEntry> GetDisplayedAchievements()
     {
         if (Profile is null) return [];
         var earned = Profile.Achievements.OrderBy(achievement => GetRarityPercent(achievement.AchievementName)).Select(achievement => new AchievementDisplayEntry(achievement, GetRarityPercent(achievement.AchievementName), true)).ToList();

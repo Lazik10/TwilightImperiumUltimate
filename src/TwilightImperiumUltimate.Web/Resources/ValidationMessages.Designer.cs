@@ -320,5 +320,86 @@ namespace TwilightImperiumUltimate.Web.Resources {
                 return ResourceManager.GetString("ResetPassword_PasswordSixCharacters", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Room name is required.
+        /// </summary>
+        public static string DraftRooms_RoomNameRequired {
+            get {
+                return ResourceManager.GetString("DraftRooms_RoomNameRequired", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Room name must be between 3 and 60 characters.
+        /// </summary>
+        public static string DraftRooms_RoomNameLength {
+            get {
+                return ResourceManager.GetString("DraftRooms_RoomNameLength", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Password is required.
+        /// </summary>
+        public static string DraftRooms_PasswordRequired {
+            get {
+                return ResourceManager.GetString("DraftRooms_PasswordRequired", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Password must be between 6 and 64 characters.
+        /// </summary>
+        public static string DraftRooms_PasswordLength {
+            get {
+                return ResourceManager.GetString("DraftRooms_PasswordLength", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Display name is required.
+        /// </summary>
+        public static string DraftRooms_DisplayNameRequired {
+            get {
+                return ResourceManager.GetString("DraftRooms_DisplayNameRequired", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Display name must be between 2 and 24 characters.
+        /// </summary>
+        public static string DraftRooms_DisplayNameLength {
+            get {
+                return ResourceManager.GetString("DraftRooms_DisplayNameLength", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Room code is required.
+        /// </summary>
+        public static string DraftRooms_CodeRequired {
+            get {
+                return ResourceManager.GetString("DraftRooms_CodeRequired", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Room code must contain exactly 6 characters.
+        /// </summary>
+        public static string DraftRooms_CodeLength {
+            get {
+                return ResourceManager.GetString("DraftRooms_CodeLength", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Room code contains an invalid character.
+        /// </summary>
+        public static string DraftRooms_CodeCharacters {
+            get {
+                return ResourceManager.GetString("DraftRooms_CodeCharacters", resourceCulture);
+            }
+        }
     }
 }

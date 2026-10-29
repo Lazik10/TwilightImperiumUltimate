@@ -17,14 +17,4 @@ public partial class TiglStatisticsGrid
     {
         _selectedStatisticsType = statisticType;
     }
-
-    private void OnSeasonChanged(int seasonNumber)
-    {
-        _selectedSeasonNumber = seasonNumber;
-    }
-
-    private void OnLeagueChanged(TiglLeague league)
-    {
-        _selectedLeague = league;
-    }
 }

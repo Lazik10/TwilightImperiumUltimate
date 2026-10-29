@@ -12,7 +12,7 @@ public partial class FactionBreakthrough
     [Inject]
     private IPathProvider PathProvider { get; set; } = default!;
 
-    private IReadOnlyList<string> GetBreakthroughImagePaths() => FactionName == FactionName.TheFirmamentTheObsidian
+    private List<string> GetBreakthroughImagePaths() => FactionName == FactionName.TheFirmamentTheObsidian
         ? [PathProvider.GetBreakthroughImagePath("TheSowing"), PathProvider.GetBreakthroughImagePath("TheReaping")]
         : BreakthroughCards.Select(card => PathProvider.GetBreakthroughImagePath(card.BreakthroughName)).ToList();
 

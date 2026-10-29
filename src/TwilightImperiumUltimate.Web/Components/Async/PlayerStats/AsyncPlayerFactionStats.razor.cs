@@ -51,6 +51,8 @@ public partial class AsyncPlayerFactionStats
             FactionsForDisplay = GetFilteredFactionStats(FactionStats);
     }
 
+    private static TextColor GetWinsColor(int wins) => wins > 0 ? TextColor.Green : TextColor.Red;
+
     private static string FormatPercentageValue(double value) => $"{((float)value).ToStringWithPrecision(1)} %";
 
     private static string FormatAverageVpValue(double value) => ((float)value).ToStringWithPrecision(2);
@@ -118,9 +120,7 @@ public partial class AsyncPlayerFactionStats
 
     private bool IsWinrateEnabled() => AsyncPlayerProfile.Settings.ShowWinRates;
 
-    private static TextColor GetWinsColor(int wins) => wins > 0 ? TextColor.Green : TextColor.Red;
-
-    private IReadOnlyCollection<RankingBarPoint> GetGamesData() => FactionsForDisplay
+    private List<RankingBarPoint> GetGamesData() => FactionsForDisplay
         .OrderByDescending(faction => GetCorrectFactionStatsByVp(faction).Games)
         .Select((faction, index) => new RankingBarPoint(
             index.ToString(),
@@ -130,7 +130,7 @@ public partial class AsyncPlayerFactionStats
             null))
         .ToList();
 
-    private IReadOnlyCollection<RankingBarPoint> GetWinsData() => FactionsForDisplay
+    private List<RankingBarPoint> GetWinsData() => FactionsForDisplay
         .OrderByDescending(faction => GetCorrectFactionStatsByVp(faction).Wins)
         .Select((faction, index) => new RankingBarPoint(
             index.ToString(),
@@ -140,7 +140,7 @@ public partial class AsyncPlayerFactionStats
             null))
         .ToList();
 
-    private IReadOnlyCollection<RankingBarPoint> GetWinPercentageData() => FactionsForDisplay
+    private List<RankingBarPoint> GetWinPercentageData() => FactionsForDisplay
         .OrderByDescending(faction => GetCorrectFactionStatsByVp(faction).WinRate)
         .Select((faction, index) => new RankingBarPoint(
             index.ToString(),
@@ -150,7 +150,7 @@ public partial class AsyncPlayerFactionStats
             null))
         .ToList();
 
-    private IReadOnlyCollection<RankingBarPoint> GetEliminationsData() => FactionsForDisplay
+    private List<RankingBarPoint> GetEliminationsData() => FactionsForDisplay
         .OrderByDescending(faction => GetCorrectFactionStatsByVp(faction).Eliminations)
         .Select((faction, index) => new RankingBarPoint(
             index.ToString(),
@@ -160,7 +160,7 @@ public partial class AsyncPlayerFactionStats
             null))
         .ToList();
 
-    private IReadOnlyCollection<RankingBarPoint> GetMinVpData() => FactionsForDisplay
+    private List<RankingBarPoint> GetMinVpData() => FactionsForDisplay
         .OrderBy(faction => GetCorrectFactionStatsByVp(faction).Games > 0 ? GetCorrectFactionStatsByVp(faction).MinVp : int.MaxValue)
         .Select((faction, index) => new RankingBarPoint(
             index.ToString(),
@@ -170,7 +170,7 @@ public partial class AsyncPlayerFactionStats
             null))
         .ToList();
 
-    private IReadOnlyCollection<RankingBarPoint> GetAverageVpData() => FactionsForDisplay
+    private List<RankingBarPoint> GetAverageVpData() => FactionsForDisplay
         .OrderByDescending(faction => GetCorrectFactionStatsByVp(faction).AverageVp)
         .Select((faction, index) => new RankingBarPoint(
             index.ToString(),
@@ -180,7 +180,7 @@ public partial class AsyncPlayerFactionStats
             null))
         .ToList();
 
-    private IReadOnlyCollection<RankingBarPoint> GetMaxVpData() => FactionsForDisplay
+    private List<RankingBarPoint> GetMaxVpData() => FactionsForDisplay
         .OrderByDescending(faction => GetCorrectFactionStatsByVp(faction).MaxVp)
         .Select((faction, index) => new RankingBarPoint(
             index.ToString(),
@@ -190,7 +190,7 @@ public partial class AsyncPlayerFactionStats
             null))
         .ToList();
 
-    private IReadOnlyCollection<RankingBarPoint> GetAverageVpPercentageData() => FactionsForDisplay
+    private List<RankingBarPoint> GetAverageVpPercentageData() => FactionsForDisplay
         .OrderByDescending(faction => GetCorrectFactionStatsByVp(faction).AverageVpPercentage)
         .Select((faction, index) => new RankingBarPoint(
             index.ToString(),

@@ -1,9 +1,13 @@
 using System.Reflection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using TwilightImperiumUltimate.Business.Services.Async.Implementations;
 using TwilightImperiumUltimate.Business.Services.Async.Interfaces;
+using TwilightImperiumUltimate.Business.Services.DraftRooms;
+using TwilightImperiumUltimate.Core.Interfaces.DraftRooms;
 using TwilightImperiumUltimate.DataAccess;
+using TwilightImperiumUltimate.DataAccess.UnitOfWork;
 using TwilightImperiumUltimate.Draft;
 using TwilightImperiumUltimate.Tigl;
 
@@ -22,6 +26,7 @@ public static class ServiceCollectionExtensions
 
         services.RegisterDataAccessLayer(configuration);
         services.RegisterDraftServices();
+        services.RegisterDraftRoomServices();
         services.RegisterTiglServices();
         services.RegisterAsyncPlayerServices();
 
@@ -53,6 +58,31 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IAsyncHistoryStatsFactory, AsyncHistoryStatsFactory>();
         services.AddScoped<IAsyncStatisticsSnapshotBuilder, AsyncStatisticsSnapshotBuilder>();
         services.AddScoped<IAsyncStatisticsSnapshotReader, AsyncStatisticsSnapshotReader>();
+
+        return services;
+    }
+
+    public static IServiceCollection RegisterDraftRoomServices(this IServiceCollection services)
+    {
+        ArgumentNullException.ThrowIfNull(services);
+
+        services.AddSingleton<IRoomCodeGenerator, RoomCodeGenerator>();
+        services.AddSingleton<IGuestSecretService, GuestSecretService>();
+        services.AddSingleton<IRoomPasswordHasher, RoomPasswordHasher>();
+        services.TryAddSingleton<TimeProvider>(TimeProvider.System);
+        services.AddSingleton<IJoinAttemptThrottle, JoinAttemptThrottle>();
+        services.AddSingleton<IDraftRoomChatThrottle, DraftRoomChatThrottle>();
+        services.AddSingleton<IPresenceTracker, PresenceTracker>();
+        services.TryAddSingleton<IRoomChangeNotifier, NullRoomChangeNotifier>();
+        services.AddScoped<IDraftRoomDisplayNameValidator, DraftRoomDisplayNameValidator>();
+        services.AddScoped<IDraftRoomAuthorizer, DraftRoomAuthorizer>();
+        services.AddSingleton<IDraftRoomLog, DraftRoomLog>();
+        services.AddSingleton<IDraftSeatOccupantChangeHandler, FactionPickOccupantChangeHandler>();
+        services.AddScoped<IFactionPickPoolProvider, FactionPickPoolProvider>();
+        services.AddScoped<IDraftRoomDraftPersistence, DraftRoomDraftPersistence>();
+        services.AddScoped<DraftRoomResultWriter>();
+        services.AddScoped<DraftRoomCleanupService>();
+        services.AddScoped<IDraftRoomDraftViewProvider, DraftRoomDraftViewProvider>();
 
         return services;
     }

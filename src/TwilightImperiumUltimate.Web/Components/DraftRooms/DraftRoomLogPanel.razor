@@ -1,0 +1,36 @@
+@namespace TwilightImperiumUltimate.Web.Components.DraftRooms
+@using TwilightImperiumUltimate.Contracts.DraftRooms
+@using TwilightImperiumUltimate.Web.Services.DraftRooms
+
+<section class="draft-room-log-panel" aria-label="@GetString("DraftRooms_LogHeading")">
+    <ResponsiveHeading Level="2" Text="@GetString("DraftRooms_LogHeading")" />
+
+    @if (_isLoading)
+    {
+        <p role="status">@GetString("DraftRooms_LogLoading")</p>
+    }
+    else if (_historyError)
+    {
+        <p class="draft-room-log-panel__error" role="alert">@GetString("DraftRooms_LogHistoryFailed")</p>
+    }
+
+    <ol class="draft-room-log-panel__entries"
+        role="log"
+        aria-label="@GetString("DraftRooms_LogEntries")"
+        aria-live="@(_historyReadyForAnnouncements ? "polite" : "off")"
+        aria-relevant="additions"
+        tabindex="0">
+        @foreach (var entry in _entries)
+        {
+            <li @key="entry.Id" class="draft-room-log-panel__entry">
+                <time datetime="@GetTimestampIso(entry)">@GetTimestamp(entry)</time>
+                <span>@_descriptions[entry.Id]</span>
+            </li>
+        }
+    </ol>
+
+    @if (!_isLoading && !_historyError && _entries.Count == 0)
+    {
+        <p class="draft-room-log-panel__empty" role="status">@GetString("DraftRooms_LogEmpty")</p>
+    }
+</section>

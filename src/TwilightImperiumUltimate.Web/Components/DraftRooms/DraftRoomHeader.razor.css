@@ -1,0 +1,58 @@
+.draft-room-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.draft-room-header__identity {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.draft-room-role-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.625rem;
+    border: 1px solid var(--color-nav-hover);
+    border-radius: 999px;
+    background-color: var(--color-nav-hover-bg-solid);
+    color: var(--color-white);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.draft-room-header__details {
+    display: grid;
+    gap: 0.75rem;
+    margin: 0;
+}
+
+.draft-room-header__details > div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.draft-room-header__details dd {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0;
+}
+
+.draft-room-header__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+@media (max-width: 40rem) {
+    .draft-room-header__actions {
+        flex-direction: column;
+    }
+}

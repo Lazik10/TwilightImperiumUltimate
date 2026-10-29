@@ -24,11 +24,11 @@ public class SliceGeneratorService(
 
     private SystemTileName? _selectedSystemTileName;
 
+    public event Action? TileSelectionChanged;
+
     public IReadOnlyList<SystemTileModel> AllSystemTiles => _allSystemTiles;
 
     public IReadOnlyList<SliceModel> Slices => GetOrderedSlices();
-
-    public event Action? TileSelectionChanged;
 
     public bool HasSelectedSystemTile { get; private set; }
 
@@ -195,11 +195,15 @@ public class SliceGeneratorService(
         return Task.CompletedTask;
     }
 
-    public bool IsSystemTileSelected(SystemTileModel systemTile, int slicePosition, int sliceId) =>
-        HasSelectedSystemTile &&
-        SelectedSystemTileSlicePosition == slicePosition &&
-        SelectedSystemTileSliceId == sliceId &&
-        (slicePosition != -1 || _selectedSystemTileName == systemTile.SystemTileName);
+    public bool IsSystemTileSelected(SystemTileModel systemTile, int slicePosition, int sliceId)
+    {
+        ArgumentNullException.ThrowIfNull(systemTile);
+
+        return HasSelectedSystemTile &&
+            SelectedSystemTileSlicePosition == slicePosition &&
+            SelectedSystemTileSliceId == sliceId &&
+            (slicePosition != -1 || _selectedSystemTileName == systemTile.SystemTileName);
+    }
 
     public bool WouldPlacementCreateDuplicate(int sliceId, int slicePosition) =>
         _draggedSystemTile is not null &&

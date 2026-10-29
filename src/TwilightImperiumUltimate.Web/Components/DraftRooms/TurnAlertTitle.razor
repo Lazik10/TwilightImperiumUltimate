@@ -1,0 +1,14 @@
+@namespace TwilightImperiumUltimate.Web.Components.DraftRooms
+
+<PageTitle>@DocumentTitle</PageTitle>
+<ResponsiveSwitch Name="draft-turn-alert" AriaLabel="@Text("TurnAlertLabel")"
+                  OnText="@Text("TurnAlertOn")" OffText="@Text("TurnAlertOff")"
+                  IsToggled="@_enabled" IsToggledChanged="SetEnabledAsync" Disabled="@(!_initialized || _unavailable)" />
+@if (MyActionRequired)
+{
+    <p role="status">@Text("YourTurnPrompt")</p>
+}
+@if (_unavailable)
+{
+    <p role="alert">@Text("TurnAlertUnavailable")</p>
+}

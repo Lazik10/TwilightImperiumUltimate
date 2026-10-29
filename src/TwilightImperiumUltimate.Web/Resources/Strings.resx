@@ -912,6 +912,552 @@
   <data name="Page_DraftRooms_PageTitle" xml:space="preserve">
     <value>Draft Rooms | TI4 Ultimate</value>
   </data>
+  <data name="DraftRooms_MyRoomsHeading" xml:space="preserve">
+    <value>My Draft Rooms</value>
+  </data>
+  <data name="DraftRooms_MyRoomsLoading" xml:space="preserve">
+    <value>Loading your draft rooms...</value>
+  </data>
+  <data name="DraftRooms_MyRoomsAccountEmpty" xml:space="preserve">
+    <value>No active draft rooms are associated with your account.</value>
+  </data>
+  <data name="DraftRooms_MyRoomsGuestEmpty" xml:space="preserve">
+    <value>No guest draft rooms are saved in this browser.</value>
+  </data>
+  <data name="DraftRooms_MyRoomsLoadFailed" xml:space="preserve">
+    <value>Your draft rooms could not be loaded. Please try again.</value>
+  </data>
+  <data name="DraftRooms_MyRoomsRetry" xml:space="preserve">
+    <value>Retry</value>
+  </data>
+  <data name="DraftRooms_MyRoomsEnter" xml:space="preserve">
+    <value>Enter room</value>
+  </data>
+  <data name="DraftRooms_MyRoomsEnterNamed" xml:space="preserve">
+    <value>Enter {0}</value>
+  </data>
+  <data name="DraftRooms_MyRoomsForget" xml:space="preserve">
+    <value>Forget</value>
+  </data>
+  <data name="DraftRooms_MyRoomsForgetNamed" xml:space="preserve">
+    <value>Forget {0}</value>
+  </data>
+  <data name="DraftRooms_MyRoomsForgetFailed" xml:space="preserve">
+    <value>The saved guest room could not be removed. Please try again.</value>
+  </data>
+  <data name="DraftRooms_MyRoomStatus" xml:space="preserve">
+    <value>Status: {0}</value>
+  </data>
+  <data name="DraftRooms_MyRoomRole" xml:space="preserve">
+    <value>Role: {0}</value>
+  </data>
+  <data name="DraftRooms_MyRoomSeat" xml:space="preserve">
+    <value>Seat {0}</value>
+  </data>
+  <data name="DraftRooms_RoomName" xml:space="preserve">
+    <value>Room name</value>
+  </data>
+  <data name="DraftRooms_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="DraftRooms_DisplayName" xml:space="preserve">
+    <value>Display name</value>
+  </data>
+  <data name="DraftRooms_RoomCode" xml:space="preserve">
+    <value>Room code</value>
+  </data>
+  <data name="DraftRooms_CreateDraft" xml:space="preserve">
+    <value>Create Draft</value>
+  </data>
+  <data name="DraftRooms_JoinDraft" xml:space="preserve">
+    <value>Join Draft</value>
+  </data>
+  <data name="DraftRooms_SubmitCreate" xml:space="preserve">
+    <value>Create room</value>
+  </data>
+  <data name="DraftRooms_SubmittingCreate" xml:space="preserve">
+    <value>Creating room...</value>
+  </data>
+  <data name="DraftRooms_CreateSuccess" xml:space="preserve">
+    <value>Draft room created.</value>
+  </data>
+  <data name="DraftRooms_OpenRoom" xml:space="preserve">
+    <value>Open room</value>
+  </data>
+  <data name="DraftRooms_CreateValidationFailed" xml:space="preserve">
+    <value>The room details were not accepted. Review the fields and try again.</value>
+  </data>
+  <data name="DraftRooms_CreateThrottled" xml:space="preserve">
+    <value>Too many rooms have been created recently. Wait a moment and try again.</value>
+  </data>
+  <data name="DraftRooms_CreateFailed" xml:space="preserve">
+    <value>The room could not be created. Please try again.</value>
+  </data>
+  <data name="DraftRooms_CreateIdentityStorageFailed" xml:space="preserve">
+    <value>The room was created, but this browser could not save your guest access. Your browser may not be able to rejoin this room later.</value>
+  </data>
+  <data name="DraftRooms_CreateIdentityUnavailable" xml:space="preserve">
+    <value>The room was created, but the server did not return guest access credentials. Contact support before leaving this page.</value>
+  </data>
+  <data name="DraftRooms_SubmitJoin" xml:space="preserve">
+    <value>Join room</value>
+  </data>
+  <data name="DraftRooms_SubmittingJoin" xml:space="preserve">
+    <value>Joining room...</value>
+  </data>
+  <data name="DraftRooms_JoinSuccess" xml:space="preserve">
+    <value>You joined the draft room.</value>
+  </data>
+  <data name="DraftRooms_JoinNotFoundOrWrongPassword" xml:space="preserve">
+    <value>The room code or password is incorrect.</value>
+  </data>
+  <data name="DraftRooms_JoinThrottled" xml:space="preserve">
+    <value>Too many join attempts have been made recently. Wait a moment and try again.</value>
+  </data>
+  <data name="DraftRooms_JoinValidationFailed" xml:space="preserve">
+    <value>The room details were not accepted. Review the fields and try again.</value>
+  </data>
+  <data name="DraftRooms_JoinFailed" xml:space="preserve">
+    <value>The room could not be joined. Please try again.</value>
+  </data>
+  <data name="DraftRooms_JoinIdentityStorageFailed" xml:space="preserve">
+    <value>You joined the room, but this browser could not save your guest access. Your browser may not be able to rejoin this room later.</value>
+  </data>
+  <data name="DraftRooms_JoinIdentityUnavailable" xml:space="preserve">
+    <value>You joined the room, but the server did not return guest access credentials. Contact support before leaving this page.</value>
+  </data>
+  <data name="DraftRooms_StoredGuestIdentity" xml:space="preserve">
+    <value>Saved guest access found. You can join without the room password.</value>
+  </data>
+  <data name="DraftRooms_GuestAccountPrompt" xml:space="preserve">
+    <value>Playing as a guest. Log in or register to keep this seat linked to your account.</value>
+  </data>
+  <data name="DraftRooms_GuestAccountActions" xml:space="preserve">
+    <value>Guest account options</value>
+  </data>
+  <data name="DraftRooms_RoomPageTitle" xml:space="preserve">
+    <value>Draft room | TI4 Ultimate</value>
+  </data>
+  <data name="DraftRooms_RoomLoading" xml:space="preserve">
+    <value>Loading draft room...</value>
+  </data>
+  <data name="DraftRooms_RoomNotFoundHeading" xml:space="preserve">
+    <value>Room not found</value>
+  </data>
+  <data name="DraftRooms_RoomNotFoundMessage" xml:space="preserve">
+    <value>This room code is invalid or the room is no longer available.</value>
+  </data>
+  <data name="DraftRooms_RoomLoadFailed" xml:space="preserve">
+    <value>The draft room could not be loaded. Please try again.</value>
+  </data>
+  <data name="DraftRooms_RoomRemovedHeading" xml:space="preserve">
+    <value>You no longer have access to this room</value>
+  </data>
+  <data name="DraftRooms_RoomRemovedMessage" xml:space="preserve">
+    <value>Your participant is no longer active. Contact the host if you think this is a mistake.</value>
+  </data>
+  <data name="DraftRooms_RoomClosedHeading" xml:space="preserve">
+    <value>This draft room is closed</value>
+  </data>
+  <data name="DraftRooms_RoomClosedMessage" xml:space="preserve">
+    <value>The room is no longer available. It may have been closed, or your participant may no longer be active.</value>
+  </data>
+  <data name="DraftRooms_RoomDetailsHeading" xml:space="preserve">
+    <value>Draft room</value>
+  </data>
+  <data name="DraftRooms_CopyRoomCode" xml:space="preserve">
+    <value>Copy room code</value>
+  </data>
+  <data name="DraftRooms_CopyRoomCodeAriaLabel" xml:space="preserve">
+    <value>Copy draft room code</value>
+  </data>
+  <data name="DraftRooms_JoinRoomHeading" xml:space="preserve">
+    <value>Join draft room</value>
+  </data>
+  <data name="DraftRooms_YouAre" xml:space="preserve">
+    <value>You are {0} ({1}).</value>
+  </data>
+  <data name="DraftRooms_RoleMember" xml:space="preserve">
+    <value>Member</value>
+  </data>
+  <data name="DraftRooms_RoleCoHost" xml:space="preserve">
+    <value>Co-host</value>
+  </data>
+  <data name="DraftRooms_RoleHost" xml:space="preserve">
+    <value>Host</value>
+  </data>
+  <data name="DraftRooms_RoomLink" xml:space="preserve">
+    <value>Room link</value>
+  </data>
+  <data name="DraftRooms_OpenRoomLink" xml:space="preserve">
+    <value>Open room in a new tab</value>
+  </data>
+  <data name="DraftRooms_CopyRoomLink" xml:space="preserve">
+    <value>Copy room link</value>
+  </data>
+  <data name="DraftRooms_CopyRoomLinkAriaLabel" xml:space="preserve">
+    <value>Copy draft room link</value>
+  </data>
+  <data name="DraftRooms_RoomActions" xml:space="preserve">
+    <value>Draft room actions</value>
+  </data>
+  <data name="DraftRooms_LinkAccountTitle" xml:space="preserve">
+    <value>Link this seat to your account?</value>
+  </data>
+  <data name="DraftRooms_LinkAccountMessage" xml:space="preserve">
+    <value>Your current draft-room participant will become associated with your account. Your seat and room history will stay in place.</value>
+  </data>
+  <data name="DraftRooms_LinkAccountInProgress" xml:space="preserve">
+    <value>Linking this participant to your account...</value>
+  </data>
+  <data name="DraftRooms_UseMyAccount" xml:space="preserve">
+    <value>Use my account</value>
+  </data>
+  <data name="DraftRooms_KeepPlayingAsGuest" xml:space="preserve">
+    <value>Keep playing as guest</value>
+  </data>
+  <data name="DraftRooms_LinkAccountConflict" xml:space="preserve">
+    <value>This account already has a participant in this room. Continue with your current guest identity.</value>
+  </data>
+  <data name="DraftRooms_LinkAccountFailed" xml:space="preserve">
+    <value>The account link could not be confirmed. Reload the room before trying again.</value>
+  </data>
+  <data name="DraftRooms_LinkAccountRefreshFailed" xml:space="preserve">
+    <value>Your account was linked, but the room could not be refreshed. Reload the room to see the updated account details.</value>
+  </data>
+  <data name="DraftRooms_RefreshRoom" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="DraftRooms_ConnectionConnected" xml:space="preserve">
+    <value>Connected to live updates</value>
+  </data>
+  <data name="DraftRooms_ConnectionReconnecting" xml:space="preserve">
+    <value>Reconnecting to live updates</value>
+  </data>
+  <data name="DraftRooms_ConnectionOffline" xml:space="preserve">
+    <value>Disconnected from live updates</value>
+  </data>
+  <data name="DraftRooms_PresenceOnline" xml:space="preserve">
+    <value>Online</value>
+  </data>
+  <data name="DraftRooms_PresenceOffline" xml:space="preserve">
+    <value>Offline</value>
+  </data>
+  <data name="DraftRooms_ChatHeading" xml:space="preserve">
+    <value>Room chat</value>
+  </data>
+  <data name="DraftRooms_ChatLoading" xml:space="preserve">
+    <value>Loading chat messages...</value>
+  </data>
+  <data name="DraftRooms_ChatHistoryFailed" xml:space="preserve">
+    <value>Chat history could not be loaded.</value>
+  </data>
+  <data name="DraftRooms_ChatMessages" xml:space="preserve">
+    <value>Draft room chat messages</value>
+  </data>
+  <data name="DraftRooms_ChatSystemMessage" xml:space="preserve">
+    <value>System message</value>
+  </data>
+  <data name="DraftRooms_UnknownParticipant" xml:space="preserve">
+    <value>Unknown participant</value>
+  </data>
+  <data name="DraftRooms_ChatEmpty" xml:space="preserve">
+    <value>No messages yet.</value>
+  </data>
+  <data name="DraftRooms_ChatForm" xml:space="preserve">
+    <value>Send a chat message</value>
+  </data>
+  <data name="DraftRooms_ChatInputLabel" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="DraftRooms_ChatSend" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="DraftRooms_ChatThrottled" xml:space="preserve">
+    <value>You're sending messages too quickly. Wait a moment and try again.</value>
+  </data>
+  <data name="DraftRooms_ChatValidationFailed" xml:space="preserve">
+    <value>Enter a valid message and try again.</value>
+  </data>
+  <data name="DraftRooms_ChatSendFailed" xml:space="preserve">
+    <value>Your message could not be sent. Try again.</value>
+  </data>
+  <data name="DraftRooms_ChatTab" xml:space="preserve">
+    <value>Chat</value>
+  </data>
+  <data name="DraftRooms_LogTab" xml:space="preserve">
+    <value>Log</value>
+  </data>
+  <data name="DraftRooms_UnreadChatMessages" xml:space="preserve">
+    <value>Unread chat messages: {0}</value>
+  </data>
+  <data name="DraftRooms_UnreadLogEntries" xml:space="preserve">
+    <value>Unread activity entries: {0}</value>
+  </data>
+  <data name="DraftRooms_LogHeading" xml:space="preserve">
+    <value>Room activity</value>
+  </data>
+  <data name="DraftRooms_LogLoading" xml:space="preserve">
+    <value>Loading room activity...</value>
+  </data>
+  <data name="DraftRooms_LogHistoryFailed" xml:space="preserve">
+    <value>Room activity could not be loaded.</value>
+  </data>
+  <data name="DraftRooms_LogEntries" xml:space="preserve">
+    <value>Draft room activity entries</value>
+  </data>
+  <data name="DraftRooms_LogEmpty" xml:space="preserve">
+    <value>No room activity yet.</value>
+  </data>
+  <data name="DraftRooms_LogUnknownActivity" xml:space="preserve">
+    <value>Room activity updated.</value>
+  </data>
+  <data name="DraftRooms_LogUnknownParticipant" xml:space="preserve">
+    <value>A participant</value>
+  </data>
+  <data name="DraftRooms_LogUnknownSeat" xml:space="preserve">
+    <value>an unknown seat</value>
+  </data>
+  <data name="DraftRooms_LogUnknownRoomName" xml:space="preserve">
+    <value>the room name</value>
+  </data>
+  <data name="DraftRooms_LogUnknownRole" xml:space="preserve">
+    <value>an unknown role</value>
+  </data>
+  <data name="DraftRooms_LogRoomCreated" xml:space="preserve">
+    <value>Room created by {0}.</value>
+  </data>
+  <data name="DraftRooms_LogParticipantJoined" xml:space="preserve">
+    <value>{0} joined the room.</value>
+  </data>
+  <data name="DraftRooms_LogParticipantLeft" xml:space="preserve">
+    <value>{0} left the room.</value>
+  </data>
+  <data name="DraftRooms_LogParticipantKicked" xml:space="preserve">
+    <value>{0} was removed from the room by {1}.</value>
+  </data>
+  <data name="DraftRooms_LogParticipantLinked" xml:space="preserve">
+    <value>{0} linked this participant to an account and is now shown as {1}.</value>
+  </data>
+  <data name="DraftRooms_LogSeatAdded" xml:space="preserve">
+    <value>{0} added seat {1}.</value>
+  </data>
+  <data name="DraftRooms_LogSeatRemoved" xml:space="preserve">
+    <value>{0} removed seat {1}.</value>
+  </data>
+  <data name="DraftRooms_LogSeatClaimed" xml:space="preserve">
+    <value>{0} claimed seat {1}.</value>
+  </data>
+  <data name="DraftRooms_LogSeatUnclaimed" xml:space="preserve">
+    <value>{0}'s seat was released by {1}.</value>
+  </data>
+  <data name="DraftRooms_LogRoleChanged" xml:space="preserve">
+    <value>{0} changed {1}'s role to {2}.</value>
+  </data>
+  <data name="DraftRooms_LogRoomRenamed" xml:space="preserve">
+    <value>{0} renamed the room to {1}.</value>
+  </data>
+  <data name="DraftRooms_LogRoomLocked" xml:space="preserve">
+    <value>{0} locked the room.</value>
+  </data>
+  <data name="DraftRooms_LogRoomUnlocked" xml:space="preserve">
+    <value>{0} unlocked the room.</value>
+  </data>
+  <data name="DraftRooms_LogPasswordChanged" xml:space="preserve">
+    <value>{0} changed the room password.</value>
+  </data>
+  <data name="DraftRoomDiagnostics_PageTitle" xml:space="preserve">
+    <value>Draft Room Hub Diagnostics | TI4 Ultimate</value>
+  </data>
+  <data name="DraftRoomDiagnostics_Heading" xml:space="preserve">
+    <value>Draft Room Hub Diagnostics</value>
+  </data>
+  <data name="DraftRoomDiagnostics_Section" xml:space="preserve">
+    <value>Hub connection</value>
+  </data>
+  <data name="DraftRoomDiagnostics_Ping" xml:space="preserve">
+    <value>Ping hub</value>
+  </data>
+  <data name="DraftRoomDiagnostics_Pinging" xml:space="preserve">
+    <value>Connecting to hub</value>
+  </data>
+  <data name="DraftRoomDiagnostics_Response" xml:space="preserve">
+    <value>The hub responded at {0}.</value>
+  </data>
+  <data name="DraftRoomDiagnostics_Failed" xml:space="preserve">
+    <value>Unable to reach the Draft Room hub. Check the browser console for connection details.</value>
+  </data>
+  <data name="DraftRooms_LeaveRoom" xml:space="preserve">
+    <value>Leave room</value>
+  </data>
+  <data name="DraftRooms_CloseRoom" xml:space="preserve">
+    <value>Close room</value>
+  </data>
+  <data name="DraftRooms_ConfirmLeaveTitle" xml:space="preserve">
+    <value>Leave this draft room?</value>
+  </data>
+  <data name="DraftRooms_ConfirmLeaveMessage" xml:space="preserve">
+    <value>You will leave the room. If you occupy a seat, that seat will be released.</value>
+  </data>
+  <data name="DraftRooms_ConfirmCloseTitle" xml:space="preserve">
+    <value>Close this draft room?</value>
+  </data>
+  <data name="DraftRooms_ConfirmCloseMessage" xml:space="preserve">
+    <value>Closing the room removes its lobby and all participants. This cannot be undone.</value>
+  </data>
+  <data name="DraftRooms_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="DraftRooms_RoomActionFailed" xml:space="preserve">
+    <value>The room could not be refreshed or the action could not be completed. Please try again.</value>
+  </data>
+  <data name="DraftRooms_SeatsHeading" xml:space="preserve">
+    <value>Seats</value>
+  </data>
+  <data name="DraftRooms_SeatList" xml:space="preserve">
+    <value>Draft room seats</value>
+  </data>
+  <data name="DraftRooms_SeatNumber" xml:space="preserve">
+    <value>Seat {0}</value>
+  </data>
+  <data name="DraftRooms_SeatFree" xml:space="preserve">
+    <value>Free</value>
+  </data>
+  <data name="DraftRooms_UnknownSeatOccupant" xml:space="preserve">
+    <value>Participant unavailable</value>
+  </data>
+  <data name="DraftRooms_AddSeat" xml:space="preserve">
+    <value>Add seat</value>
+  </data>
+  <data name="DraftRooms_RemoveSeat" xml:space="preserve">
+    <value>Remove seat</value>
+  </data>
+  <data name="DraftRooms_ClaimSeat" xml:space="preserve">
+    <value>Claim</value>
+  </data>
+  <data name="DraftRooms_LeaveSeat" xml:space="preserve">
+    <value>Leave seat</value>
+  </data>
+  <data name="DraftRooms_UnclaimSeat" xml:space="preserve">
+    <value>Unclaim</value>
+  </data>
+  <data name="DraftRooms_MaxSeatsReached" xml:space="preserve">
+    <value>The room already has the maximum of 8 seats.</value>
+  </data>
+  <data name="DraftRooms_MinSeatsReached" xml:space="preserve">
+    <value>Keep at least 2 seats in the room.</value>
+  </data>
+  <data name="DraftRooms_OccupiedSeatCannotBeRemoved" xml:space="preserve">
+    <value>Unclaim this seat before removing it.</value>
+  </data>
+  <data name="DraftRooms_SeatActions" xml:space="preserve">
+    <value>Actions for seat {0}</value>
+  </data>
+  <data name="DraftRooms_SeatActionFailed" xml:space="preserve">
+    <value>The seat action could not be completed. Refresh the room and try again.</value>
+  </data>
+  <data name="DraftRooms_NoSeats" xml:space="preserve">
+    <value>No seats are available.</value>
+  </data>
+  <data name="DraftRooms_ParticipantsHeading" xml:space="preserve">
+    <value>Participants</value>
+  </data>
+  <data name="DraftRooms_ParticipantList" xml:space="preserve">
+    <value>Draft room participants</value>
+  </data>
+  <data name="DraftRooms_NoParticipants" xml:space="preserve">
+    <value>No participants are in this room.</value>
+  </data>
+  <data name="DraftRooms_Guest" xml:space="preserve">
+    <value>Guest</value>
+  </data>
+  <data name="DraftRooms_NoSeat" xml:space="preserve">
+    <value>No seat</value>
+  </data>
+  <data name="DraftRooms_SeatUnavailable" xml:space="preserve">
+    <value>Seat unavailable</value>
+  </data>
+  <data name="DraftRooms_ParticipantActions" xml:space="preserve">
+    <value>Actions for {0}</value>
+  </data>
+  <data name="DraftRooms_MakeCoHost" xml:space="preserve">
+    <value>Make co-host</value>
+  </data>
+  <data name="DraftRooms_RemoveCoHost" xml:space="preserve">
+    <value>Remove co-host</value>
+  </data>
+  <data name="DraftRooms_UnclaimParticipantSeat" xml:space="preserve">
+    <value>Unclaim seat</value>
+  </data>
+  <data name="DraftRooms_KickParticipant" xml:space="preserve">
+    <value>Kick</value>
+  </data>
+  <data name="DraftRooms_ConfirmKickTitle" xml:space="preserve">
+    <value>Kick this participant?</value>
+  </data>
+  <data name="DraftRooms_ConfirmKickMessage" xml:space="preserve">
+    <value>Kick {0} from this draft room? They will no longer be able to rejoin with this identity.</value>
+  </data>
+  <data name="DraftRooms_ParticipantActionFailed" xml:space="preserve">
+    <value>The participant action could not be completed. Refresh the room and try again.</value>
+  </data>
+  <data name="DraftRooms_SettingsHeading" xml:space="preserve">
+    <value>Room settings</value>
+  </data>
+  <data name="DraftRooms_SaveRoomName" xml:space="preserve">
+    <value>Save room name</value>
+  </data>
+  <data name="DraftRooms_SavingRoomName" xml:space="preserve">
+    <value>Saving room name</value>
+  </data>
+  <data name="DraftRooms_LockRoomDescription" xml:space="preserve">
+    <value>Prevent new participants from joining this room until it is unlocked.</value>
+  </data>
+  <data name="DraftRooms_LockRoomAriaLabel" xml:space="preserve">
+    <value>Lock room to prevent new participants from joining</value>
+  </data>
+  <data name="DraftRooms_Locked" xml:space="preserve">
+    <value>Locked</value>
+  </data>
+  <data name="DraftRooms_Unlocked" xml:space="preserve">
+    <value>Unlocked</value>
+  </data>
+  <data name="DraftRooms_ChangePassword" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="DraftRooms_ChangePasswordTitle" xml:space="preserve">
+    <value>Change room password</value>
+  </data>
+  <data name="DraftRooms_ChangePasswordDescription" xml:space="preserve">
+    <value>The new password applies to future joins. Current participants will keep access.</value>
+  </data>
+  <data name="DraftRooms_NewPassword" xml:space="preserve">
+    <value>New password</value>
+  </data>
+  <data name="DraftRooms_RepeatPassword" xml:space="preserve">
+    <value>Repeat password</value>
+  </data>
+  <data name="DraftRooms_UpdatePassword" xml:space="preserve">
+    <value>Update password</value>
+  </data>
+  <data name="DraftRooms_UpdatingPassword" xml:space="preserve">
+    <value>Updating password</value>
+  </data>
+  <data name="DraftRooms_SettingsActionFailed" xml:space="preserve">
+    <value>The room settings could not be updated. Please try again.</value>
+  </data>
+  <data name="DraftRooms_RoomSections" xml:space="preserve">
+    <value>Draft room sections</value>
+  </data>
+  <data name="DraftRooms_SeatsTab" xml:space="preserve">
+    <value>Seats</value>
+  </data>
+  <data name="DraftRooms_PeopleTab" xml:space="preserve">
+    <value>People</value>
+  </data>
+  <data name="DraftRooms_SettingsTab" xml:space="preserve">
+    <value>Settings</value>
+  </data>
   <data name="Page_Events" xml:space="preserve">
     <value>Events</value>
   </data>
@@ -3835,4 +4381,109 @@ Brandon Williams&lt;/p&gt;</value>
   <data name="Account_ViewMyTiglProfile" xml:space="preserve">
     <value>View my TIGL profile</value>
   </data>
+  <data name="DraftRooms_DraftSettingsHeading" xml:space="preserve"><value>Draft settings</value></data>
+  <data name="DraftRooms_DraftType" xml:space="preserve"><value>Draft type</value></data>
+  <data name="DraftRooms_FactionPickSettings" xml:space="preserve"><value>Faction Pick</value></data>
+  <data name="DraftRooms_BansMode" xml:space="preserve"><value>Bans mode</value></data>
+  <data name="DraftRooms_BansPerPlayer" xml:space="preserve"><value>Bans per player (1-3)</value></data>
+  <data name="DraftRooms_HostBanCount" xml:space="preserve"><value>Host ban limit</value></data>
+  <data name="DraftRooms_PicksPerPlayer" xml:space="preserve"><value>Picks per player (1-5)</value></data>
+  <data name="DraftRooms_PickOrder" xml:space="preserve"><value>Pick order</value></data>
+  <data name="DraftRooms_RandomOrder" xml:space="preserve"><value>Random</value></data>
+  <data name="DraftRooms_HostDefinedOrder" xml:space="preserve"><value>Host-defined</value></data>
+  <data name="DraftRooms_MoveSeatUp" xml:space="preserve"><value>Move up</value></data>
+  <data name="DraftRooms_MoveSeatDown" xml:space="preserve"><value>Move down</value></data>
+  <data name="DraftRooms_LogDraftOrderConfigured" xml:space="preserve"><value>Host-defined pick order: {0}.</value></data>
+  <data name="DraftRooms_Snake" xml:space="preserve"><value>Reverse order each round</value></data>
+  <data name="DraftRooms_SnakeOn" xml:space="preserve"><value>Snake order</value></data>
+  <data name="DraftRooms_SnakeOff" xml:space="preserve"><value>Repeat order</value></data>
+  <data name="DraftRooms_SaveDraftSettings" xml:space="preserve"><value>Save draft settings</value></data>
+  <data name="DraftRooms_DraftSettingsReadOnly" xml:space="preserve"><value>Only the host or co-host can edit these rules.</value></data>
+  <data name="DraftRooms_DraftSettingsLocked" xml:space="preserve"><value>Draft type, rules and seat count are locked after start.</value></data>
+  <data name="DraftRooms_StartDraft" xml:space="preserve"><value>Start draft</value></data>
+  <data name="DraftRooms_ResetDraft" xml:space="preserve"><value>Reset draft</value></data>
+  <data name="DraftRooms_ResetDraftConfirmation" xml:space="preserve"><value>Reset the running draft? All draft progress is removed. Participants, seats, rules and chat are kept.</value></data>
+  <data name="DraftRooms_StartSeatsNotFull" xml:space="preserve"><value>Every seat must be occupied by an active participant.</value></data>
+  <data name="DraftRooms_StartNotEnoughSeats" xml:space="preserve"><value>Add enough seats for this draft type.</value></data>
+  <data name="DraftRooms_StartSettingsInvalid" xml:space="preserve"><value>The draft rules are invalid or the faction pool is too small.</value></data>
+  <data name="DraftRooms_DraftActionFailed" xml:space="preserve"><value>The draft action was rejected. Review the rules and current room state, then try again.</value></data>
+  <data name="DraftRooms_DraftRunning" xml:space="preserve"><value>The draft is running.</value></data>
+  <data name="DraftRooms_AssignParticipant" xml:space="preserve"><value>Choose a participant</value></data>
+  <data name="DraftRooms_AssignSeat" xml:space="preserve"><value>Assign Seat {0}</value></data>
+  <data name="DraftRooms_LogDraftTypeChanged" xml:space="preserve"><value>{0} changed the draft type.</value></data>
+  <data name="DraftRooms_LogDraftRandomized" xml:space="preserve"><value>The pick order was randomized: {0}.</value></data>
+  <data name="DraftRooms_LogDraftStarted" xml:space="preserve"><value>{0} started the draft.</value></data>
+  <data name="DraftRooms_LogDraftReset" xml:space="preserve"><value>{0} reset the draft.</value></data>
+  <data name="DraftRooms_LogDraftSettingsChanged" xml:space="preserve"><value>{0} updated the draft rules.</value></data>
+  <data name="DraftRooms_BanProgress" xml:space="preserve"><value>Ban lock-in progress</value></data>
+  <data name="DraftRooms_BansLocked" xml:space="preserve"><value>Locked in</value></data>
+  <data name="DraftRooms_BansThinking" xml:space="preserve"><value>Thinking</value></data>
+  <data name="DraftRooms_BansPhase" xml:space="preserve"><value>Select up to the ban limit, then lock in. Simultaneous bans stay private until everyone locks in.</value></data>
+  <data name="DraftRooms_PicksPhase" xml:space="preserve"><value>Bans are complete. Pick order is shown above.</value></data>
+  <data name="DraftRooms_FinishedPhase" xml:space="preserve"><value>The draft is finished.</value></data>
+  <data name="DraftRooms_FactionPool" xml:space="preserve"><value>Faction pool</value></data>
+  <data name="DraftRooms_FactionBanned" xml:space="preserve"><value>Banned</value></data>
+  <data name="DraftRooms_FactionSelected" xml:space="preserve"><value>Selected</value></data>
+  <data name="DraftRooms_FactionAvailable" xml:space="preserve"><value>Available</value></data>
+  <data name="DraftRooms_LockInBans" xml:space="preserve"><value>Lock in bans</value></data>
+  <data name="DraftRooms_ConfirmHostBans" xml:space="preserve"><value>Confirm bans</value></data>
+  <data name="DraftRooms_DecideForSeat" xml:space="preserve"><value>Decide for a seat</value></data>
+  <data name="DraftRooms_NoDecisionSeat" xml:space="preserve"><value>Not deciding for another seat</value></data>
+  <data name="DraftRooms_DecideForExplanation" xml:space="preserve"><value>Select replacement bans below. The seat's private choices are not shown to you. Confirming publicly reveals and replaces their unlocked selection.</value></data>
+  <data name="DraftRooms_ConfirmDecision" xml:space="preserve"><value>Confirm decision for seat</value></data>
+  <data name="DraftRooms_DecisionWarning" xml:space="preserve"><value>This reveals {0}'s unlocked selection to everyone and locks your replacement decision. Continue?</value></data>
+  <data name="DraftRooms_LogHostBansChanged" xml:space="preserve"><value>{0} updated the public host bans: {1}.</value></data>
+  <data name="DraftRooms_LogSeatBansLocked" xml:space="preserve"><value>Seat {0} locked in bans.</value></data>
+  <data name="DraftRooms_LogBansRevealed" xml:space="preserve"><value>Bans revealed: {0}.</value></data>
+  <data name="DraftRooms_LogHostDecidedForSeat" xml:space="preserve"><value>{0} decided for Seat {1}. Disclosed unlocked selection: {2}.</value></data>
+  <data name="DraftRooms_LogSeatChoicesDiscarded" xml:space="preserve"><value>Seat {0} changed occupant. Its unrevealed choices were discarded.</value></data>
+  <data name="DraftRooms_NoFactions" xml:space="preserve"><value>None</value></data>
+  <data name="FactionPickBansMode_None" xml:space="preserve"><value>No bans</value></data>
+  <data name="FactionPickBansMode_HostBans" xml:space="preserve"><value>Public host bans</value></data>
+  <data name="FactionPickBansMode_SimultaneousPlayerBans" xml:space="preserve"><value>Simultaneous secret bans</value></data>
+  <data name="DraftRooms_CurrentTurn" xml:space="preserve"><value>(Current turn)</value></data>
+  <data name="DraftRooms_PicksBySeat" xml:space="preserve"><value>Locked picks by seat</value></data>
+  <data name="DraftRooms_DecidedByHost" xml:space="preserve"><value>(Chosen by host or co-host)</value></data>
+  <data name="DraftRooms_FinalPickWarning" xml:space="preserve"><value>The final lock-in finishes the draft. Picks cannot be undone after completion.</value></data>
+  <data name="DraftRooms_LockInPick" xml:space="preserve"><value>Lock in pick</value></data>
+  <data name="DraftRooms_FactionPicked" xml:space="preserve"><value>Picked</value></data>
+  <data name="DraftRooms_UndoLastPick" xml:space="preserve"><value>Undo last pick</value></data>
+  <data name="DraftRooms_UndoPickWarning" xml:space="preserve"><value>Remove the last locked pick, restore that seat's turn, and discard pending picks?</value></data>
+  <data name="DraftRooms_LogFactionPicked" xml:space="preserve"><value>Seat {0} locked in {1}. {2}</value></data>
+  <data name="DraftRooms_LogPickUndone" xml:space="preserve"><value>{0} undid the last pick for Seat {1}.</value></data>
+  <data name="DraftRooms_LogDraftFinished" xml:space="preserve"><value>The draft finished.</value></data>
+  <data name="DraftRooms_TurnAlertLabel" xml:space="preserve"><value>Blink the hidden tab title when your action is required</value></data>
+  <data name="DraftRooms_TurnAlertOn" xml:space="preserve"><value>Turn alert on</value></data>
+  <data name="DraftRooms_TurnAlertOff" xml:space="preserve"><value>Turn alert off</value></data>
+  <data name="DraftRooms_YourTurnPrompt" xml:space="preserve"><value>Your turn: the draft needs your action.</value></data>
+  <data name="DraftRooms_YourTurnTitle" xml:space="preserve"><value>Your turn - {0}</value></data>
+  <data name="DraftRooms_TurnAlertUnavailable" xml:space="preserve"><value>The tab-title turn alert is unavailable. The visible turn prompt remains available.</value></data>
+  <data name="DraftRooms_ReleaseSeat" xml:space="preserve"><value>Release seat</value></data>
+  <data name="DraftRooms_ReclaimSeat" xml:space="preserve"><value>Reclaim seat</value></data>
+  <data name="DraftRooms_ResultsHeading" xml:space="preserve"><value>Draft results</value></data>
+  <data name="DraftRooms_ResultsPageTitle" xml:space="preserve"><value>Draft results | TI4 Ultimate</value></data>
+  <data name="DraftRooms_ResultsLoading" xml:space="preserve"><value>Loading draft results...</value></data>
+  <data name="DraftRooms_ResultsNotFound" xml:space="preserve"><value>These draft results are unavailable or have been deleted.</value></data>
+  <data name="DraftRooms_ResultsLoadFailed" xml:space="preserve"><value>Draft results could not be loaded. Please retry.</value></data>
+  <data name="DraftRooms_ResultsDeleteFailed" xml:space="preserve"><value>The results could not be deleted. Your permissions may have changed. Please refresh and retry.</value></data>
+  <data name="DraftRooms_CopyResult" xml:space="preserve"><value>Copy results as text</value></data>
+  <data name="DraftRooms_CopyResultLink" xml:space="preserve"><value>Copy share link</value></data>
+  <data name="DraftRooms_OpenSharedResult" xml:space="preserve"><value>Open public results (new tab)</value></data>
+  <data name="DraftRooms_BackToDraftRooms" xml:space="preserve"><value>Back to Draft Rooms</value></data>
+  <data name="DraftRooms_DeleteResults" xml:space="preserve"><value>Delete results</value></data>
+  <data name="DraftRooms_DeleteResultsConfirmation" xml:space="preserve"><value>Permanently delete these results? The public link will stop working and the results will disappear from everyone's draft history. The room itself will not be deleted.</value></data>
+  <data name="DraftRooms_DeleteNamedResults" xml:space="preserve"><value>Delete results: {0}</value></data>
+  <data name="DraftRooms_ResultSeat" xml:space="preserve"><value>Seat {0} - {1}</value></data>
+  <data name="DraftRooms_ResultDecider" xml:space="preserve"><value>(decided by {0})</value></data>
+  <data name="DraftRooms_ResultsBans" xml:space="preserve"><value>Banned factions</value></data>
+  <data name="DraftRooms_ResultsEnabled" xml:space="preserve"><value>Enabled</value></data>
+  <data name="DraftRooms_ResultsDisabled" xml:space="preserve"><value>Disabled</value></data>
+  <data name="DraftRooms_GameVersions" xml:space="preserve"><value>Game versions</value></data>
+  <data name="DraftRooms_MyDraftsHeading" xml:space="preserve"><value>My drafts</value></data>
+  <data name="DraftRooms_MyDraftsEmpty" xml:space="preserve"><value>No finished drafts on this page.</value></data>
+  <data name="DraftRooms_ResultsPrevious" xml:space="preserve"><value>Previous drafts</value></data>
+  <data name="DraftRooms_ResultsNext" xml:space="preserve"><value>Next drafts</value></data>
+  <data name="DraftRooms_ResultsPageNumber" xml:space="preserve"><value>Page {0}</value></data>
+  <data name="DraftRooms_LogDraftResultDeleted" xml:space="preserve"><value>{0} deleted the draft results.</value></data>
+  <data name="CopyButton_Failed" xml:space="preserve"><value>Copying was not permitted by your browser. Please allow clipboard access and try again.</value></data>
 </root>

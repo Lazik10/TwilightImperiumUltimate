@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Headers;
+using System.Globalization;
+using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -46,7 +47,11 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
         };
     }
 
-    public async Task<(TResponse? Response, HttpStatusCode StatusCode)> GetAsync<TResponse>(string endpointPath, string query = "", CancellationToken cancellationToken = default)
+    public async Task<(TResponse? Response, HttpStatusCode StatusCode)> GetAsync<TResponse>(
+        string endpointPath,
+        string query = "",
+        CancellationToken cancellationToken = default,
+        IReadOnlyDictionary<string, string>? headers = null)
         where TResponse : class
     {
         try
@@ -57,7 +62,9 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
             Uri uri = new(string.Concat(_httpClient.BaseAddress, endpointPath));
             await SetAuthorizationHeaderAsync(cancellationToken);
 
-            HttpResponseMessage response = await _httpClient.GetAsync(uri, cancellationToken);
+            using var request = new HttpRequestMessage(HttpMethod.Get, uri);
+            AddRequestHeaders(request, headers);
+            using var response = await _httpClient.SendAsync(request, cancellationToken);
 
             // Check the status code
             if (response.IsSuccessStatusCode)
@@ -117,7 +124,11 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
         using var response = await _httpClient.SendAsync(request, cancellationToken);
         var responseEtag = response.Headers.ETag?.Tag;
         var generatedAt = response.Headers.TryGetValues("X-Async-Snapshot-Generated-At", out var generatedAtValues)
-            && DateTimeOffset.TryParse(generatedAtValues.FirstOrDefault(), out var parsedGeneratedAt)
+            && DateTimeOffset.TryParse(
+                generatedAtValues.FirstOrDefault(),
+                CultureInfo.InvariantCulture,
+                DateTimeStyles.None,
+                out var parsedGeneratedAt)
                 ? parsedGeneratedAt
                 : (DateTimeOffset?)null;
         if (response.StatusCode == HttpStatusCode.NotModified)
@@ -181,7 +192,21 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
         }
     }
 
-    public async Task<(ApiResponse<TResponse> Response, HttpStatusCode StatusCode)> PutAsync<TRequest, TResponse>(string endpointPath, TRequest request, CancellationToken cancellationToken)
+    public Task<(ApiResponse<TResponse> Response, HttpStatusCode StatusCode)> PutAsync<TRequest, TResponse>(
+        string endpointPath,
+        TRequest request,
+        CancellationToken cancellationToken)
+        where TRequest : class
+        where TResponse : class
+    {
+        return this.PutAsync<TRequest, TResponse>(endpointPath, request, null, cancellationToken);
+    }
+
+    public async Task<(ApiResponse<TResponse> Response, HttpStatusCode StatusCode)> PutAsync<TRequest, TResponse>(
+        string endpointPath,
+        TRequest request,
+        IReadOnlyDictionary<string, string>? headers,
+        CancellationToken cancellationToken)
         where TRequest : class
         where TResponse : class
     {
@@ -190,7 +215,12 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
             Uri uri = new(string.Concat(_httpClient.BaseAddress, endpointPath));
             await SetAuthorizationHeaderAsync(cancellationToken);
 
-            HttpResponseMessage response = await _httpClient.PutAsJsonAsync(uri, request, cancellationToken);
+            using var message = new HttpRequestMessage(HttpMethod.Put, uri)
+            {
+                Content = JsonContent.Create(request, options: _options),
+            };
+            AddRequestHeaders(message, headers);
+            using var response = await _httpClient.SendAsync(message, cancellationToken);
             var status = response.StatusCode;
             var raw = string.Empty;
             ApiResponse<TResponse>? api = null;
@@ -311,6 +341,38 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
         }
     }
 
+    public async Task<HttpStatusCode> SendAsync(
+        HttpMethod method,
+        string endpointPath,
+        IReadOnlyDictionary<string, string>? headers,
+        CancellationToken cancellationToken)
+    {
+        ArgumentNullException.ThrowIfNull(method);
+        ArgumentException.ThrowIfNullOrWhiteSpace(endpointPath);
+
+        try
+        {
+            Uri uri = new(string.Concat(_httpClient.BaseAddress, endpointPath));
+            await SetAuthorizationHeaderAsync(cancellationToken);
+
+            using var request = new HttpRequestMessage(method, uri);
+            AddRequestHeaders(request, headers);
+            using var response = await _httpClient.SendAsync(request, cancellationToken);
+
+            return response.StatusCode;
+        }
+        catch (HttpRequestException exception)
+        {
+            Log.Warning(
+                exception,
+                "Error while sending {HttpMethod} request to endpoint: {EndpointPath}",
+                method,
+                endpointPath);
+
+            return HttpStatusCode.InternalServerError;
+        }
+    }
+
     public async Task SetAuthorizationHeaderAsync(CancellationToken cancellationToken, string? token = null)
     {
         if (token is null)
@@ -332,7 +394,11 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
         }
     }
 
-    public async Task<(ApiResponse<TDto> Response, HttpStatusCode StatusCode)> PostApiAsync<TRequest, TDto>(string endpointPath, TRequest request, CancellationToken cancellationToken = default)
+    public async Task<(ApiResponse<TDto> Response, HttpStatusCode StatusCode)> PostApiAsync<TRequest, TDto>(
+        string endpointPath,
+        TRequest request,
+        CancellationToken cancellationToken = default,
+        IReadOnlyDictionary<string, string>? headers = null)
         where TRequest : class
         where TDto : class
     {
@@ -341,7 +407,12 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
             var uri = new Uri(string.Concat(_httpClient.BaseAddress, endpointPath));
             await SetAuthorizationHeaderAsync(cancellationToken);
 
-            var httpResponse = await _httpClient.PostAsJsonAsync(uri, request, _options, cancellationToken);
+            using var message = new HttpRequestMessage(HttpMethod.Post, uri)
+            {
+                Content = JsonContent.Create(request, options: _options),
+            };
+            AddRequestHeaders(message, headers);
+            using var httpResponse = await _httpClient.SendAsync(message, cancellationToken);
             var status = httpResponse.StatusCode;
             var raw = string.Empty;
             ApiResponse<TDto>? api = null;
@@ -358,13 +429,35 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
 
             if (!string.IsNullOrWhiteSpace(raw))
             {
-                try
+                if (httpResponse.IsSuccessStatusCode && !IsApiResponseEnvelope(raw))
                 {
-                    api = JsonSerializer.Deserialize<ApiResponse<TDto>>(raw, _options);
+                    try
+                    {
+                        var data = JsonSerializer.Deserialize<TDto>(raw, _options);
+                        if (data is not null)
+                        {
+                            api = new ApiResponse<TDto>
+                            {
+                                Success = true,
+                                Data = data,
+                            };
+                        }
+                    }
+                    catch (JsonException exception)
+                    {
+                        Log.Warning(exception, "Could not deserialize success response from endpoint: {EndpointPath}", endpointPath);
+                    }
                 }
-                catch
+                else
                 {
-                    // ignore and try problem details
+                    try
+                    {
+                        api = JsonSerializer.Deserialize<ApiResponse<TDto>>(raw, _options);
+                    }
+                    catch
+                    {
+                        // Ignore and try problem details.
+                    }
                 }
 
                 if (api is null)
@@ -422,6 +515,40 @@ public class TwilightImperiumApiHttpClient : ITwilightImperiumApiHttpClient
                 },
             },
             HttpStatusCode.InternalServerError);
+        }
+    }
+
+    private static void AddRequestHeaders(
+        HttpRequestMessage request,
+        IReadOnlyDictionary<string, string>? headers)
+    {
+        if (headers is null)
+        {
+            return;
+        }
+
+        foreach (var (name, value) in headers)
+        {
+            if (!request.Headers.TryAddWithoutValidation(name, value))
+            {
+                throw new ArgumentException($"The request header '{name}' could not be added.", nameof(headers));
+            }
+        }
+    }
+
+    private static bool IsApiResponseEnvelope(string raw)
+    {
+        try
+        {
+            using var document = JsonDocument.Parse(raw);
+            return document.RootElement.ValueKind == JsonValueKind.Object
+                && (document.RootElement.TryGetProperty("success", out _)
+                    || document.RootElement.TryGetProperty("data", out _)
+                    || document.RootElement.TryGetProperty("problemDetails", out _));
+        }
+        catch (JsonException)
+        {
+            return false;
         }
     }
 

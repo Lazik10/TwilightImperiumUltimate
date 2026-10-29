@@ -4,16 +4,16 @@ namespace TwilightImperiumUltimate.Web.Components.Statistics.Chart;
 
 public partial class CombatWorstHitsDeviationChart
 {
-    [Parameter] 
+    [Parameter]
     public IReadOnlyCollection<RankingBarPoint> Data { get; set; } = [];
 
-    [Parameter] 
+    [Parameter]
     public EventCallback<object?> TagClick { get; set; }
-    
-    [Parameter] 
+
+    [Parameter]
     public bool IsLoading { get; set; }
-    
-    [Parameter] 
+
+    [Parameter]
     public Func<double, string>? FormatValue { get; set; }
 
     private string FormatNegativeValue(double value) => $"-{FormatValue?.Invoke(Math.Abs(value)) ?? Math.Abs(value).ToString()}";

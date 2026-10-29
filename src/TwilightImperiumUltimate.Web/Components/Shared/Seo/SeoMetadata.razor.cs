@@ -8,6 +8,8 @@ namespace TwilightImperiumUltimate.Web.Components.Shared.Seo;
 
 public partial class SeoMetadata : IDisposable
 {
+    private const string DraftRoomPathPrefix = "/tools/draft-rooms/";
+
     private static readonly Uri SiteUri = new("https://ti4ultimate.com/");
 
     private static readonly HashSet<string> NoIndexPaths = new(StringComparer.OrdinalIgnoreCase)
@@ -20,8 +22,8 @@ public partial class SeoMetadata : IDisposable
 
     private static readonly HashSet<string> PublicPaths = new(SitemapPaths.PublicPagePaths, StringComparer.OrdinalIgnoreCase);
 
-    private static readonly IReadOnlyDictionary<string, (string Title, string Description)> PageDefinitions =
-        new Dictionary<string, (string Title, string Description)>(StringComparer.OrdinalIgnoreCase)
+    private static readonly Dictionary<string, (string Title, string Description)> PageDefinitions =
+        new(StringComparer.OrdinalIgnoreCase)
         {
             ["/"] = ("Twilight Imperium 4 Tools, Rules and Community | TI4 Ultimate", "Build maps, explore factions and rules, use game tools, and discover the Twilight Imperium 4 community."),
             ["/about"] = ("About TI4 Ultimate | Twilight Imperium 4 Companion", "Learn about TI4 Ultimate, a community-built companion for Twilight Imperium 4 players, organizers, and creators."),
@@ -78,6 +80,8 @@ public partial class SeoMetadata : IDisposable
 
     private static readonly SeoImage SlicesPreviewImage = new("resources/images/shared/social-slices.png", "Twilight Imperium 4 community slice archive", "image/png", 1200, 630, "summary_large_image");
 
+    private bool _disposed;
+
     [Inject]
     private NavigationManager NavigationManager { get; set; } = default!;
 
@@ -89,21 +93,32 @@ public partial class SeoMetadata : IDisposable
 
     private string CanonicalUrl => new Uri(SiteUri, CanonicalPath.TrimStart('/')).AbsoluteUri;
 
-    private SeoImage OpenGraphImage => string.Equals(CurrentPath, "/game/factions", StringComparison.OrdinalIgnoreCase)
-        || IsFactionPage(out _)
-        ? FactionsPreviewImage
-        : CurrentPath.StartsWith("/tools/", StringComparison.OrdinalIgnoreCase)
-            ? ToolsPreviewImage
-            : CurrentPath.StartsWith("/community/tigl", StringComparison.OrdinalIgnoreCase)
-                ? TiglPreviewImage
-                : string.Equals(CurrentPath, "/rules", StringComparison.OrdinalIgnoreCase)
-                    || CurrentPath.StartsWith("/rules/", StringComparison.OrdinalIgnoreCase)
-                    ? RulesPreviewImage
-                    : CurrentPath.StartsWith("/community/maps-archive", StringComparison.OrdinalIgnoreCase)
-                        ? MapsPreviewImage
-                        : CurrentPath.StartsWith("/community/slices-archive", StringComparison.OrdinalIgnoreCase)
-                            ? SlicesPreviewImage
-                            : WidePreviewImage;
+    private SeoImage OpenGraphImage
+    {
+        get
+        {
+            if (string.Equals(CurrentPath, "/game/factions", StringComparison.OrdinalIgnoreCase) || IsFactionPage(out _))
+                return FactionsPreviewImage;
+
+            if (CurrentPath.StartsWith("/tools/", StringComparison.OrdinalIgnoreCase))
+                return ToolsPreviewImage;
+
+            if (CurrentPath.StartsWith("/community/tigl", StringComparison.OrdinalIgnoreCase))
+                return TiglPreviewImage;
+
+            if (string.Equals(CurrentPath, "/rules", StringComparison.OrdinalIgnoreCase)
+                || CurrentPath.StartsWith("/rules/", StringComparison.OrdinalIgnoreCase))
+                return RulesPreviewImage;
+
+            if (CurrentPath.StartsWith("/community/maps-archive", StringComparison.OrdinalIgnoreCase))
+                return MapsPreviewImage;
+
+            if (CurrentPath.StartsWith("/community/slices-archive", StringComparison.OrdinalIgnoreCase))
+                return SlicesPreviewImage;
+
+            return WidePreviewImage;
+        }
+    }
 
     private string OpenGraphImageUrl => new Uri(SiteUri, OpenGraphImage.Path).AbsoluteUri;
 
@@ -112,24 +127,43 @@ public partial class SeoMetadata : IDisposable
     private bool IsNoIndex => HasQueryString
         || string.Equals(CurrentPath, "/news", StringComparison.OrdinalIgnoreCase)
         || CurrentPath.StartsWith("/account/", StringComparison.OrdinalIgnoreCase)
+        || CurrentPath.StartsWith(DraftRoomPathPrefix, StringComparison.OrdinalIgnoreCase)
         || NoIndexPaths.Contains(CurrentPath)
         || !IsPublicRoute();
 
-    private string Title => IsFactionPage(out var factionName)
-        ? $"{factionName} | TI4 Faction | TI4 Ultimate"
-        : IsNumericDetailRoute("/community/maps-archive/map/")
-            ? "Twilight Imperium 4 Community Map | TI4 Ultimate"
-            : IsNumericDetailRoute("/community/slices-archive/slice-draft/")
-                ? "Twilight Imperium 4 Community Slice Draft | TI4 Ultimate"
-        : GetPageDefinition().Title;
+    private string Title
+    {
+        get
+        {
+            if (IsFactionPage(out var factionName))
+                return $"{factionName} | TI4 Faction | TI4 Ultimate";
 
-    private string Description => IsFactionPage(out var factionName)
-        ? $"Explore {factionName} abilities, technologies, units, leaders, and rules for Twilight Imperium 4."
-        : IsNumericDetailRoute("/community/maps-archive/map/")
-            ? "Explore a community-created Twilight Imperium 4 map, including its layout, author, event, rating, and setup details."
-            : IsNumericDetailRoute("/community/slices-archive/slice-draft/")
-                ? "Explore a community-created Twilight Imperium 4 slice draft, including its slices, author, event, rating, and setup details."
-        : GetPageDefinition().Description;
+            if (IsNumericDetailRoute("/community/maps-archive/map/"))
+                return "Twilight Imperium 4 Community Map | TI4 Ultimate";
+
+            if (IsNumericDetailRoute("/community/slices-archive/slice-draft/"))
+                return "Twilight Imperium 4 Community Slice Draft | TI4 Ultimate";
+
+            return GetPageDefinition().Title;
+        }
+    }
+
+    private string Description
+    {
+        get
+        {
+            if (IsFactionPage(out var factionName))
+                return $"Explore {factionName} abilities, technologies, units, leaders, and rules for Twilight Imperium 4.";
+
+            if (IsNumericDetailRoute("/community/maps-archive/map/"))
+                return "Explore a community-created Twilight Imperium 4 map, including its layout, author, event, rating, and setup details.";
+
+            if (IsNumericDetailRoute("/community/slices-archive/slice-draft/"))
+                return "Explore a community-created Twilight Imperium 4 slice draft, including its slices, author, event, rating, and setup details.";
+
+            return GetPageDefinition().Description;
+        }
+    }
 
     private string StructuredData => JsonSerializer.Serialize(new object[]
     {
@@ -157,13 +191,61 @@ public partial class SeoMetadata : IDisposable
 
     public void Dispose()
     {
-        NavigationManager.LocationChanged -= OnLocationChanged;
+        this.Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+        if (this._disposed)
+            return;
+
+        if (disposing)
+            NavigationManager.LocationChanged -= OnLocationChanged;
+
+        this._disposed = true;
     }
 
     protected override void OnInitialized()
     {
         UpdateLocation(NavigationManager.Uri);
         NavigationManager.LocationChanged += OnLocationChanged;
+    }
+
+    private static string GetBreadcrumbLabel(string path) => path switch
+    {
+        "/game" => "Game Reference",
+        "/tools" => "Tools",
+        "/community" => "Community",
+        "/rules" => "Rules",
+        "/community/tigl" => "TIGL",
+        "/community/maps-archive" => "Map Archive",
+        "/community/slices-archive" => "Slice Archive",
+        _ => Humanize(path[(path.LastIndexOf('/') + 1)..]),
+    };
+
+    private static string Humanize(string value)
+    {
+        if (string.IsNullOrWhiteSpace(value))
+            return "TI4 Ultimate";
+
+        var words = new List<char>(value.Length + 8);
+        for (var index = 0; index < value.Length; index++)
+        {
+            var character = value[index];
+            if (character is '-' or '_')
+            {
+                words.Add(' ');
+                continue;
+            }
+
+            if (index > 0 && char.IsUpper(character) && char.IsLower(value[index - 1]))
+                words.Add(' ');
+
+            words.Add(character);
+        }
+
+        return string.Join(' ', new string(words.ToArray()).Split(' ', StringSplitOptions.RemoveEmptyEntries));
     }
 
     private void OnLocationChanged(object? sender, LocationChangedEventArgs args)
@@ -251,46 +333,10 @@ public partial class SeoMetadata : IDisposable
         return items.ToArray();
     }
 
-    private static string GetBreadcrumbLabel(string path) => path switch
-    {
-        "/game" => "Game Reference",
-        "/tools" => "Tools",
-        "/community" => "Community",
-        "/rules" => "Rules",
-        "/community/tigl" => "TIGL",
-        "/community/maps-archive" => "Map Archive",
-        "/community/slices-archive" => "Slice Archive",
-        _ => Humanize(path[(path.LastIndexOf('/') + 1)..]),
-    };
-
     private (string Title, string Description) GetPageDefinition() =>
         PageDefinitions.TryGetValue(CanonicalPath, out var definition)
             ? definition
             : ("TI4 Ultimate", "Twilight Imperium 4 tools, rules, game references, and community resources.");
-
-    private static string Humanize(string value)
-    {
-        if (string.IsNullOrWhiteSpace(value))
-            return "TI4 Ultimate";
-
-        var words = new List<char>(value.Length + 8);
-        for (var index = 0; index < value.Length; index++)
-        {
-            var character = value[index];
-            if (character is '-' or '_')
-            {
-                words.Add(' ');
-                continue;
-            }
-
-            if (index > 0 && char.IsUpper(character) && char.IsLower(value[index - 1]))
-                words.Add(' ');
-
-            words.Add(character);
-        }
-
-        return string.Join(' ', new string(words.ToArray()).Split(' ', StringSplitOptions.RemoveEmptyEntries));
-    }
 
     private sealed record SeoImage(string Path, string Alt, string ContentType, int Width, int Height, string TwitterCard);
 }

@@ -1,0 +1,109 @@
+@namespace TwilightImperiumUltimate.Web.Components.DraftRooms.FactionPick
+@using TwilightImperiumUltimate.Contracts.Enums
+@using TwilightImperiumUltimate.Web.Components.Factions.Images
+
+<section class="faction-pick-board" aria-labelledby="faction-pick-board-title">
+    <h3 id="faction-pick-board-title" tabindex="-1" @ref="_heading">@Text("FactionPickSettings")</h3>
+    <p role="status">@PhaseText</p>
+    <ol aria-label="@Text("PickOrder")">
+        @foreach (var seatId in Draft.TurnOrder)
+        {
+            <li @key="seatId" aria-current="@(Draft.ActiveSeatId == seatId ? "step" : null)">
+                @SeatLabel(seatId)
+                @if (Draft.ActiveSeatId == seatId)
+                {
+                    <span>@Text("CurrentTurn")</span>
+                }
+            </li>
+        }
+    </ol>
+    @if (IsBans && !IsHostBans)
+    {
+        <ul aria-label="@Text("BanProgress")">
+            @foreach (var seatId in Room.Seats.Select(seat => seat.Id))
+            {
+                <li @key="seatId">@SeatLabel(seatId): @Text(Draft.LockedBanSeatIds.Contains(seatId) ? "BansLocked" : "BansThinking")</li>
+            }
+        </ul>
+    }
+    @if (IsPicks || Draft.Phase == FactionPickPhase.Finished)
+    {
+        <ul aria-label="@Text("PicksBySeat")">
+            @foreach (var seatId in Room.Seats.Select(seat => seat.Id))
+            {
+                <li @key="seatId">
+                    @SeatLabel(seatId)
+                    <ol>
+                        @foreach (var pick in Draft.LockedPicks.Where(pick => pick.SeatId == seatId))
+                        {
+                            <li @key="pick.Faction">
+                                @pick.Faction.GetFactionUIText(FactionResourceType.Title)
+                                @if (pick.DecidedByHost)
+                                {
+                                    <span>@Text("DecidedByHost")</span>
+                                }
+                            </li>
+                        }
+                    </ol>
+                </li>
+            }
+        </ul>
+        @if (IsFinalPick)
+        {
+            <p>@Text("FinalPickWarning")</p>
+        }
+        @if (Draft.CanUndo && IsManager)
+        {
+            <ResponsiveButton Text="@Text("UndoLastPick")" OnClick="ShowUndo" IsDisabled="@IsProcessing" />
+        }
+    }
+    @if (IsManager && ((IsBans && !IsHostBans) || IsPicks))
+    {
+        <label for="faction-pick-decide-seat">@Text("DecideForSeat")</label>
+        <select id="faction-pick-decide-seat" value="@_decisionSeat" @onchange="SelectDecisionSeat" disabled="@IsProcessing">
+            <option value="">@Text("NoDecisionSeat")</option>
+            @foreach (var seatId in DecisionSeats)
+            {
+                <option @key="seatId" value="@seatId">@SeatLabel(seatId)</option>
+            }
+        </select>
+        @if (_decisionSeat is not null)
+        {
+            <p>@Text("DecideForExplanation")</p>
+            <ResponsiveButton Text="@Text("ConfirmDecision")" OnClick="ShowDecisionConfirmation"
+                              IsDisabled="@(IsProcessing || (IsPicks && _replacementPick is null))" />
+        }
+    }
+    <ul class="faction-pick-board__pool" aria-label="@Text("FactionPool")">
+        @foreach (var faction in Draft.Pool)
+        {
+            <li @key="faction">
+                <ResponsiveButton CssClass="faction-pick-board__choice"
+                                  aria-pressed="@(IsSelected(faction) ? "true" : "false")"
+                                  aria-label="@faction.GetFactionUIText(FactionResourceType.Title)"
+                                  aria-describedby="@FactionStatusId(faction)"
+                                  IsDisabled="@IsDisabled(faction)"
+                                  OnClick="@(() => ToggleAsync(faction))">
+                    <span aria-hidden="true"><FactionIconImg FactionName="@faction" MaxHeight="40px" /></span>
+                    <span>@faction.GetFactionUIText(FactionResourceType.Title)</span>
+                    <span id="@FactionStatusId(faction)">@ChoiceStatus(faction)</span>
+                </ResponsiveButton>
+            </li>
+        }
+    </ul>
+    @if (CanLockOwnBans)
+    {
+        <ResponsiveButton Text="@Text(IsHostBans ? "ConfirmHostBans" : "LockInBans")"
+                          IsDisabled="@IsProcessing" OnClick="LockAsync" />
+    }
+    @if (CanPickOwn)
+    {
+        <ResponsiveButton Text="@Text("LockInPick")" IsDisabled="@(IsProcessing || Draft.MyPendingPick is null)" OnClick="LockAsync" />
+    }
+    <ResponsiveConfirmDialog IsOpen="@_confirmDecision" Title="@Text("ConfirmDecision")" Message="@DecisionWarning"
+                             ConfirmText="@Text("ConfirmDecision")" CancelText="@Text("Cancel")"
+                             OnConfirm="ConfirmDecisionAsync" OnCancel="CancelDecision" />
+    <ResponsiveConfirmDialog IsOpen="@_confirmUndo" Title="@Text("UndoLastPick")" Message="@Text("UndoPickWarning")"
+                             ConfirmText="@Text("UndoLastPick")" CancelText="@Text("Cancel")"
+                             OnConfirm="ConfirmUndoAsync" OnCancel="CancelUndo" />
+</section>

@@ -18,7 +18,7 @@ public partial class WhispersFromTheVoidFactionMenu : TwilightImperiumBaseCompon
 
     [Inject]
     private IFactionProvider FactionProvider { get; set; } = default!;
-    
+
     protected override async Task OnInitializedAsync()
     {
         _factions = await FactionProvider.GetFactionsBySource(FactionSource.WhispersFromTheVoid);

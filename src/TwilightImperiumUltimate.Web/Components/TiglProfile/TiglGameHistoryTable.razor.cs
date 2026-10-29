@@ -36,6 +36,20 @@ public partial class TiglGameHistoryTable
         InitializeDefaultExpansion();
     }
 
+    private static string GetMonthName(int month) => new DateOnly(2000, month, 1).ToString("MMMM");
+
+    private static string GetDuration(TiglProfileGameDto game)
+    {
+        if (game.StartTimestamp <= 0 || game.EndTimestamp <= 0)
+            return "N/A";
+
+        var duration = DateTimeOffset.FromUnixTimeMilliseconds(game.EndTimestamp) - DateTimeOffset.FromUnixTimeMilliseconds(game.StartTimestamp);
+        if (duration < TimeSpan.FromHours(1))
+            return "-";
+
+        return $"{(int)duration.TotalDays:D2} d {duration.Hours:D2} h";
+    }
+
     private void InitializeDefaultExpansion()
     {
         _expandedYears.Clear();
@@ -48,9 +62,11 @@ public partial class TiglGameHistoryTable
 
         _expandedYears.Add(mostRecentYear.Year);
 
-        var mostRecentMonth = mostRecentYear.Months.FirstOrDefault();
-        if (mostRecentMonth is not null)
+        if (mostRecentYear.Months.Count > 0)
+        {
+            var mostRecentMonth = mostRecentYear.Months[0];
             _expandedMonths.Add((mostRecentYear.Year, mostRecentMonth.Month));
+        }
     }
 
     private void OnExpandAllChanged(bool isChecked)
@@ -116,20 +132,6 @@ public partial class TiglGameHistoryTable
     {
         if (eventArgs.Key is "Enter" or " ")
             await OnGameSelected.InvokeAsync(matchReportId);
-    }
-
-    private static string GetMonthName(int month) => new DateOnly(2000, month, 1).ToString("MMMM");
-
-    private static string GetDuration(TiglProfileGameDto game)
-    {
-        if (game.StartTimestamp <= 0 || game.EndTimestamp <= 0)
-            return "N/A";
-
-        var duration = DateTimeOffset.FromUnixTimeMilliseconds(game.EndTimestamp) - DateTimeOffset.FromUnixTimeMilliseconds(game.StartTimestamp);
-        if (duration < TimeSpan.FromHours(1))
-            return "-";
-
-        return $"{(int)duration.TotalDays:D2} d {duration.Hours:D2} h";
     }
 
     private sealed record GamesByYear(int Year, IReadOnlyList<GamesByMonth> Months);

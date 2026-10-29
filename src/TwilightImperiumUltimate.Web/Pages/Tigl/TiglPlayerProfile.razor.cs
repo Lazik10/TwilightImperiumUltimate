@@ -39,5 +39,4 @@ public partial class TiglPlayerProfile
             PlayerProfile = response.Response.Data;
         }
     }
-
 }

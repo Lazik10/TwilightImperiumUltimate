@@ -14,5 +14,4 @@ public partial class FactionDraftPlayerRow
 
     [Parameter]
     public int Index { get; set; } = 0;
-
 }

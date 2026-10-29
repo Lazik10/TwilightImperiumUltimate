@@ -5,25 +5,25 @@ namespace TwilightImperiumUltimate.Web.Components.TiglProfile;
 
 public partial class TiglFactionStatisticsTable
 {
-    [Parameter] 
+    [Parameter]
     public IReadOnlyList<TiglProfileFactionStatsDto> Stats { get; set; } = [];
-    
-    [Parameter] 
+
+    [Parameter]
     public bool ShowFilters { get; set; }
-    
-    [Parameter] 
+
+    [Parameter]
     public bool AreFiltersVisible { get; set; }
-    
-    [Parameter] 
+
+    [Parameter]
     public string FilterButtonLabel { get; set; } = string.Empty;
-    
-    [Parameter] 
+
+    [Parameter]
     public string FilterIconPath { get; set; } = string.Empty;
-    
-    [Parameter] 
+
+    [Parameter]
     public EventCallback OnToggleFilters { get; set; }
-    
-    [Parameter] 
+
+    [Parameter]
     public RenderFragment? FilterContent { get; set; }
 
     private static void OnCellRender(DataGridCellRenderEventArgs<TiglProfileFactionStatsDto> args)

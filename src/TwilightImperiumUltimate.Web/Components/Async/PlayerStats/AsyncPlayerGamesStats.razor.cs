@@ -64,6 +64,9 @@ public partial class AsyncPlayerGamesStats
         }
     }
 
+    private static string GetDisplayGameFunName(string gameFunName) =>
+        gameFunName.Length > 32 ? $"{gameFunName[..32]}..." : gameFunName;
+
     private void InitializeDefaultExpansion()
     {
         _expandedYears.Clear();
@@ -190,9 +193,6 @@ public partial class AsyncPlayerGamesStats
 
         return $"{duration.Hours:D2} h";
     }
-
-    private static string GetDisplayGameFunName(string gameFunName) =>
-        gameFunName.Length > 32 ? $"{gameFunName[..32]}..." : gameFunName;
 
     private string GetAsyncGameIdTextColor(AsyncPlayerGameDto game)
     {

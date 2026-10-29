@@ -36,6 +36,8 @@ public partial class SliceGeneratorSettings
         InitializeSettings();
     }
 
+    private static int[] GetSliceCountOptions() => Enumerable.Range(0, 10).ToArray();
+
     private void InitializeSettings()
     {
         SelectedMenuOverlay = SliceGeneratorSettingsService.MenuOverlay;
@@ -119,9 +121,7 @@ public partial class SliceGeneratorSettings
         await OnSettingsChange.InvokeAsync();
     }
 
-    private static IReadOnlyCollection<int> GetSliceCountOptions() => Enumerable.Range(0, 10).ToArray();
-
-    private IReadOnlyCollection<int> GetLegendaryPlanetOptions() =>
+    private int[] GetLegendaryPlanetOptions() =>
         Enumerable.Range(0, GetMaximumLegendaryPlanetCount() + 1).ToArray();
 
     private int GetMaximumLegendaryPlanetCount()

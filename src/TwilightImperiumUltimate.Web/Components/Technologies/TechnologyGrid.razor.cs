@@ -50,7 +50,7 @@ public partial class TechnologyGrid : TwilightImperiumBaseComponent
         }
     }
 
-    private IReadOnlyCollection<KeyValuePair<GameVersion, string>> GetFactionTechGameVersions()
+    private List<KeyValuePair<GameVersion, string>> GetFactionTechGameVersions()
     {
         return _technologies
             .Where(x => x.IsFactionTechnology)
@@ -61,7 +61,7 @@ public partial class TechnologyGrid : TwilightImperiumBaseComponent
             .ToList();
     }
 
-    private IReadOnlyCollection<KeyValuePair<FactionName, string>> GetFactionTechFactions()
+    private List<KeyValuePair<FactionName, string>> GetFactionTechFactions()
     {
         return _technologies
             .Where(x => x.IsFactionTechnology && x.GameVersion == _selectedFactionTechGameVersion)

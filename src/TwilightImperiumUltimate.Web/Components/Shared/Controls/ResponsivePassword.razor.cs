@@ -30,6 +30,12 @@ public partial class ResponsivePassword
     [Parameter]
     public bool Disabled { get; set; }
 
+    /// <summary>
+    /// Gets or sets whether the input is required.
+    /// </summary>
+    [Parameter]
+    public bool Required { get; set; }
+
     [Parameter]
     public string CssClass { get; set; } = string.Empty;
 

@@ -1,9 +1,12 @@
 using TwilightImperiumUltimate.Contracts.DTOs.Tigl;
+
 namespace TwilightImperiumUltimate.Web.Components.TiglProfile;
 
 public partial class TiglRatingProgression
 {
-    [Parameter, EditorRequired] public TiglLeagueProfileDto Profile { get; set; } = default!;
+    [Parameter]
+    [EditorRequired]
+    public TiglLeagueProfileDto Profile { get; set; } = default!;
 
     private IReadOnlyList<ChartData> Series => BuildSeries();
 
@@ -18,15 +21,6 @@ public partial class TiglRatingProgression
         var step = Math.Max(0.1, (upper - min) / 5);
         return (min, upper, step);
     }
-
-    private IReadOnlyList<ChartData> BuildSeries() => new List<ChartData>
-    {
-        BuildChartData("Async", Profile.AsyncMatchHistory.Select(item => item.RatingNew).ToList()),
-        BuildChartData("Glicko-2", Profile.GlickoMatchHistory.Select(item => item.RatingNew).ToList()),
-        BuildChartData("TrueSkill", Profile.TrueSkillMatchHistory.Select(item => item.ConservativeRatingNew).ToList()),
-    }
-    .Where(item => item.Points.Count > 0)
-    .ToList();
 
     private static ChartData BuildChartData(string title, List<double> ratings)
     {
@@ -46,6 +40,15 @@ public partial class TiglRatingProgression
         var points = ratings.Select((rating, index) => new Point(index + 1, rating)).ToList();
         return new ChartData(title, points, points.Count, static value => value?.ToString() ?? string.Empty);
     }
+
+    private List<ChartData> BuildSeries() => new List<ChartData>
+    {
+        BuildChartData("Async", Profile.AsyncMatchHistory.Select(item => item.RatingNew).ToList()),
+        BuildChartData("Glicko-2", Profile.GlickoMatchHistory.Select(item => item.RatingNew).ToList()),
+        BuildChartData("TrueSkill", Profile.TrueSkillMatchHistory.Select(item => item.ConservativeRatingNew).ToList()),
+    }
+    .Where(item => item.Points.Count > 0)
+    .ToList();
 
     private sealed record ChartData(string Title, List<Point> Points, int MaxGame, Func<object, string> CategoryFormatter);
 

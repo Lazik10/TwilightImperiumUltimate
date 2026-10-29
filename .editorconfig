@@ -676,3 +676,15 @@ dotnet_code_quality.CA1716.analyzed_symbol_kinds = NamedType, Method, Property, 
 [src/TwilightImperiumUltimate.DataAccess/Migrations/**.cs]
 generated_code = true
 dotnet_analyzer_diagnostic.severity = none
+
+############################################################################################
+#             Test method naming convention (tests)                                       #
+############################################################################################
+# Test method names intentionally use Method_WhenCondition_ShouldOutcome for readable
+# behavioral test reports; underscores are required by that convention and are not part of
+# the application's public API surface.
+[tests/**/*.cs]
+dotnet_diagnostic.CA1707.severity = none
+
+[tools/TwilightImperiumUltimate.SitemapGenerator/SitemapGeneratorOptions.cs]
+csharp_preferred_modifier_order = required,public,private,protected,internal,file,static,extern,new,virtual,abstract,sealed,override,readonly,unsafe,volatile,async:suggestion

@@ -1,4 +1,4 @@
-﻿using TwilightImperiumUltimate.Contracts.ApiContracts.Draft;
+using TwilightImperiumUltimate.Contracts.ApiContracts.Draft;
 using TwilightImperiumUltimate.Contracts.DTOs.MapGeneration;
 
 namespace TwilightImperiumUltimate.Web.Services.MapGenerators;
@@ -13,18 +13,17 @@ public class MapGeneratorService(
     private readonly ITwilightImperiumApiHttpClient _httpClient = twilightImperiumApiHttpClient;
     private readonly IMapper _mapper = mapper;
     private Dictionary<int, SystemTileModel> _systemTiles = new Dictionary<int, SystemTileModel>();
+    private SystemTileName? _selectedSystemTileName;
+
+    public event Action? TileSelectionChanged;
 
     public SystemTileModel DraggedSystemTile { get; set; } = new();
 
     public int DraggedSystemTileStartMapPosition { get; set; } = -1;
 
-    public event Action? TileSelectionChanged;
-
     public bool HasSelectedSystemTile { get; private set; }
 
     public int SelectedSystemTileMapPosition { get; private set; } = -1;
-
-    private SystemTileName? SelectedSystemTileName { get; set; }
 
     public IReadOnlyDictionary<int, SystemTileModel> GeneratedPositionsWithSystemTiles => _systemTiles;
 
@@ -181,7 +180,7 @@ public class MapGeneratorService(
         DraggedSystemTileStartMapPosition = -1;
         HasSelectedSystemTile = false;
         SelectedSystemTileMapPosition = -1;
-        SelectedSystemTileName = null;
+        _selectedSystemTileName = null;
         TileSelectionChanged?.Invoke();
     }
 
@@ -191,14 +190,18 @@ public class MapGeneratorService(
 
         HasSelectedSystemTile = true;
         SelectedSystemTileMapPosition = mapPosition;
-        SelectedSystemTileName = systemTile.SystemTileName;
+        _selectedSystemTileName = systemTile.SystemTileName;
         TileSelectionChanged?.Invoke();
     }
 
-    public bool IsSystemTileSelected(SystemTileModel systemTile, int mapPosition) =>
-        HasSelectedSystemTile &&
-        SelectedSystemTileMapPosition == mapPosition &&
-        (mapPosition != -1 || SelectedSystemTileName == systemTile.SystemTileName);
+    public bool IsSystemTileSelected(SystemTileModel systemTile, int mapPosition)
+    {
+        ArgumentNullException.ThrowIfNull(systemTile);
+
+        return HasSelectedSystemTile &&
+            SelectedSystemTileMapPosition == mapPosition &&
+            (mapPosition != -1 || _selectedSystemTileName == systemTile.SystemTileName);
+    }
 
     public bool WouldPlacementCreateDuplicate(int mapPosition) =>
         DraggedSystemTileStartMapPosition == -1 &&

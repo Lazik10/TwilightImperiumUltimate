@@ -1,0 +1,50 @@
+.draft-participant-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.draft-participant-list__items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.draft-participant-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
+    padding: 1rem;
+    border: 1px solid var(--color-nav-hover);
+    border-radius: 0.5rem;
+    background-color: var(--color-nav-panel-bg);
+}
+
+.draft-participant-card__identity {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.draft-participant-card__identity p {
+    flex-basis: 100%;
+    margin: 0;
+}
+
+.draft-participant-card__role,
+.draft-participant-card__guest {
+    padding: 0.125rem 0.5rem;
+    border: 1px solid var(--color-nav-hover);
+    border-radius: 999px;
+}
+
+.draft-participant-card__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}

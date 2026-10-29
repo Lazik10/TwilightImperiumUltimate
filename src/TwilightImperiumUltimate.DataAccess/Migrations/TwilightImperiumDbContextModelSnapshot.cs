@@ -9189,6 +9189,450 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         });
                 });
 
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.DraftRooms.DraftResult", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DraftType")
+                        .IsRequired()
+                        .HasMaxLength(32)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(32)");
+
+                    b.Property<DateTime>("FinishedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("OwnerUserId")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("PayloadJson")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PayloadVersion")
+                        .HasColumnType("int");
+
+                    b.Property<string>("RoomName")
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)");
+
+                    b.Property<string>("ShareToken")
+                        .IsRequired()
+                        .HasMaxLength(22)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(22)")
+                        .UseCollation("Latin1_General_100_BIN2");
+
+                    b.Property<Guid?>("SourceRoomId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ShareToken")
+                        .IsUnique();
+
+                    b.HasIndex("SourceRoomId")
+                        .IsUnique()
+                        .HasFilter("[SourceRoomId] IS NOT NULL");
+
+                    b.HasIndex("OwnerUserId", "FinishedAtUtc");
+
+                    b.ToTable("DraftResults", "Draft");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.DraftRooms.DraftResultPlayer", b =>
+                {
+                    b.Property<Guid>("ResultId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("SeatIndex")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DisplayName")
+                        .IsRequired()
+                        .HasMaxLength(258)
+                        .HasColumnType("nvarchar(258)");
+
+                    b.Property<string>("UserId")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("ResultId", "SeatIndex");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("DraftResultPlayers", "Draft");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.DraftRooms.DraftRoom", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasMaxLength(8)
+                        .HasColumnType("varchar(8)");
+
+                    b.Property<DateTime>("CreatedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DraftType")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(64)
+                        .HasColumnType("varchar(64)")
+                        .HasDefaultValue("FactionPick");
+
+                    b.Property<bool>("IsLocked")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastActivityUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)");
+
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<Guid?>("ResultId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(16)
+                        .HasColumnType("varchar(16)");
+
+                    b.Property<int>("Version")
+                        .IsConcurrencyToken()
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Code")
+                        .IsUnique();
+
+                    b.ToTable("DraftRooms", "Draft");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.DraftRooms.DraftRoomChatMessage", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<DateTime>("CreatedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Kind")
+                        .IsRequired()
+                        .HasMaxLength(16)
+                        .HasColumnType("varchar(16)");
+
+                    b.Property<Guid?>("ParticipantId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("RoomId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoomId", "Id");
+
+                    b.ToTable("DraftRoomChatMessages", "Draft");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.DraftRooms.DraftRoomLogEntry", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<Guid?>("ActorParticipantId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DataJson")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("RoomId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(48)
+                        .HasColumnType("varchar(48)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoomId", "Id");
+
+                    b.ToTable("DraftRoomLogEntries", "Draft");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.DraftRooms.DraftRoomParticipant", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("CanReclaimDraftSeat")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("DisplayName")
+                        .IsRequired()
+                        .HasMaxLength(258)
+                        .HasColumnType("nvarchar(258)");
+
+                    b.Property<string>("DisplayNameKey")
+                        .IsRequired()
+                        .HasMaxLength(258)
+                        .HasColumnType("nvarchar(258)");
+
+                    b.Property<Guid?>("DraftSeatId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("JoinedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("LastSeenUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasMaxLength(16)
+                        .HasColumnType("varchar(16)");
+
+                    b.Property<Guid>("RoomId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<byte[]>("SecretHash")
+                        .HasMaxLength(32)
+                        .HasColumnType("varbinary(32)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(16)
+                        .HasColumnType("varchar(16)");
+
+                    b.Property<string>("UserId")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("RoomId", "DisplayNameKey")
+                        .IsUnique()
+                        .HasFilter("[Status] = 'Active'");
+
+                    b.HasIndex("RoomId", "UserId")
+                        .IsUnique()
+                        .HasFilter("[UserId] IS NOT NULL");
+
+                    b.ToTable("DraftRoomParticipants", "Draft");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.DraftRooms.DraftRoomSeat", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("ClaimedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("HasBeenReleased")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("Index")
+                        .HasColumnType("int");
+
+                    b.Property<Guid?>("ParticipantId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("RoomId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ParticipantId");
+
+                    b.HasIndex("RoomId", "Index")
+                        .IsUnique();
+
+                    b.HasIndex("RoomId", "ParticipantId")
+                        .IsUnique()
+                        .HasFilter("[ParticipantId] IS NOT NULL");
+
+                    b.ToTable("DraftRoomSeats", "Draft");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.DraftRooms.FactionPickSelection", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("DecidedByParticipantId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Faction")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(128)");
+
+                    b.Property<string>("Kind")
+                        .IsRequired()
+                        .HasMaxLength(16)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(16)");
+
+                    b.Property<DateTime?>("LockedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("RoomId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Round")
+                        .HasColumnType("int");
+
+                    b.Property<Guid?>("SeatId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("State")
+                        .IsRequired()
+                        .HasMaxLength(16)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(16)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoomId", "SeatId", "Kind");
+
+                    b.HasIndex("RoomId", "SeatId", "Kind", "Faction")
+                        .IsUnique();
+
+                    b.ToTable("FactionPickSelections", "Draft");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.DraftRooms.FactionPickSettings", b =>
+                {
+                    b.Property<Guid>("RoomId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("BansMode")
+                        .IsRequired()
+                        .HasMaxLength(32)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(32)");
+
+                    b.Property<int>("BansPerPlayer")
+                        .HasColumnType("int");
+
+                    b.PrimitiveCollection<string>("GameVersions")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("HostBanCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PickOrderMode")
+                        .IsRequired()
+                        .HasMaxLength(16)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(16)");
+
+                    b.Property<int>("PicksPerPlayer")
+                        .HasColumnType("int");
+
+                    b.PrimitiveCollection<string>("SeatOrder")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Snake")
+                        .HasColumnType("bit");
+
+                    b.HasKey("RoomId");
+
+                    b.ToTable("FactionPickSettings", "Draft");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.DraftRooms.FactionPickState", b =>
+                {
+                    b.Property<Guid>("RoomId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("BansRevealed")
+                        .HasColumnType("bit");
+
+                    b.PrimitiveCollection<string>("LockedBanSeatIds")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phase")
+                        .IsRequired()
+                        .HasMaxLength(16)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(16)");
+
+                    b.Property<int>("TurnIndex")
+                        .HasColumnType("int");
+
+                    b.HasKey("RoomId");
+
+                    b.ToTable("FactionPickStates", "Draft");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.DraftRooms.FactionPickTurnEntry", b =>
+                {
+                    b.Property<Guid>("RoomId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Position")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("SeatId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("RoomId", "Position");
+
+                    b.HasIndex("RoomId", "SeatId")
+                        .IsUnique();
+
+                    b.ToTable("FactionPickTurnOrder", "Draft");
+                });
+
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Factions.Faction", b =>
                 {
                     b.Property<string>("FactionName")
@@ -36666,6 +37110,132 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.Navigation("GameStatistics");
                 });
 
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.DraftRooms.DraftResult", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Users.TwilightImperiumUser", null)
+                        .WithMany()
+                        .HasForeignKey("OwnerUserId")
+                        .OnDelete(DeleteBehavior.SetNull);
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.DraftRooms.DraftResultPlayer", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.DraftRooms.DraftResult", null)
+                        .WithMany("Players")
+                        .HasForeignKey("ResultId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Users.TwilightImperiumUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.SetNull);
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.DraftRooms.DraftRoomChatMessage", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.DraftRooms.DraftRoom", "Room")
+                        .WithMany("ChatMessages")
+                        .HasForeignKey("RoomId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Room");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.DraftRooms.DraftRoomLogEntry", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.DraftRooms.DraftRoom", "Room")
+                        .WithMany("LogEntries")
+                        .HasForeignKey("RoomId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Room");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.DraftRooms.DraftRoomParticipant", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.DraftRooms.DraftRoom", "Room")
+                        .WithMany("Participants")
+                        .HasForeignKey("RoomId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.Users.TwilightImperiumUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.Navigation("Room");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.DraftRooms.DraftRoomSeat", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.DraftRooms.DraftRoomParticipant", "Participant")
+                        .WithMany()
+                        .HasForeignKey("ParticipantId");
+
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.DraftRooms.DraftRoom", "Room")
+                        .WithMany("Seats")
+                        .HasForeignKey("RoomId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Participant");
+
+                    b.Navigation("Room");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.DraftRooms.FactionPickSelection", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.DraftRooms.DraftRoom", null)
+                        .WithMany("FactionPickSelections")
+                        .HasForeignKey("RoomId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.DraftRooms.DraftRoomSeat", null)
+                        .WithMany()
+                        .HasForeignKey("RoomId", "SeatId")
+                        .HasPrincipalKey("RoomId", "Id")
+                        .OnDelete(DeleteBehavior.NoAction);
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.DraftRooms.FactionPickSettings", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.DraftRooms.DraftRoom", null)
+                        .WithOne("FactionPickSettings")
+                        .HasForeignKey("TwilightImperiumUltimate.Core.Entities.DraftRooms.FactionPickSettings", "RoomId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.DraftRooms.FactionPickState", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.DraftRooms.DraftRoom", null)
+                        .WithOne("FactionPickState")
+                        .HasForeignKey("TwilightImperiumUltimate.Core.Entities.DraftRooms.FactionPickState", "RoomId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.DraftRooms.FactionPickTurnEntry", b =>
+                {
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.DraftRooms.DraftRoom", null)
+                        .WithMany("FactionPickTurnOrder")
+                        .HasForeignKey("RoomId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TwilightImperiumUltimate.Core.Entities.DraftRooms.DraftRoomSeat", null)
+                        .WithMany()
+                        .HasForeignKey("RoomId", "SeatId")
+                        .HasPrincipalKey("RoomId", "Id")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Galaxy.Map", b =>
                 {
                     b.HasOne("TwilightImperiumUltimate.Core.Entities.Users.TwilightImperiumUser", "User")
@@ -37057,6 +37627,30 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.Navigation("GameStatistics");
 
                     b.Navigation("PlayerStatistics");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.DraftRooms.DraftResult", b =>
+                {
+                    b.Navigation("Players");
+                });
+
+            modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.DraftRooms.DraftRoom", b =>
+                {
+                    b.Navigation("ChatMessages");
+
+                    b.Navigation("FactionPickSelections");
+
+                    b.Navigation("FactionPickSettings");
+
+                    b.Navigation("FactionPickState");
+
+                    b.Navigation("FactionPickTurnOrder");
+
+                    b.Navigation("LogEntries");
+
+                    b.Navigation("Participants");
+
+                    b.Navigation("Seats");
                 });
 
             modelBuilder.Entity("TwilightImperiumUltimate.Core.Entities.Factions.Faction", b =>

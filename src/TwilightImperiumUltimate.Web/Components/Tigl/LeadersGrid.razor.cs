@@ -1,6 +1,6 @@
+using Microsoft.AspNetCore.Components.Web;
 using TwilightImperiumUltimate.Contracts.DTOs.Rankings;
 using TwilightImperiumUltimate.Contracts.Enums;
-using Microsoft.AspNetCore.Components.Web;
 using TwilightImperiumUltimate.Web.Helpers.Time;
 
 namespace TwilightImperiumUltimate.Web.Components.Tigl;

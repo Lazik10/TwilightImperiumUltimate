@@ -1,5 +1,5 @@
-using TwilightImperiumUltimate.Contracts.DTOs.Rankings;
 using Microsoft.AspNetCore.Components.Web;
+using TwilightImperiumUltimate.Contracts.DTOs.Rankings;
 
 namespace TwilightImperiumUltimate.Web.Components.Tigl;
 
@@ -33,6 +33,19 @@ public partial class AchievementsGrid
         return $"{Pages.Pages.TiglGameDetail}?id={id}";
     }
 
+    private static TextColor GetRarityTextColor(double rarityPercent)
+    {
+        return rarityPercent switch
+        {
+            < 0.1 => TextColor.Pink,
+            < 0.5 => TextColor.Orange,
+            < 5.0 => TextColor.Purple,
+            < 15.0 => TextColor.LightBlue,
+            < 30.0 => TextColor.Green,
+            _ => TextColor.White,
+        };
+    }
+
     private async Task LoadAchievements()
     {
         var (resp, status) = await HttpClient.GetAsync<ApiResponse<ItemListDto<RankingsAchievementDto>>>(Paths.ApiPath_RecentAchievements);
@@ -57,18 +70,5 @@ public partial class AchievementsGrid
     {
         if (eventArgs.Key is "Enter" or " ")
             NavigateToProfile(tiglUserId);
-    }
-
-    private static TextColor GetRarityTextColor(double rarityPercent)
-    {
-        return rarityPercent switch
-        {
-            < 0.1 => TextColor.Pink,
-            < 0.5 => TextColor.Orange,
-            < 5.0 => TextColor.Purple,
-            < 15.0 => TextColor.LightBlue,
-            < 30.0 => TextColor.Green,
-            _ => TextColor.White,
-        };
     }
 }

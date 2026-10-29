@@ -5,13 +5,15 @@ namespace TwilightImperiumUltimate.Web.Helpers.Numbers;
 
 public static class NumberFormatExtensions
 {
+    private static readonly string[] RomanNumerals = [string.Empty, "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"];
+
     public static string ToRomanNumeral(this int number)
     {
         return number switch
         {
             <= 0 => string.Empty,
             >= 10 => number.ToString(CultureInfo.InvariantCulture),
-            _ => new[] { string.Empty, "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" }[number],
+            _ => RomanNumerals[number],
         };
     }
 

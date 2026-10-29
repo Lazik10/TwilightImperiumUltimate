@@ -1,4 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
+using TwilightImperiumUltimate.Contracts.DTOs.DraftRooms;
+using TwilightImperiumUltimate.Draft.DraftRooms.Engine;
+using TwilightImperiumUltimate.Draft.DraftRooms.FactionPick;
 using TwilightImperiumUltimate.Draft.Drafts.ColorDraft;
 using TwilightImperiumUltimate.Draft.Drafts.FactionDraft;
 using TwilightImperiumUltimate.Draft.Drafts.MapDraft.Implementations;
@@ -12,6 +15,12 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection RegisterDraftServices(
         this IServiceCollection services)
     {
+        services.AddSingleton<IRandomnessSource, CryptoRandomnessSource>();
+        services.AddScoped<IDraftTypeRegistry, DraftTypeRegistry>();
+        services.AddScoped<IDraftTypeModule>(provider =>
+            new DraftTypeModule<FactionPickSettingsDto, FactionPickDraftState>(
+                provider.GetRequiredService<FactionPickDraftType>()));
+        services.AddScoped<FactionPickDraftType>();
         services.AddScoped<IFactionDraftService, FactionDraftService>();
         services.AddScoped<IColorDraftService, ColorDraftService>();
 

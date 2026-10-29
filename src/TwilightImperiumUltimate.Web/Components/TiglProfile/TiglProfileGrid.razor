@@ -38,26 +38,26 @@ else
             </div>
             @if (SelectedLeagueProfile is not null)
             {
-                <TiglLeagueSummaryCard Profile="@SelectedLeagueProfile" Prestige="@SelectedPrestige" Games="@FilteredGameHistory" />
+                <TiglLeagueSummaryCard Profile="@SelectedLeagueProfile" Prestige="@SelectedPrestige" Games="@GetFilteredGameHistory()" />
                 <TiglRatingProgression @key="CurrentCategory" Profile="@SelectedLeagueProfile" />
-                <TiglRankHistoryTable Ranks="@FilteredRankHistory" />
-                <TiglPrestigeHistoryTable Profile="@Profile" Prestiges="@FilteredPrestigeRanks" PathProvider="@PathProvider" />
+                <TiglRankHistoryTable Ranks="@GetFilteredRankHistory()" />
+                <TiglPrestigeHistoryTable Profile="@Profile" Prestiges="@GetFilteredPrestigeRanks()" PathProvider="@PathProvider" />
             }
-            <TiglFactionStatisticsTable Stats="@FilteredFactionStats"
+            <TiglFactionStatisticsTable Stats="@GetFilteredFactionStats()"
                                         ShowFilters="@(SelectedLeague == TiglLeague.Fractured)"
                                         AreFiltersVisible="@_areFactionFiltersVisible"
                                         FilterButtonLabel="@FilterButtonLabel"
                                         FilterIconPath="@FilterIconPath"
                                         OnToggleFilters="ToggleFactionFilters">
                 <FilterContent>
-                    <ResponsiveDropDown TValue="FactionStatisticsFilter" Id="tigl-profile-faction-filter" Data="@FactionFilterOptions" TextProperty="Value" ValueProperty="Key" Value="@EffectiveFactionStatisticsFilter" ValueChanged="OnFactionStatisticsFilterChanged" Label="Factions" LabelPosition="LabelPosition.Column" Disabled="@(SelectedLeague == TiglLeague.ThundersEdge)" Width="100" />
+                    <ResponsiveDropDown TValue="FactionStatisticsFilter" Id="tigl-profile-faction-filter" Data="@GetFactionFilterOptions()" TextProperty="Value" ValueProperty="Key" Value="@EffectiveFactionStatisticsFilter" ValueChanged="OnFactionStatisticsFilterChanged" Label="Factions" LabelPosition="LabelPosition.Column" Disabled="@(SelectedLeague == TiglLeague.ThundersEdge)" Width="100" />
                 </FilterContent>
             </TiglFactionStatisticsTable>
             @if (SelectedLeagueProfile is not null)
             {
-                <TiglSeasonHistoryTable Seasons="@FilteredSeasons" LeagueProfile="@SelectedLeagueProfile" OnGameSelected="NavigateToGameDetail" />
-                <TiglGameHistoryTable Games="@FilteredGameHistory" OnGameSelected="NavigateToGameDetail" />
-                <TiglTopOpponentsTable Opponents="@FilteredTopOpponents" OnPlayerSelected="NavigateToPlayerProfile" />
+                <TiglSeasonHistoryTable Seasons="@GetFilteredSeasons()" LeagueProfile="@SelectedLeagueProfile" OnGameSelected="NavigateToGameDetail" />
+                <TiglGameHistoryTable Games="@GetFilteredGameHistory()" OnGameSelected="NavigateToGameDetail" />
+                <TiglTopOpponentsTable Opponents="@GetFilteredTopOpponents()" OnPlayerSelected="NavigateToPlayerProfile" />
             }
             <section class="tigl-achievements" aria-label="Achievements">
                 <ResponsiveCard CssClass="achievement-title-card mt-xl mb-md">
@@ -66,10 +66,13 @@ else
                         <ResponsiveCheckbox Label="Show all" IsChecked="@_showAllAchievements" IsCheckedChanged="OnShowAllAchievementsChanged" />
                     </div>
                 </ResponsiveCard>
-                @if (DisplayedAchievements.Any())
+                @{
+                    var displayedAchievements = GetDisplayedAchievements();
+                }
+                @if (displayedAchievements.Count > 0)
                 {
                     <div class="achievements-list">
-                        @foreach (var entry in DisplayedAchievements)
+                        @foreach (var entry in displayedAchievements)
                         {
                             <TiglProfileAchievementRow @key="entry.Achievement.AchievementName" Achievement="entry.Achievement" RarityPercent="entry.RarityPercent" IsEarned="entry.IsEarned" />
                         }

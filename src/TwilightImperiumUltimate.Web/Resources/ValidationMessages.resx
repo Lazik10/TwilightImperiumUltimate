@@ -204,4 +204,31 @@
   <data name="ResetPassword__ConfirmPasswordMatch" xml:space="preserve">
     <value>Passwords must match.</value>
   </data>
+  <data name="DraftRooms_RoomNameRequired" xml:space="preserve">
+    <value>Room name is required.</value>
+  </data>
+  <data name="DraftRooms_RoomNameLength" xml:space="preserve">
+    <value>Room name must be between 3 and 60 characters.</value>
+  </data>
+  <data name="DraftRooms_PasswordRequired" xml:space="preserve">
+    <value>Password is required.</value>
+  </data>
+  <data name="DraftRooms_PasswordLength" xml:space="preserve">
+    <value>Password must be between 6 and 64 characters.</value>
+  </data>
+  <data name="DraftRooms_DisplayNameRequired" xml:space="preserve">
+    <value>Display name is required.</value>
+  </data>
+  <data name="DraftRooms_DisplayNameLength" xml:space="preserve">
+    <value>Display name must be between 2 and 24 characters.</value>
+  </data>
+  <data name="DraftRooms_CodeRequired" xml:space="preserve">
+    <value>Room code is required.</value>
+  </data>
+  <data name="DraftRooms_CodeLength" xml:space="preserve">
+    <value>Room code must contain exactly 6 characters.</value>
+  </data>
+  <data name="DraftRooms_CodeCharacters" xml:space="preserve">
+    <value>Room code contains an invalid character.</value>
+  </data>
 </root>

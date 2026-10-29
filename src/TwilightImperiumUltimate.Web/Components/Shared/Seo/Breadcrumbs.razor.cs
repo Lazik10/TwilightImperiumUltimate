@@ -1,11 +1,11 @@
-using Microsoft.AspNetCore.Components.Routing;
 using System.Text;
+using Microsoft.AspNetCore.Components.Routing;
 
 namespace TwilightImperiumUltimate.Web.Components.Shared.Seo;
 
 public partial class Breadcrumbs : IDisposable
 {
-    private static readonly IReadOnlyDictionary<string, string> Labels = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+    private static readonly Dictionary<string, string> Labels = new(StringComparer.OrdinalIgnoreCase)
     {
         ["/game"] = "Game Reference",
         ["/tools"] = "Tools",
@@ -20,6 +20,8 @@ public partial class Breadcrumbs : IDisposable
         ["/community/play-of-the-month"] = "Play of the Month",
     };
 
+    private bool _disposed;
+
     [Inject]
     private NavigationManager NavigationManager { get; set; } = default!;
 
@@ -27,7 +29,19 @@ public partial class Breadcrumbs : IDisposable
 
     public void Dispose()
     {
-        NavigationManager.LocationChanged -= OnLocationChanged;
+        this.Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+        if (this._disposed)
+            return;
+
+        if (disposing)
+            NavigationManager.LocationChanged -= OnLocationChanged;
+
+        this._disposed = true;
     }
 
     protected override void OnInitialized()

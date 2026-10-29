@@ -1,0 +1,81 @@
+@namespace TwilightImperiumUltimate.Web.Components.DraftRooms
+@using TwilightImperiumUltimate.Contracts.DraftRooms
+@using TwilightImperiumUltimate.Contracts.Enums
+@using TwilightImperiumUltimate.Web.Services.DraftRooms
+
+<section class="draft-room-chat-panel" aria-label="@GetString("DraftRooms_ChatHeading")">
+    <ResponsiveHeading Level="2" Text="@GetString("DraftRooms_ChatHeading")" />
+
+    @if (_isLoading)
+    {
+        <p role="status">@GetString("DraftRooms_ChatLoading")</p>
+    }
+    else if (_historyError)
+    {
+        <p class="draft-room-chat-panel__error" role="alert">@GetString("DraftRooms_ChatHistoryFailed")</p>
+    }
+
+    <ol class="draft-room-chat-panel__messages"
+        role="log"
+        aria-label="@GetString("DraftRooms_ChatMessages")"
+        aria-live="@(_historyReadyForAnnouncements ? "polite" : "off")"
+        aria-relevant="additions"
+        tabindex="0"
+        @ref="_messagesElement">
+        @foreach (var message in _messages)
+        {
+            <li @key="message.Id" class="@GetMessageClass(message)">
+                @if (message.Kind == ChatMessageKind.User)
+                {
+                    <p class="draft-room-chat-panel__message-content">
+                        <strong>@(message.DisplayName ?? GetString("DraftRooms_UnknownParticipant"))</strong>
+                        <span>@message.Text</span>
+                    </p>
+                }
+                else
+                {
+                    <p class="draft-room-chat-panel__message-content">
+                        <strong>@GetString("DraftRooms_ChatSystemMessage")</strong>
+                        <span>@message.Text</span>
+                    </p>
+                }
+                <time datetime="@GetTimestampIso(message)">@GetTimestamp(message)</time>
+            </li>
+        }
+    </ol>
+
+    @if (!_isLoading && !_historyError && _messages.Count == 0)
+    {
+        <p class="draft-room-chat-panel__empty" role="status">@GetString("DraftRooms_ChatEmpty")</p>
+    }
+
+    @if (_statusMessage is not null)
+    {
+        <p id="draft-room-chat-status"
+           class="draft-room-chat-panel__status @(_statusIsError ? "draft-room-chat-panel__error" : string.Empty)"
+           role="@(_statusIsPolite ? "status" : "alert")"
+           aria-live="@(_statusIsPolite ? "polite" : "assertive")">
+            @_statusMessage
+        </p>
+    }
+
+    <form class="draft-room-chat-panel__form"
+          aria-label="@GetString("DraftRooms_ChatForm")"
+          @onsubmit="HandleSubmitAsync"
+          @onsubmit:preventDefault="true">
+        <label for="draft-room-chat-input">@GetString("DraftRooms_ChatInputLabel")</label>
+        <ResponsiveTextBox Id="draft-room-chat-input"
+                           Name="draft-room-chat-message"
+                           Value="@_messageText"
+                           ValueChanged="HandleMessageTextChanged"
+                           MaxLength="@DraftRoomLimits.MaxChatMessageLength"
+                           Disabled="_isSending"
+                           AriaDescribedBy="@(_statusMessage is null ? null : "draft-room-chat-status")" />
+        @if (!string.IsNullOrWhiteSpace(_messageText))
+        {
+            <ResponsiveButton Text="@GetString("DraftRooms_ChatSend")"
+                              ButtonType="ButtonType.Submit"
+                              IsDisabled="_isSending" />
+        }
+    </form>
+</section>

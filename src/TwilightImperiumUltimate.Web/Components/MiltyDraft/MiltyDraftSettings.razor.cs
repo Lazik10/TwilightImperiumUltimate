@@ -24,6 +24,14 @@ public partial class MiltyDraftSettings
 
     protected override void OnInitialized() => _wormholeDensities = EnumExtensions.GetEnumValuesWithDisplayNames<WormholeDensity>();
 
+    private static int[] GetPlayerCountOptions() =>
+        Enumerable.Range(MiltyDraftOptions.MinNumberOfPlayers, (MiltyDraftOptions.MaxNumberOfPlayers - MiltyDraftOptions.MinNumberOfPlayers) + 1).ToArray();
+
+    private static int[] GetSliceCountOptions() =>
+        Enumerable.Range(MiltyDraftOptions.MinNumberOfSlices, (MiltyDraftOptions.MaxNumberOfSlices - MiltyDraftOptions.MinNumberOfSlices) + 1).ToArray();
+
+    private static int[] GetFactionCountOptions() => Enumerable.Range(MiltyDraftOptions.MinNumberOfPlayers, 60).ToArray();
+
     private async Task SetGameVersionAsync(GameVersion gameVersion, bool isEnabled)
     {
         if (MiltyDraftSettingsService.GameVersions.Contains(gameVersion) != isEnabled)
@@ -107,15 +115,7 @@ public partial class MiltyDraftSettings
 
     private Task SetWormholeDensityAsync(WormholeDensity wormholeDensity) => MiltyDraftSettingsService.UpdateWormholeDensity(wormholeDensity);
 
-    private static IReadOnlyCollection<int> GetPlayerCountOptions() =>
-        Enumerable.Range(MiltyDraftOptions.MinNumberOfPlayers, (MiltyDraftOptions.MaxNumberOfPlayers - MiltyDraftOptions.MinNumberOfPlayers) + 1).ToArray();
-
-    private static IReadOnlyCollection<int> GetSliceCountOptions() =>
-        Enumerable.Range(MiltyDraftOptions.MinNumberOfSlices, (MiltyDraftOptions.MaxNumberOfSlices - MiltyDraftOptions.MinNumberOfSlices) + 1).ToArray();
-
-    private static IReadOnlyCollection<int> GetFactionCountOptions() => Enumerable.Range(MiltyDraftOptions.MinNumberOfPlayers, 60).ToArray();
-
-    private IReadOnlyCollection<int> GetLegendaryPlanetOptions() =>
+    private int[] GetLegendaryPlanetOptions() =>
         Enumerable.Range(0, GetMaximumLegendaryPlanetCount() + 1).ToArray();
 
     private int GetMaximumLegendaryPlanetCount()

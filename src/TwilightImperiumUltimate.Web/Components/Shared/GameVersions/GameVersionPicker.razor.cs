@@ -7,6 +7,15 @@ public partial class GameVersionPicker : TwilightImperiumBaseComponent
     [Parameter]
     public EventCallback<GameVersion> OnVersionSelected { get; set; }
 
+    [Parameter]
+    public IReadOnlyCollection<GameVersion>? SelectableVersions { get; set; }
+
+    [Parameter]
+    public IReadOnlyCollection<GameVersion> SelectedVersions { get; set; } = [];
+
+    [Parameter]
+    public bool Disabled { get; set; }
+
     protected override void OnInitialized()
     {
         _versions = Enum.GetValues<GameVersion>()

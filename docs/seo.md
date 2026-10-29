@@ -9,6 +9,7 @@ The WebAssembly client adds route-aware metadata through `SeoMetadata` in the ma
 - Visible breadcrumb navigation and matching `BreadcrumbList` markup for public content routes.
 - `Article` list markup for the news feed and `CreativeWork` markup for public map and slice details after their data loads.
 - `noindex, follow` for account, action, query-string, legacy, and unknown routes.
+- Draft room codes and public result tokens under `/tools/draft-rooms/` are `noindex, follow` and never included in the sitemap. Bare room pages provide their own robots metadata; public result pages use the main layout's `SeoMetadata`.
 - Page-type Open Graph preview images. The `social-*.png` assets are `1200×630` screenshots captured from representative faction, tools, TIGL, rules, map archive, and slice archive pages. Other pages use `resources/images/shared/Twilight_imperium_ultimate_background.webp`.
 
 `sitemap.xml` is generated before publish from `SitemapPaths` and the `FactionName` enum. It cannot drift when factions are added. To include public database-backed map and slice details, set `SitemapApiBaseUrl` to the public API origin during the release publish; the generator queries the existing public archive endpoints and adds their canonical detail URLs.
@@ -20,7 +21,7 @@ The standalone Blazor WebAssembly client cannot control the initial HTTP respons
 1. Redirect HTTP to HTTPS and all non-canonical hostnames to `https://ti4ultimate.com` with a permanent redirect.
 2. Return HTTP `404` for unknown routes instead of returning the SPA fallback with `200 OK`.
 3. Return permanent redirects for retired routes, including the legacy Discordant Stars faction route.
-4. Return `X-Robots-Tag: noindex, follow` for `/account/` and other private/action route prefixes.
+4. Return `X-Robots-Tag: noindex, follow` for `/account/`, `/tools/draft-rooms/` room/result routes and other private/action route prefixes.
 5. Serve compressed static assets and long-lived cache headers for fingerprinted framework files.
 
 ## Content and metadata maintenance

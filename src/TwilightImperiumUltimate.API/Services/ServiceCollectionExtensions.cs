@@ -1,6 +1,9 @@
 using System.Text.Json.Serialization;
+using System.Threading.RateLimiting;
+using Microsoft.AspNetCore.Authentication.BearerToken;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.OpenApi;
 using Quartz;
 using Quartz.Simpl;
@@ -9,8 +12,11 @@ using TwilightImperiumUltimate.API.Discord.Services;
 using TwilightImperiumUltimate.API.Email;
 using TwilightImperiumUltimate.API.Helpers;
 using TwilightImperiumUltimate.API.Jobs;
+using TwilightImperiumUltimate.API.Services.DraftRooms;
 using TwilightImperiumUltimate.Business;
+using TwilightImperiumUltimate.Business.Services.DraftRooms;
 using TwilightImperiumUltimate.Core.Entities.Users;
+using TwilightImperiumUltimate.Core.Interfaces.DraftRooms;
 using TwilightImperiumUltimate.DataAccess.DbContexts.TwilightImperium;
 
 namespace TwilightImperiumUltimate.API.Services;
@@ -22,9 +28,34 @@ internal static class ServiceCollectionExtensions
         IConfiguration configuration)
     {
         services.RegisterBusinessLayer(configuration);
+        services.AddSingleton<IRoomChangeNotifier, SignalRRoomChangeNotifier>();
+        services.AddHostedService<PresenceChatPublisher>();
+        services.AddOptions<DraftRoomRetentionOptions>()
+            .Bind(configuration.GetSection("DraftRooms"))
+            .Validate<IHostEnvironment>(
+                (options, environment) => options.InactiveRoomRetentionDays is > 0 and <= 36500
+                    || (options.InactiveRoomRetentionDays == 0 && environment.IsDevelopment()),
+                "Room retention must be between 1 and 36500 days; zero is permitted only in Development.")
+            .ValidateOnStart();
 
         services.AddAuthentication()
             .AddBearerToken();
+        services.Configure<BearerTokenOptions>(IdentityConstants.BearerScheme, options =>
+        {
+            options.Events.OnMessageReceived = context =>
+            {
+                var accessToken = context.Request.Query["access_token"];
+                if (accessToken.Count == 1
+                    && !string.IsNullOrWhiteSpace(accessToken[0])
+                    && context.HttpContext.Request.Path.StartsWithSegments("/hubs", StringComparison.OrdinalIgnoreCase))
+                {
+                    context.Token = accessToken[0];
+                }
+
+                return Task.CompletedTask;
+            };
+        });
+
         services.AddScoped<ApiKeyStatsAuthAttribute>();
         services.AddScoped<IAsyncStatisticsSnapshotOperations, AsyncStatisticsSnapshotOperations>();
 
@@ -48,6 +79,23 @@ internal static class ServiceCollectionExtensions
             {
                 options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
             });
+
+        services.AddSignalR();
+
+        services.AddRateLimiter(options =>
+        {
+            options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+            options.AddPolicy("draft-room-create", httpContext =>
+                RateLimitPartition.GetFixedWindowLimiter(
+                    partitionKey: httpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown",
+                    factory: _ => new FixedWindowRateLimiterOptions
+                    {
+                        AutoReplenishment = true,
+                        PermitLimit = 10,
+                        QueueLimit = 0,
+                        Window = TimeSpan.FromHours(1),
+                    }));
+        });
 
         services.AddCors();
 
@@ -127,6 +175,14 @@ internal static class ServiceCollectionExtensions
         {
             q.UseJobFactory<MicrosoftDependencyInjectionJobFactory>();
 
+            var cleanupKey = new JobKey(nameof(DraftRoomCleanupJob));
+            var cleanupCron = configuration.GetValue<string>("DraftRooms:CleanupCronExpression") ?? "0 15 3 * * ?";
+            q.AddJob<DraftRoomCleanupJob>(options => options.WithIdentity(cleanupKey));
+            q.AddTrigger(options => options
+                .ForJob(cleanupKey)
+                .WithIdentity($"{nameof(DraftRoomCleanupJob)}-trigger")
+                .WithCronSchedule(cleanupCron, schedule => schedule.InTimeZone(TimeZoneInfo.Utc).WithMisfireHandlingInstructionDoNothing()));
+
             var jobKey = new JobKey(nameof(AsyncGameDataJob));
             var defaultCroneExpression = "0 0 * * * ?";
             var croneExpression = configuration.GetValue<string>("AsyncStats:CroneExpression");
@@ -175,6 +231,7 @@ internal static class ServiceCollectionExtensions
         });
 
         services.AddTransient<AsyncGameDataJob>();
+        services.AddTransient<DraftRoomCleanupJob>();
         services.AddTransient<AsyncStatisticsSnapshotJob>();
         services.AddTransient<SeasonLeaderboardRefreshJob>();
         services.AddTransient<GameLogsPublishJob>();

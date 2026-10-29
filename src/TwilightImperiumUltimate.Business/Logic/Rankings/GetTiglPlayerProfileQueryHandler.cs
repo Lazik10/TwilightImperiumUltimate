@@ -1,4 +1,4 @@
-﻿using TwilightImperiumUltimate.Contracts.DTOs.Rankings;
+using TwilightImperiumUltimate.Contracts.DTOs.Rankings;
 using TwilightImperiumUltimate.Contracts.DTOs.Tigl;
 
 namespace TwilightImperiumUltimate.Business.Logic.Rankings;

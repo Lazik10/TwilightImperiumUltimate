@@ -1,0 +1,39 @@
+.faction-pick-board {
+    min-width: 0;
+}
+
+.faction-pick-board__pool {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr));
+    gap: 0.75rem;
+    padding: 0;
+    list-style: none;
+}
+
+.faction-pick-board__pool > li {
+    min-width: 0;
+}
+
+.faction-pick-board__pool ::deep .faction-pick-board__choice {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    height: 100%;
+    min-height: 44px;
+    padding-inline: var(--space-sm);
+    gap: 0.5rem;
+    overflow-wrap: anywhere;
+}
+
+.faction-pick-board__pool ::deep [aria-pressed="true"] {
+    outline: 2px solid currentColor;
+    outline-offset: -4px;
+}
+
+.faction-pick-board :is(h3, select):focus-visible,
+.faction-pick-board ::deep button:focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 3px;
+}

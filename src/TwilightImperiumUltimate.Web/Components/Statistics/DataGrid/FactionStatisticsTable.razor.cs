@@ -8,14 +8,26 @@ namespace TwilightImperiumUltimate.Web.Components.Statistics.DataGrid;
 
 public partial class FactionStatisticsTable
 {
-    [Parameter] public IReadOnlyCollection<AsyncFactionsStatsDto> FactionsForDisplay { get; set; } = [];
-    [Parameter] public FactionStatisticsVpFilter SelectedVpFilter { get; set; }
-    [Parameter] public FactionStatisticsSubstatsFilter SelectedSubstatsFilter { get; set; }
-    [Parameter] public bool IsLoading { get; set; }
-
-    [Inject] private IAsyncFactionMinMaxStatsProvider AsyncFactionMinMaxStatsProvider { get; set; } = default!;
-
     private int _row;
+
+    [Parameter]
+    public IReadOnlyCollection<AsyncFactionsStatsDto> FactionsForDisplay { get; set; } = [];
+
+    [Parameter]
+    public FactionStatisticsVpFilter SelectedVpFilter { get; set; }
+
+    [Parameter]
+    public FactionStatisticsSubstatsFilter SelectedSubstatsFilter { get; set; }
+
+    [Parameter]
+    public bool IsLoading { get; set; }
+
+    [Inject]
+    private IAsyncFactionMinMaxStatsProvider AsyncFactionMinMaxStatsProvider { get; set; } = default!;
+
+    private static TextColor GetCorrectLabelColor() => TextColor.White;
+
+    private static TextColor GetWinColor(int wins) => wins > 0 ? TextColor.Green : TextColor.Red;
 
     private AsyncFactionStatsByGameVpDto GetCorrectFactionStatsByVp(AsyncFactionsStatsDto factionStats) => SelectedVpFilter switch
     {
@@ -58,8 +70,6 @@ public partial class FactionStatisticsTable
         _ => Strings.FactionStats_All,
     };
 
-    private static TextColor GetCorrectLabelColor() => TextColor.White;
-
     private string ToFormatedString(float value) => SelectedSubstatsFilter switch
     {
         FactionStatisticsSubstatsFilter.AverageVpPercentage or FactionStatisticsSubstatsFilter.WinPercentage => value.ToStringWithPrecisionAndPercentage(2),
@@ -90,8 +100,6 @@ public partial class FactionStatisticsTable
     };
 
     private bool ShowSubstatsValue() => SelectedSubstatsFilter is not FactionStatisticsSubstatsFilter.WinPercentage and not FactionStatisticsSubstatsFilter.Wins;
-
-    private static TextColor GetWinColor(int wins) => wins > 0 ? TextColor.Green : TextColor.Red;
 
     private IReadOnlyCollection<AsyncFactionsStatsDto> GetSortedFactionsForDisplayByStatistics() => SelectedSubstatsFilter switch
     {

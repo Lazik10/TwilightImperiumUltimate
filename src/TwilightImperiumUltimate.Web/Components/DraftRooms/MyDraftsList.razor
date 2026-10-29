@@ -1,0 +1,57 @@
+@if (CurrentUserState.User is not null)
+{
+    <section @ref="_section" tabindex="-1" aria-label="@Text("MyDraftsHeading")">
+        <ResponsiveHeading Level="2" Text="@Text("MyDraftsHeading")" />
+        @if (_loading)
+        {
+            <p role="status">@Text("ResultsLoading")</p>
+        }
+        else if (_loadError)
+        {
+            <div role="alert">
+                <p>@Text("ResultsLoadFailed")</p>
+                <ResponsiveButton Text="@Text("MyRoomsRetry")" OnClick="LoadAsync" />
+            </div>
+        }
+        else
+        {
+            @if (_deleteError)
+            {
+                <p role="alert">@Text("ResultsDeleteFailed")</p>
+            }
+            @if (_items.Count == 0)
+            {
+                <p role="status">@Text("MyDraftsEmpty")</p>
+            }
+            else
+            {
+                <ul>
+                    @foreach (var result in _items)
+                    {
+                        <li @key="result.Id">
+                            <article>
+                                <h3><a href="@ResultUrl(result)">@result.RoomName</a></h3>
+                                <p><time datetime="@result.FinishedAtUtc.ToString("O")">@result.FinishedAtUtc.ToLocalTime().ToString("g")</time></p>
+                                @if (result.CanDelete)
+                                {
+                                    <ResponsiveDangerButton Text="@Text("DeleteResults")"
+                                                            aria-label="@Format("DeleteNamedResults", result.RoomName)"
+                                                            IsDisabled="@_deleting" OnClick="@(() => ShowDelete(result))" />
+                                }
+                            </article>
+                        </li>
+                    }
+                </ul>
+            }
+            <ResponsiveButtonGroup GroupStyle="ButtonGroupStyle.RowFill">
+                <ResponsiveButton Text="@Text("ResultsPrevious")" IsDisabled="@(_page <= 1 || _deleting)" OnClick="PreviousAsync" />
+                <ResponsiveButton Text="@Text("ResultsNext")" IsDisabled="@(!_hasMore || _deleting)" OnClick="NextAsync" />
+            </ResponsiveButtonGroup>
+            <p role="status">@Format("ResultsPageNumber", _page)</p>
+        }
+        <ResponsiveConfirmDialog IsOpen="@(_deleteTarget is not null)" Title="@Text("DeleteResults")"
+                                 Message="@Text("DeleteResultsConfirmation")"
+                                 ConfirmText="@Text("DeleteResults")" CancelText="@Text("Cancel")"
+                                 OnConfirm="DeleteAsync" OnCancel="CancelDelete" />
+    </section>
+}

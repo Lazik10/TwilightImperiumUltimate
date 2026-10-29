@@ -1,0 +1,27 @@
+@page "/tools/draft-rooms/results/{Token}"
+@using TwilightImperiumUltimate.Web.Components.DraftRooms
+
+<PageTitle>@Text("ResultsPageTitle")</PageTitle>
+<Page>
+    <ResponsiveHeading Level="1" Text="@Text("ResultsPageTitle")" />
+    @if (_loading)
+    {
+        <p role="status">@Text("ResultsLoading")</p>
+    }
+    else if (_notFound)
+    {
+        <p role="status">@Text("ResultsNotFound")</p>
+    }
+    else if (_error)
+    {
+        <div role="alert">
+            <p>@Text("ResultsLoadFailed")</p>
+            <ResponsiveButton Text="@Text("MyRoomsRetry")" OnClick="LoadAsync" />
+        </div>
+    }
+    else if (_result is not null)
+    {
+        <DraftRoomResultView Result="@_result" />
+    }
+    <a href="@Pages.DraftRooms">@Text("BackToDraftRooms")</a>
+</Page>

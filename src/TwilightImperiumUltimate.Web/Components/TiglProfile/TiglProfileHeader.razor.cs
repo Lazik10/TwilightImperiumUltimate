@@ -5,7 +5,7 @@ namespace TwilightImperiumUltimate.Web.Components.TiglProfile;
 
 public partial class TiglProfileHeader
 {
-    [Parameter, EditorRequired]
+    [Parameter]
+    [EditorRequired]
     public TiglPlayerProfileDto Profile { get; set; } = default!;
-
 }

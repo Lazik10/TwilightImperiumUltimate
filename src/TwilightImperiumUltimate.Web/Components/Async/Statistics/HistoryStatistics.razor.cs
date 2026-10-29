@@ -21,15 +21,15 @@ public partial class HistoryStatistics
     [Inject]
     private IAsyncStatsProvider AsyncStatsProvider { get; set; } = default!;
 
-    private static int GetHistoryYear(string categoryKey) => categoryKey.StartsWith("Y-", StringComparison.Ordinal)
-        ? int.Parse(categoryKey[2..], CultureInfo.InvariantCulture)
-        : int.Parse(categoryKey[..4], CultureInfo.InvariantCulture);
-
     protected override async Task OnInitializedAsync()
     {
         _historySummaryStats = await AsyncStatsProvider.GetHistoryStatistics();
         _isDataLoaded = true;
     }
+
+    private static int GetHistoryYear(string categoryKey) => categoryKey.StartsWith("Y-", StringComparison.Ordinal)
+        ? int.Parse(categoryKey[2..], CultureInfo.InvariantCulture)
+        : int.Parse(categoryKey[..4], CultureInfo.InvariantCulture);
 
     private static string GetYearCategoryKey(int year) => $"Y-{year}";
 

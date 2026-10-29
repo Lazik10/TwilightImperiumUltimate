@@ -7,6 +7,7 @@ namespace TwilightImperiumUltimate.Web.Services.Cache;
 /// Keep one <c>static readonly</c> instance per resource on the consuming component.
 /// </summary>
 public sealed class TimedKeyedCache<TKey, TValue>(TimeSpan duration)
+    : IDisposable
     where TKey : notnull
 {
     private readonly Dictionary<TKey, (TValue Value, DateTimeOffset ExpiresAt)> _entries = [];
@@ -17,6 +18,8 @@ public sealed class TimedKeyedCache<TKey, TValue>(TimeSpan duration)
 
     public async Task<TValue> GetOrLoadAsync(TKey key, Func<Task<TValue>> loader)
     {
+        ArgumentNullException.ThrowIfNull(loader);
+
         await _lock.WaitAsync();
         try
         {
@@ -31,5 +34,11 @@ public sealed class TimedKeyedCache<TKey, TValue>(TimeSpan duration)
         {
             _lock.Release();
         }
+    }
+
+    public void Dispose()
+    {
+        this._lock.Dispose();
+        GC.SuppressFinalize(this);
     }
 }

@@ -7,15 +7,18 @@
 *@
 
 <span class="responsive-textbox-host">
-    <RadzenTextBox id="@Id"
+    <RadzenTextBox @ref="_textBox"
+                   id="@Id"
                    Name="@Name"
                    autocomplete="@AutoComplete"
                    aria-describedby="@AriaDescribedBy"
+                   aria-required="@(Required ? "true" : "false")"
                    Placeholder="@Placeholder"
                    Value="@Value"
                    ValueChanged="OnValueChanged"
                    @oninput="OnInput"
                    Disabled="Disabled"
+                   ReadOnly="ReadOnly"
                    MaxLength="@MaxLength"
                    class="@ComputedCssClass"
                    style="@ComputedStyle" />

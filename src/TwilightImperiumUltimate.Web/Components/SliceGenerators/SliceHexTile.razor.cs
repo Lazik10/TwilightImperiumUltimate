@@ -7,6 +7,8 @@ namespace TwilightImperiumUltimate.Web.Components.SliceGenerators;
 
 public partial class SliceHexTile : TwilightImperiumBaseComponent, IDisposable
 {
+    private bool _disposed;
+
     private TileRotation _tileRotation;
 
     private int _degrees;
@@ -63,6 +65,12 @@ public partial class SliceHexTile : TwilightImperiumBaseComponent, IDisposable
         _ => string.Empty,
     };
 
+    public void Dispose()
+    {
+        this.Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
     protected override async Task OnParametersSetAsync()
     {
         if (SystemTile!.SystemTileCategory == SystemTileCategory.Hyperlane)
@@ -72,8 +80,16 @@ public partial class SliceHexTile : TwilightImperiumBaseComponent, IDisposable
     protected override void OnInitialized() =>
         SliceGeneratorService.TileSelectionChanged += HandleTileSelectionChanged;
 
-    public void Dispose() =>
-        SliceGeneratorService.TileSelectionChanged -= HandleTileSelectionChanged;
+    protected virtual void Dispose(bool disposing)
+    {
+        if (this._disposed)
+            return;
+
+        if (disposing)
+            SliceGeneratorService.TileSelectionChanged -= HandleTileSelectionChanged;
+
+        this._disposed = true;
+    }
 
     private Task HandleInitialRotation()
     {

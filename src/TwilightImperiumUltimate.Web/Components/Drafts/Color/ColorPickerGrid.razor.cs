@@ -1,6 +1,6 @@
-using TwilightImperiumUltimate.Web.Services.Draft;
 using TwilightImperiumUltimate.Web.Components.Factions;
 using TwilightImperiumUltimate.Web.Options.Drafts;
+using TwilightImperiumUltimate.Web.Services.Draft;
 
 namespace TwilightImperiumUltimate.Web.Components.Drafts.Color;
 
@@ -12,7 +12,7 @@ public partial class ColorPickerGrid
 
     private IReadOnlyCollection<FactionColorDraftResult> _previewDraftResults = [];
 
-    private IReadOnlyCollection<FactionModel> _previewFactions = [];
+    private FactionModel[] _previewFactions = [];
 
     private bool _showSettings;
 
@@ -95,7 +95,7 @@ public partial class ColorPickerGrid
             _previewDraftResults = draftResults;
     }
 
-    private IReadOnlyCollection<FactionColorDraftResult> GeneratePreviewDraftResults()
+    private FactionColorDraftResult[] GeneratePreviewDraftResults()
     {
         var availableColors = ColorPickerService.Colors
             .Where(color => !color.Value)
@@ -154,7 +154,7 @@ public partial class ColorPickerGrid
 
         return HasEnoughSelectedFactions
             ? !HasDraftResults && !ColorPickerService.IsDraftPossible()
-            : !HasPreviewDraftResults && (!HasAvailableColors || _previewFactions.Count == 0);
+            : !HasPreviewDraftResults && (!HasAvailableColors || _previewFactions.Length == 0);
     }
 
     private void HandleOnDataUpdated(object? sender, EventArgs e)

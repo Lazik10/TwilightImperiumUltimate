@@ -1,0 +1,49 @@
+@namespace TwilightImperiumUltimate.Web.Components.DraftRooms
+@using TwilightImperiumUltimate.Contracts.Enums
+
+<article class="draft-seat-card" aria-label="@SeatHeading">
+    <ResponsiveHeading Level="3"
+                       Text="@SeatHeading" />
+    <p class="draft-seat-card__occupant">
+        @OccupantName
+        @if (Occupant is { } occupant)
+        {
+            <DraftPresenceIndicator IsOnline="@occupant.IsOnline" />
+        }
+    </p>
+
+    <div class="draft-seat-card__actions"
+         role="group"
+         aria-label="@string.Format(CultureInfo.CurrentCulture, Strings.DraftRooms_SeatActions, Seat.Index)">
+        @if (IsOwnSeat && Room.Me.Role == DraftRoomRole.Member && CanUnclaim)
+        {
+            <ResponsiveButton Text="@LeaveLabel"
+                              IsDisabled="IsProcessing"
+                              OnClick="@(() => OnLeaveSeat.InvokeAsync(Seat.Id))" />
+        }
+        @if (IsOccupied && IsManager && CanUnclaim)
+        {
+            <ResponsiveButton Text="@UnclaimLabel"
+                              IsDisabled="IsProcessing"
+                              OnClick="@(() => OnUnclaimSeat.InvokeAsync(Seat.Id))" />
+        }
+        @if (!IsOccupied && CanClaim)
+        {
+            <ResponsiveButton Text="@ClaimLabel"
+                              IsDisabled="IsProcessing"
+                              OnClick="@(() => OnClaimSeat.InvokeAsync(Seat.Id))" />
+        }
+        @if (Room.Me.CanManageSeats)
+        {
+            <ResponsiveDangerButton Text="@Strings.DraftRooms_RemoveSeat"
+                                    IsDisabled="@(IsProcessing || RemovalDisabledReason is not null)"
+                                    aria-describedby="@(RemovalDisabledReason is null ? null : RemovalDisabledReasonId)"
+                                    OnClick="@(() => OnRemoveSeat.InvokeAsync(Seat.Id))" />
+        }
+    </div>
+
+    @if (RemovalDisabledReason is { } reason)
+    {
+        <p class="draft-seat-card__reason" id="@RemovalDisabledReasonId">@reason</p>
+    }
+</article>

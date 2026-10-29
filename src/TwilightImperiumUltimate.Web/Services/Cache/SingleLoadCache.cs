@@ -7,7 +7,7 @@ namespace TwilightImperiumUltimate.Web.Services.Cache;
 /// browser session, no matter how many times the component is re-initialized (e.g. navigating away
 /// and back re-runs <c>OnInitializedAsync</c> every time otherwise).
 /// </summary>
-public sealed class SingleLoadCache<T>
+public sealed class SingleLoadCache<T> : IDisposable
 {
     private readonly SemaphoreSlim _lock = new(1, 1);
 
@@ -15,6 +15,8 @@ public sealed class SingleLoadCache<T>
 
     public async Task<IReadOnlyList<T>> GetOrLoadAsync(Func<Task<IReadOnlyList<T>>> loader)
     {
+        ArgumentNullException.ThrowIfNull(loader);
+
         if (_items is not null)
             return _items;
 
@@ -31,5 +33,11 @@ public sealed class SingleLoadCache<T>
         {
             _lock.Release();
         }
+    }
+
+    public void Dispose()
+    {
+        this._lock.Dispose();
+        GC.SuppressFinalize(this);
     }
 }

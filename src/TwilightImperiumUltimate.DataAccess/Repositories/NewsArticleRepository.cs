@@ -46,6 +46,8 @@ public class NewsArticleRepository(
 
     public async Task<bool> UpdateNewsArticle(NewsArticle newsArticle, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(newsArticle);
+
         await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);
 
         var existing = await dbContext.NewsArticles.FirstOrDefaultAsync(n => n.Id == newsArticle.Id, cancellationToken);

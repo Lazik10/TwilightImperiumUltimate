@@ -34,9 +34,9 @@ public partial class RankRow
             NavigateToProfile(Ranking.Id);
     }
 
-            private string GetRankColorStyle() => $"color: {RankColor.ConvertToString()};";
+    private string GetRankColorStyle() => $"color: {RankColor.ConvertToString()};";
 
-            private string GetPlayerNameStyle() => $"{GetRankColorStyle()} text-align: left;";
+    private string GetPlayerNameStyle() => $"{GetRankColorStyle()} text-align: left;";
 
     private string GetRankText()
     {

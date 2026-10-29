@@ -7,6 +7,8 @@ namespace TwilightImperiumUltimate.Web.Components.SliceGenerators;
 
 public partial class SliceHex : IDisposable
 {
+    private bool _disposed;
+
     [Parameter]
     public SystemTileModel SystemTile { get; set; } = new SystemTileModel();
 
@@ -56,11 +58,25 @@ public partial class SliceHex : IDisposable
         _ => string.Empty,
     };
 
+    public void Dispose()
+    {
+        this.Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
     protected override void OnInitialized() =>
         SliceGeneratorService.TileSelectionChanged += HandleTileSelectionChanged;
 
-    public void Dispose() =>
-        SliceGeneratorService.TileSelectionChanged -= HandleTileSelectionChanged;
+    protected virtual void Dispose(bool disposing)
+    {
+        if (this._disposed)
+            return;
+
+        if (disposing)
+            SliceGeneratorService.TileSelectionChanged -= HandleTileSelectionChanged;
+
+        this._disposed = true;
+    }
 
     private async Task StartDragSystemTile()
     {

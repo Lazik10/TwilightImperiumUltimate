@@ -20,11 +20,6 @@ public partial class MiltyDraftFactionRow
 
     private MiltyDraftState GetMiltyDraftState() => MiltyDraftService.State;
 
-    private int GetGridColumns()
-    {
-        return MiltyDraftSettingsService.NumberOfFactions > 10 ? 10 : MiltyDraftSettingsService.NumberOfFactions;
-    }
-
     private async Task PickFaction(MiltyDraftFactionModel faction)
     {
         if (IsDisabled(faction))
@@ -59,11 +54,10 @@ public partial class MiltyDraftFactionRow
             return "Unpicked";
 
         var player = MiltyDraftService.Players.FirstOrDefault(player => player.Faction == faction.FactionName);
-        return player is null
-            ? "Player"
-            : MiltyDraftSettingsService.EnablePlayerNames
-                ? player.PlayerName
-                : player.PlayerDefaultName;
+        if (player is null)
+            return "Player";
+
+        return MiltyDraftSettingsService.EnablePlayerNames ? player.PlayerName : player.PlayerDefaultName;
     }
 
     private TextColor GetFactionTextColor(MiltyDraftFactionModel faction)

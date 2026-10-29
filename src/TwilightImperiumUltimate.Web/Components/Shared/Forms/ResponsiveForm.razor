@@ -31,7 +31,7 @@
 
         <div class="responsive-form-actions">
 
-            @if (ValidationDisplay == Enums.ValidationDisplay.Summary && _hasValidationErrors)
+            @if ((ValidationDisplay == Enums.ValidationDisplay.Summary || ShowValidationSummary) && _hasValidationErrors)
             {
                 <div class="responsive-form-summary" role="alert">
                     <ValidationSummary />

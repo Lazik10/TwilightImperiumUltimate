@@ -11,9 +11,9 @@ public class AsyncGamesProvider(
 
     private readonly Dictionary<(int, int), IReadOnlyCollection<AsyncGameDto>> _gamesCache = new();
 
-    private IReadOnlyCollection<string> _gameNames = new List<string>();
+    private List<string> _gameNames = [];
 
-    private IReadOnlyCollection<string> _gameFunNames = new List<string>();
+    private List<string> _gameFunNames = [];
 
     public async Task<AsyncGameDto> GetAsyncGameByDiscordId(string asyncGameDiscordId)
     {

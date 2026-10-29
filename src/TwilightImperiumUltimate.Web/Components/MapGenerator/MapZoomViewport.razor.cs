@@ -17,20 +17,16 @@ public partial class MapZoomViewport : IAsyncDisposable
 
     public async ValueTask DisposeAsync()
     {
-        try
+        if (_zoomController is not null)
         {
-            if (_zoomController is not null)
-            {
-                await _zoomController.InvokeVoidAsync("dispose");
-                await _zoomController.DisposeAsync();
-            }
+            await _zoomController.InvokeVoidAsync("dispose");
+            await _zoomController.DisposeAsync();
+        }
 
-            if (_module is not null)
-                await _module.DisposeAsync();
-        }
-        catch (JSDisconnectedException)
-        {
-        }
+        if (_module is not null)
+            await _module.DisposeAsync();
+
+        GC.SuppressFinalize(this);
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)

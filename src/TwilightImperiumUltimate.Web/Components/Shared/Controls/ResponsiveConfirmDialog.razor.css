@@ -1,22 +1,21 @@
-.responsive-confirm-dialog-backdrop {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.65);
-    z-index: 1900;
-}
-
 .responsive-confirm-dialog {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2000;
     width: min(90vw, 28rem);
+    max-height: 90vh;
+    overflow-y: auto;
     box-sizing: border-box;
+    margin: 0;
+    transform: translate(-50%, -50%);
     background: var(--color-nav-panel-bg);
     border: 2px solid black;
     border-radius: var(--border-radius-md);
     padding: var(--space-lg);
+}
+
+.responsive-confirm-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.65);
 }
 
 .responsive-confirm-dialog:focus-visible {

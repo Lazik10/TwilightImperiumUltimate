@@ -8,6 +8,8 @@ public class TiglResultValidator : ITiglResultValidator
 {
     public Task<Result> ValidateResult(IGameReport gameReport)
     {
+        ArgumentNullException.ThrowIfNull(gameReport);
+
         // Validate that two specific galactic events did not occur in the same game
         if (gameReport.Events.Contains("Total War") && gameReport.Events.Contains("Rapid Mobilization"))
         {

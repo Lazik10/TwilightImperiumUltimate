@@ -4,6 +4,8 @@ internal static class Schema
 {
     internal const string Card = "Card";
 
+    internal const string Draft = "Draft";
+
     internal const string Galaxy = "Galaxy";
 
     internal const string Game = "Game";

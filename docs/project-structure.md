@@ -94,6 +94,9 @@ TwilightImperiumUltimate/
 
     TwilightImperiumUltimate.Draft/
       Drafts/
+      DraftRooms/
+        Engine/
+        FactionPick/
       ValueObjects/
 
     TwilightImperiumUltimate.Tigl/
@@ -112,12 +115,21 @@ TwilightImperiumUltimate/
 
   tests/
     TwilightImperiumUltimate.Tests/
+    TwilightImperiumUltimate.ComponentTests/
+    TwilightImperiumUltimate.IntegrationTests/
+      Hosting/
+      Infrastructure/
+      Load/
+    TwilightImperiumUltimate.E2ETests/
+      Hosting/
 ```
 
 Notes:
 
 - Generated output folders like `bin` and `obj` exist but are excluded from source structure documentation.
 - The solution includes one SQL project (`TwilightImperiumUltimate.Database`) in addition to C# projects.
+- Draft Rooms code is grouped under `Components/DraftRooms` and `Services/DraftRooms` in Web, `Logic/DraftRooms` and `Services/DraftRooms` in Business, and `Entities/DraftRooms` in Core. DataAccess configurations/repositories use the main context and the `Draft` schema; the pure engine is in `Draft/DraftRooms`.
+- The E2E project links the integration project's isolated database and API hosting helpers. It runs its own real Kestrel ports and independent browser contexts, not the user's running site/browser.
 
 ---
 

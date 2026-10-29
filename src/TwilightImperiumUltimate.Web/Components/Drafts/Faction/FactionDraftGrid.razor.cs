@@ -1,5 +1,5 @@
-using TwilightImperiumUltimate.Web.Services.Draft;
 using TwilightImperiumUltimate.Web.Options.Drafts;
+using TwilightImperiumUltimate.Web.Services.Draft;
 
 namespace TwilightImperiumUltimate.Web.Components.Drafts.Faction;
 
@@ -40,6 +40,12 @@ public partial class FactionDraftGrid
         FactionDraftService.OnFactionUpdate += HandleOnDataUpdated;
     }
 
+    private static int[] GetPlayerCountOptions() =>
+        Enumerable.Range(FactionDraftOptions.MinNumberOfPlayers, (FactionDraftOptions.MaxNumberOfPlayers - FactionDraftOptions.MinNumberOfPlayers) + 1).ToArray();
+
+    private static int[] GetFactionCountOptions() =>
+        Enumerable.Range(FactionDraftOptions.MinNumberOfDraftFactions, (FactionDraftOptions.MumberOfFactions - FactionDraftOptions.MinNumberOfDraftFactions) + 1).ToArray();
+
     private void UpdateBanFactions(FactionModel faction)
     {
         FactionDraftService.UpdateBanFactions(_factionMenuPicker?.Factions);
@@ -77,12 +83,6 @@ public partial class FactionDraftGrid
         FactionDraftService.EnablePlayerNames = enablePlayerNames;
         StateHasChanged();
     }
-
-    private static IReadOnlyCollection<int> GetPlayerCountOptions() =>
-        Enumerable.Range(FactionDraftOptions.MinNumberOfPlayers, (FactionDraftOptions.MaxNumberOfPlayers - FactionDraftOptions.MinNumberOfPlayers) + 1).ToArray();
-
-    private static IReadOnlyCollection<int> GetFactionCountOptions() =>
-        Enumerable.Range(FactionDraftOptions.MinNumberOfDraftFactions, (FactionDraftOptions.MumberOfFactions - FactionDraftOptions.MinNumberOfDraftFactions) + 1).ToArray();
 
     private string GetButtonStateText()
     {
@@ -151,5 +151,4 @@ public partial class FactionDraftGrid
     {
         StateHasChanged();
     }
-
 }

@@ -2,6 +2,15 @@
     display: contents;
 }
 
+.responsive-numeric-input__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+    clip-path: inset(50%);
+}
+
 .responsive-numeric-input-host ::deep .responsive-numeric-input,
 .responsive-numeric-input-host ::deep .responsive-numeric-input:hover,
 .responsive-numeric-input-host ::deep .responsive-numeric-input:focus-within {

@@ -1,0 +1,35 @@
+.draft-room-connection-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: fit-content;
+    margin: 0;
+}
+
+.draft-room-connection-status--reconnecting,
+.draft-room-connection-status--offline {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--color-nav-hover);
+    border-radius: 0.375rem;
+    background-color: var(--color-nav-panel-bg);
+}
+
+.draft-room-connection-status__dot {
+    width: 0.625rem;
+    height: 0.625rem;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    background-color: #777;
+}
+
+.draft-room-connection-status--connected .draft-room-connection-status__dot {
+    background-color: #298a45;
+}
+
+.draft-room-connection-status--reconnecting .draft-room-connection-status__dot {
+    background-color: #d39b20;
+}
+
+.draft-room-connection-status--offline .draft-room-connection-status__dot {
+    background-color: #b33a3a;
+}

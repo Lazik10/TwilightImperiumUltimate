@@ -4108,6 +4108,1230 @@ namespace TwilightImperiumUltimate.Web.Resources {
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to Draft Room Hub Diagnostics | TI4 Ultimate.
+        /// </summary>
+        public static string DraftRoomDiagnostics_PageTitle {
+            get {
+                return ResourceManager.GetString("DraftRoomDiagnostics_PageTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Draft Room Hub Diagnostics.
+        /// </summary>
+        public static string DraftRoomDiagnostics_Heading {
+            get {
+                return ResourceManager.GetString("DraftRoomDiagnostics_Heading", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Hub connection.
+        /// </summary>
+        public static string DraftRoomDiagnostics_Section {
+            get {
+                return ResourceManager.GetString("DraftRoomDiagnostics_Section", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Ping hub.
+        /// </summary>
+        public static string DraftRoomDiagnostics_Ping {
+            get {
+                return ResourceManager.GetString("DraftRoomDiagnostics_Ping", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Connecting to hub.
+        /// </summary>
+        public static string DraftRoomDiagnostics_Pinging {
+            get {
+                return ResourceManager.GetString("DraftRoomDiagnostics_Pinging", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The hub responded at {0}.
+        /// </summary>
+        public static string DraftRoomDiagnostics_Response {
+            get {
+                return ResourceManager.GetString("DraftRoomDiagnostics_Response", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to reach the Draft Room hub. Check the browser console for connection details..
+        /// </summary>
+        public static string DraftRoomDiagnostics_Failed {
+            get {
+                return ResourceManager.GetString("DraftRoomDiagnostics_Failed", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Room name.
+        /// </summary>
+        public static string DraftRooms_RoomName {
+            get {
+                return ResourceManager.GetString("DraftRooms_RoomName", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to My Draft Rooms.
+        /// </summary>
+        public static string DraftRooms_MyRoomsHeading {
+            get {
+                return ResourceManager.GetString("DraftRooms_MyRoomsHeading", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Loading your draft rooms....
+        /// </summary>
+        public static string DraftRooms_MyRoomsLoading {
+            get {
+                return ResourceManager.GetString("DraftRooms_MyRoomsLoading", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to No active draft rooms are associated with your account..
+        /// </summary>
+        public static string DraftRooms_MyRoomsAccountEmpty {
+            get {
+                return ResourceManager.GetString("DraftRooms_MyRoomsAccountEmpty", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to No guest draft rooms are saved in this browser..
+        /// </summary>
+        public static string DraftRooms_MyRoomsGuestEmpty {
+            get {
+                return ResourceManager.GetString("DraftRooms_MyRoomsGuestEmpty", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Your draft rooms could not be loaded. Please try again..
+        /// </summary>
+        public static string DraftRooms_MyRoomsLoadFailed {
+            get {
+                return ResourceManager.GetString("DraftRooms_MyRoomsLoadFailed", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Retry.
+        /// </summary>
+        public static string DraftRooms_MyRoomsRetry {
+            get {
+                return ResourceManager.GetString("DraftRooms_MyRoomsRetry", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Enter room.
+        /// </summary>
+        public static string DraftRooms_MyRoomsEnter {
+            get {
+                return ResourceManager.GetString("DraftRooms_MyRoomsEnter", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Enter {0}.
+        /// </summary>
+        public static string DraftRooms_MyRoomsEnterNamed {
+            get {
+                return ResourceManager.GetString("DraftRooms_MyRoomsEnterNamed", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Forget.
+        /// </summary>
+        public static string DraftRooms_MyRoomsForget {
+            get {
+                return ResourceManager.GetString("DraftRooms_MyRoomsForget", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Forget {0}.
+        /// </summary>
+        public static string DraftRooms_MyRoomsForgetNamed {
+            get {
+                return ResourceManager.GetString("DraftRooms_MyRoomsForgetNamed", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The saved guest room could not be removed. Please try again..
+        /// </summary>
+        public static string DraftRooms_MyRoomsForgetFailed {
+            get {
+                return ResourceManager.GetString("DraftRooms_MyRoomsForgetFailed", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Status: {0}.
+        /// </summary>
+        public static string DraftRooms_MyRoomStatus {
+            get {
+                return ResourceManager.GetString("DraftRooms_MyRoomStatus", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Role: {0}.
+        /// </summary>
+        public static string DraftRooms_MyRoomRole {
+            get {
+                return ResourceManager.GetString("DraftRooms_MyRoomRole", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Seat {0}.
+        /// </summary>
+        public static string DraftRooms_MyRoomSeat {
+            get {
+                return ResourceManager.GetString("DraftRooms_MyRoomSeat", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string DraftRooms_Password {
+            get {
+                return ResourceManager.GetString("DraftRooms_Password", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Display name.
+        /// </summary>
+        public static string DraftRooms_DisplayName {
+            get {
+                return ResourceManager.GetString("DraftRooms_DisplayName", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Room code.
+        /// </summary>
+        public static string DraftRooms_RoomCode {
+            get {
+                return ResourceManager.GetString("DraftRooms_RoomCode", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Create Draft.
+        /// </summary>
+        public static string DraftRooms_CreateDraft {
+            get {
+                return ResourceManager.GetString("DraftRooms_CreateDraft", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Join Draft.
+        /// </summary>
+        public static string DraftRooms_JoinDraft {
+            get {
+                return ResourceManager.GetString("DraftRooms_JoinDraft", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Create room.
+        /// </summary>
+        public static string DraftRooms_SubmitCreate {
+            get {
+                return ResourceManager.GetString("DraftRooms_SubmitCreate", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Creating room....
+        /// </summary>
+        public static string DraftRooms_SubmittingCreate {
+            get {
+                return ResourceManager.GetString("DraftRooms_SubmittingCreate", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Draft room created..
+        /// </summary>
+        public static string DraftRooms_CreateSuccess {
+            get {
+                return ResourceManager.GetString("DraftRooms_CreateSuccess", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Open room.
+        /// </summary>
+        public static string DraftRooms_OpenRoom {
+            get {
+                return ResourceManager.GetString("DraftRooms_OpenRoom", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The room details were not accepted. Review the fields and try again..
+        /// </summary>
+        public static string DraftRooms_CreateValidationFailed {
+            get {
+                return ResourceManager.GetString("DraftRooms_CreateValidationFailed", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Too many rooms have been created recently. Wait a moment and try again..
+        /// </summary>
+        public static string DraftRooms_CreateThrottled {
+            get {
+                return ResourceManager.GetString("DraftRooms_CreateThrottled", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The room could not be created. Please try again..
+        /// </summary>
+        public static string DraftRooms_CreateFailed {
+            get {
+                return ResourceManager.GetString("DraftRooms_CreateFailed", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The room was created, but this browser could not save your guest access. Your browser may not be able to rejoin this room later..
+        /// </summary>
+        public static string DraftRooms_CreateIdentityStorageFailed {
+            get {
+                return ResourceManager.GetString("DraftRooms_CreateIdentityStorageFailed", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The room was created, but the server did not return guest access credentials. Contact support before leaving this page..
+        /// </summary>
+        public static string DraftRooms_CreateIdentityUnavailable {
+            get {
+                return ResourceManager.GetString("DraftRooms_CreateIdentityUnavailable", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Join room.
+        /// </summary>
+        public static string DraftRooms_SubmitJoin {
+            get {
+                return ResourceManager.GetString("DraftRooms_SubmitJoin", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Joining room....
+        /// </summary>
+        public static string DraftRooms_SubmittingJoin {
+            get {
+                return ResourceManager.GetString("DraftRooms_SubmittingJoin", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to You joined the draft room..
+        /// </summary>
+        public static string DraftRooms_JoinSuccess {
+            get {
+                return ResourceManager.GetString("DraftRooms_JoinSuccess", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The room code or password is incorrect..
+        /// </summary>
+        public static string DraftRooms_JoinNotFoundOrWrongPassword {
+            get {
+                return ResourceManager.GetString("DraftRooms_JoinNotFoundOrWrongPassword", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Too many join attempts have been made recently. Wait a moment and try again..
+        /// </summary>
+        public static string DraftRooms_JoinThrottled {
+            get {
+                return ResourceManager.GetString("DraftRooms_JoinThrottled", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The room details were not accepted. Review the fields and try again..
+        /// </summary>
+        public static string DraftRooms_JoinValidationFailed {
+            get {
+                return ResourceManager.GetString("DraftRooms_JoinValidationFailed", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The room could not be joined. Please try again..
+        /// </summary>
+        public static string DraftRooms_JoinFailed {
+            get {
+                return ResourceManager.GetString("DraftRooms_JoinFailed", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to You joined the room, but this browser could not save your guest access. Your browser may not be able to rejoin this room later..
+        /// </summary>
+        public static string DraftRooms_JoinIdentityStorageFailed {
+            get {
+                return ResourceManager.GetString("DraftRooms_JoinIdentityStorageFailed", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to You joined the room, but the server did not return guest access credentials. Contact support before leaving this page..
+        /// </summary>
+        public static string DraftRooms_JoinIdentityUnavailable {
+            get {
+                return ResourceManager.GetString("DraftRooms_JoinIdentityUnavailable", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Saved guest access found. You can join without the room password..
+        /// </summary>
+        public static string DraftRooms_StoredGuestIdentity {
+            get {
+                return ResourceManager.GetString("DraftRooms_StoredGuestIdentity", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Playing as a guest. Log in or register to keep this seat linked to your account..
+        /// </summary>
+        public static string DraftRooms_GuestAccountPrompt {
+            get {
+                return ResourceManager.GetString("DraftRooms_GuestAccountPrompt", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Guest account options.
+        /// </summary>
+        public static string DraftRooms_GuestAccountActions {
+            get {
+                return ResourceManager.GetString("DraftRooms_GuestAccountActions", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Draft room | TI4 Ultimate.
+        /// </summary>
+        public static string DraftRooms_RoomPageTitle {
+            get {
+                return ResourceManager.GetString("DraftRooms_RoomPageTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Loading draft room....
+        /// </summary>
+        public static string DraftRooms_RoomLoading {
+            get {
+                return ResourceManager.GetString("DraftRooms_RoomLoading", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Room not found.
+        /// </summary>
+        public static string DraftRooms_RoomNotFoundHeading {
+            get {
+                return ResourceManager.GetString("DraftRooms_RoomNotFoundHeading", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to This room code is invalid or the room is no longer available.
+        /// </summary>
+        public static string DraftRooms_RoomNotFoundMessage {
+            get {
+                return ResourceManager.GetString("DraftRooms_RoomNotFoundMessage", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The draft room could not be loaded. Please try again.
+        /// </summary>
+        public static string DraftRooms_RoomLoadFailed {
+            get {
+                return ResourceManager.GetString("DraftRooms_RoomLoadFailed", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to You no longer have access to this room.
+        /// </summary>
+        public static string DraftRooms_RoomRemovedHeading {
+            get {
+                return ResourceManager.GetString("DraftRooms_RoomRemovedHeading", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Your participant is no longer active. Contact the host if you think this is a mistake..
+        /// </summary>
+        public static string DraftRooms_RoomRemovedMessage {
+            get {
+                return ResourceManager.GetString("DraftRooms_RoomRemovedMessage", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to This draft room is closed.
+        /// </summary>
+        public static string DraftRooms_RoomClosedHeading {
+            get {
+                return ResourceManager.GetString("DraftRooms_RoomClosedHeading", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The room is no longer available. It may have been closed, or your participant may no longer be active..
+        /// </summary>
+        public static string DraftRooms_RoomClosedMessage {
+            get {
+                return ResourceManager.GetString("DraftRooms_RoomClosedMessage", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Draft room.
+        /// </summary>
+        public static string DraftRooms_RoomDetailsHeading {
+            get {
+                return ResourceManager.GetString("DraftRooms_RoomDetailsHeading", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Copy room code.
+        /// </summary>
+        public static string DraftRooms_CopyRoomCode {
+            get {
+                return ResourceManager.GetString("DraftRooms_CopyRoomCode", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Copy draft room code.
+        /// </summary>
+        public static string DraftRooms_CopyRoomCodeAriaLabel {
+            get {
+                return ResourceManager.GetString("DraftRooms_CopyRoomCodeAriaLabel", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Join draft room.
+        /// </summary>
+        public static string DraftRooms_JoinRoomHeading {
+            get {
+                return ResourceManager.GetString("DraftRooms_JoinRoomHeading", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to You are {0} ({1})..
+        /// </summary>
+        public static string DraftRooms_YouAre {
+            get {
+                return ResourceManager.GetString("DraftRooms_YouAre", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Member.
+        /// </summary>
+        public static string DraftRooms_RoleMember {
+            get {
+                return ResourceManager.GetString("DraftRooms_RoleMember", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Co-host.
+        /// </summary>
+        public static string DraftRooms_RoleCoHost {
+            get {
+                return ResourceManager.GetString("DraftRooms_RoleCoHost", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Host.
+        /// </summary>
+        public static string DraftRooms_RoleHost {
+            get {
+                return ResourceManager.GetString("DraftRooms_RoleHost", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Room link.
+        /// </summary>
+        public static string DraftRooms_RoomLink {
+            get {
+                return ResourceManager.GetString("DraftRooms_RoomLink", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Open room in a new tab.
+        /// </summary>
+        public static string DraftRooms_OpenRoomLink {
+            get {
+                return ResourceManager.GetString("DraftRooms_OpenRoomLink", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Copy room link.
+        /// </summary>
+        public static string DraftRooms_CopyRoomLink {
+            get {
+                return ResourceManager.GetString("DraftRooms_CopyRoomLink", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Copy draft room link.
+        /// </summary>
+        public static string DraftRooms_CopyRoomLinkAriaLabel {
+            get {
+                return ResourceManager.GetString("DraftRooms_CopyRoomLinkAriaLabel", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Draft room actions.
+        /// </summary>
+        public static string DraftRooms_RoomActions {
+            get {
+                return ResourceManager.GetString("DraftRooms_RoomActions", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Link this seat to your account?.
+        /// </summary>
+        public static string DraftRooms_LinkAccountTitle {
+            get {
+                return ResourceManager.GetString("DraftRooms_LinkAccountTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Your current draft-room participant will become associated with your account. Your seat and room history will stay in place..
+        /// </summary>
+        public static string DraftRooms_LinkAccountMessage {
+            get {
+                return ResourceManager.GetString("DraftRooms_LinkAccountMessage", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Linking this participant to your account....
+        /// </summary>
+        public static string DraftRooms_LinkAccountInProgress {
+            get {
+                return ResourceManager.GetString("DraftRooms_LinkAccountInProgress", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Use my account.
+        /// </summary>
+        public static string DraftRooms_UseMyAccount {
+            get {
+                return ResourceManager.GetString("DraftRooms_UseMyAccount", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Keep playing as guest.
+        /// </summary>
+        public static string DraftRooms_KeepPlayingAsGuest {
+            get {
+                return ResourceManager.GetString("DraftRooms_KeepPlayingAsGuest", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to This account already has a participant in this room. Continue with your current guest identity..
+        /// </summary>
+        public static string DraftRooms_LinkAccountConflict {
+            get {
+                return ResourceManager.GetString("DraftRooms_LinkAccountConflict", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The account link could not be confirmed. Reload the room before trying again..
+        /// </summary>
+        public static string DraftRooms_LinkAccountFailed {
+            get {
+                return ResourceManager.GetString("DraftRooms_LinkAccountFailed", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Your account was linked, but the room could not be refreshed. Reload the room to see the updated account details..
+        /// </summary>
+        public static string DraftRooms_LinkAccountRefreshFailed {
+            get {
+                return ResourceManager.GetString("DraftRooms_LinkAccountRefreshFailed", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Refresh.
+        /// </summary>
+        public static string DraftRooms_RefreshRoom {
+            get {
+                return ResourceManager.GetString("DraftRooms_RefreshRoom", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Leave room.
+        /// </summary>
+        public static string DraftRooms_LeaveRoom {
+            get {
+                return ResourceManager.GetString("DraftRooms_LeaveRoom", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Close room.
+        /// </summary>
+        public static string DraftRooms_CloseRoom {
+            get {
+                return ResourceManager.GetString("DraftRooms_CloseRoom", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Leave this draft room?.
+        /// </summary>
+        public static string DraftRooms_ConfirmLeaveTitle {
+            get {
+                return ResourceManager.GetString("DraftRooms_ConfirmLeaveTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to You will leave the room. If you occupy a seat, that seat will be released..
+        /// </summary>
+        public static string DraftRooms_ConfirmLeaveMessage {
+            get {
+                return ResourceManager.GetString("DraftRooms_ConfirmLeaveMessage", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Close this draft room?.
+        /// </summary>
+        public static string DraftRooms_ConfirmCloseTitle {
+            get {
+                return ResourceManager.GetString("DraftRooms_ConfirmCloseTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Closing the room removes its lobby and all participants. This cannot be undone..
+        /// </summary>
+        public static string DraftRooms_ConfirmCloseMessage {
+            get {
+                return ResourceManager.GetString("DraftRooms_ConfirmCloseMessage", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string DraftRooms_Cancel {
+            get {
+                return ResourceManager.GetString("DraftRooms_Cancel", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The room could not be refreshed or the action could not be completed. Please try again..
+        /// </summary>
+        public static string DraftRooms_RoomActionFailed {
+            get {
+                return ResourceManager.GetString("DraftRooms_RoomActionFailed", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Seats.
+        /// </summary>
+        public static string DraftRooms_SeatsHeading {
+            get {
+                return ResourceManager.GetString("DraftRooms_SeatsHeading", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Draft room seats.
+        /// </summary>
+        public static string DraftRooms_SeatList {
+            get {
+                return ResourceManager.GetString("DraftRooms_SeatList", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Seat {0}.
+        /// </summary>
+        public static string DraftRooms_SeatNumber {
+            get {
+                return ResourceManager.GetString("DraftRooms_SeatNumber", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Free.
+        /// </summary>
+        public static string DraftRooms_SeatFree {
+            get {
+                return ResourceManager.GetString("DraftRooms_SeatFree", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Participant unavailable.
+        /// </summary>
+        public static string DraftRooms_UnknownSeatOccupant {
+            get {
+                return ResourceManager.GetString("DraftRooms_UnknownSeatOccupant", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Add seat.
+        /// </summary>
+        public static string DraftRooms_AddSeat {
+            get {
+                return ResourceManager.GetString("DraftRooms_AddSeat", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Remove seat.
+        /// </summary>
+        public static string DraftRooms_RemoveSeat {
+            get {
+                return ResourceManager.GetString("DraftRooms_RemoveSeat", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Claim.
+        /// </summary>
+        public static string DraftRooms_ClaimSeat {
+            get {
+                return ResourceManager.GetString("DraftRooms_ClaimSeat", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Leave seat.
+        /// </summary>
+        public static string DraftRooms_LeaveSeat {
+            get {
+                return ResourceManager.GetString("DraftRooms_LeaveSeat", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Unclaim.
+        /// </summary>
+        public static string DraftRooms_UnclaimSeat {
+            get {
+                return ResourceManager.GetString("DraftRooms_UnclaimSeat", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The room already has the maximum of 8 seats.
+        /// </summary>
+        public static string DraftRooms_MaxSeatsReached {
+            get {
+                return ResourceManager.GetString("DraftRooms_MaxSeatsReached", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Keep at least 2 seats in the room.
+        /// </summary>
+        public static string DraftRooms_MinSeatsReached {
+            get {
+                return ResourceManager.GetString("DraftRooms_MinSeatsReached", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Unclaim this seat before removing it.
+        /// </summary>
+        public static string DraftRooms_OccupiedSeatCannotBeRemoved {
+            get {
+                return ResourceManager.GetString("DraftRooms_OccupiedSeatCannotBeRemoved", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Actions for seat {0}.
+        /// </summary>
+        public static string DraftRooms_SeatActions {
+            get {
+                return ResourceManager.GetString("DraftRooms_SeatActions", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The seat action could not be completed. Refresh the room and try again.
+        /// </summary>
+        public static string DraftRooms_SeatActionFailed {
+            get {
+                return ResourceManager.GetString("DraftRooms_SeatActionFailed", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to No seats are available.
+        /// </summary>
+        public static string DraftRooms_NoSeats {
+            get {
+                return ResourceManager.GetString("DraftRooms_NoSeats", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Participants.
+        /// </summary>
+        public static string DraftRooms_ParticipantsHeading {
+            get {
+                return ResourceManager.GetString("DraftRooms_ParticipantsHeading", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Draft room participants.
+        /// </summary>
+        public static string DraftRooms_ParticipantList {
+            get {
+                return ResourceManager.GetString("DraftRooms_ParticipantList", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to No participants are in this room.
+        /// </summary>
+        public static string DraftRooms_NoParticipants {
+            get {
+                return ResourceManager.GetString("DraftRooms_NoParticipants", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Guest.
+        /// </summary>
+        public static string DraftRooms_Guest {
+            get {
+                return ResourceManager.GetString("DraftRooms_Guest", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to No seat.
+        /// </summary>
+        public static string DraftRooms_NoSeat {
+            get {
+                return ResourceManager.GetString("DraftRooms_NoSeat", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Seat unavailable.
+        /// </summary>
+        public static string DraftRooms_SeatUnavailable {
+            get {
+                return ResourceManager.GetString("DraftRooms_SeatUnavailable", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Actions for {0}.
+        /// </summary>
+        public static string DraftRooms_ParticipantActions {
+            get {
+                return ResourceManager.GetString("DraftRooms_ParticipantActions", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Make co-host.
+        /// </summary>
+        public static string DraftRooms_MakeCoHost {
+            get {
+                return ResourceManager.GetString("DraftRooms_MakeCoHost", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Remove co-host.
+        /// </summary>
+        public static string DraftRooms_RemoveCoHost {
+            get {
+                return ResourceManager.GetString("DraftRooms_RemoveCoHost", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Unclaim seat.
+        /// </summary>
+        public static string DraftRooms_UnclaimParticipantSeat {
+            get {
+                return ResourceManager.GetString("DraftRooms_UnclaimParticipantSeat", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Kick.
+        /// </summary>
+        public static string DraftRooms_KickParticipant {
+            get {
+                return ResourceManager.GetString("DraftRooms_KickParticipant", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Kick this participant?.
+        /// </summary>
+        public static string DraftRooms_ConfirmKickTitle {
+            get {
+                return ResourceManager.GetString("DraftRooms_ConfirmKickTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Kick {0} from this draft room? They will no longer be able to rejoin with this identity..
+        /// </summary>
+        public static string DraftRooms_ConfirmKickMessage {
+            get {
+                return ResourceManager.GetString("DraftRooms_ConfirmKickMessage", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The participant action could not be completed. Refresh the room and try again.
+        /// </summary>
+        public static string DraftRooms_ParticipantActionFailed {
+            get {
+                return ResourceManager.GetString("DraftRooms_ParticipantActionFailed", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Room settings.
+        /// </summary>
+        public static string DraftRooms_SettingsHeading {
+            get {
+                return ResourceManager.GetString("DraftRooms_SettingsHeading", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Save room name.
+        /// </summary>
+        public static string DraftRooms_SaveRoomName {
+            get {
+                return ResourceManager.GetString("DraftRooms_SaveRoomName", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Saving room name.
+        /// </summary>
+        public static string DraftRooms_SavingRoomName {
+            get {
+                return ResourceManager.GetString("DraftRooms_SavingRoomName", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Prevent new participants from joining this room until it is unlocked.
+        /// </summary>
+        public static string DraftRooms_LockRoomDescription {
+            get {
+                return ResourceManager.GetString("DraftRooms_LockRoomDescription", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Lock room to prevent new participants from joining.
+        /// </summary>
+        public static string DraftRooms_LockRoomAriaLabel {
+            get {
+                return ResourceManager.GetString("DraftRooms_LockRoomAriaLabel", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Locked.
+        /// </summary>
+        public static string DraftRooms_Locked {
+            get {
+                return ResourceManager.GetString("DraftRooms_Locked", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Unlocked.
+        /// </summary>
+        public static string DraftRooms_Unlocked {
+            get {
+                return ResourceManager.GetString("DraftRooms_Unlocked", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Change password.
+        /// </summary>
+        public static string DraftRooms_ChangePassword {
+            get {
+                return ResourceManager.GetString("DraftRooms_ChangePassword", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Change room password.
+        /// </summary>
+        public static string DraftRooms_ChangePasswordTitle {
+            get {
+                return ResourceManager.GetString("DraftRooms_ChangePasswordTitle", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The new password applies to future joins. Current participants will keep access.
+        /// </summary>
+        public static string DraftRooms_ChangePasswordDescription {
+            get {
+                return ResourceManager.GetString("DraftRooms_ChangePasswordDescription", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to New password.
+        /// </summary>
+        public static string DraftRooms_NewPassword {
+            get {
+                return ResourceManager.GetString("DraftRooms_NewPassword", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Repeat password.
+        /// </summary>
+        public static string DraftRooms_RepeatPassword {
+            get {
+                return ResourceManager.GetString("DraftRooms_RepeatPassword", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Update password.
+        /// </summary>
+        public static string DraftRooms_UpdatePassword {
+            get {
+                return ResourceManager.GetString("DraftRooms_UpdatePassword", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Updating password.
+        /// </summary>
+        public static string DraftRooms_UpdatingPassword {
+            get {
+                return ResourceManager.GetString("DraftRooms_UpdatingPassword", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The room settings could not be updated. Please try again.
+        /// </summary>
+        public static string DraftRooms_SettingsActionFailed {
+            get {
+                return ResourceManager.GetString("DraftRooms_SettingsActionFailed", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Draft room sections.
+        /// </summary>
+        public static string DraftRooms_RoomSections {
+            get {
+                return ResourceManager.GetString("DraftRooms_RoomSections", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Seats.
+        /// </summary>
+        public static string DraftRooms_SeatsTab {
+            get {
+                return ResourceManager.GetString("DraftRooms_SeatsTab", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to People.
+        /// </summary>
+        public static string DraftRooms_PeopleTab {
+            get {
+                return ResourceManager.GetString("DraftRooms_PeopleTab", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string DraftRooms_SettingsTab {
+            get {
+                return ResourceManager.GetString("DraftRooms_SettingsTab", resourceCulture);
+            }
+        }
+        
         public static string Page_Events {
             get {
                 return ResourceManager.GetString("Page_Events", resourceCulture);

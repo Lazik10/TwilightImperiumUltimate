@@ -1,10 +1,12 @@
 using System.Linq.Expressions;
 using Microsoft.AspNetCore.Components.Forms;
+using Radzen.Blazor;
 
 namespace TwilightImperiumUltimate.Web.Components.Shared.Controls;
 
 public partial class ResponsiveTextBox
 {
+    private RadzenTextBox _textBox = default!;
     private FieldIdentifier? _fieldIdentifier;
 
     [Parameter]
@@ -29,6 +31,18 @@ public partial class ResponsiveTextBox
 
     [Parameter]
     public bool Disabled { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the input is required.
+    /// </summary>
+    [Parameter]
+    public bool Required { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the text input can be focused and copied but not edited.
+    /// </summary>
+    [Parameter]
+    public bool ReadOnly { get; set; }
 
     [Parameter]
     public string CssClass { get; set; } = string.Empty;
@@ -75,6 +89,11 @@ public partial class ResponsiveTextBox
     private string ComputedCssClass => $"responsive-textbox responsive-input-height handel {CssClass}".Trim();
 
     private string ComputedStyle => $"{(FillWidth ? $"width: {Width}%; " : string.Empty)}--rz-input-font-size: {GetFontSizeStyle()}; {Style}";
+
+    internal async Task FocusAsync()
+    {
+        await _textBox.FocusAsync();
+    }
 
     protected override void OnParametersSet()
     {

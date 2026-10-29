@@ -1,0 +1,68 @@
+@using TwilightImperiumUltimate.Contracts.DraftRooms
+
+<ResponsiveForm Model="@_model"
+                OnValidSubmit="CreateRoomAsync"
+                ShowValidationSummary="true"
+                IsSubmitting="@_isSubmitting"
+                SubmitText="@Strings.DraftRooms_SubmitCreate"
+                SubmittingText="@Strings.DraftRooms_SubmittingCreate">
+    <ResponsiveFormField Id="draft-room-name"
+                         Label="@Strings.DraftRooms_RoomName"
+                         For="@(() => _model.Name)"
+                         Required="true">
+        <ResponsiveTextBox @ref="_roomNameInput"
+                           Id="draft-room-name"
+                           Name="room-name"
+                           AutoComplete="off"
+                           AriaDescribedBy="draft-room-name-validation"
+                           Required="true"
+                           MaxLength="@DraftRoomLimits.MaxRoomNameLength"
+                           @bind-Value="_model.Name" />
+    </ResponsiveFormField>
+
+    <ResponsiveFormField Id="draft-room-password"
+                         Label="@Strings.DraftRooms_Password"
+                         For="@(() => _model.Password)"
+                         Required="true">
+        <ResponsivePassword Id="draft-room-password"
+                            Name="room-password"
+                            AutoComplete="new-password"
+                            AriaDescribedBy="draft-room-password-validation"
+                            Required="true"
+                            @bind-Value="_model.Password" />
+    </ResponsiveFormField>
+
+    @if (_model.IsGuest)
+    {
+        <ResponsiveFormField Id="draft-room-display-name"
+                             Label="@Strings.DraftRooms_DisplayName"
+                             For="@(() => _model.DisplayName)"
+                             Required="true">
+            <ResponsiveTextBox Id="draft-room-display-name"
+                               Name="display-name"
+                               AutoComplete="nickname"
+                               AriaDescribedBy="draft-room-display-name-validation"
+                               Required="true"
+                               MaxLength="@DraftRoomLimits.MaxDisplayNameLength"
+                               @bind-Value="_model.DisplayName" />
+        </ResponsiveFormField>
+    }
+</ResponsiveForm>
+
+@if (!string.IsNullOrWhiteSpace(_errorMessage))
+{
+    <div role="alert">
+        <ResponsiveText Text="@_errorMessage" TextColor="TextColor.Red" CssClass="mt-md" />
+    </div>
+}
+
+@if (_roomCreated)
+{
+    <div role="status">
+        <ResponsiveText Text="@Strings.DraftRooms_CreateSuccess" CssClass="mt-md" />
+        @if (_showOpenRoomLink)
+        {
+            <a href="@_roomUrl" target="_blank" rel="noopener noreferrer">@Strings.DraftRooms_OpenRoom</a>
+        }
+    </div>
+}

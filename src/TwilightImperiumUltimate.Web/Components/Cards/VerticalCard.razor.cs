@@ -41,10 +41,4 @@ public partial class VerticalCard
         _isImageLoaded = true;
         StateHasChanged();
     }
-
-    private void OnImageError()
-    {
-        _isImageLoaded = true;
-        StateHasChanged();
-    }
 }

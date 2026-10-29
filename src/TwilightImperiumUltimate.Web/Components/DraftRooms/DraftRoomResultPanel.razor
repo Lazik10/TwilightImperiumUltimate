@@ -1,0 +1,34 @@
+@if (_loading)
+{
+    <p role="status">@Text("ResultsLoading")</p>
+}
+else if (_missing)
+{
+    <section @ref="_status" tabindex="-1">
+        <ResponsiveHeading Level="2" Text="@Text("ResultsHeading")" />
+        <p role="status">@Text("ResultsNotFound")</p>
+    </section>
+}
+else if (_loadError)
+{
+    <div role="alert">
+        <p>@Text("ResultsLoadFailed")</p>
+        <ResponsiveButton Text="@Text("MyRoomsRetry")" OnClick="LoadAsync" />
+    </div>
+}
+else if (_result is not null)
+{
+    <DraftRoomResultView Result="@_result" />
+    @if (_deleteError)
+    {
+        <p role="alert">@Text("ResultsDeleteFailed")</p>
+    }
+    @if (CanDelete)
+    {
+        <ResponsiveDangerButton Text="@Text("DeleteResults")" IsDisabled="@_processing" OnClick="ShowDelete" />
+    }
+}
+<ResponsiveConfirmDialog IsOpen="@_confirmDelete" Title="@Text("DeleteResults")"
+                         Message="@Text("DeleteResultsConfirmation")"
+                         ConfirmText="@Text("DeleteResults")" CancelText="@Text("Cancel")"
+                         OnConfirm="DeleteAsync" OnCancel="CancelDelete" />

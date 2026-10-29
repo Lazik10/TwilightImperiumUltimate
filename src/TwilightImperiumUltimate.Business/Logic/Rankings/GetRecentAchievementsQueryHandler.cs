@@ -32,7 +32,7 @@ public class GetRecentAchievementsQueryHandler(
         return new ItemListDto<RankingsAchievementDto>(dtos);
     }
 
-    private static double GetRarityPercent(AchievementName achievementName, int totalUsers, IReadOnlyDictionary<AchievementName, int> achievementPlayerCounts)
+    private static double GetRarityPercent(AchievementName achievementName, int totalUsers, Dictionary<AchievementName, int> achievementPlayerCounts)
     {
         if (totalUsers <= 0)
             return 0;

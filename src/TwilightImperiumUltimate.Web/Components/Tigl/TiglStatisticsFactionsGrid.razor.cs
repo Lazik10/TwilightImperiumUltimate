@@ -43,10 +43,10 @@ public partial class TiglStatisticsFactionsGrid
     private IReadOnlyCollection<KeyValuePair<TiglFactionStatsLeague, string>> LeagueOptions =>
         EnumExtensions.GetEnumValuesWithDisplayNames<TiglFactionStatsLeague>();
 
-    [Inject] 
+    [Inject]
     private ITwilightImperiumApiHttpClient HttpClient { get; set; } = default!;
 
-    [Inject] 
+    [Inject]
     private ITiglDataCache TiglCache { get; set; } = default!;
 
     [Inject]
@@ -54,11 +54,11 @@ public partial class TiglStatisticsFactionsGrid
 
     public static TextColor GetWinrateColor(double winrate)
     {
-        if (winrate > 16.67f) 
+        if (winrate > 16.67f)
             return TextColor.Green;
-        if (winrate > 12.0f) 
+        if (winrate > 12.0f)
             return TextColor.Yellow;
-        if (winrate > 8.0f) 
+        if (winrate > 8.0f)
             return TextColor.Orange;
         return TextColor.Red;
     }
@@ -69,20 +69,7 @@ public partial class TiglStatisticsFactionsGrid
         await LoadAsync();
     }
 
-    private void ToggleFilters()
-    {
-        _areFiltersVisible = !_areFiltersVisible;
-    }
-
-    private async Task LoadSeasonsAsync()
-    {
-        var (response, status) = await HttpClient.GetAsync<ApiResponse<ItemListDto<SeasonDto>>>(Paths.ApiPath_Seasons);
-        _seasons = status == HttpStatusCode.OK && response?.Data?.Items is not null
-            ? AddAllOption(response.Data.Items)
-            : [new SeasonDto { SeasonNumber = -1, Name = "All" }];
-    }
-
-    private static IReadOnlyCollection<SeasonDto> AddAllOption(IReadOnlyCollection<SeasonDto> seasons)
+    private static List<SeasonDto> AddAllOption(IReadOnlyCollection<SeasonDto> seasons)
     {
         var options = seasons.ToList();
         if (!options.Any(season => season.SeasonNumber == -1))
@@ -111,6 +98,19 @@ public partial class TiglStatisticsFactionsGrid
                 };
             })
             .ToList();
+    }
+
+    private void ToggleFilters()
+    {
+        _areFiltersVisible = !_areFiltersVisible;
+    }
+
+    private async Task LoadSeasonsAsync()
+    {
+        var (response, status) = await HttpClient.GetAsync<ApiResponse<ItemListDto<SeasonDto>>>(Paths.ApiPath_Seasons);
+        _seasons = status == HttpStatusCode.OK && response?.Data?.Items is not null
+            ? AddAllOption(response.Data.Items)
+            : [new SeasonDto { SeasonNumber = -1, Name = "All" }];
     }
 
     private async Task OnShowByChanged(TiglFactionStatsShowBy value)

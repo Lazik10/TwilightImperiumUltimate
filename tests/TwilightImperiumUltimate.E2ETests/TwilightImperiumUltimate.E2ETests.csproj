@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="10.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.9" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.7.0" />
+    <PackageReference Include="Microsoft.Playwright.Xunit" Version="1.63.0" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Update="SonarAnalyzer.CSharp" Version="10.28.0.143324" />
+    <PackageReference Update="StyleCop.Analyzers" Version="1.2.0-beta.507" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\TwilightImperiumUltimate.API\TwilightImperiumUltimate.API.csproj" />
+    <Compile Include="..\TwilightImperiumUltimate.IntegrationTests\Infrastructure\TestDatabase.cs" Link="Hosting\TestDatabase.cs" />
+    <Compile Include="..\TwilightImperiumUltimate.IntegrationTests\Hosting\TestApiFactory.cs" Link="Hosting\TestApiFactory.cs" />
+    <Compile Include="..\TwilightImperiumUltimate.IntegrationTests\Hosting\TestAuthenticationHandler.cs" Link="Hosting\TestAuthenticationHandler.cs" />
+    <Compile Include="..\TwilightImperiumUltimate.IntegrationTests\Hosting\TestRemoteIpStartupFilter.cs" Link="Hosting\TestRemoteIpStartupFilter.cs" />
+  </ItemGroup>
+</Project>

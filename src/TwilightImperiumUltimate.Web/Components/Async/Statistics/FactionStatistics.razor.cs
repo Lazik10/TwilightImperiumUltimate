@@ -36,19 +36,6 @@ public partial class FactionStatistics
     [Inject]
     private IPathProvider PathProvider { get; set; } = default!;
 
-    private static IReadOnlyList<KeyValuePair<FactionStatisticsFilter, string>> FactionFilterOptions => Enum.GetValues<FactionStatisticsFilter>()
-        .Select(value => new KeyValuePair<FactionStatisticsFilter, string>(value, value.GetDisplayName()))
-        .ToList();
-
-    private static IReadOnlyList<KeyValuePair<FactionStatisticsVpFilter, string>> FactionVpFilterOptions => Enum.GetValues<FactionStatisticsVpFilter>()
-        .Select(value => new KeyValuePair<FactionStatisticsVpFilter, string>(value, value.GetDisplayName()))
-        .ToList();
-
-    private IReadOnlyList<KeyValuePair<FactionStatisticsSubstatsFilter, string>> FactionSubstatsFilterOptions => Enum.GetValues<FactionStatisticsSubstatsFilter>()
-        .Except(_excludedValues)
-        .Select(value => new KeyValuePair<FactionStatisticsSubstatsFilter, string>(value, value.GetDisplayName()))
-        .ToList();
-
     private string FilterButtonLabel => (_areFiltersVisible ? "Hide faction filters" : "Show faction filters")
         + (AreFiltersApplied ? ", filters active" : string.Empty);
 
@@ -71,13 +58,26 @@ public partial class FactionStatistics
             FactionsForDisplay = GetFilteredFactionStats(FactionsStats);
     }
 
-    private static string FormatFactionWinPercentageValue(double value) => ((float)value).ToStringWithPrecisionAndPercentage(2);
+    private List<KeyValuePair<FactionStatisticsFilter, string>> GetFactionFilterOptions() => Enum.GetValues<FactionStatisticsFilter>()
+        .Select(value => new KeyValuePair<FactionStatisticsFilter, string>(value, value.GetDisplayName()))
+        .ToList();
 
-    private static string FormatFactionAverageVpValue(double value) => ((float)value).ToStringWithPrecision(2);
+    private List<KeyValuePair<FactionStatisticsVpFilter, string>> GetFactionVpFilterOptions() => Enum.GetValues<FactionStatisticsVpFilter>()
+        .Select(value => new KeyValuePair<FactionStatisticsVpFilter, string>(value, value.GetDisplayName()))
+        .ToList();
 
-    private static string FormatFactionAverageVpPercentageValue(double value) => ((float)value).ToStringWithPrecisionAndPercentage(1);
+    private List<KeyValuePair<FactionStatisticsSubstatsFilter, string>> GetFactionSubstatsFilterOptions() => Enum.GetValues<FactionStatisticsSubstatsFilter>()
+        .Except(_excludedValues)
+        .Select(value => new KeyValuePair<FactionStatisticsSubstatsFilter, string>(value, value.GetDisplayName()))
+        .ToList();
 
-    private static string RemoveTrailingColon(string value) => value.TrimEnd(':');
+    private string FormatFactionWinPercentageValue(double value) => ((float)value).ToStringWithPrecisionAndPercentage(2);
+
+    private string FormatFactionAverageVpValue(double value) => ((float)value).ToStringWithPrecision(2);
+
+    private string FormatFactionAverageVpPercentageValue(double value) => ((float)value).ToStringWithPrecisionAndPercentage(1);
+
+    private string RemoveTrailingColon(string value) => value.TrimEnd(':');
 
     private void ToggleFilters() => _areFiltersVisible = !_areFiltersVisible;
 
@@ -127,7 +127,7 @@ public partial class FactionStatistics
         return stats.Games == 0 ? 0 : (float)stats.Vp / stats.Games;
     }
 
-    private IReadOnlyCollection<RankingBarPoint> GetGamesData() => FactionsForDisplay
+    private List<RankingBarPoint> GetGamesData() => FactionsForDisplay
         .OrderByDescending(faction => GetCorrectFactionStatsByVp(faction).Games)
         .Select((faction, index) => new RankingBarPoint(
             index.ToString(),
@@ -137,7 +137,7 @@ public partial class FactionStatistics
             null))
         .ToList();
 
-    private IReadOnlyCollection<RankingBarPoint> GetWinsData() => FactionsForDisplay
+    private List<RankingBarPoint> GetWinsData() => FactionsForDisplay
         .OrderByDescending(faction => GetCorrectFactionStatsByVp(faction).Wins)
         .Select((faction, index) => new RankingBarPoint(
             index.ToString(),
@@ -147,7 +147,7 @@ public partial class FactionStatistics
             null))
         .ToList();
 
-    private IReadOnlyCollection<RankingBarPoint> GetWinPercentageData() => FactionsForDisplay
+    private List<RankingBarPoint> GetWinPercentageData() => FactionsForDisplay
         .OrderByDescending(faction => GetCorrectFactionStatsByVp(faction).WinsPercentage)
         .Select((faction, index) => new RankingBarPoint(
             index.ToString(),
@@ -157,7 +157,7 @@ public partial class FactionStatistics
             null))
         .ToList();
 
-    private IReadOnlyCollection<RankingBarPoint> GetEliminationsData() => FactionsForDisplay
+    private List<RankingBarPoint> GetEliminationsData() => FactionsForDisplay
         .OrderByDescending(faction => GetCorrectFactionStatsByVp(faction).Eliminations)
         .Select((faction, index) => new RankingBarPoint(
             index.ToString(),
@@ -167,7 +167,7 @@ public partial class FactionStatistics
             null))
         .ToList();
 
-    private IReadOnlyCollection<RankingBarPoint> GetAverageVpData() => FactionsForDisplay
+    private List<RankingBarPoint> GetAverageVpData() => FactionsForDisplay
         .OrderByDescending(GetAverageVpValue)
         .Select((faction, index) => new RankingBarPoint(
             index.ToString(),
@@ -177,7 +177,7 @@ public partial class FactionStatistics
             null))
         .ToList();
 
-    private IReadOnlyCollection<RankingBarPoint> GetAverageVpPercentageData() => FactionsForDisplay
+    private List<RankingBarPoint> GetAverageVpPercentageData() => FactionsForDisplay
         .OrderByDescending(faction => GetCorrectFactionStatsByVp(faction).VpPercentage)
         .Select((faction, index) => new RankingBarPoint(
             index.ToString(),

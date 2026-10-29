@@ -39,7 +39,7 @@ Main solution file: `TwilightImperiumUltimate.slnx`
 
 Required tools:
 
-- .NET 8 SDK
+- .NET 10 SDK (or a newer SDK capable of targeting .NET 10)
 - Git
 - SQL Server instance reachable from your local machine (for API database access)
 - Visual Studio Code or Visual Studio
@@ -276,6 +276,9 @@ dotnet build TwilightImperiumUltimate.slnx
 Current automated tests are in:
 
 - `tests/TwilightImperiumUltimate.Tests`
+- `tests/TwilightImperiumUltimate.ComponentTests`
+- `tests/TwilightImperiumUltimate.IntegrationTests`
+- `tests/TwilightImperiumUltimate.E2ETests` (requires the publish/browser prerequisites in section 14)
 
 Run all tests in test project:
 
@@ -301,9 +304,13 @@ Current known focus areas include TIGL-related tests (for example async/glicko/t
 
 ## 11. Unit tests
 
-Current unit-test coverage lives in:
+The unit-test project is:
 
 - `tests/TwilightImperiumUltimate.Tests`
+- `tests/TwilightImperiumUltimate.ComponentTests`
+- `tests/TwilightImperiumUltimate.IntegrationTests`
+
+The latter projects contain Blazor component tests and database integration tests respectively. The separate E2E project exercises published Web assets and the API in a real browser; see section 14 before running the complete solution's tests.
 
 Run unit-style tests in the current test project:
 
@@ -315,39 +322,106 @@ Current known focus areas include TIGL-related rating/async logic and supporting
 
 ## 12. Blazor component tests
 
-Current status:
+Component tests use bUnit:
 
-- No dedicated bUnit/component test project is documented yet.
-
-Recommended future convention:
-
-```text
-tests/TwilightImperiumUltimate.ComponentTests/
+```bash
+dotnet test tests/TwilightImperiumUltimate.ComponentTests/TwilightImperiumUltimate.ComponentTests.csproj
 ```
+
+Project:
+
+- `tests/TwilightImperiumUltimate.ComponentTests`
+
+The component-test project builds the Web project, so Web compilation must succeed before this test command can run.
 
 Use component tests for high-value rendering, interaction, and state transitions (loading/empty/error/success).
 
 ## 13. Integration tests
 
-Current status:
+Integration tests are in:
 
-- No separate integration test project is documented yet.
-- Existing tests in `TwilightImperiumUltimate.Tests` provide some integration-like verification for selected logic paths.
+- `tests/TwilightImperiumUltimate.IntegrationTests`
 
-If a dedicated integration test project is introduced, add exact commands and required local dependencies here.
+Database integration tests use a uniquely named temporary SQL Server LocalDB database per test fixture (`(localdb)\MSSQLLocalDB`). The test process needs permission to create and drop databases on LocalDB.
+
+The fixture disables `AUTO_CLOSE` only on its newly created disposable database. LocalDB otherwise enables it by default; with test connection pooling disabled for reliable teardown, closing the last connection can repeatedly close/reopen the database between operations. A regression test verifies this database option. No ordinary/main database, server-wide setting, production connection option or assertion retry is changed.
+
+Integration collections run at most two at a time. Run solution test projects sequentially (`-m:1`, below) so browser and integration fixtures do not compete for LocalDB database creation. Earlier unrestricted runs hit SQL login/creation timeouts; this is a local test-resource boundary, not a production performance fix. Explicit transaction races and the 160-client load case retain their concurrent clients.
+
+A crashed run or failed teardown can leave a disposable test database behind. Verify its ownership before removing it; never drop databases solely because their names share the `DraftRoomsTests_` prefix on a shared instance.
+
+Run the integration tests:
+
+```bash
+dotnet test tests/TwilightImperiumUltimate.IntegrationTests/TwilightImperiumUltimate.IntegrationTests.csproj
+```
+
+Run the Draft Rooms hub integration tests:
+
+```bash
+dotnet test tests/TwilightImperiumUltimate.IntegrationTests/TwilightImperiumUltimate.IntegrationTests.csproj --filter FullyQualifiedName~Hub
+```
+
+These tests use SQL Server LocalDB, a `WebApplicationFactory` in the `Testing` environment, and SignalR Long Polling through `TestServer`. They cover hub subscription authorization, room isolation, notifications, participant removal, and presence state after a disconnect. They do not replace manual browser checks for deployed WebSocket/CORS connectivity, tab-close presence, or API-restart reconnection.
+
+### Draft result and retention checks
+
+The integration suite also verifies result snapshot creation and rollback in the finishing transaction, migration rollback/reapply, case-sensitive share tokens, source-room deletion independence, account deletion, manager/owner deletion rules, guest-account linking and activity rechecks during retention. Component tests cover public/finished-room results, account history paging, deletion confirmation, focus restoration, stale responses and noindex metadata.
+
+`DraftRooms:InactiveRoomRetentionDays` defaults to `30`; `DraftRooms:CleanupCronExpression` defaults to `0 15 3 * * ?` (03:15 UTC daily). Negative retention, values over 36500 days and zero outside Development fail startup validation. Cleanup never expires result snapshots.
+
+For manual development testing, **use a separate database for this worktree**. The normal API applies migrations at startup, and worktrees otherwise share the ordinary connection configuration. Override `ConnectionStrings__TwilightImperium` with a dedicated LocalDB database such as `TwilightImperiumUltimate_DraftRooms_Dev` before starting the API; do not point this branch at the database used by the older main branch.
+
+On that isolated Development instance only, retention can be tested with `DraftRooms__InactiveRoomRetentionDays=0` and a temporary `DraftRooms__CleanupCronExpression=0/15 * * * * ?`. Create and finish a draft, record its public result link, allow cleanup to run, and verify the room disappears while the result remains readable. Restore the normal values afterwards. This accelerated cleanup is destructive to rooms in the configured database and must never target the ordinary/main or production database. The manual procedure and real-browser clipboard paste check remain deferred acceptance items; the automated cleanup tests use only uniquely named disposable test databases.
 
 ## 14. End-to-end tests
 
-Current status:
+The xUnit/Playwright project is `tests/TwilightImperiumUltimate.E2ETests`. On Windows, from the repository root:
 
-- No dedicated E2E test project/command is documented yet.
+```powershell
+dotnet publish src\TwilightImperiumUltimate.Web\TwilightImperiumUltimate.Web.csproj -c Release
+dotnet build tests\TwilightImperiumUltimate.E2ETests\TwilightImperiumUltimate.E2ETests.csproj -c Release
+powershell -NoProfile -ExecutionPolicy Bypass -File tests\TwilightImperiumUltimate.E2ETests\bin\Release\net10.0\playwright.ps1 install chromium
+dotnet test tests\TwilightImperiumUltimate.E2ETests\TwilightImperiumUltimate.E2ETests.csproj -c Release --no-build
+```
 
-If E2E tests are added (Playwright/Selenium), document:
+Publish again after changing Web code: these tests intentionally exercise published Release assets, not the development server or stale Debug files. Browser installation is a one-time prerequisite per Playwright version. `Microsoft.Playwright.Xunit` is Apache-2.0 licensed and supplies the real-browser runner; it is test-only.
 
-- project path
-- test run command
-- browser/runtime prerequisites
-- local environment dependencies
+The fixture starts two ephemeral loopback hosts (static Web with SPA fallback, and `WebApplicationFactory.UseKestrel(0)` API). It overrides only `TwilightImperiumApiOptions:BaseUrl` in the served public configuration and the API's allowed test frontend origin. Each fixture creates/drops only `DraftRoomsTests_<guid>` on LocalDB. It never starts the normal API against the ordinary/main database. Browser profiles are fresh, guest storage is isolated per context, non-test network origins are blocked, and every owned browser/host/database is disposed.
+
+Chromium is the default. To use an already installed Edge instead, set `$env:DRAFT_ROOMS_E2E_BROWSER_CHANNEL = 'msedge'` in the same PowerShell process as `dotnet test`; clear that variable to return to Chromium. No existing user browser/profile is attached.
+
+The room and full draft journeys each run three independent times. They cover create/join in new tabs, claims, live chat, reload persistence, the bare room layout, simultaneous private bans, unrevealed choice-bearing fields, snake turns, undo, a clean public result context, noindex and actual system clipboard text. Test interactions bring the active player's tab forward, including newly opened tabs and reloads, to model real users rather than relying on background WASM scheduling. The third room run also exercises the mobile section controls with Enter and checks that their buttons fit the viewport. Public pools legitimately contain every eligible faction; privacy assertions inspect selected state and private response fields, not absence of faction names.
+
+Reload response inspection accepts only requests initiated after the new main-frame navigation commits; an old document's live refresh can otherwise lose its response body during navigation. Ordinary assertions allow 30 seconds; cold room startup and reload inspection allow 60 seconds to accommodate observed local fixture/database latency. There are no automatic retries or forced clicks. This startup allowance is not a production response-time guarantee.
+
+The suite asserts that no JavaScript page exceptions occur. It does not certify a clean resource console or complete visual assets: the local published output can lack existing shared images/fonts, and external assets such as the html2canvas CDN are deliberately blocked. Verify complete deployed assets and visual appearance during manual acceptance.
+
+After the prerequisites above, run the complete solution:
+
+```powershell
+dotnet test TwilightImperiumUltimate.slnx -c Release --no-build -m:1
+```
+
+### Opt-in room load check
+
+Ordinary integration runs exclude `Category=Load` through `integration.runsettings`. An explicit test filter replaces that default, so run the one-minute load case alone:
+
+```powershell
+dotnet test tests\TwilightImperiumUltimate.IntegrationTests\TwilightImperiumUltimate.IntegrationTests.csproj -c Release --filter Category=Load --logger "console;verbosity=detailed"
+```
+
+The fixture prepares 20 rooms through the real create business command, rather than consuming/bypassing the HTTP ten-creations-per-IP/hour limit during measured traffic. It connects eight isolated guests per room over TestServer Long Polling and exercises actual authorized seat APIs and two-message-per-client chat bursts within production throttles for at least one minute. No production limits are disabled.
+
+A test-only EF transaction interceptor timestamps actual committed room versions, which are matched to all clients' `RoomChanged` receipts. The test reports p50/p95/max delivery latency, CPU seconds, and sampled process-private-memory baseline/peak, verifies final delivery to all 160 clients and persisted room limits, and fails rather than substituting a notifier timestamp. API and clients share the measured test process; SQL Server is separate. This is a local integration sanity check, not a deployed WebSocket or capacity benchmark; acceptance of the measured numbers remains an operator decision.
+
+### Draft Rooms release checks (operator-owned)
+
+- Back up the target database before deploying the API/migrations; retain a tested rollback/recovery plan.
+- Verify one API instance, WebSockets, HTTPS, the configured exact frontend CORS origins, and retention/cleanup settings.
+- Redact `access_token` in reverse-proxy/web-server query logs; SignalR browser transports can send bearer tokens in that parameter.
+- Verify real-device/mobile, keyboard/screen-reader, deployed reconnection and retention scenarios from the specification, then monitor errors for one day.
+- These deployment/manual acceptance gates are not fulfilled by a local browser or load-test pass. Do not target the ordinary/main database to perform them.
 
 ## 15. Test filtering
 

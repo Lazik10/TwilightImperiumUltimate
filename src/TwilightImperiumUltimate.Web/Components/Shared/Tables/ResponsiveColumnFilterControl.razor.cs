@@ -6,6 +6,7 @@ namespace TwilightImperiumUltimate.Web.Components.Shared.Tables;
 /// <summary>
 /// Code-behind for <see cref="ResponsiveColumnFilterControl{TItem}"/>.
 /// </summary>
+/// <typeparam name="TItem">The row model used by the containing responsive table.</typeparam>
 public partial class ResponsiveColumnFilterControl<TItem>
 {
     /// <summary>

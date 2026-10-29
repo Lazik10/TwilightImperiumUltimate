@@ -43,6 +43,28 @@ internal static class TableName
 
     internal const string FactionColorImportance = "FactionColorImportances";
 
+    // Draft rooms
+    internal const string DraftRooms = "DraftRooms";
+
+    internal const string DraftRoomParticipants = "DraftRoomParticipants";
+
+    internal const string DraftRoomSeats = "DraftRoomSeats";
+
+    internal const string DraftRoomChatMessages = "DraftRoomChatMessages";
+
+    internal const string DraftRoomLogEntries = "DraftRoomLogEntries";
+
+    internal const string DraftResults = "DraftResults";
+
+    internal const string DraftResultPlayers = "DraftResultPlayers";
+
+    internal const string FactionPickSettings = "FactionPickSettings";
+
+    internal const string FactionPickStates = "FactionPickStates";
+    internal const string FactionPickSelections = "FactionPickSelections";
+
+    internal const string FactionPickTurnOrder = "FactionPickTurnOrder";
+
     // Galaxy
     internal const string Anomalies = "Anomalies";
 

@@ -9,7 +9,7 @@ For setup and build commands, see `docs/build-and-test.md`.
 
 ## 1. Solution summary
 
-TwilightImperiumUltimate is a .NET 8 multi-project solution.
+TwilightImperiumUltimate is a .NET 10 multi-project solution.
 
 ### Purpose
 
@@ -34,7 +34,7 @@ The application provides rules/reference browsing and game support capabilities 
 
 | Area | Current implementation |
 |---|---|
-| Runtime | .NET 8 |
+| Runtime | .NET 10 |
 | Language | C# |
 | Frontend | Blazor WebAssembly |
 | UI markup | Razor, HTML |
@@ -278,6 +278,36 @@ Rules:
 - Keep request/response contracts strongly typed.
 - Handle loading, empty, success, and error states explicitly in the UI.
 
+### Real-time layer
+
+Draft Rooms use ASP.NET Core SignalR at `/hubs/draft-rooms`. The Web client negotiates the available transport and automatically reconnects; after reconnecting it re-subscribes to the room and refreshes its current view. The API hub validates the account or guest credentials before adding a connection to room- and participant-scoped groups.
+
+Committed room changes are published as `RoomChanged` after the persistence transaction completes. The hub also publishes `PresenceChanged`, `RoomClosed`, and participant-scoped `RemovedFromRoom` notifications. A singleton presence tracker records active connections and delays the offline transition for 30 seconds to allow short reconnects. The hosted `PresenceChatPublisher` persists and broadcasts `Join` and `Leave` chat messages for first-online and final-offline transitions without incrementing the room state version. Explicit participant leave and kick operations persist and broadcast their `Leave` messages in the same transaction as the room mutation.
+
+Presence is currently process-local: the deployment must run one API instance. Horizontal scaling requires a shared SignalR backplane and distributed presence tracking before multiple API instances can safely serve Draft Rooms.
+
+Successful room mutations append public-only activity log entries in the same persistence transaction. Password values and hashes and guest secrets are excluded; deleting a room cascades to its log entries.
+
+The API accepts bearer tokens from the `access_token` query parameter only on `/hubs` paths, as required by browser WebSocket transports; other API routes continue to use the normal bearer-token handling. Integration tests use SignalR Long Polling over `TestServer`; they do not verify deployed WebSocket negotiation, cross-origin credentialed CORS, or browser tab-close/restart behavior. Those remain manual acceptance checks.
+
+Faction Pick rules execute in the pure Draft module. The Business persistence adapter supplies settings, seats, the faction pool and immutable choices; the personalized `Project` method is the only engine-to-client projection. Pending picks remain seat-private, including from managers. Lock-in carries the observed absolute turn index so duplicate requests cannot accidentally lock the same seat's next turn at a snake boundary. Manager decisions disclose the replaced pending choice before the public pick; undo restores the last turn and removes pending choices. A configured lobby order is stored separately from runtime order, validated against the current room seats and copied on Start. Reset keeps configuration but deletes runtime state.
+
+The room's `TurnAlertTitle` keeps a visible action-required prompt independent of the selected mobile panel. Its isolated visibility observer receives only a boolean from `document.visibilityState`; JavaScript receives no room state or credentials. A Blazor `PeriodicTimer` alternates the hidden tab title at a nominal one-second interval, and the local-storage preference `draftRooms.turnAlert.v1` defaults to enabled. Visible tabs, completed actions and disabling the preference restore the normal title immediately. Component disposal cancels the timer and removes the browser listener and .NET reference. Deterministic component tests verify the title and preference behavior. **RSK-04 remains a manual acceptance item:** no five-minute hidden-tab browser rhythm has been measured yet; browser background throttling can lengthen the nominal interval. The visible prompt remains available even if browser interop or preference storage fails.
+
+### Finished draft results and retention
+
+The final locked pick creates `Draft.DraftResults` and `Draft.DraftResultPlayers` in the same room transaction as the Finished transition. A filtered unique source-room index prevents a second snapshot. The public, versioned engine payload contains numbered seats, display-name snapshots, revealed bans, locked picks, settings and manager attribution, not runtime seat GUIDs, account/participant identifiers, private choices, chat or activity logs. The copy formatter uses stable faction enum identifiers so the pure Draft module does not depend on Web localization resources; the result UI uses the existing human-readable faction resources.
+
+Results have no source-room foreign key and survive room deletion. Share tokens contain 128 random bits, are base64url encoded and matched with a case-sensitive SQL collation. `GET api/draft-rooms/results/{token}` is anonymous; invalid, unknown and deleted tokens return the same result-not-found problem. Verified room participants can retrieve the snapshot through `GET api/draft-rooms/{code}/result`. Public result pages use the main layout and the existing `SeoMetadata` noindex rule for nested Draft Rooms routes.
+
+Account history includes snapshots an account owns or occupies, twenty per page. It projects the effective deletion permission in SQL rather than making a query per result. While the source room exists, only an active, verified host or co-host can delete its snapshot; ownership alone is insufficient. After room deletion, only the owning account may delete it, using a database predicate that also checks the source room is absent. Live-room deletion clears `ResultId`, appends a public log entry and broadcasts the version change after commit. The finished-room view reloads on version changes to remove another manager's deleted snapshot and share link.
+
+Linking a guest account after finishing changes only ownership/player account associations. Public display names and the stored payload remain immutable. A guest host should link before closing the room or before retention removes it if they want account history and continued ownership; a guest-only orphan has no account owner.
+
+`DraftRoomCleanupJob` runs daily at 03:15 UTC by default and disallows concurrent execution. It reads inactive rooms in batches of at most 100 and rechecks `LastActivityUtc` inside each room's unit of work before deleting, preserving results and notifying connected clients after commit. `DraftRooms:InactiveRoomRetentionDays` defaults to 30; zero is permitted only in Development, and negative or excessive retention values fail startup validation. `DraftRooms:CleanupCronExpression` controls the UTC schedule. Cleanup failures propagate to Quartz rather than being reported as successful runs.
+
+The shared clipboard button awaits the actual browser clipboard operation, explicitly reports failure and preserves focus during its fallback. Its temporary confirmation and JS module are cancelled/disposed with the component. Automated tests cover clipboard completion, rejection, fallback and focus restoration; a real-browser paste check remains part of deferred manual acceptance.
+
 ---
 
 ## 10. Validation and error handling
@@ -380,7 +410,10 @@ Note: an accessibility-specific test baseline is recommended for high-value user
 
 Current state:
 
-- Existing automated tests are concentrated in `TwilightImperiumUltimate.Tests` with stronger focus on TIGL/data logic.
+- `TwilightImperiumUltimate.Tests`: pure engine, business/service, and existing TIGL/data unit tests.
+- `TwilightImperiumUltimate.ComponentTests`: bUnit rendering, interactions, accessibility contracts, and client-service regressions.
+- `TwilightImperiumUltimate.IntegrationTests`: isolated SQL Server LocalDB, migrations, API authorization, transactions and SignalR. The explicitly opted-in load category measures SQL-commit-to-client delivery; ordinary runs exclude it.
+- `TwilightImperiumUltimate.E2ETests`: published WASM and real Kestrel/API ports with Playwright contexts for guest identity, live room interactions, private bans/picks, snake order, undo, clipboard contents and public results. The hosts override only the public Web API address and test CORS origin; real authorization and production business rules remain enabled.
 
 Recommended expansion path:
 
@@ -525,7 +558,7 @@ Current status:
 ## 21. Known constraints
 
 - Must preserve current layer boundaries and contract independence.
-- Must support .NET 8 Blazor WASM client + ASP.NET Core API split architecture.
+- Must support .NET 10 Blazor WASM client + ASP.NET Core API split architecture.
 - Must preserve SQL Server + EF Core persistence model.
 - Must support current integrations (Discord, SMTP, Async-related jobs/services).
 

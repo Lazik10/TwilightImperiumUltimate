@@ -3,9 +3,9 @@ using TwilightImperiumUltimate.Web.Helpers.Enums;
 namespace TwilightImperiumUltimate.Web.Services.Factions;
 
 /// <inheritdoc cref="IFactionProvider" />
-public class FactionProvider(
+public sealed class FactionProvider(
     ITwilightImperiumApiHttpClient httpClient,
-    NavigationManager navigationManager) : IFactionProvider
+    NavigationManager navigationManager) : IFactionProvider, IDisposable
 {
     private static readonly TimeSpan CacheDuration = TimeSpan.FromHours(24);
     private readonly SemaphoreSlim _refreshLock = new(1, 1);
@@ -38,8 +38,14 @@ public class FactionProvider(
 
         _navigationManager.NavigateTo($"{Pages.Pages.Factions}/{_currentFactionName}{GetCurrentInfoQuery()}");
     }
-    
+
     public FactionDto? GetFactionByName(FactionName factionName) => _factions?.SingleOrDefault(x => x.FactionName == factionName);
+
+    public void Dispose()
+    {
+        this._refreshLock.Dispose();
+        GC.SuppressFinalize(this);
+    }
 
     public void UpdateSourceAndFaction(FactionSource source, FactionName factionName)
     {

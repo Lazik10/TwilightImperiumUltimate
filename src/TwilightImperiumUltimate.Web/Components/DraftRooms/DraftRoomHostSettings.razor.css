@@ -1,0 +1,52 @@
+.draft-room-host-settings {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.draft-room-host-settings__lock {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+}
+
+.draft-room-host-settings__password-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: min(90vw, 32rem);
+    max-height: 90vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+    margin: 0;
+    padding: var(--space-lg);
+    border: 2px solid black;
+    border-radius: var(--border-radius-md);
+    background: var(--color-nav-panel-bg);
+    transform: translate(-50%, -50%);
+}
+
+.draft-room-host-settings__password-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.65);
+}
+
+.draft-room-host-settings__password-dialog:focus-visible {
+    outline: 2px solid var(--color-nav-hover);
+    outline-offset: 2px;
+}
+
+.draft-room-host-settings__password-dialog h2 {
+    margin: 0 0 var(--space-md);
+}
+
+.draft-room-host-settings__password-dialog > p {
+    margin: 0 0 var(--space-lg);
+}
+
+.draft-room-host-settings__password-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-md);
+}

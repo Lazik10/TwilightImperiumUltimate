@@ -11,6 +11,7 @@ using TwilightImperiumUltimate.Web.Services.Async;
 using TwilightImperiumUltimate.Web.Services.Authentication;
 using TwilightImperiumUltimate.Web.Services.Discord;
 using TwilightImperiumUltimate.Web.Services.Draft;
+using TwilightImperiumUltimate.Web.Services.DraftRooms;
 using TwilightImperiumUltimate.Web.Services.Factions;
 using TwilightImperiumUltimate.Web.Services.GameTracker;
 using TwilightImperiumUltimate.Web.Services.Language;
@@ -70,6 +71,14 @@ public static class ServiceCollectionsExtension
         services.AddScoped<IAsyncStatsProvider, AsyncStatsProvider>();
 
         services.AddScoped<ITwilightImperiumApiHttpClient, TwilightImperiumApiHttpClient>();
+        services.AddScoped<IDraftRoomApiService, DraftRoomApiService>();
+        services.AddSingleton<IDraftTypeUiRegistry, DraftTypeUiRegistry>();
+        services.AddTransient<IDraftRoomConnection, DraftRoomConnection>();
+        services.AddTransient<IDraftRoomSession, DraftRoomSession>();
+        services.AddScoped<IGuestIdentityStore, GuestIdentityStore>();
+        services.AddScoped<IRoomTabOpener, RoomTabOpener>();
+        services.AddTransient<IPageVisibility, PageVisibility>();
+        services.AddSingleton(TimeProvider.System);
 
         services.AddScoped<TwilightImperiumAuthenticationStateProvider>();
         services.AddScoped<AuthenticationStateProvider>(serviceProvider =>

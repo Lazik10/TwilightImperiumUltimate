@@ -126,5 +126,4 @@ public class ColorPickerService : IColorPickerService
         _colors = Enum.GetValues<PlayerColor>()
             .ToDictionary(x => x, x => false);
     }
-
 }

@@ -1,0 +1,55 @@
+@namespace TwilightImperiumUltimate.Web.Components.DraftRooms.FactionPick
+@using TwilightImperiumUltimate.Contracts.Enums
+@using TwilightImperiumUltimate.Web.Components.Shared.GameVersions
+
+<fieldset disabled="@IsDisabled">
+    <legend>@Text("FactionPickSettings")</legend>
+    <GameVersionPicker SelectableVersions="@SupportedVersions"
+                       SelectedVersions="@_settings.GameVersions.ToArray()"
+                       OnVersionSelected="ToggleVersion"
+                       Disabled="@IsDisabled" />
+    <label for="draft-bans-mode">@Text("BansMode")</label>
+    <select id="draft-bans-mode" disabled="@IsDisabled" @bind="_settings.BansMode">
+        @foreach (var mode in Enum.GetValues<FactionPickBansMode>())
+        {
+            <option value="@mode">@mode.GetDisplayName()</option>
+        }
+    </select>
+    <label for="draft-bans-per-player">@Text("BansPerPlayer")</label>
+    <ResponsiveNumericInput Id="draft-bans-per-player" AriaLabel="@Text("BansPerPlayer")" Min="1" Max="3" @bind-Value="_settings.BansPerPlayer" Disabled="@IsDisabled" />
+    <label for="draft-host-ban-count">@Text("HostBanCount")</label>
+    <ResponsiveNumericInput Id="draft-host-ban-count" AriaLabel="@Text("HostBanCount")" Min="0" @bind-Value="_settings.HostBanCount" Disabled="@IsDisabled" />
+    <label for="draft-picks-per-player">@Text("PicksPerPlayer")</label>
+    <ResponsiveNumericInput Id="draft-picks-per-player" AriaLabel="@Text("PicksPerPlayer")" Min="1" Max="5" @bind-Value="_settings.PicksPerPlayer" Disabled="@IsDisabled" />
+    <label for="draft-pick-order">@Text("PickOrder")</label>
+    <select id="draft-pick-order" disabled="@IsDisabled" @bind="_settings.PickOrderMode">
+        <option value="@FactionPickOrderMode.Random">@Text("RandomOrder")</option>
+        <option value="@FactionPickOrderMode.HostDefined">@Text("HostDefinedOrder")</option>
+    </select>
+    @if (_settings.PickOrderMode == FactionPickOrderMode.HostDefined)
+    {
+        <ol aria-label="@Text("PickOrder")">
+            @foreach (var seatId in _settings.SeatOrder)
+            {
+                <li @key="seatId" tabindex="-1" @ref="_seatRows[seatId]">
+                    @SeatLabel(seatId)
+                    <ResponsiveButton Text="@Text("MoveSeatUp")"
+                                      aria-label="@($"{Text("MoveSeatUp")}: {SeatLabel(seatId)}")"
+                                      IsDisabled="@(IsDisabled || seatId == _settings.SeatOrder[0])"
+                                      OnClick="@(() => MoveSeat(seatId, -1))" />
+                    <ResponsiveButton Text="@Text("MoveSeatDown")"
+                                      aria-label="@($"{Text("MoveSeatDown")}: {SeatLabel(seatId)}")"
+                                      IsDisabled="@(IsDisabled || seatId == _settings.SeatOrder[^1])"
+                                      OnClick="@(() => MoveSeat(seatId, 1))" />
+                </li>
+            }
+        </ol>
+    }
+    <ResponsiveSwitch Name="draft-snake" AriaLabel="@Text("Snake")"
+                      OnText="@Text("SnakeOn")" OffText="@Text("SnakeOff")"
+                      @bind-IsToggled="_settings.Snake" Disabled="@IsDisabled" />
+    @if (CanEdit)
+    {
+        <ResponsiveButton Text="@Text("SaveDraftSettings")" OnClick="SaveAsync" IsDisabled="@IsDisabled" />
+    }
+</fieldset>

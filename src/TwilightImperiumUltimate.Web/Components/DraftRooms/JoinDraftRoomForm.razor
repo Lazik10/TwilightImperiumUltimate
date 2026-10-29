@@ -1,0 +1,79 @@
+@using TwilightImperiumUltimate.Contracts.DraftRooms
+@using TwilightImperiumUltimate.Contracts.DTOs.DraftRooms
+
+<ResponsiveForm Model="@_model"
+                OnValidSubmit="JoinRoomAsync"
+                ShowValidationSummary="true"
+                IsSubmitting="@_isSubmitting"
+                SubmitText="@Strings.DraftRooms_SubmitJoin"
+                SubmittingText="@Strings.DraftRooms_SubmittingJoin">
+    <ResponsiveFormField Id="draft-room-code"
+                         Label="@Strings.DraftRooms_RoomCode"
+                         For="@(() => _model.Code)"
+                         Required="true">
+        <ResponsiveTextBox @ref="_roomCodeInput"
+                           Id="draft-room-code"
+                           Name="room-code"
+                           AutoComplete="off"
+                           AriaDescribedBy="draft-room-code-validation"
+                           Required="true"
+                           MaxLength="@DraftRoomLimits.CodeLength"
+                           ReadOnly="@IsCodeForced"
+                           InputChanged="HandleCodeInputAsync"
+                           @bind-Value="_model.Code" />
+    </ResponsiveFormField>
+
+    @if (_model.RequiresCredentials)
+    {
+        <ResponsiveFormField Id="draft-room-join-password"
+                             Label="@Strings.DraftRooms_Password"
+                             For="@(() => _model.Password)"
+                             Required="true">
+            <ResponsivePassword Id="draft-room-join-password"
+                                Name="room-password"
+                                AutoComplete="current-password"
+                                AriaDescribedBy="draft-room-join-password-validation"
+                                Required="true"
+                                @bind-Value="_model.Password" />
+        </ResponsiveFormField>
+    }
+
+    @if (_model.RequiresGuestDisplayName)
+    {
+        <ResponsiveFormField Id="draft-room-join-display-name"
+                             Label="@Strings.DraftRooms_DisplayName"
+                             For="@(() => _model.DisplayName)"
+                             Required="true">
+            <ResponsiveTextBox Id="draft-room-join-display-name"
+                               Name="display-name"
+                               AutoComplete="nickname"
+                               AriaDescribedBy="draft-room-join-display-name-validation"
+                               Required="true"
+                               MaxLength="@DraftRoomLimits.MaxDisplayNameLength"
+                               @bind-Value="_model.DisplayName" />
+        </ResponsiveFormField>
+    }
+
+    @if (_hasStoredIdentity && _isGuest)
+    {
+        <div role="status">@Strings.DraftRooms_StoredGuestIdentity</div>
+    }
+</ResponsiveForm>
+
+@if (!string.IsNullOrWhiteSpace(_errorMessage))
+{
+    <div role="alert">
+        <ResponsiveText Text="@_errorMessage" TextColor="TextColor.Red" CssClass="mt-md" />
+    </div>
+}
+
+@if (_roomJoined && OpenInNewTab)
+{
+    <div role="status">
+        <ResponsiveText Text="@Strings.DraftRooms_JoinSuccess" CssClass="mt-md" />
+        @if (_showOpenRoomLink)
+        {
+            <a href="@_roomUrl" target="_blank" rel="noopener noreferrer">@Strings.DraftRooms_OpenRoom</a>
+        }
+    </div>
+}

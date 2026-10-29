@@ -1,0 +1,120 @@
+@namespace TwilightImperiumUltimate.Web.Components.DraftRooms
+@using TwilightImperiumUltimate.Contracts.DraftRooms
+@using TwilightImperiumUltimate.Web.Models.DraftRooms
+
+@if (Room is { } room && room.Me.CanChangeSettings)
+{
+    <section class="draft-room-host-settings" aria-label="@Strings.DraftRooms_SettingsHeading">
+        <ResponsiveHeading Level="2" Text="@Strings.DraftRooms_SettingsHeading" />
+
+        <ResponsiveForm Model="@_nameModel"
+                        OnValidSubmit="SaveRoomNameAsync"
+                        ShowValidationSummary="true"
+                        IsSubmitting="_isProcessing"
+                        SubmitDisabled="@(!_isNameDirty)"
+                        SubmitText="@Strings.DraftRooms_SaveRoomName"
+                        SubmittingText="@Strings.DraftRooms_SavingRoomName">
+            <ResponsiveFormField Id="draft-room-settings-name"
+                                 Label="@Strings.DraftRooms_RoomName"
+                                 For="@(() => _nameModel.Name)"
+                                 Required="true">
+                <ResponsiveTextBox Id="draft-room-settings-name"
+                                   Name="room-name"
+                                   AutoComplete="off"
+                                   AriaDescribedBy="draft-room-settings-name-validation"
+                                   Required="true"
+                                   MaxLength="@DraftRoomLimits.MaxRoomNameLength"
+                                   @bind-Value="_nameModel.Name"
+                                   @bind-Value:after="HandleRoomNameChanged" />
+            </ResponsiveFormField>
+        </ResponsiveForm>
+
+        <div class="draft-room-host-settings__lock">
+            <ResponsiveText Text="@Strings.DraftRooms_LockRoomDescription" />
+            <ResponsiveSwitch Name="draft-room-lock"
+                              AriaLabel="@Strings.DraftRooms_LockRoomAriaLabel"
+                              OnText="@Strings.DraftRooms_Locked"
+                              OffText="@Strings.DraftRooms_Unlocked"
+                              IsToggled="@room.IsLocked"
+                              IsToggledChanged="HandleLockChangedAsync"
+                              Disabled="_isProcessing" />
+        </div>
+
+        <ResponsiveButton Text="@Strings.DraftRooms_ChangePassword"
+                          IsDisabled="_isProcessing"
+                          OnClick="OpenPasswordDialog" />
+
+        @if (_showActionError && !_isPasswordDialogOpen)
+        {
+            <div role="alert">
+                <ResponsiveText Text="@Strings.DraftRooms_SettingsActionFailed" TextColor="TextColor.Red" />
+            </div>
+        }
+
+        <dialog class="draft-room-host-settings__password-dialog"
+                role="@(_isPasswordDialogOpen ? "dialog" : null)"
+                aria-modal="@(_isPasswordDialogOpen ? "true" : null)"
+                aria-labelledby="@(_isPasswordDialogOpen ? "draft-room-password-dialog-title" : null)"
+                aria-describedby="@(_isPasswordDialogOpen ? "draft-room-password-dialog-description" : null)"
+                autofocus="@_isPasswordDialogOpen"
+                tabindex="-1"
+                @ref="_passwordDialogRef"
+                @onkeydown="HandlePasswordDialogKeyDownAsync">
+            @if (_isPasswordDialogOpen)
+            {
+                <h2 id="draft-room-password-dialog-title">@Strings.DraftRooms_ChangePasswordTitle</h2>
+                <p id="draft-room-password-dialog-description">@Strings.DraftRooms_ChangePasswordDescription</p>
+
+                @if (_showActionError)
+                {
+                    <div role="alert">
+                        <ResponsiveText Text="@Strings.DraftRooms_SettingsActionFailed" TextColor="TextColor.Red" />
+                    </div>
+                }
+
+                <ResponsiveForm Model="@_passwordModel"
+                                OnValidSubmit="ChangePasswordAsync"
+                                ShowValidationSummary="true"
+                                IsSubmitting="_isProcessing"
+                                SubmitText="@Strings.DraftRooms_UpdatePassword"
+                                SubmittingText="@Strings.DraftRooms_UpdatingPassword">
+                    <ChildContent>
+                        <ResponsiveFormField Id="draft-room-new-password"
+                                             Label="@Strings.DraftRooms_NewPassword"
+                                             For="@(() => _passwordModel.Password)"
+                                             Required="true">
+                            <ResponsivePassword Id="draft-room-new-password"
+                                                Name="new-password"
+                                                AutoComplete="new-password"
+                                                AriaDescribedBy="draft-room-new-password-validation"
+                                                Required="true"
+                                                @bind-Value="_passwordModel.Password" />
+                        </ResponsiveFormField>
+
+                        <ResponsiveFormField Id="draft-room-confirm-password"
+                                             Label="@Strings.DraftRooms_RepeatPassword"
+                                             For="@(() => _passwordModel.ConfirmPassword)"
+                                             Required="true">
+                            <ResponsivePassword Id="draft-room-confirm-password"
+                                                Name="confirm-password"
+                                                AutoComplete="new-password"
+                                                AriaDescribedBy="draft-room-confirm-password-validation"
+                                                Required="true"
+                                                @bind-Value="_passwordModel.ConfirmPassword" />
+                        </ResponsiveFormField>
+                    </ChildContent>
+                    <FooterContent>
+                        <div class="draft-room-host-settings__password-actions">
+                            <ResponsiveButton Text="@Strings.DraftRooms_UpdatePassword"
+                                              ButtonType="ButtonType.Submit"
+                                              IsDisabled="_isProcessing" />
+                            <ResponsiveButton Text="@Strings.DraftRooms_Cancel"
+                                              IsDisabled="_isProcessing"
+                                              OnClick="CancelPasswordChangeAsync" />
+                        </div>
+                    </FooterContent>
+                </ResponsiveForm>
+            }
+        </dialog>
+    </section>
+}

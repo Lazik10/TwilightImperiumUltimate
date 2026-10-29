@@ -18,7 +18,7 @@ public partial class FactionUnits
 
     private IReadOnlyList<string> UnitImagePaths => CreateUnitImagePaths();
 
-    private IReadOnlyList<string> CreateUnitImagePaths()
+    private List<string> CreateUnitImagePaths()
     {
         var imagePaths = new List<string>();
 

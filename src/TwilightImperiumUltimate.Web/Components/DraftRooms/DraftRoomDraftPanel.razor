@@ -1,0 +1,55 @@
+@namespace TwilightImperiumUltimate.Web.Components.DraftRooms
+@using TwilightImperiumUltimate.Contracts.Enums
+
+@if (Session.View is { Status: DraftRoomStatus.Finished } finished)
+{
+    <DraftRoomResultPanel Room="@finished" />
+}
+else if (Session.View is { } room)
+{
+    <section aria-label="@Text("DraftSettingsHeading")">
+        <ResponsiveHeading Level="2" Text="@Text("DraftSettingsHeading")" />
+        <label for="draft-room-type">@Text("DraftType")</label>
+        <select id="draft-room-type" disabled>
+            <option value="@DraftTypeId.FactionPick">@Text("FactionPickSettings")</option>
+        </select>
+        @if (!room.Me.CanChangeSettings)
+        {
+            <p>@Text(room.Status == DraftRoomStatus.Lobby ? "DraftSettingsReadOnly" : "DraftSettingsLocked")</p>
+        }
+        <DynamicComponent Type="@UiRegistry.GetSettingsEditor(room.DraftType)" Parameters="@EditorParameters(room)" />
+        @if (IsManager(room))
+        {
+            @if (room.Status == DraftRoomStatus.Lobby)
+            {
+                @if (room.StartBlockers.Count > 0)
+                {
+                    <ul id="draft-start-blockers">
+                        @foreach (var blocker in room.StartBlockers)
+                        {
+                            <li @key="blocker">@BlockerText(blocker)</li>
+                        }
+                    </ul>
+                }
+                <ResponsiveButton Text="@Text("StartDraft")" IsDisabled="@(_processing || !room.CanStart)"
+                                  aria-describedby="@(room.StartBlockers.Count > 0 ? "draft-start-blockers" : null)"
+                                  OnClick="StartAsync" />
+            }
+            @if (room.CanReset)
+            {
+                <ResponsiveDangerButton Text="@Text("ResetDraft")" IsDisabled="@_processing" OnClick="ShowReset" />
+            }
+        }
+        @if (_error)
+        {
+            <p role="alert">@Text("DraftActionFailed")</p>
+        }
+        @if (room.Draft is not null)
+        {
+            <DynamicComponent Type="@UiRegistry.GetBoard(room.DraftType)" Parameters="@BoardParameters(room)" />
+        }
+        <ResponsiveConfirmDialog IsOpen="@_confirmReset" Title="@Text("ResetDraft")" Message="@Text("ResetDraftConfirmation")"
+                                 ConfirmText="@Text("ResetDraft")" CancelText="@Text("Cancel")"
+                                 OnConfirm="ResetAsync" OnCancel="CancelReset" />
+    </section>
+}

@@ -55,11 +55,10 @@ public partial class MiltyDraftInitiativeOrder
     private string GetInitiativeLabel()
     {
         var player = MiltyDraftService.Players.FirstOrDefault(player => player.Initiative == Initiative);
-        return player is null
-            ? "Unpicked"
-            : MiltyDraftSettingsService.EnablePlayerNames
-                ? player.PlayerName
-                : player.PlayerDefaultName;
+        if (player is null)
+            return "Unpicked";
+
+        return MiltyDraftSettingsService.EnablePlayerNames ? player.PlayerName : player.PlayerDefaultName;
     }
 
     private TextColor GetInitiativeTextColor()

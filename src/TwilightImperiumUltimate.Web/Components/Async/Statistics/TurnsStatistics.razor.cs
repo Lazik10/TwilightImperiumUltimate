@@ -78,7 +78,7 @@ public partial class TurnsStatistics
         return TextColor.Green;
     }
 
-    private IReadOnlyCollection<RankingBarPoint> GetFastestPlayersData() => TurnsStats.AsyncFastestPlayers
+    private List<RankingBarPoint> GetFastestPlayersData() => TurnsStats.AsyncFastestPlayers
         .Select((user, index) => new RankingBarPoint(
             index.ToString(),
             $"{user.UserName} ({user.Turns})",

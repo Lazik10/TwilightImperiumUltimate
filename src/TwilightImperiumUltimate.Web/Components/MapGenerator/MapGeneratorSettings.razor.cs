@@ -145,7 +145,7 @@ public partial class MapGeneratorSettings
         MapGeneratorSettingsService.UpdateWormholeDensity(wormholeDensity);
     }
 
-    private IReadOnlyCollection<int> GetLegendaryPlanetOptions() =>
+    private int[] GetLegendaryPlanetOptions() =>
         Enumerable.Range(0, GetMaximumLegendaryPlanetCount() + 1).ToArray();
 
     private int GetMaximumLegendaryPlanetCount()

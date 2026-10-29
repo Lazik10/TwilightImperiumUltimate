@@ -1,0 +1,31 @@
+.my-rooms {
+    margin-block: 1.5rem;
+}
+
+.my-rooms__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.my-rooms__entry {
+    height: 100%;
+    padding: 1rem;
+    border: 1px solid currentColor;
+    border-radius: 0.5rem;
+}
+
+.my-rooms__details,
+.my-rooms__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1rem;
+}
+
+.my-rooms__actions {
+    margin-block-start: 1rem;
+}

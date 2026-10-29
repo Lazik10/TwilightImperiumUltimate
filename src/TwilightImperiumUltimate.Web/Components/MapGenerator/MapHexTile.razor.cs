@@ -6,6 +6,8 @@ namespace TwilightImperiumUltimate.Web.Components.MapGenerator;
 
 public partial class MapHexTile : TwilightImperiumBaseComponent, IDisposable
 {
+    private bool _disposed;
+
     private TileRotation _tileRotation;
 
     private int _degrees;
@@ -58,6 +60,12 @@ public partial class MapHexTile : TwilightImperiumBaseComponent, IDisposable
         _ => string.Empty,
     };
 
+    public void Dispose()
+    {
+        this.Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
     protected override async Task OnParametersSetAsync()
     {
         if (SystemTile!.SystemTileCategory == SystemTileCategory.Hyperlane)
@@ -67,8 +75,16 @@ public partial class MapHexTile : TwilightImperiumBaseComponent, IDisposable
     protected override void OnInitialized() =>
         MapGeneratorService.TileSelectionChanged += HandleTileSelectionChanged;
 
-    public void Dispose() =>
-        MapGeneratorService.TileSelectionChanged -= HandleTileSelectionChanged;
+    protected virtual void Dispose(bool disposing)
+    {
+        if (this._disposed)
+            return;
+
+        if (disposing)
+            MapGeneratorService.TileSelectionChanged -= HandleTileSelectionChanged;
+
+        this._disposed = true;
+    }
 
     private Task HandleInitialRotation()
     {

@@ -26,19 +26,19 @@ public static class EnumExtensions
         return displayName ?? string.Empty;
     }
 
-    public static bool IsLeagueMilestone(this TiglPrestigeRank prestigeRank, TiglLeague league) => league switch
-    {
-        TiglLeague.Fractured => prestigeRank == TiglPrestigeRank.Tyrant,
-        TiglLeague.ThundersEdge or TiglLeague.ProphecyOfKings => prestigeRank is TiglPrestigeRank.GalacticThreat or TiglPrestigeRank.PaxMagnificaBellumGloriosum,
-        _ => false,
-    };
-
     public static string GetDisplayName(this TiglFactionName enumValue)
     {
         string key = enumValue.ToString();
         string? displayName = TiglFactionsResourceManager.GetString(key, CultureInfo.InvariantCulture);
         return displayName ?? string.Empty;
     }
+
+    public static bool IsLeagueMilestone(this TiglPrestigeRank prestigeRank, TiglLeague league) => league switch
+    {
+        TiglLeague.Fractured => prestigeRank == TiglPrestigeRank.Tyrant,
+        TiglLeague.ThundersEdge or TiglLeague.ProphecyOfKings => prestigeRank is TiglPrestigeRank.GalacticThreat or TiglPrestigeRank.PaxMagnificaBellumGloriosum,
+        _ => false,
+    };
 
     public static string GetCardDisplayName<TEnum>(this TEnum enumValue)
     {

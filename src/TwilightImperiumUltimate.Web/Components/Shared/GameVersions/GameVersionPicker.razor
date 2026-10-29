@@ -1,5 +1,22 @@
 ﻿@inherits TwilightImperiumBaseComponent
 
+@if (SelectableVersions is { } versions)
+{
+    <fieldset disabled="@Disabled">
+        <legend>@Strings.GameVersion_SelectVersion</legend>
+        @foreach (var version in versions)
+        {
+            <label @key="version">
+                <input type="checkbox"
+                       checked="@SelectedVersions.Contains(version)"
+                       @onchange="@(() => OnGameVersionClick(version))" />
+                @version.GetDisplayName()
+            </label>
+        }
+    </fieldset>
+}
+else
+{
 <div class="version-row" style="width: @(Width)%;">
     <Label CenterText="true" Text="@Strings.GameVersion_SelectVersion" FontSize="18" CssClass="margin-bottom" Width="20"/>
 
@@ -8,3 +25,4 @@
         <GameVersionIcon Version="version" OnClick="OnGameVersionClick"/>
     }
 </div>
+}

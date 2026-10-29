@@ -7,50 +7,18 @@ namespace TwilightImperiumUltimate.Web.Components.TiglProfile;
 
 public partial class TiglSeasonHistoryTable
 {
-    [Parameter] public IReadOnlyList<TiglProfileSeasonSummary> Seasons { get; set; } = [];
-    [Parameter] public TiglLeagueProfileDto? LeagueProfile { get; set; }
-    [Parameter] public EventCallback<int> OnGameSelected { get; set; }
     private readonly HashSet<int> _expandedSeasons = [];
 
+    [Parameter]
+    public IReadOnlyList<TiglProfileSeasonSummary> Seasons { get; set; } = [];
+
+    [Parameter]
+    public TiglLeagueProfileDto? LeagueProfile { get; set; }
+
+    [Parameter]
+    public EventCallback<int> OnGameSelected { get; set; }
+
     private IReadOnlyList<SeasonRow> Rows => BuildRows();
-
-    private bool IsExpanded(int season) => _expandedSeasons.Contains(season);
-
-    private void Toggle(int season)
-    {
-        if (!_expandedSeasons.Add(season))
-            _expandedSeasons.Remove(season);
-    }
-
-    private Task OnSeasonKeyDown(KeyboardEventArgs args, int season)
-    {
-        if (args.Key is "Enter" or " ")
-            Toggle(season);
-
-        return Task.CompletedTask;
-    }
-
-    private Task OnGameKeyDown(KeyboardEventArgs args, int matchReportId) => args.Key is "Enter" or " "
-        ? OnGameSelected.InvokeAsync(matchReportId)
-        : Task.CompletedTask;
-
-    private IReadOnlyList<SeasonRow> BuildRows()
-    {
-        var asyncStats = LeagueProfile?.AsyncMatchHistory ?? [];
-        var glickoStats = LeagueProfile?.GlickoMatchHistory ?? [];
-        var trueSkillStats = LeagueProfile?.TrueSkillMatchHistory ?? [];
-
-        return Seasons
-            .Select(season => new SeasonRow(
-                season.Season,
-                season.GamesPlayed,
-                season.WinRate,
-                trueSkillStats.Where(stat => stat.Season == season.Season).Sum(stat => stat.ConservativeRatingChange),
-                glickoStats.Where(stat => stat.Season == season.Season).Sum(stat => stat.RatingChange),
-                asyncStats.Where(stat => stat.Season == season.Season).Sum(stat => stat.RatingChange),
-                season.Games.Select(game => BuildGameRow(game, trueSkillStats, glickoStats, asyncStats)).ToList()))
-            .ToList();
-    }
 
     private static SeasonGameRow BuildGameRow(
         TiglProfileGameDto game,
@@ -60,14 +28,14 @@ public partial class TiglSeasonHistoryTable
     {
         var trueSkill = trueSkillStats.FirstOrDefault(stat => Matches(game, stat.Season, stat.StartTimestamp, stat.EndTimestamp, stat.Faction, stat.Score));
         var glicko = glickoStats.FirstOrDefault(stat => Matches(game, stat.Season, stat.StartTimestamp, stat.EndTimestamp, stat.Faction, stat.Score));
-        var async = asyncStats.FirstOrDefault(stat => Matches(game, stat.Season, stat.StartTimestamp, stat.EndTimestamp, stat.Faction, stat.Score));
+        var asyncMatch = asyncStats.FirstOrDefault(stat => Matches(game, stat.Season, stat.StartTimestamp, stat.EndTimestamp, stat.Faction, stat.Score));
 
         return new SeasonGameRow(
             game.MatchReportId,
             game.GameId,
             trueSkill?.ConservativeRatingChange ?? 0,
             glicko?.RatingChange ?? 0,
-            async?.RatingChange ?? 0,
+            asyncMatch?.RatingChange ?? 0,
             game.Score,
             game.MaxScore,
             game.Faction,
@@ -101,6 +69,44 @@ public partial class TiglSeasonHistoryTable
             return "-";
 
         return $"{(int)duration.TotalDays:D2} d {duration.Hours:D2} h";
+    }
+
+    private bool IsExpanded(int season) => _expandedSeasons.Contains(season);
+
+    private void Toggle(int season)
+    {
+        if (!_expandedSeasons.Add(season))
+            _expandedSeasons.Remove(season);
+    }
+
+    private Task OnSeasonKeyDown(KeyboardEventArgs args, int season)
+    {
+        if (args.Key is "Enter" or " ")
+            Toggle(season);
+
+        return Task.CompletedTask;
+    }
+
+    private Task OnGameKeyDown(KeyboardEventArgs args, int matchReportId) => args.Key is "Enter" or " "
+        ? OnGameSelected.InvokeAsync(matchReportId)
+        : Task.CompletedTask;
+
+    private List<SeasonRow> BuildRows()
+    {
+        var asyncStats = LeagueProfile?.AsyncMatchHistory ?? [];
+        var glickoStats = LeagueProfile?.GlickoMatchHistory ?? [];
+        var trueSkillStats = LeagueProfile?.TrueSkillMatchHistory ?? [];
+
+        return Seasons
+            .Select(season => new SeasonRow(
+                season.Season,
+                season.GamesPlayed,
+                season.WinRate,
+                trueSkillStats.Where(stat => stat.Season == season.Season).Sum(stat => stat.ConservativeRatingChange),
+                glickoStats.Where(stat => stat.Season == season.Season).Sum(stat => stat.RatingChange),
+                asyncStats.Where(stat => stat.Season == season.Season).Sum(stat => stat.RatingChange),
+                season.Games.Select(game => BuildGameRow(game, trueSkillStats, glickoStats, asyncStats)).ToList()))
+            .ToList();
     }
 
     private sealed record SeasonRow(int Season, int GamesPlayed, double WinRate, double TrueSkillDelta, double GlickoDelta, double AsyncDelta, IReadOnlyList<SeasonGameRow> Games);

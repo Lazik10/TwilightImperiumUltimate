@@ -21,6 +21,15 @@ public partial class UpdateAvailable : IAsyncDisposable
         return Task.CompletedTask;
     }
 
+    public ValueTask DisposeAsync()
+    {
+        _dotNetReference?.Dispose();
+        _dotNetReference = null;
+        GC.SuppressFinalize(this);
+
+        return ValueTask.CompletedTask;
+    }
+
     protected override async Task OnInitializedAsync()
     {
         await RegisterForUpdateAvailableNotification();
@@ -39,13 +48,5 @@ public partial class UpdateAvailable : IAsyncDisposable
     private async Task ReloadPage(MouseEventArgs args)
     {
         await JSRuntime.InvokeVoidAsync("reloadForUpdate");
-    }
-
-    public ValueTask DisposeAsync()
-    {
-        _dotNetReference?.Dispose();
-        _dotNetReference = null;
-
-        return ValueTask.CompletedTask;
     }
 }
