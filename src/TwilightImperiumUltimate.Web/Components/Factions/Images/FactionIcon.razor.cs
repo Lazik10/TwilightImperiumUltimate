@@ -35,7 +35,7 @@ public partial class FactionIcon : TwilightImperiumBaseComponent
     private string GetSourceCssClass() => Faction.FactionName.GetFactionSource() switch
     {
         FactionSource.DiscordantStars => "source-discordant-stars",
-        FactionSource.BlueRiverie => "source-blue-riverie",
+        FactionSource.BlueReverie => "source-blue-reverie",
         FactionSource.TwilightsFall => "source-twilights-fall",
         FactionSource.WhispersFromTheVoid => "source-whispers-from-the-void",
         _ => "source-official",

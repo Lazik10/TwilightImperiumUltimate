@@ -13,4 +13,6 @@ public record TwilightImperiumUserDto(
     FactionName FavoriteFaction,
     string UserInfo,
     string DiscordId,
-    string SteamId);
+    string SteamId,
+    int? AsyncPlayerProfileId = null,
+    int? TiglPlayerProfileId = null);

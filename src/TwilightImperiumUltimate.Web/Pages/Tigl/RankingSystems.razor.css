@@ -1,0 +1,12 @@
+.ranking-systems-panel {
+    display: flex;
+    justify-content: center;
+}
+
+.ranking-systems-image {
+    display: block;
+    width: 100%;
+    max-width: 1024px;
+    height: auto;
+    margin-inline: auto;
+}

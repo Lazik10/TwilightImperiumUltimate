@@ -1,5 +1,5 @@
 using Microsoft.JSInterop;
-using TwilightImperiumUltimate.Web.Components.Factions.Menu.BlueRiverie;
+using TwilightImperiumUltimate.Web.Components.Factions.Menu.BlueReverie;
 using TwilightImperiumUltimate.Web.Components.Factions.Menu.DiscordantStars;
 using TwilightImperiumUltimate.Web.Components.Factions.Menu.Official;
 using TwilightImperiumUltimate.Web.Components.Factions.Menu.WhispersFromTheVoid;
@@ -65,7 +65,7 @@ public partial class FactionMenu : TwilightImperiumBaseComponent, IAsyncDisposab
     {
         FactionSource.TwilightsFall => typeof(TwilightsFallFactionMenu),
         FactionSource.DiscordantStars => typeof(DiscordantStarsFactionMenu),
-        FactionSource.BlueRiverie => typeof(BlueRiverieFactionMenu),
+        FactionSource.BlueReverie => typeof(BlueReverieFactionMenu),
         FactionSource.WhispersFromTheVoid => typeof(WhispersFromTheVoidFactionMenu),
         _ => typeof(OfficialFactionMenu),
     };

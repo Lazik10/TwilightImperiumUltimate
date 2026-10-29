@@ -27,6 +27,8 @@ public interface ITiglUserRepository
 
     Task<Result<bool>> ChangeTiglUserName(long discordId, string newTiglUserName, CancellationToken cancellationToken);
 
+    Task<Result<bool>> UpdateRoleRemovalSettings(long discordId, bool removeOldStandardRole, bool removeOldFracturedRole, CancellationToken cancellationToken);
+
     Task<List<MatchReport>> GetTiglUserMatchReports(int tiglUserId, long endTimestamp, CancellationToken cancellationToken, bool onlyWins = false, HashSet<TiglFactionName>? factions = null, int count = int.MaxValue);
 
     Task UpdateTiglPlayers(IReadOnlyCollection<TiglUser> players, CancellationToken cancellationToken);

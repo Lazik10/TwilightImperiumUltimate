@@ -15,9 +15,9 @@ public sealed class BlueDaBaDeeAchievementEvaluator(
     ITiglUserRepository tiglUserRepository)
     : IAchievementEvaluator
 {
-    private const int BlueRiverieFactionsCount = 6;
+    private const int BlueReverieFactionsCount = 6;
 
-    private static readonly HashSet<TiglFactionName> BlueRiverieFactions = Enum.GetValues<TiglFactionName>()
+    private static readonly HashSet<TiglFactionName> BlueReverieFactions = Enum.GetValues<TiglFactionName>()
         .Where(f => f >= TiglFactionName.UydaiConclave && f <= TiglFactionName.ToldarConcordat)
         .ToHashSet();
 
@@ -35,14 +35,14 @@ public sealed class BlueDaBaDeeAchievementEvaluator(
             {
                 var games = await tiglUserRepository.GetTiglUserMatchReports(winner.TiglUserId, matchReport.EndTimestamp, cancellationToken, true);
                 var uniqueFactionWins = games.SelectMany(g => g.PlayerResults)
-                    .Where(pr => pr.TiglUserId == winner.TiglUserId && BlueRiverieFactions.Contains(pr.Faction))
+                    .Where(pr => pr.TiglUserId == winner.TiglUserId && BlueReverieFactions.Contains(pr.Faction))
                     .Select(x => x.Faction)
                     .Distinct()
                     .ToHashSet();
 
                 uniqueFactionWins.Add(winner.Faction);
 
-                if (uniqueFactionWins.Count == BlueRiverieFactionsCount && uniqueFactionWins.SetEquals(BlueRiverieFactions))
+                if (uniqueFactionWins.Count == BlueReverieFactionsCount && uniqueFactionWins.SetEquals(BlueReverieFactions))
                     await achievementRepository.AwardAchievement(winner.TiglUserId, matchReport, achievementName, cancellationToken);
             }
         }

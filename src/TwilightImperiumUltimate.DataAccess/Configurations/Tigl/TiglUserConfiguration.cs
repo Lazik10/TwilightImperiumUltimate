@@ -103,6 +103,24 @@ public class TiglUserConfiguration : IEntityTypeConfiguration<TiglUser>
             .HasMaxLength(100)
             .HasColumnOrder(11);
 
+        builder.Property(e => e.RemoveOldStandardRole)
+            .IsRequired()
+            .HasColumnName(nameof(TiglUser.RemoveOldStandardRole))
+            .HasConversion(new BoolToStringConverter("false", "true"))
+            .HasColumnType("varchar(10)")
+            .HasMaxLength(10)
+            .HasDefaultValue(false)
+            .HasColumnOrder(12);
+
+        builder.Property(e => e.RemoveOldFracturedRole)
+            .IsRequired()
+            .HasColumnName(nameof(TiglUser.RemoveOldFracturedRole))
+            .HasConversion(new BoolToStringConverter("false", "true"))
+            .HasColumnType("varchar(10)")
+            .HasMaxLength(10)
+            .HasDefaultValue(false)
+            .HasColumnOrder(13);
+
         builder.HasMany(a => a.AsyncStats)
             .WithOne(u => u.TiglUser)
             .HasForeignKey(p => p.TiglUserId)

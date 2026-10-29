@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using Blazored.LocalStorage;
 using FluentValidation;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -9,6 +9,7 @@ using TwilightImperiumUltimate.Web.Options.Api;
 using TwilightImperiumUltimate.Web.Options.Async;
 using TwilightImperiumUltimate.Web.Services.Async;
 using TwilightImperiumUltimate.Web.Services.Authentication;
+using TwilightImperiumUltimate.Web.Services.Discord;
 using TwilightImperiumUltimate.Web.Services.Draft;
 using TwilightImperiumUltimate.Web.Services.Factions;
 using TwilightImperiumUltimate.Web.Services.GameTracker;
@@ -76,6 +77,7 @@ public static class ServiceCollectionsExtension
         services.AddAuthorizationCore();
         services.AddCascadingAuthenticationState();
         services.AddScoped<IUserService, UserService>();
+        services.AddScoped<IDiscordAccountLinkService, DiscordAccountLinkService>();
         services.AddScoped<ILoginService, LoginService>();
         services.AddScoped<ICurrentUserState, CurrentUserState>();
 

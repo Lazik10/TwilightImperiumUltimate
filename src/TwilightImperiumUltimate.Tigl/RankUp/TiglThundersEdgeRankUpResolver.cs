@@ -17,7 +17,7 @@ internal class TiglThundersEdgeRankUpResolver : RankUpResolverBase, ITiglRankUpR
     {
     }
 
-    protected override int MaxPrestigeRanks => 32;
+    protected override int MaxPrestigeRanks => 30;
 
     protected override int MaxGalaxyThreatRanks => 5;
 

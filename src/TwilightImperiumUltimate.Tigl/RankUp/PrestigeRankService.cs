@@ -191,14 +191,17 @@ internal class PrestigeRankService(
     {
         using var dbContext = await context.CreateDbContextAsync(cancellationToken);
 
-        return await dbContext.TiglUserPrestigeRanks
-            .Include(x => x.PrestigeRank)
+        var factionPrestigeRanks = await dbContext.TiglUserPrestigeRanks
             .Where(x => x.PrestigeRank.FactionName != TiglFactionName.None)
-            .CountAsync(
-                x => x.TiglUserId == userId
+            .Where(x => x.TiglUserId == userId
                 && x.PrestigeRank.League == league
-                && x.AchievedAt <= matchReport.EndTimestamp,
-                cancellationToken);
+                && x.AchievedAt <= matchReport.EndTimestamp)
+            .Select(x => x.PrestigeRank.FactionName)
+            .ToListAsync(cancellationToken);
+
+        return league == TiglLeague.ThundersEdge
+            ? factionPrestigeRanks.Select(faction => faction.GetPrestigeCountIdentity()).Distinct().Count()
+            : factionPrestigeRanks.Count;
     }
 
     public async Task<bool> HasFactionPrestigeRank(int userId, MatchReport matchReport, TiglFactionName faction, TiglLeague league, CancellationToken cancellationToken)

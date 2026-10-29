@@ -3186,7 +3186,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 76,
                             EnumName = "PanoplyAnimus",
                             FactionName = "AtokeraLegacy",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Text = "",
                             Type = "Breakthrough"
                         },
@@ -3195,7 +3195,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 77,
                             EnumName = "TrinityStockpile",
                             FactionName = "BelkoseaAlliedStates",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Text = "",
                             Type = "Breakthrough"
                         },
@@ -3204,7 +3204,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 78,
                             EnumName = "HiddenVaults",
                             FactionName = "PharadnOrder",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Text = "",
                             Type = "Breakthrough"
                         },
@@ -3213,7 +3213,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 79,
                             EnumName = "EchoOperatives",
                             FactionName = "PrincipalityOfKaltrim",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Text = "",
                             Type = "Breakthrough"
                         },
@@ -3222,7 +3222,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 80,
                             EnumName = "DuraniumOutfitting",
                             FactionName = "QhetRepublic",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Text = "",
                             Type = "Breakthrough"
                         },
@@ -3231,7 +3231,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 81,
                             EnumName = "Gravehold",
                             FactionName = "SarcosaDrift",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Text = "",
                             Type = "Breakthrough"
                         },
@@ -3240,7 +3240,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 82,
                             EnumName = "ShameixsBaneHonor",
                             FactionName = "ToldarConcordat",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Text = "",
                             Type = "Breakthrough"
                         },
@@ -3249,7 +3249,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 83,
                             EnumName = "ShameixsBaneDishonor",
                             FactionName = "ToldarConcordat",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Text = "",
                             Type = "Breakthrough"
                         },
@@ -3258,7 +3258,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 84,
                             EnumName = "PrescientWarriors",
                             FactionName = "UydaiConclave",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Text = "",
                             Type = "Breakthrough"
                         },
@@ -3267,7 +3267,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 85,
                             EnumName = "HarmoniousDiplomacy",
                             FactionName = "XinCourt",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Text = "",
                             Type = "Breakthrough"
                         });
@@ -4437,7 +4437,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 84,
                             EnumName = "Kohi",
                             FactionName = "AtokeraLegacy",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Text = "",
                             Type = "Flagship"
                         },
@@ -4446,7 +4446,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 85,
                             EnumName = "Ascendancy",
                             FactionName = "BelkoseaAlliedStates",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Text = "",
                             Type = "Flagship"
                         },
@@ -4455,7 +4455,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 86,
                             EnumName = "Sedtra",
                             FactionName = "PharadnOrder",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Text = "",
                             Type = "Flagship"
                         },
@@ -4464,7 +4464,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 87,
                             EnumName = "JewelOfTheRose",
                             FactionName = "PrincipalityOfKaltrim",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Text = "",
                             Type = "Flagship"
                         },
@@ -4473,7 +4473,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 88,
                             EnumName = "Khage",
                             FactionName = "QhetRepublic",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Text = "",
                             Type = "Flagship"
                         },
@@ -4482,7 +4482,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 89,
                             EnumName = "Nauclis",
                             FactionName = "SarcosaDrift",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Text = "",
                             Type = "Flagship"
                         },
@@ -4491,7 +4491,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 90,
                             EnumName = "Errant",
                             FactionName = "ToldarConcordat",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Text = "",
                             Type = "Flagship"
                         },
@@ -4500,7 +4500,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 91,
                             EnumName = "DesertSage",
                             FactionName = "UydaiConclave",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Text = "",
                             Type = "Flagship"
                         },
@@ -4509,7 +4509,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 92,
                             EnumName = "CelestialDragon",
                             FactionName = "XinCourt",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Text = "",
                             Type = "Flagship"
                         });
@@ -6417,7 +6417,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 88,
                             EnumName = "TriWeaveShielding",
                             Faction = "AtokeraLegacy",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Text = "",
                             Type = "Promissary"
                         },
@@ -6426,7 +6426,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 89,
                             EnumName = "MercenarySortie",
                             Faction = "BelkoseaAlliedStates",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Text = "",
                             Type = "Promissary"
                         },
@@ -6435,7 +6435,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 90,
                             EnumName = "DeathBinding",
                             Faction = "PharadnOrder",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Text = "",
                             Type = "Promissary"
                         },
@@ -6444,7 +6444,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 91,
                             EnumName = "KaltrimAmbassadors",
                             Faction = "PrincipalityOfKaltrim",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Text = "",
                             Type = "Promissary"
                         },
@@ -6453,7 +6453,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 92,
                             EnumName = "AlloyShipment",
                             Faction = "QhetRepublic",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Text = "",
                             Type = "Promissary"
                         },
@@ -6462,7 +6462,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 93,
                             EnumName = "Plunderers",
                             Faction = "SarcosaDrift",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Text = "",
                             Type = "Promissary"
                         },
@@ -6471,7 +6471,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 94,
                             EnumName = "ConcordatAllegiant",
                             Faction = "ToldarConcordat",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Text = "",
                             Type = "Promissary"
                         },
@@ -6480,7 +6480,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 95,
                             EnumName = "EeriePredictions",
                             Faction = "UydaiConclave",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Text = "",
                             Type = "Promissary"
                         },
@@ -6489,7 +6489,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Id = 96,
                             EnumName = "StatecraftMentor",
                             Faction = "XinCourt",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Text = "",
                             Type = "Promissary"
                         });
@@ -8438,7 +8438,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "Mirrorshard",
                             FactionName = "AtokeraLegacy",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "FactionUnit",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8449,7 +8449,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "Wyvern",
                             FactionName = "BelkoseaAlliedStates",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "FactionUnit",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8460,7 +8460,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "SOLGIndustriesGroup",
                             FactionName = "BelkoseaAlliedStates",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "HorizontalCard",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8471,7 +8471,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "AvailynToken",
                             FactionName = "BelkoseaAlliedStates",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "Token",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8482,7 +8482,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "CaledToken",
                             FactionName = "BelkoseaAlliedStates",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "Token",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8493,7 +8493,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "GlatisonToken",
                             FactionName = "BelkoseaAlliedStates",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "Token",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8504,7 +8504,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "GromToken",
                             FactionName = "BelkoseaAlliedStates",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "Token",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8515,7 +8515,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "MorsToken",
                             FactionName = "BelkoseaAlliedStates",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "Token",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8526,7 +8526,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "Availyn",
                             FactionName = "BelkoseaAlliedStates",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "VerticalCard",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8537,7 +8537,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "Caled",
                             FactionName = "BelkoseaAlliedStates",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "VerticalCard",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8548,7 +8548,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "Glatison",
                             FactionName = "BelkoseaAlliedStates",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "VerticalCard",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8559,7 +8559,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "Grom",
                             FactionName = "BelkoseaAlliedStates",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "VerticalCard",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8570,7 +8570,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "Mors",
                             FactionName = "BelkoseaAlliedStates",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "VerticalCard",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8581,7 +8581,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "Immortal",
                             FactionName = "PharadnOrder",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "FactionUnit",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8592,7 +8592,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 14,
                             EnumName = "TombToken",
                             FactionName = "PharadnOrder",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "Token",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8603,7 +8603,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "Consulate",
                             FactionName = "PrincipalityOfKaltrim",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "FactionUnit",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8614,7 +8614,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 8,
                             EnumName = "ShrineCard",
                             FactionName = "PrincipalityOfKaltrim",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "VerticalCard",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8625,7 +8625,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 7,
                             EnumName = "GenericShrineToken",
                             FactionName = "PrincipalityOfKaltrim",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "Token",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8636,7 +8636,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "KaltrimCrownShrineToken",
                             FactionName = "PrincipalityOfKaltrim",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "Token",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8647,7 +8647,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "Commando",
                             FactionName = "QhetRepublic",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "FactionUnit",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8658,7 +8658,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "Battlecruiser",
                             FactionName = "QhetRepublic",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "FactionUnit",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8669,7 +8669,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "Ravager",
                             FactionName = "SarcosaDrift",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "FactionUnit",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8680,7 +8680,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "Leviathan",
                             FactionName = "SarcosaDrift",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "HorizontalCard",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8691,7 +8691,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 8,
                             EnumName = "HonorToken",
                             FactionName = "ToldarConcordat",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "Token",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8702,7 +8702,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 8,
                             EnumName = "DishonorToken",
                             FactionName = "ToldarConcordat",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "Token",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8713,7 +8713,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "Bestow",
                             FactionName = "ToldarConcordat",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "VerticalCard",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8724,7 +8724,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "Thwart",
                             FactionName = "ToldarConcordat",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "VerticalCard",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8735,7 +8735,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "Reflect",
                             FactionName = "ToldarConcordat",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "VerticalCard",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8746,7 +8746,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "Deceive",
                             FactionName = "ToldarConcordat",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "VerticalCard",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8757,7 +8757,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "Ascend",
                             FactionName = "ToldarConcordat",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "VerticalCard",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8768,7 +8768,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "Scourge",
                             FactionName = "ToldarConcordat",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "VerticalCard",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8779,7 +8779,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 8,
                             EnumName = "PathToken",
                             FactionName = "UydaiConclave",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "Token",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8790,7 +8790,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "PlanTactician",
                             FactionName = "UydaiConclave",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "VerticalCard",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8801,7 +8801,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "PlanSpymaster",
                             FactionName = "UydaiConclave",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "VerticalCard",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8812,7 +8812,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "Harvest",
                             FactionName = "UydaiConclave",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "HorizontalCard",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8823,7 +8823,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "PlanStrategist",
                             FactionName = "UydaiConclave",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "VerticalCard",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8834,7 +8834,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "DeathCommandos",
                             FactionName = "UydaiConclave",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "FactionUnit",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8845,7 +8845,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "SentinelSteel",
                             FactionName = "XinCourt",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "FactionUnit",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8856,7 +8856,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 8,
                             EnumName = "StarToken",
                             FactionName = "XinCourt",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "Token",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8867,7 +8867,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 8,
                             EnumName = "SteelToken",
                             FactionName = "XinCourt",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "Token",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8878,7 +8878,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "LevyTheSectors",
                             FactionName = "XinCourt",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "VerticalCard",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8889,7 +8889,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "LogisticalIntervention",
                             FactionName = "XinCourt",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "VerticalCard",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8900,7 +8900,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "OmenOfTheBlade",
                             FactionName = "XinCourt",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "VerticalCard",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8911,7 +8911,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "RecruitSpies",
                             FactionName = "XinCourt",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "VerticalCard",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8922,7 +8922,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "MeteorGambit",
                             FactionName = "XinCourt",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "VerticalCard",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8933,7 +8933,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "CommissionTheArtisans",
                             FactionName = "XinCourt",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "VerticalCard",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8944,7 +8944,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "DeftLegislation",
                             FactionName = "XinCourt",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "VerticalCard",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8955,7 +8955,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "CallOfTheCosmos",
                             FactionName = "XinCourt",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "VerticalCard",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8966,7 +8966,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "SecureFavor",
                             FactionName = "XinCourt",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "VerticalCard",
                             Text = "",
                             Type = "SpecialComponent"
@@ -8977,7 +8977,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Count = 1,
                             EnumName = "DeclareMandate",
                             FactionName = "XinCourt",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             SpecialType = "VerticalCard",
                             Text = "",
                             Type = "SpecialComponent"
@@ -10276,7 +10276,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Action = "AtokeraLegacy_Action",
                             Commodities = 3,
                             ComplexityRating = "Low",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             History = "AtokeraLegacy_History",
                             HomeSystem = "TileBr01",
                             Id = 73,
@@ -10290,7 +10290,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Action = "BelkoseaAlliedStates_Action",
                             Commodities = 1,
                             ComplexityRating = "Low",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             History = "BelkoseaAlliedStates_History",
                             HomeSystem = "TileBr02",
                             Id = 74,
@@ -10304,7 +10304,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Action = "PharadnOrder_Action",
                             Commodities = 2,
                             ComplexityRating = "Low",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             History = "PharadnOrder_History",
                             HomeSystem = "TileBr03",
                             Id = 75,
@@ -10318,7 +10318,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Action = "PrincipalityOfKaltrim_Action",
                             Commodities = 3,
                             ComplexityRating = "Low",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             History = "PrincipalityOfKaltrim_History",
                             HomeSystem = "TileBr04",
                             Id = 76,
@@ -10332,7 +10332,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Action = "QhetRepublic_Action",
                             Commodities = 2,
                             ComplexityRating = "Low",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             History = "QhetRepublic_History",
                             HomeSystem = "TileBr05",
                             Id = 77,
@@ -10346,7 +10346,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Action = "SarcosaDrift_Action",
                             Commodities = 3,
                             ComplexityRating = "Low",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             History = "SarcosaDrift_History",
                             HomeSystem = "TileBr06",
                             Id = 78,
@@ -10360,7 +10360,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Action = "ToldarConcordat_Action",
                             Commodities = 3,
                             ComplexityRating = "Low",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             History = "ToldarConcordat_History",
                             HomeSystem = "TileBr07",
                             Id = 79,
@@ -10374,7 +10374,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Action = "UydaiConclave_Action",
                             Commodities = 5,
                             ComplexityRating = "Low",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             History = "UydaiConclave_History",
                             HomeSystem = "TileBr08",
                             Id = 80,
@@ -10388,7 +10388,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             Action = "XinCourt_Action",
                             Commodities = 4,
                             ComplexityRating = "Low",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             History = "XinCourt_History",
                             HomeSystem = "TileBr09",
                             Id = 81,
@@ -19530,7 +19530,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         new
                         {
                             PlanetName = "Magna",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 355,
                             Influence = 4,
                             IsLegendary = "false",
@@ -19542,7 +19542,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         new
                         {
                             PlanetName = "Conviction",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 356,
                             Influence = 0,
                             IsLegendary = "true",
@@ -19554,7 +19554,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         new
                         {
                             PlanetName = "Iterum",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 357,
                             Influence = 2,
                             IsLegendary = "false",
@@ -19566,7 +19566,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         new
                         {
                             PlanetName = "Phar",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 358,
                             Influence = 0,
                             IsLegendary = "false",
@@ -19578,7 +19578,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         new
                         {
                             PlanetName = "AvKHo",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 359,
                             Influence = 2,
                             IsLegendary = "false",
@@ -19590,7 +19590,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         new
                         {
                             PlanetName = "Kaltrim",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 360,
                             Influence = 1,
                             IsLegendary = "false",
@@ -19602,7 +19602,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         new
                         {
                             PlanetName = "Drakkol",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 361,
                             Influence = 1,
                             IsLegendary = "false",
@@ -19614,7 +19614,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         new
                         {
                             PlanetName = "Qhet",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 362,
                             Influence = 2,
                             IsLegendary = "false",
@@ -19626,7 +19626,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         new
                         {
                             PlanetName = "Sarcosa",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 363,
                             Influence = 3,
                             IsLegendary = "false",
@@ -19638,7 +19638,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         new
                         {
                             PlanetName = "Khodd",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 364,
                             Influence = 4,
                             IsLegendary = "false",
@@ -19650,7 +19650,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         new
                         {
                             PlanetName = "Dyrun",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 365,
                             Influence = 1,
                             IsLegendary = "false",
@@ -19662,7 +19662,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         new
                         {
                             PlanetName = "Uikos",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 366,
                             Influence = 1,
                             IsLegendary = "true",
@@ -19674,7 +19674,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         new
                         {
                             PlanetName = "Yu",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 367,
                             Influence = 5,
                             IsLegendary = "false",
@@ -23727,7 +23727,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             SystemTileName = "TileBr01",
                             Anomaly = "None",
                             FactionName = "AtokeraLegacy",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 374,
                             SystemTileCode = "Br01",
                             TileCategory = "Green"
@@ -23737,7 +23737,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             SystemTileName = "TileBr02",
                             Anomaly = "None",
                             FactionName = "BelkoseaAlliedStates",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 375,
                             SystemTileCode = "Br02",
                             TileCategory = "Green"
@@ -23747,7 +23747,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             SystemTileName = "TileBr03",
                             Anomaly = "None",
                             FactionName = "PharadnOrder",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 376,
                             SystemTileCode = "Br03",
                             TileCategory = "Green"
@@ -23757,7 +23757,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             SystemTileName = "TileBr04",
                             Anomaly = "None",
                             FactionName = "PrincipalityOfKaltrim",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 377,
                             SystemTileCode = "Br04",
                             TileCategory = "Green"
@@ -23767,7 +23767,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             SystemTileName = "TileBr05",
                             Anomaly = "None",
                             FactionName = "QhetRepublic",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 378,
                             SystemTileCode = "Br05",
                             TileCategory = "Green"
@@ -23777,7 +23777,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             SystemTileName = "TileBr06",
                             Anomaly = "None",
                             FactionName = "SarcosaDrift",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 379,
                             SystemTileCode = "Br06",
                             TileCategory = "Green"
@@ -23787,7 +23787,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             SystemTileName = "TileBr07",
                             Anomaly = "None",
                             FactionName = "ToldarConcordat",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 380,
                             SystemTileCode = "Br07",
                             TileCategory = "Green"
@@ -23797,7 +23797,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             SystemTileName = "TileBr08",
                             Anomaly = "None",
                             FactionName = "UydaiConclave",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 381,
                             SystemTileCode = "Br08",
                             TileCategory = "Green"
@@ -23807,7 +23807,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                             SystemTileName = "TileBr09",
                             Anomaly = "None",
                             FactionName = "XinCourt",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 382,
                             SystemTileCode = "Br09",
                             TileCategory = "Green"
@@ -32027,7 +32027,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             TechnologyName = "MirrorshardTwo",
                             FactionName = "AtokeraLegacy",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 184,
                             IsFactionTechnology = "true",
                             Level = "Level3",
@@ -32038,7 +32038,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             TechnologyName = "ModularDesigns",
                             FactionName = "AtokeraLegacy",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 185,
                             IsFactionTechnology = "true",
                             Level = "Level3",
@@ -32049,7 +32049,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             TechnologyName = "WyvernTwo",
                             FactionName = "BelkoseaAlliedStates",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 186,
                             IsFactionTechnology = "true",
                             Level = "Level2",
@@ -32060,7 +32060,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             TechnologyName = "SynchronyMatrix",
                             FactionName = "BelkoseaAlliedStates",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 187,
                             IsFactionTechnology = "true",
                             Level = "Level2",
@@ -32071,7 +32071,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             TechnologyName = "ImmortalTwo",
                             FactionName = "PharadnOrder",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 188,
                             IsFactionTechnology = "true",
                             Level = "Level2",
@@ -32082,7 +32082,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             TechnologyName = "RealityFieldImpactor",
                             FactionName = "PharadnOrder",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 189,
                             IsFactionTechnology = "true",
                             Level = "Level1",
@@ -32093,7 +32093,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             TechnologyName = "ConsulateTwo",
                             FactionName = "PrincipalityOfKaltrim",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 190,
                             IsFactionTechnology = "true",
                             Level = "Level2",
@@ -32104,7 +32104,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             TechnologyName = "KaldurArrestField",
                             FactionName = "PrincipalityOfKaltrim",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 191,
                             IsFactionTechnology = "true",
                             Level = "Level2",
@@ -32115,7 +32115,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             TechnologyName = "BattlecruiserTwo",
                             FactionName = "QhetRepublic",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 192,
                             IsFactionTechnology = "true",
                             Level = "Level3",
@@ -32126,7 +32126,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             TechnologyName = "CommandoTwo",
                             FactionName = "QhetRepublic",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 193,
                             IsFactionTechnology = "true",
                             Level = "Level2",
@@ -32137,7 +32137,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             TechnologyName = "RavagerTwo",
                             FactionName = "SarcosaDrift",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 194,
                             IsFactionTechnology = "true",
                             Level = "Level2",
@@ -32148,7 +32148,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             TechnologyName = "InfiltrationNetworks",
                             FactionName = "SarcosaDrift",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 195,
                             IsFactionTechnology = "true",
                             Level = "Level2",
@@ -32159,7 +32159,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             TechnologyName = "EmergencyModifications",
                             FactionName = "ToldarConcordat",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 196,
                             IsFactionTechnology = "true",
                             Level = "Level1",
@@ -32170,7 +32170,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             TechnologyName = "VIRTraining",
                             FactionName = "ToldarConcordat",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 197,
                             IsFactionTechnology = "true",
                             Level = "Level1",
@@ -32181,7 +32181,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             TechnologyName = "MessiahProtocols",
                             FactionName = "UydaiConclave",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 198,
                             IsFactionTechnology = "true",
                             Level = "Level2",
@@ -32192,7 +32192,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             TechnologyName = "NavigationRelays",
                             FactionName = "UydaiConclave",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 199,
                             IsFactionTechnology = "true",
                             Level = "Level3",
@@ -32203,7 +32203,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             TechnologyName = "AstromanticCloakSteel",
                             FactionName = "XinCourt",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 200,
                             IsFactionTechnology = "true",
                             Level = "Level2",
@@ -32214,7 +32214,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             TechnologyName = "AstromanticCloakStar",
                             FactionName = "XinCourt",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 201,
                             IsFactionTechnology = "true",
                             Level = "Level2",
@@ -32225,7 +32225,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             TechnologyName = "VeiledNetworkingSteel",
                             FactionName = "XinCourt",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 202,
                             IsFactionTechnology = "true",
                             Level = "Level2",
@@ -32236,7 +32236,7 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         {
                             TechnologyName = "VeiledNetworkingStar",
                             FactionName = "XinCourt",
-                            GameVersion = "BlueRiverie",
+                            GameVersion = "BlueReverie",
                             Id = 203,
                             IsFactionTechnology = "true",
                             Level = "Level2",
@@ -36055,6 +36055,24 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                         .HasColumnName("ProphecyOfKingsRank")
                         .HasColumnOrder(9);
 
+                    b.Property<string>("RemoveOldFracturedRole")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(10)
+                        .HasColumnType("varchar(10)")
+                        .HasDefaultValue("false")
+                        .HasColumnName("RemoveOldFracturedRole")
+                        .HasColumnOrder(13);
+
+                    b.Property<string>("RemoveOldStandardRole")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(10)
+                        .HasColumnType("varchar(10)")
+                        .HasDefaultValue("false")
+                        .HasColumnName("RemoveOldStandardRole")
+                        .HasColumnOrder(12);
+
                     b.Property<string>("ShatteredRank")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -36280,6 +36298,9 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.Property<int?>("Age")
                         .HasColumnType("int");
 
+                    b.Property<int?>("AsyncPlayerProfileId")
+                        .HasColumnType("int");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -36335,6 +36356,9 @@ namespace TwilightImperiumUltimate.DataAccess.Migrations
                     b.Property<string>("SteamId")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("TiglPlayerProfileId")
+                        .HasColumnType("int");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");

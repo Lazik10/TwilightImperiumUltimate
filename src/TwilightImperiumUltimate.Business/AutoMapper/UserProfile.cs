@@ -16,7 +16,9 @@ public class UserProfile : Profile
                 x.FavoriteFaction,
                 x.UserInfo,
                 x.DiscordId,
-                x.SteamId));
+                x.SteamId,
+                x.AsyncPlayerProfileId,
+                x.TiglPlayerProfileId));
 
         CreateMap<TwilightImperiumUserDto, TwilightImperiumUser>();
     }

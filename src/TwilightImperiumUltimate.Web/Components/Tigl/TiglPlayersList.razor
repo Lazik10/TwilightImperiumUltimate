@@ -1,8 +1,11 @@
 @using TwilightImperiumUltimate.Contracts.DTOs.Tigl
+@using TwilightImperiumUltimate.Web.Components.Shared.Account
 
 <div class="mt-md mb-md">
     <TiglPlayerSearchbar @ref="_searchbar" OnSearchUpdate="SearchPlayers" />
 </div>
+
+<CurrentUserProfileShortcut IsTiglProfile="true" TiglPlayers="Users" />
 
 <div class="mb-md">
     <TiglPlayerAlphabet SelectedLetter="@_selectedLetter" OnLetterClick="FilterByLetter" />

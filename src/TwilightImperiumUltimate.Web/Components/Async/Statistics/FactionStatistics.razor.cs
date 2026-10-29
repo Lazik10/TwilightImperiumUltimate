@@ -106,7 +106,7 @@ public partial class FactionStatistics
         {
             FactionStatisticsFilter.TwilightsFall => factionStats.Where(faction => faction.FactionName is >= AsyncFactionName.TheRubyMonarch and <= AsyncFactionName.ASickeningLurch).ToList(),
             FactionStatisticsFilter.DiscordantStars => factionStats.Where(faction => faction.FactionName is >= AsyncFactionName.TheAugursOfIlyxum and <= AsyncFactionName.TheZelianPurifier).ToList(),
-            FactionStatisticsFilter.BlueRiverie => factionStats.Where(faction => faction.FactionName is >= AsyncFactionName.AtokeraLegacy and <= AsyncFactionName.XinCourt).ToList(),
+            FactionStatisticsFilter.BlueReverie => factionStats.Where(faction => faction.FactionName is >= AsyncFactionName.AtokeraLegacy and <= AsyncFactionName.XinCourt).ToList(),
             FactionStatisticsFilter.WhispersFromTheVoid => factionStats.Where(faction => faction.FactionName is >= AsyncFactionName.TheArvaxiCovenant and <= AsyncFactionName.TheZephyrionPursuit).ToList(),
             FactionStatisticsFilter.Others => factionStats.Where(faction => faction.FactionName is >= AsyncFactionName.Franken and <= AsyncFactionName.Homebrew).ToList(),
             _ => factionStats.Where(faction => faction.FactionName is >= AsyncFactionName.TheArborec and <= AsyncFactionName.TheRalNelConsortium).ToList(),

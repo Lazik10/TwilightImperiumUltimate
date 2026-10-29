@@ -40,6 +40,12 @@ internal class TiglFracturedRankUpResolver : RankUpResolverBase, ITiglRankUpReso
                 var isWinner = asyncStats.Winner && glickoStats.Winner && trueSkillStats.Winner;
 
                 var faction = MatchReport.PlayerResults.First(x => x.TiglUserId == player.Id).Faction;
+                if (isWinner && !await PrestigeRankService.HasFactionPrestigeRank(player.Id, MatchReport, faction, MatchReport.League, cancellationToken))
+                {
+                    await PrestigeRankService.AddFactionPrestigeRank(player.Id, MatchReport, faction, MatchReport.League, cancellationToken);
+                    await LeaderUpdateService.UpdateLeader(player, MatchReport, faction, cancellationToken);
+                }
+
                 var rankBeforeGame = PreMatchRanks.TryGetValue(player.Id, out var oldRank) ? oldRank : TiglRankName.Unranked;
                 var currentRankResult = await RankRepository.GetCurrentRank(player.Id, MatchReport.League, cancellationToken);
                 var currentRank = currentRankResult.Value!;
@@ -74,16 +80,6 @@ internal class TiglFracturedRankUpResolver : RankUpResolverBase, ITiglRankUpReso
                     {
                         forcedReset = true;
                         await PrestigeRankService.AddImperiumRank(player.Id, MatchReport, cancellationToken);
-                    }
-
-                    if (isRankUpGame)
-                    {
-                        if (!await PrestigeRankService.HasFactionPrestigeRank(player.Id, MatchReport, faction, MatchReport.League, cancellationToken))
-                        {
-                            await PrestigeRankService.AddFactionPrestigeRank(player.Id, MatchReport, faction, MatchReport.League, cancellationToken);
-                        }
-
-                        await LeaderUpdateService.UpdateLeader(player, MatchReport, faction, cancellationToken);
                     }
                 }
 

@@ -1,0 +1,15 @@
+@namespace TwilightImperiumUltimate.Web.Components.Shared.Account
+
+@if (ProfileId is int profileId && profileId > 0)
+{
+    <ResponsiveContainer Type="ContainerType.Flex"
+                         Padding="none"
+                         JustifyContent="Enums.JustifyContent.Center"
+                         Style="@(IsTiglProfile ? string.Empty : "display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; container-type: inline-size;")"
+                         CssClass="mt-md mb-md">
+        <ResponsiveButton Text="@ButtonText"
+                          FontSize="14"
+                          Style="@(IsTiglProfile ? "width: min(100%, 24.75rem);" : "width: 100%; max-width: none; position: relative; left: calc((100cqw - 100%) / 2);")"
+                          OnClick="() => NavigateToProfile(profileId)" />
+    </ResponsiveContainer>
+}

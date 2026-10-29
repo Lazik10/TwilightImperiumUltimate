@@ -121,7 +121,7 @@ public partial class TiglProfileGrid
     {
         FactionStatisticsFilter.TwilightsFall => faction is >= TiglFactionName.TheRubyMonarch and <= TiglFactionName.ASickeningLurch,
         FactionStatisticsFilter.DiscordantStars => faction is >= TiglFactionName.TheAugursOfIlyxum and <= TiglFactionName.TheZelianPurifier,
-        FactionStatisticsFilter.BlueRiverie => faction is >= TiglFactionName.AtokeraLegacy and <= TiglFactionName.XinCourt,
+        FactionStatisticsFilter.BlueReverie => faction is >= TiglFactionName.AtokeraLegacy and <= TiglFactionName.XinCourt,
         FactionStatisticsFilter.WhispersFromTheVoid => faction is >= TiglFactionName.TheArvaxiCovenant and <= TiglFactionName.TheZephyrionPursuit,
         FactionStatisticsFilter.Others => faction is >= TiglFactionName.Franken and <= TiglFactionName.Homebrew,
         _ => faction is >= TiglFactionName.TheArborec and <= TiglFactionName.TheRalNelConsortium,

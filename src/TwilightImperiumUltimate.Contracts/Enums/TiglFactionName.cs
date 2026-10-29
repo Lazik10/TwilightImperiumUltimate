@@ -90,7 +90,7 @@ public enum TiglFactionName
     TheZealotsOfRhodun,
     TheZelianPurifier,
 
-    // BlueRiverie
+    // BlueReverie
     AtokeraLegacy,
     BelkoseaAlliedStates,
     PharadnOrder,

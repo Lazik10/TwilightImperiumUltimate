@@ -42,6 +42,10 @@ public class TiglUser : IEntity
 
     public TiglRankName ShatteredRank { get; set; }
 
+    public bool RemoveOldStandardRole { get; set; }
+
+    public bool RemoveOldFracturedRole { get; set; }
+
     public ICollection<TiglRank>? TiglRanks { get; set; }
 
     public ICollection<TiglUserPrestigeRank>? PrestigeRanks { get; }

@@ -96,14 +96,14 @@ internal static class PromissaryNoteCardsData
         new() { Id = 86, EnumName = PromissoryNoteCardName.LockdownProtocol, Faction = FactionName.TheVyserixAscendancy, GameVersion = GameVersion.WhispersFromTheVoid },
         new() { Id = 87, EnumName = PromissoryNoteCardName.MercenaryDefenseContract, Faction = FactionName.TheZephyrionPursuit, GameVersion = GameVersion.WhispersFromTheVoid },
 
-        new() { Id = 88, EnumName = PromissoryNoteCardName.TriWeaveShielding, Faction = FactionName.AtokeraLegacy, GameVersion = GameVersion.BlueRiverie },
-        new() { Id = 89, EnumName = PromissoryNoteCardName.MercenarySortie, Faction = FactionName.BelkoseaAlliedStates, GameVersion = GameVersion.BlueRiverie },
-        new() { Id = 90, EnumName = PromissoryNoteCardName.DeathBinding, Faction = FactionName.PharadnOrder, GameVersion = GameVersion.BlueRiverie },
-        new() { Id = 91, EnumName = PromissoryNoteCardName.KaltrimAmbassadors, Faction = FactionName.PrincipalityOfKaltrim, GameVersion = GameVersion.BlueRiverie },
-        new() { Id = 92, EnumName = PromissoryNoteCardName.AlloyShipment, Faction = FactionName.QhetRepublic, GameVersion = GameVersion.BlueRiverie },
-        new() { Id = 93, EnumName = PromissoryNoteCardName.Plunderers, Faction = FactionName.SarcosaDrift, GameVersion = GameVersion.BlueRiverie },
-        new() { Id = 94, EnumName = PromissoryNoteCardName.ConcordatAllegiant, Faction = FactionName.ToldarConcordat, GameVersion = GameVersion.BlueRiverie },
-        new() { Id = 95, EnumName = PromissoryNoteCardName.EeriePredictions, Faction = FactionName.UydaiConclave, GameVersion = GameVersion.BlueRiverie },
-        new() { Id = 96, EnumName = PromissoryNoteCardName.StatecraftMentor, Faction = FactionName.XinCourt, GameVersion = GameVersion.BlueRiverie },
+        new() { Id = 88, EnumName = PromissoryNoteCardName.TriWeaveShielding, Faction = FactionName.AtokeraLegacy, GameVersion = GameVersion.BlueReverie },
+        new() { Id = 89, EnumName = PromissoryNoteCardName.MercenarySortie, Faction = FactionName.BelkoseaAlliedStates, GameVersion = GameVersion.BlueReverie },
+        new() { Id = 90, EnumName = PromissoryNoteCardName.DeathBinding, Faction = FactionName.PharadnOrder, GameVersion = GameVersion.BlueReverie },
+        new() { Id = 91, EnumName = PromissoryNoteCardName.KaltrimAmbassadors, Faction = FactionName.PrincipalityOfKaltrim, GameVersion = GameVersion.BlueReverie },
+        new() { Id = 92, EnumName = PromissoryNoteCardName.AlloyShipment, Faction = FactionName.QhetRepublic, GameVersion = GameVersion.BlueReverie },
+        new() { Id = 93, EnumName = PromissoryNoteCardName.Plunderers, Faction = FactionName.SarcosaDrift, GameVersion = GameVersion.BlueReverie },
+        new() { Id = 94, EnumName = PromissoryNoteCardName.ConcordatAllegiant, Faction = FactionName.ToldarConcordat, GameVersion = GameVersion.BlueReverie },
+        new() { Id = 95, EnumName = PromissoryNoteCardName.EeriePredictions, Faction = FactionName.UydaiConclave, GameVersion = GameVersion.BlueReverie },
+        new() { Id = 96, EnumName = PromissoryNoteCardName.StatecraftMentor, Faction = FactionName.XinCourt, GameVersion = GameVersion.BlueReverie },
     };
 }

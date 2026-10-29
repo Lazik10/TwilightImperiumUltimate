@@ -68,8 +68,10 @@ Check:
 ```text
 [ ] Components use `.razor` and `.razor.cs`.
 [ ] Component-specific CSS uses `.razor.css`.
+[ ] CSS declarations exist only in `.css` files: no inline style/Style CSS strings, <style> blocks, or code-behind-generated CSS strings. Classes and anchored ::deep selectors handle child-component styling.
 [ ] Markup is readable.
 [ ] Logic is in code-behind.
+[ ] No C# implementation in `.razor`: no @code blocks, inline event-handler lambdas, string manipulation, formatting, or computed expressions. Rendering directives, simple bindings, resource/property references, and code-behind method calls are allowed.
 [ ] Parameters are strongly typed.
 [ ] EventCallback/EventCallback<T> is used for callbacks.
 [ ] Services are injected.
@@ -79,6 +81,8 @@ Check:
 [ ] Lists use @key where identity matters.
 [ ] JavaScript interop is avoided or justified.
 ```
+
+For example, flag `@Strings.SomeString.Trim()` in markup. Use `@SomeLabel` instead, backed by `private string SomeLabel => Strings.SomeString.Trim();` in the matching `.razor.cs`.
 
 ---
 

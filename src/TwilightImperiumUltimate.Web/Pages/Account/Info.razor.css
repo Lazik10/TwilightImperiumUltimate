@@ -1,4 +1,18 @@
-﻿.favorite-faction-picker {
+﻿.account-loading {
+    width: 100%;
+    text-align: center;
+}
+
+/* Override the text component's inline color within these feedback regions. */
+.discord-link-success ::deep .responsive-text {
+    color: lawngreen !important;
+}
+
+.discord-link-error ::deep .responsive-text {
+    color: red !important;
+}
+
+.favorite-faction-picker {
     display: flex;
     align-items: center;
     gap: var(--space-sm);

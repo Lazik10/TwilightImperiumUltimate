@@ -45,6 +45,14 @@ OrdersPage_WhenServiceFails_ShouldShowErrorPanel
 
 ## Testing workflow
 
+### Preserve component separation
+
+When adding test components or changing production components to support tests:
+
+- Keep CSS declarations in `.css` files, with component-specific styles in the matching `.razor.css`. Do not add inline `style`/`Style` CSS strings, `<style>` blocks, or code-behind-generated CSS strings. Use classes and anchored `::deep` selectors for child-component output when needed.
+- Keep C# implementation in `.razor.cs`: no `@code` blocks, inline event-handler lambdas, string manipulation, formatting, or computed expressions in `.razor`. Replace `@Strings.SomeString.Trim()` with a code-behind member such as `@SomeLabel`, backed by `private string SomeLabel => Strings.SomeString.Trim();`.
+- Keep rendering directives, simple bindings, resource/property references, and code-behind method calls in markup. Test the resulting rendered behavior rather than private helper implementation.
+
 ### 1. Inspect the component
 
 Identify:

@@ -79,7 +79,7 @@ public enum FactionName
     TheLanefirRemnants,
     TheNokarSellships,
 
-    // Blue Riverie
+    // Blue Reverie
     AtokeraLegacy,
     BelkoseaAlliedStates,
     PharadnOrder,

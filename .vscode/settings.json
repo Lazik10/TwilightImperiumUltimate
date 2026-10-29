@@ -17,5 +17,13 @@
     "files.exclude": {
         "**/bin": true,
         "**/obj": true
-    }
+    },
+
+    "git.worktreeIncludeFiles": [
+        ".vscode/free-ports.ps1",
+        ".vscode/wait-for-api.ps1",
+        "src/TwilightImperiumUltimate.API/appsettings.Development.json",
+        "src/TwilightImperiumUltimate.Web/wwwroot/appsettings.Development.json",
+        "src/TwilightImperiumUltimate.Web/wwwroot/resources/"
+    ]
 }

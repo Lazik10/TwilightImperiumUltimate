@@ -94,7 +94,7 @@ public static class DiscordRoleMappings
             { TiglPrestigeRank.TheVenerableKeeperOfMyths, Make("TIGL - The Venerable - Keeper of Myths", "0", "#000000", "TheVenerable:1495573370597806130") },
             { TiglPrestigeRank.StarsailsMercenaryKing, Make("TIGL - Starsails - Mercenary King", "0", "#000000", "Starsails:1495573732922495016") },
 
-            // Blue Riverie
+            // Blue Reverie
             { TiglPrestigeRank.KapokoVuiGreatSpirit, Make("TIGL - Kapoko Vui - Great Spirit", "0", "#000000", "KapokoVuiGreatSpirit:1495557627315224707") },
             { TiglPrestigeRank.MobiusSpikeTheReaper, Make("TIGL - Mobius Spike - The Reaper", "0", "#000000", "MobiusSpikeTheReaper:1495558007621288147") },
             { TiglPrestigeRank.PharadnTheImmortalImperishableUnifier, Make("TIGL - Pharad'n The Immortal - Imperishable Unifier", "0", "#000000", "PharadnTheImmortal:1495560228911976609") },

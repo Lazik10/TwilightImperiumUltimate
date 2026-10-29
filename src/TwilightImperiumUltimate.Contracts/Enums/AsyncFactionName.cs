@@ -88,7 +88,7 @@ public enum AsyncFactionName
     TheZealotsOfRhodun,
     TheZelianPurifier,
 
-    // BlueRiverie - 6 factions
+    // BlueReverie - 6 factions
     AtokeraLegacy,
     BelkoseaAlliedStates,
     PharadnOrder,

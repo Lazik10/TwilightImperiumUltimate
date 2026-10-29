@@ -94,14 +94,14 @@ internal static class FlagshipCardsData
         new FlagshipCard() { Id = 82, EnumName = FlagshipName.TheOblivion, FactionName = FactionName.TheVyserixAscendancy, Type = CardType.Flagship, GameVersion = GameVersion.WhispersFromTheVoid },
         new FlagshipCard() { Id = 83, EnumName = FlagshipName.MarkOfTheHunter, FactionName = FactionName.TheZephyrionPursuit, Type = CardType.Flagship, GameVersion = GameVersion.WhispersFromTheVoid },
 
-        new FlagshipCard() { Id = 84, EnumName = FlagshipName.Kohi, FactionName = FactionName.AtokeraLegacy, Type = CardType.Flagship, GameVersion = GameVersion.BlueRiverie },
-        new FlagshipCard() { Id = 85, EnumName = FlagshipName.Ascendancy, FactionName = FactionName.BelkoseaAlliedStates, Type = CardType.Flagship, GameVersion = GameVersion.BlueRiverie },
-        new FlagshipCard() { Id = 86, EnumName = FlagshipName.Sedtra, FactionName = FactionName.PharadnOrder, Type = CardType.Flagship, GameVersion = GameVersion.BlueRiverie },
-        new FlagshipCard() { Id = 87, EnumName = FlagshipName.JewelOfTheRose, FactionName = FactionName.PrincipalityOfKaltrim, Type = CardType.Flagship, GameVersion = GameVersion.BlueRiverie },
-        new FlagshipCard() { Id = 88, EnumName = FlagshipName.Khage, FactionName = FactionName.QhetRepublic, Type = CardType.Flagship, GameVersion = GameVersion.BlueRiverie },
-        new FlagshipCard() { Id = 89, EnumName = FlagshipName.Nauclis, FactionName = FactionName.SarcosaDrift, Type = CardType.Flagship, GameVersion = GameVersion.BlueRiverie },
-        new FlagshipCard() { Id = 90, EnumName = FlagshipName.Errant, FactionName = FactionName.ToldarConcordat, Type = CardType.Flagship, GameVersion = GameVersion.BlueRiverie },
-        new FlagshipCard() { Id = 91, EnumName = FlagshipName.DesertSage, FactionName = FactionName.UydaiConclave, Type = CardType.Flagship, GameVersion = GameVersion.BlueRiverie },
-        new FlagshipCard() { Id = 92, EnumName = FlagshipName.CelestialDragon, FactionName = FactionName.XinCourt, Type = CardType.Flagship, GameVersion = GameVersion.BlueRiverie },
+        new FlagshipCard() { Id = 84, EnumName = FlagshipName.Kohi, FactionName = FactionName.AtokeraLegacy, Type = CardType.Flagship, GameVersion = GameVersion.BlueReverie },
+        new FlagshipCard() { Id = 85, EnumName = FlagshipName.Ascendancy, FactionName = FactionName.BelkoseaAlliedStates, Type = CardType.Flagship, GameVersion = GameVersion.BlueReverie },
+        new FlagshipCard() { Id = 86, EnumName = FlagshipName.Sedtra, FactionName = FactionName.PharadnOrder, Type = CardType.Flagship, GameVersion = GameVersion.BlueReverie },
+        new FlagshipCard() { Id = 87, EnumName = FlagshipName.JewelOfTheRose, FactionName = FactionName.PrincipalityOfKaltrim, Type = CardType.Flagship, GameVersion = GameVersion.BlueReverie },
+        new FlagshipCard() { Id = 88, EnumName = FlagshipName.Khage, FactionName = FactionName.QhetRepublic, Type = CardType.Flagship, GameVersion = GameVersion.BlueReverie },
+        new FlagshipCard() { Id = 89, EnumName = FlagshipName.Nauclis, FactionName = FactionName.SarcosaDrift, Type = CardType.Flagship, GameVersion = GameVersion.BlueReverie },
+        new FlagshipCard() { Id = 90, EnumName = FlagshipName.Errant, FactionName = FactionName.ToldarConcordat, Type = CardType.Flagship, GameVersion = GameVersion.BlueReverie },
+        new FlagshipCard() { Id = 91, EnumName = FlagshipName.DesertSage, FactionName = FactionName.UydaiConclave, Type = CardType.Flagship, GameVersion = GameVersion.BlueReverie },
+        new FlagshipCard() { Id = 92, EnumName = FlagshipName.CelestialDragon, FactionName = FactionName.XinCourt, Type = CardType.Flagship, GameVersion = GameVersion.BlueReverie },
     };
 }

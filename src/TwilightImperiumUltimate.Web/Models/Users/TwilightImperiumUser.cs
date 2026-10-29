@@ -26,5 +26,9 @@ public class TwilightImperiumUser
 
     public string SteamId { get; set; } = string.Empty;
 
+    public int? AsyncPlayerProfileId { get; set; }
+
+    public int? TiglPlayerProfileId { get; set; }
+
     public IReadOnlyList<string> Roles { get; set; } = [];
 }

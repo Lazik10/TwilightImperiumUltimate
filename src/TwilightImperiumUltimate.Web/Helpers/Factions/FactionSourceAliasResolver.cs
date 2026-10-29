@@ -7,7 +7,7 @@ public static class FactionSourceAliasResolver
         [FactionSource.Official] = ["official", "basegame", "base", "core"],
         [FactionSource.TwilightsFall] = ["twilightsfall", "tf"],
         [FactionSource.DiscordantStars] = ["discordantstars", "ds"],
-        [FactionSource.BlueRiverie] = ["blueriverie", "br"],
+        [FactionSource.BlueReverie] = ["bluereverie", "br"],
         [FactionSource.WhispersFromTheVoid] = ["whispersfromthevoid", "wftv"],
     };
 

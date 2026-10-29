@@ -13,7 +13,7 @@ public enum AchievementName
     TheTribunii, // Win a game with each Keleres variant
     BringTheThunder, // Win a game with each Thunder's Edge faction
     ThirtyIsNotEnough, // Win a game with each Discordant Stars faction
-    BlueDaBaDee, // Win a game with each Blue Riverie faction
+    BlueDaBaDee, // Win a game with each Blue Reverie faction
     TyrantsGauntlet, // Win a game as each Mahact tyrant
     DrFrankenstein, // Win a game as franken faction
     ICookedThisMyself, // Win a game as homebrew faction
