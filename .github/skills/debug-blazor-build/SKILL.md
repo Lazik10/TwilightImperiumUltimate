@@ -19,6 +19,12 @@ Follow `.github/copilot-instructions.md` and the relevant `.github/instructions/
 
 ## Debugging workflow
 
+### Preserve component separation when fixing errors
+
+- Keep CSS declarations in `.css` files, with component-specific styles in the matching `.razor.css`. Do not work around styling issues with inline `style`/`Style` CSS strings, `<style>` blocks, or code-behind-generated CSS strings. Apply classes and use anchored `::deep` selectors for child-component output when needed.
+- Keep C# implementation in `.razor.cs`, not `.razor`: no `@code` blocks, inline event-handler lambdas, string manipulation, formatting, or computed expressions. For example, replace `@Strings.SomeString.Trim()` with `@SomeLabel`, backed by `private string SomeLabel => Strings.SomeString.Trim();` in code-behind.
+- Keep rendering directives, simple bindings, resource/property references, and calls to code-behind methods in markup; move the underlying calculations into code-behind.
+
 ### 1. Read the exact error
 
 Identify:

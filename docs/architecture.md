@@ -327,6 +327,18 @@ Rules:
 - Keep client-side checks as UX guidance, not as sole enforcement.
 - Keep authorization concerns centralized in middleware/policies/endpoints.
 
+Authenticated website users can link their Discord account from Account Info. The API requires
+the current bearer-authenticated user to start the flow, stores a random one-time state value with
+a ten-minute expiry, and resolves the Discord callback to the initiating website user. It looks up
+existing Async and TIGL profiles by the verified Discord ID and stores the nullable profile IDs on
+that website user. Every completed authorization also saves Discord's account `username` (not
+the guild nickname or global display name) in the existing `DiscordId` form field. All three
+values are refreshed together, including null IDs for profiles that no longer match. The link
+button stays disabled during authorization navigation and the return page waits for user loading.
+This account-linking flow does not create a TIGL player profile. The API uses
+`IDistributedCache` for OAuth state; deployments with multiple API instances must configure a
+shared cache so the callback can consume the state created by the initiating instance.
+
 ---
 
 ## 12. Styling architecture

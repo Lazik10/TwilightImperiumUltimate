@@ -21,6 +21,10 @@ public class TwilightImperiumUser : IdentityUser
 
     public string SteamId { get; set; } = string.Empty;
 
+    public int? AsyncPlayerProfileId { get; set; }
+
+    public int? TiglPlayerProfileId { get; set; }
+
     public IReadOnlyCollection<Map> Maps { get; set; } = new List<Map>();
 
     public IReadOnlyCollection<MapRating> MapRatings { get; set; } = new List<MapRating>();

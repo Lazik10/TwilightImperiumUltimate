@@ -85,7 +85,7 @@ public static class FactionNameAliasResolver
         [FactionName.TheLanefirRemnants] = Array.Empty<string>(),
         [FactionName.TheNokarSellships] = Array.Empty<string>(),
 
-        // Blue Riverie - 9 factions
+        // Blue Reverie - 9 factions
         [FactionName.AtokeraLegacy] = Array.Empty<string>(),
         [FactionName.BelkoseaAlliedStates] = Array.Empty<string>(),
         [FactionName.PrincipalityOfKaltrim] = Array.Empty<string>(),

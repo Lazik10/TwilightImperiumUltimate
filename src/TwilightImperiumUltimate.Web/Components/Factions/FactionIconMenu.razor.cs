@@ -43,7 +43,7 @@ public partial class FactionIconMenu : TwilightImperiumBaseComponent
 
     private bool ShowDiscordantStarsGroup => Source is null or FactionSource.DiscordantStars;
 
-    private bool ShowOtherSourceGroup => Source is FactionSource.BlueRiverie or FactionSource.TwilightsFall or FactionSource.WhispersFromTheVoid;
+    private bool ShowOtherSourceGroup => Source is FactionSource.BlueReverie or FactionSource.TwilightsFall or FactionSource.WhispersFromTheVoid;
 
     private bool UseSplitRowsLayout
     {
@@ -104,7 +104,7 @@ public partial class FactionIconMenu : TwilightImperiumBaseComponent
     private static FactionName GetDefaultFactionForSource(FactionSource source) => source switch
     {
         FactionSource.DiscordantStars => FactionName.TheAugursOfIlyxum,
-        FactionSource.BlueRiverie => FactionName.AtokeraLegacy,
+        FactionSource.BlueReverie => FactionName.AtokeraLegacy,
         FactionSource.TwilightsFall => FactionName.TheRubyMonarch,
         _ => FactionName.TheArborec,
     };

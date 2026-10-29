@@ -129,6 +129,9 @@
   <data name="ApiPath_AccountRegister" xml:space="preserve">
     <value>register</value>
   </data>
+  <data name="ApiPath_DiscordLinkStart" xml:space="preserve">
+    <value>auth/discord/link</value>
+  </data>
   <data name="ApiPath_ActionCards" xml:space="preserve">
     <value>api/cards/action</value>
   </data>

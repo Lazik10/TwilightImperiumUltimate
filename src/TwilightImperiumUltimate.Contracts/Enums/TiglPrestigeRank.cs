@@ -86,7 +86,7 @@ public enum TiglPrestigeRank
     TheVenerableKeeperOfMyths, // Lanefir Remnants
     StarsailsMercenaryKing, // Nokar Sellships
 
-    // Blue Riverie
+    // Blue Reverie
     KapokoVuiGreatSpirit, // Atokera Legacy
     MobiusSpikeTheReaper, // Belkosea Allied States
     PharadnTheImmortalImperishableUnifier, // Pharad’n Order

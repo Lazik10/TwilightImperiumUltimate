@@ -32,9 +32,9 @@ public class MatchReport : IEntity
 
     public IReadOnlyCollection<PlayerResult> PlayerResults { get; set; } = new List<PlayerResult>();
 
-    public ICollection<AsyncPlayerMatchStats>? PlayerMatchAsyncStats { get; }
+    public ICollection<AsyncPlayerMatchStats>? PlayerMatchAsyncStats { get; } = [];
 
-    public ICollection<GlickoPlayerMatchStats>? PlayerMatchGlickoStats { get; }
+    public ICollection<GlickoPlayerMatchStats>? PlayerMatchGlickoStats { get; } = [];
 
-    public ICollection<TrueSkillPlayerMatchStats>? PlayerMatchTrueSkillStats { get; }
+    public ICollection<TrueSkillPlayerMatchStats>? PlayerMatchTrueSkillStats { get; } = [];
 }

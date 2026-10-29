@@ -19,6 +19,12 @@ Follow `.github/copilot-instructions.md` and `.github/instructions/accessibility
 
 ## Audit workflow
 
+### Component separation when applying fixes
+
+- Define CSS declarations in `.css` files, using the matching `.razor.css` for component-specific styles. Do not add inline `style`/`Style` CSS strings, `<style>` blocks, or code-behind-generated CSS strings. Apply classes and use anchored `::deep` selectors for child-component output when needed.
+- Keep C# implementation in `.razor.cs`, not `.razor`: no `@code` blocks, inline event-handler lambdas, string manipulation, formatting, or computed expressions. For example, use `@SomeLabel` in markup and `private string SomeLabel => Strings.SomeString.Trim();` in code-behind instead of `@Strings.SomeString.Trim()`.
+- Razor rendering directives, simple bindings, resource/property references, and code-behind method calls remain appropriate in markup.
+
 ### 1. Identify the UI scope
 
 Determine what is being reviewed:

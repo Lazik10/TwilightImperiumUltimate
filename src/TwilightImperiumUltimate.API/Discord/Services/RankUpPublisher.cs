@@ -54,7 +54,14 @@ internal sealed class RankUpPublisher(
         {
             var addRoleSuccess = await AddRoleAsync(log, cancellationToken);
             if (!addRoleSuccess)
+            {
                 logger.LogWarning("Failed to add role for user {UserId} to rank {Rank}", log.TiglUserDiscordId, log.NewRank);
+            }
+            else if (await ShouldRemoveOldRolesAsync(log, cancellationToken)
+                && !await RemovePreviousRolesAsync(log, cancellationToken))
+            {
+                logger.LogWarning("Failed to remove previous rank roles for user {UserId} after promotion to {Rank}", log.TiglUserDiscordId, log.NewRank);
+            }
         }
         else if (log.OldRank == TiglRankName.Hero || log.OldRank == TiglRankName.Archon)
         {
@@ -114,7 +121,10 @@ internal sealed class RankUpPublisher(
 
         var previousRankAchievedAt = await dbContext.Ranks
             .AsNoTracking()
-            .Where(rank => rank.TiglUserId == tiglUserId && rank.League == log.League && rank.AchievedAt < log.Timestamp)
+            .Where(rank => rank.TiglUserId == tiglUserId
+                && rank.League == log.League
+                && rank.Name == log.OldRank
+                && rank.AchievedAt < log.Timestamp)
             .OrderByDescending(rank => rank.AchievedAt)
             .Select(rank => (long?)rank.AchievedAt)
             .FirstOrDefaultAsync(cancellationToken);
@@ -150,6 +160,48 @@ internal sealed class RankUpPublisher(
 
         await discordClient.AddRoleToUserAsync((ulong)log.TiglUserDiscordId, (ulong)long.Parse(roleInfo.RoleId, CultureInfo.InvariantCulture), DiscordRoleType.Rank, cancellationToken);
         return true;
+    }
+
+    private async Task<bool> ShouldRemoveOldRolesAsync(RankUpLog log, CancellationToken cancellationToken)
+    {
+        await using var dbContext = await dbContextFactory.CreateDbContextAsync(cancellationToken);
+
+        var settings = await dbContext.TiglUsers
+            .AsNoTracking()
+            .Where(user => user.DiscordId == log.TiglUserDiscordId)
+            .Select(user => new { user.RemoveOldStandardRole, user.RemoveOldFracturedRole })
+            .FirstOrDefaultAsync(cancellationToken);
+
+        if (settings is null)
+            return false;
+
+        return log.League switch
+        {
+            TiglLeague.ProphecyOfKings or TiglLeague.ThundersEdge => settings.RemoveOldStandardRole,
+            TiglLeague.Fractured => settings.RemoveOldFracturedRole,
+            _ => false,
+        };
+    }
+
+    private async Task<bool> RemovePreviousRolesAsync(RankUpLog log, CancellationToken cancellationToken)
+    {
+        var ladderRanks = log.League == TiglLeague.Fractured ? fracturedRanks : standardRanks;
+        var allSuccess = true;
+
+        foreach (var rank in ladderRanks.Where(rank => rank < log.NewRank))
+        {
+            if (!DiscordRoleMappings.RankRoles.TryGetValue(rank, out var roleInfo))
+                continue;
+
+            var result = await discordClient.RemoveRoleFromUserAsync((ulong)log.TiglUserDiscordId, (ulong)long.Parse(roleInfo.RoleId, CultureInfo.InvariantCulture), DiscordRoleType.Rank, cancellationToken);
+            if (!result)
+            {
+                allSuccess = false;
+                logger.LogWarning("Failed to remove previous rank role {RankRole} from user {UserId}", rank, log.TiglUserDiscordId);
+            }
+        }
+
+        return allSuccess;
     }
 
     private async Task<bool> RemoveRolesAsync(RankUpLog log, CancellationToken cancellationToken)

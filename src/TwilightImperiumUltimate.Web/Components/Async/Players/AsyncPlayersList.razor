@@ -1,7 +1,11 @@
 ﻿
+﻿@using TwilightImperiumUltimate.Web.Components.Shared.Account
+
 <div class="mt-md mb-md">
     <AsyncPlayerSearchbar @ref="_searchbar" OnSearchUpdate="SearchPlayerGroup" />
 </div>
+
+<CurrentUserProfileShortcut AsyncPlayerProfiles="PlayerProfileNames" />
 
 <div class="mb-md">
     <AsyncPlayerAlphabet SelectedLetter="@_selectedLetter" OnLetterClick="SearchPlayerGroup" />

@@ -38,7 +38,7 @@
                     }
                     else
                     {
-                        <AccountLinksList Items="AccountLinks.LoggedIn">
+                        <AccountLinksList Items="AccountLinks.LoggedIn(CurrentUserState.User)">
                             <LinkTemplate Context="link">
                                 <a href="@link.Href" class='@GetSubMenuClass(link.Key)' @onclick='() => SelectSubMenuAndClose(MainMenuKey.Account, link.Key)'>@link.Text</a>
                             </LinkTemplate>
@@ -74,6 +74,5 @@
         </div>
     }
 </nav>
-
 
 

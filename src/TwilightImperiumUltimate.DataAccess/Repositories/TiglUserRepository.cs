@@ -180,6 +180,34 @@ public class TiglUserRepository(
         }
     }
 
+    public async Task<Result<bool>> UpdateRoleRemovalSettings(long discordId, bool removeOldStandardRole, bool removeOldFracturedRole, CancellationToken cancellationToken)
+    {
+        await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);
+
+        var user = await dbContext.TiglUsers
+            .FirstOrDefaultAsync(x => x.DiscordId == discordId, cancellationToken);
+
+        if (user is null)
+        {
+            _logger.LogWarning("Tigl user with DiscordId: {DiscordId} not found.", discordId);
+            return Result.Fail<bool>("User not found.");
+        }
+
+        user.RemoveOldStandardRole = removeOldStandardRole;
+        user.RemoveOldFracturedRole = removeOldFracturedRole;
+
+        try
+        {
+            await dbContext.SaveChangesAsync(cancellationToken);
+            return Result.Ok(true);
+        }
+        catch (DbUpdateException ex)
+        {
+            _logger.LogError(ex, "Failed to update role removal settings for DiscordId: {DiscordId}", discordId);
+            return Result.Fail<bool>("Failed to update role removal settings.");
+        }
+    }
+
     public async Task<TiglUser?> FindTiglUserFromGameReportPlayerResult(IPlayerResult playerResult, CancellationToken cancellationToken)
     {
         await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);

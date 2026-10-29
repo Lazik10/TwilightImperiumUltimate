@@ -71,7 +71,7 @@ public static class EnumExtensions
             return FactionSource.DiscordantStars;
 
         if (factionName >= FactionName.AtokeraLegacy && factionName <= FactionName.XinCourt)
-            return FactionSource.BlueRiverie;
+            return FactionSource.BlueReverie;
 
         if (factionName >= FactionName.TheRubyMonarch && factionName <= FactionName.ASickeningLurch)
             return FactionSource.TwilightsFall;
@@ -89,7 +89,7 @@ public static class EnumExtensions
             FactionSource.Official => FactionName.TheArborec,
             FactionSource.TwilightsFall => FactionName.TheRubyMonarch,
             FactionSource.DiscordantStars => FactionName.TheAugursOfIlyxum,
-            FactionSource.BlueRiverie => FactionName.AtokeraLegacy,
+            FactionSource.BlueReverie => FactionName.AtokeraLegacy,
             FactionSource.WhispersFromTheVoid => FactionName.TheArvaxiCovenant,
             _ => FactionName.None,
         };
@@ -102,7 +102,7 @@ public static class EnumExtensions
             FactionSource.Official => [GameVersion.BaseGame, GameVersion.ProphecyOfKings, GameVersion.CodexVigil, GameVersion.ThundersEdge],
             FactionSource.TwilightsFall => [GameVersion.TwilightFall],
             FactionSource.DiscordantStars => [GameVersion.DiscordantStars],
-            FactionSource.BlueRiverie => [GameVersion.BlueRiverie],
+            FactionSource.BlueReverie => [GameVersion.BlueReverie],
             FactionSource.WhispersFromTheVoid => [GameVersion.WhispersFromTheVoid],
             _ => [],
         };

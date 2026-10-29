@@ -1,10 +1,10 @@
-namespace TwilightImperiumUltimate.Web.Components.Factions.Menu.BlueRiverie;
+namespace TwilightImperiumUltimate.Web.Components.Factions.Menu.BlueReverie;
 
 /// <summary>
-/// Displays <see cref="FactionSource.BlueRiverie"/> factions using the shared non-official
+/// Displays <see cref="FactionSource.BlueReverie"/> factions using the shared non-official
 /// source layout defined in <see cref="SourceFactionMenu"/>.
 /// </summary>
-public partial class BlueRiverieFactionMenu : TwilightImperiumBaseComponent
+public partial class BlueReverieFactionMenu : TwilightImperiumBaseComponent
 {
     private static readonly IReadOnlyDictionary<ResponsiveBreakpoint, (IReadOnlyList<int> Columns, IReadOnlyList<int> PlaceholderPositions)> _layout =
         new Dictionary<ResponsiveBreakpoint, (IReadOnlyList<int> Columns, IReadOnlyList<int> PlaceholderPositions)>
@@ -21,7 +21,7 @@ public partial class BlueRiverieFactionMenu : TwilightImperiumBaseComponent
 
     protected override async Task OnInitializedAsync()
     {
-        _factions = await FactionProvider.GetFactionsBySource(FactionSource.BlueRiverie);
+        _factions = await FactionProvider.GetFactionsBySource(FactionSource.BlueReverie);
     }
 
     private async Task HandleFactionClick(FactionDto faction)

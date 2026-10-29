@@ -88,15 +88,15 @@ internal static class FactionsData
             new() { Id = 71, FactionName = FactionName.TheVyserixAscendancy, HomeSystem = SystemTileName.TileWftV07, Commodities = 3, ComplexityRating = ComplexityRating.Medium, GameVersion = GameVersion.WhispersFromTheVoid },
             new() { Id = 72, FactionName = FactionName.TheZephyrionPursuit, HomeSystem = SystemTileName.TileWftV08, Commodities = 2, ComplexityRating = ComplexityRating.Low, GameVersion = GameVersion.WhispersFromTheVoid },
 
-            new() { Id = 73, FactionName = FactionName.AtokeraLegacy, HomeSystem = SystemTileName.TileBr01, Commodities = 3, ComplexityRating = ComplexityRating.Low, GameVersion = GameVersion.BlueRiverie },
-            new() { Id = 74, FactionName = FactionName.BelkoseaAlliedStates, HomeSystem = SystemTileName.TileBr02, Commodities = 1, ComplexityRating = ComplexityRating.Low, GameVersion = GameVersion.BlueRiverie },
-            new() { Id = 75, FactionName = FactionName.PharadnOrder, HomeSystem = SystemTileName.TileBr03, Commodities = 2, ComplexityRating = ComplexityRating.Low, GameVersion = GameVersion.BlueRiverie },
-            new() { Id = 76, FactionName = FactionName.PrincipalityOfKaltrim, HomeSystem = SystemTileName.TileBr04, Commodities = 3, ComplexityRating = ComplexityRating.Low, GameVersion = GameVersion.BlueRiverie },
-            new() { Id = 77, FactionName = FactionName.QhetRepublic, HomeSystem = SystemTileName.TileBr05, Commodities = 2, ComplexityRating = ComplexityRating.Low, GameVersion = GameVersion.BlueRiverie },
-            new() { Id = 78, FactionName = FactionName.SarcosaDrift, HomeSystem = SystemTileName.TileBr06, Commodities = 3, ComplexityRating = ComplexityRating.Low, GameVersion = GameVersion.BlueRiverie },
-            new() { Id = 79, FactionName = FactionName.ToldarConcordat, HomeSystem = SystemTileName.TileBr07, Commodities = 3, ComplexityRating = ComplexityRating.Low, GameVersion = GameVersion.BlueRiverie },
-            new() { Id = 80, FactionName = FactionName.UydaiConclave, HomeSystem = SystemTileName.TileBr08, Commodities = 5, ComplexityRating = ComplexityRating.Low, GameVersion = GameVersion.BlueRiverie },
-            new() { Id = 81, FactionName = FactionName.XinCourt, HomeSystem = SystemTileName.TileBr09, Commodities = 4, ComplexityRating = ComplexityRating.Low, GameVersion = GameVersion.BlueRiverie },
+            new() { Id = 73, FactionName = FactionName.AtokeraLegacy, HomeSystem = SystemTileName.TileBr01, Commodities = 3, ComplexityRating = ComplexityRating.Low, GameVersion = GameVersion.BlueReverie },
+            new() { Id = 74, FactionName = FactionName.BelkoseaAlliedStates, HomeSystem = SystemTileName.TileBr02, Commodities = 1, ComplexityRating = ComplexityRating.Low, GameVersion = GameVersion.BlueReverie },
+            new() { Id = 75, FactionName = FactionName.PharadnOrder, HomeSystem = SystemTileName.TileBr03, Commodities = 2, ComplexityRating = ComplexityRating.Low, GameVersion = GameVersion.BlueReverie },
+            new() { Id = 76, FactionName = FactionName.PrincipalityOfKaltrim, HomeSystem = SystemTileName.TileBr04, Commodities = 3, ComplexityRating = ComplexityRating.Low, GameVersion = GameVersion.BlueReverie },
+            new() { Id = 77, FactionName = FactionName.QhetRepublic, HomeSystem = SystemTileName.TileBr05, Commodities = 2, ComplexityRating = ComplexityRating.Low, GameVersion = GameVersion.BlueReverie },
+            new() { Id = 78, FactionName = FactionName.SarcosaDrift, HomeSystem = SystemTileName.TileBr06, Commodities = 3, ComplexityRating = ComplexityRating.Low, GameVersion = GameVersion.BlueReverie },
+            new() { Id = 79, FactionName = FactionName.ToldarConcordat, HomeSystem = SystemTileName.TileBr07, Commodities = 3, ComplexityRating = ComplexityRating.Low, GameVersion = GameVersion.BlueReverie },
+            new() { Id = 80, FactionName = FactionName.UydaiConclave, HomeSystem = SystemTileName.TileBr08, Commodities = 5, ComplexityRating = ComplexityRating.Low, GameVersion = GameVersion.BlueReverie },
+            new() { Id = 81, FactionName = FactionName.XinCourt, HomeSystem = SystemTileName.TileBr09, Commodities = 4, ComplexityRating = ComplexityRating.Low, GameVersion = GameVersion.BlueReverie },
         };
 
         var updatedFactions = factions.Select((faction, i) =>

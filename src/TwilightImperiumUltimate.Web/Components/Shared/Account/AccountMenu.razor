@@ -15,7 +15,7 @@
             <div class="menu-container" @onmouseenter="OpenAccountDropdown" @onmouseleave="CloseAccountDropdown" @onfocusin="OpenAccountDropdown" @onfocusout="CloseAccountDropdown">
                 <MenuButton CssClass="account-trigger" AriaHasPopup="true" AriaExpanded="_isAccountDropdownOpen" AriaControls="account-dropdown">@CurrentUserState.User.UserName</MenuButton>
                 <div class="dropdown" id="account-dropdown">
-                    <AccountLinksList Items="AccountLinks.LoggedIn">
+                    <AccountLinksList Items="AccountLinks.LoggedIn(CurrentUserState.User)">
                         <LinkTemplate Context="link">
                             <a href="@link.Href">@link.Text</a>
                         </LinkTemplate>

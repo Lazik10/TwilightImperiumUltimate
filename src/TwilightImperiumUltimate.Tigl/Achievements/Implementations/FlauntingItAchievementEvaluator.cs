@@ -13,7 +13,8 @@ namespace TwilightImperiumUltimate.Tigl.Achievements.Implementations;
 [AchievementEvaluator(AchievementName.FlauntingIt)]
 public sealed class FlauntingItAchievementEvaluator(
     IPrestigeRankService prestigeRankService,
-    IAchievementRepository achievementRepository)
+    IAchievementRepository achievementRepository,
+    IRankRepository rankRepository)
     : IAchievementEvaluator
 {
     public async Task EvaluateAsync(MatchReport matchReport, AchievementName achievementName, IReadOnlyCollection<TiglUserAchievement> usersAchievements, CancellationToken cancellationToken = default)
@@ -24,11 +25,23 @@ public sealed class FlauntingItAchievementEvaluator(
         if (matchReport.League == TiglLeague.ThundersEdge)
         {
             var winnersWithoutThisAchievement = matchReport.PlayerResults
-            .Where(pr => pr.IsWinner && !usersAchievements.Any(ua => ua.TiglUserId == pr.TiglUserId && ua.Achievement.Name == achievementName))
-            .ToList();
+                .Where(pr => pr.IsWinner
+                    && !usersAchievements.Any(ua => ua.TiglUserId == pr.TiglUserId && ua.Achievement.Name == achievementName))
+                .ToList();
 
             foreach (var winner in winnersWithoutThisAchievement)
             {
+                if (!StartedAtHeroRank(matchReport, winner.Faction))
+                    continue;
+
+                var wasForcedToReset = WasForcedToReset(matchReport, winner.Faction);
+                if (!wasForcedToReset)
+                {
+                    var currentRank = await rankRepository.GetCurrentRank(winner.TiglUserId, TiglLeague.ThundersEdge, cancellationToken);
+                    if (!currentRank.IsSuccess || currentRank.Value.Name != TiglRankName.Hero)
+                        continue;
+                }
+
                 var hasRank = await prestigeRankService.HasFactionPrestigeRankExcludingCurrentMatch(winner.TiglUserId, matchReport, winner.Faction, TiglLeague.ThundersEdge, cancellationToken);
 
                 if (hasRank)
@@ -38,4 +51,16 @@ public sealed class FlauntingItAchievementEvaluator(
             }
         }
     }
+
+    private static bool StartedAtHeroRank(MatchReport matchReport, TiglFactionName faction)
+        => matchReport.PlayerMatchAsyncStats?.Any(stats =>
+            stats.Winner
+            && stats.Faction == faction
+            && stats.OldRank == TiglRankName.Hero) == true;
+
+    private static bool WasForcedToReset(MatchReport matchReport, TiglFactionName faction)
+        => matchReport.PlayerMatchAsyncStats?.Any(stats =>
+            stats.Winner
+            && stats.Faction == faction
+            && stats.ForcedReset) == true;
 }

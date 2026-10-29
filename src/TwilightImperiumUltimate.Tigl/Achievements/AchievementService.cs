@@ -158,7 +158,7 @@ public class AchievementService(
     private async Task<MatchReport?> GetMatchReport(int gameDbId, IServiceScope discoveryScope, CancellationToken cancellationToken)
     {
         var repo = discoveryScope.ServiceProvider.GetRequiredService<ITiglRepository>();
-        var matchReport = await repo.GetMatchReportById(gameDbId, cancellationToken);
+        var matchReport = await repo.GetMatchReportWithPlayerResults(gameDbId, cancellationToken);
         if (matchReport is null)
         {
             logger.LogWarning("MatchReport with DB Id {GameDbId} not found for achievement evaluation.", gameDbId);

@@ -137,7 +137,9 @@ Rules:
 
 - Keep markup and component composition in `.razor`.
 - Keep parameters, injected services, state, lifecycle methods, event handlers, and helpers in `.razor.cs`.
-- Avoid large `@code` blocks.
+- Do not put C# implementation in `.razor`: no `@code` blocks, inline event-handler lambdas, string manipulation, formatting, or computed expressions. Keep that logic in `.razor.cs` methods or computed properties and reference them from markup. For example, replace `@Strings.SomeString.Trim()` with `@SomeLabel`, backed by `private string SomeLabel => Strings.SomeString.Trim();` in `.razor.cs`.
+- Keep Razor rendering directives (`@if`, `@foreach`), simple bindings, resource/property references, and calls to code-behind methods in markup; put the underlying calculations in code-behind.
+- Define CSS declarations only in `.css` files, using the matching `.razor.css` for component-specific styles. Do not add inline `style`/`Style` CSS strings or `<style>` blocks to `.razor`, or generate CSS strings in `.razor.cs`. Apply CSS classes instead; use an anchored `::deep` selector when styling child-component output through CSS isolation.
 - Use partial classes for code-behind files.
 - Follow the existing namespace and folder conventions.
 - Do not put reusable business logic directly in components.

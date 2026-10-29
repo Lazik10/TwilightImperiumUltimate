@@ -4298,7 +4298,7 @@ internal static class PlanetsData
             Influence = 4,
             IsLegendary = false,
             TechnologySkip = TechnologyType.None,
-            GameVersion = GameVersion.BlueRiverie,
+            GameVersion = GameVersion.BlueReverie,
         },
         new Planet()
         {
@@ -4310,7 +4310,7 @@ internal static class PlanetsData
             Influence = 0,
             IsLegendary = true,
             TechnologySkip = TechnologyType.None,
-            GameVersion = GameVersion.BlueRiverie,
+            GameVersion = GameVersion.BlueReverie,
         },
         new Planet()
         {
@@ -4322,7 +4322,7 @@ internal static class PlanetsData
             Influence = 2,
             IsLegendary = false,
             TechnologySkip = TechnologyType.None,
-            GameVersion = GameVersion.BlueRiverie,
+            GameVersion = GameVersion.BlueReverie,
         },
         new Planet()
         {
@@ -4334,7 +4334,7 @@ internal static class PlanetsData
             Influence = 0,
             IsLegendary = false,
             TechnologySkip = TechnologyType.None,
-            GameVersion = GameVersion.BlueRiverie,
+            GameVersion = GameVersion.BlueReverie,
         },
         new Planet()
         {
@@ -4346,7 +4346,7 @@ internal static class PlanetsData
             Influence = 2,
             IsLegendary = false,
             TechnologySkip = TechnologyType.None,
-            GameVersion = GameVersion.BlueRiverie,
+            GameVersion = GameVersion.BlueReverie,
         },
         new Planet()
         {
@@ -4358,7 +4358,7 @@ internal static class PlanetsData
             Influence = 1,
             IsLegendary = false,
             TechnologySkip = TechnologyType.None,
-            GameVersion = GameVersion.BlueRiverie,
+            GameVersion = GameVersion.BlueReverie,
         },
         new Planet()
         {
@@ -4370,7 +4370,7 @@ internal static class PlanetsData
             Influence = 1,
             IsLegendary = false,
             TechnologySkip = TechnologyType.None,
-            GameVersion = GameVersion.BlueRiverie,
+            GameVersion = GameVersion.BlueReverie,
         },
         new Planet()
         {
@@ -4382,7 +4382,7 @@ internal static class PlanetsData
             Influence = 2,
             IsLegendary = false,
             TechnologySkip = TechnologyType.None,
-            GameVersion = GameVersion.BlueRiverie,
+            GameVersion = GameVersion.BlueReverie,
         },
         new Planet()
         {
@@ -4394,7 +4394,7 @@ internal static class PlanetsData
             Influence = 3,
             IsLegendary = false,
             TechnologySkip = TechnologyType.None,
-            GameVersion = GameVersion.BlueRiverie,
+            GameVersion = GameVersion.BlueReverie,
         },
         new Planet()
         {
@@ -4406,7 +4406,7 @@ internal static class PlanetsData
             Influence = 4,
             IsLegendary = false,
             TechnologySkip = TechnologyType.None,
-            GameVersion = GameVersion.BlueRiverie,
+            GameVersion = GameVersion.BlueReverie,
         },
         new Planet()
         {
@@ -4418,7 +4418,7 @@ internal static class PlanetsData
             Influence = 1,
             IsLegendary = false,
             TechnologySkip = TechnologyType.None,
-            GameVersion = GameVersion.BlueRiverie,
+            GameVersion = GameVersion.BlueReverie,
         },
         new Planet()
         {
@@ -4430,7 +4430,7 @@ internal static class PlanetsData
             Influence = 1,
             IsLegendary = true,
             TechnologySkip = TechnologyType.None,
-            GameVersion = GameVersion.BlueRiverie,
+            GameVersion = GameVersion.BlueReverie,
         },
         new Planet()
         {
@@ -4442,7 +4442,7 @@ internal static class PlanetsData
             Influence = 5,
             IsLegendary = false,
             TechnologySkip = TechnologyType.None,
-            GameVersion = GameVersion.BlueRiverie,
+            GameVersion = GameVersion.BlueReverie,
         },
     ];
 }

@@ -12,6 +12,8 @@ public interface IUserRepository
 
     Task<bool> UpdateUser(TwilightImperiumUser user);
 
+    Task<bool> UpdateLinkedPlayerProfiles(string userId, string discordUsername, int? asyncPlayerProfileId, int? tiglPlayerProfileId, CancellationToken cancellationToken);
+
     Task<IReadOnlyCollection<IdentityRole>> GetAllRoles();
 
     Task<List<string?>> GetpecificUserRoles(string userId);

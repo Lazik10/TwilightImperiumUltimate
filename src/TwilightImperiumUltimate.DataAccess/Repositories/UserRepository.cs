@@ -72,6 +72,23 @@ public class UserRepository(
         return true;
     }
 
+    public async Task<bool> UpdateLinkedPlayerProfiles(string userId, string discordUsername, int? asyncPlayerProfileId, int? tiglPlayerProfileId, CancellationToken cancellationToken)
+    {
+        await using var dbContext = await _context.CreateDbContextAsync(cancellationToken);
+        var dbUser = await dbContext.Users.FindAsync([userId], cancellationToken);
+
+        if (dbUser is null)
+            return false;
+
+        dbUser.DiscordId = discordUsername;
+        dbUser.AsyncPlayerProfileId = asyncPlayerProfileId;
+        dbUser.TiglPlayerProfileId = tiglPlayerProfileId;
+
+        dbContext.Update(dbUser);
+        await dbContext.SaveChangesAsync(cancellationToken);
+        return true;
+    }
+
     public async Task<IReadOnlyCollection<IdentityRole>> GetAllRoles()
     {
         await using var dbContext = await _context.CreateDbContextAsync();

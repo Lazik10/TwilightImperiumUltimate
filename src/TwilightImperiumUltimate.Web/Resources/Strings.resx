@@ -330,8 +330,8 @@
   <data name="FactionSource_DiscordantStars" xml:space="preserve">
     <value>Discordant Stars</value>
   </data>
-  <data name="FactionSource_BlueRiverie" xml:space="preserve">
-    <value>Blue Riverie</value>
+  <data name="FactionSource_BlueReverie" xml:space="preserve">
+    <value>Blue Reverie</value>
   </data>
   <data name="FactionSource_WhispersFromTheVoid" xml:space="preserve">
     <value>Whispers from the Void</value>
@@ -2741,6 +2741,9 @@ Brandon Williams&lt;/p&gt;</value>
   <data name="AsyncStats_Game" xml:space="preserve">
     <value>Game</value>
   </data>
+  <data name="AsyncStats_PlayerCount" xml:space="preserve">
+    <value>Player count</value>
+  </data>
   <data name="AsyncStats_FunGameName" xml:space="preserve">
     <value>Fun Game Name</value>
   </data>
@@ -2884,6 +2887,12 @@ Brandon Williams&lt;/p&gt;</value>
   </data>
   <data name="Page_TiglRanks_PageTitle" xml:space="preserve">
     <value>TIGL Rankings | TI4 Ultimate</value>
+  </data>
+  <data name="Page_TiglRankingSystems" xml:space="preserve">
+    <value>Ranking Systems</value>
+  </data>
+  <data name="Page_TiglRankingSystems_PageTitle" xml:space="preserve">
+    <value>TIGL Ranking Systems | TI4 Ultimate</value>
   </data>
   <data name="RankingsMenu_Leaders" xml:space="preserve">
     <value>LEADERS</value>
@@ -3145,11 +3154,11 @@ Brandon Williams&lt;/p&gt;</value>
   </data>
   <data name="TiglInfo_OverviewContent" xml:space="preserve">
     <value>&lt;p&gt;TIGL is a fun way to get bonuses and bragging rights for winning competitive games of Twilight Imperium.&lt;/p&gt;
-&lt;p&gt;It doesn't matter where you play TI. You can use any platform you wan't. Even IRL games can be reported for TI Global League. If you plan to play outside of Async environment make sure you register with your discord first. You can find button at the bottom of this page. If you only play on AsyncTI4 Discord server, you don't need to register as registration will be done automatically when game report is sent to this website.&lt;/p&gt;
+&lt;p&gt;It doesn't matter where you play TI. You can use any platform you want. Even IRL games can be reported for TI Global League. If you plan to play outside of Async environment make sure you register with your discord first. You can find button at the bottom of this page. If you only play on AsyncTI4 Discord server, you don't need to register as registration will be done automatically when game report is sent to this website.&lt;/p&gt;
 &lt;p&gt;By winning games, you can earn ranks (Minister, Agent, Commander, Hero, and others), rating and achievements. The general idea is that if you win a competitive game of TI (that is, a TIGL game, which will be described later), you gain the first rank: Minister (or Thrall). To rank up further, all the players in your game must be your rank or higher at the start of the game.&lt;/p&gt;
 &lt;p&gt;For example, if 6 Ministers play a TIGL game, the winner will rank up to Agent. If Ministers and Agents start a game, a Minister who wins will rank up, but an Agent who wins will not, and so forth.&lt;/p&gt;
 &lt;p&gt;You may not skip ranks, and the only way to lose ranks is by violating the Code of Conduct or by gaining a prestige rank that also causes you to lose other ranks.&lt;/p&gt;
-&lt;p&gt;The whole thing is silly, but people seem to like it, so have fun! If you have questions or concerns, please reach out to BLT or ping the &lt;strong&gt;@TIGL Admin&lt;/strong&gt; role.&lt;/p&gt;</value>
+&lt;p&gt;The whole thing is silly, but people seem to like it, so have fun! If you have questions or concerns, please reach out to Lazik (lazik2110) or ping the &lt;strong&gt;@TIGL Admin&lt;/strong&gt; role.&lt;/p&gt;</value>
   </data>
   <data name="TiglInfo_TiglHeading" xml:space="preserve">
     <value>TIGL</value>
@@ -3157,7 +3166,7 @@ Brandon Williams&lt;/p&gt;</value>
   <data name="TiglInfo_TiglContent" xml:space="preserve">
     <value>&lt;p&gt;The Twilight Imperium Global League (TIGL) was founded by BigAlCupaChino as a larger effort to track competitive TI. For simplicity, alignment, and the desire not to divert players away from TIGL, competitive async games must be flagged as TIGL games at the start of the game setup.&lt;/p&gt;
 &lt;p&gt;TIGL has a lot of cool features, such as seasons (12 weeks long), season champions, ELO and Aussie points (both season and lifetime), the ability to log real-time or IRL games, and more.&lt;/p&gt;
-&lt;p&gt;This document will focus primarily on the ranks aspect of TIGL, but you can enjoy the other benefits of TIGL even if ranks are all you really care about.&lt;/p&gt;</value>
+&lt;p&gt;The manifest document will focus primarily on the ranks aspect of TIGL, but you can enjoy the other benefits of TIGL even if ranks are all you really care about.&lt;/p&gt;</value>
   </data>
   <data name="TiglInfo_CodeOfConductHeading" xml:space="preserve">
     <value>Code of Conduct</value>
@@ -3169,7 +3178,7 @@ Brandon Williams&lt;/p&gt;</value>
 &lt;li&gt;You will play the game in good faith.&lt;/li&gt;
 &lt;li&gt;You will treat your fellow players with respect.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Violations of the Code of Conduct will result in losing all TIGL Ranks. If you feel a violation has occurred, please contact an Admin (&lt;strong&gt;@admin&lt;/strong&gt;) or BLT.&lt;/p&gt;
+&lt;p&gt;Violations of the Code of Conduct will result in losing all TIGL Ranks. If you feel a violation has occurred, please contact an Admin (&lt;strong&gt;@admin&lt;/strong&gt;), Lazik, Kime or Balacasi.&lt;/p&gt;
 &lt;p&gt;Note that violations that don't result in a full server ban can still result in losing TIGL Ranks, and players can regain ranks by winning games again.&lt;/p&gt;
 &lt;h3&gt;TIGL Code of Conduct&lt;/h3&gt;
 &lt;p&gt;For reference, the full TIGL Code of Conduct is shared verbatim. Since it was originally imagined as a 12-week in-person league, some of the rules don't apply directly to Async TIGL games, especially the bits about using Rules as Written (we adhere to Rules as Explained by Dane, which are often not quite the same as they are written) and playing "each week", which was specific to live games.&lt;/p&gt;
@@ -3199,17 +3208,17 @@ Brandon Williams&lt;/p&gt;</value>
     <value>Do I need to sign up for TIGL first?</value>
   </data>
   <data name="TiglInfo_GettingStartedContent" xml:space="preserve">
-    <value>&lt;p&gt;Not if you're playing async. If you've never finished an async game, and you're submitting a TIGL played outside async (e.g., TTPG or around a table), you'll need to sign up here for the reporting form to be able to find your name. If you're playing async, finishing an async game will sign you up.&lt;/p&gt;
-&lt;p&gt;Starting a TIGL game is much like starting any game in the Discord server. Head to &lt;strong&gt;#making-new-games&lt;/strong&gt; and make a post explaining the type of game you're looking for, including that it will be TIGL. Some other things worth posting:&lt;/p&gt;
+    <value>&lt;p&gt;Not if you're playing async. If you've never finished an async game, and you're submitting a TIGL game played outside async (e.g., TTPG or around a table), you'll need to sign up here for the reporting form to be able to find your name. If you're playing async, finishing an async game will sign you up.&lt;/p&gt;
+&lt;p&gt;Starting a TIGL game is much like starting any game in the Discord server. Head to &lt;strong&gt;#making-tigl-games&lt;/strong&gt; and make a post explaining the type of game you're looking for, including that it will be TIGL. Some other things worth posting:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Will this be a standard TIGL game? If not, which variants are you including?&lt;/li&gt;
 &lt;li&gt;How many points will be needed to win?&lt;/li&gt;
 &lt;li&gt;About how often do you expect people to be available to respond to deals and conversations, to take turns, etc.? This can range from "once or twice a day" to "more or less constantly besides sleep", and people tend to prefer to play in games where people check in at similar cadences.&lt;/li&gt;
 &lt;li&gt;Support for the Throne considerations&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;You'll also need to make sure to tag the game as TIGL, which is usually done with a button in the game creation thread. If for any reason that button doesn't appear or doesn't work, use the slash command to tag it: &lt;code&gt;/game setup is_tigl_game:True&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;You'll also need to make sure to tag the game as TIGL, which is usually done with a button in the game creation thread. If for any reason that button doesn't appear or doesn't work, use the slash command to tag it: &lt;code&gt;/tigl enable&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;If you forget to do this there are manual ways around it, but at the current scale it makes a big difference when games are logged automatically, so thank you 🙂&lt;/p&gt;
-&lt;p&gt;If you are playing a game in the Fractured Ladder (described below) and aren't using the button, you'll also need to run &lt;code&gt;/tigl is_fractured is_fractured:True&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;If you are playing a game in the Fractured Ladder (described below) and aren't using the button, you'll also need to run &lt;code&gt;/tigl enable mode:Fractured Ladder&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;You can also join a game that somebody else has posted about, by asking in the game creation thread if you can join. Be aware that some games may be looking for people at a certain rank or higher to ensure the winner can rank up.&lt;/p&gt;</value>
   </data>
   <data name="TiglInfo_AllowedHeading" xml:space="preserve">
@@ -3763,8 +3772,8 @@ Brandon Williams&lt;/p&gt;</value>
   <data name="WebsiteAdmin_Empty" xml:space="preserve">
     <value>No websites found.</value>
   </data>
-  <data name="GameVersion_BlueRiverie" xml:space="preserve">
-    <value>Blue Riverie</value>
+  <data name="GameVersion_BlueReverie" xml:space="preserve">
+    <value>Blue Reverie</value>
   </data>
   <data name="GameVersion_WhispersFromTheVoid" xml:space="preserve">
     <value>Whispers from the Void</value>
@@ -3781,8 +3790,8 @@ Brandon Williams&lt;/p&gt;</value>
   <data name="Faction_SetupChooseBelkoseaTechnologies" xml:space="preserve">
     <value>Choose 1 yellow or red technology with no prerequisites.</value>
   </data>
-  <data name="FactionStatisticsFilter_BlueRiverie" xml:space="preserve">
-    <value>Blue Riverie</value>
+  <data name="FactionStatisticsFilter_BlueReverie" xml:space="preserve">
+    <value>Blue Reverie</value>
   </data>
   <data name="FactionStatisticsFilter_TwilightsFall" xml:space="preserve">
     <value>Twilight's Fall</value>
@@ -3798,5 +3807,32 @@ Brandon Williams&lt;/p&gt;</value>
   </data>
   <data name="AchievementName_Mythical" xml:space="preserve">
     <value>Mythical</value>
+  </data>
+  <data name="Account_AsyncProfile" xml:space="preserve">
+    <value>Async Profile</value>
+  </data>
+  <data name="Account_LinkDiscord" xml:space="preserve">
+    <value>Link Discord Account</value>
+  </data>
+  <data name="Account_LinkingDiscord" xml:space="preserve">
+    <value>Linking Account</value>
+  </data>
+  <data name="Account_DiscordProfilesNotFound" xml:space="preserve">
+    <value>Your Discord account name was updated, but no matching Async or TIGL profiles were found. Both saved profile links have been cleared.</value>
+  </data>
+  <data name="Account_LinkDiscordFailure" xml:space="preserve">
+    <value>Discord profile linking failed. Ensure the authorized Discord account is associated with an existing Async or TIGL player profile, then try again.</value>
+  </data>
+  <data name="Account_LinkDiscordSuccess" xml:space="preserve">
+    <value>Your Discord account was linked successfully. Available player profiles will appear in the account menu.</value>
+  </data>
+  <data name="Account_TiglProfile" xml:space="preserve">
+    <value>Tigl Profile</value>
+  </data>
+  <data name="Account_ViewMyAsyncProfile" xml:space="preserve">
+    <value>View my Async profile</value>
+  </data>
+  <data name="Account_ViewMyTiglProfile" xml:space="preserve">
+    <value>View my TIGL profile</value>
   </data>
 </root>

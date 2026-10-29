@@ -11,7 +11,7 @@ public enum GameVersion
     CodexLiberation,
     ThundersEdge,
     DiscordantStars,
-    BlueRiverie,
+    BlueReverie,
     UnchartedSpace,
     AscendantSun,
     TwilightFall,

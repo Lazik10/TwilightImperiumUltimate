@@ -78,6 +78,7 @@ public partial class MainNavigation : IDisposable
             new NavLinkItem(PageRoutes.TiglStatistics, "tiglstatistics", Strings.Page_TiglStatistics),
             new NavLinkItem(PageRoutes.TiglPlayers, "tiglplayers", Strings.Page_TiglPlayers),
             new NavLinkItem(PageRoutes.TiglGames, "tiglgames", Strings.Page_TiglGameReports),
+            new NavLinkItem(PageRoutes.TiglRankingSystems, "tiglrankingsystems", Strings.Page_TiglRankingSystems),
             new NavLinkItem(PageRoutes.TiglRankings, "tiglranks", Strings.Page_TiglRanks),
             new NavLinkItem(PageRoutes.TiglLeaders, "tiglleaders", Strings.Page_TiglLeaders),
             new NavLinkItem(PageRoutes.TiglAchievements, "tiglachievements", Strings.Page_TiglAchievements),

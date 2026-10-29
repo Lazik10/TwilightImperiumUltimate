@@ -1,0 +1,45 @@
+@page "/community/tigl/ranking-systems"
+@using TwilightImperiumUltimate.Web.Components.Shared.Controls
+@using TwilightImperiumUltimate.Web.Components.Shared.Text
+
+<PageTitle>@Strings.Page_TiglRankingSystems_PageTitle</PageTitle>
+
+<Page>
+    <StretchHeightContainer>
+        <ResponsiveHeading Level="1" Text="@Strings.Page_TiglRankingSystems" />
+
+        <ResponsiveTabMenu AriaLabel="TIGL ranking systems" CssClass="faction-style mb-md">
+            <ResponsiveTab Id="ranking-systems-tab-standard"
+                           ControlsId="ranking-systems-panel"
+                           IsActive="@(!_showFractured)"
+                           OnClick="@ShowStandard">
+                @Strings.TiglGames_CategoryStandard
+            </ResponsiveTab>
+            <ResponsiveTabSeparator />
+            <ResponsiveTab Id="ranking-systems-tab-fractured"
+                           ControlsId="ranking-systems-panel"
+                           IsActive="@_showFractured"
+                           OnClick="@ShowFractured">
+                @Strings.TiglGames_CategoryFractured
+            </ResponsiveTab>
+        </ResponsiveTabMenu>
+
+        <div id="ranking-systems-panel"
+             class="ranking-systems-panel"
+             role="tabpanel"
+             aria-labelledby="@ActiveTabId">
+            @if (_showFractured)
+            {
+                <img class="ranking-systems-image"
+                     src="/resources/images/shared/Tigl_fractured_ranking_system_infographic.webp"
+                     alt="Fractured TIGL ranking system infographic" />
+            }
+            else
+            {
+                <img class="ranking-systems-image"
+                     src="/resources/images/shared/Tigl_standard_ranking_system_infographic.webp"
+                     alt="Standard TIGL ranking system infographic" />
+            }
+        </div>
+    </StretchHeightContainer>
+</Page>

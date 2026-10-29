@@ -3749,7 +3749,7 @@ internal static class SystemTilesData
             GameVersion = GameVersion.WhispersFromTheVoid,
         },
 
-        // Blue Riverie Home Systems
+        // Blue Reverie Home Systems
         new SystemTile()
         {
             Id = 374,
@@ -3758,7 +3758,7 @@ internal static class SystemTilesData
             FactionName = FactionName.AtokeraLegacy,
             Anomaly = AnomalyName.None,
             TileCategory = SystemTileCategory.Green,
-            GameVersion = GameVersion.BlueRiverie,
+            GameVersion = GameVersion.BlueReverie,
         },
         new SystemTile()
         {
@@ -3768,7 +3768,7 @@ internal static class SystemTilesData
             FactionName = FactionName.BelkoseaAlliedStates,
             Anomaly = AnomalyName.None,
             TileCategory = SystemTileCategory.Green,
-            GameVersion = GameVersion.BlueRiverie,
+            GameVersion = GameVersion.BlueReverie,
         },
         new SystemTile()
         {
@@ -3778,7 +3778,7 @@ internal static class SystemTilesData
             FactionName = FactionName.PharadnOrder,
             Anomaly = AnomalyName.None,
             TileCategory = SystemTileCategory.Green,
-            GameVersion = GameVersion.BlueRiverie,
+            GameVersion = GameVersion.BlueReverie,
         },
         new SystemTile()
         {
@@ -3788,7 +3788,7 @@ internal static class SystemTilesData
             FactionName = FactionName.PrincipalityOfKaltrim,
             Anomaly = AnomalyName.None,
             TileCategory = SystemTileCategory.Green,
-            GameVersion = GameVersion.BlueRiverie,
+            GameVersion = GameVersion.BlueReverie,
         },
         new SystemTile()
         {
@@ -3798,7 +3798,7 @@ internal static class SystemTilesData
             FactionName = FactionName.QhetRepublic,
             Anomaly = AnomalyName.None,
             TileCategory = SystemTileCategory.Green,
-            GameVersion = GameVersion.BlueRiverie,
+            GameVersion = GameVersion.BlueReverie,
         },
         new SystemTile()
         {
@@ -3808,7 +3808,7 @@ internal static class SystemTilesData
             FactionName = FactionName.SarcosaDrift,
             Anomaly = AnomalyName.None,
             TileCategory = SystemTileCategory.Green,
-            GameVersion = GameVersion.BlueRiverie,
+            GameVersion = GameVersion.BlueReverie,
         },
         new SystemTile()
         {
@@ -3818,7 +3818,7 @@ internal static class SystemTilesData
             FactionName = FactionName.ToldarConcordat,
             Anomaly = AnomalyName.None,
             TileCategory = SystemTileCategory.Green,
-            GameVersion = GameVersion.BlueRiverie,
+            GameVersion = GameVersion.BlueReverie,
         },
         new SystemTile()
         {
@@ -3828,7 +3828,7 @@ internal static class SystemTilesData
             FactionName = FactionName.UydaiConclave,
             Anomaly = AnomalyName.None,
             TileCategory = SystemTileCategory.Green,
-            GameVersion = GameVersion.BlueRiverie,
+            GameVersion = GameVersion.BlueReverie,
         },
         new SystemTile()
         {
@@ -3838,7 +3838,7 @@ internal static class SystemTilesData
             FactionName = FactionName.XinCourt,
             Anomaly = AnomalyName.None,
             TileCategory = SystemTileCategory.Green,
-            GameVersion = GameVersion.BlueRiverie,
+            GameVersion = GameVersion.BlueReverie,
         },
     };
 }

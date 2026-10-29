@@ -94,6 +94,8 @@ public static class Pages
 
     public const string TiglRankings = "/community/tigl/rankings";
 
+    public const string TiglRankingSystems = "/community/tigl/ranking-systems";
+
     // Rules
     public const string Rules = "/rules";
 

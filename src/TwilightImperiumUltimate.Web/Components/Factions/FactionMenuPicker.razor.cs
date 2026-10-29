@@ -73,7 +73,7 @@ public partial class FactionMenuPicker : TwilightImperiumBaseComponent
         GameVersion.CodexVigil => Strings.GameVersion_CodexVigil,
         GameVersion.DiscordantStars => Strings.GameVersion_DiscordantStars,
         GameVersion.ThundersEdge => Strings.GameVersion_ThundersEdge,
-        GameVersion.BlueRiverie => Strings.GameVersion_BlueRiverie,
+        GameVersion.BlueReverie => Strings.GameVersion_BlueReverie,
         GameVersion.WhispersFromTheVoid => Strings.GameVersion_WhispersFromTheVoid,
         _ => gameVersion.ToString(),
     };

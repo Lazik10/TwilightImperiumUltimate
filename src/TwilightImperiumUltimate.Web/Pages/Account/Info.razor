@@ -1,5 +1,6 @@
 ﻿@page "/account/info"
 @using TwilightImperiumUltimate.Web.Resources
+@using TwilightImperiumUltimate.Web.Pages
 
 <PageTitle>@Strings.Page_AccountInfo_PageTitle</PageTitle>
 
@@ -7,117 +8,162 @@
 
     <ResponsiveHeading Level="1" Text="@Strings.User_AccountInfo" />
 
-    <ResponsiveHeading Level="3" Text="@User!.UserName" CenterText="true" CssClass="mb-xl" />
-
-    @if (_updateSend)
+    @if (_isLoading)
     {
-        <ResponsiveText Text="@(_infoSaved ? Strings.UserInfo_UpdateSuccess : Strings.UserInfo_UpdateFailed)"
-                        CenterText="true"
-                        TextColor="@(_infoSaved ? TextColor.Green : TextColor.Red)"
-                        FontSize="lg"
-                        CssClass="mt-md mb-md" />
+        <div class="account-loading" role="status" aria-live="polite">
+            <ResponsiveText Text="@Strings.Loading" CenterText="true" FontSize="sm" />
+        </div>
     }
+    else if (User is null)
+    {
+        <p role="alert"><a href="@Pages.Login">@Strings.Page_AccountLogin</a></p>
+    }
+    else
+    {
+        <ResponsiveHeading Level="3" Text="@User.UserName" CenterText="true" CssClass="mb-xl" />
 
-    <ResponsiveForm Model="User"
-                    OnValidSubmit="SaveInfo"
-                    SubmitText="@Strings.AccountInfo_Save"
-                    SubmittingText="@Strings.AccountInfo_Save"
-                    ValidationDisplay="Enums.ValidationDisplay.Summary"
-                    Columns="1"
-                    CssClass="mb-xl">
+        <ResponsiveContainer Type="ContainerType.Flex"
+                             Padding="none"
+                             JustifyContent="Enums.JustifyContent.Center">
+            <ResponsiveButton ButtonText="@(_isLinkingDiscord ? LinkStrings["Account_LinkingDiscord"].Value : Strings.Account_LinkDiscord)"
+                              OnClick="LinkDiscordAsync"
+                              IsDisabled="_isLinkingDiscord"
+                              Width="30"
+                              MobileWidth="60"
+                              CssClass="mt-md mb-xl" />
+        </ResponsiveContainer>
 
-        <ResponsiveFormField Id="info-first-name" Label="@Strings.User_FirstName.TrimEnd(':')" For="@(() => User!.FirstName)" VisuallyHideLabel="true">
-            <ResponsiveLabel Text="@Strings.User_FirstName.TrimEnd(':')" />
-            <ResponsiveTextBox Id="info-first-name"
-                                Name="first-name"
-                                AutoComplete="given-name"
-                                AriaDescribedBy="info-first-name-validation"
-                                Placeholder="@Strings.User_FirstName.TrimEnd(':')"
-                                @bind-Value="User!.FirstName" />
-        </ResponsiveFormField>
-
-        <ResponsiveFormField Id="info-last-name" Label="@Strings.User_LastName.TrimEnd(':')" For="@(() => User!.LastName)" VisuallyHideLabel="true">
-            <ResponsiveLabel Text="@Strings.User_LastName.TrimEnd(':')" />
-            <ResponsiveTextBox Id="info-last-name"
-                                Name="last-name"
-                                AutoComplete="family-name"
-                                AriaDescribedBy="info-last-name-validation"
-                                Placeholder="@Strings.User_LastName.TrimEnd(':')"
-                                @bind-Value="User!.LastName" />
-        </ResponsiveFormField>
-
-        <ResponsiveFormField Id="info-email" Label="@Strings.User_Email.TrimEnd(':')" For="@(() => User!.Email)" VisuallyHideLabel="true">
-            <ResponsiveLabel Text="@Strings.User_Email.TrimEnd(':')" />
-            <ResponsiveTextBox Id="info-email"
-                                Name="email"
-                                AutoComplete="email"
-                                AriaDescribedBy="info-email-validation"
-                                Placeholder="@Strings.User_Email.TrimEnd(':')"
-                                @bind-Value="User!.Email" />
-        </ResponsiveFormField>
-
-        <ResponsiveFormField Id="info-age" Label="@Strings.User_Age.TrimEnd(':')" For="@(() => Age)" VisuallyHideLabel="true">
-            <ResponsiveLabel Text="@Strings.User_Age.TrimEnd(':')" />
-            <ResponsiveNumericInput Id="info-age"
-                                    Name="age"
-                                    AriaLabel="@Strings.User_Age.TrimEnd(':')"
-                                    Min="0"
-                                    @bind-Value="Age" />
-        </ResponsiveFormField>
-
-        <ResponsiveFormField Id="info-phone-number" Label="@Strings.User_PhoneNumber.TrimEnd(':')" For="@(() => User!.PhoneNumber)" VisuallyHideLabel="true">
-            <ResponsiveLabel Text="@Strings.User_PhoneNumber.TrimEnd(':')" />
-            <ResponsiveTextBox Id="info-phone-number"
-                                Name="phone-number"
-                                AutoComplete="tel"
-                                AriaDescribedBy="info-phone-number-validation"
-                                Placeholder="@Strings.User_PhoneNumber.TrimEnd(':')"
-                                @bind-Value="User!.PhoneNumber" />
-        </ResponsiveFormField>
-
-        <ResponsiveFormField Id="info-user-info" Label="@Strings.User_UserInfo.TrimEnd(':')" For="@(() => User!.UserInfo)" VisuallyHideLabel="true">
-            <ResponsiveLabel Text="@Strings.User_UserInfo.TrimEnd(':')" />
-            <ResponsiveTextArea Id="info-user-info"
-                                Name="user-info"
-                                AriaDescribedBy="info-user-info-validation"
-                                Placeholder="@Strings.User_UserInfo.TrimEnd(':')"
-                                @bind-Value="User!.UserInfo" />
-        </ResponsiveFormField>
-
-        <ResponsiveFormField Id="info-favorite-faction" Label="@Strings.User_FavoriteFaction.TrimEnd(':')" For="@(() => FavoriteFaction)" VisuallyHideLabel="true">
-            <ResponsiveLabel Text="@Strings.User_FavoriteFaction.TrimEnd(':')" />
-            <div class="favorite-faction-picker">
-                <ResponsiveDropDown TValue="FactionName"
-                                    Id="info-favorite-faction"
-                                    Name="favorite-faction"
-                                    Data="@FactionNames"
-                                    TextProperty="Value"
-                                    ValueProperty="Key"
-                                    AriaLabel="@Strings.User_FavoriteFaction.TrimEnd(':')"
-                                    CssClass="favorite-faction-dropdown"
-                                    @bind-Value="FavoriteFaction" />
-                <FavoriteFactionIcon FactionName="@FavoriteFaction" />
+        @if (_discordLinkMessage is not null)
+        {
+            <div class="discord-link-success" role="status" aria-live="polite">
+                <ResponsiveText Text="@_discordLinkMessage"
+                                CenterText="true"
+                                TextColor="TextColor.Green"
+                                CssClass="mb-xl" />
             </div>
-        </ResponsiveFormField>
+        }
 
-        <ResponsiveFormField Id="info-discord-id" Label="@Strings.User_DiscordId.TrimEnd(':')" For="@(() => User!.DiscordId)" VisuallyHideLabel="true">
-            <ResponsiveLabel Text="@Strings.User_DiscordId.TrimEnd(':')" />
-            <ResponsiveTextBox Id="info-discord-id"
-                                Name="discord-id"
-                                AriaDescribedBy="info-discord-id-validation"
-                                Placeholder="@Strings.User_DiscordId.TrimEnd(':')"
-                                @bind-Value="User!.DiscordId" />
-        </ResponsiveFormField>
+        @if (_discordLinkError is not null)
+        {
+            <div class="discord-link-error" role="alert">
+                <ResponsiveText Text="@_discordLinkError"
+                                CenterText="true"
+                                TextColor="TextColor.Red"
+                                CssClass="mb-xl" />
+            </div>
+        }
 
-        <ResponsiveFormField Id="info-steam-id" Label="@Strings.User_SteamId.TrimEnd(':')" For="@(() => User!.SteamId)" VisuallyHideLabel="true">
-            <ResponsiveLabel Text="@Strings.User_SteamId.TrimEnd(':')" />
-            <ResponsiveTextBox Id="info-steam-id"
-                                Name="steam-id"
-                                AriaDescribedBy="info-steam-id-validation"
-                                Placeholder="@Strings.User_SteamId.TrimEnd(':')"
-                                @bind-Value="User!.SteamId" />
-        </ResponsiveFormField>
+        @if (_updateSend)
+        {
+            <ResponsiveText Text="@(_infoSaved ? Strings.UserInfo_UpdateSuccess : Strings.UserInfo_UpdateFailed)"
+                            CenterText="true"
+                            TextColor="@(_infoSaved ? TextColor.Green : TextColor.Red)"
+                            FontSize="lg"
+                            CssClass="mt-md mb-md" />
+        }
 
-    </ResponsiveForm>
+        <ResponsiveForm Model="User"
+                        OnValidSubmit="SaveInfo"
+                        SubmitText="@Strings.AccountInfo_Save"
+                        SubmittingText="@Strings.AccountInfo_Save"
+                        ValidationDisplay="Enums.ValidationDisplay.Summary"
+                        Columns="1"
+                        CssClass="mb-xl">
+
+            <ResponsiveFormField Id="info-first-name" Label="@Strings.User_FirstName.TrimEnd(':')" For="@(() => User.FirstName)" VisuallyHideLabel="true">
+                <ResponsiveLabel Text="@Strings.User_FirstName.TrimEnd(':')" />
+                <ResponsiveTextBox Id="info-first-name"
+                                    Name="first-name"
+                                    AutoComplete="given-name"
+                                    AriaDescribedBy="info-first-name-validation"
+                                    Placeholder="@Strings.User_FirstName.TrimEnd(':')"
+                                    @bind-Value="User.FirstName" />
+            </ResponsiveFormField>
+
+            <ResponsiveFormField Id="info-last-name" Label="@Strings.User_LastName.TrimEnd(':')" For="@(() => User.LastName)" VisuallyHideLabel="true">
+                <ResponsiveLabel Text="@Strings.User_LastName.TrimEnd(':')" />
+                <ResponsiveTextBox Id="info-last-name"
+                                    Name="last-name"
+                                    AutoComplete="family-name"
+                                    AriaDescribedBy="info-last-name-validation"
+                                    Placeholder="@Strings.User_LastName.TrimEnd(':')"
+                                    @bind-Value="User.LastName" />
+            </ResponsiveFormField>
+
+            <ResponsiveFormField Id="info-email" Label="@Strings.User_Email.TrimEnd(':')" For="@(() => User.Email)" VisuallyHideLabel="true">
+                <ResponsiveLabel Text="@Strings.User_Email.TrimEnd(':')" />
+                <ResponsiveTextBox Id="info-email"
+                                    Name="email"
+                                    AutoComplete="email"
+                                    AriaDescribedBy="info-email-validation"
+                                    Placeholder="@Strings.User_Email.TrimEnd(':')"
+                                    @bind-Value="User.Email" />
+            </ResponsiveFormField>
+
+            <ResponsiveFormField Id="info-age" Label="@Strings.User_Age.TrimEnd(':')" For="@(() => Age)" VisuallyHideLabel="true">
+                <ResponsiveLabel Text="@Strings.User_Age.TrimEnd(':')" />
+                <ResponsiveNumericInput Id="info-age"
+                                        Name="age"
+                                        AriaLabel="@Strings.User_Age.TrimEnd(':')"
+                                        Min="0"
+                                        @bind-Value="Age" />
+            </ResponsiveFormField>
+
+            <ResponsiveFormField Id="info-phone-number" Label="@Strings.User_PhoneNumber.TrimEnd(':')" For="@(() => User.PhoneNumber)" VisuallyHideLabel="true">
+                <ResponsiveLabel Text="@Strings.User_PhoneNumber.TrimEnd(':')" />
+                <ResponsiveTextBox Id="info-phone-number"
+                                    Name="phone-number"
+                                    AutoComplete="tel"
+                                    AriaDescribedBy="info-phone-number-validation"
+                                    Placeholder="@Strings.User_PhoneNumber.TrimEnd(':')"
+                                    @bind-Value="User.PhoneNumber" />
+            </ResponsiveFormField>
+
+            <ResponsiveFormField Id="info-user-info" Label="@Strings.User_UserInfo.TrimEnd(':')" For="@(() => User.UserInfo)" VisuallyHideLabel="true">
+                <ResponsiveLabel Text="@Strings.User_UserInfo.TrimEnd(':')" />
+                <ResponsiveTextArea Id="info-user-info"
+                                    Name="user-info"
+                                    AriaDescribedBy="info-user-info-validation"
+                                    Placeholder="@Strings.User_UserInfo.TrimEnd(':')"
+                                    @bind-Value="User.UserInfo" />
+            </ResponsiveFormField>
+
+            <ResponsiveFormField Id="info-favorite-faction" Label="@Strings.User_FavoriteFaction.TrimEnd(':')" For="@(() => FavoriteFaction)" VisuallyHideLabel="true">
+                <ResponsiveLabel Text="@Strings.User_FavoriteFaction.TrimEnd(':')" />
+                <div class="favorite-faction-picker">
+                    <ResponsiveDropDown TValue="FactionName"
+                                        Id="info-favorite-faction"
+                                        Name="favorite-faction"
+                                        Data="@FactionNames"
+                                        TextProperty="Value"
+                                        ValueProperty="Key"
+                                        AriaLabel="@Strings.User_FavoriteFaction.TrimEnd(':')"
+                                        CssClass="favorite-faction-dropdown"
+                                        @bind-Value="FavoriteFaction" />
+                    <FavoriteFactionIcon FactionName="@FavoriteFaction" />
+                </div>
+            </ResponsiveFormField>
+
+            <ResponsiveFormField Id="info-discord-id" Label="@Strings.User_DiscordId.TrimEnd(':')" For="@(() => User.DiscordId)" VisuallyHideLabel="true">
+                <ResponsiveLabel Text="@Strings.User_DiscordId.TrimEnd(':')" />
+                <ResponsiveTextBox Id="info-discord-id"
+                                    Name="discord-id"
+                                    AriaDescribedBy="info-discord-id-validation"
+                                    Placeholder="@Strings.User_DiscordId.TrimEnd(':')"
+                                    @bind-Value="User.DiscordId" />
+            </ResponsiveFormField>
+
+            <ResponsiveFormField Id="info-steam-id" Label="@Strings.User_SteamId.TrimEnd(':')" For="@(() => User.SteamId)" VisuallyHideLabel="true">
+                <ResponsiveLabel Text="@Strings.User_SteamId.TrimEnd(':')" />
+                <ResponsiveTextBox Id="info-steam-id"
+                                    Name="steam-id"
+                                    AriaDescribedBy="info-steam-id-validation"
+                                    Placeholder="@Strings.User_SteamId.TrimEnd(':')"
+                                    @bind-Value="User.SteamId" />
+            </ResponsiveFormField>
+
+        </ResponsiveForm>
+
+    }
 
 </Page>

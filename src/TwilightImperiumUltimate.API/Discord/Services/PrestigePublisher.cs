@@ -123,12 +123,17 @@ internal sealed class PrestigePublisher(
     {
         await using var dbContext = await dbContextFactory.CreateDbContextAsync(cancellationToken);
 
-        return await dbContext.TiglUserPrestigeRanks.CountAsync(
-            prestigeRank => prestigeRank.TiglUserId == tiglUserId
+        var factionPrestigeRanks = await dbContext.TiglUserPrestigeRanks
+            .Where(prestigeRank => prestigeRank.TiglUserId == tiglUserId
                 && prestigeRank.PrestigeRank.FactionName != TiglFactionName.None
                 && prestigeRank.PrestigeRank.League == log.League
-                && prestigeRank.AchievedAt <= log.Timestamp,
-            cancellationToken);
+                && prestigeRank.AchievedAt <= log.Timestamp)
+            .Select(prestigeRank => prestigeRank.PrestigeRank.FactionName)
+            .ToListAsync(cancellationToken);
+
+        return log.League == TiglLeague.ThundersEdge
+            ? factionPrestigeRanks.Select(faction => faction.GetPrestigeCountIdentity()).Distinct().Count()
+            : factionPrestigeRanks.Count;
     }
 
     private async Task<int?> GetFactionGameCountAsync(int tiglUserId, PrestigeLog log, int factionPrestigeRankCount, CancellationToken cancellationToken)
@@ -145,7 +150,7 @@ internal sealed class PrestigePublisher(
             return null;
 
         return await games
-            .Where(match => match.StartTimestamp >= intervalStart.Value
+            .Where(match => match.EndTimestamp > intervalStart.Value
                 && match.PlayerResults.Any(player => player.TiglUserId == tiglUserId))
             .CountAsync(cancellationToken);
     }

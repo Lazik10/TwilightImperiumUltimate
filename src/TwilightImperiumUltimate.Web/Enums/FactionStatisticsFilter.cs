@@ -5,7 +5,7 @@ public enum FactionStatisticsFilter
     Official,
     TwilightsFall,
     DiscordantStars,
-    BlueRiverie,
+    BlueReverie,
     WhispersFromTheVoid,
     Others,
 }

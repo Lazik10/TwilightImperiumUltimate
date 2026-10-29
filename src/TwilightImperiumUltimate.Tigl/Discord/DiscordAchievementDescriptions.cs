@@ -17,7 +17,7 @@ public static class DiscordAchievementDescriptions
             [AchievementName.TheTribunii] = new("The Tribunii", "Win a game with each Keleres variant"),
             [AchievementName.BringTheThunder] = new("Bring The Thunder", "Win a game with each Thunder’s Edge faction"),
             [AchievementName.ThirtyIsNotEnough] = new("Thirty Is Not Enough", "Win a game with each Discordant Stars faction"),
-            [AchievementName.BlueDaBaDee] = new("Blue Da Ba Dee", "Win a game with each Blue Riverie faction"),
+            [AchievementName.BlueDaBaDee] = new("Blue Da Ba Dee", "Win a game with each Blue Reverie faction"),
             [AchievementName.TyrantsGauntlet] = new("Tyrant's Gauntlet", "Win a game as each Mahact tyrant"),
             [AchievementName.DrFrankenstein] = new("Dr. Frankenstein", "Win a game as a Franken faction"),
             [AchievementName.ICookedThisMyself] = new("I Cooked This Myself", "Win a game as a homebrew faction"),

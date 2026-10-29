@@ -49,7 +49,7 @@ public partial class Factions
         Enum.GetValues<FactionSource>()
             .Where(source => source is FactionSource.Official 
                 or FactionSource.DiscordantStars 
-                or FactionSource.BlueRiverie)
+                or FactionSource.BlueReverie)
 
                 // or FactionSource.WhispersFromTheVoid)
             .Select(source => new KeyValuePair<FactionSource, string>(source, source.GetDisplayName()))

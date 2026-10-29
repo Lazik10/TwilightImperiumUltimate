@@ -95,6 +95,12 @@ namespace TwilightImperiumUltimate.Web.Resources {
                 return ResourceManager.GetString("ApiPath_AccountRegister", resourceCulture);
             }
         }
+
+        public static string ApiPath_DiscordLinkStart {
+            get {
+                return ResourceManager.GetString("ApiPath_DiscordLinkStart", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to api/cards/action.
