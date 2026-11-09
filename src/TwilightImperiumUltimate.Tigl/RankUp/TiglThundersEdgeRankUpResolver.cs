@@ -79,10 +79,25 @@ internal class TiglThundersEdgeRankUpResolver : RankUpResolverBase, ITiglRankUpR
                     // Evaluate prestige ranks only in games where all players started as Hero
                     if (isHeroOnlyGameAtStart && rankBeforeGame == TiglRankName.Hero)
                     {
-                        await EvaluatePrestigeRanks(player.Id, MatchReport, faction, MatchReport.League, cancellationToken);
+                        var prestigeRankCountBeforeMatch = await PrestigeRankService.GetFactionPrestigeRankCount(
+                            player.Id,
+                            MatchReport,
+                            MatchReport.League,
+                            cancellationToken);
+                        var prestigeRankCountAfterMatch = await EvaluatePrestigeRanks(
+                            player.Id,
+                            MatchReport,
+                            faction,
+                            MatchReport.League,
+                            cancellationToken);
 
                         // Handle rank reset if player is at Hero rank and collected enough prestige ranks
-                        forcedReset = await ShouldResetRank(player, MatchReport, cancellationToken);
+                        forcedReset = await ShouldResetRankAsync(
+                            player.Id,
+                            MatchReport,
+                            prestigeRankCountBeforeMatch,
+                            prestigeRankCountAfterMatch,
+                            cancellationToken);
                         if (forcedReset)
                             isRankUpGame = true;
                     }
@@ -107,10 +122,39 @@ internal class TiglThundersEdgeRankUpResolver : RankUpResolverBase, ITiglRankUpR
         }
     }
 
-    private async Task<bool> ShouldResetRank(TiglUser player, MatchReport matchReport, CancellationToken cancellationToken)
+    internal static bool ShouldResetRank(
+        int prestigeRankCountBeforeMatch,
+        int prestigeRankCountAfterMatch,
+        int rankUpStep,
+        int maxGalaxyThreatRanks)
     {
-        var prestigeRanksCount = await PrestigeRankService.GetFactionPrestigeRankCount(player.Id, matchReport, MatchReport.League, cancellationToken);
+        return prestigeRankCountAfterMatch > prestigeRankCountBeforeMatch
+            && prestigeRankCountAfterMatch >= rankUpStep
+            && prestigeRankCountAfterMatch % rankUpStep == 0
+            && prestigeRankCountAfterMatch <= maxGalaxyThreatRanks * rankUpStep;
+    }
 
-        return prestigeRanksCount >= RankUpStep && prestigeRanksCount % RankUpStep == 0 && prestigeRanksCount < MaxGalaxyThreatRanks * RankUpStep;
+    internal async Task<bool> ShouldResetRankAsync(
+        int playerId,
+        MatchReport matchReport,
+        int prestigeRankCountBeforeMatch,
+        int prestigeRankCountAfterMatch,
+        CancellationToken cancellationToken)
+    {
+        if (!ShouldResetRank(
+            prestigeRankCountBeforeMatch,
+            prestigeRankCountAfterMatch,
+            RankUpStep,
+            MaxGalaxyThreatRanks))
+            return false;
+
+        var requiredGalacticThreatRank = prestigeRankCountAfterMatch / RankUpStep;
+
+        return await HasAllGalacticThreatRanksThrough(
+            playerId,
+            matchReport,
+            requiredGalacticThreatRank,
+            matchReport.League,
+            cancellationToken);
     }
 }

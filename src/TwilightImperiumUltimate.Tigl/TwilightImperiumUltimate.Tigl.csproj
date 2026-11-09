@@ -22,4 +22,8 @@
     <PackageReference Update="StyleCop.Analyzers" Version="1.2.0-beta.507" />
   </ItemGroup>
 
+  <ItemGroup>
+    <InternalsVisibleTo Include="TwilightImperiumUltimate.Tests" />
+  </ItemGroup>
+
 </Project>

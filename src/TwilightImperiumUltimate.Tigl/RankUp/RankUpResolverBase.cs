@@ -105,7 +105,7 @@ internal abstract class RankUpResolverBase(
         }
     }
 
-    protected async Task EvaluatePrestigeRanks(int playerId, MatchReport matchReport, TiglFactionName faction, TiglLeague league, CancellationToken cancellationToken)
+    protected async Task<int> EvaluatePrestigeRanks(int playerId, MatchReport matchReport, TiglFactionName faction, TiglLeague league, CancellationToken cancellationToken)
     {
         // Add Prestige rank for the faction player won with
         if (!await PrestigeRankService.HasFactionPrestigeRank(playerId, matchReport, faction, league, cancellationToken))
@@ -121,14 +121,40 @@ internal abstract class RankUpResolverBase(
 
         if (isGalacticRankUp && rank <= MaxGalaxyThreatRanks)
         {
-            await PrestigeRankService.AddGalacticThreatRank(playerId, matchReport, rank, league, cancellationToken);
+            var hasAllPreviousGalacticThreatRanks = await PrestigeRankService.HasAllGalacticThreatRanksThrough(
+                playerId,
+                matchReport,
+                rank - 1,
+                league,
+                cancellationToken);
+
+            if (hasAllPreviousGalacticThreatRanks)
+                await PrestigeRankService.AddGalacticThreatRank(playerId, matchReport, rank, league, cancellationToken);
         }
 
         if (prestigeRankCount == MaxPrestigeRanks && rank >= MaxGalaxyThreatRanks)
         {
-            await PrestigeRankService.AddPaxMagnificaBellumGloriosumRank(playerId, matchReport, league, cancellationToken);
+            var hasAllGalacticThreatRanks = await PrestigeRankService.HasAllGalacticThreatRanksThrough(
+                playerId,
+                matchReport,
+                MaxGalaxyThreatRanks,
+                league,
+                cancellationToken);
+
+            if (hasAllGalacticThreatRanks)
+                await PrestigeRankService.AddPaxMagnificaBellumGloriosumRank(playerId, matchReport, league, cancellationToken);
         }
+
+        return prestigeRankCount;
     }
+
+    protected Task<bool> HasAllGalacticThreatRanksThrough(
+        int playerId,
+        MatchReport matchReport,
+        int rank,
+        TiglLeague league,
+        CancellationToken cancellationToken)
+        => PrestigeRankService.HasAllGalacticThreatRanksThrough(playerId, matchReport, rank, league, cancellationToken);
 
     protected virtual TiglRankName GetNewRank(TiglRankName rankBeforeGame, TiglRankName currentRank)
     {
