@@ -248,6 +248,27 @@ internal class PrestigeRankService(
                 cancellationToken);
     }
 
+    public async Task<bool> HasAllGalacticThreatRanksThrough(int userId, MatchReport matchReport, int rank, TiglLeague league, CancellationToken cancellationToken)
+    {
+        if (rank <= 0)
+            return true;
+
+        using var dbContext = await context.CreateDbContextAsync(cancellationToken);
+
+        var galacticThreatRanks = await dbContext.TiglUserPrestigeRanks
+            .Where(x => x.TiglUserId == userId
+                && x.PrestigeRank.Name == TiglPrestigeRank.GalacticThreat
+                && x.PrestigeRank.League == league
+                && x.AchievedAt <= matchReport.EndTimestamp
+                && x.Rank >= 1
+                && x.Rank <= rank)
+            .Select(x => x.Rank)
+            .Distinct()
+            .ToListAsync(cancellationToken);
+
+        return Enumerable.Range(1, rank).All(galacticThreatRanks.Contains);
+    }
+
     private static async Task<TiglUser?> GetTiglUserName(TwilightImperiumDbContext dbContext, int userId, CancellationToken cancellationToken)
     {
         var user = await dbContext.TiglUsers.FirstOrDefaultAsync(x => x.Id == userId, cancellationToken: cancellationToken);
